@@ -84,6 +84,7 @@ export type EconomicState = {
 export type Player = {
   id: string; name: string; money: number;
   inventory: Car[]; lotPosition: { x: number; z: number };
+  worldPosition?: { x: number; y: number; z: number; rotation: number; };
   partsInventory: Record<string, number>; // Maps part name to quantity owned
   lotScale: 'Small' | 'Medium' | 'Large';
   marketingTier: 'Craigslist' | 'MetaAds' | 'Autotrader';

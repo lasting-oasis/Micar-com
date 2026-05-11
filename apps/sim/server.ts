@@ -490,6 +490,12 @@ io.on('connection', (socket) => {
      if (car) car.lotPosition = position;
   });
 
+  socket.on('sync_player_pos', (pos) => {
+      if (gameState.players[socket.id]) {
+          gameState.players[socket.id].worldPosition = pos;
+      }
+  });
+
   socket.on('wash_car', (carId) => {
      const player = gameState.players[socket.id];
      if (!player) return;

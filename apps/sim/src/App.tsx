@@ -5,6 +5,30 @@ import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown,
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const LiveMap = ({ gameState, playerId }: { gameState: any, playerId: string }) => {
+  const mapScale = 0.5; // 400x400 map world mapping
+  const mapCenter = 100;
+  
+  return (
+    <div className="fixed bottom-6 right-8 w-[200px] h-[200px] bg-black/60 rounded-xl border-2 border-white/20 backdrop-blur-md overflow-hidden z-[999] pointer-events-none">
+       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+       {Object.values(gameState.players).map((p: any) => {
+          if (!p.worldPosition) return null;
+          const x = Math.max(0, Math.min(200, mapCenter + p.worldPosition.x * mapScale));
+          const z = Math.max(0, Math.min(200, mapCenter + p.worldPosition.z * mapScale));
+          const isMe = p.id === playerId;
+          return (
+             <div key={p.id} className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-200" style={{ left: `${x}px`, top: `${z}px` }}>
+                <div className={`w-3 h-3 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] ${isMe ? 'bg-blue-400' : 'bg-orange-500'}`}></div>
+                <span className="text-[9px] font-bold text-white mt-1 uppercase tracking-widest">{p.name.substring(0,6)}</span>
+             </div>
+          )
+       })}
+       <div className="absolute bottom-1 left-2 text-[10px] text-white/50 font-black uppercase">GPS RADAR</div>
+    </div>
+  );
+};
+
 const ConditionDisplay = ({ car, expandedCarId, setExpandedCarId, buyPsi, money }: { car: any, expandedCarId: string | null, setExpandedCarId: (id: string | null) => void, buyPsi?: (id: string) => void, money?: number }) => {
   const isExpanded = expandedCarId === car.id;
   const getProgressColor = (val: number) => val > 75 ? 'bg-green-500' : val > 40 ? 'bg-yellow-500' : 'bg-red-500';
@@ -750,6 +774,7 @@ function App() {
   return (
     <>
       <VanillaThreeScene />
+      <LiveMap gameState={gameState} playerId={playerId} />
 
       {/* Permanent UI Toggle Hint */}
       <div className="fixed top-6 right-8 text-white/40 text-xs font-black tracking-widest uppercase z-[999] pointer-events-none">

@@ -741,6 +741,8 @@ export function VanillaThreeScene() {
         type BotState = { mesh: THREE.Group, targetPos: THREE.Vector3, status: 'walking_in' | 'waiting' | 'walking_out' };
         const aiBots: Record<string, BotState> = {}; // Mapped by target car ID
         
+        const otherPlayerMeshes: Record<string, THREE.Group> = {}; // Mapped by player ID
+
         const avatar = new THREE.Group();
         const avatarGeo = new THREE.CapsuleGeometry(0.5, 1, 4, 8);
         const avatarMat = new THREE.MeshStandardMaterial({ color: '#3b82f6' });
@@ -812,6 +814,7 @@ export function VanillaThreeScene() {
         let animationFrameId: number;
         let localDrivingCarId: string | null = null; // Localized driving state!
         let hasInitializedSpawn = false;
+        let lastPosEmitTime = 0;
 
         const animate = () => {
             animationFrameId = requestAnimationFrame(animate);
@@ -1361,6 +1364,53 @@ export function VanillaThreeScene() {
                 const camOffset = new THREE.Vector3(0, 4, 10).applyQuaternion(avatar.quaternion);
                 camera.position.lerp(avatar.position.clone().add(camOffset), 0.15);
                 camera.lookAt(avatar.position.clone().add(new THREE.Vector3(0, 1.5, 0)));
+            }
+
+            // --- MULTIPLAYER POSITION SYNC ---
+            if (current.playerId && useGameStore.getState().socket && (time - lastPosEmitTime > 0.1)) {
+                lastPosEmitTime = time;
+                const activeMesh = (isDriving && localDrivingCarId && carMeshes[localDrivingCarId]) ? carMeshes[localDrivingCarId] : avatar;
+                useGameStore.getState().socket?.emit('sync_player_pos', { 
+                    x: activeMesh.position.x, 
+                    y: activeMesh.position.y, 
+                    z: activeMesh.position.z, 
+                    rotation: activeMesh.rotation.y 
+                });
+            }
+
+            if (current.gameState && current.gameState.players) {
+                const activeIds = new Set(Object.keys(current.gameState.players));
+                Object.keys(otherPlayerMeshes).forEach(id => {
+                    if (!activeIds.has(id) || id === current.playerId) {
+                        scene.remove(otherPlayerMeshes[id]);
+                        delete otherPlayerMeshes[id];
+                    }
+                });
+
+                Object.values(current.gameState.players).forEach(p => {
+                    if (p.id === current.playerId || !p.worldPosition) return;
+                    
+                    let meshGroup = otherPlayerMeshes[p.id];
+                    if (!meshGroup) {
+                        meshGroup = new THREE.Group();
+                        const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.5, 1, 4, 8), new THREE.MeshStandardMaterial({ color: '#f59e0b' }));
+                        body.position.y = 1; body.castShadow = true; meshGroup.add(body);
+                        const vis = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.3, 0.6), new THREE.MeshStandardMaterial({ color: '#d97706' }));
+                        vis.position.set(0, 1.4, 0.3); meshGroup.add(vis);
+                        
+                        const canvas = document.createElement('canvas'); canvas.width = 256; canvas.height = 64;
+                        const ctx = canvas.getContext('2d')!;
+                        ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(0,0,256,64);
+                        ctx.fillStyle = '#ffffff'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(p.name, 128, 42);
+                        const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true }));
+                        sprite.position.y = 2.5; sprite.scale.set(3, 0.75, 1); meshGroup.add(sprite);
+
+                        scene.add(meshGroup);
+                        otherPlayerMeshes[p.id] = meshGroup;
+                    }
+                    meshGroup.position.lerp(new THREE.Vector3(p.worldPosition.x, p.worldPosition.y, p.worldPosition.z), 0.2);
+                    meshGroup.quaternion.slerp(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0), p.worldPosition.rotation), 0.2);
+                });
             }
             
             renderer.render(scene, camera);
