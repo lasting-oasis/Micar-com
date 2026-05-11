@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-white m-0 p-0 overflow-hidden font-sans;
+  }
+}
+
+.panel {
+  @apply bg-[#111111]/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.ui-container {
+  @apply absolute inset-0 pointer-events-none z-10;
+}
+
+.ui-container > * {
+  @apply pointer-events-auto;
+}

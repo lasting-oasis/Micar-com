@@ -1,0 +1,161 @@
+import { create } from 'zustand';
+import { io, Socket } from 'socket.io-client';
+import { GameState } from './types.js';
+
+interface StoreState {
+  socket: Socket | null;
+  gameState: GameState | null;
+  playerId: string | null;
+  timeOfDay: number;
+  connect: (name: string, lotScale: 'Small' | 'Medium' | 'Large') => void;
+  buyCar: (id: string, useFinancing: boolean) => void;
+  buyPsi: (carId: string) => void;
+  proposeDeal: (agentId: string, carId: string) => void;
+  counterOffer: (agentId: string, newTotalValue: number) => void;
+  rejectDeal: (agentId: string) => void;
+  finalizeDeal: (carId: string, agentId: string, tradeIn?: any) => void;
+  repairCar: (id: string, shopType: 'body' | 'mechanic') => void;
+  washCar: (id: string) => void;
+  placeOnLot: (id: string) => void;
+  requestInspection: (id: string) => void;
+  registerVehicle: (id: string) => void;
+  buyPart: (partName: string, cost: number) => void;
+  scrapCar: (carId: string) => void;
+  buyScrapCar: (carId: string) => void;
+  orderRepo: (id: string) => void;
+  setMarketingTier: (tier: 'Craigslist' | 'MetaAds' | 'Autotrader') => void;
+  upgradeLot: () => void;
+  endDay: () => void;
+  toggleEmployee: (role: 'mechanic' | 'salesperson' | 'financeManager') => void;
+  drivingCarId: string | null;
+  setDrivingCarId: (id: string | null) => void;
+  activeInspectionCarId: string | null;
+  activeInspectionShopType: 'mechanic' | 'body' | null;
+  openInspectionModal: (carId: string, shopType: 'mechanic' | 'body') => void;
+  closeInspectionModal: () => void;
+  performSpecificRepair: (carId: string, repairId: string) => void;
+  
+  isBankModalOpen: boolean;
+  openBankModal: () => void;
+  closeBankModal: () => void;
+  payFloorPlan: (amount: number) => void;
+  takeTitleLoan: (carId: string) => void;
+}
+
+export const useGameStore = create<StoreState>((set, get) => ({
+  socket: null,
+  gameState: null,
+  playerId: null,
+  timeOfDay: 8.0,
+  drivingCarId: null,
+  setDrivingCarId: (id) => set({ drivingCarId: id }),
+  activeInspectionCarId: null,
+  activeInspectionShopType: null,
+  openInspectionModal: (carId, shopType) => set({ activeInspectionCarId: carId, activeInspectionShopType: shopType }),
+  closeInspectionModal: () => set({ activeInspectionCarId: null, activeInspectionShopType: null }),
+  performSpecificRepair: (carId, repairId) => {
+      const socket = get().socket;
+      if (socket) socket.emit('perform_specific_repair', { carId, repairId });
+  },
+  
+  isBankModalOpen: false,
+  openBankModal: () => set({ isBankModalOpen: true }),
+  closeBankModal: () => set({ isBankModalOpen: false }),
+  payFloorPlan: (amount) => {
+      const socket = get().socket;
+      if (socket) socket.emit('pay_floor_plan', { amount });
+  },
+  takeTitleLoan: (carId) => {
+      const socket = get().socket;
+      if (socket) socket.emit('take_title_loan', { carId });
+  },
+  connect: (name, lotScale) => {
+    const socket = io(window.location.origin);
+    
+    socket.on('connect', () => {
+        socket.emit('join', { name, lotScale });
+    });
+    
+    socket.on('init', (data) => set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay }));
+    socket.on('update', (state) => set({ gameState: state }));
+    socket.on('time_update', (timeOfDay) => set({ timeOfDay }));
+    set({ socket });
+  },
+  buyCar: (id, useFinancing) => {
+      const socket = get().socket;
+      if(socket) socket.emit('buy_car', { carId: id, useFinancing });
+  },
+  buyPsi: (carId) => {
+      const socket = get().socket;
+      if(socket) socket.emit('buy_psi', carId);
+  },
+  proposeDeal: (agentId, carId) => {
+      const socket = get().socket;
+      if(socket) socket.emit('propose_deal', { agentId, carId });
+  },
+  counterOffer: (agentId, newTotalValue) => {
+      const socket = get().socket;
+      if(socket) socket.emit('counter_offer', { agentId, newTotalValue });
+  },
+  rejectDeal: (agentId) => {
+      const socket = get().socket;
+      if(socket) socket.emit('reject_deal', { agentId });
+  },
+  finalizeDeal: (carId, agentId, tradeIn) => {
+      const socket = get().socket;
+      if(socket) socket.emit('finalize_deal', { carId, agentId, tradeIn });
+  },
+  washCar: (id) => {
+      const socket = get().socket;
+      if(socket) socket.emit('wash_car', id);
+  },
+  placeOnLot: (id) => {
+      const socket = get().socket;
+      if(socket) socket.emit('place_on_lot', id);
+  },
+  repairCar: (id, shopType) => {
+      // Deprecated in favor of performSpecificRepair UI flow
+      const socket = get().socket;
+      if(socket) socket.emit('repair_car', { carId: id, shopType });
+  },
+  requestInspection: (id) => {
+      const socket = get().socket;
+      if(socket) socket.emit('request_inspection', { carId: id });
+  },
+  registerVehicle: (id) => {
+      const socket = get().socket;
+      if(socket) socket.emit('register_vehicle', id);
+  },
+  buyPart: (partName, cost) => {
+      const socket = get().socket;
+      if(socket) socket.emit('buy_part', { partName, cost });
+  },
+  scrapCar: (id) => {
+      const socket = get().socket;
+      if(socket) socket.emit('scrap_car', id);
+  },
+  buyScrapCar: (id) => {
+      const socket = get().socket;
+      if(socket) socket.emit('buy_scrap_car', id);
+  },
+  orderRepo: (id) => {
+      const socket = get().socket;
+      if(socket) socket.emit('order_repo', { contractId: id });
+  },
+  setMarketingTier: (tier) => {
+      const socket = get().socket;
+      if(socket) socket.emit('set_marketing_tier', { tier });
+  },
+  upgradeLot: () => {
+      const socket = get().socket;
+      if(socket) socket.emit('upgrade_lot');
+  },
+  endDay: () => {
+      const socket = get().socket;
+      if(socket) socket.emit('end_day');
+  },
+  toggleEmployee: (role) => {
+      const socket = get().socket;
+      if(socket) socket.emit('toggle_employee', { role });
+  }
+}));
