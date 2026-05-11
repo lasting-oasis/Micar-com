@@ -407,10 +407,10 @@ setInterval(() => {
 }, 1000);
 
 io.on('connection', (socket) => {
-  socket.on('join', ({ name, lotScale }) => {
-    const playerCount = Object.keys(gameState.players).length;
-    const x = (playerCount % 5) * 40 - 20;
-    const z = Math.floor(playerCount / 5) * 40 - 20;
+    socket.on('join', ({ name, lotScale }) => {
+      const playerCount = Object.keys(gameState.players).length;
+      const x = (playerCount % 5) * 250;
+      const z = Math.floor(playerCount / 5) * -250;
 
     let initMoney = 25000;
     if (lotScale === 'Medium') initMoney = 75000;
