@@ -291,6 +291,20 @@ export function VanillaThreeScene() {
 
         const builtDealerships = new Set<string>();
 
+        const createBuildingSign = (text: string, bgColor: string, txtColor: string) => {
+             const canvas = document.createElement('canvas');
+             canvas.width = 512; canvas.height = 128;
+             const ctx = canvas.getContext('2d')!;
+             ctx.fillStyle = bgColor; ctx.roundRect(0, 0, 512, 128, 20); ctx.fill();
+             ctx.fillStyle = txtColor; ctx.font = 'bold 56px sans-serif'; ctx.textAlign = 'center'; 
+             ctx.fillText(text, 256, 85);
+             const tex = new THREE.CanvasTexture(canvas);
+             const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
+             const sprite = new THREE.Sprite(mat);
+             sprite.scale.set(12, 3, 1);
+             return sprite;
+        };
+
         const createDealership = (lotX: number, lotZ: number, playerId: string) => {
         // Dealership Sales Office Building
         const officeMat = new THREE.MeshStandardMaterial({ 
@@ -394,21 +408,6 @@ export function VanillaThreeScene() {
         dropOffBorder.position.set(lotX - 40, 0.005, lotZ + 50);
         scene.add(dropOffBorder);
         environmentDisposables.push(dropOffBorder);
-
-        const createBuildingSign = (text: string, bgColor: string, txtColor: string) => {
-             const canvas = document.createElement('canvas');
-             canvas.width = 512; canvas.height = 128;
-             const ctx = canvas.getContext('2d')!;
-             ctx.fillStyle = bgColor; ctx.roundRect(0, 0, 512, 128, 20); ctx.fill();
-             ctx.fillStyle = txtColor; ctx.font = 'bold 56px sans-serif'; ctx.textAlign = 'center'; 
-             ctx.fillText(text, 256, 85);
-             const tex = new THREE.CanvasTexture(canvas);
-             const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
-             const sprite = new THREE.Sprite(mat);
-             sprite.scale.set(12, 3, 1);
-             return sprite;
-        };
-
         // Wash Bay (Open air drive-thru)
         const washGroup = new THREE.Group();
         washGroup.position.set(lotX + 55, 0, lotZ - 40);
