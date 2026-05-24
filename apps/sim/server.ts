@@ -454,8 +454,8 @@ io.on('connection', (socket) => {
             // Spawn inside the red Drop-Off Zone lined up neatly
             const unparkedCount = player.inventory.filter(c => !c.isProcessed).length;
             car.lotPosition = { 
-                 x: -40, 
-                 z: 15 + (unparkedCount * 6), 
+                 x: player.lotPosition.x - 40, 
+                 z: player.lotPosition.z + 15 + (unparkedCount * 6), 
                  r: 0 
             };
             player.inventory.push(car);
@@ -472,8 +472,8 @@ io.on('connection', (socket) => {
             // Spawn inside the red Drop-Off Zone lined up neatly
             const unparkedCount = player.inventory.filter(c => !c.isProcessed).length;
             car.lotPosition = { 
-                 x: -40, 
-                 z: 15 + (unparkedCount * 6), 
+                 x: player.lotPosition.x - 40, 
+                 z: player.lotPosition.z + 15 + (unparkedCount * 6), 
                  r: 0 
             };
             player.inventory.push(car);
