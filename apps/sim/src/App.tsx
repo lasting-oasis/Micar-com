@@ -685,6 +685,18 @@ function App() {
   // UI Toggle State
   const [showUI, setShowUI] = useState(true);
 
+  // Mobile detection
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobileCheck = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      setIsMobile(mobileCheck);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Tab') {
@@ -784,8 +796,8 @@ function App() {
       <div className={`ui-container flex flex-col p-6 h-full pointer-events-none relative z-10 transition-opacity duration-500 ${showUI ? 'opacity-100' : 'opacity-0'}`}>
 
         {/* Navigation Tabs (Standalone / Standoff Tabs) */}
-        <div className={`flex justify-center mb-6 shrink-0 ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
-          <div className="flex gap-2 bg-black/50 p-2 rounded-2xl border border-white/10 backdrop-blur-md">
+        <div className={`flex justify-center mb-6 shrink-0 w-full max-w-full overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+          <div className="flex gap-2 bg-black/50 p-2 rounded-2xl border border-white/10 backdrop-blur-md overflow-x-auto max-w-full scrollbar-none whitespace-nowrap">
             <button
               onClick={() => setActiveTab('lot')}
               className={`px-6 py-3 uppercase font-black tracking-widest text-sm rounded-xl transition-all duration-300 ${activeTab === 'lot' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
@@ -847,7 +859,7 @@ function App() {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -20, opacity: 0 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                className="flex flex-col gap-4 max-w-md w-full h-full pointer-events-auto"
+                className="flex flex-col gap-4 max-w-full md:max-w-md w-full h-full pointer-events-auto"
               >
                 <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel break-words w-full">
                   <div className="flex justify-between items-center mb-4">
@@ -1025,7 +1037,7 @@ function App() {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 20, opacity: 0 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                className="panel border-market/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-lg mx-auto h-full flex flex-col pointer-events-auto"
+                className="panel border-market/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-lg mx-auto h-full flex flex-col pointer-events-auto"
               >
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10 flex-shrink-0">
                   <div className="flex items-center gap-3">
@@ -1073,7 +1085,7 @@ function App() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 20, opacity: 0 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                className="panel border-market/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-4xl mx-auto h-full flex flex-col pointer-events-auto"
+                className="panel border-market/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-4xl mx-auto h-full flex flex-col pointer-events-auto"
               >
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10 flex-shrink-0">
                   <div className="flex items-center gap-3">
@@ -1251,7 +1263,7 @@ function App() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 20, opacity: 0 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                className="panel border-market/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-4xl mx-auto h-full flex flex-col pointer-events-auto"
+                className="panel border-market/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-4xl mx-auto h-full flex flex-col pointer-events-auto"
               >
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10 flex-shrink-0">
                   <div className="flex items-center gap-3">
@@ -1309,7 +1321,7 @@ function App() {
               <motion.div
                 key="dmv-tab"
                 initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 20, opacity: 0 }} transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                className="panel flex flex-col gap-4 max-w-2xl w-full h-full pointer-events-auto"
+                className="panel flex flex-col gap-4 max-w-full md:max-w-2xl w-full h-full pointer-events-auto"
               >
                 <div className="flex justify-between items-center mb-2 pb-2 border-b border-white/10 shrink-0">
                   <div className="flex items-center gap-3 text-white">
@@ -1394,7 +1406,7 @@ function App() {
               <motion.div
                 key="parts-tab"
                 initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 20, opacity: 0 }} transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                className="panel flex flex-col gap-4 max-w-2xl w-full h-full pointer-events-auto"
+                className="panel flex flex-col gap-4 max-w-full md:max-w-2xl w-full h-full pointer-events-auto"
               >
                 <div className="flex justify-between items-center bg-black/40 p-4 rounded border border-white/10">
                   <div>
@@ -1464,7 +1476,7 @@ function App() {
               <motion.div
                 key="staff-tab"
                 initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 20, opacity: 0 }} transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                className="panel flex flex-col gap-4 max-w-2xl w-full h-full pointer-events-auto"
+                className="panel flex flex-col gap-4 max-w-full md:max-w-2xl w-full h-full pointer-events-auto"
               >
                 <div className="flex justify-between items-center bg-black/40 p-4 rounded border border-white/10">
                   <div>
@@ -1558,6 +1570,79 @@ function App() {
         )}
 
       </div>
+
+      {/* On-Screen Mobile Touch Controls */}
+      {isMobile && playerId && gameState && (
+        <div className="fixed inset-0 pointer-events-none z-[999] flex flex-col justify-end p-6 select-none">
+          {/* Top Right Floating Menu Toggle */}
+          <div className="absolute top-6 right-6 pointer-events-auto">
+            <button
+              onClick={() => setShowUI(prev => !prev)}
+              className="bg-black/60 border border-white/20 text-white rounded-xl px-4 py-3 text-xs font-black uppercase tracking-widest active:scale-95 transition-transform backdrop-blur-md"
+            >
+              {showUI ? 'Hide Menu' : 'Show Menu'}
+            </button>
+          </div>
+
+          <div className="flex justify-between items-end w-full">
+            {/* Virtual D-Pad (Left Side) */}
+            <div className="flex flex-col gap-2 items-center pointer-events-auto">
+              <button
+                onTouchStart={() => (window as any).setMobileKey('w', true)}
+                onTouchEnd={() => (window as any).setMobileKey('w', false)}
+                className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+              >
+                ▲
+              </button>
+              <div className="flex gap-2">
+                <button
+                  onTouchStart={() => (window as any).setMobileKey('a', true)}
+                  onTouchEnd={() => (window as any).setMobileKey('a', false)}
+                  className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                >
+                  ◀
+                </button>
+                <button
+                  onTouchStart={() => (window as any).setMobileKey('s', true)}
+                  onTouchEnd={() => (window as any).setMobileKey('s', false)}
+                  className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                >
+                  ▼
+                </button>
+                <button
+                  onTouchStart={() => (window as any).setMobileKey('d', true)}
+                  onTouchEnd={() => (window as any).setMobileKey('d', false)}
+                  className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                >
+                  ▶
+                </button>
+              </div>
+            </div>
+
+            {/* Virtual Action Buttons (Right Side) */}
+            <div className="flex gap-3 pointer-events-auto">
+              <button
+                onTouchStart={() => {
+                  (window as any).setMobileKey('e', true);
+                  setTimeout(() => (window as any).setMobileKey('e', false), 100);
+                }}
+                className="w-16 h-16 bg-blue-500/80 border-2 border-blue-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-blue-600 transition-all select-none touch-none"
+              >
+                DRIVE
+              </button>
+              <button
+                onTouchStart={() => {
+                  (window as any).setMobileKey('r', true);
+                  setTimeout(() => (window as any).setMobileKey('r', false), 100);
+                }}
+                className="w-16 h-16 bg-green-500/80 border-2 border-green-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-green-600 transition-all select-none touch-none"
+              >
+                ACTION
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

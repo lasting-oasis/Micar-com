@@ -799,6 +799,14 @@ export function VanillaThreeScene() {
         let eWasPressed = false;
         let rWasPressed = false;
         
+        // Expose input state setter for mobile touch controls
+        (window as any).setMobileKey = (key: string, pressed: boolean) => {
+            const k = key.toLowerCase();
+            if (k in keys) {
+                keys[k as keyof typeof keys] = pressed;
+            }
+        };
+        
         const handleKeyDown = (e: KeyboardEvent) => {
             const key = e.key.toLowerCase();
             if (key === 'w' || e.key === 'ArrowUp') keys.w = true;
