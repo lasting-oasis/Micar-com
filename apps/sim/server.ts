@@ -1022,8 +1022,9 @@ async function startServer() {
         app.use(express.static('dist'));
     }
 
-    httpServer.listen(3000, '0.0.0.0', () => {
-        console.log('Server running on port 3000 with Economic Floor Plan Engine');
+    const port = process.env.PORT || 3000;
+    httpServer.listen(Number(port), '0.0.0.0', () => {
+        console.log(`Server running on port ${port} with Economic Floor Plan Engine`);
     });
 }
 
