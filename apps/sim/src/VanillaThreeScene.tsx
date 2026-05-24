@@ -1198,31 +1198,49 @@ export function VanillaThreeScene() {
                  const auctionWorldKiosk = new THREE.Vector3(-60, 1, 205);
                  const dAuction = avatar.position.distanceTo(auctionWorldKiosk);
 
-                 if (dDesk < 6.0) {
-                      interactPrompt.position.copy(bankWorldDesk).add(new THREE.Vector3(0, 3, 0));
-                      interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
-                      if (eJustPressed || rJustPressed) {
-                           keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
-                           useGameStore.getState().openBankModal();
-                      }
-                 } else if (dAuction < 15.0) {
-                      interactPrompt.position.copy(auctionWorldKiosk).add(new THREE.Vector3(0, 3, 0));
-                      interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
-                      if (eJustPressed || rJustPressed) {
-                           keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
-                           window.dispatchEvent(new CustomEvent('open_auction'));
-                      }
-                 } else if (nearestCar) {
-                      interactPrompt.position.copy(carMeshes[nearestCar].position).add(new THREE.Vector3(0, 4, 0));
-                      interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
-                 }
+                  const activeInt = useGameStore.getState().activeInteraction;
+                  if (dDesk < 6.0) {
+                       interactPrompt.position.copy(bankWorldDesk).add(new THREE.Vector3(0, 3, 0));
+                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
+                       if (!activeInt || activeInt.type !== 'bank') {
+                            useGameStore.getState().setActiveInteraction({ type: 'bank', label: 'Access Capital Bank' });
+                       }
+                       if (eJustPressed || rJustPressed) {
+                            keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
+                            useGameStore.getState().openBankModal();
+                       }
+                  } else if (dAuction < 15.0) {
+                       interactPrompt.position.copy(auctionWorldKiosk).add(new THREE.Vector3(0, 3, 0));
+                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
+                       if (!activeInt || activeInt.type !== 'auction') {
+                            useGameStore.getState().setActiveInteraction({ type: 'auction', label: 'Access Global Auction' });
+                       }
+                       if (eJustPressed || rJustPressed) {
+                            keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
+                            window.dispatchEvent(new CustomEvent('open_auction'));
+                       }
+                  } else if (nearestCar) {
+                       interactPrompt.position.copy(carMeshes[nearestCar].position).add(new THREE.Vector3(0, 4, 0));
+                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
+                       if (!activeInt || activeInt.type !== 'car' || activeInt.carId !== nearestCar) {
+                            useGameStore.getState().setActiveInteraction({ type: 'car', label: 'Drive Vehicle', carId: nearestCar });
+                       }
+                  } else {
+                       if (activeInt !== null) {
+                            useGameStore.getState().setActiveInteraction(null);
+                       }
+                  }
              } else {
-                 const pPos = carMeshes[localDrivingCarId!].position;
-                 const inZone = (Math.abs(pPos.x - ((me?.lotPosition?.x || 0) + 55)) < 25 && (Math.abs(pPos.z - ((me?.lotPosition?.z || 0) - 40)) < 25 || Math.abs(pPos.z - ((me?.lotPosition?.z || 0) + 5)) < 25 || Math.abs(pPos.z - ((me?.lotPosition?.z || 0) + 50)) < 25));
-                 if (inZone) {
-                      interactPrompt.position.copy(pPos).add(new THREE.Vector3(0, 6, 0));
-                      interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
-                 }
+                  const activeInt = useGameStore.getState().activeInteraction;
+                  if (activeInt !== null) {
+                       useGameStore.getState().setActiveInteraction(null);
+                  }
+                  const pPos = carMeshes[localDrivingCarId!].position;
+                  const inZone = (Math.abs(pPos.x - ((me?.lotPosition?.x || 0) + 55)) < 25 && (Math.abs(pPos.z - ((me?.lotPosition?.z || 0) - 40)) < 25 || Math.abs(pPos.z - ((me?.lotPosition?.z || 0) + 5)) < 25 || Math.abs(pPos.z - ((me?.lotPosition?.z || 0) + 50)) < 25));
+                  if (inZone) {
+                       interactPrompt.position.copy(pPos).add(new THREE.Vector3(0, 6, 0));
+                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
+                  }
              }
 
             // Custom Realistic Driving Physics Engine

@@ -40,6 +40,8 @@ interface StoreState {
   closeBankModal: () => void;
   payFloorPlan: (amount: number) => void;
   takeTitleLoan: (carId: string) => void;
+  activeInteraction: { type: 'bank' | 'auction' | 'car'; label: string; carId?: string } | null;
+  setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car'; label: string; carId?: string } | null) => void;
 }
 
 export const useGameStore = create<StoreState>((set, get) => ({
@@ -69,6 +71,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
       const socket = get().socket;
       if (socket) socket.emit('take_title_loan', { carId });
   },
+  activeInteraction: null,
+  setActiveInteraction: (interaction) => set({ activeInteraction: interaction }),
   connect: (name, lotScale) => {
     const socket = io(window.location.origin);
     

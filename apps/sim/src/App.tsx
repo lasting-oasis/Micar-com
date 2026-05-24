@@ -661,7 +661,7 @@ const ClockDisplay = () => {
 };
 
 function App() {
-  const { connect, gameState, playerId, buyCar, buyPsi, proposeDeal, counterOffer, rejectDeal, finalizeDeal, repairCar, requestInspection, registerVehicle, buyPart, scrapCar, buyScrapCar, orderRepo, setMarketingTier, upgradeLot, endDay } = useGameStore();
+  const { connect, gameState, playerId, buyCar, buyPsi, proposeDeal, counterOffer, rejectDeal, finalizeDeal, repairCar, requestInspection, registerVehicle, buyPart, scrapCar, buyScrapCar, orderRepo, setMarketingTier, upgradeLot, endDay, activeInteraction, openBankModal } = useGameStore();
   const timeOfDay = gameState?.timeOfDay || 8.0;
   const isAuctionOpen = timeOfDay >= 8.0 && timeOfDay < 17.0;
   const keyboardMap = useMemo(() => [
@@ -1559,6 +1559,35 @@ function App() {
 
         <InspectionModal />
         <BankDashboard />
+
+        {/* Dynamic Action Interaction Overlay (Clickable/Tappable for both PC & Mobile) */}
+        {activeInteraction && (
+          <div className="fixed bottom-28 left-1/2 -translate-x-1/2 z-[1000] pointer-events-auto animate-bounce">
+            <button
+              onClick={() => {
+                if (activeInteraction.type === 'bank') {
+                  openBankModal();
+                } else if (activeInteraction.type === 'auction') {
+                  window.dispatchEvent(new CustomEvent('open_auction'));
+                } else if (activeInteraction.type === 'car' && activeInteraction.carId) {
+                  // Enter/exit driving state
+                  (window as any).setMobileKey('e', true);
+                  setTimeout(() => (window as any).setMobileKey('e', false), 100);
+                }
+              }}
+              className="px-8 py-5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 border-2 border-emerald-400/40 text-white font-extrabold rounded-2xl shadow-[0_10px_30px_rgba(16,185,129,0.5)] hover:shadow-[0_15px_40px_rgba(16,185,129,0.7)] active:scale-95 transition-all text-sm uppercase tracking-widest flex items-center gap-3 backdrop-blur-md cursor-pointer select-none"
+            >
+              <span className="flex h-3 w-3 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+              </span>
+              <span>{activeInteraction.label}</span>
+              <span className="text-emerald-200 text-xs font-medium ml-1">
+                {activeInteraction.type === 'car' ? '[E]' : '[R]'}
+              </span>
+            </button>
+          </div>
+        )}
         
         {selectedAgentId && (
             <NegotiationModal 
