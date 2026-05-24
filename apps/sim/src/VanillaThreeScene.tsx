@@ -625,13 +625,6 @@ export function VanillaThreeScene() {
         const fenceEast = new THREE.Mesh(fenceEW, fenceMat); fenceEast.position.set(80, 2, 0); scene.add(fenceEast);
         environmentDisposables.push(fenceNorth, fenceWest, fenceEast);
 
-        [washGroup, mechGroup, bodyGroup, officeGroup].forEach(g => {
-             g.updateMatrixWorld(true);
-             g.children.forEach(c => {
-                  if (c.userData.solid) staticCollisionBoxes.push(new THREE.Box3().setFromObject(c));
-             });
-        });
-        
         fenceNorth.updateMatrixWorld(true); staticCollisionBoxes.push(new THREE.Box3().setFromObject(fenceNorth));
         fenceWest.updateMatrixWorld(true); staticCollisionBoxes.push(new THREE.Box3().setFromObject(fenceWest));
         fenceEast.updateMatrixWorld(true); staticCollisionBoxes.push(new THREE.Box3().setFromObject(fenceEast));
@@ -1407,6 +1400,10 @@ export function VanillaThreeScene() {
                 });
 
                 Object.values(current.gameState.players).forEach(p => {
+                    if (!builtDealerships.has(p.id) && p.lotPosition) {
+                        createDealership(p.lotPosition.x, p.lotPosition.z, p.id);
+                        builtDealerships.add(p.id);
+                    }
                     if (p.id === current.playerId || !p.worldPosition) return;
                     
                     let meshGroup = otherPlayerMeshes[p.id];
