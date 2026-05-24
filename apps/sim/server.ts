@@ -265,6 +265,7 @@ const economyTick = () => {
                         if (customer) {
                             const mechGen = generateRepairs(2 + Math.floor(Math.random()*3), 'mechanic');
                             const bodyGen = generateRepairs(2 + Math.floor(Math.random()*3), 'body');
+                            const unparkedCount = p.inventory.filter(c => !c.isProcessed).length;
                             p.inventory.push({
                                 id: contract.carId + '_repo',
                                 vin: customer.carInfo.vin,
@@ -281,7 +282,12 @@ const economyTick = () => {
                                 activeRepairs: [...mechGen.repairs, ...bodyGen.repairs],
                                 daysOnLot: 0,
                                 isRegistered: true, // Repo is still in player's name
-                                ownerId: p.id
+                                ownerId: p.id,
+                                lotPosition: {
+                                     x: p.lotPosition.x - 40,
+                                     z: p.lotPosition.z + 15 + (unparkedCount * 6),
+                                     r: 0
+                                }
                             });
                         }
                         return false; // Contract voided upon recovery
@@ -435,11 +441,11 @@ io.on('connection', (socket) => {
     socket.emit('init', { id: socket.id, state: gameState });
     io.emit('update', gameState);
   });
-
   socket.on('buy_car', ({ carId, useFinancing }) => {
     const player = gameState.players[socket.id];
     const carIndex = gameState.market.findIndex(c => c.id === carId);
-    if(carIndex !== -1 && player && player.inventory.length < 10) {
+    const limit = player ? (player.lotScale === 'Small' ? 10 : player.lotScale === 'Medium' ? 25 : 50) : 10;
+    if(carIndex !== -1 && player && player.inventory.length < limit) {
         const car = gameState.market[carIndex];
         
         if (useFinancing) {
@@ -654,7 +660,7 @@ io.on('connection', (socket) => {
           const allowance = tradeIn.tradeValue;
           finalPrincipal = Math.max(0, finalPrincipal - allowance);
 
-          // Add trade in to inventory
+          const unparkedCount = player.inventory.filter(c => !c.isProcessed).length;
           player.inventory.push({
               id: `trd-${Date.now()}`,
               vin: generateVIN(),
@@ -670,7 +676,12 @@ io.on('connection', (socket) => {
               buyPrice: allowance,
               mileage: 120000 + Math.floor(Math.random() * 80000),
               isRegistered: false,
-              ownerId: player.id
+              ownerId: player.id,
+              lotPosition: {
+                   x: player.lotPosition.x - 40,
+                   z: player.lotPosition.z + 15 + (unparkedCount * 6),
+                   r: 0
+              }
           });
       }
 
@@ -900,6 +911,12 @@ io.on('connection', (socket) => {
           player.balanceSheet.totalExpenses += car.buyPrice;
           player.balanceSheet.lastTickExpense += car.buyPrice;
           car.ownerId = player.id;
+          const unparkedCount = player.inventory.filter(c => !c.isProcessed).length;
+          car.lotPosition = { 
+               x: player.lotPosition.x - 40, 
+               z: player.lotPosition.z + 15 + (unparkedCount * 6), 
+               r: 0 
+          };
           player.inventory.push(car);
           gameState.junkyard.splice(index, 1);
           io.emit('update', gameState);

@@ -1023,7 +1023,9 @@ export function VanillaThreeScene() {
 
                         const group = new THREE.Group();
                         group.add(bMesh);
-                        group.position.set(Math.random() * 20 - 10, 1, 40); // Distributed slightly
+                        const lotX = me?.lotPosition?.x || 0;
+                        const lotZ = me?.lotPosition?.z || 0;
+                        group.position.set(lotX + (Math.random() * 20 - 10), 1, lotZ + 40); // Distributed slightly relative to lot
                         scene.add(group);
 
                         aiBots[car.id] = { mesh: group, targetPos: carMeshes[car.id].position.clone(), status: 'walking_in' };
@@ -1107,7 +1109,9 @@ export function VanillaThreeScene() {
                           }
                           // Designated Parking Spaces (Show Lot)
                           // To park a car for sale, it must be clean, inside the designated x bounds and z > 10, and not already processed.
-                          if (Math.abs(pPos.x) < 10 && pPos.z > 10) {
+                          const lotX = me?.lotPosition?.x || 0;
+                          const lotZ = me?.lotPosition?.z || 0;
+                          if (Math.abs(pPos.x - lotX) < 12 && (pPos.z - lotZ) > 10) {
                               if (!car.isDirty && !car.isProcessed) {
                                   keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
                                   
