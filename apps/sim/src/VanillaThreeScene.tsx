@@ -394,18 +394,18 @@ export function VanillaThreeScene() {
         }
 
         // Delivery Drop-Off Zone (x: -40, z: 15)
-        const dropOffGeo = new THREE.BoxGeometry(15, 0.02, 80);
+        const dropOffGeo = new THREE.BoxGeometry(15, 0.1, 80);
         const dropOffMat = new THREE.MeshStandardMaterial({ color: '#111827', roughness: 0.9 });
         const dropOffPad = new THREE.Mesh(dropOffGeo, dropOffMat);
-        dropOffPad.position.set(lotX - 40, 0.01, lotZ + 50);
+        dropOffPad.position.set(lotX - 40, 0.05, lotZ + 50); // Top is at y: 0.1
         dropOffPad.receiveShadow = true;
         scene.add(dropOffPad);
         environmentDisposables.push(dropOffPad);
 
-        const dropOffBorderGeo = new THREE.BoxGeometry(15.5, 0.03, 80.5);
+        const dropOffBorderGeo = new THREE.BoxGeometry(15.5, 0.12, 80.5);
         const dropOffBorderMat = new THREE.MeshBasicMaterial({ color: '#f87171' }); // Red outline
         const dropOffBorder = new THREE.Mesh(dropOffBorderGeo, dropOffBorderMat);
-        dropOffBorder.position.set(lotX - 40, 0.005, lotZ + 50);
+        dropOffBorder.position.set(lotX - 40, 0.06, lotZ + 50); // Top is at y: 0.12 (no z-fighting!)
         scene.add(dropOffBorder);
         environmentDisposables.push(dropOffBorder);
         // Wash Bay (Open air drive-thru)
@@ -605,14 +605,7 @@ export function VanillaThreeScene() {
         scene.add(auctionGroup);
         environmentDisposables.push(auctionGroup, aucSign);
 
-        // Delivery Drop-off Zone
-        const dropGeo = new THREE.PlaneGeometry(10, 15);
-        const dropMat = new THREE.MeshStandardMaterial({ color: '#ef4444' });
-        const dropZone = new THREE.Mesh(dropGeo, dropMat);
-        dropZone.rotation.x = -Math.PI / 2;
-        dropZone.position.set(-30, 0.02, 0);
-        scene.add(dropZone);
-        environmentDisposables.push(dropZone);
+
 
         // Steel Chainlink Perimeter Fence (Shatter the South Face for the Road)
         const fenceMat = new THREE.MeshStandardMaterial({ color: '#52525b', wireframe: true, transparent: true, opacity: 0.5 });
@@ -834,6 +827,7 @@ export function VanillaThreeScene() {
         let localDrivingCarId: string | null = null; // Localized driving state!
         let hasInitializedSpawn = false;
         let lastPosEmitTime = 0;
+        let lastRenderedTime = -1; // Throttle time of day updates
 
         const animate = () => {
             animationFrameId = requestAnimationFrame(animate);
@@ -861,45 +855,48 @@ export function VanillaThreeScene() {
             // Time of Day Rendering Sync
             if (current.gameState && current.gameState.timeOfDay !== undefined) {
                  const t = current.gameState.timeOfDay;
-                 // Progress from 8.0 to 20.0 (0.0 to 1.0)
-                 const progress = Math.max(0, Math.min(1, (t - 8) / 12)); 
-                 
-                 // Sun trajectory (East to West arc)
-                 const sunHeight = Math.sin(progress * Math.PI) * 400 + 10;
-                 const sunX = Math.cos(progress * Math.PI) * 500;
-                 dirLight.position.set(sunX, sunHeight, -100);
-                 
-                 // Fade Sun and Ambient Light as evening approaches (progress > 0.7)
-                 if (progress > 0.7) {
-                     const fade = 1 - ((progress - 0.7) / 0.3); // 1.0 at 0.7, 0.0 at 1.0
-                     dirLight.intensity = 2.5 * fade;
-                     ambientLight.intensity = 0.7 * fade + 0.1; // Never fully pitch black
+                 if (Math.abs(t - lastRenderedTime) > 0.01) {
+                     lastRenderedTime = t;
+                     // Progress from 8.0 to 20.0 (0.0 to 1.0)
+                     const progress = Math.max(0, Math.min(1, (t - 8) / 12)); 
                      
-                     // Turn on Streetlights!
-                     streetLights.forEach(l => l.intensity = 1.5 * (1 - fade));
-                 } else {
-                     dirLight.intensity = 2.5;
-                     ambientLight.intensity = 0.7;
-                     streetLights.forEach(l => l.intensity = 0);
+                     // Sun trajectory (East to West arc)
+                     const sunHeight = Math.sin(progress * Math.PI) * 400 + 10;
+                     const sunX = Math.cos(progress * Math.PI) * 500;
+                     dirLight.position.set(sunX, sunHeight, -100);
+                     
+                     // Fade Sun and Ambient Light as evening approaches (progress > 0.7)
+                     if (progress > 0.7) {
+                         const fade = 1 - ((progress - 0.7) / 0.3); // 1.0 at 0.7, 0.0 at 1.0
+                         dirLight.intensity = 2.5 * fade;
+                         ambientLight.intensity = 0.7 * fade + 0.1; // Never fully pitch black
+                         
+                         // Turn on Streetlights!
+                         streetLights.forEach(l => l.intensity = 1.5 * (1 - fade));
+                     } else {
+                         dirLight.intensity = 2.5;
+                         ambientLight.intensity = 0.7;
+                         streetLights.forEach(l => l.intensity = 0);
+                     }
+                     
+                     // Sky color lerping (Morning -> Noon -> Evening -> Night)
+                     const morningColor = new THREE.Color('#fcd34d');
+                     const noonColor = new THREE.Color('#60a5fa');
+                     const eveningColor = new THREE.Color('#f97316');
+                     const nightColor = new THREE.Color('#0f172a');
+                     
+                     const skyC = new THREE.Color();
+                     if (progress < 0.3) {
+                         skyC.lerpColors(morningColor, noonColor, progress / 0.3);
+                     } else if (progress < 0.7) {
+                         skyC.lerpColors(noonColor, eveningColor, (progress - 0.3) / 0.4);
+                     } else {
+                         skyC.lerpColors(eveningColor, nightColor, (progress - 0.7) / 0.3);
+                     }
+                     
+                     scene.background = skyC;
+                     if (scene.fog) { (scene.fog as THREE.Fog).color.copy(skyC); }
                  }
-                 
-                 // Sky color lerping (Morning -> Noon -> Evening -> Night)
-                 const morningColor = new THREE.Color('#fcd34d');
-                 const noonColor = new THREE.Color('#60a5fa');
-                 const eveningColor = new THREE.Color('#f97316');
-                 const nightColor = new THREE.Color('#0f172a');
-                 
-                 const skyC = new THREE.Color();
-                 if (progress < 0.3) {
-                     skyC.lerpColors(morningColor, noonColor, progress / 0.3);
-                 } else if (progress < 0.7) {
-                     skyC.lerpColors(noonColor, eveningColor, (progress - 0.3) / 0.4);
-                 } else {
-                     skyC.lerpColors(eveningColor, nightColor, (progress - 0.7) / 0.3);
-                 }
-                 
-                 scene.background = skyC;
-                 if (scene.fog) { (scene.fog as THREE.Fog).color.copy(skyC); }
             }
 
             if (me && !hasInitializedSpawn && me.lotPosition) {
@@ -982,17 +979,23 @@ export function VanillaThreeScene() {
 
                     // dynamic state update
                     const body = carBodies[car.id];
-                    const mat = body.material as THREE.MeshPhysicalMaterial;
-                    if (car.isDirty) {
-                        mat.color.set('#5c4033'); // Farm thick mud!
-                        mat.clearcoat = 0;
-                        mat.roughness = 1.0;
-                    } else {
-                        let origC = car.color || '#ffffff';
-                        if (origC === 'Trade-In Silver') origC = '#C0C0C0';
-                        try { mat.color.set(origC); } catch {}
-                        mat.clearcoat = 1.0;
-                        mat.roughness = 0.2;
+                    if (body) {
+                        const mat = body.material as THREE.MeshPhysicalMaterial;
+                        if (car.isDirty) {
+                            if (mat.roughness !== 1.0) {
+                                mat.color.set('#5c4033'); // Farm thick mud!
+                                mat.clearcoat = 0;
+                                mat.roughness = 1.0;
+                            }
+                        } else {
+                            let origC = car.color || '#ffffff';
+                            if (origC === 'Trade-In Silver') origC = '#C0C0C0';
+                            if (mat.roughness !== 0.2) {
+                                try { mat.color.set(origC); } catch {}
+                                mat.clearcoat = 1.0;
+                                mat.roughness = 0.2;
+                            }
+                        }
                     }
                     // AI Pathing Spawn Subroutine
                     if (car.hasOffer && !aiBots[car.id]) {
