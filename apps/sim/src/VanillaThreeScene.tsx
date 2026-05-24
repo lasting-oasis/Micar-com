@@ -799,6 +799,11 @@ export function VanillaThreeScene() {
                 keys[k as keyof typeof keys] = pressed;
             }
         };
+        (window as any).setMobileTap = (key: string) => {
+            const k = key.toLowerCase();
+            if (k === 'e') (window as any).mobileETap = true;
+            if (k === 'r') (window as any).mobileRTap = true;
+        };
         
         const handleKeyDown = (e: KeyboardEvent) => {
             const key = e.key.toLowerCase();
@@ -909,8 +914,13 @@ export function VanillaThreeScene() {
                  hasInitializedSpawn = true;
             }
 
-            const eJustPressed = keys.e && !eWasPressed;
-            const rJustPressed = keys.r && !rWasPressed;
+            const eJustPressed = (keys.e && !eWasPressed) || (window as any).mobileETap;
+            const rJustPressed = (keys.r && !rWasPressed) || (window as any).mobileRTap;
+            
+            // Reset mobile taps immediately so they only last 1 frame
+            (window as any).mobileETap = false;
+            (window as any).mobileRTap = false;
+
             if (keys.e) eWasPressed = true; else eWasPressed = false;
             if (keys.r) rWasPressed = true; else rWasPressed = false;
 
@@ -1199,7 +1209,7 @@ export function VanillaThreeScene() {
                  const dAuction = avatar.position.distanceTo(auctionWorldKiosk);
 
                   const activeInt = useGameStore.getState().activeInteraction;
-                  if (dDesk < 6.0) {
+                  if (dDesk < 12.0) {
                        interactPrompt.position.copy(bankWorldDesk).add(new THREE.Vector3(0, 3, 0));
                        interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
                        if (!activeInt || activeInt.type !== 'bank') {

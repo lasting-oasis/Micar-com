@@ -1571,8 +1571,12 @@ function App() {
                   window.dispatchEvent(new CustomEvent('open_auction'));
                 } else if (activeInteraction.type === 'car' && activeInteraction.carId) {
                   // Enter/exit driving state
-                  (window as any).setMobileKey('e', true);
-                  setTimeout(() => (window as any).setMobileKey('e', false), 100);
+                  if ((window as any).setMobileTap) {
+                    (window as any).setMobileTap('e');
+                  } else {
+                    (window as any).setMobileKey('e', true);
+                    setTimeout(() => (window as any).setMobileKey('e', false), 100);
+                  }
                 }
               }}
               className="px-8 py-5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 border-2 border-emerald-400/40 text-white font-extrabold rounded-2xl shadow-[0_10px_30px_rgba(16,185,129,0.5)] hover:shadow-[0_15px_40px_rgba(16,185,129,0.7)] active:scale-95 transition-all text-sm uppercase tracking-widest flex items-center gap-3 backdrop-blur-md cursor-pointer select-none"
@@ -1652,8 +1656,12 @@ function App() {
             <div className="flex gap-3 pointer-events-auto">
               <button
                 onTouchStart={() => {
-                  (window as any).setMobileKey('e', true);
-                  setTimeout(() => (window as any).setMobileKey('e', false), 100);
+                  if ((window as any).setMobileTap) {
+                    (window as any).setMobileTap('e');
+                  } else {
+                    (window as any).setMobileKey('e', true);
+                    setTimeout(() => (window as any).setMobileKey('e', false), 100);
+                  }
                 }}
                 className="w-16 h-16 bg-blue-500/80 border-2 border-blue-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-blue-600 transition-all select-none touch-none"
               >
@@ -1661,8 +1669,12 @@ function App() {
               </button>
               <button
                 onTouchStart={() => {
-                  (window as any).setMobileKey('r', true);
-                  setTimeout(() => (window as any).setMobileKey('r', false), 100);
+                  if ((window as any).setMobileTap) {
+                    (window as any).setMobileTap('r');
+                  } else {
+                    (window as any).setMobileKey('r', true);
+                    setTimeout(() => (window as any).setMobileKey('r', false), 100);
+                  }
                 }}
                 className="w-16 h-16 bg-green-500/80 border-2 border-green-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-green-600 transition-all select-none touch-none"
               >
