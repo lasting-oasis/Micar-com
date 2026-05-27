@@ -4,7 +4,7 @@ import { VanillaThreeScene } from './VanillaThreeScene';
 import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle } from 'lucide-react';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import ShopManagement from './ShopManagement';
+
 
 const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: string, isMobile?: boolean }) => {
   const size = isMobile ? 50 : 100;
@@ -1022,7 +1022,7 @@ function App() {
 
   const [nameInput, setNameInput] = useState('');
   const [lotScaleInput, setLotScaleInput] = useState<'Small' | 'Medium' | 'Large'>('Small');
-  const [activeTab, setActiveTab] = useState<'lot' | 'auction' | 'accounting' | 'crm' | 'dmv' | 'parts' | 'staff' | 'shopManagement'>('lot');
+  const [activeTab, setActiveTab] = useState<'lot' | 'auction' | 'accounting' | 'crm' | 'dmv' | 'parts' | 'staff'>('lot');
   const [expandedCarId, setExpandedCarId] = useState<string | null>(null);
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
   const [selectedCarForAgent, setSelectedCarForAgent] = useState<string | null>(null);
@@ -1224,13 +1224,6 @@ function App() {
             >
               <Users size={14} className={activeTab === 'staff' ? 'text-black' : 'text-market'} />
               Staff
-            </button>
-            <button
-              onClick={() => setActiveTab('shopManagement')}
-              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'shopManagement' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
-            >
-              <Wrench size={14} className={activeTab === 'shopManagement' ? 'text-black' : 'text-market'} />
-              Shop Logistics
             </button>
             <button
               onClick={() => { setShowGuide(true); setGuideStep(0); }}
@@ -1948,9 +1941,6 @@ function App() {
               </motion.div>
             )}
 
-            {activeTab === 'shopManagement' && (
-              <ShopManagement />
-            )}
           </AnimatePresence>
         </div>
 
