@@ -1174,7 +1174,7 @@ function App() {
       <div className={`ui-container flex flex-col p-6 h-full pointer-events-none relative z-10 transition-opacity duration-500 ${showUI ? 'opacity-100' : 'opacity-0'}`}>
 
         {/* Navigation Tabs (Standalone / Standoff Tabs) */}
-        <div className={`flex justify-center mb-6 shrink-0 w-full max-w-full overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+        <div className={`flex justify-start md:justify-center mb-6 shrink-0 w-full max-w-[calc(100%-100px)] md:max-w-full ml-2 md:mx-auto overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
           <div className="flex gap-2 bg-black/50 p-2 rounded-2xl border border-white/10 backdrop-blur-md overflow-x-auto max-w-full scrollbar-none whitespace-nowrap">
             <button
               onClick={() => setActiveTab('lot')}
@@ -1231,14 +1231,6 @@ function App() {
               <HelpCircle size={14} className="text-warning" />
               Dealer Guide
             </button>
-            {isMobile && (
-              <button
-                onClick={() => setShowUI(false)}
-                className="px-3 py-2 uppercase font-black tracking-widest text-[10px] rounded-xl transition-all duration-300 flex items-center gap-1 bg-red-500/20 text-red-500 border border-red-500/30 shrink-0 hover:bg-red-500 hover:text-black"
-              >
-                ✕ Close
-              </button>
-            )}
           </div>
         </div>
 
@@ -1252,9 +1244,9 @@ function App() {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -20, opacity: 0 }}
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                className="flex flex-col gap-4 max-w-full md:max-w-md w-full h-full pointer-events-auto"
+                className="flex flex-col gap-4 max-w-full md:max-w-md w-full h-full overflow-y-auto md:overflow-y-visible pb-24 md:pb-0 pointer-events-auto scrollbar-none"
               >
-                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel break-words w-full">
+                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel break-words w-full shrink-0">
                   <div className="flex justify-between items-center mb-4">
                     <h2 className="text-xl font-black uppercase tracking-widest text-white/90">{me.name}'s {me.lotScale} Lot</h2>
                     <div className="flex items-center gap-4">
@@ -1328,7 +1320,7 @@ function App() {
                   </div>
                 </motion.div>
 
-                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel w-full flex-grow overflow-y-auto">
+                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel w-full flex-grow overflow-y-visible md:overflow-y-auto shrink-0">
                   <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/10">
                     <h3 className="text-sm font-bold uppercase tracking-wider text-white">Active Walk-Ins</h3>
                   </div>
