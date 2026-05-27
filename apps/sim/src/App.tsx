@@ -1993,17 +1993,15 @@ function App() {
       {/* On-Screen Mobile Touch Controls */}
       {isMobile && playerId && gameState && (
         <div className="fixed inset-0 pointer-events-none z-[999] flex flex-col justify-end p-6 select-none">
-          {/* Top Right Floating Menu Toggle (Only when UI is hidden) */}
-          {!showUI && (
-            <div className="absolute top-6 right-6 pointer-events-auto">
-              <button
-                onClick={() => setShowUI(true)}
-                className="bg-black/60 border border-white/20 text-white rounded-xl px-4 py-3 text-xs font-black uppercase tracking-widest active:scale-95 transition-all backdrop-blur-md shadow-lg shadow-black/40 flex items-center gap-1.5"
-              >
-                💼 Menu
-              </button>
-            </div>
-          )}
+          {/* Top Right Floating Menu Toggle (Always visible, responsive alignment) */}
+          <div className="absolute top-6 right-6 pointer-events-auto z-[9999]">
+            <button
+              onClick={() => setShowUI(prev => !prev)}
+              className={`border rounded-xl px-4 py-3 text-xs font-black uppercase tracking-widest active:scale-95 transition-all backdrop-blur-md shadow-lg ${showUI ? 'bg-red-500/20 text-red-500 border-red-500/30 hover:bg-red-500 hover:text-black' : 'bg-black/60 border-white/20 text-white shadow-black/40'}`}
+            >
+              {showUI ? '✕ Close' : '💼 Menu'}
+            </button>
+          </div>
 
           {!showUI && (
             <div className="flex justify-between items-end w-full">
