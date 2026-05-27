@@ -28,6 +28,27 @@ function GatewayPortal() {
     return () => window.removeEventListener('popstate', handleUrlChange);
   }, []);
 
+  // Dynamically manage body & root scrolling/height styles to prevent game constraints from locking the business tool
+  useEffect(() => {
+    const rootEl = document.getElementById('root');
+    if (!rootEl) return;
+
+    if (activeApp === 'game') {
+      // Simulator game expects standard locked full-screen viewport
+      document.body.style.overflow = 'hidden';
+      rootEl.style.height = '100vh';
+      rootEl.style.width = '100vw';
+      rootEl.style.overflow = 'hidden';
+    } else {
+      // Gateway portal and standalone bodyshop ERP tool expect normal vertical scrolling
+      document.body.style.overflow = 'auto';
+      rootEl.style.height = 'auto';
+      rootEl.style.minHeight = '100vh';
+      rootEl.style.width = '100%';
+      rootEl.style.overflow = 'visible';
+    }
+  }, [activeApp]);
+
   const selectApp = (app: 'game' | 'shop') => {
     const newUrl = new URL(window.location.href);
     newUrl.searchParams.set('app', app);
