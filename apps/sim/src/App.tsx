@@ -1,30 +1,31 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2 } from 'lucide-react';
+import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle } from 'lucide-react';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const LiveMap = ({ gameState, playerId }: { gameState: any, playerId: string }) => {
-  const mapScale = 0.5; // 400x400 map world mapping
-  const mapCenter = 100;
+const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: string, isMobile?: boolean }) => {
+  const size = isMobile ? 50 : 100;
+  const mapScale = isMobile ? 0.125 : 0.25; // 400x400 map world mapping
+  const mapCenter = isMobile ? 25 : 50;
   
   return (
-    <div className="fixed bottom-6 right-8 w-[200px] h-[200px] bg-black/60 rounded-xl border-2 border-white/20 backdrop-blur-md overflow-hidden z-[999] pointer-events-none">
-       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+    <div className={`fixed bottom-6 right-8 rounded-xl border border-white/20 bg-black/60 backdrop-blur-md overflow-hidden z-[999] pointer-events-none transition-all duration-300 ${isMobile ? 'w-[50px] h-[50px]' : 'w-[100px] h-[100px]'}`}>
+       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: isMobile ? '5px 5px' : '10px 10px' }}></div>
        {Object.values(gameState.players).map((p: any) => {
           if (!p.worldPosition) return null;
-          const x = Math.max(0, Math.min(200, mapCenter + p.worldPosition.x * mapScale));
-          const z = Math.max(0, Math.min(200, mapCenter + p.worldPosition.z * mapScale));
+          const x = Math.max(0, Math.min(size, mapCenter + p.worldPosition.x * mapScale));
+          const z = Math.max(0, Math.min(size, mapCenter + p.worldPosition.z * mapScale));
           const isMe = p.id === playerId;
           return (
              <div key={p.id} className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-200" style={{ left: `${x}px`, top: `${z}px` }}>
-                <div className={`w-3 h-3 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] ${isMe ? 'bg-blue-400' : 'bg-orange-500'}`}></div>
-                <span className="text-[9px] font-bold text-white mt-1 uppercase tracking-widest">{p.name.substring(0,6)}</span>
+                <div className={`rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] ${isMobile ? 'w-1 h-1' : 'w-2 h-2'} ${isMe ? 'bg-blue-400' : 'bg-orange-500'}`}></div>
+                {!isMobile && <span className="text-[7px] font-bold text-white mt-0.5 uppercase tracking-widest">{p.name.substring(0,4)}</span>}
              </div>
           )
        })}
-       <div className="absolute bottom-1 left-2 text-[10px] text-white/50 font-black uppercase">GPS RADAR</div>
+       {!isMobile && <div className="absolute bottom-0.5 left-1.5 text-[7px] text-white/50 font-black uppercase">GPS</div>}
     </div>
   );
 };
@@ -519,6 +520,350 @@ const BankDashboard = () => {
   );
 };
 
+const DealerGuideModal = ({ isOpen, onClose, step, setStep }: { isOpen: boolean; onClose: () => void; step: number; setStep: (s: number | ((prev: number) => number)) => void }) => {
+  if (!isOpen) return null;
+
+  const totalSteps = 5;
+
+  const handleNext = () => {
+    if (step < totalSteps - 1) {
+      setStep(step + 1);
+    } else {
+      onClose();
+    }
+  };
+
+  const handlePrev = () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  };
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/85 backdrop-blur-md z-[300] flex items-center justify-center p-4 pointer-events-auto"
+      >
+        <motion.div
+          initial={{ scale: 0.95, y: 25 }}
+          animate={{ scale: 1, y: 0 }}
+          exit={{ scale: 0.95, y: 25 }}
+          transition={{ type: 'spring', duration: 0.5 }}
+          className="bg-[#0b0c10]/95 border border-market/40 rounded-2xl max-w-2xl w-full flex flex-col h-[85vh] max-h-[620px] shadow-2xl relative text-white overflow-hidden"
+        >
+          {/* Header */}
+          <div className="flex justify-between items-center bg-gradient-to-r from-market/20 to-transparent p-5 border-b border-white/10 shrink-0">
+            <div className="flex items-center gap-2">
+              <BookOpen className="text-market animate-pulse" size={22} />
+              <h2 className="text-xl font-black uppercase tracking-wider text-market">
+                Dealership Quick Start Guide
+              </h2>
+            </div>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-white transition-colors p-1 rounded-full hover:bg-white/5"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Body Content Slider */}
+          <div className="flex-grow overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            {step === 0 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    🏁 Step 1: The Core Dealership Loop
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Your goal is to build a high-performance, premium Used Car Empire. Here is the operational loop that drives all profits:
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-5 gap-2 items-center text-center mt-2">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">🛒</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">1. Acquire</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Buy cheap at Stand-off Auction</span>
+                  </div>
+                  <div className="text-gray-500 font-bold">➔</div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">📋</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">2. Comply</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Register at DMV / inspect</span>
+                  </div>
+                  <div className="text-gray-500 font-bold">➔</div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">🔧</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">3. Recon</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Repair Body & Mechanic parts</span>
+                  </div>
+                </div>
+
+                <div className="flex justify-center items-center gap-6 my-1">
+                  <div className="text-gray-500 font-bold rotate-90">➔</div>
+                  <div className="text-gray-500 font-bold -rotate-90">➔</div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-4 items-center text-center max-w-sm mx-auto">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">🧼</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">4. Detail</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Wash dirty cars and display on show pad</span>
+                  </div>
+                  <div className="text-gray-500 font-bold">➔</div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">🤝</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">5. Monetize</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Negotiate, match budget & cash out</span>
+                  </div>
+                </div>
+
+                <div className="bg-market/10 border border-market/30 rounded-xl p-4 mt-2 text-left">
+                  <span className="text-xs font-bold text-market uppercase tracking-widest block mb-1">💡 Quick Pro-Tip</span>
+                  <p className="text-[11px] text-gray-300 leading-relaxed">
+                    Vehicles sitting on the display pad won't sell unless they are fully **Registered** at the DMV, **Washed** (drive to detailing bay), and **State Inspected** (if salvage title). Check your inventory list alerts to see what your cars need!
+                  </p>
+                </div>
+              </motion.div>
+            )}
+
+            {step === 1 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    🛒 Step 2: Global Auction & MMR
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Acquiring premium vehicles at wholesale price is the start of your profit funnel.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 text-left">
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-market">
+                      <TrendingUp size={16} />
+                      <span className="text-xs font-bold uppercase tracking-widest">MMR Valuations</span>
+                    </div>
+                    <p className="text-[10px] text-gray-400 leading-relaxed">
+                      Every car has an estimated **MMR (Manheim Market Report)** base wholesale value. Buying well below MMR leaves room for reconditioning expenses. Watch out: salvage titles depreciate base wholesale but offer massive rebuilding upside!
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-warning">
+                      <Activity size={16} />
+                      <span className="text-xs font-bold uppercase tracking-widest">Locked Diagnostics & PSI</span>
+                    </div>
+                    <p className="text-[10px] text-gray-400 leading-relaxed">
+                      Auction cars are sold with locked diagnostic scores (`???`). Bidding blind is highly risky. Order a **PSI (Post-Sale Inspection) report for $250** to reveal hidden cosmetic and mechanical faults before bidding!
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 p-4 rounded-xl text-left">
+                  <span className="text-xs font-bold text-white uppercase tracking-widest block mb-2">Cash Buying vs Floor Planning</span>
+                  <div className="grid grid-cols-2 gap-4 text-[10px]">
+                    <div className="border-r border-white/10 pr-2">
+                      <strong className="text-success uppercase">💰 Pay Cash:</strong>
+                      <p className="text-gray-400 mt-1">Pay the full wholesale vehicle price immediately plus a $300 transport transport fee. Keeps your daily interest at zero.</p>
+                    </div>
+                    <div className="pl-2">
+                      <strong className="text-warning uppercase">📈 Floor Plan line:</strong>
+                      <p className="text-gray-400 mt-1">Borrow the cost from the bank with minimal upfront cash. Warning: incurs a **0.5% daily interest charge** on total borrowed balance. Pay off debt at the Accounting tab!</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {step === 2 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    📋 Step 3: DMV & Title Operations
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Compliance is law. Ensure titles are completely legally cleared before putting cars on the pad.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-3 text-left">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex gap-4 items-start">
+                    <span className="text-2xl bg-market/10 text-market p-2 rounded-xl shrink-0">🚗</span>
+                    <div>
+                      <h4 className="text-xs font-bold text-white uppercase tracking-wider">Registration Obligation ($150)</h4>
+                      <p className="text-[10px] text-gray-400 mt-1 leading-relaxed">
+                        Every single vehicle you acquire must be registered under your dealer license before you are allowed to advertise it to the public. Head to the **DMV Services** tab to register stock for $150.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex gap-4 items-start">
+                    <span className="text-2xl bg-warning/10 text-warning p-2 rounded-xl shrink-0">⚠️</span>
+                    <div>
+                      <h4 className="text-xs font-bold text-white uppercase tracking-wider">Salvage State Inspections ($250)</h4>
+                      <p className="text-[10px] text-gray-400 mt-1 leading-relaxed">
+                        Salvage title cars are completely blocked from sale. You must physically drive salvage vehicles to the body and mechanic shops, repair BOTH mechanical and cosmetic systems to **95% or higher condition**, and then submit for state inspection for $250.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-success/15 border border-success/30 rounded-xl p-3 text-center">
+                    <span className="text-[10px] uppercase font-black tracking-widest text-success block mb-0.5">🚀 Ultimate Rebuilt Upgrade</span>
+                    <p className="text-[10px] text-success/90">
+                      Once a salvage vehicle passes DMV inspection, its title brands as a premium **Rebuilt Title**, boosting its resale value drastically!
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {step === 3 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    🔧 Step 4: Reconditioning & Mechanic Shops
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Buy parts in bulk, optimize logistics, and get under the hood to maximize margins.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 text-left">
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-1.5">
+                    <strong className="text-xs text-purple-400 uppercase tracking-wider">🔧 Mechanic Shop</strong>
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-sans">
+                      Drive the car down the road to the purple Mechanic Shop to perform diagnostics. Buy mechanic parts in bulk at the **Parts Store** tab to bypass high single-repair retail cost!
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-1.5">
+                    <strong className="text-xs text-blue-400 uppercase tracking-wider">🎨 Body Shop</strong>
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-sans">
+                      Cosmetic dings, dents, scratches, and fade dramatically depress buyer budgets. Drive to the blue Body Shop down the road to inspect panels and perform body panel/paint repairs.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex gap-4 items-center text-left">
+                  <span className="text-2xl bg-white/5 p-2 rounded-xl shrink-0">👥</span>
+                  <div>
+                    <h4 className="text-xs font-bold text-white uppercase tracking-wider">Employee Leverage: Master Mechanic</h4>
+                    <p className="text-[10px] text-gray-400 mt-1 leading-relaxed">
+                      Hire a **Master Mechanic ($500/day)** at the **Staff** tab. They automatically slash all your repair expenses by **20%** and guarantee that complex mechanical and structural repairs **never fail**!
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {step === 4 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    🤝 Step 5: Sales, Marketing & Contracts
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Negotiate premium margins and manage dealer financing to build generational wealth.
+                  </p>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col gap-2 text-left">
+                  <span className="text-xs font-bold text-white uppercase tracking-widest">Walk-In Traffic & Lead Generation</span>
+                  <p className="text-[10px] text-gray-400 leading-relaxed">
+                    Choose a **Marketing Tier** in your lot panel. Craigslist is free ($0/day), Meta Ads ($100/day) boosts volume, and Autotrader ($300/day) generates a constant flood of eager retail walk-ins!
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 text-left">
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-1.5">
+                    <strong className="text-xs text-success uppercase tracking-widest">💳 In-House Financing (BHPH)</strong>
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-sans">
+                      Accepting Buy-Here-Pay-Here financing generates massive long-term passive daily revenue yield. But beware: high-risk buyers might **default** and go delinquent!
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-1.5">
+                    <strong className="text-xs text-warning uppercase tracking-widest">🚨 Delinquency & Repossessions</strong>
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-sans">
+                      If a customer goes delinquent, hire a **Repo Agent for $400** in the accounting menu. They will track down, seize, and return the vehicle directly to your lot!
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-market/10 border border-market/30 rounded-xl p-3 flex justify-between items-center gap-4 text-left">
+                  <p className="text-[9.5px] text-gray-300 leading-normal">
+                    💡 **Hire F&I Managers & Salespeople** at the Staff tab to boost dealer sales margin by **10%** and slash financing default rates!
+                  </p>
+                  <button
+                    onClick={onClose}
+                    className="bg-market text-black font-black uppercase text-[10px] tracking-widest px-4 py-2 rounded-lg hover:bg-blue-400 transition-colors shrink-0"
+                  >
+                    Start Empire!
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </div>
+
+          {/* Footer Controls */}
+          <div className="flex justify-between items-center p-5 border-t border-white/10 bg-[#08090d] shrink-0">
+            <button
+              onClick={handlePrev}
+              disabled={step === 0}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-white/10 text-xs font-bold uppercase transition-all hover:bg-white/5 disabled:opacity-20 disabled:pointer-events-none cursor-pointer"
+            >
+              <ChevronLeft size={16} /> Back
+            </button>
+
+            {/* Progress Dots */}
+            <div className="flex gap-2">
+              {Array.from({ length: totalSteps }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setStep(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${step === i ? 'bg-market scale-125 shadow-[0_0_8px_#3b82f6]' : 'bg-white/20 hover:bg-white/40'}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={handleNext}
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-market text-black text-xs font-black uppercase tracking-wider transition-all hover:bg-blue-400 cursor-pointer shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+            >
+              {step === totalSteps - 1 ? 'Start Playing' : 'Next'} <ChevronRight size={16} />
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
 const NegotiationModal = ({ agentId, setAgentId, carId, setCarId }: any) => {
   const { gameState, playerId, proposeDeal, counterOffer, rejectDeal, finalizeDeal } = useGameStore();
   const [counterInput, setCounterInput] = useState('');
@@ -682,6 +1027,12 @@ function App() {
   const [selectedCarForAgent, setSelectedCarForAgent] = useState<string | null>(null);
   const [counterValue, setCounterValue] = useState<string>('');
 
+  // Guide state
+  const [autoShowGuide, setAutoShowGuide] = useState(true);
+  const [showGuide, setShowGuide] = useState(false);
+  const [guideStep, setGuideStep] = useState(0);
+  const [hasShownInitialGuide, setHasShownInitialGuide] = useState(false);
+
   // UI Toggle State
   const [showUI, setShowUI] = useState(true);
 
@@ -716,6 +1067,13 @@ function App() {
     window.addEventListener('open_auction', handleOpenAuction);
     return () => window.removeEventListener('open_auction', handleOpenAuction);
   }, []);
+
+  useEffect(() => {
+    if (playerId && gameState && autoShowGuide && !hasShownInitialGuide) {
+      setShowGuide(true);
+      setHasShownInitialGuide(true);
+    }
+  }, [playerId, gameState, autoShowGuide, hasShownInitialGuide]);
 
   // Initial Connect screen
   if (!playerId || !gameState) {
@@ -763,6 +1121,24 @@ function App() {
             </div>
           </div>
 
+          <div className="w-full flex flex-col gap-2 mt-1">
+            <span className="text-xs font-bold text-gray-500 uppercase tracking-widest text-left">First Time Playing?</span>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => setAutoShowGuide(true)}
+                className={`py-2 text-xs font-bold uppercase rounded border transition-all ${autoShowGuide ? 'bg-success/20 text-success border-success' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
+              >
+                Show Guide
+              </button>
+              <button
+                onClick={() => setAutoShowGuide(false)}
+                className={`py-2 text-xs font-bold uppercase rounded border transition-all ${!autoShowGuide ? 'bg-white/10 text-white border-white/30' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
+              >
+                Opt Out
+              </button>
+            </div>
+          </div>
+
           <button
             className="w-full bg-market hover:bg-blue-400 text-black font-bold uppercase tracking-wider py-3 rounded-lg transition-colors flex items-center justify-center gap-2 mt-2"
             onClick={() => connect(nameInput || 'Anonymous', lotScaleInput)}
@@ -786,12 +1162,14 @@ function App() {
   return (
     <>
       <VanillaThreeScene />
-      <LiveMap gameState={gameState} playerId={playerId} />
+      {!showUI && <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />}
 
       {/* Permanent UI Toggle Hint */}
-      <div className="fixed top-6 right-8 text-white/40 text-xs font-black tracking-widest uppercase z-[999] pointer-events-none">
-        Press [TAB] to {showUI ? 'Hide' : 'Show'} UI / Menu
-      </div>
+      {!isMobile && (
+        <div className="fixed top-6 right-8 text-white/40 text-xs font-black tracking-widest uppercase z-[999] pointer-events-none">
+          Press [TAB] to {showUI ? 'Hide' : 'Show'} UI / Menu
+        </div>
+      )}
 
       <div className={`ui-container flex flex-col p-6 h-full pointer-events-none relative z-10 transition-opacity duration-500 ${showUI ? 'opacity-100' : 'opacity-0'}`}>
 
@@ -800,52 +1178,67 @@ function App() {
           <div className="flex gap-2 bg-black/50 p-2 rounded-2xl border border-white/10 backdrop-blur-md overflow-x-auto max-w-full scrollbar-none whitespace-nowrap">
             <button
               onClick={() => setActiveTab('lot')}
-              className={`px-6 py-3 uppercase font-black tracking-widest text-sm rounded-xl transition-all duration-300 ${activeTab === 'lot' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 ${activeTab === 'lot' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
               My Dealership
             </button>
             <button
               onClick={() => setActiveTab('auction')}
-              className={`px-6 py-3 uppercase font-black tracking-widest text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'auction' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'auction' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
-              <Activity size={18} className={activeTab === 'auction' ? 'text-black' : 'text-market'} />
+              <Activity size={14} className={activeTab === 'auction' ? 'text-black' : 'text-market'} />
               Global Auction
             </button>
             <button
               onClick={() => setActiveTab('accounting')}
-              className={`px-6 py-3 uppercase font-black tracking-widest text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'accounting' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'accounting' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
-              <TrendingUp size={18} className={activeTab === 'accounting' ? 'text-black' : 'text-market'} />
+              <TrendingUp size={14} className={activeTab === 'accounting' ? 'text-black' : 'text-market'} />
               Accounting
             </button>
             <button
               onClick={() => setActiveTab('crm')}
-              className={`px-6 py-3 uppercase font-black tracking-widest text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'crm' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'crm' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
-              <Users size={18} className={activeTab === 'crm' ? 'text-black' : 'text-market'} />
+              <Users size={14} className={activeTab === 'crm' ? 'text-black' : 'text-market'} />
               Customers
             </button>
             <button
               onClick={() => setActiveTab('dmv')}
-              className={`px-6 py-3 uppercase font-black tracking-widest text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'dmv' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'dmv' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
-              <FileText size={18} className={activeTab === 'dmv' ? 'text-black' : 'text-market'} />
+              <FileText size={14} className={activeTab === 'dmv' ? 'text-black' : 'text-market'} />
               DMV Services
             </button>
             <button
               onClick={() => setActiveTab('parts')}
-              className={`px-6 py-3 uppercase font-black tracking-widest text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'parts' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'parts' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
-              <Wrench size={18} className={activeTab === 'parts' ? 'text-black' : 'text-market'} />
+              <Wrench size={14} className={activeTab === 'parts' ? 'text-black' : 'text-market'} />
               Parts Store
             </button>
             <button
               onClick={() => setActiveTab('staff')}
-              className={`px-6 py-3 uppercase font-black tracking-widest text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'staff' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'staff' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
-              <Users size={18} className={activeTab === 'staff' ? 'text-black' : 'text-market'} />
+              <Users size={14} className={activeTab === 'staff' ? 'text-black' : 'text-market'} />
               Staff
             </button>
+            <button
+              onClick={() => { setShowGuide(true); setGuideStep(0); }}
+              className="px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 text-warning hover:text-white hover:bg-white/5 bg-warning/10 border border-warning/20 shrink-0"
+            >
+              <HelpCircle size={14} className="text-warning" />
+              Dealer Guide
+            </button>
+            {isMobile && (
+              <button
+                onClick={() => setShowUI(false)}
+                className="px-3 py-2 uppercase font-black tracking-widest text-[10px] rounded-xl transition-all duration-300 flex items-center gap-1 bg-red-500/20 text-red-500 border border-red-500/30 shrink-0 hover:bg-red-500 hover:text-black"
+              >
+                ✕ Close
+              </button>
+            )}
           </div>
         </div>
 
@@ -1559,6 +1952,7 @@ function App() {
 
         <InspectionModal />
         <BankDashboard />
+        <DealerGuideModal isOpen={showGuide} onClose={() => setShowGuide(false)} step={guideStep} setStep={setGuideStep} />
 
         {/* Dynamic Action Interaction Overlay (Clickable/Tappable for both PC & Mobile) */}
         {activeInteraction && (
@@ -1607,81 +2001,85 @@ function App() {
       {/* On-Screen Mobile Touch Controls */}
       {isMobile && playerId && gameState && (
         <div className="fixed inset-0 pointer-events-none z-[999] flex flex-col justify-end p-6 select-none">
-          {/* Top Right Floating Menu Toggle */}
-          <div className="absolute top-6 right-6 pointer-events-auto">
-            <button
-              onClick={() => setShowUI(prev => !prev)}
-              className="bg-black/60 border border-white/20 text-white rounded-xl px-4 py-3 text-xs font-black uppercase tracking-widest active:scale-95 transition-transform backdrop-blur-md"
-            >
-              {showUI ? 'Hide Menu' : 'Show Menu'}
-            </button>
-          </div>
-
-          <div className="flex justify-between items-end w-full">
-            {/* Virtual D-Pad (Left Side) */}
-            <div className="flex flex-col gap-2 items-center pointer-events-auto">
+          {/* Top Right Floating Menu Toggle (Only when UI is hidden) */}
+          {!showUI && (
+            <div className="absolute top-6 right-6 pointer-events-auto">
               <button
-                onTouchStart={() => (window as any).setMobileKey('w', true)}
-                onTouchEnd={() => (window as any).setMobileKey('w', false)}
-                className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                onClick={() => setShowUI(true)}
+                className="bg-black/60 border border-white/20 text-white rounded-xl px-4 py-3 text-xs font-black uppercase tracking-widest active:scale-95 transition-all backdrop-blur-md shadow-lg shadow-black/40 flex items-center gap-1.5"
               >
-                ▲
+                💼 Menu
               </button>
-              <div className="flex gap-2">
+            </div>
+          )}
+
+          {!showUI && (
+            <div className="flex justify-between items-end w-full">
+              {/* Virtual D-Pad (Left Side) */}
+              <div className="flex flex-col gap-2 items-center pointer-events-auto">
                 <button
-                  onTouchStart={() => (window as any).setMobileKey('a', true)}
-                  onTouchEnd={() => (window as any).setMobileKey('a', false)}
+                  onTouchStart={() => (window as any).setMobileKey('w', true)}
+                  onTouchEnd={() => (window as any).setMobileKey('w', false)}
                   className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
                 >
-                  ◀
+                  ▲
+                </button>
+                <div className="flex gap-2">
+                  <button
+                    onTouchStart={() => (window as any).setMobileKey('a', true)}
+                    onTouchEnd={() => (window as any).setMobileKey('a', false)}
+                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                  >
+                    ◀
+                  </button>
+                  <button
+                    onTouchStart={() => (window as any).setMobileKey('s', true)}
+                    onTouchEnd={() => (window as any).setMobileKey('s', false)}
+                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                  >
+                    ▼
+                  </button>
+                  <button
+                    onTouchStart={() => (window as any).setMobileKey('d', true)}
+                    onTouchEnd={() => (window as any).setMobileKey('d', false)}
+                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                  >
+                    ▶
+                  </button>
+                </div>
+              </div>
+
+              {/* Virtual Action Buttons (Right Side) */}
+              <div className="flex gap-3 pointer-events-auto">
+                <button
+                  onTouchStart={() => {
+                    if ((window as any).setMobileTap) {
+                      (window as any).setMobileTap('e');
+                    } else {
+                      (window as any).setMobileKey('e', true);
+                      setTimeout(() => (window as any).setMobileKey('e', false), 100);
+                    }
+                  }}
+                  className="w-16 h-16 bg-blue-500/80 border-2 border-blue-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-blue-600 transition-all select-none touch-none"
+                >
+                  DRIVE
                 </button>
                 <button
-                  onTouchStart={() => (window as any).setMobileKey('s', true)}
-                  onTouchEnd={() => (window as any).setMobileKey('s', false)}
-                  className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                  onTouchStart={() => {
+                    if ((window as any).setMobileTap) {
+                      (window as any).setMobileTap('r');
+                    } else {
+                      (window as any).setMobileKey('r', true);
+                      setTimeout(() => (window as any).setMobileKey('r', false), 100);
+                    }
+                  }}
+                  className="w-16 h-16 bg-green-500/80 border-2 border-green-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-green-600 transition-all select-none touch-none"
                 >
-                  ▼
-                </button>
-                <button
-                  onTouchStart={() => (window as any).setMobileKey('d', true)}
-                  onTouchEnd={() => (window as any).setMobileKey('d', false)}
-                  className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
-                >
-                  ▶
+                  ACTION
                 </button>
               </div>
             </div>
-
-            {/* Virtual Action Buttons (Right Side) */}
-            <div className="flex gap-3 pointer-events-auto">
-              <button
-                onTouchStart={() => {
-                  if ((window as any).setMobileTap) {
-                    (window as any).setMobileTap('e');
-                  } else {
-                    (window as any).setMobileKey('e', true);
-                    setTimeout(() => (window as any).setMobileKey('e', false), 100);
-                  }
-                }}
-                className="w-16 h-16 bg-blue-500/80 border-2 border-blue-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-blue-600 transition-all select-none touch-none"
-              >
-                DRIVE
-              </button>
-              <button
-                onTouchStart={() => {
-                  if ((window as any).setMobileTap) {
-                    (window as any).setMobileTap('r');
-                  } else {
-                    (window as any).setMobileKey('r', true);
-                    setTimeout(() => (window as any).setMobileKey('r', false), 100);
-                  }
-                }}
-                className="w-16 h-16 bg-green-500/80 border-2 border-green-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-green-600 transition-all select-none touch-none"
-              >
-                ACTION
-              </button>
-            </div>
-          </div>
+          )}
         </div>
       )}
     </>
