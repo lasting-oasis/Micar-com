@@ -128,7 +128,7 @@ export default function ShopManagement() {
   const avgStage = jobs.length > 0 ? (jobs.reduce((acc, j) => acc + j.status, 0) / jobs.length).toFixed(1) : '0';
 
   return (
-    <div className="bg-[#0c0d12]/90 border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col w-full h-full max-w-full text-white pointer-events-auto overflow-y-auto scrollbar-none pb-20">
+    <div className="bg-[#0c0d12]/90 border border-white/10 rounded-2xl p-4 md:p-6 shadow-2xl flex flex-col w-full h-full max-w-full text-white pointer-events-auto overflow-y-auto scrollbar-none pb-20">
       {/* Component Header */}
       <header className="border-b border-white/10 pb-4 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shrink-0">
         <div className="flex items-center gap-3">

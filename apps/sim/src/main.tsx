@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import ShopManagement from './ShopManagement.tsx'
+import MechanicManagement from './MechanicManagement.tsx'
 import './index.css'
-import { Car, Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle } from 'lucide-react'
+import { Car, Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle, Gauge } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 function GatewayPortal() {
-  const [activeApp, setActiveApp] = useState<'gateway' | 'game' | 'shop'>('gateway');
+  const [activeApp, setActiveApp] = useState<'gateway' | 'game' | 'shop' | 'mechanic'>('gateway');
 
   // Parse URL parameters on initial mount and history updates
   useEffect(() => {
@@ -18,6 +19,8 @@ function GatewayPortal() {
         setActiveApp('shop');
       } else if (appParam === 'game') {
         setActiveApp('game');
+      } else if (appParam === 'mechanic') {
+        setActiveApp('mechanic');
       } else {
         setActiveApp('gateway');
       }
@@ -49,7 +52,7 @@ function GatewayPortal() {
     }
   }, [activeApp]);
 
-  const selectApp = (app: 'game' | 'shop') => {
+  const selectApp = (app: 'game' | 'shop' | 'mechanic') => {
     const newUrl = new URL(window.location.href);
     newUrl.searchParams.set('app', app);
     window.history.pushState({}, '', newUrl.toString());
@@ -118,6 +121,45 @@ function GatewayPortal() {
     );
   }
 
+  // 3. STANDALONE ENTERPRISE MECHANIC DIAGNOSTICS TOOL VIEW
+  if (activeApp === 'mechanic') {
+    return (
+      <div className="relative min-h-screen bg-[#08090d] text-white flex flex-col font-sans select-none overflow-x-hidden">
+        {/* Gorgeous premium background gradient glowing spot */}
+        <div className="absolute top-0 left-0 right-0 h-[450px] bg-gradient-to-b from-emerald-500/10 via-emerald-500/2 to-transparent pointer-events-none z-0" />
+        
+        {/* Standalone ERP Navigation Header */}
+        <header className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-5 flex justify-between items-center border-b border-white/5">
+          <div className="flex items-center gap-2.5">
+            <div className="bg-emerald-500/20 p-2 rounded-xl border border-emerald-500/40 text-emerald-400 font-extrabold tracking-wider font-mono text-sm shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+              MF
+            </div>
+            <div>
+              <span className="text-sm font-black uppercase tracking-widest text-white block">MechFlow Pro</span>
+              <span className="text-[9px] text-emerald-400 font-mono tracking-widest uppercase block">Engine & OBD-II Suite</span>
+            </div>
+          </div>
+          <button 
+            onClick={goBackToGateway}
+            className="px-4 py-2 bg-white/5 border border-white/10 hover:border-white/20 rounded-xl hover:bg-white/10 text-xs font-bold uppercase tracking-wider text-gray-300 hover:text-white transition-all duration-300"
+          >
+            Exit to Launchpad
+          </button>
+        </header>
+
+        {/* Main Mechanic ERP Content Area */}
+        <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
+          <MechanicManagement />
+        </main>
+
+        {/* Professional ERP footer */}
+        <footer className="relative z-10 py-5 text-center border-t border-white/5 text-[9px] text-gray-500 font-mono tracking-widest">
+          © {new Date().getFullYear()} MECHFLOW PRO INC. • ENTERPRISE DIAGNOSTICS SYSTEM • VERSION 1.0.0-PRO
+        </footer>
+      </div>
+    );
+  }
+
   // 3. PREMIUM LAUNCHPAD GATEWAY PORTAL
   return (
     <div className="relative min-h-screen bg-[#06070a] text-white flex flex-col items-center justify-between font-sans overflow-x-hidden p-6 select-none md:p-12">
@@ -145,7 +187,7 @@ function GatewayPortal() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
           
           {/* CARD 1: 3D SIMULATOR GAME */}
           <motion.div 
@@ -260,6 +302,64 @@ function GatewayPortal() {
             {/* Launch trigger button */}
             <button className="w-full py-4 bg-white/5 hover:bg-blue-500 hover:text-black border border-white/10 hover:border-blue-500 rounded-2xl font-black uppercase text-xs tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]">
               Launch Bodyshop Suite <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
+            </button>
+          </motion.div>
+
+          {/* CARD 3: REAL WORLD ENGINE & OBD-II MECH TOOL */}
+          <motion.div 
+            whileHover={{ y: -8, scale: 1.01 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="group relative bg-white/[0.02] border border-white/10 hover:border-emerald-500/40 rounded-3xl p-8 flex flex-col justify-between gap-8 cursor-pointer transition-all duration-300 overflow-hidden shadow-2xl backdrop-blur-md"
+            onClick={() => selectApp('mechanic')}
+          >
+            {/* Top Glow bar on hover */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            <div className="space-y-6">
+              {/* Card Icon Header */}
+              <div className="flex justify-between items-center">
+                <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 p-4 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                  <Gauge size={28} />
+                </div>
+                <span className="text-[9px] font-mono tracking-widest text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-3 py-1 rounded-full font-black uppercase">
+                  DIAGNOSTICS TOOL
+                </span>
+              </div>
+
+              {/* Title & Desc */}
+              <div className="space-y-3 text-left">
+                <h3 className="text-xl font-bold uppercase tracking-wider group-hover:text-emerald-400 transition-colors">
+                  MechFlow Pro Diagnostics
+                </h3>
+                <p className="text-xs text-gray-400 leading-relaxed font-sans">
+                  A standalone mechanical diagnostics and engine overhaul suite built for technical garages, dyno tuners, and electrical diagnostics bays.
+                </p>
+              </div>
+
+              {/* Bulleted checklist of features */}
+              <ul className="space-y-2.5 text-xs text-gray-300 font-sans text-left border-t border-white/5 pt-5">
+                <li className="flex items-center gap-2">
+                  <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
+                  <span>Real-Time OBD-II CAN-Bus Terminal Simulator</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
+                  <span>4-Bay Mechanical Lift Manager & Steppers</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
+                  <span>Interactive Fault Code Library Lookup</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
+                  <span>Pistons, Turbos & Ignition Spares Auditor</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Launch trigger button */}
+            <button className="w-full py-4 bg-white/5 hover:bg-emerald-400 hover:text-black border border-white/10 hover:border-emerald-400 rounded-2xl font-black uppercase text-xs tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+              Launch Diagnostics Suite <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
             </button>
           </motion.div>
 

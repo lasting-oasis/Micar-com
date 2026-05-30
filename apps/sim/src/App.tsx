@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle } from 'lucide-react';
+import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu } from 'lucide-react';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -236,7 +236,7 @@ const AuctionCarCard = ({ car, me, buyCar, buyPsi, expandedCarId, setExpandedCar
             <p className="text-[8px] text-market/70 leading-tight">Deterministic wholesale value calculated using aggregate depreciation curves and 3-stage rebuild base (35% Salvage / 65% Rebuilt / 120% OEM MSRP).</p>
           </div>
 
-          <div className="space-y-2 pb-2">
+          <div className="hidden md:block space-y-2 pb-2">
             <p>Car value is primarily determined by mileage, overall condition (mechanical and cosmetic), year/make/model, and market demand, with vehicle history (accidents/maintenance) and location playing significant roles. High-demand vehicles like SUVs hold value better, while higher mileage and lower-tier trims decrease it.</p>
             <p className="font-bold text-white uppercase mt-2">Ray Catena of Freehold +4</p>
             <p><strong className="text-market">Mileage & Age:</strong> Generally, the higher the mileage, the lower the value, as it correlates with wear and tear. Cars lose value rapidly in the first few years, making age a major factor.</p>
@@ -1027,6 +1027,9 @@ function App() {
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
   const [selectedCarForAgent, setSelectedCarForAgent] = useState<string | null>(null);
   const [counterValue, setCounterValue] = useState<string>('');
+  const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const [mobileLotSubTab, setMobileLotSubTab] = useState<'finance' | 'inventory'>('finance');
+  const [mobilePartsSubTab, setMobilePartsSubTab] = useState<'mechanic' | 'body'>('mechanic');
 
   // Guide state
   const [autoShowGuide, setAutoShowGuide] = useState(true);
@@ -1172,10 +1175,10 @@ function App() {
         </div>
       )}
 
-      <div className={`ui-container flex flex-col p-6 h-full pointer-events-none relative z-10 transition-opacity duration-500 ${showUI ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`ui-container flex flex-col p-3 md:p-6 h-full pointer-events-none relative z-10 transition-opacity duration-500 ${showUI ? 'opacity-100' : 'opacity-0'}`}>
 
         {/* Navigation Tabs (Standalone / Standoff Tabs) */}
-        <div className={`flex justify-start md:justify-center mb-6 shrink-0 w-full max-w-[calc(100%-100px)] md:max-w-full ml-2 md:mx-auto overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+        <div className={`hidden md:flex justify-start md:justify-center mb-6 shrink-0 w-full max-w-[calc(100%-100px)] md:max-w-full ml-2 md:mx-auto overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
           <div className="flex gap-2 bg-black/50 p-2 rounded-2xl border border-white/10 backdrop-blur-md overflow-x-auto max-w-full scrollbar-none whitespace-nowrap">
             <button
               onClick={() => setActiveTab('lot')}
@@ -1247,169 +1250,190 @@ function App() {
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 className="flex flex-col gap-4 max-w-full md:max-w-md w-full h-full overflow-y-auto md:overflow-y-visible pb-24 md:pb-0 pointer-events-auto scrollbar-none"
               >
-                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel break-words w-full shrink-0">
-                  <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-xl font-black uppercase tracking-widest text-white/90">{me.name}'s {me.lotScale} Lot</h2>
-                    <div className="flex items-center gap-4">
-                      <ClockDisplay />
-                      {me.lotScale === 'Small' && me.money >= 50000 && (
-                        <button onClick={() => upgradeLot()} className="bg-warning/20 text-warning hover:bg-warning hover:text-black border border-warning/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.3)]">
-                          + Medium ($50K)
-                        </button>
-                      )}
-                      {me.lotScale === 'Medium' && me.money >= 150000 && (
-                        <button onClick={() => upgradeLot()} className="bg-warning/20 text-warning hover:bg-warning hover:text-black border border-warning/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.3)]">
-                          + Large ($150K)
-                        </button>
-                      )}
-                      <button
-                        onClick={() => endDay()}
-                        className="bg-market/20 hover:bg-market text-market hover:text-black border border-market/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(59,130,246,0.3)]"
-                      >
-                        End Day
-                      </button>
-                    </div>
+                {isMobile && (
+                  <div className="flex gap-2 p-1 bg-black/50 border border-white/10 rounded-xl shrink-0 pointer-events-auto w-full">
+                    <button
+                      onClick={() => setMobileLotSubTab('finance')}
+                      className={`flex-1 py-2 text-[10px] font-black uppercase tracking-wider rounded-lg transition-all ${mobileLotSubTab === 'finance' ? 'bg-market text-black shadow-md' : 'text-gray-400'}`}
+                    >
+                      Finances & Marketing
+                    </button>
+                    <button
+                      onClick={() => setMobileLotSubTab('inventory')}
+                      className={`flex-1 py-2 text-[10px] font-black uppercase tracking-wider rounded-lg transition-all ${mobileLotSubTab === 'inventory' ? 'bg-market text-black shadow-md' : 'text-gray-400'}`}
+                    >
+                      Lot & Inventory
+                    </button>
                   </div>
+                )}
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="flex flex-col">
-                      <span className="text-xs text-gray-400 uppercase tracking-widest">Liquid Cash</span>
-                      <div className="flex items-center gap-2 text-success">
-                        <Wallet size={16} />
-                        <span className="text-2xl font-bold">${me.money.toLocaleString()}</span>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col">
-                      <span className="text-xs text-gray-400 uppercase tracking-widest">Floor Plan Debt</span>
-                      <div className="flex items-center gap-2 text-warning">
-                        <DollarSign size={16} />
-                        <span className="text-xl font-bold">-${me.floorPlanDebt.toLocaleString()}</span>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col">
-                      <span className="text-xs text-gray-400 uppercase tracking-widest">Daily Revenue</span>
-                      <div className="flex items-center gap-2 text-success">
-                        <TrendingUp size={16} />
-                        <span className="text-lg font-bold">+${me.balanceSheet.lastTickIncome.toLocaleString()}</span>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col">
-                      <span className="text-xs text-gray-400 uppercase tracking-widest">Daily Exp/Int</span>
-                      <div className="flex items-center gap-2 text-warning">
-                        <TrendingDown size={16} />
-                        <span className="text-lg font-bold">-${me.balanceSheet.lastTickExpense.toLocaleString()}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2">
-                    <span className="text-xs text-gray-400 uppercase tracking-widest font-bold">Marketing & Lead Gen Budget</span>
-                    <div className="flex gap-2">
-                      <button onClick={() => setMarketingTier('Craigslist')} className={`flex-1 py-1.5 text-xs font-bold uppercase rounded border transition-all ${me.marketingTier === 'Craigslist' ? 'bg-market text-black border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}>
-                        Craigslist ($0)
-                      </button>
-                      <button onClick={() => setMarketingTier('MetaAds')} className={`flex-1 py-1.5 text-xs font-bold uppercase rounded border transition-all ${me.marketingTier === 'MetaAds' ? 'bg-blue-500 text-white border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}>
-                        Meta Ads ($100)
-                      </button>
-                      <button onClick={() => setMarketingTier('Autotrader')} className={`flex-1 py-1.5 text-xs font-bold uppercase rounded border transition-all ${me.marketingTier === 'Autotrader' ? 'bg-orange-500 text-white border-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.3)]' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}>
-                        Autotrader ($300)
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel w-full flex-grow overflow-y-visible md:overflow-y-auto shrink-0">
-                  <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/10">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-white">Active Walk-Ins</h3>
-                  </div>
-                  
-                  <div className="flex flex-col gap-3 mb-6">
-                      {(gameState.activeWalkIns[playerId] || []).map((agent: any) => (
-                          <div key={agent.id} className="bg-blue-500/10 border border-blue-500/30 p-3 rounded flex justify-between items-center group hover:bg-blue-500/20 transition-colors">
-                              <div className="flex flex-col">
-                                  <span className="font-bold text-white text-sm flex items-center gap-2">
-                                      <Users size={14} className="text-blue-400" />
-                                      {agent.name}
-                                  </span>
-                                  <span className="text-[10px] text-gray-400 uppercase tracking-widest">{agent.state === 'browsing' ? 'Browsing Lot...' : 'Negotiating Deal'}</span>
-                              </div>
-                              <button 
-                                  onClick={() => setSelectedAgentId(agent.id)}
-                                  className="bg-blue-500 text-black px-3 py-1.5 rounded text-xs font-bold uppercase hover:bg-blue-400 transition-colors shadow-[0_0_10px_rgba(59,130,246,0.3)]"
-                              >
-                                  Interact
-                              </button>
-                          </div>
-                      ))}
-                      {(!gameState.activeWalkIns[playerId] || gameState.activeWalkIns[playerId].length === 0) && (
-                          <span className="text-sm italic text-gray-500">No active walk-ins. Wait for customers or increase marketing.</span>
-                      )}
-                  </div>
-
-                  <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/10">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-white">Your Inventory</h3>
-                    <span className="text-xs text-gray-400">{me.inventory.length} / {me.lotScale === 'Small' ? 10 : me.lotScale === 'Medium' ? 25 : 50} Slots</span>
-                  </div>
-
-                  <div className="flex flex-col gap-3">
-                    {me.inventory.length === 0 && <span className="text-sm italic text-gray-500">Your lot is empty. Head to the auction.</span>}
-                    {me.inventory.map(car => (
-                      <div key={car.id} className="bg-white/5 border border-white/10 rounded p-3 text-sm">
-                        <div className="font-bold flex items-center justify-between">
-                          <div className="flex flex-col">
-                            <span>{car.year} {car.make}</span>
-                            <span className="text-[9px] text-gray-500 font-mono tracking-widest uppercase mt-0.5">{car.vin}</span>
-                          </div>
-                          <div className="flex gap-2 items-center">
-                            {car.isRegistered && <span className="text-[9px] px-1.5 py-0.5 rounded uppercase font-black bg-blue-500/20 text-blue-400 border border-blue-500/50">Registered</span>}
-                            {car.titleStatus !== 'Clean' && (
-                              <span className={`text-[10px] px-1.5 py-0.5 rounded uppercase font-black ${car.titleStatus === 'Salvage' ? 'bg-red-500/20 text-red-400 border border-red-500/50' : 'bg-orange-500/20 text-orange-400 border border-orange-500/50'}`}>
-                                {car.titleStatus}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                        <div className="text-xs text-gray-400 mt-1 mb-1 flex justify-between">
-                          <span>Cost: ${car.buyPrice.toLocaleString()}</span>
-                          <span>{car.daysOnLot} Days on Lot</span>
-                        </div>
-                        <ConditionDisplay car={car} expandedCarId={expandedCarId} setExpandedCarId={setExpandedCarId} />
-                        {!car.isRegistered ? (
-                          <div className="text-center bg-red-500/20 border border-red-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(239,68,68,0.2)]">
-                            <span className="text-[10px] uppercase text-red-400 font-bold tracking-widest w-full inline-block">Requires DMV Registration</span>
-                          </div>
-                        ) : car.titleStatus === 'Salvage' && car.inspectionStatus !== 'Passed' ? (
-                          <div className="text-center bg-orange-500/20 border border-orange-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(249,115,22,0.2)]">
-                            <span className="text-[10px] uppercase text-orange-400 font-bold tracking-widest w-full inline-block">DMV Inspection Required</span>
-                          </div>
-                        ) : car.isDirty ? (
-                          <div className="text-center bg-blue-500/20 border border-blue-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
-                            <span className="text-[10px] uppercase text-blue-400 font-bold tracking-widest w-full inline-block">Requires Wash (Drive to Bay)</span>
-                          </div>
-                        ) : !car.isProcessed ? (
-                          <div className="text-center bg-yellow-500/20 border border-yellow-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
-                            <span className="text-[10px] uppercase text-yellow-400 font-bold tracking-widest animate-pulse w-full inline-block">Park in Show Lot to Sell</span>
-                          </div>
-                        ) : (
-                          <div className="text-center bg-white/5 border border-white/10 rounded py-1.5 mt-2">
-                            <span className="text-[10px] uppercase text-gray-500 font-bold tracking-widest animate-pulse w-full inline-block">Waiting for Walk-Ins...</span>
-                          </div>
+                {(!isMobile || mobileLotSubTab === 'finance') && (
+                  <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel break-words w-full shrink-0">
+                    <div className="flex justify-between items-center mb-4">
+                      <h2 className="text-xl font-black uppercase tracking-widest text-white/90">{me.name}'s {me.lotScale} Lot</h2>
+                      <div className="flex items-center gap-4">
+                        <ClockDisplay />
+                        {me.lotScale === 'Small' && me.money >= 50000 && (
+                          <button onClick={() => upgradeLot()} className="bg-warning/20 text-warning hover:bg-warning hover:text-black border border-warning/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.3)]">
+                            + Medium ($50K)
+                          </button>
                         )}
-                        <div className="grid grid-cols-2 gap-2 mt-2">
-                          <button onClick={() => alert("Please get in the vehicle and drive to the Body Shop down the road to perform diagnostics and repair.")} disabled={car.bodyCondition >= 100} className={`${car.bodyCondition < 50 ? 'bg-blue-500/50 border border-blue-400 text-white animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]' : 'bg-blue-500/10 text-blue-400/50'} hover:bg-blue-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
-                            Body: {Math.floor(car.bodyCondition)}%
+                        {me.lotScale === 'Medium' && me.money >= 150000 && (
+                          <button onClick={() => upgradeLot()} className="bg-warning/20 text-warning hover:bg-warning hover:text-black border border-warning/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.3)]">
+                            + Large ($150K)
                           </button>
-                          <button onClick={() => alert("Please get in the vehicle and drive to the Mechanic down the road to perform diagnostics and repair.")} disabled={car.mechanicCondition >= 100} className={`${car.mechanicCondition < 50 ? 'bg-purple-500/50 border border-purple-400 text-white animate-pulse shadow-[0_0_10px_rgba(168,85,247,0.5)]' : 'bg-purple-500/10 text-purple-400/50'} hover:bg-purple-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
-                            Mech: {Math.floor(car.mechanicCondition)}%
-                          </button>
+                        )}
+                        <button
+                          onClick={() => endDay()}
+                          className="bg-market/20 hover:bg-market text-market hover:text-black border border-market/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(59,130,246,0.3)]"
+                        >
+                          End Day
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest">Liquid Cash</span>
+                        <div className="flex items-center gap-2 text-success">
+                          <Wallet size={16} />
+                          <span className="text-2xl font-bold">${me.money.toLocaleString()}</span>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </motion.div>
+
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest">Floor Plan Debt</span>
+                        <div className="flex items-center gap-2 text-warning">
+                          <DollarSign size={16} />
+                          <span className="text-xl font-bold">-${me.floorPlanDebt.toLocaleString()}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest">Daily Revenue</span>
+                        <div className="flex items-center gap-2 text-success">
+                          <TrendingUp size={16} />
+                          <span className="text-lg font-bold">+${me.balanceSheet.lastTickIncome.toLocaleString()}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest">Daily Exp/Int</span>
+                        <div className="flex items-center gap-2 text-warning">
+                          <TrendingDown size={16} />
+                          <span className="text-lg font-bold">-${me.balanceSheet.lastTickExpense.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2">
+                      <span className="text-xs text-gray-400 uppercase tracking-widest font-bold">Marketing & Lead Gen Budget</span>
+                      <div className="flex gap-2">
+                        <button onClick={() => setMarketingTier('Craigslist')} className={`flex-1 py-1.5 text-xs font-bold uppercase rounded border transition-all ${me.marketingTier === 'Craigslist' ? 'bg-market text-black border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}>
+                          Craigslist ($0)
+                        </button>
+                        <button onClick={() => setMarketingTier('MetaAds')} className={`flex-1 py-1.5 text-xs font-bold uppercase rounded border transition-all ${me.marketingTier === 'MetaAds' ? 'bg-blue-500 text-white border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}>
+                          Meta Ads ($100)
+                        </button>
+                        <button onClick={() => setMarketingTier('Autotrader')} className={`flex-1 py-1.5 text-xs font-bold uppercase rounded border transition-all ${me.marketingTier === 'Autotrader' ? 'bg-orange-500 text-white border-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.3)]' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}>
+                          Autotrader ($300)
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {(!isMobile || mobileLotSubTab === 'inventory') && (
+                  <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel w-full flex-grow overflow-y-visible md:overflow-y-auto shrink-0">
+                    <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/10">
+                      <h3 className="text-sm font-bold uppercase tracking-wider text-white">Active Walk-Ins</h3>
+                    </div>
+                    
+                    <div className="flex flex-col gap-3 mb-6">
+                        {(gameState.activeWalkIns[playerId] || []).map((agent: any) => (
+                            <div key={agent.id} className="bg-blue-500/10 border border-blue-500/30 p-3 rounded flex justify-between items-center group hover:bg-blue-500/20 transition-colors">
+                                <div className="flex flex-col">
+                                    <span className="font-bold text-white text-sm flex items-center gap-2">
+                                        <Users size={14} className="text-blue-400" />
+                                        {agent.name}
+                                    </span>
+                                    <span className="text-[10px] text-gray-400 uppercase tracking-widest">{agent.state === 'browsing' ? 'Browsing Lot...' : 'Negotiating Deal'}</span>
+                                </div>
+                                <button 
+                                    onClick={() => setSelectedAgentId(agent.id)}
+                                    className="bg-blue-500 text-black px-3 py-1.5 rounded text-xs font-bold uppercase hover:bg-blue-400 transition-colors shadow-[0_0_10px_rgba(59,130,246,0.3)]"
+                                >
+                                    Interact
+                                </button>
+                            </div>
+                        ))}
+                        {(!gameState.activeWalkIns[playerId] || gameState.activeWalkIns[playerId].length === 0) && (
+                            <span className="text-sm italic text-gray-500">No active walk-ins. Wait for customers or increase marketing.</span>
+                        )}
+                    </div>
+
+                    <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/10">
+                      <h3 className="text-sm font-bold uppercase tracking-wider text-white">Your Inventory</h3>
+                      <span className="text-xs text-gray-400">{me.inventory.length} / {me.lotScale === 'Small' ? 10 : me.lotScale === 'Medium' ? 25 : 50} Slots</span>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                      {me.inventory.length === 0 && <span className="text-sm italic text-gray-500">Your lot is empty. Head to the auction.</span>}
+                      {me.inventory.map(car => (
+                        <div key={car.id} className="bg-white/5 border border-white/10 rounded p-3 text-sm">
+                          <div className="font-bold flex items-center justify-between">
+                            <div className="flex flex-col">
+                              <span>{car.year} {car.make}</span>
+                              <span className="text-[9px] text-gray-500 font-mono tracking-widest uppercase mt-0.5">{car.vin}</span>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                              {car.isRegistered && <span className="text-[9px] px-1.5 py-0.5 rounded uppercase font-black bg-blue-500/20 text-blue-400 border border-blue-500/50">Registered</span>}
+                              {car.titleStatus !== 'Clean' && (
+                                <span className={`text-[10px] px-1.5 py-0.5 rounded uppercase font-black ${car.titleStatus === 'Salvage' ? 'bg-red-500/20 text-red-400 border border-red-500/50' : 'bg-orange-500/20 text-orange-400 border border-orange-500/50'}`}>
+                                  {car.titleStatus}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          <div className="text-xs text-gray-400 mt-1 mb-1 flex justify-between">
+                            <span>Cost: ${car.buyPrice.toLocaleString()}</span>
+                            <span>{car.daysOnLot} Days on Lot</span>
+                          </div>
+                          <ConditionDisplay car={car} expandedCarId={expandedCarId} setExpandedCarId={setExpandedCarId} />
+                          {!car.isRegistered ? (
+                            <div className="text-center bg-red-500/20 border border-red-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(239,68,68,0.2)]">
+                              <span className="text-[10px] uppercase text-red-400 font-bold tracking-widest w-full inline-block">Requires DMV Registration</span>
+                            </div>
+                          ) : car.titleStatus === 'Salvage' && car.inspectionStatus !== 'Passed' ? (
+                            <div className="text-center bg-orange-500/20 border border-orange-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(249,115,22,0.2)]">
+                              <span className="text-[10px] uppercase text-orange-400 font-bold tracking-widest w-full inline-block">DMV Inspection Required</span>
+                            </div>
+                          ) : car.isDirty ? (
+                            <div className="text-center bg-blue-500/20 border border-blue-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                              <span className="text-[10px] uppercase text-blue-400 font-bold tracking-widest w-full inline-block">Requires Wash (Drive to Bay)</span>
+                            </div>
+                          ) : !car.isProcessed ? (
+                            <div className="text-center bg-yellow-500/20 border border-yellow-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+                              <span className="text-[10px] uppercase text-yellow-400 font-bold tracking-widest animate-pulse w-full inline-block">Park in Show Lot to Sell</span>
+                            </div>
+                          ) : (
+                            <div className="text-center bg-white/5 border border-white/10 rounded py-1.5 mt-2">
+                              <span className="text-[10px] uppercase text-gray-500 font-bold tracking-widest animate-pulse w-full inline-block">Waiting for Walk-Ins...</span>
+                            </div>
+                          )}
+                          <div className="grid grid-cols-2 gap-2 mt-2">
+                            <button onClick={() => alert("Please get in the vehicle and drive to the Body Shop down the road to perform diagnostics and repair.")} disabled={car.bodyCondition >= 100} className={`${car.bodyCondition < 50 ? 'bg-blue-500/50 border border-blue-400 text-white animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]' : 'bg-blue-500/10 text-blue-400/50'} hover:bg-blue-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
+                              Body: {Math.floor(car.bodyCondition)}%
+                            </button>
+                            <button onClick={() => alert("Please get in the vehicle and drive to the Mechanic down the road to perform diagnostics and repair.")} disabled={car.mechanicCondition >= 100} className={`${car.mechanicCondition < 50 ? 'bg-purple-500/50 border border-purple-400 text-white animate-pulse shadow-[0_0_10px_rgba(168,85,247,0.5)]' : 'bg-purple-500/10 text-purple-400/50'} hover:bg-purple-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
+                              Mech: {Math.floor(car.mechanicCondition)}%
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
@@ -1480,7 +1504,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-8 overflow-y-auto flex-grow pe-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 overflow-y-auto flex-grow pe-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pb-24 md:pb-0">
                   {/* Balance Sheet */}
                   <div className="flex flex-col gap-4">
                     <h4 className="text-sm font-bold uppercase tracking-widest text-white/50 border-b border-white/10 pb-2">Balance Sheet</h4>
@@ -1805,55 +1829,77 @@ function App() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 overflow-y-auto pr-2 pb-20">
-                  <div className="space-y-4">
-                    <h4 className="font-bold text-market uppercase tracking-widest text-sm border-b border-white/10 pb-2">Mechanic Parts</h4>
-                    {MECHANIC_LIB.map((p, idx) => (
-                      <div key={`m-${idx}`} className="bg-black/40 p-4 rounded border border-white/5 flex flex-col gap-2 relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 w-16 h-16 bg-market/5 rounded-bl-full -z-10 group-hover:bg-market/10 transition-colors"></div>
-                        <div className="flex justify-between items-start">
-                          <h5 className="font-bold text-white/90">{p.name}</h5>
-                          <span className="text-sm font-bold text-green-400">${Math.floor(p.cost * 0.75).toLocaleString()}</span>
-                        </div>
-                        <div className="flex justify-between items-end mt-2">
-                          <div className="text-xs text-gray-400 uppercase tracking-widest">
-                            Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.name] || 0}</span>
-                          </div>
-                          <button 
-                            onClick={() => buyPart(p.name, Math.floor(p.cost * 0.75))}
-                            disabled={me.money < Math.floor(p.cost * 0.75)}
-                            className="bg-market/20 hover:bg-market hover:text-black text-market px-3 py-1 rounded text-xs font-bold transition-colors disabled:opacity-30 uppercase tracking-widest"
-                          >
-                            Buy Stock
-                          </button>
-                        </div>
-                      </div>
-                    ))}
+                {isMobile && (
+                  <div className="flex gap-2 p-1 bg-black/50 border border-white/10 rounded-xl shrink-0 pointer-events-auto w-full mb-2">
+                    <button
+                      onClick={() => setMobilePartsSubTab('mechanic')}
+                      className={`flex-1 py-2 text-[10px] font-black uppercase tracking-wider rounded-lg transition-all ${mobilePartsSubTab === 'mechanic' ? 'bg-market text-black shadow-md' : 'text-gray-400'}`}
+                    >
+                      Mechanic Parts
+                    </button>
+                    <button
+                      onClick={() => setMobilePartsSubTab('body')}
+                      className={`flex-1 py-2 text-[10px] font-black uppercase tracking-wider rounded-lg transition-all ${mobilePartsSubTab === 'body' ? 'bg-market text-black shadow-md' : 'text-gray-400'}`}
+                    >
+                      Body & Paint Panels
+                    </button>
                   </div>
-                  <div className="space-y-4">
-                    <h4 className="font-bold text-market uppercase tracking-widest text-sm border-b border-white/10 pb-2">Body Panels & Paint</h4>
-                    {BODY_LIB.map((p, idx) => (
-                      <div key={`b-${idx}`} className="bg-black/40 p-4 rounded border border-white/5 flex flex-col gap-2 relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 w-16 h-16 bg-blue-500/5 rounded-bl-full -z-10 group-hover:bg-blue-500/10 transition-colors"></div>
-                        <div className="flex justify-between items-start">
-                          <h5 className="font-bold text-white/90">{p.name}</h5>
-                          <span className="text-sm font-bold text-green-400">${Math.floor(p.cost * 0.75).toLocaleString()}</span>
-                        </div>
-                        <div className="flex justify-between items-end mt-2">
-                          <div className="text-xs text-gray-400 uppercase tracking-widest">
-                            Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.name] || 0}</span>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-y-auto pr-2 pb-24 md:pb-20">
+                  {(!isMobile || mobilePartsSubTab === 'mechanic') && (
+                    <div className="space-y-4">
+                      <h4 className="font-bold text-market uppercase tracking-widest text-sm border-b border-white/10 pb-2">Mechanic Parts</h4>
+                      {MECHANIC_LIB.map((p, idx) => (
+                        <div key={`m-${idx}`} className="bg-black/40 p-4 rounded border border-white/5 flex flex-col gap-2 relative overflow-hidden group">
+                          <div className="absolute top-0 right-0 w-16 h-16 bg-market/5 rounded-bl-full -z-10 group-hover:bg-market/10 transition-colors"></div>
+                          <div className="flex justify-between items-start">
+                            <h5 className="font-bold text-white/90">{p.name}</h5>
+                            <span className="text-sm font-bold text-green-400">${Math.floor(p.cost * 0.75).toLocaleString()}</span>
                           </div>
-                          <button 
-                            onClick={() => buyPart(p.name, Math.floor(p.cost * 0.75))}
-                            disabled={me.money < Math.floor(p.cost * 0.75)}
-                            className="bg-market/20 hover:bg-market hover:text-black text-market px-3 py-1 rounded text-xs font-bold transition-colors disabled:opacity-30 uppercase tracking-widest"
-                          >
-                            Buy Stock
-                          </button>
+                          <div className="flex justify-between items-end mt-2">
+                            <div className="text-xs text-gray-400 uppercase tracking-widest">
+                              Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.name] || 0}</span>
+                            </div>
+                            <button 
+                              onClick={() => buyPart(p.name, Math.floor(p.cost * 0.75))}
+                              disabled={me.money < Math.floor(p.cost * 0.75)}
+                              className="bg-market/20 hover:bg-market hover:text-black text-market px-3 py-1 rounded text-xs font-bold transition-colors disabled:opacity-30 uppercase tracking-widest"
+                            >
+                              Buy Stock
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {(!isMobile || mobilePartsSubTab === 'body') && (
+                    <div className="space-y-4">
+                      <h4 className="font-bold text-market uppercase tracking-widest text-sm border-b border-white/10 pb-2">Body Panels & Paint</h4>
+                      {BODY_LIB.map((p, idx) => (
+                        <div key={`b-${idx}`} className="bg-black/40 p-4 rounded border border-white/5 flex flex-col gap-2 relative overflow-hidden group">
+                          <div className="absolute top-0 right-0 w-16 h-16 bg-blue-500/5 rounded-bl-full -z-10 group-hover:bg-blue-500/10 transition-colors"></div>
+                          <div className="flex justify-between items-start">
+                            <h5 className="font-bold text-white/90">{p.name}</h5>
+                            <span className="text-sm font-bold text-green-400">${Math.floor(p.cost * 0.75).toLocaleString()}</span>
+                          </div>
+                          <div className="flex justify-between items-end mt-2">
+                            <div className="text-xs text-gray-400 uppercase tracking-widest">
+                              Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.name] || 0}</span>
+                            </div>
+                            <button 
+                              onClick={() => buyPart(p.name, Math.floor(p.cost * 0.75))}
+                              disabled={me.money < Math.floor(p.cost * 0.75)}
+                              className="bg-market/20 hover:bg-market hover:text-black text-market px-3 py-1 rounded text-xs font-bold transition-colors disabled:opacity-30 uppercase tracking-widest"
+                            >
+                              Buy Stock
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -1989,6 +2035,103 @@ function App() {
                setCarId={setSelectedCarForAgent}
             />
         )}
+
+        {isMobile && showUI && (
+          <div className="fixed bottom-0 left-0 right-0 bg-[#0f0f13]/95 border-t border-white/10 backdrop-blur-xl px-4 py-3 z-[9999] flex justify-around items-center pointer-events-auto shadow-2xl rounded-t-2xl">
+            <button
+              onClick={() => { setActiveTab('lot'); setShowMoreMenu(false); }}
+              className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'lot' && !showMoreMenu ? 'text-market' : 'text-gray-400'}`}
+            >
+              <Car size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">My Lot</span>
+            </button>
+            <button
+              onClick={() => { setActiveTab('auction'); setShowMoreMenu(false); }}
+              className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'auction' && !showMoreMenu ? 'text-market' : 'text-gray-400'}`}
+            >
+              <Activity size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">Auction</span>
+            </button>
+            <button
+              onClick={() => { setActiveTab('dmv'); setShowMoreMenu(false); }}
+              className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'dmv' && !showMoreMenu ? 'text-market' : 'text-gray-400'}`}
+            >
+              <FileText size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">DMV</span>
+            </button>
+            <button
+              onClick={() => { setActiveTab('parts'); setShowMoreMenu(false); }}
+              className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'parts' && !showMoreMenu ? 'text-market' : 'text-gray-400'}`}
+            >
+              <Wrench size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">Parts</span>
+            </button>
+            <button
+              onClick={() => setShowMoreMenu(prev => !prev)}
+              className={`flex flex-col items-center gap-1 transition-all ${showMoreMenu ? 'text-warning font-black scale-105' : 'text-gray-400'}`}
+            >
+              <Menu size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">More</span>
+            </button>
+          </div>
+        )}
+
+        <AnimatePresence>
+          {isMobile && showUI && showMoreMenu && (
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setShowMoreMenu(false)}
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9990] pointer-events-auto"
+              />
+              <motion.div
+                initial={{ y: '100%' }}
+                animate={{ y: 0 }}
+                exit={{ y: '100%' }}
+                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                className="fixed bottom-16 left-0 right-0 bg-[#0c0d12]/95 backdrop-blur-2xl border-t border-white/10 rounded-t-3xl p-6 z-[9995] flex flex-col gap-5 pointer-events-auto shadow-2xl max-h-[60vh] overflow-y-auto"
+              >
+                <div className="flex justify-between items-center border-b border-white/10 pb-3">
+                  <h3 className="text-sm font-black uppercase tracking-widest text-warning">More Operations</h3>
+                  <button onClick={() => setShowMoreMenu(false)} className="text-gray-400 hover:text-white transition-colors">✕</button>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-3 pb-8">
+                  <button
+                    onClick={() => { setActiveTab('accounting'); setShowMoreMenu(false); }}
+                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'accounting' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
+                  >
+                    <TrendingUp size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Accounting</span>
+                  </button>
+                  <button
+                    onClick={() => { setActiveTab('crm'); setShowMoreMenu(false); }}
+                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'crm' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
+                  >
+                    <Users size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Customers</span>
+                  </button>
+                  <button
+                    onClick={() => { setActiveTab('staff'); setShowMoreMenu(false); }}
+                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'staff' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
+                  >
+                    <Users size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Staff List</span>
+                  </button>
+                  <button
+                    onClick={() => { setShowGuide(true); setGuideStep(0); setShowMoreMenu(false); }}
+                    className="p-4 rounded-2xl border bg-warning/10 border-warning/30 text-warning hover:bg-warning hover:text-black transition-all flex flex-col items-center justify-center gap-2"
+                  >
+                    <HelpCircle size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Dealer Guide</span>
+                  </button>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
 
       </div>
 
