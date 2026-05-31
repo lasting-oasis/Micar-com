@@ -5,6 +5,7 @@ import ShopManagement from './ShopManagement.tsx'
 import MechanicManagement from './MechanicManagement.tsx'
 import StandaloneShopPlatform from './StandaloneShopPlatform.tsx'
 import './index.css'
+import { useGameStore } from './store'
 import { Car, Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle, Gauge, Activity } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -63,6 +64,9 @@ function GatewayPortal() {
   };
 
   const goBackToGateway = () => {
+    // Cleanly disconnect active socket and reset store state
+    useGameStore.getState().disconnect();
+
     const newUrl = new URL(window.location.href);
     newUrl.searchParams.delete('app');
     window.history.pushState({}, '', newUrl.toString());

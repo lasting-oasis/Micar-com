@@ -414,12 +414,14 @@ setInterval(() => {
 
 io.on('connection', (socket) => {
     socket.on('join', ({ name, lotScale, careerFocus, shopSpecialty }) => {
+      console.log('--- PLAYER JOIN ---', { name, lotScale, careerFocus, shopSpecialty });
       const playerCount = Object.keys(gameState.players).length;
       const x = (playerCount % 5) * 250;
       const z = Math.floor(playerCount / 5) * -250;
 
       let initMoney = 25000;
       let isStandalone = careerFocus === 'standalone';
+      console.log('isStandalone determined as:', isStandalone);
 
       if (isStandalone) {
         if (shopSpecialty === 'mechanic') initMoney = 45000;

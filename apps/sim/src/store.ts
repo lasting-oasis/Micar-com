@@ -8,6 +8,7 @@ interface StoreState {
   playerId: string | null;
   timeOfDay: number;
   connect: (name: string, lotScale: 'Small' | 'Medium' | 'Large', careerFocus?: 'dealership' | 'standalone', shopSpecialty?: 'mechanic' | 'body' | 'dual') => void;
+  disconnect: () => void;
   buyCar: (id: string, useFinancing: boolean) => void;
   buyPsi: (carId: string) => void;
   proposeDeal: (agentId: string, carId: string) => void;
@@ -73,13 +74,25 @@ export const useGameStore = create<StoreState>((set, get) => ({
   },
   activeInteraction: null,
   setActiveInteraction: (interaction) => set({ activeInteraction: interaction }),
+  disconnect: () => {
+    const socket = get().socket;
+    if (socket) socket.disconnect();
+    set({ socket: null, gameState: null, playerId: null, drivingCarId: null });
+  },
   connect: (name, lotScale, careerFocus, shopSpecialty) => {
     const socketUrl = window.location.port === '5173' ? 'http://localhost:3000' : window.location.origin;
     const socket = io(socketUrl);
     
-    socket.on('connect', () => {
+    const emitJoin = () => {
+        console.log('CLIENT EMITTING JOIN:', { name, lotScale, careerFocus, shopSpecialty });
         socket.emit('join', { name, lotScale, careerFocus, shopSpecialty });
-    });
+    };
+
+    if (socket.connected) {
+        emitJoin();
+    } else {
+        socket.on('connect', emitJoin);
+    }
     
     socket.on('init', (data) => set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay }));
     socket.on('update', (state) => set({ gameState: state }));

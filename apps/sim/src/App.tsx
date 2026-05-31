@@ -1256,6 +1256,57 @@ function App() {
   const me = gameState.players[playerId];
   if (!me) return null;
 
+  // Standalone Shop Operator View Bypass
+  if ((me as any).isStandaloneOperator) {
+    return (
+      <div className="relative min-h-screen bg-[#08090d] text-white flex flex-col font-sans select-none overflow-x-hidden w-full">
+        {/* Glowing background */}
+        <div className={`absolute top-0 left-0 right-0 h-[450px] bg-gradient-to-b ${(me as any).shopSpecialty === 'body' ? 'from-blue-500/10 via-blue-500/2' : 'from-emerald-500/10 via-emerald-500/2'} to-transparent pointer-events-none z-0`} />
+        
+        {/* Navigation Header */}
+        <header className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-5 flex justify-between items-center border-b border-white/5">
+          <div className="flex items-center gap-2.5">
+            <div className={`p-2 rounded-xl border font-extrabold tracking-wider font-mono text-sm shadow-lg ${(me as any).shopSpecialty === 'body' ? 'bg-blue-500/20 border-blue-500/40 text-blue-400' : 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400'}`}>
+              {(me as any).shopSpecialty === 'body' ? 'AF' : 'RF'}
+            </div>
+            <div>
+              <span className="text-sm font-black uppercase tracking-widest text-white block">
+                {(me as any).shopSpecialty === 'body' ? 'AutoFlow Bodyshop' : 'RepairFlow Platform'}
+              </span>
+              <span className="text-[9px] text-gray-400 font-mono tracking-widest uppercase block">
+                {(me as any).shopSpecialty === 'body' ? 'Standalone Paint & Collision' : 'Standalone Mechanic & Repair'}
+              </span>
+            </div>
+          </div>
+          
+          <div className="flex gap-2">
+            <button 
+              onClick={() => setActiveTab('standalone-shops')}
+              className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider border transition-all cursor-pointer ${activeTab === 'standalone-shops' ? 'bg-emerald-500 text-black border-emerald-500 shadow-lg' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
+            >
+              🔧 RepairFlow Platform
+            </button>
+            <button 
+              onClick={() => setActiveTab('standalone-body')}
+              className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider border transition-all cursor-pointer ${activeTab === 'standalone-body' ? 'bg-blue-500 text-black border-blue-500 shadow-lg' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
+            >
+              🎨 AutoFlow Bodyshop
+            </button>
+          </div>
+        </header>
+
+        {/* Main Content Area */}
+        <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
+          {activeTab === 'standalone-body' ? <ShopManagement /> : <StandaloneShopPlatform />}
+        </main>
+
+        <footer className="relative z-10 py-5 text-center border-t border-white/5 text-[9px] text-gray-500 font-mono tracking-widest">
+          © {new Date().getFullYear()} STANDALONE ENTERPRISE WORKSPACE • VERSION 1.0.0-PRO
+        </footer>
+      </div>
+    );
+  }
+
   const inventoryValue = me.inventory.reduce((sum, car) => sum + car.buyPrice, 0);
   const receivableContracts = me.contracts.reduce((sum, c) => sum + (c.dailyPayment * c.daysRemaining), 0);
   const totalAssets = me.money + inventoryValue + receivableContracts;
