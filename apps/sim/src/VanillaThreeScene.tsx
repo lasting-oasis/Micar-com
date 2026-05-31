@@ -224,43 +224,354 @@ export function VanillaThreeScene() {
              treeIndex++;
         };
         
-        // 2. Brutalist Concrete City Blocks
-        const buildingMat1 = new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: 0.8, map: concreteTex });
-        const buildingMat2 = new THREE.MeshStandardMaterial({ color: '#aaaaaa', roughness: 0.8, map: concreteTex });
-        const buildingMat3 = new THREE.MeshStandardMaterial({ color: '#cccccc', roughness: 0.8, map: concreteTex });
-        const buildingMats = [buildingMat1, buildingMat2, buildingMat3];
+        // 2. High-Fidelity Themed Procedural City Blocks & Zoning
         
-        const placeBuilding = (x: number, z: number, w: number, d: number, h: number) => {
-             const geo = new THREE.BoxGeometry(w, h, d);
-             const mat = buildingMats[Math.floor(Math.random() * buildingMats.length)];
-             const mesh = new THREE.Mesh(geo, mat);
-             mesh.position.set(x, h / 2, z);
-             mesh.castShadow = true;
-             mesh.receiveShadow = true;
-             scene.add(mesh);
-             environmentDisposables.push(mesh);
-             mesh.updateMatrixWorld(true);
-             staticCollisionBoxes.push(new THREE.Box3().setFromObject(mesh));
+        // Materials to dispose during cleanup
+        const cityMaterials: THREE.Material[] = [];
+        const cityTextures: THREE.Texture[] = [];
+        const emissiveFacadeMaterials: THREE.MeshStandardMaterial[] = [];
+
+        // Procedural Skyscraper Facade Texture Generator
+        const generateFacadeTexture = (cols: number, rows: number, baseColorHex: string) => {
+             const canvas = document.createElement('canvas');
+             canvas.width = 512;
+             canvas.height = 1024;
+             const ctx = canvas.getContext('2d')!;
+             
+             ctx.fillStyle = baseColorHex;
+             ctx.fillRect(0, 0, 512, 1024);
+             
+             const winW = 512 / cols;
+             const winH = 1024 / rows;
+             
+             for (let r = 0; r < rows; r++) {
+                 for (let c = 0; c < cols; c++) {
+                     const roll = Math.random();
+                     if (roll < 0.22) {
+                         ctx.fillStyle = '#fef08a'; // Lit yellow window
+                     } else if (roll < 0.30) {
+                         ctx.fillStyle = '#93c5fd'; // Lit blue window
+                     } else {
+                         ctx.fillStyle = '#0b0f19'; // Dark unlit window
+                     }
+                     // Margin frame
+                     ctx.fillRect(c * winW + 4, r * winH + 4, winW - 8, winH - 8);
+                 }
+             }
+             
+             const tex = new THREE.CanvasTexture(canvas);
+             tex.wrapS = THREE.RepeatWrapping;
+             tex.wrapT = THREE.RepeatWrapping;
+             cityTextures.push(tex);
+             return tex;
         };
 
-        // Populate the Suburbs with dense aesthetic foliage and architecture!
-        for(let i=0; i<80; i++) {
-             // Randomly scatter highly dense trees along both sides of the expansive Z highway
+        // Procedural Warehouse Texture Generator
+        const generateWarehouseTexture = () => {
+             const canvas = document.createElement('canvas');
+             canvas.width = 256;
+             canvas.height = 256;
+             const ctx = canvas.getContext('2d')!;
+             
+             ctx.fillStyle = '#4b5563'; // Industrial metallic gray
+             ctx.fillRect(0, 0, 256, 256);
+             
+             ctx.strokeStyle = '#1f2937';
+             ctx.lineWidth = 4;
+             for (let y = 0; y < 256; y += 16) {
+                 ctx.beginPath();
+                 ctx.moveTo(0, y);
+                 ctx.lineTo(256, y);
+                 ctx.stroke();
+             }
+             
+             const tex = new THREE.CanvasTexture(canvas);
+             tex.wrapS = THREE.RepeatWrapping;
+             tex.wrapT = THREE.RepeatWrapping;
+             cityTextures.push(tex);
+             return tex;
+        };
+
+        // Sidewalk and Crosswalk Structures
+        const sidewalkMat = new THREE.MeshStandardMaterial({ 
+            color: '#a1a1aa', 
+            roughness: 0.85, 
+            map: concreteTex 
+        });
+        cityMaterials.push(sidewalkMat);
+
+        // Main highway sidewalks
+        const sidewalkLeft = new THREE.Mesh(new THREE.BoxGeometry(10, 0.2, 850), sidewalkMat);
+        sidewalkLeft.position.set(-17.5, 0.05, 450);
+        sidewalkLeft.receiveShadow = true;
+        scene.add(sidewalkLeft);
+        environmentDisposables.push(sidewalkLeft);
+
+        const sidewalkRight = new THREE.Mesh(new THREE.BoxGeometry(10, 0.2, 850), sidewalkMat);
+        sidewalkRight.position.set(17.5, 0.05, 450);
+        sidewalkRight.receiveShadow = true;
+        scene.add(sidewalkRight);
+        environmentDisposables.push(sidewalkRight);
+
+        // Sidewalks framing cross streets
+        const sidewalkC1A = new THREE.Mesh(new THREE.BoxGeometry(800, 0.2, 10), sidewalkMat);
+        sidewalkC1A.position.set(0, 0.05, 217.5);
+        sidewalkC1A.receiveShadow = true;
+        scene.add(sidewalkC1A);
+        environmentDisposables.push(sidewalkC1A);
+
+        const sidewalkC1B = new THREE.Mesh(new THREE.BoxGeometry(800, 0.2, 10), sidewalkMat);
+        sidewalkC1B.position.set(0, 0.05, 182.5);
+        sidewalkC1B.receiveShadow = true;
+        scene.add(sidewalkC1B);
+        environmentDisposables.push(sidewalkC1B);
+
+        const sidewalkC2A = new THREE.Mesh(new THREE.BoxGeometry(800, 0.2, 10), sidewalkMat);
+        sidewalkC2A.position.set(0, 0.05, 517.5);
+        sidewalkC2A.receiveShadow = true;
+        scene.add(sidewalkC2A);
+        environmentDisposables.push(sidewalkC2A);
+
+        const sidewalkC2B = new THREE.Mesh(new THREE.BoxGeometry(800, 0.2, 10), sidewalkMat);
+        sidewalkC2B.position.set(0, 0.05, 482.5);
+        sidewalkC2B.receiveShadow = true;
+        scene.add(sidewalkC2B);
+        environmentDisposables.push(sidewalkC2B);
+
+        // White crosswalk paint stripes
+        const createCrosswalk = (zPos: number) => {
+             const stripeMat = new THREE.MeshBasicMaterial({ color: '#ffffff' });
+             const stripeGeo = new THREE.BoxGeometry(1.5, 0.02, 8);
+             cityMaterials.push(stripeMat);
+             
+             for (let xOffset = -10; xOffset <= 10; xOffset += 4) {
+                 const stripe = new THREE.Mesh(stripeGeo, stripeMat);
+                 stripe.position.set(xOffset, 0.03, zPos);
+                 scene.add(stripe);
+                 environmentDisposables.push(stripe);
+             }
+        };
+        createCrosswalk(200);
+        createCrosswalk(500);
+
+        // Specialized Procedural Building Model Constructors
+        
+        // 1. Skyscraper / Office Tower
+        const createSkyscraper = (x: number, z: number, w: number, d: number, h: number, baseColorHex: string) => {
+             const group = new THREE.Group();
+             group.position.set(x, 0, z);
+             
+             const tex = generateFacadeTexture(8, 16, baseColorHex);
+             const facadeMat = new THREE.MeshStandardMaterial({
+                 map: tex,
+                 roughness: 0.15,
+                 metalness: 0.85,
+                 emissiveMap: tex,
+                 emissive: new THREE.Color('#ffffff'),
+                 emissiveIntensity: 0.15
+             });
+             emissiveFacadeMaterials.push(facadeMat);
+             cityMaterials.push(facadeMat);
+             
+             // Tier 1 Base
+             const baseH = h * 0.25;
+             const baseGeo = new THREE.BoxGeometry(w, baseH, d);
+             const baseMesh = new THREE.Mesh(baseGeo, facadeMat);
+             baseMesh.position.y = baseH / 2;
+             baseMesh.castShadow = true;
+             baseMesh.receiveShadow = true;
+             group.add(baseMesh);
+             
+             // Tier 2 Middle
+             const midW = w * 0.85;
+             const midD = d * 0.85;
+             const midH = h * 0.55;
+             const midGeo = new THREE.BoxGeometry(midW, midH, midD);
+             const midMesh = new THREE.Mesh(midGeo, facadeMat);
+             midMesh.position.y = baseH + midH / 2;
+             midMesh.castShadow = true;
+             midMesh.receiveShadow = true;
+             group.add(midMesh);
+             
+             // Tier 3 Penthouse Top
+             const topW = w * 0.7;
+             const topD = d * 0.7;
+             const topH = h * 0.2;
+             const topGeo = new THREE.BoxGeometry(topW, topH, topD);
+             const topMesh = new THREE.Mesh(topGeo, facadeMat);
+             topMesh.position.y = baseH + midH + topH / 2;
+             topMesh.castShadow = true;
+             topMesh.receiveShadow = true;
+             group.add(topMesh);
+             
+             // HVAC Rooftop Unit Box
+             const hvacMat = new THREE.MeshStandardMaterial({ color: '#4b5563', metalness: 0.7, roughness: 0.3 });
+             cityMaterials.push(hvacMat);
+             const hvacBox = new THREE.Mesh(new THREE.BoxGeometry(w * 0.2, 2, d * 0.2), hvacMat);
+             hvacBox.position.set(0, h + 1, 0);
+             hvacBox.castShadow = true;
+             group.add(hvacBox);
+             
+             // Antenna Spire
+             const antennaGeo = new THREE.CylinderGeometry(0.15, 0.25, 8, 8);
+             const antennaMat = new THREE.MeshBasicMaterial({ color: '#f87171' });
+             cityMaterials.push(antennaMat);
+             const antenna = new THREE.Mesh(antennaGeo, antennaMat);
+             antenna.position.set(0, h + 4, 0);
+             group.add(antenna);
+             
+             // Red Warning Light at Spire tip
+             const beaconBulb = new THREE.Mesh(new THREE.SphereGeometry(0.4), new THREE.MeshBasicMaterial({ color: '#ef4444' }));
+             beaconBulb.position.set(0, h + 8, 0);
+             group.add(beaconBulb);
+             
+             scene.add(group);
+             environmentDisposables.push(group);
+             group.updateMatrixWorld(true);
+             
+             staticCollisionBoxes.push(new THREE.Box3().setFromObject(baseMesh));
+             staticCollisionBoxes.push(new THREE.Box3().setFromObject(midMesh));
+        };
+
+        // 2. Retail Storefront / Shop
+        const createStorefront = (x: number, z: number, w: number, d: number, h: number, awningColorHex: string) => {
+             const group = new THREE.Group();
+             group.position.set(x, 0, z);
+             
+             const wallMat = new THREE.MeshStandardMaterial({ color: '#eae5d9', roughness: 0.9, map: concreteTex });
+             const glassMat = new THREE.MeshPhysicalMaterial({ color: '#38bdf8', transmission: 0.9, opacity: 0.6, transparent: true, roughness: 0.1 });
+             cityMaterials.push(wallMat, glassMat);
+             
+             const storeGeo = new THREE.BoxGeometry(w, h, d);
+             const storeMesh = new THREE.Mesh(storeGeo, wallMat);
+             storeMesh.position.y = h / 2;
+             storeMesh.castShadow = true;
+             storeMesh.receiveShadow = true;
+             group.add(storeMesh);
+             
+             const windowGeo = new THREE.BoxGeometry(w * 0.7, h * 0.5, 0.5);
+             const windowMesh = new THREE.Mesh(windowGeo, glassMat);
+             windowMesh.position.set(0, h * 0.4, -d / 2 - 0.1);
+             group.add(windowMesh);
+             
+             const awningGeo = new THREE.BoxGeometry(w * 0.8, 1.2, 3);
+             const awningMat = new THREE.MeshStandardMaterial({ color: awningColorHex, roughness: 0.7 });
+             cityMaterials.push(awningMat);
+             const awning = new THREE.Mesh(awningGeo, awningMat);
+             awning.position.set(0, h * 0.7, -d / 2 - 1.2);
+             awning.rotation.x = Math.PI / 8;
+             awning.castShadow = true;
+             group.add(awning);
+             
+             const doorGeo = new THREE.BoxGeometry(3, h * 0.6, 0.6);
+             const doorMat = new THREE.MeshStandardMaterial({ color: '#1e293b', roughness: 0.2 });
+             cityMaterials.push(doorMat);
+             const door = new THREE.Mesh(doorGeo, doorMat);
+             door.position.set(0, h * 0.3, -d / 2 - 0.25);
+             group.add(door);
+             
+             const sign = createBuildingSign('RETAIL STORE', '#0f172a', awningColorHex);
+             sign.position.set(0, h + 2, -d / 2);
+             group.add(sign);
+             
+             scene.add(group);
+             environmentDisposables.push(group);
+             group.updateMatrixWorld(true);
+             
+             staticCollisionBoxes.push(new THREE.Box3().setFromObject(storeMesh));
+        };
+
+        // 3. Warehouse / Industrial complex
+        const createWarehouse = (x: number, z: number, w: number, d: number, h: number) => {
+             const group = new THREE.Group();
+             group.position.set(x, 0, z);
+             
+             const metalTex = generateWarehouseTexture();
+             const metalWallMat = new THREE.MeshStandardMaterial({ 
+                 color: '#6b7280', 
+                 roughness: 0.45, 
+                 metalness: 0.75,
+                 map: metalTex
+             });
+             cityMaterials.push(metalWallMat);
+             
+             const mainGeo = new THREE.BoxGeometry(w, h, d);
+             const mainMesh = new THREE.Mesh(mainGeo, metalWallMat);
+             mainMesh.position.y = h / 2;
+             mainMesh.castShadow = true;
+             mainMesh.receiveShadow = true;
+             group.add(mainMesh);
+             
+             const roofR = w * 0.52;
+             const roofGeo = new THREE.CylinderGeometry(roofR, roofR, d, 16, 1, false, 0, Math.PI);
+             roofGeo.rotateX(Math.PI / 2);
+             const roofMesh = new THREE.Mesh(roofGeo, new THREE.MeshStandardMaterial({ color: '#4b5563', roughness: 0.3, metalness: 0.7 }));
+             roofMesh.position.set(0, h, 0);
+             roofMesh.castShadow = true;
+             group.add(roofMesh);
+             
+             const doorGeo = new THREE.BoxGeometry(w * 0.32, h * 0.75, 0.4);
+             const doorMat = new THREE.MeshStandardMaterial({ color: '#9ca3af', roughness: 0.5, metalness: 0.5 });
+             cityMaterials.push(doorMat);
+             
+             const doorL = new THREE.Mesh(doorGeo, doorMat);
+             doorL.position.set(-w * 0.22, h * 0.375, -d / 2 - 0.1);
+             doorL.castShadow = true;
+             group.add(doorL);
+             
+             const doorR = new THREE.Mesh(doorGeo, doorMat);
+             doorR.position.set(w * 0.22, h * 0.375, -d / 2 - 0.1);
+             doorR.castShadow = true;
+             group.add(doorR);
+             
+             const cautionMat = new THREE.MeshStandardMaterial({ color: '#fbbf24', roughness: 0.7 });
+             cityMaterials.push(cautionMat);
+             const stripeGeo = new THREE.BoxGeometry(w * 0.85, 1.0, 0.5);
+             const cautionStripe = new THREE.Mesh(stripeGeo, cautionMat);
+             cautionStripe.position.set(0, h * 0.82, -d / 2 - 0.2);
+             group.add(cautionStripe);
+             
+             const warehouseSign = createBuildingSign('LOGISTICS BAY', '#1f2937', '#eab308');
+             warehouseSign.position.set(0, h + roofR * 0.5 + 2, -d / 2);
+             group.add(warehouseSign);
+             
+             scene.add(group);
+             environmentDisposables.push(group);
+             group.updateMatrixWorld(true);
+             
+             staticCollisionBoxes.push(new THREE.Box3().setFromObject(mainMesh));
+        };
+
+        // Populate Suburban trees
+        for(let i = 0; i < 80; i++) {
              const zOffset = 50 + Math.random() * 900;
              const side = Math.random() > 0.5 ? (-20 - Math.random() * 40) : (20 + Math.random() * 40);
-             if (Math.abs(side - 40) < 30 && Math.abs(zOffset - 130) < 30) continue; // Keep out of Capital Bank
+             if (Math.abs(side - 40) < 30 && Math.abs(zOffset - 130) < 30) continue;
              placeTree(side, zOffset);
         }
         trunkInstanced.instanceMatrix.needsUpdate = true;
         leavesInstanced.instanceMatrix.needsUpdate = true;
 
-        // Procedurally place multi-story commercial buildings near the cross streets
-        [150, 250, 450, 550, 700].forEach(z => {
-             // West block
-             placeBuilding(-50 - Math.random() * 30, z + (Math.random() * 20 - 10), 30 + Math.random() * 20, 30 + Math.random() * 20, 20 + Math.random() * 60);
-             // East block
-             placeBuilding(50 + Math.random() * 30, z + (Math.random() * 20 - 10), 30 + Math.random() * 20, 30 + Math.random() * 20, 20 + Math.random() * 60);
-        });
+        // Deploy Themed Zoned Districts
+        
+        // District 1: Financial & Corporate Skyscraper District (Z = 100 to 300)
+        createSkyscraper(50, 95, 30, 26, 90, '#1e293b');
+        createSkyscraper(55, 275, 26, 26, 75, '#111827');
+        createSkyscraper(-50, 110, 28, 26, 80, '#0f172a');
+        createSkyscraper(-50, 285, 30, 26, 105, '#1e1b4b');
+
+        // District 2: Commercial & Storefront Plaza District (Z = 300 to 550)
+        createStorefront(50, 470, 24, 18, 10, '#b91c1c'); // Red shop
+        createStorefront(45, 545, 20, 16, 9, '#047857');  // Green shop
+        createStorefront(-45, 340, 22, 18, 10, '#3b82f6'); // Blue shop
+        createStorefront(-50, 400, 24, 20, 11, '#eab308'); // Yellow department
+        createStorefront(-45, 460, 20, 16, 9, '#7c3aed');  // Purple bookstore
+
+        // District 3: Industrial Logistics & Warehouse District (Z = 550 to 800)
+        createWarehouse(60, 620, 40, 32, 16);
+        createWarehouse(65, 740, 36, 28, 14);
+        createWarehouse(-60, 635, 38, 28, 14);
+        createWarehouse(-65, 745, 40, 32, 15);
 
         // Extra streetlights for the newly expanded Test Drive Road
         [-15, 15].forEach(x => {
@@ -886,19 +1197,26 @@ export function VanillaThreeScene() {
                      const sunX = Math.cos(progress * Math.PI) * 500;
                      dirLight.position.set(sunX, sunHeight, -100);
                      
-                     // Fade Sun and Ambient Light as evening approaches (progress > 0.7)
-                     if (progress > 0.7) {
-                         const fade = 1 - ((progress - 0.7) / 0.3); // 1.0 at 0.7, 0.0 at 1.0
-                         dirLight.intensity = 2.5 * fade;
-                         ambientLight.intensity = 0.7 * fade + 0.1; // Never fully pitch black
-                         
-                         // Turn on Streetlights!
-                         streetLights.forEach(l => l.intensity = 1.5 * (1 - fade));
-                     } else {
-                         dirLight.intensity = 2.5;
-                         ambientLight.intensity = 0.7;
-                         streetLights.forEach(l => l.intensity = 0);
-                     }
+                      // Fade Sun and Ambient Light as evening approaches (progress > 0.7)
+                      if (progress > 0.7) {
+                          const fade = 1 - ((progress - 0.7) / 0.3); // 1.0 at 0.7, 0.0 at 1.0
+                          dirLight.intensity = 2.5 * fade;
+                          ambientLight.intensity = 0.7 * fade + 0.1; // Never fully pitch black
+                          
+                          // Turn on Streetlights!
+                          streetLights.forEach(l => l.intensity = 1.5 * (1 - fade));
+
+                          // Fade up skyscraper window emissive glow!
+                          const glowIntensity = 0.15 + 1.25 * (1 - fade);
+                          emissiveFacadeMaterials.forEach(m => m.emissiveIntensity = glowIntensity);
+                      } else {
+                          dirLight.intensity = 2.5;
+                          ambientLight.intensity = 0.7;
+                          streetLights.forEach(l => l.intensity = 0);
+
+                          // Daytime default low window light level
+                          emissiveFacadeMaterials.forEach(m => m.emissiveIntensity = 0.15);
+                      }
                      
                      // Sky color lerping (Morning -> Noon -> Evening -> Night)
                      const morningColor = new THREE.Color('#fcd34d');
@@ -1517,6 +1835,10 @@ export function VanillaThreeScene() {
             window.removeEventListener('keyup', handleKeyUp);
             mountRef.current?.removeChild(renderer.domElement);
             renderer.dispose();
+            
+            // Dispose procedural city materials & textures
+            cityMaterials.forEach(m => m.dispose());
+            cityTextures.forEach(t => t.dispose());
             
             Object.values(carMeshes).forEach(group => {
                group.traverse(child => {
