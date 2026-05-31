@@ -1139,16 +1139,30 @@ function App() {
               <button
                 type="button"
                 onClick={() => setCareerFocusInput('dealership')}
-                className={`py-2.5 text-[10px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'dealership' ? 'bg-market text-black border-market shadow-[0_0_10px_rgba(59,130,246,0.3)] font-black' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
+                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'dealership' ? 'bg-market text-black border-market shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
               >
                 💼 Dealership
               </button>
               <button
                 type="button"
-                onClick={() => setCareerFocusInput('standalone')}
-                className={`py-2.5 text-[10px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)] font-black' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
+                onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('mechanic'); }}
+                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'mechanic' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
               >
-                🔧 Repair Shop
+                🔧 Mechanic Shop
+              </button>
+              <button
+                type="button"
+                onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('body'); }}
+                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'body' ? 'bg-blue-500 text-black border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
+              >
+                🎨 Paint & Body Shop
+              </button>
+              <button
+                type="button"
+                onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('dual'); }}
+                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'dual' ? 'bg-purple-500 text-black border-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
+              >
+                ⚡ Dual Specialty
               </button>
             </div>
           </div>
@@ -1181,31 +1195,29 @@ function App() {
               </div>
             </motion.div>
           ) : (
-            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full flex flex-col gap-2">
-              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">Select Shop Specialty</span>
-              <div className="grid grid-cols-3 gap-2">
-                <button
-                  type="button"
-                  onClick={() => setShopSpecialtyInput('mechanic')}
-                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${shopSpecialtyInput === 'mechanic' ? 'bg-emerald-500/25 text-emerald-400 border-emerald-500' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
-                >
-                  Mechanic ($45K)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShopSpecialtyInput('body')}
-                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${shopSpecialtyInput === 'body' ? 'bg-emerald-500/25 text-emerald-400 border-emerald-500' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
-                >
-                  Body Shop ($35K)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShopSpecialtyInput('dual')}
-                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${shopSpecialtyInput === 'dual' ? 'bg-emerald-500/25 text-emerald-400 border-emerald-500' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
-                >
-                  Dual ($95K)
-                </button>
-              </div>
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-left flex flex-col gap-2 font-mono text-[10px]">
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest block border-b border-white/5 pb-1">Shop Starting Logistics</span>
+              {shopSpecialtyInput === 'mechanic' && (
+                <>
+                  <div className="flex justify-between"><span className="text-gray-400">Specialty:</span> <span className="text-emerald-400 font-bold">Mechanic Specialty</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">Starting Capital:</span> <span className="text-white font-bold">$45,000 Cash</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">Intake Capacity:</span> <span className="text-white font-bold">2 Lifts & Diagnostics</span></div>
+                </>
+              )}
+              {shopSpecialtyInput === 'body' && (
+                <>
+                  <div className="flex justify-between"><span className="text-gray-400">Specialty:</span> <span className="text-blue-400 font-bold">Paint & Body Specialty</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">Starting Capital:</span> <span className="text-white font-bold">$35,000 Cash</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">Intake Capacity:</span> <span className="text-white font-bold">2 Lifts & Paint Mixer</span></div>
+                </>
+              )}
+              {shopSpecialtyInput === 'dual' && (
+                <>
+                  <div className="flex justify-between"><span className="text-gray-400">Specialty:</span> <span className="text-purple-400 font-bold">Dual-Service Center</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">Starting Capital:</span> <span className="text-white font-bold">$95,000 Cash</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">Intake Capacity:</span> <span className="text-white font-bold">4 Lifts & Full Suite</span></div>
+                </>
+              )}
             </motion.div>
           )}
 
