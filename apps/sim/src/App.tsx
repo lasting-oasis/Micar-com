@@ -5,6 +5,7 @@ import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown,
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import StandaloneShopPlatform from './StandaloneShopPlatform';
+import ShopManagement from './ShopManagement';
 
 
 const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: string, isMobile?: boolean }) => {
@@ -1025,7 +1026,7 @@ function App() {
   const [lotScaleInput, setLotScaleInput] = useState<'Small' | 'Medium' | 'Large'>('Small');
   const [careerFocusInput, setCareerFocusInput] = useState<'dealership' | 'standalone'>('dealership');
   const [shopSpecialtyInput, setShopSpecialtyInput] = useState<'mechanic' | 'body' | 'dual'>('mechanic');
-  const [activeTab, setActiveTab] = useState<'lot' | 'auction' | 'accounting' | 'crm' | 'dmv' | 'parts' | 'staff' | 'standalone-shops'>('lot');
+  const [activeTab, setActiveTab] = useState<'lot' | 'auction' | 'accounting' | 'crm' | 'dmv' | 'parts' | 'staff' | 'standalone-shops' | 'standalone-body'>('lot');
   const [expandedCarId, setExpandedCarId] = useState<string | null>(null);
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
   const [selectedCarForAgent, setSelectedCarForAgent] = useState<string | null>(null);
@@ -1085,7 +1086,11 @@ function App() {
   useEffect(() => {
     const activePlayer = gameState?.players[playerId || ''];
     if (activePlayer && (activePlayer as any).isStandaloneOperator) {
-      setActiveTab('standalone-shops');
+      if ((activePlayer as any).shopSpecialty === 'body') {
+        setActiveTab('standalone-body');
+      } else {
+        setActiveTab('standalone-shops');
+      }
     }
   }, [playerId, gameState]);
 
@@ -1274,6 +1279,13 @@ function App() {
             >
               <Wrench size={14} className={activeTab === 'standalone-shops' ? 'text-black' : 'text-emerald-400'} />
               RepairFlow Platform
+            </button>
+            <button
+              onClick={() => setActiveTab('standalone-body')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-body' ? 'bg-blue-500 text-black border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-blue-500/5 border border-blue-500/10'}`}
+            >
+              <Wrench size={14} className={activeTab === 'standalone-body' ? 'text-black' : 'text-blue-400'} />
+              AutoFlow Bodyshop
             </button>
             <button
               onClick={() => setActiveTab('auction')}
@@ -2080,6 +2092,10 @@ function App() {
               <StandaloneShopPlatform />
             )}
 
+            {activeTab === 'standalone-body' && (
+              <ShopManagement />
+            )}
+
           </AnimatePresence>
         </div>
 
@@ -2205,6 +2221,13 @@ function App() {
                   >
                     <Wrench size={24} />
                     <span className="text-xs font-bold uppercase tracking-wider text-center">RepairFlow Platform</span>
+                  </button>
+                  <button
+                    onClick={() => { setActiveTab('standalone-body'); setShowMoreMenu(false); }}
+                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-body' ? 'bg-blue-500/20 border-blue-500 text-blue-400' : 'bg-blue-500/5 border-blue-500/20 text-blue-300'}`}
+                  >
+                    <Wrench size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider text-center">AutoFlow Bodyshop</span>
                   </button>
                   <button
                     onClick={() => { setActiveTab('accounting'); setShowMoreMenu(false); }}
