@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2 } from 'lucide-react';
+import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles } from 'lucide-react';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import StandaloneShopPlatform from './StandaloneShopPlatform';
