@@ -74,7 +74,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
   activeInteraction: null,
   setActiveInteraction: (interaction) => set({ activeInteraction: interaction }),
   connect: (name, lotScale, careerFocus, shopSpecialty) => {
-    const socket = io(window.location.origin);
+    const socketUrl = window.location.port === '5173' ? 'http://localhost:3000' : window.location.origin;
+    const socket = io(socketUrl);
     
     socket.on('connect', () => {
         socket.emit('join', { name, lotScale, careerFocus, shopSpecialty });
