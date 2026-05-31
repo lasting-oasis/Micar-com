@@ -1256,56 +1256,6 @@ function App() {
   const me = gameState.players[playerId];
   if (!me) return null;
 
-  // Standalone Shop Operator View Bypass
-  if ((me as any).isStandaloneOperator) {
-    return (
-      <div className="relative min-h-screen bg-[#08090d] text-white flex flex-col font-sans select-none overflow-x-hidden w-full">
-        {/* Glowing background */}
-        <div className={`absolute top-0 left-0 right-0 h-[450px] bg-gradient-to-b ${(me as any).shopSpecialty === 'body' ? 'from-blue-500/10 via-blue-500/2' : 'from-emerald-500/10 via-emerald-500/2'} to-transparent pointer-events-none z-0`} />
-        
-        {/* Navigation Header */}
-        <header className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-5 flex justify-between items-center border-b border-white/5">
-          <div className="flex items-center gap-2.5">
-            <div className={`p-2 rounded-xl border font-extrabold tracking-wider font-mono text-sm shadow-lg ${(me as any).shopSpecialty === 'body' ? 'bg-blue-500/20 border-blue-500/40 text-blue-400' : 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400'}`}>
-              {(me as any).shopSpecialty === 'body' ? 'AF' : 'RF'}
-            </div>
-            <div>
-              <span className="text-sm font-black uppercase tracking-widest text-white block">
-                {(me as any).shopSpecialty === 'body' ? 'AutoFlow Bodyshop' : 'RepairFlow Platform'}
-              </span>
-              <span className="text-[9px] text-gray-400 font-mono tracking-widest uppercase block">
-                {(me as any).shopSpecialty === 'body' ? 'Standalone Paint & Collision' : 'Standalone Mechanic & Repair'}
-              </span>
-            </div>
-          </div>
-          
-          <div className="flex gap-2">
-            <button 
-              onClick={() => setActiveTab('standalone-shops')}
-              className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider border transition-all cursor-pointer ${activeTab === 'standalone-shops' ? 'bg-emerald-500 text-black border-emerald-500 shadow-lg' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
-            >
-              🔧 RepairFlow Platform
-            </button>
-            <button 
-              onClick={() => setActiveTab('standalone-body')}
-              className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider border transition-all cursor-pointer ${activeTab === 'standalone-body' ? 'bg-blue-500 text-black border-blue-500 shadow-lg' : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10'}`}
-            >
-              🎨 AutoFlow Bodyshop
-            </button>
-          </div>
-        </header>
-
-        {/* Main Content Area */}
-        <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
-          {activeTab === 'standalone-body' ? <ShopManagement /> : <StandaloneShopPlatform />}
-        </main>
-
-        <footer className="relative z-10 py-5 text-center border-t border-white/5 text-[9px] text-gray-500 font-mono tracking-widest">
-          © {new Date().getFullYear()} STANDALONE ENTERPRISE WORKSPACE • VERSION 1.0.0-PRO
-        </footer>
-      </div>
-    );
-  }
 
   const inventoryValue = me.inventory.reduce((sum, car) => sum + car.buyPrice, 0);
   const receivableContracts = me.contracts.reduce((sum, c) => sum + (c.dailyPayment * c.daysRemaining), 0);
@@ -1330,26 +1280,32 @@ function App() {
         {/* Navigation Tabs (Standalone / Standoff Tabs) */}
         <div className={`hidden md:flex justify-start md:justify-center mb-6 shrink-0 w-full max-w-[calc(100%-100px)] md:max-w-full ml-2 md:mx-auto overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
           <div className="flex gap-2 bg-black/50 p-2 rounded-2xl border border-white/10 backdrop-blur-md overflow-x-auto max-w-full scrollbar-none whitespace-nowrap">
-            <button
-              onClick={() => setActiveTab('lot')}
-              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 ${activeTab === 'lot' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
-            >
-              My Dealership
-            </button>
-            <button
-              onClick={() => setActiveTab('standalone-shops')}
-              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-shops' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-emerald-500/5 border border-emerald-500/10'}`}
-            >
-              <Wrench size={14} className={activeTab === 'standalone-shops' ? 'text-black' : 'text-emerald-400'} />
-              RepairFlow Platform
-            </button>
-            <button
-              onClick={() => setActiveTab('standalone-body')}
-              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-body' ? 'bg-blue-500 text-black border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-blue-500/5 border border-blue-500/10'}`}
-            >
-              <Wrench size={14} className={activeTab === 'standalone-body' ? 'text-black' : 'text-blue-400'} />
-              AutoFlow Bodyshop
-            </button>
+            {!me.isStandaloneOperator && (
+              <button
+                onClick={() => setActiveTab('lot')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 ${activeTab === 'lot' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              >
+                My Dealership
+              </button>
+            )}
+            {(me.isStandaloneOperator ? (me.shopSpecialty === 'mechanic' || me.shopSpecialty === 'dual') : true) && (
+              <button
+                onClick={() => setActiveTab('standalone-shops')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-shops' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-emerald-500/5 border border-emerald-500/10'}`}
+              >
+                <Wrench size={14} className={activeTab === 'standalone-shops' ? 'text-black' : 'text-emerald-400'} />
+                RepairFlow Platform
+              </button>
+            )}
+            {(me.isStandaloneOperator ? (me.shopSpecialty === 'body' || me.shopSpecialty === 'dual') : true) && (
+              <button
+                onClick={() => setActiveTab('standalone-body')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-body' ? 'bg-blue-500 text-black border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-blue-500/5 border border-blue-500/10'}`}
+              >
+                <Wrench size={14} className={activeTab === 'standalone-body' ? 'text-black' : 'text-blue-400'} />
+                AutoFlow Bodyshop
+              </button>
+            )}
             <button
               onClick={() => setActiveTab('auction')}
               className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'auction' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
@@ -1364,20 +1320,24 @@ function App() {
               <TrendingUp size={14} className={activeTab === 'accounting' ? 'text-black' : 'text-market'} />
               Accounting
             </button>
-            <button
-              onClick={() => setActiveTab('crm')}
-              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'crm' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
-            >
-              <Users size={14} className={activeTab === 'crm' ? 'text-black' : 'text-market'} />
-              Customers
-            </button>
-            <button
-              onClick={() => setActiveTab('dmv')}
-              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'dmv' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
-            >
-              <FileText size={14} className={activeTab === 'dmv' ? 'text-black' : 'text-market'} />
-              DMV Services
-            </button>
+            {!me.isStandaloneOperator && (
+              <button
+                onClick={() => setActiveTab('crm')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'crm' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              >
+                <Users size={14} className={activeTab === 'crm' ? 'text-black' : 'text-market'} />
+                Customers
+              </button>
+            )}
+            {!me.isStandaloneOperator && (
+              <button
+                onClick={() => setActiveTab('dmv')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'dmv' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              >
+                <FileText size={14} className={activeTab === 'dmv' ? 'text-black' : 'text-market'} />
+                DMV Services
+              </button>
+            )}
             <button
               onClick={() => setActiveTab('parts')}
               className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'parts' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
@@ -1392,13 +1352,15 @@ function App() {
               <Users size={14} className={activeTab === 'staff' ? 'text-black' : 'text-market'} />
               Staff
             </button>
-            <button
-              onClick={() => { setShowGuide(true); setGuideStep(0); }}
-              className="px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 text-warning hover:text-white hover:bg-white/5 bg-warning/10 border border-warning/20 shrink-0"
-            >
-              <HelpCircle size={14} className="text-warning" />
-              Dealer Guide
-            </button>
+            {!me.isStandaloneOperator && (
+              <button
+                onClick={() => { setShowGuide(true); setGuideStep(0); }}
+                className="px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 text-warning hover:text-white hover:bg-white/5 bg-warning/10 border border-warning/20 shrink-0"
+              >
+                <HelpCircle size={14} className="text-warning" />
+                Dealer Guide
+              </button>
+            )}
           </div>
         </div>
 
@@ -2278,20 +2240,24 @@ function App() {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-3 pb-8">
-                  <button
-                    onClick={() => { setActiveTab('standalone-shops'); setShowMoreMenu(false); }}
-                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-shops' ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' : 'bg-emerald-500/5 border-emerald-500/20 text-emerald-300'}`}
-                  >
-                    <Wrench size={24} />
-                    <span className="text-xs font-bold uppercase tracking-wider text-center">RepairFlow Platform</span>
-                  </button>
-                  <button
-                    onClick={() => { setActiveTab('standalone-body'); setShowMoreMenu(false); }}
-                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-body' ? 'bg-blue-500/20 border-blue-500 text-blue-400' : 'bg-blue-500/5 border-blue-500/20 text-blue-300'}`}
-                  >
-                    <Wrench size={24} />
-                    <span className="text-xs font-bold uppercase tracking-wider text-center">AutoFlow Bodyshop</span>
-                  </button>
+                  {(me.isStandaloneOperator ? (me.shopSpecialty === 'mechanic' || me.shopSpecialty === 'dual') : true) && (
+                    <button
+                      onClick={() => { setActiveTab('standalone-shops'); setShowMoreMenu(false); }}
+                      className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-shops' ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' : 'bg-emerald-500/5 border-emerald-500/20 text-emerald-300'}`}
+                    >
+                      <Wrench size={24} />
+                      <span className="text-xs font-bold uppercase tracking-wider text-center">RepairFlow Platform</span>
+                    </button>
+                  )}
+                  {(me.isStandaloneOperator ? (me.shopSpecialty === 'body' || me.shopSpecialty === 'dual') : true) && (
+                    <button
+                      onClick={() => { setActiveTab('standalone-body'); setShowMoreMenu(false); }}
+                      className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-body' ? 'bg-blue-500/20 border-blue-500 text-blue-400' : 'bg-blue-500/5 border-blue-500/20 text-blue-300'}`}
+                    >
+                      <Wrench size={24} />
+                      <span className="text-xs font-bold uppercase tracking-wider text-center">AutoFlow Bodyshop</span>
+                    </button>
+                  )}
                   <button
                     onClick={() => { setActiveTab('accounting'); setShowMoreMenu(false); }}
                     className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'accounting' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
@@ -2299,13 +2265,15 @@ function App() {
                     <TrendingUp size={24} />
                     <span className="text-xs font-bold uppercase tracking-wider">Accounting</span>
                   </button>
-                  <button
-                    onClick={() => { setActiveTab('crm'); setShowMoreMenu(false); }}
-                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'crm' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
-                  >
-                    <Users size={24} />
-                    <span className="text-xs font-bold uppercase tracking-wider">Customers</span>
-                  </button>
+                  {!me.isStandaloneOperator && (
+                    <button
+                      onClick={() => { setActiveTab('crm'); setShowMoreMenu(false); }}
+                      className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'crm' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
+                    >
+                      <Users size={24} />
+                      <span className="text-xs font-bold uppercase tracking-wider">Customers</span>
+                    </button>
+                  )}
                   <button
                     onClick={() => { setActiveTab('staff'); setShowMoreMenu(false); }}
                     className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'staff' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
@@ -2313,13 +2281,15 @@ function App() {
                     <Users size={24} />
                     <span className="text-xs font-bold uppercase tracking-wider">Staff List</span>
                   </button>
-                  <button
-                    onClick={() => { setShowGuide(true); setGuideStep(0); setShowMoreMenu(false); }}
-                    className="p-4 rounded-2xl border bg-warning/10 border-warning/30 text-warning hover:bg-warning hover:text-black transition-all flex flex-col items-center justify-center gap-2"
-                  >
-                    <HelpCircle size={24} />
-                    <span className="text-xs font-bold uppercase tracking-wider">Dealer Guide</span>
-                  </button>
+                  {!me.isStandaloneOperator && (
+                    <button
+                      onClick={() => { setShowGuide(true); setGuideStep(0); setShowMoreMenu(false); }}
+                      className="p-4 rounded-2xl border bg-warning/10 border-warning/30 text-warning hover:bg-warning hover:text-black transition-all flex flex-col items-center justify-center gap-2"
+                    >
+                      <HelpCircle size={24} />
+                      <span className="text-xs font-bold uppercase tracking-wider">Dealer Guide</span>
+                    </button>
+                  )}
                 </div>
               </motion.div>
             </>
