@@ -757,7 +757,23 @@ export function VanillaThreeScene() {
         
         const initialMe = stateRef.current.gameState?.players[stateRef.current.playerId || ''];
         if (initialMe && initialMe.lotPosition) {
-            avatar.position.set(initialMe.lotPosition.x, 0, initialMe.lotPosition.z + 30);
+            let spawnX = initialMe.lotPosition.x;
+            let spawnZ = initialMe.lotPosition.z;
+            if ((initialMe as any).isStandaloneOperator) {
+                if ((initialMe as any).shopSpecialty === 'mechanic') {
+                    spawnX += 55;
+                    spawnZ -= 10;
+                } else if ((initialMe as any).shopSpecialty === 'body') {
+                    spawnX += 55;
+                    spawnZ += 35;
+                } else { // dual
+                    spawnX += 55;
+                    spawnZ += 20;
+                }
+            } else {
+                spawnZ += 30;
+            }
+            avatar.position.set(spawnX, 0, spawnZ);
         } else {
             avatar.position.set(0, 0, 30);
         }
@@ -910,7 +926,24 @@ export function VanillaThreeScene() {
                  let safeZ = me.lotPosition.z;
                  if (safeX <= -75) safeX = -20;
                  if (safeZ <= -75) safeZ = -20;
-                 avatar.position.set(safeX, 0, safeZ);
+                 
+                 let spawnX = safeX;
+                 let spawnZ = safeZ;
+                 if ((me as any).isStandaloneOperator) {
+                     if ((me as any).shopSpecialty === 'mechanic') {
+                         spawnX += 55;
+                         spawnZ -= 10;
+                     } else if ((me as any).shopSpecialty === 'body') {
+                         spawnX += 55;
+                         spawnZ += 35;
+                     } else { // dual
+                         spawnX += 55;
+                         spawnZ += 20;
+                     }
+                 } else {
+                     spawnZ += 30;
+                 }
+                 avatar.position.set(spawnX, 0, spawnZ);
                  hasInitializedSpawn = true;
             }
 
