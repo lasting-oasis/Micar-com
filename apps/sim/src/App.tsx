@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu } from 'lucide-react';
+import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2 } from 'lucide-react';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
+import StandaloneShopPlatform from './StandaloneShopPlatform';
 
 
 const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: string, isMobile?: boolean }) => {
@@ -12,7 +13,7 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
   const mapCenter = isMobile ? 25 : 50;
   
   return (
-    <div className={`fixed bottom-6 right-8 rounded-xl border border-white/20 bg-black/60 backdrop-blur-md overflow-hidden z-[999] pointer-events-none transition-all duration-300 ${isMobile ? 'w-[50px] h-[50px]' : 'w-[100px] h-[100px]'}`}>
+    <div className={`fixed rounded-xl border border-white/20 bg-black/60 backdrop-blur-md overflow-hidden z-[999] pointer-events-none transition-all duration-300 ${isMobile ? 'bottom-28 right-8 w-[50px] h-[50px]' : 'bottom-6 right-8 w-[100px] h-[100px]'}`}>
        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: isMobile ? '5px 5px' : '10px 10px' }}></div>
        {Object.values(gameState.players).map((p: any) => {
           if (!p.worldPosition) return null;
@@ -1022,7 +1023,9 @@ function App() {
 
   const [nameInput, setNameInput] = useState('');
   const [lotScaleInput, setLotScaleInput] = useState<'Small' | 'Medium' | 'Large'>('Small');
-  const [activeTab, setActiveTab] = useState<'lot' | 'auction' | 'accounting' | 'crm' | 'dmv' | 'parts' | 'staff'>('lot');
+  const [careerFocusInput, setCareerFocusInput] = useState<'dealership' | 'standalone'>('dealership');
+  const [shopSpecialtyInput, setShopSpecialtyInput] = useState<'mechanic' | 'body' | 'dual'>('mechanic');
+  const [activeTab, setActiveTab] = useState<'lot' | 'auction' | 'accounting' | 'crm' | 'dmv' | 'parts' | 'staff' | 'standalone-shops'>('lot');
   const [expandedCarId, setExpandedCarId] = useState<string | null>(null);
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
   const [selectedCarForAgent, setSelectedCarForAgent] = useState<string | null>(null);
@@ -1044,7 +1047,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const checkMobile = () => {
-      const mobileCheck = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const mobileCheck = window.innerWidth <= 1024 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
       setIsMobile(mobileCheck);
     };
     checkMobile();
@@ -1079,64 +1082,142 @@ function App() {
     }
   }, [playerId, gameState, autoShowGuide, hasShownInitialGuide]);
 
+  useEffect(() => {
+    const activePlayer = gameState?.players[playerId || ''];
+    if (activePlayer && (activePlayer as any).isStandaloneOperator) {
+      setActiveTab('standalone-shops');
+    }
+  }, [playerId, gameState]);
+
   // Initial Connect screen
   if (!playerId || !gameState) {
     return (
-      <div className="flex h-screen items-center justify-center bg-background">
+      <div className="flex flex-col gap-4 min-h-screen items-center justify-center bg-background p-4 overflow-y-auto">
+        
+        {/* CARD 1: Brand Identity & Name Input */}
         <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="panel flex flex-col items-center gap-6 p-10 max-w-sm w-full border-market/30"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="panel flex flex-col items-center gap-4 p-6 max-w-sm w-full border-market/30 bg-black/90 backdrop-blur-xl shadow-2xl rounded-2xl shrink-0"
         >
           <div className="text-center">
-            <h1 className="text-3xl font-bold tracking-tighter text-white mb-2 uppercase">Used Car Empire</h1>
-            <p className="text-sm text-gray-400">Initialize sequence...</p>
+            <h1 className="text-2xl font-black tracking-tighter text-white uppercase flex items-center justify-center gap-2">
+              <Sparkles className="text-market w-5 h-5 animate-pulse" />
+              Used Car Empire
+            </h1>
+            <p className="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-1">Initialize corporate simulator</p>
           </div>
 
-          <input
-            type="text"
-            className="w-full bg-black/50 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-market focus:ring-1 focus:ring-market transition-all"
-            placeholder="Enter Dealer Name"
-            value={nameInput}
-            onChange={(e) => setNameInput(e.target.value)}
-          />
+          <div className="w-full flex flex-col gap-1.5 text-left">
+            <label className="text-[9px] font-black text-gray-500 uppercase tracking-widest">Company Operator Name</label>
+            <input
+              type="text"
+              className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-market transition-all"
+              placeholder="e.g. Apex Corporate"
+              value={nameInput}
+              onChange={(e) => setNameInput(e.target.value)}
+            />
+          </div>
+        </motion.div>
 
+        {/* CARD 2: Career Path & Business Specialty Settings */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="panel flex flex-col gap-5 p-6 max-w-sm w-full border-market/30 bg-black/90 backdrop-blur-xl shadow-2xl rounded-2xl shrink-0"
+        >
           <div className="w-full flex flex-col gap-2">
-            <span className="text-xs font-bold text-gray-500 uppercase tracking-widest text-left">Select Dealership Tier</span>
-            <div className="grid grid-cols-3 gap-2">
+            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">Select Career Path</span>
+            <div className="grid grid-cols-2 gap-2">
               <button
-                onClick={() => setLotScaleInput('Small')}
-                className={`py-2 text-xs font-bold uppercase rounded border transition-colors ${lotScaleInput === 'Small' ? 'bg-market text-black border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
+                type="button"
+                onClick={() => setCareerFocusInput('dealership')}
+                className={`py-2.5 text-[10px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'dealership' ? 'bg-market text-black border-market shadow-[0_0_10px_rgba(59,130,246,0.3)] font-black' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
               >
-                Small Lot
+                💼 Dealership
               </button>
               <button
-                onClick={() => setLotScaleInput('Medium')}
-                className={`py-2 text-xs font-bold uppercase rounded border transition-colors ${lotScaleInput === 'Medium' ? 'bg-market text-black border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
+                type="button"
+                onClick={() => setCareerFocusInput('standalone')}
+                className={`py-2.5 text-[10px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)] font-black' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
               >
-                Medium Lot
-              </button>
-              <button
-                onClick={() => setLotScaleInput('Large')}
-                className={`py-2 text-xs font-bold uppercase rounded border transition-colors ${lotScaleInput === 'Large' ? 'bg-market text-black border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
-              >
-                Large Lot
+                🔧 Repair Shop
               </button>
             </div>
           </div>
 
+          {careerFocusInput === 'dealership' ? (
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full flex flex-col gap-2">
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">Select Dealership Tier</span>
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setLotScaleInput('Small')}
+                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Small' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
+                >
+                  Small ($25K)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLotScaleInput('Medium')}
+                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Medium' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
+                >
+                  Med ($75K)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLotScaleInput('Large')}
+                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Large' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
+                >
+                  Large ($250K)
+                </button>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full flex flex-col gap-2">
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">Select Shop Specialty</span>
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShopSpecialtyInput('mechanic')}
+                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${shopSpecialtyInput === 'mechanic' ? 'bg-emerald-500/25 text-emerald-400 border-emerald-500' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
+                >
+                  Mechanic ($45K)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShopSpecialtyInput('body')}
+                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${shopSpecialtyInput === 'body' ? 'bg-emerald-500/25 text-emerald-400 border-emerald-500' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
+                >
+                  Body Shop ($35K)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShopSpecialtyInput('dual')}
+                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${shopSpecialtyInput === 'dual' ? 'bg-emerald-500/25 text-emerald-400 border-emerald-500' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
+                >
+                  Dual ($95K)
+                </button>
+              </div>
+            </motion.div>
+          )}
+
           <div className="w-full flex flex-col gap-2 mt-1">
-            <span className="text-xs font-bold text-gray-500 uppercase tracking-widest text-left">First Time Playing?</span>
+            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">First Time Playing?</span>
             <div className="grid grid-cols-2 gap-2">
               <button
+                type="button"
                 onClick={() => setAutoShowGuide(true)}
-                className={`py-2 text-xs font-bold uppercase rounded border transition-all ${autoShowGuide ? 'bg-success/20 text-success border-success' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
+                className={`py-2 text-[9.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${autoShowGuide ? 'bg-success/20 text-success border-success' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
               >
                 Show Guide
               </button>
               <button
+                type="button"
                 onClick={() => setAutoShowGuide(false)}
-                className={`py-2 text-xs font-bold uppercase rounded border transition-all ${!autoShowGuide ? 'bg-white/10 text-white border-white/30' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
+                className={`py-2 text-[9.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${!autoShowGuide ? 'bg-white/10 text-white border-white/30' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
               >
                 Opt Out
               </button>
@@ -1144,8 +1225,9 @@ function App() {
           </div>
 
           <button
-            className="w-full bg-market hover:bg-blue-400 text-black font-bold uppercase tracking-wider py-3 rounded-lg transition-colors flex items-center justify-center gap-2 mt-2"
-            onClick={() => connect(nameInput || 'Anonymous', lotScaleInput)}
+            type="button"
+            className="w-full bg-gradient-to-r from-blue-500 to-market text-black font-black uppercase tracking-widest py-3 rounded-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2 mt-2 shadow-lg cursor-pointer"
+            onClick={() => connect(nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScaleInput, careerFocusInput, shopSpecialtyInput)}
           >
             <LogIn size={18} /> Establish Connection
           </button>
@@ -1185,6 +1267,13 @@ function App() {
               className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 ${activeTab === 'lot' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
               My Dealership
+            </button>
+            <button
+              onClick={() => setActiveTab('standalone-shops')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-shops' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-emerald-500/5 border border-emerald-500/10'}`}
+            >
+              <Wrench size={14} className={activeTab === 'standalone-shops' ? 'text-black' : 'text-emerald-400'} />
+              RepairFlow Platform
             </button>
             <button
               onClick={() => setActiveTab('auction')}
@@ -1987,6 +2076,10 @@ function App() {
               </motion.div>
             )}
 
+            {activeTab === 'standalone-shops' && (
+              <StandaloneShopPlatform />
+            )}
+
           </AnimatePresence>
         </div>
 
@@ -2067,6 +2160,13 @@ function App() {
               <span className="text-[9px] font-black uppercase tracking-wider">Parts</span>
             </button>
             <button
+              onClick={() => { setShowUI(false); setShowMoreMenu(false); }}
+              className="flex flex-col items-center gap-1 transition-all text-gray-400 hover:text-white"
+            >
+              <Gamepad2 size={20} className="text-emerald-400 animate-pulse" />
+              <span className="text-[9px] font-black uppercase tracking-wider text-emerald-400">Explore</span>
+            </button>
+            <button
               onClick={() => setShowMoreMenu(prev => !prev)}
               className={`flex flex-col items-center gap-1 transition-all ${showMoreMenu ? 'text-warning font-black scale-105' : 'text-gray-400'}`}
             >
@@ -2099,6 +2199,13 @@ function App() {
                 </div>
                 
                 <div className="grid grid-cols-2 gap-3 pb-8">
+                  <button
+                    onClick={() => { setActiveTab('standalone-shops'); setShowMoreMenu(false); }}
+                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-shops' ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' : 'bg-emerald-500/5 border-emerald-500/20 text-emerald-300'}`}
+                  >
+                    <Wrench size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider text-center">RepairFlow Platform</span>
+                  </button>
                   <button
                     onClick={() => { setActiveTab('accounting'); setShowMoreMenu(false); }}
                     className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'accounting' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}

@@ -6,6 +6,72 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const GLOSSARY = {
+  'obd': { title: 'OBD-II Scan', desc: 'On-Board Diagnostics. A standardized computer protocol allowing technicians to query internal powertrain sensor fault codes.' },
+  'ecu': { title: 'ECU Coding', desc: 'Engine Control Unit. The main computer brain coordinating fuel injection, cylinder spark, and camshaft timing cycles.' },
+  'can': { title: 'CAN-Bus Network', desc: 'Controller Area Network. The high-speed physical wire harness that networks all vehicle microcontrollers and sensors.' },
+  'vvt': { title: 'VVT Pulley', desc: 'Variable Valve Timing pulley. An ECU-controlled sprocket that advances or retards intake valve cycles dynamically.' },
+  'vin': { title: 'VIN Frame ID', desc: 'Vehicle Identification Number. A unique 17-digit physical serialization serial stamp representing the vehicle\'s mainframe chassis.' },
+  'ro': { title: 'Repair Order (RO)', desc: 'A service ticket tracking a vehicle checked into the mechanic bay lifts.' }
+};
+
+const GlossaryTerm = ({ term, children }: { term: keyof typeof GLOSSARY; children: React.ReactNode }) => {
+  const [show, setShow] = useState(false);
+  const info = GLOSSARY[term];
+  return (
+    <span className="relative inline-flex items-center gap-1 group">
+      <span className="font-bold underline decoration-dashed decoration-emerald-500/50 hover:text-emerald-400 cursor-help transition-colors">
+        {children}
+      </span>
+      <button 
+        type="button"
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+        onClick={() => setShow(!show)}
+        className="w-3.5 h-3.5 rounded-full bg-white/10 hover:bg-emerald-500/20 hover:text-emerald-400 flex items-center justify-center text-[8px] font-black text-gray-400 cursor-help select-none"
+      >
+        ?
+      </button>
+      <AnimatePresence>
+        {show && (
+          <motion.div
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 5 }}
+            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 bg-[#0f0f13]/95 border border-emerald-500/40 rounded-xl shadow-2xl backdrop-blur-md z-[10000] text-left select-none pointer-events-none"
+          >
+            <h5 className="text-[10px] font-black uppercase tracking-wider text-emerald-400 mb-1">{info.title}</h5>
+            <p className="text-[9px] text-gray-300 leading-normal font-sans font-medium">{info.desc}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </span>
+  );
+};
+
+const TUTORIAL_STEPS = [
+  {
+    title: 'Welcome to MechFlow Pro! ⚙️',
+    desc: 'This diagnostics suite lets you audit active lift bays, scan electronic ECU modules, and manage parts spares.',
+    target: 'header'
+  },
+  {
+    title: '1. Active Lift Bays 🛗',
+    desc: 'Open "Lift Bays" to monitor checked-in cars, manage repair stages, and update symptom comments.',
+    target: 'nav'
+  },
+  {
+    title: '2. OBD-II CAN-Bus Terminal 💻',
+    desc: 'Select a vehicle, click "Initiate OBD-II Scan", and query the powertrain control module for live sensor trouble codes.',
+    target: 'nav'
+  },
+  {
+    title: '3. Layman\'s Glossary 💡',
+    desc: 'Hover over any dotted underlined word with a (?) question badge to read its simple definition instantly!',
+    target: 'glossary'
+  }
+];
+
 // Stages of the mechanics shop repair process
 const MECH_STAGES = [
   { id: 0, name: 'Diagnostic Scan', icon: Terminal, desc: 'OBD-II Fault Scanning & Verification' },
@@ -60,6 +126,9 @@ export default function MechanicManagement() {
   const [view, setView] = useState<'landing' | 'lifts' | 'obd' | 'inventory' | 'dev'>('landing');
   const [jobs, setJobs] = useState(INITIAL_JOBS);
   const [selectedJobId, setSelectedJobId] = useState<string>('RO-3001');
+
+  const [showTutorial, setShowTutorial] = useState(false);
+  const [tutorialStep, setTutorialStep] = useState(0);
 
   // Scanner Terminal logs simulation states
   const [isScanning, setIsScanning] = useState(false);
@@ -194,8 +263,14 @@ export default function MechanicManagement() {
           </div>
           <div>
             <h1 className="text-xl font-bold tracking-wider uppercase text-white">MechFlow Pro Diagnostics</h1>
-            <p className="text-xs text-gray-400 font-mono">Mechanical Lift Bays & OBD-II Diagnostics</p>
+            <p className="text-xs text-gray-400 font-mono"><GlossaryTerm term="obd">OBD-II</GlossaryTerm> & Mechanical Lift Bays</p>
           </div>
+          <button
+            onClick={() => { setShowTutorial(true); setTutorialStep(0); }}
+            className="ml-3 px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all rounded-lg text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 animate-pulse select-none"
+          >
+            💡 Quick Tour
+          </button>
         </div>
 
         {/* Standalone Tab Navigation */}
@@ -278,8 +353,8 @@ export default function MechanicManagement() {
                 <h2 className="text-2xl font-black uppercase tracking-wider text-white">
                   Real-Time <span className="text-emerald-400">Mechanical & ECU Operations</span>
                 </h2>
-                <p className="text-sm text-gray-400 max-w-xl leading-relaxed">
-                  Monitor engine overhauls, transmission sync calibrations, and CAN-bus electrical networks. Access direct OBD-II live fault codes using our integrated scan terminal.
+                <p className="text-sm text-gray-400 max-w-xl leading-relaxed font-medium">
+                  Monitor engine overhauls, transmission sync calibrations, and <GlossaryTerm term="can">CAN-bus</GlossaryTerm> electrical networks. Access direct <GlossaryTerm term="obd">OBD-II</GlossaryTerm> live fault codes using our integrated scan terminal.
                 </p>
               </div>
               <div className="flex gap-3 shrink-0 w-full md:w-auto">
@@ -437,7 +512,7 @@ export default function MechanicManagement() {
                   <div className="flex justify-between items-start border-b border-white/10 pb-3">
                     <div>
                       <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
-                        LIFT {idx + 1}: {job.id}
+                        LIFT {idx + 1}: <GlossaryTerm term="ro">{job.id}</GlossaryTerm>
                       </span>
                       <h3 className="font-bold text-white text-base mt-2">{job.vehicle}</h3>
                       <span className="text-xs text-gray-400">Client: {job.customerName}</span>
@@ -449,10 +524,24 @@ export default function MechanicManagement() {
                     )}
                   </div>
 
+                  {/* Inline visual progress bar */}
+                  <div className="flex flex-col gap-1.5 border-b border-white/5 pb-3">
+                    <div className="flex justify-between text-[9px] uppercase font-mono tracking-widest text-gray-400">
+                      <span>Diagnostics Progress</span>
+                      <span className="text-emerald-400 font-bold">{Math.round((job.status / 6) * 100)}%</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-black/40 rounded-full overflow-hidden border border-white/5">
+                      <div 
+                        className="h-full bg-gradient-to-r from-blue-500 to-emerald-400 rounded-full transition-all duration-500 shadow-[0_0_8px_#10b981]"
+                        style={{ width: `${(job.status / 6) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+
                   {/* Pipeline selector */}
                   <div className="space-y-3">
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[9px] text-gray-400 uppercase tracking-widest font-bold">Active Repair Pipeline Stage</label>
+                      <label className="text-[9px] text-gray-400 uppercase tracking-widest font-bold">Active Repair <GlossaryTerm term="obd">Pipeline Stage</GlossaryTerm></label>
                       <select
                         value={job.status}
                         onChange={(e) => updateJob(job.id, parseInt(e.target.value), job.notes)}
@@ -559,56 +648,191 @@ export default function MechanicManagement() {
               </div>
             </div>
 
-            {/* Middle Column: Interactive ECU Scan Terminal */}
-            <div className="lg:col-span-2 flex flex-col gap-4">
-              <div className="flex justify-between items-baseline border-b border-white/10 pb-2">
-                <h3 className="text-xs font-black uppercase tracking-widest text-emerald-400">ECU Terminal Console</h3>
-                <span className="text-[9.5px] text-gray-500 font-mono">VIN: {activeJob.vin}</span>
+            {/* Middle Column: Interactive ECU Scan Terminal & Visual Monitor */}
+            <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              {/* SUB-COLUMN 1: ECU Terminal Console */}
+              <div className="flex flex-col gap-4">
+                <div className="flex justify-between items-baseline border-b border-white/10 pb-2">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-emerald-400">ECU Terminal Console</h3>
+                  <span className="text-[9.5px] text-gray-500 font-mono">VIN: <GlossaryTerm term="vin">{activeJob.vin}</GlossaryTerm></span>
+                </div>
+
+                <div className="bg-black/80 border border-emerald-500/20 p-5 rounded-2xl flex flex-col gap-4 shadow-2xl min-h-[350px] font-mono text-xs">
+                  
+                  {/* Console Log Panel */}
+                  <div className="flex-grow bg-[#050507] border border-emerald-950 p-4 rounded-xl flex flex-col gap-2 min-h-[220px] max-h-[260px] overflow-y-auto text-emerald-400 select-text scrollbar-thin">
+                    {scanLogs.length === 0 ? (
+                      <div className="text-gray-600 italic">OBD-II CAN Scanner interface loaded. Press "Initiate OBD-II Scan" to query powertrain module errors.</div>
+                    ) : (
+                      scanLogs.map((log, i) => (
+                        <div key={i} className="leading-relaxed animate-in fade-in slide-in-from-left-2 duration-300">
+                          {log}
+                        </div>
+                      ))
+                    )}
+                    {isScanning && (
+                      <div className="flex items-center gap-2 text-emerald-300 font-bold uppercase animate-pulse mt-2">
+                        <span className="flex h-2.5 w-2.5 relative">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                        </span>
+                        Scanning bus modules ({scanProgress}%)...
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => runObdScan(activeJob.faultCode)}
+                      disabled={isScanning || !allowDiagnose}
+                      className="flex-grow bg-emerald-500 hover:bg-emerald-400 text-black py-3 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer flex justify-center items-center gap-2"
+                    >
+                      <Play size={14} /> {isScanning ? 'Querying CAN-Bus...' : 'Initiate OBD-II Scan'}
+                    </button>
+                    <button
+                      onClick={() => {
+                        setScanLogs([]);
+                        setScanResultCode(null);
+                      }}
+                      className="bg-white/5 border border-white/10 hover:bg-white/10 text-white px-4 py-3 rounded-xl font-bold uppercase tracking-wider transition-colors"
+                    >
+                      Clear Console
+                    </button>
+                  </div>
+
+                </div>
               </div>
 
-              <div className="bg-black/80 border border-emerald-500/20 p-5 rounded-2xl flex flex-col gap-4 shadow-2xl min-h-[350px] font-mono text-xs">
-                
-                {/* Console Log Panel */}
-                <div className="flex-grow bg-[#050507] border border-emerald-950 p-4 rounded-xl flex flex-col gap-2 min-h-[220px] max-h-[260px] overflow-y-auto text-emerald-400 select-text scrollbar-thin">
-                  {scanLogs.length === 0 ? (
-                    <div className="text-gray-600 italic">OBD-II CAN Scanner interface loaded. Press "Initiate OBD-II Scan" to query powertrain module errors.</div>
-                  ) : (
-                    scanLogs.map((log, i) => (
-                      <div key={i} className="leading-relaxed animate-in fade-in slide-in-from-left-2 duration-300">
-                        {log}
-                      </div>
-                    ))
-                  )}
-                  {isScanning && (
-                    <div className="flex items-center gap-2 text-emerald-300 font-bold uppercase animate-pulse mt-2">
-                      <span className="flex h-2.5 w-2.5 relative">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                      </span>
-                      Scanning bus modules ({scanProgress}%)...
+              {/* SUB-COLUMN 2: Virtual Engine Diagnostics Monitor */}
+              <div className="flex flex-col gap-4">
+                <div className="flex justify-between items-baseline border-b border-white/10 pb-2">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-emerald-400">Powertrain Visualizer</h3>
+                  <span className="bg-emerald-500/10 text-emerald-400 text-[8px] px-2 py-0.5 rounded font-mono uppercase font-black tracking-widest animate-pulse">
+                    Live Telemetry
+                  </span>
+                </div>
+
+                <div className="bg-[#0b0c10]/80 border border-emerald-500/20 p-5 rounded-2xl flex flex-col gap-4 shadow-2xl min-h-[350px] text-left">
+                  <div className="flex-grow flex items-center justify-center bg-black/40 border border-white/5 rounded-xl p-4 relative overflow-hidden h-[220px]">
+                    {/* Visual Connection Wire Cable overlay */}
+                    <div className="absolute top-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 text-[9px] font-mono tracking-widest text-emerald-500/60 bg-black/40 px-3 py-1 rounded-full border border-emerald-950">
+                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping"></span>
+                      <span>OBD-II DATA FEED ACTIVE</span>
                     </div>
-                  )}
-                </div>
 
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={() => runObdScan(activeJob.faultCode)}
-                    disabled={isScanning || !allowDiagnose}
-                    className="flex-grow bg-emerald-500 hover:bg-emerald-400 text-black py-3 rounded-xl font-black uppercase tracking-widest transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer flex justify-center items-center gap-2"
-                  >
-                    <Play size={14} /> {isScanning ? 'Querying CAN-Bus...' : 'Initiate OBD-II Scan'}
-                  </button>
-                  <button
-                    onClick={() => {
-                      setScanLogs([]);
-                      setScanResultCode(null);
-                    }}
-                    className="bg-white/5 border border-white/10 hover:bg-white/10 text-white px-4 py-3 rounded-xl font-bold uppercase tracking-wider transition-colors"
-                  >
-                    Clear Console
-                  </button>
-                </div>
+                    {/* V8 Piston Cylinder Block Misfire visual */}
+                    {activeJob.faultCode === 'P0302' && (
+                      <svg viewBox="0 0 200 150" className="w-full h-full max-h-[160px]">
+                        <path d="M 40 40 L 160 40 L 180 120 L 20 120 Z" fill="none" stroke="#374151" strokeWidth="3" />
+                        <rect x="80" y="120" width="40" height="20" fill="none" stroke="#374151" strokeWidth="3" />
+                        <line x1="55" y1="50" x2="35" y2="90" stroke="#ef4444" strokeWidth="10" strokeLinecap="round" className="animate-pulse" />
+                        <text x="35" y="45" fill="#9ca3af" fontSize="8" fontFamily="monospace">CYL 1-4</text>
+                        <line x1="145" y1="50" x2="165" y2="90" stroke="#10b981" strokeWidth="10" strokeLinecap="round" />
+                        <text x="145" y="45" fill="#9ca3af" fontSize="8" fontFamily="monospace">CYL 5-8</text>
+                        <circle cx="100" cy="100" r="15" fill="none" stroke="#4b5563" strokeWidth="3" />
+                        <circle cx="100" cy="100" r="4" fill="#9ca3af" />
+                        <g className="animate-bounce">
+                          <path d="M 30 70 L 40 60 L 45 75 L 55 65 L 45 85 L 35 75 Z" fill="#f59e0b" />
+                          <text x="5" y="70" fill="#ef4444" fontSize="7" fontWeight="bold" fontFamily="sans-serif">MISFIRE!</text>
+                        </g>
+                      </svg>
+                    )}
 
+                    {/* Transmission Gearbox Sync Wear visual */}
+                    {activeJob.faultCode === 'P0700' && (
+                      <svg viewBox="0 0 200 150" className="w-full h-full max-h-[160px]">
+                        <style>{`
+                          @keyframes gear-spin-cw {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                          }
+                          @keyframes gear-spin-ccw {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(-360deg); }
+                          }
+                          .gear-cw { transform-origin: 65px 75px; animation: gear-spin-cw 4s linear infinite; }
+                          .gear-ccw { transform-origin: 135px 75px; animation: gear-spin-ccw 4s linear infinite; }
+                        `}</style>
+                        <rect x="20" y="45" width="160" height="60" rx="10" fill="none" stroke="#374151" strokeWidth="2" />
+                        <line x1="10" y1="75" x2="190" y2="75" stroke="#4b5563" strokeWidth="4" />
+                        <g className="gear-cw">
+                          <circle cx="65" cy="75" r="30" fill="none" stroke="#10b981" strokeWidth="4" strokeDasharray="6 4" />
+                          <circle cx="65" cy="75" r="15" fill="none" stroke="#4b5563" strokeWidth="2" />
+                          <circle cx="65" cy="75" r="4" fill="#9ca3af" />
+                        </g>
+                        <g className="gear-ccw">
+                          <circle cx="135" cy="75" r="30" fill="none" stroke="#ef4444" strokeWidth="4" strokeDasharray="6 4" className="animate-pulse" />
+                          <circle cx="135" cy="75" r="15" fill="none" stroke="#4b5563" strokeWidth="2" />
+                          <circle cx="135" cy="75" r="4" fill="#9ca3af" />
+                        </g>
+                        <g className="animate-bounce">
+                          <circle cx="100" cy="75" r="10" fill="#f59e0b" opacity="0.8" />
+                          <text x="100" y="79" fill="#000" fontSize="10" fontWeight="bold" textAnchor="middle">⚡</text>
+                          <text x="100" y="125" fill="#ef4444" fontSize="8" fontWeight="black" fontFamily="monospace" textAnchor="middle">GEAR CLASH!</text>
+                        </g>
+                      </svg>
+                    )}
+
+                    {/* timing chain / VVT misalignment visual */}
+                    {activeJob.faultCode === 'P0011' && (
+                      <svg viewBox="0 0 200 150" className="w-full h-full max-h-[160px]">
+                        <style>{`
+                          @keyframes pulley-spin {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                          }
+                          .pulley-l { transform-origin: 65px 45px; animation: pulley-spin 6s linear infinite; }
+                          .pulley-r { transform-origin: 135px 45px; animation: pulley-spin 6s linear infinite; }
+                          .pulley-crank { transform-origin: 100px 105px; animation: pulley-spin 3s linear infinite; }
+                        `}</style>
+                        <path d="M 65 15 L 135 15 A 30 30 0 0 1 165 45 L 125 105 A 25 25 0 0 1 75 105 L 35 45 A 30 30 0 0 1 65 15 Z" fill="none" stroke="#f59e0b" strokeWidth="3" strokeDasharray="3 3" />
+                        <g className="pulley-l">
+                          <circle cx="65" cy="45" r="22" fill="none" stroke="#10b981" strokeWidth="4" />
+                          <line x1="65" y1="23" x2="65" y2="67" stroke="#4b5563" strokeWidth="2" />
+                          <line x1="43" y1="45" x2="87" y2="45" stroke="#4b5563" strokeWidth="2" />
+                          <circle cx="65" cy="45" r="4" fill="#9ca3af" />
+                        </g>
+                        <g className="pulley-r">
+                          <circle cx="135" cy="45" r="22" fill="none" stroke="#ef4444" strokeWidth="4" className="animate-pulse" />
+                          <line x1="135" y1="23" x2="135" y2="67" stroke="#4b5563" strokeWidth="2" />
+                          <line x1="113" y1="45" x2="157" y2="45" stroke="#4b5563" strokeWidth="2" />
+                          <circle cx="135" cy="45" r="4" fill="#9ca3af" />
+                        </g>
+                        <g className="pulley-crank">
+                          <circle cx="100" cy="105" r="15" fill="none" stroke="#10b981" strokeWidth="4" />
+                          <circle cx="100" cy="105" r="4" fill="#9ca3af" />
+                        </g>
+                        <g className="animate-bounce">
+                          <text x="100" y="140" fill="#ef4444" fontSize="8" fontWeight="black" fontFamily="monospace" textAnchor="middle">TIMING MISALIGNED!</text>
+                          <circle cx="135" cy="23" r="3" fill="#ef4444" />
+                          <line x1="135" y1="15" x2="135" y2="30" stroke="#ef4444" strokeWidth="1.5" />
+                        </g>
+                      </svg>
+                    )}
+
+                    {/* Oxygen Sensor / Lean Mix / Cat Converter visual */}
+                    {(activeJob.faultCode === 'P0171' || activeJob.faultCode === 'P0420') && (
+                      <svg viewBox="0 0 200 150" className="w-full h-full max-h-[160px]">
+                        <path d="M 20 40 L 70 40 L 100 75 L 180 75" fill="none" stroke={activeJob.faultCode === 'P0171' ? '#f59e0b' : '#10b981'} strokeWidth="8" className={activeJob.faultCode === 'P0171' ? 'animate-pulse' : ''} />
+                        <rect x="100" y="60" width="50" height="30" rx="5" fill="none" stroke={activeJob.faultCode === 'P0420' ? '#ef4444' : '#4b5563'} strokeWidth="3" className={activeJob.faultCode === 'P0420' ? 'animate-pulse' : ''} />
+                        <text x="125" y="78" fill="#9ca3af" fontSize="6" textAnchor="middle" fontFamily="monospace">CATALYTIC</text>
+                        {activeJob.faultCode === 'P0171' && (
+                          <g className="animate-pulse">
+                            <circle cx="60" cy="40" r="12" fill="#eab308" opacity="0.3" />
+                            <text x="60" y="115" fill="#eab308" fontSize="8" fontWeight="bold" fontFamily="monospace" textAnchor="middle">SYSTEM LEAN (GAS EXP)</text>
+                          </g>
+                        )}
+                        {activeJob.faultCode === 'P0420' && (
+                          <g className="animate-pulse">
+                            <circle cx="125" cy="75" r="16" fill="#ef4444" opacity="0.3" />
+                            <text x="125" y="115" fill="#ef4444" fontSize="8" fontWeight="bold" fontFamily="monospace" textAnchor="middle">EMISSIONS FAIL</text>
+                          </g>
+                        )}
+                      </svg>
+                    )}
+                  </div>
+                </div>
               </div>
 
               {/* Scan Results Diagnostics Display */}
@@ -812,6 +1036,62 @@ export default function MechanicManagement() {
         )}
 
       </div>
+
+      {/* Onboarding Tutorial Guide Overlay */}
+      <AnimatePresence>
+        {showTutorial && (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-[99999] flex items-center justify-center p-4 select-none pointer-events-auto">
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-[#0b0c10]/95 border-2 border-emerald-500/40 rounded-2xl max-w-sm w-full p-6 shadow-2xl relative text-white text-left flex flex-col gap-4"
+            >
+              <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                <span className="text-[10px] font-mono font-bold text-emerald-400">
+                  GUIDED TOUR • STEP {tutorialStep + 1} OF {TUTORIAL_STEPS.length}
+                </span>
+                <button 
+                  onClick={() => setShowTutorial(false)}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="space-y-2">
+                <h4 className="font-black text-white text-lg uppercase tracking-wide leading-tight">
+                  {TUTORIAL_STEPS[tutorialStep].title}
+                </h4>
+                <p className="text-xs text-gray-300 leading-relaxed font-sans font-medium">
+                  {TUTORIAL_STEPS[tutorialStep].desc}
+                </p>
+              </div>
+              <div className="flex justify-between items-center pt-2 mt-2 border-t border-white/5">
+                <button
+                  disabled={tutorialStep === 0}
+                  onClick={() => setTutorialStep(prev => prev - 1)}
+                  className="px-3 py-1.5 bg-white/5 border border-white/10 text-gray-400 hover:text-white transition-colors rounded-lg text-xs font-bold uppercase disabled:opacity-20 cursor-pointer"
+                >
+                  Back
+                </button>
+                <button
+                  onClick={() => {
+                    if (tutorialStep < TUTORIAL_STEPS.length - 1) {
+                      setTutorialStep(prev => prev + 1);
+                    } else {
+                      setShowTutorial(false);
+                    }
+                  }}
+                  className="px-4 py-1.5 bg-emerald-500 text-black font-black uppercase text-xs tracking-wider rounded-lg transition-all shadow-[0_0_10px_rgba(16,185,129,0.3)] cursor-pointer"
+                >
+                  {tutorialStep === TUTORIAL_STEPS.length - 1 ? 'Finish' : 'Next'}
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 }

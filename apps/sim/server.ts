@@ -413,18 +413,26 @@ setInterval(() => {
 }, 1000);
 
 io.on('connection', (socket) => {
-    socket.on('join', ({ name, lotScale }) => {
+    socket.on('join', ({ name, lotScale, careerFocus, shopSpecialty }) => {
       const playerCount = Object.keys(gameState.players).length;
       const x = (playerCount % 5) * 250;
       const z = Math.floor(playerCount / 5) * -250;
 
-    let initMoney = 25000;
-    if (lotScale === 'Medium') initMoney = 75000;
-    if (lotScale === 'Large') initMoney = 250000;
+      let initMoney = 25000;
+      let isStandalone = careerFocus === 'standalone';
 
-    gameState.players[socket.id] = { 
+      if (isStandalone) {
+        if (shopSpecialty === 'mechanic') initMoney = 45000;
+        else if (shopSpecialty === 'body') initMoney = 35000;
+        else initMoney = 95000; // dual
+      } else {
+        if (lotScale === 'Medium') initMoney = 75000;
+        if (lotScale === 'Large') initMoney = 250000;
+      }
+
+      gameState.players[socket.id] = { 
         id: socket.id, 
-        name: name || `Dealer_${socket.id.substring(0,4)}`, 
+        name: name || (isStandalone ? `Shop_${socket.id.substring(0,4)}` : `Dealer_${socket.id.substring(0,4)}`), 
         money: initMoney, 
         inventory: [], 
         lotPosition: { x, z },
@@ -436,11 +444,14 @@ io.on('connection', (socket) => {
         customers: [],
         employees: { mechanic: false, salesperson: false, financeManager: false },
         partsInventory: {},
-        balanceSheet: { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 }
-    };
-    socket.emit('init', { id: socket.id, state: gameState });
-    io.emit('update', gameState);
-  });
+        balanceSheet: { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 },
+        // Standalone properties
+        isStandaloneOperator: isStandalone,
+        shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
+      } as any;
+      socket.emit('init', { id: socket.id, state: gameState });
+      io.emit('update', gameState);
+    });
   socket.on('buy_car', ({ carId, useFinancing }) => {
     const player = gameState.players[socket.id];
     const carIndex = gameState.market.findIndex(c => c.id === carId);

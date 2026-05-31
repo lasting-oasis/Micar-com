@@ -7,7 +7,7 @@ interface StoreState {
   gameState: GameState | null;
   playerId: string | null;
   timeOfDay: number;
-  connect: (name: string, lotScale: 'Small' | 'Medium' | 'Large') => void;
+  connect: (name: string, lotScale: 'Small' | 'Medium' | 'Large', careerFocus?: 'dealership' | 'standalone', shopSpecialty?: 'mechanic' | 'body' | 'dual') => void;
   buyCar: (id: string, useFinancing: boolean) => void;
   buyPsi: (carId: string) => void;
   proposeDeal: (agentId: string, carId: string) => void;
@@ -73,11 +73,11 @@ export const useGameStore = create<StoreState>((set, get) => ({
   },
   activeInteraction: null,
   setActiveInteraction: (interaction) => set({ activeInteraction: interaction }),
-  connect: (name, lotScale) => {
+  connect: (name, lotScale, careerFocus, shopSpecialty) => {
     const socket = io(window.location.origin);
     
     socket.on('connect', () => {
-        socket.emit('join', { name, lotScale });
+        socket.emit('join', { name, lotScale, careerFocus, shopSpecialty });
     });
     
     socket.on('init', (data) => set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay }));

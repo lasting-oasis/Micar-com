@@ -7,6 +7,70 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const GLOSSARY = {
+  'ro': { title: 'Repair Order (RO)', desc: 'A service ticket tracking a vehicle checked into the body shop.' },
+  'intake': { title: 'Vehicle Intake', desc: 'The process of logging a new vehicle into the shop, performing a pre-inspection, and initializing its repair stages.' },
+  'qc': { title: 'Quality Control (QC)', desc: 'The final phase where certified inspectors review structural repairs, paint finishes, and clear coats for absolute perfection.' },
+  'recon': { title: 'Recon Pipeline', desc: 'Reconditioning pipeline of 7 sequential stages from intake to ready for customer delivery.' }
+};
+
+const GlossaryTerm = ({ term, children }: { term: keyof typeof GLOSSARY; children: React.ReactNode }) => {
+  const [show, setShow] = useState(false);
+  const info = GLOSSARY[term];
+  return (
+    <span className="relative inline-flex items-center gap-1 group">
+      <span className="font-bold underline decoration-dashed decoration-market/50 hover:text-market cursor-help transition-colors">
+        {children}
+      </span>
+      <button 
+        type="button"
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+        onClick={() => setShow(!show)}
+        className="w-3.5 h-3.5 rounded-full bg-white/10 hover:bg-market/20 hover:text-market flex items-center justify-center text-[8px] font-black text-gray-400 cursor-help select-none"
+      >
+        ?
+      </button>
+      <AnimatePresence>
+        {show && (
+          <motion.div
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 5 }}
+            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 bg-[#0f0f13]/95 border border-market/40 rounded-xl shadow-2xl backdrop-blur-md z-[10000] text-left select-none pointer-events-none"
+          >
+            <h5 className="text-[10px] font-black uppercase tracking-wider text-market mb-1">{info.title}</h5>
+            <p className="text-[9px] text-gray-300 leading-normal font-sans font-medium">{info.desc}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </span>
+  );
+};
+
+const TUTORIAL_STEPS = [
+  {
+    title: 'Welcome to Repair Logistics! 🛠️',
+    desc: 'This tool lets you manage and track vehicle reconditioning. Let\'s learn the basics in 4 quick steps.',
+    target: 'header'
+  },
+  {
+    title: '1. The Shop Floor 📋',
+    desc: 'Switch to the "Shop Floor" tab to intake new vehicles, advance their pipeline stages, and update technician notes.',
+    target: 'nav'
+  },
+  {
+    title: '2. Customer Tracking 🔍',
+    desc: 'Use "Customer Search" to track a vehicle\'s real-time, Domino\'s-style progress by searching for its RO code.',
+    target: 'nav'
+  },
+  {
+    title: '3. Layman\'s Glossary 💡',
+    desc: 'Whenever you see a dotted underlined word with a (?) badge, hover over it to read its simple definition!',
+    target: 'glossary'
+  }
+];
+
 // Define the standard stages of the body shop repair process
 const STAGES = [
   { id: 0, name: 'Intake', icon: ClipboardList, desc: 'Vehicle checked in' },
@@ -30,6 +94,10 @@ export default function ShopManagement() {
   const [jobs, setJobs] = useState(INITIAL_JOBS);
   const [trackedJob, setTrackedJob] = useState<any>(null);
   const [errorMsg, setErrorMsg] = useState('');
+  
+  const [showTutorial, setShowTutorial] = useState(false);
+  const [tutorialStep, setTutorialStep] = useState(0);
+  const [selectedStageIndex, setSelectedStageIndex] = useState<number | null>(null);
   
   // New Job Inputs
   const [newVehicle, setNewVehicle] = useState('');
@@ -137,8 +205,14 @@ export default function ShopManagement() {
           </div>
           <div>
             <h1 className="text-xl font-bold tracking-wider uppercase text-white">Precision Repair Logistics</h1>
-            <p className="text-xs text-gray-400 font-mono">Recon Center & Diagnostics HUD</p>
+            <p className="text-xs text-gray-400 font-mono"><GlossaryTerm term="recon">Recon</GlossaryTerm> Center & Diagnostics HUD</p>
           </div>
+          <button
+            onClick={() => { setShowTutorial(true); setTutorialStep(0); }}
+            className="ml-3 px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all rounded-lg text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 animate-pulse select-none"
+          >
+            💡 Quick Tour
+          </button>
         </div>
 
         {/* Local Navigation buttons */}
@@ -215,8 +289,8 @@ export default function ShopManagement() {
                 <h2 className="text-2xl font-black uppercase tracking-wider text-white">
                   Real-Time <span className="text-market">Reconditioning Control</span>
                 </h2>
-                <p className="text-sm text-gray-400 max-w-xl leading-relaxed">
-                  Welcome to the Precision Auto reconditioning suite. Manage incoming customer service tickets, track mechanical and paint stages in real time, and audit your shop efficiency from our digital dashboard.
+                <p className="text-sm text-gray-400 max-w-xl leading-relaxed font-medium">
+                  Welcome to the Precision Auto <GlossaryTerm term="recon">reconditioning</GlossaryTerm> suite. Manage incoming customer service tickets, track mechanical and paint stages in real time, and audit your shop efficiency from our digital dashboard.
                 </p>
               </div>
               <div className="flex gap-3 shrink-0 w-full md:w-auto">
@@ -237,14 +311,22 @@ export default function ShopManagement() {
 
             {/* Stage Previews Diagram */}
             <div className="bg-white/5 border border-white/10 p-6 rounded-2xl text-left">
-              <h3 className="text-sm font-black uppercase tracking-widest text-market mb-4">Standard Operational Pipeline</h3>
+              <div className="flex justify-between items-baseline mb-4">
+                <h3 className="text-sm font-black uppercase tracking-widest text-market">Standard Operational Pipeline</h3>
+                <span className="text-[10.5px] text-gray-400 font-semibold font-mono animate-pulse">💡 Click any stage below to explore details</span>
+              </div>
               <div className="grid grid-cols-2 md:grid-cols-7 gap-3">
                 {STAGES.map((s, idx) => {
                   const Icon = s.icon;
+                  const isSelected = selectedStageIndex === idx;
                   return (
-                    <div key={s.id} className="bg-black/30 border border-white/5 p-3 rounded-xl flex flex-col items-center text-center gap-2 hover:border-market/40 transition-colors">
+                    <div 
+                      key={s.id} 
+                      onClick={() => setSelectedStageIndex(isSelected ? null : idx)}
+                      className={`cursor-pointer bg-black/30 border p-3 rounded-xl flex flex-col items-center text-center gap-2 transition-all hover:scale-[1.02] ${isSelected ? 'border-market bg-market/5 shadow-[0_0_15px_rgba(59,130,246,0.2)]' : 'border-white/5 hover:border-market/40'}`}
+                    >
                       <span className="text-[10px] text-market font-bold font-mono">STAGE {idx+1}</span>
-                      <div className="w-8 h-8 rounded-full bg-market/10 flex items-center justify-center text-market">
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isSelected ? 'bg-market text-black' : 'bg-market/10 text-market'}`}>
                         <Icon size={16} />
                       </div>
                       <span className="text-[10px] font-black uppercase tracking-widest text-white">{s.name}</span>
@@ -253,6 +335,43 @@ export default function ShopManagement() {
                   );
                 })}
               </div>
+
+              {/* Click-to-Explain Details */}
+              <AnimatePresence>
+                {selectedStageIndex !== null && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="mt-4 bg-market/5 border border-market/30 p-5 rounded-xl text-left relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 left-0 w-1.5 h-full bg-market" />
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h4 className="text-xs font-black uppercase tracking-widest text-market">
+                          Stage {selectedStageIndex + 1} Deep Dive: {STAGES[selectedStageIndex].name}
+                        </h4>
+                        <p className="text-sm text-white font-bold mt-1 leading-normal">{STAGES[selectedStageIndex].desc}</p>
+                        <p className="text-xs text-gray-400 font-sans leading-relaxed mt-2 font-medium">
+                          {selectedStageIndex === 0 && 'Intake is where the vehicle first enters our shop. Check in the owner, record their contact information, and initiate the initial diagnostics code.'}
+                          {selectedStageIndex === 1 && 'During Inspection, certified technicians visually assess collision damage, scan structural frames, and prepare list items for any replacement steel or side panel parts.'}
+                          {selectedStageIndex === 2 && 'Body Work involves dent pulling, panel welding, frame straightening, and secondary mechanical assembly prep to restore the car\'s structural baseline.'}
+                          {selectedStageIndex === 3 && 'The Paint stage applies a multi-coat primer, exact color matching spray, and a thick glossy protective clear coat. Let it cure completely!'}
+                          {selectedStageIndex === 4 && 'Reassembly puts headlamps, grille panels, bumper fascias, door locks, and interior trims back onto the car according to factory standards.'}
+                          {selectedStageIndex === 5 && 'Quality Control performs a comprehensive diagnostic bus scan, alignment check, test track verification, and meticulous detailing to ensure perfection.'}
+                          {selectedStageIndex === 6 && 'Ready status clears the ticket, logs the gross margin, alerts the retail sales desk, and schedules the customer delivery pick-up.'}
+                        </p>
+                      </div>
+                      <button 
+                        onClick={() => setSelectedStageIndex(null)}
+                        className="text-gray-400 hover:text-white font-bold text-xs uppercase cursor-pointer"
+                      >
+                        ✕ Close
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
           </motion.div>
@@ -286,7 +405,7 @@ export default function ShopManagement() {
                   exit={{ opacity: 0, y: -20 }}
                   className="bg-white/5 border border-white/10 p-5 rounded-2xl flex flex-col gap-4 text-left"
                 >
-                  <h3 className="text-sm font-black uppercase tracking-widest text-market border-b border-white/10 pb-2">Vehicle Intake Logging</h3>
+                  <h3 className="text-sm font-black uppercase tracking-widest text-market border-b border-white/10 pb-2"><GlossaryTerm term="intake">Vehicle Intake</GlossaryTerm> Logging</h3>
                   <form onSubmit={handleCreateJob} className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
                     <div className="flex flex-col gap-1.5">
                       <label className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Vehicle Info</label>
@@ -349,7 +468,7 @@ export default function ShopManagement() {
                   <div className="flex justify-between items-start border-b border-white/10 pb-3">
                     <div>
                       <span className="text-[10px] font-mono font-bold text-market bg-market/10 border border-market/20 px-2 py-0.5 rounded">
-                        {job.id}
+                        <GlossaryTerm term="ro">{job.id}</GlossaryTerm>
                       </span>
                       <h3 className="font-bold text-white text-base mt-2">{job.vehicle}</h3>
                       <span className="text-xs text-gray-400">Customer: {job.customerName}</span>
@@ -361,10 +480,24 @@ export default function ShopManagement() {
                     )}
                   </div>
 
+                  {/* Inline visual progress bar */}
+                  <div className="flex flex-col gap-1.5 border-b border-white/5 pb-3">
+                    <div className="flex justify-between text-[9px] uppercase font-mono tracking-widest text-gray-400">
+                      <span>Progress</span>
+                      <span className="text-market font-bold">{Math.round((job.status / 6) * 100)}%</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-black/40 rounded-full overflow-hidden border border-white/5">
+                      <div 
+                        className="h-full bg-gradient-to-r from-blue-500 to-market rounded-full transition-all duration-500 shadow-[0_0_8px_#3b82f6]"
+                        style={{ width: `${(job.status / 6) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+
                   {/* Status Selection Steppers */}
                   <div className="space-y-3">
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-[9px] text-gray-400 uppercase tracking-widest font-bold">Repair Pipeline Stage</label>
+                      <label className="text-[9px] text-gray-400 uppercase tracking-widest font-bold">Repair <GlossaryTerm term="recon">Pipeline Stage</GlossaryTerm></label>
                       <select
                         disabled={!allowStatusUpdates}
                         value={job.status}
@@ -461,7 +594,7 @@ export default function ShopManagement() {
             <div>
               <h2 className="text-xl font-bold uppercase text-white">Track Your Repair Order</h2>
               <p className="text-xs text-gray-400 mt-1 leading-relaxed">
-                Enter your unique Repair Order (RO) code to view the live, Domino's style reconditioning status.
+                Enter your unique <GlossaryTerm term="ro">Repair Order (RO)</GlossaryTerm> code to view the live, Domino's style reconditioning status.
               </p>
             </div>
 
@@ -473,7 +606,7 @@ export default function ShopManagement() {
               className="space-y-4"
             >
               <div className="flex flex-col gap-1.5">
-                <label className="text-[10px] text-gray-400 uppercase tracking-widest font-black">Repair Order (RO) Code</label>
+                <label className="text-[10px] text-gray-400 uppercase tracking-widest font-black"><GlossaryTerm term="ro">Repair Order (RO)</GlossaryTerm> Code</label>
                 <input
                   name="query"
                   type="text"
@@ -738,6 +871,62 @@ export default function ShopManagement() {
         )}
 
       </div>
+
+      {/* Onboarding Tutorial Guide Overlay */}
+      <AnimatePresence>
+        {showTutorial && (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-[99999] flex items-center justify-center p-4 select-none pointer-events-auto">
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-[#0b0c10]/95 border-2 border-market/40 rounded-2xl max-w-sm w-full p-6 shadow-2xl relative text-white text-left flex flex-col gap-4"
+            >
+              <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                <span className="text-[10px] font-mono font-bold text-market">
+                  GUIDED TOUR • STEP {tutorialStep + 1} OF {TUTORIAL_STEPS.length}
+                </span>
+                <button 
+                  onClick={() => setShowTutorial(false)}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="space-y-2">
+                <h4 className="font-black text-white text-lg uppercase tracking-wide leading-tight">
+                  {TUTORIAL_STEPS[tutorialStep].title}
+                </h4>
+                <p className="text-xs text-gray-300 leading-relaxed font-sans font-medium">
+                  {TUTORIAL_STEPS[tutorialStep].desc}
+                </p>
+              </div>
+              <div className="flex justify-between items-center pt-2 mt-2 border-t border-white/5">
+                <button
+                  disabled={tutorialStep === 0}
+                  onClick={() => setTutorialStep(prev => prev - 1)}
+                  className="px-3 py-1.5 bg-white/5 border border-white/10 text-gray-400 hover:text-white transition-colors rounded-lg text-xs font-bold uppercase disabled:opacity-20 cursor-pointer"
+                >
+                  Back
+                </button>
+                <button
+                  onClick={() => {
+                    if (tutorialStep < TUTORIAL_STEPS.length - 1) {
+                      setTutorialStep(prev => prev + 1);
+                    } else {
+                      setShowTutorial(false);
+                    }
+                  }}
+                  className="px-4 py-1.5 bg-market text-black font-black uppercase text-xs tracking-wider rounded-lg transition-all shadow-[0_0_10px_rgba(59,130,246,0.3)] cursor-pointer"
+                >
+                  {tutorialStep === TUTORIAL_STEPS.length - 1 ? 'Finish' : 'Next'}
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 }
