@@ -8,6 +8,34 @@ import './index.css'
 import { useGameStore } from './store'
 import { Car, Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle, Gauge, Activity } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+// Global Error Overlay Catcher for Debugging Sandboxed/Compatibility crashes
+window.addEventListener('error', (event) => {
+    const errorContainer = document.createElement('div');
+    errorContainer.id = 'debug-error-overlay';
+    errorContainer.style.cssText = 'position: fixed; inset: 0; background: rgba(15, 23, 42, 0.98); color: #f87171; font-family: monospace; font-size: 13px; padding: 24px; z-index: 999999; overflow: auto; display: flex; flex-direction: column; gap: 16px; border: 4px solid #ef4444; pointer-events: auto;';
+    
+    errorContainer.innerHTML = `
+        <h2 style="color: #ef4444; font-size: 18px; font-weight: 900; margin: 0; border-bottom: 2px solid #ef4444; padding-bottom: 8px;">
+            ⚠️ CRITICAL RUNTIME CRASH CAPTURED
+        </h2>
+        <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.2);">
+            <strong style="color: #ffffff; display: block; margin-bottom: 4px;">Message:</strong>
+            ${event.message || 'Unknown unhandled error'}
+        </div>
+        <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.2);">
+            <strong style="color: #ffffff; display: block; margin-bottom: 4px;">Source:</strong>
+            ${event.filename || 'unknown'}:${event.lineno || 0}:${event.colno || 0}
+        </div>
+        <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.2); flex-grow: 1;">
+            <strong style="color: #ffffff; display: block; margin-bottom: 4px;">Stack Trace:</strong>
+            <pre style="margin: 0; white-space: pre-wrap; word-break: break-all; line-height: 1.4; color: #fca5a5;">${event.error?.stack || 'No stack trace available'}</pre>
+        </div>
+        <button onclick="document.getElementById('debug-error-overlay').remove()" style="align-self: flex-end; padding: 10px 20px; background: #ef4444; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+            Close Overlay
+        </button>
+    `;
+    document.body.appendChild(errorContainer);
+});
 
 function GatewayPortal() {
   const [activeApp, setActiveApp] = useState<'gateway' | 'game' | 'shop' | 'mechanic' | 'platform'>('gateway');
