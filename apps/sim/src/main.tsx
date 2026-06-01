@@ -57,9 +57,13 @@ function GatewayPortal() {
   }, [activeApp]);
 
   const selectApp = (app: 'game' | 'shop' | 'mechanic' | 'platform') => {
-    const newUrl = new URL(window.location.href);
-    newUrl.searchParams.set('app', app);
-    window.history.pushState({}, '', newUrl.toString());
+    try {
+      const newUrl = new URL(window.location.href);
+      newUrl.searchParams.set('app', app);
+      window.history.pushState({}, '', newUrl.toString());
+    } catch (e) {
+      console.warn('History pushState blocked by iframe/sandbox:', e);
+    }
     setActiveApp(app);
   };
 
@@ -67,9 +71,13 @@ function GatewayPortal() {
     // Cleanly disconnect active socket and reset store state
     useGameStore.getState().disconnect();
 
-    const newUrl = new URL(window.location.href);
-    newUrl.searchParams.delete('app');
-    window.history.pushState({}, '', newUrl.toString());
+    try {
+      const newUrl = new URL(window.location.href);
+      newUrl.searchParams.delete('app');
+      window.history.pushState({}, '', newUrl.toString());
+    } catch (e) {
+      console.warn('History pushState blocked by iframe/sandbox:', e);
+    }
     setActiveApp('gateway');
   };
 
