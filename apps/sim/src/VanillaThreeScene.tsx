@@ -22,7 +22,8 @@ export function VanillaThreeScene() {
         const generateEnvMap = () => {
              const canvas = document.createElement('canvas');
              canvas.width = 512; canvas.height = 512;
-             const ctx = canvas.getContext('2d')!;
+             const ctx = canvas.getContext('2d');
+             if (!ctx) return new THREE.Texture();
              const grad = ctx.createLinearGradient(0, 0, 0, 512);
              grad.addColorStop(0, '#60a5fa'); // Sky blue top
              grad.addColorStop(0.5, '#3b82f6'); // Bright blue middle
@@ -111,7 +112,8 @@ export function VanillaThreeScene() {
              const size = 512;
              const canvas = document.createElement('canvas');
              canvas.width = size; canvas.height = size;
-             const context = canvas.getContext('2d')!;
+             const context = canvas.getContext('2d');
+             if (!context) return new THREE.Texture();
              const imgData = context.createImageData(size, size);
              for (let i = 0; i < imgData.data.length; i += 4) {
                  const v = 80 + Math.random() * 60; 
@@ -129,7 +131,8 @@ export function VanillaThreeScene() {
              const size = 512;
              const canvas = document.createElement('canvas');
              canvas.width = size; canvas.height = size;
-             const context = canvas.getContext('2d')!;
+             const context = canvas.getContext('2d');
+             if (!context) return new THREE.Texture();
              const imgData = context.createImageData(size, size);
              for (let i = 0; i < imgData.data.length; i += 4) {
                  const v = Math.floor(Math.random() * 255);
@@ -252,8 +255,8 @@ export function VanillaThreeScene() {
              const canvas = document.createElement('canvas');
              canvas.width = 512;
              canvas.height = 1024;
-             const ctx = canvas.getContext('2d')!;
-             
+             const ctx = canvas.getContext('2d');
+             if (!ctx) return new THREE.Texture();
              ctx.fillStyle = baseColorHex;
              ctx.fillRect(0, 0, 512, 1024);
              
@@ -287,8 +290,8 @@ export function VanillaThreeScene() {
              const canvas = document.createElement('canvas');
              canvas.width = 256;
              canvas.height = 256;
-             const ctx = canvas.getContext('2d')!;
-             
+             const ctx = canvas.getContext('2d');
+             if (!ctx) return new THREE.Texture();
              ctx.fillStyle = '#4b5563'; // Industrial metallic gray
              ctx.fillRect(0, 0, 256, 256);
              
