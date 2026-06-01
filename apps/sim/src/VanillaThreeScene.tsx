@@ -63,6 +63,23 @@ export function VanillaThreeScene() {
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         mountRef.current.appendChild(renderer.domElement);
 
+        const createBuildingSign = (text: string, bgColor: string, txtColor: string) => {
+             const canvas = document.createElement('canvas');
+             canvas.width = 512; canvas.height = 128;
+             const ctx = canvas.getContext('2d');
+             if (!ctx) return new THREE.Sprite();
+             ctx.fillStyle = bgColor;
+             if (ctx.roundRect) ctx.roundRect(0, 0, 512, 128, 20); else ctx.rect(0, 0, 512, 128);
+             ctx.fill();
+             ctx.fillStyle = txtColor; ctx.font = 'bold 56px sans-serif'; ctx.textAlign = 'center'; 
+             ctx.fillText(text, 256, 85);
+             const tex = new THREE.CanvasTexture(canvas);
+             const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
+             const sprite = new THREE.Sprite(mat);
+             sprite.scale.set(12, 3, 1);
+             return sprite;
+        };
+
         // --- 2. Lighting (Daylight) ---
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
         scene.add(ambientLight);
@@ -620,22 +637,6 @@ export function VanillaThreeScene() {
 
 
         const builtDealerships = new Set<string>();
-
-        const createBuildingSign = (text: string, bgColor: string, txtColor: string) => {
-             const canvas = document.createElement('canvas');
-             canvas.width = 512; canvas.height = 128;
-             const ctx = canvas.getContext('2d')!;
-             ctx.fillStyle = bgColor;
-             if (ctx.roundRect) ctx.roundRect(0, 0, 512, 128, 20); else ctx.rect(0, 0, 512, 128);
-             ctx.fill();
-             ctx.fillStyle = txtColor; ctx.font = 'bold 56px sans-serif'; ctx.textAlign = 'center'; 
-             ctx.fillText(text, 256, 85);
-             const tex = new THREE.CanvasTexture(canvas);
-             const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
-             const sprite = new THREE.Sprite(mat);
-             sprite.scale.set(12, 3, 1);
-             return sprite;
-        };
 
         const createDealership = (lotX: number, lotZ: number, playerId: string) => {
         // Dealership Sales Office Building
