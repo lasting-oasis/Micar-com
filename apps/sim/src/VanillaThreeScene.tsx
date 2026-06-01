@@ -606,7 +606,9 @@ export function VanillaThreeScene() {
              const canvas = document.createElement('canvas');
              canvas.width = 512; canvas.height = 128;
              const ctx = canvas.getContext('2d')!;
-             ctx.fillStyle = bgColor; ctx.roundRect(0, 0, 512, 128, 20); ctx.fill();
+             ctx.fillStyle = bgColor;
+             if (ctx.roundRect) ctx.roundRect(0, 0, 512, 128, 20); else ctx.rect(0, 0, 512, 128);
+             ctx.fill();
              ctx.fillStyle = txtColor; ctx.font = 'bold 56px sans-serif'; ctx.textAlign = 'center'; 
              ctx.fillText(text, 256, 85);
              const tex = new THREE.CanvasTexture(canvas);
@@ -1093,9 +1095,12 @@ export function VanillaThreeScene() {
 
         // --- 3D Interactions HUD ---
         const uiCanvas = document.createElement('canvas');
-        uiCanvas.width = 512; uiCanvas.height = 128;
+        uiCanvas.width = 512;
+        uiCanvas.height = 128;
         const uiCtx = uiCanvas.getContext('2d')!;
-        uiCtx.fillStyle = '#10b981'; uiCtx.roundRect(0, 0, 512, 128, 20); uiCtx.fill();
+        uiCtx.fillStyle = '#10b981';
+        if (uiCtx.roundRect) uiCtx.roundRect(0, 0, 512, 128, 20); else uiCtx.rect(0, 0, 512, 128);
+        uiCtx.fill();
         uiCtx.fillStyle = '#ffffff'; uiCtx.font = 'bold 48px sans-serif'; uiCtx.textAlign = 'center'; 
         uiCtx.fillText('[E] ENTER/EXIT  |  [R] INTERACT', 256, 80);
         const uiTex = new THREE.CanvasTexture(uiCanvas);

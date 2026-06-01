@@ -80,7 +80,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
     set({ socket: null, gameState: null, playerId: null, drivingCarId: null });
   },
   connect: (name, lotScale, careerFocus, shopSpecialty) => {
-    const socketUrl = window.location.port === '5173' ? 'http://localhost:3000' : window.location.origin;
+    const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
+    const socketUrl = isDev ? `http://${window.location.hostname}:3000` : window.location.origin;
     const socket = io(socketUrl);
     
     const emitJoin = () => {
