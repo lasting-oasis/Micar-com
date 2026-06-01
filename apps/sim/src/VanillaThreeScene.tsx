@@ -40,7 +40,23 @@ export function VanillaThreeScene() {
 
         const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
         
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        let renderer: THREE.WebGLRenderer;
+        try {
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+        } catch (e) {
+            console.error('WebGL is not supported:', e);
+            if (mountRef.current) {
+                mountRef.current.innerHTML = `
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: white; font-family: sans-serif; padding: 20px; text-align: center; background: #0c0d12;">
+                        <h2 style="color: #ef4444; margin-bottom: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;">WebGL Support Required</h2>
+                        <p style="font-size: 13px; max-width: 420px; color: #a1a1aa; line-height: 1.6; margin: 0 auto 15px auto;">
+                            The immersive 3D simulation requires WebGL hardware acceleration. Please verify that hardware acceleration is enabled in your browser settings (e.g. Chrome: Settings -> System -> 'Use graphics acceleration when available') and reload the page.
+                        </p>
+                    </div>
+                `;
+            }
+            return () => {};
+        }
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
