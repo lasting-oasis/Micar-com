@@ -1116,12 +1116,14 @@ export function VanillaThreeScene() {
         const uiCanvas = document.createElement('canvas');
         uiCanvas.width = 512;
         uiCanvas.height = 128;
-        const uiCtx = uiCanvas.getContext('2d')!;
-        uiCtx.fillStyle = '#10b981';
-        if (uiCtx.roundRect) uiCtx.roundRect(0, 0, 512, 128, 20); else uiCtx.rect(0, 0, 512, 128);
-        uiCtx.fill();
-        uiCtx.fillStyle = '#ffffff'; uiCtx.font = 'bold 48px sans-serif'; uiCtx.textAlign = 'center'; 
-        uiCtx.fillText('[E] ENTER/EXIT  |  [R] INTERACT', 256, 80);
+        const uiCtx = uiCanvas.getContext('2d');
+        if (uiCtx) {
+            uiCtx.fillStyle = '#10b981';
+            if (uiCtx.roundRect) uiCtx.roundRect(0, 0, 512, 128, 20); else uiCtx.rect(0, 0, 512, 128);
+            uiCtx.fill();
+            uiCtx.fillStyle = '#ffffff'; uiCtx.font = 'bold 48px sans-serif'; uiCtx.textAlign = 'center'; 
+            uiCtx.fillText('[E] ENTER/EXIT  |  [R] INTERACT', 256, 80);
+        }
         const uiTex = new THREE.CanvasTexture(uiCanvas);
         const uiMat = new THREE.SpriteMaterial({ map: uiTex, transparent: true, opacity: 0, depthTest: false });
         const interactPrompt = new THREE.Sprite(uiMat);
@@ -1832,9 +1834,11 @@ export function VanillaThreeScene() {
                         vis.position.set(0, 1.4, 0.3); meshGroup.add(vis);
                         
                         const canvas = document.createElement('canvas'); canvas.width = 256; canvas.height = 64;
-                        const ctx = canvas.getContext('2d')!;
-                        ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(0,0,256,64);
-                        ctx.fillStyle = '#ffffff'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(p.name, 128, 42);
+                        const ctx = canvas.getContext('2d');
+                        if (ctx) {
+                            ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(0,0,256,64);
+                            ctx.fillStyle = '#ffffff'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(p.name, 128, 42);
+                        }
                         const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true }));
                         sprite.position.y = 2.5; sprite.scale.set(3, 0.75, 1); meshGroup.add(sprite);
 
