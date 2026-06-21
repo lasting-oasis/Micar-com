@@ -163,10 +163,10 @@ export function VanillaThreeScene() {
         };
         const noiseBumpMap = generateNoiseTexture();
 
-        // Asphalt Floor (expanded to massive 2000x2000 open world)
+        // Grassy Floor (expanded to massive 2000x2000 open world)
         const floorGeo = new THREE.BoxGeometry(2000, 1, 2000);
         const floorMat = new THREE.MeshStandardMaterial({ 
-            color: '#1a1a1a', 
+            color: '#14532d', // Emerald-900 grassy green
             roughness: 0.95, 
             metalness: 0.1
         });
@@ -725,15 +725,71 @@ export function VanillaThreeScene() {
             environmentDisposables.push(bulb);
         });
 
-        // Designated Parking Stalls (Show Lot)
-        const mainAsphaltGeo = new THREE.PlaneGeometry(30, 95);
-        const mainAsphaltMat = new THREE.MeshStandardMaterial({ color: '#262626', roughness: 0.9, map: concreteTex });
-        const mainAsphalt = new THREE.Mesh(mainAsphaltGeo, mainAsphaltMat);
-        mainAsphalt.rotation.x = -Math.PI / 2;
-        mainAsphalt.position.set(lotX, 0.02, lotZ + 58);
-        mainAsphalt.receiveShadow = true;
-        scene.add(mainAsphalt);
-        environmentDisposables.push(mainAsphalt);
+        // Dealership Foundation Asphalt
+        const foundationGeo = new THREE.PlaneGeometry(130, 140);
+        const foundationMat = new THREE.MeshStandardMaterial({ color: '#222222', roughness: 0.9, map: concreteTex });
+        const foundation = new THREE.Mesh(foundationGeo, foundationMat);
+        foundation.rotation.x = -Math.PI / 2;
+        foundation.position.set(lotX + 10, 0.015, lotZ + 30);
+        foundation.receiveShadow = true;
+        scene.add(foundation);
+        environmentDisposables.push(foundation);
+        
+        // Driveway connecting to cross street (Z=200 is street center, 25 width -> edge is 187.5)
+        const drivewayGeo = new THREE.PlaneGeometry(30, 88);
+        const driveway = new THREE.Mesh(drivewayGeo, foundationMat);
+        driveway.rotation.x = -Math.PI / 2;
+        driveway.position.set(lotX, 0.016, lotZ + 144);
+        driveway.receiveShadow = true;
+        scene.add(driveway);
+        environmentDisposables.push(driveway);
+
+        // Chain Link Fence
+        const fenceMat = new THREE.MeshStandardMaterial({ color: '#71717a', wireframe: true, transparent: true, opacity: 0.6 }); // Simple wireframe for chain link
+        const poleMat = new THREE.MeshStandardMaterial({ color: '#52525b', metalness: 0.8 });
+        
+        const buildFence = (x1: number, z1: number, x2: number, z2: number) => {
+             const dx = x2 - x1;
+             const dz = z2 - z1;
+             const length = Math.sqrt(dx * dx + dz * dz);
+             const angle = Math.atan2(dz, dx);
+             
+             // Fence panel
+             const panelGeo = new THREE.PlaneGeometry(length, 6);
+             const panel = new THREE.Mesh(panelGeo, fenceMat);
+             panel.position.set(x1 + dx / 2, 3, z1 + dz / 2);
+             panel.rotation.y = -angle;
+             
+             // Add some poles
+             const poles = new THREE.Group();
+             const numPoles = Math.ceil(length / 5);
+             for(let i=0; i<=numPoles; i++) {
+                 const poleGeo = new THREE.CylinderGeometry(0.1, 0.1, 6);
+                 const pole = new THREE.Mesh(poleGeo, poleMat);
+                 pole.position.set(x1 + (dx * (i/numPoles)), 3, z1 + (dz * (i/numPoles)));
+                 poles.add(pole);
+             }
+             
+             scene.add(panel);
+             scene.add(poles);
+             environmentDisposables.push(panel, poles);
+        };
+        
+        // Boundary of foundation: X: lotX-55 to lotX+75, Z: lotZ-40 to lotZ+100
+        const fL = lotX - 55;
+        const fR = lotX + 75;
+        const fB = lotZ - 40;
+        const fT = lotZ + 100;
+        
+        // Back fence
+        buildFence(fL, fB, fR, fB);
+        // Left fence
+        buildFence(fL, fB, fL, fT);
+        // Right fence
+        buildFence(fR, fB, fR, fT);
+        // Front fence with opening for driveway (driveway from lotX-15 to lotX+15)
+        buildFence(fL, fT, lotX - 15, fT);
+        buildFence(lotX + 15, fT, fR, fT);
 
         const lineGeo = new THREE.PlaneGeometry(0.2, 8);
         const lineMat = new THREE.MeshBasicMaterial({ color: '#eab308' }); // Yellow parking lines
