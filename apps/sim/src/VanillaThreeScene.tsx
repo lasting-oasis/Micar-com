@@ -745,7 +745,7 @@ export function VanillaThreeScene() {
         environmentDisposables.push(driveway);
 
         // Chain Link Fence
-        const fenceMat = new THREE.MeshStandardMaterial({ color: '#71717a', wireframe: true, transparent: true, opacity: 0.6 }); // Simple wireframe for chain link
+        const fenceMat = new THREE.MeshStandardMaterial({ color: '#71717a', wireframe: true, transparent: true, opacity: 0.6, side: THREE.DoubleSide }); // Simple wireframe for chain link
         const poleMat = new THREE.MeshStandardMaterial({ color: '#52525b', metalness: 0.8 });
         
         const buildFence = (x1: number, z1: number, x2: number, z2: number) => {
