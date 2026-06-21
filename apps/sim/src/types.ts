@@ -108,5 +108,5 @@ export type GameState = {
   junkyard: Car[];
   economy: EconomicState;
   activeWalkIns: Record<string, CustomerAgent[]>; // maps player ID to their current walk-ins
-
+  hostId?: string | null; // The player who can advance the day
 };

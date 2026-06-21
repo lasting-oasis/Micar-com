@@ -639,19 +639,18 @@ export function VanillaThreeScene() {
         const builtDealerships = new Set<string>();
 
         const createDealership = (lotX: number, lotZ: number, playerId: string) => {
-        // Dealership Sales Office Building
-        const officeMat = new THREE.MeshStandardMaterial({ 
-            color: '#f1f5f9', 
-            roughness: 0.4,
-            metalness: 0.1
-        });
+        // --- 1. Main Office Building ---
         const officeGroup = new THREE.Group();
         officeGroup.position.set(lotX - 25, 0, lotZ - 25);
 
+        const officeMat = new THREE.MeshStandardMaterial({ color: '#1e293b', roughness: 0.8 }); // Slate-800
+        const glassMat = new THREE.MeshPhysicalMaterial({ color: '#38bdf8', transmission: 0.8, opacity: 1, transparent: true, roughness: 0.1, ior: 1.5 });
+        const floorMat = new THREE.MeshStandardMaterial({ color: '#334155', roughness: 0.7, map: concreteTex });
+        
         const oRoof = new THREE.Mesh(new THREE.BoxGeometry(20, 0.5, 15), officeMat);
         oRoof.position.set(0, 8, 0); oRoof.castShadow = true; officeGroup.add(oRoof);
         
-        const oFloor = new THREE.Mesh(new THREE.PlaneGeometry(19, 14), new THREE.MeshStandardMaterial({ color: '#1e293b' }));
+        const oFloor = new THREE.Mesh(new THREE.PlaneGeometry(19, 14), floorMat);
         oFloor.rotation.x = -Math.PI / 2; oFloor.position.set(0, 0.05, 0); oFloor.receiveShadow = true; officeGroup.add(oFloor);
 
         const oWallB = new THREE.Mesh(new THREE.BoxGeometry(20, 8, 0.5), officeMat);
@@ -663,12 +662,31 @@ export function VanillaThreeScene() {
         const oWallR = new THREE.Mesh(new THREE.BoxGeometry(0.5, 8, 14.5), officeMat);
         oWallR.position.set(9.75, 4, 0); oWallR.userData.solid = true; oWallR.castShadow = true; oWallR.receiveShadow = true; officeGroup.add(oWallR);
 
-        // Front Wall Pieces (Leaving a 4-unit door gap in middle)
-        const oWallFL = new THREE.Mesh(new THREE.BoxGeometry(7.5, 8, 0.5), officeMat);
-        oWallFL.position.set(-6.25, 4, 7.25); oWallFL.userData.solid = true; oWallFL.castShadow = true; oWallFL.receiveShadow = true; officeGroup.add(oWallFL);
+        // Front Wall Pieces - Modern glass structure
+        const oWallFL = new THREE.Mesh(new THREE.BoxGeometry(7.5, 8, 0.5), glassMat);
+        oWallFL.position.set(-6.25, 4, 7.25); oWallFL.userData.solid = true; officeGroup.add(oWallFL);
 
-        const oWallFR = new THREE.Mesh(new THREE.BoxGeometry(7.5, 8, 0.5), officeMat);
-        oWallFR.position.set(6.25, 4, 7.25); oWallFR.userData.solid = true; oWallFR.castShadow = true; oWallFR.receiveShadow = true; officeGroup.add(oWallFR);
+        const oWallFR = new THREE.Mesh(new THREE.BoxGeometry(7.5, 8, 0.5), glassMat);
+        oWallFR.position.set(6.25, 4, 7.25); oWallFR.userData.solid = true; officeGroup.add(oWallFR);
+        
+        // Door frame
+        const oDoorFrame = new THREE.Mesh(new THREE.BoxGeometry(4.5, 8.2, 0.7), new THREE.MeshStandardMaterial({ color: '#0f172a' }));
+        oDoorFrame.position.set(0, 4.1, 7.25); officeGroup.add(oDoorFrame);
+        // Glass door
+        const oDoorGlass = new THREE.Mesh(new THREE.BoxGeometry(4, 7.5, 0.2), glassMat);
+        oDoorGlass.position.set(0, 3.75, 7.25); officeGroup.add(oDoorGlass);
+
+        // Interior Sales Desk
+        const deskGeo = new THREE.BoxGeometry(4, 1.2, 2);
+        const deskMat = new THREE.MeshStandardMaterial({ color: '#475569' });
+        const desk = new THREE.Mesh(deskGeo, deskMat);
+        desk.position.set(0, 0.6, -3); officeGroup.add(desk);
+        
+        // Computer Monitor on Desk
+        const monitorGeo = new THREE.BoxGeometry(1.5, 1, 0.1);
+        const monitorMat = new THREE.MeshStandardMaterial({ color: '#111827', emissive: '#111827' });
+        const monitor = new THREE.Mesh(monitorGeo, monitorMat);
+        monitor.position.set(0, 1.7, -3); officeGroup.add(monitor);
 
         scene.add(officeGroup);
         environmentDisposables.push(officeGroup);
@@ -707,23 +725,44 @@ export function VanillaThreeScene() {
             environmentDisposables.push(bulb);
         });
 
-        // Designated Parking Stalls (Moved to start at Z: 15, away from office)
-        const padGeo = new THREE.BoxGeometry(5, 0.02, 6);
-        const padMat = new THREE.MeshStandardMaterial({ color: '#2a2a2a', roughness: 1 });
-        const lineGeo = new THREE.BoxGeometry(0.2, 0.03, 6);
-        const lineMat = new THREE.MeshBasicMaterial({ color: '#fbbf24' }); // Yellow parking lines
+        // Designated Parking Stalls (Show Lot)
+        const mainAsphaltGeo = new THREE.PlaneGeometry(30, 95);
+        const mainAsphaltMat = new THREE.MeshStandardMaterial({ color: '#262626', roughness: 0.9, map: concreteTex });
+        const mainAsphalt = new THREE.Mesh(mainAsphaltGeo, mainAsphaltMat);
+        mainAsphalt.rotation.x = -Math.PI / 2;
+        mainAsphalt.position.set(lotX, 0.02, lotZ + 58);
+        mainAsphalt.receiveShadow = true;
+        scene.add(mainAsphalt);
+        environmentDisposables.push(mainAsphalt);
+
+        const lineGeo = new THREE.PlaneGeometry(0.2, 8);
+        const lineMat = new THREE.MeshBasicMaterial({ color: '#eab308' }); // Yellow parking lines
+        
+        const centerLineGeo = new THREE.PlaneGeometry(0.3, 90);
+        const centerLine = new THREE.Mesh(centerLineGeo, lineMat);
+        centerLine.rotation.x = -Math.PI / 2;
+        centerLine.position.set(lotX, 0.025, lotZ + 58);
+        scene.add(centerLine);
+        environmentDisposables.push(centerLine);
 
         for (let i = 0; i < 15; i++) {
-            const zSpot = lotZ + Math.floor(i) * 6 + 15; // Start at Z=15, spaced by 6
-            // Left Column Stalls
-            const pl = new THREE.Mesh(padGeo, padMat); pl.position.set(lotX - 6, 0.01, zSpot); pl.receiveShadow = true; scene.add(pl);
-            const ll = new THREE.Mesh(lineGeo, lineMat); ll.position.set(lotX - 3.5, 0.015, zSpot); scene.add(ll);
-            environmentDisposables.push(pl, ll);
+            const zSpot = lotZ + Math.floor(i) * 6 + 15; 
+            
+            // Left Column Stalls Divider
+            const ll = new THREE.Mesh(lineGeo, lineMat); 
+            ll.rotation.x = -Math.PI / 2;
+            ll.rotation.z = Math.PI / 2;
+            ll.position.set(lotX - 6, 0.025, zSpot + 3); 
+            scene.add(ll);
+            environmentDisposables.push(ll);
 
-            // Right Column Stalls
-            const pr = new THREE.Mesh(padGeo, padMat); pr.position.set(lotX + 6, 0.01, zSpot); pr.receiveShadow = true; scene.add(pr);
-            const lr = new THREE.Mesh(lineGeo, lineMat); lr.position.set(lotX + 8.5, 0.015, zSpot); scene.add(lr);
-            environmentDisposables.push(pr, lr);
+            // Right Column Stalls Divider
+            const lr = new THREE.Mesh(lineGeo, lineMat); 
+            lr.rotation.x = -Math.PI / 2;
+            lr.rotation.z = Math.PI / 2;
+            lr.position.set(lotX + 6, 0.025, zSpot + 3); 
+            scene.add(lr);
+            environmentDisposables.push(lr);
         }
 
         // Delivery Drop-Off Zone (x: -40, z: 15)
@@ -1323,8 +1362,26 @@ export function VanillaThreeScene() {
                 } else {
                     // EXITED CAR
                     if (carMeshes[localDrivingCarId!]) {
-                         // Teleport avatar to driver side door!
                          const m = carMeshes[localDrivingCarId!];
+                         const pPos = m.position;
+                         const lotX = me?.lotPosition?.x || 0;
+                         const lotZ = me?.lotPosition?.z || 0;
+                         
+                         // Auto-park if exited inside the Show Lot
+                         if (Math.abs(pPos.x - lotX) < 15 && (pPos.z - lotZ) > 10) {
+                             const car = me?.inventory.find(c => c.id === localDrivingCarId);
+                             if (car && !car.isDirty && !car.isProcessed && car.isRegistered) {
+                                 const needsInspection = car.titleStatus === 'Salvage' && car.inspectionStatus !== 'Passed';
+                                 if (!needsInspection) {
+                                     useGameStore.getState().placeOnLot(car.id);
+                                     // Visual flash to confirm
+                                     m.scale.setScalar(1.05);
+                                     setTimeout(() => { if (m) m.scale.setScalar(1.0); }, 300);
+                                 }
+                             }
+                         }
+
+                         // Teleport avatar to driver side door!
                          const offset = new THREE.Vector3(-3, 0, 0).applyQuaternion(m.quaternion);
                          avatar.position.copy(m.position).add(offset);
                     }
@@ -1628,8 +1685,12 @@ export function VanillaThreeScene() {
                        useGameStore.getState().setActiveInteraction(null);
                   }
                   const pPos = carMeshes[localDrivingCarId!].position;
-                  const inZone = (Math.abs(pPos.x - ((me?.lotPosition?.x || 0) + 55)) < 25 && (Math.abs(pPos.z - ((me?.lotPosition?.z || 0) - 40)) < 25 || Math.abs(pPos.z - ((me?.lotPosition?.z || 0) + 5)) < 25 || Math.abs(pPos.z - ((me?.lotPosition?.z || 0) + 50)) < 25));
-                  if (inZone) {
+                  const lotX = me?.lotPosition?.x || 0;
+                  const lotZ = me?.lotPosition?.z || 0;
+                  const inWashOrShop = (Math.abs(pPos.x - (lotX + 55)) < 25 && (Math.abs(pPos.z - (lotZ - 40)) < 25 || Math.abs(pPos.z - (lotZ + 5)) < 25 || Math.abs(pPos.z - (lotZ + 50)) < 25));
+                  const inShowLot = (Math.abs(pPos.x - lotX) < 15 && (pPos.z - lotZ) > 10);
+                  
+                  if (inWashOrShop || inShowLot) {
                        interactPrompt.position.copy(pPos).add(new THREE.Vector3(0, 6, 0));
                        interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
                   }

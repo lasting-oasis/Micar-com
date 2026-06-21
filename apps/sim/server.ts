@@ -1,13 +1,67 @@
 import express from 'express';
 import { createServer } from 'node:http';
 import { Server } from 'socket.io';
-import { createServer as createViteServer } from 'vite';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { GameState, Car, Player, FinanceContract, CustomerAgent, DealProposal, EconomicState } from './src/types.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, { cors: { origin: '*' } });
+
+const DATA_FILE = path.join(process.cwd(), 'data', 'gameState.json');
+
+async function saveGameState() {
+    try {
+        await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
+        await fs.writeFile(DATA_FILE, JSON.stringify(gameState), 'utf8');
+    } catch (err) {
+        console.error('Failed to save game state:', err);
+    }
+}
+
+async function loadGameState() {
+    try {
+        const data = await fs.readFile(DATA_FILE, 'utf8');
+        const parsed = JSON.parse(data);
+        if (parsed) {
+            gameState = { ...gameState, ...parsed };
+            // clear active walk-ins as they may be stale or have broken timeout state
+            gameState.activeWalkIns = {};
+        }
+    } catch (err) {
+        console.log('No previous game state found or error reading, starting fresh.');
+    }
+}
+
+setInterval(saveGameState, 15000);
+
+function broadcastState(io: Server, state: GameState) {
+    const sockets = io.sockets.sockets;
+    for (const [id, socket] of sockets) {
+        const tailoredState = JSON.parse(JSON.stringify(state)); // Deep clone
+        for (const pid in tailoredState.players) {
+            if (pid !== id) {
+                // Strip sensitive data from OTHER players
+                const p = tailoredState.players[pid];
+                p.money = 0;
+                p.contracts = [];
+                p.customers = [];
+                p.balanceSheet = { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 };
+                p.floorPlanDebt = 0;
+                
+                // Hide buyPrice from inventory
+                if (p.inventory) {
+                    p.inventory.forEach((c: Car) => {
+                        c.buyPrice = 0;
+                    });
+                }
+            }
+        }
+        socket.emit('update', tailoredState);
+    }
+}
 
 let gameState: GameState = { 
     day: 1, 
@@ -162,7 +216,7 @@ const generateMarketCars = () => {
         isRegistered: false
       };
     });
-    io.emit('update', gameState);
+    broadcastState(io, gameState);
 };
 
 const generateJunkyardCars = () => {
@@ -210,7 +264,7 @@ const generateJunkyardCars = () => {
         isRegistered: false
       };
     });
-    io.emit('update', gameState);
+    broadcastState(io, gameState);
 };
 
 // Economic Tick: 1 Day = 10 Seconds
@@ -388,7 +442,7 @@ const economyTick = () => {
         generateJunkyardCars();
     }
     
-    io.emit('update', gameState);
+    broadcastState(io, gameState);
 };
 
 generateMarketCars();
@@ -415,6 +469,9 @@ setInterval(() => {
 io.on('connection', (socket) => {
     socket.on('join', ({ name, lotScale, careerFocus, shopSpecialty }) => {
       console.log('--- PLAYER JOIN ---', { name, lotScale, careerFocus, shopSpecialty });
+      if (!gameState.hostId) {
+          gameState.hostId = socket.id;
+      }
       const playerCount = Object.keys(gameState.players).length;
       let x = (playerCount % 5) * 250;
       let z = Math.floor(playerCount / 5) * -250;
@@ -454,7 +511,7 @@ io.on('connection', (socket) => {
         shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
       } as any;
       socket.emit('init', { id: socket.id, state: gameState });
-      io.emit('update', gameState);
+      broadcastState(io, gameState);
     });
   socket.on('buy_car', ({ carId, useFinancing }) => {
     const player = gameState.players[socket.id];
@@ -481,7 +538,7 @@ io.on('connection', (socket) => {
             };
             player.inventory.push(car);
             gameState.market.splice(carIndex, 1);
-            io.emit('update', gameState);
+            broadcastState(io, gameState);
         } else if (player.money >= car.buyPrice) {
             // Pay Cash + $300 Auto-Delivery Fee
             player.money -= (car.buyPrice + 300);
@@ -499,7 +556,7 @@ io.on('connection', (socket) => {
             };
             player.inventory.push(car);
             gameState.market.splice(carIndex, 1);
-            io.emit('update', gameState);
+            broadcastState(io, gameState);
         }
     }
   });
@@ -523,7 +580,7 @@ io.on('connection', (socket) => {
      const car = player.inventory.find(c => c.id === carId);
      if (car) {
          car.isDirty = false;
-         io.emit('update', gameState);
+         broadcastState(io, gameState);
      }
   });
 
@@ -535,7 +592,7 @@ io.on('connection', (socket) => {
          player.money -= 500;
          car.mechanicCondition = 100;
          car.condition = Math.floor((car.mechanicCondition + car.bodyCondition) / 2);
-         io.emit('update', gameState);
+         broadcastState(io, gameState);
      }
   });
 
@@ -545,7 +602,7 @@ io.on('connection', (socket) => {
      const car = player.inventory.find(c => c.id === carId);
      if (car && !car.isDirty) {
          car.isProcessed = true;
-         io.emit('update', gameState);
+         broadcastState(io, gameState);
      }
   });
 
@@ -607,7 +664,7 @@ io.on('connection', (socket) => {
           totalValue: Math.floor(totalValue)
       };
       
-      io.emit('update', gameState);
+      broadcastState(io, gameState);
   });
 
   socket.on('counter_offer', ({ agentId, newTotalValue }) => {
@@ -637,7 +694,7 @@ io.on('connection', (socket) => {
               // They reject the counter and stick to their last offer, but patience is lost
           }
       }
-      io.emit('update', gameState);
+      broadcastState(io, gameState);
   });
 
   socket.on('reject_deal', ({ agentId }) => {
@@ -648,7 +705,7 @@ io.on('connection', (socket) => {
       if (agent) {
           agent.state = 'left';
           agent.activeProposal = undefined;
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -783,11 +840,14 @@ io.on('connection', (socket) => {
       
       agent.state = 'left';
       
-      io.emit('update', gameState);
+      broadcastState(io, gameState);
   });
 
   socket.on('end_day', () => {
-    economyTick();
+    if (socket.id === gameState.hostId) {
+        economyTick();
+        saveGameState();
+    }
   });
 
   socket.on('toggle_employee', ({ role }) => {
@@ -796,7 +856,7 @@ io.on('connection', (socket) => {
       if (!player.employees) player.employees = { mechanic: false, salesperson: false, financeManager: false };
       
       player.employees[role as keyof typeof player.employees] = !player.employees[role as keyof typeof player.employees];
-      io.emit('update', gameState);
+      broadcastState(io, gameState);
   });
 
   socket.on('upgrade_lot', () => {
@@ -810,7 +870,7 @@ io.on('connection', (socket) => {
           player.money -= 150000;
           player.lotScale = 'Large';
       }
-      io.emit('update', gameState);
+      broadcastState(io, gameState);
   });
 
   socket.on('request_inspection', ({ carId }) => {
@@ -825,7 +885,7 @@ io.on('connection', (socket) => {
           player.balanceSheet.lastTickExpense += 250;
           car.inspectionStatus = 'Pending';
           car.inspectionRequestedDay = gameState.day;
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -842,7 +902,7 @@ io.on('connection', (socket) => {
           player.balanceSheet.lastTickExpense += repoCost;
           contract.repoStatus = 'Pending';
           contract.repoRequestedDay = gameState.day;
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -850,7 +910,7 @@ io.on('connection', (socket) => {
       const player = gameState.players[socket.id];
       if (player && ['Craigslist', 'MetaAds', 'Autotrader'].includes(tier)) {
           player.marketingTier = tier;
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -899,7 +959,7 @@ io.on('connection', (socket) => {
               // Optional: Send a notification event, but for now it just fails silently in state.
           }
 
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -910,7 +970,7 @@ io.on('connection', (socket) => {
           player.balanceSheet.totalExpenses += cost;
           player.balanceSheet.lastTickExpense += cost;
           player.partsInventory[partName] = (player.partsInventory[partName] || 0) + 1;
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -934,7 +994,7 @@ io.on('connection', (socket) => {
           };
           player.inventory.push(car);
           gameState.junkyard.splice(index, 1);
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -961,7 +1021,7 @@ io.on('connection', (socket) => {
       }
       
       player.inventory.splice(carIndex, 1);
-      io.emit('update', gameState);
+      broadcastState(io, gameState);
   });
 
   socket.on('pay_floor_plan', ({ amount }) => {
@@ -973,7 +1033,7 @@ io.on('connection', (socket) => {
           // Log as financing expense
           player.balanceSheet.totalExpenses += amount;
           player.balanceSheet.lastTickExpense += amount;
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -1007,7 +1067,7 @@ io.on('connection', (socket) => {
 
           player.balanceSheet.totalIncome += maxAdvance;
           player.balanceSheet.lastTickIncome += maxAdvance;
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -1023,7 +1083,7 @@ io.on('connection', (socket) => {
           player.balanceSheet.totalExpenses += 250;
           player.balanceSheet.lastTickExpense += 250;
           car.psiRevealed = true;
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
@@ -1036,18 +1096,25 @@ io.on('connection', (socket) => {
           player.balanceSheet.totalExpenses += 150;
           player.balanceSheet.lastTickExpense += 150;
           car.isRegistered = true;
-          io.emit('update', gameState);
+          broadcastState(io, gameState);
       }
   });
 
   socket.on('disconnect', () => {
     delete gameState.players[socket.id];
-    io.emit('update', gameState);
+    if (gameState.hostId === socket.id) {
+        const remainingPlayers = Object.keys(gameState.players);
+        gameState.hostId = remainingPlayers.length > 0 ? remainingPlayers[0] : null;
+    }
+    broadcastState(io, gameState);
   });
 });
 
 async function startServer() {
+    await loadGameState();
+
     if (process.env.NODE_ENV !== 'production') {
+        const { createServer: createViteServer } = await import('vite');
         const vite = await createViteServer({ server: { middlewareMode: true }, appType: 'spa' });
         app.use(vite.middlewares);
     } else {
