@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X } from 'lucide-react';
+import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, PieChart } from 'lucide-react';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import StandaloneShopPlatform from './StandaloneShopPlatform';
@@ -206,6 +206,133 @@ const GateControl = ({ isMobile }: { isMobile?: boolean }) => {
         )}
       </AnimatePresence>
     </>
+  );
+};
+
+// --- MyCar Fractional shares: market, cards, portfolio ---------------------
+const Sparkline = ({ data }: { data: number[] }) => {
+  if (!data || data.length < 2) return null;
+  const w = 120, h = 34;
+  const min = Math.min(...data), max = Math.max(...data);
+  const range = (max - min) || 1;
+  const pts = data.map((v, i) => `${((i / (data.length - 1)) * w).toFixed(1)},${(h - ((v - min) / range) * h).toFixed(1)}`).join(' ');
+  const up = data[data.length - 1] >= data[0];
+  const stroke = up ? '#22c55e' : '#ef4444';
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" className="w-full h-9">
+      <polyline points={pts} fill="none" stroke={stroke} strokeWidth={1.5} vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+};
+
+const fmt = (n: number) => '$' + Math.round(n).toLocaleString();
+const fmt2 = (n: number) => '$' + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+const ShareVehicleCard = ({ v, holding, money, onBuy, onSell }: { v: any, holding: any, money: number, onBuy: (id: string, q: number) => void, onSell: (id: string, q: number) => void }) => {
+  const [qty, setQty] = useState(10);
+  const pps = v.price / v.totalShares;
+  const owned = holding?.shares || 0;
+  const invested = holding?.invested || 0;
+  const value = owned * pps;
+  const pl = value - invested;
+  const prev = v.priceHistory?.length > 1 ? v.priceHistory[v.priceHistory.length - 2] : v.price;
+  const changePct = prev ? ((v.price - prev) / prev) * 100 : 0;
+  const condColor = v.condition === 'excellent' ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30'
+    : v.condition === 'good' ? 'text-blue-400 bg-blue-500/10 border-blue-500/30'
+    : 'text-amber-400 bg-amber-500/10 border-amber-500/30';
+  const q = Math.max(1, Math.floor(Number(qty) || 1));
+  const cost = q * pps;
+
+  return (
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col gap-3">
+      <div className="flex items-start justify-between gap-2">
+        <div>
+          <div className="font-black text-white text-sm">{v.year} {v.make} {v.model}</div>
+          <div className="text-[9px] text-gray-500 font-mono">{v.vin}</div>
+        </div>
+        <span className={`text-[9px] uppercase font-black px-2 py-0.5 rounded-full border ${condColor}`}>{v.condition}</span>
+      </div>
+
+      <div className="flex items-end justify-between">
+        <div>
+          <div className="text-lg font-black text-white">{fmt(v.price)}</div>
+          <div className={`text-[11px] font-bold ${changePct >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+            {changePct >= 0 ? '▲' : '▼'} {Math.abs(changePct).toFixed(2)}% · {fmt2(pps)}/share
+          </div>
+        </div>
+        <div className="w-28"><Sparkline data={v.priceHistory} /></div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 text-center text-[10px]">
+        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Mileage</div><div className="text-white font-bold">{v.mileage.toLocaleString()}</div></div>
+        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Volatility</div><div className="text-white font-bold">{(v.volatility * 100).toFixed(1)}%</div></div>
+        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Available</div><div className="text-white font-bold">{v.availableShares.toLocaleString()}</div></div>
+      </div>
+
+      {owned > 0 && (
+        <div className="flex items-center justify-between text-[11px] bg-blue-500/5 border border-blue-500/15 rounded-lg px-3 py-1.5">
+          <span className="text-gray-300">You own <span className="font-bold text-white">{owned.toLocaleString()}</span> · {fmt(value)}</span>
+          <span className={`font-bold ${pl >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>{pl >= 0 ? '+' : ''}{fmt(pl)}</span>
+        </div>
+      )}
+
+      <div className="flex items-center gap-2">
+        <input type="number" min={1} value={qty} onChange={(e) => setQty(parseInt(e.target.value) || 1)}
+          className="w-16 bg-black/40 border border-white/10 rounded-lg px-2 py-1.5 text-white text-sm text-center" />
+        <button onClick={() => onBuy(v.id, q)} disabled={cost > money || q > v.availableShares}
+          className="flex-1 bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 disabled:text-gray-500 text-white text-xs font-black uppercase tracking-wider rounded-lg py-2">
+          Buy · {fmt(cost)}
+        </button>
+        <button onClick={() => onSell(v.id, q)} disabled={owned < q}
+          className="flex-1 bg-red-600/90 hover:bg-red-500 disabled:bg-gray-700 disabled:text-gray-500 text-white text-xs font-black uppercase tracking-wider rounded-lg py-2">
+          Sell
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const SharesMarket = () => {
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  const buyShares = useGameStore(s => s.buyShares);
+  const sellShares = useGameStore(s => s.sellShares);
+  const me = playerId ? gameState?.players?.[playerId] : null;
+  const market = gameState?.fractionalMarket || [];
+  const holdings = me?.shareHoldings || {};
+
+  let invested = 0, value = 0;
+  market.forEach((v: any) => {
+    const h = holdings[v.id];
+    if (h) { invested += h.invested; value += h.shares * (v.price / v.totalShares); }
+  });
+  const pl = value - invested;
+
+  return (
+    <div className="flex flex-col gap-4 h-full">
+      {/* Portfolio summary */}
+      <div className="grid grid-cols-3 gap-3 shrink-0">
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
+          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Portfolio Value</div>
+          <div className="text-xl font-black text-white">{fmt(value)}</div>
+        </div>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
+          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Invested</div>
+          <div className="text-xl font-black text-white">{fmt(invested)}</div>
+        </div>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
+          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Total Return</div>
+          <div className={`text-xl font-black ${pl >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>{pl >= 0 ? '+' : ''}{fmt(pl)}</div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-y-auto flex-grow pe-1 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+        {market.map((v: any) => (
+          <ShareVehicleCard key={v.id} v={v} holding={holdings[v.id]} money={me?.money || 0} onBuy={buyShares} onSell={sellShares} />
+        ))}
+        {market.length === 0 && <div className="text-center text-gray-500 py-8 text-sm italic col-span-full">Loading share market…</div>}
+      </div>
+    </div>
   );
 };
 
@@ -441,69 +568,101 @@ const InspectionModal = () => {
   const car = me.inventory.find(c => c.id === activeInspectionCarId);
   if (!car) return null;
 
-  const relevantRepairs = (car.activeRepairs || []).filter(r => r.type === activeInspectionShopType);
+  const isMech = activeInspectionShopType === 'mechanic';
+  const relevantRepairs = (car.activeRepairs || []).filter((r: any) => r.type === activeInspectionShopType);
+  const hasMechanic = !!me.employees?.mechanic;
+  const condition = Math.floor(isMech ? car.mechanicCondition : car.bodyCondition);
+  const accentText = isMech ? 'text-purple-400' : 'text-blue-400';
+  const accentBar = isMech ? 'bg-purple-500' : 'bg-blue-500';
+  const accentBorder = isMech ? 'border-purple-500/50' : 'border-blue-500/50';
+
+  // A fault is free if you own the matching part; the Master Mechanic cuts cash cost 20%.
+  const ownsPart = (r: any) => (me.partsInventory?.[r.partName] || 0) > 0;
+  const faultCost = (r: any) => ownsPart(r) ? 0 : Math.floor(hasMechanic ? r.cost * 0.8 : r.cost);
+  const totalCost = relevantRepairs.reduce((s: number, r: any) => s + faultCost(r), 0);
+  const canAffordAll = me.money >= totalCost;
 
   return (
     <AnimatePresence>
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        onClick={closeInspectionModal}
         className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 pointer-events-auto"
       >
         <motion.div
           initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }}
-          className={`bg-[#0a0a0a] border ${activeInspectionShopType === 'mechanic' ? 'border-purple-500/50' : 'border-blue-500/50'} p-6 rounded-xl max-w-lg w-full flex flex-col gap-4 shadow-2xl relative`}
+          onClick={(e) => e.stopPropagation()}
+          className={`bg-[#0a0a0a] border ${accentBorder} p-5 rounded-2xl max-w-lg w-full flex flex-col gap-4 shadow-2xl relative max-h-[90vh]`}
         >
           <button onClick={closeInspectionModal} className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">✕</button>
 
-          <div>
-            <h2 className={`text-2xl font-black uppercase tracking-widest ${activeInspectionShopType === 'mechanic' ? 'text-purple-400' : 'text-blue-400'}`}>
-              {activeInspectionShopType === 'mechanic' ? 'Mechanical Inspection' : 'Body Inspection'}
-            </h2>
-            <p className="text-sm text-gray-400 font-mono mt-1">Vehicle: {car.year} {car.make} {car.model} | SCAN-{car.id.slice(0, 8)}</p>
+          <div className="flex items-center gap-3">
+            <Wrench className={accentText} size={24} />
+            <div>
+              <h2 className={`text-xl font-black uppercase tracking-widest ${accentText}`}>{isMech ? 'Mechanic' : 'Body'} Service Bay</h2>
+              <p className="text-[11px] text-gray-400 font-mono mt-0.5">{car.year} {car.make} {car.model} · diagnostic &amp; repair</p>
+            </div>
           </div>
 
-          <div className="flex items-center gap-4 bg-white/5 p-3 rounded border border-white/10">
-            <div className="flex-1">
-              <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Current Condition</div>
-              <div className="w-full bg-black/50 rounded-full h-2 relative overflow-hidden border border-white/10">
-                <div
-                  className={`h-full rounded-full transition-all duration-1000 ${activeInspectionShopType === 'mechanic' ? 'bg-purple-500' : 'bg-blue-500'}`}
-                  style={{ width: `${activeInspectionShopType === 'body' ? car.bodyCondition : car.mechanicCondition}%` }}
-                />
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1.5">{isMech ? 'Mechanical' : 'Body'} Condition</div>
+              <div className="flex items-center gap-2">
+                <div className="flex-1 bg-black/50 rounded-full h-2 overflow-hidden border border-white/10"><div className={`h-full ${accentBar} transition-all duration-700`} style={{ width: `${condition}%` }} /></div>
+                <span className="text-sm font-bold text-white">{condition}%</span>
               </div>
             </div>
-            <div className="text-2xl font-bold text-white">
-              {Math.floor(activeInspectionShopType === 'body' ? car.bodyCondition : car.mechanicCondition)}%
+            <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1.5">Your Cash</div>
+              <div className="text-sm font-bold text-success">${me.money.toLocaleString()}</div>
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 max-h-[40vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/10">
-            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest border-b border-white/10 pb-1 mb-1">Diagnostic Faults</h3>
+          <div className="flex flex-col gap-2 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-white/10" style={{ maxHeight: '38vh' }}>
+            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest border-b border-white/10 pb-1">Diagnostic Faults ({relevantRepairs.length})</h3>
             {relevantRepairs.length === 0 ? (
-              <div className="text-center italic text-gray-500 py-6">No defects found in this subsystem. Clean bill of health!</div>
+              <div className="text-center italic text-gray-500 py-6">No faults in this subsystem — clean bill of health!</div>
             ) : (
-              relevantRepairs.map((r: any) => (
-                <div key={r.id} className="flex justify-between items-center bg-black/40 p-3 rounded border border-white/5 hover:border-white/20 transition-all group">
-                  <div className="flex flex-col">
-                    <span className="font-bold text-white text-sm">{r.name}</span>
-                    <span className="text-[10px] text-green-400 font-bold uppercase tracking-wider">+{r.conditionImpact}% Condition Recovered</span>
+              relevantRepairs.map((r: any) => {
+                const part = ownsPart(r);
+                const cost = faultCost(r);
+                return (
+                  <div key={r.id} className="flex justify-between items-center bg-black/40 p-3 rounded-lg border border-white/5">
+                    <div className="flex flex-col">
+                      <span className="font-bold text-white text-sm">{r.name}</span>
+                      <span className="text-[10px] text-green-400 font-bold uppercase tracking-wider">+{r.conditionImpact}% recovered{part ? ' · owned part' : ''}</span>
+                    </div>
+                    <button
+                      onClick={() => performSpecificRepair(car.id, r.id)}
+                      disabled={!part && me.money < cost}
+                      className="bg-market/20 hover:bg-market text-market hover:text-black border border-market/50 transition-colors px-4 py-2 rounded-lg font-bold text-xs disabled:opacity-30 disabled:cursor-not-allowed uppercase shrink-0"
+                    >
+                      {part ? 'Use Part · $0' : `Fix · $${cost.toLocaleString()}`}
+                    </button>
                   </div>
-                  {(() => {
-                    const hasPart = (me.partsInventory?.[r.name] || 0) > 0;
-                    return (
-                      <button
-                        onClick={() => performSpecificRepair(car.id, r.id)}
-                        disabled={!hasPart && me.money < r.cost}
-                        className="bg-market/20 hover:bg-market text-market hover:text-black border border-market/50 transition-colors px-4 py-2 rounded font-bold text-xs disabled:opacity-30 disabled:cursor-not-allowed uppercase shrink-0"
-                      >
-                        {hasPart ? `Use Part ($0)` : `Fix ($${r.cost.toLocaleString()})`}
-                      </button>
-                    );
-                  })()}
-                </div>
-              ))
+                );
+              })
             )}
           </div>
+
+          {relevantRepairs.length > 0 && (
+            <div className="border-t border-white/10 pt-3 flex flex-col gap-2">
+              <div className="flex justify-between text-sm"><span className="text-gray-400">Total to fix all</span><span className="font-bold text-white">${totalCost.toLocaleString()}</span></div>
+              {hasMechanic ? (
+                <button
+                  onClick={() => relevantRepairs.forEach((r: any) => performSpecificRepair(car.id, r.id))}
+                  disabled={!canAffordAll}
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 disabled:text-gray-500 text-white font-black uppercase tracking-wider text-xs rounded-lg py-2.5"
+                >
+                  Master Mechanic · Fix All for ${totalCost.toLocaleString()}
+                </button>
+              ) : (
+                <div className="text-[11px] text-gray-500 bg-white/5 rounded-lg px-3 py-2 leading-snug">
+                  Each fix is billed to your dealership and has a <span className="text-amber-400 font-bold">15% chance to fail</span>. Hire a <span className="text-emerald-400 font-bold">Master Mechanic</span> (Staff tab, daily wage) to cut costs 20%, remove failures, and fix everything in one click.
+                </div>
+              )}
+            </div>
+          )}
         </motion.div>
       </motion.div>
     </AnimatePresence>
@@ -1491,6 +1650,13 @@ function App() {
               Global Auction
             </button>
             <button
+              onClick={() => setActiveTab('shares')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'shares' ? 'bg-emerald-500 text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-emerald-500/5 border border-emerald-500/10'}`}
+            >
+              <LineChart size={14} className={activeTab === 'shares' ? 'text-black' : 'text-emerald-400'} />
+              Shares Market
+            </button>
+            <button
               onClick={() => setActiveTab('accounting')}
               className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'accounting' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
@@ -1725,11 +1891,11 @@ function App() {
                             </div>
                           )}
                           <div className="grid grid-cols-2 gap-2 mt-2">
-                            <button onClick={() => alert("Please get in the vehicle and drive to the Body Shop down the road to perform diagnostics and repair.")} disabled={car.bodyCondition >= 100} className={`${car.bodyCondition < 50 ? 'bg-blue-500/50 border border-blue-400 text-white animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]' : 'bg-blue-500/10 text-blue-400/50'} hover:bg-blue-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
-                              Body: {Math.floor(car.bodyCondition)}%
+                            <button onClick={() => useGameStore.getState().openInspectionModal(car.id, 'body')} disabled={car.bodyCondition >= 100} className={`${car.bodyCondition < 50 ? 'bg-blue-500/50 border border-blue-400 text-white animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]' : 'bg-blue-500/10 text-blue-400/50'} hover:bg-blue-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
+                              🔧 Body: {Math.floor(car.bodyCondition)}%
                             </button>
-                            <button onClick={() => alert("Please get in the vehicle and drive to the Mechanic down the road to perform diagnostics and repair.")} disabled={car.mechanicCondition >= 100} className={`${car.mechanicCondition < 50 ? 'bg-purple-500/50 border border-purple-400 text-white animate-pulse shadow-[0_0_10px_rgba(168,85,247,0.5)]' : 'bg-purple-500/10 text-purple-400/50'} hover:bg-purple-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
-                              Mech: {Math.floor(car.mechanicCondition)}%
+                            <button onClick={() => useGameStore.getState().openInspectionModal(car.id, 'mechanic')} disabled={car.mechanicCondition >= 100} className={`${car.mechanicCondition < 50 ? 'bg-purple-500/50 border border-purple-400 text-white animate-pulse shadow-[0_0_10px_rgba(168,85,247,0.5)]' : 'bg-purple-500/10 text-purple-400/50'} hover:bg-purple-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
+                              🔧 Mech: {Math.floor(car.mechanicCondition)}%
                             </button>
                           </div>
                         </div>
@@ -1785,6 +1951,35 @@ function App() {
                     </div>
                   )}
                 </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* CENTER HUD: MyCar Fractional Shares Market */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'shares' && (
+              <motion.div
+                key="shares-tab"
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 20, opacity: 0 }}
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel border-emerald-500/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-3xl mx-auto h-full flex flex-col pointer-events-auto"
+              >
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/10 flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <LineChart className="text-emerald-400" size={28} />
+                    <div className="flex flex-col">
+                      <h3 className="text-xl font-bold uppercase tracking-wider text-emerald-400">MyCar Fractional</h3>
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <Wallet size={12} className="text-success" />
+                        <span className="text-xs font-bold text-success">${me.money.toLocaleString()} Liquid</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Buy &amp; trade vehicle shares</span>
+                </div>
+                <SharesMarket />
               </motion.div>
             )}
           </AnimatePresence>

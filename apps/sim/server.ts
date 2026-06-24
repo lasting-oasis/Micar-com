@@ -3,7 +3,7 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { GameState, Car, Player, FinanceContract, CustomerAgent, DealProposal, EconomicState } from './src/types.js';
+import { GameState, Car, Player, FinanceContract, CustomerAgent, DealProposal, EconomicState, FractionalVehicle } from './src/types.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 
 const app = express();
@@ -48,6 +48,10 @@ async function loadGameState() {
             gameState = { ...gameState, ...parsed };
             // clear active walk-ins as they may be stale or have broken timeout state
             gameState.activeWalkIns = {};
+            // ensure the fractional share market exists even for older saves
+            if (!gameState.fractionalMarket || gameState.fractionalMarket.length === 0) {
+                gameState.fractionalMarket = seedFractionalMarket();
+            }
         }
     } catch (err) {
         console.log('No previous game state found or error reading, starting fresh.');
@@ -73,6 +77,7 @@ function broadcastState(io: Server, state: GameState) {
                 p.balanceSheet = { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 };
                 p.floorPlanDebt = 0;
                 p.gateCode = undefined; // never reveal another player's gate code
+                p.shareHoldings = {};   // portfolios are private
                 
                 // Hide buyPrice from inventory
                 if (p.inventory) {
@@ -100,7 +105,53 @@ let gameState: GameState = {
         federalInterestRate: 0.08,
         usedCarDemand: 1.0
     },
-    activeWalkIns: {}
+    activeWalkIns: {},
+    fractionalMarket: []
+};
+
+// --- MyCar Fractional: vehicles split into tradable shares ------------------
+const seedFractionalMarket = (): FractionalVehicle[] => {
+    const seeds: Array<[number, string, string, number, number, number, FractionalVehicle['condition']]> = [
+        // year, make, model, price, mileage, volatility, condition
+        [2020, 'Toyota', 'Camry',     18500, 45000, 0.018, 'excellent'],
+        [2019, 'Honda',  'Civic',     16200, 52000, 0.020, 'good'],
+        [2021, 'Tesla',  'Model 3',   42000, 28000, 0.045, 'excellent'],
+        [2018, 'Ford',   'F-150',     24500, 78000, 0.025, 'fair'],
+        [2020, 'BMW',    '3 Series',  35000, 38000, 0.038, 'excellent'],
+        [2019, 'Chevrolet', 'Silverado', 26800, 62000, 0.028, 'good'],
+        [2021, 'Mazda',  'CX-5',      28000, 22000, 0.022, 'excellent'],
+        [2017, 'Audi',   'A4',        21500, 85000, 0.040, 'fair'],
+        [2020, 'Hyundai','Elantra',   15800, 41000, 0.020, 'good'],
+    ];
+    return seeds.map(([year, make, model, price, mileage, volatility, condition], i) => {
+        // Seed ~30 days of back-history with a random walk ending at `price`
+        const history: number[] = [];
+        let p = price;
+        for (let d = 0; d < 30; d++) {
+            p = Math.max(price * 0.6, p * (1 + (Math.random() * 2 - 1) * volatility));
+            history.push(Math.round(p));
+        }
+        history.push(price);
+        return {
+            id: `frac-${i}`,
+            year, make, model,
+            vin: generateVIN(),
+            price, mileage, volatility, condition,
+            totalShares: 1000,
+            availableShares: 1000,
+            priceHistory: history.slice(-30)
+        };
+    });
+};
+
+// Advance every fractional vehicle's price by one volatility-scaled step.
+const tickFractionalPrices = () => {
+    gameState.fractionalMarket.forEach(v => {
+        const drift = (Math.random() * 2 - 1) * v.volatility;
+        v.price = Math.max(Math.round(v.price * 0.5), Math.round(v.price * (1 + drift)));
+        v.priceHistory.push(v.price);
+        if (v.priceHistory.length > 30) v.priceHistory.shift();
+    });
 };
 
 const generateRepairs = (issueCount: number, type: 'mechanic' | 'body') => {
@@ -472,12 +523,17 @@ const economyTick = () => {
         generateMarketCars();
         generateJunkyardCars();
     }
-    
+
+    tickFractionalPrices(); // move share prices each day
+
     broadcastState(io, gameState);
 };
 
 generateMarketCars();
 generateJunkyardCars();
+if (!gameState.fractionalMarket || gameState.fractionalMarket.length === 0) {
+    gameState.fractionalMarket = seedFractionalMarket();
+}
 
 // Intraday Engine Clock (1 hour = 30 real seconds => 1 in-game minute = 0.5s)
 // Ticks every 1 second, advancing timeOfDay by ~ 0.0333 hours
@@ -538,6 +594,7 @@ io.on('connection', (socket) => {
         partsInventory: {},
         balanceSheet: { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 },
         gateCode: generateGateCode(),
+        shareHoldings: {},
         // Standalone properties
         isStandaloneOperator: isStandalone,
         shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
@@ -1138,6 +1195,47 @@ io.on('connection', (socket) => {
           car.isRegistered = true;
           broadcastState(io, gameState);
       }
+  });
+
+  socket.on('buy_shares', ({ vehicleId, quantity }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const v = gameState.fractionalMarket.find(f => f.id === vehicleId);
+      const qty = Math.floor(Number(quantity));
+      if (!v || !Number.isFinite(qty) || qty <= 0 || qty > v.availableShares) return;
+      const pricePerShare = v.price / v.totalShares;
+      const cost = pricePerShare * qty;
+      if (player.money < cost) return;
+      if (!player.shareHoldings) player.shareHoldings = {};
+      const h = player.shareHoldings[vehicleId] || { shares: 0, invested: 0 };
+      h.shares += qty;
+      h.invested += cost;
+      player.shareHoldings[vehicleId] = h;
+      player.money -= cost;
+      player.balanceSheet.totalExpenses += cost;
+      player.balanceSheet.lastTickExpense += cost;
+      v.availableShares -= qty;
+      broadcastState(io, gameState);
+  });
+
+  socket.on('sell_shares', ({ vehicleId, quantity }) => {
+      const player = gameState.players[socket.id];
+      if (!player || !player.shareHoldings) return;
+      const v = gameState.fractionalMarket.find(f => f.id === vehicleId);
+      const h = player.shareHoldings[vehicleId];
+      const qty = Math.floor(Number(quantity));
+      if (!v || !h || !Number.isFinite(qty) || qty <= 0 || qty > h.shares) return;
+      const pricePerShare = v.price / v.totalShares;
+      const proceeds = pricePerShare * qty;
+      h.invested -= (h.invested / h.shares) * qty; // shed cost basis proportionally
+      h.shares -= qty;
+      if (h.shares <= 0) delete player.shareHoldings[vehicleId];
+      else player.shareHoldings[vehicleId] = h;
+      player.money += proceeds;
+      player.balanceSheet.totalIncome += proceeds;
+      player.balanceSheet.lastTickIncome += proceeds;
+      v.availableShares = Math.min(v.totalShares, v.availableShares + qty);
+      broadcastState(io, gameState);
   });
 
   socket.on('disconnect', () => {

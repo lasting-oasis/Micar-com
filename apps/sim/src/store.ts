@@ -46,6 +46,9 @@ interface StoreState {
 
   gatePrompt: boolean; // true when the player is outside their locked gate and must enter the code
   setGatePrompt: (visible: boolean) => void;
+
+  buyShares: (vehicleId: string, quantity: number) => void;
+  sellShares: (vehicleId: string, quantity: number) => void;
 }
 
 export const useGameStore = create<StoreState>((set, get) => ({
@@ -79,6 +82,14 @@ export const useGameStore = create<StoreState>((set, get) => ({
   setActiveInteraction: (interaction) => set({ activeInteraction: interaction }),
   gatePrompt: false,
   setGatePrompt: (visible) => { if (get().gatePrompt !== visible) set({ gatePrompt: visible }); },
+  buyShares: (vehicleId, quantity) => {
+      const socket = get().socket;
+      if (socket) socket.emit('buy_shares', { vehicleId, quantity });
+  },
+  sellShares: (vehicleId, quantity) => {
+      const socket = get().socket;
+      if (socket) socket.emit('sell_shares', { vehicleId, quantity });
+  },
   disconnect: () => {
     const socket = get().socket;
     if (socket) socket.disconnect();

@@ -94,11 +94,26 @@ export type Player = {
   employees: { mechanic: boolean; salesperson: boolean; financeManager: boolean; }; // Dealership Staff
   reputation: number; // 0 to 100, affects walk-in rates
   gateCode?: string; // Private 4-digit code to open the lot gate from outside
+  shareHoldings?: Record<string, { shares: number; invested: number }>; // Fractional vehicle shares owned (vehicleId -> qty + cost basis)
 
   balanceSheet: { 
       totalIncome: number; totalExpenses: number; 
       lastTickIncome: number; lastTickExpense: number; 
   };
+};
+
+// A vehicle that has been fractionalized into tradable shares (MyCar Fractional)
+export type FractionalVehicle = {
+  id: string;
+  year: number; make: string; model: string;
+  vin: string;
+  price: number;          // total vehicle value
+  mileage: number;
+  volatility: number;     // daily price sigma, e.g. 0.025 = 2.5%
+  condition: 'excellent' | 'good' | 'fair';
+  totalShares: number;    // total shares the vehicle is split into
+  availableShares: number;// shares still purchasable from the pool
+  priceHistory: number[]; // recent total-price points (~30)
 };
 
 export type GameState = {
@@ -109,5 +124,6 @@ export type GameState = {
   junkyard: Car[];
   economy: EconomicState;
   activeWalkIns: Record<string, CustomerAgent[]>; // maps player ID to their current walk-ins
+  fractionalMarket: FractionalVehicle[]; // vehicles available as fractional shares
   hostId?: string | null; // The player who can advance the day
 };

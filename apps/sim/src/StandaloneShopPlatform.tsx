@@ -28,6 +28,8 @@ interface ShopJob {
   progress: number; // 0 to 100 within stage
   techAssigned: string;
   logs: string[];
+  realCarId?: string;      // links this job to a real inventory vehicle
+  realFaultIds?: string[]; // the real fault ids to repair when the order completes
 }
 
 interface SimulatedShop {
@@ -56,6 +58,7 @@ export default function StandaloneShopPlatform() {
   const [newShopType, setNewShopType] = useState<'mechanic' | 'body' | 'dual'>('mechanic');
   const [newShopCap, setNewShopCap] = useState<number>(4);
   const [showCreator, setShowCreator] = useState(false);
+  const [showVehiclePicker, setShowVehiclePicker] = useState(false);
 
   // Initial State setup
   const [shops, setShops] = useState<SimulatedShop[]>([]);
@@ -335,6 +338,35 @@ export default function StandaloneShopPlatform() {
     );
   };
 
+  // Manually drop one of the player's REAL inventory vehicles into a shop's pipeline.
+  const intakeRealVehicle = (shopId: string, car: any) => {
+    const faults = car.activeRepairs || [];
+    const faultIds = faults.map((f: any) => f.id);
+    const firstType = faults[0]?.type || 'mechanic';
+    const defect: keyof typeof STANDALONE_DEFECTS = firstType === 'body' ? 'B-DENT' : 'P0302';
+    setShops(prevShops =>
+      prevShops.map(shop => {
+        if (shop.id !== shopId) return shop;
+        // Don't intake the same vehicle twice
+        const already = [...shop.activeJobs, ...shop.waitQueue].some((j: any) => j.realCarId === car.id);
+        if (already) return shop;
+        return {
+          ...shop,
+          waitQueue: [...shop.waitQueue, {
+            roId: `RO-${(car.vin || '').slice(-5).toUpperCase() || Math.floor(Math.random() * 99999)}`,
+            customerName: `${me?.name || 'You'} (Your Vehicle)`,
+            vehicle: `${car.year} ${car.make} ${car.model}`,
+            vin: car.vin,
+            defectCode: defect,
+            realCarId: car.id,
+            realFaultIds: faultIds
+          }]
+        };
+      })
+    );
+    setShowVehiclePicker(false);
+  };
+
   // Complete Order and cash out
   const cashOutJob = (shopId: string, roId: string) => {
     setShops(prevShops =>
@@ -344,8 +376,19 @@ export default function StandaloneShopPlatform() {
         const target = shop.activeJobs.find(j => j.roId === roId);
         if (!target) return shop;
 
+        // Real player vehicle: actually repair it server-side (bills the player per fault)
+        if (target.realCarId) {
+          const socket = useGameStore.getState().socket;
+          if (socket) {
+            (target.realFaultIds || []).forEach(fid =>
+              socket.emit('perform_specific_repair', { carId: target.realCarId, repairId: fid })
+            );
+          }
+          return { ...shop, activeJobs: shop.activeJobs.filter(j => j.roId !== roId) };
+        }
+
         const payout = STANDALONE_DEFECTS[target.defectCode].type === 'mechanic' ? 850 : 600;
-        
+
         // If it's the player's personal shop, sync the balance payout to their core wallet as well!
         if (shop.id === 'shop-player') {
           const socket = useGameStore.getState().socket;
@@ -688,6 +731,13 @@ export default function StandaloneShopPlatform() {
               </div>
               <div className="flex gap-2 w-full md:w-auto shrink-0">
                 <button
+                  onClick={() => setShowVehiclePicker(true)}
+                  disabled={selectedShop.waitQueue.length >= 6}
+                  className="flex-1 md:flex-initial px-4 py-2.5 bg-blue-500 hover:bg-blue-400 text-black text-xs font-black uppercase tracking-widest rounded-xl transition-all shadow-[0_0_10px_rgba(59,130,246,0.3)] disabled:opacity-40 flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <Plus size={14} /> Add My Vehicle
+                </button>
+                <button
                   onClick={() => triggerManualIntake(selectedShop.id)}
                   disabled={selectedShop.waitQueue.length >= 6}
                   className="flex-1 md:flex-initial px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-black uppercase tracking-widest rounded-xl transition-all shadow-[0_0_10px_rgba(16,185,129,0.3)] disabled:opacity-40 flex items-center justify-center gap-1.5 cursor-pointer"
@@ -707,6 +757,34 @@ export default function StandaloneShopPlatform() {
               </div>
             </div>
 
+            {/* My Vehicle picker */}
+            {showVehiclePicker && (
+              <div className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={() => setShowVehiclePicker(false)}>
+                <div className="bg-[#0a0a0a] border border-blue-500/40 rounded-2xl p-5 w-full max-w-md max-h-[80vh] overflow-auto" onClick={e => e.stopPropagation()}>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-white font-black uppercase tracking-widest text-sm">Drop a Vehicle at {selectedShop.name}</h3>
+                    <button onClick={() => setShowVehiclePicker(false)} className="text-gray-500 hover:text-white">✕</button>
+                  </div>
+                  <p className="text-[11px] text-gray-400 mb-3">Pick one of your inventory vehicles with open faults. The shop runs it through the bay; you're billed the repair cost when you hit <strong>Complete &amp; Cash Out</strong>.</p>
+                  <div className="flex flex-col gap-2">
+                    {(me?.inventory || []).filter((c: any) => (c.activeRepairs?.length || 0) > 0).map((c: any) => (
+                      <button key={c.id} onClick={() => intakeRealVehicle(selectedShop.id, c)}
+                        className="text-left bg-white/5 hover:bg-blue-500/10 border border-white/10 hover:border-blue-500/40 rounded-xl px-4 py-3 flex justify-between items-center transition-all">
+                        <div>
+                          <div className="text-white font-bold text-sm">{c.year} {c.make} {c.model}</div>
+                          <div className="text-[10px] text-gray-500 font-mono">{c.vin}</div>
+                        </div>
+                        <span className="text-[10px] font-black uppercase text-amber-400 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded shrink-0">{c.activeRepairs.length} faults</span>
+                      </button>
+                    ))}
+                    {(me?.inventory || []).filter((c: any) => (c.activeRepairs?.length || 0) > 0).length === 0 && (
+                      <div className="text-center text-gray-500 italic py-6 text-sm">No inventory vehicles need repair. Buy a car at the auction first.</div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Active Lifts Board */}
             <div className="space-y-4">
               <h3 className="text-sm font-black uppercase tracking-widest text-emerald-400 border-b border-white/5 pb-2">Active Service Bays</h3>
@@ -718,6 +796,7 @@ export default function StandaloneShopPlatform() {
                         <span className="text-[9px] font-mono font-black text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded">
                           {job.roId}
                         </span>
+                        {job.realCarId && <span className="ml-1.5 text-[9px] font-mono font-black text-blue-300 bg-blue-500/20 border border-blue-500/40 px-2 py-0.5 rounded">YOUR CAR</span>}
                         <h4 className="font-black text-white text-base mt-2">{job.vehicle}</h4>
                         <span className="text-xs text-gray-400">Client: {job.customerName}</span>
                       </div>
