@@ -3,3 +3,8 @@ node/
 mingit/
 *.zip
 dist/
+data/
+
+# Local dev/run artifacts
+dev-server.*
+test-server.*

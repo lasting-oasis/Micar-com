@@ -59,6 +59,7 @@ export function VanillaThreeScene() {
             return () => {};
         }
         renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // crisper on hi-DPI without tanking perf
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         mountRef.current.appendChild(renderer.domElement);
@@ -163,6 +164,29 @@ export function VanillaThreeScene() {
         };
         const noiseBumpMap = generateNoiseTexture();
 
+        // Dark asphalt with fine aggregate speckle for realistic lot paving
+        const generateAsphaltTexture = () => {
+             const size = 512;
+             const canvas = document.createElement('canvas');
+             canvas.width = size; canvas.height = size;
+             const context = canvas.getContext('2d');
+             if (!context) return new THREE.Texture();
+             const imgData = context.createImageData(size, size);
+             for (let i = 0; i < imgData.data.length; i += 4) {
+                 // Base dark asphalt with occasional lighter gravel flecks
+                 const base = 24 + Math.random() * 14;
+                 const fleck = Math.random() < 0.05 ? 35 + Math.random() * 45 : 0;
+                 const v = Math.min(95, base + fleck);
+                 imgData.data[i] = v; imgData.data[i+1] = v; imgData.data[i+2] = v + 2; imgData.data[i+3] = 255;
+             }
+             context.putImageData(imgData, 0, 0);
+             const tex = new THREE.CanvasTexture(canvas);
+             tex.wrapS = THREE.RepeatWrapping; tex.wrapT = THREE.RepeatWrapping;
+             tex.repeat.set(6, 6);
+             return tex;
+        };
+        const asphaltTex = generateAsphaltTexture();
+
         // Grassy Floor (expanded to massive 2000x2000 open world)
         const floorGeo = new THREE.BoxGeometry(2000, 1, 2000);
         const floorMat = new THREE.MeshStandardMaterial({ 
@@ -177,19 +201,19 @@ export function VanillaThreeScene() {
         environmentDisposables.push(floor);
 
         // Suburbs Outbound Road Networks (Massive expansion)
-        const roadGeo = new THREE.BoxGeometry(25, 0.5, 1000); // Main strip
-        const roadMat = new THREE.MeshStandardMaterial({ color: '#27272a', roughness: 0.8 });
-        
+        const roadGeo = new THREE.BoxGeometry(25, 0.5, 840); // Main strip — starts north of the lot so it never runs through the dealership
+        const roadMat = new THREE.MeshStandardMaterial({ color: '#191a1d', roughness: 0.95 }); // near-black asphalt, clearly darker than the grey lot paving
+
         const roadMain = new THREE.Mesh(roadGeo, roadMat);
-        roadMain.position.set(0, 0.02, 540); 
+        roadMain.position.set(0, 0.02, 620);
         roadMain.receiveShadow = true;
         scene.add(roadMain);
         environmentDisposables.push(roadMain);
 
-        const dividerGeo = new THREE.BoxGeometry(0.5, 0.6, 1000);
+        const dividerGeo = new THREE.BoxGeometry(0.5, 0.6, 840);
         const dividerMat = new THREE.MeshStandardMaterial({ color: '#fbbf24' });
         const dividerMain = new THREE.Mesh(dividerGeo, dividerMat);
-        dividerMain.position.set(0, 0.03, 540);
+        dividerMain.position.set(0, 0.03, 620);
         scene.add(dividerMain);
         environmentDisposables.push(dividerMain);
 
@@ -266,6 +290,151 @@ export function VanillaThreeScene() {
         const cityMaterials: THREE.Material[] = [];
         const cityTextures: THREE.Texture[] = [];
         const emissiveFacadeMaterials: THREE.MeshStandardMaterial[] = [];
+
+        // --- Realistic galvanized chain-link fencing ---------------------------
+        // Transparent diamond-wire texture used as both color + alpha map so the
+        // fence reads as real woven steel rather than a flat wireframe plane.
+        const generateChainLinkTexture = () => {
+             const size = 128;
+             const canvas = document.createElement('canvas');
+             canvas.width = size; canvas.height = size;
+             const ctx = canvas.getContext('2d');
+             if (!ctx) return new THREE.Texture();
+             ctx.clearRect(0, 0, size, size);
+             ctx.strokeStyle = 'rgba(214, 219, 224, 1)';
+             ctx.lineWidth = 2.5;
+             ctx.lineCap = 'round';
+             const step = 16;
+             for (let i = -size; i <= size; i += step) {
+                 ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i + size, size); ctx.stroke();
+                 ctx.beginPath(); ctx.moveTo(i + size, 0); ctx.lineTo(i, size); ctx.stroke();
+             }
+             const tex = new THREE.CanvasTexture(canvas);
+             tex.wrapS = THREE.RepeatWrapping;
+             tex.wrapT = THREE.RepeatWrapping;
+             return tex;
+        };
+        const chainLinkBaseTex = generateChainLinkTexture();
+        cityTextures.push(chainLinkBaseTex);
+
+        // Shared galvanized steel material for posts, rails and caps
+        const fencePostMat = new THREE.MeshStandardMaterial({ color: '#aab0b6', metalness: 0.9, roughness: 0.35 });
+        cityMaterials.push(fencePostMat);
+
+        // Builds a chain-link fence run from (x1,z1) to (x2,z2): woven wire panel,
+        // top + bottom tension rails, and capped vertical posts every ~6 units.
+        const buildChainLinkFence = (x1: number, z1: number, x2: number, z2: number, height = 6) => {
+             const group = new THREE.Group();
+             const dx = x2 - x1, dz = z2 - z1;
+             const length = Math.hypot(dx, dz);
+             if (length < 0.01) return group;
+             const angle = Math.atan2(dz, dx);
+             const midX = x1 + dx / 2, midZ = z1 + dz / 2;
+
+             // Woven wire panel (tiled so diamonds stay a consistent real-world size)
+             const wireTex = chainLinkBaseTex.clone();
+             wireTex.needsUpdate = true;
+             wireTex.wrapS = THREE.RepeatWrapping;
+             wireTex.wrapT = THREE.RepeatWrapping;
+             wireTex.repeat.set(Math.max(1, Math.round(length / 1.5)), Math.max(1, Math.round(height / 1.5)));
+             cityTextures.push(wireTex);
+             const wireMat = new THREE.MeshStandardMaterial({
+                 map: wireTex,
+                 alphaMap: wireTex,
+                 transparent: true,
+                 alphaTest: 0.35,
+                 side: THREE.DoubleSide,
+                 color: '#c4c9ce',
+                 metalness: 0.85,
+                 roughness: 0.45
+             });
+             cityMaterials.push(wireMat);
+             const panel = new THREE.Mesh(new THREE.PlaneGeometry(length, height), wireMat);
+             panel.position.set(midX, height / 2, midZ);
+             panel.rotation.y = -angle;
+             group.add(panel);
+
+             // Horizontal tension rails (top + bottom)
+             const railGeo = new THREE.CylinderGeometry(0.07, 0.07, length, 8);
+             railGeo.rotateZ(Math.PI / 2);
+             [height - 0.15, 0.25].forEach(y => {
+                 const rail = new THREE.Mesh(railGeo, fencePostMat);
+                 rail.position.set(midX, y, midZ);
+                 rail.rotation.y = -angle;
+                 rail.castShadow = true;
+                 group.add(rail);
+             });
+
+             // Vertical posts with rounded caps
+             const numPosts = Math.max(1, Math.round(length / 6));
+             const postGeo = new THREE.CylinderGeometry(0.13, 0.13, height + 0.5, 8);
+             const capGeo = new THREE.SphereGeometry(0.16, 8, 6);
+             for (let i = 0; i <= numPosts; i++) {
+                 const t = i / numPosts;
+                 const px = x1 + dx * t, pz = z1 + dz * t;
+                 const post = new THREE.Mesh(postGeo, fencePostMat);
+                 post.position.set(px, (height + 0.5) / 2, pz);
+                 post.castShadow = true;
+                 group.add(post);
+                 const cap = new THREE.Mesh(capGeo, fencePostMat);
+                 cap.position.set(px, height + 0.5, pz);
+                 group.add(cap);
+             }
+
+             scene.add(group);
+             environmentDisposables.push(group);
+             return group;
+        };
+
+        // Swing gates that close the driveway automatically after hours.
+        // Each gate is a hinged chain-link leaf; the render loop lerps rotation.y
+        // toward open/closed based on the in-game clock (closes at 17:00 / 5pm).
+        const dealershipGates: { left: THREE.Group; right: THREE.Group; ownerId: string; x: number; z: number }[] = [];
+
+        // Builds one hinged gate leaf. `panelDir` = +1 means the leaf extends toward
+        // +x from its hinge, -1 toward -x. rotation.y = 0 is closed (across the gap).
+        const buildGateLeaf = (hingeX: number, hingeZ: number, panelDir: number, height = 6) => {
+             const pivot = new THREE.Group();
+             pivot.position.set(hingeX, 0, hingeZ);
+             const width = 15;
+             const cx = (panelDir * width) / 2;
+
+             const tex = chainLinkBaseTex.clone();
+             tex.needsUpdate = true;
+             tex.wrapS = THREE.RepeatWrapping;
+             tex.wrapT = THREE.RepeatWrapping;
+             tex.repeat.set(Math.round(width / 1.5), Math.round(height / 1.5));
+             cityTextures.push(tex);
+             const mat = new THREE.MeshStandardMaterial({
+                 map: tex, alphaMap: tex, transparent: true, alphaTest: 0.35,
+                 side: THREE.DoubleSide, color: '#c4c9ce', metalness: 0.85, roughness: 0.45
+             });
+             cityMaterials.push(mat);
+             const panel = new THREE.Mesh(new THREE.PlaneGeometry(width, height), mat);
+             panel.position.set(cx, height / 2, 0);
+             pivot.add(panel);
+
+             // Sturdier gate frame: top/bottom rails + hinge & latch posts
+             const railGeo = new THREE.CylinderGeometry(0.09, 0.09, width, 8);
+             railGeo.rotateZ(Math.PI / 2);
+             [height - 0.1, 0.2].forEach(y => {
+                 const rail = new THREE.Mesh(railGeo, fencePostMat);
+                 rail.position.set(cx, y, 0);
+                 rail.castShadow = true;
+                 pivot.add(rail);
+             });
+             const barGeo = new THREE.CylinderGeometry(0.11, 0.11, height + 0.3, 8);
+             [0, panelDir * width].forEach(x => {
+                 const bar = new THREE.Mesh(barGeo, fencePostMat);
+                 bar.position.set(x, (height + 0.3) / 2, 0);
+                 bar.castShadow = true;
+                 pivot.add(bar);
+             });
+
+             scene.add(pivot);
+             environmentDisposables.push(pivot);
+             return pivot;
+        };
 
         // Procedural Skyscraper Facade Texture Generator
         const generateFacadeTexture = (cols: number, rows: number, baseColorHex: string) => {
@@ -582,7 +751,8 @@ export function VanillaThreeScene() {
         for(let i = 0; i < 80; i++) {
              const zOffset = 50 + Math.random() * 900;
              const side = Math.random() > 0.5 ? (-20 - Math.random() * 40) : (20 + Math.random() * 40);
-             if (Math.abs(side - 40) < 30 && Math.abs(zOffset - 130) < 30) continue;
+             // Keep the dealership plot (x -62..82, z < 115) clear of trees
+             if (zOffset < 115 && side > -62 && side < 82) continue;
              placeTree(side, zOffset);
         }
         trunkInstanced.instanceMatrix.needsUpdate = true;
@@ -591,9 +761,10 @@ export function VanillaThreeScene() {
         // Deploy Themed Zoned Districts
         
         // District 1: Financial & Corporate Skyscraper District (Z = 100 to 300)
-        createSkyscraper(50, 95, 30, 26, 90, '#1e293b');
+        // All skyscrapers sit well north of the dealership plot (lot ends at z=100)
+        createSkyscraper(50, 330, 30, 26, 90, '#1e293b');
         createSkyscraper(55, 275, 26, 26, 75, '#111827');
-        createSkyscraper(-50, 110, 28, 26, 80, '#0f172a');
+        createSkyscraper(-50, 360, 28, 26, 80, '#0f172a');
         createSkyscraper(-50, 285, 30, 26, 105, '#1e1b4b');
 
         // District 2: Commercial & Storefront Plaza District (Z = 300 to 550)
@@ -611,7 +782,7 @@ export function VanillaThreeScene() {
 
         // Extra streetlights for the newly expanded Test Drive Road
         [-15, 15].forEach(x => {
-            [80, 150, 220, 290, 360].forEach(z => {
+            [240, 300, 360, 420, 470].forEach(z => {
                 const poleGeo = new THREE.CylinderGeometry(0.2, 0.4, 15, 8);
                 const poleMat = new THREE.MeshStandardMaterial({ color: '#27272a', metalness: 0.8, roughness: 0.2 });
                 const pole = new THREE.Mesh(poleGeo, poleMat);
@@ -727,7 +898,7 @@ export function VanillaThreeScene() {
 
         // Dealership Foundation Asphalt
         const foundationGeo = new THREE.PlaneGeometry(130, 140);
-        const foundationMat = new THREE.MeshStandardMaterial({ color: '#222222', roughness: 0.9, map: concreteTex });
+        const foundationMat = new THREE.MeshStandardMaterial({ color: '#48484d', roughness: 0.95, metalness: 0.0, map: asphaltTex }); // mid-grey lot paving, distinct from the near-black roads
         const foundation = new THREE.Mesh(foundationGeo, foundationMat);
         foundation.rotation.x = -Math.PI / 2;
         foundation.position.set(lotX + 10, 0.015, lotZ + 30);
@@ -744,82 +915,90 @@ export function VanillaThreeScene() {
         scene.add(driveway);
         environmentDisposables.push(driveway);
 
-        // Chain Link Fence
-        const fenceMat = new THREE.MeshStandardMaterial({ color: '#71717a', wireframe: true, transparent: true, opacity: 0.6, side: THREE.DoubleSide }); // Simple wireframe for chain link
-        const poleMat = new THREE.MeshStandardMaterial({ color: '#52525b', metalness: 0.8 });
-        
-        const buildFence = (x1: number, z1: number, x2: number, z2: number) => {
-             const dx = x2 - x1;
-             const dz = z2 - z1;
-             const length = Math.sqrt(dx * dx + dz * dz);
-             const angle = Math.atan2(dz, dx);
-             
-             // Fence panel
-             const panelGeo = new THREE.PlaneGeometry(length, 6);
-             const panel = new THREE.Mesh(panelGeo, fenceMat);
-             panel.position.set(x1 + dx / 2, 3, z1 + dz / 2);
-             panel.rotation.y = -angle;
-             
-             // Add some poles
-             const poles = new THREE.Group();
-             const numPoles = Math.ceil(length / 5);
-             for(let i=0; i<=numPoles; i++) {
-                 const poleGeo = new THREE.CylinderGeometry(0.1, 0.1, 6);
-                 const pole = new THREE.Mesh(poleGeo, poleMat);
-                 pole.position.set(x1 + (dx * (i/numPoles)), 3, z1 + (dz * (i/numPoles)));
-                 poles.add(pole);
-             }
-             
-             scene.add(panel);
-             scene.add(poles);
-             environmentDisposables.push(panel, poles);
-        };
-        
+        // Galvanized chain-link perimeter fence around the lot
         // Boundary of foundation: X: lotX-55 to lotX+75, Z: lotZ-40 to lotZ+100
         const fL = lotX - 55;
         const fR = lotX + 75;
         const fB = lotZ - 40;
         const fT = lotZ + 100;
-        
-        // Back fence
-        buildFence(fL, fB, fR, fB);
-        // Left fence
-        buildFence(fL, fB, fL, fT);
-        // Right fence
-        buildFence(fR, fB, fR, fT);
-        // Front fence with opening for driveway (driveway from lotX-15 to lotX+15)
-        buildFence(fL, fT, lotX - 15, fT);
-        buildFence(lotX + 15, fT, fR, fT);
 
-        const lineGeo = new THREE.PlaneGeometry(0.2, 8);
-        const lineMat = new THREE.MeshBasicMaterial({ color: '#eab308' }); // Yellow parking lines
-        
-        const centerLineGeo = new THREE.PlaneGeometry(0.3, 90);
-        const centerLine = new THREE.Mesh(centerLineGeo, lineMat);
-        centerLine.rotation.x = -Math.PI / 2;
-        centerLine.position.set(lotX, 0.025, lotZ + 58);
-        scene.add(centerLine);
-        environmentDisposables.push(centerLine);
+        // Back / Left / Right runs
+        buildChainLinkFence(fL, fB, fR, fB);
+        buildChainLinkFence(fL, fB, fL, fT);
+        buildChainLinkFence(fR, fB, fR, fT);
+        // Front runs leave a gate opening for the driveway (lotX-15 to lotX+15)
+        buildChainLinkFence(fL, fT, lotX - 15, fT);
+        buildChainLinkFence(lotX + 15, fT, fR, fT);
 
-        for (let i = 0; i < 15; i++) {
-            const zSpot = lotZ + Math.floor(i) * 6 + 15; 
-            
-            // Left Column Stalls Divider
-            const ll = new THREE.Mesh(lineGeo, lineMat); 
-            ll.rotation.x = -Math.PI / 2;
-            ll.rotation.z = Math.PI / 2;
-            ll.position.set(lotX - 6, 0.025, zSpot + 3); 
-            scene.add(ll);
-            environmentDisposables.push(ll);
+        // Secured automatic driveway gate (two leaves). Starts closed; the render
+        // loop opens it from the inside automatically and from the outside only
+        // after the owner enters their code.
+        const gateLeft = buildGateLeaf(lotX - 15, fT, 1);
+        const gateRight = buildGateLeaf(lotX + 15, fT, -1);
+        gateLeft.rotation.y = 0;
+        gateRight.rotation.y = 0;
+        dealershipGates.push({ left: gateLeft, right: gateRight, ownerId: playerId, x: lotX, z: fT });
 
-            // Right Column Stalls Divider
-            const lr = new THREE.Mesh(lineGeo, lineMat); 
-            lr.rotation.x = -Math.PI / 2;
-            lr.rotation.z = Math.PI / 2;
-            lr.position.set(lotX + 6, 0.025, zSpot + 3); 
-            scene.add(lr);
-            environmentDisposables.push(lr);
-        }
+        // --- Parking & traffic layout -----------------------------------------
+        // A clear central drive lane runs from the front gate to the back of the
+        // lot, so customer and service traffic never weaves through the display
+        // rows. Inventory is shown in perpendicular rows either side of that lane;
+        // visitor parking sits by the entrance; the delivery lane stays on the far
+        // left (x-40) where the server spawns newly-bought stock.
+        const stallLineMat = new THREE.MeshBasicMaterial({ color: '#eef2f6' }); // white stall paint
+        const laneLineMat = new THREE.MeshBasicMaterial({ color: '#fde047' });  // yellow drive-lane edge
+        const wheelStopMat = new THREE.MeshStandardMaterial({ color: '#9ca3af', roughness: 0.95 });
+        const wheelStopGeo = new THREE.BoxGeometry(4.0, 0.3, 0.5);
+
+        const addFlat = (mesh: THREE.Mesh) => { mesh.rotation.x = -Math.PI / 2; scene.add(mesh); environmentDisposables.push(mesh); };
+
+        // Central drive lane: two yellow edge lines from the gate back into the lot
+        [-8, 8].forEach(ex => {
+            const edge = new THREE.Mesh(new THREE.PlaneGeometry(0.35, 135), laneLineMat);
+            edge.position.set(lotX + ex, 0.025, lotZ + 32);
+            addFlat(edge);
+        });
+
+        // Paint a block of perpendicular stalls. Cars nose toward `openX` (the drive
+        // aisle); wheel stops sit at the closed/back end.
+        const paintParkingRow = (openX: number, backX: number, zFrom: number, zTo: number, withStops = true) => {
+            const cx = (openX + backX) / 2;
+            const depth = Math.abs(backX - openX);
+            const count = Math.max(1, Math.round((zTo - zFrom) / 6));
+            for (let s = 0; s <= count; s++) {
+                const z = zFrom + (s * (zTo - zFrom)) / count;
+                const divider = new THREE.Mesh(new THREE.PlaneGeometry(depth, 0.3), stallLineMat);
+                divider.position.set(cx, 0.025, lotZ + z);
+                addFlat(divider);
+            }
+            // Back boundary line along the stall heads
+            const back = new THREE.Mesh(new THREE.PlaneGeometry(0.3, zTo - zFrom), stallLineMat);
+            back.position.set(backX, 0.025, lotZ + (zFrom + zTo) / 2);
+            addFlat(back);
+            if (withStops) {
+                const stopX = backX + (openX - backX) * 0.18;
+                for (let s = 0; s < count; s++) {
+                    const z = zFrom + ((s + 0.5) * (zTo - zFrom)) / count;
+                    const stop = new THREE.Mesh(wheelStopGeo, wheelStopMat);
+                    stop.rotation.y = Math.PI / 2;
+                    stop.position.set(stopX, 0.15, lotZ + z);
+                    stop.castShadow = true; stop.receiveShadow = true;
+                    scene.add(stop); environmentDisposables.push(stop);
+                }
+            }
+        };
+
+        // Display rows flanking the central drive lane (set back from the gate)
+        paintParkingRow(10, 28, -30, 78);    // right display row, opens to the drive
+        paintParkingRow(-10, -28, 2, 78);     // left display row (north of the office)
+
+        // Visitor parking by the entrance, clearly separated from the display rows
+        paintParkingRow(34, 46, 58, 92);
+        const visitorSign = createBuildingSign('CUSTOMER PARKING', '#0f172a', '#38bdf8');
+        visitorSign.scale.set(8, 2, 1);
+        visitorSign.position.set(lotX + 40, 3, lotZ + 95);
+        scene.add(visitorSign);
+        environmentDisposables.push(visitorSign);
 
         // Delivery Drop-Off Zone (x: -40, z: 15)
         const dropOffGeo = new THREE.BoxGeometry(15, 0.1, 80);
@@ -836,6 +1015,13 @@ export function VanillaThreeScene() {
         dropOffBorder.position.set(lotX - 40, 0.06, lotZ + 50); // Top is at y: 0.12 (no z-fighting!)
         scene.add(dropOffBorder);
         environmentDisposables.push(dropOffBorder);
+
+        // Label the delivery lane so it reads as a transporter drop zone
+        const deliverySign = createBuildingSign('DELIVERY', '#7f1d1d', '#fecaca');
+        deliverySign.scale.set(6, 1.6, 1);
+        deliverySign.position.set(lotX - 40, 3, lotZ + 92);
+        scene.add(deliverySign);
+        environmentDisposables.push(deliverySign);
         // Wash Bay (Open air drive-thru)
         const washGroup = new THREE.Group();
         washGroup.position.set(lotX + 55, 0, lotZ - 40);
@@ -947,7 +1133,7 @@ export function VanillaThreeScene() {
 
     // Physical Bank Building located on the main road outside the lot
         const bankGroup = new THREE.Group();
-        bankGroup.position.set(40, 0, 130);
+        bankGroup.position.set(45, 0, 140); // just outside the front-right fence, beside the entrance — accessible but not on the lot
 
         const bankMat = new THREE.MeshStandardMaterial({ color: '#1e293b', roughness: 0.5, metalness: 0.3 });
         const bankGlass = new THREE.MeshPhysicalMaterial({ color: '#38bdf8', transmission: 0.9, opacity: 1, transparent: true, roughness: 0.05 });
@@ -1035,19 +1221,9 @@ export function VanillaThreeScene() {
 
 
 
-        // Steel Chainlink Perimeter Fence (Shatter the South Face for the Road)
-        const fenceMat = new THREE.MeshStandardMaterial({ color: '#52525b', wireframe: true, transparent: true, opacity: 0.5 });
-        const fenceNS = new THREE.BoxGeometry(160, 4, 0.1);
-        const fenceEW = new THREE.BoxGeometry(0.1, 4, 160);
-        
-        const fenceNorth = new THREE.Mesh(fenceNS, fenceMat); fenceNorth.position.set(0, 2, -80); scene.add(fenceNorth);
-        const fenceWest = new THREE.Mesh(fenceEW, fenceMat); fenceWest.position.set(-80, 2, 0); scene.add(fenceWest);
-        const fenceEast = new THREE.Mesh(fenceEW, fenceMat); fenceEast.position.set(80, 2, 0); scene.add(fenceEast);
-        environmentDisposables.push(fenceNorth, fenceWest, fenceEast);
-
-        fenceNorth.updateMatrixWorld(true); staticCollisionBoxes.push(new THREE.Box3().setFromObject(fenceNorth));
-        fenceWest.updateMatrixWorld(true); staticCollisionBoxes.push(new THREE.Box3().setFromObject(fenceWest));
-        fenceEast.updateMatrixWorld(true); staticCollisionBoxes.push(new THREE.Box3().setFromObject(fenceEast));
+        // (Removed the old 160x160 world-perimeter fence: each dealership now builds
+        //  its own chain-link fence, so the extra outer box just produced a confusing
+        //  double fence around the spawn area.)
         bankGroup.updateMatrixWorld(true);
         auctionGroup.updateMatrixWorld(true);
         walls.forEach(w => staticCollisionBoxes.push(new THREE.Box3().setFromObject(w)));
@@ -1233,6 +1409,7 @@ export function VanillaThreeScene() {
              camera.aspect = window.innerWidth / window.innerHeight;
              camera.updateProjectionMatrix();
              renderer.setSize(window.innerWidth, window.innerHeight);
+             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         };
         window.addEventListener('resize', handleResize);
 
@@ -1282,6 +1459,12 @@ export function VanillaThreeScene() {
         let hasInitializedSpawn = false;
         let lastPosEmitTime = 0;
         let lastRenderedTime = -1; // Throttle time of day updates
+
+        // Secured gate state. React calls window.__authorizeGate() after a correct
+        // code entry, which opens the gate from the outside for a short window.
+        let gateAuthorizedUntil = 0;
+        let lastGateKeypad = false;
+        (window as any).__authorizeGate = () => { gateAuthorizedUntil = performance.now() + 9000; };
 
         const animate = () => {
             animationFrameId = requestAnimationFrame(animate);
@@ -1358,6 +1541,38 @@ export function VanillaThreeScene() {
                      scene.background = skyC;
                      if (scene.fog) { (scene.fog as THREE.Fog).color.copy(skyC); }
                  }
+            }
+
+            // --- Secured automatic gate ----------------------------------------
+            // Opens automatically from the inside (exit sensor). From the outside
+            // it stays locked until the owner enters their code (the React keypad
+            // calls window.__authorizeGate() on success). Other lots' gates stay shut.
+            const activeObj = (isDriving && localDrivingCarId && carMeshes[localDrivingCarId])
+                ? carMeshes[localDrivingCarId] : avatar;
+            const now = performance.now();
+            const authorized = now < gateAuthorizedUntil;
+            let showGateKeypad = false;
+            dealershipGates.forEach(g => {
+                let open = false;
+                if (g.ownerId === current.playerId) {
+                    const dist = Math.hypot(activeObj.position.x - g.x, activeObj.position.z - g.z);
+                    const near = dist < 24 && Math.abs(activeObj.position.x - g.x) < 26;
+                    const inside = activeObj.position.z < g.z - 0.5;
+                    if (near && inside) {
+                        open = true;                 // exit sensor: always opens from inside
+                    } else if (near && !inside) {
+                        if (authorized) open = true; // valid code entered
+                        else showGateKeypad = true;  // locked: prompt for the code
+                    }
+                }
+                const lt = open ? Math.PI / 2 : 0;
+                const rt = open ? -Math.PI / 2 : 0;
+                g.left.rotation.y += (lt - g.left.rotation.y) * 0.08;
+                g.right.rotation.y += (rt - g.right.rotation.y) * 0.08;
+            });
+            if (showGateKeypad !== lastGateKeypad) {
+                lastGateKeypad = showGateKeypad;
+                useGameStore.getState().setGatePrompt(showGateKeypad);
             }
 
             if (me && !hasInitializedSpawn && me.lotPosition) {

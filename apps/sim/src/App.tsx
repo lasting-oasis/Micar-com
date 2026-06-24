@@ -1,35 +1,207 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles } from 'lucide-react';
+import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X } from 'lucide-react';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import StandaloneShopPlatform from './StandaloneShopPlatform';
 import ShopManagement from './ShopManagement';
 
 
+// Fixed points of interest in the world (x, z world coords) shown on the map.
+const MAP_LOCATIONS = [
+  { name: 'Your Dealership', x: 5, z: 25, color: '#22c55e' },
+  { name: 'Service Bays', x: 55, z: 5, color: '#eab308' },
+  { name: 'Bank — Financing', x: 45, z: 140, color: '#38bdf8' },
+  { name: 'Auto Auction', x: -60, z: 240, color: '#f97316' },
+  { name: 'Downtown Towers', x: 0, z: 310, color: '#94a3b8' },
+  { name: 'Shopping Plaza', x: -30, z: 450, color: '#a78bfa' },
+  { name: 'Warehouse District', x: 0, z: 680, color: '#f43f5e' },
+];
+
 const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: string, isMobile?: boolean }) => {
+  const [expanded, setExpanded] = useState(false);
   const size = isMobile ? 50 : 100;
   const mapScale = isMobile ? 0.125 : 0.25; // 400x400 map world mapping
   const mapCenter = isMobile ? 25 : 50;
-  
+
+  // Toggle the expanded map with the M key (Esc closes). Ignore while typing.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (document.activeElement?.tagName || '').toLowerCase();
+      if (tag === 'input' || tag === 'textarea') return;
+      if (e.key.toLowerCase() === 'm') { e.preventDefault(); setExpanded(v => !v); }
+      else if (e.key === 'Escape') setExpanded(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  const toMini = (w: number) => Math.max(0, Math.min(size, mapCenter + w * mapScale));
+
+  // Expanded-map dimensions and world→pixel mapping (north/+z runs downward,
+  // matching the GPS orientation players already use).
+  const EX_W = isMobile ? 260 : 360;
+  const EX_H = isMobile ? 300 : 440;
+  const exX = (wx: number) => Math.max(8, Math.min(EX_W - 8, ((wx + 175) / 350) * EX_W));
+  const exZ = (wz: number) => Math.max(8, Math.min(EX_H - 8, ((wz + 110) / 880) * EX_H));
+
   return (
-    <div className={`fixed rounded-xl border border-white/20 bg-black/60 backdrop-blur-md overflow-hidden z-[999] pointer-events-none transition-all duration-300 ${isMobile ? 'bottom-28 right-8 w-[50px] h-[50px]' : 'bottom-6 right-8 w-[100px] h-[100px]'}`}>
-       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: isMobile ? '5px 5px' : '10px 10px' }}></div>
-       {Object.values(gameState.players).map((p: any) => {
-          if (!p.worldPosition) return null;
-          const x = Math.max(0, Math.min(size, mapCenter + p.worldPosition.x * mapScale));
-          const z = Math.max(0, Math.min(size, mapCenter + p.worldPosition.z * mapScale));
-          const isMe = p.id === playerId;
-          return (
-             <div key={p.id} className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-200" style={{ left: `${x}px`, top: `${z}px` }}>
-                <div className={`rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] ${isMobile ? 'w-1 h-1' : 'w-2 h-2'} ${isMe ? 'bg-blue-400' : 'bg-orange-500'}`}></div>
-                {!isMobile && <span className="text-[7px] font-bold text-white mt-0.5 uppercase tracking-widest">{p.name.substring(0,4)}</span>}
-             </div>
-          )
-       })}
-       {!isMobile && <div className="absolute bottom-0.5 left-1.5 text-[7px] text-white/50 font-black uppercase">GPS</div>}
-    </div>
+    <>
+      {/* Minimap / GPS */}
+      <div className={`fixed rounded-xl border border-white/20 bg-black/60 backdrop-blur-md overflow-hidden z-[999] pointer-events-none transition-all duration-300 ${isMobile ? 'bottom-28 right-8 w-[50px] h-[50px]' : 'bottom-6 right-8 w-[100px] h-[100px]'}`}>
+         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: isMobile ? '5px 5px' : '10px 10px' }}></div>
+         {!isMobile && MAP_LOCATIONS.map(loc => (
+            <div key={loc.name} className="absolute w-1.5 h-1.5 rounded-full -translate-x-1/2 -translate-y-1/2" style={{ left: `${toMini(loc.x)}px`, top: `${toMini(loc.z)}px`, background: loc.color, boxShadow: `0 0 4px ${loc.color}` }} />
+         ))}
+         {Object.values(gameState.players).map((p: any) => {
+            if (!p.worldPosition) return null;
+            const x = toMini(p.worldPosition.x);
+            const z = toMini(p.worldPosition.z);
+            const isMe = p.id === playerId;
+            return (
+               <div key={p.id} className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-200" style={{ left: `${x}px`, top: `${z}px` }}>
+                  <div className={`rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] ${isMobile ? 'w-1 h-1' : 'w-2 h-2'} ${isMe ? 'bg-blue-400 ring-1 ring-white' : 'bg-orange-500'}`}></div>
+               </div>
+            )
+         })}
+         {!isMobile && <div className="absolute bottom-0.5 left-1.5 text-[7px] text-white/50 font-black uppercase">GPS</div>}
+         {!isMobile && <div className="absolute bottom-0.5 right-1 text-[7px] text-white/60 font-bold">[M]</div>}
+         <button onClick={() => setExpanded(true)} title="Expand map (M)" className="absolute top-0.5 right-0.5 pointer-events-auto bg-white/10 hover:bg-white/25 rounded p-0.5 text-white/80">
+            <MapIcon size={isMobile ? 9 : 12} />
+         </button>
+      </div>
+
+      {/* Expanded map + legend */}
+      <AnimatePresence>
+        {expanded && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+             className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+             onClick={() => setExpanded(false)}>
+            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }}
+               className="bg-zinc-900/95 border border-white/15 rounded-2xl p-4 shadow-2xl flex flex-col gap-3 max-h-[92vh] overflow-auto"
+               onClick={(e) => e.stopPropagation()}>
+              <div className="flex items-center justify-between gap-8">
+                 <div className="flex items-center gap-2 text-white font-black uppercase tracking-widest text-sm">
+                    <MapIcon size={16} className="text-blue-400" /> City Map
+                 </div>
+                 <button onClick={() => setExpanded(false)} className="text-white/60 hover:text-white flex items-center gap-1 text-xs font-bold">
+                    <X size={14} /> Close [M]
+                 </button>
+              </div>
+              <div className={`flex gap-4 ${isMobile ? 'flex-col items-center' : 'flex-row'}`}>
+                 <div className="relative rounded-xl border border-white/15 bg-gradient-to-b from-emerald-950 to-zinc-950 overflow-hidden shrink-0" style={{ width: EX_W, height: EX_H }}>
+                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+                    {MAP_LOCATIONS.map(loc => (
+                       <div key={loc.name} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: exX(loc.x), top: exZ(loc.z) }}>
+                          <div className="w-3 h-3 rounded-full border border-white/60" style={{ background: loc.color, boxShadow: `0 0 8px ${loc.color}` }} />
+                          <span className="text-[8px] text-white font-bold mt-0.5 whitespace-nowrap drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">{loc.name}</span>
+                       </div>
+                    ))}
+                    {Object.values(gameState.players).map((p: any) => {
+                       if (!p.worldPosition) return null;
+                       const isMe = p.id === playerId;
+                       return (
+                          <div key={p.id} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: exX(p.worldPosition.x), top: exZ(p.worldPosition.z) }}>
+                             <div className={`w-2.5 h-2.5 rounded-full ${isMe ? 'bg-blue-400 ring-2 ring-white' : 'bg-orange-500 ring-1 ring-white/60'}`} style={{ boxShadow: '0 0 8px rgba(255,255,255,0.8)' }} />
+                             <span className="text-[8px] text-white/90 font-bold mt-0.5 whitespace-nowrap">{isMe ? 'You' : (p.name || 'Dealer').substring(0,6)}</span>
+                          </div>
+                       )
+                    })}
+                    <div className="absolute bottom-1 right-2 text-[8px] text-white/40 font-bold uppercase">Downtown ↓</div>
+                 </div>
+                 <div className="flex flex-col gap-1.5 min-w-[160px]">
+                    <div className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-1">Legend</div>
+                    {MAP_LOCATIONS.map(loc => (
+                       <div key={loc.name} className="flex items-center gap-2">
+                          <span className="w-3 h-3 rounded-full border border-white/40 shrink-0" style={{ background: loc.color }} />
+                          <span className="text-[11px] text-white/90 font-semibold">{loc.name}</span>
+                       </div>
+                    ))}
+                    <div className="h-px bg-white/10 my-1" />
+                    <div className="flex items-center gap-2">
+                       <span className="w-3 h-3 rounded-full bg-blue-400 ring-2 ring-white shrink-0" />
+                       <span className="text-[11px] text-white/90 font-semibold">You</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                       <span className="w-3 h-3 rounded-full bg-orange-500 shrink-0" />
+                       <span className="text-[11px] text-white/90 font-semibold">Other dealers</span>
+                    </div>
+                    <div className="text-[9px] text-white/40 mt-2 leading-snug">Press <span className="text-white/70 font-bold">M</span> or click outside to close.</div>
+                 </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+// Owner gate-code badge + the keypad shown when standing outside the locked gate.
+const GateControl = ({ isMobile }: { isMobile?: boolean }) => {
+  const gatePrompt = useGameStore(s => s.gatePrompt);
+  const setGatePrompt = useGameStore(s => s.setGatePrompt);
+  const myCode = useGameStore(s => (s.playerId ? s.gameState?.players?.[s.playerId]?.gateCode : undefined));
+  const [entry, setEntry] = useState('');
+  const [error, setError] = useState(false);
+  const [granted, setGranted] = useState(false);
+
+  useEffect(() => { if (!gatePrompt) { setEntry(''); setError(false); } }, [gatePrompt]);
+
+  // Auto-check once four digits are entered
+  useEffect(() => {
+    if (entry.length < 4) return;
+    if (entry === myCode) {
+      (window as any).__authorizeGate?.();
+      setGranted(true);
+      setGatePrompt(false);
+      setEntry('');
+      const t = setTimeout(() => setGranted(false), 2500);
+      return () => clearTimeout(t);
+    }
+    setError(true);
+    setEntry('');
+  }, [entry, myCode, setGatePrompt]);
+
+  if (!myCode) return null;
+  const press = (d: string) => { setError(false); setEntry(prev => (prev.length >= 4 ? prev : prev + d)); };
+
+  return (
+    <>
+      {/* Persistent owner code badge */}
+      <div className="fixed bottom-6 left-6 z-[999] pointer-events-none select-none">
+        <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/15 rounded-lg px-3 py-1.5">
+          <span className="text-[10px] uppercase tracking-widest text-white/50 font-black">Gate Code</span>
+          <span className="text-sm font-mono font-bold text-emerald-400 tracking-[0.3em]">{myCode}</span>
+        </div>
+        {granted && <div className="mt-1 text-[11px] font-bold text-emerald-400 uppercase tracking-widest">✓ Gate unlocked</div>}
+      </div>
+
+      {/* Keypad — appears when outside the locked gate (proximity-driven) */}
+      <AnimatePresence>
+        {gatePrompt && (
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }}
+             className={`fixed left-1/2 -translate-x-1/2 z-[1001] ${isMobile ? 'bottom-44' : 'bottom-24'}`}>
+            <div className="bg-zinc-900/95 border border-white/15 rounded-2xl p-4 shadow-2xl flex flex-col items-center gap-2 w-[240px]">
+              <div className="text-white font-black uppercase tracking-widest text-xs">🔒 Gate Locked</div>
+              <div className="text-[11px] text-white/50 text-center -mt-1">Enter your code to open from outside</div>
+              <div className={`text-2xl font-mono tracking-[0.4em] h-9 ${error ? 'text-red-500' : 'text-white'}`}>{entry.padEnd(4, '•')}</div>
+              {error && <div className="text-[11px] text-red-500 font-bold uppercase -mt-2">Wrong code</div>}
+              <div className="grid grid-cols-3 gap-2">
+                {['1','2','3','4','5','6','7','8','9'].map(d => (
+                  <button key={d} onClick={() => press(d)} className="w-14 h-11 rounded-lg bg-white/10 hover:bg-white/25 active:bg-white/30 text-white text-lg font-bold">{d}</button>
+                ))}
+                <button onClick={() => setEntry('')} className="w-14 h-11 rounded-lg bg-white/5 hover:bg-white/15 text-white/60 text-xs font-bold uppercase">Clr</button>
+                <button onClick={() => press('0')} className="w-14 h-11 rounded-lg bg-white/10 hover:bg-white/25 text-white text-lg font-bold">0</button>
+                <button onClick={() => setEntry(e => e.slice(0, -1))} className="w-14 h-11 rounded-lg bg-white/5 hover:bg-white/15 text-white/60 text-lg font-bold">⌫</button>
+              </div>
+              <div className="text-[10px] text-white/35 mt-1">Walk away to dismiss</div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
@@ -1267,6 +1439,7 @@ function App() {
     <>
       <VanillaThreeScene />
       {!showUI && <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />}
+      <GateControl isMobile={isMobile} />
 
       {/* Permanent UI Toggle Hint */}
       {!isMobile && (

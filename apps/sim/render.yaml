@@ -1,0 +1,16 @@
+# Render Blueprint for car-dealer-sim
+# Docs: https://render.com/docs/blueprint-spec
+#
+# Build installs dev dependencies explicitly (Vite lives in devDependencies but is
+# required to produce the production `dist/` bundle). At runtime NODE_ENV=production
+# makes server.ts serve the prebuilt files from dist/ instead of booting Vite.
+services:
+  - type: web
+    name: car-dealer-sim
+    runtime: node
+    plan: free
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production

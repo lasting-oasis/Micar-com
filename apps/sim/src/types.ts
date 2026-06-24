@@ -93,6 +93,7 @@ export type Player = {
   customers: CustomerRecord[]; // CRM database
   employees: { mechanic: boolean; salesperson: boolean; financeManager: boolean; }; // Dealership Staff
   reputation: number; // 0 to 100, affects walk-in rates
+  gateCode?: string; // Private 4-digit code to open the lot gate from outside
 
   balanceSheet: { 
       totalIncome: number; totalExpenses: number; 

@@ -43,6 +43,9 @@ interface StoreState {
   takeTitleLoan: (carId: string) => void;
   activeInteraction: { type: 'bank' | 'auction' | 'car'; label: string; carId?: string } | null;
   setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car'; label: string; carId?: string } | null) => void;
+
+  gatePrompt: boolean; // true when the player is outside their locked gate and must enter the code
+  setGatePrompt: (visible: boolean) => void;
 }
 
 export const useGameStore = create<StoreState>((set, get) => ({
@@ -74,6 +77,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
   },
   activeInteraction: null,
   setActiveInteraction: (interaction) => set({ activeInteraction: interaction }),
+  gatePrompt: false,
+  setGatePrompt: (visible) => { if (get().gatePrompt !== visible) set({ gatePrompt: visible }); },
   disconnect: () => {
     const socket = get().socket;
     if (socket) socket.disconnect();

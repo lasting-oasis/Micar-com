@@ -12,6 +12,25 @@ const io = new Server(httpServer, { cors: { origin: '*' } });
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'gameState.json');
 
+// Current in-world model year — derived rather than hardcoded so valuations and
+// generated vehicle ages stay correct over time.
+const CURRENT_YEAR = new Date().getFullYear();
+
+// Validate & clamp position payloads coming from clients. Rejects anything that
+// isn't a finite x/z so a malicious or buggy client can't inject NaN / Infinity
+// or teleport meshes thousands of units off the map.
+const sanitizePosition = (pos: any) => {
+    if (!pos || typeof pos !== 'object') return null;
+    const isNum = (n: any) => typeof n === 'number' && Number.isFinite(n);
+    if (!isNum(pos.x) || !isNum(pos.z)) return null;
+    const clamp = (n: number) => Math.max(-2000, Math.min(2000, n));
+    const out: any = { x: clamp(pos.x), z: clamp(pos.z) };
+    if (isNum(pos.y)) out.y = clamp(pos.y);
+    if (isNum(pos.r)) out.r = pos.r;               // car heading
+    if (isNum(pos.rotation)) out.rotation = pos.rotation; // avatar heading
+    return out;
+};
+
 async function saveGameState() {
     try {
         await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
@@ -37,6 +56,9 @@ async function loadGameState() {
 
 setInterval(saveGameState, 15000);
 
+// Timestamp of the last accepted end_day, used to throttle host day-advances.
+let lastEndDayAt = 0;
+
 function broadcastState(io: Server, state: GameState) {
     const sockets = io.sockets.sockets;
     for (const [id, socket] of sockets) {
@@ -50,6 +72,7 @@ function broadcastState(io: Server, state: GameState) {
                 p.customers = [];
                 p.balanceSheet = { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 };
                 p.floorPlanDebt = 0;
+                p.gateCode = undefined; // never reveal another player's gate code
                 
                 // Hide buyPrice from inventory
                 if (p.inventory) {
@@ -59,6 +82,10 @@ function broadcastState(io: Server, state: GameState) {
                 }
             }
         }
+        // Only ship the recipient their OWN walk-in customers. Other players'
+        // customer budgets / credit scores are private and would otherwise leak.
+        const myWalkIns = tailoredState.activeWalkIns?.[id];
+        tailoredState.activeWalkIns = myWalkIns ? { [id]: myWalkIns } : {};
         socket.emit('update', tailoredState);
     }
 }
@@ -95,6 +122,10 @@ const generateRepairs = (issueCount: number, type: 'mechanic' | 'body') => {
     return { condition: Math.max(0, condition), repairs };
 };
 
+// Per-owner gate access code, generated once when a player connects and stored
+// on their account so it persists with the saved game state.
+const generateGateCode = () => String(Math.floor(1000 + Math.random() * 9000));
+
 const generateVIN = () => {
     const chars = '0123456789ABCDEFGHJKLMNPRSTUVWXYZ';
     let vin = '1'; // US built
@@ -114,7 +145,7 @@ const CAR_MAKES = [
 
 const calculateCleanRetail = (make: string, year: number, mileage: number) => {
     const brand = CAR_MAKES.find(m => m.name === make) || CAR_MAKES[0];
-    const age = Math.max(0, 2024 - year);
+    const age = Math.max(0, CURRENT_YEAR - year);
     
     // 12% standard annual depreciation off MSRP
     let cleanRetail = brand.msrp * Math.pow(0.88, age);
@@ -134,7 +165,7 @@ const generateMarketCars = () => {
       const isSalvage = Math.random() < 0.05; // 5% chance
       const titleStatus = isSalvage ? 'Salvage' : (isRebuilt ? 'Rebuilt' : 'Clean');
       
-      const year = 2012 + Math.floor(Math.random() * 12);
+      const year = CURRENT_YEAR - 13 + Math.floor(Math.random() * 12); // last ~13 model years
       const brand = CAR_MAKES[Math.floor(Math.random() * CAR_MAKES.length)];
       const conditionRoll = Math.random();
       let conditionTier = 'bad';
@@ -221,7 +252,7 @@ const generateMarketCars = () => {
 
 const generateJunkyardCars = () => {
     gameState.junkyard = Array(3).fill(0).map((_, i) => {
-      const year = 1995 + Math.floor(Math.random() * 15);
+      const year = CURRENT_YEAR - 31 + Math.floor(Math.random() * 15); // old scrap shells
       const makes = ['Toyota', 'Ford', 'Honda', 'Chevrolet', 'Nissan'];
       const make = makes[Math.floor(Math.random() * makes.length)];
       const model = 'Scrap Shell';
@@ -506,6 +537,7 @@ io.on('connection', (socket) => {
         employees: { mechanic: false, salesperson: false, financeManager: false },
         partsInventory: {},
         balanceSheet: { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 },
+        gateCode: generateGateCode(),
         // Standalone properties
         isStandaloneOperator: isStandalone,
         shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
@@ -564,13 +596,16 @@ io.on('connection', (socket) => {
   socket.on('sync_car_pos', ({ carId, position }) => {
      const player = gameState.players[socket.id];
      if (!player) return;
+     const clean = sanitizePosition(position);
+     if (!clean) return;
      const car = player.inventory.find(c => c.id === carId);
-     if (car) car.lotPosition = position;
+     if (car) car.lotPosition = clean as any;
   });
 
   socket.on('sync_player_pos', (pos) => {
-      if (gameState.players[socket.id]) {
-          gameState.players[socket.id].worldPosition = pos;
+      const clean = sanitizePosition(pos);
+      if (gameState.players[socket.id] && clean) {
+          gameState.players[socket.id].worldPosition = clean as any;
       }
   });
 
@@ -845,6 +880,11 @@ io.on('connection', (socket) => {
 
   socket.on('end_day', () => {
     if (socket.id === gameState.hostId) {
+        // Throttle: the host should not be able to fast-forward the economy by
+        // spamming end_day. Allow at most one advance every 2 seconds.
+        const now = Date.now();
+        if (now - lastEndDayAt < 2000) return;
+        lastEndDayAt = now;
         economyTick();
         saveGameState();
     }
@@ -1118,7 +1158,13 @@ async function startServer() {
         const vite = await createViteServer({ server: { middlewareMode: true }, appType: 'spa' });
         app.use(vite.middlewares);
     } else {
-        app.use(express.static('dist'));
+        const distDir = path.join(process.cwd(), 'dist');
+        app.use(express.static(distDir));
+        // SPA fallback: serve index.html for any non-asset route so refreshes /
+        // deep links don't 404. (socket.io traffic is handled before Express.)
+        app.get('*', (_req, res) => {
+            res.sendFile(path.join(distDir, 'index.html'));
+        });
     }
 
     const port = process.env.PORT || 3000;
