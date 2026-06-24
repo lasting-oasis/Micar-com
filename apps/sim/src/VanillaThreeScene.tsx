@@ -389,7 +389,7 @@ export function VanillaThreeScene() {
         // Swing gates that close the driveway automatically after hours.
         // Each gate is a hinged chain-link leaf; the render loop lerps rotation.y
         // toward open/closed based on the in-game clock (closes at 17:00 / 5pm).
-        const dealershipGates: { left: THREE.Group; right: THREE.Group; ownerId: string; x: number; z: number }[] = [];
+        const dealershipGates: { left: THREE.Group; right: THREE.Group; ownerId: string; x: number; z: number; barrier: THREE.Box3; isOwner: boolean }[] = [];
 
         // Builds one hinged gate leaf. `panelDir` = +1 means the leaf extends toward
         // +x from its hinge, -1 toward -x. rotation.y = 0 is closed (across the gap).
@@ -506,14 +506,15 @@ export function VanillaThreeScene() {
         cityMaterials.push(sidewalkMat);
 
         // Main highway sidewalks
-        const sidewalkLeft = new THREE.Mesh(new THREE.BoxGeometry(10, 0.2, 850), sidewalkMat);
-        sidewalkLeft.position.set(-17.5, 0.05, 450);
+        // Flank the main road only (z=200..1040) so the walk never reaches the lot
+        const sidewalkLeft = new THREE.Mesh(new THREE.BoxGeometry(10, 0.2, 840), sidewalkMat);
+        sidewalkLeft.position.set(-17.5, 0.05, 620);
         sidewalkLeft.receiveShadow = true;
         scene.add(sidewalkLeft);
         environmentDisposables.push(sidewalkLeft);
 
-        const sidewalkRight = new THREE.Mesh(new THREE.BoxGeometry(10, 0.2, 850), sidewalkMat);
-        sidewalkRight.position.set(17.5, 0.05, 450);
+        const sidewalkRight = new THREE.Mesh(new THREE.BoxGeometry(10, 0.2, 840), sidewalkMat);
+        sidewalkRight.position.set(17.5, 0.05, 620);
         sidewalkRight.receiveShadow = true;
         scene.add(sidewalkRight);
         environmentDisposables.push(sidewalkRight);
@@ -922,22 +923,36 @@ export function VanillaThreeScene() {
         const fB = lotZ - 40;
         const fT = lotZ + 100;
 
-        // Back / Left / Right runs
-        buildChainLinkFence(fL, fB, fR, fB);
-        buildChainLinkFence(fL, fB, fL, fT);
-        buildChainLinkFence(fR, fB, fR, fT);
-        // Front runs leave a gate opening for the driveway (lotX-15 to lotX+15)
-        buildChainLinkFence(fL, fT, lotX - 15, fT);
-        buildChainLinkFence(lotX + 15, fT, fR, fT);
+        // Perimeter fence — back / left / right plus two front runs that leave a
+        // gate opening for the driveway (lotX-15 to lotX+15)
+        const isOwnerLot = playerId === stateRef.current.playerId;
+        const fenceSegs = [
+            buildChainLinkFence(fL, fB, fR, fB),
+            buildChainLinkFence(fL, fB, fL, fT),
+            buildChainLinkFence(fR, fB, fR, fT),
+            buildChainLinkFence(fL, fT, lotX - 15, fT),
+            buildChainLinkFence(lotX + 15, fT, fR, fT)
+        ];
+        // Enclose the owner's own lot so the gate is the only way in or out
+        if (isOwnerLot) {
+            fenceSegs.forEach(g => {
+                g.updateMatrixWorld(true);
+                staticCollisionBoxes.push(new THREE.Box3().setFromObject(g).expandByScalar(0.2));
+            });
+        }
 
         // Secured automatic driveway gate (two leaves). Starts closed; the render
         // loop opens it from the inside automatically and from the outside only
-        // after the owner enters their code.
+        // after the owner enters their code, and physically blocks the driveway
+        // (gateBarrier) whenever it is closed.
         const gateLeft = buildGateLeaf(lotX - 15, fT, 1);
         const gateRight = buildGateLeaf(lotX + 15, fT, -1);
         gateLeft.rotation.y = 0;
         gateRight.rotation.y = 0;
-        dealershipGates.push({ left: gateLeft, right: gateRight, ownerId: playerId, x: lotX, z: fT });
+        const gateBarrier = new THREE.Box3();
+        gateBarrier.makeEmpty();
+        if (isOwnerLot) staticCollisionBoxes.push(gateBarrier);
+        dealershipGates.push({ left: gateLeft, right: gateRight, ownerId: playerId, x: lotX, z: fT, barrier: gateBarrier, isOwner: isOwnerLot });
 
         // --- Parking & traffic layout -----------------------------------------
         // A clear central drive lane runs from the front gate to the back of the
@@ -1463,6 +1478,7 @@ export function VanillaThreeScene() {
         // Secured gate state. React calls window.__authorizeGate() after a correct
         // code entry, which opens the gate from the outside for a short window.
         let gateAuthorizedUntil = 0;
+        let gateExitGraceUntil = 0;
         let lastGateKeypad = false;
         (window as any).__authorizeGate = () => { gateAuthorizedUntil = performance.now() + 9000; };
 
@@ -1555,20 +1571,29 @@ export function VanillaThreeScene() {
             dealershipGates.forEach(g => {
                 let open = false;
                 if (g.ownerId === current.playerId) {
-                    const dist = Math.hypot(activeObj.position.x - g.x, activeObj.position.z - g.z);
-                    const near = dist < 24 && Math.abs(activeObj.position.x - g.x) < 26;
+                    const dx = activeObj.position.x - g.x;
+                    const dz = activeObj.position.z - g.z;
+                    const near = Math.hypot(dx, dz) < 24 && Math.abs(dx) < 26;
                     const inside = activeObj.position.z < g.z - 0.5;
                     if (near && inside) {
-                        open = true;                 // exit sensor: always opens from inside
+                        open = true;                          // exit sensor: opens from inside
+                        gateExitGraceUntil = now + 1500;      // let them fully clear the gate
+                    } else if (near && now < gateExitGraceUntil) {
+                        open = true;                          // still passing through on the way out
                     } else if (near && !inside) {
-                        if (authorized) open = true; // valid code entered
-                        else showGateKeypad = true;  // locked: prompt for the code
+                        if (authorized) open = true;          // valid code entered
+                        else showGateKeypad = true;           // locked from the outside
                     }
                 }
                 const lt = open ? Math.PI / 2 : 0;
                 const rt = open ? -Math.PI / 2 : 0;
                 g.left.rotation.y += (lt - g.left.rotation.y) * 0.08;
                 g.right.rotation.y += (rt - g.right.rotation.y) * 0.08;
+                // Physically block the driveway whenever the gate is closed (owner lot)
+                if (g.isOwner) {
+                    if (open) g.barrier.makeEmpty();
+                    else { g.barrier.min.set(g.x - 15, 0, g.z - 2); g.barrier.max.set(g.x + 15, 6, g.z + 2); }
+                }
             });
             if (showGateKeypad !== lastGateKeypad) {
                 lastGateKeypad = showGateKeypad;

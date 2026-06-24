@@ -170,10 +170,13 @@ const GateControl = ({ isMobile }: { isMobile?: boolean }) => {
   return (
     <>
       {/* Persistent owner code badge */}
-      <div className="fixed bottom-6 left-6 z-[999] pointer-events-none select-none">
-        <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/15 rounded-lg px-3 py-1.5">
-          <span className="text-[10px] uppercase tracking-widest text-white/50 font-black">Gate Code</span>
-          <span className="text-sm font-mono font-bold text-emerald-400 tracking-[0.3em]">{myCode}</span>
+      <div className="fixed top-20 left-6 z-[1000] pointer-events-none select-none">
+        <div className="flex items-center gap-2.5 bg-black/75 backdrop-blur-md border border-emerald-500/50 rounded-xl px-4 py-2 shadow-xl">
+          <span className="text-lg">🔒</span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-[9px] uppercase tracking-widest text-white/50 font-black">Your Gate Code</span>
+            <span className="text-xl font-mono font-bold text-emerald-400 tracking-[0.35em]">{myCode}</span>
+          </div>
         </div>
         {granted && <div className="mt-1 text-[11px] font-bold text-emerald-400 uppercase tracking-widest">✓ Gate unlocked</div>}
       </div>
@@ -186,6 +189,7 @@ const GateControl = ({ isMobile }: { isMobile?: boolean }) => {
             <div className="bg-zinc-900/95 border border-white/15 rounded-2xl p-4 shadow-2xl flex flex-col items-center gap-2 w-[240px]">
               <div className="text-white font-black uppercase tracking-widest text-xs">🔒 Gate Locked</div>
               <div className="text-[11px] text-white/50 text-center -mt-1">Enter your code to open from outside</div>
+              <div className="text-[11px] text-emerald-400 font-mono">Your code: <span className="font-bold tracking-[0.25em]">{myCode}</span></div>
               <div className={`text-2xl font-mono tracking-[0.4em] h-9 ${error ? 'text-red-500' : 'text-white'}`}>{entry.padEnd(4, '•')}</div>
               {error && <div className="text-[11px] text-red-500 font-bold uppercase -mt-2">Wrong code</div>}
               <div className="grid grid-cols-3 gap-2">
@@ -1438,7 +1442,7 @@ function App() {
   return (
     <>
       <VanillaThreeScene />
-      {!showUI && <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />}
+      <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />
       <GateControl isMobile={isMobile} />
 
       {/* Permanent UI Toggle Hint */}
