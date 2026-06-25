@@ -1947,6 +1947,13 @@ function App() {
               Library
             </button>
             <button
+              onClick={() => openBankModal()}
+              className="px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 text-gray-400 hover:text-white hover:bg-white/5 bg-sky-500/5 border border-sky-500/10"
+            >
+              <Wallet size={14} className="text-sky-400" />
+              Bank &amp; Insurance
+            </button>
+            <button
               onClick={() => setActiveTab('accounting')}
               className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'accounting' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
@@ -2927,6 +2934,13 @@ function App() {
                   >
                     <BookOpen size={24} />
                     <span className="text-xs font-bold uppercase tracking-wider">Library</span>
+                  </button>
+                  <button
+                    onClick={() => { openBankModal(); setShowMoreMenu(false); }}
+                    className="p-4 rounded-2xl border bg-sky-500/10 border-sky-500/30 text-sky-400 hover:bg-sky-500 hover:text-black transition-all flex flex-col items-center justify-center gap-2"
+                  >
+                    <Wallet size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Bank &amp; Insurance</span>
                   </button>
                   {(me as any).gateCode && (
                     <div className="p-4 rounded-2xl border bg-emerald-500/10 border-emerald-500/30 text-emerald-400 flex flex-col items-center justify-center gap-1">
