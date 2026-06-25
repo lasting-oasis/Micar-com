@@ -30,6 +30,7 @@ interface ShopJob {
   logs: string[];
   realCarId?: string;      // links this job to a real inventory vehicle
   realFaultIds?: string[]; // the real fault ids to repair when the order completes
+  insurance?: boolean;     // DRP / insurance-company job — pays a premium
 }
 
 interface SimulatedShop {
@@ -255,13 +256,15 @@ export default function StandaloneShopPlatform() {
             }
 
             const defect = possibleDefects[Math.floor(Math.random() * possibleDefects.length)];
+            const isInsurance = Math.random() < 0.3; // the insurance company feeds DRP collision work
 
             updatedQueue.push({
               roId: `RO-${roIndex}`,
-              customerName: clients[Math.floor(Math.random() * clients.length)],
+              customerName: isInsurance ? 'Insurance Claim (DRP)' : clients[Math.floor(Math.random() * clients.length)],
               vehicle: cars[Math.floor(Math.random() * cars.length)],
               vin: vin,
-              defectCode: defect
+              defectCode: defect,
+              insurance: isInsurance
             });
           }
 
@@ -387,7 +390,8 @@ export default function StandaloneShopPlatform() {
           return { ...shop, activeJobs: shop.activeJobs.filter(j => j.roId !== roId) };
         }
 
-        const payout = STANDALONE_DEFECTS[target.defectCode].type === 'mechanic' ? 850 : 600;
+        const base = STANDALONE_DEFECTS[target.defectCode].type === 'mechanic' ? 850 : 600;
+        const payout = Math.floor(base * (target.insurance ? 1.6 : 1)); // insurance/DRP jobs pay a premium
 
         // If it's the player's personal shop, sync the balance payout to their core wallet as well!
         if (shop.id === 'shop-player') {

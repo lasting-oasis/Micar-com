@@ -55,6 +55,8 @@ interface StoreState {
   cancelListing: (vehicleId: string, orderId: string) => void;
   fractionalizeCar: (carId: string, shares: number) => void;
   liquidateVehicle: (vehicleId: string) => void;
+  buyInsurance: (type: 'liability' | 'inventory' | 'gap') => void;
+  cancelInsurance: (type: 'liability' | 'inventory' | 'gap') => void;
 }
 
 export const useGameStore = create<StoreState>((set, get) => ({
@@ -111,6 +113,14 @@ export const useGameStore = create<StoreState>((set, get) => ({
   liquidateVehicle: (vehicleId) => {
       const socket = get().socket;
       if (socket) socket.emit('liquidate_vehicle', { vehicleId });
+  },
+  buyInsurance: (type) => {
+      const socket = get().socket;
+      if (socket) socket.emit('buy_insurance', { type });
+  },
+  cancelInsurance: (type) => {
+      const socket = get().socket;
+      if (socket) socket.emit('cancel_insurance', { type });
   },
   disconnect: () => {
     const socket = get().socket;

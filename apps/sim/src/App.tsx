@@ -895,9 +895,9 @@ const InspectionModal = () => {
 };
 
 const BankDashboard = () => {
-  const { isBankModalOpen, closeBankModal, payFloorPlan, takeTitleLoan, gameState, playerId } = useGameStore();
+  const { isBankModalOpen, closeBankModal, payFloorPlan, takeTitleLoan, gameState, playerId, buyInsurance, cancelInsurance } = useGameStore();
   const me = gameState?.players[playerId || ''];
-  const [activeTab, setActiveTab] = useState<'account' | 'collateral'>('account');
+  const [activeTab, setActiveTab] = useState<'account' | 'collateral' | 'insurance'>('account');
   const [selectedCarId, setSelectedCarId] = useState<string | null>(null);
 
   if (!isBankModalOpen || !me) return null;
@@ -944,6 +944,7 @@ const BankDashboard = () => {
           <div className="flex gap-4 border-b border-gray-200 pb-2">
             <button onClick={() => setActiveTab('account')} className={`px-4 py-2 font-bold text-sm tracking-widest uppercase transition-colors rounded-t-lg ${activeTab === 'account' ? 'border-b-4 border-[#005ea2] text-[#005ea2]' : 'text-gray-400 hover:text-gray-600'}`}>Corporate Account</button>
             <button onClick={() => { setActiveTab('collateral'); setSelectedCarId(null); }} className={`px-4 py-2 font-bold text-sm tracking-widest uppercase transition-colors rounded-t-lg ${activeTab === 'collateral' ? 'border-b-4 border-[#005ea2] text-[#005ea2]' : 'text-gray-400 hover:text-gray-600'}`}>Collateral Lines</button>
+            <button onClick={() => setActiveTab('insurance')} className={`px-4 py-2 font-bold text-sm tracking-widest uppercase transition-colors rounded-t-lg ${activeTab === 'insurance' ? 'border-b-4 border-[#005ea2] text-[#005ea2]' : 'text-gray-400 hover:text-gray-600'}`}>Insurance</button>
           </div>
 
           {activeTab === 'account' && (
@@ -971,6 +972,49 @@ const BankDashboard = () => {
                   <button onClick={() => payFloorPlan(50000)} disabled={me.money < 50000 || me.floorPlanDebt <= 0} className="flex-1 bg-white hover:bg-gray-50 text-[#005ea2] border-2 border-[#bbd4e7] hover:border-[#005ea2] transition-colors py-3 rounded-lg font-black tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed uppercase">Pay $50k</button>
                   <button onClick={() => payFloorPlan(me.floorPlanDebt)} disabled={me.money < me.floorPlanDebt || me.floorPlanDebt <= 0} className="flex-1 bg-[#005ea2] hover:bg-[#004b82] text-white transition-colors py-3 rounded-lg font-black tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed uppercase border-2 border-transparent">Pay Full Bal.</button>
                 </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'insurance' && (
+            <div className="flex flex-col gap-4 animate-in fade-in max-h-[55vh] overflow-y-auto pr-1">
+              {me.floorPlanDebt > 0 && !me.insurance?.inventory && (
+                <div className="bg-amber-50 border border-amber-300 rounded-lg p-3 text-[13px] text-amber-800 leading-snug">
+                  ⚠️ You carry <b>floor-plan debt</b> — a lien on your inventory. Lenders require the collateral to be insured, so while you're uninsured we <b>force-place</b> coverage at roughly <b>3× the rate</b>. Activate your own Inventory policy below to save.
+                </div>
+              )}
+              {[
+                { key: 'liability', name: 'Garage Liability', desc: 'Covers customer & legal liability claims — your protection against the catastrophic uninsured lawsuit.', price: '$40 / day' },
+                { key: 'inventory', name: 'Inventory / Physical Damage', desc: 'Theft, weather, fire, and vandalism on your lot stock (deductible $500). Effectively required when leveraged.', price: '≈ 0.06% of stock / day' },
+                { key: 'gap', name: 'GAP — F&I Product', desc: 'Sell GAP on buy-here-pay-here deals for a $300 fee and protect your note if a financed car is totaled.', price: 'earns on BHPH deals' },
+              ].map((pol) => {
+                const on = (me.insurance as any)?.[pol.key];
+                return (
+                  <div key={pol.key} className={`p-4 rounded-lg border-2 flex justify-between items-center gap-3 ${on ? 'border-green-300 bg-green-50' : 'border-gray-200 bg-white'}`}>
+                    <div className="flex flex-col">
+                      <span className="font-black text-slate-800">{pol.name}</span>
+                      <span className="text-[12px] text-gray-500 leading-snug">{pol.desc}</span>
+                      <span className="text-[11px] text-[#005ea2] font-bold uppercase tracking-wider mt-0.5">{pol.price}</span>
+                    </div>
+                    {on ? (
+                      <button onClick={() => cancelInsurance(pol.key as any)} className="bg-white border-2 border-red-300 text-red-600 hover:bg-red-50 px-4 py-2 rounded-lg font-black text-xs uppercase shrink-0">Cancel</button>
+                    ) : (
+                      <button onClick={() => buyInsurance(pol.key as any)} className="bg-[#005ea2] hover:bg-[#004b82] text-white px-4 py-2 rounded-lg font-black text-xs uppercase shrink-0">Activate</button>
+                    )}
+                  </div>
+                );
+              })}
+              <div>
+                <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-200 pb-1 mb-2">Recent Claims &amp; Events</h3>
+                {(!me.insuranceLog || me.insuranceLog.length === 0) ? (
+                  <p className="text-[12px] text-gray-400 italic">No incidents on record — events are rare, that's the point.</p>
+                ) : (
+                  <div className="flex flex-col gap-1">
+                    {me.insuranceLog.map((m: string, i: number) => (
+                      <div key={i} className="text-[12px] text-slate-700 bg-gray-50 border border-gray-200 rounded px-2 py-1.5">{m}</div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           )}

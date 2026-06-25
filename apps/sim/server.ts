@@ -385,6 +385,97 @@ const generateJunkyardCars = () => {
     broadcastState(io, gameState);
 };
 
+// --- Dealer insurance: premiums + a gentle adverse-event engine --------------
+const INS_LIABILITY_PREMIUM = 40;      // per day
+const INS_INVENTORY_RATE = 0.0006;     // per day, of inventory value (chosen policy)
+const INS_FORCE_PLACED_RATE = 0.0018;  // per day, lender force-placed (~3x)
+const INS_DEDUCTIBLE = 500;
+const INS_LIAB_DEDUCTIBLE = 1000;
+const INS_EVENT_CHANCE = 0.035;        // ~once every ~28 game days (gentle)
+
+const logInsurance = (p: Player, msg: string) => {
+    if (!p.insuranceLog) p.insuranceLog = [];
+    p.insuranceLog.unshift(msg);
+    if (p.insuranceLog.length > 6) p.insuranceLog.length = 6;
+};
+
+const processInsurance = (p: Player) => {
+    if (!p.insurance) p.insurance = { liability: false, inventory: false, gap: false };
+    const invValue = p.inventory.reduce((s, c) => s + (c.buyPrice || 0), 0);
+    const leveraged = p.floorPlanDebt > 0;
+    const forcePlaced = leveraged && !p.insurance.inventory; // lender buys coverage on your behalf
+    const inventoryCovered = p.insurance.inventory || forcePlaced;
+
+    // Premiums
+    let premium = 0;
+    if (p.insurance.liability) premium += INS_LIABILITY_PREMIUM;
+    if (p.insurance.inventory) premium += Math.max(25, Math.floor(invValue * INS_INVENTORY_RATE));
+    else if (forcePlaced) premium += Math.max(80, Math.floor(invValue * INS_FORCE_PLACED_RATE));
+    if (premium > 0) {
+        p.money -= premium;
+        p.balanceSheet.totalExpenses += premium;
+        p.balanceSheet.lastTickExpense += premium;
+        if (forcePlaced) logInsurance(p, `Lender force-placed inventory insurance ($${premium.toLocaleString()}/day) — you're leveraged & uninsured. Buy your own policy to save.`);
+    }
+
+    // Gentle adverse event
+    if (Math.random() >= INS_EVENT_CHANCE) return;
+    const roll = Math.random();
+    const payClaim = (bill: number, label: string) => {
+        const payout = Math.max(0, Math.floor(bill - INS_DEDUCTIBLE));
+        p.money += payout; p.balanceSheet.totalIncome += payout; p.balanceSheet.lastTickIncome += payout;
+        logInsurance(p, `${label} Claim paid $${payout.toLocaleString()} (− $${INS_DEDUCTIBLE} deductible).`);
+    };
+
+    if (roll < 0.30) {
+        const victims = p.inventory.filter(() => Math.random() < 0.5).slice(0, 3);
+        if (victims.length === 0) return;
+        let bill = 0;
+        victims.forEach(c => {
+            const dmg = 15 + Math.floor(Math.random() * 25);
+            c.bodyCondition = Math.max(5, c.bodyCondition - dmg);
+            c.condition = Math.floor((c.bodyCondition + c.mechanicCondition) / 2);
+            bill += dmg * 40;
+        });
+        if (inventoryCovered) payClaim(bill, `Hailstorm hit ${victims.length} vehicle(s).`);
+        else logInsurance(p, `Hailstorm damaged ${victims.length} vehicle(s) — UNINSURED, ~$${bill.toLocaleString()} in damage.`);
+    } else if (roll < 0.55) {
+        if (p.inventory.length === 0) return;
+        const car = p.inventory.splice(Math.floor(Math.random() * p.inventory.length), 1)[0];
+        const val = car.buyPrice || 0;
+        if (inventoryCovered) payClaim(val, `Theft: a ${car.year} ${car.make} was stolen.`);
+        else {
+            logInsurance(p, `Theft: a ${car.year} ${car.make} ($${val.toLocaleString()}) was stolen — UNINSURED, total loss.`);
+            if (leveraged) { p.money -= 250; p.balanceSheet.totalExpenses += 250; p.balanceSheet.lastTickExpense += 250; }
+        }
+    } else if (roll < 0.75) {
+        if (p.inventory.length === 0) return;
+        const car = p.inventory[Math.floor(Math.random() * p.inventory.length)];
+        const dmg = 20 + Math.floor(Math.random() * 30);
+        car.bodyCondition = Math.max(5, car.bodyCondition - dmg);
+        car.mechanicCondition = Math.max(5, car.mechanicCondition - Math.floor(dmg / 2));
+        car.condition = Math.floor((car.bodyCondition + car.mechanicCondition) / 2);
+        const bill = dmg * 60;
+        if (inventoryCovered) payClaim(bill, `Lot accident damaged a ${car.year} ${car.make}.`);
+        else logInsurance(p, `Lot accident damaged a ${car.year} ${car.make} — UNINSURED, ~$${bill.toLocaleString()}.`);
+    } else if (roll < 0.85) {
+        if (p.inventory.length === 0) return;
+        const car = p.inventory.splice(Math.floor(Math.random() * p.inventory.length), 1)[0];
+        const val = car.buyPrice || 0;
+        if (inventoryCovered) payClaim(val, `Fire destroyed a ${car.year} ${car.make}.`);
+        else logInsurance(p, `Fire destroyed a ${car.year} ${car.make} ($${val.toLocaleString()}) — UNINSURED, total loss.`);
+    } else {
+        const claim = 2000 + Math.floor(Math.random() * 6000);
+        if (p.insurance.liability) {
+            p.money -= INS_LIAB_DEDUCTIBLE; p.balanceSheet.totalExpenses += INS_LIAB_DEDUCTIBLE; p.balanceSheet.lastTickExpense += INS_LIAB_DEDUCTIBLE;
+            logInsurance(p, `Liability claim ($${claim.toLocaleString()}) — covered; you paid the $${INS_LIAB_DEDUCTIBLE} deductible.`);
+        } else {
+            p.money -= claim; p.balanceSheet.totalExpenses += claim; p.balanceSheet.lastTickExpense += claim;
+            logInsurance(p, `Liability claim — UNINSURED. Paid $${claim.toLocaleString()} out of pocket.`);
+        }
+    }
+};
+
 // Economic Tick: 1 Day = 10 Seconds
 const economyTick = () => {
     gameState.day += 1;
@@ -553,6 +644,9 @@ const economyTick = () => {
         p.balanceSheet.lastTickExpense = dailyExpense;
         p.balanceSheet.totalIncome += dailyIncome;
         p.balanceSheet.totalExpenses += dailyExpense;
+
+        // Insurance premiums + the gentle adverse-event engine
+        processInsurance(p);
     });
 
     if (gameState.day % 6 === 0 || gameState.market.length === 0) {
@@ -631,6 +725,8 @@ io.on('connection', (socket) => {
         balanceSheet: { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 },
         gateCode: generateGateCode(),
         shareHoldings: {},
+        insurance: { liability: false, inventory: false, gap: false },
+        insuranceLog: [],
         // Standalone properties
         isStandaloneOperator: isStandalone,
         shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
@@ -921,7 +1017,15 @@ io.on('connection', (socket) => {
           const amountFinanced = finalPrincipal - cashProceeds; // Remaining after down-payment
           const totalYield = amountFinanced * (1 + interestRate);
           const dailyPayment = Math.floor(totalYield / termDays);
-          
+
+          // GAP product (F&I): if you carry GAP coverage, sell it on the BHPH deal for fee income.
+          if (player.insurance?.gap) {
+              const gapFee = 300;
+              player.money += gapFee;
+              player.balanceSheet.totalIncome += gapFee;
+              player.balanceSheet.lastTickIncome += gapFee;
+          }
+
           player.contracts.push({
               id: `contract-${Date.now()}`,
               customerId: customerId,
@@ -1432,6 +1536,25 @@ io.on('connection', (socket) => {
       v.status = 'liquidated';
       gameState.fractionalMarket = gameState.fractionalMarket.filter(f => f.id !== vehicleId);
       broadcastState(io, gameState);
+  });
+
+  socket.on('buy_insurance', ({ type }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (!player.insurance) player.insurance = { liability: false, inventory: false, gap: false };
+      if (type === 'liability' || type === 'inventory' || type === 'gap') {
+          player.insurance[type] = true;
+          broadcastState(io, gameState);
+      }
+  });
+
+  socket.on('cancel_insurance', ({ type }) => {
+      const player = gameState.players[socket.id];
+      if (!player || !player.insurance) return;
+      if (type === 'liability' || type === 'inventory' || type === 'gap') {
+          player.insurance[type] = false;
+          broadcastState(io, gameState);
+      }
   });
 
   socket.on('disconnect', () => {

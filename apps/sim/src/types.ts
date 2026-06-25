@@ -97,6 +97,8 @@ export type Player = {
   reputation: number; // 0 to 100, affects walk-in rates
   gateCode?: string; // Private 4-digit code to open the lot gate from outside
   shareHoldings?: Record<string, { shares: number; invested: number }>; // Fractional vehicle shares owned (vehicleId -> qty + cost basis)
+  insurance?: { liability: boolean; inventory: boolean; gap: boolean }; // active dealer policies
+  insuranceLog?: string[]; // recent claim / adverse-event messages (newest first, ~6 kept)
 
   balanceSheet: { 
       totalIncome: number; totalExpenses: number; 
