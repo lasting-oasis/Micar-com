@@ -145,6 +145,39 @@ export const LIBRARY_BOOKS: LibraryBook[] = [
     ]
   },
   {
+    id: 'bodyshop-101',
+    title: 'Body Shop Business 101',
+    category: 'Body Shop',
+    author: 'The Collision Primer',
+    summary: 'Running a collision & paint shop — estimates, insurance, cycle time, and where the money is.',
+    sections: [
+      {
+        heading: 'What a body shop does',
+        body: 'A body (collision) shop restores a vehicle\'s exterior and structure after damage — dents, crushed panels, bent frames, cracked bumpers, and faded or scraped paint. The goal is to return the car to pre-accident, safe, and sale-ready condition. For a dealer, an in-house or partner body shop turns rough trade-ins and auction buys into frontline units instead of wholesale dumps.'
+      },
+      {
+        heading: 'The repair order flow',
+        body: 'Every job moves through stages: Intake & damage assessment → estimate / teardown → order parts → body & frame work → prep & paint → reassembly → QC and detail → delivery. A job is only earning when it is actively being worked; a car waiting on a part or a paint booth is dead time. Keeping jobs flowing through the bays is the whole game.'
+      },
+      {
+        heading: 'Where the money comes from',
+        body: 'Three buckets: labor (body, frame, and paint hours billed at your door rate), parts (bought at cost, billed with markup), and paint & materials (charged per refinish hour). Labor is the core — a shop lives or dies on billed hours per bay per day. Price your labor rate to your market and your techs\' skill; undercharging labor is the fastest way to be busy and broke.'
+      },
+      {
+        heading: 'Insurance vs. customer-pay',
+        body: 'Most collision volume is insurance work. That means writing estimates the adjuster will approve, filing supplements when teardown reveals hidden damage, and choosing OEM vs. aftermarket/recycled (LKQ) parts within the claim. Direct-repair (DRP) relationships bring steady volume but squeeze rates. Customer-pay and dealer recon work usually carry better margins but less steady flow.'
+      },
+      {
+        heading: 'The metrics that matter',
+        body: 'Cycle time (keys-to-keys days) and touch time tell you how fast cars move and how much of that is real work vs. waiting. Throughput per bay is your earning ceiling. Watch comebacks (jobs that return for rework) — a paint mismatch or a missed supplement destroys both margin and reputation. Faster, cleaner cycle time means more cars through the same bays and more billed hours.'
+      },
+      {
+        heading: 'Common pitfalls',
+        body: 'Under-writing the estimate and eating the supplement. Slow parts procurement stalling jobs in the bay. Paint that doesn\'t match, forcing a redo. Undercharging labor because you\'re chasing volume. And the classic: too much cash tied up in torn-down cars waiting on approvals or parts. Estimate thoroughly, order parts early, protect your labor rate, and keep the bays turning.'
+      }
+    ]
+  },
+  {
     id: 'fni',
     title: 'F&I: Financing, BHPH & The Floor Plan',
     category: 'F&I',
