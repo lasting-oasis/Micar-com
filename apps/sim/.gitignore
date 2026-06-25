@@ -8,3 +8,7 @@ data/
 # Local dev/run artifacts
 dev-server.*
 test-server.*
+
+# stray logs
+*.log
+b.err.log
