@@ -1292,12 +1292,17 @@ export function VanillaThreeScene() {
         const libFloorMat = new THREE.MeshStandardMaterial({ color: '#3a2c1a', roughness: 0.9 });
         cityMaterials.push(libWallMat, libFloorMat);
         const libFloor = new THREE.Mesh(new THREE.BoxGeometry(16, 0.2, 12), libFloorMat); libFloor.position.set(0, 0.1, 0); libFloor.receiveShadow = true; libraryGroup.add(libFloor);
+        const mkWall = (w: number, h: number, d: number, x: number, y: number, z: number) => {
+             const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), libWallMat);
+             m.position.set(x, y, z);
+             return m;
+        };
         const libWalls: THREE.Mesh[] = [
-             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(16, 5, 0.5), libWallMat), { position: new THREE.Vector3(0, 2.5, 6) }),
-             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(0.5, 5, 12), libWallMat), { position: new THREE.Vector3(8, 2.5, 0) }),
-             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(0.5, 5, 12), libWallMat), { position: new THREE.Vector3(-8, 2.5, 0) }),
-             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(5.5, 5, 0.5), libWallMat), { position: new THREE.Vector3(-5.25, 2.5, -6) }),
-             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(5.5, 5, 0.5), libWallMat), { position: new THREE.Vector3(5.25, 2.5, -6) }),
+             mkWall(16, 5, 0.5, 0, 2.5, 6),
+             mkWall(0.5, 5, 12, 8, 2.5, 0),
+             mkWall(0.5, 5, 12, -8, 2.5, 0),
+             mkWall(5.5, 5, 0.5, -5.25, 2.5, -6),
+             mkWall(5.5, 5, 0.5, 5.25, 2.5, -6),
         ];
         libWalls.forEach(w => { w.castShadow = true; w.receiveShadow = true; libraryGroup.add(w); });
         const libRoof = new THREE.Mesh(new THREE.BoxGeometry(17, 0.5, 13), libWallMat); libRoof.position.set(0, 5.25, 0); libRoof.castShadow = true; libraryGroup.add(libRoof);
