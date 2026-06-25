@@ -1234,6 +1234,84 @@ export function VanillaThreeScene() {
         scene.add(auctionGroup);
         environmentDisposables.push(auctionGroup, aucSign);
 
+        // --- Public Library with Minecraft-style bookshelves --------------------
+        const LIB_X = -95, LIB_Z = 140;
+        const libraryWorldPos = new THREE.Vector3(LIB_X, 1.5, LIB_Z);
+        const libraryGroup = new THREE.Group();
+        libraryGroup.position.set(LIB_X, 0, LIB_Z);
+
+        // Pixel-art bookshelf texture: wood planks top/bottom, colourful spines.
+        const generateBookshelfTexture = () => {
+             const c = document.createElement('canvas'); c.width = 64; c.height = 64;
+             const ctx = c.getContext('2d'); if (!ctx) return new THREE.Texture();
+             ctx.fillStyle = '#6b4f2a'; ctx.fillRect(0, 0, 64, 64);
+             ctx.fillStyle = '#8a6a3a'; ctx.fillRect(0, 0, 64, 11); ctx.fillRect(0, 53, 64, 11);
+             const colors = ['#b91c1c','#1d4ed8','#15803d','#a16207','#7c3aed','#0e7490','#be123c','#4d7c0f','#9333ea'];
+             const drawRow = (y: number, h: number) => {
+                 let x = 1;
+                 while (x < 63) {
+                     const w = 5 + Math.floor(Math.random() * 4);
+                     ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+                     ctx.fillRect(x, y, w - 1, h);
+                     ctx.fillStyle = 'rgba(255,255,255,0.18)'; ctx.fillRect(x, y, 1, h);
+                     x += w;
+                 }
+             };
+             drawRow(13, 18); drawRow(34, 17);
+             const tex = new THREE.CanvasTexture(c);
+             tex.magFilter = THREE.NearestFilter; tex.minFilter = THREE.NearestFilter;
+             cityTextures.push(tex);
+             return tex;
+        };
+        const shelfTex = generateBookshelfTexture();
+        const shelfMat = new THREE.MeshStandardMaterial({ map: shelfTex, roughness: 0.9 });
+        cityMaterials.push(shelfMat);
+
+        // All bookshelf blocks in ONE InstancedMesh = a single draw call.
+        const shelfGeo = new THREE.BoxGeometry(1, 1, 0.6);
+        const shelfMesh = new THREE.InstancedMesh(shelfGeo, shelfMat, 160);
+        shelfMesh.castShadow = true; shelfMesh.receiveShadow = true;
+        let shelfIdx = 0;
+        const shelfDummy = new THREE.Object3D();
+        const placeShelf = (x: number, y: number, z: number, ry = 0) => {
+             if (shelfIdx >= 160) return;
+             shelfDummy.position.set(x, y, z); shelfDummy.rotation.set(0, ry, 0); shelfDummy.updateMatrix();
+             shelfMesh.setMatrixAt(shelfIdx++, shelfDummy.matrix);
+        };
+        for (let row = 0; row < 3; row++) {
+             const y = 0.7 + row * 1.05;
+             for (let x = -6.5; x <= 6.5; x += 1) placeShelf(x, y, 5.4);          // back wall
+             for (let z = -4.5; z <= 4.5; z += 1) { placeShelf(-7.4, y, z, Math.PI / 2); placeShelf(7.4, y, z, Math.PI / 2); } // sides
+        }
+        shelfMesh.count = shelfIdx;
+        shelfMesh.instanceMatrix.needsUpdate = true;
+        libraryGroup.add(shelfMesh);
+
+        // Building shell (warm wood), door gap on the south side facing the lot.
+        const libWallMat = new THREE.MeshStandardMaterial({ color: '#7c5c3a', roughness: 0.9, map: concreteTex });
+        const libFloorMat = new THREE.MeshStandardMaterial({ color: '#3a2c1a', roughness: 0.9 });
+        cityMaterials.push(libWallMat, libFloorMat);
+        const libFloor = new THREE.Mesh(new THREE.BoxGeometry(16, 0.2, 12), libFloorMat); libFloor.position.set(0, 0.1, 0); libFloor.receiveShadow = true; libraryGroup.add(libFloor);
+        const libWalls: THREE.Mesh[] = [
+             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(16, 5, 0.5), libWallMat), { position: new THREE.Vector3(0, 2.5, 6) }),
+             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(0.5, 5, 12), libWallMat), { position: new THREE.Vector3(8, 2.5, 0) }),
+             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(0.5, 5, 12), libWallMat), { position: new THREE.Vector3(-8, 2.5, 0) }),
+             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(5.5, 5, 0.5), libWallMat), { position: new THREE.Vector3(-5.25, 2.5, -6) }),
+             Object.assign(new THREE.Mesh(new THREE.BoxGeometry(5.5, 5, 0.5), libWallMat), { position: new THREE.Vector3(5.25, 2.5, -6) }),
+        ];
+        libWalls.forEach(w => { w.castShadow = true; w.receiveShadow = true; libraryGroup.add(w); });
+        const libRoof = new THREE.Mesh(new THREE.BoxGeometry(17, 0.5, 13), libWallMat); libRoof.position.set(0, 5.25, 0); libRoof.castShadow = true; libraryGroup.add(libRoof);
+        const libLight = new THREE.PointLight('#ffd9a0', 1.2, 32); libLight.position.set(0, 4, 0); libraryGroup.add(libLight);
+
+        const librarySign = createBuildingSign('LIBRARY', '#1f2937', '#fcd34d');
+        librarySign.position.set(0, 6.2, -6.2);
+        libraryGroup.add(librarySign);
+
+        scene.add(libraryGroup);
+        environmentDisposables.push(libraryGroup, librarySign);
+        libraryGroup.updateMatrixWorld(true);
+        libWalls.forEach(w => staticCollisionBoxes.push(new THREE.Box3().setFromObject(w)));
+
 
 
         // (Removed the old 160x160 world-perimeter fence: each dealership now builds
@@ -1942,6 +2020,7 @@ export function VanillaThreeScene() {
                  
                  const auctionWorldKiosk = new THREE.Vector3(-60, 1, 205);
                  const dAuction = avatar.position.distanceTo(auctionWorldKiosk);
+                 const dLibrary = avatar.position.distanceTo(libraryWorldPos);
 
                   const activeInt = useGameStore.getState().activeInteraction;
                   if (dDesk < 12.0) {
@@ -1963,6 +2042,16 @@ export function VanillaThreeScene() {
                        if (eJustPressed || rJustPressed) {
                             keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
                             window.dispatchEvent(new CustomEvent('open_auction'));
+                       }
+                  } else if (dLibrary < 11.0) {
+                       interactPrompt.position.copy(libraryWorldPos).add(new THREE.Vector3(0, 3, 0));
+                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
+                       if (!activeInt || activeInt.type !== 'library') {
+                            useGameStore.getState().setActiveInteraction({ type: 'library', label: 'Browse the Library' });
+                       }
+                       if (eJustPressed || rJustPressed) {
+                            keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
+                            window.dispatchEvent(new CustomEvent('open_library'));
                        }
                   } else if (nearestCar) {
                        interactPrompt.position.copy(carMeshes[nearestCar].position).add(new THREE.Vector3(0, 4, 0));

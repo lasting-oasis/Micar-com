@@ -19,6 +19,63 @@ export type LibraryBook = {
 
 export const LIBRARY_BOOKS: LibraryBook[] = [
   {
+    id: 'car-dealer-101',
+    title: 'Car Dealer 101',
+    category: 'Start Here',
+    author: 'The Dealer Primer',
+    summary: 'The whole business in one read — how a used-car lot actually makes money.',
+    sections: [
+      {
+        heading: 'What a dealer really does',
+        body: 'A used-car dealer is an arbitrage and reconditioning business. You buy vehicles below retail (at auction, trade-ins, private deals), make them safe, clean, and sale-ready, and sell them to retail customers for more than your all-in cost. The profit lives in the gap between "all-in cost" and "retail price" — minus everything it costs to get there. Master that gap and you have a business; ignore it and you have an expensive parking lot.'
+      },
+      {
+        heading: 'The daily loop',
+        body: 'Acquire → Inspect → Recondition → Inspect & Title → Display → Sell → Collect. Every car you own should be moving forward through that loop every single day. A car that stops moving (waiting on a repair, an inspection, a title) is costing you money while it sits. Your job as the operator is to keep cars flowing and to keep the loop short.'
+      },
+      {
+        heading: 'The four levers of profit',
+        body: '1) Buy right — your profit is mostly made the day you buy, not the day you sell.\n2) Recondition smart — fix what affects safety and sale, skip vanity spend.\n3) Turn fast — every extra day on the lot eats margin through overhead and floor-plan interest.\n4) Sell well — match the right car to the right buyer and protect your gross in negotiation.'
+      },
+      {
+        heading: 'Know your all-in cost',
+        body: 'Before you ever set a price, total it up: purchase price + transport + reconditioning + parts + inspection + title/registration + the floor-plan interest you expect to pay while it sits. That number is your floor. Sell above it and you made money; sell below it and you paid someone to take your car. Never forget the costs that don\'t show up on the windshield.'
+      },
+      {
+        heading: 'Cash is the lifeblood',
+        body: 'Overhead, payroll, marketing, and floor-plan interest run every day whether or not you sell a car. A dealer rarely fails because of one bad deal — they fail by running out of cash while too much money is tied up in slow inventory. Watch your liquid cash, keep inventory turning, and don\'t let your ego buy a car your wallet can\'t carry.'
+      },
+      {
+        heading: 'Beginner mistakes to avoid',
+        body: 'Overpaying at auction because you "love" a car. Skipping the pre-purchase inspection and getting surprised by a blown transmission. Sinking cash into cosmetic recon that doesn\'t raise the price. Letting units age on the lot. Writing in-house finance paper you can\'t afford to have default. Selling a known problem to a trusting buyer and torching your reputation. Slow down, run the numbers, and let the math — not emotion — make the call.'
+      }
+    ]
+  },
+  {
+    id: 'deal-math-101',
+    title: 'The Deal Math: How Profit Is Made',
+    category: 'Start Here',
+    summary: 'Front-end gross, recon, holding cost, and the numbers behind a profitable unit.',
+    sections: [
+      {
+        heading: 'Front-end gross',
+        body: 'Front-end gross = retail sale price − all-in cost (purchase + recon + fees + transport). It is the headline profit on the car itself. A healthy used-car front-end gross is typically a few thousand dollars per unit, but it varies wildly by price band — cheaper cars carry thinner dollars but can turn faster.'
+      },
+      {
+        heading: 'Holding cost is a clock',
+        body: 'From the moment you buy, the meter runs: floor-plan interest accrues daily, and a share of your fixed overhead is attributable to every car on the lot. A unit that sits 60 days can quietly burn hundreds in carry. That is why "buy right and turn fast" beats "hold out for top dollar" almost every time.'
+      },
+      {
+        heading: 'Back-end and F&I',
+        body: 'Beyond the car, money is made in financing: dealer reserve on bank deals, and the interest yield on in-house (buy-here-pay-here) paper. F&I can rival or exceed front-end gross — but in-house paper also carries default risk, so price that risk in and never finance more than you can afford to lose.'
+      },
+      {
+        heading: 'A simple worked example',
+        body: 'Buy a sedan for $9,000. Transport $300, recon $1,200, inspection + title ~$200 → all-in ≈ $10,700. Retail it at $13,900 cash. Front-end gross ≈ $3,200, minus ~$250 of floor-plan carry for the days it sat ≈ $2,950 net. Finance it instead of cash and you may add several hundred more in reserve or interest. Run this math BEFORE you buy — if it doesn\'t pencil out, pass.'
+      }
+    ]
+  },
+  {
     id: 'nc-compliance',
     title: 'NC Dealer Compliance & State Inspections',
     category: 'Compliance',

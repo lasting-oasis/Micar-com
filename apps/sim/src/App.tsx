@@ -1638,8 +1638,16 @@ function App() {
       setActiveTab('auction');
       setShowUI(true);
     };
+    const handleOpenLibrary = () => {
+      setActiveTab('library');
+      setShowUI(true);
+    };
     window.addEventListener('open_auction', handleOpenAuction);
-    return () => window.removeEventListener('open_auction', handleOpenAuction);
+    window.addEventListener('open_library', handleOpenLibrary);
+    return () => {
+      window.removeEventListener('open_auction', handleOpenAuction);
+      window.removeEventListener('open_library', handleOpenLibrary);
+    };
   }, []);
 
   useEffect(() => {
@@ -2723,6 +2731,8 @@ function App() {
                   openBankModal();
                 } else if (activeInteraction.type === 'auction') {
                   window.dispatchEvent(new CustomEvent('open_auction'));
+                } else if (activeInteraction.type === 'library') {
+                  window.dispatchEvent(new CustomEvent('open_library'));
                 } else if (activeInteraction.type === 'car' && activeInteraction.carId) {
                   // Enter/exit driving state
                   if ((window as any).setMobileTap) {

@@ -43,8 +43,8 @@ interface StoreState {
   closeBankModal: () => void;
   payFloorPlan: (amount: number) => void;
   takeTitleLoan: (carId: string) => void;
-  activeInteraction: { type: 'bank' | 'auction' | 'car'; label: string; carId?: string } | null;
-  setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car'; label: string; carId?: string } | null) => void;
+  activeInteraction: { type: 'bank' | 'auction' | 'car' | 'library'; label: string; carId?: string } | null;
+  setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car' | 'library'; label: string; carId?: string } | null) => void;
 
   gatePrompt: boolean; // true when the player is outside their locked gate and must enter the code
   setGatePrompt: (visible: boolean) => void;
