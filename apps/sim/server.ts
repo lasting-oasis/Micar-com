@@ -115,10 +115,13 @@ let gameState: GameState = {
     fractionalMarket: []
 };
 
-// --- MyCar Fractional: vehicles split into tradable shares ------------------
+// --- MyCar Fractional: SPV-backed vehicles whose shares trade ----------------
+const MM_SPREAD = 0.03; // platform market-maker spread around the fundamental price
+const round2 = (n: number) => Math.round(n * 100) / 100;
+
 const seedFractionalMarket = (): FractionalVehicle[] => {
     const seeds: Array<[number, string, string, number, number, number, FractionalVehicle['condition']]> = [
-        // year, make, model, price, mileage, volatility, condition
+        // year, make, model, underlyingValue, mileage, volatility, condition
         [2020, 'Toyota', 'Camry',     18500, 45000, 0.018, 'excellent'],
         [2019, 'Honda',  'Civic',     16200, 52000, 0.020, 'good'],
         [2021, 'Tesla',  'Model 3',   42000, 28000, 0.045, 'excellent'],
@@ -129,34 +132,58 @@ const seedFractionalMarket = (): FractionalVehicle[] => {
         [2017, 'Audi',   'A4',        21500, 85000, 0.040, 'fair'],
         [2020, 'Hyundai','Elantra',   15800, 41000, 0.020, 'good'],
     ];
-    return seeds.map(([year, make, model, price, mileage, volatility, condition], i) => {
-        // Seed ~30 days of back-history with a random walk ending at `price`
+    return seeds.map(([year, make, model, value, mileage, volatility, condition], i) => {
+        const fundamental = value / 1000;
         const history: number[] = [];
-        let p = price;
+        let p = fundamental;
         for (let d = 0; d < 30; d++) {
-            p = Math.max(price * 0.6, p * (1 + (Math.random() * 2 - 1) * volatility));
-            history.push(Math.round(p));
+            p = Math.max(fundamental * 0.6, p * (1 + (Math.random() * 2 - 1) * volatility));
+            history.push(round2(p));
         }
-        history.push(price);
+        history.push(round2(fundamental));
         return {
             id: `frac-${i}`,
-            year, make, model,
-            vin: generateVIN(),
-            price, mileage, volatility, condition,
+            year, make, model, vin: generateVIN(), mileage, condition,
+            issuerId: 'platform',
+            underlyingValue: value,
             totalShares: 1000,
-            availableShares: 1000,
-            priceHistory: history.slice(-30)
+            treasuryShares: 1000,
+            dailyYield: Math.round(value * 0.0006), // ~0.06%/day rental income across all shares
+            volatility,
+            lastPrice: round2(fundamental),
+            priceHistory: history.slice(-30),
+            asks: [],
+            status: 'trading'
         };
     });
 };
 
-// Advance every fractional vehicle's price by one volatility-scaled step.
-const tickFractionalPrices = () => {
+// Each day: drift underlying car values, mark prices, and pay rental-yield dividends.
+const tickFractionalMarket = () => {
     gameState.fractionalMarket.forEach(v => {
-        const drift = (Math.random() * 2 - 1) * v.volatility;
-        v.price = Math.max(Math.round(v.price * 0.5), Math.round(v.price * (1 + drift)));
-        v.priceHistory.push(v.price);
+        if (v.status !== 'trading') return;
+        const drift = (Math.random() * 2 - 1) * v.volatility - 0.001; // slight daily depreciation bias
+        v.underlyingValue = Math.max(500, v.underlyingValue * (1 + drift));
+        const fundamental = v.underlyingValue / v.totalShares;
+        v.lastPrice = v.lastPrice + (fundamental - v.lastPrice) * 0.5; // mark toward fundamentals
+        v.priceHistory.push(round2(fundamental));
         if (v.priceHistory.length > 30) v.priceHistory.shift();
+    });
+    // Distribute daily rental-yield dividends to every shareholder.
+    Object.values(gameState.players).forEach(p => {
+        if (!p.shareHoldings) return;
+        let div = 0;
+        for (const vid in p.shareHoldings) {
+            const v = gameState.fractionalMarket.find(f => f.id === vid);
+            if (v && v.status === 'trading' && v.totalShares > 0) {
+                div += (p.shareHoldings[vid].shares / v.totalShares) * v.dailyYield;
+            }
+        }
+        if (div > 0) {
+            p.money += div;
+            p.balanceSheet.totalIncome += div;
+            p.balanceSheet.lastTickIncome += div;
+        }
     });
 };
 
@@ -530,7 +557,7 @@ const economyTick = () => {
         generateJunkyardCars();
     }
 
-    tickFractionalPrices(); // move share prices each day
+    tickFractionalMarket(); // drift values, mark prices, pay dividends
 
     broadcastState(io, gameState);
 };
@@ -1236,44 +1263,171 @@ io.on('connection', (socket) => {
       broadcastState(io, gameState);
   });
 
+  // Market BUY — fills from the cheapest peer asks first, then the platform
+  // market-maker (treasury) at the fundamental + spread.
   socket.on('buy_shares', ({ vehicleId, quantity }) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       const v = gameState.fractionalMarket.find(f => f.id === vehicleId);
-      const qty = Math.floor(Number(quantity));
-      if (!v || !Number.isFinite(qty) || qty <= 0 || qty > v.availableShares) return;
-      const pricePerShare = v.price / v.totalShares;
-      const cost = pricePerShare * qty;
-      if (player.money < cost) return;
+      let qty = Math.floor(Number(quantity));
+      if (!v || v.status !== 'trading' || !Number.isFinite(qty) || qty <= 0) return;
+      const fundamental = v.underlyingValue / v.totalShares;
+      const mmAsk = fundamental * (1 + MM_SPREAD);
       if (!player.shareHoldings) player.shareHoldings = {};
       const h = player.shareHoldings[vehicleId] || { shares: 0, invested: 0 };
-      h.shares += qty;
-      h.invested += cost;
+      let lastFill = v.lastPrice;
+      let guard = 0;
+      while (qty > 0 && guard++ < 5000) {
+          v.asks.sort((a, b) => a.price - b.price);
+          const bestAsk = v.asks[0];
+          const useAsk = !!bestAsk && bestAsk.price <= mmAsk && bestAsk.sellerId !== player.id;
+          const unitPrice = useAsk ? bestAsk!.price : mmAsk;
+          const available = useAsk ? bestAsk!.qty : v.treasuryShares;
+          if (available <= 0) { if (useAsk) { v.asks.shift(); continue; } else break; }
+          if (player.money < unitPrice) break;
+          const n = Math.min(qty, available, Math.floor(player.money / unitPrice));
+          if (n <= 0) break;
+          const cost = n * unitPrice;
+          player.money -= cost;
+          h.shares += n; h.invested += cost;
+          lastFill = unitPrice;
+          if (useAsk) {
+              const seller = gameState.players[bestAsk!.sellerId];
+              if (seller) { seller.money += cost; seller.balanceSheet.totalIncome += cost; seller.balanceSheet.lastTickIncome += cost; }
+              bestAsk!.basis = bestAsk!.basis * (1 - n / bestAsk!.qty);
+              bestAsk!.qty -= n;
+              if (bestAsk!.qty <= 0) v.asks.shift();
+          } else {
+              v.treasuryShares -= n;
+              if (v.issuerId !== 'platform') {
+                  const issuer = gameState.players[v.issuerId];
+                  if (issuer) { issuer.money += cost; issuer.balanceSheet.totalIncome += cost; issuer.balanceSheet.lastTickIncome += cost; }
+              }
+          }
+          qty -= n;
+      }
       player.shareHoldings[vehicleId] = h;
-      player.money -= cost;
-      player.balanceSheet.totalExpenses += cost;
-      player.balanceSheet.lastTickExpense += cost;
-      v.availableShares -= qty;
+      if (h.shares <= 0 && h.invested <= 0) delete player.shareHoldings[vehicleId];
+      v.lastPrice = lastFill;
+      v.priceHistory.push(round2(lastFill));
+      if (v.priceHistory.length > 30) v.priceHistory.shift();
       broadcastState(io, gameState);
   });
 
+  // Market SELL — instant liquidity to the platform market-maker at fundamental - spread.
   socket.on('sell_shares', ({ vehicleId, quantity }) => {
       const player = gameState.players[socket.id];
       if (!player || !player.shareHoldings) return;
       const v = gameState.fractionalMarket.find(f => f.id === vehicleId);
       const h = player.shareHoldings[vehicleId];
       const qty = Math.floor(Number(quantity));
-      if (!v || !h || !Number.isFinite(qty) || qty <= 0 || qty > h.shares) return;
-      const pricePerShare = v.price / v.totalShares;
-      const proceeds = pricePerShare * qty;
-      h.invested -= (h.invested / h.shares) * qty; // shed cost basis proportionally
+      if (!v || v.status !== 'trading' || !h || !Number.isFinite(qty) || qty <= 0 || qty > h.shares) return;
+      const fundamental = v.underlyingValue / v.totalShares;
+      const mmBid = fundamental * (1 - MM_SPREAD);
+      const proceeds = qty * mmBid;
+      h.invested -= (h.invested / h.shares) * qty;
       h.shares -= qty;
       if (h.shares <= 0) delete player.shareHoldings[vehicleId];
-      else player.shareHoldings[vehicleId] = h;
       player.money += proceeds;
       player.balanceSheet.totalIncome += proceeds;
       player.balanceSheet.lastTickIncome += proceeds;
-      v.availableShares = Math.min(v.totalShares, v.availableShares + qty);
+      v.treasuryShares += qty; // market-maker absorbs into treasury
+      v.lastPrice = mmBid;
+      v.priceHistory.push(round2(mmBid));
+      if (v.priceHistory.length > 30) v.priceHistory.shift();
+      broadcastState(io, gameState);
+  });
+
+  // Post a peer sell listing (limit ask) — shares are escrowed out of holdings.
+  socket.on('list_shares', ({ vehicleId, quantity, price }) => {
+      const player = gameState.players[socket.id];
+      if (!player || !player.shareHoldings) return;
+      const v = gameState.fractionalMarket.find(f => f.id === vehicleId);
+      const h = player.shareHoldings[vehicleId];
+      const qty = Math.floor(Number(quantity));
+      const px = Number(price);
+      if (!v || v.status !== 'trading' || !h || !Number.isFinite(qty) || qty <= 0 || qty > h.shares || !Number.isFinite(px) || px <= 0) return;
+      const basis = (h.invested / h.shares) * qty;
+      h.shares -= qty; h.invested -= basis;
+      if (h.shares <= 0) delete player.shareHoldings[vehicleId];
+      v.asks.push({ id: `ask-${Date.now()}-${Math.floor(Math.random() * 1000)}`, sellerId: player.id, price: px, qty, basis });
+      broadcastState(io, gameState);
+  });
+
+  // Cancel one of your own listings — shares return to your holdings.
+  socket.on('cancel_listing', ({ vehicleId, orderId }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const v = gameState.fractionalMarket.find(f => f.id === vehicleId);
+      if (!v) return;
+      const idx = v.asks.findIndex(a => a.id === orderId && a.sellerId === player.id);
+      if (idx === -1) return;
+      const ask = v.asks[idx];
+      if (!player.shareHoldings) player.shareHoldings = {};
+      const h = player.shareHoldings[vehicleId] || { shares: 0, invested: 0 };
+      h.shares += ask.qty; h.invested += ask.basis;
+      player.shareHoldings[vehicleId] = h;
+      v.asks.splice(idx, 1);
+      broadcastState(io, gameState);
+  });
+
+  // Fractionalize one of your own lot vehicles into a new SPV. You become the
+  // issuer and hold all treasury shares; selling them raises cash.
+  socket.on('fractionalize_car', ({ carId, shares }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const idx = player.inventory.findIndex(c => c.id === carId);
+      if (idx === -1) return;
+      const car = player.inventory[idx];
+      const totalShares = Math.max(100, Math.min(10000, Math.floor(Number(shares)) || 1000));
+      const value = Math.max(500, car.estimatedMMR || car.buyPrice || 5000);
+      player.inventory.splice(idx, 1);
+      const fundamental = value / totalShares;
+      gameState.fractionalMarket.push({
+          id: `frac-${player.id.substring(0, 4)}-${Date.now()}`,
+          year: car.year, make: car.make, model: car.model, vin: car.vin, mileage: car.mileage,
+          condition: undefined,
+          issuerId: player.id,
+          underlyingValue: value,
+          totalShares,
+          treasuryShares: totalShares,
+          dailyYield: Math.round(value * 0.0006),
+          volatility: 0.03,
+          lastPrice: round2(fundamental),
+          priceHistory: Array(20).fill(round2(fundamental)),
+          asks: [],
+          status: 'trading'
+      });
+      broadcastState(io, gameState);
+  });
+
+  // Liquidate an SPV you issued — the car is sold and every shareholder is paid
+  // their proportional cut of the underlying value.
+  socket.on('liquidate_vehicle', ({ vehicleId }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const v = gameState.fractionalMarket.find(f => f.id === vehicleId);
+      if (!v || v.issuerId !== player.id || v.status !== 'trading') return;
+      const perShare = v.underlyingValue / v.totalShares;
+      // pay shareholders
+      Object.values(gameState.players).forEach(p => {
+          const h = p.shareHoldings?.[vehicleId];
+          if (h && h.shares > 0) {
+              const payout = h.shares * perShare;
+              p.money += payout; p.balanceSheet.totalIncome += payout; p.balanceSheet.lastTickIncome += payout;
+              delete p.shareHoldings![vehicleId];
+          }
+      });
+      // pay shares parked in open listings back to their sellers
+      v.asks.forEach(a => {
+          const seller = gameState.players[a.sellerId];
+          if (seller) { const payout = a.qty * perShare; seller.money += payout; seller.balanceSheet.totalIncome += payout; seller.balanceSheet.lastTickIncome += payout; }
+      });
+      // issuer keeps the value of unsold treasury shares
+      const issuerPayout = v.treasuryShares * perShare;
+      player.money += issuerPayout; player.balanceSheet.totalIncome += issuerPayout; player.balanceSheet.lastTickIncome += issuerPayout;
+      v.status = 'liquidated';
+      gameState.fractionalMarket = gameState.fractionalMarket.filter(f => f.id !== vehicleId);
       broadcastState(io, gameState);
   });
 

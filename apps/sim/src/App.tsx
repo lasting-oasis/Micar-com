@@ -229,20 +229,30 @@ const Sparkline = ({ data }: { data: number[] }) => {
 const fmt = (n: number) => '$' + Math.round(n).toLocaleString();
 const fmt2 = (n: number) => '$' + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-const ShareVehicleCard = ({ v, holding, money, onBuy, onSell }: { v: any, holding: any, money: number, onBuy: (id: string, q: number) => void, onSell: (id: string, q: number) => void }) => {
+const ShareVehicleCard = ({ v, holding, money, playerId, actions }: { v: any, holding: any, money: number, playerId: string | null, actions: any }) => {
   const [qty, setQty] = useState(10);
-  const pps = v.price / v.totalShares;
+  const [listPx, setListPx] = useState('');
+  const fundamental = v.underlyingValue / v.totalShares;
+  const mmBid = fundamental * 0.97;
+  const mmAsk = fundamental * 1.03;
+  const myAsks = (v.asks || []).filter((a: any) => a.sellerId === playerId);
+  const otherAsks = (v.asks || []).filter((a: any) => a.sellerId !== playerId);
+  const bestOtherAsk = otherAsks.length ? Math.min(...otherAsks.map((a: any) => a.price)) : Infinity;
+  const buyPx = Math.min(mmAsk, bestOtherAsk);
   const owned = holding?.shares || 0;
   const invested = holding?.invested || 0;
-  const value = owned * pps;
+  const mark = v.lastPrice || fundamental;
+  const value = owned * mark;
   const pl = value - invested;
-  const prev = v.priceHistory?.length > 1 ? v.priceHistory[v.priceHistory.length - 2] : v.price;
-  const changePct = prev ? ((v.price - prev) / prev) * 100 : 0;
+  const yieldPerShare = v.dailyYield / v.totalShares;
+  const prev = v.priceHistory?.length > 1 ? v.priceHistory[v.priceHistory.length - 2] : mark;
+  const changePct = prev ? ((mark - prev) / prev) * 100 : 0;
   const condColor = v.condition === 'excellent' ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30'
     : v.condition === 'good' ? 'text-blue-400 bg-blue-500/10 border-blue-500/30'
-    : 'text-amber-400 bg-amber-500/10 border-amber-500/30';
+    : v.condition === 'fair' ? 'text-amber-400 bg-amber-500/10 border-amber-500/30' : 'text-gray-400 bg-white/5 border-white/10';
+  const isIssuer = v.issuerId === playerId;
   const q = Math.max(1, Math.floor(Number(qty) || 1));
-  const cost = q * pps;
+  const buyCost = q * buyPx;
 
   return (
     <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col gap-3">
@@ -251,44 +261,77 @@ const ShareVehicleCard = ({ v, holding, money, onBuy, onSell }: { v: any, holdin
           <div className="font-black text-white text-sm">{v.year} {v.make} {v.model}</div>
           <div className="text-[9px] text-gray-500 font-mono">{v.vin}</div>
         </div>
-        <span className={`text-[9px] uppercase font-black px-2 py-0.5 rounded-full border ${condColor}`}>{v.condition}</span>
+        <div className="flex flex-col items-end gap-1">
+          {v.condition && <span className={`text-[9px] uppercase font-black px-2 py-0.5 rounded-full border ${condColor}`}>{v.condition}</span>}
+          <span className="text-[8px] uppercase font-black px-2 py-0.5 rounded-full border border-white/10 text-gray-400">{v.issuerId === 'platform' ? 'Platform' : isIssuer ? 'Issued by you' : 'Player-issued'}</span>
+        </div>
       </div>
 
       <div className="flex items-end justify-between">
         <div>
-          <div className="text-lg font-black text-white">{fmt(v.price)}</div>
+          <div className="text-lg font-black text-white">{fmt2(mark)}<span className="text-[10px] text-gray-500 font-bold"> /share</span></div>
           <div className={`text-[11px] font-bold ${changePct >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-            {changePct >= 0 ? '▲' : '▼'} {Math.abs(changePct).toFixed(2)}% · {fmt2(pps)}/share
+            {changePct >= 0 ? '▲' : '▼'} {Math.abs(changePct).toFixed(2)}% · car {fmt(v.underlyingValue)}
           </div>
         </div>
         <div className="w-28"><Sparkline data={v.priceHistory} /></div>
       </div>
 
       <div className="grid grid-cols-3 gap-2 text-center text-[10px]">
-        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Mileage</div><div className="text-white font-bold">{v.mileage.toLocaleString()}</div></div>
-        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Volatility</div><div className="text-white font-bold">{(v.volatility * 100).toFixed(1)}%</div></div>
-        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Available</div><div className="text-white font-bold">{v.availableShares.toLocaleString()}</div></div>
+        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Buy</div><div className="text-emerald-400 font-bold">{fmt2(buyPx)}</div></div>
+        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Sell</div><div className="text-red-400 font-bold">{fmt2(mmBid)}</div></div>
+        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Yield/day</div><div className="text-white font-bold">{fmt2(yieldPerShare)}</div></div>
       </div>
 
       {owned > 0 && (
         <div className="flex items-center justify-between text-[11px] bg-blue-500/5 border border-blue-500/15 rounded-lg px-3 py-1.5">
-          <span className="text-gray-300">You own <span className="font-bold text-white">{owned.toLocaleString()}</span> · {fmt(value)}</span>
+          <span className="text-gray-300">{owned.toLocaleString()} sh · {fmt(value)} · +{fmt2(owned * yieldPerShare)}/day</span>
           <span className={`font-bold ${pl >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>{pl >= 0 ? '+' : ''}{fmt(pl)}</span>
         </div>
       )}
 
       <div className="flex items-center gap-2">
         <input type="number" min={1} value={qty} onChange={(e) => setQty(parseInt(e.target.value) || 1)}
-          className="w-16 bg-black/40 border border-white/10 rounded-lg px-2 py-1.5 text-white text-sm text-center" />
-        <button onClick={() => onBuy(v.id, q)} disabled={cost > money || q > v.availableShares}
-          className="flex-1 bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 disabled:text-gray-500 text-white text-xs font-black uppercase tracking-wider rounded-lg py-2">
-          Buy · {fmt(cost)}
+          className="w-14 bg-black/40 border border-white/10 rounded-lg px-2 py-1.5 text-white text-sm text-center" />
+        <button onClick={() => actions.buyShares(v.id, q)} disabled={buyCost > money}
+          className="flex-1 bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 disabled:text-gray-500 text-white text-xs font-black uppercase rounded-lg py-2">
+          Buy · {fmt(buyCost)}
         </button>
-        <button onClick={() => onSell(v.id, q)} disabled={owned < q}
-          className="flex-1 bg-red-600/90 hover:bg-red-500 disabled:bg-gray-700 disabled:text-gray-500 text-white text-xs font-black uppercase tracking-wider rounded-lg py-2">
-          Sell
+        <button onClick={() => actions.sellShares(v.id, q)} disabled={owned < q}
+          className="flex-1 bg-red-600/90 hover:bg-red-500 disabled:bg-gray-700 disabled:text-gray-500 text-white text-xs font-black uppercase rounded-lg py-2">
+          Sell · {fmt(q * mmBid)}
         </button>
       </div>
+
+      {owned > 0 && (
+        <div className="flex items-center gap-2">
+          <input type="number" placeholder="$/share" value={listPx} onChange={(e) => setListPx(e.target.value)}
+            className="w-20 bg-black/40 border border-white/10 rounded-lg px-2 py-1.5 text-white text-xs text-center" />
+          <button onClick={() => { const px = Number(listPx); if (px > 0 && owned >= q) { actions.listShares(v.id, q, px); setListPx(''); } }}
+            disabled={owned < q || !(Number(listPx) > 0)}
+            className="flex-1 bg-white/10 hover:bg-white/20 disabled:opacity-30 text-white text-[11px] font-bold uppercase rounded-lg py-1.5">
+            List {q} @ your price
+          </button>
+        </div>
+      )}
+
+      {myAsks.length > 0 && (
+        <div className="flex flex-col gap-1">
+          {myAsks.map((a: any) => (
+            <div key={a.id} className="flex items-center justify-between text-[10px] bg-black/30 rounded px-2 py-1">
+              <span className="text-gray-300">Listed {a.qty} @ {fmt2(a.price)}</span>
+              <button onClick={() => actions.cancelListing(v.id, a.id)} className="text-red-400 font-bold uppercase">Cancel</button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {isIssuer && (
+        <button onClick={() => actions.liquidateVehicle(v.id)}
+          className="bg-amber-600/80 hover:bg-amber-500 text-black text-[11px] font-black uppercase rounded-lg py-1.5">
+          Liquidate SPV · pay out {fmt(v.underlyingValue)}
+        </button>
+      )}
     </div>
   );
 };
@@ -298,38 +341,66 @@ const SharesMarket = () => {
   const playerId = useGameStore(s => s.playerId);
   const buyShares = useGameStore(s => s.buyShares);
   const sellShares = useGameStore(s => s.sellShares);
+  const listShares = useGameStore(s => s.listShares);
+  const cancelListing = useGameStore(s => s.cancelListing);
+  const fractionalizeCar = useGameStore(s => s.fractionalizeCar);
+  const liquidateVehicle = useGameStore(s => s.liquidateVehicle);
+  const actions = { buyShares, sellShares, listShares, cancelListing, liquidateVehicle };
   const me = playerId ? gameState?.players?.[playerId] : null;
   const market = gameState?.fractionalMarket || [];
   const holdings = me?.shareHoldings || {};
+  const [showFrac, setShowFrac] = useState(false);
 
-  let invested = 0, value = 0;
+  let invested = 0, value = 0, dividends = 0;
   market.forEach((v: any) => {
     const h = holdings[v.id];
-    if (h) { invested += h.invested; value += h.shares * (v.price / v.totalShares); }
+    if (h) {
+      invested += h.invested;
+      value += h.shares * (v.lastPrice || v.underlyingValue / v.totalShares);
+      dividends += (h.shares / v.totalShares) * v.dailyYield;
+    }
   });
   const pl = value - invested;
+  const fracCandidates = me?.inventory || [];
 
   return (
     <div className="flex flex-col gap-4 h-full">
-      {/* Portfolio summary */}
       <div className="grid grid-cols-3 gap-3 shrink-0">
         <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
-          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Portfolio Value</div>
+          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Portfolio</div>
           <div className="text-xl font-black text-white">{fmt(value)}</div>
         </div>
         <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
-          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Invested</div>
-          <div className="text-xl font-black text-white">{fmt(invested)}</div>
-        </div>
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
-          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Total Return</div>
+          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Return</div>
           <div className={`text-xl font-black ${pl >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>{pl >= 0 ? '+' : ''}{fmt(pl)}</div>
         </div>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
+          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Yield/day</div>
+          <div className="text-xl font-black text-emerald-400">+{fmt2(dividends)}</div>
+        </div>
+      </div>
+
+      <div className="shrink-0">
+        <button onClick={() => setShowFrac(s => !s)} className="text-[11px] font-black uppercase tracking-widest text-amber-400 hover:text-amber-300">
+          {showFrac ? '▾' : '▸'} Fractionalize a car you own ({fracCandidates.length})
+        </button>
+        {showFrac && (
+          <div className="flex flex-col gap-2 mt-2 bg-amber-500/5 border border-amber-500/20 rounded-xl p-2">
+            <p className="text-[10px] text-gray-400">Turn a lot vehicle into an SPV and sell shares to raise cash. You hold the unsold treasury shares and earn proceeds as they sell; liquidate later to pay everyone out.</p>
+            {fracCandidates.length === 0 && <span className="text-[11px] text-gray-500 italic">No vehicles in inventory.</span>}
+            {fracCandidates.map((c: any) => (
+              <div key={c.id} className="flex items-center justify-between bg-black/30 rounded-lg px-3 py-2">
+                <div className="text-[11px] text-white font-bold">{c.year} {c.make} {c.model} <span className="text-gray-500">· {fmt(c.estimatedMMR || c.buyPrice)}</span></div>
+                <button onClick={() => fractionalizeCar(c.id, 1000)} className="bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-black uppercase rounded px-3 py-1 shrink-0">Issue 1,000 shares</button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-y-auto flex-grow pe-1 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
         {market.map((v: any) => (
-          <ShareVehicleCard key={v.id} v={v} holding={holdings[v.id]} money={me?.money || 0} onBuy={buyShares} onSell={sellShares} />
+          <ShareVehicleCard key={v.id} v={v} holding={holdings[v.id]} money={me?.money || 0} playerId={playerId} actions={actions} />
         ))}
         {market.length === 0 && <div className="text-center text-gray-500 py-8 text-sm italic col-span-full">Loading share market…</div>}
       </div>

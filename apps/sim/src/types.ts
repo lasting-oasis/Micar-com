@@ -104,18 +104,26 @@ export type Player = {
   };
 };
 
-// A vehicle that has been fractionalized into tradable shares (MyCar Fractional)
+// A resting peer sell order (limit ask) in a vehicle's order book.
+export type ShareOrder = { id: string; sellerId: string; price: number; qty: number; basis: number };
+
+// A vehicle fractionalized into an SPV whose shares trade (MyCar Fractional).
 export type FractionalVehicle = {
   id: string;
   year: number; make: string; model: string;
   vin: string;
-  price: number;          // total vehicle value
   mileage: number;
-  volatility: number;     // daily price sigma, e.g. 0.025 = 2.5%
-  condition: 'excellent' | 'good' | 'fair';
-  totalShares: number;    // total shares the vehicle is split into
-  availableShares: number;// shares still purchasable from the pool
-  priceHistory: number[]; // recent total-price points (~30)
+  condition?: 'excellent' | 'good' | 'fair';
+  issuerId: string;          // 'platform' or a player id (owns the SPV / treasury)
+  underlyingValue: number;   // current market value of the car (drives fundamentals)
+  totalShares: number;       // total shares the vehicle is split into
+  treasuryShares: number;    // unsold shares still held by the issuer
+  dailyYield: number;        // total rental income per day, split across all shares
+  volatility: number;        // daily underlying-value sigma
+  lastPrice: number;         // last traded price per share
+  priceHistory: number[];    // recent per-share price points (~30)
+  asks: ShareOrder[];        // peer sell listings (order book)
+  status: 'trading' | 'liquidated';
 };
 
 export type GameState = {

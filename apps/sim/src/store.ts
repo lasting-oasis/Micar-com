@@ -51,6 +51,10 @@ interface StoreState {
 
   buyShares: (vehicleId: string, quantity: number) => void;
   sellShares: (vehicleId: string, quantity: number) => void;
+  listShares: (vehicleId: string, quantity: number, price: number) => void;
+  cancelListing: (vehicleId: string, orderId: string) => void;
+  fractionalizeCar: (carId: string, shares: number) => void;
+  liquidateVehicle: (vehicleId: string) => void;
 }
 
 export const useGameStore = create<StoreState>((set, get) => ({
@@ -91,6 +95,22 @@ export const useGameStore = create<StoreState>((set, get) => ({
   sellShares: (vehicleId, quantity) => {
       const socket = get().socket;
       if (socket) socket.emit('sell_shares', { vehicleId, quantity });
+  },
+  listShares: (vehicleId, quantity, price) => {
+      const socket = get().socket;
+      if (socket) socket.emit('list_shares', { vehicleId, quantity, price });
+  },
+  cancelListing: (vehicleId, orderId) => {
+      const socket = get().socket;
+      if (socket) socket.emit('cancel_listing', { vehicleId, orderId });
+  },
+  fractionalizeCar: (carId, shares) => {
+      const socket = get().socket;
+      if (socket) socket.emit('fractionalize_car', { carId, shares });
+  },
+  liquidateVehicle: (vehicleId) => {
+      const socket = get().socket;
+      if (socket) socket.emit('liquidate_vehicle', { vehicleId });
   },
   disconnect: () => {
     const socket = get().socket;
