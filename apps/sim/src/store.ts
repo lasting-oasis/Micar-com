@@ -41,10 +41,13 @@ interface StoreState {
   isBankModalOpen: boolean;
   openBankModal: () => void;
   closeBankModal: () => void;
+  isInsuranceModalOpen: boolean;
+  openInsuranceModal: () => void;
+  closeInsuranceModal: () => void;
   payFloorPlan: (amount: number) => void;
   takeTitleLoan: (carId: string) => void;
-  activeInteraction: { type: 'bank' | 'auction' | 'car' | 'library'; label: string; carId?: string } | null;
-  setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car' | 'library'; label: string; carId?: string } | null) => void;
+  activeInteraction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance'; label: string; carId?: string } | null;
+  setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance'; label: string; carId?: string } | null) => void;
 
   gatePrompt: boolean; // true when the player is outside their locked gate and must enter the code
   setGatePrompt: (visible: boolean) => void;
@@ -78,6 +81,9 @@ export const useGameStore = create<StoreState>((set, get) => ({
   isBankModalOpen: false,
   openBankModal: () => set({ isBankModalOpen: true }),
   closeBankModal: () => set({ isBankModalOpen: false }),
+  isInsuranceModalOpen: false,
+  openInsuranceModal: () => set({ isInsuranceModalOpen: true }),
+  closeInsuranceModal: () => set({ isInsuranceModalOpen: false }),
   payFloorPlan: (amount) => {
       const socket = get().socket;
       if (socket) socket.emit('pay_floor_plan', { amount });

@@ -1317,6 +1317,38 @@ export function VanillaThreeScene() {
         libraryGroup.updateMatrixWorld(true);
         libWalls.forEach(w => staticCollisionBoxes.push(new THREE.Box3().setFromObject(w)));
 
+        // --- Apex Mutual Insurance office (teal glass storefront) ---------------
+        const INS_X = 95, INS_Z = 150;
+        const insuranceWorldPos = new THREE.Vector3(INS_X, 1.5, INS_Z);
+        const insGroup = new THREE.Group();
+        insGroup.position.set(INS_X, 0, INS_Z);
+        const insWallMat = new THREE.MeshStandardMaterial({ color: '#0f766e', roughness: 0.7, metalness: 0.2, map: concreteTex });
+        const insGlassMat = new THREE.MeshPhysicalMaterial({ color: '#5eead4', transmission: 0.85, opacity: 0.7, transparent: true, roughness: 0.1 });
+        cityMaterials.push(insWallMat, insGlassMat);
+        const insFloor = new THREE.Mesh(new THREE.BoxGeometry(14, 0.2, 11), new THREE.MeshStandardMaterial({ color: '#134e4a', roughness: 0.9 }));
+        insFloor.position.set(0, 0.1, 0); insFloor.receiveShadow = true; insGroup.add(insFloor);
+        const insWall = (w: number, h: number, d: number, x: number, y: number, z: number, mat: THREE.Material = insWallMat) => {
+             const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+             m.position.set(x, y, z); m.castShadow = true; m.receiveShadow = true;
+             return m;
+        };
+        const insWalls = [
+             insWall(14, 6, 0.5, 0, 3, 5.5),   // back
+             insWall(0.5, 6, 11, 7, 3, 0),     // east
+             insWall(0.5, 6, 11, -7, 3, 0),    // west
+             insWall(4.5, 6, 0.4, -4.75, 3, -5.5, insGlassMat), // front-left glass
+             insWall(4.5, 6, 0.4, 4.75, 3, -5.5, insGlassMat),  // front-right glass (door gap in the middle)
+        ];
+        insWalls.forEach(w => insGroup.add(w));
+        const insRoof = new THREE.Mesh(new THREE.BoxGeometry(15, 0.5, 12), insWallMat); insRoof.position.set(0, 6.25, 0); insRoof.castShadow = true; insGroup.add(insRoof);
+        const insLight = new THREE.PointLight('#ccfbf1', 1.0, 28); insLight.position.set(0, 4.5, 0); insGroup.add(insLight);
+        const insSign = createBuildingSign('INSURANCE', '#042f2e', '#5eead4');
+        insSign.position.set(0, 6.7, -5.7); insGroup.add(insSign);
+        scene.add(insGroup);
+        environmentDisposables.push(insGroup, insSign);
+        insGroup.updateMatrixWorld(true);
+        insWalls.forEach(w => staticCollisionBoxes.push(new THREE.Box3().setFromObject(w)));
+
 
 
         // (Removed the old 160x160 world-perimeter fence: each dealership now builds
@@ -2026,6 +2058,7 @@ export function VanillaThreeScene() {
                  const auctionWorldKiosk = new THREE.Vector3(-60, 1, 205);
                  const dAuction = avatar.position.distanceTo(auctionWorldKiosk);
                  const dLibrary = avatar.position.distanceTo(libraryWorldPos);
+                 const dInsurance = avatar.position.distanceTo(insuranceWorldPos);
 
                   const activeInt = useGameStore.getState().activeInteraction;
                   if (dDesk < 12.0) {
@@ -2057,6 +2090,16 @@ export function VanillaThreeScene() {
                        if (eJustPressed || rJustPressed) {
                             keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
                             window.dispatchEvent(new CustomEvent('open_library'));
+                       }
+                  } else if (dInsurance < 11.0) {
+                       interactPrompt.position.copy(insuranceWorldPos).add(new THREE.Vector3(0, 3, 0));
+                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
+                       if (!activeInt || activeInt.type !== 'insurance') {
+                            useGameStore.getState().setActiveInteraction({ type: 'insurance', label: 'Apex Mutual Insurance' });
+                       }
+                       if (eJustPressed || rJustPressed) {
+                            keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
+                            useGameStore.getState().openInsuranceModal();
                        }
                   } else if (nearestCar) {
                        interactPrompt.position.copy(carMeshes[nearestCar].position).add(new THREE.Vector3(0, 4, 0));
