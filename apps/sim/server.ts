@@ -72,32 +72,35 @@ let lastEndDayAt = 0;
 function broadcastState(io: Server, state: GameState) {
     const sockets = io.sockets.sockets;
     for (const [id, socket] of sockets) {
-        const tailoredState = JSON.parse(JSON.stringify(state)); // Deep clone
-        for (const pid in tailoredState.players) {
-            if (pid !== id) {
-                // Strip sensitive data from OTHER players
-                const p = tailoredState.players[pid];
-                p.money = 0;
-                p.contracts = [];
-                p.customers = [];
-                p.balanceSheet = { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 };
-                p.floorPlanDebt = 0;
-                p.gateCode = undefined; // never reveal another player's gate code
-                p.shareHoldings = {};   // portfolios are private
-                
-                // Hide buyPrice from inventory
-                if (p.inventory) {
-                    p.inventory.forEach((c: Car) => {
-                        c.buyPrice = 0;
-                    });
-                }
+        // Build a per-recipient view WITHOUT deep-cloning the whole state. The
+        // recipient's own player and the shared market data are passed by
+        // reference (socket.io serializes a snapshot); only OTHER players are
+        // shallow-copied to strip private fields.
+        const players: Record<string, any> = {};
+        for (const pid in state.players) {
+            const p = state.players[pid] as any;
+            if (pid === id) {
+                players[pid] = p;
+            } else {
+                players[pid] = {
+                    ...p,
+                    money: 0,
+                    contracts: [],
+                    customers: [],
+                    balanceSheet: { totalIncome: 0, totalExpenses: 0, lastTickIncome: 0, lastTickExpense: 0 },
+                    floorPlanDebt: 0,
+                    gateCode: undefined,   // never reveal another player's gate code
+                    shareHoldings: {},     // portfolios are private
+                    inventory: p.inventory ? p.inventory.map((c: any) => ({ ...c, buyPrice: 0 })) : []
+                };
             }
         }
-        // Only ship the recipient their OWN walk-in customers. Other players'
-        // customer budgets / credit scores are private and would otherwise leak.
-        const myWalkIns = tailoredState.activeWalkIns?.[id];
-        tailoredState.activeWalkIns = myWalkIns ? { [id]: myWalkIns } : {};
-        socket.emit('update', tailoredState);
+        const myWalkIns = state.activeWalkIns?.[id];
+        socket.emit('update', {
+            ...state,
+            players,
+            activeWalkIns: myWalkIns ? { [id]: myWalkIns } : {}
+        });
     }
 }
 

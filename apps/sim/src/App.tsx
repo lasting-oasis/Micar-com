@@ -47,6 +47,11 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
   const exX = (wx: number) => Math.max(8, Math.min(EX_W - 8, ((wx + 175) / 350) * EX_W));
   const exZ = (wz: number) => Math.max(8, Math.min(EX_H - 8, ((wz + 110) / 880) * EX_H));
 
+  // Road segments (matching the 3D world): main N-S strip, two cross streets, lot driveway.
+  const ROAD_W = isMobile ? 6 : 8;
+  const vRoad = (x: number, z1: number, z2: number, w = ROAD_W, c = '#3f3f46') => ({ position: 'absolute' as const, left: exX(x) - w / 2, top: exZ(z1), width: w, height: exZ(z2) - exZ(z1), background: c, borderRadius: 2 });
+  const hRoad = (z: number, x1: number, x2: number, w = ROAD_W, c = '#3f3f46') => ({ position: 'absolute' as const, left: exX(x1), top: exZ(z) - w / 2, width: exX(x2) - exX(x1), height: w, background: c, borderRadius: 2 });
+
   return (
     <>
       {/* Minimap / GPS — tap/click anywhere to expand */}
@@ -93,6 +98,11 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
               <div className={`flex gap-4 ${isMobile ? 'flex-col items-center' : 'flex-row'}`}>
                  <div className="relative rounded-xl border border-white/15 bg-gradient-to-b from-emerald-950 to-zinc-950 overflow-hidden shrink-0" style={{ width: EX_W, height: EX_H }}>
                     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+                    {/* Road network */}
+                    <div style={hRoad(200, -175, 175)} />
+                    <div style={hRoad(500, -175, 175)} />
+                    <div style={vRoad(0, 200, 770)} />
+                    <div style={vRoad(0, 100, 200, isMobile ? 4 : 5, '#52525b')} />
                     {MAP_LOCATIONS.map(loc => (
                        <div key={loc.name} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: exX(loc.x), top: exZ(loc.z) }}>
                           <div className="w-3 h-3 rounded-full border border-white/60" style={{ background: loc.color, boxShadow: `0 0 8px ${loc.color}` }} />
@@ -1559,7 +1569,13 @@ const ClockDisplay = () => {
 };
 
 function App() {
-  const { connect, gameState, playerId, buyCar, buyPsi, proposeDeal, counterOffer, rejectDeal, finalizeDeal, repairCar, requestInspection, registerVehicle, buyPart, scrapCar, buyScrapCar, orderRepo, setMarketingTier, upgradeLot, endDay, activeInteraction, openBankModal } = useGameStore();
+  // Subscribe ONLY to the reactive state this view needs. The action functions
+  // are stable, so we read them once via getState() — this stops the entire UI
+  // from re-rendering on every per-second clock tick (a major source of lag).
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  const activeInteraction = useGameStore(s => s.activeInteraction);
+  const { connect, buyCar, buyPsi, proposeDeal, counterOffer, rejectDeal, finalizeDeal, repairCar, requestInspection, registerVehicle, buyPart, scrapCar, buyScrapCar, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal } = useGameStore.getState();
   const timeOfDay = gameState?.timeOfDay || 8.0;
   const isAuctionOpen = timeOfDay >= 8.0 && timeOfDay < 17.0;
   const keyboardMap = useMemo(() => [
