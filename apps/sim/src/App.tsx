@@ -6,6 +6,7 @@ import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import StandaloneShopPlatform from './StandaloneShopPlatform';
 import ShopManagement from './ShopManagement';
+import { LIBRARY_BOOKS } from './libraryData';
 
 
 // Fixed points of interest in the world (x, z world coords) shown on the map.
@@ -332,6 +333,147 @@ const SharesMarket = () => {
         ))}
         {market.length === 0 && <div className="text-center text-gray-500 py-8 text-sm italic col-span-full">Loading share market…</div>}
       </div>
+    </div>
+  );
+};
+
+// --- DMV: realistic NC inspection / title pipeline per vehicle --------------
+const NC_SAFETY_FEE = 13.60;
+const NC_EMISSIONS_FEE = 30;
+
+const DmvStep = ({ n, done, title, sub, children }: { n: number, done: boolean, title: string, sub?: string, children: React.ReactNode }) => (
+  <div className="flex items-start gap-3">
+    <div className={`w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[11px] font-black ${done ? 'bg-emerald-500 text-black' : 'bg-white/10 text-gray-400 border border-white/15'}`}>{done ? '✓' : n}</div>
+    <div className="flex-1 min-w-0">
+      <div className="text-sm font-bold text-white">{title}</div>
+      {sub && <div className="text-[10px] text-gray-500 leading-snug">{sub}</div>}
+      <div className="mt-1.5">{children}</div>
+    </div>
+  </div>
+);
+
+const DmvVehicleCard = ({ car, money }: { car: any, money: number }) => {
+  const preInspect = useGameStore(s => s.preInspect);
+  const finalInspect = useGameStore(s => s.finalInspect);
+  const requestInspection = useGameStore(s => s.requestInspection);
+  const registerVehicle = useGameStore(s => s.registerVehicle);
+
+  const curYear = new Date().getFullYear();
+  const emissionsExempt = (curYear - car.year) <= 2 && car.mileage < 70000;
+  const inspectionFee = NC_SAFETY_FEE + (emissionsExempt ? 0 : NC_EMISSIONS_FEE);
+  const safetyWouldPass = car.mechanicCondition >= 70 && car.bodyCondition >= 50;
+  const isSalvage = car.titleStatus === 'Salvage';
+  const rebuiltDone = car.inspectionStatus === 'Passed' || car.titleStatus === 'Rebuilt';
+  const lastStepNum = isSalvage ? 4 : 3;
+
+  return (
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col gap-3">
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="font-black text-white text-sm">{car.year} {car.make} {car.model}</div>
+          <div className="text-[9px] text-gray-500 font-mono">VIN {car.vin}</div>
+        </div>
+        <span className={`text-[9px] uppercase font-black px-2 py-0.5 rounded-full border ${isSalvage ? 'bg-red-500/15 text-red-400 border-red-500/40' : car.titleStatus === 'Rebuilt' ? 'bg-orange-500/15 text-orange-400 border-orange-500/40' : 'bg-blue-500/15 text-blue-400 border-blue-500/40'}`}>{car.titleStatus} Title</span>
+      </div>
+
+      <div className="flex flex-col gap-3 border-t border-white/5 pt-3">
+        <DmvStep n={1} done={!!car.preInspected} title="Safety Pre-Inspection" sub="Dealer punch-list check — free">
+          {!car.preInspected ? (
+            <button onClick={() => preInspect(car.id)} className="bg-market/20 hover:bg-market text-market hover:text-black border border-market/50 px-3 py-1 rounded-lg text-[11px] font-black uppercase">Run Pre-Inspection</button>
+          ) : (
+            <span className={`text-[11px] font-bold ${safetyWouldPass ? 'text-emerald-400' : 'text-amber-400'}`}>{safetyWouldPass ? 'Punch list clear — ready for the state inspection' : `Would FAIL — recondition first (Mech ${Math.floor(car.mechanicCondition)}%, Body ${Math.floor(car.bodyCondition)}%; need 70 / 50)`}</span>
+          )}
+        </DmvStep>
+
+        <DmvStep n={2} done={!!car.safetyPassed} title="NC Safety + Emissions Inspection" sub={emissionsExempt ? 'Emissions exempt (≤3 model years & <70k mi) — safety only' : 'Mecklenburg County — emissions required'}>
+          {car.safetyPassed ? (
+            <span className="text-[11px] font-bold text-emerald-400">Passed · certificate issued</span>
+          ) : (
+            <button onClick={() => finalInspect(car.id)} disabled={!car.preInspected || money < inspectionFee}
+              className="bg-orange-500/20 hover:bg-orange-500 text-orange-400 hover:text-black border border-orange-500/40 px-3 py-1 rounded-lg text-[11px] font-black uppercase disabled:opacity-30 disabled:cursor-not-allowed">
+              Inspect · ${inspectionFee.toFixed(2)}{!emissionsExempt && ' (safety $13.60 + emissions $30)'}
+            </button>
+          )}
+        </DmvStep>
+
+        {isSalvage && (
+          <DmvStep n={3} done={rebuiltDone} title="Rebuilt Title — Anti-Theft Inspection" sub={(curYear - car.year) <= 6 ? 'License & Theft Bureau anti-theft inspection (≤6 yrs)' : 'License & Theft Bureau title verification'}>
+            {rebuiltDone ? (
+              <span className="text-[11px] font-bold text-emerald-400">Rebuilt title issued</span>
+            ) : car.inspectionStatus === 'Pending' ? (
+              <span className="text-[11px] font-bold text-orange-400">Inspection pending (2 days)…</span>
+            ) : (
+              <button onClick={() => requestInspection(car.id)} disabled={!car.safetyPassed || car.bodyCondition < 95 || car.mechanicCondition < 95 || money < 250}
+                className="bg-orange-500/20 hover:bg-orange-500 text-orange-400 hover:text-black border border-orange-500/40 px-3 py-1 rounded-lg text-[11px] font-black uppercase disabled:opacity-30 disabled:cursor-not-allowed">
+                Submit Rebuilt App · $250{(car.bodyCondition < 95 || car.mechanicCondition < 95) ? ' (needs 95% repairs)' : ''}
+              </button>
+            )}
+          </DmvStep>
+        )}
+
+        <DmvStep n={lastStepNum} done={!!car.isRegistered} title="Title & Registration" sub="Register under your dealer license">
+          {car.isRegistered ? (
+            <span className="text-[11px] font-bold text-blue-400">Registered</span>
+          ) : (
+            <button onClick={() => registerVehicle(car.id)} disabled={money < 150}
+              className="bg-blue-500/20 hover:bg-blue-500 text-blue-400 hover:text-black border border-blue-500/40 px-3 py-1 rounded-lg text-[11px] font-black uppercase disabled:opacity-30 disabled:cursor-not-allowed">
+              Register · $150
+            </button>
+          )}
+        </DmvStep>
+      </div>
+
+      {car.safetyPassed && car.isRegistered && !isSalvage && (
+        <div className="text-[11px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-lg py-1.5 text-center">✓ Cleared for retail sale</div>
+      )}
+    </div>
+  );
+};
+
+// --- Dealer Library: cornerstone reference reading -------------------------
+const Library = () => {
+  const [openId, setOpenId] = useState<string | null>(null);
+  const book = LIBRARY_BOOKS.find(b => b.id === openId);
+
+  if (book) {
+    return (
+      <div className="flex flex-col gap-3 h-full">
+        <button onClick={() => setOpenId(null)} className="self-start text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1">← Back to shelf</button>
+        <div className="overflow-y-auto pr-2 flex-grow scrollbar-thin scrollbar-thumb-white/10">
+          <div className="mb-4">
+            <div className="text-[10px] uppercase tracking-widest text-amber-400 font-black">{book.category}</div>
+            <h2 className="text-xl font-black text-white leading-tight">{book.title}</h2>
+            {book.author && <div className="text-[11px] text-gray-500 italic mt-0.5">{book.author}</div>}
+          </div>
+          <div className="flex flex-col gap-5">
+            {book.sections.map((s, i) => (
+              <div key={i}>
+                <h3 className="text-sm font-black uppercase tracking-wider text-white/90 border-b border-white/10 pb-1 mb-2">{s.heading}</h3>
+                <p className="text-[13px] text-gray-300 leading-relaxed whitespace-pre-line">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-3 overflow-y-auto pr-2 flex-grow scrollbar-thin scrollbar-thumb-white/10">
+      <p className="text-[11px] text-gray-400">Cornerstone reading for running the lot. Tap a title to read.</p>
+      {LIBRARY_BOOKS.map(b => (
+        <button key={b.id} onClick={() => setOpenId(b.id)}
+          className="text-left bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-500/40 rounded-2xl p-4 flex gap-3 items-start transition-all">
+          <div className="w-9 h-12 rounded bg-gradient-to-b from-amber-500/40 to-amber-700/30 border border-amber-500/40 shrink-0 flex items-center justify-center">
+            <BookOpen size={16} className="text-amber-300" />
+          </div>
+          <div className="min-w-0">
+            <div className="text-[9px] uppercase tracking-widest text-amber-400 font-black">{b.category}</div>
+            <div className="font-black text-white text-sm leading-tight">{b.title}</div>
+            <div className="text-[11px] text-gray-400 mt-1 leading-snug">{b.summary}</div>
+          </div>
+        </button>
+      ))}
     </div>
   );
 };
@@ -1432,7 +1574,7 @@ function App() {
   // Initial Connect screen
   if (!playerId || !gameState) {
     return (
-      <div className="flex flex-col gap-4 min-h-screen items-center justify-center bg-background p-4 overflow-y-auto">
+      <div className="flex flex-col gap-4 h-[100dvh] items-center justify-center bg-background p-4 overflow-y-auto">
         
         {/* CARD 1: Brand Identity & Name Input */}
         <motion.div
@@ -1657,6 +1799,13 @@ function App() {
               Shares Market
             </button>
             <button
+              onClick={() => setActiveTab('library')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'library' ? 'bg-amber-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-amber-500/5 border border-amber-500/10'}`}
+            >
+              <BookOpen size={14} className={activeTab === 'library' ? 'text-black' : 'text-amber-400'} />
+              Library
+            </button>
+            <button
               onClick={() => setActiveTab('accounting')}
               className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'accounting' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
             >
@@ -1869,13 +2018,21 @@ function App() {
                             <span>{car.daysOnLot} Days on Lot</span>
                           </div>
                           <ConditionDisplay car={car} expandedCarId={expandedCarId} setExpandedCarId={setExpandedCarId} />
-                          {!car.isRegistered ? (
-                            <div className="text-center bg-red-500/20 border border-red-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(239,68,68,0.2)]">
-                              <span className="text-[10px] uppercase text-red-400 font-bold tracking-widest w-full inline-block">Requires DMV Registration</span>
+                          {!car.preInspected ? (
+                            <div className="text-center bg-purple-500/20 border border-purple-500/50 rounded py-1.5 mt-2">
+                              <span className="text-[10px] uppercase text-purple-300 font-bold tracking-widest w-full inline-block">Needs Safety Pre-Inspection (DMV)</span>
                             </div>
-                          ) : car.titleStatus === 'Salvage' && car.inspectionStatus !== 'Passed' ? (
+                          ) : !car.safetyPassed ? (
                             <div className="text-center bg-orange-500/20 border border-orange-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(249,115,22,0.2)]">
-                              <span className="text-[10px] uppercase text-orange-400 font-bold tracking-widest w-full inline-block">DMV Inspection Required</span>
+                              <span className="text-[10px] uppercase text-orange-400 font-bold tracking-widest w-full inline-block">Needs NC Safety + Emissions (DMV)</span>
+                            </div>
+                          ) : car.titleStatus === 'Salvage' ? (
+                            <div className="text-center bg-red-500/20 border border-red-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(239,68,68,0.2)]">
+                              <span className="text-[10px] uppercase text-red-400 font-bold tracking-widest w-full inline-block">Salvage — Needs Rebuilt Title (DMV)</span>
+                            </div>
+                          ) : !car.isRegistered ? (
+                            <div className="text-center bg-blue-500/20 border border-blue-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                              <span className="text-[10px] uppercase text-blue-300 font-bold tracking-widest w-full inline-block">Requires Title &amp; Registration (DMV)</span>
                             </div>
                           ) : car.isDirty ? (
                             <div className="text-center bg-blue-500/20 border border-blue-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
@@ -1980,6 +2137,29 @@ function App() {
                   <span className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Buy &amp; trade vehicle shares</span>
                 </div>
                 <SharesMarket />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* CENTER HUD: Dealer Library */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'library' && (
+              <motion.div
+                key="library-tab"
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 20, opacity: 0 }}
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel border-amber-500/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-2xl mx-auto h-full flex flex-col pointer-events-auto"
+              >
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/10 flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <BookOpen className="text-amber-400" size={28} />
+                    <h3 className="text-xl font-bold uppercase tracking-wider text-amber-400">Dealer Library</h3>
+                  </div>
+                  <span className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">{LIBRARY_BOOKS.length} volumes</span>
+                </div>
+                <Library />
               </motion.div>
             )}
           </AnimatePresence>
@@ -2240,70 +2420,15 @@ function App() {
 
                 <div className="flex flex-col gap-4 overflow-y-auto pr-2 pb-4 scrollbar-thin scrollbar-thumb-white/10 h-full">
 
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                    <h3 className="text-lg font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2 flex items-center gap-2">
-                      <DollarSign size={16} className="text-market" /> Title & Registration
-                    </h3>
-                    <p className="text-xs text-gray-400 mb-4">All newly acquired vehicles must be registered under your dealership license before they can be legally sold to retail customers. Registration costs $150 per vehicle.</p>
-
-                    <div className="flex flex-col gap-2">
-                      {me.inventory.length === 0 && <span className="text-sm italic text-gray-500">No vehicles in inventory.</span>}
-                      {me.inventory.map(car => (
-                        <div key={car.id} className="flex justify-between items-center bg-black/30 p-3 rounded border border-white/5">
-                          <div className="flex flex-col">
-                            <span className="font-bold text-white">{car.year} {car.make} {car.model}</span>
-                            <span className="text-[10px] text-gray-500 uppercase tracking-widest font-mono mt-0.5">VIN: {car.vin}</span>
-                          </div>
-                          <div>
-                            {car.isRegistered ? (
-                              <span className="text-xs font-bold text-blue-400 bg-blue-500/20 px-3 py-1.5 rounded uppercase tracking-widest border border-blue-500/30">Registered</span>
-                            ) : (
-                              <button
-                                onClick={() => registerVehicle(car.id)}
-                                disabled={me.money < 150}
-                                className="bg-market hover:bg-blue-400 text-black px-4 py-1.5 rounded font-bold uppercase text-xs transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_10px_rgba(59,130,246,0.3)]"
-                              >
-                                Register ($150)
-                              </button>
-                            )}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-3 text-[11px] text-gray-300 leading-snug">
+                    <span className="font-black text-emerald-400 uppercase tracking-widest text-[10px]">NC Dealer Compliance</span> — under NC law a used vehicle must pass a <strong>Safety + Emissions inspection</strong> before it can be retailed, and salvage cars need a rebuilt/anti-theft inspection too. Work each vehicle through the steps below, then register it.
                   </div>
 
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-                    <h3 className="text-lg font-bold text-white mb-2 uppercase tracking-widest border-b border-white/10 pb-2 flex items-center gap-2">
-                      <Activity size={16} className="text-orange-500" /> State Salvage Inspection
-                    </h3>
-                    <p className="text-xs text-gray-400 mb-4">Salvage vehicles require an official state inspection to verify repairs. Both mechanical and cosmetic conditions must be repaired to 95% or higher to pass. Passing changes title status to Rebuilt.</p>
-
-                    <div className="flex flex-col gap-2">
-                      {me.inventory.filter(c => c.titleStatus === 'Salvage').length === 0 && <span className="text-sm italic text-gray-500">No salvage vehicles requiring inspection.</span>}
-                      {me.inventory.filter(c => c.titleStatus === 'Salvage').map(car => (
-                        <div key={car.id} className="flex justify-between items-center bg-black/30 p-3 rounded border border-white/5">
-                          <div className="flex flex-col">
-                            <span className="font-bold text-white">{car.year} {car.make} {car.model}</span>
-                            <span className="text-[10px] text-gray-500 uppercase tracking-widest font-mono mt-0.5">VIN: {car.vin}</span>
-                          </div>
-                          <div>
-                            {car.inspectionStatus === 'Passed' ? (
-                              <span className="text-xs font-bold text-green-400 bg-green-500/20 px-3 py-1.5 rounded uppercase tracking-widest border border-green-500/30">Passed</span>
-                            ) : car.inspectionStatus === 'Pending' ? (
-                              <span className="text-xs font-bold text-orange-400 bg-orange-500/20 px-3 py-1.5 rounded uppercase tracking-widest border border-orange-500/30">Pending...</span>
-                            ) : (
-                              <button
-                                onClick={() => requestInspection(car.id)}
-                                disabled={car.bodyCondition < 95 || car.mechanicCondition < 95 || me.money < 250}
-                                className="bg-orange-500 hover:bg-orange-400 text-black px-4 py-1.5 rounded font-bold uppercase text-xs transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_10px_rgba(249,115,22,0.3)]"
-                              >
-                                Submit ($250)
-                              </button>
-                            )}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="flex flex-col gap-3">
+                    {me.inventory.length === 0 && <span className="text-sm italic text-gray-500">No vehicles in inventory. Buy one at the auction.</span>}
+                    {me.inventory.map(car => (
+                      <DmvVehicleCard key={car.id} car={car} money={me.money} />
+                    ))}
                   </div>
 
                 </div>
@@ -2652,6 +2777,13 @@ function App() {
                   >
                     <Users size={24} />
                     <span className="text-xs font-bold uppercase tracking-wider">Staff List</span>
+                  </button>
+                  <button
+                    onClick={() => { setActiveTab('library'); setShowMoreMenu(false); }}
+                    className="p-4 rounded-2xl border bg-amber-500/10 border-amber-500/30 text-amber-400 hover:bg-amber-500 hover:text-black transition-all flex flex-col items-center justify-center gap-2"
+                  >
+                    <BookOpen size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Library</span>
                   </button>
                   {!me.isStandaloneOperator && (
                     <button

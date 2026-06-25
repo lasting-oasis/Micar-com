@@ -19,6 +19,8 @@ interface StoreState {
   washCar: (id: string) => void;
   placeOnLot: (id: string) => void;
   requestInspection: (id: string) => void;
+  preInspect: (id: string) => void;
+  finalInspect: (id: string) => void;
   registerVehicle: (id: string) => void;
   buyPart: (partName: string, cost: number) => void;
   scrapCar: (carId: string) => void;
@@ -156,6 +158,14 @@ export const useGameStore = create<StoreState>((set, get) => ({
   requestInspection: (id) => {
       const socket = get().socket;
       if(socket) socket.emit('request_inspection', { carId: id });
+  },
+  preInspect: (id) => {
+      const socket = get().socket;
+      if(socket) socket.emit('pre_inspect', { carId: id });
+  },
+  finalInspect: (id) => {
+      const socket = get().socket;
+      if(socket) socket.emit('final_inspect', { carId: id });
   },
   registerVehicle: (id) => {
       const socket = get().socket;

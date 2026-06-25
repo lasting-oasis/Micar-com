@@ -16,6 +16,12 @@ const DATA_FILE = path.join(process.cwd(), 'data', 'gameState.json');
 // generated vehicle ages stay correct over time.
 const CURRENT_YEAR = new Date().getFullYear();
 
+// --- North Carolina inspection rules (the lot is in Mecklenburg County) ------
+const SAFETY_FEE = 13.6;     // NC annual safety inspection fee
+const EMISSIONS_FEE = 30;    // NC OBD-II emissions fee (Mecklenburg is an emissions county)
+// Vehicles in the 3 newest model years AND under 70k miles are exempt from emissions.
+const emissionsRequired = (car: Car) => !((CURRENT_YEAR - car.year) <= 2 && car.mileage < 70000);
+
 // Validate & clamp position payloads coming from clients. Rejects anything that
 // isn't a finite x/z so a malicious or buggy client can't inject NaN / Infinity
 // or teleport meshes thousands of units off the map.
@@ -813,7 +819,9 @@ io.on('connection', (socket) => {
       if (carIndex === -1) return;
       
       const car = player.inventory[carIndex];
-      if (!car.isRegistered) return; // Cannot sell unregistered cars
+      if (!car.isRegistered) return; // Cannot sell untitled/unregistered cars
+      if (!car.safetyPassed) return; // NC: must pass safety + emissions inspection before retail sale
+      if (car.titleStatus === 'Salvage') return; // a salvage car must be rebuilt before it can be sold
 
       const proposal = agent.activeProposal;
       const dealType = proposal.dealType;
@@ -975,6 +983,7 @@ io.on('connection', (socket) => {
       if (!player) return;
       const car = player.inventory.find(c => c.id === carId);
       if (!car || car.titleStatus !== 'Salvage' || car.inspectionStatus === 'Pending') return;
+      if (!car.safetyPassed) return; // NC: must clear safety + emissions before a rebuilt retitle
 
       if (car.bodyCondition >= 95 && car.mechanicCondition >= 95 && player.money >= 250) {
           player.money -= 250;
@@ -1195,6 +1204,36 @@ io.on('connection', (socket) => {
           car.isRegistered = true;
           broadcastState(io, gameState);
       }
+  });
+
+  // NC Step 1 — dealer safety pre-inspection (free): reveals the punch list.
+  socket.on('pre_inspect', ({ carId }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const car = player.inventory.find(c => c.id === carId);
+      if (car && !car.preInspected) {
+          car.preInspected = true;
+          broadcastState(io, gameState);
+      }
+  });
+
+  // NC Step 2 — official Safety + Emissions inspection. Fee is charged whether it
+  // passes or fails (a failed inspection still costs the station visit).
+  socket.on('final_inspect', ({ carId }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const car = player.inventory.find(c => c.id === carId);
+      if (!car || !car.preInspected || car.safetyPassed) return;
+      const fee = SAFETY_FEE + (emissionsRequired(car) ? EMISSIONS_FEE : 0);
+      if (player.money < fee) return;
+      player.money -= fee;
+      player.balanceSheet.totalExpenses += fee;
+      player.balanceSheet.lastTickExpense += fee;
+      // NC safety pass: brakes/steering/mechanical sound (>=70) and structurally safe body (>=50)
+      if (car.mechanicCondition >= 70 && car.bodyCondition >= 50) {
+          car.safetyPassed = true;
+      }
+      broadcastState(io, gameState);
   });
 
   socket.on('buy_shares', ({ vehicleId, quantity }) => {

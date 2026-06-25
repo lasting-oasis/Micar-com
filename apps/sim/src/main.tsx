@@ -69,10 +69,12 @@ function GatewayPortal() {
     if (!rootEl) return;
 
     if (activeApp === 'game') {
-      // Simulator game expects standard locked full-screen viewport
+      // Simulator game expects a locked full-screen viewport. Use dvh/100% (not
+      // 100vh/100vw) so mobile browser chrome doesn't push the HUD off-screen or
+      // cause horizontal overflow.
       document.body.style.overflow = 'hidden';
-      rootEl.style.height = '100vh';
-      rootEl.style.width = '100vw';
+      rootEl.style.height = '100dvh';
+      rootEl.style.width = '100%';
       rootEl.style.overflow = 'hidden';
     } else {
       // Gateway portal and standalone bodyshop ERP tool expect normal vertical scrolling
@@ -112,7 +114,7 @@ function GatewayPortal() {
   // 1. STANDALONE SIMULATOR GAME VIEW
   if (activeApp === 'game') {
     return (
-      <div className="relative w-screen h-screen overflow-hidden bg-[#0c0d12]">
+      <div className="relative w-full h-[100dvh] overflow-hidden bg-[#0c0d12]">
         {/* Floating Escape Hatch */}
         <button 
           onClick={goBackToGateway}

@@ -24,6 +24,8 @@ export type Car = {
   auctionSeller?: string; // e.g. 'Geico Insurance', 'State Farm', 'Private Seller'
   vin: string; // Realistic 17-char VIN
   isRegistered?: boolean; // True if player has paid DMV to register the vehicle
+  preInspected?: boolean; // NC safety pre-inspection (punch list) completed
+  safetyPassed?: boolean; // Passed the NC annual Safety + Emissions inspection (required to retail)
 };
 
 export type FinanceContract = {
