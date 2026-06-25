@@ -22,9 +22,9 @@ const MAP_LOCATIONS = [
 
 const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: string, isMobile?: boolean }) => {
   const [expanded, setExpanded] = useState(false);
-  const size = isMobile ? 50 : 100;
-  const mapScale = isMobile ? 0.125 : 0.25; // 400x400 map world mapping
-  const mapCenter = isMobile ? 25 : 50;
+  const size = isMobile ? 64 : 100;
+  const mapScale = isMobile ? 0.16 : 0.25; // 400x400 map world mapping
+  const mapCenter = isMobile ? 32 : 50;
 
   // Toggle the expanded map with the M key (Esc closes). Ignore while typing.
   useEffect(() => {
@@ -49,8 +49,8 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
 
   return (
     <>
-      {/* Minimap / GPS */}
-      <div className={`fixed rounded-xl border border-white/20 bg-black/60 backdrop-blur-md overflow-hidden z-[999] pointer-events-none transition-all duration-300 ${isMobile ? 'bottom-28 right-8 w-[50px] h-[50px]' : 'bottom-6 right-8 w-[100px] h-[100px]'}`}>
+      {/* Minimap / GPS — tap/click anywhere to expand */}
+      <div onClick={() => setExpanded(true)} title="Expand map" className={`fixed rounded-xl border border-white/20 bg-black/60 backdrop-blur-md overflow-hidden z-[999] pointer-events-auto cursor-pointer active:scale-95 transition-all duration-200 ${isMobile ? 'bottom-28 right-6 w-[64px] h-[64px]' : 'bottom-6 right-8 w-[100px] h-[100px]'}`}>
          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: isMobile ? '5px 5px' : '10px 10px' }}></div>
          {!isMobile && MAP_LOCATIONS.map(loc => (
             <div key={loc.name} className="absolute w-1.5 h-1.5 rounded-full -translate-x-1/2 -translate-y-1/2" style={{ left: `${toMini(loc.x)}px`, top: `${toMini(loc.z)}px`, background: loc.color, boxShadow: `0 0 4px ${loc.color}` }} />
@@ -170,17 +170,19 @@ const GateControl = ({ isMobile }: { isMobile?: boolean }) => {
 
   return (
     <>
-      {/* Persistent owner code badge */}
-      <div className="fixed top-20 left-6 z-[1000] pointer-events-none select-none">
-        <div className="flex items-center gap-2.5 bg-black/75 backdrop-blur-md border border-emerald-500/50 rounded-xl px-4 py-2 shadow-xl">
-          <span className="text-lg">🔒</span>
-          <div className="flex flex-col leading-tight">
-            <span className="text-[9px] uppercase tracking-widest text-white/50 font-black">Your Gate Code</span>
-            <span className="text-xl font-mono font-bold text-emerald-400 tracking-[0.35em]">{myCode}</span>
+      {/* Persistent owner code badge — desktop only (mobile shows it in the menu) */}
+      {!isMobile && (
+        <div className="fixed top-20 left-6 z-[1000] pointer-events-none select-none">
+          <div className="flex items-center gap-2.5 bg-black/75 backdrop-blur-md border border-emerald-500/50 rounded-xl px-4 py-2 shadow-xl">
+            <span className="text-lg">🔒</span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-[9px] uppercase tracking-widest text-white/50 font-black">Your Gate Code</span>
+              <span className="text-xl font-mono font-bold text-emerald-400 tracking-[0.35em]">{myCode}</span>
+            </div>
           </div>
+          {granted && <div className="mt-1 text-[11px] font-bold text-emerald-400 uppercase tracking-widest">✓ Gate unlocked</div>}
         </div>
-        {granted && <div className="mt-1 text-[11px] font-bold text-emerald-400 uppercase tracking-widest">✓ Gate unlocked</div>}
-      </div>
+      )}
 
       {/* Keypad — appears when outside the locked gate (proximity-driven) */}
       <AnimatePresence>
@@ -1958,9 +1960,9 @@ function App() {
 
                 {(!isMobile || mobileLotSubTab === 'finance') && (
                   <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel break-words w-full shrink-0">
-                    <div className="flex justify-between items-center mb-4">
-                      <h2 className="text-xl font-black uppercase tracking-widest text-white/90">{me.name}'s {me.lotScale} Lot</h2>
-                      <div className="flex items-center gap-4">
+                    <div className="flex flex-wrap justify-between items-center gap-2 mb-4">
+                      <h2 className="text-lg md:text-xl font-black uppercase tracking-widest text-white/90">{me.name}'s {me.lotScale} Lot</h2>
+                      <div className="flex items-center flex-wrap gap-2">
                         <ClockDisplay />
                         {me.lotScale === 'Small' && me.money >= 50000 && (
                           <button onClick={() => upgradeLot()} className="bg-warning/20 text-warning hover:bg-warning hover:text-black border border-warning/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.3)]">
@@ -2856,6 +2858,13 @@ function App() {
                     <BookOpen size={24} />
                     <span className="text-xs font-bold uppercase tracking-wider">Library</span>
                   </button>
+                  {(me as any).gateCode && (
+                    <div className="p-4 rounded-2xl border bg-emerald-500/10 border-emerald-500/30 text-emerald-400 flex flex-col items-center justify-center gap-1">
+                      <span className="text-lg">🔒</span>
+                      <span className="text-[9px] font-black uppercase tracking-wider text-white/50">Gate Code</span>
+                      <span className="text-lg font-mono font-bold tracking-[0.3em] text-emerald-400">{(me as any).gateCode}</span>
+                    </div>
+                  )}
                   {!me.isStandaloneOperator && (
                     <button
                       onClick={() => { setShowGuide(true); setGuideStep(0); setShowMoreMenu(false); }}
