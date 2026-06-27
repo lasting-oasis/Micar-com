@@ -3,7 +3,7 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { GameState, Car, Player, FinanceContract, CustomerAgent, DealProposal, EconomicState, FractionalVehicle } from './src/types.js';
+import { GameState, Car, Player, FinanceContract, CustomerAgent, DealProposal, EconomicState, FractionalVehicle, RACE_TIERS, RaceDifficulty, FUEL_PRICE_PER_UNIT } from './src/types.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 
 const app = express();
@@ -52,12 +52,36 @@ async function loadGameState() {
         const parsed = JSON.parse(data);
         if (parsed) {
             gameState = { ...gameState, ...parsed };
+            // Players are keyed by socket id, which is regenerated on every new
+            // connection — so persisted players can never be reclaimed by anyone.
+            // Keeping them just litters the world with un-ownable ghost lots (whose
+            // gates never open for you) and inflates the join lot-count, which is how
+            // a reconnecting player ends up spawned on a stale lot they can't exit.
+            // Drop them so every fresh server process starts with no ghosts.
+            gameState.players = {};
             // clear active walk-ins as they may be stale or have broken timeout state
             gameState.activeWalkIns = {};
+            // start each server process with a fresh chat (sender ids are dead anyway)
+            gameState.chatLog = [];
+            // The persisted hostId is a socket id from a previous server process and
+            // is dead after any restart. Leaving it set means line ~717 never hands
+            // host to a live player, so end_day (and the whole economy) can never
+            // advance. Clear it so the first player to join claims host.
+            gameState.hostId = null;
             // ensure the fractional share market exists even for older saves
             if (!gameState.fractionalMarket || gameState.fractionalMarket.length === 0) {
                 gameState.fractionalMarket = seedFractionalMarket();
             }
+            // Migrate older economy saves that predate the Fed engine so the
+            // readout panel shows real values immediately (not UI fallbacks).
+            const e: any = gameState.economy || {};
+            if (typeof e.federalInterestRate !== 'number') e.federalInterestRate = 0.05;
+            if (typeof e.usedCarDemand !== 'number') e.usedCarDemand = 1.0;
+            if (typeof e.inflation !== 'number') e.inflation = 0.025;
+            if (typeof e.primeRate !== 'number') e.primeRate = e.federalInterestRate + 0.03;
+            if (typeof e.priceIndex !== 'number') e.priceIndex = 1.0;
+            if (!Array.isArray(e.rateHistory)) e.rateHistory = [];
+            gameState.economy = e;
         }
     } catch (err) {
         console.log('No previous game state found or error reading, starting fresh.');
@@ -65,6 +89,12 @@ async function loadGameState() {
 }
 
 setInterval(saveGameState, 15000);
+
+// Live race entries: socket id -> the difficulty they paid into and when they started.
+// Used to validate finish_race payouts so a client can't claim a reward it didn't earn.
+const activeRaces = new Map<string, { difficulty: string; startedAt: number }>();
+// Per-socket cooldown so item boxes can't be spammed for free rewards.
+const lastBoxAt = new Map<string, number>();
 
 // Timestamp of the last accepted end_day, used to throttle host day-advances.
 let lastEndDayAt = 0;
@@ -111,12 +141,27 @@ let gameState: GameState = {
     market: [], 
     junkyard: [],
     economy: {
-        federalInterestRate: 0.08,
-        usedCarDemand: 1.0
+        federalInterestRate: 0.05,
+        usedCarDemand: 1.0,
+        inflation: 0.025,
+        primeRate: 0.08,
+        priceIndex: 1.0,
+        rateHistory: []
     },
     activeWalkIns: {},
-    fractionalMarket: []
+    fractionalMarket: [],
+    chatLog: []
 };
+
+// --- Game chat ---------------------------------------------------------------
+// Broadcast a chat line to everyone and keep a short rolling history so players
+// who join later see the recent conversation (delivered via the `init` state).
+function pushChat(io: Server, msg: { id: string; playerId: string; name: string; text: string; ts: number; system?: boolean }) {
+    if (!gameState.chatLog) gameState.chatLog = [];
+    gameState.chatLog.push(msg);
+    if (gameState.chatLog.length > 50) gameState.chatLog.shift();
+    io.emit('chat', msg);
+}
 
 // --- MyCar Fractional: SPV-backed vehicles whose shares trade ----------------
 const MM_SPREAD = 0.03; // platform market-maker spread around the fundamental price
@@ -230,6 +275,51 @@ const CAR_MAKES = [
     { name: 'BMW', msrp: 45000 }
 ];
 
+// Real model line-ups per make, each tagged with the body style that drives its
+// 3D silhouette. The generator picks a make, then a random model from it, so the
+// auction shows specific models across varied styles instead of identical sedans.
+const CAR_CATALOG: Record<string, { model: string; style: string }[]> = {
+    Toyota: [
+        { model: 'Camry', style: 'sedan' }, { model: 'Corolla', style: 'sedan' },
+        { model: 'RAV4', style: 'suv' }, { model: 'Tacoma', style: 'truck' },
+        { model: 'Tundra', style: 'truck' }, { model: 'Prius', style: 'hatchback' },
+        { model: 'Sienna', style: 'van' }, { model: 'Supra', style: 'sports' },
+    ],
+    Ford: [
+        { model: 'F-150', style: 'truck' }, { model: 'Ranger', style: 'truck' },
+        { model: 'Mustang', style: 'sports' }, { model: 'Explorer', style: 'suv' },
+        { model: 'Escape', style: 'suv' }, { model: 'Focus', style: 'hatchback' },
+        { model: 'Fusion', style: 'sedan' },
+    ],
+    Honda: [
+        { model: 'Civic', style: 'sedan' }, { model: 'Accord', style: 'sedan' },
+        { model: 'CR-V', style: 'suv' }, { model: 'Pilot', style: 'suv' },
+        { model: 'Odyssey', style: 'van' }, { model: 'Fit', style: 'hatchback' },
+        { model: 'Ridgeline', style: 'truck' },
+    ],
+    Chevy: [
+        { model: 'Silverado', style: 'truck' }, { model: 'Colorado', style: 'truck' },
+        { model: 'Camaro', style: 'sports' }, { model: 'Corvette', style: 'sports' },
+        { model: 'Equinox', style: 'suv' }, { model: 'Tahoe', style: 'suv' },
+        { model: 'Malibu', style: 'sedan' },
+    ],
+    BMW: [
+        { model: '3 Series', style: 'sedan' }, { model: '5 Series', style: 'sedan' },
+        { model: 'X5', style: 'suv' }, { model: 'X3', style: 'suv' },
+        { model: 'M4', style: 'coupe' }, { model: '4 Series', style: 'coupe' },
+        { model: 'Z4', style: 'sports' },
+    ],
+};
+
+// Wide, realistic automotive paint palette.
+const CAR_COLORS = ['#b91c1c', '#1d4ed8', '#15803d', '#f8fafc', '#0f172a', '#64748b', '#0e7490', '#7c3aed', '#ea580c', '#facc15', '#0d9488', '#9f1239', '#374151', '#c2410c', '#a16207', '#1e3a8a', '#0891b2', '#4d7c0f', '#7e22ce', '#b45309'];
+
+const pickModel = (makeName: string) => {
+    const list = CAR_CATALOG[makeName] || CAR_CATALOG['Toyota'];
+    return list[Math.floor(Math.random() * list.length)];
+};
+const pickColor = () => CAR_COLORS[Math.floor(Math.random() * CAR_COLORS.length)];
+
 const calculateCleanRetail = (make: string, year: number, mileage: number) => {
     const brand = CAR_MAKES.find(m => m.name === make) || CAR_MAKES[0];
     const age = Math.max(0, CURRENT_YEAR - year);
@@ -241,8 +331,11 @@ const calculateCleanRetail = (make: string, year: number, mileage: number) => {
     const expectedMileage = age * 12000;
     const mileagePenalty = Math.max(0, mileage - expectedMileage) * 0.10;
     cleanRetail -= mileagePenalty;
-    
-    return Math.max(2000, cleanRetail); // Absolute minimum clean retail floor
+
+    // Inflation: the macro price index lifts all values over time (and consistently
+    // across buying and selling, since every valuation flows through here).
+    const priceIndex = (gameState.economy && gameState.economy.priceIndex) || 1;
+    return Math.max(2000, cleanRetail) * priceIndex; // Absolute minimum clean retail floor
 };
 
 // Generate random cars
@@ -254,6 +347,7 @@ const generateMarketCars = () => {
       
       const year = CURRENT_YEAR - 13 + Math.floor(Math.random() * 12); // last ~13 model years
       const brand = CAR_MAKES[Math.floor(Math.random() * CAR_MAKES.length)];
+      const picked = pickModel(brand.name);
       const conditionRoll = Math.random();
       let conditionTier = 'bad';
       if (conditionRoll > 0.43 && conditionRoll <= 0.83) conditionTier = 'medium';
@@ -315,7 +409,8 @@ const generateMarketCars = () => {
       return {
         id: `car-${Date.now()}-${i}`,
         make: brand.name,
-        model: 'Sedan',
+        model: picked.model,
+        bodyStyle: picked.style,
         year: year,
         condition: condition,
         bodyCondition: bodyCondition,
@@ -324,7 +419,7 @@ const generateMarketCars = () => {
         buyPrice: Math.floor(buyPrice),
         estimatedMMR: Math.floor(mmr),
         psiRevealed: false,
-        color: ['#ff0000', '#0000ff', '#10b981', '#ffffff', '#222222'][Math.floor(Math.random()*5)],
+        color: pickColor(),
         ownerId: null,
         daysOnLot: 0,
         titleStatus: titleStatus,
@@ -343,7 +438,9 @@ const generateJunkyardCars = () => {
       const makes = ['Toyota', 'Ford', 'Honda', 'Chevrolet', 'Nissan'];
       const make = makes[Math.floor(Math.random() * makes.length)];
       const model = 'Scrap Shell';
-      
+      const junkStyles = ['sedan', 'suv', 'truck', 'coupe', 'hatchback', 'van'];
+      const bodyStyle = junkStyles[Math.floor(Math.random() * junkStyles.length)];
+
       const mechanicIssues = 5 + Math.floor(Math.random() * 3);
       const bodyIssues = 5 + Math.floor(Math.random() * 3);
       
@@ -364,6 +461,7 @@ const generateJunkyardCars = () => {
         id: `junk-${Date.now()}-${i}`,
         make,
         model,
+        bodyStyle,
         year,
         condition: Math.floor((mechGen.condition + bodyGen.condition) / 2),
         bodyCondition: bodyGen.condition,
@@ -481,18 +579,38 @@ const economyTick = () => {
     gameState.day += 1;
     gameState.timeOfDay = 8.0;
 
-    // Macro-economy fluctuations
-    gameState.economy.federalInterestRate += (Math.random() * 0.01) - 0.005;
-    gameState.economy.federalInterestRate = Math.max(0.02, Math.min(0.15, gameState.economy.federalInterestRate)); // 2% to 15% limits
-    
-    gameState.economy.usedCarDemand += (Math.random() * 0.1) - 0.05;
-    gameState.economy.usedCarDemand = Math.max(0.7, Math.min(1.3, gameState.economy.usedCarDemand)); // 70% to 130% baseline
-    
+    // --- Macro engine: a simplified Fed reaction that creates a real business cycle.
+    const e = gameState.economy as any;
+    if (typeof e.inflation !== 'number') e.inflation = 0.025;
+    if (typeof e.priceIndex !== 'number') e.priceIndex = 1.0;
+    if (!Array.isArray(e.rateHistory)) e.rateHistory = [];
+    const demandGap = e.usedCarDemand - 1.0;
+    // 1. Inflation: hot demand pushes it up, high rates pull it down, mean-reverts toward ~2%.
+    e.inflation += demandGap * 0.010 - (e.federalInterestRate - 0.025) * 0.020 + (0.02 - e.inflation) * 0.05 + (Math.random() * 0.004 - 0.002);
+    e.inflation = Math.max(-0.01, Math.min(0.12, e.inflation));
+    // 2. Fed reaction (Taylor-rule-ish), eased toward gradually like real 25bps moves.
+    const targetRate = Math.max(0, Math.min(0.18, 0.025 + 1.5 * (e.inflation - 0.02) + 0.5 * demandGap));
+    e.federalInterestRate += (targetRate - e.federalInterestRate) * 0.25;
+    e.federalInterestRate = Math.max(0.0, Math.min(0.18, e.federalInterestRate));
+    // 3. Demand responds to rates (tight money cools buyers), mean-reverting toward 1.0.
+    e.usedCarDemand += -(e.federalInterestRate - 0.025) * 0.08 + (1.0 - e.usedCarDemand) * 0.05 + (Math.random() * 0.04 - 0.02);
+    e.usedCarDemand = Math.max(0.6, Math.min(1.4, e.usedCarDemand));
+    // 4. Derived: prime = fed funds + 3%; inflation compounds car values via the price index.
+    e.primeRate = e.federalInterestRate + 0.03;
+    e.priceIndex = e.priceIndex * (1 + e.inflation * 0.02);
+    e.rateHistory.push(Math.round(e.federalInterestRate * 10000) / 10000);
+    if (e.rateHistory.length > 30) e.rateHistory.shift();
+    // Dealer floor-plan financing tracks SOFR(≈fed funds) + a ~3% spread (as the game's daily rate).
+    const macroFloorRate = 0.0015 + (e.federalInterestRate + 0.03) * 0.035;
+
     // Process business logic for all players
 
     Object.values(gameState.players).forEach(p => {
         let dailyIncome = 0;
         let dailyExpense = 0;
+
+        // Floor-plan carrying rate now tracks the Fed (SOFR + spread), so a hiking cycle costs you more.
+        p.floorPlanRate = macroFloorRate;
 
         // 1. Calculate Dealership Overhead proportionate to the day of the month (Daily Prorated)
         // Small: $3,000/mo ($100/day)
@@ -602,9 +720,10 @@ const economyTick = () => {
             walkInVolume = 3;
         }
         
-        // Reputation scales volume
-        const repMultiplier = (p.reputation || 50) / 50; 
-        let finalVolume = Math.max(0, Math.floor((walkInVolume + Math.floor(Math.random() * 2)) * repMultiplier));
+        // Reputation scales volume; used-car demand (driven by the Fed/rates) scales it too.
+        const repMultiplier = (p.reputation || 50) / 50;
+        const demandMultiplier = gameState.economy.usedCarDemand;
+        let finalVolume = Math.max(0, Math.floor((walkInVolume + Math.floor(Math.random() * 2)) * repMultiplier * demandMultiplier));
         
         dailyExpense += adSpend;
 
@@ -733,7 +852,18 @@ io.on('connection', (socket) => {
       } as any;
       socket.emit('init', { id: socket.id, state: gameState });
       broadcastState(io, gameState);
+      const joinedName = gameState.players[socket.id].name;
+      pushChat(io, { id: `${Date.now()}-j`, playerId: '', name: 'System', text: `${joinedName} entered the world`, ts: Date.now(), system: true });
     });
+
+  socket.on('chat_message', ({ text }) => {
+    const player = gameState.players[socket.id];
+    if (!player) return;
+    const clean = String(text || '').replace(/\s+/g, ' ').trim().slice(0, 200);
+    if (!clean) return;
+    pushChat(io, { id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, playerId: socket.id, name: player.name, text: clean, ts: Date.now() });
+  });
+
   socket.on('buy_car', ({ carId, useFinancing }) => {
     const player = gameState.players[socket.id];
     const carIndex = gameState.market.findIndex(c => c.id === carId);
@@ -796,6 +926,124 @@ io.on('connection', (socket) => {
       if (gameState.players[socket.id] && clean) {
           gameState.players[socket.id].worldPosition = clean as any;
       }
+  });
+
+  // --- Fuel & racing ---------------------------------------------------------
+  // Driving is simulated client-side, so fuel burn is client-authoritative: the
+  // client streams the tank level down as it drives. We persist it silently (no
+  // broadcast) to avoid spamming the whole room every second.
+  socket.on('consume_fuel', ({ carId, fuel }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const car = player.inventory.find(c => c.id === carId);
+      if (car && typeof fuel === 'number') car.fuel = Math.max(0, Math.min(100, fuel));
+  });
+
+  socket.on('refuel', ({ carId, delivery }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const car = player.inventory.find(c => c.id === carId);
+      if (!car) return;
+      const current = car.fuel ?? 100;
+      const needed = 100 - current;
+      if (needed <= 0.5) return; // already full
+      const cost = Math.ceil(needed * FUEL_PRICE_PER_UNIT) + (delivery ? 300 : 0); // roadside delivery surcharge
+      if (player.money < cost) { socket.emit('refuel_denied'); return; }
+      player.money -= cost;
+      player.balanceSheet.totalExpenses += cost;
+      player.balanceSheet.lastTickExpense += cost;
+      car.fuel = 100;
+      broadcastState(io, gameState);
+  });
+
+  socket.on('rent_race_car', () => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (player.inventory.some((c: any) => c.isRental)) { socket.emit('rental_denied', { reason: 'active' }); return; }
+      const RENTAL_FEE = 1500;
+      if (player.money < RENTAL_FEE) { socket.emit('rental_denied', { reason: 'funds', fee: RENTAL_FEE }); return; }
+      player.money -= RENTAL_FEE;
+      player.balanceSheet.totalExpenses += RENTAL_FEE;
+      player.balanceSheet.lastTickExpense += RENTAL_FEE;
+      const colors = ['#ef4444', '#3b82f6', '#22c55e', '#eab308', '#a855f7', '#f97316'];
+      const rental: any = {
+          id: 'rental-' + socket.id + '-' + Date.now(),
+          make: 'Speedway', model: 'Rental GT', year: 2026, bodyStyle: 'sports',
+          condition: 100, bodyCondition: 100, mechanicCondition: 100, mileage: 1000,
+          buyPrice: 0, color: colors[Math.floor(Math.random() * colors.length)],
+          ownerId: player.id, daysOnLot: 0, titleStatus: 'Clean',
+          vin: 'RENTAL' + Math.random().toString(36).slice(2, 10).toUpperCase(),
+          fuel: 100, isRental: true, isProcessed: true, isRegistered: false, // unregistered → can't be sold through the dealer flow
+          lotPosition: { x: 0, z: 1710, r: 0 } // in the speedway paddock by the rental kiosk
+      };
+      player.inventory.push(rental);
+      socket.emit('rental_ready', { carId: rental.id });
+      broadcastState(io, gameState);
+  });
+
+  socket.on('return_rental', () => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const before = player.inventory.length;
+      player.inventory = player.inventory.filter((c: any) => !c.isRental);
+      if (player.inventory.length !== before) broadcastState(io, gameState);
+  });
+
+  socket.on('hit_item_box', () => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (!activeRaces.has(socket.id)) return; // item boxes are a race-only mechanic
+      const now = Date.now();
+      const last = lastBoxAt.get(socket.id) || 0;
+      if (now - last < 1100) return; // anti-spam
+      lastBoxAt.set(socket.id, now);
+      // Random Mario-Kart item — a racing advantage, NOT cash (keeps money out of the economy).
+      const pool = ['mushroom', 'mushroom', 'mushroom', 'triple_mushroom', 'banana', 'banana', 'green_shell', 'green_shell', 'star'];
+      const item = pool[Math.floor(Math.random() * pool.length)];
+      socket.emit('item_box_reward', { item });
+  });
+
+  socket.on('enter_race', ({ difficulty }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const tier = RACE_TIERS[difficulty as RaceDifficulty];
+      if (!tier) return;
+      if (player.money < tier.entryFee) { socket.emit('race_denied', { reason: 'funds', entryFee: tier.entryFee }); return; }
+      player.money -= tier.entryFee;
+      player.balanceSheet.totalExpenses += tier.entryFee;
+      player.balanceSheet.lastTickExpense += tier.entryFee;
+      activeRaces.set(socket.id, { difficulty, startedAt: Date.now() });
+      socket.emit('race_started', { difficulty, laps: tier.laps, entryFee: tier.entryFee, reward: tier.reward, cpuSkill: tier.cpuSkill });
+      broadcastState(io, gameState);
+  });
+
+  socket.on('finish_race', ({ difficulty, totalMs, laps, placed }) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const ar = activeRaces.get(socket.id);
+      if (!ar || ar.difficulty !== difficulty) return; // must have a live entry for this race
+      const tier = RACE_TIERS[difficulty as RaceDifficulty];
+      if (!tier) return;
+      if (typeof laps !== 'number' || laps < tier.laps) return; // didn't finish — keep the entry live
+      const minMs = tier.laps * 8000;     // a lap can't realistically be under 8s
+      const maxMs = tier.laps * 180000;   // a "finish" slower than 3min/lap is abandoned
+      const realElapsed = Date.now() - ar.startedAt;
+      if (typeof totalMs !== 'number' || totalMs < minMs || totalMs > maxMs) return;
+      if (realElapsed < minMs - 1000) return; // can't physically have finished that fast — ignore, entry stays live
+      activeRaces.delete(socket.id); // validated finish — consume the entry now
+      // v1: finishing the time-trial pays the tier reward (1st place by default).
+      // Stage 2 will scale the payout by finishing position against the CPU field.
+      const place = typeof placed === 'number' ? placed : 1;
+      const factor = place <= 1 ? 1 : place === 2 ? 0.5 : place === 3 ? 0.25 : 0;
+      const reward = Math.round(tier.reward * factor);
+      if (reward > 0) {
+          player.money += reward;
+          player.balanceSheet.totalIncome += reward;
+          player.balanceSheet.lastTickIncome += reward;
+      }
+      player.raceWins = (player.raceWins || 0) + (place <= 1 ? 1 : 0);
+      socket.emit('race_payout', { reward, place, difficulty, totalMs });
+      broadcastState(io, gameState);
   });
 
   socket.on('wash_car', (carId) => {
@@ -1011,9 +1259,10 @@ io.on('connection', (socket) => {
       const customerId = `cust-${Date.now()}`;
 
       if (dealType === 'inhouse') {
-          // Subprime BHPH Deal: Massive interest, paid over time, high default risk
+          // Subprime BHPH Deal: priced at prime + a subprime margin, so the yield
+          // (and the customer's payment) rises and falls with the Fed.
           const termDays = 30; // 30 game days
-          const interestRate = 0.25; // 25% APR equivalent
+          const interestRate = (gameState.economy.primeRate || 0.08) + 0.14; // ~25% at a 5% Fed funds rate
           const amountFinanced = finalPrincipal - cashProceeds; // Remaining after down-payment
           const totalYield = amountFinanced * (1 + interestRate);
           const dailyPayment = Math.floor(totalYield / termDays);
@@ -1558,10 +1807,16 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
+    activeRaces.delete(socket.id);
+    lastBoxAt.delete(socket.id);
+    const leaving = gameState.players[socket.id];
     delete gameState.players[socket.id];
     if (gameState.hostId === socket.id) {
         const remainingPlayers = Object.keys(gameState.players);
         gameState.hostId = remainingPlayers.length > 0 ? remainingPlayers[0] : null;
+    }
+    if (leaving) {
+        pushChat(io, { id: `${Date.now()}-l`, playerId: '', name: 'System', text: `${leaving.name} left the world`, ts: Date.now(), system: true });
     }
     broadcastState(io, gameState);
   });

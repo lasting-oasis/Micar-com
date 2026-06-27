@@ -1,12 +1,16 @@
 import { create } from 'zustand';
 import { io, Socket } from 'socket.io-client';
-import { GameState } from './types.js';
+import { GameState, ChatMessage } from './types.js';
 
 interface StoreState {
   socket: Socket | null;
   gameState: GameState | null;
   playerId: string | null;
   timeOfDay: number;
+  chatMessages: ChatMessage[];
+  unreadChat: number;
+  sendChat: (text: string) => void;
+  markChatRead: () => void;
   connect: (name: string, lotScale: 'Small' | 'Medium' | 'Large', careerFocus?: 'dealership' | 'standalone', shopSpecialty?: 'mechanic' | 'body' | 'dual') => void;
   disconnect: () => void;
   buyCar: (id: string, useFinancing: boolean) => void;
@@ -32,6 +36,34 @@ interface StoreState {
   toggleEmployee: (role: 'mechanic' | 'salesperson' | 'financeManager') => void;
   drivingCarId: string | null;
   setDrivingCarId: (id: string | null) => void;
+
+  // Fuel
+  myWorldPos: { x: number; z: number } | null; // the local player's live world position, for a GPS that follows instantly
+  setMyWorldPos: (p: { x: number; z: number }) => void;
+  drivingFuel: number | null; // live tank level of the car being driven (0-100), for the HUD gauge
+  setDrivingFuel: (fuel: number | null) => void;
+  consumeFuel: (carId: string, fuel: number) => void;
+  refuel: (carId: string, delivery?: boolean) => void;
+
+  // Racing
+  raceTrackPrompt: boolean;          // player is on the start line and can enter a race
+  setRaceTrackPrompt: (v: boolean) => void;
+  activeRace: { difficulty: string; laps: number; reward: number; entryFee: number; cpuSkill: number } | null;
+  raceHud: { lap: number; totalLaps: number; ms: number; place: number; total: number; state: string } | null;
+  setRaceHud: (h: StoreState['raceHud']) => void;
+  raceResult: { reward: number; place: number; difficulty: string; totalMs: number } | null;
+  raceDenied: string | null;
+  clearRaceResult: () => void;
+  enterRace: (difficulty: string) => void;
+  finishRace: (payload: { difficulty: string; totalMs: number; laps: number; placed: number }) => void;
+  abortRace: () => void;
+  rentRaceCar: () => void;
+  returnRental: () => void;
+  hitItemBox: () => void;
+  heldItem: string | null;   // current held Mario-Kart item
+  heldCount: number;         // charges (triple mushroom = 3)
+  itemPickupTs: number;      // timestamp of last pickup, for the "got item" toast
+  consumeHeldItem: () => void;
   activeInspectionCarId: string | null;
   activeInspectionShopType: 'mechanic' | 'body' | null;
   openInspectionModal: (carId: string, shopType: 'mechanic' | 'body') => void;
@@ -46,8 +78,8 @@ interface StoreState {
   closeInsuranceModal: () => void;
   payFloorPlan: (amount: number) => void;
   takeTitleLoan: (carId: string) => void;
-  activeInteraction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance'; label: string; carId?: string } | null;
-  setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance'; label: string; carId?: string } | null) => void;
+  activeInteraction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance' | 'rental'; label: string; carId?: string } | null;
+  setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance' | 'rental'; label: string; carId?: string } | null) => void;
 
   gatePrompt: boolean; // true when the player is outside their locked gate and must enter the code
   setGatePrompt: (visible: boolean) => void;
@@ -67,8 +99,42 @@ export const useGameStore = create<StoreState>((set, get) => ({
   gameState: null,
   playerId: null,
   timeOfDay: 8.0,
+  chatMessages: [],
+  unreadChat: 0,
+  sendChat: (text) => {
+      const socket = get().socket;
+      const t = (text || '').trim();
+      if (socket && t) socket.emit('chat_message', { text: t });
+  },
+  markChatRead: () => { if (get().unreadChat !== 0) set({ unreadChat: 0 }); },
   drivingCarId: null,
   setDrivingCarId: (id) => set({ drivingCarId: id }),
+
+  myWorldPos: null,
+  setMyWorldPos: (p) => set({ myWorldPos: p }),
+  drivingFuel: null,
+  setDrivingFuel: (fuel) => set({ drivingFuel: fuel }),
+  consumeFuel: (carId, fuel) => { const s = get().socket; if (s) s.emit('consume_fuel', { carId, fuel }); },
+  refuel: (carId, delivery) => { const s = get().socket; if (s) s.emit('refuel', { carId, delivery: !!delivery }); },
+
+  raceTrackPrompt: false,
+  setRaceTrackPrompt: (v) => { if (get().raceTrackPrompt !== v) set({ raceTrackPrompt: v }); },
+  activeRace: null,
+  raceHud: null,
+  setRaceHud: (h) => set({ raceHud: h }),
+  raceResult: null,
+  raceDenied: null,
+  clearRaceResult: () => set({ raceResult: null, raceDenied: null }),
+  enterRace: (difficulty) => { const s = get().socket; if (s) s.emit('enter_race', { difficulty }); },
+  finishRace: (payload) => { const s = get().socket; if (s) s.emit('finish_race', payload); },
+  abortRace: () => set({ activeRace: null, raceHud: null }),
+  rentRaceCar: () => { const s = get().socket; if (s) s.emit('rent_race_car'); },
+  returnRental: () => { const s = get().socket; if (s) s.emit('return_rental'); },
+  hitItemBox: () => { const s = get().socket; if (s) s.emit('hit_item_box'); },
+  heldItem: null,
+  heldCount: 0,
+  itemPickupTs: 0,
+  consumeHeldItem: () => set(s => { const c = s.heldCount - 1; return c <= 0 ? { heldItem: null, heldCount: 0 } : { heldCount: c }; }),
   activeInspectionCarId: null,
   activeInspectionShopType: null,
   openInspectionModal: (carId, shopType) => set({ activeInspectionCarId: carId, activeInspectionShopType: shopType }),
@@ -131,7 +197,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
   disconnect: () => {
     const socket = get().socket;
     if (socket) socket.disconnect();
-    set({ socket: null, gameState: null, playerId: null, drivingCarId: null });
+    set({ socket: null, gameState: null, playerId: null, drivingCarId: null, chatMessages: [], unreadChat: 0 });
   },
   connect: (name, lotScale, careerFocus, shopSpecialty) => {
     const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
@@ -149,9 +215,22 @@ export const useGameStore = create<StoreState>((set, get) => ({
         socket.on('connect', emitJoin);
     }
     
-    socket.on('init', (data) => set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay }));
+    socket.on('init', (data) => set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0 }));
     socket.on('update', (state) => set({ gameState: state }));
     socket.on('time_update', (timeOfDay) => set({ timeOfDay }));
+    socket.on('race_started', (d) => set({ activeRace: d, raceResult: null, raceDenied: null }));
+    socket.on('race_payout', (r) => set({ activeRace: null, raceHud: null, raceResult: r }));
+    socket.on('race_denied', (d) => set({ raceDenied: d?.reason === 'funds' ? `You need ${'$' + (d.entryFee||0).toLocaleString()} to enter this race.` : 'Cannot enter the race right now.' }));
+    socket.on('refuel_denied', () => set({ raceDenied: 'Not enough cash to refuel.' }));
+    socket.on('rental_denied', (d) => set({ raceDenied: d?.reason === 'active' ? 'You already have a rental out — return it first.' : `You need $${(d?.fee || 1500).toLocaleString()} to rent a race car.` }));
+    socket.on('item_box_reward', (d) => { const item = d?.item || 'mushroom'; set({ heldItem: item, heldCount: item === 'triple_mushroom' ? 3 : 1, itemPickupTs: Date.now() }); });
+    socket.on('chat', (msg: ChatMessage) => set((s) => {
+        const next = [...s.chatMessages, msg];
+        if (next.length > 60) next.shift();
+        // don't badge the sender for their own message
+        const mine = msg.playerId && msg.playerId === get().playerId;
+        return { chatMessages: next, unreadChat: mine ? s.unreadChat : s.unreadChat + 1 };
+    }));
     set({ socket });
   },
   buyCar: (id, useFinancing) => {

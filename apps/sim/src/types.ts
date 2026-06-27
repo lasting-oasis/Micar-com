@@ -26,7 +26,20 @@ export type Car = {
   isRegistered?: boolean; // True if player has paid DMV to register the vehicle
   preInspected?: boolean; // NC safety pre-inspection (punch list) completed
   safetyPassed?: boolean; // Passed the NC annual Safety + Emissions inspection (required to retail)
+  fuel?: number; // 0-100 gas tank level; all driving burns fuel, refill at a gas station
+  isRental?: boolean; // a Speedway rental car — drive/race only, can't be sold or kept
+  bodyStyle?: string; // sedan | coupe | hatchback | suv | truck | sports | van — drives the 3D silhouette
 };
+
+// Race difficulty tiers — each sets the entry fee, lap count, and finish reward.
+export type RaceDifficulty = 'beginner' | 'medium' | 'veteran';
+export type RaceTier = { entryFee: number; laps: number; reward: number; label: string; cpuSkill: number };
+export const RACE_TIERS: Record<RaceDifficulty, RaceTier> = {
+  beginner: { entryFee: 500,  laps: 2, reward: 1400,  label: 'Beginner', cpuSkill: 0.72 },
+  medium:   { entryFee: 1500, laps: 3, reward: 4200,  label: 'Medium',   cpuSkill: 0.85 },
+  veteran:  { entryFee: 4000, laps: 4, reward: 12000, label: 'Veteran',  cpuSkill: 0.97 },
+};
+export const FUEL_PRICE_PER_UNIT = 9; // $ per gas unit (full tank from empty ≈ $900)
 
 export type FinanceContract = {
   id: string; customerId: string; carId: string; principal: number; 
@@ -79,8 +92,12 @@ export type CustomerAgent = {
 };
 
 export type EconomicState = {
-  federalInterestRate: number; // e.g. 0.05 to 0.12
-  usedCarDemand: number; // e.g. 0.8 (low) to 1.2 (high)
+  federalInterestRate: number; // the Fed funds policy rate, e.g. 0.05
+  usedCarDemand: number;       // 0.8 (low) to 1.2 (high); responds to rates
+  inflation?: number;          // annualized inflation, target ~2%
+  primeRate?: number;          // = fed funds + 3.00% (derived)
+  priceIndex?: number;         // cumulative inflation multiplier on car values (starts 1.0)
+  rateHistory?: number[];      // recent fed funds rate points for the trend chart
 };
 
 export type Player = {
@@ -99,6 +116,7 @@ export type Player = {
   shareHoldings?: Record<string, { shares: number; invested: number }>; // Fractional vehicle shares owned (vehicleId -> qty + cost basis)
   insurance?: { liability: boolean; inventory: boolean; gap: boolean }; // active dealer policies
   insuranceLog?: string[]; // recent claim / adverse-event messages (newest first, ~6 kept)
+  raceWins?: number; // number of races finished/won at the speedway
 
   balanceSheet: { 
       totalIncome: number; totalExpenses: number; 
@@ -128,6 +146,16 @@ export type FractionalVehicle = {
   status: 'trading' | 'liquidated';
 };
 
+// A single line in the multiplayer game chat.
+export type ChatMessage = {
+  id: string;
+  playerId: string; // sender socket id; '' for system messages
+  name: string;     // sender display name, or 'System'
+  text: string;
+  ts: number;       // epoch ms
+  system?: boolean; // join/leave and other server notices
+};
+
 export type GameState = {
   day: number; // The global simulation time
   timeOfDay: number; // Float 8.0 to 17.0 for daily clock
@@ -137,5 +165,6 @@ export type GameState = {
   economy: EconomicState;
   activeWalkIns: Record<string, CustomerAgent[]>; // maps player ID to their current walk-ins
   fractionalMarket: FractionalVehicle[]; // vehicles available as fractional shares
+  chatLog?: ChatMessage[]; // recent multiplayer chat (last ~50)
   hostId?: string | null; // The player who can advance the day
 };

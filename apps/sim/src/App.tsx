@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, PieChart, ShieldCheck } from 'lucide-react';
+import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, PieChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Trophy, Zap } from 'lucide-react';
+import { RACE_TIERS, RaceDifficulty } from './types';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import StandaloneShopPlatform from './StandaloneShopPlatform';
@@ -18,6 +19,9 @@ const MAP_LOCATIONS = [
   { name: 'Downtown Towers', x: 0, z: 310, color: '#94a3b8' },
   { name: 'Shopping Plaza', x: -30, z: 450, color: '#a78bfa' },
   { name: 'Warehouse District', x: 0, z: 680, color: '#f43f5e' },
+  { name: 'Speedway', x: 0, z: 1750, color: '#818cf8' },
+  { name: 'Gas Station', x: 135, z: 80, color: '#ef4444' },
+  { name: 'Gas Station', x: 45, z: 1700, color: '#ef4444' },
 ];
 
 const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: string, isMobile?: boolean }) => {
@@ -38,14 +42,20 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  const toMini = (w: number) => Math.max(0, Math.min(size, mapCenter + w * mapScale));
+  // GPS follows the player: everything is drawn relative to the player's world
+  // position, so the player stays pinned at the centre and the map scrolls under them.
+  const me = gameState.players?.[playerId];
+  const myWorldPos = useGameStore(s => s.myWorldPos);
+  const pw = myWorldPos || me?.worldPosition || { x: 0, z: 0 };
+  const toMiniX = (w: number) => Math.max(3, Math.min(size - 3, mapCenter + (w - pw.x) * mapScale));
+  const toMiniZ = (w: number) => Math.max(3, Math.min(size - 3, mapCenter + (w - pw.z) * mapScale));
 
-  // Expanded-map dimensions and world→pixel mapping (north/+z runs downward,
-  // matching the GPS orientation players already use).
+  // Expanded-map dimensions and world→pixel mapping (north/+z runs downward).
+  // Range widened to cover the whole world incl. the west speedway and east lots.
   const EX_W = isMobile ? 260 : 360;
   const EX_H = isMobile ? 300 : 440;
-  const exX = (wx: number) => Math.max(8, Math.min(EX_W - 8, ((wx + 175) / 350) * EX_W));
-  const exZ = (wz: number) => Math.max(8, Math.min(EX_H - 8, ((wz + 110) / 880) * EX_H));
+  const exX = (wx: number) => Math.max(8, Math.min(EX_W - 8, ((wx + 1600) / 3200) * EX_W));
+  const exZ = (wz: number) => Math.max(8, Math.min(EX_H - 8, ((wz + 1300) / 3200) * EX_H));
 
   // Road segments (matching the 3D world): main N-S strip, two cross streets, lot driveway.
   const ROAD_W = isMobile ? 6 : 8;
@@ -57,17 +67,21 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
       {/* Minimap / GPS — tap/click anywhere to expand */}
       <div onClick={() => setExpanded(true)} title="Expand map" className={`fixed rounded-xl border border-white/20 bg-black/60 backdrop-blur-md overflow-hidden z-[999] pointer-events-auto cursor-pointer active:scale-95 transition-all duration-200 ${isMobile ? 'bottom-28 right-6 w-[64px] h-[64px]' : 'bottom-6 right-8 w-[100px] h-[100px]'}`}>
          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: isMobile ? '5px 5px' : '10px 10px' }}></div>
-         {!isMobile && MAP_LOCATIONS.map(loc => (
-            <div key={loc.name} className="absolute w-1.5 h-1.5 rounded-full -translate-x-1/2 -translate-y-1/2" style={{ left: `${toMini(loc.x)}px`, top: `${toMini(loc.z)}px`, background: loc.color, boxShadow: `0 0 4px ${loc.color}` }} />
+         {MAP_LOCATIONS.map(loc => (
+            <div key={loc.name} className="absolute w-1.5 h-1.5 rounded-full -translate-x-1/2 -translate-y-1/2" style={{ left: `${toMiniX(loc.x)}px`, top: `${toMiniZ(loc.z)}px`, background: loc.color, boxShadow: `0 0 4px ${loc.color}` }} />
          ))}
+         {/* You — always pinned to the centre (live GPS that follows instantly) */}
+         <div className="absolute -translate-x-1/2 -translate-y-1/2 z-10" style={{ left: `${mapCenter}px`, top: `${mapCenter}px` }}>
+            <div className={`rounded-full bg-blue-400 ring-1 ring-white shadow-[0_0_10px_rgba(96,165,250,0.9)] ${isMobile ? 'w-1.5 h-1.5' : 'w-2.5 h-2.5'}`}></div>
+         </div>
+         {/* Other dealers, positioned relative to you */}
          {Object.values(gameState.players).map((p: any) => {
-            if (!p.worldPosition) return null;
-            const x = toMini(p.worldPosition.x);
-            const z = toMini(p.worldPosition.z);
-            const isMe = p.id === playerId;
+            if (p.id === playerId || !p.worldPosition) return null;
+            const x = toMiniX(p.worldPosition.x);
+            const z = toMiniZ(p.worldPosition.z);
             return (
-               <div key={p.id} className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-200" style={{ left: `${x}px`, top: `${z}px` }}>
-                  <div className={`rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] ${isMobile ? 'w-1 h-1' : 'w-2 h-2'} ${isMe ? 'bg-blue-400 ring-1 ring-white' : 'bg-orange-500'}`}></div>
+               <div key={p.id} className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-200" style={{ left: `${x}px`, top: `${z}px` }}>
+                  <div className={`rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)] ${isMobile ? 'w-1 h-1' : 'w-2 h-2'}`}></div>
                </div>
             )
          })}
@@ -99,9 +113,9 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
                  <div className="relative rounded-xl border border-white/15 bg-gradient-to-b from-emerald-950 to-zinc-950 overflow-hidden shrink-0" style={{ width: EX_W, height: EX_H }}>
                     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
                     {/* Road network */}
-                    <div style={hRoad(200, -175, 175)} />
-                    <div style={hRoad(500, -175, 175)} />
-                    <div style={vRoad(0, 200, 770)} />
+                    <div style={hRoad(200, -500, 500)} />
+                    <div style={hRoad(500, -500, 500)} />
+                    <div style={vRoad(0, 200, 1750)} />
                     <div style={vRoad(0, 100, 200, isMobile ? 4 : 5, '#52525b')} />
                     {MAP_LOCATIONS.map(loc => (
                        <div key={loc.name} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: exX(loc.x), top: exZ(loc.z) }}>
@@ -110,10 +124,11 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
                        </div>
                     ))}
                     {Object.values(gameState.players).map((p: any) => {
-                       if (!p.worldPosition) return null;
                        const isMe = p.id === playerId;
+                       const wpos = isMe ? (myWorldPos || p.worldPosition) : p.worldPosition;
+                       if (!wpos) return null;
                        return (
-                          <div key={p.id} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: exX(p.worldPosition.x), top: exZ(p.worldPosition.z) }}>
+                          <div key={p.id} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: exX(wpos.x), top: exZ(wpos.z) }}>
                              <div className={`w-2.5 h-2.5 rounded-full ${isMe ? 'bg-blue-400 ring-2 ring-white' : 'bg-orange-500 ring-1 ring-white/60'}`} style={{ boxShadow: '0 0 8px rgba(255,255,255,0.8)' }} />
                              <span className="text-[8px] text-white/90 font-bold mt-0.5 whitespace-nowrap">{isMe ? 'You' : (p.name || 'Dealer').substring(0,6)}</span>
                           </div>
@@ -1632,6 +1647,230 @@ const InsuranceModal = () => {
   );
 };
 
+// Multiplayer game chat — a collapsible bubble in the bottom-left HUD corner
+// (the minimap owns the bottom-right). Messages flow over a lightweight `chat`
+// socket event, separate from the heavy state broadcast.
+const GameChat = ({ isMobile }: { isMobile?: boolean }) => {
+  const messages = useGameStore(s => s.chatMessages);
+  const unread = useGameStore(s => s.unreadChat);
+  const playerId = useGameStore(s => s.playerId);
+  const sendChat = useGameStore(s => s.sendChat);
+  const markChatRead = useGameStore(s => s.markChatRead);
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState('');
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Keep the latest message in view while open.
+  useEffect(() => {
+    if (open && scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [messages, open]);
+
+  // Clear the unread badge whenever the panel is open and new lines arrive.
+  useEffect(() => { if (open) markChatRead(); }, [open, messages, markChatRead]);
+
+  const submit = (e?: React.FormEvent) => {
+    e?.preventDefault();
+    const t = text.trim();
+    if (!t) return;
+    sendChat(t);
+    setText('');
+  };
+
+  if (open) {
+    return (
+      <div className={`fixed z-[940] pointer-events-auto ${isMobile ? 'left-3 bottom-20 right-3' : 'left-4 bottom-4 w-80'}`}>
+        <div className="flex flex-col bg-[#0c0d12]/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden h-80">
+          <div className="flex items-center justify-between px-3 py-2 border-b border-white/10 bg-white/5 shrink-0">
+            <span className="text-xs font-black uppercase tracking-widest text-white/80 flex items-center gap-2"><MessageSquare size={14} className="text-emerald-400" /> Lot Chat</span>
+            <button onClick={() => setOpen(false)} className="text-white/50 hover:text-white transition-colors"><X size={16} /></button>
+          </div>
+          <div ref={scrollRef} className="flex-grow overflow-y-auto px-3 py-2 space-y-1.5 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            {messages.length === 0 && <div className="text-[11px] text-white/30 text-center mt-6">No messages yet. Say hi to the lot 👋</div>}
+            {messages.map(m => m.system ? (
+              <div key={m.id} className="text-[10px] text-white/35 italic text-center py-0.5">{m.text}</div>
+            ) : (
+              <div key={m.id} className={`flex flex-col ${m.playerId === playerId ? 'items-end' : 'items-start'}`}>
+                <span className="text-[9px] uppercase tracking-wide text-white/40 font-bold px-1">{m.playerId === playerId ? 'You' : m.name}</span>
+                <span className={`text-[12px] leading-snug px-2.5 py-1 rounded-2xl max-w-[85%] break-words ${m.playerId === playerId ? 'bg-emerald-500/80 text-white rounded-br-sm' : 'bg-white/10 text-white/90 rounded-bl-sm'}`}>{m.text}</span>
+              </div>
+            ))}
+          </div>
+          <form onSubmit={submit} className="flex items-center gap-2 p-2 border-t border-white/10 bg-white/5 shrink-0">
+            <input
+              value={text}
+              onChange={e => setText(e.target.value)}
+              maxLength={200}
+              placeholder="Message the lot…"
+              className="flex-grow bg-black/40 border border-white/10 rounded-full px-3 py-1.5 text-[12px] text-white placeholder-white/30 focus:outline-none focus:border-emerald-400/60"
+            />
+            <button type="submit" disabled={!text.trim()} className="shrink-0 bg-emerald-500 hover:bg-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-full p-2 transition-colors"><Send size={14} /></button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <button
+      onClick={() => setOpen(true)}
+      title="Open chat"
+      className={`fixed z-[940] pointer-events-auto bg-[#0c0d12]/90 hover:bg-[#15161d] backdrop-blur-xl border border-white/10 rounded-full shadow-2xl flex items-center justify-center text-white/80 hover:text-white transition-colors ${isMobile ? 'left-3 bottom-20 w-12 h-12' : 'left-4 bottom-4 w-14 h-14'}`}
+    >
+      <MessageSquare size={isMobile ? 20 : 22} />
+      {unread > 0 && (
+        <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 bg-emerald-500 text-white text-[10px] font-black rounded-full flex items-center justify-center border-2 border-[#0c0d12]">{unread > 9 ? '9+' : unread}</span>
+      )}
+    </button>
+  );
+};
+
+// Racing + fuel HUD: gas gauge while driving, the speedway entry panel, the live
+// race readout (countdown / lap / time), payout results, and error toasts.
+const RacingHud = ({ isMobile }: { isMobile?: boolean }) => {
+  const drivingCarId = useGameStore(s => s.drivingCarId);
+  const drivingFuel = useGameStore(s => s.drivingFuel);
+  const raceTrackPrompt = useGameStore(s => s.raceTrackPrompt);
+  const activeRace = useGameStore(s => s.activeRace);
+  const raceHud = useGameStore(s => s.raceHud);
+  const raceResult = useGameStore(s => s.raceResult);
+  const raceDenied = useGameStore(s => s.raceDenied);
+  const heldItem = useGameStore(s => s.heldItem);
+  const heldCount = useGameStore(s => s.heldCount);
+  const itemPickupTs = useGameStore(s => s.itemPickupTs);
+  const money = useGameStore(s => (s.playerId ? (s.gameState?.players?.[s.playerId]?.money ?? 0) : 0));
+  const { enterRace, refuel, clearRaceResult } = useGameStore.getState();
+
+  const ITEM_INFO: Record<string, { icon: string; label: string }> = {
+    mushroom: { icon: '🍄', label: 'Mushroom — boost' },
+    triple_mushroom: { icon: '🍄', label: 'Triple Mushroom' },
+    banana: { icon: '🍌', label: 'Banana — drop it behind you' },
+    green_shell: { icon: '🐢', label: 'Green Shell — fire it' },
+    star: { icon: '⭐', label: 'Star — boost + invincible' },
+  };
+  const [pickupToast, setPickupToast] = useState<{ icon: string; label: string } | null>(null);
+  useEffect(() => {
+    if (itemPickupTs && heldItem && ITEM_INFO[heldItem]) { setPickupToast(ITEM_INFO[heldItem]); const t = setTimeout(() => setPickupToast(null), 1800); return () => clearTimeout(t); }
+  }, [itemPickupTs]);
+
+  useEffect(() => { if (raceDenied) { const t = setTimeout(() => clearRaceResult(), 3200); return () => clearTimeout(t); } }, [raceDenied, clearRaceResult]);
+
+  const fmtMs = (ms: number) => { const total = ms / 1000; const m = Math.floor(total / 60); const s = total % 60; return `${m}:${s.toFixed(2).padStart(5, '0')}`; };
+  const fuel = drivingFuel ?? 100;
+  const fuelColor = fuel > 50 ? '#22c55e' : fuel > 20 ? '#eab308' : '#ef4444';
+  const stranded = drivingCarId && fuel <= 2;
+
+  return (
+    <>
+      {/* Fuel gauge while driving */}
+      {drivingCarId && drivingFuel !== null && !activeRace && (
+        <div className="fixed left-1/2 -translate-x-1/2 bottom-24 md:bottom-8 z-[930] pointer-events-none">
+          <div className="bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl flex items-center gap-3 w-64">
+            <Fuel size={18} style={{ color: fuelColor }} />
+            <div className="flex-grow">
+              <div className="h-2.5 bg-white/10 rounded-full overflow-hidden"><div className="h-full rounded-full transition-all" style={{ width: `${Math.max(0, Math.min(100, fuel))}%`, background: fuelColor }} /></div>
+            </div>
+            <span className="text-xs font-mono font-bold tabular-nums" style={{ color: fuelColor }}>{Math.round(fuel)}%</span>
+          </div>
+          {fuel <= 20 && fuel > 2 && <div className="text-center text-[10px] text-amber-400 font-bold uppercase tracking-widest mt-1">Low fuel — find a gas station</div>}
+          {stranded && (
+            <div className="mt-1 flex flex-col items-center gap-1 pointer-events-auto">
+              <div className="text-[10px] text-red-400 font-black uppercase tracking-widest">⛽ Out of gas</div>
+              <button onClick={() => refuel(drivingCarId!, true)} className="bg-red-500 hover:bg-red-400 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow">Roadside Fuel Delivery (~$1,200)</button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Speedway entry panel */}
+      {raceTrackPrompt && !activeRace && (
+        <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[960] pointer-events-auto w-[300px]">
+          <div className="bg-[#0c0d12]/95 backdrop-blur-2xl border border-indigo-500/40 rounded-2xl p-4 shadow-2xl">
+            <div className="flex items-center gap-2 mb-1 text-indigo-300"><Flag size={16} /><span className="font-black uppercase tracking-widest text-sm">Speedway</span></div>
+            <div className="text-[11px] text-white/50 mb-3">Pay the purse, run the laps, finish to win. Tank must have gas to race.</div>
+            <div className="flex flex-col gap-2">
+              {(Object.keys(RACE_TIERS) as RaceDifficulty[]).map(d => {
+                const t = RACE_TIERS[d];
+                const afford = money >= t.entryFee;
+                return (
+                  <button key={d} disabled={!afford} onClick={() => enterRace(d)}
+                    className={`flex items-center justify-between px-3 py-2 rounded-xl border transition-all ${afford ? 'bg-white/5 hover:bg-indigo-500/20 border-white/10 hover:border-indigo-400/50' : 'bg-white/[0.02] border-white/5 opacity-50 cursor-not-allowed'}`}>
+                    <div className="text-left">
+                      <div className="text-sm font-black text-white">{t.label}</div>
+                      <div className="text-[10px] text-white/45">{t.laps} laps · win ${t.reward.toLocaleString()}</div>
+                    </div>
+                    <div className="text-right"><div className="text-[9px] uppercase tracking-widest text-white/40">Entry</div><div className="text-sm font-bold text-amber-400">${t.entryFee.toLocaleString()}</div></div>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="text-center text-[10px] text-white/30 mt-2">Drive away to cancel</div>
+          </div>
+        </div>
+      )}
+
+      {/* Big countdown */}
+      {activeRace && raceHud?.state === 'countdown' && (
+        <div className="fixed inset-0 z-[940] flex items-center justify-center pointer-events-none">
+          <div className="text-[140px] font-black text-white drop-shadow-[0_0_30px_rgba(99,102,241,0.9)] animate-pulse">{raceHud.place > 0 ? raceHud.place : 'GO!'}</div>
+        </div>
+      )}
+
+      {/* Live race readout */}
+      {activeRace && raceHud?.state === 'go' && (
+        <div className="fixed top-16 left-1/2 -translate-x-1/2 z-[935] pointer-events-none">
+          <div className="bg-black/80 backdrop-blur-md border border-indigo-500/40 rounded-xl px-5 py-2 shadow-xl flex items-center gap-5">
+            <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Lap</div><div className="text-xl font-black text-white tabular-nums">{raceHud.lap}/{raceHud.totalLaps}</div></div>
+            <div className="w-px h-8 bg-white/15" />
+            <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Time</div><div className="text-xl font-mono font-bold text-indigo-300 tabular-nums">{fmtMs(raceHud.ms)}</div></div>
+          </div>
+        </div>
+      )}
+
+      {/* Result modal */}
+      {raceResult && (
+        <div className="fixed inset-0 z-[970] flex items-center justify-center bg-black/60 backdrop-blur-sm pointer-events-auto p-4">
+          <div className="bg-[#0c0d12] border border-indigo-500/40 rounded-2xl p-6 shadow-2xl w-[300px] text-center">
+            <Trophy size={40} className="mx-auto text-amber-400 mb-2" />
+            <div className="text-lg font-black uppercase tracking-widest text-white">Race Finished</div>
+            <div className="text-[11px] text-white/45 mb-3">{RACE_TIERS[(raceResult.difficulty as RaceDifficulty)]?.label} · {fmtMs(raceResult.totalMs)}</div>
+            {raceResult.reward > 0
+              ? <div className="text-3xl font-black text-emerald-400 mb-1">+${raceResult.reward.toLocaleString()}</div>
+              : <div className="text-xl font-black text-white/60 mb-1">No payout</div>}
+            <button onClick={() => clearRaceResult()} className="mt-3 w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-2 rounded-xl">Continue</button>
+          </div>
+        </div>
+      )}
+
+      {/* Held item slot (during a race) */}
+      {activeRace && heldItem && (
+        <div className="fixed top-16 right-4 z-[945] pointer-events-auto flex flex-col items-center gap-1.5">
+          <div className="bg-black/70 backdrop-blur-md border-2 border-cyan-400/50 rounded-2xl w-20 h-20 flex items-center justify-center text-4xl shadow-[0_0_20px_rgba(34,211,238,0.45)] relative">
+            <span>{ITEM_INFO[heldItem]?.icon || '❓'}</span>
+            {heldCount > 1 && <span className="absolute -bottom-1.5 -right-1.5 bg-cyan-500 text-white text-xs font-black rounded-full w-6 h-6 flex items-center justify-center border-2 border-black/60">×{heldCount}</span>}
+          </div>
+          <button onClick={() => { (window as any).mobileUseItem = true; }} className="bg-cyan-500 hover:bg-cyan-400 active:scale-95 text-white text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg shadow transition-all">Use [Space]</button>
+        </div>
+      )}
+
+      {/* Item pickup toast */}
+      {pickupToast && (
+        <div className="fixed top-32 left-1/2 -translate-x-1/2 z-[975] pointer-events-none">
+          <div className="bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-base font-black px-5 py-2.5 rounded-2xl shadow-[0_8px_30px_rgba(34,211,238,0.6)] border border-cyan-300/50 animate-bounce flex items-center gap-2">
+            <span className="text-2xl">{pickupToast.icon}</span> Got: {pickupToast.label}!
+          </div>
+        </div>
+      )}
+
+      {/* Denied toast */}
+      {raceDenied && (
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[980] pointer-events-none">
+          <div className="bg-red-600/95 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-2xl">{raceDenied}</div>
+        </div>
+      )}
+    </>
+  );
+};
+
 function App() {
   // Subscribe ONLY to the reactive state this view needs. The action functions
   // are stable, so we read them once via getState() — this stops the entire UI
@@ -1639,7 +1878,7 @@ function App() {
   const gameState = useGameStore(s => s.gameState);
   const playerId = useGameStore(s => s.playerId);
   const activeInteraction = useGameStore(s => s.activeInteraction);
-  const { connect, buyCar, buyPsi, proposeDeal, counterOffer, rejectDeal, finalizeDeal, repairCar, requestInspection, registerVehicle, buyPart, scrapCar, buyScrapCar, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal } = useGameStore.getState();
+  const { connect, buyCar, buyPsi, proposeDeal, counterOffer, rejectDeal, finalizeDeal, repairCar, requestInspection, registerVehicle, buyPart, scrapCar, buyScrapCar, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal, rentRaceCar } = useGameStore.getState();
   const timeOfDay = gameState?.timeOfDay || 8.0;
   const isAuctionOpen = timeOfDay >= 8.0 && timeOfDay < 17.0;
   const keyboardMap = useMemo(() => [
@@ -1906,6 +2145,8 @@ function App() {
       <VanillaThreeScene />
       <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />
       <GateControl isMobile={isMobile} />
+      <GameChat isMobile={isMobile} />
+      <RacingHud isMobile={isMobile} />
 
       {/* Permanent UI Toggle Hint */}
       {!isMobile && (
@@ -2358,6 +2599,23 @@ function App() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 overflow-y-auto flex-grow pe-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pb-24 md:pb-0">
+                  {/* Federal Reserve / Economy */}
+                  <div className="md:col-span-2 bg-gradient-to-br from-emerald-500/5 to-transparent border border-emerald-500/20 rounded-xl p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-sm font-black uppercase tracking-widest text-emerald-400 flex items-center gap-2"><Activity size={16} /> Federal Reserve &amp; Economy</h4>
+                      {(gameState.economy as any).rateHistory?.length > 1 && <div className="w-28"><Sparkline data={(gameState.economy as any).rateHistory} /></div>}
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+                      <div className="bg-black/30 rounded-lg py-2"><div className="text-[9px] uppercase tracking-widest text-gray-500 font-black">Fed Funds Rate</div><div className="text-lg font-black text-white">{(gameState.economy.federalInterestRate * 100).toFixed(2)}%</div></div>
+                      <div className="bg-black/30 rounded-lg py-2"><div className="text-[9px] uppercase tracking-widest text-gray-500 font-black">Prime Rate</div><div className="text-lg font-black text-white">{((((gameState.economy as any).primeRate ?? (gameState.economy.federalInterestRate + 0.03))) * 100).toFixed(2)}%</div></div>
+                      <div className="bg-black/30 rounded-lg py-2"><div className="text-[9px] uppercase tracking-widest text-gray-500 font-black">Inflation</div><div className={`text-lg font-black ${(((gameState.economy as any).inflation ?? 0.02)) > 0.04 ? 'text-red-400' : 'text-white'}`}>{(((gameState.economy as any).inflation ?? 0.02) * 100).toFixed(1)}%</div></div>
+                      <div className="bg-black/30 rounded-lg py-2"><div className="text-[9px] uppercase tracking-widest text-gray-500 font-black">Used-Car Demand</div><div className={`text-lg font-black ${gameState.economy.usedCarDemand >= 1.05 ? 'text-emerald-400' : gameState.economy.usedCarDemand <= 0.92 ? 'text-red-400' : 'text-white'}`}>{gameState.economy.usedCarDemand >= 1.08 ? 'Hot' : gameState.economy.usedCarDemand <= 0.92 ? 'Cool' : 'Steady'}</div></div>
+                    </div>
+                    <div className="mt-3 text-[11px] text-gray-400 leading-snug bg-black/20 rounded-lg p-2">
+                      Your floor-plan carry is <span className="text-white font-bold">{((me.floorPlanRate || 0) * 100).toFixed(2)}%/day</span> — it tracks the Fed (SOFR + spread). When the Fed hikes to fight inflation, your carrying cost and BHPH rates rise and buyer traffic cools; when it cuts, money gets cheap and demand picks up.
+                    </div>
+                  </div>
+
                   {/* Balance Sheet */}
                   <div className="flex flex-col gap-4">
                     <h4 className="text-sm font-bold uppercase tracking-widest text-white/50 border-b border-white/10 pb-2">Balance Sheet</h4>
@@ -2803,7 +3061,7 @@ function App() {
 
         {/* Dynamic Action Interaction Overlay (Clickable/Tappable for both PC & Mobile) */}
         {activeInteraction && (
-          <div className="fixed bottom-28 left-1/2 -translate-x-1/2 z-[1000] pointer-events-auto animate-bounce">
+          <div className="fixed bottom-28 left-1/2 -translate-x-1/2 z-[1000] pointer-events-auto">
             <button
               onClick={() => {
                 if (activeInteraction.type === 'bank') {
@@ -2814,6 +3072,8 @@ function App() {
                   window.dispatchEvent(new CustomEvent('open_library'));
                 } else if (activeInteraction.type === 'insurance') {
                   openInsuranceModal();
+                } else if (activeInteraction.type === 'rental') {
+                  rentRaceCar();
                 } else if (activeInteraction.type === 'car' && activeInteraction.carId) {
                   // Enter/exit driving state
                   if ((window as any).setMobileTap) {
@@ -2824,7 +3084,7 @@ function App() {
                   }
                 }
               }}
-              className="px-8 py-5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 border-2 border-emerald-400/40 text-white font-extrabold rounded-2xl shadow-[0_10px_30px_rgba(16,185,129,0.5)] hover:shadow-[0_15px_40px_rgba(16,185,129,0.7)] active:scale-95 transition-all text-sm uppercase tracking-widest flex items-center gap-3 backdrop-blur-md cursor-pointer select-none"
+              className="px-4 py-2 bg-gradient-to-r from-emerald-500/90 to-teal-600/90 hover:from-emerald-600 hover:to-teal-700 border border-emerald-400/40 text-white font-bold rounded-xl shadow-lg active:scale-95 transition-all text-[11px] uppercase tracking-widest flex items-center gap-2 backdrop-blur-md cursor-pointer select-none"
             >
               <span className="flex h-3 w-3 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
