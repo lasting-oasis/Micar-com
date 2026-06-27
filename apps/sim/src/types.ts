@@ -29,6 +29,9 @@ export type Car = {
   fuel?: number; // 0-100 gas tank level; all driving burns fuel, refill at a gas station
   isRental?: boolean; // a Speedway rental car — drive/race only, can't be sold or kept
   bodyStyle?: string; // sedan | coupe | hatchback | suv | truck | sports | van — drives the 3D silhouette
+  isLienActive?: boolean; // a title loan is secured against this car
+  accidents?: number;     // accident history (affects collateral value / risk)
+  basePrice?: number;     // original sticker baseline used for title-loan valuation
 };
 
 // Race difficulty tiers — each sets the entry fee, lap count, and finish reward.
@@ -117,8 +120,10 @@ export type Player = {
   insurance?: { liability: boolean; inventory: boolean; gap: boolean }; // active dealer policies
   insuranceLog?: string[]; // recent claim / adverse-event messages (newest first, ~6 kept)
   raceWins?: number; // number of races finished/won at the speedway
+  isStandaloneOperator?: boolean; // runs a standalone repair/body shop rather than a dealership
+  shopSpecialty?: 'mechanic' | 'body' | 'dual'; // standalone shop type
 
-  balanceSheet: { 
+  balanceSheet: {
       totalIncome: number; totalExpenses: number; 
       lastTickIncome: number; lastTickExpense: number; 
   };

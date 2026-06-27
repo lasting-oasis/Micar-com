@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
   ClipboardList, Search, Hammer, Paintbrush, Wrench, ShieldCheck,
-  CheckCircle, LayoutDashboard, Car, ArrowRight, ChevronRight,
-  Clock, AlertCircle, Check, MapPin, Phone, ArrowLeft, Plus,
-  Trash2, Settings, ShieldAlert, RefreshCw, Save
+  CheckCircle, LayoutDashboard, ArrowRight, ChevronRight,
+  Clock, AlertCircle, Check, ArrowLeft, Plus,
+  Trash2, Settings, ShieldAlert, RefreshCw
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 

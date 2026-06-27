@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useMemo, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, ShoppingCart, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, Trash2, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, PieChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Trophy, Zap } from 'lucide-react';
+import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Trophy } from 'lucide-react';
 import { RACE_TIERS, RaceDifficulty } from './types';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -1545,7 +1545,7 @@ const NegotiationModal = ({ agentId, setAgentId, carId, setCarId }: any) => {
                  </div>
                  
                  <div className="grid grid-cols-2 gap-3 mt-2">
-                     <button onClick={() => { finalizeDeal(car?.id, agent.id); setAgentId(null); setCarId(null); }} className="bg-success text-black py-3 rounded font-black uppercase text-sm hover:bg-green-400 transition-colors">
+                     <button onClick={() => { if (car) { finalizeDeal(car.id, agent.id); setAgentId(null); setCarId(null); } }} className="bg-success text-black py-3 rounded font-black uppercase text-sm hover:bg-green-400 transition-colors">
                          Accept Deal
                      </button>
                      <button onClick={() => { rejectDeal(agent.id); setAgentId(null); setCarId(null); }} className="bg-red-500/20 text-red-500 border border-red-500/50 py-3 rounded font-black uppercase text-sm hover:bg-red-500 hover:text-white transition-colors">
@@ -1726,7 +1726,7 @@ const GameChat = ({ isMobile }: { isMobile?: boolean }) => {
 
 // Racing + fuel HUD: gas gauge while driving, the speedway entry panel, the live
 // race readout (countdown / lap / time), payout results, and error toasts.
-const RacingHud = ({ isMobile }: { isMobile?: boolean }) => {
+const RacingHud = (_props: { isMobile?: boolean }) => {
   const drivingCarId = useGameStore(s => s.drivingCarId);
   const drivingFuel = useGameStore(s => s.drivingFuel);
   const raceTrackPrompt = useGameStore(s => s.raceTrackPrompt);
@@ -1878,28 +1878,18 @@ function App() {
   const gameState = useGameStore(s => s.gameState);
   const playerId = useGameStore(s => s.playerId);
   const activeInteraction = useGameStore(s => s.activeInteraction);
-  const { connect, buyCar, buyPsi, proposeDeal, counterOffer, rejectDeal, finalizeDeal, repairCar, requestInspection, registerVehicle, buyPart, scrapCar, buyScrapCar, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal, rentRaceCar } = useGameStore.getState();
+  const { connect, buyCar, buyPsi, buyPart, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal, rentRaceCar } = useGameStore.getState();
   const timeOfDay = gameState?.timeOfDay || 8.0;
   const isAuctionOpen = timeOfDay >= 8.0 && timeOfDay < 17.0;
-  const keyboardMap = useMemo(() => [
-    { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
-    { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
-    { name: 'left', keys: ['ArrowLeft', 'KeyA'] },
-    { name: 'right', keys: ['ArrowRight', 'KeyD'] },
-    { name: 'jump', keys: ['Space'] },
-    { name: 'interact', keys: ['KeyE'] },
-    { name: 'r', keys: ['KeyR'] }
-  ], []);
 
   const [nameInput, setNameInput] = useState('');
   const [lotScaleInput, setLotScaleInput] = useState<'Small' | 'Medium' | 'Large'>('Small');
   const [careerFocusInput, setCareerFocusInput] = useState<'dealership' | 'standalone'>('dealership');
   const [shopSpecialtyInput, setShopSpecialtyInput] = useState<'mechanic' | 'body' | 'dual'>('mechanic');
-  const [activeTab, setActiveTab] = useState<'lot' | 'auction' | 'accounting' | 'crm' | 'dmv' | 'parts' | 'staff' | 'standalone-shops' | 'standalone-body'>('lot');
+  const [activeTab, setActiveTab] = useState<'lot' | 'auction' | 'accounting' | 'crm' | 'dmv' | 'parts' | 'staff' | 'standalone-shops' | 'standalone-body' | 'shares' | 'library'>('lot');
   const [expandedCarId, setExpandedCarId] = useState<string | null>(null);
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
   const [selectedCarForAgent, setSelectedCarForAgent] = useState<string | null>(null);
-  const [counterValue, setCounterValue] = useState<string>('');
   const [showMoreMenu, setShowMoreMenu] = useState(false);
   const [mobileLotSubTab, setMobileLotSubTab] = useState<'finance' | 'inventory'>('finance');
   const [mobilePartsSubTab, setMobilePartsSubTab] = useState<'mechanic' | 'body'>('mechanic');

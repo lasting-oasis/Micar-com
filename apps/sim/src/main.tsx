@@ -6,8 +6,8 @@ import MechanicManagement from './MechanicManagement.tsx'
 import StandaloneShopPlatform from './StandaloneShopPlatform.tsx'
 import './index.css'
 import { useGameStore } from './store'
-import { Car, Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle, Gauge, Activity } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle, Gauge, Activity } from 'lucide-react'
+import { motion } from 'framer-motion'
 // Global Error Overlay Catcher for Debugging Sandboxed/Compatibility crashes
 window.addEventListener('error', (event) => {
     const errorContainer = document.createElement('div');

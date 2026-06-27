@@ -3,7 +3,7 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { GameState, Car, Player, FinanceContract, CustomerAgent, DealProposal, EconomicState, FractionalVehicle, RACE_TIERS, RaceDifficulty, FUEL_PRICE_PER_UNIT } from './src/types.js';
+import { GameState, Car, Player, FractionalVehicle, RACE_TIERS, RaceDifficulty, FUEL_PRICE_PER_UNIT } from './src/types.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 
 const app = express();
@@ -1234,7 +1234,7 @@ io.on('connection', (socket) => {
       let cashProceeds = 0;
       if (dealType === 'cash') cashProceeds = proposal.downPayment; // For cash, downPayment is full price
       else if (dealType === 'bank') {
-          if (car.titleStatus === 'Salvage') return; // Bank auto-reject
+          // (salvage is already rejected at the top of finalize_deal)
           cashProceeds = proposal.totalValue * 1.05; // Includes 5% Bank Dealer Reserve bonus
       }
       else if (dealType === 'inhouse') {
@@ -1534,7 +1534,7 @@ io.on('connection', (socket) => {
           // Calculate max collateral value precisely as 80% LTV of extrapolated retail!
           const mechanicImpact = car.mechanicCondition / 100;
           const bodyImpact = car.bodyCondition / 100;
-          const accidentPenalty = car.accidents > 0 ? 0.70 : 1.0;
+          const accidentPenalty = (car.accidents || 0) > 0 ? 0.70 : 1.0;
           const mileagePenalty = Math.max(0.3, 1.0 - (car.mileage / 300000));
           
           let marketVal = (car.basePrice || car.buyPrice) * mechanicImpact * bodyImpact * accidentPenalty * mileagePenalty;
@@ -1787,7 +1787,7 @@ io.on('connection', (socket) => {
       broadcastState(io, gameState);
   });
 
-  socket.on('buy_insurance', ({ type }) => {
+  socket.on('buy_insurance', ({ type }: { type: 'liability' | 'inventory' | 'gap' }) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       if (!player.insurance) player.insurance = { liability: false, inventory: false, gap: false };
@@ -1797,7 +1797,7 @@ io.on('connection', (socket) => {
       }
   });
 
-  socket.on('cancel_insurance', ({ type }) => {
+  socket.on('cancel_insurance', ({ type }: { type: 'liability' | 'inventory' | 'gap' }) => {
       const player = gameState.players[socket.id];
       if (!player || !player.insurance) return;
       if (type === 'liability' || type === 'inventory' || type === 'gap') {

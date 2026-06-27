@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Activity, Cpu, Layers, Settings, AlertTriangle, Gauge, Terminal, Wrench, ShieldCheck,
-  CheckCircle, LayoutDashboard, Play, ArrowRight, ChevronRight, Clock, AlertCircle, Check,
-  MapPin, Plus, Trash2, ShieldAlert, RefreshCw, Layers3
+  Cpu, Layers, Settings, AlertTriangle, Gauge, Terminal, Wrench,
+  CheckCircle, Play, ChevronRight, Clock, Check,
+  Plus, Trash2, ShieldAlert, RefreshCw, Layers3
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 

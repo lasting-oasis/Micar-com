@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { useGameStore } from './store';
 
@@ -147,24 +147,6 @@ export function VanillaThreeScene() {
         };
         const concreteTex = generateConcreteTexture();
 
-        const generateNoiseTexture = () => {
-             const size = 512;
-             const canvas = document.createElement('canvas');
-             canvas.width = size; canvas.height = size;
-             const context = canvas.getContext('2d');
-             if (!context) return new THREE.Texture();
-             const imgData = context.createImageData(size, size);
-             for (let i = 0; i < imgData.data.length; i += 4) {
-                 const v = Math.floor(Math.random() * 255);
-                 imgData.data[i] = v; imgData.data[i+1] = v; imgData.data[i+2] = v; imgData.data[i+3] = 255;
-             }
-             context.putImageData(imgData, 0, 0);
-             const tex = new THREE.CanvasTexture(canvas);
-             tex.wrapS = THREE.RepeatWrapping; tex.wrapT = THREE.RepeatWrapping;
-             tex.repeat.set(160, 160); // Scale texture repeat for massive map
-             return tex;
-        };
-        const noiseBumpMap = generateNoiseTexture();
 
         // Dark asphalt with fine aggregate speckle for realistic lot paving
         const generateAsphaltTexture = () => {
@@ -801,7 +783,7 @@ export function VanillaThreeScene() {
                 environmentDisposables.push(lampLight);
 
                 const bulbGeo = new THREE.SphereGeometry(0.6);
-                const bulbMat = new THREE.MeshBasicMaterial({ color: '#fef08a', emissive: '#fef08a', emissiveIntensity: 2.0 });
+                const bulbMat = new THREE.MeshBasicMaterial({ color: '#fef08a' }); // MeshBasic is unlit — already full-bright, emissive props don't apply
                 const bulb = new THREE.Mesh(bulbGeo, bulbMat);
                 bulb.position.set(x, 15, z);
                 scene.add(bulb);
@@ -1666,7 +1648,7 @@ export function VanillaThreeScene() {
         const carSteering: Record<string, THREE.Group[]> = {};
         const vehiclePhysics: Record<string, { v: number, yaw: number }> = {};
         
-        type BotState = { mesh: THREE.Group, targetPos: THREE.Vector3, status: 'walking_in' | 'waiting' | 'walking_out' };
+        type BotState = { mesh: THREE.Group, targetPos: THREE.Vector3, status: 'walking_in' | 'waiting' | 'walking_out' | 'test_driving' };
         const aiBots: Record<string, BotState> = {}; // Mapped by target car ID
         
         const otherPlayerMeshes: Record<string, THREE.Group> = {}; // Mapped by player ID
@@ -1959,7 +1941,7 @@ export function VanillaThreeScene() {
                 if (!isDriving) {
                     if (me && me.inventory.length > 0) {
                         // Find closest car to enter
-                        let closestCar = null;
+                        let closestCar: string | null = null;
                         let minDist = 6.0; // Restored to a closer 6 units to prevent accidental teleporting through walls
                         me.inventory.forEach(car => {
                              const m = carMeshes[car.id];
@@ -2015,7 +1997,7 @@ export function VanillaThreeScene() {
 
             // Object Synchronization
             if (me) {
-                me.inventory.forEach((car, idx) => {
+                me.inventory.forEach((car) => {
                     if (!carMeshes[car.id]) {
                         
                         let c = car.color;
@@ -2186,7 +2168,7 @@ export function VanillaThreeScene() {
             }
              // AI Customer Pathing & Autonomous Test Drive Physics
              const cpuSpeed = 8 * delta;
-             const aiDriveSequence: Record<string, { state: 'out'|'back'|'done', startZ: number, startX: number }> = {};
+             const aiDriveSequence: Record<string, { state: 'out'|'back'|'done', startZ: number, startX: number, targetZ?: number }> = {};
              
              Object.entries(aiBots).forEach(([key, bot]) => {
                   const d = bot.mesh.position.distanceTo(bot.targetPos);
