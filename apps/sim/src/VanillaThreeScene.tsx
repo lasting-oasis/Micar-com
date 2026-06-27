@@ -1469,6 +1469,11 @@ export function VanillaThreeScene() {
         let fuelUiAccum = 0, fuelNetAccum = 0;    // throttle the HUD write and the server sync
         let raceActive = false, raceState = '', raceDifficulty = '', raceLapTarget = 0, raceLaps = 0, raceCpIndex = 0;
         let raceStartMs = 0, raceCountdownUntil = 0, raceHudAccum = 0;
+        // CPU racing opponents
+        type CpuRacer = { mesh: THREE.Group; angleDeg: number; startAngDeg: number; lane: number; speedDegPerSec: number; finished: boolean };
+        let cpuRacers: CpuRacer[] = [];
+        let cpuFinishCount = 0, racePlace = 1;
+        const clearCpuRacers = () => { cpuRacers.forEach(c => scene.remove(c.mesh)); cpuRacers = []; };
         let boostUntil = 0, starUntil = 0, spinUntil = 0; // boost / invincible-star / spin-out timers
         const bananas: { mesh: THREE.Mesh; expireAt: number; alive: boolean }[] = [];   // dropped peel hazards
         const shells: { mesh: THREE.Mesh; dir: THREE.Vector3; expireAt: number; alive: boolean }[] = []; // fired shells
@@ -1987,6 +1992,7 @@ export function VanillaThreeScene() {
                     // Persist the final fuel level and drop any active race (forfeits entry fee).
                     if (localDrivingCarId && localFuel !== null) useGameStore.getState().consumeFuel(localDrivingCarId, localFuel);
                     if (raceActive) { raceActive = false; raceState = ''; useGameStore.getState().abortRace(); }
+                    clearCpuRacers();
                     localFuel = null;
                     useGameStore.getState().setDrivingCarId(null);
                     useGameStore.getState().setDrivingFuel(null);
@@ -2476,19 +2482,52 @@ export function VanillaThreeScene() {
                         activeCar.position.set(raceStartPos.x, 0, raceStartPos.z);
                         activeCar.rotation.set(0, raceStartRotY, 0);
                         phys.v = 0; phys.yaw = 0;
+                        // Grid up 3 CPU opponents, paced by the tier's cpuSkill (higher difficulty = faster rivals).
+                        clearCpuRacers(); cpuFinishCount = 0; racePlace = 1;
+                        const cpuSkill = (ar as any).cpuSkill || 0.85;
+                        const cpuColors = ['#ef4444', '#f59e0b', '#a855f7'];
+                        const cpuStyles = ['sports', 'coupe', 'sedan'];
+                        const REF_LAP = 46; // seconds for a quick clean lap
+                        ([-12, 0, 12] as number[]).forEach((lane, i) => {
+                            const assets = buildCarModel(cpuStyles[i], cpuColors[i], 100, 100);
+                            const m = assets.group;
+                            const startA = 88; // line up just behind the player's pole
+                            const aRad = startA * Math.PI / 180, rr = RC + lane;
+                            m.position.set(RACE_CX + rr * Math.cos(aRad), 0, RACE_CZ + rr * Math.sin(aRad));
+                            m.rotation.y = Math.PI - aRad;
+                            scene.add(m); environmentDisposables.push(m);
+                            const variation = 0.92 + Math.random() * 0.16;
+                            cpuRacers.push({ mesh: m, angleDeg: startA, startAngDeg: startA, lane, speedDegPerSec: 360 / (REF_LAP / (cpuSkill * variation)), finished: false });
+                        });
                     }
                     if (raceActive) {
                         if (raceState === 'countdown') {
                             phys.v = 0;
                             if (nowp >= raceCountdownUntil) { raceState = 'go'; raceStartMs = nowp; }
                         } else if (raceState === 'go') {
+                            // advance CPU rivals around the circuit + tally any that finish
+                            cpuRacers.forEach(c => {
+                                if (c.finished) return;
+                                c.angleDeg += c.speedDegPerSec * delta;
+                                const aRad = c.angleDeg * Math.PI / 180, rr = RC + c.lane;
+                                c.mesh.position.set(RACE_CX + rr * Math.cos(aRad), 0, RACE_CZ + rr * Math.sin(aRad));
+                                c.mesh.rotation.y = Math.PI - aRad;
+                                if ((c.angleDeg - c.startAngDeg) / 360 >= raceLapTarget) { c.finished = true; cpuFinishCount++; }
+                            });
+                            // player's live position = 1 + rivals ahead on track
+                            const pTheta = Math.atan2(activeCar.position.z - RACE_CZ, activeCar.position.x - RACE_CX) * 180 / Math.PI;
+                            const playerProg = raceLaps + ((((pTheta - 90) % 360) + 360) % 360) / 360;
+                            let ahead = 0;
+                            cpuRacers.forEach(c => { if ((c.angleDeg - c.startAngDeg) / 360 > playerProg) ahead++; });
+                            racePlace = 1 + ahead;
+                            // player lap / finish detection
                             if (raceCpIndex < raceCheckpoints.length) {
                                 if (activeCar.position.distanceTo(raceCheckpoints[raceCpIndex]) < 32) raceCpIndex++;
                             } else if (activeCar.position.distanceTo(raceStartPos) < 32) {
                                 raceLaps++;
                                 raceCpIndex = 0;
                                 if (raceLaps >= raceLapTarget) {
-                                    store2.finishRace({ difficulty: raceDifficulty, totalMs: Math.round(nowp - raceStartMs), laps: raceLaps, placed: 1 });
+                                    store2.finishRace({ difficulty: raceDifficulty, totalMs: Math.round(nowp - raceStartMs), laps: raceLaps, placed: 1 + cpuFinishCount });
                                     raceActive = false; raceState = '';
                                 }
                             }
@@ -2497,10 +2536,11 @@ export function VanillaThreeScene() {
                         if (raceActive && raceHudAccum > 0.1) {
                             raceHudAccum = 0;
                             const cd = raceState === 'countdown' ? Math.max(0, Math.ceil((raceCountdownUntil - nowp) / 1000)) : 0;
-                            store2.setRaceHud({ lap: Math.min(raceLaps + 1, raceLapTarget), totalLaps: raceLapTarget, ms: raceState === 'go' ? Math.round(nowp - raceStartMs) : 0, place: cd, total: 1, state: raceState });
+                            store2.setRaceHud({ lap: Math.min(raceLaps + 1, raceLapTarget), totalLaps: raceLapTarget, ms: raceState === 'go' ? Math.round(nowp - raceStartMs) : 0, place: raceState === 'countdown' ? cd : racePlace, total: cpuRacers.length + 1, state: raceState });
                         }
                     }
                     if (!ar && raceActive) { raceActive = false; raceState = ''; store2.setRaceHud(null); }
+                    if (!raceActive && cpuRacers.length > 0) clearCpuRacers(); // tidy up rivals when the race ends
 
                     // --- Item boxes: holographic shimmer, spin/bob, grab one during a race ---
                     const nowB = performance.now();

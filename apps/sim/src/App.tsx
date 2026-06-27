@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Trophy } from 'lucide-react';
+import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag } from 'lucide-react';
 import { RACE_TIERS, RaceDifficulty } from './types';
 import { useLang, t, LangToggle } from './i18n';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
@@ -1820,6 +1820,8 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
       {activeRace && raceHud?.state === 'go' && (
         <div className="fixed top-16 left-1/2 -translate-x-1/2 z-[935] pointer-events-none">
           <div className="bg-black/80 backdrop-blur-md border border-indigo-500/40 rounded-xl px-5 py-2 shadow-xl flex items-center gap-5">
+            <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Pos</div><div className={`text-xl font-black tabular-nums ${raceHud.place <= 1 ? 'text-emerald-400' : raceHud.place >= raceHud.total ? 'text-red-400' : 'text-amber-300'}`}>{raceHud.place}<span className="text-xs text-white/40">/{raceHud.total}</span></div></div>
+            <div className="w-px h-8 bg-white/15" />
             <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Lap</div><div className="text-xl font-black text-white tabular-nums">{raceHud.lap}/{raceHud.totalLaps}</div></div>
             <div className="w-px h-8 bg-white/15" />
             <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Time</div><div className="text-xl font-mono font-bold text-indigo-300 tabular-nums">{fmtMs(raceHud.ms)}</div></div>
@@ -1831,9 +1833,9 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
       {raceResult && (
         <div className="fixed inset-0 z-[970] flex items-center justify-center bg-black/60 backdrop-blur-sm pointer-events-auto p-4">
           <div className="bg-[#0c0d12] border border-indigo-500/40 rounded-2xl p-6 shadow-2xl w-[300px] text-center">
-            <Trophy size={40} className="mx-auto text-amber-400 mb-2" />
-            <div className="text-lg font-black uppercase tracking-widest text-white">Race Finished</div>
-            <div className="text-[11px] text-white/45 mb-3">{RACE_TIERS[(raceResult.difficulty as RaceDifficulty)]?.label} · {fmtMs(raceResult.totalMs)}</div>
+            <div className="text-5xl mb-1">{raceResult.place === 1 ? '🥇' : raceResult.place === 2 ? '🥈' : raceResult.place === 3 ? '🥉' : '🏁'}</div>
+            <div className="text-lg font-black uppercase tracking-widest text-white">{raceResult.place <= 1 ? 'You Won!' : `${raceResult.place === 2 ? '2nd' : raceResult.place === 3 ? '3rd' : raceResult.place + 'th'} Place`}</div>
+            <div className="text-[11px] text-white/45 mb-3">{RACE_TIERS[(raceResult.difficulty as RaceDifficulty)]?.label} · Pos {raceResult.place}/4 · {fmtMs(raceResult.totalMs)}</div>
             {raceResult.reward > 0
               ? <div className="text-3xl font-black text-emerald-400 mb-1">+${raceResult.reward.toLocaleString()}</div>
               : <div className="text-xl font-black text-white/60 mb-1">No payout</div>}
