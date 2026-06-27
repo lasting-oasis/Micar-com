@@ -3,6 +3,7 @@ import { useGameStore } from './store';
 import { VanillaThreeScene } from './VanillaThreeScene';
 import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Trophy } from 'lucide-react';
 import { RACE_TIERS, RaceDifficulty } from './types';
+import { useLang, t, LangToggle } from './i18n';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import StandaloneShopPlatform from './StandaloneShopPlatform';
@@ -1891,6 +1892,7 @@ function App() {
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
   const [selectedCarForAgent, setSelectedCarForAgent] = useState<string | null>(null);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const lang = useLang();
   const [mobileLotSubTab, setMobileLotSubTab] = useState<'finance' | 'inventory'>('finance');
   const [mobilePartsSubTab, setMobilePartsSubTab] = useState<'mechanic' | 'body'>('mechanic');
 
@@ -1965,7 +1967,8 @@ function App() {
   if (!playerId || !gameState) {
     return (
       <div className="flex flex-col gap-4 h-[100dvh] items-center justify-center bg-background p-4 overflow-y-auto">
-        
+        <div className="fixed top-4 right-4 z-[9999]"><LangToggle /></div>
+
         {/* CARD 1: Brand Identity & Name Input */}
         <motion.div
           initial={{ y: -20, opacity: 0 }}
@@ -1976,17 +1979,17 @@ function App() {
           <div className="text-center">
             <h1 className="text-2xl font-black tracking-tighter text-white uppercase flex items-center justify-center gap-2">
               <Sparkles className="text-market w-5 h-5 animate-pulse" />
-              Used Car Empire
+              {t(lang, 'setup.title')}
             </h1>
-            <p className="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-1">Initialize corporate simulator</p>
+            <p className="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-1">{t(lang, 'setup.subtitle')}</p>
           </div>
 
           <div className="w-full flex flex-col gap-1.5 text-left">
-            <label className="text-[9px] font-black text-gray-500 uppercase tracking-widest">Company Operator Name</label>
+            <label className="text-[9px] font-black text-gray-500 uppercase tracking-widest">{t(lang, 'setup.nameLabel')}</label>
             <input
               type="text"
               className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-market transition-all"
-              placeholder="e.g. Apex Corporate"
+              placeholder={t(lang, 'setup.namePlaceholder')}
               value={nameInput}
               onChange={(e) => setNameInput(e.target.value)}
             />
@@ -2001,109 +2004,109 @@ function App() {
           className="panel flex flex-col gap-5 p-6 max-w-sm w-full border-market/30 bg-black/90 backdrop-blur-xl shadow-2xl rounded-2xl shrink-0"
         >
           <div className="w-full flex flex-col gap-2">
-            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">Select Career Path</span>
+            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">{t(lang, 'setup.careerPath')}</span>
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
                 onClick={() => setCareerFocusInput('dealership')}
                 className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'dealership' ? 'bg-market text-black border-market shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
               >
-                💼 Dealership
+                {t(lang, 'setup.dealership')}
               </button>
               <button
                 type="button"
                 onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('mechanic'); }}
                 className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'mechanic' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
               >
-                🔧 Mechanic Shop
+                {t(lang, 'setup.mechanicShop')}
               </button>
               <button
                 type="button"
                 onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('body'); }}
                 className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'body' ? 'bg-blue-500 text-black border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
               >
-                🎨 Paint & Body Shop
+                {t(lang, 'setup.bodyShop')}
               </button>
               <button
                 type="button"
                 onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('dual'); }}
                 className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'dual' ? 'bg-purple-500 text-black border-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
               >
-                ⚡ Dual Specialty
+                {t(lang, 'setup.dual')}
               </button>
             </div>
           </div>
 
           {careerFocusInput === 'dealership' ? (
             <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full flex flex-col gap-2">
-              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">Select Dealership Tier</span>
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">{t(lang, 'setup.dealerTier')}</span>
               <div className="grid grid-cols-3 gap-2">
                 <button
                   type="button"
                   onClick={() => setLotScaleInput('Small')}
                   className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Small' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
                 >
-                  Small ($25K)
+                  {t(lang, 'setup.small')}
                 </button>
                 <button
                   type="button"
                   onClick={() => setLotScaleInput('Medium')}
                   className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Medium' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
                 >
-                  Med ($75K)
+                  {t(lang, 'setup.med')}
                 </button>
                 <button
                   type="button"
                   onClick={() => setLotScaleInput('Large')}
                   className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Large' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
                 >
-                  Large ($250K)
+                  {t(lang, 'setup.large')}
                 </button>
               </div>
             </motion.div>
           ) : (
             <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-left flex flex-col gap-2 font-mono text-[10px]">
-              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest block border-b border-white/5 pb-1">Shop Starting Logistics</span>
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest block border-b border-white/5 pb-1">{t(lang, 'setup.shopLogistics')}</span>
               {shopSpecialtyInput === 'mechanic' && (
                 <>
-                  <div className="flex justify-between"><span className="text-gray-400">Specialty:</span> <span className="text-emerald-400 font-bold">Mechanic Specialty</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Starting Capital:</span> <span className="text-white font-bold">$45,000 Cash</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Intake Capacity:</span> <span className="text-white font-bold">2 Lifts & Diagnostics</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.specialtyLbl')}</span> <span className="text-emerald-400 font-bold">{t(lang, 'setup.mechanicSpecialty')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.startingCapital')}</span> <span className="text-white font-bold">{t(lang, 'setup.cash45')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.intakeCapacity')}</span> <span className="text-white font-bold">{t(lang, 'setup.capMech')}</span></div>
                 </>
               )}
               {shopSpecialtyInput === 'body' && (
                 <>
-                  <div className="flex justify-between"><span className="text-gray-400">Specialty:</span> <span className="text-blue-400 font-bold">Paint & Body Specialty</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Starting Capital:</span> <span className="text-white font-bold">$35,000 Cash</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Intake Capacity:</span> <span className="text-white font-bold">2 Lifts & Paint Mixer</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.specialtyLbl')}</span> <span className="text-blue-400 font-bold">{t(lang, 'setup.bodySpecialty')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.startingCapital')}</span> <span className="text-white font-bold">{t(lang, 'setup.cash35')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.intakeCapacity')}</span> <span className="text-white font-bold">{t(lang, 'setup.capBody')}</span></div>
                 </>
               )}
               {shopSpecialtyInput === 'dual' && (
                 <>
-                  <div className="flex justify-between"><span className="text-gray-400">Specialty:</span> <span className="text-purple-400 font-bold">Dual-Service Center</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Starting Capital:</span> <span className="text-white font-bold">$95,000 Cash</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Intake Capacity:</span> <span className="text-white font-bold">4 Lifts & Full Suite</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.specialtyLbl')}</span> <span className="text-purple-400 font-bold">{t(lang, 'setup.dualCenter')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.startingCapital')}</span> <span className="text-white font-bold">{t(lang, 'setup.cash95')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.intakeCapacity')}</span> <span className="text-white font-bold">{t(lang, 'setup.capDual')}</span></div>
                 </>
               )}
             </motion.div>
           )}
 
           <div className="w-full flex flex-col gap-2 mt-1">
-            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">First Time Playing?</span>
+            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">{t(lang, 'setup.firstTime')}</span>
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
                 onClick={() => setAutoShowGuide(true)}
                 className={`py-2 text-[9.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${autoShowGuide ? 'bg-success/20 text-success border-success' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
               >
-                Show Guide
+                {t(lang, 'setup.showGuide')}
               </button>
               <button
                 type="button"
                 onClick={() => setAutoShowGuide(false)}
                 className={`py-2 text-[9.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${!autoShowGuide ? 'bg-white/10 text-white border-white/30' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
               >
-                Opt Out
+                {t(lang, 'setup.optOut')}
               </button>
             </div>
           </div>
@@ -2113,7 +2116,7 @@ function App() {
             className="w-full bg-gradient-to-r from-blue-500 to-market text-black font-black uppercase tracking-widest py-3 rounded-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2 mt-2 shadow-lg cursor-pointer"
             onClick={() => connect(nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScaleInput, careerFocusInput, shopSpecialtyInput)}
           >
-            <LogIn size={18} /> Establish Connection
+            <LogIn size={18} /> {t(lang, 'setup.establish')}
           </button>
         </motion.div>
       </div>

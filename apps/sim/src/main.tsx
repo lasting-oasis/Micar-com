@@ -8,6 +8,7 @@ import './index.css'
 import { useGameStore } from './store'
 import { Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle, Gauge, Activity } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useLang, t, LangToggle } from './i18n'
 // Global Error Overlay Catcher for Debugging Sandboxed/Compatibility crashes
 window.addEventListener('error', (event) => {
     const errorContainer = document.createElement('div');
@@ -39,6 +40,7 @@ window.addEventListener('error', (event) => {
 
 function GatewayPortal() {
   const [activeApp, setActiveApp] = useState<'gateway' | 'game' | 'shop' | 'mechanic' | 'platform'>('gateway');
+  const lang = useLang();
 
   // Parse URL parameters on initial mount and history updates
   useEffect(() => {
@@ -255,19 +257,22 @@ function GatewayPortal() {
       <header className="w-full max-w-6xl flex justify-between items-center z-10 shrink-0 border-b border-white/5 pb-6">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_#22d3ee]" />
-          <span className="text-[11px] font-mono tracking-[0.25em] text-cyan-400 font-black uppercase">AUTO LOGISTICS PORTAL</span>
+          <span className="text-[11px] font-mono tracking-[0.25em] text-cyan-400 font-black uppercase">{t(lang, 'portal.brand')}</span>
         </div>
-        <span className="text-[10px] text-gray-500 font-mono">v4.0.0-READY</span>
+        <div className="flex items-center gap-3">
+          <LangToggle />
+          <span className="hidden sm:inline text-[10px] text-gray-500 font-mono">v4.0.0-READY</span>
+        </div>
       </header>
 
       {/* Main Experience cards Grid */}
       <main className="w-full max-w-5xl flex flex-col justify-center items-center gap-8 my-10 z-10 flex-grow">
         <div className="text-center space-y-3 max-w-2xl">
           <h1 className="text-3xl md:text-5xl font-black uppercase tracking-wider bg-gradient-to-r from-cyan-400 via-indigo-200 to-blue-400 bg-clip-text text-transparent">
-            Automotive Hub
+            {t(lang, 'portal.title')}
           </h1>
           <p className="text-xs md:text-sm text-gray-400 font-medium leading-relaxed max-w-lg mx-auto">
-            Select an operational workspace. Experience the premium 3D dealership simulator or deploy our real-world reconditioning logistics dashboard.
+            {t(lang, 'portal.subtitle')}
           </p>
         </div>
 
@@ -290,17 +295,17 @@ function GatewayPortal() {
                   <Gamepad2 size={28} />
                 </div>
                 <span className="text-[9px] font-mono tracking-widest text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 px-3 py-1 rounded-full font-black uppercase">
-                  GAME EXPERIENCE
+                  {t(lang, 'card.game.badge')}
                 </span>
               </div>
 
               {/* Title & Desc */}
               <div className="space-y-3 text-left">
                 <h3 className="text-xl font-bold uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
-                  Dealership 3D Simulator
+                  {t(lang, 'card.game.title')}
                 </h3>
                 <p className="text-xs text-gray-400 leading-relaxed font-sans">
-                  Step onto the virtual showroom floor. An immersive 3D environment for buying, bidding, restoring, and selling vehicles with advanced financial forecasting.
+                  {t(lang, 'card.game.desc')}
                 </p>
               </div>
 
@@ -308,26 +313,26 @@ function GatewayPortal() {
               <ul className="space-y-2.5 text-xs text-gray-300 font-sans text-left border-t border-white/5 pt-5">
                 <li className="flex items-center gap-2">
                   <CheckCircle size={14} className="text-cyan-400 shrink-0" />
-                  <span>Real-Time 3D Interactive Lot & Canvas</span>
+                  <span>{t(lang, 'card.game.f1')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle size={14} className="text-cyan-400 shrink-0" />
-                  <span>Live Bidding Auction Mechanics</span>
+                  <span>{t(lang, 'card.game.f2')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle size={14} className="text-cyan-400 shrink-0" />
-                  <span>Interactive CRM & DMV Registration Panels</span>
+                  <span>{t(lang, 'card.game.f3')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle size={14} className="text-cyan-400 shrink-0" />
-                  <span>Staff Hiring & AI Agent Management</span>
+                  <span>{t(lang, 'card.game.f4')}</span>
                 </li>
               </ul>
             </div>
 
             {/* Launch trigger button */}
             <button className="w-full py-4 bg-white/5 hover:bg-cyan-400 hover:text-black border border-white/10 hover:border-cyan-400 rounded-2xl font-black uppercase text-xs tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(34,211,238,0.3)]">
-              Launch Simulator 3D <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
+              {t(lang, 'card.game.cta')} <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
             </button>
           </motion.div>
 
@@ -348,17 +353,17 @@ function GatewayPortal() {
                   <Wrench size={28} />
                 </div>
                 <span className="text-[9px] font-mono tracking-widest text-blue-400 bg-blue-400/10 border border-blue-400/20 px-3 py-1 rounded-full font-black uppercase">
-                  ENTERPRISE TOOL
+                  {t(lang, 'card.shop.badge')}
                 </span>
               </div>
 
               {/* Title & Desc */}
               <div className="space-y-3 text-left">
                 <h3 className="text-xl font-bold uppercase tracking-wider group-hover:text-blue-400 transition-colors">
-                  AutoFlow Pro Bodyshop Suite
+                  {t(lang, 'card.shop.title')}
                 </h3>
                 <p className="text-xs text-gray-400 leading-relaxed font-sans">
-                  A standalone reconditioning operations tracker built for professional garages, detail centers, paint shops, and real-world mechanic operations.
+                  {t(lang, 'card.shop.desc')}
                 </p>
               </div>
 
@@ -366,26 +371,26 @@ function GatewayPortal() {
               <ul className="space-y-2.5 text-xs text-gray-300 font-sans text-left border-t border-white/5 pt-5">
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-blue-400 shrink-0" />
-                  <span>Domino's-Style Live Repair Status Portal</span>
+                  <span>{t(lang, 'card.shop.f1')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-blue-400 shrink-0" />
-                  <span>7-Stage Active Shop Pipeline & Board</span>
+                  <span>{t(lang, 'card.shop.f2')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-blue-400 shrink-0" />
-                  <span>Custom Diagnostics & Technician Notes Logging</span>
+                  <span>{t(lang, 'card.shop.f3')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-blue-400 shrink-0" />
-                  <span>Dev Operations Permissions Console Controls</span>
+                  <span>{t(lang, 'card.shop.f4')}</span>
                 </li>
               </ul>
             </div>
 
             {/* Launch trigger button */}
             <button className="w-full py-4 bg-white/5 hover:bg-blue-500 hover:text-black border border-white/10 hover:border-blue-500 rounded-2xl font-black uppercase text-xs tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]">
-              Launch Bodyshop Suite <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
+              {t(lang, 'card.shop.cta')} <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
             </button>
           </motion.div>
 
@@ -406,17 +411,17 @@ function GatewayPortal() {
                   <Gauge size={28} />
                 </div>
                 <span className="text-[9px] font-mono tracking-widest text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-3 py-1 rounded-full font-black uppercase">
-                  DIAGNOSTICS TOOL
+                  {t(lang, 'card.mech.badge')}
                 </span>
               </div>
 
               {/* Title & Desc */}
               <div className="space-y-3 text-left">
                 <h3 className="text-xl font-bold uppercase tracking-wider group-hover:text-emerald-400 transition-colors">
-                  MechFlow Pro Diagnostics
+                  {t(lang, 'card.mech.title')}
                 </h3>
                 <p className="text-xs text-gray-400 leading-relaxed font-sans">
-                  A standalone mechanical diagnostics and engine overhaul suite built for technical garages, dyno tuners, and electrical diagnostics bays.
+                  {t(lang, 'card.mech.desc')}
                 </p>
               </div>
 
@@ -424,26 +429,26 @@ function GatewayPortal() {
               <ul className="space-y-2.5 text-xs text-gray-300 font-sans text-left border-t border-white/5 pt-5">
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
-                  <span>Real-Time OBD-II CAN-Bus Terminal Simulator</span>
+                  <span>{t(lang, 'card.mech.f1')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
-                  <span>4-Bay Mechanical Lift Manager & Steppers</span>
+                  <span>{t(lang, 'card.mech.f2')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
-                  <span>Interactive Fault Code Library Lookup</span>
+                  <span>{t(lang, 'card.mech.f3')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
-                  <span>Pistons, Turbos & Ignition Spares Auditor</span>
+                  <span>{t(lang, 'card.mech.f4')}</span>
                 </li>
               </ul>
             </div>
 
             {/* Launch trigger button */}
             <button className="w-full py-4 bg-white/5 hover:bg-emerald-400 hover:text-black border border-white/10 hover:border-emerald-400 rounded-2xl font-black uppercase text-xs tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-              Launch Diagnostics Suite <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
+              {t(lang, 'card.mech.cta')} <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
             </button>
           </motion.div>
 
@@ -464,17 +469,17 @@ function GatewayPortal() {
                   <Activity size={28} />
                 </div>
                 <span className="text-[9px] font-mono tracking-widest text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-3 py-1 rounded-full font-black uppercase">
-                  PUBLIC PLATFORM
+                  {t(lang, 'card.platform.badge')}
                 </span>
               </div>
 
               {/* Title & Desc */}
               <div className="space-y-3 text-left">
                 <h3 className="text-xl font-bold uppercase tracking-wider group-hover:text-emerald-400 transition-colors">
-                  RepairFlow Platform
+                  {t(lang, 'card.platform.title')}
                 </h3>
                 <p className="text-xs text-gray-400 leading-relaxed font-sans">
-                  A public standalone shop simulator & process tracking portal where customers query mechanical repair order metrics and view real-time OBD-II visualizers.
+                  {t(lang, 'card.platform.desc')}
                 </p>
               </div>
 
@@ -482,26 +487,26 @@ function GatewayPortal() {
               <ul className="space-y-2.5 text-xs text-gray-300 font-sans text-left border-t border-white/5 pt-5">
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
-                  <span>Real-Time CAN-Bus Telemetry & SVGs</span>
+                  <span>{t(lang, 'card.platform.f1')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
-                  <span>Live Capacity Indexes & Wait Queues</span>
+                  <span>{t(lang, 'card.platform.f2')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
-                  <span>Interactive Fault Code Lookup Terminal</span>
+                  <span>{t(lang, 'card.platform.f3')}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-emerald-400 shrink-0" />
-                  <span>Operator Bay Manager & Tech Upgrades</span>
+                  <span>{t(lang, 'card.platform.f4')}</span>
                 </li>
               </ul>
             </div>
 
             {/* Launch trigger button */}
             <button className="w-full py-4 bg-white/5 hover:bg-emerald-400 hover:text-black border border-white/10 hover:border-emerald-500 rounded-2xl font-black uppercase text-xs tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-              Launch RepairFlow Platform <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
+              {t(lang, 'card.platform.cta')} <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform" />
             </button>
           </motion.div>
 
@@ -510,7 +515,7 @@ function GatewayPortal() {
 
       {/* Bottom Legal Footer */}
       <footer className="w-full text-center z-10 shrink-0 border-t border-white/5 pt-6 text-[10px] text-gray-500 font-mono tracking-widest">
-        SYSTEM SECURITY CLASSIFICATION: COMMERCIAL SYSTEM • SECURED VIA INTEGRATED SECURE PROTOCOLS
+        {t(lang, 'portal.footer')}
       </footer>
     </div>
   )
