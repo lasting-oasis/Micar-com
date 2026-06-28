@@ -1627,21 +1627,19 @@ export function VanillaThreeScene() {
              const tl1 = new THREE.Mesh(hlG, tlM); tl1.position.set(-width/2 + 0.8, yOff + 0.5, -length/2 - 0.01); group.add(tl1);
              const tl2 = new THREE.Mesh(hlG, tlM); tl2.position.set(width/2 - 0.8, yOff + 0.5, -length/2 - 0.01); group.add(tl2);
 
-             // Add smoke particle system for bad mechanical condition
-             let smokeParticles: THREE.Points | null = null;
-             if (mechCond < 50) {
-                 const partGeo = new THREE.BufferGeometry();
-                 const partCount = 50;
-                 const pPos = new Float32Array(partCount * 3);
-                 for (let i = 0; i < partCount * 3; i++) {
-                     pPos[i] = (Math.random() - 0.5) * 2;
-                 }
-                 partGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-                 const partMat = new THREE.PointsMaterial({ color: 0x888888, size: 0.8, transparent: true, opacity: 0.4 });
-                 smokeParticles = new THREE.Points(partGeo, partMat);
-                 smokeParticles.position.set(0, yOff + chassisH, length / 2 - 1); // Hood position
-                 group.add(smokeParticles);
-             }
+             // Smoke particle system for poor mechanical condition. Always built but
+             // its visibility tracks the car's CURRENT condition, so it clears on a
+             // repair (and reappears if the car is damaged again later).
+             const partGeo = new THREE.BufferGeometry();
+             const partCount = 50;
+             const pPos = new Float32Array(partCount * 3);
+             for (let i = 0; i < partCount * 3; i++) pPos[i] = (Math.random() - 0.5) * 2;
+             partGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+             const partMat = new THREE.PointsMaterial({ color: 0x888888, size: 0.8, transparent: true, opacity: 0.4 });
+             const smokeParticles = new THREE.Points(partGeo, partMat);
+             smokeParticles.position.set(0, yOff + chassisH, length / 2 - 1); // Hood position
+             smokeParticles.visible = mechCond < 50;
+             group.add(smokeParticles);
 
              return { group, wheels, body: chassis, frontPivots, smokeParticles };
         };
@@ -1792,7 +1790,7 @@ export function VanillaThreeScene() {
 
             // Animate smoke particles
             Object.values(carSmokes).forEach(smoke => {
-                if (!smoke) return;
+                if (!smoke || !smoke.visible) return; // skip healthy cars (smoke hidden)
                 const positions = smoke.geometry.attributes.position.array as Float32Array;
                 for (let i = 0; i < positions.length; i += 3) {
                     positions[i + 1] += 0.05; // move Y up
@@ -2033,6 +2031,10 @@ export function VanillaThreeScene() {
                         carSteering[car.id] = assets.frontPivots;
                         vehiclePhysics[car.id] = { v: 0, yaw: 0 };
                     }
+
+                    // smoke reflects the car's CURRENT mechanical condition (clears after a repair)
+                    const smoke = carSmokes[car.id];
+                    if (smoke) smoke.visible = car.mechanicCondition < 50;
 
                     // dynamic state update
                     const body = carBodies[car.id];
