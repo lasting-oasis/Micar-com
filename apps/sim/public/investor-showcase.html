@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Used Car Empire — Investor Preview</title>
+<meta name="description" content="Used Car Empire: the 3D, multiplayer simulation of the entire used-car business — auctions, reconditioning, finance, insurance, racing, and vehicles as tradable assets, inside a living economy." />
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<style>
+  :root{
+    --bg:#05060b; --bg2:#080b14; --panel:rgba(255,255,255,.035); --line:rgba(255,255,255,.09);
+    --txt:#e8eefc; --mut:#93a0bd; --dim:#5d6b8a;
+    --cyan:#22d3ee; --blue:#3b82f6; --indigo:#818cf8; --emerald:#34d399; --amber:#fbbf24; --rose:#fb7185; --violet:#a855f7;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+       line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .grad{background:linear-gradient(100deg,var(--cyan),var(--indigo) 55%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:800;color:var(--cyan)}
+  h2.section-title{font-size:clamp(28px,4.4vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.1;margin:14px 0 10px}
+  .lead{color:var(--mut);font-size:clamp(15px,1.6vw,18px);max-width:680px}
+
+  /* ---------- HERO ---------- */
+  #hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+  #hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+  #hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(1100px 700px at 72% 38%,transparent,rgba(5,6,11,.55) 70%,var(--bg) 100%),
+               linear-gradient(180deg,rgba(5,6,11,.35),transparent 30%,transparent 70%,var(--bg))}
+  .hero-inner{position:relative;z-index:2;width:100%}
+  .hero-inner .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid var(--line);
+    border-radius:999px;background:rgba(255,255,255,.04);backdrop-filter:blur(8px)}
+  .hero-inner .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  h1{font-size:clamp(44px,8.5vw,104px);font-weight:900;letter-spacing:-.04em;line-height:.92;margin:22px 0 0}
+  .hero-sub{font-size:clamp(17px,2.2vw,24px);font-weight:600;color:#cdd7ef;margin-top:18px;max-width:620px}
+  .hero-lead{color:var(--mut);font-size:clamp(14px,1.5vw,16px);margin-top:14px;max-width:560px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:14px;font-weight:800;font-size:14px;
+    letter-spacing:.02em;cursor:pointer;border:1px solid transparent;transition:.25s;text-transform:uppercase}
+  .btn-primary{background:linear-gradient(100deg,var(--cyan),var(--blue));color:#04121e;box-shadow:0 14px 40px rgba(34,211,238,.28)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 50px rgba(34,211,238,.4)}
+  .btn-ghost{background:rgba(255,255,255,.04);border-color:var(--line);color:var(--txt)}
+  .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+  .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:var(--dim);
+    font-size:11px;letter-spacing:.25em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scroll-hint .m{width:22px;height:34px;border:2px solid var(--line);border-radius:12px;position:relative}
+  .scroll-hint .m::after{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:7px;
+    border-radius:2px;background:var(--cyan);animation:scrolld 1.6s infinite}
+  @keyframes scrolld{0%{opacity:0;top:6px}40%{opacity:1}100%{opacity:0;top:18px}}
+
+  /* ---------- STATS ---------- */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(34,211,238,.03),transparent)}
+  .stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{padding:38px 24px;text-align:center;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat .num{font-size:clamp(30px,4.5vw,48px);font-weight:900;letter-spacing:-.03em}
+  .stat .lbl{color:var(--mut);font-size:12.5px;margin-top:4px;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+
+  /* ---------- SECTIONS ---------- */
+  section.block{padding:clamp(70px,10vw,120px) 0;position:relative}
+  .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
+
+  .quote{font-size:clamp(24px,3.6vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.2;max-width:880px}
+  .quote .grad{font-weight:900}
+
+  /* feature grid */
+  .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin-top:46px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;transition:.3s;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);opacity:0;transition:.3s}
+  .card:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.35);background:rgba(255,255,255,.05)}
+  .card:hover::before{opacity:1}
+  .card .ico{font-size:30px;display:inline-grid;place-items:center;width:54px;height:54px;border-radius:14px;
+    background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);margin-bottom:16px}
+  .card h3{font-size:18px;font-weight:800;letter-spacing:-.01em}
+  .card p{color:var(--mut);font-size:14px;margin-top:8px}
+  .card .tag{display:inline-block;margin-top:14px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;
+    padding:4px 10px;border-radius:999px}
+  .tag.live{color:var(--emerald);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25)}
+  .tag.build{color:var(--amber);background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25)}
+
+  /* split */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+  .panel-list{display:flex;flex-direction:column;gap:14px;margin-top:26px}
+  .pl-item{display:flex;gap:14px;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+  .pl-item .k{font-size:22px;flex:none}
+  .pl-item h4{font-size:15.5px;font-weight:800}
+  .pl-item p{color:var(--mut);font-size:13.5px;margin-top:3px}
+  .visual{border:1px solid var(--line);border-radius:24px;padding:30px;background:
+     radial-gradient(420px 320px at 80% 0%,rgba(129,140,248,.14),transparent 60%),
+     radial-gradient(420px 320px at 0% 100%,rgba(34,211,238,.12),transparent 60%),var(--bg2);min-height:340px;
+     display:flex;flex-direction:column;justify-content:center;gap:14px;position:relative;overflow:hidden}
+  .gauge{display:flex;flex-direction:column;gap:7px}
+  .gauge .top{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+  .gauge .bar{height:9px;border-radius:6px;background:rgba(255,255,255,.07);overflow:hidden}
+  .gauge .fill{height:100%;border-radius:6px;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{font-size:11px;font-weight:700;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:#cdd7ef}
+
+  /* roadmap */
+  .road{position:relative;margin-top:50px;padding-left:30px}
+  .road::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan),var(--indigo),transparent)}
+  .phase{position:relative;padding:0 0 38px 28px}
+  .phase::before{content:"";position:absolute;left:-30px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--cyan);box-shadow:0 0 0 4px rgba(34,211,238,.12)}
+  .phase.next::before{border-color:var(--indigo);box-shadow:0 0 0 4px rgba(129,140,248,.12)}
+  .phase.then::before{border-color:var(--violet);box-shadow:0 0 0 4px rgba(168,85,247,.12)}
+  .phase.horizon::before{border-color:var(--mut);box-shadow:0 0 0 4px rgba(147,160,189,.1)}
+  .phase .when{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--cyan)}
+  .phase.next .when{color:var(--indigo)}.phase.then .when{color:var(--violet)}.phase.horizon .when{color:var(--mut)}
+  .phase h4{font-size:18px;font-weight:800;margin-top:5px}
+  .phase p{color:var(--mut);font-size:14px;margin-top:5px;max-width:640px}
+
+  /* opportunity */
+  .opp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .opp{padding:26px;border:1px solid var(--line);border-radius:20px;background:var(--panel)}
+  .opp .big{font-size:34px;font-weight:900;letter-spacing:-.03em}
+  .opp h4{font-size:14px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);font-weight:800;margin-top:6px}
+  .opp p{color:var(--mut);font-size:13.5px;margin-top:10px}
+
+  .ask{margin-top:54px;border:1px solid rgba(34,211,238,.28);border-radius:26px;padding:clamp(34px,5vw,56px);text-align:center;
+    background:radial-gradient(700px 420px at 50% -20%,rgba(34,211,238,.13),transparent 60%),var(--bg2)}
+  .ask h3{font-size:clamp(24px,3.5vw,38px);font-weight:900;letter-spacing:-.02em}
+  .ask p{color:var(--mut);max-width:600px;margin:14px auto 0}
+  .note{margin-top:22px;font-size:12px;color:var(--dim)}
+
+  footer{border-top:1px solid var(--line);padding:46px 0;color:var(--mut);font-size:13px}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .brandmark{font-weight:900;letter-spacing:-.02em;font-size:17px;color:var(--txt)}
+
+  @media(max-width:880px){
+    .stats .grid{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:0}
+    .stat{border-bottom:1px solid var(--line)}
+    .split{grid-template-columns:1fr;gap:34px}
+    .opp-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner wrap">
+    <span class="eyebrow"><span class="dot"></span>Investor Preview · 2026</span>
+    <h1><span class="grad">USED CAR</span><br/>EMPIRE</h1>
+    <p class="hero-sub">The 3D, multiplayer simulation of the <b>entire used-car business.</b></p>
+    <p class="hero-lead">Source at auction. Recondition. Finance. Insure. Race. Trade vehicles as assets — inside a living economy that reacts to a real central-bank engine.</p>
+    <div class="cta-row">
+      <a href="#vision" class="btn btn-primary">See the vision ↓</a>
+      <a href="#strengths" class="btn btn-ghost">What's already built</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="m"></div>Scroll</div>
+</section>
+
+<!-- ================= STATS ================= -->
+<div class="stats">
+  <div class="wrap"><div class="grid">
+    <div class="stat"><div class="num grad" data-count="1">1</div><div class="lbl">Living 3D city</div></div>
+    <div class="stat"><div class="num grad" data-count="12">12</div><div class="lbl">Interconnected systems</div></div>
+    <div class="stat"><div class="num grad" data-count="3">3</div><div class="lbl">Career paths</div></div>
+    <div class="stat"><div class="num grad">∞</div><div class="lbl">Multiplayer economy</div></div>
+  </div></div>
+</div>
+
+<!-- ================= VISION ================= -->
+<section class="block center" id="vision">
+  <div class="wrap reveal">
+    <span class="eyebrow">The Vision</span>
+    <p class="quote" style="margin:16px auto 0">Most tycoon games <span style="color:var(--mut)">fake</span> the numbers.<br/>We <span class="grad">simulate the business.</span></p>
+    <p class="lead" style="margin-top:26px">We're building the definitive interactive model of automotive retail — a hand-built 3D world, a genuine macro-economy, and live multiplayer that turn a <b>trillion-dollar industry</b> into something you can play, learn from, and master. Part game. Part business sandbox. Part classroom — and a funnel to real-world shops.</p>
+  </div>
+</section>
+
+<!-- ================= STRENGTHS ================= -->
+<section class="block" id="strengths">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">The Foundation Is Live</span>
+      <h2 class="section-title">A deep, playable prototype —<br/><span class="grad">already touching every layer.</span></h2>
+      <p class="lead">This isn't a deck of mockups. A drivable 3D world with an interlocking dealership, economy, racing, and multiplayer stack runs in the browser today.</p>
+    </div>
+    <div class="feat-grid reveal">
+      <div class="card"><div class="ico">🌎</div><h3>A Living 3D World</h3><p>Walk or drive a full city — dealership lots, an auction house, bank, DMV, mechanic &amp; body shops, gas stations, and a racing speedway, all explorable in real time.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">🏷️</div><h3>The Full Dealership Loop</h3><p>Source cars at live auction, diagnose &amp; recondition, pass a DMV inspection grounded in real NC dealer law, detail, display, and negotiate sales with AI buyers who have budgets &amp; credit.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">🏦</div><h3>A Real Macro-Economy</h3><p>A Federal-Reserve engine sets interest rates with a Taylor rule — rippling into prime rates, inflation, used-car demand, and your daily floor-plan carrying cost.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">📈</div><h3>Vehicles as Tradable Assets</h3><p>Fractionalize any car into shares and trade them on a market with a market-maker <i>and</i> a peer order book — rental-yield dividends included. Wall Street, for cars.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">🛡️</div><h3>Insurance &amp; Risk</h3><p>A risk-event engine, three policy types, and lien-forced coverage. Accidents generate real collision work that flows to body shops — systems feeding systems.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">🏁</div><h3>Speedway Racing</h3><p>A huge circuit with fuel economy, gas stations, car rentals, CPU rivals across three difficulties, Mario-Kart-style item boxes, and placement-based purses — a built-in retention loop.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">🤝</div><h3>Real-Time Multiplayer</h3><p>A shared, server-authoritative world with live chat, other dealers driving around you, and a GPS minimap that follows you across the map.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">🚗</div><h3>Authentic Car Variety</h3><p>Real model line-ups rendered as distinct 3D body styles — sedans, coupes, SUVs, pickups with beds, sports cars, vans — in a wide, RNG-generated paint palette.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">🎓</div><h3>In-World Education</h3><p>An interactive library teaching Dealer 101, deal math, F&amp;I, NC compliance, and Body-Shop Business 101 — turning play into genuine industry literacy.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">🌐</div><h3>Browser-Native &amp; Bilingual</h3><p>Runs instantly in any browser — no install, cross-platform — with English &amp; Spanish onboarding to reach the broadest possible audience.</p><span class="tag live">● Live</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ECONOMY DEEP DIVE ================= -->
+<section class="block" id="economy">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">The Differentiator</span>
+        <h2 class="section-title">An economy that <span class="grad">actually reacts.</span></h2>
+        <p class="lead">Every valuation flows through one coherent engine, so the world never contradicts itself — and the stakes feel real.</p>
+        <div class="panel-list">
+          <div class="pl-item"><div class="k">🏛️</div><div><h4>Central-bank engine</h4><p>A Taylor-rule Fed moves the funds rate against inflation &amp; demand → prime rates, car values, and floor-plan carry all respond.</p></div></div>
+          <div class="pl-item"><div class="k">💳</div><div><h4>Full F&amp;I stack</h4><p>Cash, bank financing with dealer reserve, and buy-here-pay-here paper — complete with delinquency, repossession, title loans, and liens.</p></div></div>
+          <div class="pl-item"><div class="k">📊</div><div><h4>The fractional market</h4><p>An SPV/issuer model with market-maker pricing, a live order book, volatility, and yield — players can securitize their own inventory.</p></div></div>
+        </div>
+      </div>
+      <div class="visual reveal">
+        <div class="eyebrow" style="color:var(--mut)">Live economy readout</div>
+        <div class="gauge"><div class="top"><span>Fed Funds Rate</span><span style="color:var(--cyan)">5.00%</span></div><div class="bar"><div class="fill" data-w="34%" style="background:linear-gradient(90deg,var(--cyan),var(--blue))"></div></div></div>
+        <div class="gauge"><div class="top"><span>Prime Rate</span><span style="color:var(--indigo)">8.00%</span></div><div class="bar"><div class="fill" data-w="53%" style="background:linear-gradient(90deg,var(--indigo),var(--violet))"></div></div></div>
+        <div class="gauge"><div class="top"><span>Used-Car Demand</span><span style="color:var(--emerald)">Steady</span></div><div class="bar"><div class="fill" data-w="62%" style="background:linear-gradient(90deg,var(--emerald),var(--cyan))"></div></div></div>
+        <div class="gauge"><div class="top"><span>Inflation</span><span style="color:var(--amber)">2.5%</span></div><div class="bar"><div class="fill" data-w="25%" style="background:linear-gradient(90deg,var(--amber),var(--rose))"></div></div></div>
+        <div class="chips"><span class="chip">Floor-plan carry</span><span class="chip">Dealer reserve</span><span class="chip">BHPH yield</span><span class="chip">Repossession</span><span class="chip">Liens</span><span class="chip">Fractional shares</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RACING ================= -->
+<section class="block" id="racing">
+  <div class="wrap">
+    <div class="split">
+      <div class="visual reveal" style="order:2">
+        <div class="eyebrow" style="color:var(--mut)">Speedway · race readout</div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:6px">
+          <div style="flex:1;min-width:120px;text-align:center;padding:16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)"><div style="font-size:11px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase;font-weight:700">Position</div><div style="font-size:30px;font-weight:900;color:var(--emerald)">1<span style="font-size:14px;color:var(--mut)">/4</span></div></div>
+          <div style="flex:1;min-width:120px;text-align:center;padding:16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)"><div style="font-size:11px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase;font-weight:700">Lap</div><div style="font-size:30px;font-weight:900">3<span style="font-size:14px;color:var(--mut)">/4</span></div></div>
+          <div style="flex:1;min-width:120px;text-align:center;padding:16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03)"><div style="font-size:11px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase;font-weight:700">Item</div><div style="font-size:30px;font-weight:900">⭐</div></div>
+        </div>
+        <div class="chips" style="margin-top:14px"><span class="chip">🍄 Boost</span><span class="chip">🍌 Banana</span><span class="chip">🐢 Shell</span><span class="chip">⭐ Star</span><span class="chip">Beginner</span><span class="chip">Medium</span><span class="chip">Veteran</span></div>
+      </div>
+      <div class="reveal" style="order:1">
+        <span class="eyebrow">Engagement &amp; Monetization</span>
+        <h2 class="section-title">A game <span class="grad">inside the sim.</span></h2>
+        <p class="lead">Racing layers a fast, fun, replayable loop on top of the business — the hook that turns a tycoon sandbox into a destination players return to daily.</p>
+        <div class="panel-list">
+          <div class="pl-item"><div class="k">🏁</div><div><h4>Drive what you own — or rent</h4><p>Race your own inventory, or rent a car at the speedway. All driving burns fuel; gas stations and a fuel economy keep the loop honest.</p></div></div>
+          <div class="pl-item"><div class="k">🤖</div><div><h4>CPU rivals &amp; real stakes</h4><p>Three difficulty tiers with progressively faster AI. Place 1st for the full purse — bigger rewards, harder rivals. A clean risk/reward gradient.</p></div></div>
+          <div class="pl-item"><div class="k">🎁</div><div><h4>Items, not pay-to-win</h4><p>Holographic "?" boxes drop boosts, stars, bananas, and shells — engagement and skill expression, with monetization headroom for cosmetics &amp; entries.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REAL-WORLD BRIDGE ================= -->
+<section class="block center" id="bridge">
+  <div class="wrap reveal">
+    <span class="eyebrow">Beyond the Game</span>
+    <h2 class="section-title">A bridge to <span class="grad">real automotive businesses.</span></h2>
+    <p class="lead" style="margin:0 auto">The simulation doubles as a marketing funnel for — and an operating tool used by — real shops and dealers.</p>
+    <div class="feat-grid" style="margin-top:40px">
+      <div class="card"><div class="ico">🛠️</div><h3>Standalone Shop Suites</h3><p>Bundled professional tools — a bodyshop ops board, a mechanic diagnostics console, and a public repair-status portal — let real garages run a digital storefront.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">📚</div><h3>Workforce Education</h3><p>The in-world curriculum is real industry training: deal math, F&amp;I, compliance, and collision business — a credible edtech angle for dealers &amp; new hires.</p><span class="tag live">● Live</span></div>
+      <div class="card"><div class="ico">🔗</div><h3>Real-Inventory Hooks</h3><p>The architecture is built to plug verified shops and live inventory feeds into the world — blurring the line between the simulated and the real market.</p><span class="tag build">◐ On the roadmap</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECH ================= -->
+<section class="block" id="tech">
+  <div class="wrap">
+    <div class="reveal center"><span class="eyebrow">Under the Hood</span>
+      <h2 class="section-title">Built lean. <span class="grad">Built to scale.</span></h2>
+      <p class="lead" style="margin:0 auto">A custom real-time 3D engine — no bloated game framework — that loads instantly in any browser.</p>
+    </div>
+    <div class="feat-grid reveal" style="margin-top:42px">
+      <div class="card"><div class="ico">🧊</div><h3>Custom WebGL Engine</h3><p>A hand-written Three.js scene — instanced rendering, custom driving physics, day/night, and a logarithmic depth buffer for a world that spans kilometers.</p></div>
+      <div class="card"><div class="ico">⚡</div><h3>Real-Time &amp; Server-Authoritative</h3><p>socket.io keeps every player in one coherent, cheat-resistant world, with throttled position sync and a type-checked, gated build pipeline.</p></div>
+      <div class="card"><div class="ico">🧩</div><h3>React · TypeScript · Zustand</h3><p>A modern, maintainable client. Strict type-checking now gates the build, so the codebase stays healthy as the team grows.</p></div>
+      <div class="card"><div class="ico">☁️</div><h3>Zero-Install, Cross-Platform</h3><p>One URL. Desktop and mobile, no download, no app store. Frictionless distribution and instant top-of-funnel.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROADMAP ================= -->
+<section class="block" id="roadmap">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">Where We're Going</span>
+      <h2 class="section-title">The roadmap to a <span class="grad">live auto-economy.</span></h2></div>
+    <div class="road reveal">
+      <div class="phase"><div class="when">Now · Foundation</div><h4>A deep, playable prototype</h4><p>The 3D world, full dealership loop, reactive economy, fractional market, insurance, multiplayer foundation, and CPU racing — all live and interlocking.</p></div>
+      <div class="phase next"><div class="when">Next · Competition &amp; Identity</div><h4>Live head-to-head racing &amp; player accounts</h4><p>Real-time multiplayer races and tournaments, items that affect rivals, and persistent accounts so progress carries across sessions.</p></div>
+      <div class="phase then"><div class="when">Then · The Marketplace</div><h4>A scaled multiplayer economy</h4><p>Player-to-player marketplaces — rentals, a fractional secondary market, dealer-to-dealer trade — and verified real-shop integrations.</p></div>
+      <div class="phase horizon"><div class="when">Horizon · Platform</div><h4>Mobile-native, multi-city, creator tools</h4><p>Native mobile polish, expanded cities &amp; franchises, user-generated content, and financial-literacy partnerships that take the classroom mainstream.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPPORTUNITY / ASK ================= -->
+<section class="block" id="opportunity">
+  <div class="wrap">
+    <div class="reveal center"><span class="eyebrow">The Opportunity</span>
+      <h2 class="section-title">A category of <span class="grad">one.</span></h2>
+      <p class="lead" style="margin:0 auto">Used-car retail sits at the intersection of gaming, fintech, edtech, and SaaS — and nobody has simulated it like this.</p>
+    </div>
+    <div class="opp-grid reveal">
+      <div class="opp"><div class="big grad">$1T+</div><h4>U.S. used-car market / yr</h4><p>~40 million vehicles change hands annually — a massive, emotionally resonant industry almost everyone has touched.</p></div>
+      <div class="opp"><div class="big grad">4-in-1</div><h4>Game · Fintech · EdTech · SaaS</h4><p>Proven tycoon-sim retention, a financial sandbox, real workforce training, and tools real shops will pay for.</p></div>
+      <div class="opp"><div class="big grad">Now</div><h4>Why this moment</h4><p>Browser 3D is mature, sim games are at all-time highs, and demand for financial literacy keeps climbing.</p></div>
+    </div>
+
+    <div class="ask reveal">
+      <span class="eyebrow">The Ask</span>
+      <h3 style="margin-top:12px">Let's build the auto-economy metaverse.</h3>
+      <p>We're raising to grow the team, scale real-time infrastructure, and ship the live multiplayer economy &amp; real-shop integrations that turn this deep prototype into a platform.</p>
+      <div class="cta-row" style="justify-content:center;margin-top:30px">
+        <a href="mailto:queencityautorepairsales@gmail.com" class="btn btn-primary">Request the full deck</a>
+        <a href="#hero" class="btn btn-ghost">Back to top ↑</a>
+      </div>
+      <p class="note">Figures reference total industry size; this is an early-stage product preview. Replace the contact &amp; raise details before sharing.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div><div class="brandmark grad">USED CAR EMPIRE</div><div style="margin-top:4px">A living 3D simulation of the used-car business.</div></div>
+    <div style="text-align:right">Built with a custom Three.js engine · Browser-native<br/>Investor preview · 2026</div>
+  </div>
+</footer>
+
+<!-- ================= THREE.JS HERO ================= -->
+<script type="module">
+import * as THREE from 'three';
+
+/* ---------- scroll reveal + counters + gauges ---------- */
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){
+    e.target.classList.add('in');
+    e.target.querySelectorAll?.('.fill').forEach(f=>{ f.style.width = f.dataset.w; });
+    io.unobserve(e.target);
+  }});
+},{threshold:.18});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const countIO = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){
+    const el=e.target, target=+el.dataset.count; let n=0;
+    const step=Math.max(1,Math.round(target/28));
+    const t=setInterval(()=>{ n+=step; if(n>=target){n=target;clearInterval(t);} el.textContent=n; },28);
+    countIO.unobserve(el);
+  }});
+},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>countIO.observe(el));
+
+/* ---------- 3D hero ---------- */
+const canvas = document.getElementById('hero-canvas');
+try {
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x05060b, 9, 34);
+
+  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 200);
+  camera.position.set(7.4, 4.2, 9.2);
+
+  /* lights */
+  scene.add(new THREE.HemisphereLight(0x9bd0ff, 0x0a0e18, 0.55));
+  const key = new THREE.SpotLight(0xffffff, 900, 60, Math.PI/5, 0.5, 1.4);
+  key.position.set(8, 16, 9); key.castShadow = true; key.shadow.mapSize.set(1024,1024); scene.add(key);
+  const rim = new THREE.SpotLight(0x38bdf8, 700, 60, Math.PI/4, 0.6, 1.5);
+  rim.position.set(-11, 7, -9); scene.add(rim);
+  const fill = new THREE.PointLight(0x818cf8, 250, 40); fill.position.set(-6, 3, 8); scene.add(fill);
+
+  /* grid floor */
+  const grid = new THREE.GridHelper(80, 80, 0x2a4a8a, 0x10203e);
+  grid.position.y = 0.001; scene.add(grid);
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(200,200), new THREE.MeshStandardMaterial({ color:0x05070d, roughness:0.85, metalness:0.3 }));
+  floor.rotation.x = -Math.PI/2; floor.receiveShadow = true; scene.add(floor);
+
+  /* turntable */
+  const plat = new THREE.Mesh(new THREE.CylinderGeometry(3.4, 3.6, 0.3, 56), new THREE.MeshStandardMaterial({ color:0x0c1424, roughness:0.5, metalness:0.6 }));
+  plat.position.y = 0.15; plat.receiveShadow = true; scene.add(plat);
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(3.45, 0.05, 12, 80), new THREE.MeshStandardMaterial({ color:0x22d3ee, emissive:0x22d3ee, emissiveIntensity:2 }));
+  ring.rotation.x = Math.PI/2; ring.position.y = 0.31; scene.add(ring);
+
+  /* ---- build a low-poly sports car ---- */
+  const car = new THREE.Group();
+  const paint = new THREE.MeshStandardMaterial({ color:0x22d3ee, metalness:0.85, roughness:0.28 });
+  const glass = new THREE.MeshStandardMaterial({ color:0x0a1622, metalness:0.6, roughness:0.1, transparent:true, opacity:0.85 });
+  const rubber = new THREE.MeshStandardMaterial({ color:0x0c0c10, roughness:0.9 });
+  const chrome = new THREE.MeshStandardMaterial({ color:0xdfe7f3, metalness:1, roughness:0.18 });
+  const body = []; // hue-shifting parts
+  const addBody = (geo, x,y,z)=>{ const m=new THREE.Mesh(geo, paint); m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true; car.add(m); body.push(m); return m; };
+
+  addBody(new THREE.BoxGeometry(5.4, 0.7, 2.3), 0, 0.95, 0);            // chassis
+  addBody(new THREE.BoxGeometry(2.2, 0.55, 2.1), 1.5, 1.45, 0);        // hood
+  const cab = addBody(new THREE.BoxGeometry(2.5, 0.85, 2.0), -0.5, 1.7, 0); // cabin
+  addBody(new THREE.BoxGeometry(1.5, 0.55, 2.1), -2.1, 1.4, 0);        // trunk
+  // windshield + side glass
+  const ws = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.8, 1.9), glass); ws.position.set(0.8, 1.78, 0); ws.rotation.z = -0.5; car.add(ws);
+  const cg = new THREE.Mesh(new THREE.BoxGeometry(2.2, 0.7, 2.02), glass); cg.position.set(-0.5, 1.72, 0); car.add(cg);
+  // spoiler
+  const spoil = addBody(new THREE.BoxGeometry(0.25, 0.12, 2.1), -2.8, 1.85, 0);
+  [-0.8,0.8].forEach(z=>{ const p=new THREE.Mesh(new THREE.BoxGeometry(0.12,0.5,0.12), paint); p.position.set(-2.8,1.55,z); car.add(p); body.push(p); });
+  // headlights / taillights
+  [-0.7,0.7].forEach(z=>{ const h=new THREE.Mesh(new THREE.BoxGeometry(0.12,0.28,0.5), new THREE.MeshStandardMaterial({color:0xeaf6ff,emissive:0xbfe9ff,emissiveIntensity:3})); h.position.set(2.75,1.0,z); car.add(h); });
+  [-0.7,0.7].forEach(z=>{ const t=new THREE.Mesh(new THREE.BoxGeometry(0.1,0.25,0.5), new THREE.MeshStandardMaterial({color:0xff3b3b,emissive:0xff1a1a,emissiveIntensity:2.5})); t.position.set(-2.85,1.05,z); car.add(t); });
+  // wheels
+  const wheelGeo = new THREE.CylinderGeometry(0.62, 0.62, 0.45, 22); wheelGeo.rotateX(Math.PI/2);
+  const wheels = [];
+  [[1.7,1.05],[1.7,-1.05],[-1.7,1.05],[-1.7,-1.05]].forEach(([x,z])=>{
+    const w = new THREE.Mesh(wheelGeo, rubber); w.position.set(x, 0.62, z); w.castShadow=true;
+    const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.3,0.3,0.47,12), chrome); hub.rotation.x=Math.PI/2; w.add(hub);
+    car.add(w); wheels.push(w);
+  });
+  car.position.y = 0.3; car.rotation.y = -0.5;
+  scene.add(car);
+
+  /* particles */
+  const pCount = 420, pPos = new Float32Array(pCount*3);
+  for(let i=0;i<pCount;i++){ pPos[i*3]=(Math.random()-0.5)*60; pPos[i*3+1]=Math.random()*22; pPos[i*3+2]=(Math.random()-0.5)*60; }
+  const pGeo = new THREE.BufferGeometry(); pGeo.setAttribute('position', new THREE.BufferAttribute(pPos,3));
+  const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ color:0x4ea8ff, size:0.08, transparent:true, opacity:0.55 }));
+  scene.add(particles);
+
+  /* interaction + loop */
+  let mx=0, my=0;
+  window.addEventListener('pointermove', e=>{ mx=(e.clientX/window.innerWidth-0.5); my=(e.clientY/window.innerHeight-0.5); });
+
+  function resize(){
+    const w = window.innerWidth, h = window.innerHeight;
+    renderer.setSize(w,h,false); camera.aspect = w/h; camera.updateProjectionMatrix();
+  }
+  window.addEventListener('resize', resize); resize();
+
+  const clock = new THREE.Clock();
+  let hue = 0.52;
+  function loop(){
+    const dt = clock.getDelta(), t = clock.elapsedTime;
+    car.rotation.y += dt*0.32;
+    car.position.y = 0.3 + Math.sin(t*1.2)*0.06;
+    wheels.forEach(w=> w.rotation.x = 0); // static (turntable)
+    // holographic paint shimmer
+    hue = (hue + dt*0.03) % 1; const col = new THREE.Color().setHSL(hue, 0.7, 0.55);
+    paint.color.copy(col); ring.material.color.copy(col); ring.material.emissive.copy(col);
+    // particle drift
+    const arr = pGeo.attributes.position.array;
+    for(let i=0;i<pCount;i++){ arr[i*3+1]+=dt*0.4; if(arr[i*3+1]>22) arr[i*3+1]=0; }
+    pGeo.attributes.position.needsUpdate = true;
+    // camera parallax
+    camera.position.x += ((7.4 + mx*2.2) - camera.position.x)*0.05;
+    camera.position.y += ((4.2 - my*1.4) - camera.position.y)*0.05;
+    camera.lookAt(0, 1.1, 0);
+    renderer.render(scene, camera);
+    requestAnimationFrame(loop);
+  }
+  loop();
+} catch(err){
+  console.warn('WebGL hero unavailable:', err);
+  canvas.style.display='none';
+  document.getElementById('hero').style.background='radial-gradient(900px 600px at 70% 30%,rgba(34,211,238,.12),transparent),var(--bg)';
+}
+</script>
+</body>
+</html>
