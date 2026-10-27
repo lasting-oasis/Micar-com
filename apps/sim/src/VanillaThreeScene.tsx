@@ -1200,13 +1200,19 @@ export function VanillaThreeScene() {
                 const livePositions = useGameStore.getState().playerPositions;
                 const follow = damp(0.2, delta);
 
+                // Build at most one missing dealership per frame (the local player's
+                // own lot first), so joining a busy world doesn't freeze while every
+                // lot is built in a single frame.
+                const nextLot = (me && me.lotPosition && !builtDealerships.has(me.id)) ? me
+                    : Object.values(current.gameState.players).find(p => !builtDealerships.has(p.id) && p.lotPosition);
+                if (nextLot) {
+                    const firstNew = scene.children.length;
+                    dealershipGates.push(createDealership(world, fences, furniture, nextLot.lotPosition.x, nextLot.lotPosition.z, nextLot.id, nextLot.id === current.playerId));
+                    batchWorld(scene.children.slice(firstNew));
+                    builtDealerships.add(nextLot.id);
+                }
+
                 Object.values(current.gameState.players).forEach(p => {
-                    if (!builtDealerships.has(p.id) && p.lotPosition) {
-                        const firstNew = scene.children.length;
-                        dealershipGates.push(createDealership(world, fences, furniture, p.lotPosition.x, p.lotPosition.z, p.id, p.id === current.playerId));
-                        batchWorld(scene.children.slice(firstNew));
-                        builtDealerships.add(p.id);
-                    }
                     const wp = livePositions[p.id] || p.worldPosition;
                     if (p.id === current.playerId || !wp) return;
                     
