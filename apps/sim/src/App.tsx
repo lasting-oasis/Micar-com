@@ -1616,8 +1616,11 @@ const ClockDisplay = () => {
   const timeOfDay = useGameStore(s => s.timeOfDay);
   const day = useGameStore(s => s.gameState?.day || 1);
   const isAuctionOpen = useGameStore(s => s.timeOfDay >= 8.0 && s.timeOfDay < 17.0);
-  const hours = Math.floor(timeOfDay);
-  const minutes = Math.floor((timeOfDay - hours) * 60);
+  // Round to the minute: the server adds 1/30 h a tick, so the clock is often a
+  // hair under a whole minute (8.0333332) and truncating showed 8:01 for 8:02.
+  const totalMinutes = Math.round(timeOfDay * 60);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
   const ampm = hours >= 12 && hours < 24 ? 'PM' : 'AM';
   const displayHours = hours % 12 || 12;
   const timeString = `${displayHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
