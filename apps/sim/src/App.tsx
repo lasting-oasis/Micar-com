@@ -974,7 +974,8 @@ const BankDashboard = () => {
     let maxAdvance = marketVal * 0.8;
 
     const offers = [];
-    if (car.accidents === 0) { maxAdvance += 2000; offers.push({ title: 'Clean Title Advance', val: 2000 }); }
+    // Same rule as the server's take_title_loan: no accident history on record counts as clean.
+    if (car.accidents === 0 || car.accidents === undefined) { maxAdvance += 2000; offers.push({ title: 'Clean Title Advance', val: 2000 }); }
     if (car.mileage < 50000) { maxAdvance += 500; offers.push({ title: 'Low Mileage Premium', val: 500 }); }
     if (car.bodyCondition > 90 && car.mechanicCondition > 90) { maxAdvance += 1500; offers.push({ title: 'Mint Condition Credit', val: 1500 }); }
     if (car.titleStatus === 'Salvage') { maxAdvance -= 5000; offers.push({ title: 'Subprime / Salvage Penalty', val: -5000 }); }
