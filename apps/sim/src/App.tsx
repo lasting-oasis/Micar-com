@@ -1937,8 +1937,10 @@ function App() {
   const playerId = useGameStore(s => s.playerId);
   const activeInteraction = useGameStore(s => s.activeInteraction);
   const { connect, buyCar, buyPsi, buyPart, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal, rentRaceCar } = useGameStore.getState();
-  const timeOfDay = gameState?.timeOfDay || 8.0;
-  const isAuctionOpen = timeOfDay >= 8.0 && timeOfDay < 17.0;
+  // The live clock (time_update every second), like the HUD badge and the sky:
+  // gameState.timeOfDay only changes on full updates, so it can be hours stale.
+  // Selecting the boolean re-renders only when the auction opens or closes.
+  const isAuctionOpen = useGameStore(s => s.timeOfDay >= 8.0 && s.timeOfDay < 17.0);
 
   const [nameInput, setNameInput] = useState('');
   const [lotScaleInput, setLotScaleInput] = useState<'Small' | 'Medium' | 'Large'>('Small');
