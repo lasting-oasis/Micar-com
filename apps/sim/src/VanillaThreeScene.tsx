@@ -6,6 +6,7 @@ import { batchStatic } from './scene/staticBatcher';
 import { damp, disposeObject } from './scene/utils';
 import { generateEnvMap } from './scene/textures';
 import { applyCarPaint, buildCarModel, carColorHex, deriveStyle } from './scene/carModel';
+import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
 import { createFenceKit } from './scene/world/fences';
 import { createFurnitureKit } from './scene/world/furniture';
@@ -169,6 +170,20 @@ export function VanillaThreeScene() {
         const carWheels: Record<string, THREE.Mesh[]> = {};
         const carSteering: Record<string, THREE.Group[]> = {};
         const vehiclePhysics: Record<string, { v: number, yaw: number }> = {};
+        // Per-car handling from real specs (src/carSpecs.ts), recomputed only when the car's
+        // model or mechanical condition changes.
+        const tuningCache: Record<string, { key: string; t: DriveTuning }> = {};
+        const tuningFor = (car: { id: string; make?: string; model?: string; bodyStyle?: string; mechanicCondition?: number } | undefined): DriveTuning => {
+            const style = (car as any)?.bodyStyle || deriveStyle(car?.model || '');
+            const mech = Math.round(car?.mechanicCondition ?? 100);
+            const key = `${car?.make}|${car?.model}|${style}|${mech}`;
+            const id = car?.id || '?';
+            const hit = tuningCache[id];
+            if (hit && hit.key === key) return hit.t;
+            const t = driveTuning(getCarSpec({ make: car?.make, model: car?.model, bodyStyle: style }, style), style, mech);
+            tuningCache[id] = { key, t };
+            return t;
+        };
         
         type BotState = { mesh: THREE.Group, targetPos: THREE.Vector3, status: 'walking_in' | 'waiting' | 'walking_out' | 'test_driving' };
         const aiBots: Record<string, BotState> = {}; // Mapped by target car ID
@@ -925,12 +940,15 @@ export function VanillaThreeScene() {
                 const phys = vehiclePhysics[localDrivingCarId];
                 
                 if (activeCar && phys) {
-                    // ===== Arcade kart handling tuning (scaled up for the huge speedway) =====
-                    const maxV = 200;              // top speed
-                    const reverseMax = 55;
-                    const engineAcc = 145 * delta; // punchy acceleration
-                    const brakeAcc = 240 * delta;  // strong brakes
-                    const coast = 40 * delta;      // coasting friction
+                    // ===== Handling from the car's real specs (src/carSpecs.ts) =====
+                    // Top speed, acceleration, braking, drag and steering differ per model, and a worn
+                    // engine pulls less. The Speedway Rental GT keeps the original race tuning.
+                    const tune = tuningFor(me?.inventory.find(c => c.id === localDrivingCarId));
+                    const maxV = tune.maxV;
+                    const reverseMax = tune.reverseMax;
+                    const engineAcc = tune.accel * delta;
+                    const brakeAcc = tune.brake * delta;
+                    const coast = tune.coast * delta;
 
                     // --- Fuel burn (all driving consumes gas) ---
                     if (localFuel === null) localFuel = (me?.inventory.find(c => c.id === localDrivingCarId)?.fuel) ?? 100;
@@ -944,7 +962,7 @@ export function VanillaThreeScene() {
                     const spinning = performance.now() < spinUntil; // spun out by a banana/shell
                     const canDrive = !outOfGas && !inCountdown && !spinning;
                     fuelUiAccum += delta; fuelNetAccum += delta;
-                    if (fuelUiAccum > 0.2) { fuelUiAccum = 0; useGameStore.getState().setDrivingFuel(Math.round(localFuel)); }
+                    if (fuelUiAccum > 0.2) { fuelUiAccum = 0; useGameStore.setState({ drivingFuel: Math.round(localFuel), drivingSpeed: Math.round(Math.abs(phys.v) / UNITS_PER_MPH) }); }
                     if (fuelNetAccum > 1.5) { fuelNetAccum = 0; useGameStore.getState().consumeFuel(localDrivingCarId!, Math.round(localFuel)); }
 
                     // --- Use a held Mario-Kart item (Space / mobile button) ---
@@ -977,7 +995,7 @@ export function VanillaThreeScene() {
                     const spd = Math.abs(phys.v);
                     const grip = Math.min(1, spd / 20);
                     const highSpeedDamp = spd > 55 ? 55 / spd : 1;
-                    const turn = 2.4 * delta * grip * highSpeedDamp;
+                    const turn = 2.4 * tune.turn * delta * grip * highSpeedDamp;
                     let steerInput = 0;
                     if (keys.a) steerInput += 1;
                     if (keys.d) steerInput -= 1;

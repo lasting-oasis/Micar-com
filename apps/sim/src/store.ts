@@ -48,6 +48,7 @@ interface StoreState {
   setMyWorldPos: (p: { x: number; z: number }) => void;
   drivingFuel: number | null; // live tank level of the car being driven (0-100), for the HUD gauge
   setDrivingFuel: (fuel: number | null) => void;
+  drivingSpeed: number; // live speed of the car being driven, mph (updated with the fuel gauge, 5x/s)
   consumeFuel: (carId: string, fuel: number) => void;
   refuel: (carId: string, delivery?: boolean) => void;
 
@@ -136,6 +137,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
   },
   drivingFuel: null,
   setDrivingFuel: (fuel) => set({ drivingFuel: fuel }),
+  drivingSpeed: 0,
   consumeFuel: (carId, fuel) => {
     const s = get().socket; if (s) s.emit('consume_fuel', { carId, fuel });
     // The server stores it without sending a state update, so keep our copy of the tank in step
@@ -231,7 +233,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
     set({ socket: null, gameState: null, playerId: null, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {},
       // Per-session prompts, race and modal state: left set, they reappear in the next
       // session (gate keypad / speedway panel at spawn, a stale race grabbing the next car).
-      myWorldPos: null, drivingFuel: null, gatePrompt: false, raceTrackPrompt: false, activeInteraction: null,
+      myWorldPos: null, drivingFuel: null, drivingSpeed: 0, gatePrompt: false, raceTrackPrompt: false, activeInteraction: null,
       activeRace: null, raceHud: null, raceResult: null, raceDenied: null, heldItem: null, heldCount: 0,
       activeInspectionCarId: null, activeInspectionShopType: null, isBankModalOpen: false, isInsuranceModalOpen: false });
   },
