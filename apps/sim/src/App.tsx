@@ -1046,7 +1046,7 @@ const BankDashboard = () => {
                 <div key={car.id} onClick={() => setSelectedCarId(car.id)} className={`p-4 rounded-lg border-2 cursor-pointer transition-all flex justify-between items-center ${car.isLienActive ? 'border-red-200 bg-red-50 opacity-50 pointer-events-none' : 'border-gray-200 hover:border-[#005ea2] bg-white hover:shadow-md'}`}>
                   <div className="flex flex-col gap-1">
                     <span className="font-black text-lg text-slate-800">{car.year} {car.make} {car.model}</span>
-                    <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">{car.mileage.toLocaleString()} mi | {car.title} Title</span>
+                    <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">{car.mileage.toLocaleString()} mi | {car.titleStatus} Title</span>
                   </div>
                   {car.isLienActive ? (
                     <span className="text-xs font-bold text-red-600 bg-red-100 px-3 py-1 rounded-full uppercase tracking-widest">Lien Active</span>
