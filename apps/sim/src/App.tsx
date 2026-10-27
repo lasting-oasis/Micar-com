@@ -2026,16 +2026,20 @@ function App() {
     }
   }, [playerId, gameState, autoShowGuide, hasShownInitialGuide]);
 
+  // Standalone operators start on their shop's tool. Runs when they join, not on
+  // every server update (that kept snapping the menu back from any other tab).
+  const activePlayer = gameState?.players[playerId || ''] as any;
+  const isStandaloneOp = !!activePlayer?.isStandaloneOperator;
+  const opSpecialty = activePlayer?.shopSpecialty;
   useEffect(() => {
-    const activePlayer = gameState?.players[playerId || ''];
-    if (activePlayer && (activePlayer as any).isStandaloneOperator) {
-      if ((activePlayer as any).shopSpecialty === 'body') {
+    if (isStandaloneOp) {
+      if (opSpecialty === 'body') {
         setActiveTab('standalone-body');
       } else {
         setActiveTab('standalone-shops');
       }
     }
-  }, [playerId, gameState]);
+  }, [playerId, isStandaloneOp, opSpecialty]);
 
   // Initial Connect screen
   if (!playerId || !gameState) {
