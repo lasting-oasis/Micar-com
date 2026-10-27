@@ -72,6 +72,3 @@ export class LightPool {
         this.lights.forEach(l => { l.removeFromParent(); l.dispose(); });
     }
 }
-
-/** Frame-rate independent smoothing: `rate` is the per-frame factor at 60 fps. */
-export const damp = (rate: number, dt: number) => 1 - Math.pow(1 - rate, dt * 60);
