@@ -18,13 +18,15 @@ export function buildSpeedway(ctx: WorldContext) {
     const halfW = (TRACK_W / raceScale) / 2; // base-space half-width so the scaled ring is exactly TRACK_W wide
     // No infield disc: this ring encircles the whole city, so the inside is just
     // the existing grass floor + the town (a disc here would paint over the roads/lots).
-    // asphalt ring track surface
-    const ring = new THREE.Mesh(new THREE.RingGeometry(baseR - halfW, baseR + halfW, 200), new THREE.MeshStandardMaterial({ color: '#2b2b30', roughness: 0.95, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
+    // asphalt ring track surface. Pushed slightly back (like the grass, which is
+    // pushed back further) so the curbs, start/finish strip and access road lying
+    // on it always draw on top; pulling it forward hid them at a distance.
+    const ring = new THREE.Mesh(new THREE.RingGeometry(baseR - halfW, baseR + halfW, 200), new THREE.MeshStandardMaterial({ color: '#2b2b30', roughness: 0.95, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 }));
     ring.rotation.x = -Math.PI / 2; ring.position.set(RACE_CX, 0.05, RACE_CZ); ring.scale.set(raceScale, raceScale, 1); ring.receiveShadow = true;
     scene.add(ring); environmentDisposables.push(ring);
     // red/white curbs on inner & outer edges
     ([[baseR - halfW, '#dc2626'], [baseR + halfW, '#e5e7eb']] as [number, string][]).forEach(([rr, col]) => {
-        const curb = new THREE.Mesh(new THREE.RingGeometry(rr - 0.7, rr, 200), new THREE.MeshStandardMaterial({ color: col, roughness: 0.7, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 }));
+        const curb = new THREE.Mesh(new THREE.RingGeometry(rr - 0.7, rr, 200), new THREE.MeshStandardMaterial({ color: col, roughness: 0.7, side: THREE.DoubleSide }));
         curb.rotation.x = -Math.PI / 2; curb.position.set(RACE_CX, 0.08, RACE_CZ); curb.scale.set(raceScale, raceScale, 1);
         scene.add(curb); environmentDisposables.push(curb);
     });
