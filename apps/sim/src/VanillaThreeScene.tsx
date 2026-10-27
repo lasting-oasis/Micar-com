@@ -633,7 +633,7 @@ export function VanillaThreeScene() {
                         const botGeo = new THREE.CapsuleGeometry(0.5, 1, 4, 8);
                         const botMat = new THREE.MeshStandardMaterial({ color: '#10b981' });
                         const bMesh = new THREE.Mesh(botGeo, botMat);
-                        bMesh.position.set(0, 1, 40); // Spawn at perimeter gate
+                        bMesh.position.set(0, 1, 0); // centred in its group, which holds the spawn point
                         bMesh.castShadow = true;
                         
                         const visorGeo = new THREE.BoxGeometry(0.8, 0.3, 0.6);
