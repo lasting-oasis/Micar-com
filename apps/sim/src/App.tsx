@@ -3159,8 +3159,8 @@ function App() {
                   if ((window as any).setMobileTap) {
                     (window as any).setMobileTap('e');
                   } else {
-                    (window as any).setMobileKey('e', true);
-                    setTimeout(() => (window as any).setMobileKey('e', false), 100);
+                    (window as any).setMobileKey?.('e', true);
+                    setTimeout(() => (window as any).setMobileKey?.('e', false), 100);
                   }
                 }
               }}
@@ -3362,34 +3362,34 @@ function App() {
               {/* Virtual D-Pad (Left Side) */}
               <div className="flex flex-col gap-2 items-center pointer-events-auto">
                 <button
-                  onTouchStart={() => (window as any).setMobileKey('w', true)}
-                  onTouchEnd={() => (window as any).setMobileKey('w', false)}
-                  onTouchCancel={() => (window as any).setMobileKey('w', false)}
+                  onTouchStart={() => (window as any).setMobileKey?.('w', true)}
+                  onTouchEnd={() => (window as any).setMobileKey?.('w', false)}
+                  onTouchCancel={() => (window as any).setMobileKey?.('w', false)}
                   className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
                 >
                   ▲
                 </button>
                 <div className="flex gap-2">
                   <button
-                    onTouchStart={() => (window as any).setMobileKey('a', true)}
-                    onTouchEnd={() => (window as any).setMobileKey('a', false)}
-                    onTouchCancel={() => (window as any).setMobileKey('a', false)}
+                    onTouchStart={() => (window as any).setMobileKey?.('a', true)}
+                    onTouchEnd={() => (window as any).setMobileKey?.('a', false)}
+                    onTouchCancel={() => (window as any).setMobileKey?.('a', false)}
                     className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
                   >
                     ◀
                   </button>
                   <button
-                    onTouchStart={() => (window as any).setMobileKey('s', true)}
-                    onTouchEnd={() => (window as any).setMobileKey('s', false)}
-                    onTouchCancel={() => (window as any).setMobileKey('s', false)}
+                    onTouchStart={() => (window as any).setMobileKey?.('s', true)}
+                    onTouchEnd={() => (window as any).setMobileKey?.('s', false)}
+                    onTouchCancel={() => (window as any).setMobileKey?.('s', false)}
                     className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
                   >
                     ▼
                   </button>
                   <button
-                    onTouchStart={() => (window as any).setMobileKey('d', true)}
-                    onTouchEnd={() => (window as any).setMobileKey('d', false)}
-                    onTouchCancel={() => (window as any).setMobileKey('d', false)}
+                    onTouchStart={() => (window as any).setMobileKey?.('d', true)}
+                    onTouchEnd={() => (window as any).setMobileKey?.('d', false)}
+                    onTouchCancel={() => (window as any).setMobileKey?.('d', false)}
                     className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
                   >
                     ▶
@@ -3404,8 +3404,8 @@ function App() {
                     if ((window as any).setMobileTap) {
                       (window as any).setMobileTap('e');
                     } else {
-                      (window as any).setMobileKey('e', true);
-                      setTimeout(() => (window as any).setMobileKey('e', false), 100);
+                      (window as any).setMobileKey?.('e', true);
+                      setTimeout(() => (window as any).setMobileKey?.('e', false), 100);
                     }
                   }}
                   className="w-16 h-16 bg-blue-500/80 border-2 border-blue-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-blue-600 transition-all select-none touch-none"
@@ -3417,8 +3417,8 @@ function App() {
                     if ((window as any).setMobileTap) {
                       (window as any).setMobileTap('r');
                     } else {
-                      (window as any).setMobileKey('r', true);
-                      setTimeout(() => (window as any).setMobileKey('r', false), 100);
+                      (window as any).setMobileKey?.('r', true);
+                      setTimeout(() => (window as any).setMobileKey?.('r', false), 100);
                     }
                   }}
                   className="w-16 h-16 bg-green-500/80 border-2 border-green-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-green-600 transition-all select-none touch-none"
