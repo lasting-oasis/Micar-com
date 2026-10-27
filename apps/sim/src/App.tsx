@@ -3349,7 +3349,8 @@ function App() {
         <div className="fixed inset-0 pointer-events-none z-[999] flex flex-col justify-end p-6 select-none">
           {/* Top Right Floating Menu Toggle (Always visible, responsive alignment) */}
           <div className="absolute top-6 right-6 pointer-events-auto z-[9999] flex gap-2">
-            <GraphicsToggle compact />
+            {/* Only while exploring: with the menu open it would cover the menu's top row (e.g. the Lot & Inventory tab) */}
+            {!showUI && <GraphicsToggle compact />}
             <button
               onClick={() => setShowUI(prev => !prev)}
               className={`border rounded-xl px-4 py-3 text-xs font-black uppercase tracking-widest active:scale-95 transition-all backdrop-blur-md shadow-lg ${showUI ? 'bg-red-500/20 text-red-500 border-red-500/30 hover:bg-red-500 hover:text-black' : 'bg-black/60 border-white/20 text-white shadow-black/40'}`}
