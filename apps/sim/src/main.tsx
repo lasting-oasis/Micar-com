@@ -152,7 +152,9 @@ function GatewayPortal() {
           onClick={goBackToGateway}
           className="absolute top-4 left-4 z-[9999] px-4 py-2.5 bg-black/60 border border-white/20 hover:border-market/40 rounded-xl hover:bg-black/95 text-xs font-black uppercase tracking-widest text-white hover:text-market transition-all duration-300 flex items-center gap-1.5 shadow-[0_4px_20px_rgba(0,0,0,0.5)] pointer-events-auto"
         >
-          ← Exit to Launchpad
+          {/* Short label on phones so it fits beside the top-right [graphics][Menu] buttons */}
+          <span className="sm:hidden">← Exit</span>
+          <span className="hidden sm:inline">← Exit to Launchpad</span>
         </button>
         <ChunkBoundary><Suspense fallback={<Loading />}><App /></Suspense></ChunkBoundary>
       </div>
