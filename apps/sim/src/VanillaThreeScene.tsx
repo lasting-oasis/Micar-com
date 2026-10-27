@@ -407,10 +407,9 @@ export function VanillaThreeScene() {
         const tmpFwd = new THREE.Vector3();
         const tmpTarget = new THREE.Vector3();
         const tmpQuat = new THREE.Quaternion();
-        const tmpEuler = new THREE.Euler();
         const UP = new THREE.Vector3(0, 1, 0);
-        // A car's true heading. Cars turn with rotateY, and past ±90° the default XYZ
-        // Euler flips to x = z = ±π, y = π − heading, so rotation.y alone is wrong.
+        // True heading of a car or the avatar. Both turn with rotateY, and past ±90° the
+        // default XYZ Euler flips to x = z = ±π, y = π − heading, so rotation.y alone is wrong.
         const tmpEuler = new THREE.Euler();
         const headingOf = (o: THREE.Object3D) => tmpEuler.setFromQuaternion(o.quaternion, 'YXZ').y;
         const tmpAvatarBox = new THREE.Box3();
@@ -670,7 +669,7 @@ export function VanillaThreeScene() {
                         if (seq) {
                             const end = seq.waypoints[seq.waypoints.length - 1];
                             carMeshes[car.id].position.set(end.x, carMeshes[car.id].position.y, end.z);
-                            carMeshes[car.id].rotation.y = seq.startRotY;
+                            carMeshes[car.id].rotation.set(0, seq.startRotY, 0);
                             delete aiDriveSequence[car.id];
                         }
                     }
@@ -1198,9 +1197,7 @@ export function VanillaThreeScene() {
                     x: activeMesh.position.x,
                     y: activeMesh.position.y,
                     z: activeMesh.position.z,
-                    // Heading about the vertical axis. (rotation.y alone is wrong past ±90°:
-                    // after rotateY the XYZ Euler flips to x = ±π, y = π - heading.)
-                    rotation: tmpEuler.setFromQuaternion(activeMesh.quaternion, 'YXZ').y
+                    rotation: headingOf(activeMesh) // true heading (see headingOf)
                 });
                 // Feed the GPS our live position directly so it follows instantly.
                 const st = useGameStore.getState();
