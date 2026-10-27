@@ -1,11 +1,13 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
+import { loadChunk } from './loadChunk'
 // Each app is downloaded only when opened, so the launchpad (and each tool)
 // loads without pulling in the whole 3D game and every ERP screen up front.
-const App = lazy(() => import('./App.tsx'))
-const ShopManagement = lazy(() => import('./ShopManagement.tsx'))
-const MechanicManagement = lazy(() => import('./MechanicManagement.tsx'))
-const StandaloneShopPlatform = lazy(() => import('./StandaloneShopPlatform.tsx'))
+// loadChunk reloads the page once if a chunk is gone after a redeploy.
+const App = lazy(() => loadChunk(import('./App.tsx')))
+const ShopManagement = lazy(() => loadChunk(import('./ShopManagement.tsx')))
+const MechanicManagement = lazy(() => loadChunk(import('./MechanicManagement.tsx')))
+const StandaloneShopPlatform = lazy(() => loadChunk(import('./StandaloneShopPlatform.tsx')))
 const Loading = () => (
   <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(useLang(), 'loading.default')}</div>
 )

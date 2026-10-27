@@ -5,12 +5,14 @@ import { RACE_TIERS, RaceDifficulty } from './types';
 import { useLang, t, LangToggle } from './i18n';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
+import { loadChunk } from './loadChunk';
 // Heavy screens load on demand. The 3D world (three.js) starts downloading as
 // soon as the setup screen shows, so it's usually ready by the time you join.
-const loadScene = () => import('./VanillaThreeScene');
+// loadChunk reloads the page once if a chunk is gone after a redeploy.
+const loadScene = () => loadChunk(import('./VanillaThreeScene'));
 const VanillaThreeScene = lazy(() => loadScene().then(m => ({ default: m.VanillaThreeScene })));
-const StandaloneShopPlatform = lazy(() => import('./StandaloneShopPlatform'));
-const ShopManagement = lazy(() => import('./ShopManagement'));
+const StandaloneShopPlatform = lazy(() => loadChunk(import('./StandaloneShopPlatform')));
+const ShopManagement = lazy(() => loadChunk(import('./ShopManagement')));
 const TabLoading = () => (
   <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(useLang(), 'loading.default')}</div>
 );
