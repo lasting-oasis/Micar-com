@@ -6,9 +6,11 @@ import { useLang, t, LangToggle } from './i18n';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import { loadChunk } from './loadChunk';
+import { ChunkBoundary } from './ChunkBoundary';
 // Heavy screens load on demand. The 3D world (three.js) starts downloading as
 // soon as the setup screen shows, so it's usually ready by the time you join.
-// loadChunk reloads the page once if a chunk is gone after a redeploy.
+// loadChunk reloads the page once if a chunk is gone after a redeploy;
+// ChunkBoundary shows a Reload button if a screen still can't load.
 const loadScene = () => loadChunk(import('./VanillaThreeScene'));
 const VanillaThreeScene = lazy(() => loadScene().then(m => ({ default: m.VanillaThreeScene })));
 const StandaloneShopPlatform = lazy(() => loadChunk(import('./StandaloneShopPlatform')));
@@ -2207,9 +2209,11 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<div className="absolute inset-0 z-0 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(lang, 'loading.world')}</div>}>
-        <VanillaThreeScene />
-      </Suspense>
+      <ChunkBoundary className="absolute inset-0 z-0 grid place-items-center">
+        <Suspense fallback={<div className="absolute inset-0 z-0 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(lang, 'loading.world')}</div>}>
+          <VanillaThreeScene />
+        </Suspense>
+      </ChunkBoundary>
       <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />
       <GateControl isMobile={isMobile} />
       <GameChat isMobile={isMobile} />
@@ -3116,11 +3120,11 @@ function App() {
             )}
 
             {activeTab === 'standalone-shops' && (
-              <Suspense fallback={<TabLoading />}><StandaloneShopPlatform /></Suspense>
+              <ChunkBoundary><Suspense fallback={<TabLoading />}><StandaloneShopPlatform /></Suspense></ChunkBoundary>
             )}
 
             {activeTab === 'standalone-body' && (
-              <Suspense fallback={<TabLoading />}><ShopManagement /></Suspense>
+              <ChunkBoundary><Suspense fallback={<TabLoading />}><ShopManagement /></Suspense></ChunkBoundary>
             )}
 
           </AnimatePresence>

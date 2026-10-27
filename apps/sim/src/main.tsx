@@ -1,9 +1,11 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { loadChunk } from './loadChunk'
+import { ChunkBoundary } from './ChunkBoundary'
 // Each app is downloaded only when opened, so the launchpad (and each tool)
 // loads without pulling in the whole 3D game and every ERP screen up front.
-// loadChunk reloads the page once if a chunk is gone after a redeploy.
+// loadChunk reloads the page once if a chunk is gone after a redeploy;
+// ChunkBoundary shows a Reload button if a screen still can't load.
 const App = lazy(() => loadChunk(import('./App.tsx')))
 const ShopManagement = lazy(() => loadChunk(import('./ShopManagement.tsx')))
 const MechanicManagement = lazy(() => loadChunk(import('./MechanicManagement.tsx')))
@@ -152,7 +154,7 @@ function GatewayPortal() {
         >
           ← Exit to Launchpad
         </button>
-        <Suspense fallback={<Loading />}><App /></Suspense>
+        <ChunkBoundary><Suspense fallback={<Loading />}><App /></Suspense></ChunkBoundary>
       </div>
     );
   }
@@ -185,7 +187,7 @@ function GatewayPortal() {
 
         {/* Main Bodyshop ERP Content Area */}
         <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
-          <Suspense fallback={<Loading />}><ShopManagement /></Suspense>
+          <ChunkBoundary><Suspense fallback={<Loading />}><ShopManagement /></Suspense></ChunkBoundary>
         </main>
 
         {/* Professional ERP footer */}
@@ -224,7 +226,7 @@ function GatewayPortal() {
 
         {/* Main Mechanic ERP Content Area */}
         <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
-          <Suspense fallback={<Loading />}><MechanicManagement /></Suspense>
+          <ChunkBoundary><Suspense fallback={<Loading />}><MechanicManagement /></Suspense></ChunkBoundary>
         </main>
 
         {/* Professional ERP footer */}
@@ -263,7 +265,7 @@ function GatewayPortal() {
 
         {/* Main Platform Content Area */}
         <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
-          <Suspense fallback={<Loading />}><StandaloneShopPlatform /></Suspense>
+          <ChunkBoundary><Suspense fallback={<Loading />}><StandaloneShopPlatform /></Suspense></ChunkBoundary>
         </main>
 
         {/* Professional ERP footer */}
