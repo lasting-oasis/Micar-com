@@ -1287,9 +1287,7 @@ export function VanillaThreeScene() {
             qTex.dispose(); uiTex.dispose();
             Object.values(aiBots).forEach(b => disposeObject(b.mesh));
             Object.values(otherPlayerMeshes).forEach(disposeObject);
-            renderer.domElement.remove();
-            renderer.dispose();
-            
+
             // Dispose procedural city materials & textures
             cityMaterials.forEach(m => m.dispose());
             cityTextures.forEach(t => t.dispose());
@@ -1324,6 +1322,12 @@ export function VanillaThreeScene() {
             
             avatarGeo.dispose();
             avatarMat.dispose();
+            envTexture.dispose();
+
+            // Last: renderer.dispose() forgets which GPU textures belong to which
+            // texture objects, so textures disposed after it would never be freed.
+            renderer.domElement.remove();
+            renderer.dispose();
         };
     }, []);
 
