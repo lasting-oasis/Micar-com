@@ -136,7 +136,14 @@ export const useGameStore = create<StoreState>((set, get) => ({
   },
   drivingFuel: null,
   setDrivingFuel: (fuel) => set({ drivingFuel: fuel }),
-  consumeFuel: (carId, fuel) => { const s = get().socket; if (s) s.emit('consume_fuel', { carId, fuel }); },
+  consumeFuel: (carId, fuel) => {
+    const s = get().socket; if (s) s.emit('consume_fuel', { carId, fuel });
+    // The server stores it without sending a state update, so keep our copy of the tank in step
+    // (in place: nothing on screen shows it, so there is nothing to re-render). A stale copy made
+    // the 3D view take burnt fuel for a refuel and refill the tank on getting back in.
+    const st = get(); const car = st.gameState?.players[st.playerId || '']?.inventory.find(c => c.id === carId);
+    if (car) car.fuel = fuel;
+  },
   refuel: (carId, delivery) => { const s = get().socket; if (s) s.emit('refuel', { carId, delivery: !!delivery }); },
 
   raceTrackPrompt: false,
