@@ -1838,7 +1838,7 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
     <>
       {/* Fuel gauge while driving */}
       {drivingCarId && drivingFuel !== null && !activeRace && (
-        <div className="fixed left-1/2 -translate-x-1/2 bottom-24 md:bottom-8 z-[930] pointer-events-none">
+        <div className="fixed left-1/2 -translate-x-1/2 top-[76px] md:top-auto md:bottom-8 z-[930] pointer-events-none">
           <div className="bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl w-64">
             {drivingCar && (
               <div className="flex items-end justify-between gap-2 mb-1.5">
