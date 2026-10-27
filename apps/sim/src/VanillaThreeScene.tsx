@@ -671,14 +671,14 @@ export function VanillaThreeScene() {
                 Object.keys(carMeshes).forEach(carId => {
                     if (ownedIds.has(carId)) return;
                     if (carId === localDrivingCarId) {
-                        // The car was sold/removed while we were driving it: step out.
+                        // The car was sold/removed while we were driving it: step out (forfeiting any race).
                         avatar.position.copy(carMeshes[carId].position).add(new THREE.Vector3(-3, 0, 0));
                         localDrivingCarId = null;
                         localFuel = null;
                         if (raceActive) { raceActive = false; raceState = ''; }
                         clearCpuRacers();
                         const st = useGameStore.getState();
-                        st.setDrivingCarId(null); st.setDrivingFuel(null); st.setRaceTrackPrompt(false); st.setRaceHud(null);
+                        st.setDrivingCarId(null); st.setDrivingFuel(null); st.setRaceTrackPrompt(false); st.abortRace();
                     }
                     disposeObject(carMeshes[carId]);
                     delete carMeshes[carId];
