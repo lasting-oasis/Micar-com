@@ -52,7 +52,9 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
 
     // One woven-wire material for every fence run and gate. Each panel tiles the
     // diamonds by scaling its own UVs (instead of cloning the texture per run),
-    // so all fence panels share a material and can be merged into one draw.
+    // so all fence panels share one material and texture. The wire is transparent,
+    // and the batcher only merges transparent meshes within one root object, so
+    // each fence run's panel is still a draw call of its own.
     const fenceWireMat = new THREE.MeshStandardMaterial({
         map: chainLinkBaseTex,
         alphaMap: chainLinkBaseTex,
