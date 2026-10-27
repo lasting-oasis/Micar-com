@@ -19,6 +19,7 @@ const TabLoading = () => (
   <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(useLang(), 'loading.default')}</div>
 );
 import { LIBRARY_BOOKS } from './libraryData';
+import { getCarSpec, specLine } from './carSpecs';
 
 
 // Fixed points of interest in the world (x, z world coords) shown on the map.
@@ -767,6 +768,7 @@ const AuctionCarCard = ({ car, me, buyCar, buyPsi, expandedCarId, setExpandedCar
                 </div>
               </div>
               <div className="text-[10px] text-gray-500 font-mono mt-1 mb-1 tracking-widest">{car.vin} | {car.mileage.toLocaleString()} mi</div>
+              <div className="text-[10px] text-gray-400 mb-1">{specLine(getCarSpec(car))} · {getCarSpec(car).topSpeedMph} mph top</div>
               <ConditionDisplay car={car} expandedCarId={expandedCarId} setExpandedCarId={setExpandedCarId} buyPsi={buyPsi} money={me?.money} />
             </div>
             <div className="text-success font-bold mt-1 mr-5">${car.buyPrice.toLocaleString()}</div>
@@ -1794,6 +1796,12 @@ const GameChat = ({ isMobile }: { isMobile?: boolean }) => {
 const RacingHud = (_props: { isMobile?: boolean }) => {
   const drivingCarId = useGameStore(s => s.drivingCarId);
   const drivingFuel = useGameStore(s => s.drivingFuel);
+  const drivingSpeed = useGameStore(s => s.drivingSpeed);
+  // The driven car as a primitive key, so state broadcasts don't re-render the HUD
+  const drivingKey = useGameStore(s => {
+    const c = s.drivingCarId && s.playerId ? s.gameState?.players?.[s.playerId]?.inventory.find(x => x.id === s.drivingCarId) : null;
+    return c ? `${c.year}|${c.make}|${c.model}|${c.bodyStyle || ''}` : '';
+  });
   const raceTrackPrompt = useGameStore(s => s.raceTrackPrompt);
   const activeRace = useGameStore(s => s.activeRace);
   const raceHud = useGameStore(s => s.raceHud);
@@ -1821,6 +1829,8 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
 
   const fmtMs = (ms: number) => { const total = ms / 1000; const m = Math.floor(total / 60); const s = total % 60; return `${m}:${s.toFixed(2).padStart(5, '0')}`; };
   const fuel = drivingFuel ?? 100;
+  const drivingCar = drivingKey ? (() => { const [year, make, model, bodyStyle] = drivingKey.split('|'); return { year, make, model, bodyStyle }; })() : null;
+  const drivingSpec = drivingCar ? getCarSpec(drivingCar) : null;
   const fuelColor = fuel > 50 ? '#22c55e' : fuel > 20 ? '#eab308' : '#ef4444';
   const stranded = drivingCarId && fuel <= 2;
 
@@ -1829,12 +1839,26 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
       {/* Fuel gauge while driving */}
       {drivingCarId && drivingFuel !== null && !activeRace && (
         <div className="fixed left-1/2 -translate-x-1/2 bottom-24 md:bottom-8 z-[930] pointer-events-none">
-          <div className="bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl flex items-center gap-3 w-64">
-            <Fuel size={18} style={{ color: fuelColor }} />
-            <div className="flex-grow">
-              <div className="h-2.5 bg-white/10 rounded-full overflow-hidden"><div className="h-full rounded-full transition-all" style={{ width: `${Math.max(0, Math.min(100, fuel))}%`, background: fuelColor }} /></div>
+          <div className="bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl w-64">
+            {drivingCar && (
+              <div className="flex items-end justify-between gap-2 mb-1.5">
+                <div className="min-w-0">
+                  <div className="text-[11px] font-bold text-white truncate">{drivingCar.year} {drivingCar.make} {drivingCar.model}</div>
+                  <div className="text-[9px] text-gray-400 truncate">{specLine(drivingSpec!)}</div>
+                </div>
+                <div className="text-right shrink-0 leading-none">
+                  <span className="text-xl font-black font-mono tabular-nums text-white">{drivingSpeed}</span>
+                  <span className="text-[9px] text-gray-400 font-bold ml-0.5">MPH</span>
+                </div>
+              </div>
+            )}
+            <div className="flex items-center gap-3">
+              <Fuel size={18} style={{ color: fuelColor }} />
+              <div className="flex-grow">
+                <div className="h-2.5 bg-white/10 rounded-full overflow-hidden"><div className="h-full rounded-full transition-all" style={{ width: `${Math.max(0, Math.min(100, fuel))}%`, background: fuelColor }} /></div>
+              </div>
+              <span className="text-xs font-mono font-bold tabular-nums" style={{ color: fuelColor }}>{Math.round(fuel)}%</span>
             </div>
-            <span className="text-xs font-mono font-bold tabular-nums" style={{ color: fuelColor }}>{Math.round(fuel)}%</span>
           </div>
           {fuel <= 20 && fuel > 2 && <div className="text-center text-[10px] text-amber-400 font-bold uppercase tracking-widest mt-1">Low fuel — find a gas station</div>}
           {stranded && (
@@ -2511,7 +2535,8 @@ function App() {
                         <div key={car.id} className="bg-white/5 border border-white/10 rounded p-3 text-sm">
                           <div className="font-bold flex items-center justify-between">
                             <div className="flex flex-col">
-                              <span>{car.year} {car.make}</span>
+                              <span>{car.year} {car.make} {car.model}</span>
+                              <span className="text-[10px] text-gray-400 font-normal mt-0.5">{specLine(getCarSpec(car))}</span>
                               <span className="text-[9px] text-gray-500 font-mono tracking-widest uppercase mt-0.5">{car.vin}</span>
                             </div>
                             <div className="flex gap-2 items-center">
