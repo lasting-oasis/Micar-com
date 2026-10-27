@@ -2230,7 +2230,8 @@ function App() {
         </div>
       )}
       {!isMobile && (
-        <div className="fixed top-12 right-8 z-[999] pointer-events-auto">
+        // Above the minimap: the top edge belongs to the tab bar (and the race item slot)
+        <div className="fixed bottom-[136px] right-8 z-[999] pointer-events-auto">
           <GraphicsToggle />
         </div>
       )}
