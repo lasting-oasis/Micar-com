@@ -808,17 +808,26 @@ setInterval(() => {
 // Live player positions. Clients send theirs ~10x/sec (sync_player_pos); this
 // relays everyone's to everyone at the same rate so other players move smoothly
 // instead of only updating when some unrelated event triggers a full broadcast.
-// Volatile: a dropped packet is fine, the next one is 100 ms away.
+// Only sent while someone's position is actually changing (clients keep resending
+// theirs while standing still). Volatile: a dropped packet is fine, the next one is
+// 100 ms away; 300 ms after movement stops, one final copy is sent reliably so a
+// client that dropped the last moving packets isn't left with stale positions.
 let positionsDirty = false;
+let quietTicks = 3; // relay ticks since a position last changed
 setInterval(() => {
-    if (!positionsDirty) return;
-    positionsDirty = false;
+    if (positionsDirty) quietTicks = 0;
+    else if (++quietTicks !== 3) return;
     const positions: Record<string, any> = {};
     for (const pid in gameState.players) {
         const wp = (gameState.players[pid] as any).worldPosition;
         if (wp) positions[pid] = wp;
     }
-    io.volatile.emit('player_positions', positions);
+    if (positionsDirty) {
+        positionsDirty = false;
+        io.volatile.emit('player_positions', positions);
+    } else {
+        io.emit('player_positions', positions);
+    }
 }, 100);
 
 io.on('connection', (socket) => {
@@ -943,8 +952,11 @@ io.on('connection', (socket) => {
   socket.on('sync_player_pos', (pos) => {
       const clean = sanitizePosition(pos);
       if (gameState.players[socket.id] && clean) {
+          const prev: any = gameState.players[socket.id].worldPosition;
+          if (!prev || prev.x !== clean.x || prev.y !== clean.y || prev.z !== clean.z || prev.r !== clean.r || prev.rotation !== clean.rotation) {
+              positionsDirty = true; // only a real move needs relaying
+          }
           gameState.players[socket.id].worldPosition = clean as any;
-          positionsDirty = true;
       }
   });
 
