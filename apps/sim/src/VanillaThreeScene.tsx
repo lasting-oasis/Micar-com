@@ -1,16 +1,22 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { useGameStore } from './store';
+import { LightPool, damp } from './scene/lightPool';
+import { batchStatic } from './scene/staticBatcher';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
-    const { gameState, playerId } = useGameStore();
-    
-    // Use refs to bypass react hook lifecycle dependencies inside the raw rAF loop
-    const stateRef = useRef({ gameState, playerId });
-    useEffect(() => {
-        stateRef.current = { gameState, playerId };
-    }, [gameState, playerId]);
+
+    // The render loop reads game state through this ref. It's kept current by a
+    // direct store subscription, so this component never re-renders (it used to
+    // re-render on every store change — fuel, race HUD, GPS — many times a second).
+    const stateRef = useRef({ gameState: useGameStore.getState().gameState, playerId: useGameStore.getState().playerId });
+    useEffect(() => useGameStore.subscribe(st => {
+        const cur = stateRef.current;
+        if (st.gameState !== cur.gameState || st.playerId !== cur.playerId) {
+            stateRef.current = { gameState: st.gameState, playerId: st.playerId };
+        }
+    }), []);
 
     useEffect(() => {
         if (!mountRef.current) return;
@@ -39,13 +45,15 @@ export function VanillaThreeScene() {
         scene.background = new THREE.Color('#87ceeb'); // Bright Sky blue
         scene.fog = new THREE.Fog('#87ceeb', 1500, 6000); // pushed way out so the giant speedway is visible across the infield
 
-        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 11000);
-        
+        // Far plane just past the fog's end (6000): anything further is fully fogged
+        // anyway. A near plane of 2 keeps a normal depth buffer precise enough that
+        // the layered ground (grass / track / curbs) doesn't flicker — the logarithmic
+        // depth buffer used before stopped the GPU from skipping hidden pixels.
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 2, 6500);
+
         let renderer: THREE.WebGLRenderer;
         try {
-            // logarithmicDepthBuffer spreads depth precision across the now-huge view
-            // distance (0.1–11000) so the track surface / curbs / grass stop z-fighting.
-            renderer = new THREE.WebGLRenderer({ antialias: true, logarithmicDepthBuffer: true });
+            renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
         } catch (e) {
             console.error('WebGL is not supported:', e);
             if (mountRef.current) {
@@ -100,11 +108,21 @@ export function VanillaThreeScene() {
         dirLight.shadow.camera.bottom = -150;
         scene.add(dirLight);
 
+        // Small fixed pool of real lights that follows the player around the lamps
+        // (see lightPool.ts). Every lamp below registers a light *source* instead of
+        // adding its own PointLight.
+        const lightPool = new LightPool(scene, 8);
+        const addLightSource = (x: number, y: number, z: number, color: string, intensity: number, distance: number, nightOnly: boolean) =>
+            lightPool.add({ position: new THREE.Vector3(x, y, z), color, intensity, distance, nightOnly });
+
         // --- 3. Dealership Lot Environment Building ---
         const environmentDisposables: (THREE.Object3D)[] = [];
-        
-        // Streetlights
-        const streetLights: THREE.PointLight[] = [];
+        // Everything added to the scene from here until the world is finished is
+        // static scenery that gets merged into a few big meshes (see batchStatic).
+        const worldStartIndex = scene.children.length;
+
+        // Streetlights (no shadows: a shadow-casting point light re-renders the
+        // whole scene six times per frame, even while switched off)
         const createStreetLight = (x: number, z: number) => {
              const poleGeo = new THREE.CylinderGeometry(0.2, 0.2, 10);
              const poleMat = new THREE.MeshStandardMaterial({ color: '#52525b', roughness: 0.8 });
@@ -112,13 +130,7 @@ export function VanillaThreeScene() {
              pole.position.set(x, 5, z);
              scene.add(pole);
              environmentDisposables.push(pole);
-
-             const light = new THREE.PointLight('#fef08a', 0, 50); // Start off (intensity 0)
-             light.position.set(x, 9.5, z);
-             light.castShadow = true;
-             scene.add(light);
-             streetLights.push(light);
-             environmentDisposables.push(light);
+             addLightSource(x, 9.5, z, '#fef08a', 1.5, 50, true);
         };
         createStreetLight(-15, 15);
         createStreetLight(15, 15);
@@ -171,15 +183,23 @@ export function VanillaThreeScene() {
         };
         const asphaltTex = generateAsphaltTexture();
 
-        // Grassy Floor (huge 10000x10000 open world so the giant speedway has ground under it)
-        const floorGeo = new THREE.BoxGeometry(10000, 1, 10000);
-        const floorMat = new THREE.MeshStandardMaterial({ 
+        // Grassy Floor (huge 10000x10000 open world so the giant speedway has ground under it).
+        // Split into 125-unit tiles: as two giant triangles, its depth values were too
+        // imprecise near the camera and the grass was drawn over the lot paving, lane
+        // lines and track that sit a few centimetres above it. The polygon offset also
+        // pushes the grass slightly "behind" anything lying on it.
+        const floorGeo = new THREE.PlaneGeometry(10000, 10000, 80, 80);
+        floorGeo.rotateX(-Math.PI / 2);
+        const floorMat = new THREE.MeshStandardMaterial({
             color: '#14532d', // Emerald-900 grassy green
-            roughness: 0.95, 
-            metalness: 0.1
+            roughness: 0.95,
+            metalness: 0.1,
+            polygonOffset: true,
+            polygonOffsetFactor: 2,
+            polygonOffsetUnits: 2
         });
         const floor = new THREE.Mesh(floorGeo, floorMat);
-        floor.position.y = -0.5;
+        floor.position.y = 0;
         floor.receiveShadow = true;
         scene.add(floor);
         environmentDisposables.push(floor);
@@ -275,6 +295,14 @@ export function VanillaThreeScene() {
         const cityTextures: THREE.Texture[] = [];
         const emissiveFacadeMaterials: THREE.MeshStandardMaterial[] = [];
 
+        // Plain see-through glass. (MeshPhysicalMaterial "transmission" glass makes
+        // the renderer draw the whole scene an extra time every frame it's on screen.)
+        const makeGlass = (color: string, opacity = 0.35, side: THREE.Side = THREE.FrontSide) => {
+             const m = new THREE.MeshStandardMaterial({ color, transparent: true, opacity, roughness: 0.05, metalness: 0.3, depthWrite: false, side });
+             cityMaterials.push(m);
+             return m;
+        };
+
         // --- Realistic galvanized chain-link fencing ---------------------------
         // Transparent diamond-wire texture used as both color + alpha map so the
         // fence reads as real woven steel rather than a flat wireframe plane.
@@ -305,6 +333,28 @@ export function VanillaThreeScene() {
         const fencePostMat = new THREE.MeshStandardMaterial({ color: '#aab0b6', metalness: 0.9, roughness: 0.35 });
         cityMaterials.push(fencePostMat);
 
+        // One woven-wire material for every fence run and gate. Each panel tiles the
+        // diamonds by scaling its own UVs (instead of cloning the texture per run),
+        // so all fence panels share a material and can be merged into one draw.
+        const fenceWireMat = new THREE.MeshStandardMaterial({
+             map: chainLinkBaseTex,
+             alphaMap: chainLinkBaseTex,
+             transparent: true,
+             alphaTest: 0.35,
+             side: THREE.DoubleSide,
+             color: '#c4c9ce',
+             metalness: 0.85,
+             roughness: 0.45
+        });
+        cityMaterials.push(fenceWireMat);
+        const wirePanelGeo = (width: number, height: number) => {
+             const geo = new THREE.PlaneGeometry(width, height);
+             const uv = geo.attributes.uv as THREE.BufferAttribute;
+             const ru = Math.max(1, Math.round(width / 1.5)), rv = Math.max(1, Math.round(height / 1.5));
+             for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * ru, uv.getY(i) * rv);
+             return geo;
+        };
+
         // Builds a chain-link fence run from (x1,z1) to (x2,z2): woven wire panel,
         // top + bottom tension rails, and capped vertical posts every ~6 units.
         const buildChainLinkFence = (x1: number, z1: number, x2: number, z2: number, height = 6) => {
@@ -316,24 +366,7 @@ export function VanillaThreeScene() {
              const midX = x1 + dx / 2, midZ = z1 + dz / 2;
 
              // Woven wire panel (tiled so diamonds stay a consistent real-world size)
-             const wireTex = chainLinkBaseTex.clone();
-             wireTex.needsUpdate = true;
-             wireTex.wrapS = THREE.RepeatWrapping;
-             wireTex.wrapT = THREE.RepeatWrapping;
-             wireTex.repeat.set(Math.max(1, Math.round(length / 1.5)), Math.max(1, Math.round(height / 1.5)));
-             cityTextures.push(wireTex);
-             const wireMat = new THREE.MeshStandardMaterial({
-                 map: wireTex,
-                 alphaMap: wireTex,
-                 transparent: true,
-                 alphaTest: 0.35,
-                 side: THREE.DoubleSide,
-                 color: '#c4c9ce',
-                 metalness: 0.85,
-                 roughness: 0.45
-             });
-             cityMaterials.push(wireMat);
-             const panel = new THREE.Mesh(new THREE.PlaneGeometry(length, height), wireMat);
+             const panel = new THREE.Mesh(wirePanelGeo(length, height), fenceWireMat);
              panel.position.set(midX, height / 2, midZ);
              panel.rotation.y = -angle;
              group.add(panel);
@@ -380,21 +413,11 @@ export function VanillaThreeScene() {
         const buildGateLeaf = (hingeX: number, hingeZ: number, panelDir: number, height = 6) => {
              const pivot = new THREE.Group();
              pivot.position.set(hingeX, 0, hingeZ);
+             pivot.userData.dynamic = true; // swings open/closed — never merged
              const width = 15;
              const cx = (panelDir * width) / 2;
 
-             const tex = chainLinkBaseTex.clone();
-             tex.needsUpdate = true;
-             tex.wrapS = THREE.RepeatWrapping;
-             tex.wrapT = THREE.RepeatWrapping;
-             tex.repeat.set(Math.round(width / 1.5), Math.round(height / 1.5));
-             cityTextures.push(tex);
-             const mat = new THREE.MeshStandardMaterial({
-                 map: tex, alphaMap: tex, transparent: true, alphaTest: 0.35,
-                 side: THREE.DoubleSide, color: '#c4c9ce', metalness: 0.85, roughness: 0.45
-             });
-             cityMaterials.push(mat);
-             const panel = new THREE.Mesh(new THREE.PlaneGeometry(width, height), mat);
+             const panel = new THREE.Mesh(wirePanelGeo(width, height), fenceWireMat);
              panel.position.set(cx, height / 2, 0);
              pivot.add(panel);
 
@@ -536,7 +559,7 @@ export function VanillaThreeScene() {
              
              for (let xOffset = -10; xOffset <= 10; xOffset += 4) {
                  const stripe = new THREE.Mesh(stripeGeo, stripeMat);
-                 stripe.position.set(xOffset, 0.03, zPos);
+                 stripe.position.set(xOffset, 0.28, zPos); // just above the road surface (road top is y=0.27)
                  scene.add(stripe);
                  environmentDisposables.push(stripe);
              }
@@ -629,7 +652,7 @@ export function VanillaThreeScene() {
              group.position.set(x, 0, z);
              
              const wallMat = new THREE.MeshStandardMaterial({ color: '#eae5d9', roughness: 0.9, map: concreteTex });
-             const glassMat = new THREE.MeshPhysicalMaterial({ color: '#38bdf8', transmission: 0.9, opacity: 0.6, transparent: true, roughness: 0.1 });
+             const glassMat = makeGlass('#38bdf8', 0.4);
              cityMaterials.push(wallMat, glassMat);
              
              const storeGeo = new THREE.BoxGeometry(w, h, d);
@@ -740,6 +763,10 @@ export function VanillaThreeScene() {
              if (zOffset < 115 && side > -62 && side < 82) continue;
              placeTree(side, zOffset);
         }
+        // Only draw the trees actually placed: unused instance slots default to the
+        // world origin, which put a stray tree in the middle of the first player's lot.
+        trunkInstanced.count = treeIndex;
+        leavesInstanced.count = treeIndex;
         trunkInstanced.instanceMatrix.needsUpdate = true;
         leavesInstanced.instanceMatrix.needsUpdate = true;
 
@@ -776,11 +803,7 @@ export function VanillaThreeScene() {
                 scene.add(pole);
                 environmentDisposables.push(pole);
 
-                const lampLight = new THREE.PointLight('#fef08a', 2, 80);
-                lampLight.position.set(x, 14.5, z);
-                lampLight.castShadow = false;
-                scene.add(lampLight);
-                environmentDisposables.push(lampLight);
+                addLightSource(x, 14.5, z, '#fef08a', 2, 80, true);
 
                 const bulbGeo = new THREE.SphereGeometry(0.6);
                 const bulbMat = new THREE.MeshBasicMaterial({ color: '#fef08a' }); // MeshBasic is unlit — already full-bright, emissive props don't apply
@@ -823,7 +846,7 @@ export function VanillaThreeScene() {
         };
         const makeCoffeeTable = () => {
             const g = new THREE.Group();
-            const topMat = new THREE.MeshPhysicalMaterial({ color: '#94a3b8', transmission: 0.5, opacity: 0.7, transparent: true, roughness: 0.1 });
+            const topMat = makeGlass('#94a3b8', 0.55);
             const top = new THREE.Mesh(new THREE.BoxGeometry(2, 0.12, 1.1), topMat); top.position.y = 0.7; top.castShadow = true; g.add(top);
             const legMat = new THREE.MeshStandardMaterial({ color: '#27272a', metalness: 0.6, roughness: 0.3 });
             ([[-0.85, 0.45], [0.85, 0.45], [-0.85, -0.45], [0.85, -0.45]] as [number, number][]).forEach(([x, z]) => { const l = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.7, 0.1), legMat); l.position.set(x, 0.35, z); g.add(l); });
@@ -836,7 +859,7 @@ export function VanillaThreeScene() {
         officeGroup.position.set(lotX - 25, 0, lotZ - 25);
 
         const officeMat = new THREE.MeshStandardMaterial({ color: '#1e293b', roughness: 0.8 }); // Slate-800
-        const glassMat = new THREE.MeshPhysicalMaterial({ color: '#38bdf8', transmission: 0.8, opacity: 1, transparent: true, roughness: 0.1, ior: 1.5 });
+        const glassMat = makeGlass('#38bdf8', 0.35);
         const floorMat = new THREE.MeshStandardMaterial({ color: '#334155', roughness: 0.7, map: concreteTex });
         
         const oRoof = new THREE.Mesh(new THREE.BoxGeometry(20, 0.5, 15), officeMat);
@@ -897,7 +920,7 @@ export function VanillaThreeScene() {
         const handleMat = new THREE.MeshStandardMaterial({ color: '#e2e8f0', metalness: 1.0, roughness: 0.15 });
         const doorHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 2.2, 8), handleMat); doorHandle.position.set(1.2, 3.6, 7.45); officeGroup.add(doorHandle);
         // Soft warm interior light so the furnishings are visible from outside.
-        const officeLight = new THREE.PointLight('#fff3da', 0.9, 34); officeLight.position.set(0, 6, 1); officeGroup.add(officeLight);
+        addLightSource(lotX - 25, 6, lotZ - 24, '#fff3da', 0.9, 34, false);
 
         scene.add(officeGroup);
         environmentDisposables.push(officeGroup);
@@ -922,11 +945,7 @@ export function VanillaThreeScene() {
             scene.add(pole);
             environmentDisposables.push(pole);
 
-            const lampLight = new THREE.PointLight('#fef08a', 2, 50);
-            lampLight.position.set(pos.x, 14.5, pos.z);
-            lampLight.castShadow = false;
-            scene.add(lampLight);
-            environmentDisposables.push(lampLight);
+            addLightSource(pos.x, 14.5, pos.z, '#fef08a', 2, 50, true);
 
             const bulbGeo = new THREE.SphereGeometry(0.6);
             const bulbMat = new THREE.MeshBasicMaterial({ color: '#fef08a' });
@@ -1090,7 +1109,7 @@ export function VanillaThreeScene() {
         const washGroup = new THREE.Group();
         washGroup.position.set(lotX + 55, 0, lotZ - 40);
         
-        const washGlass = new THREE.MeshPhysicalMaterial({ color: '#0ea5e9', transmission: 0.9, opacity: 1, transparent: true, ior: 1.5, roughness: 0.1, side: THREE.DoubleSide });
+        const washGlass = makeGlass('#0ea5e9', 0.3, THREE.DoubleSide);
         const washConc = new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: 0.9, map: concreteTex });
         
         // Roof
@@ -1200,7 +1219,7 @@ export function VanillaThreeScene() {
         bankGroup.position.set(45, 0, 140); // just outside the front-right fence, beside the entrance — accessible but not on the lot
 
         const bankMat = new THREE.MeshStandardMaterial({ color: '#1e293b', roughness: 0.5, metalness: 0.3 });
-        const bankGlass = new THREE.MeshPhysicalMaterial({ color: '#38bdf8', transmission: 0.9, opacity: 1, transparent: true, roughness: 0.05 });
+        const bankGlass = makeGlass('#38bdf8', 0.3);
 
         // Hollow Capital Bank building
         const walls = [
@@ -1240,7 +1259,7 @@ export function VanillaThreeScene() {
         ([[-13, 7], [13, 7], [-13, -8]] as [number, number][]).forEach(([x, z]) => { const pl = makePlant(); pl.position.set(x, 0, z); bankGroup.add(pl); });
         const bArt1 = makePainting(3, 1.8, '#065f46', '#a7f3d0'); bArt1.position.set(-7, 9, 9.4); bArt1.rotation.y = Math.PI; bankGroup.add(bArt1);
         const bArt2 = makePainting(3, 1.8, '#1e3a8a', '#93c5fd'); bArt2.position.set(7, 9, 9.4); bArt2.rotation.y = Math.PI; bankGroup.add(bArt2);
-        const bankLight = new THREE.PointLight('#fff3da', 1.0, 46); bankLight.position.set(0, 12, -4); bankGroup.add(bankLight);
+        addLightSource(45, 12, 136, '#fff3da', 1.0, 46, false);
 
         // Render glass panels specifically on either side of the entrance gap!
         const bkGlassLeft = new THREE.Mesh(new THREE.BoxGeometry(12, 15, 1), bankGlass);
@@ -1364,7 +1383,7 @@ export function VanillaThreeScene() {
         ];
         libWalls.forEach(w => { w.castShadow = true; w.receiveShadow = true; libraryGroup.add(w); });
         const libRoof = new THREE.Mesh(new THREE.BoxGeometry(17, 0.5, 13), libWallMat); libRoof.position.set(0, 5.25, 0); libRoof.castShadow = true; libraryGroup.add(libRoof);
-        const libLight = new THREE.PointLight('#ffd9a0', 1.2, 32); libLight.position.set(0, 4, 0); libraryGroup.add(libLight);
+        addLightSource(LIB_X, 4, LIB_Z, '#ffd9a0', 1.2, 32, false);
 
         const librarySign = createBuildingSign('LIBRARY', '#1f2937', '#fcd34d');
         librarySign.position.set(0, 6.2, -6.2);
@@ -1381,7 +1400,7 @@ export function VanillaThreeScene() {
         const insGroup = new THREE.Group();
         insGroup.position.set(INS_X, 0, INS_Z);
         const insWallMat = new THREE.MeshStandardMaterial({ color: '#0f766e', roughness: 0.7, metalness: 0.2, map: concreteTex });
-        const insGlassMat = new THREE.MeshPhysicalMaterial({ color: '#5eead4', transmission: 0.85, opacity: 0.7, transparent: true, roughness: 0.1 });
+        const insGlassMat = makeGlass('#5eead4', 0.45);
         cityMaterials.push(insWallMat, insGlassMat);
         const insFloor = new THREE.Mesh(new THREE.BoxGeometry(14, 0.2, 11), new THREE.MeshStandardMaterial({ color: '#134e4a', roughness: 0.9 }));
         insFloor.position.set(0, 0.1, 0); insFloor.receiveShadow = true; insGroup.add(insFloor);
@@ -1399,7 +1418,7 @@ export function VanillaThreeScene() {
         ];
         insWalls.forEach(w => insGroup.add(w));
         const insRoof = new THREE.Mesh(new THREE.BoxGeometry(15, 0.5, 12), insWallMat); insRoof.position.set(0, 6.25, 0); insRoof.castShadow = true; insGroup.add(insRoof);
-        const insLight = new THREE.PointLight('#ccfbf1', 1.0, 28); insLight.position.set(0, 4.5, 0); insGroup.add(insLight);
+        addLightSource(INS_X, 4.5, INS_Z, '#ccfbf1', 1.0, 28, false);
         const insSign = createBuildingSign('INSURANCE', '#042f2e', '#5eead4');
         insSign.position.set(0, 6.7, -5.7); insGroup.add(insSign);
         scene.add(insGroup);
@@ -1498,7 +1517,7 @@ export function VanillaThreeScene() {
         const kFloor = new THREE.Mesh(new THREE.BoxGeometry(8, 0.2, 6), new THREE.MeshStandardMaterial({ color: '#3f3f46' })); kFloor.position.y = 0.1; kiosk.add(kFloor);
         const kMat = new THREE.MeshStandardMaterial({ color: '#4338ca', roughness: 0.5, metalness: 0.3 });
         const kBooth = new THREE.Mesh(new THREE.BoxGeometry(5, 4, 4), kMat); kBooth.position.set(0, 2.2, 0); kBooth.castShadow = true; kiosk.add(kBooth);
-        const kGlass = new THREE.Mesh(new THREE.BoxGeometry(4, 1.6, 0.2), new THREE.MeshPhysicalMaterial({ color: '#a5b4fc', transmission: 0.7, transparent: true, opacity: 0.6, roughness: 0.1 })); kGlass.position.set(0, 2.6, -2.05); kiosk.add(kGlass);
+        const kGlass = new THREE.Mesh(new THREE.BoxGeometry(4, 1.6, 0.2), makeGlass('#a5b4fc', 0.45)); kGlass.position.set(0, 2.6, -2.05); kiosk.add(kGlass);
         const kRoof = new THREE.Mesh(new THREE.BoxGeometry(6, 0.4, 5), new THREE.MeshStandardMaterial({ color: '#312e81' })); kRoof.position.set(0, 4.4, 0); kRoof.castShadow = true; kiosk.add(kRoof);
         const kSign = createBuildingSign('CAR RENTALS', '#1e1b4b', '#c7d2fe'); kSign.position.set(0, 5.4, 0); kiosk.add(kSign);
         scene.add(kiosk); environmentDisposables.push(kiosk, kSign);
@@ -1524,6 +1543,7 @@ export function VanillaThreeScene() {
             const box = new THREE.Mesh(itemBoxGeo, mat);
             box.position.set(cp.x + radial.x * lane, 4.5, cp.z + radial.z * lane);
             box.castShadow = true;
+            box.userData.dynamic = true; // spins, bobs and changes colour every frame
             scene.add(box); environmentDisposables.push(box);
             itemBoxes.push({ mesh: box, baseY: 4.5, active: true, respawnAt: 0 });
         }
@@ -1537,7 +1557,7 @@ export function VanillaThreeScene() {
         type CpuRacer = { mesh: THREE.Group; angleDeg: number; startAngDeg: number; lane: number; speedDegPerSec: number; finished: boolean };
         let cpuRacers: CpuRacer[] = [];
         let cpuFinishCount = 0, racePlace = 1;
-        const clearCpuRacers = () => { cpuRacers.forEach(c => scene.remove(c.mesh)); cpuRacers = []; };
+        const clearCpuRacers = () => { cpuRacers.forEach(c => disposeObject(c.mesh)); cpuRacers = []; };
         let boostUntil = 0, starUntil = 0, spinUntil = 0; // boost / invincible-star / spin-out timers
         const bananas: { mesh: THREE.Mesh; expireAt: number; alive: boolean }[] = [];   // dropped peel hazards
         const shells: { mesh: THREE.Mesh; dir: THREE.Vector3; expireAt: number; alive: boolean }[] = []; // fired shells
@@ -1545,18 +1565,26 @@ export function VanillaThreeScene() {
         const bananaMat = new THREE.MeshStandardMaterial({ color: '#facc15', emissive: '#a16207', emissiveIntensity: 0.3, roughness: 0.5 });
         const shellGeo = new THREE.SphereGeometry(1.7, 12, 10);
         const shellMat = new THREE.MeshStandardMaterial({ color: '#22c55e', emissive: '#16a34a', emissiveIntensity: 0.7, roughness: 0.3, metalness: 0.4 });
+        // Take spent bananas/shells out of the scene instead of just hiding them forever.
+        const pruneProjectiles = () => {
+            for (const list of [bananas, shells] as { mesh: THREE.Mesh; alive: boolean }[][]) {
+                for (let i = list.length - 1; i >= 0; i--) {
+                    if (!list[i].alive) { scene.remove(list[i].mesh); list.splice(i, 1); }
+                }
+            }
+        };
         const dropBanana = (car: THREE.Object3D) => {
             const back = new THREE.Vector3(0, 0, 6).applyQuaternion(car.quaternion); // behind the car
             const m = new THREE.Mesh(bananaGeo, bananaMat);
             m.position.copy(car.position).add(back); m.position.y = 1.2; m.scale.set(1.1, 0.7, 1.5); m.castShadow = true;
-            scene.add(m); environmentDisposables.push(m);
+            scene.add(m); // geometry/material are shared and disposed on unmount
             bananas.push({ mesh: m, expireAt: performance.now() + 30000, alive: true });
         };
         const fireShell = (car: THREE.Object3D) => {
             const fwd = new THREE.Vector3(0, 0, -1).applyQuaternion(car.quaternion); // car forward
             const m = new THREE.Mesh(shellGeo, shellMat);
             m.position.copy(car.position).add(fwd.clone().multiplyScalar(9)); m.position.y = 1.6; m.castShadow = true;
-            scene.add(m); environmentDisposables.push(m);
+            scene.add(m); // geometry/material are shared and disposed on unmount
             shells.push({ mesh: m, dir: fwd, expireAt: performance.now() + 4000, alive: true });
         };
 
@@ -1571,7 +1599,46 @@ export function VanillaThreeScene() {
         staticCollisionBoxes.push(new THREE.Box3().setFromObject(bkDesk));
         staticCollisionBoxes.push(new THREE.Box3().setFromObject(aucBuilding));
 
+        // Merge all the static city scenery built above into a handful of meshes
+        // (one per distinct material) — thousands of draw calls become dozens.
+        // Collision boxes are already computed, so the originals can go.
+        const keepUniqueMaterials = new Set<THREE.Material>(emissiveFacadeMaterials);
+        const batchWorld = (objects: THREE.Object3D[]) => {
+            batchStatic(objects, { parent: scene, keepUnique: keepUniqueMaterials }).forEach(m => environmentDisposables.push(m));
+        };
+        batchWorld(scene.children.slice(worldStartIndex));
+
         // --- 4. Dynamic Objects ---
+        // Map the game's colour names to real colours.
+        const carColorHex = (c?: string) => {
+            if (c === 'Trade-In Silver') return '#C0C0C0';
+            if (c === 'Repo Gray') return '#808080';
+            return c || '#4b5563';
+        };
+        const RUST_COLOR = new THREE.Color('#8b4513');
+        const MUD_COLOR = new THREE.Color('#5c4033');
+        // Body paint: thick mud when dirty, otherwise the paint colour, tinted toward
+        // rust and dulled when the body is badly damaged.
+        const applyCarPaint = (mat: THREE.MeshStandardMaterial, hex: string, bodyCond: number, dirty: boolean) => {
+            if (dirty) { mat.color.copy(MUD_COLOR); mat.roughness = 1.0; mat.metalness = 0.1; return; }
+            mat.color.set(hex);
+            if (bodyCond < 50) {
+                mat.color.lerp(RUST_COLOR, 1 - (bodyCond / 50));
+                mat.roughness = 0.9; mat.metalness = 0.1;
+            } else {
+                mat.roughness = 0.2; mat.metalness = 0.6;
+            }
+        };
+        // Free the GPU memory of a car / bot / player marker that leaves the world.
+        const disposeObject = (obj: THREE.Object3D) => {
+            obj.removeFromParent();
+            obj.traverse((child: any) => {
+                if (!(child.isMesh || child.isPoints || child.isSprite)) return;
+                child.geometry?.dispose();
+                const mats = Array.isArray(child.material) ? child.material : [child.material];
+                mats.forEach((m: any) => { m?.map?.dispose(); m?.dispose(); });
+            });
+        };
         // Fallback body style for legacy/customer cars that have no bodyStyle set.
         const deriveStyle = (model: string) => {
             const m = (model || '').toLowerCase();
@@ -1586,22 +1653,11 @@ export function VanillaThreeScene() {
 
         const buildCarModel = (style: string, rawColor: string, bodyCond: number = 100, mechCond: number = 100) => {
              const group = new THREE.Group();
-             let c = rawColor;
-             try { new THREE.Color(c); } catch { c = '#ffffff'; }
+             group.userData.dynamic = true;
 
-             let roughnessVal = 0.2;
-             let metalnessVal = 0.6;
-             let tint = new THREE.Color(c);
-
-             // Apply visual rust/dirt based on body condition
-             if (bodyCond < 50) {
-                 roughnessVal = 0.9;
-                 metalnessVal = 0.1;
-                 // Tint towards brown/rust
-                 tint.lerp(new THREE.Color('#8b4513'), 1 - (bodyCond / 50));
-             }
-
-             const bodyMat = new THREE.MeshStandardMaterial({ color: tint, metalness: metalnessVal, roughness: roughnessVal });
+             // Paint with rust for a damaged body (see applyCarPaint)
+             const bodyMat = new THREE.MeshStandardMaterial();
+             applyCarPaint(bodyMat, rawColor, bodyCond, false);
              const glassMat = new THREE.MeshStandardMaterial({ color: '#1e293b', metalness: 0.9, roughness: 0.1, transparent: true, opacity: bodyCond < 40 ? 0.3 : 0.8 });
              const rubberMat = new THREE.MeshStandardMaterial({ color: '#111111', roughness: 0.9 });
              const chromeMat = new THREE.MeshStandardMaterial({ color: '#e2e8f0', metalness: 1.0, roughness: bodyCond < 50 ? 0.8 : 0.2 });
@@ -1717,6 +1773,10 @@ export function VanillaThreeScene() {
         
         type BotState = { mesh: THREE.Group, targetPos: THREE.Vector3, status: 'walking_in' | 'waiting' | 'walking_out' | 'test_driving' };
         const aiBots: Record<string, BotState> = {}; // Mapped by target car ID
+        // Customer test drives in progress, by car ID: a list of waypoints the car
+        // drives through (out the gate, down the road, back, and into its spot).
+        const aiDriveSequence: Record<string, { waypoints: THREE.Vector3[]; index: number; startRotY: number }> = {};
+        const AI_DRIVE_SPEED = 40;
         
         const otherPlayerMeshes: Record<string, THREE.Group> = {}; // Mapped by player ID
 
@@ -1765,14 +1825,26 @@ export function VanillaThreeScene() {
         uiCanvas.width = 512;
         uiCanvas.height = 128;
         const uiCtx = uiCanvas.getContext('2d');
-        if (uiCtx) {
+        const uiTex = new THREE.CanvasTexture(uiCanvas);
+        // Redraws the floating label only when its text changes, so it always names
+        // the action you can actually take (it used to say "[E] ENTER/EXIT | [R]
+        // INTERACT" everywhere, while the on-screen prompt said something else).
+        let promptText = '';
+        const setPromptText = (text: string) => {
+            if (!uiCtx || text === promptText) return;
+            promptText = text;
+            uiCtx.clearRect(0, 0, 512, 128);
             uiCtx.fillStyle = '#10b981';
+            uiCtx.beginPath();
             if (uiCtx.roundRect) uiCtx.roundRect(0, 0, 512, 128, 20); else uiCtx.rect(0, 0, 512, 128);
             uiCtx.fill();
-            uiCtx.fillStyle = '#ffffff'; uiCtx.font = 'bold 48px sans-serif'; uiCtx.textAlign = 'center'; 
-            uiCtx.fillText('[E] ENTER/EXIT  |  [R] INTERACT', 256, 80);
-        }
-        const uiTex = new THREE.CanvasTexture(uiCanvas);
+            uiCtx.fillStyle = '#ffffff'; uiCtx.textAlign = 'center';
+            let size = 52;
+            do { uiCtx.font = `bold ${size}px sans-serif`; size -= 2; } while (uiCtx.measureText(text).width > 480 && size > 24);
+            uiCtx.fillText(text, 256, 82);
+            uiTex.needsUpdate = true;
+        };
+        setPromptText('[E] DRIVE');
         const uiMat = new THREE.SpriteMaterial({ map: uiTex, transparent: true, opacity: 0, depthTest: false });
         const interactPrompt = new THREE.Sprite(uiMat);
         interactPrompt.scale.set(3.4, 0.85, 1);
@@ -1780,12 +1852,32 @@ export function VanillaThreeScene() {
         scene.add(interactPrompt);
         environmentDisposables.push(interactPrompt);
 
+        // --- Graphics quality (Low/High toggle in the HUD) ---
+        // Low: no shadows and 1x resolution — a big saving on phones and laptops.
+        const pixelRatioFor = (q: 'high' | 'low') => q === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
+        const applyGraphics = (q: 'high' | 'low', recompile: boolean) => {
+             renderer.setPixelRatio(pixelRatioFor(q));
+             renderer.shadowMap.enabled = q === 'high';
+             dirLight.castShadow = q === 'high';
+             if (recompile) {
+                 // Shaders are built with or without shadow code, so rebuild them once
+                 scene.traverse(o => {
+                     const mat = (o as THREE.Mesh).material;
+                     if (mat) (Array.isArray(mat) ? mat : [mat]).forEach(m => { m.needsUpdate = true; });
+                 });
+             }
+        };
+        applyGraphics(useGameStore.getState().graphicsQuality, false);
+        const unsubscribeGraphics = useGameStore.subscribe((st, prev) => {
+             if (st.graphicsQuality !== prev.graphicsQuality) applyGraphics(st.graphicsQuality, true);
+        });
+
         // --- Resize handling ---
         const handleResize = () => {
              camera.aspect = window.innerWidth / window.innerHeight;
              camera.updateProjectionMatrix();
              renderer.setSize(window.innerWidth, window.innerHeight);
-             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+             renderer.setPixelRatio(pixelRatioFor(useGameStore.getState().graphicsQuality));
         };
         window.addEventListener('resize', handleResize);
 
@@ -1832,6 +1924,12 @@ export function VanillaThreeScene() {
         };
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('keyup', handleKeyUp);
+        // Release every key when the window loses focus (alt-tab, clicking another
+        // app) — otherwise the key-up is never seen and the car keeps driving.
+        const releaseAllKeys = () => { (Object.keys(keys) as (keyof typeof keys)[]).forEach(k => { keys[k] = false; }); };
+        const handleVisibility = () => { if (document.hidden) releaseAllKeys(); };
+        window.addEventListener('blur', releaseAllKeys);
+        document.addEventListener('visibilitychange', handleVisibility);
 
         // --- Game Loop ---
         const clock = new THREE.Clock();
@@ -1848,81 +1946,102 @@ export function VanillaThreeScene() {
         let lastGateKeypad = false;
         (window as any).__authorizeGate = () => { gateAuthorizedUntil = performance.now() + 9000; };
 
+        // Sky palette + scratch colour reused every update (no per-frame allocations)
+        const SKY_MORNING = new THREE.Color('#fcd34d');
+        const SKY_NOON = new THREE.Color('#60a5fa');
+        const SKY_EVENING = new THREE.Color('#f97316');
+        const SKY_NIGHT = new THREE.Color('#0f172a');
+        const skyColor = new THREE.Color('#87ceeb');
+        scene.background = skyColor;
+        let nightFactor = 0;          // 0 = daylight, 1 = full night (drives the lamps)
+        let lastServerTime = -1;      // last clock value received from the server
+        let localTime = 8;            // smoothly advanced between the server's 1-second ticks
+
+        const applyTimeOfDay = (t: number) => {
+            // Progress from 8.0 to 20.0 (0.0 to 1.0)
+            const progress = Math.max(0, Math.min(1, (t - 8) / 12));
+
+            // Sun trajectory (East to West arc)
+            const sunHeight = Math.sin(progress * Math.PI) * 400 + 10;
+            const sunX = Math.cos(progress * Math.PI) * 500;
+            dirLight.position.set(sunX, sunHeight, -100);
+
+            // Fade Sun and Ambient Light as evening approaches (progress > 0.7)
+            const fade = progress > 0.7 ? 1 - ((progress - 0.7) / 0.3) : 1; // 1.0 until 0.7, 0.0 at 1.0
+            dirLight.intensity = 2.5 * fade;
+            ambientLight.intensity = progress > 0.7 ? 0.7 * fade + 0.1 : 0.7; // Never fully pitch black
+            nightFactor = 1 - fade; // street lamps fade in as the sun goes down
+
+            // Fade up skyscraper window emissive glow at night
+            const glowIntensity = 0.15 + 1.25 * nightFactor;
+            emissiveFacadeMaterials.forEach(m => m.emissiveIntensity = glowIntensity);
+
+            // Sky color lerping (Morning -> Noon -> Evening -> Night)
+            if (progress < 0.3) skyColor.lerpColors(SKY_MORNING, SKY_NOON, progress / 0.3);
+            else if (progress < 0.7) skyColor.lerpColors(SKY_NOON, SKY_EVENING, (progress - 0.3) / 0.4);
+            else skyColor.lerpColors(SKY_EVENING, SKY_NIGHT, (progress - 0.7) / 0.3);
+            if (scene.fog) (scene.fog as THREE.Fog).color.copy(skyColor);
+        };
+
+        // Buildings you can walk up to and use. Defined once (the old code rebuilt
+        // these positions every frame).
+        const buildingStops = [
+            { pos: new THREE.Vector3(40, 1.5, 130), range: 12, yOff: 3, type: 'bank' as const, label: 'Access Capital Bank', prompt: '[R] CAPITAL BANK', open: () => useGameStore.getState().openBankModal() },
+            { pos: new THREE.Vector3(-60, 1, 205), range: 15, yOff: 3, type: 'auction' as const, label: 'Access Global Auction', prompt: '[R] GLOBAL AUCTION', open: () => { window.dispatchEvent(new CustomEvent('open_auction')); } },
+            { pos: libraryWorldPos, range: 11, yOff: 3, type: 'library' as const, label: 'Browse the Library', prompt: '[R] LIBRARY', open: () => { window.dispatchEvent(new CustomEvent('open_library')); } },
+            { pos: insuranceWorldPos, range: 11, yOff: 3, type: 'insurance' as const, label: 'Apex Mutual Insurance', prompt: '[R] INSURANCE', open: () => useGameStore.getState().openInsuranceModal() },
+            { pos: rentalKioskPos, range: 12, yOff: 4, type: 'rental' as const, label: 'Rent Race Car ($1,500)', prompt: '[R] RENT RACE CAR', open: () => useGameStore.getState().rentRaceCar() },
+        ];
+
+        // Scratch objects reused every frame (allocating new vectors each frame causes GC stutter)
+        const tmpPrevPos = new THREE.Vector3();
+        const tmpPrevQuat = new THREE.Quaternion();
+        const tmpClosest = new THREE.Vector3();
+        const tmpCam = new THREE.Vector3();
+        const tmpLook = new THREE.Vector3();
+        const tmpMove = new THREE.Vector3();
+        const tmpFwd = new THREE.Vector3();
+        const tmpTarget = new THREE.Vector3();
+        const tmpQuat = new THREE.Quaternion();
+        const UP = new THREE.Vector3(0, 1, 0);
+        const tmpAvatarBox = new THREE.Box3();
+        const carSpheres = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
+        let carSyncAccum = 0;
+
         const animate = () => {
             animationFrameId = requestAnimationFrame(animate);
             const time = Date.now() * 0.001;
+            // Clamp so a long pause (tab switch, breakpoint) doesn't fling the car across the map
+            const delta = Math.min(clock.getDelta(), 0.1);
 
-            // Animate smoke particles
+            // Animate smoke particles (speeds are per second, so they match on any refresh rate)
+            const smokeRise = 3 * delta, smokeWaver = 3 * delta;
             Object.values(carSmokes).forEach(smoke => {
                 if (!smoke || !smoke.visible) return; // skip healthy cars (smoke hidden)
                 const positions = smoke.geometry.attributes.position.array as Float32Array;
                 for (let i = 0; i < positions.length; i += 3) {
-                    positions[i + 1] += 0.05; // move Y up
-                    positions[i] += (Math.random() - 0.5) * 0.05; // waver X
+                    positions[i + 1] += smokeRise; // move Y up
+                    positions[i] += (Math.random() - 0.5) * smokeWaver; // waver X
                     if (positions[i + 1] > 3) {
                         positions[i + 1] = 0; // reset Y
                     }
                 }
                 smoke.geometry.attributes.position.needsUpdate = true;
             });
-            const delta = clock.getDelta();
             
             const current = stateRef.current;
             const isDriving = !!localDrivingCarId;
             const me = current.gameState?.players[current.playerId || ''];
 
-            // Time of Day Rendering Sync
-            if (current.gameState && current.gameState.timeOfDay !== undefined) {
-                 const t = current.gameState.timeOfDay;
-                 if (Math.abs(t - lastRenderedTime) > 0.01) {
-                     lastRenderedTime = t;
-                     // Progress from 8.0 to 20.0 (0.0 to 1.0)
-                     const progress = Math.max(0, Math.min(1, (t - 8) / 12)); 
-                     
-                     // Sun trajectory (East to West arc)
-                     const sunHeight = Math.sin(progress * Math.PI) * 400 + 10;
-                     const sunX = Math.cos(progress * Math.PI) * 500;
-                     dirLight.position.set(sunX, sunHeight, -100);
-                     
-                      // Fade Sun and Ambient Light as evening approaches (progress > 0.7)
-                      if (progress > 0.7) {
-                          const fade = 1 - ((progress - 0.7) / 0.3); // 1.0 at 0.7, 0.0 at 1.0
-                          dirLight.intensity = 2.5 * fade;
-                          ambientLight.intensity = 0.7 * fade + 0.1; // Never fully pitch black
-                          
-                          // Turn on Streetlights!
-                          streetLights.forEach(l => l.intensity = 1.5 * (1 - fade));
-
-                          // Fade up skyscraper window emissive glow!
-                          const glowIntensity = 0.15 + 1.25 * (1 - fade);
-                          emissiveFacadeMaterials.forEach(m => m.emissiveIntensity = glowIntensity);
-                      } else {
-                          dirLight.intensity = 2.5;
-                          ambientLight.intensity = 0.7;
-                          streetLights.forEach(l => l.intensity = 0);
-
-                          // Daytime default low window light level
-                          emissiveFacadeMaterials.forEach(m => m.emissiveIntensity = 0.15);
-                      }
-                     
-                     // Sky color lerping (Morning -> Noon -> Evening -> Night)
-                     const morningColor = new THREE.Color('#fcd34d');
-                     const noonColor = new THREE.Color('#60a5fa');
-                     const eveningColor = new THREE.Color('#f97316');
-                     const nightColor = new THREE.Color('#0f172a');
-                     
-                     const skyC = new THREE.Color();
-                     if (progress < 0.3) {
-                         skyC.lerpColors(morningColor, noonColor, progress / 0.3);
-                     } else if (progress < 0.7) {
-                         skyC.lerpColors(noonColor, eveningColor, (progress - 0.3) / 0.4);
-                     } else {
-                         skyC.lerpColors(eveningColor, nightColor, (progress - 0.7) / 0.3);
-                     }
-                     
-                     scene.background = skyC;
-                     if (scene.fog) { (scene.fog as THREE.Fog).color.copy(skyC); }
-                 }
+            // Time of Day Rendering Sync. The server sends the clock once a second
+            // (time_update); between ticks we advance it locally (1 game hour = 30 s)
+            // so the sun and sky move smoothly instead of in jumps.
+            const serverTime = useGameStore.getState().timeOfDay;
+            if (serverTime !== lastServerTime) { lastServerTime = serverTime; localTime = serverTime; }
+            else if (localTime < 20) localTime = Math.min(20, localTime + delta / 30);
+            if (Math.abs(localTime - lastRenderedTime) > 0.002) {
+                lastRenderedTime = localTime;
+                applyTimeOfDay(localTime);
             }
 
             // --- Secured automatic gate ----------------------------------------
@@ -1941,6 +2060,11 @@ export function VanillaThreeScene() {
                     const dz = activeObj.position.z - g.z;
                     const near = Math.hypot(dx, dz) < 24 && Math.abs(dx) < 26;
                     const inside = activeObj.position.z < g.z - 0.5;
+                    const customerAtGate = Object.keys(aiDriveSequence).some(id => {
+                        const m = carMeshes[id];
+                        return !!m && Math.abs(m.position.x - g.x) < 20 && Math.abs(m.position.z - g.z) < 30;
+                    });
+                    if (customerAtGate) open = true;
                     if (near && inside) {
                         open = true;                          // exit sensor: opens from inside
                         gateExitGraceUntil = now + 1500;      // let them fully clear the gate
@@ -1953,8 +2077,9 @@ export function VanillaThreeScene() {
                 }
                 const lt = open ? Math.PI / 2 : 0;
                 const rt = open ? -Math.PI / 2 : 0;
-                g.left.rotation.y += (lt - g.left.rotation.y) * 0.08;
-                g.right.rotation.y += (rt - g.right.rotation.y) * 0.08;
+                const gateEase = damp(0.08, delta);
+                g.left.rotation.y += (lt - g.left.rotation.y) * gateEase;
+                g.right.rotation.y += (rt - g.right.rotation.y) * gateEase;
                 // Physically block the driveway whenever the gate is closed (owner lot)
                 if (g.isOwner) {
                     if (open) g.barrier.makeEmpty();
@@ -2012,7 +2137,7 @@ export function VanillaThreeScene() {
                         let minDist = 6.0; // Restored to a closer 6 units to prevent accidental teleporting through walls
                         me.inventory.forEach(car => {
                              const m = carMeshes[car.id];
-                             if (m) {
+                             if (m && !aiDriveSequence[car.id]) {
                                  const d = avatar.position.distanceTo(m.position);
                                  if (d < minDist) { minDist = d; closestCar = car.id; }
                              }
@@ -2067,14 +2192,8 @@ export function VanillaThreeScene() {
             if (me) {
                 me.inventory.forEach((car) => {
                     if (!carMeshes[car.id]) {
-                        
-                        let c = car.color;
-                        if (c === 'Trade-In Silver') c = '#C0C0C0';
-                        else if (c === 'Repo Gray') c = '#808080';
-                        else if (!c) c = '#4b5563';
-
                         const carStyle = (car as any).bodyStyle || deriveStyle(car.model);
-                        const assets = buildCarModel(carStyle, c, car.bodyCondition, car.mechanicCondition);
+                        const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition);
                         
                         const mesh = assets.group;
                         if (car.lotPosition) {
@@ -2100,24 +2219,15 @@ export function VanillaThreeScene() {
                     const smoke = carSmokes[car.id];
                     if (smoke) smoke.visible = car.mechanicCondition < 50;
 
-                    // dynamic state update
+                    // dynamic paint: mud when dirty, otherwise the car's colour with rust
+                    // for a damaged body. Only re-applied when something actually changes
+                    // (previously a rusty car was repainted shiny on its very first frame).
                     const body = carBodies[car.id];
                     if (body) {
-                        const mat = body.material as THREE.MeshPhysicalMaterial;
-                        if (car.isDirty) {
-                            if (mat.roughness !== 1.0) {
-                                mat.color.set('#5c4033'); // Farm thick mud!
-                                mat.clearcoat = 0;
-                                mat.roughness = 1.0;
-                            }
-                        } else {
-                            let origC = car.color || '#ffffff';
-                            if (origC === 'Trade-In Silver') origC = '#C0C0C0';
-                            if (mat.roughness !== 0.2) {
-                                try { mat.color.set(origC); } catch {}
-                                mat.clearcoat = 1.0;
-                                mat.roughness = 0.2;
-                            }
+                        const paintKey = `${car.isDirty ? 1 : 0}|${car.color}|${Math.round(car.bodyCondition ?? 100)}`;
+                        if (body.userData.paintKey !== paintKey) {
+                            body.userData.paintKey = paintKey;
+                            applyCarPaint(body.material as THREE.MeshStandardMaterial, carColorHex(car.color), car.bodyCondition ?? 100, !!car.isDirty);
                         }
                     }
                     // AI Pathing Spawn Subroutine
@@ -2158,20 +2268,28 @@ export function VanillaThreeScene() {
                     }
                 });
 
-                // Clean up 3D meshes for sold cars
+                // Clean up 3D meshes (and every per-car record) for sold cars
+                const ownedIds = new Set(me.inventory.map(c => c.id));
                 Object.keys(carMeshes).forEach(carId => {
-                    const carExists = me.inventory.some(c => c.id === carId);
-                    if (!carExists) {
-                        const mesh = carMeshes[carId];
-                        scene.remove(mesh);
-                        mesh.traverse((child: any) => {
-                            if (child.isMesh) {
-                                child.geometry?.dispose();
-                                child.material?.dispose();
-                            }
-                        });
-                        delete carMeshes[carId];
+                    if (ownedIds.has(carId)) return;
+                    if (carId === localDrivingCarId) {
+                        // The car was sold/removed while we were driving it: step out.
+                        avatar.position.copy(carMeshes[carId].position).add(new THREE.Vector3(-3, 0, 0));
+                        localDrivingCarId = null;
+                        localFuel = null;
+                        if (raceActive) { raceActive = false; raceState = ''; }
+                        clearCpuRacers();
+                        const st = useGameStore.getState();
+                        st.setDrivingCarId(null); st.setDrivingFuel(null); st.setRaceTrackPrompt(false); st.setRaceHud(null);
                     }
+                    disposeObject(carMeshes[carId]);
+                    delete carMeshes[carId];
+                    delete carBodies[carId];
+                    delete carSmokes[carId];
+                    delete carWheels[carId];
+                    delete carSteering[carId];
+                    delete vehiclePhysics[carId];
+                    delete aiDriveSequence[carId];
                 });
             }
 
@@ -2240,7 +2358,8 @@ export function VanillaThreeScene() {
             }
              // AI Customer Pathing & Autonomous Test Drive Physics
              const cpuSpeed = 8 * delta;
-             const aiDriveSequence: Record<string, { state: 'out'|'back'|'done', startZ: number, startX: number, targetZ?: number }> = {};
+             // ~12% chance per second that a waiting customer takes the car out
+             const testDriveChance = 1 - Math.pow(1 - 0.002, delta * 60);
              
              Object.entries(aiBots).forEach(([key, bot]) => {
                   const d = bot.mesh.position.distanceTo(bot.targetPos);
@@ -2258,40 +2377,50 @@ export function VanillaThreeScene() {
                       bot.mesh.children[0].position.y = 1 + Math.sin(Date.now() * 0.005) * 0.1; // gentle breathing
                       bot.mesh.lookAt(bot.targetPos);
                       
-                      // Exponential AI spontaneous paths to utilize roads
-                      if (Math.random() < 0.002) {
+                      // Now and then a customer takes the car out for a spin on the road
+                      const car = carMeshes[key];
+                      if (car && key !== localDrivingCarId && Math.random() < testDriveChance) {
                            bot.status = 'test_driving';
-                           const goDeep = Math.random() > 0.5;
-                           aiDriveSequence[key] = { state: 'out', startZ: carMeshes[key].position.z, startX: carMeshes[key].position.x, targetZ: goDeep ? 600 : 250 };
+                           const lotX = me?.lotPosition?.x || 0;
+                           const lotZ = me?.lotPosition?.z || 0;
+                           const turnZ = lotZ + (Math.random() > 0.5 ? 600 : 250);
+                           const start = car.position.clone();
+                           aiDriveSequence[key] = {
+                               index: 0,
+                               startRotY: car.rotation.y,
+                               // into the central drive lane, out through the gate, down the road, then back
+                               waypoints: [new THREE.Vector3(lotX, 0, start.z), new THREE.Vector3(lotX, 0, turnZ), new THREE.Vector3(lotX, 0, start.z), start],
+                           };
                       }
                   } else if (bot.status === 'test_driving') {
                       bot.mesh.visible = false;
                       const car = carMeshes[key];
-                      const seq = aiDriveSequence[key] as any;
-                      if (car && seq) {
-                           if (seq.state === 'out') {
-                                // Drive down the road
-                                car.position.z += 40 * delta; // Faster AI driving
-                                car.rotation.y = 0; // Fixed south
-                                const localWheels = carWheels[key];
-                                if (localWheels) localWheels.forEach(w => w.rotateX(-40 * delta * 0.5));
-                                if (car.position.z > seq.targetZ) seq.state = 'back';
-                           } else if (seq.state === 'back') {
-                                // Return to dealership
-                                car.position.z -= 40 * delta;
-                                car.rotation.y = Math.PI; // Fixed north
-                                const localWheels = carWheels[key];
-                                if (localWheels) localWheels.forEach(w => w.rotateX(-40 * delta * 0.5));
-                                if (car.position.z < seq.startZ + 5) {
-                                    // Seamless auto-park!
-                                    car.position.z = seq.startZ;
-                                    car.position.x = seq.startX;
-                                    car.rotation.y = 0;
-                                    bot.status = 'waiting';
-                                    bot.mesh.visible = true;
-                                    delete aiDriveSequence[key];
-                                }
+                      const seq = aiDriveSequence[key];
+                      if (!car || !seq) {
+                           bot.status = 'waiting';
+                           bot.mesh.visible = true;
+                      } else {
+                           const target = seq.waypoints[seq.index];
+                           const dx = target.x - car.position.x, dz = target.z - car.position.z;
+                           const dist = Math.hypot(dx, dz);
+                           const step = AI_DRIVE_SPEED * delta;
+                           if (dist > 0.01) car.rotation.y = Math.atan2(dx, dz); // face the direction of travel
+                           if (dist <= step) {
+                               car.position.set(target.x, car.position.y, target.z);
+                               seq.index++;
+                               if (seq.index >= seq.waypoints.length) {
+                                   // Seamless auto-park back in the original spot
+                                   car.rotation.y = seq.startRotY;
+                                   bot.status = 'waiting';
+                                   bot.mesh.visible = true;
+                                   delete aiDriveSequence[key];
+                               }
+                           } else {
+                               car.position.x += (dx / dist) * step;
+                               car.position.z += (dz / dist) * step;
                            }
+                           const localWheels = carWheels[key];
+                           if (localWheels) localWheels.forEach(w => w.rotateX(-AI_DRIVE_SPEED * delta * 0.5));
                       }
                   } else if (bot.status === 'walking_out') {
                       bot.mesh.visible = true; // In case they left from a test drive
@@ -2302,108 +2431,64 @@ export function VanillaThreeScene() {
                           bot.mesh.lookAt(bot.targetPos);
                       } else {
                           // Destroy mesh memory on exit
-                          scene.remove(bot.mesh);
+                          disposeObject(bot.mesh);
                           delete aiBots[key];
                       }
                   }
              });
 
              // --- Dynamic Interaction Prompts ---
-             interactPrompt.material.opacity = Math.max(0.0, interactPrompt.material.opacity - 0.1);
+             // Fade speeds are per second so the label behaves the same at any frame rate.
+             interactPrompt.material.opacity = Math.max(0.0, interactPrompt.material.opacity - 6 * delta);
+             const showPrompt = (pos: THREE.Vector3, yOff: number, text: string) => {
+                  interactPrompt.position.set(pos.x, pos.y + yOff, pos.z);
+                  interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 12 * delta);
+                  setPromptText(text);
+             };
              if (!localDrivingCarId) {
                  let nearestCar: string | null = null;
                  let minD = 6.0;
                  Object.entries(carMeshes).forEach(([id, mesh]) => {
+                      if (aiDriveSequence[id]) return; // out on a customer's test drive
                       const dist = avatar.position.distanceTo(mesh.position);
                       if (dist < minD) { minD = dist; nearestCar = id; }
                  });
 
-                 // Check distance to bank desk inside Capital Bank (40, 1.5, 130 world coords)
-                 const bankWorldDesk = new THREE.Vector3(40, 1.5, 130);
-                 const dDesk = avatar.position.distanceTo(bankWorldDesk);
-                 
-                 const auctionWorldKiosk = new THREE.Vector3(-60, 1, 205);
-                 const dAuction = avatar.position.distanceTo(auctionWorldKiosk);
-                 const dLibrary = avatar.position.distanceTo(libraryWorldPos);
-                 const dInsurance = avatar.position.distanceTo(insuranceWorldPos);
-                 const dRental = avatar.position.distanceTo(rentalKioskPos);
-
-                  const activeInt = useGameStore.getState().activeInteraction;
-                  if (dDesk < 12.0) {
-                       interactPrompt.position.copy(bankWorldDesk).add(new THREE.Vector3(0, 3, 0));
-                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
-                       if (!activeInt || activeInt.type !== 'bank') {
-                            useGameStore.getState().setActiveInteraction({ type: 'bank', label: 'Access Capital Bank' });
+                  const store = useGameStore.getState();
+                  const activeInt = store.activeInteraction;
+                  const stop = buildingStops.find(b => avatar.position.distanceTo(b.pos) < b.range);
+                  if (stop) {
+                       showPrompt(stop.pos, stop.yOff, stop.prompt);
+                       if (!activeInt || activeInt.type !== stop.type) {
+                            store.setActiveInteraction({ type: stop.type, label: stop.label });
                        }
                        if (eJustPressed || rJustPressed) {
                             keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
-                            useGameStore.getState().openBankModal();
-                       }
-                  } else if (dAuction < 15.0) {
-                       interactPrompt.position.copy(auctionWorldKiosk).add(new THREE.Vector3(0, 3, 0));
-                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
-                       if (!activeInt || activeInt.type !== 'auction') {
-                            useGameStore.getState().setActiveInteraction({ type: 'auction', label: 'Access Global Auction' });
-                       }
-                       if (eJustPressed || rJustPressed) {
-                            keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
-                            window.dispatchEvent(new CustomEvent('open_auction'));
-                       }
-                  } else if (dLibrary < 11.0) {
-                       interactPrompt.position.copy(libraryWorldPos).add(new THREE.Vector3(0, 3, 0));
-                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
-                       if (!activeInt || activeInt.type !== 'library') {
-                            useGameStore.getState().setActiveInteraction({ type: 'library', label: 'Browse the Library' });
-                       }
-                       if (eJustPressed || rJustPressed) {
-                            keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
-                            window.dispatchEvent(new CustomEvent('open_library'));
-                       }
-                  } else if (dInsurance < 11.0) {
-                       interactPrompt.position.copy(insuranceWorldPos).add(new THREE.Vector3(0, 3, 0));
-                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
-                       if (!activeInt || activeInt.type !== 'insurance') {
-                            useGameStore.getState().setActiveInteraction({ type: 'insurance', label: 'Apex Mutual Insurance' });
-                       }
-                       if (eJustPressed || rJustPressed) {
-                            keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
-                            useGameStore.getState().openInsuranceModal();
-                       }
-                  } else if (dRental < 12.0) {
-                       interactPrompt.position.copy(rentalKioskPos).add(new THREE.Vector3(0, 4, 0));
-                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
-                       if (!activeInt || activeInt.type !== 'rental') {
-                            useGameStore.getState().setActiveInteraction({ type: 'rental', label: 'Rent Race Car ($1,500)' });
-                       }
-                       if (eJustPressed || rJustPressed) {
-                            keys.e = false; keys.r = false; eWasPressed = false; rWasPressed = false;
-                            useGameStore.getState().rentRaceCar();
+                            stop.open();
                        }
                   } else if (nearestCar) {
-                       interactPrompt.position.copy(carMeshes[nearestCar].position).add(new THREE.Vector3(0, 4, 0));
-                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
+                       showPrompt(carMeshes[nearestCar].position, 4, '[E] DRIVE');
                        if (!activeInt || activeInt.type !== 'car' || activeInt.carId !== nearestCar) {
-                            useGameStore.getState().setActiveInteraction({ type: 'car', label: 'Drive Vehicle', carId: nearestCar });
+                            store.setActiveInteraction({ type: 'car', label: 'Drive Vehicle', carId: nearestCar });
                        }
-                  } else {
-                       if (activeInt !== null) {
-                            useGameStore.getState().setActiveInteraction(null);
-                       }
+                  } else if (activeInt !== null) {
+                       store.setActiveInteraction(null);
                   }
              } else {
-                  const activeInt = useGameStore.getState().activeInteraction;
-                  if (activeInt !== null) {
-                       useGameStore.getState().setActiveInteraction(null);
-                  }
+                  const store = useGameStore.getState();
+                  if (store.activeInteraction !== null) store.setActiveInteraction(null);
                   const pPos = carMeshes[localDrivingCarId!].position;
                   const lotX = me?.lotPosition?.x || 0;
                   const lotZ = me?.lotPosition?.z || 0;
-                  const inWashOrShop = (Math.abs(pPos.x - (lotX + 55)) < 25 && (Math.abs(pPos.z - (lotZ - 40)) < 25 || Math.abs(pPos.z - (lotZ + 5)) < 25 || Math.abs(pPos.z - (lotZ + 50)) < 25));
+                  const inShopColumn = Math.abs(pPos.x - (lotX + 55)) < 25;
                   const inShowLot = (Math.abs(pPos.x - lotX) < 15 && (pPos.z - lotZ) > 10);
-                  
-                  if (inWashOrShop || inShowLot) {
-                       interactPrompt.position.copy(pPos).add(new THREE.Vector3(0, 6, 0));
-                       interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
+                  if (inShopColumn) {
+                       // Name whichever bay is closest: wash (z-40), mechanic (z+5), body shop (z+50)
+                       const bays: [number, string][] = [[lotZ - 40, 'AUTO WASH: DRIVE THROUGH'], [lotZ + 5, '[R] MECHANIC BAY'], [lotZ + 50, '[R] BODY SHOP']];
+                       const [bayZ, label] = bays.reduce((a, b) => Math.abs(pPos.z - b[0]) < Math.abs(pPos.z - a[0]) ? b : a);
+                       if (Math.abs(pPos.z - bayZ) < 25) showPrompt(pPos, 6, label);
+                  } else if (inShowLot) {
+                       showPrompt(pPos, 6, '[R] PARK FOR SALE');
                   }
              }
 
@@ -2469,35 +2554,34 @@ export function VanillaThreeScene() {
                     if (keys.a) steerInput += 1;
                     if (keys.d) steerInput -= 1;
                     const driveDir = phys.v >= 0 ? 1 : -1;
-                    phys.yaw += ((steerInput * 0.5) - phys.yaw) * 0.2; // front-wheel visual
+                    phys.yaw += ((steerInput * 0.5) - phys.yaw) * damp(0.2, delta); // front-wheel visual
                     const steeringPivots = carSteering[localDrivingCarId!];
                     if (steeringPivots) steeringPivots.forEach(p => p.rotation.y = phys.yaw);
 
                     // Store previous transform for collision rollback
-                    const prevPos = activeCar.position.clone();
-                    const prevQuat = activeCar.quaternion.clone();
+                    const prevPos = tmpPrevPos.copy(activeCar.position);
+                    const prevQuat = tmpPrevQuat.copy(activeCar.quaternion);
 
                     // Rotate (steer) then move — or spin helplessly if hit by a banana/shell
-                    if (spinning) { activeCar.rotateY(delta * 16); phys.v *= 0.93; }
+                    if (spinning) { activeCar.rotateY(delta * 16); phys.v *= Math.pow(0.93, delta * 60); }
                     else if (steerInput !== 0 && spd > 0.3) activeCar.rotateY(turn * steerInput * driveDir);
                     activeCar.translateZ(-phys.v * delta);
                     activeCar.updateMatrixWorld(true);
 
                     // Multi-sphere collision against static boxes (no diagonal AABB bloat)
                     const r = 1.6;
-                    const spheres = [
-                        activeCar.position.clone().add(new THREE.Vector3(0, 0, 3.2).applyQuaternion(activeCar.quaternion)),
-                        activeCar.position.clone(),
-                        activeCar.position.clone().add(new THREE.Vector3(0, 0, -3.2).applyQuaternion(activeCar.quaternion))
-                    ];
+                    carSpheres[0].set(0, 0, 3.2).applyQuaternion(activeCar.quaternion).add(activeCar.position);
+                    carSpheres[1].copy(activeCar.position);
+                    carSpheres[2].set(0, 0, -3.2).applyQuaternion(activeCar.quaternion).add(activeCar.position);
                     let wallCollided = false;
-                    const closestPoint = new THREE.Vector3();
-                    staticCollisionBoxes.forEach(sBox => {
-                        spheres.forEach(sphereCenter => {
-                            sBox.clampPoint(sphereCenter, closestPoint);
-                            if (closestPoint.distanceToSquared(sphereCenter) < r * r) wallCollided = true;
-                        });
-                    });
+                    for (const sBox of staticCollisionBoxes) {
+                        if (sBox.isEmpty()) continue;
+                        for (const sphereCenter of carSpheres) {
+                            sBox.clampPoint(sphereCenter, tmpClosest);
+                            if (tmpClosest.distanceToSquared(sphereCenter) < r * r) { wallCollided = true; break; }
+                        }
+                        if (wallCollided) break;
+                    }
                     if (wallCollided) {
                         activeCar.position.copy(prevPos);
                         activeCar.quaternion.copy(prevQuat);
@@ -2509,13 +2593,15 @@ export function VanillaThreeScene() {
                     if (localWheels) localWheels.forEach(w => w.rotateX(-phys.v * delta * 0.5));
 
                     // Chase cam that looks down the road ahead (keeps the track visible)
-                    const camOffset = new THREE.Vector3(0, 7.5, 21).applyQuaternion(activeCar.quaternion);
-                    camera.position.lerp(activeCar.position.clone().add(camOffset), 0.14);
-                    const lookAhead = new THREE.Vector3(0, 2.2, -14).applyQuaternion(activeCar.quaternion);
-                    camera.lookAt(activeCar.position.clone().add(lookAhead));
+                    tmpCam.set(0, 7.5, 21).applyQuaternion(activeCar.quaternion).add(activeCar.position);
+                    camera.position.lerp(tmpCam, damp(0.14, delta));
+                    tmpLook.set(0, 2.2, -14).applyQuaternion(activeCar.quaternion).add(activeCar.position);
+                    camera.lookAt(tmpLook);
 
-                    // Periodically sync physical position with server
-                    if (Math.random() < 0.05) {
+                    // Sync the car's position with the server ~3x per second
+                    carSyncAccum += delta;
+                    if (carSyncAccum > 0.33) {
+                         carSyncAccum = 0;
                          const store = useGameStore.getState() as any;
                          if (store.socket) {
                               store.socket.emit('sync_car_pos', {
@@ -2529,8 +2615,7 @@ export function VanillaThreeScene() {
                     const store2 = useGameStore.getState();
                     const nearPump = gasPumps.some(p => activeCar.position.distanceTo(p) < 9);
                     if (nearPump && !raceActive) {
-                        interactPrompt.position.copy(activeCar.position).add(new THREE.Vector3(0, 6, 0));
-                        interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 0.2);
+                        showPrompt(activeCar.position, 6, '[R] REFUEL');
                         if (rJustPressed && (localFuel ?? 100) < 99) { keys.r = false; rWasPressed = false; store2.refuel(localDrivingCarId!); }
                     }
 
@@ -2561,7 +2646,7 @@ export function VanillaThreeScene() {
                             const aRad = startA * Math.PI / 180, rr = RC + lane;
                             m.position.set(RACE_CX + rr * Math.cos(aRad), 0, RACE_CZ + rr * Math.sin(aRad));
                             m.rotation.y = Math.PI - aRad;
-                            scene.add(m); environmentDisposables.push(m);
+                            scene.add(m); // disposed by clearCpuRacers() when the race ends
                             const variation = 0.92 + Math.random() * 0.16;
                             cpuRacers.push({ mesh: m, angleDeg: startA, startAngDeg: startA, lane, speedDegPerSec: 360 / (REF_LAP / (cpuSkill * variation)), finished: false });
                         });
@@ -2630,15 +2715,16 @@ export function VanillaThreeScene() {
                         if (!s.alive) return;
                         s.mesh.position.addScaledVector(s.dir, 200 * delta);
                         s.mesh.rotation.y += delta * 8;
-                        if (nowB > s.expireAt) { s.alive = false; s.mesh.visible = false; }
+                        if (nowB > s.expireAt) s.alive = false;
                     });
                     // bananas spin out any car that drives over one (unless star-invincible)
                     bananas.forEach(bn => {
                         if (!bn.alive) return;
                         bn.mesh.rotation.y += delta * 1.0;
-                        if (nowB > bn.expireAt) { bn.alive = false; bn.mesh.visible = false; return; }
-                        if (!starActive && activeCar.position.distanceTo(bn.mesh.position) < 4.5) { bn.alive = false; bn.mesh.visible = false; spinUntil = nowB + 1300; }
+                        if (nowB > bn.expireAt) { bn.alive = false; return; }
+                        if (!starActive && activeCar.position.distanceTo(bn.mesh.position) < 4.5) { bn.alive = false; spinUntil = nowB + 1300; }
                     });
+                    pruneProjectiles();
                     // rainbow star glow on the driven car
                     const starBodyMat = localDrivingCarId ? (carBodies[localDrivingCarId] && (carBodies[localDrivingCarId].material as THREE.MeshStandardMaterial)) : null;
                     if (starBodyMat) {
@@ -2652,56 +2738,39 @@ export function VanillaThreeScene() {
                 const walkSpeed = 15 * delta;
                 const walkRotSpeed = 3 * delta;
 
-                const moveVec = new THREE.Vector3();
-                if (keys.w) moveVec.add(new THREE.Vector3(0, 0, -walkSpeed));
-                if (keys.s) moveVec.add(new THREE.Vector3(0, 0, walkSpeed));
+                const moveVec = tmpMove.set(0, 0, 0);
+                if (keys.w) moveVec.z -= walkSpeed;
+                if (keys.s) moveVec.z += walkSpeed;
                 moveVec.applyQuaternion(avatar.quaternion);
 
-                // Avatar Box size reduced to prevent getting stuck
-                const avatarSz = new THREE.Vector3(0.6, 2, 0.6);
-
-                // X-Axis Movement Try
-                if (Math.abs(moveVec.x) > 0.001) {
-                    const tryX = avatar.position.clone();
-                    tryX.x += moveVec.x;
-                    const boxX = new THREE.Box3().setFromCenterAndSize(tryX.clone().add(new THREE.Vector3(0, 1, 0)), avatarSz);
-                    let hitX = false;
-                    Object.values(carMeshes).forEach(carMesh => {
+                // Would the avatar bump into a car (three circles along its length) or a wall here?
+                const blockedAt = (x: number, z: number) => {
+                    for (const carMesh of Object.values(carMeshes)) {
                         const cP = carMesh.position;
-                        const fP = cP.clone().add(new THREE.Vector3(0, 0, 3.0).applyQuaternion(carMesh.quaternion));
-                        const bP = cP.clone().add(new THREE.Vector3(0, 0, -3.0).applyQuaternion(carMesh.quaternion));
-                        if (tryX.distanceTo(cP) < 2.2 || tryX.distanceTo(fP) < 2.2 || tryX.distanceTo(bP) < 2.2) hitX = true;
-                    });
-                    staticCollisionBoxes.forEach(sBox => {
-                        if (boxX.intersectsBox(sBox)) hitX = true;
-                    });
-                    if (!hitX) avatar.position.x = tryX.x;
-                }
+                        if (Math.hypot(x - cP.x, z - cP.z) > 8) continue; // cheap reject for far cars
+                        const fwd = tmpFwd.set(0, 0, 3.0).applyQuaternion(carMesh.quaternion);
+                        if (Math.hypot(x - cP.x, z - cP.z) < 2.2
+                            || Math.hypot(x - (cP.x + fwd.x), z - (cP.z + fwd.z)) < 2.2
+                            || Math.hypot(x - (cP.x - fwd.x), z - (cP.z - fwd.z)) < 2.2) return true;
+                    }
+                    // Avatar box (0.6 x 2 x 0.6) — kept small so it doesn't snag on corners
+                    tmpAvatarBox.min.set(x - 0.3, avatar.position.y, z - 0.3);
+                    tmpAvatarBox.max.set(x + 0.3, avatar.position.y + 2, z + 0.3);
+                    for (const sBox of staticCollisionBoxes) if (tmpAvatarBox.intersectsBox(sBox)) return true;
+                    return false;
+                };
 
-                // Z-Axis Movement Try
-                if (Math.abs(moveVec.z) > 0.001) {
-                    const tryZ = avatar.position.clone();
-                    tryZ.z += moveVec.z;
-                    const boxZ = new THREE.Box3().setFromCenterAndSize(tryZ.clone().add(new THREE.Vector3(0, 1, 0)), avatarSz);
-                    let hitZ = false;
-                    Object.values(carMeshes).forEach(carMesh => {
-                        const cP = carMesh.position;
-                        const fP = cP.clone().add(new THREE.Vector3(0, 0, 3.0).applyQuaternion(carMesh.quaternion));
-                        const bP = cP.clone().add(new THREE.Vector3(0, 0, -3.0).applyQuaternion(carMesh.quaternion));
-                        if (tryZ.distanceTo(cP) < 2.2 || tryZ.distanceTo(fP) < 2.2 || tryZ.distanceTo(bP) < 2.2) hitZ = true;
-                    });
-                    staticCollisionBoxes.forEach(sBox => {
-                        if (boxZ.intersectsBox(sBox)) hitZ = true;
-                    });
-                    if (!hitZ) avatar.position.z = tryZ.z;
-                }
+                // Try each axis separately so the avatar slides along walls
+                if (Math.abs(moveVec.x) > 0.001 && !blockedAt(avatar.position.x + moveVec.x, avatar.position.z)) avatar.position.x += moveVec.x;
+                if (Math.abs(moveVec.z) > 0.001 && !blockedAt(avatar.position.x, avatar.position.z + moveVec.z)) avatar.position.z += moveVec.z;
                 
                 if (keys.a) avatar.rotateY(walkRotSpeed);
                 if (keys.d) avatar.rotateY(-walkRotSpeed);
 
-                const camOffset = new THREE.Vector3(0, 4, 10).applyQuaternion(avatar.quaternion);
-                camera.position.lerp(avatar.position.clone().add(camOffset), 0.15);
-                camera.lookAt(avatar.position.clone().add(new THREE.Vector3(0, 1.5, 0)));
+                tmpCam.set(0, 4, 10).applyQuaternion(avatar.quaternion).add(avatar.position);
+                camera.position.lerp(tmpCam, damp(0.15, delta));
+                tmpLook.set(avatar.position.x, avatar.position.y + 1.5, avatar.position.z);
+                camera.lookAt(tmpLook);
             }
 
             // --- MULTIPLAYER POSITION SYNC ---
@@ -2714,8 +2783,7 @@ export function VanillaThreeScene() {
                     z: activeMesh.position.z,
                     rotation: activeMesh.rotation.y
                 });
-                // Feed the GPS our live position directly so it follows instantly
-                // (the server stores worldPosition silently and doesn't broadcast it).
+                // Feed the GPS our live position directly so it follows instantly.
                 const st = useGameStore.getState();
                 if (!st.myWorldPos || Math.hypot(activeMesh.position.x - st.myWorldPos.x, activeMesh.position.z - st.myWorldPos.z) > 0.6) {
                     st.setMyWorldPos({ x: activeMesh.position.x, z: activeMesh.position.z });
@@ -2726,17 +2794,23 @@ export function VanillaThreeScene() {
                 const activeIds = new Set(Object.keys(current.gameState.players));
                 Object.keys(otherPlayerMeshes).forEach(id => {
                     if (!activeIds.has(id) || id === current.playerId) {
-                        scene.remove(otherPlayerMeshes[id]);
+                        disposeObject(otherPlayerMeshes[id]);
                         delete otherPlayerMeshes[id];
                     }
                 });
+                // Live positions relayed by the server ~10x/sec; fall back to the last full update.
+                const livePositions = useGameStore.getState().playerPositions;
+                const follow = damp(0.2, delta);
 
                 Object.values(current.gameState.players).forEach(p => {
                     if (!builtDealerships.has(p.id) && p.lotPosition) {
+                        const firstNew = scene.children.length;
                         createDealership(p.lotPosition.x, p.lotPosition.z, p.id);
+                        batchWorld(scene.children.slice(firstNew));
                         builtDealerships.add(p.id);
                     }
-                    if (p.id === current.playerId || !p.worldPosition) return;
+                    const wp = livePositions[p.id] || p.worldPosition;
+                    if (p.id === current.playerId || !wp) return;
                     
                     let meshGroup = otherPlayerMeshes[p.id];
                     if (!meshGroup) {
@@ -2758,11 +2832,15 @@ export function VanillaThreeScene() {
                         scene.add(meshGroup);
                         otherPlayerMeshes[p.id] = meshGroup;
                     }
-                    meshGroup.position.lerp(new THREE.Vector3(p.worldPosition.x, p.worldPosition.y, p.worldPosition.z), 0.2);
-                    meshGroup.quaternion.slerp(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,1,0), p.worldPosition.rotation), 0.2);
+                    meshGroup.position.lerp(tmpTarget.set(wp.x, wp.y ?? 0, wp.z), follow);
+                    meshGroup.quaternion.slerp(tmpQuat.setFromAxisAngle(UP, wp.rotation ?? 0), follow);
                 });
             }
             
+            // Move the small pool of real lights to the lamps nearest the player
+            const focusObj = (localDrivingCarId && carMeshes[localDrivingCarId]) || avatar;
+            lightPool.update(focusObj.position, nightFactor, delta);
+
             renderer.render(scene, camera);
         };
         
@@ -2774,7 +2852,18 @@ export function VanillaThreeScene() {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('keydown', handleKeyDown);
             window.removeEventListener('keyup', handleKeyUp);
-            mountRef.current?.removeChild(renderer.domElement);
+            window.removeEventListener('blur', releaseAllKeys);
+            document.removeEventListener('visibilitychange', handleVisibility);
+            unsubscribeGraphics();
+            lightPool.dispose();
+            clearCpuRacers();
+            [...bananas, ...shells].forEach(p => scene.remove(p.mesh));
+            [bananaGeo, shellGeo, itemBoxGeo].forEach(g => g.dispose());
+            [bananaMat, shellMat].forEach(m => m.dispose());
+            qTex.dispose(); uiTex.dispose();
+            Object.values(aiBots).forEach(b => disposeObject(b.mesh));
+            Object.values(otherPlayerMeshes).forEach(disposeObject);
+            renderer.domElement.remove();
             renderer.dispose();
             
             // Dispose procedural city materials & textures
