@@ -209,12 +209,12 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
         for (let s = 0; s <= count; s++) {
             const z = zFrom + (s * (zTo - zFrom)) / count;
             const divider = new THREE.Mesh(new THREE.PlaneGeometry(depth, 0.3), stallLineMat);
-            divider.position.set(cx, 0.025, lotZ + z);
+            divider.position.set(lotX + cx, 0.025, lotZ + z);
             addFlat(divider);
         }
         // Back boundary line along the stall heads
         const back = new THREE.Mesh(new THREE.PlaneGeometry(0.3, zTo - zFrom), stallLineMat);
-        back.position.set(backX, 0.025, lotZ + (zFrom + zTo) / 2);
+        back.position.set(lotX + backX, 0.025, lotZ + (zFrom + zTo) / 2);
         addFlat(back);
         if (withStops) {
             const stopX = backX + (openX - backX) * 0.18;
@@ -222,7 +222,7 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
                 const z = zFrom + ((s + 0.5) * (zTo - zFrom)) / count;
                 const stop = new THREE.Mesh(wheelStopGeo, wheelStopMat);
                 stop.rotation.y = Math.PI / 2;
-                stop.position.set(stopX, 0.15, lotZ + z);
+                stop.position.set(lotX + stopX, 0.15, lotZ + z);
                 stop.castShadow = true; stop.receiveShadow = true;
                 scene.add(stop); environmentDisposables.push(stop);
             }
