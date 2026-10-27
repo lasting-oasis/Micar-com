@@ -903,10 +903,11 @@ export function VanillaThreeScene() {
                   const drivenCar = me?.inventory.find(c => c.id === localDrivingCarId);
                   const inShowLot = Math.abs(pPos.x - lotX) < 12 && (pPos.z - lotZ) > 10 && !!drivenCar && !drivenCar.isDirty && !drivenCar.isProcessed;
                   if (inShopColumn) {
-                       // Name whichever bay is closest: wash (z-40), mechanic (z+5), body shop (z+50)
-                       const bays: [number, string][] = [[lotZ - 40, 'AUTO WASH: DRIVE THROUGH'], [lotZ + 5, '[R] MECHANIC BAY'], [lotZ + 50, '[R] BODY SHOP']];
-                       const [bayZ, label] = bays.reduce((a, b) => Math.abs(pPos.z - b[0]) < Math.abs(pPos.z - a[0]) ? b : a);
-                       if (Math.abs(pPos.z - bayZ) < 25) showPrompt(pPos, 6, label);
+                       // Name the bay R acts on: R opens the mechanic (z+5) or body shop (z+50) within 25 of
+                       // either, and the body shop wins where they overlap. The wash bay (z-40) is drive-through.
+                       const dz = pPos.z - lotZ;
+                       const label = Math.abs(dz - 50) < 25 ? '[R] BODY SHOP' : Math.abs(dz - 5) < 25 ? '[R] MECHANIC BAY' : Math.abs(dz + 40) < 25 ? 'AUTO WASH: DRIVE THROUGH' : '';
+                       if (label) showPrompt(pPos, 6, label);
                   } else if (inShowLot) {
                        showPrompt(pPos, 6, '[R] PARK FOR SALE');
                   }
