@@ -899,7 +899,9 @@ export function VanillaThreeScene() {
                   const lotX = me?.lotPosition?.x || 0;
                   const lotZ = me?.lotPosition?.z || 0;
                   const inShopColumn = Math.abs(pPos.x - (lotX + 55)) < 25;
-                  const inShowLot = (Math.abs(pPos.x - lotX) < 15 && (pPos.z - lotZ) > 10);
+                  // Same zone and conditions as the R parking handler above (clean, not yet for sale)
+                  const drivenCar = me?.inventory.find(c => c.id === localDrivingCarId);
+                  const inShowLot = Math.abs(pPos.x - lotX) < 12 && (pPos.z - lotZ) > 10 && !!drivenCar && !drivenCar.isDirty && !drivenCar.isProcessed;
                   if (inShopColumn) {
                        // Name whichever bay is closest: wash (z-40), mechanic (z+5), body shop (z+50)
                        const bays: [number, string][] = [[lotZ - 40, 'AUTO WASH: DRIVE THROUGH'], [lotZ + 5, '[R] MECHANIC BAY'], [lotZ + 50, '[R] BODY SHOP']];
