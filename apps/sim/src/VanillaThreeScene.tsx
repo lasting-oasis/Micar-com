@@ -588,7 +588,10 @@ export function VanillaThreeScene() {
                          // The car stops when you get out (it used to pull away at its old speed when you got back in)
                          if (vehiclePhysics[localDrivingCarId!]) vehiclePhysics[localDrivingCarId!].v = 0;
                     }
-                    // Persist the final fuel level and drop any active race (forfeits entry fee).
+                    // Persist where the car was left (the periodic sync can be up to 0.33 s old, many
+                    // units at speed) and the final fuel level; drop any active race (forfeits entry fee).
+                    const exitedCar = carMeshes[localDrivingCarId!];
+                    if (exitedCar) useGameStore.getState().socket?.emit('sync_car_pos', { carId: localDrivingCarId, position: { x: exitedCar.position.x, z: exitedCar.position.z, r: headingOf(exitedCar) } });
                     if (localDrivingCarId && localFuel !== null) useGameStore.getState().consumeFuel(localDrivingCarId, localFuel);
                     if (raceActive) { raceActive = false; raceState = ''; useGameStore.getState().abortRace(); }
                     clearCpuRacers();
