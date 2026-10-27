@@ -1593,7 +1593,8 @@ const NegotiationModal = ({ agentId, setAgentId, carId, setCarId }: any) => {
                          />
                          <button 
                             onClick={() => { counterOffer(agent.id, Number(counterInput)); setCounterInput(''); }}
-                            className="bg-market/20 text-market hover:bg-market hover:text-black border border-market/50 px-4 rounded font-bold uppercase text-xs transition-colors"
+                            disabled={!(Number(counterInput) > 0)}
+                            className="bg-market/20 text-market hover:bg-market hover:text-black border border-market/50 px-4 rounded font-bold uppercase text-xs transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                          >
                              Counter
                          </button>
