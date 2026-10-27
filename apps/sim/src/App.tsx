@@ -1510,8 +1510,10 @@ const NegotiationModal = ({ agentId, setAgentId, carId, setCarId }: any) => {
       return null;
   }
 
-  const car = carId ? me.inventory.find((c: any) => c.id === carId) : null;
   const proposal = agent.activeProposal;
+  // Closing the popup clears the picked car, so a reopened negotiation takes it from the proposal.
+  const dealCarId = proposal?.carId || carId;
+  const car = dealCarId ? me.inventory.find((c: any) => c.id === dealCarId) : null;
 
   return (
     <AnimatePresence>
