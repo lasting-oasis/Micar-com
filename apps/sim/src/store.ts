@@ -221,7 +221,12 @@ export const useGameStore = create<StoreState>((set, get) => ({
   disconnect: () => {
     const socket = get().socket;
     if (socket) socket.disconnect();
-    set({ socket: null, gameState: null, playerId: null, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {} });
+    set({ socket: null, gameState: null, playerId: null, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {},
+      // Per-session prompts, race and modal state: left set, they reappear in the next
+      // session (gate keypad / speedway panel at spawn, a stale race grabbing the next car).
+      myWorldPos: null, drivingFuel: null, gatePrompt: false, raceTrackPrompt: false, activeInteraction: null,
+      activeRace: null, raceHud: null, raceResult: null, raceDenied: null, heldItem: null, heldCount: 0,
+      activeInspectionCarId: null, activeInspectionShopType: null, isBankModalOpen: false, isInsuranceModalOpen: false });
   },
   connect: (name, lotScale, careerFocus, shopSpecialty) => {
     const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
