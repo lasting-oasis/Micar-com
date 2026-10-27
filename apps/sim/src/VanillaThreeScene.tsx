@@ -654,6 +654,14 @@ export function VanillaThreeScene() {
                         // Offer accepted or declined, customer leaves!
                         aiBots[car.id].status = 'walking_out';
                         aiBots[car.id].targetPos = new THREE.Vector3(Math.random() * 20 - 10, 1, 45);
+                        // If they were out on a test drive, park the car straight back in its spot
+                        const seq = aiDriveSequence[car.id];
+                        if (seq) {
+                            const end = seq.waypoints[seq.waypoints.length - 1];
+                            carMeshes[car.id].position.set(end.x, carMeshes[car.id].position.y, end.z);
+                            carMeshes[car.id].rotation.y = seq.startRotY;
+                            delete aiDriveSequence[car.id];
+                        }
                     }
                 });
 
