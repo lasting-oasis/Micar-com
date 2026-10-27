@@ -257,6 +257,12 @@ export function VanillaThreeScene() {
              renderer.setPixelRatio(pixelRatioFor(q));
              renderer.shadowMap.enabled = q === 'high';
              dirLight.castShadow = q === 'high';
+             // Free the 2048x2048 sun shadow map while shadows are off; three.js
+             // re-creates it the next time the light casts shadows.
+             if (q === 'low' && dirLight.shadow.map) {
+                 dirLight.shadow.map.dispose();
+                 dirLight.shadow.map = null;
+             }
              if (recompile) {
                  // Shaders are built with or without shadow code, so rebuild them once
                  scene.traverse(o => {
