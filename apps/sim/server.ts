@@ -1852,6 +1852,10 @@ async function startServer() {
     } else {
         const distDir = path.join(process.cwd(), 'dist');
         app.use(express.static(distDir));
+        // A missing build file (e.g. a chunk from before the last deploy) is a 404.
+        // Answering with index.html instead made the browser reject it as a script
+        // with a confusing MIME-type error.
+        app.use('/assets', (_req, res) => { res.sendStatus(404); });
         // SPA fallback: serve index.html for any non-asset route so refreshes /
         // deep links don't 404. (socket.io traffic is handled before Express.)
         app.get('*', (_req, res) => {
