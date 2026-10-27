@@ -126,8 +126,11 @@ function broadcastState(io: Server, state: GameState) {
             }
         }
         const myWalkIns = state.activeWalkIns?.[id];
+        // The chat log is sent once on join ('init'); new messages arrive as 'chat'
+        // events, so it's left out of every state update to keep them small.
+        const { chatLog: _chatLog, ...shared } = state as any;
         socket.emit('update', {
-            ...state,
+            ...shared,
             players,
             activeWalkIns: myWalkIns ? { [id]: myWalkIns } : {}
         });
@@ -802,6 +805,22 @@ setInterval(() => {
     }
 }, 1000);
 
+// Live player positions. Clients send theirs ~10x/sec (sync_player_pos); this
+// relays everyone's to everyone at the same rate so other players move smoothly
+// instead of only updating when some unrelated event triggers a full broadcast.
+// Volatile: a dropped packet is fine, the next one is 100 ms away.
+let positionsDirty = false;
+setInterval(() => {
+    if (!positionsDirty) return;
+    positionsDirty = false;
+    const positions: Record<string, any> = {};
+    for (const pid in gameState.players) {
+        const wp = (gameState.players[pid] as any).worldPosition;
+        if (wp) positions[pid] = wp;
+    }
+    io.volatile.emit('player_positions', positions);
+}, 100);
+
 io.on('connection', (socket) => {
     socket.on('join', ({ name, lotScale, careerFocus, shopSpecialty }) => {
       console.log('--- PLAYER JOIN ---', { name, lotScale, careerFocus, shopSpecialty });
@@ -925,6 +944,7 @@ io.on('connection', (socket) => {
       const clean = sanitizePosition(pos);
       if (gameState.players[socket.id] && clean) {
           gameState.players[socket.id].worldPosition = clean as any;
+          positionsDirty = true;
       }
   });
 

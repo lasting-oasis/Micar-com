@@ -39,6 +39,12 @@ interface StoreState {
 
   // Fuel
   myWorldPos: { x: number; z: number } | null; // the local player's live world position, for a GPS that follows instantly
+  // Other players' live positions, relayed by the server ~10x/sec (kept out of
+  // gameState so the whole UI doesn't re-render on every movement packet).
+  playerPositions: Record<string, { x: number; y?: number; z: number; rotation?: number }>;
+  // 3D graphics level: 'low' turns off shadows and renders at 1x resolution.
+  graphicsQuality: 'high' | 'low';
+  setGraphicsQuality: (q: 'high' | 'low') => void;
   setMyWorldPos: (p: { x: number; z: number }) => void;
   drivingFuel: number | null; // live tank level of the car being driven (0-100), for the HUD gauge
   setDrivingFuel: (fuel: number | null) => void;
@@ -94,6 +100,16 @@ interface StoreState {
   cancelInsurance: (type: 'liability' | 'inventory' | 'gap') => void;
 }
 
+// Saved graphics choice, or a sensible default: low on phones/tablets.
+function loadGraphicsQuality(): 'high' | 'low' {
+  try {
+    const saved = localStorage.getItem('cds.graphics');
+    if (saved === 'high' || saved === 'low') return saved;
+  } catch { /* storage blocked */ }
+  const touchOnly = typeof window !== 'undefined' && window.matchMedia?.('(pointer: coarse)').matches;
+  return touchOnly ? 'low' : 'high';
+}
+
 export const useGameStore = create<StoreState>((set, get) => ({
   socket: null,
   gameState: null,
@@ -112,6 +128,12 @@ export const useGameStore = create<StoreState>((set, get) => ({
 
   myWorldPos: null,
   setMyWorldPos: (p) => set({ myWorldPos: p }),
+  playerPositions: {},
+  graphicsQuality: loadGraphicsQuality(),
+  setGraphicsQuality: (q) => {
+    try { localStorage.setItem('cds.graphics', q); } catch { /* storage blocked */ }
+    set({ graphicsQuality: q });
+  },
   drivingFuel: null,
   setDrivingFuel: (fuel) => set({ drivingFuel: fuel }),
   consumeFuel: (carId, fuel) => { const s = get().socket; if (s) s.emit('consume_fuel', { carId, fuel }); },
@@ -197,7 +219,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
   disconnect: () => {
     const socket = get().socket;
     if (socket) socket.disconnect();
-    set({ socket: null, gameState: null, playerId: null, drivingCarId: null, chatMessages: [], unreadChat: 0 });
+    set({ socket: null, gameState: null, playerId: null, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {} });
   },
   connect: (name, lotScale, careerFocus, shopSpecialty) => {
     const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
@@ -216,7 +238,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
     }
     
     socket.on('init', (data) => set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0 }));
-    socket.on('update', (state) => set({ gameState: state }));
+    socket.on('update', (state) => set({ gameState: state, timeOfDay: state.timeOfDay }));
+    socket.on('player_positions', (positions) => set({ playerPositions: positions || {} }));
     socket.on('time_update', (timeOfDay) => set({ timeOfDay }));
     socket.on('race_started', (d) => set({ activeRace: d, raceResult: null, raceDenied: null }));
     socket.on('race_payout', (r) => set({ activeRace: null, raceHud: null, raceResult: r }));
