@@ -46,7 +46,8 @@ interface SimulatedShop {
 }
 
 export default function StandaloneShopPlatform() {
-  const { playerId, gameState } = useGameStore();
+  const playerId = useGameStore(s => s.playerId);
+  const gameState = useGameStore(s => s.gameState);
   const me = gameState?.players[playerId || ''];
 
   const [activeView, setActiveView] = useState<'directory' | 'operator' | 'tracker'>('directory');

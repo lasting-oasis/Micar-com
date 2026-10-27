@@ -1,41 +1,67 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import ShopManagement from './ShopManagement.tsx'
-import MechanicManagement from './MechanicManagement.tsx'
-import StandaloneShopPlatform from './StandaloneShopPlatform.tsx'
+// Each app is downloaded only when opened, so the launchpad (and each tool)
+// loads without pulling in the whole 3D game and every ERP screen up front.
+const App = lazy(() => import('./App.tsx'))
+const ShopManagement = lazy(() => import('./ShopManagement.tsx'))
+const MechanicManagement = lazy(() => import('./MechanicManagement.tsx'))
+const StandaloneShopPlatform = lazy(() => import('./StandaloneShopPlatform.tsx'))
+const Loading = () => (
+  <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">Loading…</div>
+)
 import './index.css'
 import { useGameStore } from './store'
 import { Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle, Gauge, Activity } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useLang, t, LangToggle } from './i18n'
-// Global Error Overlay Catcher for Debugging Sandboxed/Compatibility crashes
+// Global error catcher.
+// - Development: full-screen overlay with message, source and stack (as before).
+// - Production: a small dismissable notice, so a harmless error (often from a
+//   browser extension) no longer takes over the whole screen mid-game.
+// Error text is inserted with textContent, never as HTML.
+const isOwnScript = (filename?: string) => !filename || filename.startsWith(window.location.origin);
+const el = (tag: string, style: string, text?: string) => {
+    const node = document.createElement(tag);
+    node.style.cssText = style;
+    if (text !== undefined) node.textContent = text;
+    return node;
+};
+const showDevErrorOverlay = (event: ErrorEvent) => {
+    document.getElementById('debug-error-overlay')?.remove();
+    const box = el('div', 'position: fixed; inset: 0; background: rgba(15, 23, 42, 0.98); color: #f87171; font-family: monospace; font-size: 13px; padding: 24px; z-index: 999999; overflow: auto; display: flex; flex-direction: column; gap: 16px; border: 4px solid #ef4444; pointer-events: auto;');
+    box.id = 'debug-error-overlay';
+    box.appendChild(el('h2', 'color: #ef4444; font-size: 18px; font-weight: 900; margin: 0; border-bottom: 2px solid #ef4444; padding-bottom: 8px;', '⚠️ CRITICAL RUNTIME CRASH CAPTURED'));
+    const section = (label: string, body: string, pre = false) => {
+        const wrap = el('div', 'background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.2);' + (pre ? ' flex-grow: 1;' : ''));
+        wrap.appendChild(el('strong', 'color: #ffffff; display: block; margin-bottom: 4px;', label));
+        wrap.appendChild(el(pre ? 'pre' : 'div', pre ? 'margin: 0; white-space: pre-wrap; word-break: break-all; line-height: 1.4; color: #fca5a5;' : '', body));
+        box.appendChild(wrap);
+    };
+    section('Message:', event.message || 'Unknown unhandled error');
+    section('Source:', `${event.filename || 'unknown'}:${event.lineno || 0}:${event.colno || 0}`);
+    section('Stack Trace:', event.error?.stack || 'No stack trace available', true);
+    const close = el('button', 'align-self: flex-end; padding: 10px 20px; background: #ef4444; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;', 'Close Overlay');
+    close.onclick = () => box.remove();
+    box.appendChild(close);
+    document.body.appendChild(box);
+};
+const showProdErrorNotice = () => {
+    if (document.getElementById('error-notice')) return; // one at a time
+    const note = el('div', 'position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 999999; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: rgba(15,23,42,0.95); color: #fecaca; border: 1px solid rgba(239,68,68,0.5); border-radius: 12px; font: 600 12px system-ui, sans-serif; box-shadow: 0 8px 24px rgba(0,0,0,0.4); pointer-events: auto;', 'Something went wrong. If the game stops responding, reload the page.');
+    note.id = 'error-notice';
+    note.setAttribute('role', 'alert');
+    const dismiss = el('button', 'background: none; border: none; color: #f87171; font: 800 14px system-ui; cursor: pointer; padding: 0 2px;', '✕');
+    dismiss.setAttribute('aria-label', 'Dismiss');
+    dismiss.onclick = () => note.remove();
+    note.appendChild(dismiss);
+    document.body.appendChild(note);
+    setTimeout(() => note.remove(), 12000);
+};
 window.addEventListener('error', (event) => {
-    const errorContainer = document.createElement('div');
-    errorContainer.id = 'debug-error-overlay';
-    errorContainer.style.cssText = 'position: fixed; inset: 0; background: rgba(15, 23, 42, 0.98); color: #f87171; font-family: monospace; font-size: 13px; padding: 24px; z-index: 999999; overflow: auto; display: flex; flex-direction: column; gap: 16px; border: 4px solid #ef4444; pointer-events: auto;';
-    
-    errorContainer.innerHTML = `
-        <h2 style="color: #ef4444; font-size: 18px; font-weight: 900; margin: 0; border-bottom: 2px solid #ef4444; padding-bottom: 8px;">
-            ⚠️ CRITICAL RUNTIME CRASH CAPTURED
-        </h2>
-        <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.2);">
-            <strong style="color: #ffffff; display: block; margin-bottom: 4px;">Message:</strong>
-            ${event.message || 'Unknown unhandled error'}
-        </div>
-        <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.2);">
-            <strong style="color: #ffffff; display: block; margin-bottom: 4px;">Source:</strong>
-            ${event.filename || 'unknown'}:${event.lineno || 0}:${event.colno || 0}
-        </div>
-        <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.2); flex-grow: 1;">
-            <strong style="color: #ffffff; display: block; margin-bottom: 4px;">Stack Trace:</strong>
-            <pre style="margin: 0; white-space: pre-wrap; word-break: break-all; line-height: 1.4; color: #fca5a5;">${event.error?.stack || 'No stack trace available'}</pre>
-        </div>
-        <button onclick="document.getElementById('debug-error-overlay').remove()" style="align-self: flex-end; padding: 10px 20px; background: #ef4444; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
-            Close Overlay
-        </button>
-    `;
-    document.body.appendChild(errorContainer);
+    if (!isOwnScript(event.filename)) return; // browser extensions, third-party scripts
+    console.error(event.error || event.message);
+    if (import.meta.env.DEV) showDevErrorOverlay(event);
+    else showProdErrorNotice();
 });
 
 function GatewayPortal() {
@@ -124,7 +150,7 @@ function GatewayPortal() {
         >
           ← Exit to Launchpad
         </button>
-        <App />
+        <Suspense fallback={<Loading />}><App /></Suspense>
       </div>
     );
   }
@@ -157,7 +183,7 @@ function GatewayPortal() {
 
         {/* Main Bodyshop ERP Content Area */}
         <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
-          <ShopManagement />
+          <Suspense fallback={<Loading />}><ShopManagement /></Suspense>
         </main>
 
         {/* Professional ERP footer */}
@@ -196,7 +222,7 @@ function GatewayPortal() {
 
         {/* Main Mechanic ERP Content Area */}
         <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
-          <MechanicManagement />
+          <Suspense fallback={<Loading />}><MechanicManagement /></Suspense>
         </main>
 
         {/* Professional ERP footer */}
@@ -235,7 +261,7 @@ function GatewayPortal() {
 
         {/* Main Platform Content Area */}
         <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
-          <StandaloneShopPlatform />
+          <Suspense fallback={<Loading />}><StandaloneShopPlatform /></Suspense>
         </main>
 
         {/* Professional ERP footer */}

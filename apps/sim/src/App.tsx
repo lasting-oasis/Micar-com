@@ -1,13 +1,19 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import { useGameStore } from './store';
-import { VanillaThreeScene } from './VanillaThreeScene';
-import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag } from 'lucide-react';
+import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Gauge } from 'lucide-react';
 import { RACE_TIERS, RaceDifficulty } from './types';
 import { useLang, t, LangToggle } from './i18n';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import StandaloneShopPlatform from './StandaloneShopPlatform';
-import ShopManagement from './ShopManagement';
+// Heavy screens load on demand. The 3D world (three.js) starts downloading as
+// soon as the setup screen shows, so it's usually ready by the time you join.
+const loadScene = () => import('./VanillaThreeScene');
+const VanillaThreeScene = lazy(() => loadScene().then(m => ({ default: m.VanillaThreeScene })));
+const StandaloneShopPlatform = lazy(() => import('./StandaloneShopPlatform'));
+const ShopManagement = lazy(() => import('./ShopManagement'));
+const TabLoading = () => (
+  <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">Loading…</div>
+);
 import { LIBRARY_BOOKS } from './libraryData';
 
 
@@ -24,6 +30,26 @@ const MAP_LOCATIONS = [
   { name: 'Gas Station', x: 135, z: 80, color: '#ef4444' },
   { name: 'Gas Station', x: 45, z: 1700, color: '#ef4444' },
 ];
+
+// Low/High 3D graphics. Low turns off shadows and renders at 1x resolution —
+// a big frame-rate win on phones, tablets and older laptops. Saved per device.
+const GraphicsToggle = ({ compact }: { compact?: boolean }) => {
+  const quality = useGameStore(s => s.graphicsQuality);
+  const setQuality = useGameStore(s => s.setGraphicsQuality);
+  const next = quality === 'high' ? 'low' : 'high';
+  return (
+    <button
+      type="button"
+      onClick={() => setQuality(next)}
+      title={`Switch to ${next} graphics`}
+      aria-label={`Graphics quality: ${quality}. Switch to ${next}.`}
+      className={`flex items-center gap-1.5 rounded-xl border backdrop-blur-md font-black uppercase tracking-widest transition-all active:scale-95 ${compact ? 'px-3 py-3 text-[10px]' : 'px-3 py-1.5 text-[10px]'} bg-black/60 border-white/20 text-white/70 hover:text-white hover:border-white/40`}
+    >
+      <Gauge size={12} className={quality === 'high' ? 'text-emerald-400' : 'text-amber-400'} />
+      {compact ? (quality === 'high' ? 'HQ' : 'LQ') : `Graphics: ${quality}`}
+    </button>
+  );
+};
 
 const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: string, isMobile?: boolean }) => {
   const [expanded, setExpanded] = useState(false);
@@ -47,6 +73,9 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
   // position, so the player stays pinned at the centre and the map scrolls under them.
   const me = gameState.players?.[playerId];
   const myWorldPos = useGameStore(s => s.myWorldPos);
+  // Other players' live positions (relayed ~10x/sec); fall back to the last full update.
+  const livePositions = useGameStore(s => s.playerPositions);
+  const posOf = (p: any) => livePositions[p.id] || p.worldPosition;
   const pw = myWorldPos || me?.worldPosition || { x: 0, z: 0 };
   const toMiniX = (w: number) => Math.max(3, Math.min(size - 3, mapCenter + (w - pw.x) * mapScale));
   const toMiniZ = (w: number) => Math.max(3, Math.min(size - 3, mapCenter + (w - pw.z) * mapScale));
@@ -77,9 +106,10 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
          </div>
          {/* Other dealers, positioned relative to you */}
          {Object.values(gameState.players).map((p: any) => {
-            if (p.id === playerId || !p.worldPosition) return null;
-            const x = toMiniX(p.worldPosition.x);
-            const z = toMiniZ(p.worldPosition.z);
+            const wp = posOf(p);
+            if (p.id === playerId || !wp) return null;
+            const x = toMiniX(wp.x);
+            const z = toMiniZ(wp.z);
             return (
                <div key={p.id} className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-200" style={{ left: `${x}px`, top: `${z}px` }}>
                   <div className={`rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)] ${isMobile ? 'w-1 h-1' : 'w-2 h-2'}`}></div>
@@ -126,7 +156,7 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
                     ))}
                     {Object.values(gameState.players).map((p: any) => {
                        const isMe = p.id === playerId;
-                       const wpos = isMe ? (myWorldPos || p.worldPosition) : p.worldPosition;
+                       const wpos = isMe ? (myWorldPos || p.worldPosition) : posOf(p);
                        if (!wpos) return null;
                        return (
                           <div key={p.id} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: exX(wpos.x), top: exZ(wpos.z) }}>
@@ -800,7 +830,14 @@ const AuctionCarCard = ({ car, me, buyCar, buyPsi, expandedCarId, setExpandedCar
 };
 
 const InspectionModal = () => {
-  const { activeInspectionCarId, activeInspectionShopType, closeInspectionModal, performSpecificRepair, gameState, playerId } = useGameStore();
+  // Individual selectors: only re-render when these values change (a bare
+  // useGameStore() re-rendered on every fuel/HUD/GPS tick while driving).
+  const activeInspectionCarId = useGameStore(s => s.activeInspectionCarId);
+  const activeInspectionShopType = useGameStore(s => s.activeInspectionShopType);
+  const closeInspectionModal = useGameStore(s => s.closeInspectionModal);
+  const performSpecificRepair = useGameStore(s => s.performSpecificRepair);
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
   if (!activeInspectionCarId || !gameState || !playerId) return null;
 
   const me = gameState.players[playerId];
@@ -911,7 +948,12 @@ const InspectionModal = () => {
 };
 
 const BankDashboard = () => {
-  const { isBankModalOpen, closeBankModal, payFloorPlan, takeTitleLoan, gameState, playerId } = useGameStore();
+  const isBankModalOpen = useGameStore(s => s.isBankModalOpen);
+  const closeBankModal = useGameStore(s => s.closeBankModal);
+  const payFloorPlan = useGameStore(s => s.payFloorPlan);
+  const takeTitleLoan = useGameStore(s => s.takeTitleLoan);
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
   const me = gameState?.players[playerId || ''];
   const [activeTab, setActiveTab] = useState<'account' | 'collateral'>('account');
   const [selectedCarId, setSelectedCarId] = useState<string | null>(null);
@@ -1444,7 +1486,12 @@ const DealerGuideModal = ({ isOpen, onClose, step, setStep }: { isOpen: boolean;
 };
 
 const NegotiationModal = ({ agentId, setAgentId, carId, setCarId }: any) => {
-  const { gameState, playerId, proposeDeal, counterOffer, rejectDeal, finalizeDeal } = useGameStore();
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  const proposeDeal = useGameStore(s => s.proposeDeal);
+  const counterOffer = useGameStore(s => s.counterOffer);
+  const rejectDeal = useGameStore(s => s.rejectDeal);
+  const finalizeDeal = useGameStore(s => s.finalizeDeal);
   const [counterInput, setCounterInput] = useState('');
   
   if (!gameState || !playerId || !agentId) return null;
@@ -1585,7 +1632,12 @@ const ClockDisplay = () => {
 };
 
 const InsuranceModal = () => {
-  const { isInsuranceModalOpen, closeInsuranceModal, gameState, playerId, buyInsurance, cancelInsurance } = useGameStore();
+  const isInsuranceModalOpen = useGameStore(s => s.isInsuranceModalOpen);
+  const closeInsuranceModal = useGameStore(s => s.closeInsuranceModal);
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  const buyInsurance = useGameStore(s => s.buyInsurance);
+  const cancelInsurance = useGameStore(s => s.cancelInsurance);
   const me = gameState?.players[playerId || ''];
   if (!isInsuranceModalOpen || !me) return null;
   const policies = [
@@ -1906,6 +1958,12 @@ function App() {
 
   // UI Toggle State
   const [showUI, setShowUI] = useState(true);
+  useEffect(() => { loadScene(); }, []); // prefetch the 3D world while on the setup screen
+  // The on-screen D-pad unmounts when the menu opens; release any held direction
+  // so its missing touch-end can't leave the car driving on its own.
+  useEffect(() => {
+    if (showUI) ['w', 'a', 's', 'd'].forEach(k => (window as any).setMobileKey?.(k, false));
+  }, [showUI]);
 
   // Mobile detection
   const [isMobile, setIsMobile] = useState(false);
@@ -1922,6 +1980,10 @@ function App() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Tab') {
+        // Let Tab move between fields while typing (chat, gate code, offers)
+        const el = document.activeElement as HTMLElement | null;
+        const tag = (el?.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || tag === 'select' || el?.isContentEditable) return;
         e.preventDefault();
         setShowUI(prev => !prev);
       }
@@ -2137,7 +2199,9 @@ function App() {
 
   return (
     <>
-      <VanillaThreeScene />
+      <Suspense fallback={<div className="absolute inset-0 z-0 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">Loading 3D world…</div>}>
+        <VanillaThreeScene />
+      </Suspense>
       <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />
       <GateControl isMobile={isMobile} />
       <GameChat isMobile={isMobile} />
@@ -2147,6 +2211,11 @@ function App() {
       {!isMobile && (
         <div className="fixed top-6 right-8 text-white/40 text-xs font-black tracking-widest uppercase z-[999] pointer-events-none">
           Press [TAB] to {showUI ? 'Hide' : 'Show'} UI / Menu
+        </div>
+      )}
+      {!isMobile && (
+        <div className="fixed top-12 right-8 z-[999] pointer-events-auto">
+          <GraphicsToggle />
         </div>
       )}
 
@@ -3039,11 +3108,11 @@ function App() {
             )}
 
             {activeTab === 'standalone-shops' && (
-              <StandaloneShopPlatform />
+              <Suspense fallback={<TabLoading />}><StandaloneShopPlatform /></Suspense>
             )}
 
             {activeTab === 'standalone-body' && (
-              <ShopManagement />
+              <Suspense fallback={<TabLoading />}><ShopManagement /></Suspense>
             )}
 
           </AnimatePresence>
@@ -3262,7 +3331,8 @@ function App() {
       {isMobile && playerId && gameState && (
         <div className="fixed inset-0 pointer-events-none z-[999] flex flex-col justify-end p-6 select-none">
           {/* Top Right Floating Menu Toggle (Always visible, responsive alignment) */}
-          <div className="absolute top-6 right-6 pointer-events-auto z-[9999]">
+          <div className="absolute top-6 right-6 pointer-events-auto z-[9999] flex gap-2">
+            <GraphicsToggle compact />
             <button
               onClick={() => setShowUI(prev => !prev)}
               className={`border rounded-xl px-4 py-3 text-xs font-black uppercase tracking-widest active:scale-95 transition-all backdrop-blur-md shadow-lg ${showUI ? 'bg-red-500/20 text-red-500 border-red-500/30 hover:bg-red-500 hover:text-black' : 'bg-black/60 border-white/20 text-white shadow-black/40'}`}
@@ -3278,6 +3348,7 @@ function App() {
                 <button
                   onTouchStart={() => (window as any).setMobileKey('w', true)}
                   onTouchEnd={() => (window as any).setMobileKey('w', false)}
+                  onTouchCancel={() => (window as any).setMobileKey('w', false)}
                   className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
                 >
                   ▲
@@ -3286,6 +3357,7 @@ function App() {
                   <button
                     onTouchStart={() => (window as any).setMobileKey('a', true)}
                     onTouchEnd={() => (window as any).setMobileKey('a', false)}
+                    onTouchCancel={() => (window as any).setMobileKey('a', false)}
                     className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
                   >
                     ◀
@@ -3293,6 +3365,7 @@ function App() {
                   <button
                     onTouchStart={() => (window as any).setMobileKey('s', true)}
                     onTouchEnd={() => (window as any).setMobileKey('s', false)}
+                    onTouchCancel={() => (window as any).setMobileKey('s', false)}
                     className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
                   >
                     ▼
@@ -3300,6 +3373,7 @@ function App() {
                   <button
                     onTouchStart={() => (window as any).setMobileKey('d', true)}
                     onTouchEnd={() => (window as any).setMobileKey('d', false)}
+                    onTouchCancel={() => (window as any).setMobileKey('d', false)}
                     className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
                   >
                     ▶
