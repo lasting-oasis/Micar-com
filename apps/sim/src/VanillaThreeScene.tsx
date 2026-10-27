@@ -401,6 +401,7 @@ export function VanillaThreeScene() {
         const tmpFwd = new THREE.Vector3();
         const tmpTarget = new THREE.Vector3();
         const tmpQuat = new THREE.Quaternion();
+        const tmpEuler = new THREE.Euler();
         const UP = new THREE.Vector3(0, 1, 0);
         const tmpAvatarBox = new THREE.Box3();
         const carSpheres = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
@@ -1187,7 +1188,9 @@ export function VanillaThreeScene() {
                     x: activeMesh.position.x,
                     y: activeMesh.position.y,
                     z: activeMesh.position.z,
-                    rotation: activeMesh.rotation.y
+                    // Heading about the vertical axis. (rotation.y alone is wrong past ±90°:
+                    // after rotateY the XYZ Euler flips to x = ±π, y = π - heading.)
+                    rotation: tmpEuler.setFromQuaternion(activeMesh.quaternion, 'YXZ').y
                 });
                 // Feed the GPS our live position directly so it follows instantly.
                 const st = useGameStore.getState();
@@ -1241,6 +1244,9 @@ export function VanillaThreeScene() {
                         const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true }));
                         sprite.position.y = 2.5; sprite.scale.set(3, 0.75, 1); meshGroup.add(sprite);
 
+                        // Start where they are (not at the world origin, sliding in from there)
+                        meshGroup.position.set(wp.x, wp.y ?? 0, wp.z);
+                        meshGroup.quaternion.setFromAxisAngle(UP, wp.rotation ?? 0);
                         scene.add(meshGroup);
                         otherPlayerMeshes[p.id] = meshGroup;
                     }
