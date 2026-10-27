@@ -63,6 +63,7 @@ const showProdErrorNotice = () => {
 };
 window.addEventListener('error', (event) => {
     if (!isOwnScript(event.filename)) return; // browser extensions, third-party scripts
+    if (!event.error && event.message === 'Script error.') return; // same, when the browser hides the source (cross-origin script)
     console.error(event.error || event.message);
     if (import.meta.env.DEV) showDevErrorOverlay(event);
     else showProdErrorNotice();
