@@ -115,6 +115,8 @@ const DICT: Record<string, Entry> = {
   'loading.world': { en: 'Loading 3D world…', es: 'Cargando mundo 3D…' },
   'error.notice': { en: 'Something went wrong. If the game stops responding, reload the page.', es: 'Algo salió mal. Si el juego deja de responder, recarga la página.' },
   'error.dismiss': { en: 'Dismiss', es: 'Cerrar' },
+  'error.screen': { en: "Couldn't load this screen.", es: 'No se pudo cargar esta pantalla.' },
+  'error.reload': { en: 'Reload', es: 'Recargar' },
 };
 
 export const t = (lang: Lang, key: string): string => DICT[key]?.[lang] ?? key;
