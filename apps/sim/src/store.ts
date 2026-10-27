@@ -148,7 +148,9 @@ export const useGameStore = create<StoreState>((set, get) => ({
   raceDenied: null,
   clearRaceResult: () => set({ raceResult: null, raceDenied: null }),
   enterRace: (difficulty) => { const s = get().socket; if (s) s.emit('enter_race', { difficulty }); },
-  finishRace: (payload) => { const s = get().socket; if (s) s.emit('finish_race', payload); },
+  // Ends the race locally right away: an activeRace still set while the payout is on
+  // its way would be lined up again by the scene as a fresh entry.
+  finishRace: (payload) => { const s = get().socket; if (s) s.emit('finish_race', payload); set({ activeRace: null, raceHud: null }); },
   abortRace: () => set({ activeRace: null, raceHud: null }),
   rentRaceCar: () => { const s = get().socket; if (s) s.emit('rent_race_car'); },
   returnRental: () => { const s = get().socket; if (s) s.emit('return_rental'); },
