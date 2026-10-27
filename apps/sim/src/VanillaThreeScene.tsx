@@ -114,6 +114,7 @@ export function VanillaThreeScene() {
 
         // race/fuel state consumed by the render loop
         let localFuel: number | null = null;     // tank of the car currently being driven
+        let refuelRequestedIn: object | null = null; // game state seen when R was pressed at a pump (refuel pending)
         let fuelUiAccum = 0, fuelNetAccum = 0;    // throttle the HUD write and the server sync
         let raceActive = false, raceState = '', raceDifficulty = '', raceLapTarget = 0, raceLaps = 0, raceCpIndex = 0;
         let raceStartMs = 0, raceCountdownUntil = 0, raceHudAccum = 0;
@@ -554,6 +555,7 @@ export function VanillaThreeScene() {
                              localDrivingCarId = closestCar; // Hijack locally!
                              const ec = me?.inventory.find(c => c.id === closestCar);
                              localFuel = ec?.fuel ?? 100;
+                             refuelRequestedIn = null;
                              useGameStore.getState().setDrivingCarId(closestCar);
                              useGameStore.getState().setDrivingFuel(localFuel);
                         }
@@ -925,7 +927,9 @@ export function VanillaThreeScene() {
                     // --- Fuel burn (all driving consumes gas) ---
                     if (localFuel === null) localFuel = (me?.inventory.find(c => c.id === localDrivingCarId)?.fuel) ?? 100;
                     const liveCar = me?.inventory.find(c => c.id === localDrivingCarId);
-                    if (liveCar && typeof liveCar.fuel === 'number' && liveCar.fuel - localFuel > 15) localFuel = liveCar.fuel; // adopt a server refuel
+                    // Adopt a server refuel: a big jump, or the full tank just paid for at a pump (from a state
+                    // that arrived after the request; a small top-up used to be charged but never added)
+                    if (liveCar && typeof liveCar.fuel === 'number' && (liveCar.fuel - localFuel > 15 || (refuelRequestedIn && current.gameState !== refuelRequestedIn && liveCar.fuel >= 100))) { localFuel = liveCar.fuel; refuelRequestedIn = null; }
                     localFuel = Math.max(0, localFuel - Math.abs(phys.v) * delta * 0.012);
                     const outOfGas = localFuel <= 0;
                     const inCountdown = raceActive && raceState === 'countdown';
@@ -1034,7 +1038,7 @@ export function VanillaThreeScene() {
                     const nearPump = gasPumps.some(p => activeCar.position.distanceTo(p) < 9);
                     if (nearPump && !raceActive) {
                         showPrompt(activeCar.position, 6, '[R] REFUEL');
-                        if (rJustPressed && (localFuel ?? 100) < 99) { keys.r = false; rWasPressed = false; store2.refuel(localDrivingCarId!); }
+                        if (rJustPressed && (localFuel ?? 100) < 99) { keys.r = false; rWasPressed = false; refuelRequestedIn = current.gameState; store2.refuel(localDrivingCarId!); }
                     }
 
                     // -------- Speedway race flow --------
