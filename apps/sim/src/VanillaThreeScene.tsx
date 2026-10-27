@@ -990,9 +990,11 @@ export function VanillaThreeScene() {
                     carSpheres[1].copy(activeCar.position);
                     carSpheres[2].set(0, 0, -3.2).applyQuaternion(activeCar.quaternion).add(activeCar.position);
                     let wallCollided = false;
-                    for (const sBox of staticCollisionBoxes) {
+                    for (let i = 0; i < staticCollisionBoxes.length; i++) {
+                        const sBox = staticCollisionBoxes[i];
                         if (sBox.isEmpty()) continue;
-                        for (const sphereCenter of carSpheres) {
+                        for (let j = 0; j < carSpheres.length; j++) {
+                            const sphereCenter = carSpheres[j];
                             sBox.clampPoint(sphereCenter, tmpClosest);
                             if (tmpClosest.distanceToSquared(sphereCenter) < r * r) { wallCollided = true; break; }
                         }
@@ -1172,7 +1174,7 @@ export function VanillaThreeScene() {
                     // Avatar box (0.6 x 2 x 0.6) — kept small so it doesn't snag on corners
                     tmpAvatarBox.min.set(x - 0.3, avatar.position.y, z - 0.3);
                     tmpAvatarBox.max.set(x + 0.3, avatar.position.y + 2, z + 0.3);
-                    for (const sBox of staticCollisionBoxes) if (tmpAvatarBox.intersectsBox(sBox)) return true;
+                    for (let i = 0; i < staticCollisionBoxes.length; i++) if (tmpAvatarBox.intersectsBox(staticCollisionBoxes[i])) return true;
                     return false;
                 };
 
