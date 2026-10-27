@@ -3370,8 +3370,9 @@ function App() {
 
           {!showUI && (
             <div className="flex justify-between items-end w-full">
-              {/* Virtual D-Pad (Left Side) */}
-              <div className="flex flex-col gap-2 items-center pointer-events-auto">
+              {/* Virtual D-Pad (Left Side). Only the buttons take touches: the chat
+                  bubble sits in the empty corner beside ▲ and must stay tappable. */}
+              <div className="flex flex-col gap-2 items-center pointer-events-none [&_button]:pointer-events-auto">
                 <button
                   onTouchStart={() => (window as any).setMobileKey?.('w', true)}
                   onTouchEnd={() => (window as any).setMobileKey?.('w', false)}
