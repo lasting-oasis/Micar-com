@@ -585,6 +585,8 @@ export function VanillaThreeScene() {
                          // Teleport avatar to driver side door!
                          const offset = new THREE.Vector3(-3, 0, 0).applyQuaternion(m.quaternion);
                          avatar.position.copy(m.position).add(offset);
+                         // The car stops when you get out (it used to pull away at its old speed when you got back in)
+                         if (vehiclePhysics[localDrivingCarId!]) vehiclePhysics[localDrivingCarId!].v = 0;
                     }
                     // Persist the final fuel level and drop any active race (forfeits entry fee).
                     if (localDrivingCarId && localFuel !== null) useGameStore.getState().consumeFuel(localDrivingCarId, localFuel);
