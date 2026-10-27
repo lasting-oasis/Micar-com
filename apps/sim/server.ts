@@ -836,9 +836,13 @@ io.on('connection', (socket) => {
       if (!gameState.hostId) {
           gameState.hostId = socket.id;
       }
-      const playerCount = Object.keys(gameState.players).length;
-      let x = (playerCount % 5) * 250;
-      let z = Math.floor(playerCount / 5) * -250;
+      // Take the first lot slot no current player holds. (Using the player count
+      // gave a newcomer the lot of someone still here once anyone had left.)
+      const takenLots = new Set(Object.values(gameState.players).map(p => `${p.lotPosition?.x},${p.lotPosition?.z}`));
+      let slot = 0;
+      while (takenLots.has(`${(slot % 5) * 250},${Math.floor(slot / 5) * -250}`)) slot++;
+      let x = (slot % 5) * 250;
+      let z = Math.floor(slot / 5) * -250;
 
       let initMoney = 25000;
       let isStandalone = careerFocus === 'standalone';
