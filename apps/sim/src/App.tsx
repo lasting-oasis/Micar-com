@@ -1546,7 +1546,7 @@ const NegotiationModal = ({ agentId, setAgentId, carId, setCarId }: any) => {
           {agent.state === 'browsing' ? (
             <div className="flex flex-col gap-2 max-h-[40vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/10">
                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest border-b border-white/10 pb-1 mb-1">Available Inventory</h3>
-               {me.inventory.filter((c:any) => c.isProcessed && c.isRegistered && c.titleStatus !== 'Salvage').map((c:any) => (
+               {me.inventory.filter((c:any) => c.isProcessed && c.isRegistered && c.safetyPassed && c.titleStatus !== 'Salvage').map((c:any) => (
                    <div key={c.id} onClick={() => setCarId(c.id)} className={`p-3 rounded border cursor-pointer flex justify-between items-center transition-colors ${carId === c.id ? 'bg-blue-500/20 border-blue-500' : 'bg-black/40 border-white/5 hover:border-white/20'}`}>
                        <div className="flex flex-col">
                            <span className="text-sm font-bold text-white">{c.year} {c.make} {c.model}</span>
@@ -1558,8 +1558,8 @@ const NegotiationModal = ({ agentId, setAgentId, carId, setCarId }: any) => {
                        </div>
                    </div>
                ))}
-               {me.inventory.filter((c:any) => c.isProcessed && c.isRegistered && c.titleStatus !== 'Salvage').length === 0 && (
-                   <div className="text-gray-500 italic text-sm text-center p-4">No eligible cars on the lot. Ensure cars are washed, registered, and parked on the display pad.</div>
+               {me.inventory.filter((c:any) => c.isProcessed && c.isRegistered && c.safetyPassed && c.titleStatus !== 'Salvage').length === 0 && (
+                   <div className="text-gray-500 italic text-sm text-center p-4">No eligible cars on the lot. Ensure cars pass the DMV safety inspection, are washed, registered, and parked on the display pad.</div>
                )}
                
                <button 
