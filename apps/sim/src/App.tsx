@@ -12,7 +12,7 @@ const VanillaThreeScene = lazy(() => loadScene().then(m => ({ default: m.Vanilla
 const StandaloneShopPlatform = lazy(() => import('./StandaloneShopPlatform'));
 const ShopManagement = lazy(() => import('./ShopManagement'));
 const TabLoading = () => (
-  <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">Loading…</div>
+  <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(useLang(), 'loading.default')}</div>
 );
 import { LIBRARY_BOOKS } from './libraryData';
 
@@ -36,17 +36,18 @@ const MAP_LOCATIONS = [
 const GraphicsToggle = ({ compact }: { compact?: boolean }) => {
   const quality = useGameStore(s => s.graphicsQuality);
   const setQuality = useGameStore(s => s.setGraphicsQuality);
+  const lang = useLang();
   const next = quality === 'high' ? 'low' : 'high';
   return (
     <button
       type="button"
       onClick={() => setQuality(next)}
-      title={`Switch to ${next} graphics`}
-      aria-label={`Graphics quality: ${quality}. Switch to ${next}.`}
+      title={t(lang, quality === 'high' ? 'graphics.toLow' : 'graphics.toHigh')}
+      aria-label={t(lang, quality === 'high' ? 'graphics.highAria' : 'graphics.lowAria')}
       className={`flex items-center gap-1.5 rounded-xl border backdrop-blur-md font-black uppercase tracking-widest transition-all active:scale-95 ${compact ? 'px-3 py-3 text-[10px]' : 'px-3 py-1.5 text-[10px]'} bg-black/60 border-white/20 text-white/70 hover:text-white hover:border-white/40`}
     >
       <Gauge size={12} className={quality === 'high' ? 'text-emerald-400' : 'text-amber-400'} />
-      {compact ? (quality === 'high' ? 'HQ' : 'LQ') : `Graphics: ${quality}`}
+      {compact ? t(lang, quality === 'high' ? 'graphics.highShort' : 'graphics.lowShort') : t(lang, quality === 'high' ? 'graphics.high' : 'graphics.low')}
     </button>
   );
 };
@@ -2199,7 +2200,7 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<div className="absolute inset-0 z-0 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">Loading 3D world…</div>}>
+      <Suspense fallback={<div className="absolute inset-0 z-0 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(lang, 'loading.world')}</div>}>
         <VanillaThreeScene />
       </Suspense>
       <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />

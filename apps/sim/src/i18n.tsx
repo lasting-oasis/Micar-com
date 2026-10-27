@@ -99,6 +99,22 @@ const DICT: Record<string, Entry> = {
   'setup.showGuide': { en: 'Show Guide', es: 'Ver Guía' },
   'setup.optOut': { en: 'Opt Out', es: 'Omitir' },
   'setup.establish': { en: 'Establish Connection', es: 'Establecer Conexión' },
+
+  // ---- In-game graphics quality button ----
+  'graphics.high': { en: 'Graphics: high', es: 'Gráficos: alto' },
+  'graphics.low': { en: 'Graphics: low', es: 'Gráficos: bajo' },
+  'graphics.highShort': { en: 'HQ', es: 'Alto' },
+  'graphics.lowShort': { en: 'LQ', es: 'Bajo' },
+  'graphics.toHigh': { en: 'Switch to high graphics', es: 'Cambiar a gráficos altos' },
+  'graphics.toLow': { en: 'Switch to low graphics', es: 'Cambiar a gráficos bajos' },
+  'graphics.highAria': { en: 'Graphics quality: high. Switch to low.', es: 'Gráficos: alto. Cambiar a bajo.' },
+  'graphics.lowAria': { en: 'Graphics quality: low. Switch to high.', es: 'Gráficos: bajo. Cambiar a alto.' },
+
+  // ---- Loading screens & error notice ----
+  'loading.default': { en: 'Loading…', es: 'Cargando…' },
+  'loading.world': { en: 'Loading 3D world…', es: 'Cargando mundo 3D…' },
+  'error.notice': { en: 'Something went wrong. If the game stops responding, reload the page.', es: 'Algo salió mal. Si el juego deja de responder, recarga la página.' },
+  'error.dismiss': { en: 'Dismiss', es: 'Cerrar' },
 };
 
 export const t = (lang: Lang, key: string): string => DICT[key]?.[lang] ?? key;

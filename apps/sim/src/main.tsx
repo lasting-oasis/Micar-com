@@ -7,13 +7,13 @@ const ShopManagement = lazy(() => import('./ShopManagement.tsx'))
 const MechanicManagement = lazy(() => import('./MechanicManagement.tsx'))
 const StandaloneShopPlatform = lazy(() => import('./StandaloneShopPlatform.tsx'))
 const Loading = () => (
-  <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">Loading…</div>
+  <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(useLang(), 'loading.default')}</div>
 )
 import './index.css'
 import { useGameStore } from './store'
 import { Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle, Gauge, Activity } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useLang, t, LangToggle } from './i18n'
+import { useLang, t, LangToggle, getLang } from './i18n'
 // Global error catcher.
 // - Development: full-screen overlay with message, source and stack (as before).
 // - Production: a small dismissable notice, so a harmless error (often from a
@@ -47,11 +47,11 @@ const showDevErrorOverlay = (event: ErrorEvent) => {
 };
 const showProdErrorNotice = () => {
     if (document.getElementById('error-notice')) return; // one at a time
-    const note = el('div', 'position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 999999; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: rgba(15,23,42,0.95); color: #fecaca; border: 1px solid rgba(239,68,68,0.5); border-radius: 12px; font: 600 12px system-ui, sans-serif; box-shadow: 0 8px 24px rgba(0,0,0,0.4); pointer-events: auto;', 'Something went wrong. If the game stops responding, reload the page.');
+    const note = el('div', 'position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 999999; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: rgba(15,23,42,0.95); color: #fecaca; border: 1px solid rgba(239,68,68,0.5); border-radius: 12px; font: 600 12px system-ui, sans-serif; box-shadow: 0 8px 24px rgba(0,0,0,0.4); pointer-events: auto;', t(getLang(), 'error.notice'));
     note.id = 'error-notice';
     note.setAttribute('role', 'alert');
     const dismiss = el('button', 'background: none; border: none; color: #f87171; font: 800 14px system-ui; cursor: pointer; padding: 0 2px;', '✕');
-    dismiss.setAttribute('aria-label', 'Dismiss');
+    dismiss.setAttribute('aria-label', t(getLang(), 'error.dismiss'));
     dismiss.onclick = () => note.remove();
     note.appendChild(dismiss);
     document.body.appendChild(note);
