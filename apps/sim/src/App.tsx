@@ -1974,6 +1974,14 @@ function App() {
   useEffect(() => {
     if (showUI) ['w', 'a', 's', 'd'].forEach(k => (window as any).setMobileKey?.(k, false));
   }, [showUI]);
+  // The bank, insurance and repair popups live inside the UI layer, which is
+  // invisible while exploring; bring the UI back when one opens from the world.
+  const isBankModalOpen = useGameStore(s => s.isBankModalOpen);
+  const isInsuranceModalOpen = useGameStore(s => s.isInsuranceModalOpen);
+  const activeInspectionCarId = useGameStore(s => s.activeInspectionCarId);
+  useEffect(() => {
+    if (isBankModalOpen || isInsuranceModalOpen || activeInspectionCarId) setShowUI(true);
+  }, [isBankModalOpen, isInsuranceModalOpen, activeInspectionCarId]);
 
   // Mobile detection
   const [isMobile, setIsMobile] = useState(false);
