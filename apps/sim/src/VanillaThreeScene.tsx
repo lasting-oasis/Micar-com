@@ -409,6 +409,10 @@ export function VanillaThreeScene() {
         const tmpQuat = new THREE.Quaternion();
         const tmpEuler = new THREE.Euler();
         const UP = new THREE.Vector3(0, 1, 0);
+        // A car's true heading. Cars turn with rotateY, and past ±90° the default XYZ
+        // Euler flips to x = z = ±π, y = π − heading, so rotation.y alone is wrong.
+        const tmpEuler = new THREE.Euler();
+        const headingOf = (o: THREE.Object3D) => tmpEuler.setFromQuaternion(o.quaternion, 'YXZ').y;
         const tmpAvatarBox = new THREE.Box3();
         const carSpheres = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
         let carSyncAccum = 0;
@@ -800,7 +804,7 @@ export function VanillaThreeScene() {
                            const start = car.position.clone();
                            aiDriveSequence[key] = {
                                index: 0,
-                               startRotY: car.rotation.y,
+                               startRotY: headingOf(car),
                                // into the central drive lane, out through the gate, down the road, then back
                                waypoints: [new THREE.Vector3(lotX, 0, start.z), new THREE.Vector3(lotX, 0, turnZ), new THREE.Vector3(lotX, 0, start.z), start],
                            };
@@ -817,13 +821,13 @@ export function VanillaThreeScene() {
                            const dx = target.x - car.position.x, dz = target.z - car.position.z;
                            const dist = Math.hypot(dx, dz);
                            const step = AI_DRIVE_SPEED * delta;
-                           if (dist > 0.01) car.rotation.y = Math.atan2(dx, dz); // face the direction of travel
+                           if (dist > 0.01) car.rotation.set(0, Math.atan2(dx, dz), 0); // face the direction of travel
                            if (dist <= step) {
                                car.position.set(target.x, car.position.y, target.z);
                                seq.index++;
                                if (seq.index >= seq.waypoints.length) {
                                    // Seamless auto-park back in the original spot
-                                   car.rotation.y = seq.startRotY;
+                                   car.rotation.set(0, seq.startRotY, 0);
                                    bot.status = 'waiting';
                                    bot.mesh.visible = true;
                                    delete aiDriveSequence[key];
@@ -1019,7 +1023,7 @@ export function VanillaThreeScene() {
                          if (store.socket) {
                               store.socket.emit('sync_car_pos', {
                                   carId: localDrivingCarId,
-                                  position: { x: activeCar.position.x, z: activeCar.position.z, r: activeCar.rotation.y }
+                                  position: { x: activeCar.position.x, z: activeCar.position.z, r: headingOf(activeCar) }
                               });
                          }
                     }
