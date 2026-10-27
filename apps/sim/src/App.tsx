@@ -2247,7 +2247,8 @@ function App() {
       <div className={`ui-container flex flex-col p-3 md:p-6 h-full pointer-events-none relative z-10 transition-opacity duration-500 ${showUI ? 'opacity-100' : 'opacity-0'}`}>
 
         {/* Navigation Tabs (Standalone / Standoff Tabs) */}
-        <div className={`hidden md:flex justify-start md:justify-center mb-6 shrink-0 w-full max-w-[calc(100%-100px)] md:max-w-full ml-2 md:mx-auto overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+        {/* md:pl keeps the first tab clear of the floating "← Exit to Launchpad" button (main.tsx) */}
+        <div className={`hidden md:flex justify-start md:justify-center mb-6 shrink-0 w-full max-w-[calc(100%-100px)] md:max-w-full ml-2 md:mx-auto md:pl-[200px] overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
           <div className="flex gap-2 bg-black/50 p-2 rounded-2xl border border-white/10 backdrop-blur-md overflow-x-auto max-w-full scrollbar-none whitespace-nowrap">
             {!me.isStandaloneOperator && (
               <button
