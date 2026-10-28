@@ -108,6 +108,19 @@ export function mileageFactor(mileage: number, expected: number): number {
   return 1 + Math.min(0.12, 0.004 * (-delta / 1000));
 }
 
+/** Expected odometer for a car of this model year today. */
+export function expectedMilesFor(modelYear: number, asOf: Date = new Date()): number {
+  return Math.round(vehicleAge(modelYear, asOf) * MILES_PER_YEAR);
+}
+
+/** Adjust a comparable's asking price to the subject car's mileage, the way an
+ * appraiser would, capped at ±25% so one odd comp can't swing the answer. */
+export function mileageAdjustedPrice(price: number, compMiles: number | undefined, subjectMiles: number, expectedMiles: number): number {
+  if (compMiles === undefined) return price;
+  const ratio = mileageFactor(subjectMiles, expectedMiles) / mileageFactor(compMiles, expectedMiles);
+  return price * clamp(ratio, 0.75, 1.25);
+}
+
 /** Traits assumed for a make when the model isn't in the table. */
 function traitsForMake(make: Make): Trait[] {
   switch (make.segment) {

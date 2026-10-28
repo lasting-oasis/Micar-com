@@ -7,6 +7,10 @@ export type FormState = {
   make: string; model: string; trim: string; body: string; msrp: string; year: string; mileage: string;
   condition: string; title: string; accident: string; region: string;
   market: string; listings: string; urgency: string; comps: string; annual: string;
+  /** Text pasted from a listings page; kept out of the URL because it is long. */
+  page: string;
+  zip: string;
+  radius: string;
 };
 
 export const MARKET_OPTIONS = [
@@ -31,12 +35,13 @@ export function defaults(now = new Date()): FormState {
     year: String(year), mileage: '48000', condition: 'Good',
     title: 'Clean', accident: 'None', region: 'Southeast',
     market: 'Auto', listings: '', urgency: 'No rush', comps: '', annual: '12000',
+    page: '', zip: '', radius: '50',
   };
 }
 
 const KEYS: (keyof FormState)[] = [
   'make', 'model', 'trim', 'body', 'msrp', 'year', 'mileage', 'condition', 'title', 'accident', 'region',
-  'market', 'listings', 'urgency', 'comps', 'annual',
+  'market', 'listings', 'urgency', 'comps', 'annual', 'zip', 'radius',
 ];
 
 export function readUrl(): FormState {
@@ -92,6 +97,7 @@ export function parse(state: FormState, now = new Date()): { inputs: Inputs | nu
     if (!Number.isInteger(n) || n < 0 || n > 999) errors.listings = 'Enter a whole number of listings, or leave it blank.';
     else listings = n;
   }
+  if (state.zip.trim() !== '' && !/^\d{5}$/.test(state.zip.trim())) errors.zip = 'Enter a 5-digit ZIP code.';
   if (Object.keys(errors).length) return { inputs: null, errors };
   const marketChoice = MARKET_OPTIONS.find((o) => o.name === state.market)?.value ?? 'auto';
   const auto = marketChoice === 'auto';

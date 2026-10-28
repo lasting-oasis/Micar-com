@@ -28,6 +28,7 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_COMPS_URL: ${{ vars.COMPS_URL }}
       - uses: actions/configure-pages@v5
         with:
           enablement: true

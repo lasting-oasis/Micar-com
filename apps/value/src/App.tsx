@@ -1,11 +1,16 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Area, CartesianGrid, ComposedChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { Check, Link2, RotateCcw } from 'lucide-react';
+import { Check, Link2, RotateCcw, Search } from 'lucide-react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
+import { describe as describeListings, parseListingsPage, type ParsedListing } from './engine/listings';
 import { MARKET, periodLabel, snapshotAgeDays } from './engine/market';
 import { findModel, modelsForMake, typicalMsrp } from './engine/models';
-import { forecast, valuate, type Inputs, type Valuation } from './engine/valuation';
+import { expectedMilesFor, forecast, mileageAdjustedPrice, valuate, type Inputs, type Valuation } from './engine/valuation';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse, readUrl, shareUrl, urlHasMsrp, writeUrl, type Errors, type FormState } from './urlState';
+
+const COMPS_URL: string | undefined = import.meta.env.VITE_COMPS_URL || undefined;
+
+type LiveResult = { source: string; fetchedAt: string; count: number; listings: ParsedListing[]; query: { zip: string; radius: number } };
 
 const usd = (n: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 const usdK = (n: number) => `$${(n / 1000).toFixed(n >= 100_000 ? 0 : 1)}k`;
@@ -37,11 +42,55 @@ export default function App() {
   // Shareable links only make sense when the page is hosted on its own URL.
   const canShare = useMemo(() => { try { return window.self === window.top; } catch { return false; } }, []);
   const now = useMemo(() => new Date(), []);
-  const { inputs, errors } = useMemo(() => parse(form, now), [form, now]);
+  const { inputs: typed, errors } = useMemo(() => parse(form, now), [form, now]);
+
+  // Market evidence: a pasted listings page and/or a live lookup.
+  const [usePage, setUsePage] = useState(true);
+  const [live, setLive] = useState<LiveResult | null>(null);
+  const [liveState, setLiveState] = useState<{ status: 'idle' | 'loading' | 'error'; message?: string }>({ status: 'idle' });
+  const pageResult = useMemo(
+    () => parseListingsPage(form.page, { model: form.model || undefined, year: Number(form.year) || undefined }),
+    [form.page, form.model, form.year],
+  );
+  const evidence = useMemo(() => {
+    const list: ParsedListing[] = [...(usePage ? pageResult.listings : []), ...(live?.listings ?? [])];
+    const subjectMiles = Number(form.mileage) || 0;
+    const expected = expectedMilesFor(Number(form.year) || now.getFullYear(), now);
+    const comps = list.map((l) => Math.round(mileageAdjustedPrice(l.price, l.miles, subjectMiles, expected)));
+    // A listing count is only trustworthy from a live lookup, a stated page total, or a reasonably full page.
+    let count: number | null = null, countSource = '';
+    if (live) { count = live.count; countSource = `${live.source} live lookup`; }
+    else if (usePage && pageResult.resultCount) { count = pageResult.resultCount; countSource = pageResult.source ?? 'pasted page'; }
+    else if (usePage && pageResult.listings.length >= 5) { count = pageResult.listings.length; countSource = pageResult.source ?? 'pasted page'; }
+    return { comps, count, countSource };
+  }, [usePage, pageResult, live, form.mileage, form.year, now]);
+  const inputs = useMemo<Inputs | null>(() => typed ? {
+    ...typed,
+    comps: [...typed.comps, ...evidence.comps],
+    listings: typed.listings ?? evidence.count,
+  } : null, [typed, evidence]);
+
   const lastGood = useRef<Inputs | null>(inputs);
   if (inputs) lastGood.current = inputs;
   const active = inputs ?? lastGood.current;
   const stale = !inputs;
+
+  const pullLive = async () => {
+    if (!COMPS_URL || !typed) return;
+    if (!/^\d{5}$/.test(form.zip.trim())) { setLiveState({ status: 'error', message: 'Enter a 5-digit ZIP first.' }); return; }
+    setLiveState({ status: 'loading' });
+    try {
+      const q = new URLSearchParams({ make: typed.make, model: typed.model || typed.body, year: String(typed.year), zip: form.zip.trim(), radius: form.radius });
+      const res = await fetch(`${COMPS_URL.replace(/\/$/, '')}?${q}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Lookup failed (${res.status})`);
+      setLive({ source: data.source, fetchedAt: data.fetchedAt, count: data.count, listings: data.listings, query: { zip: form.zip.trim(), radius: Number(form.radius) } });
+      setLiveState({ status: 'idle' });
+    } catch (err) {
+      setLive(null);
+      setLiveState({ status: 'error', message: err instanceof Error ? err.message : 'Lookup failed.' });
+    }
+  };
 
   const val = useMemo(() => (active ? valuate(active, now) : null), [active, now]);
   const annual = Math.min(30000, Math.max(3000, Number(form.annual) || 12000));
@@ -54,6 +103,7 @@ export default function App() {
   const set = (k: keyof FormState) => (e: { target: { value: string } }) => {
     const value = e.target.value;
     if (k === 'msrp') setMsrpAuto(false);
+    if (k === 'make' || k === 'model' || k === 'year') setLive(null);
     setForm((f) => {
       const next = { ...f, [k]: value };
       if (k === 'make') {
@@ -98,7 +148,7 @@ export default function App() {
             <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>What a used car is worth today, and what it will be worth later.</p>
           </div>
           <div className="flex gap-2">
-            <GlassButton onClick={() => { setForm(defaults()); setMsrpAuto(true); }} icon={<RotateCcw size={15} />}>Start over</GlassButton>
+            <GlassButton onClick={() => { setForm(defaults()); setMsrpAuto(true); setLive(null); setLiveState({ status: 'idle' }); }} icon={<RotateCcw size={15} />}>Start over</GlassButton>
             {canShare && <GlassButton onClick={copyLink} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? 'Link copied' : 'Copy link to this estimate'}</GlassButton>}
           </div>
         </header>
@@ -116,7 +166,7 @@ export default function App() {
               <VehicleForm form={form} set={set} errors={errors} msrpAuto={msrpAuto} />
               <h2 id="market-h" className="mt-8 font-cond text-xl font-semibold">Local market</h2>
               <p className="mb-5 text-sm" style={{ color: 'var(--ink-3)' }}>Optional. What you see on listing sites near you beats any formula.</p>
-              <MarketForm form={form} set={set} errors={errors} />
+              <MarketForm form={form} set={set} errors={errors} pageResult={pageResult} usePage={usePage} setUsePage={setUsePage} live={live} liveState={liveState} pullLive={pullLive} clearLive={() => setLive(null)} evidence={evidence} />
             </section>
 
             <section aria-labelledby="value-h" aria-live="polite" className={`p-5 sm:p-7 lg:col-span-7 transition-opacity ${stale ? 'opacity-50' : ''}`}>
@@ -243,17 +293,81 @@ function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k
   );
 }
 
-function MarketForm({ form, set, errors }: { form: FormState; set: (k: keyof FormState) => (e: { target: { value: string } }) => void; errors: Errors }) {
+type MarketFormProps = {
+  form: FormState;
+  set: (k: keyof FormState) => (e: { target: { value: string } }) => void;
+  errors: Errors;
+  pageResult: ReturnType<typeof parseListingsPage>;
+  usePage: boolean;
+  setUsePage: (v: boolean) => void;
+  live: LiveResult | null;
+  liveState: { status: 'idle' | 'loading' | 'error'; message?: string };
+  pullLive: () => void;
+  clearLive: () => void;
+  evidence: { comps: number[]; count: number | null; countSource: string };
+};
+
+function MarketForm({ form, set, errors, pageResult, usePage, setUsePage, live, liveState, pullLive, clearLive, evidence }: MarketFormProps) {
   const radio = (k: keyof FormState) => (v: string) => set(k)({ target: { value: v } });
+  const pasted = form.page.trim().length > 0;
   return (
     <div className="space-y-4">
       <Segmented name="market" legend="Used-car market right now" value={form.market} options={MARKET_OPTIONS} onChange={radio('market')} />
       {form.market === 'Auto' && <MarketStrip />}
-      <Field id="listings" label="Similar cars for sale near you" error={errors.listings} hint="Count the same model, within a few years, on a listing site within about 50 miles. Around 10 is typical.">
-        <input id="listings" className="field num" inputMode="numeric" placeholder="e.g. 12" value={form.listings} onChange={set('listings')} aria-invalid={errors.listings ? true : undefined} aria-describedby={errors.listings ? 'listings-err' : undefined} />
+
+      <Field id="page" label="Paste a listings page" hint={pasted ? undefined : 'Search for your model near you on Facebook Marketplace, OfferUp, Craigslist, CarGurus, Autotrader or Cars.com, select the whole results page (Ctrl+A / Cmd+A), copy, and paste it here. Prices, years and mileage are read from the text; nothing is fetched from those sites.'}>
+        <textarea id="page" className="field" rows={pasted ? 2 : 3} value={form.page} onChange={set('page')} placeholder="Paste the whole search-results page here" spellCheck={false} />
+      </Field>
+      {pasted && (
+        <div className="-mt-2 rounded px-3 py-2 text-xs" style={{ background: 'var(--sticker-2)', color: 'var(--ink-2)' }}>
+          <p>{describeListings(pageResult, form.model || undefined)}</p>
+          {pageResult.listings.length > 0 && (
+            <div className="mt-1.5 flex flex-wrap items-center gap-3">
+              <label className="flex items-center gap-1.5">
+                <input type="checkbox" checked={usePage} onChange={(e) => setUsePage(e.target.checked)} />
+                Use these as comps{pageResult.listings.some((l) => l.miles) ? ', adjusted to your mileage' : ''}
+              </label>
+              <button type="button" className="underline" onClick={() => set('page')({ target: { value: '' } })}>Clear</button>
+            </div>
+          )}
+        </div>
+      )}
+
+      <div>
+        <p className="mb-1 text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>Pull live asking prices near a ZIP</p>
+        {COMPS_URL ? (
+          <>
+            <div className="flex flex-wrap items-stretch gap-2">
+              <input id="zip" aria-label="ZIP code" className="field num w-28" inputMode="numeric" placeholder="ZIP" value={form.zip} onChange={set('zip')} maxLength={5} aria-invalid={errors.zip ? true : undefined} />
+              <select id="radius" aria-label="Search radius" className="field w-32" value={form.radius} onChange={set('radius')}>
+                <option value="25">25 miles</option>
+                <option value="50">50 miles</option>
+                <option value="100">100 miles</option>
+              </select>
+              <button type="button" onClick={pullLive} disabled={liveState.status === 'loading'} className="inline-flex items-center gap-1.5 rounded px-3 py-2 text-sm font-semibold disabled:opacity-60" style={{ background: 'var(--ink)', color: 'var(--sticker)' }}>
+                <Search size={15} />{liveState.status === 'loading' ? 'Looking…' : 'Pull live comps'}
+              </button>
+            </div>
+            {errors.zip && <p className="mt-1 text-xs" style={{ color: 'var(--loss)' }}>{errors.zip}</p>}
+            {liveState.status === 'error' && <p className="mt-1 text-xs" style={{ color: 'var(--loss)' }}>{liveState.message}</p>}
+            {live && (
+              <div className="mt-2 rounded px-3 py-2 text-xs" style={{ background: 'var(--sticker-2)', color: 'var(--ink-2)' }}>
+                <p>{live.count.toLocaleString()} similar cars listed within {live.query.radius} miles of {live.query.zip} · {live.listings.length} priced · {live.source}, just now</p>
+                <button type="button" className="mt-1 underline" onClick={clearLive}>Clear</button>
+              </div>
+            )}
+            <p className="mt-1 text-xs" style={{ color: 'var(--ink-3)' }}>Dealer inventory only; private sales don't show up here. Each pull uses one of a small monthly budget.</p>
+          </>
+        ) : (
+          <p className="text-xs" style={{ color: 'var(--ink-3)' }}>Not connected yet. It takes two free accounts and about ten minutes; the README has the steps. Until then, pasting a listings page does the same job.</p>
+        )}
+      </div>
+
+      <Field id="listings" label="Similar cars for sale near you" error={errors.listings} hint={evidence.count !== null && form.listings.trim() === '' ? `Using ${evidence.count.toLocaleString()} from the ${evidence.countSource}. Type a number to override.` : 'Count the same model, within a few years, on a listing site within about 50 miles. Around 10 is typical.'}>
+        <input id="listings" className="field num" inputMode="numeric" placeholder={evidence.count !== null ? String(evidence.count) : 'e.g. 12'} value={form.listings} onChange={set('listings')} aria-invalid={errors.listings ? true : undefined} aria-describedby={errors.listings ? 'listings-err' : undefined} />
       </Field>
       <Segmented name="urgency" legend="How fast it needs to sell" value={form.urgency} options={URGENCY_OPTIONS} onChange={radio('urgency')} />
-      <Field id="comps" label="Asking prices you've seen" hint="Up to 8 prices for similar cars nearby, separated by commas. The estimate leans on them more the more you add.">
+      <Field id="comps" label="Other asking prices you've seen" hint={evidence.comps.length ? `${evidence.comps.length} price${evidence.comps.length > 1 ? 's' : ''} already come from the page or lookup above; add any others here.` : 'Up to 8 prices for similar cars nearby, separated by commas. The estimate leans on them more the more you add.'}>
         <input id="comps" className="field num" placeholder="e.g. 21500, 22900, 20995" value={form.comps} onChange={set('comps')} maxLength={120} autoComplete="off" />
       </Field>
     </div>
