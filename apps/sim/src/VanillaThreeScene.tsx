@@ -62,8 +62,12 @@ export function VanillaThreeScene() {
             }
             return () => {};
         }
+        // Low renders at 1x, High at up to 2x on hi-DPI screens. Set before the first
+        // sizing: every size change re-allocates the (multisampled) drawing buffer,
+        // and a phone on Low used to allocate a 2x one just to drop it again.
+        const pixelRatioFor = (q: 'high' | 'low') => q === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
+        renderer.setPixelRatio(pixelRatioFor(useGameStore.getState().graphicsQuality));
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // crisper on hi-DPI without tanking perf
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         mountRef.current.appendChild(renderer.domElement);
@@ -274,12 +278,11 @@ export function VanillaThreeScene() {
 
         // --- Graphics quality (Low/High toggle in the HUD) ---
         // Low: no shadows and 1x resolution — a big saving on phones and laptops.
-        const pixelRatioFor = (q: 'high' | 'low') => q === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
         let quality = useGameStore.getState().graphicsQuality;
         const applyGraphics = (q: 'high' | 'low', recompile: boolean) => {
              quality = q;
              lightPool.setActiveCount(poolSizeFor(q));
-             renderer.setPixelRatio(pixelRatioFor(q));
+             if (renderer.getPixelRatio() !== pixelRatioFor(q)) renderer.setPixelRatio(pixelRatioFor(q));
              renderer.shadowMap.enabled = q === 'high';
              dirLight.castShadow = q === 'high';
              // Free the 2048x2048 sun shadow map while shadows are off; three.js
@@ -318,8 +321,10 @@ export function VanillaThreeScene() {
         const handleResize = () => {
              camera.aspect = window.innerWidth / window.innerHeight;
              camera.updateProjectionMatrix();
+             // Ratio first, so the drawing buffer is re-allocated once, not twice
+             const pr = pixelRatioFor(useGameStore.getState().graphicsQuality);
+             if (renderer.getPixelRatio() !== pr) renderer.setPixelRatio(pr);
              renderer.setSize(window.innerWidth, window.innerHeight);
-             renderer.setPixelRatio(pixelRatioFor(useGameStore.getState().graphicsQuality));
         };
         window.addEventListener('resize', handleResize);
 
