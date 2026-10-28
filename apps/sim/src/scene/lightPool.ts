@@ -6,8 +6,8 @@ import * as THREE from 'three';
 // lights and moves them to whichever lamps are closest to the player.
 //
 // Every light in the scene costs every lit pixel, even at intensity 0 (the
-// shader can't skip it). So the number of pool lights actually in the scene can
-// be lowered (setActiveCount): Low graphics uses none by day and a few at night.
+// shader can't skip it), so the number of pool lights actually in the scene can
+// be lowered (setActiveCount): Low graphics uses none.
 
 export type LightSource = {
     position: THREE.Vector3;
@@ -40,7 +40,7 @@ export class LightPool {
     /**
      * How many of the pool's lights are in the scene. A change makes every lit
      * material switch shaders (compiled once per light count, then cached), so
-     * only change it on rare events: a quality toggle, dusk and dawn.
+     * only change it on rare events such as a quality toggle.
      */
     setActiveCount(n: number) {
         n = Math.max(0, Math.min(this.lights.length, Math.floor(n)));
