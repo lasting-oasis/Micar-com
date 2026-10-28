@@ -2,8 +2,9 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Area, CartesianGrid, ComposedChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { Check, Link2, RotateCcw } from 'lucide-react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
+import { findModel, modelsForMake, typicalMsrp } from './engine/models';
 import { forecast, valuate, type Inputs, type Valuation } from './engine/valuation';
-import { defaults, parse, readUrl, shareUrl, writeUrl, type Errors, type FormState } from './urlState';
+import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse, readUrl, shareUrl, urlHasMsrp, writeUrl, type Errors, type FormState } from './urlState';
 
 const usd = (n: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 const usdK = (n: number) => `$${(n / 1000).toFixed(n >= 100_000 ? 0 : 1)}k`;
@@ -47,7 +48,31 @@ export default function App() {
 
   useEffect(() => { const t = setTimeout(() => writeUrl(form), 300); return () => clearTimeout(t); }, [form]);
 
-  const set = (k: keyof FormState) => (e: { target: { value: string } }) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  // MSRP is prefilled from the model table until the user types their own number.
+  const [msrpAuto, setMsrpAuto] = useState(() => !urlHasMsrp());
+  const set = (k: keyof FormState) => (e: { target: { value: string } }) => {
+    const value = e.target.value;
+    if (k === 'msrp') setMsrpAuto(false);
+    setForm((f) => {
+      const next = { ...f, [k]: value };
+      if (k === 'make') {
+        const first = modelsForMake(value)[0];
+        next.model = first ? first.model : '';
+        if (first) { next.body = first.body; if (msrpAuto) next.msrp = String(typicalMsrp(first, Number(next.year) || now.getFullYear())); }
+      }
+      if (k === 'model') {
+        const info = findModel(next.make, value);
+        if (info) { next.body = info.body; next.msrp = String(typicalMsrp(info, Number(next.year) || now.getFullYear())); }
+      }
+      if (k === 'year' && msrpAuto) {
+        const info = findModel(next.make, next.model);
+        const y = Number(value);
+        if (info && Number.isInteger(y) && y >= 1990 && y <= now.getFullYear() + 1) next.msrp = String(typicalMsrp(info, y));
+      }
+      return next;
+    });
+    if (k === 'model') setMsrpAuto(true);
+  };
 
   const copyLink = async () => {
     const url = shareUrl(form);
@@ -60,7 +85,7 @@ export default function App() {
     setCopied(true); setTimeout(() => setCopied(false), 1800);
   };
 
-  const vehicleName = [active?.year, active?.make, form.model.trim()].filter(Boolean).join(' ');
+  const vehicleName = [active?.year, active?.make, form.model, form.trim.trim()].filter(Boolean).join(' ');
   const asOfLabel = now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
   return (
@@ -72,7 +97,7 @@ export default function App() {
             <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>What a used car is worth today, and what it will be worth later.</p>
           </div>
           <div className="flex gap-2">
-            <GlassButton onClick={() => setForm(defaults())} icon={<RotateCcw size={15} />}>Start over</GlassButton>
+            <GlassButton onClick={() => { setForm(defaults()); setMsrpAuto(true); }} icon={<RotateCcw size={15} />}>Start over</GlassButton>
             {canShare && <GlassButton onClick={copyLink} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? 'Link copied' : 'Copy link to this estimate'}</GlassButton>}
           </div>
         </header>
@@ -87,7 +112,10 @@ export default function App() {
             <section aria-labelledby="vehicle-h" className="border-b p-5 sm:p-7 lg:col-span-5 lg:border-b-0 lg:border-r" style={{ borderColor: 'var(--rule)' }}>
               <h2 id="vehicle-h" className="font-cond text-xl font-semibold">Vehicle details</h2>
               <p className="mb-5 text-sm" style={{ color: 'var(--ink-3)' }}>Prices update as you type.</p>
-              <VehicleForm form={form} set={set} errors={errors} />
+              <VehicleForm form={form} set={set} errors={errors} msrpAuto={msrpAuto} />
+              <h2 id="market-h" className="mt-8 font-cond text-xl font-semibold">Local market</h2>
+              <p className="mb-5 text-sm" style={{ color: 'var(--ink-3)' }}>Optional. What you see on listing sites near you beats any formula.</p>
+              <MarketForm form={form} set={set} errors={errors} />
             </section>
 
             <section aria-labelledby="value-h" aria-live="polite" className={`p-5 sm:p-7 lg:col-span-7 transition-opacity ${stale ? 'opacity-50' : ''}`}>
@@ -104,12 +132,13 @@ export default function App() {
               </section>
               <section aria-labelledby="conf-h" className="p-5 sm:p-7 lg:col-span-4">
                 <Confidence val={val} />
+                <Drivers val={val} modelName={form.model} />
               </section>
             </div>
           )}
 
           <footer className="border-t px-5 py-4 text-xs leading-relaxed sm:px-7" style={{ borderColor: 'var(--rule)', background: 'var(--sticker-2)', color: 'var(--ink-3)' }}>
-            Estimates come from typical depreciation for each brand and body style, adjusted for mileage, condition, history and region. They are not based on live listings or auction sales, so use them as a starting point and compare against local listings before you buy, sell or trade.
+            Estimates start from the typical five-year resale value of each model, adjusted for mileage, condition, history, region, the market cycle and local supply. The model data is a rule-of-thumb snapshot, not a live feed of listings or auction sales, so the asking prices you enter under Local market carry real weight. Use the result as a starting point before you buy, sell or trade.
           </footer>
         </main>
       </div>
@@ -154,9 +183,10 @@ function Segmented({ name, legend, value, options, onChange }: { name: string; l
   );
 }
 
-function VehicleForm({ form, set, errors }: { form: FormState; set: (k: keyof FormState) => (e: { target: { value: string } }) => void; errors: Errors }) {
+function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k: keyof FormState) => (e: { target: { value: string } }) => void; errors: Errors; msrpAuto: boolean }) {
   const err = (k: keyof FormState) => ({ 'aria-invalid': errors[k] ? true : undefined, 'aria-describedby': errors[k] ? `${k}-err` : undefined });
   const radio = (k: keyof FormState) => (v: string) => set(k)({ target: { value: v } });
+  const models = modelsForMake(form.make);
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-2 gap-3">
@@ -169,16 +199,24 @@ function VehicleForm({ form, set, errors }: { form: FormState; set: (k: keyof Fo
             ))}
           </select>
         </Field>
+        <Field id="model" label="Model">
+          <select id="model" className="field" value={models.some((m) => m.model === form.model) ? form.model : ''} onChange={set('model')}>
+            {models.map((m) => <option key={m.model} value={m.model}>{m.model}</option>)}
+            <option value="">{models.length ? 'Not listed' : 'No model data for this make'}</option>
+          </select>
+        </Field>
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+        <Field id="trim" label="Trim" hint="Optional">
+          <input id="trim" className="field" placeholder="e.g. XLE" value={form.trim} onChange={set('trim')} maxLength={40} autoComplete="off" />
+        </Field>
         <Field id="body" label="Body style">
           <select id="body" className="field" value={form.body} onChange={set('body')}>
             {BODY_STYLES.map((b) => <option key={b.name}>{b.name}</option>)}
           </select>
         </Field>
       </div>
-      <Field id="model" label="Model and trim" hint="Optional, but it narrows the price range.">
-        <input id="model" className="field" placeholder="e.g. RAV4 XLE" value={form.model} onChange={set('model')} maxLength={60} autoComplete="off" />
-      </Field>
-      <Field id="msrp" label="Original sticker price (MSRP)" error={errors.msrp}>
+      <Field id="msrp" label="Original sticker price (MSRP)" error={errors.msrp} hint={msrpAuto && findModel(form.make, form.model) ? 'Typical for this model and year. Change it if you know the real sticker.' : undefined}>
         <div className="relative">
           <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm" style={{ color: 'var(--ink-3)' }}>$</span>
           <input id="msrp" className="field num" style={{ paddingLeft: '1.5rem' }} inputMode="numeric" value={form.msrp} onChange={set('msrp')} {...err('msrp')} />
@@ -204,6 +242,22 @@ function VehicleForm({ form, set, errors }: { form: FormState; set: (k: keyof Fo
   );
 }
 
+function MarketForm({ form, set, errors }: { form: FormState; set: (k: keyof FormState) => (e: { target: { value: string } }) => void; errors: Errors }) {
+  const radio = (k: keyof FormState) => (v: string) => set(k)({ target: { value: v } });
+  return (
+    <div className="space-y-4">
+      <Segmented name="market" legend="Used-car market right now" value={form.market} options={MARKET_OPTIONS} onChange={radio('market')} />
+      <Field id="listings" label="Similar cars for sale near you" error={errors.listings} hint="Count the same model, within a few years, on a listing site within about 50 miles. Around 10 is typical.">
+        <input id="listings" className="field num" inputMode="numeric" placeholder="e.g. 12" value={form.listings} onChange={set('listings')} aria-invalid={errors.listings ? true : undefined} aria-describedby={errors.listings ? 'listings-err' : undefined} />
+      </Field>
+      <Segmented name="urgency" legend="How fast it needs to sell" value={form.urgency} options={URGENCY_OPTIONS} onChange={radio('urgency')} />
+      <Field id="comps" label="Asking prices you've seen" hint="Up to 8 prices for similar cars nearby, separated by commas. The estimate leans on them more the more you add.">
+        <input id="comps" className="field num" placeholder="e.g. 21500, 22900, 20995" value={form.comps} onChange={set('comps')} maxLength={120} autoComplete="off" />
+      </Field>
+    </div>
+  );
+}
+
 function Prices({ val }: { val: Valuation }) {
   const pp = useTween(val.privateParty);
   return (
@@ -213,6 +267,11 @@ function Prices({ val }: { val: Valuation }) {
       <p className="mt-2 text-sm" style={{ color: 'var(--ink-2)' }}>
         Most sales of a car like this land between <strong className="num">{usd(val.range.low)}</strong> and <strong className="num">{usd(val.range.high)}</strong>.
       </p>
+      {val.compsUsed > 0 && (
+        <p className="mt-1 text-sm" style={{ color: 'var(--ink-3)' }}>
+          The model alone says <span className="num">{usd(val.modelEstimate)}</span>; your {val.compsUsed} asking price{val.compsUsed > 1 ? 's' : ''} moved it {val.privateParty >= val.modelEstimate ? 'up' : 'down'}.
+        </p>
+      )}
       <RangeBar val={val} />
       <div className="mt-5 grid grid-cols-2 gap-px overflow-hidden rounded" style={{ background: 'var(--rule)' }}>
         <PriceCell label="Trade-in offer" value={val.tradeIn} note="What a dealer would likely pay you. Lower because they still need to recondition and resell it." />
@@ -339,6 +398,17 @@ function Confidence({ val }: { val: Valuation }) {
       <p className="mt-1 text-sm" style={{ color: 'var(--ink-2)' }}>The range is ±{Math.round(val.bandPct * 100)}% of the private-party value.</p>
       <ul className="mt-3 space-y-1.5 text-sm" style={{ color: 'var(--ink-2)' }}>
         {val.confidenceReasons.map((r) => <li key={r} className="flex gap-2"><span aria-hidden="true" style={{ color: 'var(--ink-3)' }}>–</span>{r}</li>)}
+      </ul>
+    </div>
+  );
+}
+
+function Drivers({ val, modelName }: { val: Valuation; modelName: string }) {
+  return (
+    <div className="mt-6">
+      <h3 className="font-cond text-xl font-semibold">{val.modelKnown && modelName ? `Why the ${modelName} prices this way` : 'What drives this price'}</h3>
+      <ul className="mt-2 space-y-1.5 text-sm" style={{ color: 'var(--ink-2)' }}>
+        {val.drivers.map((d) => <li key={d} className="flex gap-2"><span aria-hidden="true" style={{ color: 'var(--ink-3)' }}>–</span>{d}</li>)}
       </ul>
     </div>
   );

@@ -9,9 +9,19 @@ A used-car value estimator. Enter a vehicle's make, body style, original sticker
 - **How the price is built**: a line-by-line breakdown from MSRP to the final number
 - **Five-year forecast** with an adjustable miles-per-year slider
 - **Confidence rating** that explains what widens or narrows the range
+- **Market layer**: model-level resale data for ~170 common models, plus the used-car market cycle, how many similar cars are listed nearby, how fast it needs to sell, and real asking prices you've seen
 - **Shareable links**: every input is kept in the URL
 
-Estimates come from rule-of-thumb depreciation for each brand and body style. They are not based on live listings or auction data.
+## How the market layer works
+
+A pure depreciation formula knows what a car *should* be worth from its sticker price and age, but not whether anyone wants it. The engine handles that in four layers:
+
+1. **Model-level resale.** `src/engine/models.ts` lists ~170 common models with the share of MSRP a typical example keeps after five years (a Toyota 4Runner ~70%, a Chevy Malibu ~44%). That number already reflects reliability reputation and demand, measured by what buyers actually paid. Unlisted models fall back to make + body style.
+2. **Traits as elasticity.** Each model carries traits (`reliability`, `enthusiast`, `fleet`, `luxury`, `ev`, `truck`) that explain its resale in the UI and set how hard it reacts to oversupply and the market cycle. A fleet-heavy Buick Enclave with 40 copies listed nearby loses ~12%; a Honda Civic in the same spot loses ~5%, because there is a demand floor under it.
+3. **Supply and demand inputs.** The page can't see the market, but the user can: the used-car cycle (soft / normal / tight), how many similar cars are listed nearby (undercutting), and how fast it needs to sell (priced to sell).
+4. **Real comps.** Paste asking prices you've seen and the estimate shrinks toward their median (minus a typical ~4% negotiation discount), with weight `n / (n + 1.5)`, so five comps count for about three-quarters of the answer. Comps also tighten the range and anchor the five-year forecast.
+
+The model table is a rule-of-thumb snapshot from published depreciation studies, not live listings or auction data. The natural next step is a live comps feed (MarketCheck, Auto.dev or a dealer's own inventory system) feeding the same `comps` input.
 
 ## What changed from v6 (the AI Studio version)
 
@@ -22,6 +32,8 @@ Estimates come from rule-of-thumb depreciation for each brand and body style. Th
 | Mileage | Flat dollars per mile (same on a $20k and $200k car) | Percentage of value; low-mileage bonus capped at +12% |
 | Dealer spreads | Fixed 82% / 118% | Margin scales with price; reconditioning cost by condition |
 | History | Title only | Title plus accident history |
+| Model data | Make only | ~170 models with observed 5-year resale and demand traits; typical MSRP prefilled |
+| Market | None | Market cycle, local listing count, urgency, and real asking prices blended in |
 | Region | None | Small regional demand adjustments (trucks, EVs, AWD) |
 | Uncertainty | Single exact numbers, made-up "Market Trust %" | Price range and an explained confidence rating |
 | Transparency | None | Step-by-step breakdown and methodology note |
@@ -43,6 +55,7 @@ npm run build:single  # one self-contained HTML file in dist-single/
 
 ```
 src/engine/data.ts          Makes, body styles, condition/title/accident tables, regional rules
+src/engine/models.ts        Model-level resale data, demand traits, typical MSRP
 src/engine/valuation.ts     Pure valuation + forecast functions (no React)
 src/engine/valuation.test.ts
 src/urlState.ts             Form state, validation and shareable URLs
