@@ -17,7 +17,8 @@ const median = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); cons
 
 describe('engine vs real listings', () => {
   const calibrated = calibration.models.map((c) => `${c.make} ${c.model}`);
-  for (const set of samples) {
+  // A model needs at least 8 listings to be tested (same floor as calibrate.ts).
+  for (const set of samples.filter((s) => s.samples.reduce((a, p) => a + p.listings.length, 0) >= 8)) {
     const info = MODELS.find((m) => m.make === set.make && m.model === set.model);
     const name = `${set.make} ${set.model}`;
     it(`${name}: within 12% mean error and 6% median bias${calibrated.includes(name) ? '' : ' (uncalibrated)'}`, () => {

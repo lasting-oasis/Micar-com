@@ -36,9 +36,9 @@ const samples = read('data/research/listings').map(({ file, json }) => {
       .filter((l) => Number.isFinite(Number(l.price)) && Number.isFinite(Number(l.miles)) && Number(l.price) >= 1500 && Number(l.miles) >= 100)
       .map((l) => ({ price: Math.round(Number(l.price)), miles: Math.round(Number(l.miles)), location: l.location ?? '', trim: (l.trim ?? p.trim_filter ?? '').trim(), body: l.body ?? '', note: l.note ?? '' })),
   })).filter((p) => p.listings.length);
-  if (!out.length) problems.push(`${file}: no usable samples`);
+  if (!out.length) problems.push(`${file}: no usable samples (left out)`);
   return { make: s.make, model: s.model, gaps: s.gaps ?? [], samples: out };
-});
+}).filter((s) => s.samples.length);
 
 writeFileSync(join(ROOT, 'src/data/stickers.json'), JSON.stringify(stickers, null, 1) + '\n');
 writeFileSync(join(ROOT, 'src/data/listing-samples.json'), JSON.stringify(samples, null, 1) + '\n');
