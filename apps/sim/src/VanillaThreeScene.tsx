@@ -92,6 +92,12 @@ export function VanillaThreeScene() {
         const lightPool = new LightPool(scene, 8);
         const addLightSource = (x: number, y: number, z: number, color: string, intensity: number, distance: number, nightOnly: boolean) =>
             lightPool.add({ position: new THREE.Vector3(x, y, z), color, intensity, distance, nightOnly });
+        // How many pool lights are in the scene. Each one costs every lit pixel,
+        // even while switched off by day, so Low uses none by day (sun and sky
+        // light everything) and the 4 nearest lamps after dusk. High keeps all 8.
+        const LOW_NIGHT_LIGHTS = 4;
+        let lampsOn = false; // dusk until dawn (see the end of animate)
+        const poolSizeFor = (q: 'high' | 'low') => q === 'high' ? lightPool.size : (lampsOn ? LOW_NIGHT_LIGHTS : 0);
 
         // --- 3. World ---
         // The builders live in ./scene/world; they share this context (scene,
@@ -269,7 +275,10 @@ export function VanillaThreeScene() {
         // --- Graphics quality (Low/High toggle in the HUD) ---
         // Low: no shadows and 1x resolution — a big saving on phones and laptops.
         const pixelRatioFor = (q: 'high' | 'low') => q === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
+        let quality = useGameStore.getState().graphicsQuality;
         const applyGraphics = (q: 'high' | 'low', recompile: boolean) => {
+             quality = q;
+             lightPool.setActiveCount(poolSizeFor(q));
              renderer.setPixelRatio(pixelRatioFor(q));
              renderer.shadowMap.enabled = q === 'high';
              dirLight.castShadow = q === 'high';
@@ -288,8 +297,21 @@ export function VanillaThreeScene() {
              }
         };
         applyGraphics(useGameStore.getState().graphicsQuality, false);
+        // On Low, compile the other lighting variant (day <-> night) a few seconds
+        // after the world appears, so the lamps switching on at dusk (or off at
+        // dawn) don't freeze the game while every material builds its new shader.
+        let warmLightsAt = performance.now() + 3000;
+        const warmOtherLightVariant = () => {
+             const current = lightPool.activeCount;
+             lightPool.setActiveCount(current === 0 ? LOW_NIGHT_LIGHTS : 0);
+             renderer.compile(scene, camera); // builds (or reuses) each material's shader for that light count
+             lightPool.setActiveCount(current);
+        };
         const unsubscribeGraphics = useGameStore.subscribe((st, prev) => {
-             if (st.graphicsQuality !== prev.graphicsQuality) applyGraphics(st.graphicsQuality, true);
+             if (st.graphicsQuality !== prev.graphicsQuality) {
+                 applyGraphics(st.graphicsQuality, true);
+                 if (st.graphicsQuality === 'low') warmLightsAt = performance.now() + 3000;
+             }
         });
 
         // --- Resize handling ---
@@ -1294,6 +1316,13 @@ export function VanillaThreeScene() {
                 });
             }
             
+            // Lamps on at dusk, off at dawn (only changes the light count on Low)
+            if (nightFactor > 0.01) lampsOn = true; else if (nightFactor <= 0) lampsOn = false;
+            lightPool.setActiveCount(poolSizeFor(quality));
+            if (warmLightsAt && now > warmLightsAt) {
+                warmLightsAt = 0;
+                if (quality === 'low') warmOtherLightVariant();
+            }
             // Move the small pool of real lights to the lamps nearest the player
             const focusObj = (localDrivingCarId && carMeshes[localDrivingCarId]) || avatar;
             lightPool.update(focusObj.position, nightFactor, delta);
