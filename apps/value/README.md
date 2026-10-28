@@ -27,19 +27,22 @@ The model table is a rule-of-thumb snapshot from published depreciation studies,
 
 ## Real sticker prices
 
-`src/engine/stickers.ts` holds official MSRPs by model year and trim (excluding destination), taken from the manufacturers' own pricing announcements. When the chosen make, model and year are on file, the Trim field becomes a picker and the MSRP box is prefilled with the real sticker. Otherwise it falls back to `typicalMsrp` in `models.ts`, a rough mid-trim figure scaled 3% a year, and says so. Honda Civic 2016–2026 is on file; add models in the same shape.
+`src/engine/stickers.ts` serves official MSRPs by model year and trim (excluding destination) from `src/data/stickers.json`. When the chosen make, model and year are on file, the Trim field becomes a picker and the MSRP box is prefilled with the real sticker; otherwise it falls back to `typicalMsrp` in `models.ts`, a rough mid-trim figure scaled 3% a year, and says so. Fifteen models are on file for 2016–2026 (Honda Civic, Accord, CR-V; Toyota Camry, Corolla, RAV4, Tacoma; Ford F-150, Explorer; Chevrolet Silverado 1500, Equinox; Nissan Altima, Rogue; Hyundai Elantra; Jeep Grand Cherokee). Each year records where the price came from: the manufacturer's own pricing release where one could be read, otherwise a published price list marked `secondary`. Pickups carry a configuration on every row, and the engine picks the crew-cab 4x4 row for a trim because that is what most used trucks are.
 
-## Backtest: Honda Civic
+## Calibration against real listings
 
-`src/engine/backtest-civic.test.ts` checks the engine against 55 real dealer listings (TrueCar, October 2026) for the 2016 Civic LX, 2019 LX, 2022 Sport and 2023 Touring, using the official stickers. It is a regression test: the engine's dealer-retail estimate must stay within 10% mean absolute error and 5% median bias.
+The depreciation curve and each model's five-year resale share are fitted to real asking prices rather than guessed:
 
-What it found, and what changed because of it:
+1. `data/research/` holds the raw research: one sticker file and one listings file per model. The listings are a bounded sample from TrueCar (one search page per model-year for 2016, 2019, 2022 and 2024, up to 20 cars each, the volume trim: Civic LX, Camry LE, F-150 XLT, Silverado LT, and so on). Each page was read once, by hand-equivalent means, with no pagination and nothing stored beyond the sample.
+2. `npm run build:data` (`scripts/build-data.ts`) merges that into `src/data/stickers.json` and `src/data/listing-samples.json`.
+3. `npm run calibrate` (`scripts/calibrate.ts`) values every sampled car with its real sticker (or the typical estimate when a year has none), today's market index and the listing's region, then searches for the curve shape (`driveOff`, `decay`, trim-content retention) and per-model `residual5` that minimise the error against asking prices. Listings more than 35% off are dropped as outliers (wrecks, mislabelled trims). The result goes to `src/data/calibration.json`, which `models.ts` and `valuation.ts` apply at load.
+4. `src/engine/backtest.test.ts` is the regression test: every calibrated model must stay within 12% mean absolute error and 6% median bias against its sample (20% / 15% for an uncalibrated model).
 
-- The original engine depreciated from the **old sticker**, and ran 9–11% low across the board. A 2016 Civic LX stickered at $19,440 but asks around $13,900 today, 72% of its sticker after ten years, because a new LX now costs $24,695. Used prices follow the price of a new replacement. The engine now inflates the sticker to today's dollars (3% a year) before applying the curve, and shows that as its own ledger line.
-- Measured against today's price, Civic depreciation is close to a **constant percentage each year** rather than front-loaded, so the curve's decay is 1.0 with a ~6% titling hit.
-- Result: median error +0.2%, mean absolute error 8.0% (was −9.2% / 11.2% with real stickers, −11.3% / 13.6% with the old prefill). Top trims still run a little rich (2023 Touring +9%): option content depreciates faster than the base car, which a per-trim adjustment could fix later.
+CALIBRATION_SUMMARY
 
-This is one model and 55 listings; repeating it for the next models is the way to tighten the `residual5` table.
+What the first backtest (Civic only) found still holds and shaped the engine: used prices follow the price of a **new replacement**, so the sticker is inflated to today's dollars (3% a year) before the curve is applied, and depreciation measured that way is close to a constant percentage a year with a drive-off hit at titling. Option content depreciates faster than the base car, so trim premiums are retained at less than face value.
+
+The whole dataset, with sources, also lives in a Google Sheet ("Queen City MyCarValue · Sticker prices and used-price calibration"): tabs for Models, Stickers, Used sample, Calibration (with live formulas over the sample) and Data Sources.
 
 ## Weekly national market snapshot
 
@@ -71,7 +74,7 @@ Dealer inventory only; private-party listings don't appear in MarketCheck.
 | Mileage | Flat dollars per mile (same on a $20k and $200k car) | Percentage of value; low-mileage bonus capped at +12% |
 | Dealer spreads | Fixed 82% / 118% | Margin scales with price; reconditioning cost by condition |
 | History | Title only | Title plus accident history |
-| Model data | Make only | ~170 models with observed 5-year resale and demand traits; typical MSRP prefilled |
+| Model data | Make only | ~190 models with 5-year resale shares (15 of them fitted to real listings) and demand traits; real stickers for 15 models, typical MSRP otherwise |
 | Market | None | Market cycle (auto from a weekly BLS snapshot), local listing count, urgency, and real asking prices blended in |
 | Region | None | Small regional demand adjustments (trucks, EVs, AWD) |
 | Uncertainty | Single exact numbers, made-up "Market Trust %" | Price range and an explained confidence rating |
@@ -89,6 +92,9 @@ npm test           # engine unit tests
 npm run build      # production build in dist/
 npm run build:single  # one self-contained HTML file in dist-single/
 node scripts/fetch-market.mjs   # refresh the national market snapshot by hand
+npm run build:data    # data/research/** -> src/data/stickers.json + listing-samples.json
+npm run calibrate     # refit the curve and per-model resale shares -> src/data/calibration.json
+npm run sheet-rows    # row arrays for the Google Sheet tabs (JSON on stdout)
 ```
 
 ## Project layout
@@ -99,9 +105,14 @@ src/engine/models.ts        Model-level resale data, demand traits, typical MSRP
 src/engine/valuation.ts     Pure valuation + forecast functions (no React)
 src/engine/market.ts        Reads the weekly snapshot in src/data/market.json
 src/engine/listings.ts      Parses a pasted listings page into comps
-src/engine/stickers.ts      Official MSRPs by year and trim (Civic so far)
+src/engine/stickers.ts      Official MSRPs by year and trim (15 models, 2016-2026)
 src/engine/prefill.ts       Picks the sticker or the typical estimate for the MSRP box
-src/engine/backtest-civic.test.ts  Engine vs 55 real Civic listings (regression test)
+src/engine/backtest.test.ts Engine vs 1,173 real listings across 15 models (regression test)
+src/data/                   market.json, stickers.json, listing-samples.json, calibration.json
+data/research/              Raw sticker and listings research, one JSON per model, with sources and gaps
+scripts/build-data.ts       Merges data/research into src/data
+scripts/calibrate.ts        Fits curve + per-model resale shares to the listings sample
+scripts/sheet-rows.ts       Exports the dataset as rows for the Google Sheet
 worker/index.js             Cloudflare Worker: live MarketCheck lookup (optional)
 scripts/fetch-market.mjs    Weekly BLS fetch (run by .github/workflows/market.yml)
 src/engine/valuation.test.ts
