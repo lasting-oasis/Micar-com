@@ -3,13 +3,14 @@ import type { WorldContext } from './context';
 import type { FenceKit } from './fences';
 import type { FurnitureKit } from './furniture';
 import { createBuildingSign } from '../textures';
+import type { Face } from './architecture';
 
 // Hinged driveway gate of one dealership lot (animated by the render loop).
 export type DealershipGate = { left: THREE.Group; right: THREE.Group; ownerId: string; x: number; z: number; barrier: THREE.Box3; isOwner: boolean };
 
 /** Builds a player's whole dealership lot. `isOwnerLot` = it belongs to the local player (gets solid fences + gate barrier). */
 export function createDealership(ctx: WorldContext, fences: FenceKit, furniture: FurnitureKit, lotX: number, lotZ: number, playerId: string, isOwnerLot: boolean): DealershipGate {
-    const { scene, environmentDisposables, staticCollisionBoxes, concreteTex, asphaltTex, makeGlass, addLightSource } = ctx;
+    const { scene, environmentDisposables, staticCollisionBoxes, concreteTex, asphaltTex, makeGlass, addLightSource, arch } = ctx;
     const { buildChainLinkFence, buildGateLeaf } = fences;
     const { makeSofa, makePlant, makePainting, makeCoffeeTable } = furniture;
 
@@ -43,12 +44,32 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
     const oWallFR = new THREE.Mesh(new THREE.BoxGeometry(7.5, 8, 0.5), glassMat);
     oWallFR.position.set(6.25, 4, 7.25); oWallFR.userData.solid = true; officeGroup.add(oWallFR);
     
-    // Door frame
-    const oDoorFrame = new THREE.Mesh(new THREE.BoxGeometry(4.5, 8.2, 0.7), new THREE.MeshStandardMaterial({ color: '#0f172a' }));
-    oDoorFrame.position.set(0, 4.1, 7.25); officeGroup.add(oDoorFrame);
-    // Glass door
-    const oDoorGlass = new THREE.Mesh(new THREE.BoxGeometry(4, 7.5, 0.2), glassMat);
-    oDoorGlass.position.set(0, 3.75, 7.25); officeGroup.add(oDoorGlass);
+    // Storefront details: mullions and transoms over the glass, a door head with
+    // transom glass, automatic sliding doors standing open behind the side lites
+    // (the doorway stays clear), a canopy and an entry slab; a fascia band, side
+    // windows and high back windows.
+    {
+        const { box, trimMat, frameMat, paneGeo, plane } = arch;
+        [-1, 1].forEach(sx => {
+            [2.5, 5, 7.5, 10].forEach(px => box(officeGroup, frameMat, 0.15, 8, 0.6, sx * px, 4, 7.25));   // mullions
+            box(officeGroup, frameMat, 7.5, 0.15, 0.6, sx * 6.25, 3.4, 7.25);                            // transoms
+            box(officeGroup, frameMat, 7.5, 0.3, 0.6, sx * 6.25, 0.15, 7.25);                            // bottom rails
+            const leaf = arch.openLeaf(2.5, 3.3, 0, glassMat); leaf.position.set(sx < 0 ? -5 : 2.5, 0, 6.85); officeGroup.add(leaf);
+        });
+        box(officeGroup, frameMat, 5, 0.2, 0.6, 0, 3.4, 7.25);                                           // door head
+        box(officeGroup, glassMat, 5, 4.3, 0.4, 0, 5.6, 7.25);                                           // transom glass
+        box(officeGroup, frameMat, 10.4, 0.3, 0.3, 0, 3.5, 6.85);                                        // sliding-door track
+        box(officeGroup, frameMat, 8, 0.3, 2.6, 0, 3.95, 8.8);                                           // canopy
+        box(officeGroup, trimMat, 6, 0.1, 2.4, 0, 0.05, 8.7).receiveShadow = true;                       // entry slab
+        box(officeGroup, trimMat, 20.4, 0.8, 15.4, 0, 7.95, 0).receiveShadow = true;                     // fascia
+        const wo = { cols: 2, rows: 1, lit: 0.8 };
+        ([['+x', 10], ['-x', -10]] as [Face, number][]).forEach(([f, sx]) => {
+            arch.windowRow(officeGroup, f, 2, 7, 0, 3.6, sx, 2.6, 2.4, wo);
+            [-3.5, 3.5].forEach(pz => { const p = plane(officeGroup, arch.glassMat, paneGeo(2.6, 2.4, 2, 1), sx - Math.sign(sx) * 0.56, 3.6, pz); p.rotation.y = -Math.sign(sx) * Math.PI / 2; });
+        });
+        arch.windowRow(officeGroup, '-z', 2, 10, 0, 6.4, -7.5, 4, 1.0, { cols: 3, rows: 1, lit: 0.8 });
+        [-5, 5].forEach(px => plane(officeGroup, arch.glassMat, paneGeo(4, 1.0, 3, 1), px, 6.4, -6.94));
+    }
 
     // Interior Sales Desk
     const deskGeo = new THREE.BoxGeometry(4, 1.2, 2);
@@ -75,9 +96,6 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
     const art1 = makePainting(2.4, 1.5, '#0e7490', '#f59e0b'); art1.position.set(4.5, 4.6, -6.95); officeGroup.add(art1);
     const art2 = makePainting(1.8, 1.8, '#7c3aed', '#22d3ee'); art2.position.set(7.6, 4.6, -6.95); officeGroup.add(art2);
     const art3 = makePainting(2.2, 1.4, '#b91c1c', '#fde68a'); art3.position.set(-9.55, 4.6, 0); art3.rotation.y = Math.PI / 2; officeGroup.add(art3);
-    // Chrome push-handle on the glass entrance door
-    const handleMat = new THREE.MeshStandardMaterial({ color: '#e2e8f0', metalness: 1.0, roughness: 0.15 });
-    const doorHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 2.2, 8), handleMat); doorHandle.position.set(1.2, 3.6, 7.45); officeGroup.add(doorHandle);
     // Soft warm interior light so the furnishings are visible from outside.
     addLightSource(lotX - 25, 6, lotZ - 24, '#fff3da', 0.9, 34, false);
 
@@ -363,6 +381,24 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
 
     scene.add(bodyGroup);
     environmentDisposables.push(bodyGroup, bodySign);
+
+    // Garage details (mechanic + body shop): the roll-up door rolled up into its
+    // coil housing over the open bay, windows on the sides and back, and a
+    // personnel door on the side facing the lot.
+    [mechGroup, bodyGroup].forEach(g => {
+        const { box, frameMat, paneGeo, plane, glassMat } = arch;
+        box(g, frameMat, 8.8, 0.6, 0.6, 0, 4.2, -6.7);                                    // coil housing
+        box(g, frameMat, 8.4, 0.15, 0.12, 0, 3.85, -6.85);                                // door bottom bar
+        [-1, 1].forEach(sx => box(g, frameMat, 0.15, 4.5, 0.2, sx * 4.2, 2.25, -6.85));   // guide rails
+        const wo = { cols: 2, rows: 1, lit: 0.7 };
+        arch.place(g, arch.windowUnit(2.4, 1.4, wo), '-x', -6, 3.7, -3);
+        arch.place(g, arch.steelDoor(), '-x', -6, 0, 3.5);
+        arch.windowRow(g, '+x', 2, 7, 0, 3.7, 6, 2.4, 1.4, wo);
+        arch.windowRow(g, '+z', 2, 5, 0, 4.3, 7.5, 2.0, 1.0, wo);
+        // Inner faces of the windows (the bay is open, so the inside is on show)
+        ([[-5.44, -3], [5.44, -3.5], [5.44, 3.5]] as [number, number][]).forEach(([px, pz]) => { const p = plane(g, glassMat, paneGeo(2.4, 1.4, 2, 1), px, 3.7, pz); p.rotation.y = px < 0 ? Math.PI / 2 : -Math.PI / 2; });
+        [-2.5, 2.5].forEach(px => { const p = plane(g, glassMat, paneGeo(2.0, 1.0, 2, 1), px, 4.3, 6.94); p.rotation.y = Math.PI; });
+    });
 
     [washGroup, mechGroup, bodyGroup, officeGroup].forEach(g => {
         g.updateMatrixWorld(true);
