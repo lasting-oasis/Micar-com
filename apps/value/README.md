@@ -1,5 +1,7 @@
 # Nexus Valuation
 
+**Live site:** https://lasting-oasis.github.io/queen_city_mycarvalue/
+
 A used-car value estimator. Enter a vehicle's make, body style, original sticker price, model year, mileage, condition, title, accident history and region, and it shows:
 
 - **Private-party value** with a likely price range
@@ -51,4 +53,4 @@ The engine has no UI dependencies, so it can be reused elsewhere, for example to
 
 ## Deploying
 
-`dist/` is a static site: it works on GitHub Pages, Netlify, Vercel, Cloud Run or any static host.
+Every push to `main` runs the tests, builds the site and publishes it to GitHub Pages (`.github/workflows/deploy.yml`). `dist/` is a plain static site, so it also works on Netlify, Vercel, Cloud Run or any static host.
