@@ -60,6 +60,7 @@ function errors(make: string, model: string, body: string, obs: Obs[]): number[]
   });
 }
 
+const SHRINK_K = 8; // pseudo-listings at the prior guess
 const median = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); const m = Math.floor(s.length / 2); return s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : 0; };
 const mae = (xs: number[]) => xs.reduce((a, e) => a + Math.abs(e), 0) / (xs.length || 1);
 
@@ -90,6 +91,10 @@ function fitModel(make: string, model: string, trimRetention: number, step = 0.0
   const dropped = obs.length - keep.length;
   obs = keep;
   if (dropped) best = search();
+  // Shrink toward the prior guess in proportion to sample size, so a model with
+  // ~20 listings (round-2 samples) can't swing far on a few odd cars. With 80
+  // listings the fit keeps ~91% weight; with 20, ~71%.
+  best.r5 = Math.round(((obs.length * best.r5 + SHRINK_K * guess) / (obs.length + SHRINK_K)) * 1000) / 1000;
   info.residual5 = best.r5;
   const finalErrs = errors(make, model, info.body, obs);
   const byYear: Fit['byYear'] = {};
