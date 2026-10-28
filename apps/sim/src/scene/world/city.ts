@@ -6,7 +6,17 @@ import { boxUVsWorld, type Face } from './architecture';
 
 // The town: ground, roads, trees, districts, bank, auction house, library,
 // insurance office and gas stations. Returns the spots the game loop needs.
+// Seeded random numbers (mulberry32) so trees and lit office windows land in the same
+// places for every player and on every reload.
+const seededRandom = (seed: number) => () => {
+    seed = (seed + 0x6D2B79F5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+};
+
 export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
+    const random = seededRandom(20261027);
     const { scene, environmentDisposables, staticCollisionBoxes, cityMaterials, cityTextures, emissiveFacadeMaterials, concreteTex, makeGlass, addLightSource, arch } = ctx;
     const { makeSofa, makePlant, makePainting, makeCoffeeTable } = furniture;
 
@@ -109,8 +119,8 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     let treeIndex = 0;
     const placeTree = (x: number, z: number) => {
          if (treeIndex >= numTrees) return;
-         const s = 0.8 + Math.random() * 0.6; // Organic scale variation
-         const rot = Math.random() * Math.PI;
+         const s = 0.8 + random() * 0.6; // Organic scale variation
+         const rot = random() * Math.PI;
 
          const dummy = new THREE.Object3D();
          dummy.position.set(x, 0, z);
@@ -152,17 +162,17 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          g.fillStyle = mullion; g.fillRect(0, 0, W, H);
          e.fillStyle = '#000'; e.fillRect(0, 0, W, H);
          for (let r = 0; r < FACADE_ROWS; r++) {
-             const floorLit = 0.1 + Math.random() * 0.6; // some floors busier than others
+             const floorLit = 0.1 + random() * 0.6; // some floors busier than others
              for (let c = 0; c < FACADE_COLS; c++) {
                  const x0 = c * cw + mull, y0 = r * ch, gw = cw - mull, gh = ch - span;
-                 const k = 0.9 + Math.random() * 0.2;
+                 const k = 0.9 + random() * 0.2;
                  const grad = g.createLinearGradient(0, y0, 0, y0 + gh);
                  grad.addColorStop(0, css(glassTop.clone().multiplyScalar(k))); grad.addColorStop(1, css(glassBot.clone().multiplyScalar(k)));
                  g.fillStyle = grad; g.fillRect(x0, y0, gw, gh);
                  g.fillStyle = spandrel; g.fillRect(x0 - mull, y0 + gh, cw, span);
                  g.fillStyle = 'rgba(0,0,0,0.35)'; g.fillRect(x0 - mull, y0 + gh, cw, 1); // slab edge shadow
-                 if (Math.random() < floorLit) {
-                     const roll = Math.random();
+                 if (random() < floorLit) {
+                     const roll = random();
                      e.fillStyle = roll < 0.7 ? '#ffe2a8' : roll < 0.85 ? '#e8f1ff' : '#8a7550';
                      e.fillRect(x0 + 1, y0 + 1, gw - 2, gh - 2);
                  }
@@ -480,8 +490,8 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
 
     // Populate Suburban trees
     for(let i = 0; i < 80; i++) {
-         const zOffset = 50 + Math.random() * 900;
-         const side = Math.random() > 0.5 ? (-20 - Math.random() * 40) : (20 + Math.random() * 40);
+         const zOffset = 50 + random() * 900;
+         const side = random() > 0.5 ? (-20 - random() * 40) : (20 + random() * 40);
          // Keep the dealership plot (x -62..82, z < 115) clear of trees
          if (zOffset < 115 && side > -62 && side < 82) continue;
          placeTree(side, zOffset);
@@ -746,8 +756,8 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          const drawRow = (y: number, h: number) => {
              let x = 1;
              while (x < 63) {
-                 const w = 5 + Math.floor(Math.random() * 4);
-                 ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+                 const w = 5 + Math.floor(random() * 4);
+                 ctx.fillStyle = colors[Math.floor(random() * colors.length)];
                  ctx.fillRect(x, y, w - 1, h);
                  ctx.fillStyle = 'rgba(255,255,255,0.18)'; ctx.fillRect(x, y, 1, h);
                  x += w;
