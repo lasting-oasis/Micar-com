@@ -1,0 +1,691 @@
+{
+  "make": "Nissan",
+  "model": "Altima",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/altima/year-2016/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_note": "The filtered page (https://www.truecar.com/used-cars-for-sale/listings/nissan/altima/year-2016/?trim=sv) returned 'Oops! No exact matches' (TrueCar names the 2016 trims '2.5 SV' etc.), so per the brief the unfiltered year page was used and each row's trim recorded. Unfiltered page: '153 used 2016 Nissan Altima models for sale nationwide'; it states trim averages 'SV averages $20,021, SR $20,960, S $18,131' which are clearly not 2016-specific, so page_average is left null. First 20 of 29 cards recorded.",
+      "listings": [
+        {
+          "price": 8713,
+          "miles": 96572,
+          "location": "Sandy, UT",
+          "trim": "2.5 S",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 8012,
+          "miles": 123035,
+          "location": "Thousand Oaks, CA",
+          "trim": "2.5 SV",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 12520,
+          "miles": 63246,
+          "location": "Bremerton, WA",
+          "trim": "2.5 SV",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15837,
+          "miles": 31366,
+          "location": "Leesburg, FL",
+          "trim": "2.5 SV",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 13697,
+          "miles": 56531,
+          "location": "Hampton, VA",
+          "trim": "2.5 SL",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 7778,
+          "miles": 100295,
+          "location": "Doral, FL",
+          "trim": "2.5 S",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 10489,
+          "miles": 67797,
+          "location": "Logan, UT",
+          "trim": "2.5 S",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 10937,
+          "miles": 66303,
+          "location": "Davis, CA",
+          "trim": "2.5 SR",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15692,
+          "miles": 35287,
+          "location": "Danvers, MA",
+          "trim": "2.5 SL",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 13456,
+          "miles": 78486,
+          "location": "Portland, OR",
+          "trim": "2.5 SL",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 8585,
+          "miles": 128364,
+          "location": "Cerritos, CA",
+          "trim": "2.5 SV",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 9361,
+          "miles": 134260,
+          "location": "Clearwater, FL",
+          "trim": "2.5 SR",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 8499,
+          "miles": 113381,
+          "location": "Old Bridge, NJ",
+          "trim": "2.5 SL",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 11395,
+          "miles": 89489,
+          "location": "Brandywine, MD",
+          "trim": "2.5 S",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 9991,
+          "miles": 128532,
+          "location": "Flagstaff, AZ",
+          "trim": "2.5 SV",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 9865,
+          "miles": 105567,
+          "location": "Norco, CA",
+          "trim": "2.5 SR",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 9024,
+          "miles": 112845,
+          "location": "San Antonio, TX",
+          "trim": "2.5 SV",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 7297,
+          "miles": 118409,
+          "location": "Roselle, IL",
+          "trim": "2.5 S",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 12800,
+          "miles": 85030,
+          "location": "College Park, MD",
+          "trim": "2.5 SL",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 7700,
+          "miles": 107294,
+          "location": "Sunland, CA",
+          "trim": "2.5 S",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/altima/year-2019/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 19835,
+      "page_note": "Page: '57 used 2019 Nissan Altima SV models for sale nationwide'; 'The average price for the 2019 Nissan Altima SV is $19,835'. Cards shown as 'SV FWD'/'SV AWD' (2.5L implied). First 20 of 29 cards recorded.",
+      "listings": [
+        {
+          "price": 13793,
+          "miles": 80963,
+          "location": "Fort Pierce, FL",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 14794,
+          "miles": 98529,
+          "location": "Mount Laurel, NJ",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 9920,
+          "miles": 170483,
+          "location": "Odessa, MO",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 12081,
+          "miles": 123390,
+          "location": "Yorktown Heights, NY",
+          "trim": "SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15504,
+          "miles": 81067,
+          "location": "Glendale Heights, IL",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15611,
+          "miles": 74773,
+          "location": "Slidell, LA",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17475,
+          "miles": 25702,
+          "location": "Avondale, AZ",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 12626,
+          "miles": 96427,
+          "location": "Hendersonville, NC",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 11898,
+          "miles": 119181,
+          "location": "Pensacola, FL",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 14000,
+          "miles": 81231,
+          "location": "New Haven, CT",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15020,
+          "miles": 92288,
+          "location": "St. Peters, MO",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 12944,
+          "miles": 103626,
+          "location": "Austin, TX",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 18595,
+          "miles": 60208,
+          "location": "Lakeland, FL",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17772,
+          "miles": 55990,
+          "location": "Danvers, MA",
+          "trim": "SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 18125,
+          "miles": 47520,
+          "location": "Plano, TX",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 14499,
+          "miles": 98036,
+          "location": "Bakersfield, CA",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 13835,
+          "miles": 101267,
+          "location": "Riverdale, UT",
+          "trim": "SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17819,
+          "miles": 49189,
+          "location": "Auburn, MA",
+          "trim": "SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 16773,
+          "miles": 65698,
+          "location": "Randolph, NJ",
+          "trim": "SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15895,
+          "miles": 104845,
+          "location": "Pelham, AL",
+          "trim": "SV AWD",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/altima/year-2022/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 19835,
+      "page_note": "Page: '156 used 2022 Nissan Altima SV models for sale nationwide'; 'The average price for the 2022 Nissan Altima SV is $19,835' (identical to the 2019 and 2024 figures). First 20 of 29 cards recorded.",
+      "listings": [
+        {
+          "price": 11220,
+          "miles": 127052,
+          "location": "Austin, TX",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 16455,
+          "miles": 48920,
+          "location": "Santa Clara, CA",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 15077,
+          "miles": 91004,
+          "location": "Cocoa, FL",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15999,
+          "miles": 65526,
+          "location": "Memphis, TN",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": "CPO"
+        },
+        {
+          "price": 16317,
+          "miles": 52525,
+          "location": "Tilton, NH",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 11264,
+          "miles": 149104,
+          "location": "Charleston, SC",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 16735,
+          "miles": 71874,
+          "location": "Fort Myers, FL",
+          "trim": "2.5 SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15291,
+          "miles": 95693,
+          "location": "Ottawa, IL",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17998,
+          "miles": 64474,
+          "location": "Hinesville, GA",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 19188,
+          "miles": 52541,
+          "location": "Saco, ME",
+          "trim": "2.5 SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 14695,
+          "miles": 88091,
+          "location": "Pinellas Park, FL",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 18495,
+          "miles": 50706,
+          "location": "Hartford, CT",
+          "trim": "2.5 SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 13900,
+          "miles": 55391,
+          "location": "Dundalk, MD",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 16293,
+          "miles": 40068,
+          "location": "Bedford, OH",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 16395,
+          "miles": 72665,
+          "location": "Gastonia, NC",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 19472,
+          "miles": 18424,
+          "location": "White Marsh, MD",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17745,
+          "miles": 48662,
+          "location": "White Marsh, MD",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 16195,
+          "miles": 76466,
+          "location": "Albuquerque, NM",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 20034,
+          "miles": 22418,
+          "location": "Fort Lauderdale, FL",
+          "trim": "2.5 SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 16849,
+          "miles": 70607,
+          "location": "Fallston, MD",
+          "trim": "2.5 SV AWD",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/altima/year-2024/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 19835,
+      "page_note": "Page: '731 used 2024 Nissan Altima SV models for sale nationwide'; 'The average price for the 2024 Nissan Altima SV is $19,835'. First 20 cards recorded.",
+      "listings": [
+        {
+          "price": 16176,
+          "miles": 56723,
+          "location": "Chicago, IL",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 16876,
+          "miles": 54227,
+          "location": "Chicago, IL",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 16759,
+          "miles": 69069,
+          "location": "Chesterton, IN",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 19674,
+          "miles": 22465,
+          "location": "Westborough, MA",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 18575,
+          "miles": 64561,
+          "location": "Gainesville, FL",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 16797,
+          "miles": 70678,
+          "location": "Memphis, TN",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": "CPO"
+        },
+        {
+          "price": 18840,
+          "miles": 12688,
+          "location": "Riverhead, NY",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": "CPO"
+        },
+        {
+          "price": 17959,
+          "miles": 59092,
+          "location": "Chesterton, IN",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 18199,
+          "miles": 49658,
+          "location": "Puyallup, WA",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17658,
+          "miles": 58322,
+          "location": "Scottsdale, AZ",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 21999,
+          "miles": 26357,
+          "location": "Birmingham, AL",
+          "trim": "2.5 SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 19148,
+          "miles": 25735,
+          "location": "Henderson, NV",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": "CPO"
+        },
+        {
+          "price": 18104,
+          "miles": 67681,
+          "location": "Sterling, IL",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 18567,
+          "miles": 53207,
+          "location": "Green Brook, NJ",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 19766,
+          "miles": 51241,
+          "location": "Mount Laurel, NJ",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 21674,
+          "miles": 27078,
+          "location": "Westborough, MA",
+          "trim": "2.5 SV AWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17582,
+          "miles": 71989,
+          "location": "Glendale Heights, IL",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": "CPO"
+        },
+        {
+          "price": 16995,
+          "miles": 47973,
+          "location": "Amityville, NY",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 20099,
+          "miles": 26098,
+          "location": "Hazard, KY",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17310,
+          "miles": 60580,
+          "location": "Oak Lawn, IL",
+          "trim": "2.5 SV FWD",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2016: the ?trim=sv filter returned no exact matches (TrueCar labels 2016 trims '2.5 SV'), so the unfiltered 2016 page was used; mixed trims (2.5 S / SV / SR / SL) recorded per row and page_average left null.",
+    "TrueCar's stated 'average price for the <year> Altima SV' is $19,835 for 2019, 2022 and 2024 alike (and the 2016 page quotes 'SV averages $20,021'), so the figure is evidently model-wide, not year-specific; recorded as printed but treat with caution.",
+    "Only the first 20 cards of each page were recorded (pages showed 29). No page was paginated."
+  ]
+}

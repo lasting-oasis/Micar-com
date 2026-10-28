@@ -1,0 +1,691 @@
+{
+  "make": "Nissan",
+  "model": "Rogue",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/rogue/year-2016/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 20273,
+      "page_note": "Page: 'TrueCar has 115 used 2016 Nissan Rogue SV models for sale nationwide'; 'The average price for the 2016 Nissan Rogue SV is $20,273' (this figure looks model-wide rather than year-specific, see gaps). First 20 of 29 cards recorded.",
+      "listings": [
+        {
+          "price": 12865,
+          "miles": 74697,
+          "location": "Ocala, FL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 8939,
+          "miles": 116303,
+          "location": "Collinsville, OK",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 8999,
+          "miles": 110392,
+          "location": "Cary, NC",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 6699,
+          "miles": 158792,
+          "location": "Ivel, KY",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11793,
+          "miles": 79981,
+          "location": "Gladstone, OR",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12898,
+          "miles": 81708,
+          "location": "Chattanooga, TN",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 13712,
+          "miles": 78282,
+          "location": "South Portland, ME",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 13485,
+          "miles": 82975,
+          "location": "St. Petersburg, FL",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15190,
+          "miles": 67138,
+          "location": "Columbus, GA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 5893,
+          "miles": 197500,
+          "location": "Maysville, KY",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9074,
+          "miles": 132530,
+          "location": "Rock Springs, WY",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 8344,
+          "miles": 158854,
+          "location": "Toms River, NJ",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11342,
+          "miles": 70428,
+          "location": "Libertyville, IL",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12665,
+          "miles": 44789,
+          "location": "Jackson Heights, NY",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11270,
+          "miles": 101390,
+          "location": "Las Vegas, NV",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9913,
+          "miles": 80271,
+          "location": "Miami, FL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 7995,
+          "miles": 125816,
+          "location": "Monroe, WA",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 10261,
+          "miles": 97724,
+          "location": "Riverdale, UT",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9599,
+          "miles": 121356,
+          "location": "Prescott Valley, AZ",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9149,
+          "miles": 135079,
+          "location": "Burnsville, MN",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/rogue/year-2019/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 20098,
+      "page_note": "Page: '204 used 2019 Nissan Rogue SV models for sale nationwide'; 'The average price for the 2019 Nissan Rogue SV is $20,098'. First 20 of 29 cards recorded.",
+      "listings": [
+        {
+          "price": 11892,
+          "miles": 101448,
+          "location": "Tempe, AZ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 10292,
+          "miles": 92909,
+          "location": "Newark, CA",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 15033,
+          "miles": 74454,
+          "location": "Orlando, FL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 13574,
+          "miles": 82999,
+          "location": "Miami, FL",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11824,
+          "miles": 95060,
+          "location": "Keyport, NJ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14913,
+          "miles": 75302,
+          "location": "Mesa, AZ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16674,
+          "miles": 42641,
+          "location": "Countryside, IL",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12289,
+          "miles": 102535,
+          "location": "Middletown, CT",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15899,
+          "miles": 49944,
+          "location": "Mesa, AZ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14573,
+          "miles": 90731,
+          "location": "Westborough, MA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14231,
+          "miles": 71654,
+          "location": "Levittown, NY",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11174,
+          "miles": 75557,
+          "location": "Bronx, NY",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 10170,
+          "miles": 110297,
+          "location": "Jackson Heights, NY",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12329,
+          "miles": 114099,
+          "location": "Tucson, AZ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14299,
+          "miles": 75234,
+          "location": "Danbury, CT",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9166,
+          "miles": 152956,
+          "location": "Roseville, CA",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16168,
+          "miles": 67334,
+          "location": "Dover, DE",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12979,
+          "miles": 103155,
+          "location": "Sugar Land, TX",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18412,
+          "miles": 37017,
+          "location": "Cornelius, NC",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11907,
+          "miles": 107211,
+          "location": "Lawrenceburg, IN",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/rogue/year-2022/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 20188,
+      "page_note": "Page: '216 used 2022 Nissan Rogue SV models for sale nationwide'; 'The average price for the 2022 Nissan Rogue SV is $20,188'. First 20 of 30 cards recorded.",
+      "listings": [
+        {
+          "price": 17855,
+          "miles": 62033,
+          "location": "Orlando, FL",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 18814,
+          "miles": 49851,
+          "location": "Macon, GA",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18191,
+          "miles": 70471,
+          "location": "Pinellas Park, FL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18440,
+          "miles": 35018,
+          "location": "Pembroke Pines, FL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18776,
+          "miles": 65362,
+          "location": "Columbia, KY",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17340,
+          "miles": 78568,
+          "location": "Riverhead, NY",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19960,
+          "miles": 34343,
+          "location": "Wayne, NJ",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17327,
+          "miles": 83167,
+          "location": "Chicago, IL",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17999,
+          "miles": 41749,
+          "location": "Mesa, AZ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 21198,
+          "miles": 37607,
+          "location": "Federal Way, WA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19992,
+          "miles": 47672,
+          "location": "Tilton, NH",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20698,
+          "miles": 51156,
+          "location": "Fayetteville, NC",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17363,
+          "miles": 86780,
+          "location": "Salt Lake City, UT",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20989,
+          "miles": 26470,
+          "location": "Middletown, CT",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": "CPO"
+        },
+        {
+          "price": 19977,
+          "miles": 51251,
+          "location": "Salt Lake City, UT",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": "CPO"
+        },
+        {
+          "price": 16347,
+          "miles": 90045,
+          "location": "Metairie, LA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20687,
+          "miles": 53917,
+          "location": "Garden City, GA",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18072,
+          "miles": 43158,
+          "location": "Clinton Township, MI",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20298,
+          "miles": 54540,
+          "location": "Bennington, VT",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16678,
+          "miles": 99266,
+          "location": "Cary, NC",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/rogue/year-2024/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 20098,
+      "page_note": "Page: '681 used 2024 Nissan Rogue SV models for sale nationwide'; 'The average price for the 2024 Nissan Rogue SV is $20,098' (identical to the 2019 figure). First 20 of 29 cards recorded; several cards are from the same CDJR dealer in Dublin, GA at $15,400.",
+      "listings": [
+        {
+          "price": 17270,
+          "miles": 70836,
+          "location": "Lithia Springs, GA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 18382,
+          "miles": 61049,
+          "location": "Miami, FL",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 19435,
+          "miles": 39720,
+          "location": "Hamilton Square, NJ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16859,
+          "miles": 75560,
+          "location": "Chesterton, IN",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16395,
+          "miles": 64874,
+          "location": "Commerce, GA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16795,
+          "miles": 50812,
+          "location": "Robbinsville, NJ",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17595,
+          "miles": 58413,
+          "location": "Commerce, GA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18168,
+          "miles": 65374,
+          "location": "Tucson, AZ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20837,
+          "miles": 60428,
+          "location": "Royal Palm Beach, FL",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": "CPO"
+        },
+        {
+          "price": 18290,
+          "miles": 71928,
+          "location": "Sterling, IL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17433,
+          "miles": 80517,
+          "location": "McDonough, GA",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16995,
+          "miles": 68137,
+          "location": "Commerce, GA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20994,
+          "miles": 40436,
+          "location": "Vero Beach, FL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20698,
+          "miles": 54600,
+          "location": "Wake Forest, NC",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19286,
+          "miles": 67881,
+          "location": "Southern Pines, NC",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15400,
+          "miles": 64248,
+          "location": "Dublin, GA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 21280,
+          "miles": 55035,
+          "location": "Live Oak, FL",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15400,
+          "miles": 60067,
+          "location": "Dublin, GA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19183,
+          "miles": 52575,
+          "location": "Scottsdale, AZ",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15400,
+          "miles": 58356,
+          "location": "Dublin, GA",
+          "trim": "SV AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "TrueCar's stated 'average price for the <year> Rogue SV' figures ($20,273 / $20,098 / $20,188 / $20,098) are nearly identical across 2016-2024 and far above the 2016/2019 asking prices on the same pages; they appear to be a model-wide SV average, not year-specific. Recorded as printed in page_average; treat with caution.",
+    "Only the first 20 cards of each page were recorded (pages showed 29-30). No page was paginated.",
+    "2024 sample skews toward high-mileage ex-fleet units at non-Nissan dealers (three identical $15,400 cards from one Dublin, GA dealer); it may understate retail asking prices."
+  ]
+}

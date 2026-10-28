@@ -1,0 +1,692 @@
+{
+  "make": "Chevrolet",
+  "model": "Silverado 1500",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/silverado-1500/year-2016/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 29517,
+      "page_total_listings": 218,
+      "note": "Page showed 31 listings; first 20 recorded. Average figure stated on page: $29,517 (see top-level note).",
+      "listings": [
+        {
+          "price": 12901,
+          "miles": 146601,
+          "location": "Riverside, CA",
+          "trim": "LT Double Cab Standard Box 2WD",
+          "body": "Pickup Truck",
+          "note": "Sponsored"
+        },
+        {
+          "price": 10384,
+          "miles": 193188,
+          "location": "Greensburg, IN",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 16450,
+          "miles": 108925,
+          "location": "Asheville, NC",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 20575,
+          "miles": 96029,
+          "location": "Gainesville, FL",
+          "trim": "LT Crew Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 21686,
+          "miles": 87135,
+          "location": "Claxton, GA",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 16980,
+          "miles": 123727,
+          "location": "Columbia, SC",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 19480,
+          "miles": 100899,
+          "location": "Phoenix, AZ",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 23590,
+          "miles": 105915,
+          "location": "Louisville, KY",
+          "trim": "Z71 LT Crew Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 14179,
+          "miles": 196214,
+          "location": "Scottsboro, AL",
+          "trim": "Z71 LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 14690,
+          "miles": 163614,
+          "location": "Troy, AL",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 18023,
+          "miles": 126020,
+          "location": "Manchester, NH",
+          "trim": "Z71 LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 21361,
+          "miles": 109260,
+          "location": "Renton, WA",
+          "trim": "Z71 LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 21399,
+          "miles": 114437,
+          "location": "Tacoma, WA",
+          "trim": "Z71 LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 14271,
+          "miles": 127054,
+          "location": "Clinton Township, MI",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 22186,
+          "miles": 87511,
+          "location": "Phoenix, AZ",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 12312,
+          "miles": 169202,
+          "location": "Frankfort, KY",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 19913,
+          "miles": 101191,
+          "location": "Rockford, IL",
+          "trim": "Z71 LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 24818,
+          "miles": 86047,
+          "location": "Jefferson City, TN",
+          "trim": "Z71 LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 16489,
+          "miles": 123096,
+          "location": "Silver Lake, IN",
+          "trim": "LT Crew Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 21185,
+          "miles": 100015,
+          "location": "Sierra Vista, AZ",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/silverado-1500/year-2019/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 29517,
+      "page_total_listings": 238,
+      "note": "Page showed 29 listings; first 20 recorded. No CPO/Sponsored labels on page.",
+      "listings": [
+        {
+          "price": 28182,
+          "miles": 57404,
+          "location": "Jacksonville, FL",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 28889,
+          "miles": 57717,
+          "location": "Memphis, TN",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 19149,
+          "miles": 180342,
+          "location": "Huntsville, AL",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 23751,
+          "miles": 102810,
+          "location": "Attica, NY",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 25560,
+          "miles": 79113,
+          "location": "Oswego, NY",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 29131,
+          "miles": 50084,
+          "location": "Tempe, AZ",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 24023,
+          "miles": 130926,
+          "location": "Scottsboro, AL",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 26079,
+          "miles": 75992,
+          "location": "Higginsville, MO",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 24147,
+          "miles": 87319,
+          "location": "Maysville, KY",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 24381,
+          "miles": 80220,
+          "location": "Pulaski, NY",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 24271,
+          "miles": 94724,
+          "location": "Clinton Township, MI",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 20088,
+          "miles": 166212,
+          "location": "Alcoa, TN",
+          "trim": "LT Crew Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 25996,
+          "miles": 48601,
+          "location": "Anchorage, AK",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 21482,
+          "miles": 102590,
+          "location": "Napa, CA",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 23395,
+          "miles": 93515,
+          "location": "Tallahassee, FL",
+          "trim": "LT Crew Cab Standard Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 20114,
+          "miles": 150382,
+          "location": "Hinesville, GA",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 23341,
+          "miles": 89892,
+          "location": "Ventura, CA",
+          "trim": "LT Double Cab Standard Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 29354,
+          "miles": 63466,
+          "location": "San Antonio, TX",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 28540,
+          "miles": 51575,
+          "location": "Owasso, OK",
+          "trim": "LT Double Cab Standard Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 29599,
+          "miles": 86645,
+          "location": "Pikeville, KY",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/silverado-1500/year-2022/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 29517,
+      "page_total_listings": 201,
+      "note": "Page showed 31 listings; first 20 recorded. Trim titles now carry equipment group (1LT / 2FL).",
+      "listings": [
+        {
+          "price": 29072,
+          "miles": 72224,
+          "location": "Phoenix, AZ",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": "Sponsored"
+        },
+        {
+          "price": 26976,
+          "miles": 67100,
+          "location": "Orlando, FL",
+          "trim": "LT Crew Cab Short Bed 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 34170,
+          "miles": 36886,
+          "location": "Johnstown, NY",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 27338,
+          "miles": 82953,
+          "location": "Columbia City, IN",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 30581,
+          "miles": 77525,
+          "location": "Orlando, FL",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 31971,
+          "miles": 46219,
+          "location": "Spokane, WA",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": "CPO"
+        },
+        {
+          "price": 22599,
+          "miles": 119242,
+          "location": "McHenry, IL",
+          "trim": "LT Crew Cab Short Bed 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 27999,
+          "miles": 87032,
+          "location": "Turnersville, NJ",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 27456,
+          "miles": 96500,
+          "location": "Tampa, FL",
+          "trim": "LT Crew Cab Standard Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 33306,
+          "miles": 35811,
+          "location": "Homosassa, FL",
+          "trim": "LT Crew Cab Short Bed 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 31153,
+          "miles": 51073,
+          "location": "Louisville, KY",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 37186,
+          "miles": 39954,
+          "location": "Claxton, GA",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 30559,
+          "miles": 39328,
+          "location": "Scottsdale, AZ",
+          "trim": "LT Crew Cab Short Bed 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 23124,
+          "miles": 170763,
+          "location": "Lawrenceville, GA",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 28779,
+          "miles": 79859,
+          "location": "McKenna, WA",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 32058,
+          "miles": 46396,
+          "location": "Wilmington, IL",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 28692,
+          "miles": 78293,
+          "location": "Frankfort, KY",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 27986,
+          "miles": 116310,
+          "location": "Platte City, MO",
+          "trim": "LT Crew Cab Standard Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 30606,
+          "miles": 74573,
+          "location": "Columbia, KY",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 38683,
+          "miles": 22023,
+          "location": "Concord, NH",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/silverado-1500/year-2024/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 29736,
+      "page_total_listings": 734,
+      "note": "Page showed 31 listings; first 20 recorded. Eight listings from a single Columbia, KY dealer at $34,694-$36,592 (likely fleet/rental returns). Page's own counts disagreed (734 headline vs 4,327 in FAQ).",
+      "listings": [
+        {
+          "price": 35211,
+          "miles": 21877,
+          "location": "Dunn, NC",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": "Sponsored"
+        },
+        {
+          "price": 27798,
+          "miles": 100419,
+          "location": "Centennial, CO",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": "Sponsored"
+        },
+        {
+          "price": 34694,
+          "miles": 28522,
+          "location": "Columbia, KY",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 35640,
+          "miles": 25763,
+          "location": "Plainfield, IL",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 34694,
+          "miles": 33566,
+          "location": "Columbia, KY",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 34694,
+          "miles": 29586,
+          "location": "Columbia, KY",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 34694,
+          "miles": 32121,
+          "location": "Columbia, KY",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 34694,
+          "miles": 33380,
+          "location": "Columbia, KY",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 33823,
+          "miles": 22031,
+          "location": "Highland, IN",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 29695,
+          "miles": 102790,
+          "location": "Greenville, SC",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 33730,
+          "miles": 31614,
+          "location": "Libertyville, IL",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 34873,
+          "miles": 54096,
+          "location": "Countryside, IL",
+          "trim": "LT Crew Cab Standard Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 35583,
+          "miles": 37823,
+          "location": "Burlington, NC",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 35693,
+          "miles": 27647,
+          "location": "Columbia, KY",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 38787,
+          "miles": 35028,
+          "location": "Watertown, NY",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 35956,
+          "miles": 18463,
+          "location": "Attica, NY",
+          "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 29995,
+          "miles": 95504,
+          "location": "Excelsior Springs, MO",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 40233,
+          "miles": 18130,
+          "location": "Angola, IN",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 35172,
+          "miles": 25716,
+          "location": "Avon, IN",
+          "trim": "LT with 1LT Double Cab Standard Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 37825,
+          "miles": 35998,
+          "location": "Greenville, SC",
+          "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "note": "TrueCar's stated 'average price' for the LT was identical across model years on these pages (Silverado LT: $29,517 shown on the 2016, 2019 and 2022 pages; $29,736 on the 2024 page), so it appears to be a trim-wide figure, not a year-specific one. Recorded as stated.",
+  "gaps": []
+}

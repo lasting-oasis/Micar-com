@@ -1,0 +1,692 @@
+{
+  "make": "Chevrolet",
+  "model": "Equinox",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/equinox/year-2016/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 20218,
+      "page_total_listings": 78,
+      "note": "Page showed 29 listings; first 20 recorded. No CPO/Sponsored labels on page. One location shown as 'Witchita, KS' on page; normalized to Wichita.",
+      "listings": [
+        {
+          "price": 5302,
+          "miles": 141192,
+          "location": "Sycamore, IL",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 8711,
+          "miles": 146598,
+          "location": "Bremerton, WA",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 7302,
+          "miles": 136731,
+          "location": "Sycamore, IL",
+          "trim": "LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11588,
+          "miles": 81815,
+          "location": "Tinley Park, IL",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 7015,
+          "miles": 151351,
+          "location": "Birmingham, AL",
+          "trim": "LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 10000,
+          "miles": 43038,
+          "location": "New Smyrna Beach, FL",
+          "trim": "LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 7998,
+          "miles": 125752,
+          "location": "Dayton, OH",
+          "trim": "LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11364,
+          "miles": 111290,
+          "location": "Bradenton, FL",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 5299,
+          "miles": 183464,
+          "location": "Norfolk, VA",
+          "trim": "LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9989,
+          "miles": 87950,
+          "location": "Dublin, CA",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9499,
+          "miles": 120936,
+          "location": "Wichita, KS",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9694,
+          "miles": 90889,
+          "location": "Tampa, FL",
+          "trim": "LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 10626,
+          "miles": 93408,
+          "location": "Coal City, IL",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12998,
+          "miles": 89792,
+          "location": "Hoover, AL",
+          "trim": "LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 8498,
+          "miles": 126933,
+          "location": "Longmont, CO",
+          "trim": "LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 8117,
+          "miles": 139959,
+          "location": "Raleigh, NC",
+          "trim": "LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9471,
+          "miles": 107247,
+          "location": "Washington, IL",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 10850,
+          "miles": 78886,
+          "location": "Evergreen Park, IL",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12395,
+          "miles": 92228,
+          "location": "Grand Rapids, MI",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 10220,
+          "miles": 75935,
+          "location": "Alvin, TX",
+          "trim": "LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/equinox/year-2019/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 20218,
+      "page_total_listings": 302,
+      "note": "Page showed 30 listings; first 20 recorded. Trim titles carry equipment group (1LT / 2LT / 3LT / 2FL).",
+      "listings": [
+        {
+          "price": 12632,
+          "miles": 71602,
+          "location": "Miami, FL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 14900,
+          "miles": 83791,
+          "location": "Savannah, GA",
+          "trim": "LT with 2FL FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 10686,
+          "miles": 112344,
+          "location": "Knoxville, TN",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14701,
+          "miles": 62533,
+          "location": "Attica, NY",
+          "trim": "LT with 3LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9573,
+          "miles": 139549,
+          "location": "Fox Lake, IL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11898,
+          "miles": 101870,
+          "location": "Maysville, KY",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 13788,
+          "miles": 97755,
+          "location": "McKenna, WA",
+          "trim": "LT with 2LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14687,
+          "miles": 91594,
+          "location": "Kingsport, TN",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17588,
+          "miles": 20652,
+          "location": "Tinley Park, IL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14660,
+          "miles": 87601,
+          "location": "Oswego, NY",
+          "trim": "LT with 2FL AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14386,
+          "miles": 93666,
+          "location": "Pasco, WA",
+          "trim": "LT with 2LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 8970,
+          "miles": 137839,
+          "location": "Daphne, AL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17067,
+          "miles": 73634,
+          "location": "Sandwich, IL",
+          "trim": "LT with 2LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 13203,
+          "miles": 83855,
+          "location": "Clermont, FL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 13216,
+          "miles": 100922,
+          "location": "Mount Carroll, IL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14898,
+          "miles": 103249,
+          "location": "Memphis, TN",
+          "trim": "LT with 2FL FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15074,
+          "miles": 71408,
+          "location": "Watertown, NY",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 13593,
+          "miles": 105507,
+          "location": "Boise, ID",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15493,
+          "miles": 71331,
+          "location": "Wentzville, MO",
+          "trim": "LT with 3LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17580,
+          "miles": 31039,
+          "location": "Henderson, NV",
+          "trim": "LT with 2LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/equinox/year-2022/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 20218,
+      "page_total_listings": 375,
+      "note": "Page showed 29 listings; first 20 recorded.",
+      "listings": [
+        {
+          "price": 17986,
+          "miles": 60787,
+          "location": "Knoxville, TN",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 14978,
+          "miles": 112682,
+          "location": "High Point, NC",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 15899,
+          "miles": 73351,
+          "location": "Pompano Beach, FL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15298,
+          "miles": 68811,
+          "location": "Miami, FL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18699,
+          "miles": 30095,
+          "location": "Ivel, KY",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17311,
+          "miles": 62103,
+          "location": "Lowell, NC",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20025,
+          "miles": 20458,
+          "location": "Bloomington, MN",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16007,
+          "miles": 76258,
+          "location": "Inver Grove Heights, MN",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18045,
+          "miles": 64543,
+          "location": "Turnersville, NJ",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20190,
+          "miles": 36206,
+          "location": "Orlando, FL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17155,
+          "miles": 88473,
+          "location": "Auburn, IN",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18633,
+          "miles": 53569,
+          "location": "Chandler, AZ",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15773,
+          "miles": 99875,
+          "location": "Fargo, ND",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20313,
+          "miles": 49382,
+          "location": "Florence, SC",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19950,
+          "miles": 39049,
+          "location": "Pulaski, NY",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17344,
+          "miles": 76047,
+          "location": "Toms River, NJ",
+          "trim": "LT with 2FL AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18801,
+          "miles": 45804,
+          "location": "Chandler, AZ",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17383,
+          "miles": 86711,
+          "location": "Morehead City, NC",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20394,
+          "miles": 53527,
+          "location": "Lake Wales, FL",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19987,
+          "miles": 55079,
+          "location": "Columbia, KY",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/equinox/year-2024/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 20218,
+      "page_total_listings": 987,
+      "note": "Page showed 30 listings; first 20 recorded. 2024 is the last year of the third-generation Equinox (redesigned for 2025).",
+      "listings": [
+        {
+          "price": 18469,
+          "miles": 48332,
+          "location": "Orlando, FL",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 19588,
+          "miles": 54792,
+          "location": "Tinley Park, IL",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 19162,
+          "miles": 52930,
+          "location": "Kinston, NC",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18723,
+          "miles": 62077,
+          "location": "Mesa, AZ",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 21690,
+          "miles": 24567,
+          "location": "Jasper, AL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20674,
+          "miles": 38283,
+          "location": "Oswego, NY",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20994,
+          "miles": 35865,
+          "location": "Lake Wales, FL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20987,
+          "miles": 44055,
+          "location": "Bradenton, FL",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 22394,
+          "miles": 26924,
+          "location": "Vero Beach, FL",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20013,
+          "miles": 59680,
+          "location": "Indianapolis, IN",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17795,
+          "miles": 59652,
+          "location": "Commerce, GA",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 21699,
+          "miles": 23356,
+          "location": "Ocala, FL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19499,
+          "miles": 56422,
+          "location": "Griffin, GA",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19657,
+          "miles": 59914,
+          "location": "Morris, IL",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19946,
+          "miles": 47646,
+          "location": "Scottsdale, AZ",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20472,
+          "miles": 46359,
+          "location": "Wallingford, CT",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19604,
+          "miles": 61535,
+          "location": "Columbia, KY",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20778,
+          "miles": 53301,
+          "location": "Burlington, NC",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": "CPO"
+        },
+        {
+          "price": 21683,
+          "miles": 34912,
+          "location": "Concord, NH",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20087,
+          "miles": 65480,
+          "location": "Indianapolis, IN",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "note": "TrueCar's stated 'average price' for the Equinox LT was $20,218 on all four year pages (2016, 2019, 2022, 2024), so it is a trim-wide figure, not year-specific. Recorded as stated.",
+  "gaps": []
+}

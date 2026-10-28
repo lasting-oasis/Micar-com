@@ -1,0 +1,694 @@
+{
+  "make": "Toyota",
+  "model": "Corolla",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "LE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla/year-2016/?trim=le",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_as_stated": 20170,
+      "page_note": "Page states 'TrueCar has 95 used 2016 Toyota Corolla LE models for sale nationwide' and 'The average price for the 2016 Toyota Corolla LE is $20,170'. CAUTION: that stated average is above every asking price on the page ($7,275-$18,027), and the identical $20,170 figure appears on the 2019, 2022 and 2024 Corolla LE pages, so it is a model-wide boilerplate number, not a year-specific average; page_average left null and the stated figure kept here for reference. 29 cards on page 1, first 20 recorded. All cards titled '2016 Toyota Corolla LE CVT'. No CPO or Sponsored badges; most cards note 'Dealer fees/add-ons included'.",
+      "listings": [
+        {
+          "price": 14300,
+          "miles": 76472,
+          "location": "Longwood, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; one owner"
+        },
+        {
+          "price": 14836,
+          "miles": 77462,
+          "location": "Memphis, TN",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 16755,
+          "miles": 61959,
+          "location": "Boone, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 11377,
+          "miles": 134529,
+          "location": "North Dartmouth, MA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 17577,
+          "miles": 58121,
+          "location": "Tacoma, WA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 12099,
+          "miles": 108538,
+          "location": "Mesa, AZ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 11760,
+          "miles": 116889,
+          "location": "Pompano Beach, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 12115,
+          "miles": 130970,
+          "location": "Irving, TX",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 15480,
+          "miles": 70162,
+          "location": "Chesapeake, VA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 13968,
+          "miles": 78427,
+          "location": "Tampa, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 11688,
+          "miles": 98370,
+          "location": "Tinley Park, IL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 12600,
+          "miles": 111458,
+          "location": "Wake Forest, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 12701,
+          "miles": 115924,
+          "location": "Harrisburg, PA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; one owner"
+        },
+        {
+          "price": 9994,
+          "miles": 116399,
+          "location": "Arlington, VA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 17170,
+          "miles": 36192,
+          "location": "Yorkville, NY",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; one owner"
+        },
+        {
+          "price": 12598,
+          "miles": 133208,
+          "location": "Annapolis, MD",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 18027,
+          "miles": 37881,
+          "location": "Fairless Hills, PA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 14329,
+          "miles": 112364,
+          "location": "Simi Valley, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 14452,
+          "miles": 104958,
+          "location": "Apex, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; one owner"
+        },
+        {
+          "price": 14788,
+          "miles": 30990,
+          "location": "Tampa, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "LE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla/year-2019/?trim=le",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_as_stated": 20170,
+      "page_note": "Page states 'TrueCar has 96 used 2019 Toyota Corolla LE models for sale nationwide' and 'The average price for the 2019 Toyota Corolla LE is $20,170'. CAUTION: the identical $20,170 figure appears on the 2016, 2019, 2022 and 2024 Corolla LE pages, so it is a model-wide boilerplate number, not a year-specific average; page_average left null and the stated figure kept here for reference. 29 cards on page 1, first 20 recorded. All cards titled '2019 Toyota Corolla LE CVT'. No CPO or Sponsored badges shown.",
+      "listings": [
+        {
+          "price": 19414,
+          "miles": 49700,
+          "location": "Reading, PA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; one owner"
+        },
+        {
+          "price": 15429,
+          "miles": 71972,
+          "location": "Pompano Beach, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 12216,
+          "miles": 110000,
+          "location": "Manvel, TX",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 16294,
+          "miles": 72817,
+          "location": "Daytona Beach, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; one owner"
+        },
+        {
+          "price": 7539,
+          "miles": 183419,
+          "location": "Jamesburg, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 14043,
+          "miles": 111192,
+          "location": "El Monte, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18998,
+          "miles": 49660,
+          "location": "Tampa, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; CarMax"
+        },
+        {
+          "price": 21998,
+          "miles": 10778,
+          "location": "Laurel, MD",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; CarMax; one owner; very low miles"
+        },
+        {
+          "price": 16528,
+          "miles": 70221,
+          "location": "Chandler, AZ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 19998,
+          "miles": 34495,
+          "location": "Langhorne, PA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; CarMax"
+        },
+        {
+          "price": 18998,
+          "miles": 56346,
+          "location": "Stockton, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; CarMax"
+        },
+        {
+          "price": 18998,
+          "miles": 62985,
+          "location": "East Haven, CT",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; CarMax; one owner"
+        },
+        {
+          "price": 10284,
+          "miles": 127982,
+          "location": "Winter Park, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 13597,
+          "miles": 75633,
+          "location": "Orlando, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 11172,
+          "miles": 149610,
+          "location": "Jacksonville, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 10392,
+          "miles": 92755,
+          "location": "Orlando, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 13400,
+          "miles": 75720,
+          "location": "Palmetto Bay, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 16998,
+          "miles": 85314,
+          "location": "Inglewood, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price; CarMax"
+        },
+        {
+          "price": 12784,
+          "miles": 85626,
+          "location": "Winter Park, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 9174,
+          "miles": 196802,
+          "location": "Midlothian, VA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; one owner"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "LE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla/year-2022/?trim=le",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_as_stated": 20170,
+      "page_note": "Page states 'TrueCar has 349 used 2022 Toyota Corolla LE models for sale nationwide' and 'The average price for the 2022 Toyota Corolla LE is $20,170'. CAUTION: the identical $20,170 figure appears on the 2016, 2019, 2022 and 2024 Corolla LE pages, so it is a model-wide boilerplate number, not a year-specific average; page_average left null and the stated figure kept here for reference. First 20 vehicle cards recorded (ad cards skipped). All cards titled '2022 Toyota Corolla LE CVT'; page FAQ says the used 2022 Corolla listed comes in sedan body style.",
+      "listings": [
+        {
+          "price": 16989,
+          "miles": 47097,
+          "location": "Miami, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; Excellent price"
+        },
+        {
+          "price": 12875,
+          "miles": 147175,
+          "location": "Kissimmee, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; Excellent price"
+        },
+        {
+          "price": 16865,
+          "miles": 51060,
+          "location": "Commack, NY",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 16862,
+          "miles": 52088,
+          "location": "Little Falls, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price"
+        },
+        {
+          "price": 17360,
+          "miles": 46699,
+          "location": "Little Falls, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price"
+        },
+        {
+          "price": 19983,
+          "miles": 29333,
+          "location": "Orlando, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 17704,
+          "miles": 55241,
+          "location": "Tampa, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18483,
+          "miles": 65961,
+          "location": "Southern Pines, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price"
+        },
+        {
+          "price": 17568,
+          "miles": 84871,
+          "location": "Raleigh, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 17049,
+          "miles": 70215,
+          "location": "Little Falls, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price"
+        },
+        {
+          "price": 11699,
+          "miles": 295543,
+          "location": "Jasper, AL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; extreme mileage"
+        },
+        {
+          "price": 19597,
+          "miles": 32365,
+          "location": "Pinellas Park, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 17994,
+          "miles": 66357,
+          "location": "Belmont, MA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 15890,
+          "miles": 105787,
+          "location": "Devils Lake, ND",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18755,
+          "miles": 48802,
+          "location": "Fort Myers, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 19930,
+          "miles": 28513,
+          "location": "Naperville, IL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 20049,
+          "miles": 36371,
+          "location": "White River Junction, VT",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price"
+        },
+        {
+          "price": 20575,
+          "miles": 29211,
+          "location": "West Springfield, MA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 20529,
+          "miles": 33886,
+          "location": "Albany, GA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 19894,
+          "miles": 43488,
+          "location": "Keene, NH",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "LE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla/year-2024/?trim=le",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_as_stated": 20170,
+      "page_note": "Page states 'TrueCar has 1,113 used 2024 Toyota Corolla LE models for sale nationwide' and 'The average price for the 2024 Toyota Corolla LE is $20,170'. CAUTION: the identical $20,170 figure appears on the 2016, 2019, 2022 and 2024 Corolla LE pages, so it is a model-wide boilerplate number, not a year-specific average; page_average left null and the stated figure kept here for reference. First 20 vehicle cards recorded (Autonomy ad skipped). All cards titled '2024 Toyota Corolla LE CVT'; none labelled Hatchback or Hybrid.",
+      "listings": [
+        {
+          "price": 19604,
+          "miles": 60814,
+          "location": "Mobile, AL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; Excellent price"
+        },
+        {
+          "price": 20726,
+          "miles": 30606,
+          "location": "High Point, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; Excellent price"
+        },
+        {
+          "price": 18905,
+          "miles": 50540,
+          "location": "Columbus, GA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18067,
+          "miles": 61331,
+          "location": "Green Brook, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18748,
+          "miles": 18832,
+          "location": "Hialeah, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18700,
+          "miles": 49744,
+          "location": "Hillsboro, OR",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price"
+        },
+        {
+          "price": 19904,
+          "miles": 23408,
+          "location": "Orlando, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 19067,
+          "miles": 55942,
+          "location": "Green Brook, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 20500,
+          "miles": 19134,
+          "location": "Lugoff, SC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18045,
+          "miles": 31617,
+          "location": "Pembroke Pines, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 20217,
+          "miles": 30194,
+          "location": "Homosassa, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price"
+        },
+        {
+          "price": 20648,
+          "miles": 19010,
+          "location": "Vancouver, WA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; page spelled location 'Vancover, WA'"
+        },
+        {
+          "price": 19711,
+          "miles": 62616,
+          "location": "Ocala, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18195,
+          "miles": 65732,
+          "location": "Lugoff, SC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 20290,
+          "miles": 17643,
+          "location": "Pinellas Park, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 17995,
+          "miles": 61860,
+          "location": "Commerce, GA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 19250,
+          "miles": 40026,
+          "location": "Hillsboro, OR",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price"
+        },
+        {
+          "price": 21550,
+          "miles": 14669,
+          "location": "Fort Myers, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price"
+        },
+        {
+          "price": 19175,
+          "miles": 58730,
+          "location": "Pembroke Pines, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 20296,
+          "miles": 43938,
+          "location": "Columbia, KY",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "All four Corolla LE pages state the identical 'average price ... is $20,170' sentence (2016, 2019, 2022 and 2024), so it is a model-wide boilerplate figure rather than a year-specific average; page_average set to null and the stated value kept in page_average_as_stated.",
+    "Listings are the first 20 cards of page 1 only (no pagination), nationwide, as of 2026-10-28. Cards did not state body style; recorded as Sedan because all were 'Corolla LE CVT' (the LE trim is sedan-only; hatchbacks are badged Corolla Hatchback SE/XSE)."
+  ]
+}

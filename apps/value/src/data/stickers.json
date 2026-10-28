@@ -412,5 +412,2418 @@
     "note": "Prices derived from cars.com figures that include $1,195 destination"
    }
   ]
+ },
+ {
+  "make": "Hyundai",
+  "model": "Elantra",
+  "body": "Sedan",
+  "note": "All rows are the Elantra sedan. The Elantra GT hatchback (2016-2020, separate releases on hyundainews.com) is not priced here. Elantra N (performance model) rows are included for 2025-2026 only because they appear on the same official series price sheet. MSRP excludes freight/destination; freight recorded per year in `destination`. Where a year has an official price sheet, SULEV duplicate rows (same price) were dropped.",
+  "gaps": [
+   "2016: no official full pricing table found on hyundainews.com after 3 searches (release 1992 gives only the $17,250 starting MSRP and $825 freight). cars.com research and Edmunds pages for 2016 show used-market values rather than MSRP and caranddriver.com was blocked, so Autoblog's May 17, 2015 article (quoting Hyundai's release) was used as the secondary. 2016 SE automatic MSRP not captured.",
+   "2018: only the June 6, 2018 price sheet was found; launch (fall 2017) prices may differ slightly.",
+   "2021: Jan 8, 2021 sheet confirms a freight increase to $1,005 but its MSRP column did not extract; prices recorded are from the Oct 21, 2020 launch sheet.",
+   "2023: only the Jan 4, 2023 (2023C) sheet was found, not the launch sheet.",
+   "2024: freight differs between the gas sheet (Sep 2023, $1,115) and the HEV sheet (Jan 2024, $1,150); `destination` records the gas-sheet figure.",
+   "2025: the top hybrid trim's label ($29,450) was not legible in the fetched release; recorded as HEV Limited with a note.",
+   "hyundainews.com HTML release pages (e.g. /releases/2114, /releases/1992) render client-side and returned no text via WebFetch; PDF assets were used instead."
+  ],
+  "years": [
+   {
+    "year": 2016,
+    "destination": 825,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 17250,
+      "config": "1.8L, 6-speed manual (base)",
+      "note": "Manufacturer figure: hyundainews.com release 1992 PDF (May 15, 2015) states 'starting MSRP of $17,250, excluding $825 freight'; release does not name the transmission. SE automatic price not found."
+     },
+     {
+      "trim": "Value Edition",
+      "msrp": 19700,
+      "config": "1.8L, 6-speed automatic",
+      "note": "Autoblog: 'rings up for $19,700, plus $825 destination'"
+     },
+     {
+      "trim": "Sport",
+      "msrp": 20250,
+      "config": "2.0L GDI, 6-speed manual",
+      "note": "Autoblog"
+     },
+     {
+      "trim": "Sport",
+      "msrp": 21250,
+      "config": "2.0L GDI, 6-speed automatic",
+      "note": "Autoblog"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 21700,
+      "config": "1.8L, 6-speed automatic",
+      "note": "Autoblog: 'the $21,700 price is the same as last year'"
+     }
+    ],
+    "source": "https://www.autoblog.com/2015/05/17/2016-hyundai-elantra-value-edition-price/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2017,
+    "destination": 835,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 17150,
+      "config": "2.0L, 6-speed manual",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 18150,
+      "config": "2.0L, 6-speed automatic",
+      "note": ""
+     },
+     {
+      "trim": "SE Value Edition",
+      "msrp": 20250,
+      "config": "2.0L, 6-speed automatic",
+      "note": "Listed as 'Elantra SE Value Edition' on the price sheet; Dec 12, 2016 release calls it Value Edition at $20,250"
+     },
+     {
+      "trim": "Eco",
+      "msrp": 20650,
+      "config": "1.4T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 21650,
+      "config": "1.6T, 6-speed manual",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 22750,
+      "config": "1.6T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 22350,
+      "config": "2.0L, 6-speed automatic",
+      "note": ""
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/31158-2017MYElantraPriceSheet31Oct2016.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2018,
+    "destination": 885,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 16950,
+      "config": "2.0L, 6-speed manual",
+      "note": "Price sheet row labeled 'Elantra M/T'"
+     },
+     {
+      "trim": "SE",
+      "msrp": 17950,
+      "config": "2.0L, 6-speed automatic",
+      "note": ""
+     },
+     {
+      "trim": "SEL",
+      "msrp": 18850,
+      "config": "2.0L, 6-speed automatic",
+      "note": "SEL trim new for 2018"
+     },
+     {
+      "trim": "Value Edition",
+      "msrp": 19850,
+      "config": "2.0L, 6-speed automatic",
+      "note": ""
+     },
+     {
+      "trim": "Eco",
+      "msrp": 20550,
+      "config": "1.4T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 21800,
+      "config": "1.6T, 6-speed manual",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 22900,
+      "config": "1.6T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 22100,
+      "config": "2.0L, 6-speed automatic",
+      "note": ""
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/33049-2018MYElantraPriceSheet06June2018.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2019,
+    "destination": 885,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 17100,
+      "config": "2.0L, 6-speed manual",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 18100,
+      "config": "2.0L, 6-speed automatic",
+      "note": ""
+     },
+     {
+      "trim": "SEL",
+      "msrp": 19400,
+      "config": "2.0L, 6-speed automatic",
+      "note": ""
+     },
+     {
+      "trim": "Value Edition",
+      "msrp": 20400,
+      "config": "2.0L, 6-speed automatic",
+      "note": ""
+     },
+     {
+      "trim": "Eco",
+      "msrp": 20950,
+      "config": "1.4T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 22400,
+      "config": "1.6T, 6-speed manual",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 23500,
+      "config": "1.6T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 22600,
+      "config": "2.0L, 6-speed automatic",
+      "note": ""
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/34194-2019MYElantraPriceSheet29Aug2018.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2020,
+    "destination": 920,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 18950,
+      "config": "2.0L Atkinson, IVT",
+      "note": "Manual transmission no longer in the pricing table"
+     },
+     {
+      "trim": "SEL",
+      "msrp": 19700,
+      "config": "2.0L Atkinson, IVT",
+      "note": ""
+     },
+     {
+      "trim": "Value Edition",
+      "msrp": 20600,
+      "config": "2.0L Atkinson, IVT",
+      "note": "Labeled 'Value' in the release table"
+     },
+     {
+      "trim": "Eco",
+      "msrp": 21250,
+      "config": "1.4T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 22800,
+      "config": "2.0L Atkinson, IVT",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 23800,
+      "config": "1.6T, 7-speed DCT",
+      "note": "Release table lists Sport with 7-speed DCT only"
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/36341-2020ElantraOverviewPressReleasefinal5142019docx.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2021,
+    "destination": 995,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 19650,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "SEL",
+      "msrp": 20900,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "N Line",
+      "msrp": 24100,
+      "config": "1.6T, 6-speed manual",
+      "note": ""
+     },
+     {
+      "trim": "N Line",
+      "msrp": 25200,
+      "config": "1.6T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 25450,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "Blue HEV",
+      "msrp": 23550,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": "Model code 49422FBS. The Oct 2020 sheet extraction labeled this row 'SEL HEV'; the Jan 8, 2021 sheet prints the same code as 'Elantra Blue HEV', so Blue HEV is used here."
+     },
+     {
+      "trim": "Limited HEV",
+      "msrp": 28100,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": ""
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/43529-2021MYElantraPriceSheet21Oct2020.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2022,
+    "destination": 1005,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 19850,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "SEL",
+      "msrp": 21100,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "N Line",
+      "msrp": 24250,
+      "config": "1.6T, 6-speed manual",
+      "note": ""
+     },
+     {
+      "trim": "N Line",
+      "msrp": 25350,
+      "config": "1.6T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 25600,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "Blue HEV",
+      "msrp": 23750,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Limited HEV",
+      "msrp": 28250,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": ""
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/46905-2022MYElantraDealerPriceSheet16Jun20212.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2023,
+    "destination": 1115,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 20650,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "SEL",
+      "msrp": 21900,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "N Line",
+      "msrp": 27200,
+      "config": "1.6T, 7-speed DCT",
+      "note": "Manual N Line no longer listed"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 26500,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "Blue HEV",
+      "msrp": 24550,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Limited HEV",
+      "msrp": 29150,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": ""
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/53437-2023MYElantraPriceSheet04Jan2023.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2024,
+    "destination": 1115,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 21475,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "SEL",
+      "msrp": 23425,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "N Line",
+      "msrp": 28315,
+      "config": "1.6T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 26915,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "HEV Blue",
+      "msrp": 26250,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": "From the separate 2024 Elantra HEV price sheet effective Jan 3, 2024 (freight on that sheet: $1,150)"
+     },
+     {
+      "trim": "HEV Limited",
+      "msrp": 29450,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": "From the 2024 Elantra HEV price sheet effective Jan 3, 2024"
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/57261-2024MYElantraPriceSheet12Sep2023.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2025,
+    "destination": 1150,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 21875,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "SEL Sport",
+      "msrp": 23000,
+      "config": "2.0L, IVT",
+      "note": "SEL renamed/split into SEL Sport and SEL Convenience for 2025"
+     },
+     {
+      "trim": "SEL Convenience",
+      "msrp": 25575,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 26525,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "N Line",
+      "msrp": 28725,
+      "config": "1.6T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "HEV Blue",
+      "msrp": 25100,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": "Release also quotes $26,250 'including destination' (= 25,100 + 1,150); note this is lower than the 2024 HEV Blue MSRP of $26,250"
+     },
+     {
+      "trim": "HEV SEL Sport",
+      "msrp": 27075,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": "New hybrid trim for 2025"
+     },
+     {
+      "trim": "HEV Limited",
+      "msrp": 29450,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": "Trim label was garbled in the fetched release text; this is the third/top hybrid row at $29,450 (2024 HEV Limited was also $29,450; 2026 HEV Limited is $29,800). Verify."
+     },
+     {
+      "trim": "N",
+      "msrp": 33950,
+      "config": "2.0T, 6-speed manual",
+      "note": "Elantra N performance model"
+     },
+     {
+      "trim": "N",
+      "msrp": 35450,
+      "config": "2.0T, 8-speed wet DCT",
+      "note": "Elantra N performance model"
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/63135-Hyundai2025ElantraPricing82624FINAL.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2026,
+    "destination": 1245,
+    "trims": [
+     {
+      "trim": "SE",
+      "msrp": 22625,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "SEL Sport",
+      "msrp": 23750,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "SEL Sport Premium",
+      "msrp": 25075,
+      "config": "2.0L, IVT",
+      "note": "Replaces 2025 SEL Convenience in the lineup"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 27175,
+      "config": "2.0L, IVT",
+      "note": ""
+     },
+     {
+      "trim": "N Line",
+      "msrp": 29400,
+      "config": "1.6T, 7-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "HEV Blue",
+      "msrp": 25450,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "HEV SEL Sport",
+      "msrp": 27425,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "HEV Limited",
+      "msrp": 29800,
+      "config": "1.6L hybrid, 6-speed DCT",
+      "note": ""
+     },
+     {
+      "trim": "N",
+      "msrp": 35100,
+      "config": "2.0T, 6-speed manual",
+      "note": "Elantra N performance model"
+     },
+     {
+      "trim": "N",
+      "msrp": 36600,
+      "config": "2.0T, 8-speed wet DCT",
+      "note": "Elantra N performance model"
+     }
+    ],
+    "source": "https://www.hyundainews.com/assets/documents/original/68430-26MYElantraSeriesPricing09Oct2025.pdf",
+    "sourceType": "manufacturer",
+    "note": ""
+   }
+  ]
+ },
+ {
+  "make": "Jeep",
+  "model": "Grand Cherokee",
+  "body": "SUV / Crossover",
+  "note": "Two generations overlap in this range. WK2 (4th gen, two-row, 115-in wheelbase) covers 2016-2021. The WL (5th gen) arrived first as the three-row 2021 Grand Cherokee L (official pricing June 7, 2021, while the two-row 2021 model on sale was still WK2), then as the two-row 2022 Grand Cherokee (official pricing Nov 3, 2021) and the 2022 Grand Cherokee 4xe plug-in hybrid (Jan 26, 2022). 2021 therefore has two entries below, one per generation; each year entry carries a `generation` field. Any 2022 carry-over WK2 sale is not priced here (no source fetched). Grand Cherokee L (three-row) prices are included only where the fetched source listed them (2021 L entry, 2025 rows). MSRP excludes destination. Stellantis/FCA did not publish full U.S. lineup pricing releases for the WK2 model years or for 2023-2024, so those years rely on cars.com research pages (label 'MSRP'; destination not stated on those pages, so `destination` is null unless an official figure was found).",
+  "gaps": [
+   "2016, 2017, 2019, 2020, 2021 (WK2): no official U.S. pricing releases exist on media.stellantisnorthamerica.com (fact sheets and overview releases carry no MSRPs); cars.com research/specs pages used. Destination charge not stated on those pages (null).",
+   "2018: only the Trackhawk has an official price ($85,900 + $1,095 destination); other trims from cars.com.",
+   "2021: two entries (WK2 two-row from cars.com; WL Grand Cherokee L from the official June 2021 release). No official 2021 WK2 two-row pricing found.",
+   "2022: WL two-row and 4xe are official; 2022 Grand Cherokee L and any 2022 WK2 carry-over not priced.",
+   "2023, 2024: no official pricing releases found (press kits are 'What's New' pages without prices); cars.com used. cars.com shows Summit Reserve at the same price as Summit for both years, which is likely a package-not-priced artifact.",
+   "2026: no official pricing release found as of this session; cars.com article (Feb 3, 2026) used, prices include $1,995 destination and were converted; 4WD rows for Laredo/Limited are derived from the stated $2,000 upcharge. Summit Reserve, Trailhawk and 4xe not priced for 2026.",
+   "Stellantis media 'pdf.do?id=' links do not map to the same release IDs as 'newsrelease.do?id=' (pdf.do?id=18353 returned a 2015 release)."
+  ],
+  "years": [
+   {
+    "year": 2016,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Laredo",
+      "msrp": 29995,
+      "config": "4x2",
+      "note": "75th Anniversary (Laredo-based) listed at the same price"
+     },
+     {
+      "trim": "Laredo",
+      "msrp": 32295,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 37565,
+      "config": "4x2",
+      "note": "Limited 75th Anniversary same price"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 39565,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Overland",
+      "msrp": 44395,
+      "config": "4x2",
+      "note": "High Altitude listed at the same price"
+     },
+     {
+      "trim": "Overland",
+      "msrp": 47395,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Summit",
+      "msrp": 52795,
+      "config": "4x4",
+      "note": "Summit 4x2 listed at $49,795"
+     },
+     {
+      "trim": "SRT",
+      "msrp": 65695,
+      "config": "4x4",
+      "note": "SRT Night same price"
+     }
+    ],
+    "source": "https://www.cars.com/research/jeep-grand_cherokee-2016/specs/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2017,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Laredo",
+      "msrp": 30395,
+      "config": "4x2",
+      "note": "Altitude and 75th Anniversary Edition listed at the same price (limited availability)"
+     },
+     {
+      "trim": "Laredo",
+      "msrp": 32695,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 37995,
+      "config": "4x2",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 39995,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Trailhawk",
+      "msrp": 43095,
+      "config": "4x4",
+      "note": "Trailhawk new for 2017"
+     },
+     {
+      "trim": "Overland",
+      "msrp": 47795,
+      "config": "4x4",
+      "note": "Overland 4x2 listed at $44,795"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 53495,
+      "config": "4x4",
+      "note": "Summit 4x2 listed at $50,495"
+     },
+     {
+      "trim": "SRT",
+      "msrp": 66895,
+      "config": "4x4",
+      "note": ""
+     }
+    ],
+    "source": "https://www.cars.com/research/jeep-grand_cherokee-2017/specs/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2018,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "Laredo",
+      "msrp": 30895,
+      "config": "4x2",
+      "note": "Laredo E and Altitude listed at the same price"
+     },
+     {
+      "trim": "Laredo",
+      "msrp": 33195,
+      "config": "4x4",
+      "note": "Laredo E, Altitude and Upland 4x4 same price"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 38495,
+      "config": "4x2",
+      "note": "Sterling Edition same price"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 40495,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Trailhawk",
+      "msrp": 43595,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Overland",
+      "msrp": 48295,
+      "config": "4x4",
+      "note": "Overland 4x2 $45,295; High Altitude same prices as Overland"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 53995,
+      "config": "4x4",
+      "note": "Summit 4x2 listed at $50,995"
+     },
+     {
+      "trim": "SRT",
+      "msrp": 67695,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Trackhawk",
+      "msrp": 85900,
+      "config": "4x4",
+      "note": "MANUFACTURER figure: Stellantis release id 18493 (Aug 8, 2017) 'starting U.S. MSRP of $85,900' plus '$1,095 destination'. cars.com shows $86,200 for the same trim, i.e. a $300 difference (possible later increase)."
+     }
+    ],
+    "source": "https://www.cars.com/research/jeep-grand_cherokee-2018/specs/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2019,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Laredo",
+      "msrp": 32195,
+      "config": "4x2",
+      "note": "Laredo E, Upland and Altitude listed at the same price"
+     },
+     {
+      "trim": "Laredo",
+      "msrp": 34495,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 39445,
+      "config": "4x2",
+      "note": "Limited X same price"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 41445,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Trailhawk",
+      "msrp": 44545,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Overland",
+      "msrp": 49245,
+      "config": "4x4",
+      "note": "Overland 4x2 $46,245; High Altitude same prices"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 54945,
+      "config": "4x4",
+      "note": "Summit 4x2 listed at $51,945"
+     },
+     {
+      "trim": "SRT",
+      "msrp": 68645,
+      "config": "4x4",
+      "note": "Trackhawk 4x4 listed at $87,150"
+     }
+    ],
+    "source": "https://www.cars.com/research/jeep-grand_cherokee-2019/specs/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2020,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Laredo E",
+      "msrp": 32150,
+      "config": "4x2",
+      "note": "cars.com lists Laredo E, Laredo and Altitude 4x2 all at $32,150"
+     },
+     {
+      "trim": "Laredo E",
+      "msrp": 34450,
+      "config": "4x4",
+      "note": "Laredo and Altitude 4x4 same price"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 39955,
+      "config": "4x2",
+      "note": "Limited X same price"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 41955,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Trailhawk",
+      "msrp": 45155,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Overland",
+      "msrp": 49695,
+      "config": "4x4",
+      "note": "Overland 4x2 $46,695; High Altitude same prices"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 55495,
+      "config": "4x4",
+      "note": "Summit 4x2 listed at $52,495"
+     },
+     {
+      "trim": "SRT",
+      "msrp": 68895,
+      "config": "4x4",
+      "note": "Trackhawk 4x4 listed at $87,400"
+     }
+    ],
+    "source": "https://www.cars.com/research/jeep-grand_cherokee-2020/specs/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2021,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Laredo E",
+      "msrp": 33885,
+      "config": "4x2",
+      "note": "Laredo X and Freedom edition listed at the same price"
+     },
+     {
+      "trim": "Laredo E",
+      "msrp": 36210,
+      "config": "4x4",
+      "note": "Laredo X and Freedom 4x4 same price"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 41835,
+      "config": "4x2",
+      "note": "Limited X and 80th Anniversary same price"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 43855,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Trailhawk",
+      "msrp": 47105,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Overland",
+      "msrp": 51505,
+      "config": "4x4",
+      "note": "Overland 4x2 $48,475; High Altitude listed at the same prices"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 57580,
+      "config": "4x4",
+      "note": "Summit 4x2 listed at $54,550"
+     },
+     {
+      "trim": "SRT",
+      "msrp": 71270,
+      "config": "4x4",
+      "note": "Trackhawk 4x4 listed at $90,070"
+     }
+    ],
+    "source": "https://www.cars.com/research/jeep-grand_cherokee-2021/specs/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2021,
+    "destination": 1695,
+    "trims": [
+     {
+      "trim": "L Laredo",
+      "msrp": 36995,
+      "config": "4x2 V-6",
+      "note": ""
+     },
+     {
+      "trim": "L Laredo",
+      "msrp": 38995,
+      "config": "4x4 V-6",
+      "note": ""
+     },
+     {
+      "trim": "L Altitude",
+      "msrp": 42195,
+      "config": "4x4 V-6",
+      "note": "Altitude 4x2 $40,195"
+     },
+     {
+      "trim": "L Limited",
+      "msrp": 43995,
+      "config": "4x2 V-6",
+      "note": ""
+     },
+     {
+      "trim": "L Limited",
+      "msrp": 45995,
+      "config": "4x4 V-6",
+      "note": ""
+     },
+     {
+      "trim": "L Overland",
+      "msrp": 54995,
+      "config": "4x4 V-6",
+      "note": "Overland 4x2 $52,995; 4x4 V-8 $58,290"
+     },
+     {
+      "trim": "L Summit",
+      "msrp": 58995,
+      "config": "4x4 V-6",
+      "note": "Summit 4x2 $56,995; 4x4 V-8 $62,290"
+     },
+     {
+      "trim": "L Summit Reserve",
+      "msrp": 61995,
+      "config": "4x4 V-6",
+      "note": "4x4 V-8 $65,290; Summit Reserve is a package on Summit"
+     }
+    ],
+    "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=22540&mid=49",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2022,
+    "destination": 1795,
+    "trims": [
+     {
+      "trim": "Laredo",
+      "msrp": 37390,
+      "config": "4x2 V-6",
+      "note": ""
+     },
+     {
+      "trim": "Laredo",
+      "msrp": 39390,
+      "config": "4x4 V-6",
+      "note": ""
+     },
+     {
+      "trim": "Altitude",
+      "msrp": 43945,
+      "config": "4x4 V-6",
+      "note": "Altitude is a Laredo package; 4x2 $41,945"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 43710,
+      "config": "4x2 V-6",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 45710,
+      "config": "4x4 V-6",
+      "note": ""
+     },
+     {
+      "trim": "Trailhawk",
+      "msrp": 51275,
+      "config": "4x4 V-6",
+      "note": "4x4 V-8 $54,570; 4x4 only"
+     },
+     {
+      "trim": "Overland",
+      "msrp": 55305,
+      "config": "4x4 V-6",
+      "note": "4x2 $53,305; 4x4 V-8 $58,600"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 59365,
+      "config": "4x4 V-6",
+      "note": "4x2 $57,365; 4x4 V-8 $62,660"
+     },
+     {
+      "trim": "Summit Reserve",
+      "msrp": 63365,
+      "config": "4x4 V-6",
+      "note": "4x4 V-8 $66,660; package on Summit"
+     },
+     {
+      "trim": "4xe",
+      "msrp": 57700,
+      "config": "4x4 2.0T plug-in hybrid",
+      "note": "From the 2022 Grand Cherokee 4xe pricing release (Jan 26, 2022, https://media.stellantisnorthamerica.com/newsrelease.do?id=23497&mid=4; excludes $1,795 destination). Also: Trailhawk 4xe $62,485, Overland 4xe $65,760, Summit 4xe $69,820, Summit Reserve 4xe $74,300."
+     }
+    ],
+    "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=23236&mid=1",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2023,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Laredo",
+      "msrp": 40035,
+      "config": "4x2",
+      "note": "cars.com lists Laredo, Laredo A, Laredo X, Altitude and Altitude X 4x2 all at $40,035"
+     },
+     {
+      "trim": "Laredo",
+      "msrp": 42035,
+      "config": "4x4",
+      "note": "Laredo X / Altitude / Altitude X 4x4 same price"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 49405,
+      "config": "4x2",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 51405,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Overland",
+      "msrp": 64995,
+      "config": "4x4",
+      "note": "Overland 4x2 listed at $62,995"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 66560,
+      "config": "4x4",
+      "note": "Summit 4x2 listed at $64,560; cars.com shows Summit Reserve 4x4 at the same $66,560, which looks like a package not priced separately"
+     }
+    ],
+    "source": "https://www.cars.com/research/jeep-grand_cherokee-2023/specs/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2024,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Laredo",
+      "msrp": 38035,
+      "config": "4x2",
+      "note": "cars.com lists Laredo, Laredo A, Laredo X, Altitude and Altitude X 4x2 all at $38,035"
+     },
+     {
+      "trim": "Laredo",
+      "msrp": 40035,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 45905,
+      "config": "4x2",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 47905,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Overland",
+      "msrp": 60995,
+      "config": "4x4",
+      "note": "No 4x2 Overland listed"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 62560,
+      "config": "4x4",
+      "note": "cars.com shows Summit Reserve 4x4 at the same $62,560 (package)"
+     }
+    ],
+    "source": "https://www.cars.com/research/jeep-grand_cherokee-2024/specs/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2025,
+    "destination": 1795,
+    "trims": [
+     {
+      "trim": "Laredo",
+      "msrp": 37035,
+      "config": "4x2",
+      "note": ""
+     },
+     {
+      "trim": "Laredo",
+      "msrp": 39035,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 42905,
+      "config": "4x2",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 44905,
+      "config": "4x4",
+      "note": ""
+     },
+     {
+      "trim": "Overland",
+      "msrp": 56995,
+      "config": "4x4",
+      "note": "4x4 only"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 58560,
+      "config": "4x4",
+      "note": "4x4 only"
+     },
+     {
+      "trim": "Limited 4xe",
+      "msrp": 60490,
+      "config": "4x4 plug-in hybrid",
+      "note": "4xe also: Trailhawk 4xe $66,185, Overland 4xe $73,480, Summit 4xe $74,670"
+     },
+     {
+      "trim": "L Laredo",
+      "msrp": 41035,
+      "config": "4x4 (three-row Grand Cherokee L)",
+      "note": "L Laredo 4x2 $39,035"
+     },
+     {
+      "trim": "L Limited",
+      "msrp": 46905,
+      "config": "4x4 (three-row Grand Cherokee L)",
+      "note": "L Limited 4x2 $44,905; L Overland 4x4 $58,995; L Summit 4x4 $60,560"
+     }
+    ],
+    "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=26331&mid=",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2026,
+    "destination": 1995,
+    "trims": [
+     {
+      "trim": "Laredo",
+      "msrp": 37995,
+      "config": "RWD (4x2)",
+      "note": "Article price $39,990 includes $1,995 destination; destination subtracted"
+     },
+     {
+      "trim": "Laredo",
+      "msrp": 39995,
+      "config": "4WD",
+      "note": "Derived: article states '4WD adds $2,000' to the RWD price; not a figure printed by the article"
+     },
+     {
+      "trim": "Laredo X",
+      "msrp": 40490,
+      "config": "RWD (4x2)",
+      "note": "Article price $42,485 incl. destination"
+     },
+     {
+      "trim": "Laredo Altitude",
+      "msrp": 43435,
+      "config": "RWD (4x2)",
+      "note": "Article price $45,430 incl. destination"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 43395,
+      "config": "RWD (4x2)",
+      "note": "Article price $45,390 incl. destination"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 45395,
+      "config": "4WD",
+      "note": "Derived from the stated $2,000 4WD upcharge"
+     },
+     {
+      "trim": "Limited Reserve",
+      "msrp": 50990,
+      "config": "4WD (standard)",
+      "note": "Article price $52,985 incl. destination; Limited Reserve is a package on Limited"
+     },
+     {
+      "trim": "Summit",
+      "msrp": 59995,
+      "config": "4WD (standard)",
+      "note": "Article price $61,990 incl. destination"
+     }
+    ],
+    "source": "https://cars.com/articles/how-much-is-the-2026-jeep-grand-cherokee-521161/",
+    "sourceType": "secondary",
+    "note": ""
+   }
+  ]
+ },
+ {
+  "make": "Nissan",
+  "model": "Altima",
+  "body": "Sedan",
+  "note": "All MSRPs exclude destination (every Nissan release states so). 2016-2018 trim names carry the engine prefix as Nissan wrote them ('2.5 SV', '3.5 SL'). From the all-new 2019 model Nissan prints the grade alone with engine/drive in separate columns; 'config' carries engine and drivetrain and AWD prices are given in row notes (AWD became available in 2019). Sedan only in this period.",
+  "gaps": [
+   "All 11 model years (2016-2026) sourced from usa.nissannews.com pricing releases; no secondary fallback needed.",
+   "2017: a 2017.5 mid-year press kit exists; its pricing was not fetched.",
+   "2023: newsroom page likely reflects a ~$200 mid-year increase (BusinessWire syndication of the same release was titled 'starts at $25,290', page now says $25,490).",
+   "2025: Nissan page destination ($1,245) differs from the $1,140 cars.com reported at launch; MSRPs themselves match. 2025 release lists no Platinum or VC-Turbo.",
+   "2019: AWD rows for each 2.5L trim folded into notes to keep the table to ~7 rows; Edition ONE launch edition noted but not given its own row."
+  ],
+  "years": [
+   {
+    "year": 2016,
+    "destination": 825,
+    "trims": [
+     {
+      "trim": "2.5",
+      "msrp": 22500,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 S",
+      "msrp": 22900,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 SR",
+      "msrp": 24470,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 SV",
+      "msrp": 25460,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 SL",
+      "msrp": 28570,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "3.5 SR",
+      "msrp": 27390,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "3.5 SL",
+      "msrp": 32090,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2016-altima",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2017,
+    "destination": 835,
+    "trims": [
+     {
+      "trim": "2.5",
+      "msrp": 22500,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 S",
+      "msrp": 22900,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 SR",
+      "msrp": 24470,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 SV",
+      "msrp": 25460,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 SL",
+      "msrp": 28570,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "3.5 SR",
+      "msrp": 27990,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "3.5 SL",
+      "msrp": 32690,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2017-altima",
+    "sourceType": "manufacturer",
+    "note": "A separate '2017.5 Nissan Altima' press kit exists on the newsroom (mid-year update); its pricing was not fetched."
+   },
+   {
+    "year": 2018,
+    "destination": 885,
+    "trims": [
+     {
+      "trim": "2.5 S",
+      "msrp": 23140,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 SR",
+      "msrp": 24200,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 SV",
+      "msrp": 25785,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "2.5 SL",
+      "msrp": 28995,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "3.5 SL",
+      "msrp": 33510,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2018-altima",
+    "sourceType": "manufacturer",
+    "note": "Release states the base '2.5' and the '3.5 SR' are no longer available for 2018."
+   },
+   {
+    "year": 2019,
+    "destination": 895,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 23750,
+      "config": "2.5L FWD",
+      "note": "AWD $25,100"
+     },
+     {
+      "trim": "SR",
+      "msrp": 25100,
+      "config": "2.5L FWD",
+      "note": "AWD $26,450"
+     },
+     {
+      "trim": "SV",
+      "msrp": 27930,
+      "config": "2.5L FWD",
+      "note": "AWD $29,280"
+     },
+     {
+      "trim": "SL",
+      "msrp": 29840,
+      "config": "2.5L FWD",
+      "note": "AWD $31,190"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 31780,
+      "config": "2.5L FWD",
+      "note": "AWD $33,130"
+     },
+     {
+      "trim": "SR",
+      "msrp": 29150,
+      "config": "2.0L VC-Turbo FWD",
+      "note": "Release prints the trim as 'SR' with engine '2.0-liter VC-Turbo' (often written '2.0 SR')."
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 34780,
+      "config": "2.0L VC-Turbo FWD",
+      "note": "Often written '2.0 Platinum'. Launch-only Edition ONE (VC-Turbo FWD) listed at $35,750."
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-all-new-2019-altima-features-expressive-design-two-new-engines-available-all-wheel-drive-and-nissan-safety-shield-360",
+    "sourceType": "manufacturer",
+    "note": "All-new generation. From 2019 the release drops the '2.5'/'3.5' prefixes and lists engine and drive in separate columns; 'config' carries them here. AWD prices for each 2.5L trim are in the row notes."
+   },
+   {
+    "year": 2020,
+    "destination": 895,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 24100,
+      "config": "2.5L FWD",
+      "note": "AWD $25,450"
+     },
+     {
+      "trim": "SR",
+      "msrp": 25700,
+      "config": "2.5L FWD",
+      "note": "AWD $27,050"
+     },
+     {
+      "trim": "SV",
+      "msrp": 27880,
+      "config": "2.5L FWD",
+      "note": "AWD $29,230"
+     },
+     {
+      "trim": "SL",
+      "msrp": 30240,
+      "config": "2.5L FWD",
+      "note": "AWD $31,590"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 32180,
+      "config": "2.5L FWD",
+      "note": "AWD $33,530"
+     },
+     {
+      "trim": "SR",
+      "msrp": 29750,
+      "config": "2.0L VC-Turbo FWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 35180,
+      "config": "2.0L VC-Turbo FWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-us-pricing-for-2020-altima-with-expanded-availability-of-nissan-safety-shield-360-across-the-entire-lineup",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2021,
+    "destination": 925,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 24300,
+      "config": "2.5L FWD",
+      "note": "FWD only"
+     },
+     {
+      "trim": "SV",
+      "msrp": 25400,
+      "config": "2.5L FWD",
+      "note": "AWD $26,800"
+     },
+     {
+      "trim": "SR",
+      "msrp": 26200,
+      "config": "2.5L FWD",
+      "note": "AWD $27,600"
+     },
+     {
+      "trim": "SL",
+      "msrp": 29990,
+      "config": "2.5L FWD",
+      "note": "AWD $31,390"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 34100,
+      "config": "2.5L AWD",
+      "note": "AWD only for 2021"
+     },
+     {
+      "trim": "SR",
+      "msrp": 30650,
+      "config": "2.0L VC-Turbo FWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/2021-nissan-altima-us-msrp-starts-at-24300",
+    "sourceType": "manufacturer",
+    "note": "Lineup reshuffled: SV now sits below SR; Platinum becomes AWD-only; 2.0 VC-Turbo Platinum dropped."
+   },
+   {
+    "year": 2022,
+    "destination": 1025,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 24550,
+      "config": "2.5L FWD",
+      "note": "FWD only"
+     },
+     {
+      "trim": "SV",
+      "msrp": 25550,
+      "config": "2.5L FWD",
+      "note": "AWD $26,950"
+     },
+     {
+      "trim": "SR",
+      "msrp": 26550,
+      "config": "2.5L FWD",
+      "note": "AWD $27,950"
+     },
+     {
+      "trim": "SL",
+      "msrp": 29990,
+      "config": "2.5L FWD",
+      "note": "AWD $31,390"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 34250,
+      "config": "2.5L AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "SR",
+      "msrp": 30900,
+      "config": "2.0L VC-Turbo FWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/2022-nissan-altima-pricing-starts-at-24550",
+    "sourceType": "manufacturer",
+    "note": "Page shows 'Updated January 6, 2022'; figures recorded as the page stands."
+   },
+   {
+    "year": 2023,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 25490,
+      "config": "2.5L FWD",
+      "note": "FWD only"
+     },
+     {
+      "trim": "SV",
+      "msrp": 26290,
+      "config": "2.5L FWD",
+      "note": "AWD $27,790"
+     },
+     {
+      "trim": "SR",
+      "msrp": 27690,
+      "config": "2.5L FWD",
+      "note": "AWD $29,190"
+     },
+     {
+      "trim": "SL",
+      "msrp": 32190,
+      "config": "2.5L FWD",
+      "note": "AWD $33,690"
+     },
+     {
+      "trim": "SR VC-Turbo",
+      "msrp": 35190,
+      "config": "2.0L VC-Turbo FWD",
+      "note": "Printed as 'SR VC-Turbo FWD' from 2023 on."
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/new-2023-nissan-altima-pricing-starts-at-25490",
+    "sourceType": "manufacturer",
+    "note": "Refreshed model. The newsroom page (metadata modified 2023-03-03) is titled 'starts at $25,490', but the same release as syndicated on BusinessWire on 2022-09-21 was titled 'starts at $25,290', so the recorded figures likely include a mid-year increase of about $200. Platinum grade dropped."
+   },
+   {
+    "year": 2024,
+    "destination": 1115,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 25730,
+      "config": "2.5L FWD",
+      "note": "FWD only"
+     },
+     {
+      "trim": "SV",
+      "msrp": 26530,
+      "config": "2.5L FWD",
+      "note": "AWD $28,030"
+     },
+     {
+      "trim": "SR",
+      "msrp": 27930,
+      "config": "2.5L FWD",
+      "note": "AWD $29,430"
+     },
+     {
+      "trim": "SL",
+      "msrp": 32430,
+      "config": "2.5L FWD",
+      "note": "AWD $33,930"
+     },
+     {
+      "trim": "SR VC-Turbo",
+      "msrp": 35430,
+      "config": "2.0L VC-Turbo FWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/2024-nissan-altima-pricing-starts-at-25730",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2025,
+    "destination": 1245,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 27000,
+      "config": "2.5L FWD",
+      "note": "FWD only"
+     },
+     {
+      "trim": "SV",
+      "msrp": 27430,
+      "config": "2.5L FWD",
+      "note": "AWD $28,930. SV Special Edition is a package, no separate MSRP on the Nissan page (cars.com: +$1,090)."
+     },
+     {
+      "trim": "SR",
+      "msrp": 28830,
+      "config": "2.5L FWD",
+      "note": "AWD $30,330"
+     },
+     {
+      "trim": "SL",
+      "msrp": 33330,
+      "config": "2.5L FWD",
+      "note": "AWD $34,830"
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/2025-nissan-altima-adds-a-new-sv-special-edition-package",
+    "sourceType": "manufacturer",
+    "note": "VC-Turbo and Platinum no longer listed. Page metadata shows a 2026-01-26 modification. MSRPs match the launch figures reported by cars.com on 2024-12-13 ($28,140/$28,570/$29,970/$34,470 incl. destination), but cars.com quoted a $1,140 destination at that time versus $1,245 on the Nissan page now, so destination appears to have risen mid-cycle."
+   },
+   {
+    "year": 2026,
+    "destination": 1275,
+    "trims": [
+     {
+      "trim": "SV",
+      "msrp": 27580,
+      "config": "2.5L FWD",
+      "note": "AWD $28,980"
+     },
+     {
+      "trim": "SR",
+      "msrp": 29080,
+      "config": "2.5L FWD",
+      "note": "AWD $30,480"
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/2026-nissan-altima-priced-from-27580",
+    "sourceType": "manufacturer",
+    "note": "Only SV and SR grades for 2026 (S and SL dropped). SV Special Edition, SV Premium, SR Premium and SR Midnight Edition are packages with no separate MSRP given."
+   }
+  ]
+ },
+ {
+  "make": "Nissan",
+  "model": "Rogue",
+  "body": "SUV / Crossover",
+  "note": "All MSRPs exclude destination (every Nissan release states 'MSRP excludes applicable tax, title, license fees and destination charges'). Rows list each trim in FWD and AWD because AWD is a large share of used Rogues; 'config' holds the drivetrain. Rogue Sport (a different, smaller model) is excluded. Rogue Hybrid (2017-2019) was a regional, low-volume regular-production trim; only its SV rows are listed, SL hybrid prices are in the notes.",
+  "gaps": [
+   "All 11 model years (2016-2026) sourced from usa.nissannews.com pricing releases; no secondary fallback needed except two supplemental 2026 SL rows from cars.com (marked SECONDARY in the row notes).",
+   "2022: the Nissan pricing page was updated 2022-06-07; recorded figures are the current page values and may include a mid-year increase over the original launch pricing.",
+   "2023: page slug says 'starts at $27,760' while the body/table say $27,360 (table recorded); page metadata shows a 2023-10-04 modification.",
+   "2026: newsroom release was rewritten in Feb 2026 to 2026.5 pricing (SL dropped, Dark Armor added, destination $1,575). Original 2026 launch pricing with SL is not available on the manufacturer site; SL rows come from cars.com.",
+   "Rogue Hybrid: only SV FWD/AWD rows included for 2017-2019 (SL hybrid prices noted). 2020 release lists no hybrid."
+  ],
+  "years": [
+   {
+    "year": 2016,
+    "destination": 885,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 23240,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 24690,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 28640,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 24590,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 26040,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 29990,
+      "config": "AWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2016-rogue",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2017,
+    "destination": 940,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 23820,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 25240,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 29960,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 25170,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 26590,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 31310,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV Hybrid",
+      "msrp": 26240,
+      "config": "FWD",
+      "note": "From separate release 2017-01-26: https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-new-2017-rogue-hybrid (dest $940). Same release: SL Hybrid FWD $31,160, SL Hybrid AWD $32,510. Hybrid initially sold only in West/Northwest/Mountain regions."
+     },
+     {
+      "trim": "SV Hybrid",
+      "msrp": 27590,
+      "config": "AWD",
+      "note": "From the 2017 Rogue Hybrid release (see SV Hybrid FWD note)."
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2017-rogue",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2018,
+    "destination": 975,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 24680,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 25900,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 31060,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 26030,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 27250,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 32410,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "Hybrid SV",
+      "msrp": 27020,
+      "config": "FWD",
+      "note": "From separate release 2018-05-01: https://usa.nissannews.com/en-US/releases/release-51e04d52f994485c819735f533c2b072-nissan-announces-u-s-pricing-for-2018-rogue-hybrid (dest $975). Same release: Hybrid SL FWD $32,380, Hybrid SL AWD $33,730. Sold in West, Northwest, Mountain and Mid-Atlantic regions only."
+     },
+     {
+      "trim": "Hybrid SV",
+      "msrp": 28370,
+      "config": "AWD",
+      "note": "From the 2018 Rogue Hybrid release (see Hybrid SV FWD note)."
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2018-rogue-first-u-s-vehicle-to-offer-advanced-propilot-assist-technology",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2019,
+    "destination": 995,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 24800,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 26220,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 31390,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 26150,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 27570,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 32740,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "Hybrid SV",
+      "msrp": 27600,
+      "config": "FWD",
+      "note": "Same release. Also listed: Hybrid SL FWD $31,540, Hybrid SL AWD $32,890. Hybrid offered in West, Northwest, Mountain and Mid-Atlantic regions."
+     },
+     {
+      "trim": "Hybrid SV",
+      "msrp": 28950,
+      "config": "AWD",
+      "note": "Same release."
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2019-rogue-enhancements-include-standard-rear-door-alert-available-rear-automatic-braking",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2020,
+    "destination": 1045,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 25200,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 26620,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 31590,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 26550,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 27970,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 32940,
+      "config": "AWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-us-pricing-for-2020-rogue",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2021,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 25650,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 27340,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 32000,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 35430,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 27050,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 28740,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 33400,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 36830,
+      "config": "AWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/all-new-2021-nissan-rogue-us-msrp-starts-at-25650",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2022,
+    "destination": 1295,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 27150,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 28840,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 33500,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 36930,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 28650,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 30340,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 35000,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 38430,
+      "config": "AWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/2022-nissan-rogue-pricing",
+    "sourceType": "manufacturer",
+    "note": "Nissan pricing page dated 2022-01-06 and marked 'updated June 7, 2022'; figures are as the page stands now and may reflect a mid-year adjustment rather than the original fall-2021 launch prices. All 2022 Rogues use the 1.5L VC-Turbo."
+   },
+   {
+    "year": 2023,
+    "destination": 1365,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 27360,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 29050,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 33710,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 37140,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 28860,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 30550,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 35210,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 38640,
+      "config": "AWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/2023-nissan-rogue-pricing-starts-at-27760",
+    "sourceType": "manufacturer",
+    "note": "URL slug/meta say 'starts at $27,760' but the page title, body and table all say $27,360 for S FWD; table values recorded."
+   },
+   {
+    "year": 2024,
+    "destination": 1365,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 28320,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 30010,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 35170,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 38600,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 29820,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 31510,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 36670,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 40100,
+      "config": "AWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/2024-nissan-rogue-pricing-starts-at-28320",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2025,
+    "destination": 1390,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 29230,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 30970,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 36090,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 39520,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 30630,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 32370,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "Rock Creek",
+      "msrp": 35420,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "SL",
+      "msrp": 37490,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 40920,
+      "config": "AWD",
+      "note": ""
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/2025-nissan-rogue-pricing-starts-at-29230",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2026,
+    "destination": 1575,
+    "trims": [
+     {
+      "trim": "S",
+      "msrp": 29490,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 30490,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "Dark Armor",
+      "msrp": 33340,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 35990,
+      "config": "FWD",
+      "note": "SECONDARY: not on the Nissan page as it now stands; from cars.com research page https://www.cars.com/research/nissan-rogue-2026 (trim list 'Starts at', which sits exactly $1,545 below the page's destination-inclusive prices). Cars.com says SL was superseded by Dark Armor in the 2026.5 update."
+     },
+     {
+      "trim": "S",
+      "msrp": 30890,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SV",
+      "msrp": 31890,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "Rock Creek",
+      "msrp": 34390,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "Dark Armor",
+      "msrp": 34740,
+      "config": "AWD",
+      "note": ""
+     },
+     {
+      "trim": "SL",
+      "msrp": 37390,
+      "config": "AWD",
+      "note": "SECONDARY: cars.com research page (see SL FWD note)."
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 39390,
+      "config": "AWD",
+      "note": "AWD only on the current page"
+     }
+    ],
+    "source": "https://usa.nissannews.com/en-US/releases/20265-nissan-rogue-priced-from-29490-adds-striking-new-dark-armor-grade",
+    "sourceType": "manufacturer",
+    "note": "Nissan release originally dated 2025-07-29 was 'Updated February 2026 to reflect the mid-cycle model change' and now carries 2026.5 pricing: SL grade, SV Premium Package and Platinum Technology Package are not available for 2026.5. Original 2026 launch figures are no longer displayed on the newsroom page. Cars.com quotes a $1,545 destination fee (as of Aug 2026) versus the $1,575 on the Nissan page; Nissan's figure recorded."
+   }
+  ]
  }
 ]

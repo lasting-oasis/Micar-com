@@ -1,0 +1,233 @@
+{
+  "make": "Jeep",
+  "model": "Grand Cherokee",
+  "body": "SUV / Crossover",
+  "note": "Two generations overlap in this range. WK2 (4th gen, two-row, 115-in wheelbase) covers 2016-2021. The WL (5th gen) arrived first as the three-row 2021 Grand Cherokee L (official pricing June 7, 2021, while the two-row 2021 model on sale was still WK2), then as the two-row 2022 Grand Cherokee (official pricing Nov 3, 2021) and the 2022 Grand Cherokee 4xe plug-in hybrid (Jan 26, 2022). 2021 therefore has two entries below, one per generation; each year entry carries a `generation` field. Any 2022 carry-over WK2 sale is not priced here (no source fetched). Grand Cherokee L (three-row) prices are included only where the fetched source listed them (2021 L entry, 2025 rows). MSRP excludes destination. Stellantis/FCA did not publish full U.S. lineup pricing releases for the WK2 model years or for 2023-2024, so those years rely on cars.com research pages (label 'MSRP'; destination not stated on those pages, so `destination` is null unless an official figure was found).",
+  "years": [
+    {
+      "year": 2016,
+      "generation": "WK2 (two-row)",
+      "destination": null,
+      "trims": [
+        { "trim": "Laredo", "msrp": 29995, "config": "4x2", "note": "75th Anniversary (Laredo-based) listed at the same price" },
+        { "trim": "Laredo", "msrp": 32295, "config": "4x4", "note": "" },
+        { "trim": "Limited", "msrp": 37565, "config": "4x2", "note": "Limited 75th Anniversary same price" },
+        { "trim": "Limited", "msrp": 39565, "config": "4x4", "note": "" },
+        { "trim": "Overland", "msrp": 44395, "config": "4x2", "note": "High Altitude listed at the same price" },
+        { "trim": "Overland", "msrp": 47395, "config": "4x4", "note": "" },
+        { "trim": "Summit", "msrp": 52795, "config": "4x4", "note": "Summit 4x2 listed at $49,795" },
+        { "trim": "SRT", "msrp": 65695, "config": "4x4", "note": "SRT Night same price" }
+      ],
+      "source": "https://www.cars.com/research/jeep-grand_cherokee-2016/specs/",
+      "source_type": "secondary",
+      "source_note": "Official 2016 press-kit/overview pages on media.stellantisnorthamerica.com (ids 16945, 16739) contain no pricing."
+    },
+    {
+      "year": 2017,
+      "generation": "WK2 (two-row)",
+      "destination": null,
+      "trims": [
+        { "trim": "Laredo", "msrp": 30395, "config": "4x2", "note": "Altitude and 75th Anniversary Edition listed at the same price (limited availability)" },
+        { "trim": "Laredo", "msrp": 32695, "config": "4x4", "note": "" },
+        { "trim": "Limited", "msrp": 37995, "config": "4x2", "note": "" },
+        { "trim": "Limited", "msrp": 39995, "config": "4x4", "note": "" },
+        { "trim": "Trailhawk", "msrp": 43095, "config": "4x4", "note": "Trailhawk new for 2017" },
+        { "trim": "Overland", "msrp": 47795, "config": "4x4", "note": "Overland 4x2 listed at $44,795" },
+        { "trim": "Summit", "msrp": 53495, "config": "4x4", "note": "Summit 4x2 listed at $50,495" },
+        { "trim": "SRT", "msrp": 66895, "config": "4x4", "note": "" }
+      ],
+      "source": "https://www.cars.com/research/jeep-grand_cherokee-2017/specs/",
+      "source_type": "secondary",
+      "source_note": "Official 2017 fact sheet (id 17593) and Trailhawk/Summit launch release (id 17373) contain no pricing."
+    },
+    {
+      "year": 2018,
+      "generation": "WK2 (two-row)",
+      "destination": 1095,
+      "trims": [
+        { "trim": "Laredo", "msrp": 30895, "config": "4x2", "note": "Laredo E and Altitude listed at the same price" },
+        { "trim": "Laredo", "msrp": 33195, "config": "4x4", "note": "Laredo E, Altitude and Upland 4x4 same price" },
+        { "trim": "Limited", "msrp": 38495, "config": "4x2", "note": "Sterling Edition same price" },
+        { "trim": "Limited", "msrp": 40495, "config": "4x4", "note": "" },
+        { "trim": "Trailhawk", "msrp": 43595, "config": "4x4", "note": "" },
+        { "trim": "Overland", "msrp": 48295, "config": "4x4", "note": "Overland 4x2 $45,295; High Altitude same prices as Overland" },
+        { "trim": "Summit", "msrp": 53995, "config": "4x4", "note": "Summit 4x2 listed at $50,995" },
+        { "trim": "SRT", "msrp": 67695, "config": "4x4", "note": "" },
+        { "trim": "Trackhawk", "msrp": 85900, "config": "4x4", "note": "MANUFACTURER figure: Stellantis release id 18493 (Aug 8, 2017) 'starting U.S. MSRP of $85,900' plus '$1,095 destination'. cars.com shows $86,200 for the same trim, i.e. a $300 difference (possible later increase)." }
+      ],
+      "source": "https://www.cars.com/research/jeep-grand_cherokee-2018/specs/",
+      "source_type": "secondary",
+      "source_note": "Destination $1,095 taken from the official Trackhawk pricing release https://media.stellantisnorthamerica.com/newsrelease.do?id=18493 (the only official 2018 Grand Cherokee pricing found). Other trims from cars.com."
+    },
+    {
+      "year": 2019,
+      "generation": "WK2 (two-row)",
+      "destination": null,
+      "trims": [
+        { "trim": "Laredo", "msrp": 32195, "config": "4x2", "note": "Laredo E, Upland and Altitude listed at the same price" },
+        { "trim": "Laredo", "msrp": 34495, "config": "4x4", "note": "" },
+        { "trim": "Limited", "msrp": 39445, "config": "4x2", "note": "Limited X same price" },
+        { "trim": "Limited", "msrp": 41445, "config": "4x4", "note": "" },
+        { "trim": "Trailhawk", "msrp": 44545, "config": "4x4", "note": "" },
+        { "trim": "Overland", "msrp": 49245, "config": "4x4", "note": "Overland 4x2 $46,245; High Altitude same prices" },
+        { "trim": "Summit", "msrp": 54945, "config": "4x4", "note": "Summit 4x2 listed at $51,945" },
+        { "trim": "SRT", "msrp": 68645, "config": "4x4", "note": "Trackhawk 4x4 listed at $87,150" }
+      ],
+      "source": "https://www.cars.com/research/jeep-grand_cherokee-2019/specs/",
+      "source_type": "secondary",
+      "source_note": "No official 2019 pricing release found on the Stellantis media site (fact sheets carry no prices)."
+    },
+    {
+      "year": 2020,
+      "generation": "WK2 (two-row)",
+      "destination": null,
+      "trims": [
+        { "trim": "Laredo E", "msrp": 32150, "config": "4x2", "note": "cars.com lists Laredo E, Laredo and Altitude 4x2 all at $32,150" },
+        { "trim": "Laredo E", "msrp": 34450, "config": "4x4", "note": "Laredo and Altitude 4x4 same price" },
+        { "trim": "Limited", "msrp": 39955, "config": "4x2", "note": "Limited X same price" },
+        { "trim": "Limited", "msrp": 41955, "config": "4x4", "note": "" },
+        { "trim": "Trailhawk", "msrp": 45155, "config": "4x4", "note": "" },
+        { "trim": "Overland", "msrp": 49695, "config": "4x4", "note": "Overland 4x2 $46,695; High Altitude same prices" },
+        { "trim": "Summit", "msrp": 55495, "config": "4x4", "note": "Summit 4x2 listed at $52,495" },
+        { "trim": "SRT", "msrp": 68895, "config": "4x4", "note": "Trackhawk 4x4 listed at $87,400" }
+      ],
+      "source": "https://www.cars.com/research/jeep-grand_cherokee-2020/specs/",
+      "source_type": "secondary",
+      "source_note": "No official 2020 pricing release found."
+    },
+    {
+      "year": 2021,
+      "generation": "WK2 (two-row)",
+      "destination": null,
+      "trims": [
+        { "trim": "Laredo E", "msrp": 33885, "config": "4x2", "note": "Laredo X and Freedom edition listed at the same price" },
+        { "trim": "Laredo E", "msrp": 36210, "config": "4x4", "note": "Laredo X and Freedom 4x4 same price" },
+        { "trim": "Limited", "msrp": 41835, "config": "4x2", "note": "Limited X and 80th Anniversary same price" },
+        { "trim": "Limited", "msrp": 43855, "config": "4x4", "note": "" },
+        { "trim": "Trailhawk", "msrp": 47105, "config": "4x4", "note": "" },
+        { "trim": "Overland", "msrp": 51505, "config": "4x4", "note": "Overland 4x2 $48,475; High Altitude listed at the same prices" },
+        { "trim": "Summit", "msrp": 57580, "config": "4x4", "note": "Summit 4x2 listed at $54,550" },
+        { "trim": "SRT", "msrp": 71270, "config": "4x4", "note": "Trackhawk 4x4 listed at $90,070" }
+      ],
+      "source": "https://www.cars.com/research/jeep-grand_cherokee-2021/specs/",
+      "source_type": "secondary",
+      "source_note": "Two-row 2021 Grand Cherokee is still the WK2 (cars.com page shows 5 seats, 115-in wheelbase). cars.com also showed two inconsistent 'High Altitude' rows at $36,190/$37,690 that were omitted. The official June 2021 Grand Cherokee L release confirms the all-new two-row WL did not debut until later in 2021."
+    },
+    {
+      "year": 2021,
+      "generation": "WL (Grand Cherokee L, three-row)",
+      "destination": 1695,
+      "trims": [
+        { "trim": "L Laredo", "msrp": 36995, "config": "4x2 V-6", "note": "" },
+        { "trim": "L Laredo", "msrp": 38995, "config": "4x4 V-6", "note": "" },
+        { "trim": "L Altitude", "msrp": 42195, "config": "4x4 V-6", "note": "Altitude 4x2 $40,195" },
+        { "trim": "L Limited", "msrp": 43995, "config": "4x2 V-6", "note": "" },
+        { "trim": "L Limited", "msrp": 45995, "config": "4x4 V-6", "note": "" },
+        { "trim": "L Overland", "msrp": 54995, "config": "4x4 V-6", "note": "Overland 4x2 $52,995; 4x4 V-8 $58,290" },
+        { "trim": "L Summit", "msrp": 58995, "config": "4x4 V-6", "note": "Summit 4x2 $56,995; 4x4 V-8 $62,290" },
+        { "trim": "L Summit Reserve", "msrp": 61995, "config": "4x4 V-6", "note": "4x4 V-8 $65,290; Summit Reserve is a package on Summit" }
+      ],
+      "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=22540&mid=49",
+      "source_type": "manufacturer",
+      "source_note": "'Jeep Announces Starting Prices for the All-new 2021 Grand Cherokee L Lineup', June 7, 2021; 'All prices exclude $1,695 destination charge'. Three-row model; listed separately from the two-row WK2 2021 entry above."
+    },
+    {
+      "year": 2022,
+      "generation": "WL (two-row; first year)",
+      "destination": 1795,
+      "trims": [
+        { "trim": "Laredo", "msrp": 37390, "config": "4x2 V-6", "note": "" },
+        { "trim": "Laredo", "msrp": 39390, "config": "4x4 V-6", "note": "" },
+        { "trim": "Altitude", "msrp": 43945, "config": "4x4 V-6", "note": "Altitude is a Laredo package; 4x2 $41,945" },
+        { "trim": "Limited", "msrp": 43710, "config": "4x2 V-6", "note": "" },
+        { "trim": "Limited", "msrp": 45710, "config": "4x4 V-6", "note": "" },
+        { "trim": "Trailhawk", "msrp": 51275, "config": "4x4 V-6", "note": "4x4 V-8 $54,570; 4x4 only" },
+        { "trim": "Overland", "msrp": 55305, "config": "4x4 V-6", "note": "4x2 $53,305; 4x4 V-8 $58,600" },
+        { "trim": "Summit", "msrp": 59365, "config": "4x4 V-6", "note": "4x2 $57,365; 4x4 V-8 $62,660" },
+        { "trim": "Summit Reserve", "msrp": 63365, "config": "4x4 V-6", "note": "4x4 V-8 $66,660; package on Summit" },
+        { "trim": "4xe", "msrp": 57700, "config": "4x4 2.0T plug-in hybrid", "note": "From the 2022 Grand Cherokee 4xe pricing release (Jan 26, 2022, https://media.stellantisnorthamerica.com/newsrelease.do?id=23497&mid=4; excludes $1,795 destination). Also: Trailhawk 4xe $62,485, Overland 4xe $65,760, Summit 4xe $69,820, Summit Reserve 4xe $74,300." }
+      ],
+      "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=23236&mid=1",
+      "source_type": "manufacturer",
+      "source_note": "'Jeep Brand Announces Starting Prices for the All-new 2022 Grand Cherokee Lineup', Nov 3, 2021; 'all prices exclude $1,795 destination'. Same table also appeared at newsrelease.do?id=20074. 2022 Grand Cherokee L prices were not fetched."
+    },
+    {
+      "year": 2023,
+      "generation": "WL (two-row)",
+      "destination": null,
+      "trims": [
+        { "trim": "Laredo", "msrp": 40035, "config": "4x2", "note": "cars.com lists Laredo, Laredo A, Laredo X, Altitude and Altitude X 4x2 all at $40,035" },
+        { "trim": "Laredo", "msrp": 42035, "config": "4x4", "note": "Laredo X / Altitude / Altitude X 4x4 same price" },
+        { "trim": "Limited", "msrp": 49405, "config": "4x2", "note": "" },
+        { "trim": "Limited", "msrp": 51405, "config": "4x4", "note": "" },
+        { "trim": "Overland", "msrp": 64995, "config": "4x4", "note": "Overland 4x2 listed at $62,995" },
+        { "trim": "Summit", "msrp": 66560, "config": "4x4", "note": "Summit 4x2 listed at $64,560; cars.com shows Summit Reserve 4x4 at the same $66,560, which looks like a package not priced separately" }
+      ],
+      "source": "https://www.cars.com/research/jeep-grand_cherokee-2023/specs/",
+      "source_type": "secondary",
+      "source_note": "Official 2023 'What's New' press kit (id 23864, June 30, 2022) has no prices; it notes the Trailhawk became 4xe-only for 2023. No 4xe prices on the cars.com page. The 2023 figures are notably higher than 2022 launch prices and 2024-2025 prices (Jeep cut prices for 2025), so they may reflect late-2023 model-year pricing."
+    },
+    {
+      "year": 2024,
+      "generation": "WL (two-row)",
+      "destination": null,
+      "trims": [
+        { "trim": "Laredo", "msrp": 38035, "config": "4x2", "note": "cars.com lists Laredo, Laredo A, Laredo X, Altitude and Altitude X 4x2 all at $38,035" },
+        { "trim": "Laredo", "msrp": 40035, "config": "4x4", "note": "" },
+        { "trim": "Limited", "msrp": 45905, "config": "4x2", "note": "" },
+        { "trim": "Limited", "msrp": 47905, "config": "4x4", "note": "" },
+        { "trim": "Overland", "msrp": 60995, "config": "4x4", "note": "No 4x2 Overland listed" },
+        { "trim": "Summit", "msrp": 62560, "config": "4x4", "note": "cars.com shows Summit Reserve 4x4 at the same $62,560 (package)" }
+      ],
+      "source": "https://www.cars.com/research/jeep-grand_cherokee-2024/specs/",
+      "source_type": "secondary",
+      "source_note": "Official 2024 'What's New' press kit (id 25142) has no prices (only change noted: new standard 18-in wheels on Limited). No Trailhawk/4xe rows on the cars.com page."
+    },
+    {
+      "year": 2025,
+      "generation": "WL (two-row; L rows marked)",
+      "destination": 1795,
+      "trims": [
+        { "trim": "Laredo", "msrp": 37035, "config": "4x2", "note": "" },
+        { "trim": "Laredo", "msrp": 39035, "config": "4x4", "note": "" },
+        { "trim": "Limited", "msrp": 42905, "config": "4x2", "note": "" },
+        { "trim": "Limited", "msrp": 44905, "config": "4x4", "note": "" },
+        { "trim": "Overland", "msrp": 56995, "config": "4x4", "note": "4x4 only" },
+        { "trim": "Summit", "msrp": 58560, "config": "4x4", "note": "4x4 only" },
+        { "trim": "Limited 4xe", "msrp": 60490, "config": "4x4 plug-in hybrid", "note": "4xe also: Trailhawk 4xe $66,185, Overland 4xe $73,480, Summit 4xe $74,670" },
+        { "trim": "L Laredo", "msrp": 41035, "config": "4x4 (three-row Grand Cherokee L)", "note": "L Laredo 4x2 $39,035" },
+        { "trim": "L Limited", "msrp": 46905, "config": "4x4 (three-row Grand Cherokee L)", "note": "L Limited 4x2 $44,905; L Overland 4x4 $58,995; L Summit 4x4 $60,560" }
+      ],
+      "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=26331&mid=",
+      "source_type": "manufacturer",
+      "source_note": "'Jeep Brand Enhances Affordability of Iconic Grand Cherokee Lineup for 2025', Oct 21, 2024; destination $1,795. Release does not list Laredo X/Altitude or Summit Reserve prices; Trailhawk exists only as 4xe."
+    },
+    {
+      "year": 2026,
+      "generation": "WL refresh (Hurricane 4 turbo)",
+      "destination": 1995,
+      "trims": [
+        { "trim": "Laredo", "msrp": 37995, "config": "RWD (4x2)", "note": "Article price $39,990 includes $1,995 destination; destination subtracted" },
+        { "trim": "Laredo", "msrp": 39995, "config": "4WD", "note": "Derived: article states '4WD adds $2,000' to the RWD price; not a figure printed by the article" },
+        { "trim": "Laredo X", "msrp": 40490, "config": "RWD (4x2)", "note": "Article price $42,485 incl. destination" },
+        { "trim": "Laredo Altitude", "msrp": 43435, "config": "RWD (4x2)", "note": "Article price $45,430 incl. destination" },
+        { "trim": "Limited", "msrp": 43395, "config": "RWD (4x2)", "note": "Article price $45,390 incl. destination" },
+        { "trim": "Limited", "msrp": 45395, "config": "4WD", "note": "Derived from the stated $2,000 4WD upcharge" },
+        { "trim": "Limited Reserve", "msrp": 50990, "config": "4WD (standard)", "note": "Article price $52,985 incl. destination; Limited Reserve is a package on Limited" },
+        { "trim": "Summit", "msrp": 59995, "config": "4WD (standard)", "note": "Article price $61,990 incl. destination" }
+      ],
+      "source": "https://cars.com/articles/how-much-is-the-2026-jeep-grand-cherokee-521161/",
+      "source_type": "secondary",
+      "source_note": "cars.com article 'How Much Is the 2026 Jeep Grand Cherokee?' (Feb 3, 2026) states 'all prices include $1,995 destination fee', so $1,995 was subtracted to get MSRP. Grand Cherokee L 'adds $2,000' per the article. The official Oct 28, 2025 Stellantis release (id 27165) names Laredo, Laredo X, Laredo Altitude, Limited (with Limited Reserve / Limited Altitude packages) and Summit but says prices 'will be announced at a later date'; no later official pricing release was found in two searches."
+    }
+  ],
+  "gaps": [
+    "2016, 2017, 2019, 2020, 2021 (WK2): no official U.S. pricing releases exist on media.stellantisnorthamerica.com (fact sheets and overview releases carry no MSRPs); cars.com research/specs pages used. Destination charge not stated on those pages (null).",
+    "2018: only the Trackhawk has an official price ($85,900 + $1,095 destination); other trims from cars.com.",
+    "2021: two entries (WK2 two-row from cars.com; WL Grand Cherokee L from the official June 2021 release). No official 2021 WK2 two-row pricing found.",
+    "2022: WL two-row and 4xe are official; 2022 Grand Cherokee L and any 2022 WK2 carry-over not priced.",
+    "2023, 2024: no official pricing releases found (press kits are 'What's New' pages without prices); cars.com used. cars.com shows Summit Reserve at the same price as Summit for both years, which is likely a package-not-priced artifact.",
+    "2026: no official pricing release found as of this session; cars.com article (Feb 3, 2026) used, prices include $1,995 destination and were converted; 4WD rows for Laredo/Limited are derived from the stated $2,000 upcharge. Summit Reserve, Trailhawk and 4xe not priced for 2026.",
+    "Stellantis media 'pdf.do?id=' links do not map to the same release IDs as 'newsrelease.do?id=' (pdf.do?id=18353 returned a 2015 release)."
+  ]
+}

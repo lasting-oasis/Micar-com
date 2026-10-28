@@ -1,0 +1,639 @@
+{
+  "make": "Nissan",
+  "model": "Rogue",
+  "body": "SUV / Crossover",
+  "note": "All MSRPs exclude destination (every Nissan release states 'MSRP excludes applicable tax, title, license fees and destination charges'). Rows list each trim in FWD and AWD because AWD is a large share of used Rogues; 'config' holds the drivetrain. Rogue Sport (a different, smaller model) is excluded. Rogue Hybrid (2017-2019) was a regional, low-volume regular-production trim; only its SV rows are listed, SL hybrid prices are in the notes.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 885,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 23240,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 24690,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 28640,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 24590,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 26040,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 29990,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2016-rogue",
+      "source_type": "manufacturer",
+      "release_date": "2015-10-26"
+    },
+    {
+      "year": 2017,
+      "destination": 940,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 23820,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 25240,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 29960,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 25170,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 26590,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 31310,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV Hybrid",
+          "msrp": 26240,
+          "config": "FWD",
+          "note": "From separate release 2017-01-26: https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-new-2017-rogue-hybrid (dest $940). Same release: SL Hybrid FWD $31,160, SL Hybrid AWD $32,510. Hybrid initially sold only in West/Northwest/Mountain regions."
+        },
+        {
+          "trim": "SV Hybrid",
+          "msrp": 27590,
+          "config": "AWD",
+          "note": "From the 2017 Rogue Hybrid release (see SV Hybrid FWD note)."
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2017-rogue",
+      "source_type": "manufacturer",
+      "release_date": "2016-10-14"
+    },
+    {
+      "year": 2018,
+      "destination": 975,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24680,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 25900,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 31060,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 26030,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 27250,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 32410,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Hybrid SV",
+          "msrp": 27020,
+          "config": "FWD",
+          "note": "From separate release 2018-05-01: https://usa.nissannews.com/en-US/releases/release-51e04d52f994485c819735f533c2b072-nissan-announces-u-s-pricing-for-2018-rogue-hybrid (dest $975). Same release: Hybrid SL FWD $32,380, Hybrid SL AWD $33,730. Sold in West, Northwest, Mountain and Mid-Atlantic regions only."
+        },
+        {
+          "trim": "Hybrid SV",
+          "msrp": 28370,
+          "config": "AWD",
+          "note": "From the 2018 Rogue Hybrid release (see Hybrid SV FWD note)."
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2018-rogue-first-u-s-vehicle-to-offer-advanced-propilot-assist-technology",
+      "source_type": "manufacturer",
+      "release_date": "2017-10-17"
+    },
+    {
+      "year": 2019,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24800,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 26220,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 31390,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 26150,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 27570,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 32740,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Hybrid SV",
+          "msrp": 27600,
+          "config": "FWD",
+          "note": "Same release. Also listed: Hybrid SL FWD $31,540, Hybrid SL AWD $32,890. Hybrid offered in West, Northwest, Mountain and Mid-Atlantic regions."
+        },
+        {
+          "trim": "Hybrid SV",
+          "msrp": 28950,
+          "config": "AWD",
+          "note": "Same release."
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2019-rogue-enhancements-include-standard-rear-door-alert-available-rear-automatic-braking",
+      "source_type": "manufacturer",
+      "release_date": "2018-09-13"
+    },
+    {
+      "year": 2020,
+      "destination": 1045,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 25200,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 26620,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 31590,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 26550,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 27970,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 32940,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-us-pricing-for-2020-rogue",
+      "source_type": "manufacturer",
+      "release_date": "2019-07-23"
+    },
+    {
+      "year": 2021,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 25650,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 27340,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 32000,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 35430,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 27050,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 28740,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 33400,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 36830,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/all-new-2021-nissan-rogue-us-msrp-starts-at-25650",
+      "source_type": "manufacturer",
+      "release_date": "2020-10-05"
+    },
+    {
+      "year": 2022,
+      "destination": 1295,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 27150,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 28840,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 33500,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 36930,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 28650,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 30340,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 35000,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 38430,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2022-nissan-rogue-pricing",
+      "source_type": "manufacturer",
+      "release_date": "2022-01-06",
+      "note": "Nissan pricing page dated 2022-01-06 and marked 'updated June 7, 2022'; figures are as the page stands now and may reflect a mid-year adjustment rather than the original fall-2021 launch prices. All 2022 Rogues use the 1.5L VC-Turbo."
+    },
+    {
+      "year": 2023,
+      "destination": 1365,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 27360,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 29050,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 33710,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 37140,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 28860,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 30550,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 35210,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 38640,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2023-nissan-rogue-pricing-starts-at-27760",
+      "source_type": "manufacturer",
+      "release_date": "2022-08-30",
+      "note": "URL slug/meta say 'starts at $27,760' but the page title, body and table all say $27,360 for S FWD; table values recorded."
+    },
+    {
+      "year": 2024,
+      "destination": 1365,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 28320,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 30010,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 35170,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 38600,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 29820,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 31510,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 36670,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 40100,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2024-nissan-rogue-pricing-starts-at-28320",
+      "source_type": "manufacturer",
+      "release_date": "2024-01-10"
+    },
+    {
+      "year": 2025,
+      "destination": 1390,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 29230,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 30970,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 36090,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 39520,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 30630,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 32370,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Rock Creek",
+          "msrp": 35420,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "SL",
+          "msrp": 37490,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 40920,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2025-nissan-rogue-pricing-starts-at-29230",
+      "source_type": "manufacturer",
+      "release_date": "2024-08-19"
+    },
+    {
+      "year": 2026,
+      "destination": 1575,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 29490,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 30490,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "Dark Armor",
+          "msrp": 33340,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 35990,
+          "config": "FWD",
+          "note": "SECONDARY: not on the Nissan page as it now stands; from cars.com research page https://www.cars.com/research/nissan-rogue-2026 (trim list 'Starts at', which sits exactly $1,545 below the page's destination-inclusive prices). Cars.com says SL was superseded by Dark Armor in the 2026.5 update."
+        },
+        {
+          "trim": "S",
+          "msrp": 30890,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 31890,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Rock Creek",
+          "msrp": 34390,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Dark Armor",
+          "msrp": 34740,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 37390,
+          "config": "AWD",
+          "note": "SECONDARY: cars.com research page (see SL FWD note)."
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 39390,
+          "config": "AWD",
+          "note": "AWD only on the current page"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/20265-nissan-rogue-priced-from-29490-adds-striking-new-dark-armor-grade",
+      "source_type": "manufacturer",
+      "release_date": "2025-07-29",
+      "note": "Nissan release originally dated 2025-07-29 was 'Updated February 2026 to reflect the mid-cycle model change' and now carries 2026.5 pricing: SL grade, SV Premium Package and Platinum Technology Package are not available for 2026.5. Original 2026 launch figures are no longer displayed on the newsroom page. Cars.com quotes a $1,545 destination fee (as of Aug 2026) versus the $1,575 on the Nissan page; Nissan's figure recorded."
+    }
+  ],
+  "gaps": [
+    "All 11 model years (2016-2026) sourced from usa.nissannews.com pricing releases; no secondary fallback needed except two supplemental 2026 SL rows from cars.com (marked SECONDARY in the row notes).",
+    "2022: the Nissan pricing page was updated 2022-06-07; recorded figures are the current page values and may include a mid-year increase over the original launch pricing.",
+    "2023: page slug says 'starts at $27,760' while the body/table say $27,360 (table recorded); page metadata shows a 2023-10-04 modification.",
+    "2026: newsroom release was rewritten in Feb 2026 to 2026.5 pricing (SL dropped, Dark Armor added, destination $1,575). Original 2026 launch pricing with SL is not available on the manufacturer site; SL rows come from cars.com.",
+    "Rogue Hybrid: only SV FWD/AWD rows included for 2017-2019 (SL hybrid prices noted). 2020 release lists no hybrid."
+  ]
+}

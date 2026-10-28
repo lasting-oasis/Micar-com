@@ -1,5 +1,2747 @@
 [
  {
+  "make": "Chevrolet",
+  "model": "Equinox",
+  "gaps": [],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "LT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/equinox/year-2016/?trim=lt",
+    "fetched": "2026-10-28",
+    "pageAverage": 20218,
+    "listings": [
+     {
+      "price": 5302,
+      "miles": 141192,
+      "location": "Sycamore, IL",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 8711,
+      "miles": 146598,
+      "location": "Bremerton, WA",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 7302,
+      "miles": 136731,
+      "location": "Sycamore, IL",
+      "trim": "LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11588,
+      "miles": 81815,
+      "location": "Tinley Park, IL",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 7015,
+      "miles": 151351,
+      "location": "Birmingham, AL",
+      "trim": "LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10000,
+      "miles": 43038,
+      "location": "New Smyrna Beach, FL",
+      "trim": "LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 7998,
+      "miles": 125752,
+      "location": "Dayton, OH",
+      "trim": "LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11364,
+      "miles": 111290,
+      "location": "Bradenton, FL",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 5299,
+      "miles": 183464,
+      "location": "Norfolk, VA",
+      "trim": "LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9989,
+      "miles": 87950,
+      "location": "Dublin, CA",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9499,
+      "miles": 120936,
+      "location": "Wichita, KS",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9694,
+      "miles": 90889,
+      "location": "Tampa, FL",
+      "trim": "LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10626,
+      "miles": 93408,
+      "location": "Coal City, IL",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12998,
+      "miles": 89792,
+      "location": "Hoover, AL",
+      "trim": "LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 8498,
+      "miles": 126933,
+      "location": "Longmont, CO",
+      "trim": "LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 8117,
+      "miles": 139959,
+      "location": "Raleigh, NC",
+      "trim": "LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9471,
+      "miles": 107247,
+      "location": "Washington, IL",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10850,
+      "miles": 78886,
+      "location": "Evergreen Park, IL",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12395,
+      "miles": 92228,
+      "location": "Grand Rapids, MI",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10220,
+      "miles": 75935,
+      "location": "Alvin, TX",
+      "trim": "LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "LT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/equinox/year-2019/?trim=lt",
+    "fetched": "2026-10-28",
+    "pageAverage": 20218,
+    "listings": [
+     {
+      "price": 12632,
+      "miles": 71602,
+      "location": "Miami, FL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 14900,
+      "miles": 83791,
+      "location": "Savannah, GA",
+      "trim": "LT with 2FL FWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 10686,
+      "miles": 112344,
+      "location": "Knoxville, TN",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14701,
+      "miles": 62533,
+      "location": "Attica, NY",
+      "trim": "LT with 3LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9573,
+      "miles": 139549,
+      "location": "Fox Lake, IL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11898,
+      "miles": 101870,
+      "location": "Maysville, KY",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13788,
+      "miles": 97755,
+      "location": "McKenna, WA",
+      "trim": "LT with 2LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14687,
+      "miles": 91594,
+      "location": "Kingsport, TN",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17588,
+      "miles": 20652,
+      "location": "Tinley Park, IL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14660,
+      "miles": 87601,
+      "location": "Oswego, NY",
+      "trim": "LT with 2FL AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14386,
+      "miles": 93666,
+      "location": "Pasco, WA",
+      "trim": "LT with 2LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 8970,
+      "miles": 137839,
+      "location": "Daphne, AL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17067,
+      "miles": 73634,
+      "location": "Sandwich, IL",
+      "trim": "LT with 2LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13203,
+      "miles": 83855,
+      "location": "Clermont, FL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13216,
+      "miles": 100922,
+      "location": "Mount Carroll, IL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14898,
+      "miles": 103249,
+      "location": "Memphis, TN",
+      "trim": "LT with 2FL FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15074,
+      "miles": 71408,
+      "location": "Watertown, NY",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13593,
+      "miles": 105507,
+      "location": "Boise, ID",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15493,
+      "miles": 71331,
+      "location": "Wentzville, MO",
+      "trim": "LT with 3LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17580,
+      "miles": 31039,
+      "location": "Henderson, NV",
+      "trim": "LT with 2LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "LT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/equinox/year-2022/?trim=lt",
+    "fetched": "2026-10-28",
+    "pageAverage": 20218,
+    "listings": [
+     {
+      "price": 17986,
+      "miles": 60787,
+      "location": "Knoxville, TN",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 14978,
+      "miles": 112682,
+      "location": "High Point, NC",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 15899,
+      "miles": 73351,
+      "location": "Pompano Beach, FL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15298,
+      "miles": 68811,
+      "location": "Miami, FL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18699,
+      "miles": 30095,
+      "location": "Ivel, KY",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17311,
+      "miles": 62103,
+      "location": "Lowell, NC",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20025,
+      "miles": 20458,
+      "location": "Bloomington, MN",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16007,
+      "miles": 76258,
+      "location": "Inver Grove Heights, MN",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18045,
+      "miles": 64543,
+      "location": "Turnersville, NJ",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20190,
+      "miles": 36206,
+      "location": "Orlando, FL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17155,
+      "miles": 88473,
+      "location": "Auburn, IN",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18633,
+      "miles": 53569,
+      "location": "Chandler, AZ",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15773,
+      "miles": 99875,
+      "location": "Fargo, ND",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20313,
+      "miles": 49382,
+      "location": "Florence, SC",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19950,
+      "miles": 39049,
+      "location": "Pulaski, NY",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17344,
+      "miles": 76047,
+      "location": "Toms River, NJ",
+      "trim": "LT with 2FL AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18801,
+      "miles": 45804,
+      "location": "Chandler, AZ",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17383,
+      "miles": 86711,
+      "location": "Morehead City, NC",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20394,
+      "miles": 53527,
+      "location": "Lake Wales, FL",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19987,
+      "miles": 55079,
+      "location": "Columbia, KY",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "LT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/equinox/year-2024/?trim=lt",
+    "fetched": "2026-10-28",
+    "pageAverage": 20218,
+    "listings": [
+     {
+      "price": 18469,
+      "miles": 48332,
+      "location": "Orlando, FL",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 19588,
+      "miles": 54792,
+      "location": "Tinley Park, IL",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 19162,
+      "miles": 52930,
+      "location": "Kinston, NC",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18723,
+      "miles": 62077,
+      "location": "Mesa, AZ",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 21690,
+      "miles": 24567,
+      "location": "Jasper, AL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20674,
+      "miles": 38283,
+      "location": "Oswego, NY",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20994,
+      "miles": 35865,
+      "location": "Lake Wales, FL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20987,
+      "miles": 44055,
+      "location": "Bradenton, FL",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 22394,
+      "miles": 26924,
+      "location": "Vero Beach, FL",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20013,
+      "miles": 59680,
+      "location": "Indianapolis, IN",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17795,
+      "miles": 59652,
+      "location": "Commerce, GA",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 21699,
+      "miles": 23356,
+      "location": "Ocala, FL",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19499,
+      "miles": 56422,
+      "location": "Griffin, GA",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19657,
+      "miles": 59914,
+      "location": "Morris, IL",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19946,
+      "miles": 47646,
+      "location": "Scottsdale, AZ",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20472,
+      "miles": 46359,
+      "location": "Wallingford, CT",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19604,
+      "miles": 61535,
+      "location": "Columbia, KY",
+      "trim": "LT with 1LT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20778,
+      "miles": 53301,
+      "location": "Burlington, NC",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": "CPO"
+     },
+     {
+      "price": 21683,
+      "miles": 34912,
+      "location": "Concord, NH",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20087,
+      "miles": 65480,
+      "location": "Indianapolis, IN",
+      "trim": "LT with 1LT AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Chevrolet",
+  "model": "Silverado 1500",
+  "gaps": [],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "LT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/silverado-1500/year-2016/?trim=lt",
+    "fetched": "2026-10-28",
+    "pageAverage": 29517,
+    "listings": [
+     {
+      "price": 12901,
+      "miles": 146601,
+      "location": "Riverside, CA",
+      "trim": "LT Double Cab Standard Box 2WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 10384,
+      "miles": 193188,
+      "location": "Greensburg, IN",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 16450,
+      "miles": 108925,
+      "location": "Asheville, NC",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 20575,
+      "miles": 96029,
+      "location": "Gainesville, FL",
+      "trim": "LT Crew Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 21686,
+      "miles": 87135,
+      "location": "Claxton, GA",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 16980,
+      "miles": 123727,
+      "location": "Columbia, SC",
+      "trim": "LT Crew Cab Short Box 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 19480,
+      "miles": 100899,
+      "location": "Phoenix, AZ",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 23590,
+      "miles": 105915,
+      "location": "Louisville, KY",
+      "trim": "Z71 LT Crew Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 14179,
+      "miles": 196214,
+      "location": "Scottsboro, AL",
+      "trim": "Z71 LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 14690,
+      "miles": 163614,
+      "location": "Troy, AL",
+      "trim": "LT Crew Cab Short Box 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 18023,
+      "miles": 126020,
+      "location": "Manchester, NH",
+      "trim": "Z71 LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 21361,
+      "miles": 109260,
+      "location": "Renton, WA",
+      "trim": "Z71 LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 21399,
+      "miles": 114437,
+      "location": "Tacoma, WA",
+      "trim": "Z71 LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 14271,
+      "miles": 127054,
+      "location": "Clinton Township, MI",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 22186,
+      "miles": 87511,
+      "location": "Phoenix, AZ",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 12312,
+      "miles": 169202,
+      "location": "Frankfort, KY",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 19913,
+      "miles": 101191,
+      "location": "Rockford, IL",
+      "trim": "Z71 LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 24818,
+      "miles": 86047,
+      "location": "Jefferson City, TN",
+      "trim": "Z71 LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 16489,
+      "miles": 123096,
+      "location": "Silver Lake, IN",
+      "trim": "LT Crew Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 21185,
+      "miles": 100015,
+      "location": "Sierra Vista, AZ",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "LT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/silverado-1500/year-2019/?trim=lt",
+    "fetched": "2026-10-28",
+    "pageAverage": 29517,
+    "listings": [
+     {
+      "price": 28182,
+      "miles": 57404,
+      "location": "Jacksonville, FL",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 28889,
+      "miles": 57717,
+      "location": "Memphis, TN",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 19149,
+      "miles": 180342,
+      "location": "Huntsville, AL",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 23751,
+      "miles": 102810,
+      "location": "Attica, NY",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 25560,
+      "miles": 79113,
+      "location": "Oswego, NY",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 29131,
+      "miles": 50084,
+      "location": "Tempe, AZ",
+      "trim": "LT Crew Cab Short Box 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 24023,
+      "miles": 130926,
+      "location": "Scottsboro, AL",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 26079,
+      "miles": 75992,
+      "location": "Higginsville, MO",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 24147,
+      "miles": 87319,
+      "location": "Maysville, KY",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 24381,
+      "miles": 80220,
+      "location": "Pulaski, NY",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 24271,
+      "miles": 94724,
+      "location": "Clinton Township, MI",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 20088,
+      "miles": 166212,
+      "location": "Alcoa, TN",
+      "trim": "LT Crew Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 25996,
+      "miles": 48601,
+      "location": "Anchorage, AK",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 21482,
+      "miles": 102590,
+      "location": "Napa, CA",
+      "trim": "LT Crew Cab Short Box 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 23395,
+      "miles": 93515,
+      "location": "Tallahassee, FL",
+      "trim": "LT Crew Cab Standard Box 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 20114,
+      "miles": 150382,
+      "location": "Hinesville, GA",
+      "trim": "LT Crew Cab Short Box 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 23341,
+      "miles": 89892,
+      "location": "Ventura, CA",
+      "trim": "LT Double Cab Standard Box 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 29354,
+      "miles": 63466,
+      "location": "San Antonio, TX",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 28540,
+      "miles": 51575,
+      "location": "Owasso, OK",
+      "trim": "LT Double Cab Standard Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 29599,
+      "miles": 86645,
+      "location": "Pikeville, KY",
+      "trim": "LT Crew Cab Short Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "LT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/silverado-1500/year-2022/?trim=lt",
+    "fetched": "2026-10-28",
+    "pageAverage": 29517,
+    "listings": [
+     {
+      "price": 29072,
+      "miles": 72224,
+      "location": "Phoenix, AZ",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 26976,
+      "miles": 67100,
+      "location": "Orlando, FL",
+      "trim": "LT Crew Cab Short Bed 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34170,
+      "miles": 36886,
+      "location": "Johnstown, NY",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 27338,
+      "miles": 82953,
+      "location": "Columbia City, IN",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 30581,
+      "miles": 77525,
+      "location": "Orlando, FL",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 31971,
+      "miles": 46219,
+      "location": "Spokane, WA",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": "CPO"
+     },
+     {
+      "price": 22599,
+      "miles": 119242,
+      "location": "McHenry, IL",
+      "trim": "LT Crew Cab Short Bed 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 27999,
+      "miles": 87032,
+      "location": "Turnersville, NJ",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 27456,
+      "miles": 96500,
+      "location": "Tampa, FL",
+      "trim": "LT Crew Cab Standard Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 33306,
+      "miles": 35811,
+      "location": "Homosassa, FL",
+      "trim": "LT Crew Cab Short Bed 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 31153,
+      "miles": 51073,
+      "location": "Louisville, KY",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 37186,
+      "miles": 39954,
+      "location": "Claxton, GA",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 30559,
+      "miles": 39328,
+      "location": "Scottsdale, AZ",
+      "trim": "LT Crew Cab Short Bed 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 23124,
+      "miles": 170763,
+      "location": "Lawrenceville, GA",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 28779,
+      "miles": 79859,
+      "location": "McKenna, WA",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 32058,
+      "miles": 46396,
+      "location": "Wilmington, IL",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 28692,
+      "miles": 78293,
+      "location": "Frankfort, KY",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 27986,
+      "miles": 116310,
+      "location": "Platte City, MO",
+      "trim": "LT Crew Cab Standard Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 30606,
+      "miles": 74573,
+      "location": "Columbia, KY",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 38683,
+      "miles": 22023,
+      "location": "Concord, NH",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "LT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/silverado-1500/year-2024/?trim=lt",
+    "fetched": "2026-10-28",
+    "pageAverage": 29736,
+    "listings": [
+     {
+      "price": 35211,
+      "miles": 21877,
+      "location": "Dunn, NC",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 27798,
+      "miles": 100419,
+      "location": "Centennial, CO",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 34694,
+      "miles": 28522,
+      "location": "Columbia, KY",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35640,
+      "miles": 25763,
+      "location": "Plainfield, IL",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34694,
+      "miles": 33566,
+      "location": "Columbia, KY",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34694,
+      "miles": 29586,
+      "location": "Columbia, KY",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34694,
+      "miles": 32121,
+      "location": "Columbia, KY",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34694,
+      "miles": 33380,
+      "location": "Columbia, KY",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 33823,
+      "miles": 22031,
+      "location": "Highland, IN",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 29695,
+      "miles": 102790,
+      "location": "Greenville, SC",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 33730,
+      "miles": 31614,
+      "location": "Libertyville, IL",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34873,
+      "miles": 54096,
+      "location": "Countryside, IL",
+      "trim": "LT Crew Cab Standard Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35583,
+      "miles": 37823,
+      "location": "Burlington, NC",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35693,
+      "miles": 27647,
+      "location": "Columbia, KY",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 38787,
+      "miles": 35028,
+      "location": "Watertown, NY",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35956,
+      "miles": 18463,
+      "location": "Attica, NY",
+      "trim": "LT with 2FL Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 29995,
+      "miles": 95504,
+      "location": "Excelsior Springs, MO",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 40233,
+      "miles": 18130,
+      "location": "Angola, IN",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35172,
+      "miles": 25716,
+      "location": "Avon, IN",
+      "trim": "LT with 1LT Double Cab Standard Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 37825,
+      "miles": 35998,
+      "location": "Greenville, SC",
+      "trim": "LT with 1LT Crew Cab Short Bed 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Ford",
+  "model": "Explorer",
+  "gaps": [
+   "All four years used the XLT trim filter; each filtered page showed 20-31 listings, so the unfiltered fallback was not needed.",
+   "TrueCar prices are the 'Advertised price' and the page states dealer fees/add-ons are included.",
+   "page_average values come from the page's FAQ sentence 'The average price for the <year> Ford Explorer XLT is $X'. The figure is identical on the 2016, 2019 and 2024 pages ($22,923) and barely different on 2022 ($23,010), and it does not track the visible listing prices, so it appears to be a model-wide XLT average rather than a year-specific one. Compute your own mean from the listings instead.",
+   "2022 and 2024 pages skew heavily toward 4WD listings in the Northeast/Midwest; the 2016 and 2019 pages mix FWD and 4WD. The 2020+ Explorer is rear-drive based, so 2WD rows show 'RWD' rather than 'FWD'."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "XLT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/year-2016/?trim=xlt",
+    "fetched": "2026-10-28",
+    "pageAverage": 22923,
+    "listings": [
+     {
+      "price": 14377,
+      "miles": 77363,
+      "location": "Lithia Springs, GA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 11970,
+      "miles": 112469,
+      "location": "Keizer, OR",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 10359,
+      "miles": 146233,
+      "location": "East Moline, IL",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14390,
+      "miles": 70110,
+      "location": "Devils Lake, ND",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10843,
+      "miles": 129216,
+      "location": "Tucson, AZ",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10079,
+      "miles": 109011,
+      "location": "Miami, FL",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9899,
+      "miles": 140712,
+      "location": "Charlotte, NC",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11320,
+      "miles": 106295,
+      "location": "Glendale, CA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13695,
+      "miles": 81685,
+      "location": "Patchogue, NY",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14253,
+      "miles": 100035,
+      "location": "Jacksonville, FL",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12324,
+      "miles": 104682,
+      "location": "Cedar Falls, IA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11639,
+      "miles": 105077,
+      "location": "Palm Harbor, FL",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10225,
+      "miles": 109439,
+      "location": "Houston, TX",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9220,
+      "miles": 120514,
+      "location": "Houston, TX",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 6697,
+      "miles": 180901,
+      "location": "Marietta, GA",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14388,
+      "miles": 78866,
+      "location": "Westlake, OH",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11731,
+      "miles": 99309,
+      "location": "Mesa, AZ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10990,
+      "miles": 104379,
+      "location": "Las Vegas, NV",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12663,
+      "miles": 105311,
+      "location": "Carlsbad, CA",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13000,
+      "miles": 103943,
+      "location": "Springfield, VA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "XLT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/year-2019/?trim=xlt",
+    "fetched": "2026-10-28",
+    "pageAverage": 22923,
+    "listings": [
+     {
+      "price": 11340,
+      "miles": 132925,
+      "location": "Valencia, CA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 18200,
+      "miles": 59646,
+      "location": "Kannapolis, NC",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 12621,
+      "miles": 117309,
+      "location": "Troutdale, OR",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12799,
+      "miles": 114676,
+      "location": "Summerville, SC",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15840,
+      "miles": 106707,
+      "location": "Phoenix, AZ",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12899,
+      "miles": 133108,
+      "location": "Fargo, ND",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20786,
+      "miles": 44808,
+      "location": "Fox Lake, IL",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17596,
+      "miles": 100326,
+      "location": "Fargo, ND",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18699,
+      "miles": 81487,
+      "location": "Federal Way, WA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16198,
+      "miles": 94434,
+      "location": "Salem, OR",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18995,
+      "miles": 93308,
+      "location": "San Antonio, TX",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18999,
+      "miles": 66654,
+      "location": "Elkton, MD",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 21239,
+      "miles": 67165,
+      "location": "Millington, TN",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13698,
+      "miles": 131013,
+      "location": "Pensacola, FL",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16970,
+      "miles": 87767,
+      "location": "Burlington, NJ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19117,
+      "miles": 80750,
+      "location": "Victorville, CA",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19461,
+      "miles": 76543,
+      "location": "Ventura, CA",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19595,
+      "miles": 85669,
+      "location": "Houston, TX",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16794,
+      "miles": 90719,
+      "location": "Vineland, NJ",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20200,
+      "miles": 57230,
+      "location": "Lincoln, NE",
+      "trim": "XLT FWD",
+      "body": "SUV / Crossover",
+      "note": "CPO"
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "XLT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/year-2022/?trim=xlt",
+    "fetched": "2026-10-28",
+    "pageAverage": 23010,
+    "listings": [
+     {
+      "price": 24499,
+      "miles": 52349,
+      "location": "Turnersville, NJ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored; CPO"
+     },
+     {
+      "price": 29810,
+      "miles": 22108,
+      "location": "Greensboro, NC",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 30258,
+      "miles": 32897,
+      "location": "Angola, IN",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 29688,
+      "miles": 40021,
+      "location": "Indianapolis, IN",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 23099,
+      "miles": 69915,
+      "location": "Burlington, NJ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "CPO"
+     },
+     {
+      "price": 24111,
+      "miles": 65956,
+      "location": "Fort Mill, SC",
+      "trim": "XLT RWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 25694,
+      "miles": 48498,
+      "location": "Paramus, NJ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18812,
+      "miles": 103948,
+      "location": "Pembroke Pines, FL",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 26611,
+      "miles": 34400,
+      "location": "Seattle, WA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 26899,
+      "miles": 41071,
+      "location": "Saint Augustine, FL",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 27002,
+      "miles": 32097,
+      "location": "Somerville, MA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 26994,
+      "miles": 45109,
+      "location": "Paramus, NJ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 26153,
+      "miles": 37801,
+      "location": "Lindon, UT",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 24419,
+      "miles": 68872,
+      "location": "Wentzville, MO",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 28494,
+      "miles": 29384,
+      "location": "Paramus, NJ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 24992,
+      "miles": 33792,
+      "location": "Greenacres, FL",
+      "trim": "XLT RWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 28111,
+      "miles": 48925,
+      "location": "Savannah, GA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 25381,
+      "miles": 57154,
+      "location": "Lillington, NC",
+      "trim": "XLT RWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18604,
+      "miles": 85373,
+      "location": "Pembroke Pines, FL",
+      "trim": "XLT RWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19544,
+      "miles": 95310,
+      "location": "Miami, FL",
+      "trim": "XLT RWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "XLT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/explorer/year-2024/?trim=xlt",
+    "fetched": "2026-10-28",
+    "pageAverage": 22923,
+    "listings": [
+     {
+      "price": 33419,
+      "miles": 18352,
+      "location": "Bronx, NY",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored; CPO"
+     },
+     {
+      "price": 36494,
+      "miles": 3884,
+      "location": "Bronx, NY",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored; CPO"
+     },
+     {
+      "price": 28740,
+      "miles": 38121,
+      "location": "New Haven, IN",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 31261,
+      "miles": 31928,
+      "location": "Charleston, IL",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 31738,
+      "miles": 25033,
+      "location": "Auburn, IN",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 32994,
+      "miles": 19407,
+      "location": "Greenfield, MA",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 31174,
+      "miles": 31421,
+      "location": "Yorkville, NY",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 29809,
+      "miles": 49168,
+      "location": "Columbia, MO",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "CPO"
+     },
+     {
+      "price": 31694,
+      "miles": 29884,
+      "location": "Point Pleasant, NJ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": "CPO"
+     },
+     {
+      "price": 33212,
+      "miles": 27474,
+      "location": "Mattoon, IL",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 31910,
+      "miles": 26207,
+      "location": "Columbia, MO",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 33899,
+      "miles": 20866,
+      "location": "Sparta, TN",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 33194,
+      "miles": 27005,
+      "location": "Paramus, NJ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 32705,
+      "miles": 34581,
+      "location": "Columbia, KY",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 32714,
+      "miles": 24278,
+      "location": "Mt. Laurel, NJ",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 34212,
+      "miles": 20233,
+      "location": "Mattoon, IL",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 28259,
+      "miles": 56009,
+      "location": "La Follette, TN",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 29553,
+      "miles": 53810,
+      "location": "La Follette, TN",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 35254,
+      "miles": 13278,
+      "location": "Columbia City, IN",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 33645,
+      "miles": 19602,
+      "location": "Hazard, KY",
+      "trim": "XLT 4WD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Ford",
+  "model": "F-150",
+  "gaps": [
+   "All four years used the XLT trim filter; each filtered page showed 29-32 listings, so the unfiltered fallback was not needed.",
+   "TrueCar prices are the 'Advertised price' and the page states dealer fees/add-ons are included.",
+   "page_average values come from the page's FAQ sentence 'The average price for the <year> Ford F-150 XLT is $X'. The figure is nearly identical across all four years ($32,770 / $32,770 / $32,901 / $32,832) and does not track the visible listing prices, so it appears to be a model-wide XLT average rather than a year-specific one. Use with caution; compute your own mean from the listings instead.",
+   "Only the first 20 of 29-32 cards per page were recorded, per the brief's cap."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "XLT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/f-150/year-2016/?trim=xlt",
+    "fetched": "2026-10-28",
+    "pageAverage": 32770,
+    "listings": [
+     {
+      "price": 17745,
+      "miles": 91352,
+      "location": "St. Petersburg, FL",
+      "trim": "XLT SuperCab 6.5' Box RWD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 22384,
+      "miles": 87100,
+      "location": "Las Vegas, NV",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 17991,
+      "miles": 126332,
+      "location": "Spokane Valley, WA",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 15244,
+      "miles": 154869,
+      "location": "Morrison, IL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 12195,
+      "miles": 175673,
+      "location": "Walla Walla, WA",
+      "trim": "XLT SuperCab 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 23010,
+      "miles": 84245,
+      "location": "Scottsdale, AZ",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 16755,
+      "miles": 135703,
+      "location": "Lowell, NC",
+      "trim": "XLT SuperCrew 5.5' Box RWD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 17337,
+      "miles": 144830,
+      "location": "Bloomington, IN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 17996,
+      "miles": 135924,
+      "location": "Fargo, ND",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 10872,
+      "miles": 201677,
+      "location": "Marysville, WA",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 19223,
+      "miles": 128504,
+      "location": "Idaho Falls, ID",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 18786,
+      "miles": 137368,
+      "location": "New Bern, NC",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 19375,
+      "miles": 93877,
+      "location": "Pontiac, IL",
+      "trim": "XLT SuperCrew 6.5' Box RWD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 18994,
+      "miles": 128208,
+      "location": "Dunkirk, NY",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 16340,
+      "miles": 156844,
+      "location": "Bellevue, WA",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 21150,
+      "miles": 104693,
+      "location": "Gladstone, OR",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 12495,
+      "miles": 142184,
+      "location": "Woodbridge, VA",
+      "trim": "XLT SuperCab 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 14099,
+      "miles": 150368,
+      "location": "Bellingham, WA",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 21480,
+      "miles": 102538,
+      "location": "Birmingham, AL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 16898,
+      "miles": 116032,
+      "location": "Delaware, OH",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "XLT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/f-150/year-2019/?trim=xlt",
+    "fetched": "2026-10-28",
+    "pageAverage": 32770,
+    "listings": [
+     {
+      "price": 18990,
+      "miles": 125750,
+      "location": "Panama City, FL",
+      "trim": "XLT SuperCrew 5.5' Box 2WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 23715,
+      "miles": 93910,
+      "location": "North Richland Hills, TX",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 15990,
+      "miles": 115070,
+      "location": "Englewood Cliffs, NJ",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 23775,
+      "miles": 35811,
+      "location": "Attica, NY",
+      "trim": "XLT SuperCrew 5.5' Box 2WD",
+      "body": "Pickup Truck",
+      "note": "One owner"
+     },
+     {
+      "price": 24000,
+      "miles": 87099,
+      "location": "South St. Paul, MN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 27994,
+      "miles": 63548,
+      "location": "Memphis, TN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "CPO"
+     },
+     {
+      "price": 25781,
+      "miles": 97619,
+      "location": "Knoxville, TN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 30290,
+      "miles": 43934,
+      "location": "Idaho Falls, ID",
+      "trim": "XLT SuperCrew 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 21932,
+      "miles": 101345,
+      "location": "Melbourne, FL",
+      "trim": "XLT SuperCrew 5.5' Box 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 29651,
+      "miles": 60744,
+      "location": "Fayetteville, TN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 24475,
+      "miles": 95884,
+      "location": "Batavia, NY",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "One owner"
+     },
+     {
+      "price": 22408,
+      "miles": 109112,
+      "location": "Joliet, IL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 28683,
+      "miles": 79837,
+      "location": "Mobile, AL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 22079,
+      "miles": 118756,
+      "location": "Higginsville, MO",
+      "trim": "XLT SuperCrew 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "One owner"
+     },
+     {
+      "price": 28679,
+      "miles": 74488,
+      "location": "Canton, NC",
+      "trim": "XLT SuperCrew 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "One owner"
+     },
+     {
+      "price": 23099,
+      "miles": 121372,
+      "location": "Lillington, NC",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 26860,
+      "miles": 85944,
+      "location": "Hermiston, WA",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "One owner"
+     },
+     {
+      "price": 23168,
+      "miles": 119195,
+      "location": "Albertville, AL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 24574,
+      "miles": 105948,
+      "location": "Concord, NC",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 30196,
+      "miles": 35385,
+      "location": "Graniteville, SC",
+      "trim": "XLT SuperCab 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "One owner"
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "XLT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/f-150/year-2022/?trim=xlt",
+    "fetched": "2026-10-28",
+    "pageAverage": 32901,
+    "listings": [
+     {
+      "price": 33454,
+      "miles": 58205,
+      "location": "South Attleboro, MA",
+      "trim": "XLT SuperCrew 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 37694,
+      "miles": 28249,
+      "location": "Point Pleasant, NJ",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 29887,
+      "miles": 84941,
+      "location": "Memphis, TN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35948,
+      "miles": 36701,
+      "location": "Nokomis, FL",
+      "trim": "XLT SuperCrew 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "CPO"
+     },
+     {
+      "price": 30233,
+      "miles": 64860,
+      "location": "Angola, IN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 25798,
+      "miles": 102448,
+      "location": "Tilton, NH",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35287,
+      "miles": 32489,
+      "location": "Odessa, MO",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 32498,
+      "miles": 41649,
+      "location": "Milwaukie, OR",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 36172,
+      "miles": 16691,
+      "location": "Milwaukie, OR",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 27665,
+      "miles": 87533,
+      "location": "Angola, IN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 31699,
+      "miles": 69539,
+      "location": "Federal Way, WA",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34870,
+      "miles": 53603,
+      "location": "Ellisville, MO",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 25886,
+      "miles": 117670,
+      "location": "Maysville, KY",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 37998,
+      "miles": 35467,
+      "location": "Tucson, AZ",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 28287,
+      "miles": 77325,
+      "location": "Bluffton, SC",
+      "trim": "XLT SuperCab 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35376,
+      "miles": 45049,
+      "location": "Downers Grove, IL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 33995,
+      "miles": 53080,
+      "location": "Holyoke, MA",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "CPO"
+     },
+     {
+      "price": 38600,
+      "miles": 33957,
+      "location": "Sarasota, FL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "CPO"
+     },
+     {
+      "price": 33260,
+      "miles": 44194,
+      "location": "Seymour, IN",
+      "trim": "XLT SuperCrew 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35611,
+      "miles": 25639,
+      "location": "Plano, IL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "XLT",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/f-150/year-2024/?trim=xlt",
+    "fetched": "2026-10-28",
+    "pageAverage": 32832,
+    "listings": [
+     {
+      "price": 35888,
+      "miles": 78409,
+      "location": "Greenwood, IN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored"
+     },
+     {
+      "price": 39753,
+      "miles": 31654,
+      "location": "Scottsdale, AZ",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "Sponsored; CPO"
+     },
+     {
+      "price": 39137,
+      "miles": 40321,
+      "location": "Northampton, MA",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 40228,
+      "miles": 50533,
+      "location": "Knoxville, TN",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34999,
+      "miles": 90187,
+      "location": "Burley, ID",
+      "trim": "XLT SuperCrew 6.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 46170,
+      "miles": 26930,
+      "location": "Johnstown, NY",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 38761,
+      "miles": 19926,
+      "location": "Charleston, IL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 33898,
+      "miles": 51495,
+      "location": "Las Vegas, NV",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 39230,
+      "miles": 39823,
+      "location": "Siler City, NC",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 35533,
+      "miles": 56067,
+      "location": "Bowling Green, KY",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 36165,
+      "miles": 61678,
+      "location": "Cody, WY",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 43603,
+      "miles": 24250,
+      "location": "Watertown, NY",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": "CPO"
+     },
+     {
+      "price": 35505,
+      "miles": 48709,
+      "location": "Columbia, KY",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34890,
+      "miles": 45100,
+      "location": "McHenry, IL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 39280,
+      "miles": 31940,
+      "location": "Pensacola, FL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 36797,
+      "miles": 12098,
+      "location": "Charlotte, NC",
+      "trim": "XLT SuperCrew 5.5' Box 2WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 44490,
+      "miles": 1795,
+      "location": "Live Oak, FL",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 45522,
+      "miles": 17172,
+      "location": "Exeter, NH",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 37764,
+      "miles": 53394,
+      "location": "Riverton, WY",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     },
+     {
+      "price": 34593,
+      "miles": 66529,
+      "location": "Trenton, NJ",
+      "trim": "XLT SuperCrew 5.5' Box 4WD",
+      "body": "Pickup Truck",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
   "make": "Honda",
   "model": "Civic",
   "gaps": [
@@ -511,6 +3253,3391 @@
       "trim": "Touring",
       "body": "Sedan",
       "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Hyundai",
+  "model": "Elantra",
+  "gaps": [
+   "2022: the SE-filtered page had only 14 listings nationwide (all recorded); still >= 8 so the unfiltered page was not fetched.",
+   "TrueCar's FAQ average ($16,088) is not year-specific; no year-specific 'averages $X' figure was found on the pages."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "SE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/elantra/year-2016/?trim=se",
+    "fetched": "2026-10-28",
+    "pageAverage": 16088,
+    "listings": [
+     {
+      "price": 8498,
+      "miles": 69295,
+      "location": "Loves Park, IL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 6434,
+      "miles": 157280,
+      "location": "Blue Springs, MO",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9243,
+      "miles": 99937,
+      "location": "Belleville, IL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9995,
+      "miles": 33477,
+      "location": "Sea Girt, NJ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 12177,
+      "miles": 73697,
+      "location": "Durham, NC",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 8368,
+      "miles": 128118,
+      "location": "Kingman, AZ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 10323,
+      "miles": 89644,
+      "location": "San Antonio, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9586,
+      "miles": 109904,
+      "location": "Casa Grande, AZ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     },
+     {
+      "price": 7194,
+      "miles": 108000,
+      "location": "Manassas, VA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 6394,
+      "miles": 110432,
+      "location": "Chantilly, VA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 5650,
+      "miles": 132732,
+      "location": "Wylie, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13998,
+      "miles": 39551,
+      "location": "Henderson, NV",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 8525,
+      "miles": 102498,
+      "location": "Delray Beach, FL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 8299,
+      "miles": 83808,
+      "location": "Dallas, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9700,
+      "miles": 82382,
+      "location": "Owings Mills, MD",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 8648,
+      "miles": 89105,
+      "location": "North Olmsted, OH",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     },
+     {
+      "price": 9384,
+      "miles": 70859,
+      "location": "West Chester, OH",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9847,
+      "miles": 93500,
+      "location": "Honolulu, HI",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 6995,
+      "miles": 105314,
+      "location": "Fredericksburg, VA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 8602,
+      "miles": 91935,
+      "location": "Danbury, CT",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "SE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/elantra/year-2019/?trim=se",
+    "fetched": "2026-10-28",
+    "pageAverage": 16088,
+    "listings": [
+     {
+      "price": 8775,
+      "miles": 142315,
+      "location": "Council Bluffs, IA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14272,
+      "miles": 37306,
+      "location": "Emmaus, PA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "SULEV"
+     },
+     {
+      "price": 6445,
+      "miles": 172086,
+      "location": "Dalton, GA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13695,
+      "miles": 91068,
+      "location": "Highland, IN",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 10494,
+      "miles": 93368,
+      "location": "Mesa, AZ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14195,
+      "miles": 89206,
+      "location": "Newport News, VA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13909,
+      "miles": 20732,
+      "location": "Tacoma, WA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16998,
+      "miles": 24558,
+      "location": "Houston, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14284,
+      "miles": 23829,
+      "location": "Old Bridge, NJ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15300,
+      "miles": 15831,
+      "location": "Old Bridge, NJ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16998,
+      "miles": 23421,
+      "location": "Houston, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9303,
+      "miles": 96936,
+      "location": "West Chicago, IL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14985,
+      "miles": 17642,
+      "location": "Old Bridge, NJ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14284,
+      "miles": 24211,
+      "location": "Old Bridge, NJ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13585,
+      "miles": 45209,
+      "location": "Cerritos, CA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15510,
+      "miles": 13114,
+      "location": "Waipahu, HI",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13238,
+      "miles": 53704,
+      "location": "Old Bridge, NJ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 7672,
+      "miles": 122418,
+      "location": "Bensalem, PA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "SULEV"
+     },
+     {
+      "price": 13785,
+      "miles": 45545,
+      "location": "Old Bridge, NJ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14304,
+      "miles": 34448,
+      "location": "Old Bridge, NJ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "SE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/elantra/year-2022/?trim=se",
+    "fetched": "2026-10-28",
+    "pageAverage": 16088,
+    "listings": [
+     {
+      "price": 13000,
+      "miles": 119817,
+      "location": "Lakewood, CO",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     },
+     {
+      "price": 18895,
+      "miles": 19137,
+      "location": "Houston, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     },
+     {
+      "price": 15889,
+      "miles": 50851,
+      "location": "Jacksonville, FL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     },
+     {
+      "price": 15690,
+      "miles": 66446,
+      "location": "Putnam, CT",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17670,
+      "miles": 60448,
+      "location": "Sherman Oaks, CA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     },
+     {
+      "price": 16413,
+      "miles": 52238,
+      "location": "Spring, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 15697,
+      "miles": 47184,
+      "location": "Orlando, FL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "SULEV; one owner"
+     },
+     {
+      "price": 17998,
+      "miles": 41066,
+      "location": "Escondido, CA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19998,
+      "miles": 25905,
+      "location": "Columbia, SC",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     },
+     {
+      "price": 19095,
+      "miles": 53147,
+      "location": "Jacksonville, FL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     },
+     {
+      "price": 17495,
+      "miles": 59707,
+      "location": "Riverside, CA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15797,
+      "miles": 40712,
+      "location": "West Palm Beach, FL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     },
+     {
+      "price": 19890,
+      "miles": 28552,
+      "location": "Las Vegas, NV",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18998,
+      "miles": 30703,
+      "location": "Bradenton, FL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "one owner"
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "SE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/elantra/year-2024/?trim=se",
+    "fetched": "2026-10-28",
+    "pageAverage": 16088,
+    "listings": [
+     {
+      "price": 18787,
+      "miles": 23592,
+      "location": "Concord, NC",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 17691,
+      "miles": 48334,
+      "location": "Peoria, AZ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18995,
+      "miles": 27503,
+      "location": "Houston, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18648,
+      "miles": 14504,
+      "location": "Dallas, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17707,
+      "miles": 21534,
+      "location": "Raynham, MA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15914,
+      "miles": 66171,
+      "location": "Swansboro, NC",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19231,
+      "miles": 24818,
+      "location": "Clearwater, FL",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18285,
+      "miles": 32903,
+      "location": "Fall River, MA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 18585,
+      "miles": 17880,
+      "location": "Fall River, MA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18464,
+      "miles": 14464,
+      "location": "Orchard Park, NY",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18420,
+      "miles": 31087,
+      "location": "Cookeville, TN",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 18445,
+      "miles": 41125,
+      "location": "White Marsh, MD",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18598,
+      "miles": 15345,
+      "location": "Fishers, IN",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13498,
+      "miles": 45818,
+      "location": "Atlanta, GA",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17866,
+      "miles": 31128,
+      "location": "Houston, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18799,
+      "miles": 19742,
+      "location": "Waldorf, MD",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17977,
+      "miles": 43638,
+      "location": "West Islip, NY",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 19264,
+      "miles": 6315,
+      "location": "Columbus, OH",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18425,
+      "miles": 43221,
+      "location": "Richmond, TX",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19888,
+      "miles": 5975,
+      "location": "Flemington, NJ",
+      "trim": "SE",
+      "body": "Sedan",
+      "note": "CPO"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Nissan",
+  "model": "Altima",
+  "gaps": [
+   "2016: the ?trim=sv filter returned no exact matches (TrueCar labels 2016 trims '2.5 SV'), so the unfiltered 2016 page was used; mixed trims (2.5 S / SV / SR / SL) recorded per row and page_average left null.",
+   "TrueCar's stated 'average price for the <year> Altima SV' is $19,835 for 2019, 2022 and 2024 alike (and the 2016 page quotes 'SV averages $20,021'), so the figure is evidently model-wide, not year-specific; recorded as printed but treat with caution.",
+   "Only the first 20 cards of each page were recorded (pages showed 29). No page was paginated."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/altima/year-2016/",
+    "fetched": "2026-10-28",
+    "pageAverage": null,
+    "listings": [
+     {
+      "price": 8713,
+      "miles": 96572,
+      "location": "Sandy, UT",
+      "trim": "2.5 S",
+      "body": "Sedan",
+      "note": "Sponsored"
+     },
+     {
+      "price": 8012,
+      "miles": 123035,
+      "location": "Thousand Oaks, CA",
+      "trim": "2.5 SV",
+      "body": "Sedan",
+      "note": "Sponsored"
+     },
+     {
+      "price": 12520,
+      "miles": 63246,
+      "location": "Bremerton, WA",
+      "trim": "2.5 SV",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15837,
+      "miles": 31366,
+      "location": "Leesburg, FL",
+      "trim": "2.5 SV",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13697,
+      "miles": 56531,
+      "location": "Hampton, VA",
+      "trim": "2.5 SL",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 7778,
+      "miles": 100295,
+      "location": "Doral, FL",
+      "trim": "2.5 S",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 10489,
+      "miles": 67797,
+      "location": "Logan, UT",
+      "trim": "2.5 S",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 10937,
+      "miles": 66303,
+      "location": "Davis, CA",
+      "trim": "2.5 SR",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15692,
+      "miles": 35287,
+      "location": "Danvers, MA",
+      "trim": "2.5 SL",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13456,
+      "miles": 78486,
+      "location": "Portland, OR",
+      "trim": "2.5 SL",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 8585,
+      "miles": 128364,
+      "location": "Cerritos, CA",
+      "trim": "2.5 SV",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9361,
+      "miles": 134260,
+      "location": "Clearwater, FL",
+      "trim": "2.5 SR",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 8499,
+      "miles": 113381,
+      "location": "Old Bridge, NJ",
+      "trim": "2.5 SL",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 11395,
+      "miles": 89489,
+      "location": "Brandywine, MD",
+      "trim": "2.5 S",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9991,
+      "miles": 128532,
+      "location": "Flagstaff, AZ",
+      "trim": "2.5 SV",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9865,
+      "miles": 105567,
+      "location": "Norco, CA",
+      "trim": "2.5 SR",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9024,
+      "miles": 112845,
+      "location": "San Antonio, TX",
+      "trim": "2.5 SV",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 7297,
+      "miles": 118409,
+      "location": "Roselle, IL",
+      "trim": "2.5 S",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 12800,
+      "miles": 85030,
+      "location": "College Park, MD",
+      "trim": "2.5 SL",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 7700,
+      "miles": 107294,
+      "location": "Sunland, CA",
+      "trim": "2.5 S",
+      "body": "Sedan",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "SV",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/altima/year-2019/?trim=sv",
+    "fetched": "2026-10-28",
+    "pageAverage": 19835,
+    "listings": [
+     {
+      "price": 13793,
+      "miles": 80963,
+      "location": "Fort Pierce, FL",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": "Sponsored"
+     },
+     {
+      "price": 14794,
+      "miles": 98529,
+      "location": "Mount Laurel, NJ",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9920,
+      "miles": 170483,
+      "location": "Odessa, MO",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 12081,
+      "miles": 123390,
+      "location": "Yorktown Heights, NY",
+      "trim": "SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15504,
+      "miles": 81067,
+      "location": "Glendale Heights, IL",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15611,
+      "miles": 74773,
+      "location": "Slidell, LA",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17475,
+      "miles": 25702,
+      "location": "Avondale, AZ",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 12626,
+      "miles": 96427,
+      "location": "Hendersonville, NC",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 11898,
+      "miles": 119181,
+      "location": "Pensacola, FL",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14000,
+      "miles": 81231,
+      "location": "New Haven, CT",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15020,
+      "miles": 92288,
+      "location": "St. Peters, MO",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 12944,
+      "miles": 103626,
+      "location": "Austin, TX",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18595,
+      "miles": 60208,
+      "location": "Lakeland, FL",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17772,
+      "miles": 55990,
+      "location": "Danvers, MA",
+      "trim": "SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18125,
+      "miles": 47520,
+      "location": "Plano, TX",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14499,
+      "miles": 98036,
+      "location": "Bakersfield, CA",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13835,
+      "miles": 101267,
+      "location": "Riverdale, UT",
+      "trim": "SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17819,
+      "miles": 49189,
+      "location": "Auburn, MA",
+      "trim": "SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16773,
+      "miles": 65698,
+      "location": "Randolph, NJ",
+      "trim": "SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15895,
+      "miles": 104845,
+      "location": "Pelham, AL",
+      "trim": "SV AWD",
+      "body": "Sedan",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "SV",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/altima/year-2022/?trim=sv",
+    "fetched": "2026-10-28",
+    "pageAverage": 19835,
+    "listings": [
+     {
+      "price": 11220,
+      "miles": 127052,
+      "location": "Austin, TX",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": "Sponsored"
+     },
+     {
+      "price": 16455,
+      "miles": 48920,
+      "location": "Santa Clara, CA",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": "Sponsored"
+     },
+     {
+      "price": 15077,
+      "miles": 91004,
+      "location": "Cocoa, FL",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15999,
+      "miles": 65526,
+      "location": "Memphis, TN",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 16317,
+      "miles": 52525,
+      "location": "Tilton, NH",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 11264,
+      "miles": 149104,
+      "location": "Charleston, SC",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16735,
+      "miles": 71874,
+      "location": "Fort Myers, FL",
+      "trim": "2.5 SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15291,
+      "miles": 95693,
+      "location": "Ottawa, IL",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17998,
+      "miles": 64474,
+      "location": "Hinesville, GA",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19188,
+      "miles": 52541,
+      "location": "Saco, ME",
+      "trim": "2.5 SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14695,
+      "miles": 88091,
+      "location": "Pinellas Park, FL",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18495,
+      "miles": 50706,
+      "location": "Hartford, CT",
+      "trim": "2.5 SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13900,
+      "miles": 55391,
+      "location": "Dundalk, MD",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16293,
+      "miles": 40068,
+      "location": "Bedford, OH",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16395,
+      "miles": 72665,
+      "location": "Gastonia, NC",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19472,
+      "miles": 18424,
+      "location": "White Marsh, MD",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17745,
+      "miles": 48662,
+      "location": "White Marsh, MD",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16195,
+      "miles": 76466,
+      "location": "Albuquerque, NM",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 20034,
+      "miles": 22418,
+      "location": "Fort Lauderdale, FL",
+      "trim": "2.5 SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16849,
+      "miles": 70607,
+      "location": "Fallston, MD",
+      "trim": "2.5 SV AWD",
+      "body": "Sedan",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "SV",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/altima/year-2024/?trim=sv",
+    "fetched": "2026-10-28",
+    "pageAverage": 19835,
+    "listings": [
+     {
+      "price": 16176,
+      "miles": 56723,
+      "location": "Chicago, IL",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": "Sponsored"
+     },
+     {
+      "price": 16876,
+      "miles": 54227,
+      "location": "Chicago, IL",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": "Sponsored"
+     },
+     {
+      "price": 16759,
+      "miles": 69069,
+      "location": "Chesterton, IN",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19674,
+      "miles": 22465,
+      "location": "Westborough, MA",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18575,
+      "miles": 64561,
+      "location": "Gainesville, FL",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16797,
+      "miles": 70678,
+      "location": "Memphis, TN",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 18840,
+      "miles": 12688,
+      "location": "Riverhead, NY",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 17959,
+      "miles": 59092,
+      "location": "Chesterton, IN",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18199,
+      "miles": 49658,
+      "location": "Puyallup, WA",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17658,
+      "miles": 58322,
+      "location": "Scottsdale, AZ",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 21999,
+      "miles": 26357,
+      "location": "Birmingham, AL",
+      "trim": "2.5 SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19148,
+      "miles": 25735,
+      "location": "Henderson, NV",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 18104,
+      "miles": 67681,
+      "location": "Sterling, IL",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18567,
+      "miles": 53207,
+      "location": "Green Brook, NJ",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19766,
+      "miles": 51241,
+      "location": "Mount Laurel, NJ",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 21674,
+      "miles": 27078,
+      "location": "Westborough, MA",
+      "trim": "2.5 SV AWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17582,
+      "miles": 71989,
+      "location": "Glendale Heights, IL",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 16995,
+      "miles": 47973,
+      "location": "Amityville, NY",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 20099,
+      "miles": 26098,
+      "location": "Hazard, KY",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17310,
+      "miles": 60580,
+      "location": "Oak Lawn, IL",
+      "trim": "2.5 SV FWD",
+      "body": "Sedan",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Nissan",
+  "model": "Rogue",
+  "gaps": [
+   "TrueCar's stated 'average price for the <year> Rogue SV' figures ($20,273 / $20,098 / $20,188 / $20,098) are nearly identical across 2016-2024 and far above the 2016/2019 asking prices on the same pages; they appear to be a model-wide SV average, not year-specific. Recorded as printed in page_average; treat with caution.",
+   "Only the first 20 cards of each page were recorded (pages showed 29-30). No page was paginated.",
+   "2024 sample skews toward high-mileage ex-fleet units at non-Nissan dealers (three identical $15,400 cards from one Dublin, GA dealer); it may understate retail asking prices."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "SV",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/rogue/year-2016/?trim=sv",
+    "fetched": "2026-10-28",
+    "pageAverage": 20273,
+    "listings": [
+     {
+      "price": 12865,
+      "miles": 74697,
+      "location": "Ocala, FL",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 8939,
+      "miles": 116303,
+      "location": "Collinsville, OK",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 8999,
+      "miles": 110392,
+      "location": "Cary, NC",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 6699,
+      "miles": 158792,
+      "location": "Ivel, KY",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11793,
+      "miles": 79981,
+      "location": "Gladstone, OR",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12898,
+      "miles": 81708,
+      "location": "Chattanooga, TN",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13712,
+      "miles": 78282,
+      "location": "South Portland, ME",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13485,
+      "miles": 82975,
+      "location": "St. Petersburg, FL",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15190,
+      "miles": 67138,
+      "location": "Columbus, GA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 5893,
+      "miles": 197500,
+      "location": "Maysville, KY",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9074,
+      "miles": 132530,
+      "location": "Rock Springs, WY",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 8344,
+      "miles": 158854,
+      "location": "Toms River, NJ",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11342,
+      "miles": 70428,
+      "location": "Libertyville, IL",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12665,
+      "miles": 44789,
+      "location": "Jackson Heights, NY",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11270,
+      "miles": 101390,
+      "location": "Las Vegas, NV",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9913,
+      "miles": 80271,
+      "location": "Miami, FL",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 7995,
+      "miles": 125816,
+      "location": "Monroe, WA",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10261,
+      "miles": 97724,
+      "location": "Riverdale, UT",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9599,
+      "miles": 121356,
+      "location": "Prescott Valley, AZ",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9149,
+      "miles": 135079,
+      "location": "Burnsville, MN",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "SV",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/rogue/year-2019/?trim=sv",
+    "fetched": "2026-10-28",
+    "pageAverage": 20098,
+    "listings": [
+     {
+      "price": 11892,
+      "miles": 101448,
+      "location": "Tempe, AZ",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 10292,
+      "miles": 92909,
+      "location": "Newark, CA",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 15033,
+      "miles": 74454,
+      "location": "Orlando, FL",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 13574,
+      "miles": 82999,
+      "location": "Miami, FL",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11824,
+      "miles": 95060,
+      "location": "Keyport, NJ",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14913,
+      "miles": 75302,
+      "location": "Mesa, AZ",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16674,
+      "miles": 42641,
+      "location": "Countryside, IL",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12289,
+      "miles": 102535,
+      "location": "Middletown, CT",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15899,
+      "miles": 49944,
+      "location": "Mesa, AZ",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14573,
+      "miles": 90731,
+      "location": "Westborough, MA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14231,
+      "miles": 71654,
+      "location": "Levittown, NY",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11174,
+      "miles": 75557,
+      "location": "Bronx, NY",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 10170,
+      "miles": 110297,
+      "location": "Jackson Heights, NY",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12329,
+      "miles": 114099,
+      "location": "Tucson, AZ",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 14299,
+      "miles": 75234,
+      "location": "Danbury, CT",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 9166,
+      "miles": 152956,
+      "location": "Roseville, CA",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16168,
+      "miles": 67334,
+      "location": "Dover, DE",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 12979,
+      "miles": 103155,
+      "location": "Sugar Land, TX",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18412,
+      "miles": 37017,
+      "location": "Cornelius, NC",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 11907,
+      "miles": 107211,
+      "location": "Lawrenceburg, IN",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "SV",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/rogue/year-2022/?trim=sv",
+    "fetched": "2026-10-28",
+    "pageAverage": 20188,
+    "listings": [
+     {
+      "price": 17855,
+      "miles": 62033,
+      "location": "Orlando, FL",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 18814,
+      "miles": 49851,
+      "location": "Macon, GA",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18191,
+      "miles": 70471,
+      "location": "Pinellas Park, FL",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18440,
+      "miles": 35018,
+      "location": "Pembroke Pines, FL",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18776,
+      "miles": 65362,
+      "location": "Columbia, KY",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17340,
+      "miles": 78568,
+      "location": "Riverhead, NY",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19960,
+      "miles": 34343,
+      "location": "Wayne, NJ",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17327,
+      "miles": 83167,
+      "location": "Chicago, IL",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17999,
+      "miles": 41749,
+      "location": "Mesa, AZ",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 21198,
+      "miles": 37607,
+      "location": "Federal Way, WA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19992,
+      "miles": 47672,
+      "location": "Tilton, NH",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20698,
+      "miles": 51156,
+      "location": "Fayetteville, NC",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17363,
+      "miles": 86780,
+      "location": "Salt Lake City, UT",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20989,
+      "miles": 26470,
+      "location": "Middletown, CT",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": "CPO"
+     },
+     {
+      "price": 19977,
+      "miles": 51251,
+      "location": "Salt Lake City, UT",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": "CPO"
+     },
+     {
+      "price": 16347,
+      "miles": 90045,
+      "location": "Metairie, LA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20687,
+      "miles": 53917,
+      "location": "Garden City, GA",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18072,
+      "miles": 43158,
+      "location": "Clinton Township, MI",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20298,
+      "miles": 54540,
+      "location": "Bennington, VT",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16678,
+      "miles": 99266,
+      "location": "Cary, NC",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "SV",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/rogue/year-2024/?trim=sv",
+    "fetched": "2026-10-28",
+    "pageAverage": 20098,
+    "listings": [
+     {
+      "price": 17270,
+      "miles": 70836,
+      "location": "Lithia Springs, GA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 18382,
+      "miles": 61049,
+      "location": "Miami, FL",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": "Sponsored"
+     },
+     {
+      "price": 19435,
+      "miles": 39720,
+      "location": "Hamilton Square, NJ",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16859,
+      "miles": 75560,
+      "location": "Chesterton, IN",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16395,
+      "miles": 64874,
+      "location": "Commerce, GA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16795,
+      "miles": 50812,
+      "location": "Robbinsville, NJ",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17595,
+      "miles": 58413,
+      "location": "Commerce, GA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 18168,
+      "miles": 65374,
+      "location": "Tucson, AZ",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20837,
+      "miles": 60428,
+      "location": "Royal Palm Beach, FL",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": "CPO"
+     },
+     {
+      "price": 18290,
+      "miles": 71928,
+      "location": "Sterling, IL",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 17433,
+      "miles": 80517,
+      "location": "McDonough, GA",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 16995,
+      "miles": 68137,
+      "location": "Commerce, GA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20994,
+      "miles": 40436,
+      "location": "Vero Beach, FL",
+      "trim": "SV FWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 20698,
+      "miles": 54600,
+      "location": "Wake Forest, NC",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19286,
+      "miles": 67881,
+      "location": "Southern Pines, NC",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15400,
+      "miles": 64248,
+      "location": "Dublin, GA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 21280,
+      "miles": 55035,
+      "location": "Live Oak, FL",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15400,
+      "miles": 60067,
+      "location": "Dublin, GA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 19183,
+      "miles": 52575,
+      "location": "Scottsdale, AZ",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     },
+     {
+      "price": 15400,
+      "miles": 58356,
+      "location": "Dublin, GA",
+      "trim": "SV AWD",
+      "body": "SUV / Crossover",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Toyota",
+  "model": "Camry",
+  "gaps": [
+   "No year/trim 'averages $X' figure was present on any of the four Camry LE pages (TrueCar only quoted averages for other trims, e.g. SE), so page_average is null for all four years.",
+   "2024: three LE-filtered cards carried an extra 'SE' label in the card title; recorded as LE per the filter but flagged in note.",
+   "Listings are the first 20 cards of page 1 only (no pagination), nationwide, as of 2026-10-28."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "LE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/camry/year-2016/?trim=le",
+    "fetched": "2026-10-28",
+    "pageAverage": null,
+    "listings": [
+     {
+      "price": 17496,
+      "miles": 70377,
+      "location": "Mount Laurel, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 13992,
+      "miles": 96246,
+      "location": "Jacksonville, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 12958,
+      "miles": 114181,
+      "location": "Cleveland Heights, OH",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 12060,
+      "miles": 110904,
+      "location": "Cedar Falls, IA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 16222,
+      "miles": 96727,
+      "location": "Dixon, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 12498,
+      "miles": 119348,
+      "location": "Dumfries, VA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 12380,
+      "miles": 133489,
+      "location": "Waipahu, HI",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 15998,
+      "miles": 93593,
+      "location": "Palm Desert, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; CarMax"
+     },
+     {
+      "price": 15998,
+      "miles": 97275,
+      "location": "Tampa, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; CarMax"
+     },
+     {
+      "price": 10073,
+      "miles": 167034,
+      "location": "Sacramento, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 15353,
+      "miles": 79432,
+      "location": "Elgin, IL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18847,
+      "miles": 98500,
+      "location": "Honolulu, HI",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; one owner"
+     },
+     {
+      "price": 16998,
+      "miles": 99270,
+      "location": "Tolleson, AZ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; CarMax"
+     },
+     {
+      "price": 12149,
+      "miles": 149036,
+      "location": "Wilmington, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 21998,
+      "miles": 15283,
+      "location": "Rochester, NY",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; CarMax; one owner; very low miles"
+     },
+     {
+      "price": 12694,
+      "miles": 110682,
+      "location": "Cliffwood, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price; one owner"
+     },
+     {
+      "price": 10578,
+      "miles": 133231,
+      "location": "Alpharetta, GA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18295,
+      "miles": 46651,
+      "location": "Vienna, VA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 12294,
+      "miles": 143139,
+      "location": "Stafford, VA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price; one owner"
+     },
+     {
+      "price": 17797,
+      "miles": 57572,
+      "location": "Cincinnati, OH",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "LE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/camry/year-2019/?trim=le",
+    "fetched": "2026-10-28",
+    "pageAverage": null,
+    "listings": [
+     {
+      "price": 17489,
+      "miles": 59729,
+      "location": "Davie, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; Excellent price; one owner"
+     },
+     {
+      "price": 10574,
+      "miles": 184712,
+      "location": "Troy, MI",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; Excellent price"
+     },
+     {
+      "price": 19387,
+      "miles": 68872,
+      "location": "Lynnwood, WA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 19897,
+      "miles": 90715,
+      "location": "Mobile, AL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 19810,
+      "miles": 62988,
+      "location": "Stuart, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 12419,
+      "miles": 160689,
+      "location": "Arlington, TX",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 12680,
+      "miles": 161900,
+      "location": "Norco, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 19598,
+      "miles": 81607,
+      "location": "Raleigh, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 18489,
+      "miles": 103886,
+      "location": "Phoenix, AZ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 14223,
+      "miles": 143599,
+      "location": "Houston, TX",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 19949,
+      "miles": 78550,
+      "location": "Burnsville, MN",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; one owner"
+     },
+     {
+      "price": 19000,
+      "miles": 75987,
+      "location": "Danbury, CT",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; one owner"
+     },
+     {
+      "price": 18584,
+      "miles": 91804,
+      "location": "Poway, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 19841,
+      "miles": 64968,
+      "location": "Westminster, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price; one owner"
+     },
+     {
+      "price": 15299,
+      "miles": 135492,
+      "location": "Silver Spring, MD",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price; one owner"
+     },
+     {
+      "price": 18750,
+      "miles": 80375,
+      "location": "Hillsboro, OR",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 19668,
+      "miles": 69574,
+      "location": "Streamwood, IL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 18995,
+      "miles": 79263,
+      "location": "Hamburg, PA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 15457,
+      "miles": 115123,
+      "location": "Corona, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 21795,
+      "miles": 42642,
+      "location": "Baltimore, MD",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "LE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/camry/year-2022/?trim=le",
+    "fetched": "2026-10-28",
+    "pageAverage": null,
+    "listings": [
+     {
+      "price": 21879,
+      "miles": 22705,
+      "location": "Los Angeles, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; Excellent price; one owner"
+     },
+     {
+      "price": 17073,
+      "miles": 73992,
+      "location": "Sacramento, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; Excellent price"
+     },
+     {
+      "price": 18093,
+      "miles": 114698,
+      "location": "Winter Park, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 23483,
+      "miles": 44812,
+      "location": "Henderson, NV",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 19995,
+      "miles": 86726,
+      "location": "Tempe, AZ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; one owner"
+     },
+     {
+      "price": 18597,
+      "miles": 69274,
+      "location": "Bellingham, WA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 21998,
+      "miles": 69150,
+      "location": "Murray, UT",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; one owner"
+     },
+     {
+      "price": 23297,
+      "miles": 54054,
+      "location": "Macon, GA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 21595,
+      "miles": 47815,
+      "location": "Jacksonville, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; one owner"
+     },
+     {
+      "price": 23877,
+      "miles": 30861,
+      "location": "North Dartmouth, MA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; one owner"
+     },
+     {
+      "price": 21767,
+      "miles": 52117,
+      "location": "Fort Myers, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price; one owner"
+     },
+     {
+      "price": 18500,
+      "miles": 78423,
+      "location": "Rockville, MD",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19095,
+      "miles": 93154,
+      "location": "Albuquerque, NM",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; DriveTime"
+     },
+     {
+      "price": 22027,
+      "miles": 56844,
+      "location": "Henderson, NV",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price"
+     },
+     {
+      "price": 21314,
+      "miles": 64272,
+      "location": "Dublin, OH",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price; one owner"
+     },
+     {
+      "price": 22693,
+      "miles": 60842,
+      "location": "Ocala, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 19859,
+      "miles": 97945,
+      "location": "Bakersfield, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 24501,
+      "miles": 16726,
+      "location": "Creve Coeur, MO",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 22119,
+      "miles": 51342,
+      "location": "League City, TX",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; one owner"
+     },
+     {
+      "price": 20485,
+      "miles": 74341,
+      "location": "Hayward, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; one owner"
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "LE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/camry/year-2024/?trim=le",
+    "fetched": "2026-10-28",
+    "pageAverage": null,
+    "listings": [
+     {
+      "price": 19995,
+      "miles": 95077,
+      "location": "Hayward, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; Excellent price"
+     },
+     {
+      "price": 21994,
+      "miles": 62167,
+      "location": "Greenville, SC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; CPO; Excellent price"
+     },
+     {
+      "price": 18875,
+      "miles": 58297,
+      "location": "Little Falls, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price"
+     },
+     {
+      "price": 19627,
+      "miles": 125994,
+      "location": "Miami, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; card title read 'LE Automatic FWD SE' (trim label ambiguous)"
+     },
+     {
+      "price": 24317,
+      "miles": 19896,
+      "location": "Miami, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 25494,
+      "miles": 40110,
+      "location": "Daytona Beach, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price"
+     },
+     {
+      "price": 24990,
+      "miles": 29578,
+      "location": "Winter Park, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price"
+     },
+     {
+      "price": 22993,
+      "miles": 64000,
+      "location": "Hudson, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 22837,
+      "miles": 46030,
+      "location": "Doral, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 24687,
+      "miles": 38059,
+      "location": "Raleigh, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price; card title read 'LE Automatic FWD SE' (trim label ambiguous)"
+     },
+     {
+      "price": 22549,
+      "miles": 61996,
+      "location": "Orlando, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 23995,
+      "miles": 28983,
+      "location": "Davie, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price"
+     },
+     {
+      "price": 26995,
+      "miles": 13913,
+      "location": "Greenville, SC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 26294,
+      "miles": 36134,
+      "location": "Daytona Beach, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 26402,
+      "miles": 31761,
+      "location": "Winston-Salem, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price"
+     },
+     {
+      "price": 27487,
+      "miles": 5903,
+      "location": "Fairlawn, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price"
+     },
+     {
+      "price": 27798,
+      "miles": 29851,
+      "location": "Chattanooga, TN",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 27603,
+      "miles": 21350,
+      "location": "Irmo, SC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price; card title read 'LE Automatic FWD SE' (trim label ambiguous)"
+     },
+     {
+      "price": 27756,
+      "miles": 35120,
+      "location": "Burlington, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; AWD"
+     },
+     {
+      "price": 21726,
+      "miles": 35915,
+      "location": "Miami, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Toyota",
+  "model": "Corolla",
+  "gaps": [
+   "All four Corolla LE pages state the identical 'average price ... is $20,170' sentence (2016, 2019, 2022 and 2024), so it is a model-wide boilerplate figure rather than a year-specific average; page_average set to null and the stated value kept in page_average_as_stated.",
+   "Listings are the first 20 cards of page 1 only (no pagination), nationwide, as of 2026-10-28. Cards did not state body style; recorded as Sedan because all were 'Corolla LE CVT' (the LE trim is sedan-only; hatchbacks are badged Corolla Hatchback SE/XSE)."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "LE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla/year-2016/?trim=le",
+    "fetched": "2026-10-28",
+    "pageAverage": null,
+    "listings": [
+     {
+      "price": 14300,
+      "miles": 76472,
+      "location": "Longwood, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; one owner"
+     },
+     {
+      "price": 14836,
+      "miles": 77462,
+      "location": "Memphis, TN",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 16755,
+      "miles": 61959,
+      "location": "Boone, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 11377,
+      "miles": 134529,
+      "location": "North Dartmouth, MA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 17577,
+      "miles": 58121,
+      "location": "Tacoma, WA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 12099,
+      "miles": 108538,
+      "location": "Mesa, AZ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 11760,
+      "miles": 116889,
+      "location": "Pompano Beach, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 12115,
+      "miles": 130970,
+      "location": "Irving, TX",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 15480,
+      "miles": 70162,
+      "location": "Chesapeake, VA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 13968,
+      "miles": 78427,
+      "location": "Tampa, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 11688,
+      "miles": 98370,
+      "location": "Tinley Park, IL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 12600,
+      "miles": 111458,
+      "location": "Wake Forest, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 12701,
+      "miles": 115924,
+      "location": "Harrisburg, PA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; one owner"
+     },
+     {
+      "price": 9994,
+      "miles": 116399,
+      "location": "Arlington, VA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 17170,
+      "miles": 36192,
+      "location": "Yorkville, NY",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; one owner"
+     },
+     {
+      "price": 12598,
+      "miles": 133208,
+      "location": "Annapolis, MD",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 18027,
+      "miles": 37881,
+      "location": "Fairless Hills, PA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 14329,
+      "miles": 112364,
+      "location": "Simi Valley, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 14452,
+      "miles": 104958,
+      "location": "Apex, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; one owner"
+     },
+     {
+      "price": 14788,
+      "miles": 30990,
+      "location": "Tampa, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "LE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla/year-2019/?trim=le",
+    "fetched": "2026-10-28",
+    "pageAverage": null,
+    "listings": [
+     {
+      "price": 19414,
+      "miles": 49700,
+      "location": "Reading, PA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; one owner"
+     },
+     {
+      "price": 15429,
+      "miles": 71972,
+      "location": "Pompano Beach, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 12216,
+      "miles": 110000,
+      "location": "Manvel, TX",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 16294,
+      "miles": 72817,
+      "location": "Daytona Beach, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; one owner"
+     },
+     {
+      "price": 7539,
+      "miles": 183419,
+      "location": "Jamesburg, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 14043,
+      "miles": 111192,
+      "location": "El Monte, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18998,
+      "miles": 49660,
+      "location": "Tampa, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; CarMax"
+     },
+     {
+      "price": 21998,
+      "miles": 10778,
+      "location": "Laurel, MD",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; CarMax; one owner; very low miles"
+     },
+     {
+      "price": 16528,
+      "miles": 70221,
+      "location": "Chandler, AZ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 19998,
+      "miles": 34495,
+      "location": "Langhorne, PA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; CarMax"
+     },
+     {
+      "price": 18998,
+      "miles": 56346,
+      "location": "Stockton, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; CarMax"
+     },
+     {
+      "price": 18998,
+      "miles": 62985,
+      "location": "East Haven, CT",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price; CarMax; one owner"
+     },
+     {
+      "price": 10284,
+      "miles": 127982,
+      "location": "Winter Park, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 13597,
+      "miles": 75633,
+      "location": "Orlando, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 11172,
+      "miles": 149610,
+      "location": "Jacksonville, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price"
+     },
+     {
+      "price": 10392,
+      "miles": 92755,
+      "location": "Orlando, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 13400,
+      "miles": 75720,
+      "location": "Palmetto Bay, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 16998,
+      "miles": 85314,
+      "location": "Inglewood, CA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Fair price; CarMax"
+     },
+     {
+      "price": 12784,
+      "miles": 85626,
+      "location": "Winter Park, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 9174,
+      "miles": 196802,
+      "location": "Midlothian, VA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; one owner"
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "LE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla/year-2022/?trim=le",
+    "fetched": "2026-10-28",
+    "pageAverage": null,
+    "listings": [
+     {
+      "price": 16989,
+      "miles": 47097,
+      "location": "Miami, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; Excellent price"
+     },
+     {
+      "price": 12875,
+      "miles": 147175,
+      "location": "Kissimmee, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; Excellent price"
+     },
+     {
+      "price": 16865,
+      "miles": 51060,
+      "location": "Commack, NY",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 16862,
+      "miles": 52088,
+      "location": "Little Falls, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price"
+     },
+     {
+      "price": 17360,
+      "miles": 46699,
+      "location": "Little Falls, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price"
+     },
+     {
+      "price": 19983,
+      "miles": 29333,
+      "location": "Orlando, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 17704,
+      "miles": 55241,
+      "location": "Tampa, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18483,
+      "miles": 65961,
+      "location": "Southern Pines, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price"
+     },
+     {
+      "price": 17568,
+      "miles": 84871,
+      "location": "Raleigh, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 17049,
+      "miles": 70215,
+      "location": "Little Falls, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price"
+     },
+     {
+      "price": 11699,
+      "miles": 295543,
+      "location": "Jasper, AL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; extreme mileage"
+     },
+     {
+      "price": 19597,
+      "miles": 32365,
+      "location": "Pinellas Park, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 17994,
+      "miles": 66357,
+      "location": "Belmont, MA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 15890,
+      "miles": 105787,
+      "location": "Devils Lake, ND",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18755,
+      "miles": 48802,
+      "location": "Fort Myers, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 19930,
+      "miles": 28513,
+      "location": "Naperville, IL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 20049,
+      "miles": 36371,
+      "location": "White River Junction, VT",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price"
+     },
+     {
+      "price": 20575,
+      "miles": 29211,
+      "location": "West Springfield, MA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 20529,
+      "miles": 33886,
+      "location": "Albany, GA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 19894,
+      "miles": 43488,
+      "location": "Keene, NH",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "LE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla/year-2024/?trim=le",
+    "fetched": "2026-10-28",
+    "pageAverage": null,
+    "listings": [
+     {
+      "price": 19604,
+      "miles": 60814,
+      "location": "Mobile, AL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; Excellent price"
+     },
+     {
+      "price": 20726,
+      "miles": 30606,
+      "location": "High Point, NC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Sponsored; Excellent price"
+     },
+     {
+      "price": 18905,
+      "miles": 50540,
+      "location": "Columbus, GA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18067,
+      "miles": 61331,
+      "location": "Green Brook, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18748,
+      "miles": 18832,
+      "location": "Hialeah, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18700,
+      "miles": 49744,
+      "location": "Hillsboro, OR",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price"
+     },
+     {
+      "price": 19904,
+      "miles": 23408,
+      "location": "Orlando, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 19067,
+      "miles": 55942,
+      "location": "Green Brook, NJ",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 20500,
+      "miles": 19134,
+      "location": "Lugoff, SC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18045,
+      "miles": 31617,
+      "location": "Pembroke Pines, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 20217,
+      "miles": 30194,
+      "location": "Homosassa, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price"
+     },
+     {
+      "price": 20648,
+      "miles": 19010,
+      "location": "Vancouver, WA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price; page spelled location 'Vancover, WA'"
+     },
+     {
+      "price": 19711,
+      "miles": 62616,
+      "location": "Ocala, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 18195,
+      "miles": 65732,
+      "location": "Lugoff, SC",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 20290,
+      "miles": 17643,
+      "location": "Pinellas Park, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Great price"
+     },
+     {
+      "price": 17995,
+      "miles": 61860,
+      "location": "Commerce, GA",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 19250,
+      "miles": 40026,
+      "location": "Hillsboro, OR",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Excellent price"
+     },
+     {
+      "price": 21550,
+      "miles": 14669,
+      "location": "Fort Myers, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "CPO; Great price"
+     },
+     {
+      "price": 19175,
+      "miles": 58730,
+      "location": "Pembroke Pines, FL",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
+     },
+     {
+      "price": 20296,
+      "miles": 43938,
+      "location": "Columbia, KY",
+      "trim": "LE",
+      "body": "Sedan",
+      "note": "Excellent price"
      }
     ]
    }
