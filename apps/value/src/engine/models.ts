@@ -1,6 +1,9 @@
-// Model-level market data. residual5 is the share of MSRP a typical example
-// sells for after five years, which already reflects reliability reputation,
-// demand and supply for that model. Values are rule-of-thumb estimates drawn
+// Model-level market data. residual5 is the share of a NEW one's price that a
+// typical five-year-old example sells for (used prices track the price of a
+// new replacement, so the engine inflates old stickers to today's dollars
+// first). It already reflects reliability reputation, demand and supply for
+// that model. Honda Civic (0.66) is backtested against 55 real 2026 dealer
+// listings; see src/engine/backtest-civic.test.ts. Values are rule-of-thumb estimates drawn
 // from published depreciation studies, not live market data; correct them
 // with real asking prices (the comps input) when you have them.
 //

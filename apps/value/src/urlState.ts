@@ -1,6 +1,6 @@
 import { REGIONS, type Region } from './engine/data';
 import { MARKET, marketNote } from './engine/market';
-import { findModel, typicalMsrp } from './engine/models';
+import { prefillMsrp } from './engine/prefill';
 import type { Inputs, MarketCondition, Urgency } from './engine/valuation';
 
 export type FormState = {
@@ -28,10 +28,9 @@ export const URGENCY_OPTIONS = [
 
 export function defaults(now = new Date()): FormState {
   const year = now.getFullYear() - 4;
-  const camry = findModel('Toyota', 'Camry');
   return {
     make: 'Toyota', model: 'Camry', trim: 'SE', body: 'Sedan',
-    msrp: String(camry ? typicalMsrp(camry, year) : 30000),
+    msrp: String(prefillMsrp('Toyota', 'Camry', year, 'SE')?.msrp ?? 30000),
     year: String(year), mileage: '48000', condition: 'Good',
     title: 'Clean', accident: 'None', region: 'Southeast',
     market: 'Auto', listings: '', urgency: 'No rush', comps: '', annual: '12000',

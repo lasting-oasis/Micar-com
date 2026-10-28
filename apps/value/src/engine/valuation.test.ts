@@ -21,8 +21,15 @@ describe('valuate', () => {
 
   it('applies a drive-off hit to a current-model-year car', () => {
     const r = valuate({ ...base, year: 2026, mileage: 5000 }, asOf);
-    expect(r.privateParty / 30000).toBeLessThan(0.92);
-    expect(r.privateParty / 30000).toBeGreaterThan(0.75);
+    expect(r.privateParty / 30000).toBeLessThan(0.93);
+    expect(r.privateParty / 30000).toBeGreaterThan(0.80);
+  });
+
+  it('measures depreciation against today\'s new-car price, not the old sticker', () => {
+    const old = valuate({ ...base, year: 2016, mileage: 120000 }, asOf);
+    expect(old.steps.some((s) => s.label === 'New-car prices since then' && s.delta > 0)).toBe(true);
+    const fresh = valuate({ ...base, year: 2026, mileage: 1000 }, asOf);
+    expect(fresh.steps.some((s) => s.label === 'New-car prices since then')).toBe(false);
   });
 
   it('uses model-level resale: a 4Runner holds value far better than a Malibu', () => {
@@ -76,7 +83,7 @@ describe('valuate', () => {
     for (const m of MODELS) {
       const r = valuate({ ...base, make: m.make, model: m.model, body: m.body, msrp: m.typicalMsrp }, asOf);
       expect(r.privateParty / m.typicalMsrp, m.model).toBeGreaterThan(0.25);
-      expect(r.privateParty / m.typicalMsrp, m.model).toBeLessThan(0.85);
+      expect(r.privateParty / m.typicalMsrp, m.model).toBeLessThan(0.95);
     }
     for (const m of MAKES) {
       const r = valuate({ ...base, make: m.name, model: '' }, asOf);

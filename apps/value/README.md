@@ -25,6 +25,22 @@ A pure depreciation formula knows what a car *should* be worth from its sticker 
 
 The model table is a rule-of-thumb snapshot from published depreciation studies, not live listings or auction data. The natural next step is a live comps feed (MarketCheck, Auto.dev or a dealer's own inventory system) feeding the same `comps` input.
 
+## Real sticker prices
+
+`src/engine/stickers.ts` holds official MSRPs by model year and trim (excluding destination), taken from the manufacturers' own pricing announcements. When the chosen make, model and year are on file, the Trim field becomes a picker and the MSRP box is prefilled with the real sticker. Otherwise it falls back to `typicalMsrp` in `models.ts`, a rough mid-trim figure scaled 3% a year, and says so. Honda Civic 2016–2026 is on file; add models in the same shape.
+
+## Backtest: Honda Civic
+
+`src/engine/backtest-civic.test.ts` checks the engine against 55 real dealer listings (TrueCar, October 2026) for the 2016 Civic LX, 2019 LX, 2022 Sport and 2023 Touring, using the official stickers. It is a regression test: the engine's dealer-retail estimate must stay within 10% mean absolute error and 5% median bias.
+
+What it found, and what changed because of it:
+
+- The original engine depreciated from the **old sticker**, and ran 9–11% low across the board. A 2016 Civic LX stickered at $19,440 but asks around $13,900 today, 72% of its sticker after ten years, because a new LX now costs $24,695. Used prices follow the price of a new replacement. The engine now inflates the sticker to today's dollars (3% a year) before applying the curve, and shows that as its own ledger line.
+- Measured against today's price, Civic depreciation is close to a **constant percentage each year** rather than front-loaded, so the curve's decay is 1.0 with a ~6% titling hit.
+- Result: median error +0.2%, mean absolute error 8.0% (was −9.2% / 11.2% with real stickers, −11.3% / 13.6% with the old prefill). Top trims still run a little rich (2023 Touring +9%): option content depreciates faster than the base car, which a per-trim adjustment could fix later.
+
+This is one model and 55 listings; repeating it for the next models is the way to tighten the `residual5` table.
+
 ## Weekly national market snapshot
 
 `scripts/fetch-market.mjs` pulls the Bureau of Labor Statistics CPI-U index for used cars and trucks (series `CUSR0000SETA02`, public domain, no API key; FRED is the fallback) and writes `src/data/market.json` with the year-over-year change, three-month momentum, a market index from −1 (very soft) to +1 (very tight) and a Soft / Normal / Tight reading. `.github/workflows/market.yml` runs it every Sunday, commits the file when it changes and redeploys the site. The page's "Used-car market right now" control defaults to **Auto**, which uses that reading; the ledger shows the resulting adjustment with the data month it came from.
@@ -83,6 +99,9 @@ src/engine/models.ts        Model-level resale data, demand traits, typical MSRP
 src/engine/valuation.ts     Pure valuation + forecast functions (no React)
 src/engine/market.ts        Reads the weekly snapshot in src/data/market.json
 src/engine/listings.ts      Parses a pasted listings page into comps
+src/engine/stickers.ts      Official MSRPs by year and trim (Civic so far)
+src/engine/prefill.ts       Picks the sticker or the typical estimate for the MSRP box
+src/engine/backtest-civic.test.ts  Engine vs 55 real Civic listings (regression test)
 worker/index.js             Cloudflare Worker: live MarketCheck lookup (optional)
 scripts/fetch-market.mjs    Weekly BLS fetch (run by .github/workflows/market.yml)
 src/engine/valuation.test.ts

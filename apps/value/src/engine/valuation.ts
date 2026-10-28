@@ -76,17 +76,30 @@ export function vehicleAge(modelYear: number, asOf: Date): number {
   return clamp(fractional - (modelYear + 0.5), 0, 60);
 }
 
-const DECAY = 0.85; // each year loses ~15% less than the year before
-const DRIVE_OFF = 0.4; // titling hit, as a fraction of the first year's loss
+/** Depreciation curve settings. Exported so backtests can tune them. */
+export const CURVE = {
+  /** Each year's loss as a multiple of the year before (1 = the same percentage every year).
+   * Backtested against real Civic listings: constant-percentage fits better than a
+   * front-loaded curve once prices are measured against today's new-car price. */
+  decay: 1.0,
+  /** Titling hit, as a fraction of the first year's loss (about 6% of the price for most models). */
+  driveOff: 0.8,
+  /** Yearly growth in new-car prices. Used prices track the price of a new
+   * replacement, so an old sticker is inflated to today's dollars before the
+   * curve is applied. */
+  inflation: 0.03,
+  /** Value lost per 1,000 miles above the expected odometer. */
+  milesRate: 0.0055,
+};
 
 /** Share of MSRP kept after `age` years for a car losing `firstYearLoss`
  * in its first year, before mileage/condition. */
 export function curveShare(firstYearLoss: number, age: number): number {
   if (age <= 0) return 1;
-  let share = 1 - firstYearLoss * DRIVE_OFF;
+  let share = 1 - firstYearLoss * CURVE.driveOff;
   const whole = Math.floor(age);
-  for (let k = 0; k < whole; k++) share *= 1 - firstYearLoss * Math.pow(DECAY, k);
-  share *= Math.pow(1 - firstYearLoss * Math.pow(DECAY, whole), age - whole);
+  for (let k = 0; k < whole; k++) share *= 1 - firstYearLoss * Math.pow(CURVE.decay, k);
+  share *= Math.pow(1 - firstYearLoss * Math.pow(CURVE.decay, whole), age - whole);
   return share;
 }
 
@@ -104,7 +117,7 @@ export function lossForResidual(residual5: number): number {
  * the car's value, so a $90k car loses more dollars per extra mile than a $20k one. */
 export function mileageFactor(mileage: number, expected: number): number {
   const delta = mileage - expected;
-  if (delta > 0) return Math.max(0.5, Math.exp(-0.0055 * (delta / 1000)));
+  if (delta > 0) return Math.max(0.5, Math.exp(-CURVE.milesRate * (delta / 1000)));
   return 1 + Math.min(0.12, 0.004 * (-delta / 1000));
 }
 
@@ -187,12 +200,17 @@ export function valuate(input: Inputs, asOf: Date = new Date()): Valuation {
   steps.push({ label: 'Original MSRP', detail: `${input.year} ${make.name} ${input.model || input.body}`.trim(), value: msrp, delta: 0 });
 
   const titled = age > 0 || input.mileage > 0;
+  // Today's price of an equivalent new car is what used buyers compare against.
+  const basis = msrp * Math.pow(1 + CURVE.inflation, Math.max(0, asOf.getFullYear() - input.year));
+  if (basis > msrp * 1.005) {
+    push('New-car prices since then', `a comparable new one costs ~${Math.round((basis / msrp - 1) * 100)}% more today`, basis);
+  }
   push(
     'Age and model resale',
     info
-      ? `${age.toFixed(1)} yrs old · this model typically keeps ~${Math.round(residual5 * 100)}% of MSRP after 5 yrs`
-      : `${age.toFixed(1)} yrs old · a ${make.name} ${body.name.toLowerCase()} typically keeps ~${Math.round(residual5 * 100)}% of MSRP after 5 yrs`,
-    titled ? msrp * curveShare(firstYearLoss, Math.max(age, 0.05)) : msrp,
+      ? `${age.toFixed(1)} yrs old · this model typically sells for ~${Math.round(residual5 * 100)}% of a new one's price after 5 yrs`
+      : `${age.toFixed(1)} yrs old · a ${make.name} ${body.name.toLowerCase()} typically sells for ~${Math.round(residual5 * 100)}% of a new one's price after 5 yrs`,
+    titled ? basis * curveShare(firstYearLoss, Math.max(age, 0.05)) : basis,
   );
   const mf = mileageFactor(input.mileage, expectedMiles);
   const milesDiff = input.mileage - expectedMiles;
@@ -233,8 +251,8 @@ export function valuate(input: Inputs, asOf: Date = new Date()): Valuation {
   const urgency = URGENCY_DISCOUNT[input.urgency];
   if (urgency !== 0) push('Priced to sell', input.urgency === 'week' ? 'Needs to sell this week' : 'Needs to sell within a month', v * (1 + urgency));
 
-  const floor = Math.max(500, msrp * 0.03);
-  const ceiling = msrp * 0.98;
+  const floor = Math.max(500, basis * 0.03);
+  const ceiling = Math.max(msrp, basis * 0.9) * 0.98;
   const modelEstimate = clamp(v, Math.min(floor, ceiling), Math.max(ceiling, 0));
   v = modelEstimate;
 

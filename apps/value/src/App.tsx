@@ -4,7 +4,9 @@ import { Check, Link2, RotateCcw, Search } from 'lucide-react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
 import { describe as describeListings, parseListingsPage, type ParsedListing } from './engine/listings';
 import { MARKET, periodLabel, snapshotAgeDays } from './engine/market';
-import { findModel, modelsForMake, typicalMsrp } from './engine/models';
+import { findModel, modelsForMake } from './engine/models';
+import { prefillMsrp } from './engine/prefill';
+import { stickerFor } from './engine/stickers';
 import { expectedMilesFor, forecast, mileageAdjustedPrice, valuate, type Inputs, type Valuation } from './engine/valuation';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse, readUrl, shareUrl, urlHasMsrp, writeUrl, type Errors, type FormState } from './urlState';
 
@@ -104,25 +106,32 @@ export default function App() {
     const value = e.target.value;
     if (k === 'msrp') setMsrpAuto(false);
     if (k === 'make' || k === 'model' || k === 'year') setLive(null);
+    const refill = k === 'model' || k === 'trim' || ((k === 'make' || k === 'year') && msrpAuto);
     setForm((f) => {
       const next = { ...f, [k]: value };
       if (k === 'make') {
         const first = modelsForMake(value)[0];
         next.model = first ? first.model : '';
-        if (first) { next.body = first.body; if (msrpAuto) next.msrp = String(typicalMsrp(first, Number(next.year) || now.getFullYear())); }
+        next.trim = '';
+        if (first) next.body = first.body;
       }
       if (k === 'model') {
         const info = findModel(next.make, value);
-        if (info) { next.body = info.body; next.msrp = String(typicalMsrp(info, Number(next.year) || now.getFullYear())); }
+        if (info) next.body = info.body;
+        next.trim = '';
       }
-      if (k === 'year' && msrpAuto) {
-        const info = findModel(next.make, next.model);
-        const y = Number(value);
-        if (info && Number.isInteger(y) && y >= 1990 && y <= now.getFullYear() + 1) next.msrp = String(typicalMsrp(info, y));
+      if (k === 'year' || k === 'model' || k === 'make') {
+        // Snap the trim to the sticker list for this year when there is one.
+        const st = stickerFor(next.make, next.model, Number(next.year));
+        if (st && !st.year.trims.some(([n]) => n === next.trim)) next.trim = k === 'year' && next.trim ? next.trim : st.year.trims[0][0];
+      }
+      if (refill) {
+        const p = prefillMsrp(next.make, next.model, Number(next.year) || now.getFullYear(), next.trim);
+        if (p) next.msrp = String(p.msrp);
       }
       return next;
     });
-    if (k === 'model') setMsrpAuto(true);
+    if (k === 'model' || k === 'trim') setMsrpAuto(true);
   };
 
   const copyLink = async () => {
@@ -238,6 +247,8 @@ function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k
   const err = (k: keyof FormState) => ({ 'aria-invalid': errors[k] ? true : undefined, 'aria-describedby': errors[k] ? `${k}-err` : undefined });
   const radio = (k: keyof FormState) => (v: string) => set(k)({ target: { value: v } });
   const models = modelsForMake(form.make);
+  const sticker = stickerFor(form.make, form.model, Number(form.year));
+  const prefill = prefillMsrp(form.make, form.model, Number(form.year) || new Date().getFullYear(), form.trim);
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-2 gap-3">
@@ -258,8 +269,14 @@ function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k
         </Field>
       </div>
       <div className="grid grid-cols-2 gap-3">
-        <Field id="trim" label="Trim" hint="Optional">
-          <input id="trim" className="field" placeholder="e.g. XLE" value={form.trim} onChange={set('trim')} maxLength={40} autoComplete="off" />
+        <Field id="trim" label="Trim" hint={sticker ? undefined : 'Optional'}>
+          {sticker ? (
+            <select id="trim" className="field" value={sticker.year.trims.some(([n]) => n === form.trim) ? form.trim : sticker.year.trims[0][0]} onChange={set('trim')}>
+              {sticker.year.trims.map(([n, p]) => <option key={n} value={n}>{n} · ${p.toLocaleString()}</option>)}
+            </select>
+          ) : (
+            <input id="trim" className="field" placeholder="e.g. XLE" value={form.trim} onChange={set('trim')} maxLength={40} autoComplete="off" />
+          )}
         </Field>
         <Field id="body" label="Body style">
           <select id="body" className="field" value={form.body} onChange={set('body')}>
@@ -267,7 +284,7 @@ function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k
           </select>
         </Field>
       </div>
-      <Field id="msrp" label="Original sticker price (MSRP)" error={errors.msrp} hint={msrpAuto && findModel(form.make, form.model) ? 'Typical for this model and year. Change it if you know the real sticker.' : undefined}>
+      <Field id="msrp" label="Original sticker price (MSRP)" error={errors.msrp} hint={msrpAuto && prefill ? `${prefill.label}${prefill.note ? ` ${prefill.note}.` : ''}` : undefined}>
         <div className="relative">
           <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm" style={{ color: 'var(--ink-3)' }}>$</span>
           <input id="msrp" className="field num" style={{ paddingLeft: '1.5rem' }} inputMode="numeric" value={form.msrp} onChange={set('msrp')} {...err('msrp')} />
