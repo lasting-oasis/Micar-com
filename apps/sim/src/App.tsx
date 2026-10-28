@@ -29,7 +29,7 @@ const MAP_LOCATIONS = [
   { name: 'Bank — Financing', x: 45, z: 140, color: '#38bdf8' },
   { name: 'Auto Auction', x: -60, z: 240, color: '#f97316' },
   { name: 'Downtown Towers', x: 0, z: 310, color: '#94a3b8' },
-  { name: 'Shopping Plaza', x: -30, z: 450, color: '#a78bfa' },
+  { name: 'City Parks', x: -30, z: 450, color: '#4ade80' },
   { name: 'Warehouse District', x: 0, z: 680, color: '#f43f5e' },
   { name: 'Speedway', x: 0, z: 1750, color: '#818cf8' },
   { name: 'Gas Station', x: 135, z: 80, color: '#ef4444' },
