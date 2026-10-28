@@ -1,5 +1,1266 @@
 [
  {
+  "make": "Ford",
+  "model": "Explorer",
+  "body": "SUV / Crossover",
+  "note": "MSRP excludes destination. No model-year pricing releases could be located on media.ford.com, so every year uses the cars.com research trims page ('Starting MSRP' per trim and drivetrain, reflecting the latest in-year price) as the row source; launch-time prices and destination charges come from dated secondary articles and are recorded in notes. Rows: each trim in its cheapest drivetrain (FWD/RWD where offered), the other drivetrain's price in the note; a separate XLT 4WD row is included for 2016-2020 where the trim count allowed. Trim names as Ford writes them (Base = unnamed 'Explorer' trim; Limited Hybrid rows added where a fetched source priced them). 2025 refresh replaced Base/XLT/Limited/Timberline/King Ranch with Active/ST-Line/Platinum/ST; Tremor added for 2026.",
+  "gaps": [
+   "No manufacturer (media.ford.com) pricing source for any year 2016-2026; all 11 years are secondary (cars.com rows, with Autoblog/AutoGuide/Ford Authority/KBB/Yahoo-syndicated articles for destination and launch prices).",
+   "Destination charge not stated by any fetched source for 2018, 2019 and 2023 (null). 2016 ($895), 2017 ($945), 2020 ($1,095 at launch; $1,245 by Aug 2020), 2021 ($1,245), 2022 ($1,295), 2024 ($1,595), 2025 ($1,595) and 2026 ($1,695; $1,595 before Sept 2025) are from secondary articles (Autoblog, Ford Authority, KBB).",
+   "2026: Ford Authority's Sept 2025 Tremor price ($48,465) is $500 below cars.com ($48,965); every other 2026 trim matches. Unresolved.",
+   "2016, 2017, 2020-2022, 2025: cars.com figures are $130-$2,425 above the dated launch/announcement prices (mid-year increases); both recorded.",
+   "2020-2023: cars.com attaches the 3.3L hybrid engine label to Limited and Platinum rows whose prices match the gas trims (2020, 2021 Limited) or sit between gas and hybrid figures (2022 Platinum); engine labels on those rows are unreliable. Limited Hybrid is priced only for 2020-2022 (Ford Authority/KBB) and Platinum Hybrid only in notes (2021-2022).",
+   "2021: the ST launched at $52,605 and cars.com shows $49,000 (repackaged ST later in the model year); KBB's 2022 table confirms $49,000 as the late-2021 price.",
+   "2025: Tremor not listed on the 2025 cars.com page (not priced); Ford Authority's table gives no drivetrain for Active/ST-Line/Platinum.",
+   "Autoblog /buy/ pricing pages (2018 XLT 4x4) redirected to a section index; Edmunds was not available."
+  ],
+  "years": [
+   {
+    "year": 2016,
+    "destination": 895,
+    "trims": [
+     {
+      "trim": "Base",
+      "msrp": 31050,
+      "config": "FWD",
+      "note": "Autoblog (Nov 26, 2014, Ford configurator) launch price $30,700 excl. $895 destination; AutoGuide quoted $31,595 incl. destination = $30,700. 4WD $33,050"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 33400,
+      "config": "FWD",
+      "note": "Launch $33,400 (Autoblog)"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 35400,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 41300,
+      "config": "FWD",
+      "note": "Launch $41,300 (Autoblog); AWD a $2,000 option"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 43300,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 43500,
+      "config": "4WD",
+      "note": "Launch $43,300 (Autoblog); 3.5L EcoBoost, 4WD only"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 52970,
+      "config": "4WD",
+      "note": "Launch $52,600 (Autoblog); 4WD only"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2016/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2017,
+    "destination": 945,
+    "trims": [
+     {
+      "trim": "Base",
+      "msrp": 31660,
+      "config": "FWD",
+      "note": "Ford Authority (July 2016) launch starting price $32,105 incl. $945 destination = $31,160 excl.; cars.com is $500 higher. 4WD $33,810"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 33775,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "XLT",
+      "msrp": 35925,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 41675,
+      "config": "FWD",
+      "note": "4WD $43,825"
+     },
+     {
+      "trim": "Sport",
+      "msrp": 45355,
+      "config": "4WD",
+      "note": "Ford Authority: XLT Sport $46,150 (presumably incl. destination = $45,205)"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 53235,
+      "config": "4WD",
+      "note": "Ford Authority: $54,180 'with destination' = $53,235 excl., matching cars.com"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2017/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2018,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Base",
+      "msrp": 32140,
+      "config": "FWD",
+      "note": "4WD $34,290"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 34175,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "XLT",
+      "msrp": 36325,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 42090,
+      "config": "FWD",
+      "note": "4WD $44,240"
+     },
+     {
+      "trim": "Sport",
+      "msrp": 45950,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 53940,
+      "config": "4WD",
+      "note": ""
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2018/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2019,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Base",
+      "msrp": 32365,
+      "config": "FWD",
+      "note": "4WD $34,515"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 34400,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "XLT",
+      "msrp": 36550,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 42765,
+      "config": "FWD",
+      "note": "4WD $44,915"
+     },
+     {
+      "trim": "Sport",
+      "msrp": 46625,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 54165,
+      "config": "4WD",
+      "note": ""
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2019/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2020,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "Base",
+      "msrp": 32765,
+      "config": "RWD",
+      "note": "Autoblog launch (Feb 15, 2019, Ford-supplied breakdown) $33,860 incl. $1,095 destination = $32,765 excl. 4WD $34,765"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 36925,
+      "config": "RWD",
+      "note": "Autoblog launch $37,700 incl. destination = $36,605 excl. (+$320 later)"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 38925,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "Limited",
+      "msrp": 48380,
+      "config": "RWD",
+      "note": "2.3L gas Limited (cars.com mislabels the engine as hybrid; Ford Authority lists Limited RWD $48,380). Autoblog launch $49,225 incl. destination = $48,130 excl. 4WD $50,380"
+     },
+     {
+      "trim": "Limited Hybrid",
+      "msrp": 52530,
+      "config": "RWD",
+      "note": "Ford Authority (Aug 2020) 2020 Limited Hybrid RWD $52,530, AWD $54,725; Autoblog launch $52,780 incl. destination = $51,685 excl. Not broken out on cars.com"
+     },
+     {
+      "trim": "ST",
+      "msrp": 54740,
+      "config": "4WD",
+      "note": "Autoblog launch $55,835 incl. destination = $54,740 excl. (matches)"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 58250,
+      "config": "4WD",
+      "note": "Autoblog launch $59,345 incl. destination = $58,250 excl. (matches)"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2020/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2021,
+    "destination": 1245,
+    "trims": [
+     {
+      "trim": "Base",
+      "msrp": 32925,
+      "config": "RWD",
+      "note": "Ford Authority launch (Aug 2020) $32,225 RWD / $34,225 AWD. cars.com 4WD $34,925"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 35075,
+      "config": "RWD",
+      "note": "Launch $34,000 RWD / $36,000 AWD. cars.com 4WD $37,075"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 45255,
+      "config": "RWD",
+      "note": "Launch $44,710 RWD / $46,710 AWD. cars.com 4WD $47,255"
+     },
+     {
+      "trim": "Limited Hybrid",
+      "msrp": 49855,
+      "config": "RWD",
+      "note": "Ford Authority launch price; AWD $51,855. Not broken out on cars.com"
+     },
+     {
+      "trim": "Timberline",
+      "msrp": 46015,
+      "config": "4WD",
+      "note": "New for 2021; 4WD only"
+     },
+     {
+      "trim": "ST",
+      "msrp": 49000,
+      "config": "4WD",
+      "note": "Launch $52,605 (Ford Authority); cars.com reflects the later repackaged ST at $49,000"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 52600,
+      "config": "RWD",
+      "note": "New for 2021; 4WD $54,600"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 52730,
+      "config": "RWD",
+      "note": "Launch $54,480 (Ford Authority). cars.com 'Platinum 4WD' $53,335 carries a hybrid engine label and matches KBB's 2021 Platinum Hybrid 4WD ($54,115 - $780)"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2021/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2022,
+    "destination": 1295,
+    "trims": [
+     {
+      "trim": "Base",
+      "msrp": 35510,
+      "config": "RWD",
+      "note": "KBB (Jan 14, 2022) $33,245 RWD / $35,245 4WD; Ford Authority/Yahoo $34,540 incl. $1,295 destination = $33,245. cars.com 4WD $37,510"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 38570,
+      "config": "RWD",
+      "note": "KBB Jan 2022 $36,145 RWD / $38,145 4WD. cars.com 4WD $40,570"
+     },
+     {
+      "trim": "ST-Line",
+      "msrp": 45760,
+      "config": "RWD",
+      "note": "New for 2022. KBB Jan 2022 $44,745 RWD / $46,745 4WD. cars.com 4WD $47,760"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 47070,
+      "config": "RWD",
+      "note": "KBB Jan 2022 $45,495 RWD / $47,495 4WD; Limited Hybrid $50,280 RWD / $52,280 4WD (KBB; Yahoo confirms $50,280 'before destination'). cars.com 4WD $49,070"
+     },
+     {
+      "trim": "Timberline",
+      "msrp": 48320,
+      "config": "4WD",
+      "note": "KBB Jan 2022 $46,245"
+     },
+     {
+      "trim": "ST",
+      "msrp": 49260,
+      "config": "RWD",
+      "note": "ST RWD new for 2022. KBB Jan 2022 $47,245 RWD / $49,245 4WD. cars.com 4WD $51,260"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 53630,
+      "config": "RWD",
+      "note": "KBB Jan 2022 $53,610 RWD / $55,610 4WD. cars.com 4WD $55,630"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 52375,
+      "config": "RWD",
+      "note": "cars.com labels the engine hybrid; KBB Jan 2022 Platinum $53,740 RWD / $55,740 4WD and Platinum Hybrid $52,115 RWD / $54,115 4WD. cars.com 4WD $54,375"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2022/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2023,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "Base",
+      "msrp": 36760,
+      "config": "RWD",
+      "note": "4WD $38,760"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 38570,
+      "config": "RWD",
+      "note": "4WD $40,570"
+     },
+     {
+      "trim": "ST-Line",
+      "msrp": 46355,
+      "config": "RWD",
+      "note": "4WD $48,355"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 47420,
+      "config": "RWD",
+      "note": "cars.com lists the 3.3L hybrid engine for Limited; 4WD $49,420"
+     },
+     {
+      "trim": "Timberline",
+      "msrp": 49330,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "ST",
+      "msrp": 50005,
+      "config": "RWD",
+      "note": "4WD $52,005"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 54525,
+      "config": "RWD",
+      "note": "4WD $56,525"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 54270,
+      "config": "RWD",
+      "note": "cars.com lists the 3.3L hybrid engine for Platinum; 4WD $56,270"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2023/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2024,
+    "destination": 1595,
+    "trims": [
+     {
+      "trim": "Base",
+      "msrp": 36860,
+      "config": "RWD",
+      "note": "Ford Authority (Feb 2024) also $36,860. 4WD $38,860"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 38670,
+      "config": "RWD",
+      "note": "Ford Authority also $38,670. 4WD $40,670"
+     },
+     {
+      "trim": "ST-Line",
+      "msrp": 46455,
+      "config": "RWD",
+      "note": "Ford Authority also $46,455. 4WD $48,455"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 47520,
+      "config": "RWD",
+      "note": "2.3L gas (hybrid dropped); Ford Authority also $47,520. 4WD $49,520"
+     },
+     {
+      "trim": "Timberline",
+      "msrp": 49430,
+      "config": "4WD",
+      "note": "Ford Authority also $49,430"
+     },
+     {
+      "trim": "ST",
+      "msrp": 50105,
+      "config": "RWD",
+      "note": "Ford Authority also $50,105. 4WD $52,105"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 54625,
+      "config": "RWD",
+      "note": "Ford Authority also $54,625. 4WD $56,625"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 54770,
+      "config": "RWD",
+      "note": "3.0L EcoBoost; Ford Authority also $54,770. 4WD $56,770"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2024/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2025,
+    "destination": 1595,
+    "trims": [
+     {
+      "trim": "Active",
+      "msrp": 40050,
+      "config": "RWD",
+      "note": "Refreshed 2025 lineup (Active replaces Base/XLT). Ford Authority prices: $39,625 at reveal (Feb 2024) and May 2024 -> $39,755 (Feb 2025 dealer bulletin)"
+     },
+     {
+      "trim": "Active",
+      "msrp": 42050,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "ST-Line",
+      "msrp": 45020,
+      "config": "RWD",
+      "note": "Ford Authority: $44,385 (Feb/May 2024) -> $44,615 (Feb 2025)"
+     },
+     {
+      "trim": "ST-Line",
+      "msrp": 47020,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 52525,
+      "config": "RWD",
+      "note": "2.3L now standard, 3.0L optional. Ford Authority: $51,525 (Feb/May 2024) -> $52,250 (Feb 2025)"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 54525,
+      "config": "4WD",
+      "note": ""
+     },
+     {
+      "trim": "ST",
+      "msrp": 54770,
+      "config": "RWD",
+      "note": "Ford Authority: $55,205 at reveal (Feb 2024), $55,505 (May 2024) -> $54,260 (Feb 2025)"
+     },
+     {
+      "trim": "ST",
+      "msrp": 56770,
+      "config": "4WD",
+      "note": "Ford Authority: ST AWD $59,200 (May 2024) -> $56,260 (Feb 2025)"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2025/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2026,
+    "destination": 1695,
+    "trims": [
+     {
+      "trim": "Active",
+      "msrp": 38465,
+      "config": "RWD, 100A package",
+      "note": "cars.com lists Active 'w/100A Pkg' and 'w/200A Pkg' separately. Ford Authority: Active 100A $38,330 (June 2025) -> $38,465 (Sept 2025). 100A 4WD $40,465"
+     },
+     {
+      "trim": "Active",
+      "msrp": 40585,
+      "config": "RWD, 200A package",
+      "note": "Ford Authority Sept 2025 'Active' $40,585. 200A 4WD $42,585"
+     },
+     {
+      "trim": "ST-Line",
+      "msrp": 45155,
+      "config": "RWD",
+      "note": "Ford Authority: $45,020 (June 2025) -> $45,155 (Sept 2025). 4WD $47,155"
+     },
+     {
+      "trim": "Tremor",
+      "msrp": 48965,
+      "config": "4WD",
+      "note": "New for 2026; 4WD only. Ford Authority gives $48,330 (June 2025) -> $48,465 (Sept 2025), $500 below the cars.com figure (unresolved)"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 50965,
+      "config": "RWD",
+      "note": "2.3L EcoBoost standard. Ford Authority: $50,830 (June 2025) -> $50,965 (Sept 2025). 4WD $52,965"
+     },
+     {
+      "trim": "ST",
+      "msrp": 54905,
+      "config": "RWD",
+      "note": "Ford Authority: ST RWD $54,770 -> $54,905; ST AWD $56,770 -> $56,905 (June -> Sept 2025). 4WD $56,905"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-explorer-2026/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   }
+  ]
+ },
+ {
+  "make": "Ford",
+  "model": "F-150",
+  "body": "Pickup Truck",
+  "note": "MSRP excludes destination. No model-year pricing releases could be located on media.ford.com (Ford publishes F-150 pricing through its configurator/order guides rather than press releases), so every year uses the cars.com research trims page ('Starting MSRP' per cab/drive/box configuration, which reflects the latest in-year price) as the row source, with launch-time prices and destination charges from dated secondary articles recorded in notes where they were fetched. Rows per year: each trim in its cheapest listed configuration, plus a second XLT row for SuperCrew 4x4 5.5' box (the common used configuration); the SuperCrew 4x4 price for every other trim is in that row's note. cars.com writes 'LARIAT'; recorded as 'Lariat'. F-150 Lightning (EV) is a separate model line and is not priced here; Raptor R (2023+) and Platinum Plus (2025+) are not listed by cars.com.",
+  "gaps": [
+   "No manufacturer (media.ford.com) pricing source for any year 2016-2026: four site:media.ford.com searches and the media.ford.com F-150 product page returned no pricing release links. All 11 years are secondary (cars.com).",
+   "Destination charge not stated by any fetched source for 2016, 2017, 2018, 2019, 2020 and 2023 (null; the 2023 Automotive Fleet report of Ford's release says prices exclude destination but gives no gas-truck amount). 2021 ($1,695), 2022 ($1,695), 2024 ($1,995), 2025 ($1,995) and 2026 ($2,795) come from Motor1/Yahoo-Autoblog/Carscoops/Ford Authority/cars.com articles, not from the cars.com trims pages.",
+   "2018: launch reports quote XL Regular Cab $28,675 'including destination' (+$270 vs 2017's $27,110 = $27,380 base), while cars.com shows $27,705, so the cars.com figure appears to include a mid-year increase; the implied destination (about $1,295) is an inference and was not recorded.",
+   "2021-2025: launch prices differ from the cars.com figures by $50-$2,280 for most trims (mid-year increases); both are recorded (cars.com in msrp, launch in note).",
+   "2024 and 2025 STX: cars.com's SuperCab 4x2 price is $2,100-$3,000 above the Carscoops/Motor1/Ford Authority figures; unresolved.",
+   "2025: cars.com lists the XL Regular Cab 8' box ($37,450) below the 6.5' box ($38,810); Motor1's launch note ('2WD single-cab 8.0-foot box' $39,345 incl. destination) supports the 8' box being the base configuration.",
+   "2026: King Ranch and Platinum are priced below 2025 because RWD became standard (cars.com article, Feb 2026); the 2022 early-year article's figures are internally inconsistent about destination, so its launch prices are flagged as ambiguous in the row notes.",
+   "F-150 Lightning: not on any fetched page; not priced.",
+   "Edmunds 2016 features-specs page was blocked (permission not granted); Autoblog /buy/ pricing pages redirected to a section index with no prices."
+  ],
+  "years": [
+   {
+    "year": 2016,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 26540,
+      "config": "Regular Cab 4x2 122.5\" WB (6.5' box)",
+      "note": "SuperCrew 4x4 145\" WB (5.5' box) $36,565"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 31905,
+      "config": "Regular Cab 4x2 122.5\" WB (6.5' box)",
+      "note": ""
+     },
+     {
+      "trim": "XLT",
+      "msrp": 40635,
+      "config": "SuperCrew 4x4 145\" WB (5.5' box)",
+      "note": ""
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 40065,
+      "config": "SuperCab 4x2 145\" WB (6.5' box)",
+      "note": "SuperCrew 4x4 145\" WB $45,845"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 50050,
+      "config": "SuperCrew 4x2 145\" WB (5.5' box)",
+      "note": "SuperCrew 4x4 145\" WB $53,475"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 52515,
+      "config": "SuperCrew 4x2 145\" WB (5.5' box)",
+      "note": "SuperCrew 4x4 145\" WB $55,940"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 58885,
+      "config": "SuperCrew 4x2 145\" WB (5.5' box)",
+      "note": "Listed 'Late Avail'; SuperCrew 4x4 145\" WB $62,310"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2016/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2017,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 27110,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "SuperCrew 4x4 5.5' box $37,160"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 32480,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": ""
+     },
+     {
+      "trim": "XLT",
+      "msrp": 41235,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": ""
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 40865,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "SuperCrew 4x4 5.5' box $46,645"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 51080,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $54,505"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 53635,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $57,060"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 60200,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $63,625"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 49265,
+      "config": "SuperCab 4x4 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $52,250"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2017/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2018,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 27705,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "SuperCrew 4x4 5.5' box $37,755. CarsDirect-sourced launch reports (Ford Authority, AutoGuide, June 2017) quoted the XL Regular Cab at $28,675 'including destination' (up $270 from 2017) without stating the destination amount."
+     },
+     {
+      "trim": "XLT",
+      "msrp": 33300,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": ""
+     },
+     {
+      "trim": "XLT",
+      "msrp": 42055,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": ""
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 41515,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "SuperCrew 4x4 5.5' box $47,300"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 51930,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $55,355"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 54485,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $57,910"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 61360,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $64,785"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 50675,
+      "config": "SuperCab 4x4 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $53,660"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2018/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2019,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 28155,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "SuperCrew 4x4 5.5' box $38,205"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 34160,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": ""
+     },
+     {
+      "trim": "XLT",
+      "msrp": 42915,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": ""
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 42200,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "SuperCrew 4x4 5.5' box $47,985"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 52390,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $55,815"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 54920,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $58,345"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 67135,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $70,560"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 52855,
+      "config": "SuperCab 4x4 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $55,840"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2019/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2020,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 28745,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "SuperCrew 4x4 5.5' box $38,795"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 34760,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": ""
+     },
+     {
+      "trim": "XLT",
+      "msrp": 43515,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": ""
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 43250,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "SuperCrew 4x4 5.5' box $49,035"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 52990,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $56,415"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 55520,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $58,945"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 67735,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $71,160"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 53455,
+      "config": "SuperCab 4x4 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $56,440"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2020/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2021,
+    "destination": 1695,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 29290,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "Launch order-guide price $28,940 (Motor1); Car and Driver quoted $30,635 incl. destination = $28,940 + $1,695. SuperCrew 4x4 5.5' box $40,510 (launch SuperCrew 4x4 $42,635 per Motor1, box length unclear)"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 35400,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "Launch order-guide price $35,050 (Motor1)"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 44155,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Motor1 launch SuperCrew 4x4 XLT $46,290 (box length unclear); SuperCrew 4x4 6.5' box on cars.com $46,640"
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 45545,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "Launch $45,195 (Motor1). SuperCrew 4x4 5.5' box $51,330"
+     },
+     {
+      "trim": "Tremor",
+      "msrp": 49505,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "New for 2021; only configuration listed"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 56680,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "Launch $56,630 (Motor1). SuperCrew 4x4 5.5' box $60,105"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 59460,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "Launch $59,410 (Motor1). SuperCrew 4x4 5.5' box $62,885"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 73105,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "Launch $70,825 (Motor1). SuperCrew 4x4 5.5' box $76,530"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 64145,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Only configuration listed (new-generation Raptor)"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2021/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2022,
+    "destination": 1695,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 31520,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "Early-2022 forum/CarsDirect order-guide price $31,335 (+$350 vs 2021) per the Yahoo-syndicated article, which appears to include the $1,695 destination ($29,290 + $350 + $1,695), i.e. $29,640 excl.; cars.com shows $1,880 of later increases. SuperCrew 4x4 5.5' box $43,450"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 39165,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "Early-2022 price $37,745 (+$650), apparently incl. destination = $36,050 excl."
+     },
+     {
+      "trim": "XLT",
+      "msrp": 48625,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": ""
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 49600,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "Early-2022 price $47,455 (+$715), destination treatment ambiguous. SuperCrew 4x4 5.5' box $55,755"
+     },
+     {
+      "trim": "Tremor",
+      "msrp": 54120,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Only configuration listed"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 60320,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "Early-2022 price $57,925 (+$215), destination treatment ambiguous. SuperCrew 4x4 5.5' box $64,120"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 63100,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "Early-2022 price $60,705 (+$215), destination treatment ambiguous. SuperCrew 4x4 5.5' box $66,895"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 77625,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "Early-2022 price $75,150 'after destination' (+$2,280) per CarsDirect = $73,455 excl. SuperCrew 4x4 5.5' box $81,085"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 70555,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Only configuration listed"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2022/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2023,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 34585,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "Ford's Dec 2022 release price (per Automotive Fleet) $33,695 excl. destination, up $2,175 vs 2022; cars.com is $890 higher. SuperCrew 4x4 5.5' box $45,410"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 40760,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "Automotive Fleet quotes the XLT 'starting at $41,800' (configuration not stated), above the cars.com Regular Cab figure"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 50220,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": ""
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 57480,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "No SuperCab Lariat listed for 2023 (SuperCrew only per Automotive Fleet, which also gives $57,480). SuperCrew 4x4 5.5' box $61,270"
+     },
+     {
+      "trim": "Tremor",
+      "msrp": 61330,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Only configuration listed"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 63225,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $67,025"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 64915,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $68,710"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 84910,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Only configuration listed (4x4 only for 2023)"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 76775,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Automotive Fleet also gives $76,775. Raptor R not on the page"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2023/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2024,
+    "destination": 1995,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 37065,
+      "config": "Regular Cab 4x2 6.5' box",
+      "note": "Carscoops launch price $38,565 incl. $1,995 destination = $36,570 excl. SuperCrew 4x4 5.5' box $47,600"
+     },
+     {
+      "trim": "STX",
+      "msrp": 46100,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "STX became a stand-alone trim for 2024. Carscoops launch $45,890 incl. destination = $43,895 excl., $2,205 below the cars.com figure (unexplained). SuperCrew 4x4 5.5' box $52,315"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 47830,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "No Regular Cab XLT from 2024. Carscoops launch $49,615 incl. destination = $47,620 excl."
+     },
+     {
+      "trim": "XLT",
+      "msrp": 54050,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": ""
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 65495,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Only 4x4 SuperCrew listed. Carscoops launch $66,990 incl. destination = $64,995 excl."
+     },
+     {
+      "trim": "Tremor",
+      "msrp": 64450,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Carscoops launch $65,945 incl. destination = $63,950 excl."
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 73945,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Carscoops launch $75,420 incl. destination = $73,425 excl."
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 73945,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Same price as King Ranch. Carscoops launch $75,420 incl. destination = $73,425 excl. Platinum Plus not on either source"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 78540,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Carscoops launch $79,975 incl. destination = $77,980 excl.; Raptor R $111,550 incl. = $109,555 excl. (Carscoops), not on cars.com"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2024/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2025,
+    "destination": 1995,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 37450,
+      "config": "Regular Cab 4x2 8' box",
+      "note": "Cheapest listed; the 6.5' box is $38,810 (matches Ford Authority's March 2025 XL figure). Motor1 launch XL '2WD single-cab 8-ft box' $39,345 incl. destination = $37,350 excl. SuperCrew 4x4 5.5' box $47,980"
+     },
+     {
+      "trim": "STX",
+      "msrp": 45015,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "Discrepancy: Ford Authority dealer bulletin gives STX $41,915 (early Feb 2025) / $42,015 (March 2025); Motor1 launch $44,910 incl. destination = $42,915 excl. cars.com figure is $2,100-$3,000 higher. SuperCrew 4x4 5.5' box $51,230"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 45695,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "Matches Ford Authority March 2025 ($45,695; $45,595 early Feb). Motor1 launch $47,590 incl. destination = $45,595 excl."
+     },
+     {
+      "trim": "XLT",
+      "msrp": 51915,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": ""
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 59560,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $63,360 (matches Ford Authority March 2025; Motor1 launch 4x4 SuperCrew $65,255 incl. destination = $63,260 excl.)"
+     },
+     {
+      "trim": "Tremor",
+      "msrp": 64915,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Matches Ford Authority March 2025 ($64,815 early Feb; Motor1 launch $66,810 incl. = $64,815 excl.)"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 71105,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "SuperCrew 4x4 5.5' box $74,905 (Ford Authority March 2025 $74,905; launch $76,800 incl. = $74,805 excl.)"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 71105,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "Same prices as King Ranch; SuperCrew 4x4 5.5' box $74,905"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 79005,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Ford Authority March 2025 $79,005 ($78,905 early Feb; launch $80,900 incl. = $78,905 excl.). Raptor R $110,930 (Ford Authority, March 2025), not on cars.com"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2025/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   },
+   {
+    "year": 2026,
+    "destination": 2795,
+    "trims": [
+     {
+      "trim": "XL",
+      "msrp": 37290,
+      "config": "Regular Cab 4x2 8' box",
+      "note": "Cheapest listed (cars.com article: the Regular Cab is the only XL with the 8' bed); 6.5' box $39,585. cars.com article $40,085 incl. $2,795 destination = $37,290. SuperCrew 4x4 5.5' box $47,820"
+     },
+     {
+      "trim": "STX",
+      "msrp": 44855,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "Article $47,650 incl. destination = $44,855. Lobo is an STX package (SuperCrew short-box 4WD only), no price given. SuperCrew 4x4 5.5' box $51,070"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 45695,
+      "config": "SuperCab 4x2 6.5' box",
+      "note": "Unchanged from 2025; article $48,490 incl. destination = $45,695"
+     },
+     {
+      "trim": "XLT",
+      "msrp": 51915,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Unchanged from 2025"
+     },
+     {
+      "trim": "Lariat",
+      "msrp": 59560,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "RWD now standard (article); $62,355 incl. destination = $59,560. SuperCrew 4x4 5.5' box $63,360 (unchanged from 2025)"
+     },
+     {
+      "trim": "Tremor",
+      "msrp": 64915,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Unchanged from 2025; article $67,710 incl. destination = $64,915"
+     },
+     {
+      "trim": "King Ranch",
+      "msrp": 65825,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "RWD now standard, which is why the base price fell $5,280 vs 2025; article $68,620 incl. destination = $65,825. SuperCrew 4x4 5.5' box $69,625"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 68800,
+      "config": "SuperCrew 4x2 5.5' box",
+      "note": "RWD now standard; article $71,595 incl. destination = $68,800. SuperCrew 4x4 5.5' box $72,600"
+     },
+     {
+      "trim": "Raptor",
+      "msrp": 79005,
+      "config": "SuperCrew 4x4 5.5' box",
+      "note": "Unchanged from 2025; article $81,800 incl. destination = $79,005. Raptor R $113,725 incl. = $110,930 excl. (article), not on the trims page. Platinum Plus not priced"
+     }
+    ],
+    "source": "https://www.cars.com/research/ford-f_150-2026/trims/",
+    "sourceType": "secondary",
+    "note": ""
+   }
+  ]
+ },
+ {
   "make": "Honda",
   "model": "Accord",
   "body": "Sedan",
