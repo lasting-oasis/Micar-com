@@ -1251,7 +1251,7 @@ export function VanillaThreeScene() {
                 });
                 // Feed the GPS our live position directly so it follows instantly.
                 const st = useGameStore.getState();
-                if (!st.myWorldPos || Math.hypot(activeMesh.position.x - st.myWorldPos.x, activeMesh.position.z - st.myWorldPos.z) > 0.6) {
+                if (!st.myWorldPos || Math.hypot(activeMesh.position.x - st.myWorldPos.x, activeMesh.position.z - st.myWorldPos.z) > 2.5) { // ~0.4 px on the minimap; finer updates only re-rendered it
                     st.setMyWorldPos({ x: activeMesh.position.x, z: activeMesh.position.z });
                 }
             }
