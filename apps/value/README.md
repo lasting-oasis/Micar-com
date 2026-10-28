@@ -27,7 +27,7 @@ The model table is a rule-of-thumb snapshot from published depreciation studies,
 
 ## Real sticker prices
 
-`src/engine/stickers.ts` serves official MSRPs by model year and trim (excluding destination) from `src/data/stickers.json`. When the chosen make, model and year are on file, the Trim field becomes a picker and the MSRP box is prefilled with the real sticker; otherwise it falls back to `typicalMsrp` in `models.ts`, a rough mid-trim figure scaled 3% a year, and says so. Fifteen models are on file for 2016–2026 (Honda Civic, Accord, CR-V; Toyota Camry, Corolla, RAV4, Tacoma; Ford F-150, Explorer; Chevrolet Silverado 1500, Equinox; Nissan Altima, Rogue; Hyundai Elantra; Jeep Grand Cherokee). Each year records where the price came from: the manufacturer's own pricing release where one could be read, otherwise a published price list marked `secondary`. Pickups carry a configuration on every row, and the engine picks the crew-cab 4x4 row for a trim because that is what most used trucks are.
+`src/engine/stickers.ts` serves official MSRPs by model year and trim (excluding destination) from `src/data/stickers.json`. When the chosen make, model and year are on file, the Trim field becomes a picker and the MSRP box is prefilled with the real sticker; otherwise it falls back to `typicalMsrp` in `models.ts`, a rough mid-trim figure scaled 3% a year, and says so. Sixty models are on file for 2016–2026 (3,580 trim-year prices; years a source couldn't confirm are listed as gaps in each research file). Each year records where the price came from: the manufacturer's own pricing release where one could be read, otherwise a published price list marked `secondary`. Pickups carry a configuration on every row, and the engine picks the crew-cab 4x4 row for a trim because that is what most used trucks are.
 
 ## Calibration against real listings
 
@@ -38,31 +38,72 @@ The depreciation curve and each model's five-year resale share are fitted to rea
 3. `npm run calibrate` (`scripts/calibrate.ts`) values every sampled car with its real sticker (or the typical estimate when a year has none), today's market index and the listing's region, then searches for the curve shape (`driveOff`, `decay`, trim-content retention) and per-model `residual5` that minimise the error against asking prices. Listings more than 35% off are dropped as outliers (wrecks, mislabelled trims). The result goes to `src/data/calibration.json`, which `models.ts` and `valuation.ts` apply at load.
 4. `src/engine/backtest.test.ts` is the regression test: every calibrated model must stay within 12% mean absolute error and 6% median bias against its sample (20% / 15% for an uncalibrated model).
 
-Result of the 15-model fit on 1,162 listings (October 2026): curve `driveOff` 2.8, `decay` 1.1, trim-content retention 0.5; weighted mean absolute error **7.8%**, every model within 10% and no model biased by more than 4%.
+Result of the fit on 1,925 listings across 56 models (October 2026): curve `driveOff` 2.8, `decay` 1.1, trim-content retention 0.5; weighted mean absolute error **8.0%**.
 
-| Model | Listings | Resale share, guess | Fitted | Mean abs. error | Median bias | Median bias by model year |
-|---|---|---|---|---|---|---|
-| Chevrolet Equinox | 79 | 0.48 | 0.520 | 6.9% | -0.3% | 2016: -2% / 2019: -3% / 2022: +1% / 2024: +3% |
-| Chevrolet Silverado 1500 | 80 | 0.60 | 0.590 | 9.3% | -0.1% | 2016: -0% / 2019: -7% / 2022: +5% / 2024: +11% |
-| Ford Explorer | 80 | 0.50 | 0.505 | 7.4% | -2.0% | 2016: +1% / 2019: +1% / 2022: +1% / 2024: -8% |
-| Ford F-150 | 78 | 0.62 | 0.625 | 6.3% | -1.6% | 2016: -0% / 2019: -4% / 2022: -2% / 2024: -3% |
-| Honda Accord | 80 | 0.60 | 0.645 | 6.9% | +0.9% | 2016: -0% / 2019: +0% / 2022: -0% / 2024: +12% |
-| Honda CR-V | 80 | 0.63 | 0.650 | 7.0% | -2.1% | 2016: +3% / 2019: -2% / 2022: -6% / 2024: -2% |
-| Honda Civic | 57 | 0.66 | 0.695 | 5.2% | -0.7% | 2016: +1% / 2019: +1% / 2022: -4% / 2023: -0% |
-| Hyundai Elantra | 72 | 0.54 | 0.585 | 9.7% | -1.6% | 2016: +2% / 2019: -10% / 2022: -7% / 2024: +4% |
-| Jeep Grand Cherokee | 78 | 0.52 | 0.490 | 8.2% | +0.3% | 2016: -9% / 2019: +3% / 2022: +4% / 2024: -2% |
-| Nissan Altima | 80 | 0.45 | 0.525 | 8.8% | +0.4% | 2016: -6% / 2019: -4% / 2022: +2% / 2024: +4% |
-| Nissan Rogue | 79 | 0.50 | 0.510 | 9.6% | +0.9% | 2016: -10% / 2019: +3% / 2022: +0% / 2024: +9% |
-| Toyota Camry | 80 | 0.62 | 0.645 | 7.4% | -2.1% | 2016: +0% / 2019: +0% / 2022: -0% / 2024: -8% |
-| Toyota Corolla | 79 | 0.64 | 0.680 | 8.6% | +0.3% | 2016: -6% / 2019: +0% / 2022: +1% / 2024: +2% |
-| Toyota RAV4 | 80 | 0.64 | 0.680 | 8.0% | -3.7% | 2016: +6% / 2019: -3% / 2022: -9% / 2024: -8% |
-| Toyota Tacoma | 80 | 0.72 | 0.745 | 7.6% | +0.2% | 2016: -2% / 2019: -4% / 2022: +0% / 2024: +5% |
+The sample comes in two rounds. Round 1 (15 high-volume models) has up to 20 listings per model-year, about 80 per model. Round 2 (45 more models) uses a quarter of that, 5 per model-year, about 20 per model; those fits are shrunk toward the prior guess (8 pseudo-listings) so a few odd cars can't swing them, and the backtest allows them 15% error / 8% bias instead of 12% / 6%. Models with fewer than 8 listings (Tesla Model 3 and Model Y, GMC Yukon, Ram 1500) keep their real stickers but are not fitted. Known misfit: the **Toyota Sienna** (15% error, engine 10% low), because the 2021+ hybrid-only generation holds value far better than the 2016-2020 one and a single residual can't serve both; a per-generation residual would fix it.
 
-Reading the table: the fitted share is what a five-year-old example keeps of a **new** one's price. Toyotas and Hondas fit above their guesses (Civic 0.695, Tacoma 0.745), the Grand Cherokee below (0.49). The year columns show where the single curve still strains: two-year-old Accords, Rogues and Silverados ask more than the curve expects, two-year-old Camrys, RAV4s and Explorers less, which is the lease-return and incentive cycle of each nameplate rather than its long-run depreciation.
+| Model | Listings | Resale share, guess | Fitted | Mean abs. error | Median bias |
+|---|---|---|---|---|---|
+| Buick Enclave | 20 | 0.44 | 0.426 | 7.8% | +3.0% |
+| Chevrolet Colorado | 17 | 0.62 | 0.617 | 6.1% | +0.9% |
+| Chevrolet Equinox | 79 | 0.48 | 0.516 | 7.0% | -1.0% |
+| Chevrolet Malibu | 19 | 0.44 | 0.489 | 11.1% | +1.7% |
+| Chevrolet Silverado 1500 | 80 | 0.60 | 0.591 | 9.3% | +0.1% |
+| Chevrolet Tahoe | 19 | 0.56 | 0.546 | 11.0% | -2.7% |
+| Chevrolet Traverse | 20 | 0.48 | 0.491 | 9.5% | -4.0% |
+| Ford Edge | 17 | 0.46 | 0.450 | 12.7% | +2.8% |
+| Ford Escape | 20 | 0.47 | 0.466 | 7.8% | +1.5% |
+| Ford Expedition | 20 | 0.52 | 0.474 | 10.1% | +0.4% |
+| Ford Explorer | 80 | 0.50 | 0.505 | 7.4% | -2.0% |
+| Ford F-150 | 78 | 0.62 | 0.625 | 6.3% | -1.6% |
+| Ford Mustang | 19 | 0.64 | 0.594 | 10.0% | +2.9% |
+| Ford Ranger | 15 | 0.62 | 0.620 | 4.3% | -0.6% |
+| GMC Sierra 1500 | 10 | 0.60 | 0.650 | 6.2% | -5.5% |
+| GMC Terrain | 20 | 0.47 | 0.481 | 7.8% | -1.7% |
+| Honda Accord | 80 | 0.60 | 0.641 | 6.9% | +0.2% |
+| Honda CR-V | 80 | 0.63 | 0.648 | 7.1% | -2.4% |
+| Honda Civic | 57 | 0.66 | 0.691 | 5.2% | -1.4% |
+| Honda HR-V | 20 | 0.60 | 0.654 | 6.2% | -4.8% |
+| Honda Odyssey | 20 | 0.55 | 0.557 | 8.8% | -4.4% |
+| Honda Pilot | 20 | 0.58 | 0.562 | 8.4% | +0.7% |
+| Hyundai Elantra | 72 | 0.54 | 0.581 | 9.7% | -2.5% |
+| Hyundai Santa Fe | 20 | 0.52 | 0.520 | 8.8% | -0.3% |
+| Hyundai Sonata | 20 | 0.48 | 0.501 | 7.8% | -1.0% |
+| Hyundai Tucson | 20 | 0.55 | 0.554 | 6.8% | -0.2% |
+| Jeep Cherokee | 15 | 0.45 | 0.460 | 9.0% | -1.1% |
+| Jeep Compass | 17 | 0.47 | 0.467 | 8.8% | +0.0% |
+| Jeep Grand Cherokee | 78 | 0.52 | 0.493 | 8.3% | +0.8% |
+| Jeep Wrangler | 20 | 0.70 | 0.596 | 9.2% | +5.1% |
+| Kia Forte / K4 | 19 | 0.54 | 0.551 | 7.5% | -1.9% |
+| Kia Sorento | 19 | 0.53 | 0.509 | 9.6% | +2.2% |
+| Kia Sportage | 20 | 0.55 | 0.529 | 8.0% | +0.9% |
+| Kia Telluride | 15 | 0.63 | 0.584 | 4.4% | +2.5% |
+| Lexus RX | 20 | 0.62 | 0.602 | 6.7% | +0.3% |
+| Mazda CX-5 | 20 | 0.60 | 0.607 | 6.5% | -0.2% |
+| Mazda Mazda3 | 20 | 0.60 | 0.646 | 6.8% | -1.1% |
+| Nissan Altima | 80 | 0.45 | 0.518 | 8.9% | -0.8% |
+| Nissan Frontier | 20 | 0.64 | 0.647 | 9.6% | -0.9% |
+| Nissan Pathfinder | 19 | 0.50 | 0.454 | 8.4% | +4.6% |
+| Nissan Rogue | 79 | 0.50 | 0.509 | 9.6% | +0.5% |
+| Nissan Sentra | 20 | 0.50 | 0.539 | 10.6% | -5.7% |
+| Subaru Crosstrek | 20 | 0.68 | 0.637 | 6.6% | -0.5% |
+| Subaru Forester | 19 | 0.62 | 0.599 | 8.0% | +0.8% |
+| Subaru Outback | 20 | 0.60 | 0.575 | 6.0% | +0.1% |
+| Toyota 4Runner | 20 | 0.70 | 0.721 | 7.0% | -3.9% |
+| Toyota Camry | 80 | 0.62 | 0.643 | 7.4% | -2.3% |
+| Toyota Corolla | 79 | 0.64 | 0.676 | 8.6% | -0.4% |
+| Toyota Corolla Cross | 10 | 0.62 | 0.687 | 6.7% | -5.1% |
+| Toyota Highlander | 20 | 0.61 | 0.614 | 7.0% | -0.6% |
+| Toyota Prius | 15 | 0.60 | 0.649 | 6.6% | -5.6% |
+| Toyota RAV4 | 80 | 0.64 | 0.676 | 8.0% | -4.3% |
+| Toyota Sienna | 20 | 0.62 | 0.645 | 15.0% | -10.4% |
+| Toyota Tacoma | 80 | 0.72 | 0.743 | 7.6% | +0.0% |
+| Toyota Tundra | 19 | 0.66 | 0.737 | 7.0% | -2.8% |
+| Volkswagen Tiguan | 20 | 0.46 | 0.467 | 8.9% | +0.4% |
 
 What the first backtest (Civic only) found still holds and shaped the engine: used prices follow the price of a **new replacement**, so the sticker is inflated to today's dollars (3% a year) before the curve is applied, and depreciation measured that way is close to a constant percentage a year with a drive-off hit at titling. Option content depreciates faster than the base car, so trim premiums are retained at less than face value.
 
-The whole dataset, with sources, also lives in a Google Sheet ("Queen City MyCarValue · Sticker prices and used-price calibration"): tabs for Models, Stickers, Used sample, Calibration (with live formulas over the sample) and Data Sources.
+The whole dataset, with sources, also lives in a Google Sheet ("Queen City MyCarValue · Sticker prices and used-price calibration") with tabs for Models, Stickers, Used sample, Calibration (live formulas over the sample) and Data Sources. The Models, Stickers, Used sample and Data Sources tabs pull `exports/*.csv` from this repo with `IMPORTDATA`, so running `npm run sheet-rows -- --csv exports` and pushing refreshes them.
 
 ## Weekly national market snapshot
 
@@ -125,9 +166,9 @@ src/engine/models.ts        Model-level resale data, demand traits, typical MSRP
 src/engine/valuation.ts     Pure valuation + forecast functions (no React)
 src/engine/market.ts        Reads the weekly snapshot in src/data/market.json
 src/engine/listings.ts      Parses a pasted listings page into comps
-src/engine/stickers.ts      Official MSRPs by year and trim (15 models, 2016-2026)
+src/engine/stickers.ts      Official MSRPs by year and trim (60 models, 2016-2026)
 src/engine/prefill.ts       Picks the sticker or the typical estimate for the MSRP box
-src/engine/backtest.test.ts Engine vs 1,173 real listings across 15 models (regression test)
+src/engine/backtest.test.ts Engine vs 1,925 real listings across 56 models (regression test)
 src/data/                   market.json, stickers.json, listing-samples.json, calibration.json
 data/research/              Raw sticker and listings research, one JSON per model, with sources and gaps
 scripts/build-data.ts       Merges data/research into src/data
