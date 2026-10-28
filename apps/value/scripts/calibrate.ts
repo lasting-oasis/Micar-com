@@ -108,7 +108,7 @@ let best = { driveOff: CURVE.driveOff, decay: CURVE.decay, tr: CURVE.trimRetenti
 const quick = process.argv.includes('--quick');
 const grid = quick
   ? { driveOff: [CURVE.driveOff], decay: [CURVE.decay], tr: [0.6, 0.8, 1.0] }
-  : { driveOff: [1.2, 1.6, 2.0, 2.4, 2.8], decay: [1.0, 1.05, 1.1, 1.15], tr: [0.6, 0.7, 0.8, 0.9, 1.0] };
+  : { driveOff: [2.0, 2.4, 2.8, 3.2, 3.6, 4.0], decay: [1.05, 1.1, 1.15, 1.2], tr: [0.4, 0.5, 0.6, 0.7, 0.8] };
 for (const driveOff of grid.driveOff) for (const decay of grid.decay) for (const tr of grid.tr) {
   Object.assign(CURVE, { driveOff, decay });
   const fits = targets.map((t) => fitModel(t.make, t.model, tr, 0.01)).filter((f): f is Fit => !!f);

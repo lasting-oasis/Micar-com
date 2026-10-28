@@ -38,7 +38,27 @@ The depreciation curve and each model's five-year resale share are fitted to rea
 3. `npm run calibrate` (`scripts/calibrate.ts`) values every sampled car with its real sticker (or the typical estimate when a year has none), today's market index and the listing's region, then searches for the curve shape (`driveOff`, `decay`, trim-content retention) and per-model `residual5` that minimise the error against asking prices. Listings more than 35% off are dropped as outliers (wrecks, mislabelled trims). The result goes to `src/data/calibration.json`, which `models.ts` and `valuation.ts` apply at load.
 4. `src/engine/backtest.test.ts` is the regression test: every calibrated model must stay within 12% mean absolute error and 6% median bias against its sample (20% / 15% for an uncalibrated model).
 
-CALIBRATION_SUMMARY
+Result of the 15-model fit on 1,162 listings (October 2026): curve `driveOff` 2.8, `decay` 1.1, trim-content retention 0.5; weighted mean absolute error **7.8%**, every model within 10% and no model biased by more than 4%.
+
+| Model | Listings | Resale share, guess | Fitted | Mean abs. error | Median bias | Median bias by model year |
+|---|---|---|---|---|---|---|
+| Chevrolet Equinox | 79 | 0.48 | 0.520 | 6.9% | -0.3% | 2016: -2% / 2019: -3% / 2022: +1% / 2024: +3% |
+| Chevrolet Silverado 1500 | 80 | 0.60 | 0.590 | 9.3% | -0.1% | 2016: -0% / 2019: -7% / 2022: +5% / 2024: +11% |
+| Ford Explorer | 80 | 0.50 | 0.505 | 7.4% | -2.0% | 2016: +1% / 2019: +1% / 2022: +1% / 2024: -8% |
+| Ford F-150 | 78 | 0.62 | 0.625 | 6.3% | -1.6% | 2016: -0% / 2019: -4% / 2022: -2% / 2024: -3% |
+| Honda Accord | 80 | 0.60 | 0.645 | 6.9% | +0.9% | 2016: -0% / 2019: +0% / 2022: -0% / 2024: +12% |
+| Honda CR-V | 80 | 0.63 | 0.650 | 7.0% | -2.1% | 2016: +3% / 2019: -2% / 2022: -6% / 2024: -2% |
+| Honda Civic | 57 | 0.66 | 0.695 | 5.2% | -0.7% | 2016: +1% / 2019: +1% / 2022: -4% / 2023: -0% |
+| Hyundai Elantra | 72 | 0.54 | 0.585 | 9.7% | -1.6% | 2016: +2% / 2019: -10% / 2022: -7% / 2024: +4% |
+| Jeep Grand Cherokee | 78 | 0.52 | 0.490 | 8.2% | +0.3% | 2016: -9% / 2019: +3% / 2022: +4% / 2024: -2% |
+| Nissan Altima | 80 | 0.45 | 0.525 | 8.8% | +0.4% | 2016: -6% / 2019: -4% / 2022: +2% / 2024: +4% |
+| Nissan Rogue | 79 | 0.50 | 0.510 | 9.6% | +0.9% | 2016: -10% / 2019: +3% / 2022: +0% / 2024: +9% |
+| Toyota Camry | 80 | 0.62 | 0.645 | 7.4% | -2.1% | 2016: +0% / 2019: +0% / 2022: -0% / 2024: -8% |
+| Toyota Corolla | 79 | 0.64 | 0.680 | 8.6% | +0.3% | 2016: -6% / 2019: +0% / 2022: +1% / 2024: +2% |
+| Toyota RAV4 | 80 | 0.64 | 0.680 | 8.0% | -3.7% | 2016: +6% / 2019: -3% / 2022: -9% / 2024: -8% |
+| Toyota Tacoma | 80 | 0.72 | 0.745 | 7.6% | +0.2% | 2016: -2% / 2019: -4% / 2022: +0% / 2024: +5% |
+
+Reading the table: the fitted share is what a five-year-old example keeps of a **new** one's price. Toyotas and Hondas fit above their guesses (Civic 0.695, Tacoma 0.745), the Grand Cherokee below (0.49). The year columns show where the single curve still strains: two-year-old Accords, Rogues and Silverados ask more than the curve expects, two-year-old Camrys, RAV4s and Explorers less, which is the lease-return and incentive cycle of each nameplate rather than its long-run depreciation.
 
 What the first backtest (Civic only) found still holds and shaped the engine: used prices follow the price of a **new replacement**, so the sticker is inflated to today's dollars (3% a year) before the curve is applied, and depreciation measured that way is close to a constant percentage a year with a drive-off hit at titling. Option content depreciates faster than the base car, so trim premiums are retained at less than face value.
 
