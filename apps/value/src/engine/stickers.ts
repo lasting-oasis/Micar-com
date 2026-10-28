@@ -42,18 +42,31 @@ export function stickerTrim(y: StickerYear, trim: string): StickerTrim {
 /** Pick the sticker row for a used listing: the listing's own trim if it is on
  * file, else the search filter's trim, else the base trim. For pickups, prefer
  * the crew-cab 4x4 configuration of that trim, which is what most used trucks are. */
-export function resolveStickerTrim(y: StickerYear, candidates: string[], body?: string): StickerTrim {
+export function resolveStickerTrim(y: StickerYear, candidates: (string | null | undefined)[], body?: string): StickerTrim {
   const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
-  for (const c of candidates) {
-    const want = norm(c);
-    if (!want) continue;
-    const rows = y.trims.filter((t) => norm(t.trim) === want);
-    if (!rows.length) continue;
+  const words = (s: string) => ` ${s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()} `;
+  const pick = (rows: StickerTrim[]) => {
     if (body === 'Pickup Truck') {
       const crew4x4 = rows.find((t) => /(supercrew|crew\s*cab|double\s*cab|crewmax)/i.test(t.config) && /(4x4|4wd|awd)/i.test(t.config));
       if (crew4x4) return crew4x4;
     }
     return rows[0];
+  };
+  const list = candidates.filter((c): c is string => typeof c === 'string' && !!norm(c));
+  // 1. Exact trim name.
+  for (const c of list) {
+    const rows = y.trims.filter((t) => norm(t.trim) === norm(c));
+    if (rows.length) return pick(rows);
+  }
+  // 2. A sticker trim named as whole words inside the listing's trim
+  //    ("2.5i Premium" -> Premium, "EX-L 7 Passenger" -> EX-L); longest name wins.
+  for (const c of list) {
+    const hay = words(c);
+    const hits = y.trims.filter((t) => norm(t.trim).length >= 2 && hay.includes(words(t.trim)));
+    if (hits.length) {
+      const longest = Math.max(...hits.map((t) => norm(t.trim).length));
+      return pick(hits.filter((t) => norm(t.trim).length === longest));
+    }
   }
   return y.trims[0];
 }

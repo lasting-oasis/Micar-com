@@ -31,7 +31,7 @@ const stickers = read('data/research/stickers').map(({ file, json }) => {
 const samples = read('data/research/listings').map(({ file, json }) => {
   const s = json as RawListings;
   const out = (s.samples ?? []).map((p) => ({
-    year: p.year, trimFilter: p.trim_filter, source: p.source, fetched: p.fetched, pageAverage: p.page_average ?? null,
+    year: p.year, trimFilter: p.trim_filter ?? '', source: p.source, fetched: p.fetched, pageAverage: p.page_average ?? null,
     listings: (p.listings ?? [])
       .filter((l) => Number.isFinite(Number(l.price)) && Number.isFinite(Number(l.miles)) && Number(l.price) >= 1500 && Number(l.miles) >= 100)
       .map((l) => ({ price: Math.round(Number(l.price)), miles: Math.round(Number(l.miles)), location: l.location ?? '', trim: (l.trim ?? p.trim_filter ?? '').trim(), body: l.body ?? '', note: l.note ?? '' })),

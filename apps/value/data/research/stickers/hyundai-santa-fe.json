@@ -1,0 +1,414 @@
+{
+ "make": "Hyundai",
+ "model": "Santa Fe",
+ "body": "SUV / Crossover",
+ "note": "Naming: 2016-2018 'Santa Fe' = 3-row LWB (SE/Limited/Ultimate packages, ~$30k+), while the 2-row 'Santa Fe Sport' was a separate model. For 2019 the new 2-row Santa Fe took the name and the old 3-row became 'Santa Fe XL' (2019 only). So 2016-2018 rows here are NOT the predecessor of the 2019+ 2-row trims; a used '2017 Santa Fe Sport' should not be valued off these rows. Rows are FWD prices; AWD premium in each row's note. Hybrid / Plug-in Hybrid variants not included.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": 895,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 30400,
+     "config": "FWD, 3-row",
+     "note": "AWD +$1,750"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 34500,
+     "config": "FWD, 3-row",
+     "note": "AWD +$1,750"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2016-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. 2016-2018 'Santa Fe' is the 3-row long-wheelbase model; the 2-row model was sold as 'Santa Fe Sport' (separate iSeeCars/TrueCar model, not priced here)."
+  },
+  {
+   "year": 2017,
+   "destination": 950,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 30800,
+     "config": "FWD, 3-row",
+     "note": "AWD +$1,750"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 34950,
+     "config": "FWD, 3-row",
+     "note": "AWD +$1,750; page lists destination 885 for this one style vs 950 for all others"
+    },
+    {
+     "trim": "SE Ultimate",
+     "msrp": 38700,
+     "config": "FWD, 3-row",
+     "note": "AWD +$1,750"
+    },
+    {
+     "trim": "Limited Ultimate",
+     "msrp": 39400,
+     "config": "FWD, 3-row",
+     "note": "AWD +$1,750"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2017-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. 2016-2018 'Santa Fe' is the 3-row long-wheelbase model; the 2-row model was sold as 'Santa Fe Sport' (separate iSeeCars/TrueCar model, not priced here)."
+  },
+  {
+   "year": 2018,
+   "destination": 980,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 30850,
+     "config": "FWD, 3-row",
+     "note": "AWD +$1,750"
+    },
+    {
+     "trim": "SE Ultimate",
+     "msrp": 38850,
+     "config": "FWD, 3-row",
+     "note": "AWD +$1,750"
+    },
+    {
+     "trim": "Limited Ultimate",
+     "msrp": 39550,
+     "config": "FWD, 3-row",
+     "note": "AWD +$1,750"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2018-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. 2016-2018 'Santa Fe' is the 3-row long-wheelbase model; the 2-row model was sold as 'Santa Fe Sport' (separate iSeeCars/TrueCar model, not priced here). Plain Limited not listed on the page."
+  },
+  {
+   "year": 2019,
+   "destination": 1095,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 25750,
+     "config": "2.4L FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 27600,
+     "config": "2.4L FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "SEL Plus",
+     "msrp": 29800,
+     "config": "2.4L FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 32600,
+     "config": "2.4L FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Limited 2.0T",
+     "msrp": 34200,
+     "config": "2.0T FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Ultimate",
+     "msrp": 35450,
+     "config": "2.4L FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Ultimate 2.0T",
+     "msrp": 37100,
+     "config": "2.0T FWD",
+     "note": "AWD +$1,700"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. New 2-row Santa Fe takes over the name (successor to Santa Fe Sport); the carryover 3-row was renamed 'Santa Fe XL' (separate model, not priced here)."
+  },
+  {
+   "year": 2020,
+   "destination": 1175,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 26275,
+     "config": "2.4L FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 28025,
+     "config": "2.4L FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "SEL 2.0T",
+     "msrp": 34875,
+     "config": "2.0T FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 36025,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Limited 2.0T",
+     "msrp": 37875,
+     "config": "2.0T FWD",
+     "note": "AWD +$1,700"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2020-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. No Ultimate listed for 2020."
+  },
+  {
+   "year": 2021,
+   "destination": 1185,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 27000,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 28800,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 38750,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Calligraphy",
+     "msrp": 40750,
+     "config": "FWD",
+     "note": "AWD w/19in wheels $42,250, AWD w/20in wheels $42,450"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2021-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Refreshed model year. Santa Fe Hybrid / Plug-in Hybrid not on this page."
+  },
+  {
+   "year": 2022,
+   "destination": 1295,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 27700,
+     "config": "FWD",
+     "note": "AWD +$1,700; 'midyear release' row $27,400"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 29450,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 32750,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 39410,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Calligraphy",
+     "msrp": 41410,
+     "config": "FWD",
+     "note": "AWD $42,660 (+$1,250 as listed)"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Hybrids not on this page."
+  },
+  {
+   "year": 2023,
+   "destination": 1335,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 28750,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 32450,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 34250,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 40600,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    },
+    {
+     "trim": "Calligraphy",
+     "msrp": 42600,
+     "config": "FWD",
+     "note": "AWD +$1,700"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Hybrids not on this page."
+  },
+  {
+   "year": 2024,
+   "destination": 1415,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 33950,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 36450,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 40600,
+     "config": "AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 43350,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    },
+    {
+     "trim": "Calligraphy",
+     "msrp": 46500,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. New generation; prices step up about $5k-6k vs 2023. Santa Fe Hybrid not on this page."
+  },
+  {
+   "year": 2025,
+   "destination": 1475,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 34200,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 36700,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 40850,
+     "config": "AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 43600,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    },
+    {
+     "trim": "Calligraphy",
+     "msrp": 46750,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Hybrid not on this page."
+  },
+  {
+   "year": 2026,
+   "destination": 1600,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 35050,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 37590,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 42040,
+     "config": "AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 44600,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    },
+    {
+     "trim": "Calligraphy",
+     "msrp": 47600,
+     "config": "FWD",
+     "note": "AWD +$1,800"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2026-hyundai-santa_fe-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Hybrid not on this page."
+  }
+ ],
+ "gaps": [
+  "All years secondary (iSeeCars). No hyundainews.com Santa Fe price sheet was searched for: the three Tucson searches showed the search engine does not index hyundainews.com PDFs, so budget went to one source per year.",
+  "Santa Fe Sport (2016-2018) and Santa Fe XL (2019) not priced (separate models; budget).",
+  "2018: plain Limited (3-row) not listed on iSeeCars.",
+  "2021-2026: Santa Fe Hybrid / Plug-in Hybrid and (2021-2023) 2.5T trims beyond those listed not captured.",
+  "Destination charges are iSeeCars per-style figures and may be the late-year freight."
+ ]
+}

@@ -1,0 +1,369 @@
+{
+  "make": "Chevrolet",
+  "model": "Malibu",
+  "body": "Sedan",
+  "note": "Midsize sedan, FWD only. 9th generation 2016-2025 (2019 refresh added RS; L dropped after 2021; Premier dropped after 2022, replaced by 1LT/2LT split). Malibu Hybrid (2016-2019) not captured - no priced source fetched. Production ended Nov 2024; 2025 is the last model year.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 22500,
+          "config": "1.5L turbo",
+          "note": ""
+        },
+        {
+          "trim": "LS",
+          "msrp": 23995,
+          "config": "1.5L turbo",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 25895,
+          "config": "1.5L turbo",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 29495,
+          "config": "2.0L turbo, 8-speed auto",
+          "note": "LT with the 2.0L turbo (2LT); article lists it as an LT engine option."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 31795,
+          "config": "2.0L turbo",
+          "note": "Replaces LTZ."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2015/09/2016-chevrolet-malibu-officially-priced-will-start-at-22500/",
+      "source_type": "secondary",
+      "note": "Sept-2015 launch pricing for the all-new 9th-gen Malibu. Article does not say whether prices include destination and gives no destination amount. Malibu Hybrid priced 'at a later date' (not on page). The carry-over 8th-gen 'Malibu Limited' fleet model is not covered."
+    },
+    {
+      "year": 2017,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 21680,
+          "config": "1.5L turbo",
+          "note": "4dr Sdn L w/1VL"
+        },
+        {
+          "trim": "LS",
+          "msrp": 23225,
+          "config": "1.5L turbo",
+          "note": "4dr Sdn LS w/1LS"
+        },
+        {
+          "trim": "LT",
+          "msrp": 25125,
+          "config": "1.5L turbo",
+          "note": "4dr Sdn LT w/1LT"
+        },
+        {
+          "trim": "Premier",
+          "msrp": 30975,
+          "config": "2.0L turbo",
+          "note": "4dr Sdn Premier w/2LZ"
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-malibu-2017/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. Hybrid not listed on this page (cars.com files it as a separate model)."
+    },
+    {
+      "year": 2018,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 21680,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "LS",
+          "msrp": 23320,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 25220,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Premier",
+          "msrp": 31020,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-malibu-2018/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. Hybrid not listed."
+    },
+    {
+      "year": 2019,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 22090,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "LS",
+          "msrp": 23220,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "RS",
+          "msrp": 24220,
+          "config": "",
+          "note": "New trim for 2019 (refresh)."
+        },
+        {
+          "trim": "LT",
+          "msrp": 26620,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Premier",
+          "msrp": 31820,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-malibu-2019/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. 2019 refresh; Hybrid not listed."
+    },
+    {
+      "year": 2020,
+      "destination": 925,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 22095,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "LS",
+          "msrp": 23270,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "RS",
+          "msrp": 24270,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 26670,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Premier",
+          "msrp": 33370,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-chevrolet-malibu-price",
+      "source_type": "secondary",
+      "note": "iSeeCars MSRP with destination ($925) in a separate column; 'LS Fleet' style ($23,270) omitted."
+    },
+    {
+      "year": 2021,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 22270,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "LS",
+          "msrp": 23400,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "RS",
+          "msrp": 24400,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 26800,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Premier",
+          "msrp": 33500,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-malibu-2021/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge."
+    },
+    {
+      "year": 2022,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 23400,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "RS",
+          "msrp": 24400,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 26800,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Premier",
+          "msrp": 33500,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-chevrolet-malibu-price",
+      "source_type": "secondary",
+      "note": "iSeeCars MSRP with destination ($1,095) in a separate column; 'LS Fleet' style omitted. No L trim listed for 2022."
+    },
+    {
+      "year": 2023,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 25000,
+          "config": "",
+          "note": "4dr Sdn LS w/1LS. Fleet-coded 'LS w/1FL' listed at $24,700."
+        },
+        {
+          "trim": "RS",
+          "msrp": 26000,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "1LT",
+          "msrp": 28100,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2LT",
+          "msrp": 31500,
+          "config": "",
+          "note": "Premier dropped; 2LT is the new top trim."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-malibu-2023/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. Consistent with GM Authority's 2024 article (LS +$100, other trims unchanged vs 2023)."
+    },
+    {
+      "year": 2024,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 25100,
+          "config": "",
+          "note": "Published $26,195 incl. $1,095 DFC."
+        },
+        {
+          "trim": "RS",
+          "msrp": 26000,
+          "config": "",
+          "note": "Published $27,095 incl. DFC."
+        },
+        {
+          "trim": "1LT",
+          "msrp": 28100,
+          "config": "",
+          "note": "Published $29,195 incl. DFC."
+        },
+        {
+          "trim": "2LT",
+          "msrp": 31500,
+          "config": "",
+          "note": "Published $32,595 incl. DFC."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2023/06/2024-chevy-malibu-pricing-uncovered/",
+      "source_type": "secondary",
+      "note": "Article prices include the stated $1,095 destination; subtracted here. LS +$100 vs 2023; RS/1LT/2LT unchanged."
+    },
+    {
+      "year": 2025,
+      "destination": 1195,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 25800,
+          "config": "",
+          "note": "Published $26,995 incl. $1,195 DFC."
+        },
+        {
+          "trim": "RS",
+          "msrp": 26800,
+          "config": "",
+          "note": "Published $27,995 incl. DFC."
+        },
+        {
+          "trim": "1LT",
+          "msrp": 28100,
+          "config": "",
+          "note": "Published $29,295 incl. DFC."
+        },
+        {
+          "trim": "2LT",
+          "msrp": 31500,
+          "config": "",
+          "note": "Published $32,695 incl. DFC."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2024/05/here-is-2025-chevy-malibu-pricing-with-options-and-packages/",
+      "source_type": "secondary",
+      "note": "Article prices include the stated $1,195 destination; subtracted here. Final model year (production ended Nov 2024)."
+    }
+  ],
+  "gaps": [
+    "2016: destination not stated; launch prices basis (incl./excl. destination) unknown. Hybrid unpriced.",
+    "2017-2019, 2021, 2023: cars.com figures; no destination amount shown on those pages.",
+    "2026: no 2026 model year (Malibu discontinued after MY2025).",
+    "No manufacturer source: GM media pages are robots-disallowed; iSeeCars 2016-2019 Malibu price pages were blocked by a permission timeout (not fetched).",
+    "Malibu Hybrid prices not captured for any year."
+  ]
+}

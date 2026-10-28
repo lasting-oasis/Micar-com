@@ -1,0 +1,444 @@
+{
+  "make": "Honda",
+  "model": "Odyssey",
+  "body": "Minivan",
+  "note": "Single body style (minivan). 4th gen 2016-2017, 5th gen 2018-on (refreshed 2021 and 2025). Trims listed in price order as read; all MSRPs exclude destination.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 900,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 29550,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX",
+          "msrp": 32700,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 33650,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 36200,
+          "config": "",
+          "note": "EX-L w/RES $37,800; EX-L w/Navi $38,200"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 42455,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring Elite",
+          "msrp": 45025,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). 4th gen. SE is priced above EX as listed, so trim order is by price."
+    },
+    {
+      "year": 2017,
+      "destination": 940,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 29850,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX",
+          "msrp": 33000,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 33950,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 36500,
+          "config": "",
+          "note": "EX-L w/RES $38,100; EX-L w/Navi $38,500"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 42755,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring Elite",
+          "msrp": 45325,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Last year of 4th gen. SE is priced above EX as listed, so trim order is by price."
+    },
+    {
+      "year": 2018,
+      "destination": 975,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 29990,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX",
+          "msrp": 33960,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 37460,
+          "config": "",
+          "note": "EX-L w/Navi and RES $39,460"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 44610,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Elite",
+          "msrp": 46770,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). All-new 5th gen; SE dropped, Touring Elite renamed Elite."
+    },
+    {
+      "year": 2019,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 30190,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX",
+          "msrp": 34160,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 37710,
+          "config": "",
+          "note": "EX-L w/Navi and RES $39,710"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 44760,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Elite",
+          "msrp": 47070,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2019-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination)."
+    },
+    {
+      "year": 2020,
+      "destination": 1120,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 30790,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX",
+          "msrp": 34790,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 38060,
+          "config": "",
+          "note": "EX-L w/Navi and RES $40,160"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 45060,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Elite",
+          "msrp": 47420,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). $1,120 destination may be a mid-year revision (other Honda 2020 releases show $1,095 at launch); not verified."
+    },
+    {
+      "year": 2021,
+      "destination": 1175,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 31790,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX",
+          "msrp": 35190,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 38460,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 42500,
+          "config": "",
+          "note": "As read: $2,560 below 2020 Touring while other trims rose; consistent with 2022 Touring (+$1,250)"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 47820,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2021-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Refresh year; EX-L w/Navi and RES no longer listed."
+    },
+    {
+      "year": 2022,
+      "destination": 1295,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 33040,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX",
+          "msrp": 36440,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 39710,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 43750,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Elite",
+          "msrp": 48770,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination)."
+    },
+    {
+      "year": 2023,
+      "destination": 1375,
+      "trims": [
+        {
+          "trim": "EX",
+          "msrp": 37490,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 40560,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 41360,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 44600,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Elite",
+          "msrp": 49620,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). LX dropped; Sport added (priced between EX-L and Touring)."
+    },
+    {
+      "year": 2024,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "EX",
+          "msrp": 38240,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 41310,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 42260,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 45500,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Elite",
+          "msrp": 50370,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination)."
+    },
+    {
+      "year": 2025,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "EX-L",
+          "msrp": 42220,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Sport-L",
+          "msrp": 43370,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 46910,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Elite",
+          "msrp": 51180,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Refresh year; EX dropped, Sport renamed Sport-L; EX-L is the base trim."
+    },
+    {
+      "year": 2026,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "EX-L",
+          "msrp": 42795,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Sport-L",
+          "msrp": 43895,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 47495,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Elite",
+          "msrp": 51695,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2026-honda-odyssey-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination)."
+    }
+  ],
+  "gaps": [
+    "All 11 years use iSeeCars (secondary). No hondanews.com Odyssey pricing release was fetched: the round-2 call budget (~50 for three models) was spent on HR-V/Pilot channel pages and releases, so no Odyssey manufacturer page was tried.",
+    "iSeeCars pages do not state explicitly that MSRP excludes destination; destination is a separate column and figures were treated as excluding it. They may reflect a later in-year price revision rather than launch pricing.",
+    "2021 Touring $42,500 is below 2020 Touring $45,060 as read; possibly a content/positioning change at the 2021 refresh. Not verified against a manufacturer source.",
+    "2016-2017: SE ($33,650 / $33,950) priced above EX ($32,700 / $33,000) as read.",
+    "2025: no LX/EX; Sport renamed Sport-L per iSeeCars style names."
+  ]
+}

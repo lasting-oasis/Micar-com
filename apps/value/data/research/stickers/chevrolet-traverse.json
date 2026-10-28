@@ -1,0 +1,359 @@
+{
+  "make": "Chevrolet",
+  "model": "Traverse",
+  "body": "SUV / Crossover",
+  "note": "Three-row midsize crossover, FWD standard with AWD optional on most trims (recorded msrp is the FWD price; AWD in the note). Generations: 2009-2017, 2018-2023 (LT Cloth / LT Leather split; RS added 2019), 2024-on (LS/LT/Z71/RS; High Country back for 2025). Fleet-coded configs (w/1FL, w/2FL, w/1SM) noted but not recorded as trims.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 31205,
+          "config": "FWD",
+          "note": "LS w/1LS. AWD $33,205. A 'LS w/1SM' FWD config is listed at $28,700."
+        },
+        {
+          "trim": "1LT",
+          "msrp": 34005,
+          "config": "FWD",
+          "note": "AWD $36,005."
+        },
+        {
+          "trim": "2LT",
+          "msrp": 36505,
+          "config": "FWD",
+          "note": "AWD $38,505."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 42145,
+          "config": "FWD",
+          "note": "AWD $44,145."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-traverse-2016/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. First generation (2009-2017)."
+    },
+    {
+      "year": 2018,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 29930,
+          "config": "FWD",
+          "note": "FWD only."
+        },
+        {
+          "trim": "LS",
+          "msrp": 32600,
+          "config": "FWD",
+          "note": "LS w/1LS. AWD $34,600. Fleet 'w/1FL' $32,720 FWD."
+        },
+        {
+          "trim": "LT Cloth",
+          "msrp": 35100,
+          "config": "FWD",
+          "note": "w/1LT. AWD w/1LT $38,900 as printed; 'w/2FL' $35,145 FWD / $37,145 AWD."
+        },
+        {
+          "trim": "LT Leather",
+          "msrp": 41700,
+          "config": "FWD",
+          "note": "w/3LT. AWD $43,700."
+        },
+        {
+          "trim": "RS",
+          "msrp": 42600,
+          "config": "FWD",
+          "note": "w/2LT. No AWD RS listed."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 45000,
+          "config": "FWD",
+          "note": "w/1LZ. AWD $47,900."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 52600,
+          "config": "AWD",
+          "note": "w/2LZ, AWD only."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-traverse-2018/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. All-new second generation (first year)."
+    },
+    {
+      "year": 2019,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 29930,
+          "config": "FWD",
+          "note": "Listed with 'No inventory available'."
+        },
+        {
+          "trim": "LS",
+          "msrp": 32900,
+          "config": "FWD",
+          "note": "w/1LS. AWD $34,900."
+        },
+        {
+          "trim": "LT Cloth",
+          "msrp": 35400,
+          "config": "FWD",
+          "note": "w/1LT. AWD $39,200 as printed."
+        },
+        {
+          "trim": "LT Leather",
+          "msrp": 39100,
+          "config": "FWD",
+          "note": "w/3LT. AWD $41,100. Down $2,600 from 2018's $41,700 as printed."
+        },
+        {
+          "trim": "RS",
+          "msrp": 43100,
+          "config": "FWD",
+          "note": "AWD $45,700 (new for 2019)."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 45500,
+          "config": "FWD",
+          "note": "AWD $48,400."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 50900,
+          "config": "FWD",
+          "note": "FWD now offered. AWD $53,200."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-traverse-2019/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge."
+    },
+    {
+      "year": 2020,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 29800,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "LS",
+          "msrp": 32900,
+          "config": "FWD",
+          "note": "w/1LS. AWD $34,900."
+        },
+        {
+          "trim": "LT Cloth",
+          "msrp": 35400,
+          "config": "FWD",
+          "note": "w/1LT. AWD $39,200 as printed."
+        },
+        {
+          "trim": "LT Leather",
+          "msrp": 39100,
+          "config": "FWD",
+          "note": "AWD $41,100."
+        },
+        {
+          "trim": "RS",
+          "msrp": 43600,
+          "config": "FWD",
+          "note": "AWD $45,700."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 45800,
+          "config": "FWD",
+          "note": "AWD $48,400."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 50900,
+          "config": "FWD",
+          "note": "AWD $53,200."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-traverse-2020/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge."
+    },
+    {
+      "year": 2022,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 33700,
+          "config": "FWD",
+          "note": "w/1LS. AWD $35,700."
+        },
+        {
+          "trim": "LT Cloth",
+          "msrp": 36200,
+          "config": "FWD",
+          "note": "w/1LT. AWD $40,000 as printed."
+        },
+        {
+          "trim": "LT Leather",
+          "msrp": 39900,
+          "config": "FWD",
+          "note": "AWD $41,900."
+        },
+        {
+          "trim": "RS",
+          "msrp": 44200,
+          "config": "FWD",
+          "note": "AWD $46,200."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 46600,
+          "config": "FWD",
+          "note": "AWD $49,200."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 51200,
+          "config": "FWD",
+          "note": "AWD $53,400."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-traverse-2022/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. L trim no longer listed."
+    },
+    {
+      "year": 2023,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 34520,
+          "config": "FWD",
+          "note": "w/1LS. AWD $36,520."
+        },
+        {
+          "trim": "LT Cloth",
+          "msrp": 37045,
+          "config": "FWD",
+          "note": "w/1LT. AWD $40,845 as printed."
+        },
+        {
+          "trim": "LT Leather",
+          "msrp": 40740,
+          "config": "FWD",
+          "note": "AWD $42,740."
+        },
+        {
+          "trim": "RS",
+          "msrp": 45045,
+          "config": "FWD",
+          "note": "AWD $47,045."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 47200,
+          "config": "FWD",
+          "note": "AWD $49,800."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 52000,
+          "config": "FWD",
+          "note": "AWD $54,200."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-traverse-2023/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. Last year of the second generation."
+    },
+    {
+      "year": 2024,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 37600,
+          "config": "FWD",
+          "note": "w/1LS. AWD (w/2LS) $39,600."
+        },
+        {
+          "trim": "LT",
+          "msrp": 40000,
+          "config": "FWD",
+          "note": "w/1LT. AWD (w/2LT) $42,000."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 46400,
+          "config": "AWD",
+          "note": "AWD only; new trim."
+        },
+        {
+          "trim": "RS",
+          "msrp": 54200,
+          "config": "FWD",
+          "note": "w/1RS. AWD (w/2RS) $56,200."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-traverse-2024/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. All-new third generation; Premier and High Country not listed for 2024; 'LT Cloth/Leather' split ended."
+    },
+    {
+      "year": 2025,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LT",
+          "msrp": 40700,
+          "config": "FWD",
+          "note": "w/1LT. AWD (w/2LT) $42,700."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 47800,
+          "config": "AWD",
+          "note": "AWD only."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 53800,
+          "config": "FWD",
+          "note": "w/1LZ; returns. AWD (w/2LZ) $55,800."
+        },
+        {
+          "trim": "RS",
+          "msrp": 54100,
+          "config": "FWD",
+          "note": "w/1RS. AWD (w/2RS) $56,100. Printed below the 2024 RS ($54,200)."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-traverse-2025/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. LS no longer listed; LT is the base trim. Page meta says '4 trim configurations' vs 7 in the body."
+    }
+  ],
+  "gaps": [
+    "2026: only destination-inclusive figures with an unstated charge were found, so left out of the table.",
+    "2017: not fetched (budget).",
+    "2021: not fetched (budget).",
+    "2016-2025: cars.com figures show no destination amount; destination left null.",
+    "2026: only LT AWD price, destination-inclusive (charge not stated).",
+    "cars.com AWD 'LT Cloth w/1LT' prices run ~$3,800 over FWD (vs $2,000 elsewhere) in 2018-2023 - taken as printed; likely bundles equipment.",
+    "No manufacturer source for 2016-2025: GM media pages are robots-disallowed."
+  ]
+}

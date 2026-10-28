@@ -1,0 +1,149 @@
+{
+ "make": "Toyota",
+ "model": "Corolla Cross",
+ "body": "SUV / Crossover",
+ "note": "Gas L/LE/XLE rows at FWD price; AWD in row notes. Corolla Cross Hybrid (2023+) is listed separately by sources and not included.",
+ "years": [
+  {
+   "year": 2022,
+   "destination": 1335,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 22445,
+     "config": "FWD",
+     "note": "AWD L $23,745"
+    },
+    {
+     "trim": "LE",
+     "msrp": 24795,
+     "config": "FWD",
+     "note": "AWD LE $26,095"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 26575,
+     "config": "FWD",
+     "note": "AWD XLE $27,875"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-toyota-corolla_cross-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year. Gas trims only. First model year."
+  },
+  {
+   "year": 2023,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 23610,
+     "config": "2WD",
+     "note": "L 4WD $24,910"
+    },
+    {
+     "trim": "LE",
+     "msrp": 25940,
+     "config": "2WD",
+     "note": "LE 4WD $27,240"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 27715,
+     "config": "2WD",
+     "note": "XLE 4WD $29,015"
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-corolla_cross-2023/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page ('Compare 3 trims on the 2023 Toyota Corolla Cross') 'Starting MSRP' (excludes destination; latest in-year price). cars.com labels drivetrains 2WD/4WD (= FWD/AWD). Page states no destination charge, so destination null. Gas trims only; the Corolla Cross Hybrid (new for 2023) is not on this page."
+  },
+  {
+   "year": 2024,
+   "destination": 1350,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 23860,
+     "config": "FWD",
+     "note": "AWD L $25,160"
+    },
+    {
+     "trim": "LE",
+     "msrp": 26190,
+     "config": "FWD",
+     "note": "AWD LE $27,490"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 28085,
+     "config": "FWD",
+     "note": "AWD XLE $29,385"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-toyota-corolla_cross-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year. Gas trims only."
+  },
+  {
+   "year": 2025,
+   "destination": 1450,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 24135,
+     "config": "FWD",
+     "note": "AWD L $25,435"
+    },
+    {
+     "trim": "LE",
+     "msrp": 26465,
+     "config": "FWD",
+     "note": "AWD LE $27,765"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 28360,
+     "config": "FWD",
+     "note": "AWD XLE $29,660"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-toyota-corolla_cross-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year. Gas trims only."
+  },
+  {
+   "year": 2026,
+   "destination": 1595,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 25335,
+     "config": "FWD",
+     "note": "AWD L $26,635"
+    },
+    {
+     "trim": "LE",
+     "msrp": 27665,
+     "config": "FWD",
+     "note": "AWD LE $28,965"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 30260,
+     "config": "FWD",
+     "note": "AWD XLE $31,710"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2026-toyota-corolla_cross-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year. Gas trims only. AWD XLE is $1,450 over FWD XLE (other trims $1,300)."
+  }
+ ],
+ "gaps": [
+  "2016-2021: model not sold (first model year 2022).",
+  "No manufacturer source: pressroom.toyota.com not tried (round-1 notes: client errors, tables are images); all years secondary.",
+  "2023: iSeeCars 2023 page failed with a client error; used the cars.com 2023 trims page instead (no destination stated, so destination null).",
+  "Corolla Cross Hybrid (S, SE, XSE; from 2023) not covered: iSeeCars and cars.com list it as a separate model and the call budget did not allow fetching it."
+ ]
+}

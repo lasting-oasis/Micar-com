@@ -1,0 +1,508 @@
+{
+  "make": "Toyota",
+  "model": "4Runner",
+  "body": "SUV / Crossover",
+  "note": "Body-on-frame midsize SUV (all years SUV). MSRP excludes destination; destination is iSeeCars' per-style column (same for every style in a year). Rows are each grade's cheapest listed configuration; 4x4/AWD prices and special editions in notes. iSeeCars labels Limited's 4WD as 'AWD'.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 960,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 34010,
+          "config": "4x2",
+          "note": "4x4 $35,885"
+        },
+        {
+          "trim": "SR5 Premium",
+          "msrp": 36690,
+          "config": "4x2",
+          "note": "4x4 $38,565"
+        },
+        {
+          "trim": "Trail",
+          "msrp": 36915,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "Trail Premium",
+          "msrp": 39595,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 41850,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 42325,
+          "config": "4x2",
+          "note": "AWD (iSeeCars label) $44,360"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-toyota-4runner-price",
+      "source_type": "secondary",
+      "note": "Off-road grade is named Trail / Trail Premium this year (TRD Off-Road from 2017)."
+    },
+    {
+      "year": 2017,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 34210,
+          "config": "4x2",
+          "note": "4x4 $36,085"
+        },
+        {
+          "trim": "SR5 Premium",
+          "msrp": 36040,
+          "config": "4x2",
+          "note": "4x4 $37,915. Lower than 2016 ($36,690 / $38,565) as listed by iSeeCars"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 37335,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Off-Road Premium",
+          "msrp": 39295,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 42400,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 42525,
+          "config": "4x2",
+          "note": "AWD $44,560"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-toyota-4runner-price",
+      "source_type": "secondary",
+      "note": "Trail renamed TRD Off-Road."
+    },
+    {
+      "year": 2018,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 34810,
+          "config": "4x2",
+          "note": "4x4 $36,685"
+        },
+        {
+          "trim": "SR5 Premium",
+          "msrp": 36640,
+          "config": "4x2",
+          "note": "4x4 $38,515"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 37985,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Off-Road Premium",
+          "msrp": 39895,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 43075,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 43125,
+          "config": "4x2",
+          "note": "AWD $45,160"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-toyota-4runner-price",
+      "source_type": "secondary"
+    },
+    {
+      "year": 2019,
+      "destination": 1120,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 35310,
+          "config": "4x2",
+          "note": "4x4 $37,185"
+        },
+        {
+          "trim": "SR5 Premium",
+          "msrp": 37140,
+          "config": "4x2",
+          "note": "4x4 $39,015"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 38485,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Off-Road Premium",
+          "msrp": 40395,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 43625,
+          "config": "4x2",
+          "note": "AWD $45,660"
+        },
+        {
+          "trim": "Limited Nightshade",
+          "msrp": 45365,
+          "config": "4x2",
+          "note": "AWD $47,400"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 46815,
+          "config": "4x4",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2019-toyota-4runner-price",
+      "source_type": "secondary"
+    },
+    {
+      "year": 2020,
+      "destination": 1175,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 36120,
+          "config": "4x2",
+          "note": "4x4 $37,995"
+        },
+        {
+          "trim": "SR5 Premium",
+          "msrp": 39315,
+          "config": "4x2",
+          "note": "4x4 $41,190"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 39840,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Off-Road Premium",
+          "msrp": 42570,
+          "config": "4x4",
+          "note": "4x4 only. Venture Edition (4x4) $44,385"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 44985,
+          "config": "4x2",
+          "note": "AWD $47,020"
+        },
+        {
+          "trim": "Nightshade Edition",
+          "msrp": 46725,
+          "config": "4x2",
+          "note": "AWD $48,760"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 49865,
+          "config": "4x4",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-toyota-4runner-price",
+      "source_type": "secondary"
+    },
+    {
+      "year": 2021,
+      "destination": 1215,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 36765,
+          "config": "4x2",
+          "note": "4x4 $38,640. Trail Edition 4x2 $38,740 / 4x4 $40,615"
+        },
+        {
+          "trim": "SR5 Premium",
+          "msrp": 39825,
+          "config": "4x2",
+          "note": "4x4 $41,700"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 40730,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Off-Road Premium",
+          "msrp": 43325,
+          "config": "4x4",
+          "note": "4x4 only. Venture Edition (4x4) $44,895"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 45670,
+          "config": "4x2",
+          "note": "AWD $47,705"
+        },
+        {
+          "trim": "Nightshade Edition",
+          "msrp": 47085,
+          "config": "4x2",
+          "note": "AWD $49,120"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 50745,
+          "config": "4x4",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2021-toyota-4runner-price",
+      "source_type": "secondary"
+    },
+    {
+      "year": 2022,
+      "destination": 1335,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 38105,
+          "config": "4x2",
+          "note": "4x4 $39,980. Trail Special Edition 4x2 $40,075 / 4x4 $41,950"
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 40950,
+          "config": "4x2",
+          "note": "4x4 $42,825"
+        },
+        {
+          "trim": "SR5 Premium",
+          "msrp": 41515,
+          "config": "4x2",
+          "note": "4x4 $43,390"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 41935,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Off-Road Premium",
+          "msrp": 44380,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 47690,
+          "config": "4x2",
+          "note": "AWD $49,725"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 52420,
+          "config": "4x4",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-toyota-4runner-price",
+      "source_type": "secondary",
+      "note": "TRD Sport first appears. No Nightshade row on the 2022 page."
+    },
+    {
+      "year": 2023,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 40155,
+          "config": "4x2",
+          "note": "4x4 $42,030"
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 43015,
+          "config": "4x2",
+          "note": "4x4 $44,890"
+        },
+        {
+          "trim": "SR5 Premium",
+          "msrp": 43215,
+          "config": "4x2",
+          "note": "4x4 $45,090"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 44000,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Off-Road Premium",
+          "msrp": 46580,
+          "config": "4x4",
+          "note": "4x4 only. 40th Anniversary Special Edition (4x4) $47,720"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 49390,
+          "config": "4x2",
+          "note": "AWD $51,425"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 54620,
+          "config": "4x4",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-toyota-4runner-price",
+      "source_type": "secondary"
+    },
+    {
+      "year": 2024,
+      "destination": 1450,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 40705,
+          "config": "4x2",
+          "note": "4x4 $42,580"
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 43565,
+          "config": "4x2",
+          "note": "4x4 $45,440"
+        },
+        {
+          "trim": "SR5 Premium",
+          "msrp": 43765,
+          "config": "4x2",
+          "note": "4x4 $45,640"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 44550,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "TRD Off-Road Premium",
+          "msrp": 47130,
+          "config": "4x4",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 49940,
+          "config": "4x2",
+          "note": "AWD $51,975"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 55170,
+          "config": "4x4",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-toyota-4runner-price",
+      "source_type": "secondary",
+      "note": "Last year of the long-running generation per the price structure (2025 page shows all-new grades and hybrid 'HV' styles)."
+    },
+    {
+      "year": 2025,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "SR5",
+          "msrp": 41270,
+          "config": "4x2",
+          "note": "4x4 $43,270"
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 47750,
+          "config": "4x2",
+          "note": "4x4 $49,750"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 49690,
+          "config": "4x4",
+          "note": "TRD Off-Road HV (hybrid) 4x4 $52,490"
+        },
+        {
+          "trim": "TRD Sport Premium",
+          "msrp": 53110,
+          "config": "4x2",
+          "note": "4x4 $55,110"
+        },
+        {
+          "trim": "TRD Off-Road Premium",
+          "msrp": 55470,
+          "config": "4x4",
+          "note": "HV 4x4 $58,270"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 55900,
+          "config": "4x2",
+          "note": "AWD $57,900; Limited HV AWD $60,700"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 63360,
+          "config": "AWD hybrid (HV)",
+          "note": "HV only"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 67400,
+          "config": "4x4 hybrid (HV)",
+          "note": "HV only. Trailhunter HV 4x4 also $67,400"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-toyota-4runner-price",
+      "source_type": "secondary",
+      "note": "New generation: SR5 Premium dropped; TRD Sport Premium, Platinum, Trailhunter added; 'HV' = i-FORCE MAX hybrid styles. SR5 4x2 rose only $565 vs 2024 while TRD Sport rose $4,185."
+    }
+  ],
+  "gaps": [
+    "2026: iSeeCars current-year page (https://www.iseecars.com/car/toyota-4runner-price) returned a client error on fetch and retry; no 2026 stickers recorded.",
+    "No manufacturer sources: pressroom.toyota.com not tried (round-1: client errors, image-only tables) to stay within budget; 2016-2025 all iSeeCars (secondary).",
+    "iSeeCars gives one undated MSRP per style; launch vs later in-year pricing cannot be separated.",
+    "2017 SR5 Premium is listed $650 below 2016 on iSeeCars (4x2 $36,040 vs $36,690); not cross-checked.",
+    "Special editions kept in notes to stay near 7 rows: 2020/2021 Venture Edition, 2021 Trail Edition, 2022 Trail Special Edition, 2023 40th Anniversary, 2025 Trailhunter. No 2022 Nightshade row on iSeeCars."
+  ]
+}

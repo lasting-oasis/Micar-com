@@ -1,0 +1,266 @@
+{
+ "make": "GMC",
+ "model": "Yukon",
+ "body": "SUV / Crossover",
+ "note": "Full-size 3-row SUV (regular wheelbase; the long-wheelbase Yukon XL is a separate model and is excluded). Each trim is recorded at its cheapest drive (4x2) with the 4x4 price in the note; 4x4-only trims say so. All MSRPs exclude destination. Trim lineage seen: 2016-19 SLE/SLT/Denali (+SLT Standard Edition 2019); 2021-24 SLE/SLT/AT4/Denali (+Denali Ultimate 2024); 2025-26 Elevation/AT4/Denali/AT4 Ultimate/Denali Ultimate (SLT no longer listed).",
+ "years": [
+  {
+   "year": 2016,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "SLE",
+     "msrp": 48315,
+     "config": "4x2",
+     "note": "4x4 $51,315."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 57000,
+     "config": "4x2",
+     "note": "4x4 $60,000."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 65325,
+     "config": "4x2",
+     "note": "4x4 $68,325."
+    }
+   ],
+   "source": "https://www.cars.com/research/gmc-yukon-2016/trims/",
+   "source_type": "secondary",
+   "note": "GMTK2XX generation (2015-2020). cars.com 'Starting MSRP' excludes destination and is the latest in-year price; the page states no destination charge."
+  },
+  {
+   "year": 2017,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "SLE",
+     "msrp": 48530,
+     "config": "4x2",
+     "note": "4x4 $51,530."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 57425,
+     "config": "4x2",
+     "note": "4x4 $60,425."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 65965,
+     "config": "4x2",
+     "note": "4x4 $68,965."
+    }
+   ],
+   "source": "https://www.cars.com/research/gmc-yukon-2017/trims/",
+   "source_type": "secondary",
+   "note": "Non-round figures ($X,530 / $X,425 / $X,965) suggest a mid-year price level. cars.com 'Starting MSRP' excludes destination and is the latest in-year price; the page states no destination charge."
+  },
+  {
+   "year": 2019,
+   "destination": 1295,
+   "trims": [
+    {
+     "trim": "SLE",
+     "msrp": 49600,
+     "config": "4x2",
+     "note": "4x4 $52,600."
+    },
+    {
+     "trim": "SLT Standard Edition",
+     "msrp": 54800,
+     "config": "4x2",
+     "note": "Lower-content SLT; 4x4 $57,800."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 57600,
+     "config": "4x2",
+     "note": "4x4 $60,600."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 66700,
+     "config": "4x2",
+     "note": "4x4 $69,700."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-gmc-yukon-price",
+   "source_type": "secondary",
+   "note": "iSeeCars lists MSRP and a separate destination charge per style; the page does not say in words that MSRP excludes destination, but the separate column implies it."
+  },
+  {
+   "year": 2021,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "SLE",
+     "msrp": 51000,
+     "config": "4x2",
+     "note": "Only figure available: cars.com 2021 overview Compare section 'Starts at $51,000' (rear-wheel drive). The same page's review quotes the 2021 Denali at $72,695 including destination (destination not stated, so not converted)."
+    }
+   ],
+   "source": "https://www.cars.com/research/gmc-yukon-2021/",
+   "source_type": "secondary",
+   "note": "First year of the current (T1) generation; AT4 trim added (cars.com lists SLE/SLT/AT4/Denali but only used average prices for them). Partial year."
+  },
+  {
+   "year": 2022,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "SLE",
+     "msrp": 54000,
+     "config": "4x2",
+     "note": "4x4 $57,000."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 60700,
+     "config": "4x2",
+     "note": "4x4 $63,700."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 68500,
+     "config": "4x4",
+     "note": "4x4 only."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 72100,
+     "config": "4x2",
+     "note": "4x4 $75,100."
+    }
+   ],
+   "source": "https://www.cars.com/research/gmc-yukon-2022/",
+   "source_type": "secondary",
+   "note": "cars.com overview 'Starts at' figures; page states no destination charge. Treated as excluding destination per cars.com convention."
+  },
+  {
+   "year": 2024,
+   "destination": 1995,
+   "trims": [
+    {
+     "trim": "SLE",
+     "msrp": 58200,
+     "config": "4x2",
+     "note": "4x4 $61,200."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 64900,
+     "config": "4x2",
+     "note": "4x4 $67,900."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 71505,
+     "config": "4x4",
+     "note": "4x4 only."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 76805,
+     "config": "4x2",
+     "note": "4x4 $79,805."
+    },
+    {
+     "trim": "Denali Ultimate",
+     "msrp": 98755,
+     "config": "4x4",
+     "note": "4x4 only."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-gmc-yukon-price",
+   "source_type": "secondary",
+   "note": "AT4/Denali/Denali Ultimate figures end in $5 (71,505 / 76,805 / 98,755) unlike SLE/SLT; possibly a mandatory option or fee folded in. iSeeCars lists MSRP and a separate destination charge per style; the page does not say in words that MSRP excludes destination, but the separate column implies it."
+  },
+  {
+   "year": 2025,
+   "destination": 2195,
+   "trims": [
+    {
+     "trim": "Elevation",
+     "msrp": 67200,
+     "config": "4x2",
+     "note": "4x4 $70,200."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 74200,
+     "config": "4x4",
+     "note": "4x4 only."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 77500,
+     "config": "4x2",
+     "note": "4x4 $80,500."
+    },
+    {
+     "trim": "AT4 Ultimate",
+     "msrp": 95800,
+     "config": "4x4",
+     "note": "4x4 only."
+    },
+    {
+     "trim": "Denali Ultimate",
+     "msrp": 101800,
+     "config": "4x4",
+     "note": "4x4 only."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-gmc-yukon-price",
+   "source_type": "secondary",
+   "note": "Refreshed 2025 lineup: iSeeCars lists no SLE or SLT; Elevation is the entry trim and AT4 Ultimate is new. iSeeCars lists MSRP and a separate destination charge per style; the page does not say in words that MSRP excludes destination, but the separate column implies it."
+  },
+  {
+   "year": 2026,
+   "destination": 2795,
+   "trims": [
+    {
+     "trim": "Elevation",
+     "msrp": 69600,
+     "config": "4x2",
+     "note": "4x4 $72,600."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 76600,
+     "config": "4x4",
+     "note": "4x4 only."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 80400,
+     "config": "4x2",
+     "note": "4x4 $83,400."
+    },
+    {
+     "trim": "AT4 Ultimate",
+     "msrp": 97900,
+     "config": "4x4",
+     "note": "4x4 only."
+    },
+    {
+     "trim": "Denali Ultimate",
+     "msrp": 103900,
+     "config": "4x4",
+     "note": "4x4 only."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2026-gmc-yukon-price",
+   "source_type": "secondary",
+   "note": "Destination listed as $2,795 (up $600 from 2025). No SLE/SLT. iSeeCars lists MSRP and a separate destination charge per style; the page does not say in words that MSRP excludes destination, but the separate column implies it."
+  }
+ ],
+ "gaps": [
+  "2018, 2020, 2023: no pricing page fetched within budget (cars.com overview pages for 2018 and 2020 surfaced in search but were not fetched).",
+  "2021: only the entry SLE 4x2 'Starts at' figure found; cars.com's 2021 page shows used average prices, not MSRPs, for the other trims.",
+  "2016, 2017, 2021, 2022: destination charge not stated by the cars.com pages used.",
+  "All years: GM's pricing releases (media.gmc.com / media.gm.com PDFs) are robots-disallowed, so every recorded year is secondary."
+ ]
+}

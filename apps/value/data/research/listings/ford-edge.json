@@ -1,0 +1,215 @@
+{
+  "make": "Ford",
+  "model": "Edge",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "SEL",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/edge/year-2016/?trim=sel",
+      "fetched": "2026-10-28",
+      "page_average": 19891,
+      "page_average_note": "FAQ: 'The average price for the 2016 Ford Edge SEL is $19,891.' Far above the visible asks ($8,348-$14,602); boilerplate.",
+      "page_total_listings": 65,
+      "listings": [
+        {
+          "price": 14602,
+          "miles": 59089,
+          "location": "St. Louis, MO",
+          "trim": "SEL AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12320,
+          "miles": 99261,
+          "location": "Southern Pines, NC",
+          "trim": "SEL AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9347,
+          "miles": 119703,
+          "location": "Metairie, LA",
+          "trim": "SEL FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 8348,
+          "miles": 160209,
+          "location": "South St. Paul, MN",
+          "trim": "SEL AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 10477,
+          "miles": 115317,
+          "location": "Ebensburg, PA",
+          "trim": "SEL AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "SEL",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/edge/year-2019/?trim=sel",
+      "fetched": "2026-10-28",
+      "page_average": 19738,
+      "page_average_note": "FAQ: 'The average price for the 2019 Ford Edge SEL is $19,738.' Same figure appears on the 2024 page, so it is model-wide boilerplate.",
+      "page_total_listings": 108,
+      "listings": [
+        {
+          "price": 11956,
+          "miles": 101607,
+          "location": "Florence, KY",
+          "trim": "SEL AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 8950,
+          "miles": 126145,
+          "location": "Marietta, GA",
+          "trim": "SEL AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 15238,
+          "miles": 79155,
+          "location": "Apache Junction, AZ",
+          "trim": "SEL AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 13835,
+          "miles": 90438,
+          "location": "Sanford, FL",
+          "trim": "SEL FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12413,
+          "miles": 117058,
+          "location": "Rockford, IL",
+          "trim": "SEL AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SEL",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/edge/year-2022/?trim=sel",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "No average sentence; page says 'Prices for a used 2022 Ford Edge SEL currently range from $15,999 to $40,840.'",
+      "page_total_listings": 432,
+      "listings": [
+        {
+          "price": 26995,
+          "miles": 18748,
+          "location": "not shown (dealer: Courtesy Ford Lincoln Inc)",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; AWD standard for 2022"
+        },
+        {
+          "price": 24998,
+          "miles": 20395,
+          "location": "not shown (dealer: CarMax Royal Palm Beach)",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 26728,
+          "miles": 26829,
+          "location": "not shown (dealer: Courtesy Auto & Truck Center)",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 23761,
+          "miles": 7683,
+          "location": "not shown (dealer: Livermore Toyota)",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 21951,
+          "miles": 46326,
+          "location": "not shown (dealer: Future Ford of Clovis)",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": "CPO"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SEL",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/edge/year-2024/?trim=sel",
+      "fetched": "2026-10-28",
+      "page_average": 19738,
+      "page_average_note": "'The average price for the 2024 Ford Edge SEL is $19,738' - identical to the 2019 page; boilerplate.",
+      "page_total_listings": 661,
+      "listings": [
+        {
+          "price": 20349,
+          "miles": 69437,
+          "location": "Memphis, TN",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 26194,
+          "miles": 20239,
+          "location": "Point Pleasant, NJ",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; CPO"
+        },
+        {
+          "price": 16795,
+          "miles": 62645,
+          "location": "Commerce, GA",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16995,
+          "miles": 63624,
+          "location": "Commerce, GA",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 18990,
+          "miles": 60336,
+          "location": "Hardeeville, SC",
+          "trim": "SEL",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2022: the fetched page showed dealer names but no city/state and no drivetrain; location recorded as 'not shown (dealer: ...)'.",
+    "2024: page showed no drivetrain (all 2024 Edges are AWD). Several 2024 SELs at 57k-69k mi for ~$16.8k-$19k (one Commerce, GA dealer has three) look like ex-fleet units; asks sit below the 2022 SEL rows.",
+    "TrueCar 'average price' sentences are trim-wide boilerplate ($19,738 on both 2019 and 2024 pages)."
+  ]
+}

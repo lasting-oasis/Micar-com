@@ -1,0 +1,353 @@
+{
+  "make": "Nissan",
+  "model": "Pathfinder",
+  "body": "SUV / Crossover",
+  "note": "All MSRPs exclude destination (each Nissan release says so). Each row is the trim's cheapest config (2WD); the 4WD price from the same release is in the note. Rock Creek is 4WD-only. 2016-2020 are the R52 generation with the 3.5L V6 + CVT; the all-new R53 arrived as a 2022 model (9-speed automatic). SUV only.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 900,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 29780,
+          "config": "2WD",
+          "note": "4WD $31,470"
+        },
+        {
+          "trim": "SV",
+          "msrp": 33100,
+          "config": "2WD",
+          "note": "4WD $34,790"
+        },
+        {
+          "trim": "SL",
+          "msrp": 36360,
+          "config": "2WD",
+          "note": "4WD $38,050"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 41560,
+          "config": "2WD",
+          "note": "4WD $43,250"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-2016-pathfinder-u-s-pricing",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2017,
+      "destination": 900,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 29990,
+          "config": "2WD",
+          "note": "4WD $31,680"
+        },
+        {
+          "trim": "SV",
+          "msrp": 32680,
+          "config": "2WD",
+          "note": "4WD $34,370"
+        },
+        {
+          "trim": "SL",
+          "msrp": 35700,
+          "config": "2WD",
+          "note": "4WD $37,390"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 41870,
+          "config": "2WD",
+          "note": "4WD $43,560"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-2017-pathfinder-u-s-pricing",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2018,
+      "destination": 975,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 30790,
+          "config": "2WD",
+          "note": "4WD $32,480"
+        },
+        {
+          "trim": "SV",
+          "msrp": 33480,
+          "config": "2WD",
+          "note": "4WD $35,170"
+        },
+        {
+          "trim": "SL",
+          "msrp": 37500,
+          "config": "2WD",
+          "note": "4WD $39,190"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 42320,
+          "config": "2WD",
+          "note": "4WD $44,010"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/release-5516b51b51cf439bb37d91834911a795-nissan-announces-2018-pathfinder-u-s-pricing-adds-midnight-edition-standard-automatic-emergency-braking-and-innovative-rear-door-alert",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2019,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 31230,
+          "config": "2WD",
+          "note": "4WD $32,920"
+        },
+        {
+          "trim": "SV",
+          "msrp": 34270,
+          "config": "2WD",
+          "note": "4WD $35,960"
+        },
+        {
+          "trim": "SL",
+          "msrp": 37920,
+          "config": "2WD",
+          "note": "4WD $39,610"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 42570,
+          "config": "2WD",
+          "note": "4WD $44,260"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2019-pathfinder",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2020,
+      "destination": 1045,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 31680,
+          "config": "2WD",
+          "note": "4WD $33,370"
+        },
+        {
+          "trim": "SV",
+          "msrp": 34470,
+          "config": "2WD",
+          "note": "4WD $36,160"
+        },
+        {
+          "trim": "SL",
+          "msrp": 38090,
+          "config": "2WD",
+          "note": "4WD $39,780"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 42920,
+          "config": "2WD",
+          "note": "4WD $44,610"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-us-pricing-for-2020-pathfinder",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2022,
+      "destination": 1225,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 33410,
+          "config": "2WD",
+          "note": "4WD $35,310"
+        },
+        {
+          "trim": "SV",
+          "msrp": 36200,
+          "config": "2WD",
+          "note": "4WD $38,100"
+        },
+        {
+          "trim": "SL",
+          "msrp": 39590,
+          "config": "2WD",
+          "note": "4WD $41,490"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 46190,
+          "config": "2WD",
+          "note": "4WD $48,090"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/all-new-2022-nissan-pathfinder-pricing-starts-at-33410",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2023,
+      "destination": 1335,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 35200,
+          "config": "2WD",
+          "note": "4WD $37,100"
+        },
+        {
+          "trim": "SV",
+          "msrp": 38020,
+          "config": "2WD",
+          "note": "4WD $39,920"
+        },
+        {
+          "trim": "SL",
+          "msrp": 41620,
+          "config": "2WD",
+          "note": "4WD $43,520"
+        },
+        {
+          "trim": "Rock Creek",
+          "msrp": 43020,
+          "config": "4WD",
+          "note": "4WD only; new for 2023"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 48170,
+          "config": "2WD",
+          "note": "4WD printed as $40,070, evidently a typo (below the 2WD price); not used"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/release-e11d37d8bc8e9480bf881865af22e225-2023-nissan-pathfinder-pricing-starts-at-35200",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2024,
+      "destination": 1365,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 35810,
+          "config": "2WD",
+          "note": "4WD $37,710"
+        },
+        {
+          "trim": "SV",
+          "msrp": 38630,
+          "config": "2WD",
+          "note": "4WD $40,530"
+        },
+        {
+          "trim": "SL",
+          "msrp": 42230,
+          "config": "2WD",
+          "note": "4WD $44,130"
+        },
+        {
+          "trim": "Rock Creek",
+          "msrp": 43630,
+          "config": "4WD",
+          "note": "4WD only"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 48780,
+          "config": "2WD",
+          "note": "4WD $50,680"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/ruggedly-refined-2024-nissan-pathfinder-starts-at-35810",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2025,
+      "destination": 1390,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 37070,
+          "config": "2WD",
+          "note": "4WD $39,070"
+        },
+        {
+          "trim": "SV",
+          "msrp": 40060,
+          "config": "2WD",
+          "note": "4WD $42,060"
+        },
+        {
+          "trim": "SL",
+          "msrp": 43260,
+          "config": "2WD",
+          "note": "4WD $45,260"
+        },
+        {
+          "trim": "Rock Creek",
+          "msrp": 45160,
+          "config": "4WD",
+          "note": "4WD only"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 49810,
+          "config": "2WD",
+          "note": "4WD $51,810"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2025-nissan-pathfinder-pricing-starts-at-37070",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2026,
+      "destination": 1575,
+      "trims": [
+        {
+          "trim": "SV",
+          "msrp": 39990,
+          "config": "2WD",
+          "note": "4WD $41,990; S grade dropped"
+        },
+        {
+          "trim": "SL",
+          "msrp": 42590,
+          "config": "2WD",
+          "note": "4WD $44,590"
+        },
+        {
+          "trim": "Rock Creek",
+          "msrp": 45090,
+          "config": "4WD",
+          "note": "4WD only"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 49790,
+          "config": "2WD",
+          "note": "4WD $51,790"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/refreshed-2026-nissan-pathfinder-priced-from-39900",
+      "source_type": "manufacturer"
+    }
+  ],
+  "gaps": [
+    "2021: no 2021 model year (Nissan went from the 2020 Pathfinder straight to the all-new 2022), so no row.",
+    "2023: the release prints Platinum 4WD at $40,070, below the Platinum 2WD $48,170; this is evidently a typo (likely $50,070, since 4WD adds $1,900 on every other 2023 grade) but the true figure was not read, so the 4WD price is not recorded.",
+    "2025: a later release 'Nissan reduces pricing for 2025 Rogue, Pathfinder' exists, so 2025 prices were cut mid-year; it was not fetched and the launch figures are recorded.",
+    "2026: refreshed model drops the S grade; release URL slug says 39900 while the headline and table say $39,990 (table figure recorded). Destination jumps to $1,575.",
+    "2019: a 'Rock Creek Edition' joined the 2019 lineup per a separate release (title only seen); not fetched, no row."
+  ]
+}

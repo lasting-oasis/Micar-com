@@ -1,0 +1,214 @@
+{
+  "make": "Chevrolet",
+  "model": "Colorado",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/colorado/year-2016/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 25238,
+      "page_total_listings": 55,
+      "note": "First 5 listings in page order recorded. No CPO/Sponsored labels on these rows. Page states 'The average price for the <year> Chevrolet Colorado LT is $25,238' - the identical figure on the 2016, 2019, 2022 and 2024 pages, so it is model-wide boilerplate, not a year/trim average.",
+      "listings": [
+        {
+          "price": 12368,
+          "miles": 166761,
+          "location": "Phoenix, AZ",
+          "trim": "LT Crew Cab Short Box 2WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 14598,
+          "miles": 132165,
+          "location": "Sicklerville, NJ",
+          "trim": "LT Crew Cab Standard Box 4WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 17391,
+          "miles": 69992,
+          "location": "Clearwater, FL",
+          "trim": "LT Extended Cab Standard Box 2WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 15788,
+          "miles": 117517,
+          "location": "Gaithersburg, MD",
+          "trim": "LT Crew Cab Short Box 2WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 11710,
+          "miles": 166873,
+          "location": "Lewisville, TX",
+          "trim": "LT Crew Cab Short Box 2WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/colorado/year-2019/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 25238,
+      "page_total_listings": 65,
+      "note": "First 5 in page order. No labels. Page counts are inconsistent (intro 65 LT; year table 250 total; FAQ 935 LT). Page states 'The average price for the <year> Chevrolet Colorado LT is $25,238' - the identical figure on the 2016, 2019, 2022 and 2024 pages, so it is model-wide boilerplate, not a year/trim average.",
+      "listings": [
+        {
+          "price": 16249,
+          "miles": 135992,
+          "location": "Raleigh, NC",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 19952,
+          "miles": 94631,
+          "location": "Oswego, NY",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 11999,
+          "miles": 176880,
+          "location": "Milledgeville, GA",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 14341,
+          "miles": 157971,
+          "location": "Jacksonville, FL",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 19448,
+          "miles": 103028,
+          "location": "Chantilly, VA",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/colorado/year-2022/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 25238,
+      "page_total_listings": 221,
+      "note": "First 5 in page order. Page counts inconsistent (intro 221 LT; year table 496 all trims; FAQ 935 LT). Page states 'The average price for the <year> Chevrolet Colorado LT is $25,238' - the identical figure on the 2016, 2019, 2022 and 2024 pages, so it is model-wide boilerplate, not a year/trim average.",
+      "listings": [
+        {
+          "price": 17102,
+          "miles": 72721,
+          "location": "Mobile, AL",
+          "trim": "LT Extended Cab Standard Box 2WD",
+          "body": "Pickup Truck",
+          "note": "Sponsored"
+        },
+        {
+          "price": 19290,
+          "miles": 41896,
+          "location": "Wood River, IL",
+          "trim": "LT Extended Cab Standard Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 18990,
+          "miles": 52762,
+          "location": "Wood River, IL",
+          "trim": "LT Extended Cab Standard Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 29899,
+          "miles": 18065,
+          "location": "Tampa, FL",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 18018,
+          "miles": 73475,
+          "location": "Live Oak, FL",
+          "trim": "LT Extended Cab Standard Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/colorado/year-2024/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 25238,
+      "page_total_listings": 136,
+      "note": "First 5 in page order (a non-vehicle ad between rows 2 and 3 skipped). Page states 'The average price for the <year> Chevrolet Colorado LT is $25,238' - the identical figure on the 2016, 2019, 2022 and 2024 pages, so it is model-wide boilerplate, not a year/trim average.",
+      "listings": [
+        {
+          "price": 28491,
+          "miles": 18669,
+          "location": "Pembroke Pines, FL",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": "Sponsored"
+        },
+        {
+          "price": 29391,
+          "miles": 32834,
+          "location": "Peoria, AZ",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": "Sponsored, CPO"
+        },
+        {
+          "price": 30116,
+          "miles": 10701,
+          "location": "Saint Cloud, FL",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": "CPO"
+        },
+        {
+          "price": 33121,
+          "miles": 21055,
+          "location": "Miami, FL",
+          "trim": "LT Crew Cab Short Box 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 30916,
+          "miles": 20725,
+          "location": "Bradenton, FL",
+          "trim": "LT Crew Cab Short Box 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "page_average is the same $25,238 on all four pages (boilerplate); do not use it.",
+    "TrueCar 'Standard Box' on Extended Cab rows is the 6'2\" box; 'Short Box' is the 5'2\" box."
+  ]
+}

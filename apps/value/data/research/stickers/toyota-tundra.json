@@ -1,0 +1,666 @@
+{
+  "make": "Toyota",
+  "model": "Tundra",
+  "body": "Pickup Truck",
+  "note": "Full-size pickup (all years). MSRP excludes destination; destination is iSeeCars' per-style column (same for every style in a year). config = cab, drivetrain, bed (SB/LB as iSeeCars labels them), engine where the page states it, and 'hybrid (HV)' for i-FORCE MAX styles. Rows: each grade's cheapest listed configuration, plus a CrewMax 4x4 row for SR5 and Limited (the common used configs); CrewMax 4x4 / Double Cab 4x4 / hybrid prices for the other grades are in notes. Tundra has no Crew Cab/SuperCrew name: CrewMax is the largest cab.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 1195,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 29140,
+          "config": "Double Cab 4x2 SB 4.6L V8",
+          "note": "Double Cab 4x4 from $32,190 (Double Cab 4x4 SB 4.6L V8); Regular Cab from $29,950 (Regular Cab 4x2 LB 5.7L V8); same config 5.7L V8 $30,840"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 30950,
+          "config": "Double Cab 4x2 SB 4.6L V8",
+          "note": "same config 5.7L V8 $32,650"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 36320,
+          "config": "CrewMax 4x4 SB 4.6L V8",
+          "note": "CrewMax 4x4 5.7L V8 $38,020"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 38670,
+          "config": "Double Cab 4x2 SB 5.7L V8",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 43585,
+          "config": "CrewMax 4x4 SB 5.7L V8",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 46530,
+          "config": "CrewMax 4x2 SB 5.7L V8",
+          "note": "CrewMax 4x4 $49,580 (CrewMax 4x4 SB 5.7L V8)"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 46530,
+          "config": "CrewMax 4x2 SB 5.7L V8",
+          "note": "CrewMax 4x4 $49,580 (CrewMax 4x4 SB 5.7L V8)"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 42945,
+          "config": "Double Cab 4x4 SB 5.7L V8",
+          "note": "CrewMax 4x4 $45,560 (CrewMax 4x4 SB 5.7L V8)"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "50 styles listed (4.6L V8, 5.7L V8, 5.7L V8 FFV). FFV rows priced the same as non-FFV."
+    },
+    {
+      "year": 2017,
+      "destination": 1295,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 30120,
+          "config": "Double Cab 4x2 SB 4.6L V8",
+          "note": "Double Cab 4x4 from $33,170 (Double Cab 4x4 SB 4.6L V8); Regular Cab from $30,500 (Regular Cab 4x2 LB 5.7L V8); same config 5.7L V8 $31,390"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 31930,
+          "config": "Double Cab 4x2 SB 4.6L V8",
+          "note": "same config 5.7L V8 $33,200"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 37300,
+          "config": "CrewMax 4x4 SB 4.6L V8",
+          "note": "CrewMax 4x4 5.7L V8 $38,570"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 39380,
+          "config": "Double Cab 4x2 SB 5.7L V8",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 44295,
+          "config": "CrewMax 4x4 SB 5.7L V8",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 47080,
+          "config": "CrewMax 4x2 SB 5.7L V8",
+          "note": "CrewMax 4x4 $50,130 (CrewMax 4x4 SB 5.7L V8)"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 47080,
+          "config": "CrewMax 4x2 SB 5.7L V8",
+          "note": "CrewMax 4x4 $50,130 (CrewMax 4x4 SB 5.7L V8)"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 43495,
+          "config": "Double Cab 4x4 SB 5.7L V8",
+          "note": "CrewMax 4x4 $46,110 (CrewMax 4x4 SB 5.7L V8)"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "50 styles listed; same structure as 2016."
+    },
+    {
+      "year": 2018,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 31320,
+          "config": "Double Cab 4x2 SB 4.6L V8",
+          "note": "Double Cab 4x4 from $34,170 (Double Cab 4x4 SB 4.6L V8); same config 5.7L V8 $32,390"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 33030,
+          "config": "Double Cab 4x2 SB 4.6L V8",
+          "note": "same config 5.7L V8 $34,100"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 38500,
+          "config": "CrewMax 4x4 SB 4.6L V8",
+          "note": "CrewMax 4x4 5.7L V8 $39,770"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 40385,
+          "config": "Double Cab 4x2 SB 5.7L V8 FFV",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 45500,
+          "config": "CrewMax 4x4 SB 5.7L V8",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 47080,
+          "config": "CrewMax 4x2 SB 5.7L V8 FFV",
+          "note": "CrewMax 4x4 $50,330 (CrewMax 4x4 SB 5.7L V8)"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 47080,
+          "config": "CrewMax 4x2 SB 5.7L V8 FFV",
+          "note": "CrewMax 4x4 $50,330 (CrewMax 4x4 SB 5.7L V8)"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "42 styles listed: no TRD Pro and no Regular Cab rows on the page. Unlike 2016/2017, several 4x2 5.7L FFV rows are listed $200 below the non-FFV 5.7L row (e.g. Limited Double Cab 4x2 $40,385 FFV vs $40,585); cheapest (FFV) recorded. Destination jumps to $1,495."
+    },
+    {
+      "year": 2019,
+      "destination": 1595,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 31670,
+          "config": "Double Cab 4x2 SB 4.6L V8",
+          "note": "Double Cab 4x4 from $34,720 (Double Cab 4x4 SB 4.6L V8); same config 5.7L V8 $32,940"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 33470,
+          "config": "Double Cab 4x2 SB 4.6L V8",
+          "note": "same config 5.7L V8 $34,740"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 39125,
+          "config": "CrewMax 4x4 SB 4.6L V8",
+          "note": "CrewMax 4x4 5.7L V8 $40,395"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 40935,
+          "config": "Double Cab 4x2 SB 5.7L V8",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 45850,
+          "config": "CrewMax 4x4 SB 5.7L V8",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 47630,
+          "config": "CrewMax 4x2 SB 5.7L V8",
+          "note": "CrewMax 4x4 $50,680 (CrewMax 4x4 SB 5.7L V8)"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 47630,
+          "config": "CrewMax 4x2 SB 5.7L V8",
+          "note": "CrewMax 4x4 $50,680 (CrewMax 4x4 SB 5.7L V8)"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 49895,
+          "config": "CrewMax 4x4 SB 5.7L V8",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2019-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "27 styles listed; TRD Pro returns (CrewMax only)."
+    },
+    {
+      "year": 2020,
+      "destination": 1595,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 33575,
+          "config": "Double Cab 4x2 SB",
+          "note": "Double Cab 4x4 from $36,625 (Double Cab 4x4 SB)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 35245,
+          "config": "Double Cab 4x2 SB",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 40900,
+          "config": "CrewMax 4x4 SB",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 42270,
+          "config": "Double Cab 4x2 SB",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 47185,
+          "config": "CrewMax 4x4 SB",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 48775,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $51,825 (CrewMax 4x4 SB)"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 48775,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $51,825 (CrewMax 4x4 SB)"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 48655,
+          "config": "Double Cab 4x4 SB",
+          "note": "CrewMax 4x4 $52,930 (CrewMax 4x4 SB)"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "20 styles listed; page shows no engine (4.6L rows gone)."
+    },
+    {
+      "year": 2021,
+      "destination": 1695,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 34125,
+          "config": "Double Cab 4x2 SB",
+          "note": "Double Cab 4x4 from $37,175 (Double Cab 4x4 SB)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 35815,
+          "config": "Double Cab 4x2 SB",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 41470,
+          "config": "CrewMax 4x4 SB",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 42840,
+          "config": "Double Cab 4x2 SB",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 47755,
+          "config": "CrewMax 4x4 SB",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 49345,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $52,395 (CrewMax 4x4 SB)"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 49345,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $52,395 (CrewMax 4x4 SB)"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 49125,
+          "config": "Double Cab 4x4 SB",
+          "note": "CrewMax 4x4 $53,500 (CrewMax 4x4 SB)"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2021-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "20 styles listed; page shows no engine. Last year of the 2nd-generation price structure."
+    },
+    {
+      "year": 2022,
+      "destination": 1795,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 35950,
+          "config": "Double Cab 4x2 SB",
+          "note": "Double Cab 4x4 from $38,950 (Double Cab 4x4 SB); CrewMax 4x4 $41,000 (CrewMax 4x4 SB)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 41455,
+          "config": "Double Cab 4x2 SB",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 46505,
+          "config": "CrewMax 4x4 SB",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 47550,
+          "config": "Double Cab 4x2 SB",
+          "note": "HV hybrid from $53,000 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 52600,
+          "config": "CrewMax 4x4 SB",
+          "note": "HV hybrid 4x4 from $56,000 (CrewMax 4x4 SB hybrid (HV))"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 57690,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $60,690 (CrewMax 4x4 SB); HV hybrid from $61,090 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 58390,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $61,390 (CrewMax 4x4 SB); HV hybrid from $61,790 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 67505,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        },
+        {
+          "trim": "Capstone",
+          "msrp": 74230,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "New generation. 42 styles; 'HV' = i-FORCE MAX hybrid. SR now offered as CrewMax; TRD Pro and Capstone listed HV-only. Page shows no engine for non-HV rows."
+    },
+    {
+      "year": 2023,
+      "destination": 1850,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 38965,
+          "config": "Double Cab 4x2 SB",
+          "note": "Double Cab 4x4 from $41,965 (Double Cab 4x4 SB); CrewMax 4x4 $44,015 (CrewMax 4x4 SB)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 44470,
+          "config": "Double Cab 4x2 SB",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 49520,
+          "config": "CrewMax 4x4 SB",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 50565,
+          "config": "Double Cab 4x2 SB",
+          "note": "HV hybrid from $56,415 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 55615,
+          "config": "CrewMax 4x4 SB",
+          "note": "HV hybrid 4x4 from $59,415 (CrewMax 4x4 SB hybrid (HV))"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 60775,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $63,775 (CrewMax 4x4 SB); HV hybrid from $64,505 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 61460,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $64,460 (CrewMax 4x4 SB); HV hybrid from $65,205 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 70920,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        },
+        {
+          "trim": "Capstone",
+          "msrp": 77645,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "42 styles; same structure as 2022."
+    },
+    {
+      "year": 2024,
+      "destination": 1945,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 39965,
+          "config": "Double Cab 4x2 SB",
+          "note": "Double Cab 4x4 from $42,965 (Double Cab 4x4 SB); CrewMax 4x4 $45,015 (CrewMax 4x4 SB)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 45500,
+          "config": "Double Cab 4x2 SB",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 50550,
+          "config": "CrewMax 4x4 SB",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 51855,
+          "config": "Double Cab 4x2 SB",
+          "note": "HV hybrid from $57,625 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 56905,
+          "config": "CrewMax 4x4 SB",
+          "note": "HV hybrid 4x4 from $60,625 (CrewMax 4x4 SB hybrid (HV))"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 61775,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $64,775 (CrewMax 4x4 SB); HV hybrid from $65,705 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 62460,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $65,460 (CrewMax 4x4 SB); HV hybrid from $66,405 (CrewMax 4x2 SB hybrid (HV)); 1794 Limited Edition HV (CrewMax 4x4 SB, 2024 only on these pages) $76,565"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 72130,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        },
+        {
+          "trim": "Capstone",
+          "msrp": 78845,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "43 styles; adds 1794 Limited Edition HV (4x4 CrewMax SB) $76,565."
+    },
+    {
+      "year": 2025,
+      "destination": 2095,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 40090,
+          "config": "Double Cab 4x2 SB",
+          "note": "Double Cab 4x4 from $43,090 (Double Cab 4x4 SB); CrewMax 4x4 $45,140 (CrewMax 4x4 SB)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 45960,
+          "config": "Double Cab 4x2 SB",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 51010,
+          "config": "CrewMax 4x4 SB",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 54305,
+          "config": "CrewMax 4x2 SB",
+          "note": "HV hybrid from $58,005 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 57305,
+          "config": "CrewMax 4x4 SB",
+          "note": "HV hybrid 4x4 from $61,005 (CrewMax 4x4 SB hybrid (HV))"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 63675,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $66,675 (CrewMax 4x4 SB); HV hybrid from $67,585 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 64360,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $67,360 (CrewMax 4x4 SB); HV hybrid from $71,285 (CrewMax 4x4 SB hybrid (HV))"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 72510,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        },
+        {
+          "trim": "Capstone",
+          "msrp": 80725,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "33 styles: no Limited Double Cab rows (Limited cheapest is now CrewMax 4x2); SR Double Cab 4x4 LB, SR5 Double Cab 4x2 LB, 1794/Platinum 4x2 LB and most 4x2 HV rows not listed. 1794 Limited Edition gone. Destination $2,095."
+    },
+    {
+      "year": 2026,
+      "destination": 2095,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 41260,
+          "config": "Double Cab 4x2 SB",
+          "note": "Double Cab 4x4 from $44,260 (Double Cab 4x4 SB); CrewMax 4x4 $46,260 (CrewMax 4x4 SB)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 46510,
+          "config": "Double Cab 4x2 SB",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 51510,
+          "config": "CrewMax 4x4 SB",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 54860,
+          "config": "CrewMax 4x2 SB",
+          "note": "HV hybrid from $58,560 (CrewMax 4x2 SB hybrid (HV))"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 57860,
+          "config": "CrewMax 4x4 SB",
+          "note": "HV hybrid 4x4 from $61,560 (CrewMax 4x4 SB hybrid (HV))"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 63695,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $66,695 (CrewMax 4x4 SB); HV hybrid from $70,605 (CrewMax 4x4 SB hybrid (HV))"
+        },
+        {
+          "trim": "1794 Edition",
+          "msrp": 64380,
+          "config": "CrewMax 4x2 SB",
+          "note": "CrewMax 4x4 $67,380 (CrewMax 4x4 SB); HV hybrid from $71,305 (CrewMax 4x4 SB hybrid (HV))"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 72565,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        },
+        {
+          "trim": "Capstone",
+          "msrp": 80800,
+          "config": "CrewMax 4x4 SB hybrid (HV)",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2026-toyota-tundra-price",
+      "source_type": "secondary",
+      "note": "32 styles; prices mostly +$20 to +$1,170 vs 2025 (SR +$1,170, Capstone +$75, Platinum +$20)."
+    }
+  ],
+  "gaps": [
+    "No manufacturer sources: pressroom.toyota.com not tried (round-1: client errors, image-only tables) to stay within budget; all 11 years are iSeeCars price pages (secondary).",
+    "iSeeCars gives one undated MSRP per style; launch vs later in-year pricing cannot be separated.",
+    "Row cap: 8 rows/year 2016-2021 (7 in 2018), 9 rows/year 2022-2026 so Capstone gets its own row; Platinum, 1794 Edition and TRD Pro CrewMax 4x4/hybrid prices are in notes.",
+    "2018: iSeeCars lists no TRD Pro and no Regular Cab rows; recorded as absent, not cross-checked.",
+    "2020-2026 non-hybrid rows carry no engine label on iSeeCars; config omits engine there."
+  ]
+}

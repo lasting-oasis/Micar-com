@@ -1,0 +1,634 @@
+{
+  "make": "Ford",
+  "model": "Mustang",
+  "body": "Coupe / Sports",
+  "note": "Gas Mustang only (Mach-E excluded). Body sold as Fastback (coupe) and Convertible; both rows recorded per trim where offered. Shelby GT350/GT500 and limited editions omitted (not on cars.com trims pages). Trim names as Ford writes them. MSRP excludes destination. config = body style.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "V6",
+          "msrp": 24145,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "V6",
+          "msrp": 29645,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 25645,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 29645,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 35145,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "GT",
+          "msrp": 32395,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 36395,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 41895,
+          "config": "Convertible",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2016/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2017,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "V6",
+          "msrp": 25185,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "V6",
+          "msrp": 30685,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 26195,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 30195,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 35695,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "GT",
+          "msrp": 33195,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 37195,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 42695,
+          "config": "Convertible",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2017/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2018,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "EcoBoost",
+          "msrp": 25680,
+          "config": "Fastback",
+          "note": "V6 dropped for 2018 refresh; EcoBoost is the new base"
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 31180,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 30695,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 36195,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "GT",
+          "msrp": 35190,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 39190,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 44690,
+          "config": "Convertible",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2018/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2019,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "EcoBoost",
+          "msrp": 26395,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 31895,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 31410,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 36910,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "GT",
+          "msrp": 35355,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 39355,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 44855,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "Bullitt",
+          "msrp": 46595,
+          "config": "Fastback",
+          "note": "Limited-run Bullitt returns (2019-2020)"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2019/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2020,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "EcoBoost",
+          "msrp": 26670,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 32170,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 31685,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 37185,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "GT",
+          "msrp": 35880,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 39880,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 45380,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "Bullitt",
+          "msrp": 46705,
+          "config": "Fastback",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2020/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2021,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "EcoBoost",
+          "msrp": 27205,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 32705,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 32225,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 37725,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "GT",
+          "msrp": 36285,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 40285,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 45785,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "Mach 1",
+          "msrp": 52400,
+          "config": "Fastback",
+          "note": "Mach 1 replaces Bullitt for 2021"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2021/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2022,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "EcoBoost",
+          "msrp": 27470,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 32970,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 32495,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 37995,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "GT",
+          "msrp": 38045,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 43065,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 48565,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "Mach 1",
+          "msrp": 55270,
+          "config": "Fastback",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2022/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2023,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "EcoBoost",
+          "msrp": 27770,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 33270,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 32795,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 38295,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "GT",
+          "msrp": 38345,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 43365,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 48865,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "Mach 1",
+          "msrp": 55570,
+          "config": "Fastback",
+          "note": "Last year of S550 generation"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2023/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2024,
+      "destination": 1595,
+      "trims": [
+        {
+          "trim": "EcoBoost",
+          "msrp": 31920,
+          "config": "Fastback",
+          "note": "S650 generation. Launch price $30,920 (Motor1, $32,515 incl. $1,595 dest.); cars.com later figure is $1,000 higher"
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 40020,
+          "config": "Convertible",
+          "note": "Not in Motor1's launch table; added later in the year per cars.com"
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 37445,
+          "config": "Fastback",
+          "note": "Launch $36,445 (Motor1)"
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 42945,
+          "config": "Convertible",
+          "note": "Launch $41,945 (Motor1)"
+        },
+        {
+          "trim": "GT",
+          "msrp": 42860,
+          "config": "Fastback",
+          "note": "Launch $42,495 (Motor1)"
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 47380,
+          "config": "Fastback",
+          "note": "Launch $47,015 (Motor1)"
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 52880,
+          "config": "Convertible",
+          "note": "Launch $51,515 (Motor1)"
+        },
+        {
+          "trim": "Dark Horse",
+          "msrp": 59335,
+          "config": "Fastback",
+          "note": "Launch $59,270 (Motor1; its incl.-destination figure $60,850 is $15 off the $1,595 math)"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2024/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price). Destination $1,595 and launch prices from https://www.motor1.com/news/654868/2024-ford-mustang-price/ ('the mandatory $1,595 destination fee')."
+    },
+    {
+      "year": 2025,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "EcoBoost",
+          "msrp": 31920,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 40120,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 37545,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 43045,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "GT",
+          "msrp": 46560,
+          "config": "Fastback",
+          "note": "GT up ~$3,700 vs 2024 cars.com figure"
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 51080,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 56580,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "Dark Horse",
+          "msrp": 63080,
+          "config": "Fastback",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2025/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2026,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "EcoBoost",
+          "msrp": 32995,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost",
+          "msrp": 40440,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 36345,
+          "config": "Fastback",
+          "note": "Lower than 2025 ($37,545) on cars.com"
+        },
+        {
+          "trim": "EcoBoost Premium",
+          "msrp": 41845,
+          "config": "Convertible",
+          "note": "Lower than 2025 ($43,045) on cars.com"
+        },
+        {
+          "trim": "GT",
+          "msrp": 46800,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 51080,
+          "config": "Fastback",
+          "note": ""
+        },
+        {
+          "trim": "GT Premium",
+          "msrp": 56580,
+          "config": "Convertible",
+          "note": ""
+        },
+        {
+          "trim": "Dark Horse",
+          "msrp": 63080,
+          "config": "Fastback",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-mustang-2026/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    }
+  ],
+  "gaps": [
+    "2016-2023, 2025-2026: destination charge not stated on any fetched page (null). Only 2024 ($1,595, Motor1) was read.",
+    "No manufacturer pricing releases used: media.ford.com had no pricing releases last round, so all years are cars.com secondary.",
+    "iSeeCars 2016 Mustang price page was blocked (permission request timed out); not retried."
+  ]
+}

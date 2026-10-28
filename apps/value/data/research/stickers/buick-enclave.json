@@ -1,0 +1,334 @@
+{
+  "make": "Buick",
+  "model": "Enclave",
+  "body": "SUV / Crossover",
+  "note": "Three-row mid-size crossover, single body style, FWD standard with AWD optional. Trim lineage: 2016-17 Convenience/Leather/Premium; 2018 Base/Essence/Premium/Avenir; 2019-21 Preferred/Essence/Premium/Avenir; 2022-24 Essence/Premium/Avenir; 2025-26 Preferred/Sport Touring/Avenir. The Essence trim (TrueCar filter for the used sample) exists only 2018-2024. All MSRPs exclude destination.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 925,
+      "trims": [
+        {
+          "trim": "Convenience",
+          "msrp": 39065,
+          "config": "FWD",
+          "note": "No AWD style listed."
+        },
+        {
+          "trim": "Leather",
+          "msrp": 43660,
+          "config": "FWD",
+          "note": "AWD $45,660."
+        },
+        {
+          "trim": "Premium",
+          "msrp": 47515,
+          "config": "FWD",
+          "note": "AWD $49,515."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note. 1st generation (2008-2017)."
+    },
+    {
+      "year": 2017,
+      "destination": 925,
+      "trims": [
+        {
+          "trim": "Convenience",
+          "msrp": 39065,
+          "config": "FWD",
+          "note": "No AWD style listed. Same as 2016."
+        },
+        {
+          "trim": "Leather",
+          "msrp": 43765,
+          "config": "FWD",
+          "note": "AWD $45,765."
+        },
+        {
+          "trim": "Premium",
+          "msrp": 47625,
+          "config": "FWD",
+          "note": "AWD $49,625."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note. Last year of the 1st generation."
+    },
+    {
+      "year": 2018,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 39995,
+          "config": "FWD",
+          "note": "No AWD style listed."
+        },
+        {
+          "trim": "Essence",
+          "msrp": 44300,
+          "config": "FWD",
+          "note": "AWD $46,300."
+        },
+        {
+          "trim": "Premium",
+          "msrp": 48100,
+          "config": "FWD",
+          "note": "AWD $50,400."
+        },
+        {
+          "trim": "Avenir",
+          "msrp": 53500,
+          "config": "FWD",
+          "note": "AWD $55,800. Avenir sub-brand new for 2018."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note. 2nd generation (2018-2024) launch year; trims Base/Essence/Premium/Avenir."
+    },
+    {
+      "year": 2019,
+      "destination": 1195,
+      "trims": [
+        {
+          "trim": "Preferred",
+          "msrp": 40000,
+          "config": "FWD",
+          "note": "No AWD style listed. Replaces the 2018 'Base' trim."
+        },
+        {
+          "trim": "Essence",
+          "msrp": 42000,
+          "config": "FWD",
+          "note": "AWD $44,000. $2,300 BELOW the 2018 Essence on this source."
+        },
+        {
+          "trim": "Premium",
+          "msrp": 48100,
+          "config": "FWD",
+          "note": "AWD $50,400. Same as 2018."
+        },
+        {
+          "trim": "Avenir",
+          "msrp": 53500,
+          "config": "FWD",
+          "note": "AWD $55,800. Same as 2018."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2019-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note."
+    },
+    {
+      "year": 2020,
+      "destination": 1195,
+      "trims": [
+        {
+          "trim": "Preferred",
+          "msrp": 40000,
+          "config": "FWD",
+          "note": "No AWD style listed."
+        },
+        {
+          "trim": "Essence",
+          "msrp": 42000,
+          "config": "FWD",
+          "note": "AWD $44,000."
+        },
+        {
+          "trim": "Premium",
+          "msrp": 48400,
+          "config": "FWD",
+          "note": "AWD $50,700."
+        },
+        {
+          "trim": "Avenir",
+          "msrp": 53800,
+          "config": "FWD",
+          "note": "AWD $56,100."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note."
+    },
+    {
+      "year": 2021,
+      "destination": 1195,
+      "trims": [
+        {
+          "trim": "Preferred",
+          "msrp": 40300,
+          "config": "FWD",
+          "note": "No AWD style listed."
+        },
+        {
+          "trim": "Essence",
+          "msrp": 42300,
+          "config": "FWD",
+          "note": "AWD $44,300."
+        },
+        {
+          "trim": "Premium",
+          "msrp": 48400,
+          "config": "FWD",
+          "note": "AWD $50,600. FWD same as 2020 and AWD $100 lower than 2020 on this source."
+        },
+        {
+          "trim": "Avenir",
+          "msrp": 54100,
+          "config": "FWD",
+          "note": "AWD $56,300."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2021-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note."
+    },
+    {
+      "year": 2022,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "Essence",
+          "msrp": 42800,
+          "config": "FWD",
+          "note": "AWD $44,800. Preferred no longer listed, so Essence is the entry trim."
+        },
+        {
+          "trim": "Premium",
+          "msrp": 49800,
+          "config": "FWD",
+          "note": "AWD $51,800."
+        },
+        {
+          "trim": "Avenir",
+          "msrp": 55100,
+          "config": "FWD",
+          "note": "AWD $57,100."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note. Refreshed for 2022."
+    },
+    {
+      "year": 2023,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "Essence",
+          "msrp": 44800,
+          "config": "FWD",
+          "note": "AWD $46,800."
+        },
+        {
+          "trim": "Premium",
+          "msrp": 52035,
+          "config": "FWD",
+          "note": "AWD $54,035."
+        },
+        {
+          "trim": "Avenir",
+          "msrp": 57470,
+          "config": "FWD",
+          "note": "AWD $59,470."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note. Premium/Avenir figures are non-round on this source."
+    },
+    {
+      "year": 2024,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "Essence",
+          "msrp": 43900,
+          "config": "FWD",
+          "note": "AWD $45,900. $900 below 2023 on this source."
+        },
+        {
+          "trim": "Premium",
+          "msrp": 51200,
+          "config": "FWD",
+          "note": "AWD $53,200. $835 below 2023 on this source."
+        },
+        {
+          "trim": "Avenir",
+          "msrp": 57500,
+          "config": "FWD",
+          "note": "AWD $59,500."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note. Last year of the 2nd generation. Essence and Premium sit below the 2023 figures on iSeeCars - flagged, taken as printed."
+    },
+    {
+      "year": 2025,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "Preferred",
+          "msrp": 45100,
+          "config": "FWD",
+          "note": "AWD $47,100."
+        },
+        {
+          "trim": "Sport Touring",
+          "msrp": 47600,
+          "config": "FWD",
+          "note": "AWD $49,600. New trim name for the 3rd gen."
+        },
+        {
+          "trim": "Avenir",
+          "msrp": 58200,
+          "config": "FWD",
+          "note": "AWD $60,200."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note. 3rd generation (2025-on); Essence and Premium dropped; trims Preferred/Sport Touring/Avenir."
+    },
+    {
+      "year": 2026,
+      "destination": 1995,
+      "trims": [
+        {
+          "trim": "Preferred",
+          "msrp": 46400,
+          "config": "FWD",
+          "note": "AWD $48,400."
+        },
+        {
+          "trim": "Sport Touring",
+          "msrp": 49900,
+          "config": "FWD",
+          "note": "AWD $51,900."
+        },
+        {
+          "trim": "Avenir",
+          "msrp": 60000,
+          "config": "FWD",
+          "note": "AWD $62,000."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2026-buick-enclave-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price; iSeeCars labels the AWD styles '4x4' and the AWD price is in the row note. Destination $1,995 is a $500 jump over 2025, as printed."
+    }
+  ],
+  "gaps": [
+    "All years: GM's own pricing releases (media.buick.com / media.gm.com) are robots-disallowed, so every year is from iSeeCars (secondary).",
+    "iSeeCars gives one price level per year (typically the latest in-year price); mid-year increases are not visible.",
+    "Avenir 2016-2017: not listed (Avenir trim began 2018). No 2016-2017 Essence."
+  ]
+}

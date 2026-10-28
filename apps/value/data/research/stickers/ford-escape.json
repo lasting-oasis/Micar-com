@@ -1,0 +1,466 @@
+{
+ "make": "Ford",
+ "model": "Escape",
+ "body": "SUV / Crossover",
+ "note": "MSRP excludes destination. media.ford.com had no pricing releases (round 1), so all years are secondary: iSeeCars price/overview tables and cars.com research trims pages. Rows: each trim in its cheapest drivetrain, plus an AWD/4WD row for SE (2016-2022) or Active (2024-2026); other drivetrain prices in notes. Hybrid versions (2020-2026) are part of the Escape line; the Escape Plug-In Hybrid is a separate listing on iSeeCars and is not included.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "S",
+     "msrp": 23590,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 25790,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 27540,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 29995,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 31745,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2016-ford-escape",
+   "source_type": "secondary",
+   "source_note": "iSeeCars 2016 Escape overview trim table (MSRP column, no destination shown). iSeeCars labels the driven-axle option 'AWD'; cars.com calls it 4WD for this generation."
+  },
+  {
+   "year": 2017,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "S",
+     "msrp": 23750,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 25250,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 27000,
+     "config": "4WD",
+     "note": ""
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 29250,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 31000,
+     "config": "4WD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-escape-2017/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated on the page. cars.com attaches the 2.0L 245-hp engine to SE rows; engine labels may not reflect the standard engine."
+  },
+  {
+   "year": 2018,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "S",
+     "msrp": 23940,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 25700,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 27050,
+     "config": "4WD",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 28100,
+     "config": "FWD",
+     "note": "4WD $29,450"
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 32140,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 33490,
+     "config": "4WD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-escape-2018/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated on the page. SEL trim new for 2018."
+  },
+  {
+   "year": 2019,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "S",
+     "msrp": 24105,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 26500,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 28000,
+     "config": "4WD",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 28445,
+     "config": "FWD",
+     "note": "4WD $29,945"
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 32620,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 34120,
+     "config": "4WD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-escape-2019/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated on the page."
+  },
+  {
+   "year": 2020,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "S",
+     "msrp": 24885,
+     "config": "FWD",
+     "note": "AWD $26,385"
+    },
+    {
+     "trim": "SE",
+     "msrp": 27105,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 28605,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "SE Sport Hybrid",
+     "msrp": 28265,
+     "config": "FWD",
+     "note": "Gas/electric hybrid; AWD $29,765"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 29265,
+     "config": "FWD",
+     "note": "AWD $30,765 (cars.com lists the 2.0L on the AWD row)"
+    },
+    {
+     "trim": "Titanium Hybrid",
+     "msrp": 33550,
+     "config": "FWD",
+     "note": "Gas/electric hybrid; AWD $35,050"
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 36835,
+     "config": "AWD",
+     "note": "2.0L gas; AWD only"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-escape-2020/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated on the page. Redesigned 2020 model; 1.5L 3-cyl base engine."
+  },
+  {
+   "year": 2022,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "S",
+     "msrp": 27185,
+     "config": "FWD",
+     "note": "AWD $28,685"
+    },
+    {
+     "trim": "SE",
+     "msrp": 28520,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 30020,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 30895,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 32395,
+     "config": "AWD",
+     "note": "Listed twice at the same price (3-cyl and 4-cyl rows)"
+    },
+    {
+     "trim": "Titanium",
+     "msrp": 37305,
+     "config": "AWD",
+     "note": "2.0L 4-cyl"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-ford-escape",
+   "source_type": "secondary",
+   "source_note": "iSeeCars 2022 Escape overview trim table (MSRP column, no destination shown). Hybrid versions are not in this table (iSeeCars lists Escape Hybrid as a separate model)."
+  },
+  {
+   "year": 2023,
+   "destination": 1495,
+   "trims": [
+    {
+     "trim": "Base",
+     "msrp": 28000,
+     "config": "FWD",
+     "note": "AWD $29,500"
+    },
+    {
+     "trim": "Active",
+     "msrp": 29345,
+     "config": "FWD",
+     "note": "AWD $31,515"
+    },
+    {
+     "trim": "ST-Line",
+     "msrp": 30340,
+     "config": "FWD",
+     "note": "AWD $32,510"
+    },
+    {
+     "trim": "ST-Line Select",
+     "msrp": 34040,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 37465,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "ST-Line Elite",
+     "msrp": 38460,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-ford-escape-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table: MSRP and separate Destination Charge column ($1,495 on every style). 2023 refresh renamed trims (Base/Active/ST-Line/ST-Line Select/Platinum/ST-Line Elite). No powertrain shown, so hybrid rows are not distinguished."
+  },
+  {
+   "year": 2024,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "Base",
+     "msrp": 28000,
+     "config": "FWD",
+     "note": "Limited availability; AWD $29,500"
+    },
+    {
+     "trim": "Active",
+     "msrp": 29495,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Active",
+     "msrp": 31665,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "ST-Line",
+     "msrp": 30490,
+     "config": "FWD",
+     "note": "AWD $32,660; cars.com labels the FWD row as the 2.5L hybrid"
+    },
+    {
+     "trim": "ST-Line Select",
+     "msrp": 35190,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 37115,
+     "config": "FWD",
+     "note": "cars.com labels FWD as the 2.5L hybrid; AWD $38,615 (2.0L gas)"
+    },
+    {
+     "trim": "ST-Line Elite",
+     "msrp": 39610,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-escape-2024/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated on the page. Engine labels on some rows look mixed between gas and hybrid."
+  },
+  {
+   "year": 2025,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "Active",
+     "msrp": 29515,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Active",
+     "msrp": 30915,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "ST-Line",
+     "msrp": 30360,
+     "config": "FWD",
+     "note": "AWD $31,760"
+    },
+    {
+     "trim": "ST-Line Select",
+     "msrp": 34190,
+     "config": "AWD",
+     "note": "cars.com lists the Gas/Electric I-4"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 35615,
+     "config": "FWD",
+     "note": "Gas/Electric I-4 per cars.com; AWD $37,115"
+    },
+    {
+     "trim": "ST-Line Elite",
+     "msrp": 38110,
+     "config": "AWD",
+     "note": "Gas/Electric I-4 per cars.com"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-escape-2025/",
+   "source_type": "secondary",
+   "source_note": "cars.com 2025 overview page 'Available trims' ('Starts at', excludes destination; latest in-year price). The /trims/ page was not surfaced by search. Base trim dropped."
+  },
+  {
+   "year": 2026,
+   "destination": 1495,
+   "trims": [
+    {
+     "trim": "Active",
+     "msrp": 30350,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Active",
+     "msrp": 31750,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "ST-Line",
+     "msrp": 31195,
+     "config": "FWD",
+     "note": "AWD $32,595"
+    },
+    {
+     "trim": "ST-Line Select",
+     "msrp": 35015,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 37940,
+     "config": "AWD",
+     "note": "No FWD Platinum listed"
+    },
+    {
+     "trim": "ST-Line Elite",
+     "msrp": 38935,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/ford-escape-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars current-year price page (titled 2026 Ford Escape Price): MSRP and separate Destination Charge column ($1,495 on every style). No powertrain shown."
+  }
+ ],
+ "gaps": [
+  "No manufacturer source for any year; all 10 recorded years are secondary.",
+  "2021: no page fetched (no 2021 pricing URL surfaced in the searches run); year omitted.",
+  "Destination charge only stated for 2023 and 2026 ($1,495, iSeeCars); null for 2016-2022, 2024, 2025.",
+  "iSeeCars price pages could not be fetched directly by constructed URL (permission not granted in time): 2016-ford-escape-price and 2017-ford-escape-price were blocked; overview/price pages surfaced by search were used instead.",
+  "2016 is iSeeCars and 2017 is cars.com, so the year-over-year step (SE $25,790 in 2016 vs $25,250 in 2017) mixes sources.",
+  "2022: iSeeCars table omits hybrid trims and the PHEV."
+ ]
+}

@@ -1,0 +1,211 @@
+{
+ "make": "Kia",
+ "model": "Forte / K4",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/forte/year-2016/",
+   "fetched": "2026-10-28",
+   "page_average": 17138,
+   "page_note": "Unfiltered year page fetched directly: LXS trim did not exist for 2016 (LX/EX sedan per stickers). Page sentence: 'The average price for the 2016 Kia Forte LXS is $17,138' (boilerplate, not a 2016 figure). Page says 62 used 2016 Fortes nationwide.",
+   "listings": [
+    {
+     "price": 7590,
+     "miles": 111158,
+     "location": "Eatontown, NJ",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": "LX Sedan Automatic"
+    },
+    {
+     "price": 7995,
+     "miles": 92343,
+     "location": "Albany, OR",
+     "trim": "Forte5 EX",
+     "body": "Hatchback",
+     "note": "Forte5 EX Automatic"
+    },
+    {
+     "price": 6543,
+     "miles": 113598,
+     "location": "St Louis, MO",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": "LX Sedan Manual"
+    },
+    {
+     "price": 7408,
+     "miles": 91103,
+     "location": "Fontana, CA",
+     "trim": "Forte5 LX",
+     "body": "Hatchback",
+     "note": "Forte5 LX Automatic"
+    },
+    {
+     "price": 12580,
+     "miles": 47109,
+     "location": "Garden Grove, CA",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": "LX Sedan Automatic"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "LXS",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/forte/year-2019/?trim=lxs",
+   "fetched": "2026-10-28",
+   "page_average": 16530,
+   "page_note": "Page sentence: 'The average price for the 2019 Kia Forte LXS is $16,530' (same figure appears on the 2022 and 2024 pages: boilerplate). 76 LXS listings nationwide.",
+   "listings": [
+    {
+     "price": 11495,
+     "miles": 117524,
+     "location": "Mobile, AL",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "LXS IVT; body not shown on card"
+    },
+    {
+     "price": 12615,
+     "miles": 84049,
+     "location": "Frankfort, KY",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "LXS IVT; body not shown on card"
+    },
+    {
+     "price": 13900,
+     "miles": 68523,
+     "location": "Hillsboro, OR",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "LXS IVT; body not shown on card"
+    },
+    {
+     "price": 10800,
+     "miles": 100707,
+     "location": "Palm Beach Gardens, FL",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "LXS IVT; body not shown on card"
+    },
+    {
+     "price": 15895,
+     "miles": 48038,
+     "location": "Columbus, GA",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "LXS IVT; body not shown on card"
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "LXS",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/forte/year-2022/?trim=lxs",
+   "fetched": "2026-10-28",
+   "page_average": 16530,
+   "page_note": "Page sentence: 'The average price for the 2022 Kia Forte LXS is $16,530' (boilerplate). Page states 97 LXS listings (also cites 1,221 elsewhere; inconsistent).",
+   "listings": [
+    {
+     "price": 13801,
+     "miles": 39293,
+     "location": "Palmetto Bay, FL",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "Sponsored; LXS IVT"
+    },
+    {
+     "price": 12696,
+     "miles": 68998,
+     "location": "Leander, TX",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "Sponsored; LXS IVT"
+    },
+    {
+     "price": 15687,
+     "miles": 41749,
+     "location": "East Providence, RI",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "LXS IVT"
+    },
+    {
+     "price": 16300,
+     "miles": 35396,
+     "location": "Glenview, IL",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "LXS IVT"
+    },
+    {
+     "price": 16094,
+     "miles": 55321,
+     "location": "Milwaukie, OR",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "LXS IVT"
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "LXS",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/forte/year-2024/?trim=lxs",
+   "fetched": "2026-10-28",
+   "page_average": 16530,
+   "page_note": "Page sentence: 'The average price for the 2024 Kia Forte LXS is $16,530, with the 2024 Kia Forte GT-Line and 2024 Kia Forte LX averaging $19,086 and $10,712 respectively' (boilerplate). 410 LXS listings nationwide.",
+   "listings": [
+    {
+     "price": 15376,
+     "miles": 51155,
+     "location": "Chicago, IL",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "Sponsored; LXS IVT"
+    },
+    {
+     "price": 18498,
+     "miles": 34145,
+     "location": "Burgaw, NC",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "Sponsored; LXS IVT"
+    },
+    {
+     "price": 17646,
+     "miles": 35355,
+     "location": "Fort Myers, FL",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "CPO; LXS IVT"
+    },
+    {
+     "price": 18298,
+     "miles": 9285,
+     "location": "Fort Myers, FL",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "CPO; LXS IVT"
+    },
+    {
+     "price": 16397,
+     "miles": 54079,
+     "location": "Red Wing, MN",
+     "trim": "LXS",
+     "body": "Sedan",
+     "note": "LXS IVT"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "TrueCar 'average price' sentences are boilerplate: $16,530 is stated identically for 2019, 2022 and 2024 LXS; do not rely on page_average.",
+  "Listing cards do not show body style for 2019-2024; LXS rows recorded as Sedan (Forte sedan trim).",
+  "2016 sample mixes sedan and Forte5 hatchback rows (unfiltered page)."
+ ]
+}

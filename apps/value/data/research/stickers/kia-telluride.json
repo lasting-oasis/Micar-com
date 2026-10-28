@@ -1,0 +1,458 @@
+{
+ "make": "Kia",
+ "model": "Telluride",
+ "body": "SUV / Crossover",
+ "note": "Three-row SUV, first model year 2020; one engine (3.8L V6) through 2025. Rows list each trim in FWD and AWD as the official page shows them; X-Line and X-Pro packages (2023+) appear as separate priced rows. MSRP excludes destination. The second-generation Telluride starts as a 2027 model (Kia pricing releases 24220 and 24360, not fetched); there is no 2026 model year.",
+ "years": [
+  {
+   "year": 2020,
+   "destination": 1170,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 31890,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 33890,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 34290,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 36290,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 37290,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 39290,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 41790,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 43790,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/telluride/2020/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing. First model year. SX Prestige was a package in 2020-2022 and has no row on these pages."
+  },
+  {
+   "year": 2021,
+   "destination": 1225,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 32190,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 34190,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 34590,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 36590,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 37590,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 39590,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 42490,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 44390,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/telluride/2021/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2022,
+   "destination": 1335,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 33390,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 35390,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 35890,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 37890,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 38390,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 40390,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 43290,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 45190,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/telluride/2022/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2023,
+   "destination": 1365,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 35890,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 37890,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 37790,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 39790,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 41490,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 43490,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX X-Line",
+     "msrp": 45685,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "SX",
+     "msrp": 45690,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 47690,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX X-Line",
+     "msrp": 49085,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX X-Pro",
+     "msrp": 50085,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-P",
+     "msrp": 50590,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": "page writes 'SXP' (SX Prestige)"
+    },
+    {
+     "trim": "SX-P X-Line",
+     "msrp": 51985,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-P X-Pro",
+     "msrp": 52985,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/telluride/2023/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing. 2023 refresh adds X-Line / X-Pro and SX-P (SX Prestige) as its own trim. Kia also issued release 19479 for 2023 Telluride pricing; not fetched."
+  },
+  {
+   "year": 2024,
+   "destination": 1395,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 36190,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 38190,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 38090,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 40090,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 41790,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 43790,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX X-Line",
+     "msrp": 46085,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 45990,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 47990,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX X-Line",
+     "msrp": 49485,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX X-Pro",
+     "msrp": 50485,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-P",
+     "msrp": 50890,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-P X-Line",
+     "msrp": 52385,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-P X-Pro",
+     "msrp": 53385,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/telluride/2024/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2025,
+   "destination": 1545,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 36390,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": "no LX AWD row on 2025 page"
+    },
+    {
+     "trim": "S",
+     "msrp": 39390,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 41390,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 42090,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 44090,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX X-Line",
+     "msrp": 46485,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX X-Pro",
+     "msrp": 47385,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": "new for 2025"
+    },
+    {
+     "trim": "SX",
+     "msrp": 46190,
+     "config": "3.8L V6 GDI, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 48190,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX X-Line",
+     "msrp": 49885,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-P",
+     "msrp": 51390,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-P X-Line",
+     "msrp": 52785,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-P X-Pro",
+     "msrp": 53685,
+     "config": "3.8L V6 GDI, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/telluride/2025/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing. No SX X-Pro row on the 2025 page. Kia also issued release 22577 for 2025 Telluride pricing; not fetched."
+  }
+ ],
+ "gaps": [
+  "2016-2019: Telluride not sold (first model year 2020).",
+  "2026: no 2026 model year. kiamedia search found no 2026 Telluride pricing page, and cars.com https://www.cars.com/research/kia-telluride/ states 'The Kia Telluride was not produced in 2026.' Kia went from the 2025 model to the all-new 2027.",
+  "2020-2025 figures come from undated kiamedia model pricing pages; they may be end-of-year prices that include mid-year increases rather than launch prices.",
+  "2027 (all-new generation, incl. first Telluride hybrid) is outside the 2016-2026 window and was not collected."
+ ]
+}

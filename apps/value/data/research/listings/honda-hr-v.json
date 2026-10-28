@@ -1,0 +1,215 @@
+{
+  "make": "Honda",
+  "model": "HR-V",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "LX",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/hr-v/year-2016/?trim=lx",
+      "fetched": "2026-10-28",
+      "page_average": 23482,
+      "page_listing_count_stated": 37,
+      "page_average_note": "Model-wide boilerplate sentence ('2016 HR-V LX and EX-L averaging $23,482 and $27,390'); not a real 2016 LX average.",
+      "listings": [
+        {
+          "price": 15598,
+          "miles": 78230,
+          "location": "Wake Forest, NC",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD CVT"
+        },
+        {
+          "price": 14291,
+          "miles": 92076,
+          "location": "Memphis, TN",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD CVT"
+        },
+        {
+          "price": 15799,
+          "miles": 78934,
+          "location": "Tucson, AZ",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "AWD CVT"
+        },
+        {
+          "price": 12699,
+          "miles": 118915,
+          "location": "Brunswick, GA",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD CVT"
+        },
+        {
+          "price": 12994,
+          "miles": 81250,
+          "location": "Arlington, VA",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "AWD CVT"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "LX",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/hr-v/year-2019/?trim=lx",
+      "fetched": "2026-10-28",
+      "page_average": 23525,
+      "page_listing_count_stated": 52,
+      "page_average_note": "Same $23,525 LX figure appears on the 2019, 2022 and 2024 pages: model-wide boilerplate.",
+      "listings": [
+        {
+          "price": 16201,
+          "miles": 96195,
+          "location": "Savannah, GA",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD; Sponsored"
+        },
+        {
+          "price": 16904,
+          "miles": 70884,
+          "location": "Clearwater, FL",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 18996,
+          "miles": 36075,
+          "location": "Roseville, CA",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 17595,
+          "miles": 66349,
+          "location": "Florence, KY",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        },
+        {
+          "price": 17894,
+          "miles": 74955,
+          "location": "Charlotte, NC",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "LX",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/hr-v/year-2022/?trim=lx",
+      "fetched": "2026-10-28",
+      "page_average": 23525,
+      "page_listing_count_stated": 65,
+      "page_average_note": "Model-wide boilerplate (identical on 2019/2024 pages).",
+      "listings": [
+        {
+          "price": 20160,
+          "miles": 57678,
+          "location": "Stockton, CA",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD; Sponsored"
+        },
+        {
+          "price": 16379,
+          "miles": 81379,
+          "location": "Daytona Beach, FL",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 22885,
+          "miles": 36859,
+          "location": "Jersey City, NJ",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "AWD; CPO"
+        },
+        {
+          "price": 19591,
+          "miles": 28552,
+          "location": "Las Vegas, NV",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 19496,
+          "miles": 76684,
+          "location": "Danvers, MA",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "LX",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/hr-v/year-2024/?trim=lx",
+      "fetched": "2026-10-28",
+      "page_average": 23525,
+      "page_listing_count_stated": 439,
+      "page_average_note": "Model-wide boilerplate (identical on 2019/2022 pages).",
+      "listings": [
+        {
+          "price": 22864,
+          "miles": 22306,
+          "location": "Sanford, FL",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD; Sponsored"
+        },
+        {
+          "price": 20868,
+          "miles": 46413,
+          "location": "Miami Lakes, FL",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD; Sponsored"
+        },
+        {
+          "price": 22458,
+          "miles": 17373,
+          "location": "Margate, FL",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 23173,
+          "miles": 17371,
+          "location": "St. James, NY",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        },
+        {
+          "price": 23666,
+          "miles": 39646,
+          "location": "Jacksonville, FL",
+          "trim": "LX",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "Up to 5 listings per year recorded (round-2 rule); first five vehicle listings in page order, ads excluded.",
+    "page_average values are TrueCar's model-wide boilerplate (same $23,525 on 2019/2022/2024 pages) and should not be used as year-specific averages.",
+    "Stated listing counts conflict with other counts on the same pages (FAQ cites ~1,359-1,379 LX listings)."
+  ]
+}

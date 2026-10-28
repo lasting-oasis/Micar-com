@@ -1,0 +1,474 @@
+{
+  "make": "Toyota",
+  "model": "Highlander",
+  "body": "SUV / Crossover",
+  "note": "Three-row midsize SUV (all years SUV). MSRP excludes destination; destination is iSeeCars' per-style column (same for every style in a year). Rows are each grade's cheapest listed configuration (FWD where offered); AWD and V6 prices in notes. Grand Highlander is a separate model and not included.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 960,
+      "trims": [
+        {
+          "trim": "LE",
+          "msrp": 30490,
+          "config": "FWD 2.7L I4",
+          "note": "LE FWD 3.5L V6 $32,015; AWD LE $33,475"
+        },
+        {
+          "trim": "LE Plus",
+          "msrp": 34395,
+          "config": "FWD",
+          "note": "AWD $35,855"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 37315,
+          "config": "FWD",
+          "note": "AWD $38,775"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 40915,
+          "config": "FWD",
+          "note": "AWD $42,375"
+        },
+        {
+          "trim": "Limited Platinum",
+          "msrp": 43530,
+          "config": "FWD",
+          "note": "AWD $44,990"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "No SE row on the 2016 page. Highlander Hybrid not included (iSeeCars lists it as a separate model)."
+    },
+    {
+      "year": 2017,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "LE",
+          "msrp": 30630,
+          "config": "FWD 2.7L I4",
+          "note": "LE FWD 3.5L V6 $32,680; AWD LE $34,140"
+        },
+        {
+          "trim": "LE Plus",
+          "msrp": 35060,
+          "config": "FWD",
+          "note": "AWD $36,520"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 38520,
+          "config": "FWD",
+          "note": "AWD $39,980"
+        },
+        {
+          "trim": "SE",
+          "msrp": 39690,
+          "config": "FWD",
+          "note": "AWD $41,150"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 41680,
+          "config": "FWD",
+          "note": "AWD $43,140"
+        },
+        {
+          "trim": "Limited Platinum",
+          "msrp": 44800,
+          "config": "FWD",
+          "note": "AWD $46,260"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "SE first appears this year. Highlander Hybrid not included."
+    },
+    {
+      "year": 2018,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "LE",
+          "msrp": 31230,
+          "config": "FWD 2.7L I4",
+          "note": "LE FWD 3.5L V6 $33,280; AWD LE $34,740"
+        },
+        {
+          "trim": "LE Plus",
+          "msrp": 35660,
+          "config": "FWD",
+          "note": "AWD $37,120"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 39120,
+          "config": "FWD",
+          "note": "AWD $40,580"
+        },
+        {
+          "trim": "SE",
+          "msrp": 40290,
+          "config": "FWD",
+          "note": "AWD $41,750"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 42280,
+          "config": "FWD",
+          "note": "AWD $43,740"
+        },
+        {
+          "trim": "Limited Platinum",
+          "msrp": 45400,
+          "config": "FWD",
+          "note": "AWD $46,860"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "Highlander Hybrid not included."
+    },
+    {
+      "year": 2019,
+      "destination": 1120,
+      "trims": [
+        {
+          "trim": "LE",
+          "msrp": 31830,
+          "config": "FWD 2.7L I4",
+          "note": "LE FWD 3.5L V6 $33,880; AWD LE $35,340"
+        },
+        {
+          "trim": "LE Plus",
+          "msrp": 36760,
+          "config": "FWD",
+          "note": "AWD $38,220"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 39720,
+          "config": "FWD",
+          "note": "AWD $41,180"
+        },
+        {
+          "trim": "SE",
+          "msrp": 40940,
+          "config": "FWD",
+          "note": "AWD $42,400"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 42930,
+          "config": "FWD",
+          "note": "AWD $44,390"
+        },
+        {
+          "trim": "Limited Platinum",
+          "msrp": 46050,
+          "config": "FWD",
+          "note": "AWD $47,510"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2019-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "Highlander Hybrid not included."
+    },
+    {
+      "year": 2020,
+      "destination": 1175,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 34600,
+          "config": "FWD",
+          "note": "AWD $36,200"
+        },
+        {
+          "trim": "LE",
+          "msrp": 36800,
+          "config": "FWD",
+          "note": "AWD $38,400"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 39600,
+          "config": "FWD",
+          "note": "AWD $41,200"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 43650,
+          "config": "FWD",
+          "note": "AWD $45,600"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 46850,
+          "config": "FWD",
+          "note": "AWD $48,800"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "New generation: grades renamed L/LE/XLE/Limited/Platinum (LE Plus, SE and Limited Platinum gone). Page lists no engine. Highlander Hybrid not included."
+    },
+    {
+      "year": 2021,
+      "destination": 1215,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 35085,
+          "config": "FWD",
+          "note": "AWD $36,685"
+        },
+        {
+          "trim": "LE",
+          "msrp": 37285,
+          "config": "FWD",
+          "note": "AWD $38,885"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 40085,
+          "config": "FWD",
+          "note": "AWD $41,685"
+        },
+        {
+          "trim": "XSE",
+          "msrp": 41680,
+          "config": "FWD",
+          "note": "AWD $43,630"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 44040,
+          "config": "FWD",
+          "note": "AWD $45,990"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 47240,
+          "config": "FWD",
+          "note": "AWD $49,190"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2021-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "XSE first appears this year. Highlander Hybrid not included."
+    },
+    {
+      "year": 2022,
+      "destination": 1335,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 35855,
+          "config": "FWD",
+          "note": "AWD $37,455"
+        },
+        {
+          "trim": "LE",
+          "msrp": 38055,
+          "config": "FWD",
+          "note": "AWD $39,655"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 41055,
+          "config": "FWD",
+          "note": "AWD $42,655"
+        },
+        {
+          "trim": "XSE",
+          "msrp": 42650,
+          "config": "FWD",
+          "note": "AWD $44,600"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 45010,
+          "config": "FWD",
+          "note": "AWD $46,960"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 48010,
+          "config": "FWD",
+          "note": "AWD $49,960"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "Highlander Hybrid not included."
+    },
+    {
+      "year": 2023,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 36620,
+          "config": "FWD",
+          "note": "AWD $38,220"
+        },
+        {
+          "trim": "LE",
+          "msrp": 39020,
+          "config": "FWD",
+          "note": "AWD $40,620"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 42020,
+          "config": "FWD",
+          "note": "AWD $43,620"
+        },
+        {
+          "trim": "XSE",
+          "msrp": 43615,
+          "config": "FWD",
+          "note": "AWD $45,565"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 46275,
+          "config": "FWD",
+          "note": "AWD $48,225"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 49475,
+          "config": "FWD",
+          "note": "AWD $51,425"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "Page lists no engine. Highlander Hybrid not included."
+    },
+    {
+      "year": 2024,
+      "destination": 1450,
+      "trims": [
+        {
+          "trim": "LE",
+          "msrp": 39270,
+          "config": "FWD",
+          "note": "AWD $40,870"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 42420,
+          "config": "FWD",
+          "note": "AWD $44,020"
+        },
+        {
+          "trim": "XSE",
+          "msrp": 44015,
+          "config": "FWD",
+          "note": "AWD $45,965"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 46525,
+          "config": "FWD",
+          "note": "AWD $48,475"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 49725,
+          "config": "FWD",
+          "note": "AWD $51,675"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "No L row on the 2024 page (LE is the entry grade). Highlander Hybrid not included."
+    },
+    {
+      "year": 2025,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "LE",
+          "msrp": 40320,
+          "config": "FWD",
+          "note": "AWD $41,920"
+        },
+        {
+          "trim": "XLE",
+          "msrp": 43470,
+          "config": "FWD",
+          "note": "AWD $45,070"
+        },
+        {
+          "trim": "XSE",
+          "msrp": 47140,
+          "config": "AWD",
+          "note": "only an AWD row listed"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 47575,
+          "config": "FWD",
+          "note": "AWD $49,525"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 52725,
+          "config": "AWD",
+          "note": "only an AWD row listed"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "XSE and Platinum shown AWD-only. Highlander Hybrid not included."
+    },
+    {
+      "year": 2026,
+      "destination": 1595,
+      "trims": [
+        {
+          "trim": "XLE",
+          "msrp": 46270,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "XSE",
+          "msrp": 48340,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 50725,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 53925,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/toyota-highlander-price",
+      "source_type": "secondary",
+      "note": "iSeeCars' undated current-year page (it states 2026). Only four AWD rows listed: no LE and no FWD rows. Highlander Hybrid not included."
+    }
+  ],
+  "gaps": [
+    "No manufacturer sources: pressroom.toyota.com was not tried (round-1 notes: client errors and image-only price tables) to save budget; all 11 years are iSeeCars price pages (source_type secondary).",
+    "iSeeCars figures are a single MSRP per style with no date; launch vs. later in-year pricing cannot be told apart.",
+    "Highlander Hybrid grades (regular production) not recorded: iSeeCars lists them under a separate highlander_hybrid model page that was not fetched.",
+    "2020-2026 pages give no engine; config records drivetrain only. 2016-2019 base LE row is the 2.7L I4 FWD; V6 LE price is in its note.",
+    "2026: page lists only AWD XLE/XSE/Limited/Platinum; whether LE/FWD were dropped or just missing from iSeeCars was not verified."
+  ]
+}

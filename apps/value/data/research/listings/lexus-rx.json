@@ -1,0 +1,211 @@
+{
+  "make": "Lexus",
+  "model": "RX",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": null,
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/lexus/rx/year-2016/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Stated: 'The average price for the 2016 Lexus RX RX 350 is $28,448', Premium / Premium Plus 'averaging $48,972 and $50,443'. Same figures as the 2019 page and the RX 350 figure as the 2024 page: model-wide boilerplate.",
+      "listings": [
+        {
+          "price": 23998,
+          "miles": 105858,
+          "location": "Beaverton, OR",
+          "trim": "RX 450h Hybrid AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; 'Excellent price'"
+        },
+        {
+          "price": 24118,
+          "miles": 76679,
+          "location": "Tucson, AZ",
+          "trim": "RX 350 AWD",
+          "body": "SUV / Crossover",
+          "note": "'Excellent price'"
+        },
+        {
+          "price": 27700,
+          "miles": 42769,
+          "location": "Hillsboro, OR",
+          "trim": "RX 350 AWD",
+          "body": "SUV / Crossover",
+          "note": "'Great price'"
+        },
+        {
+          "price": 18615,
+          "miles": 144997,
+          "location": "Colma, CA",
+          "trim": "RX 450h Hybrid AWD",
+          "body": "SUV / Crossover",
+          "note": "'Excellent price'"
+        },
+        {
+          "price": 24004,
+          "miles": 71258,
+          "location": "Selma, TX",
+          "trim": "RX 350 FWD",
+          "body": "SUV / Crossover",
+          "note": "'Excellent price'"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": null,
+      "source": "https://truecar.com/used-cars-for-sale/listings/lexus/rx/year-2019",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Stated: 'The average price for the 2019 Lexus RX RX 350 is $28,448', Premium / Premium Plus 'averaging $48,972 and $50,443'. Boilerplate (identical on 2016 page). Page says advertised prices include dealer fees and add-ons.",
+      "listings": [
+        {
+          "price": 15991,
+          "miles": 185236,
+          "location": "Santa Clarita, CA",
+          "trim": "RX 350 FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; 'Excellent price'"
+        },
+        {
+          "price": 28076,
+          "miles": 63468,
+          "location": "Roseville, CA",
+          "trim": "RX 350L Premium FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; 'Excellent price'; three-row"
+        },
+        {
+          "price": 35876,
+          "miles": 40478,
+          "location": "Lynnwood, WA",
+          "trim": "RX 350 F Sport AWD",
+          "body": "SUV / Crossover",
+          "note": "'Excellent price'"
+        },
+        {
+          "price": 24494,
+          "miles": 86376,
+          "location": "Delray Beach, FL",
+          "trim": "RX 350 FWD",
+          "body": "SUV / Crossover",
+          "note": "'Great price'"
+        },
+        {
+          "price": 24696,
+          "miles": 124854,
+          "location": "Winston-Salem, NC",
+          "trim": "RX 350 AWD",
+          "body": "SUV / Crossover",
+          "note": "'Great price'"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": null,
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/lexus/rx/year-2022/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Stated: 'The average price for the 2022 Lexus RX RX 350 is $28,538', Premium / Premium Plus 'averaging $49,049 and $50,386'. Boilerplate; well below the listed asking prices.",
+      "listings": [
+        {
+          "price": 37389,
+          "miles": 50868,
+          "location": "Wesley Chapel, FL",
+          "trim": "RX 350 FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; 'Excellent price'"
+        },
+        {
+          "price": 39943,
+          "miles": 23062,
+          "location": "Miami, FL",
+          "trim": "RX 350 FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; 'Great price'"
+        },
+        {
+          "price": 40489,
+          "miles": 25879,
+          "location": "Charleston, SC",
+          "trim": "RX 350 FWD",
+          "body": "SUV / Crossover",
+          "note": "'Excellent price'"
+        },
+        {
+          "price": 34361,
+          "miles": 70356,
+          "location": "Tampa, FL",
+          "trim": "RX 350 FWD",
+          "body": "SUV / Crossover",
+          "note": "CPO; 'Excellent price'"
+        },
+        {
+          "price": 38192,
+          "miles": 57980,
+          "location": "Coconut Creek, FL",
+          "trim": "RX 350 F Sport Handling AWD",
+          "body": "SUV / Crossover",
+          "note": "'Great price'"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": null,
+      "source": "https://truecar.com/used-cars-for-sale/listings/lexus/rx/year-2024",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Stated: 'The average price for the 2024 Lexus RX RX 350 is $28,448' (same as 2016/2019 pages: boilerplate).",
+      "listings": [
+        {
+          "price": 42999,
+          "miles": 28325,
+          "location": "Pompano Beach, FL",
+          "trim": "RX 350 Premium FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; 'Excellent price'"
+        },
+        {
+          "price": 45570,
+          "miles": 41567,
+          "location": "Pembroke Pines, FL",
+          "trim": "RX 350h F SPORT Handling AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; 'Excellent price'"
+        },
+        {
+          "price": 43993,
+          "miles": 19866,
+          "location": "Wesley Chapel, FL",
+          "trim": "RX 350 FWD",
+          "body": "SUV / Crossover",
+          "note": "'Excellent price'"
+        },
+        {
+          "price": 42673,
+          "miles": 43426,
+          "location": "Milford, CT",
+          "trim": "RX 350 Premium AWD",
+          "body": "SUV / Crossover",
+          "note": "'Excellent price'"
+        },
+        {
+          "price": 51373,
+          "miles": 11713,
+          "location": "Schaumburg, IL",
+          "trim": "RX 350 Premium AWD",
+          "body": "SUV / Crossover",
+          "note": "CPO; 'Excellent price'"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "No trim filter assigned; unfiltered year pages fetched, trim recorded per row; first 5 listings in page order (non-vehicle ad skipped).",
+    "page_average left null: the 'average price' sentences are identical across years (RX 350 $28,448 on 2016, 2019 and 2024 pages), so they are model-wide boilerplate; quoted in page_average_note.",
+    "2022 sample is mostly Florida dealers (TrueCar ordering); 2024 row 2 is a hybrid (RX 350h)."
+  ]
+}

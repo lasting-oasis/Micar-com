@@ -1,0 +1,211 @@
+{
+ "make": "Mazda",
+ "model": "CX-5",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "Touring",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/mazda/cx-5/year-2016/?trim=touring",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_note": "No Touring average stated; page says 'The average price for the 2016 Mazda CX-5 2.5 S Preferred is $27,272' (boilerplate: that trim did not exist in 2016). 104 Touring listings nationwide. Listings mix '2016' and '2016.5' Touring variants.",
+   "listings": [
+    {
+     "price": 13977,
+     "miles": 95526,
+     "location": "McKinney, TX",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; 2016.5 Touring AWD Automatic"
+    },
+    {
+     "price": 16133,
+     "miles": 57735,
+     "location": "Spencerport, NY",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "2016.5 Touring AWD Automatic"
+    },
+    {
+     "price": 16399,
+     "miles": 93490,
+     "location": "Everett, WA",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "Touring AWD Automatic"
+    },
+    {
+     "price": 12067,
+     "miles": 126264,
+     "location": "Pleasanton, CA",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "Touring FWD Automatic"
+    },
+    {
+     "price": 11100,
+     "miles": 146480,
+     "location": "Frederick, MD",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "Touring AWD Automatic"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "Touring",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/mazda/cx-5/year-2019/?trim=touring",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_note": "No Touring average stated; page says 'The average price for the 2019 Mazda CX-5 2.5 S Preferred is $27,272' (boilerplate). 135 Touring listings nationwide.",
+   "listings": [
+    {
+     "price": 17708,
+     "miles": 49852,
+     "location": "Pembroke Pines, FL",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; Touring FWD"
+    },
+    {
+     "price": 19898,
+     "miles": 59017,
+     "location": "Gastonia, NC",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "Touring FWD"
+    },
+    {
+     "price": 19887,
+     "miles": 71267,
+     "location": "Concord, NC",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "Touring AWD"
+    },
+    {
+     "price": 17312,
+     "miles": 93207,
+     "location": "Buford, GA",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "Touring FWD"
+    },
+    {
+     "price": 17364,
+     "miles": 89855,
+     "location": "Wentzville, MO",
+     "trim": "Touring",
+     "body": "SUV / Crossover",
+     "note": "Touring FWD"
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/mazda/cx-5/year-2022/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_note": "Unfiltered page fetched directly: no 'Touring' trim exists for 2022 (lineup is 2.5 S ... / 2.5 Turbo per stickers). Page says 'The average price for the 2022 Mazda CX-5 2.5 S Preferred is $27,381' (trim-specific boilerplate). 290 listings nationwide (year table says 285).",
+   "listings": [
+    {
+     "price": 25541,
+     "miles": 19100,
+     "location": "Margate, FL",
+     "trim": "2.5 Turbo",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 17985,
+     "miles": 104820,
+     "location": "Irvine, CA",
+     "trim": "2.5 Turbo",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 22998,
+     "miles": 65542,
+     "location": "Wake Forest, NC",
+     "trim": "2.5 S Premium",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 25027,
+     "miles": 27981,
+     "location": "Ocala, FL",
+     "trim": "2.5 S Carbon Edition",
+     "body": "SUV / Crossover",
+     "note": "CPO"
+    },
+    {
+     "price": 23304,
+     "miles": 46023,
+     "location": "Fort Myers, FL",
+     "trim": "2.5 S Premium",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/mazda/cx-5/year-2024/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_note": "Unfiltered page fetched directly: no 'Touring' trim exists for 2024. Page says 'The average price for the 2024 Mazda CX-5 2.5 S Preferred is $27,587' (trim-specific boilerplate). 1,327 listings nationwide (year table says 1,294).",
+   "listings": [
+    {
+     "price": 21176,
+     "miles": 41051,
+     "location": "Vero Beach, FL",
+     "trim": "2.5 S Select",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 28524,
+     "miles": 49242,
+     "location": "Greenfield, MA",
+     "trim": "2.5 Carbon Turbo",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 22494,
+     "miles": 52347,
+     "location": "Commerce, GA",
+     "trim": "2.5 S Carbon Edition",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 23592,
+     "miles": 18131,
+     "location": "Saint Petersburg, FL",
+     "trim": "2.5 S Select",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 22846,
+     "miles": 67142,
+     "location": "LaGrange, GA",
+     "trim": "2.5 S Carbon Edition",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2022 and 2024: assigned 'touring' filter not applicable (trim not offered); unfiltered pages used and each row's trim recorded.",
+  "TrueCar average sentences refer to the 2.5 S Preferred trim on every page (even 2016/2019, when it did not exist); page_average left null.",
+  "2016 listings include '2016.5' mid-year refresh units; the 2016 sticker figures are from the Feb 2015 release (original 2016)."
+ ]
+}

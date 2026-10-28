@@ -1,0 +1,111 @@
+{
+ "make": "GMC",
+ "model": "Sierra 1500",
+ "samples": [
+  {
+   "year": 2019,
+   "trim_filter": "SLT",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/gmc/sierra-1500/year-2019/?trim=slt",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_total_listings": 134,
+   "note": "No 'averages $X' sentence and no SLT average extracted; page text reads '... averaging $39,490 and $45,580 respectively' (other trims) - the identical figures appear on the 2022 page, so this is model-wide boilerplate. First 5 listings recorded; none marked Sponsored/CPO.",
+   "listings": [
+    {
+     "price": 21199,
+     "miles": 153221,
+     "location": "Federal Way, WA",
+     "trim": "SLT Crew Cab Standard Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 35355,
+     "miles": 30551,
+     "location": "Libertyville, IL",
+     "trim": "SLT Crew Cab Short Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 37991,
+     "miles": 37279,
+     "location": "Gilbert, AZ",
+     "trim": "SLT Crew Cab Short Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 28639,
+     "miles": 120304,
+     "location": "Alto, GA",
+     "trim": "SLT Crew Cab Short Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 26887,
+     "miles": 118309,
+     "location": "Bradenton, FL",
+     "trim": "SLT Crew Cab Short Box RWD",
+     "body": "Pickup Truck",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "SLT",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/gmc/sierra-1500/year-2022/?trim=slt",
+   "fetched": "2026-10-28",
+   "page_average": 37175,
+   "page_total_listings": 101,
+   "note": "Page states 'The average price for the 2022 GMC Sierra 1500 SLT is $37,175, with the 2022 GMC Sierra 1500 Elevation and 2022 GMC Sierra 1500 Denali averaging $39,490 and $45,580 respectively' (no 'averages $X' wording; Elevation/Denali figures match the 2019 page, i.e. boilerplate). Count 101 conflicts with an FAQ figure of 2,314. Titles do not say whether rows are the 2022 Limited (carry-over) or refreshed truck. First 5 recorded; none Sponsored/CPO.",
+   "listings": [
+    {
+     "price": 31136,
+     "miles": 109390,
+     "location": "Peru, IL",
+     "trim": "SLT Crew Cab Short Bed 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 38887,
+     "miles": 79431,
+     "location": "Concord, NC",
+     "trim": "SLT Crew Cab Standard Bed 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 39983,
+     "miles": 64147,
+     "location": "Mobile, AL",
+     "trim": "SLT Crew Cab Short Bed 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 37468,
+     "miles": 77514,
+     "location": "Jacksonville, FL",
+     "trim": "SLT Crew Cab Short Bed 2WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 39281,
+     "miles": 62204,
+     "location": "Birmingham, AL",
+     "trim": "SLT Crew Cab Short Bed 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016, 2024: TrueCar year pages not fetched. Constructed TrueCar/iSeeCars URLs were refused for lack of search provenance, so each year page needed its own search first; budget went to stickers."
+ ]
+}

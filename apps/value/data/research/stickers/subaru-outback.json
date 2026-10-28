@@ -1,0 +1,572 @@
+{
+  "make": "Subaru",
+  "model": "Outback",
+  "body": "Hatchback / Wagon",
+  "note": "Lifted AWD wagon; Subaru markets it as an SUV from the 2020s (2025/2026 releases say 'Outback SUV'). Single body style. Trim names carried 2.5i/3.6R engine prefixes through 2019; from 2020 the turbo trims are suffixed XT. All MSRPs exclude Destination & Delivery. 2023-2025 list 9 regular trims; all kept.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 850,
+      "trims": [
+        {
+          "trim": "2.5i",
+          "msrp": 24995,
+          "config": "AWD 4dr Wagon",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Premium",
+          "msrp": 27395,
+          "config": "AWD 4dr Wagon",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Limited",
+          "msrp": 30395,
+          "config": "AWD 4dr Wagon",
+          "note": ""
+        },
+        {
+          "trim": "3.6R Limited",
+          "msrp": 33395,
+          "config": "AWD 4dr Wagon",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-subaru-outback-price",
+      "source_type": "secondary",
+      "note": "No Subaru media pricing release for 2016 Outback was searched for (budget); iSeeCars lists MSRP and a separate $850 destination per style. No Touring trim in 2016."
+    },
+    {
+      "year": 2017,
+      "destination": 875,
+      "trims": [
+        {
+          "trim": "2.5i",
+          "msrp": 25645,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Premium",
+          "msrp": 27695,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Limited",
+          "msrp": 32390,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.6R Limited",
+          "msrp": 34995,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Touring",
+          "msrp": 35995,
+          "config": "",
+          "note": "new Touring trim for 2017"
+        },
+        {
+          "trim": "3.6R Touring",
+          "msrp": 38195,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/newsrelease.do?allImage=1&id=951&mid=1&teaser=subaru-america-announces-pricing-2017-subaru-legacy-outback",
+      "source_type": "manufacturer",
+      "note": "Release dated May 26, 2016 (combined Legacy/Outback release). D&D $875 ($1,025 Alaska)."
+    },
+    {
+      "year": 2018,
+      "destination": 915,
+      "trims": [
+        {
+          "trim": "2.5i",
+          "msrp": 25895,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Premium",
+          "msrp": 27995,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Limited",
+          "msrp": 32695,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.6R Limited",
+          "msrp": 35395,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Touring",
+          "msrp": 36490,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.6R Touring",
+          "msrp": 38690,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1139/subaru-america-announces-pricing-refreshed-2018-legacy-outback",
+      "source_type": "manufacturer",
+      "note": "Refreshed 2018 model; release undated on page (summer 2017). D&D $915 ($1,065 Alaska)."
+    },
+    {
+      "year": 2019,
+      "destination": 975,
+      "trims": [
+        {
+          "trim": "2.5i",
+          "msrp": 26345,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Premium",
+          "msrp": 28445,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Limited",
+          "msrp": 32845,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.6R Limited",
+          "msrp": 34995,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Touring",
+          "msrp": 36795,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.6R Touring",
+          "msrp": 38995,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1372/147/subaru-announces-pricing-2019-outback-model",
+      "source_type": "manufacturer",
+      "note": "Release dated July 9, 2018. D&D $975 ($1,125 Alaska)."
+    },
+    {
+      "year": 2020,
+      "destination": 1010,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 26645,
+          "config": "",
+          "note": "listed as 'Outback'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 28895,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 33445,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Onyx Edition XT",
+          "msrp": 34895,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 37345,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Limited XT",
+          "msrp": 37745,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Touring XT",
+          "msrp": 39695,
+          "config": "2.4L turbo",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1447/subaru-announces-pricing-2020-legacy-outback-models",
+      "source_type": "manufacturer",
+      "note": "All-new 6th generation; release dated July 16, 2019. Trim names drop the 2.5i/3.6R prefixes; 3.6R replaced by 2.4L turbo XT trims. D&D $1,010 for Outback ($900 Legacy)."
+    },
+    {
+      "year": 2021,
+      "destination": 1050,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 26795,
+          "config": "",
+          "note": "listed as 'Outback'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 29045,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 33595,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Onyx Edition XT",
+          "msrp": 35145,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 37495,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Limited XT",
+          "msrp": 37995,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Touring XT",
+          "msrp": 39945,
+          "config": "2.4L turbo",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1623/1/subaru-announces-pricing-2021-legacy-outback-models",
+      "source_type": "manufacturer",
+      "note": "Release dated August 6, 2020. D&D $1,050 ($1,200 Alaska)."
+    },
+    {
+      "year": 2022,
+      "destination": 1125,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 26945,
+          "config": "",
+          "note": "listed as 'Outback'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 29145,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 33595,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Onyx Edition XT",
+          "msrp": 35145,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 36995,
+          "config": "2.4L turbo",
+          "note": "new trim for 2022"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 37495,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Limited XT",
+          "msrp": 37995,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Touring XT",
+          "msrp": 39945,
+          "config": "2.4L turbo",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/newsrelease.do?id=1762&mid=149&allImage=1",
+      "source_type": "manufacturer",
+      "note": "Release undated on page (arrives 'this summer', 2021). D&D $1,125 ($1,275 Alaska). 8 trims listed."
+    },
+    {
+      "year": 2023,
+      "destination": 1225,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 28395,
+          "config": "",
+          "note": "listed as 'Outback'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 30695,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Onyx Edition",
+          "msrp": 33495,
+          "config": "2.5L",
+          "note": "new non-turbo Onyx for 2023"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 35295,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Onyx Edition XT",
+          "msrp": 38595,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 38445,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Limited XT",
+          "msrp": 39695,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 39845,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring XT",
+          "msrp": 42295,
+          "config": "2.4L turbo",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/newsrelease.do?id=1897&mid=149&allImage=1",
+      "source_type": "manufacturer",
+      "note": "Refreshed 2023 model; release undated on page (arrives 'this fall', 2022). D&D $1,225 ($1,375 Alaska). 9 trims listed, all kept."
+    },
+    {
+      "year": 2024,
+      "destination": 1295,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 28895,
+          "config": "",
+          "note": "listed as 'Outback'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 31195,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 35795,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Onyx Edition",
+          "msrp": 36105,
+          "config": "2.5L",
+          "note": ""
+        },
+        {
+          "trim": "Onyx Edition XT",
+          "msrp": 39360,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 39960,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Limited XT",
+          "msrp": 40195,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 40345,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring XT",
+          "msrp": 42795,
+          "config": "2.4L turbo",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/2020/1/subaru-announces-pricing-2024-outback-legacy-models",
+      "source_type": "manufacturer",
+      "note": "Release dated March 1, 2023. D&D $1,295 ($1,445 Alaska). A second 2024 Outback pricing release exists (media.subaru.com pressrelease/2159, 'Subaru announces pricing on 2024 Outback SUV'), not fetched; it may be a later revision."
+    },
+    {
+      "year": 2025,
+      "destination": 1420,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 29995,
+          "config": "",
+          "note": "listed as 'Outback'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 33060,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Onyx Edition",
+          "msrp": 37970,
+          "config": "2.5L",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 39720,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Onyx Edition XT",
+          "msrp": 41225,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 41710,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Limited XT",
+          "msrp": 42060,
+          "config": "2.4L turbo",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 42280,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "Touring XT",
+          "msrp": 44730,
+          "config": "2.4L turbo",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/2155/subaru-announces-pricing-2025-outback-suv-legacy-sedan",
+      "source_type": "manufacturer",
+      "note": "Release dated April 11, 2024. D&D $1,420 ($1,545 Alaska). Sharp step-up vs 2024 (Premium +$1,865, Limited +$3,925) as more equipment became standard."
+    },
+    {
+      "year": 2026,
+      "destination": 1450,
+      "trims": [
+        {
+          "trim": "Premium",
+          "msrp": 34995,
+          "config": "option code 11",
+          "note": "option 13: $37,265"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 41715,
+          "config": "option code 34",
+          "note": ""
+        },
+        {
+          "trim": "Limited XT",
+          "msrp": 44365,
+          "config": "2.4L turbo, option 32",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 44995,
+          "config": "2.4L turbo, option 21",
+          "note": "options 22/23: $47,040 / $49,085; arrives early 2026"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 45395,
+          "config": "option code 41",
+          "note": ""
+        },
+        {
+          "trim": "Touring XT",
+          "msrp": 47995,
+          "config": "2.4L turbo",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/2353/1/subaru-announces-pricing-all-new-2026-outback-suv",
+      "source_type": "manufacturer",
+      "note": "All-new 7th generation, release dated August 21, 2025. No base 'Outback' or Onyx trim; Premium is the entry. D&D $1,450 ($1,600 Alaska). A separate 2027 release (pressrelease/2507) adds a new entry-level model at $32,995."
+    }
+  ],
+  "gaps": [
+    "2016: Subaru media release not searched (budget); iSeeCars secondary used, 4 trims only (no Touring in 2016)."
+  ]
+}

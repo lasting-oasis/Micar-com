@@ -1,0 +1,330 @@
+{
+  "make": "Tesla",
+  "model": "Model 3",
+  "body": "Sedan",
+  "note": "Tesla publishes no pricing releases and changes prices many times a year; every figure is one point in a moving year. Deliveries began in model year 2017, so 2016 is omitted.",
+  "years": [
+    {
+      "year": 2017,
+      "destination": 1000,
+      "trims": [
+        {
+          "trim": "Standard Range",
+          "msrp": 35000,
+          "config": "",
+          "note": "iSeeCars style 'Standard 4dr Fastback'. Caution: listed under 2017 on iSeeCars, but this was the announced base price; check whether any 2017 cars were delivered at it."
+        },
+        {
+          "trim": "Long Range",
+          "msrp": 44000,
+          "config": "",
+          "note": "iSeeCars style 'Long Range 4dr Fastback' (RWD)."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-tesla-model_3-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated."
+    },
+    {
+      "year": 2018,
+      "destination": 1200,
+      "trims": [
+        {
+          "trim": "Standard Range",
+          "msrp": 35000,
+          "config": "",
+          "note": "iSeeCars style 'Standard 4dr Fastback'; destination shown 1000 for this style. Caution: same as 2017, likely the announced base price."
+        },
+        {
+          "trim": "Long Range",
+          "msrp": 44000,
+          "config": "",
+          "note": "iSeeCars 'Long Range 4dr Fastback' (RWD); destination shown 1000 for this style."
+        },
+        {
+          "trim": "Mid Range",
+          "msrp": 47200,
+          "config": "",
+          "note": "iSeeCars 'Mid Range 4dr Fastback' (RWD). Looks off: priced above Long Range RWD on the same page; recorded as read."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 54000,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Fastback'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 64000,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Fastback'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-tesla-model_3-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Destination is 1200 for Mid Range / AWD styles and 1000 for Standard and Long Range RWD on this page. Price date: undated."
+    },
+    {
+      "year": 2019,
+      "destination": 1200,
+      "trims": [
+        {
+          "trim": "Standard Range",
+          "msrp": 36500,
+          "config": "",
+          "note": "iSeeCars 'Standard Range 4dr Fastback'."
+        },
+        {
+          "trim": "Standard Range Plus",
+          "msrp": 38500,
+          "config": "",
+          "note": "iSeeCars 'Standard Range Plus 4dr Fastback'."
+        },
+        {
+          "trim": "Mid Range",
+          "msrp": 41500,
+          "config": "",
+          "note": "iSeeCars 'Mid Range 4dr Fastback'."
+        },
+        {
+          "trim": "Long Range",
+          "msrp": 44500,
+          "config": "",
+          "note": "iSeeCars 'Long Range 4dr Fastback' (RWD)."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 48500,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Fastback'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 59500,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Fastback'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2019-tesla-model_3-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated."
+    },
+    {
+      "year": 2020,
+      "destination": 1200,
+      "trims": [
+        {
+          "trim": "Standard Range",
+          "msrp": 35000,
+          "config": "",
+          "note": "iSeeCars style reads 'AWD Standard Range 4dr Fastback'; the AWD label looks like an iSeeCars mislabel (Standard Range was a RWD trim). Recorded as read."
+        },
+        {
+          "trim": "Standard Range Plus",
+          "msrp": 37990,
+          "config": "",
+          "note": "iSeeCars 'Standard Range Plus 4dr Sedan'."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 46990,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Sedan'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 54990,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Sedan'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-tesla-model_3-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated."
+    },
+    {
+      "year": 2021,
+      "destination": 1200,
+      "trims": [
+        {
+          "trim": "Standard Range Plus",
+          "msrp": 37990,
+          "config": "",
+          "note": "iSeeCars 'Standard Range Plus 4dr Sedan'."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 46990,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Sedan'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 54990,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Sedan'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2021-tesla-model_3-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Figures match the 2020 page, so they likely reflect early-2021 pricing before that year's increases. Price date: undated."
+    },
+    {
+      "year": 2022,
+      "destination": 1200,
+      "trims": [
+        {
+          "trim": "RWD",
+          "msrp": 46990,
+          "config": "",
+          "note": "iSeeCars style '4dr Sedan' (base rear-wheel-drive car)."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 57990,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Sedan'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 62990,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Sedan'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-tesla-model_3-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). These are high figures for the year (2022 saw repeated increases); treat as a late-2022 point. Price date: undated."
+    },
+    {
+      "year": 2023,
+      "destination": 1390,
+      "trims": [
+        {
+          "trim": "RWD",
+          "msrp": 40240,
+          "config": "",
+          "note": "iSeeCars style '4dr Sedan'."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 47240,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Sedan'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 53240,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Sedan'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-tesla-model_3-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated."
+    },
+    {
+      "year": 2024,
+      "destination": 1390,
+      "trims": [
+        {
+          "trim": "RWD",
+          "msrp": 38990,
+          "config": "",
+          "note": "iSeeCars style '4dr Sedan'."
+        },
+        {
+          "trim": "Long Range RWD",
+          "msrp": 42490,
+          "config": "",
+          "note": "iSeeCars 'Long Range 4dr Sedan'."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 47490,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Sedan'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 54990,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Sedan'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-tesla-model_3-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated."
+    },
+    {
+      "year": 2025,
+      "destination": 1390,
+      "trims": [
+        {
+          "trim": "Long Range RWD",
+          "msrp": 42490,
+          "config": "",
+          "note": "iSeeCars 'Long Range 4dr Fastback'."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 47490,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Fastback'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 54990,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Fastback'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-tesla-model_3-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). The page lists no base RWD style for 2025. Price date: undated."
+    },
+    {
+      "year": 2026,
+      "destination": 1390,
+      "trims": [
+        {
+          "trim": "Standard",
+          "msrp": 36990,
+          "config": "",
+          "note": "Edmunds lists $38,380 including the $1,390 destination fee; $1,390 subtracted."
+        },
+        {
+          "trim": "Premium RWD",
+          "msrp": 42490,
+          "config": "",
+          "note": "Edmunds lists $43,880 including destination; $1,390 subtracted."
+        },
+        {
+          "trim": "Premium AWD",
+          "msrp": 47490,
+          "config": "",
+          "note": "Edmunds lists $48,880 including destination; $1,390 subtracted."
+        },
+        {
+          "trim": "Performance",
+          "msrp": 54990,
+          "config": "",
+          "note": "Edmunds lists $56,380 including destination; $1,390 subtracted."
+        }
+      ],
+      "source": "https://www.edmunds.com/car-news/2026-tesla-model-3-pricing-guide.html",
+      "source_type": "secondary",
+      "note": "Edmunds '2026 Tesla Model 3 pricing guide', published 2026-07-10 (modified 2026-07-11): 'All prices include the mandatory $1,390 destination fee.' MSRPs here are those figures minus $1,390. Edmunds does not mention a separate documentation fee. Price date: 2026-07-10."
+    }
+  ],
+  "gaps": [
+    "2016: model not sold (deliveries began MY2017); omitted.",
+    "No manufacturer source for any year: Tesla publishes no pricing releases. All years secondary (iSeeCars 2017-2025, Edmunds 2026).",
+    "2017-2025: iSeeCars pages carry no price date, so no dated figure could be recorded for those years; only 2026 is dated (Edmunds, 2026-07-10).",
+    "2017-2018: iSeeCars lists a $35,000 Standard style; this matches the announced base price and may not reflect cars actually delivered that model year.",
+    "2018: Mid Range at $47,200 sits above Long Range RWD at $44,000 on the same page; looks off, recorded as read.",
+    "2020: iSeeCars labels Standard Range as 'AWD'; likely a mislabel.",
+    "2025: no base RWD style on the iSeeCars page; base 2025 price not captured.",
+    "First iSeeCars fetch of the 2018 page (before it was surfaced by search) timed out on a permission prompt; refetched successfully after search."
+  ]
+}

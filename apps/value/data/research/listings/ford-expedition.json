@@ -1,0 +1,210 @@
+{
+ "make": "Ford",
+ "model": "Expedition",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "XLT",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/expedition/year-2016/?trim=xlt",
+   "fetched": "2026-10-28",
+   "page_average": 28635,
+   "listings": [
+    {
+     "price": 8273,
+     "miles": 185848,
+     "location": "Clayton, NC",
+     "trim": "XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 7973,
+     "miles": 232921,
+     "location": "Blackfoot, ID",
+     "trim": "EL XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": "Expedition EL (long wheelbase)"
+    },
+    {
+     "price": 9590,
+     "miles": 149179,
+     "location": "Maplewood, NJ",
+     "trim": "EL XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": "Expedition EL (long wheelbase)"
+    },
+    {
+     "price": 9149,
+     "miles": 153300,
+     "location": "Belton, TX",
+     "trim": "XLT RWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 11999,
+     "miles": 138771,
+     "location": "Stockbridge, GA",
+     "trim": "XLT RWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ],
+   "page_note": "Sentence: XLT and Platinum 'averaging $28,635' (Limited $34,298, Platinum $50,044); same figures on all four pages (boilerplate). 14 XLT listings nationwide (FAQ separately says 899)."
+  },
+  {
+   "year": 2019,
+   "trim_filter": "XLT",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/expedition/year-2019/?trim=xlt",
+   "fetched": "2026-10-28",
+   "page_average": 28635,
+   "listings": [
+    {
+     "price": 15972,
+     "miles": 99821,
+     "location": "Modesto, CA",
+     "trim": "XLT RWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 19417,
+     "miles": 96406,
+     "location": "Pembroke Pines, FL",
+     "trim": "Max XLT RWD",
+     "body": "SUV / Crossover",
+     "note": "Expedition MAX (long wheelbase)"
+    },
+    {
+     "price": 27082,
+     "miles": 70292,
+     "location": "Chehalis, WA",
+     "trim": "Max XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": "Expedition MAX (long wheelbase)"
+    },
+    {
+     "price": 22887,
+     "miles": 94639,
+     "location": "Memphis, TN",
+     "trim": "XLT RWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 20321,
+     "miles": 103912,
+     "location": "Lafayette, LA",
+     "trim": "Max XLT RWD",
+     "body": "SUV / Crossover",
+     "note": "Expedition MAX (long wheelbase)"
+    }
+   ],
+   "page_note": "78 XLT listings nationwide."
+  },
+  {
+   "year": 2022,
+   "trim_filter": "XLT",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/expedition/year-2022/?trim=xlt",
+   "fetched": "2026-10-28",
+   "page_average": 28635,
+   "listings": [
+    {
+     "price": 32194,
+     "miles": 86321,
+     "location": "Thatcher, AZ",
+     "trim": "XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 37240,
+     "miles": 38954,
+     "location": "Downers Grove, IL",
+     "trim": "XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 27412,
+     "miles": 131585,
+     "location": "Mattoon, IL",
+     "trim": "Max XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": "Expedition MAX (long wheelbase)"
+    },
+    {
+     "price": 32189,
+     "miles": 100600,
+     "location": "High Point, NC",
+     "trim": "Max XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": "Expedition MAX (long wheelbase)"
+    },
+    {
+     "price": 35988,
+     "miles": 43043,
+     "location": "Orlando, FL",
+     "trim": "XLT RWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ],
+   "page_note": "97 XLT listings nationwide."
+  },
+  {
+   "year": 2024,
+   "trim_filter": "XLT",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/expedition/year-2024/?trim=xlt",
+   "fetched": "2026-10-28",
+   "page_average": 28635,
+   "listings": [
+    {
+     "price": 33991,
+     "miles": 66569,
+     "location": "Ft. Worth, TX",
+     "trim": "XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 36884,
+     "miles": 66259,
+     "location": "Venice, FL",
+     "trim": "XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 32761,
+     "miles": 88849,
+     "location": "Chesterton, IN",
+     "trim": "XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 36373,
+     "miles": 65757,
+     "location": "Countryside, IL",
+     "trim": "Max XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": "Expedition MAX (long wheelbase)"
+    },
+    {
+     "price": 36384,
+     "miles": 66527,
+     "location": "Rexburg, ID",
+     "trim": "XLT 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ],
+   "page_note": "204 XLT listings nationwide."
+  }
+ ],
+ "gaps": [
+  "TrueCar's XLT filter mixes regular Expedition with Expedition EL (2016) and Expedition MAX (2019+) listings; MAX/EL rows are marked in note (stickers file covers regular length only).",
+  "page_average $28,635 is identical on all four pages (model-wide boilerplate)."
+ ]
+}

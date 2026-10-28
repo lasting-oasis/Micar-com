@@ -1,0 +1,870 @@
+{
+ "make": "Kia",
+ "model": "Sorento",
+ "body": "SUV / Crossover",
+ "note": "Gas Sorento only. Sorento Hybrid (2021+) and Plug-in Hybrid (2022+) have separate kiamedia pricing pages and are not priced here. Rows give each trim/engine in FWD and AWD as the official page lists them (more than ~7 rows in some years because Kia priced I4, turbo and V6 versions of the same trim). MSRP excludes destination.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": 895,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 25100,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 26400,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 28200,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 28700,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 30500,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 31100,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 32900,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX V6",
+     "msrp": 32100,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX V6",
+     "msrp": 33900,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 38300,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 40100,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited",
+     "msrp": 39900,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited",
+     "msrp": 41700,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited V6",
+     "msrp": 41500,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited V6",
+     "msrp": 43300,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2016/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2017,
+   "destination": 895,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 25600,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 26900,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 28700,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 29200,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 31000,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 31700,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 33500,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX V6",
+     "msrp": 33300,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX V6",
+     "msrp": 35100,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 38800,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 40600,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited V6",
+     "msrp": 44100,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited V6",
+     "msrp": 45900,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2017/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing. No 2.0T SX-Limited row in 2017 (it was on the 2016 page)."
+  },
+  {
+   "year": 2018,
+   "destination": 990,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 25900,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 27200,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 29990,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 29600,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 31400,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 33100,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 34900,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX V6",
+     "msrp": 34200,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX V6",
+     "msrp": 36000,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 39200,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 41000,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited V6",
+     "msrp": 44500,
+     "config": "3.3L V6, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited V6",
+     "msrp": 46300,
+     "config": "3.3L V6, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2018/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing. LX AWD ($29,990) is $2,790 above LX FWD, larger than the usual $1,800 AWD step; recorded as shown."
+  },
+  {
+   "year": 2019,
+   "destination": 1045,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 26290,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 27650,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 29450,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 31290,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 33090,
+     "config": "3.3L V6, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S V6",
+     "msrp": 32690,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S V6",
+     "msrp": 34490,
+     "config": "3.3L V6, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX Sport V6",
+     "msrp": 34990,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX Sport V6",
+     "msrp": 36790,
+     "config": "3.3L V6, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX V6",
+     "msrp": 35590,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX V6",
+     "msrp": 37390,
+     "config": "3.3L V6, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 39990,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 41790,
+     "config": "3.3L V6, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited V6",
+     "msrp": 44690,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Limited V6",
+     "msrp": 46490,
+     "config": "3.3L V6, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2019/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing. 2019 refresh: 2.0T dropped, V6 moves to 8-speed, S V6 and EX Sport V6 added (Kia also issued release 13669 'pricing for refreshed 2019 Sorento'; not fetched)."
+  },
+  {
+   "year": 2020,
+   "destination": 1120,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 26990,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 28090,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 29890,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 30590,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX V6",
+     "msrp": 32390,
+     "config": "3.3L V6, 8-speed auto, AWD (page prints FWD)",
+     "note": "Page shows two 'LX V6 3.3L V6 FWD' rows; this second one is $1,800 above the first, the same step as every other FWD-to-AWD pair, so it is very likely the AWD row mislabelled."
+    },
+    {
+     "trim": "S V6",
+     "msrp": 33190,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S V6",
+     "msrp": 34990,
+     "config": "3.3L V6, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX Sport V6",
+     "msrp": 35490,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX Sport V6",
+     "msrp": 37290,
+     "config": "3.3L V6, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 40090,
+     "config": "3.3L V6, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX V6",
+     "msrp": 41890,
+     "config": "3.3L V6, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2020/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing. No EX V6 or SX-Limited V6 rows on the 2020 page."
+  },
+  {
+   "year": 2021,
+   "destination": 1175,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 29390,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 31190,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 31890,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 33690,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 34990,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 36790,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 37990,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 39790,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Prestige",
+     "msrp": 40590,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Prestige X-Line",
+     "msrp": 42590,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": "AWD version is badged X-Line"
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2021/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing. 2021 is the first year of the 4th-generation (MQ4) Sorento: V6 dropped, 2.5L and 2.5T engines. Page names trims 'LX 2.5', 'EX 2.5T' etc.; the engine suffix is moved to config here. Sorento Hybrid (2021+) has its own page and is not priced here."
+  },
+  {
+   "year": 2022,
+   "destination": 1295,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 29590,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 31390,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 32390,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line S",
+     "msrp": 34390,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 35490,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 38290,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line EX",
+     "msrp": 39190,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 40090,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Prestige",
+     "msrp": 41190,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line SX Prestige",
+     "msrp": 43190,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": "page abbreviates as 'X-Line SX P 2.5T'"
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2022/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2023,
+   "destination": 1375,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 30390,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 32190,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 32890,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line S",
+     "msrp": 34890,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 36290,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 39190,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line EX",
+     "msrp": 39990,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 40990,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-P",
+     "msrp": 43790,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": "SX Prestige"
+    },
+    {
+     "trim": "X-Line SX-P",
+     "msrp": 43990,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2023/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2024,
+   "destination": 1375,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 31990,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": "no LX AWD row on page"
+    },
+    {
+     "trim": "S",
+     "msrp": 34390,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 36390,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 37990,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 41690,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line EX",
+     "msrp": 41690,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line SX",
+     "msrp": 43490,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line SX-P",
+     "msrp": 46390,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Pro SX-P",
+     "msrp": 47390,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2024/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing. 2024 refresh. Kia also issued release 21773 for 2024 Sorento pricing; not fetched."
+  },
+  {
+   "year": 2025,
+   "destination": 1445,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 31990,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 34890,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 36890,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 38090,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 39590,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "page lists EX AWD with the 2.5L GDI (non-turbo) engine, unlike EX FWD (2.5T)"
+    },
+    {
+     "trim": "SX",
+     "msrp": 41690,
+     "config": "2.5L turbo GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line EX",
+     "msrp": 41790,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line SX",
+     "msrp": 43490,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line SX-P",
+     "msrp": 46390,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Pro SX-P",
+     "msrp": 47390,
+     "config": "2.5L turbo GDI I4, 8-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sorento/2025/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Lists MSRP per trim/engine/drivetrain plus a separate destination charge; Kia pricing pages state freight is additional (F.O.B. Port of Entry), so MSRP excludes destination. The page carries no date, so figures may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2026,
+   "destination": 1495,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 32390,
+     "config": "FWD (drivetrain not stated)",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 35290,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 37290,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 38490,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 39990,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 42290,
+     "config": "drivetrain not stated",
+     "note": ""
+    },
+    {
+     "trim": "X-Line EX",
+     "msrp": 42790,
+     "config": "AWD (X-Line; drivetrain not stated)",
+     "note": ""
+    },
+    {
+     "trim": "X-Line SX",
+     "msrp": 44090,
+     "config": "AWD (X-Line; drivetrain not stated)",
+     "note": ""
+    },
+    {
+     "trim": "X-Line SX-P",
+     "msrp": 46790,
+     "config": "AWD (X-Line; drivetrain not stated)",
+     "note": ""
+    },
+    {
+     "trim": "X-Pro SX-P",
+     "msrp": 47790,
+     "config": "AWD (X-Pro; drivetrain not stated)",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/media/pressreleases/23680/kia-announces-pricing-for-2026-sorento",
+   "source_type": "manufacturer",
+   "source_note": "Kia press release, Sept 22, 2025. Table heading 'Pricing (excludes $1,495 destination)'; footnote: 'MSRP excludes destination and handling, taxes, title, license fees, options and retailer charges.' Release does not give engines; drivetrain only where the trim name states it. Gas (ICE) trims only."
+  }
+ ],
+ "gaps": [
+  "All 11 years (2016-2026) from Kia's own newsroom; no secondary sources used.",
+  "2016-2025 figures come from undated kiamedia model pricing pages; they may be end-of-year prices that include mid-year increases rather than launch prices.",
+  "2020: page has a duplicated 'LX V6 FWD' row ($32,390); recorded as AWD with a note.",
+  "2026: from the pricing press release, which gives no engine per trim.",
+  "Sorento Hybrid / PHEV pricing not collected."
+ ]
+}

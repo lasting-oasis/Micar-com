@@ -1,0 +1,355 @@
+{
+ "make": "Mazda",
+ "model": "Mazda3",
+ "body": "Sedan",
+ "note": "Sold as both a 4-door sedan and a 5-door hatchback every year; sedan is used as the dominant body, and each row's `config` names the body. Hatchback rows are included for key trims (hatchback typically $700-$1,000 above the same sedan trim). Trim naming changes: 2016 'i'/'s' prefixes (i Sport, i Touring, i Grand Touring, s Touring, s Grand Touring); 2017-2018 Sport/Touring/Grand Touring; 2019 new generation Base/Select/Preferred/Premium (AWD optional from 2019); 2021 adds 2.0 base and 2.5 Turbo; by 2024 names are '2.5 S ...'/'2.5 Turbo ...'. MSRP excludes destination; destination per year in `destination`.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": 835,
+   "trims": [
+    {
+     "trim": "i Sport",
+     "msrp": 17845,
+     "config": "Sedan, 6-speed manual",
+     "note": ""
+    },
+    {
+     "trim": "i Sport",
+     "msrp": 18895,
+     "config": "Sedan, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "i Touring",
+     "msrp": 21095,
+     "config": "Sedan, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "i Grand Touring",
+     "msrp": 23595,
+     "config": "Sedan, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "s Touring",
+     "msrp": 24795,
+     "config": "Sedan, 6-speed automatic",
+     "note": "2.5L 's' engine"
+    },
+    {
+     "trim": "s Grand Touring",
+     "msrp": 25795,
+     "config": "Sedan, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "i Sport",
+     "msrp": 19595,
+     "config": "Hatchback, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "s Grand Touring",
+     "msrp": 26495,
+     "config": "Hatchback, 6-speed automatic",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2016-mazda-mazda3-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style; typically the latest in-year price). Manual is $1,050 below automatic on every trim offering both; hatchback is $700 above the same sedan trim."
+  },
+  {
+   "year": 2018,
+   "destination": 875,
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 18095,
+     "config": "Sedan, 6-speed manual",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 19145,
+     "config": "Sedan, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 21140,
+     "config": "Sedan, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 24195,
+     "config": "Sedan, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 20395,
+     "config": "Hatchback, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 21890,
+     "config": "Hatchback, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 24945,
+     "config": "Hatchback, 6-speed automatic",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2018-mazda-mazda3-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style; typically the latest in-year price)."
+  },
+  {
+   "year": 2019,
+   "destination": 920,
+   "trims": [
+    {
+     "trim": "Base",
+     "msrp": 21000,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Select",
+     "msrp": 22600,
+     "config": "Sedan, FWD",
+     "note": "Sedan only"
+    },
+    {
+     "trim": "Preferred",
+     "msrp": 24200,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Premium",
+     "msrp": 26500,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Premium",
+     "msrp": 27900,
+     "config": "Sedan, AWD",
+     "note": ""
+    },
+    {
+     "trim": "Base",
+     "msrp": 23600,
+     "config": "Hatchback, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Preferred",
+     "msrp": 25200,
+     "config": "Hatchback, FWD, automatic",
+     "note": "Hatchback Preferred 6-speed manual listed at $26,290, above the automatic"
+    },
+    {
+     "trim": "Premium",
+     "msrp": 27500,
+     "config": "Hatchback, FWD",
+     "note": "Manual and automatic both listed at $27,500"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-mazda-mazda3-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style; typically the latest in-year price). New generation. Also listed: AWD Select sedan $24,000, AWD Preferred sedan $25,600, AWD Base hatch $25,000, AWD Preferred hatch $26,600, AWD Premium hatch $28,900."
+  },
+  {
+   "year": 2021,
+   "destination": 995,
+   "trims": [
+    {
+     "trim": "2.0",
+     "msrp": 20650,
+     "config": "Sedan, FWD",
+     "note": "New 2.0L base"
+    },
+    {
+     "trim": "2.5 S",
+     "msrp": 21650,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Select",
+     "msrp": 22850,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Preferred",
+     "msrp": 24500,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Premium",
+     "msrp": 27000,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo",
+     "msrp": 30050,
+     "config": "Sedan, AWD",
+     "note": "New turbo"
+    },
+    {
+     "trim": "Premium Plus",
+     "msrp": 32600,
+     "config": "Sedan, AWD",
+     "note": "Turbo"
+    },
+    {
+     "trim": "2.5 S",
+     "msrp": 22650,
+     "config": "Hatchback, FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2021-mazda-mazda3-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style; typically the latest in-year price). Also listed: hatchback Select $23,850, Preferred $25,500, Premium $28,000 (6M and 6A same), 2.5 Turbo AWD $31,050, Premium Plus AWD $33,900."
+  },
+  {
+   "year": 2022,
+   "destination": 1015,
+   "trims": [
+    {
+     "trim": "2.0",
+     "msrp": 20800,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S",
+     "msrp": 21750,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Select",
+     "msrp": 23100,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Preferred",
+     "msrp": 24750,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Carbon Edition",
+     "msrp": 26400,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Premium",
+     "msrp": 27350,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo",
+     "msrp": 30550,
+     "config": "Sedan, AWD",
+     "note": ""
+    },
+    {
+     "trim": "Premium Plus",
+     "msrp": 33100,
+     "config": "Sedan, AWD",
+     "note": "Turbo"
+    },
+    {
+     "trim": "2.5 S",
+     "msrp": 22750,
+     "config": "Hatchback, FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-mazda-mazda3-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style; typically the latest in-year price). Also listed: hatchback Select $24,100, Preferred $25,750, Carbon Edition $27,400, Premium $28,350, 2.5 Turbo AWD $31,550, Premium Plus AWD $34,400."
+  },
+  {
+   "year": 2024,
+   "destination": 1185,
+   "trims": [
+    {
+     "trim": "2.5 S",
+     "msrp": 24170,
+     "config": "Sedan, FWD",
+     "note": "Base sedan up $2,420 vs 2022 iSeeCars figure; 2.0 base no longer listed"
+    },
+    {
+     "trim": "2.5 S Select Sport",
+     "msrp": 24690,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Preferred",
+     "msrp": 26190,
+     "config": "Sedan, FWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Carbon Edition",
+     "msrp": 29060,
+     "config": "Sedan, AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Carbon Turbo",
+     "msrp": 31750,
+     "config": "Sedan, AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo Premium Plus",
+     "msrp": 35450,
+     "config": "Sedan, AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Select Sport",
+     "msrp": 25690,
+     "config": "Hatchback, FWD",
+     "note": "Lowest hatchback style listed"
+    },
+    {
+     "trim": "2.5 Turbo Premium Plus",
+     "msrp": 36650,
+     "config": "Hatchback, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-mazda-mazda3-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style; typically the latest in-year price). Also listed: hatchback 2.5 S Preferred $27,390, 2.5 S Premium $30,350, AWD 2.5 S Carbon Edition $30,260, AWD 2.5 Carbon Turbo $32,950."
+  }
+ ],
+ "gaps": [
+  "2017, 2020, 2023, 2025: not fetched (round-2 call budget reached); no figures recorded.",
+  "2026: iSeeCars 2026 Mazda3 page returned a client error; no other source tried within budget.",
+  "news.mazdausa.com Mazda3 pricing releases not searched (budget spent on CX-5 first); all Mazda3 rows are secondary."
+ ]
+}

@@ -1,0 +1,209 @@
+{
+  "make": "Subaru",
+  "model": "Outback",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "Premium",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/subaru/outback/year-2016/",
+      "fetched": "2026-10-28",
+      "page_average": 28803,
+      "note": "trim=premium filter page returned 'No exact matches' (TrueCar names this trim '2.5i Premium'); unfiltered year page used, 148 listings stated. TrueCar's 'average price' sentence is model-wide boilerplate (same Premium figure on every year page); recorded but not reliable.",
+      "listings": [
+        {
+          "price": 12130,
+          "miles": 110262,
+          "location": "Peoria, AZ",
+          "trim": "2.5i Premium",
+          "body": "Hatchback / Wagon",
+          "note": "PZEV"
+        },
+        {
+          "price": 11130,
+          "miles": 124918,
+          "location": "Peoria, AZ",
+          "trim": "2.5i Premium",
+          "body": "Hatchback / Wagon",
+          "note": "PZEV"
+        },
+        {
+          "price": 16896,
+          "miles": 93750,
+          "location": "Pensacola, FL",
+          "trim": "3.6R Limited",
+          "body": "Hatchback / Wagon",
+          "note": ""
+        },
+        {
+          "price": 12799,
+          "miles": 122334,
+          "location": "Milford, CT",
+          "trim": "2.5i Limited",
+          "body": "Hatchback / Wagon",
+          "note": "PZEV"
+        },
+        {
+          "price": 16504,
+          "miles": 63479,
+          "location": "Brooklyn, NY",
+          "trim": "3.6R Limited",
+          "body": "Hatchback / Wagon",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "Premium",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/subaru/outback/year-2019/",
+      "fetched": "2026-10-28",
+      "page_average": 28803,
+      "note": "trim=premium filter page returned 'No exact matches'; unfiltered year page used, 348 listings stated. TrueCar's 'average price' sentence is model-wide boilerplate (same Premium figure on every year page); recorded but not reliable.",
+      "listings": [
+        {
+          "price": 15999,
+          "miles": 88938,
+          "location": "Roseville, CA",
+          "trim": "2.5i Premium",
+          "body": "Hatchback / Wagon",
+          "note": "Sponsored"
+        },
+        {
+          "price": 16196,
+          "miles": 122212,
+          "location": "Pensacola, FL",
+          "trim": "2.5i Limited",
+          "body": "Hatchback / Wagon",
+          "note": ""
+        },
+        {
+          "price": 21222,
+          "miles": 50775,
+          "location": "Buford, GA",
+          "trim": "2.5i Limited",
+          "body": "Hatchback / Wagon",
+          "note": ""
+        },
+        {
+          "price": 15395,
+          "miles": 121663,
+          "location": "Westmont, IL",
+          "trim": "3.6R Limited",
+          "body": "Hatchback / Wagon",
+          "note": ""
+        },
+        {
+          "price": 17994,
+          "miles": 90778,
+          "location": "Jacksonville, FL",
+          "trim": "2.5i Limited",
+          "body": "Hatchback / Wagon",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "Premium",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/subaru/outback/year-2022/",
+      "fetched": "2026-10-28",
+      "page_average": 28832,
+      "note": "trim=premium filter page returned 'No exact matches' (TrueCar labels 2020-22 trims '2.5i Premium', '2.4T Limited XT'); unfiltered year page used, 420 listings stated. TrueCar's 'average price' sentence is model-wide boilerplate (same Premium figure on every year page); recorded but not reliable.",
+      "listings": [
+        {
+          "price": 14574,
+          "miles": 135081,
+          "location": "Morgantown, WV",
+          "trim": "2.5i Premium",
+          "body": "Hatchback / Wagon",
+          "note": "Sponsored"
+        },
+        {
+          "price": 20995,
+          "miles": 91635,
+          "location": "Houston, TX",
+          "trim": "2.4T Limited XT",
+          "body": "Hatchback / Wagon",
+          "note": "Sponsored"
+        },
+        {
+          "price": 23836,
+          "miles": 73623,
+          "location": "Tallahassee, FL",
+          "trim": "2.4T Wilderness",
+          "body": "Hatchback / Wagon",
+          "note": ""
+        },
+        {
+          "price": 26387,
+          "miles": 6408,
+          "location": "Tampa, FL",
+          "trim": "2.5i Limited",
+          "body": "Hatchback / Wagon",
+          "note": ""
+        },
+        {
+          "price": 23900,
+          "miles": 48058,
+          "location": "Hillsboro, OR",
+          "trim": "2.4T Limited XT",
+          "body": "Hatchback / Wagon",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "Premium",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/subaru/outback/year-2024/?trim=premium",
+      "fetched": "2026-10-28",
+      "page_average": 28803,
+      "note": "Filter worked: 305 used 2024 Outback Premium stated. 'The average price for the 2024 Subaru Outback Premium is $28,803' (same figure as other years' boilerplate). All AWD.",
+      "listings": [
+        {
+          "price": 23300,
+          "miles": 33729,
+          "location": "Catonsville, MD",
+          "trim": "Premium",
+          "body": "Hatchback / Wagon",
+          "note": "AWD; Sponsored"
+        },
+        {
+          "price": 23299,
+          "miles": 47488,
+          "location": "Lafayette, IN",
+          "trim": "Premium",
+          "body": "Hatchback / Wagon",
+          "note": "AWD; Sponsored"
+        },
+        {
+          "price": 23519,
+          "miles": 49646,
+          "location": "Macon, GA",
+          "trim": "Premium",
+          "body": "Hatchback / Wagon",
+          "note": "AWD"
+        },
+        {
+          "price": 23060,
+          "miles": 52444,
+          "location": "Lafayette, IN",
+          "trim": "Premium",
+          "body": "Hatchback / Wagon",
+          "note": "AWD"
+        },
+        {
+          "price": 19823,
+          "miles": 80638,
+          "location": "Chicago, IL",
+          "trim": "Premium",
+          "body": "Hatchback / Wagon",
+          "note": "AWD"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2016, 2019, 2022: trim=premium filter matched nothing; unfiltered year pages used, so rows mix 2.5i Premium / Limited / 3.6R / XT trims."
+  ]
+}

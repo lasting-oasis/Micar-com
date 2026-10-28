@@ -1,0 +1,412 @@
+{
+  "make": "Nissan",
+  "model": "Frontier",
+  "body": "Pickup Truck",
+  "note": "All MSRPs exclude destination (each Nissan release says so). Per trim: first row is the cheapest configuration listed, second row (where listed) the Crew Cab 4x4. Nissan's Crew Cab SWB/LWB (2019-2020) correspond to the 5-ft / 6-ft beds named from 2022. 2016-2019 = old D40 truck (2.5L I4 King Cab only, or 4.0L V6; 5MT/6MT/5AT); 2020 = same body with the new 3.8L V6 + 9-speed automatic on every model; all-new D41 from the 2022 model year. King Cab and Crew Cab only.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 885,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 18090,
+          "config": "King Cab 4x2 I4 5MT",
+          "note": "King Cab 4x2 I4 5AT $20,760"
+        },
+        {
+          "trim": "S",
+          "msrp": 26550,
+          "config": "Crew Cab 4x4 SWB V6 5AT",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 21980,
+          "config": "King Cab 4x2 I4 5MT",
+          "note": "King Cab 4x2 V6 5AT $23,740"
+        },
+        {
+          "trim": "SV",
+          "msrp": 27760,
+          "config": "Crew Cab 4x4 SWB V6 5AT",
+          "note": "page lists SV Crew Cab 4x4 SWB V6 6MT at $28,710 (above the automatic), as printed"
+        },
+        {
+          "trim": "Desert Runner",
+          "msrp": 24320,
+          "config": "King Cab 4x2 V6 5AT",
+          "note": "4x2 only; Crew Cab 4x2 SWB $25,640"
+        },
+        {
+          "trim": "PRO-4X",
+          "msrp": 31640,
+          "config": "Crew Cab 4x4 SWB V6 6MT",
+          "note": "Crew Cab 5AT $32,690; King Cab 4x4 V6 6MT $31,880"
+        },
+        {
+          "trim": "SL",
+          "msrp": 31510,
+          "config": "Crew Cab 4x2 SWB V6 5AT",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 34160,
+          "config": "Crew Cab 4x4 SWB V6 5AT",
+          "note": "LWB $35,410"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2016-frontier",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2019,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 18990,
+          "config": "King Cab 4x2 I4 5MT",
+          "note": "King Cab 4x2 I4 5AT $23,060"
+        },
+        {
+          "trim": "S",
+          "msrp": 29390,
+          "config": "Crew Cab 4x4 SWB V6 5AT",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 23860,
+          "config": "King Cab 4x2 I4 5MT",
+          "note": "King Cab 4x2 V6 5AT $25,620"
+        },
+        {
+          "trim": "SV",
+          "msrp": 29940,
+          "config": "Crew Cab 4x4 SWB V6 5AT",
+          "note": "page also lists SV Crew Cab 4x4 SWB V6 6MT at $32,780 (above the automatic), as printed"
+        },
+        {
+          "trim": "Desert Runner",
+          "msrp": 26300,
+          "config": "King Cab 4x2 V6 5AT",
+          "note": "4x2 only; Crew Cab 4x2 SWB $27,730"
+        },
+        {
+          "trim": "PRO-4X",
+          "msrp": 33140,
+          "config": "Crew Cab 4x4 SWB V6 6MT",
+          "note": "Crew Cab 5AT $34,190; King Cab 4x4 V6 5AT $33,430"
+        },
+        {
+          "trim": "SL",
+          "msrp": 34010,
+          "config": "Crew Cab 4x2 SWB V6 5AT",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 36850,
+          "config": "Crew Cab 4x4 SWB V6 5AT",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2019-frontier",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2020,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 26790,
+          "config": "King Cab 4x2 3.8L V6 9AT",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 31290,
+          "config": "Crew Cab 4x4 3.8L V6 9AT",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 27670,
+          "config": "King Cab 4x2 3.8L V6 9AT",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 31990,
+          "config": "Crew Cab 4x4 SWB 3.8L V6 9AT",
+          "note": "Crew Cab 4x4 LWB $32,410"
+        },
+        {
+          "trim": "PRO-4X",
+          "msrp": 37490,
+          "config": "Crew Cab 4x4 3.8L V6 9AT",
+          "note": "Crew Cab 4x4 only"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/release-bce6c5b386302f5272596b97a8002317-nissan-announces-us-pricing-for-2020-frontier",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2022,
+      "destination": 1225,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 28140,
+          "config": "King Cab 4x2 6' bed",
+          "note": "headline says 'starts at $27,840'; table (updated Jan 6, 2022) says $28,140"
+        },
+        {
+          "trim": "S",
+          "msrp": 32440,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 30840,
+          "config": "King Cab 4x2 6' bed",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 35240,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "Crew Cab 4x4 6' bed (LWB) $37,140"
+        },
+        {
+          "trim": "PRO-X",
+          "msrp": 34370,
+          "config": "Crew Cab 4x2 5' bed",
+          "note": "4x2 only"
+        },
+        {
+          "trim": "PRO-4X",
+          "msrp": 37370,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/release-25819c9aeb4792ebec3d4ddceb412aa7-all-new-2022-nissan-frontier-pricing-starts-at-27840-2",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2023,
+      "destination": 1335,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 29390,
+          "config": "King Cab 4x2 6' bed",
+          "note": "page title says $29,370; table and body say $29,390"
+        },
+        {
+          "trim": "S",
+          "msrp": 33670,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 32090,
+          "config": "King Cab 4x2 6' bed",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 36470,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "Crew Cab 4x4 6' bed $39,300"
+        },
+        {
+          "trim": "PRO-X",
+          "msrp": 35900,
+          "config": "Crew Cab 4x2 5' bed",
+          "note": "4x2 only"
+        },
+        {
+          "trim": "PRO-4X",
+          "msrp": 38900,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/release-5078281d19ed36853371357c4a15487d-2023-nissan-frontier-prices-start-at-29370",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2024,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 29770,
+          "config": "King Cab 4x2 6' bed",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 34070,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 32470,
+          "config": "King Cab 4x2 6' bed",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 36870,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "Crew Cab 4x4 6' bed $39,700"
+        },
+        {
+          "trim": "PRO-X",
+          "msrp": 36300,
+          "config": "Crew Cab 4x2 5' bed",
+          "note": "4x2 only"
+        },
+        {
+          "trim": "PRO-4X",
+          "msrp": 39300,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "4x4 only"
+        },
+        {
+          "trim": "SL",
+          "msrp": 39640,
+          "config": "Crew Cab 4x2",
+          "note": "SL returns for 2024; bed length not stated"
+        },
+        {
+          "trim": "SL",
+          "msrp": 42640,
+          "config": "Crew Cab 4x4",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2024-nissan-frontier-pricing-starts-at-29770",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2025,
+      "destination": 1510,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 32050,
+          "config": "King Cab 4x2",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 36450,
+          "config": "Crew Cab 4x4",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 34390,
+          "config": "King Cab 4x2",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 39090,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "Crew Cab 4x4 6' bed $39,590"
+        },
+        {
+          "trim": "PRO-X",
+          "msrp": 38470,
+          "config": "Crew Cab 4x2",
+          "note": "4x2 only"
+        },
+        {
+          "trim": "PRO-4X",
+          "msrp": 41770,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "4x4 only; 6' bed $42,270"
+        },
+        {
+          "trim": "SL",
+          "msrp": 41810,
+          "config": "Crew Cab 4x2 5' bed",
+          "note": "6' bed $42,310"
+        },
+        {
+          "trim": "SL",
+          "msrp": 45110,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "6' bed $45,610"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2025-nissan-frontier-pricing-starts-at-32050",
+      "source_type": "manufacturer"
+    },
+    {
+      "year": 2026,
+      "destination": 1695,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 32150,
+          "config": "King Cab 4x2",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 36550,
+          "config": "Crew Cab 4x4",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 36190,
+          "config": "Crew Cab 4x2 5' bed",
+          "note": "no SV King Cab in the 2026 release"
+        },
+        {
+          "trim": "SV",
+          "msrp": 39490,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "6' bed $39,990"
+        },
+        {
+          "trim": "PRO-X",
+          "msrp": 38570,
+          "config": "Crew Cab 4x2",
+          "note": "4x2 only"
+        },
+        {
+          "trim": "PRO-4X",
+          "msrp": 41870,
+          "config": "Crew Cab 4x4 5' bed",
+          "note": "4x4 only; 6' bed $42,370"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2026-nissan-frontier-pricing-starts-at-32150",
+      "source_type": "manufacturer"
+    }
+  ],
+  "gaps": [
+    "2017, 2018, 2021: no pricing recorded (fetch budget ran out before these releases were located); no figures filled from memory. Whether a 2021 Frontier model year was sold was not checked.",
+    "2016: the pricing tables show destination $885 but the release footnote says 'Destination and handling $860'; $885 recorded.",
+    "2016 and 2019: SV Crew Cab 4x4 6MT is printed above the 5AT both years ($28,710 vs $27,760; $32,780 vs $29,940), so the manual likely carries extra equipment; recorded as printed. 2019 S King Cab 5MT ($18,990) is $4,070 below the 5AT ($23,060), versus a $2,670 gap in 2016.",
+    "2020 release lists only S / SV / PRO-4X (no SL or Desert Runner) and no bed lengths.",
+    "2022: headline 'starts at $27,840' vs table $28,140 (page updated Jan 6, 2022), so a mid-year increase is likely; table figure recorded. 2022/2023 releases list no SL.",
+    "2023: page title $29,370 vs table $29,390; table recorded.",
+    "2026 release lists no SV King Cab and no SL grade.",
+    "2027 Frontier release exists (from $32,490), outside the range."
+  ]
+}

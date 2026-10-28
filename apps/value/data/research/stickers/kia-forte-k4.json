@@ -1,0 +1,452 @@
+{
+ "make": "Kia",
+ "model": "Forte / K4",
+ "body": "Sedan",
+ "note": "Model name by year: 'Forte' for 2016-2024, 'K4' from 2025 (K4 replaces the Forte). All rows are the 4-door sedan. Not priced here: Forte5 hatchback and Forte Koup (2016-2018 era) and the K4 Hatchback (2025+, separate release). MSRP excludes destination; destination per year in `destination`. kiamedia.com per-year pricing pages list MSRP and destination separately ('All prices are F.O.B. Port of Entry').",
+ "years": [
+  {
+   "year": 2016,
+   "name": "Forte",
+   "destination": 850,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 15990,
+     "config": "4dr Sedan, 6-speed manual",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 17700,
+     "config": "4dr Sedan, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 19900,
+     "config": "4dr Sedan",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2016-kia-forte-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with separate destination column). kiamedia 2016 pricing URL was not fetchable (permission not granted)."
+  },
+  {
+   "year": 2017,
+   "name": "Forte",
+   "destination": 895,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 16600,
+     "config": "4dr Sedan, 6-speed manual",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 17600,
+     "config": "4dr Sedan, 6-speed automatic",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 19300,
+     "config": "4dr Sedan",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 21300,
+     "config": "4dr Sedan",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2017-kia-forte-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table. kiamedia 2017 pricing URL was not fetchable (permission not granted)."
+  },
+  {
+   "year": 2018,
+   "name": "Forte",
+   "destination": 895,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 16800,
+     "config": "2.0L I4, 6 M/T",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 17900,
+     "config": "2.0L I4, 6 A/T",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 19400,
+     "config": "2.0L I4, 6 A/T",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 21700,
+     "config": "2.0L I4, 6 A/T",
+     "note": ""
+    }
+   ],
+   "source": "https://kiamedia.com/us/en/models/forte/2018/pricing",
+   "source_type": "manufacturer",
+   "source_note": "Page does not state body style; trim set (LX/S/EX) is the sedan lineup."
+  },
+  {
+   "year": 2019,
+   "name": "Forte",
+   "destination": 925,
+   "trims": [
+    {
+     "trim": "FE",
+     "msrp": 17790,
+     "config": "2.0L I4, 6 M/T",
+     "note": ""
+    },
+    {
+     "trim": "FE",
+     "msrp": 18690,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "LXS",
+     "msrp": 19190,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 20290,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 21990,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/es/models/forte/2019/pricing",
+   "source_type": "manufacturer",
+   "source_note": "Spanish-language version of the kiamedia pricing page (same table). New generation; FE and LXS replace LX."
+  },
+  {
+   "year": 2020,
+   "name": "Forte",
+   "destination": 965,
+   "trims": [
+    {
+     "trim": "FE",
+     "msrp": 17890,
+     "config": "2.0L I4, 6 M/T",
+     "note": ""
+    },
+    {
+     "trim": "FE",
+     "msrp": 18790,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "LXS",
+     "msrp": 19290,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "GT-Line",
+     "msrp": 20490,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 22090,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "GT",
+     "msrp": 22490,
+     "config": "1.6L Turbo, DCT",
+     "note": ""
+    },
+    {
+     "trim": "GT",
+     "msrp": 23090,
+     "config": "1.6L Turbo, 6 M/T",
+     "note": "Manual listed $600 above the DCT, as shown on the page"
+    }
+   ],
+   "source": "https://www.KIAmedia.com/us/en/models/forte/2020/pricing",
+   "source_type": "manufacturer",
+   "source_note": "GT-Line and GT added; S dropped."
+  },
+  {
+   "year": 2021,
+   "name": "Forte",
+   "destination": 995,
+   "trims": [
+    {
+     "trim": "FE",
+     "msrp": 17890,
+     "config": "2.0L I4, 6 M/T",
+     "note": ""
+    },
+    {
+     "trim": "FE",
+     "msrp": 18790,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "LXS",
+     "msrp": 19390,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "GT-Line",
+     "msrp": 20490,
+     "config": "2.0L I4, IVT",
+     "note": ""
+    },
+    {
+     "trim": "GT",
+     "msrp": 22790,
+     "config": "1.6L Turbo, DCT",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 23090,
+     "config": "2.0L I4, IVT",
+     "note": "As listed, EX is priced above the GT DCT this year"
+    },
+    {
+     "trim": "GT",
+     "msrp": 23390,
+     "config": "1.6L Turbo, 6 M/T",
+     "note": "Manual listed $600 above the DCT"
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/es/models/forte/2021/pricing",
+   "source_type": "manufacturer",
+   "source_note": "Spanish-language version of the kiamedia pricing page."
+  },
+  {
+   "year": 2022,
+   "name": "Forte",
+   "destination": 1095,
+   "trims": [
+    {
+     "trim": "FE",
+     "msrp": 19090,
+     "config": "2.0G, IVT",
+     "note": ""
+    },
+    {
+     "trim": "LXS",
+     "msrp": 19590,
+     "config": "2.0G, IVT",
+     "note": ""
+    },
+    {
+     "trim": "GT-Line",
+     "msrp": 21290,
+     "config": "2.0G, IVT",
+     "note": "Page writes 'GT Line'"
+    },
+    {
+     "trim": "GT",
+     "msrp": 23490,
+     "config": "1.6T, DCT",
+     "note": ""
+    },
+    {
+     "trim": "GT MT",
+     "msrp": 24490,
+     "config": "1.6T, 6 M/T",
+     "note": "Listed as a separate model 'Forte GT MT', $1,000 above GT DCT"
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/forte/2022/pricing",
+   "source_type": "manufacturer",
+   "source_note": "Refreshed model; FE manual and EX no longer listed."
+  },
+  {
+   "year": 2023,
+   "name": "Forte",
+   "destination": 1125,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 19690,
+     "config": "2.0G, IVT",
+     "note": "Base trim renamed LX (was FE)"
+    },
+    {
+     "trim": "LXS",
+     "msrp": 20190,
+     "config": "2.0G, IVT",
+     "note": ""
+    },
+    {
+     "trim": "GT-Line",
+     "msrp": 21890,
+     "config": "2.0G, IVT",
+     "note": ""
+    },
+    {
+     "trim": "GT",
+     "msrp": 24390,
+     "config": "1.6T, DCT",
+     "note": ""
+    },
+    {
+     "trim": "GT MT",
+     "msrp": 25090,
+     "config": "1.6T, 6 M/T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/forte/2023/pricing",
+   "source_type": "manufacturer"
+  },
+  {
+   "year": 2024,
+   "name": "Forte",
+   "destination": 1155,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 19990,
+     "config": "2.0G, IVT",
+     "note": ""
+    },
+    {
+     "trim": "LXS",
+     "msrp": 20490,
+     "config": "2.0G, IVT",
+     "note": ""
+    },
+    {
+     "trim": "GT-Line",
+     "msrp": 22490,
+     "config": "2.0G, IVT",
+     "note": ""
+    },
+    {
+     "trim": "GT",
+     "msrp": 24690,
+     "config": "1.6T, DCT",
+     "note": ""
+    },
+    {
+     "trim": "GT MT",
+     "msrp": 25390,
+     "config": "1.6T, 6 M/T",
+     "note": ""
+    }
+   ],
+   "source": "https://kiamedia.com/us/en/models/forte/2024/pricing",
+   "source_type": "manufacturer",
+   "source_note": "Last Forte model year."
+  },
+  {
+   "year": 2025,
+   "name": "K4",
+   "destination": 1155,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 21990,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "LXS",
+     "msrp": 22990,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 23990,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "GT-Line",
+     "msrp": 25190,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "GT-Line Turbo",
+     "msrp": 28090,
+     "config": "",
+     "note": ""
+    }
+   ],
+   "source": "https://www.conceptcarz.com/a54789/2025-kia-k4-pricing.aspx",
+   "source_type": "secondary",
+   "source_note": "Conceptcarz reprint credited 'by Kia' of Kia's Aug 13, 2024 pricing announcement; table caption 'MSRP (excludes $1,155 destination)'. First K4 year (replaces Forte)."
+  },
+  {
+   "year": 2026,
+   "name": "K4",
+   "destination": 1195,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 22190,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "LXS",
+     "msrp": 23290,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 24390,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "GT-Line",
+     "msrp": 25390,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "GT-Line Turbo",
+     "msrp": 28290,
+     "config": "",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kianewscenter.com/news/kia-announces-pricing-for-2026-k4-compact-sedan/s/957cafea-f9e5-4645-82d6-0df42ed8c470",
+   "source_type": "manufacturer",
+   "source_note": "Kia newsroom (kianewscenter.com) release; table header 'MSRP (excludes $1,195 destination)'. No release date stated on page."
+  }
+ ],
+ "gaps": [
+  "2016 and 2017: kiamedia.com pricing pages were not fetchable (permission request not answered); used iSeeCars (secondary). 2016 S trim not listed by iSeeCars.",
+  "2025: Kia's own release not fetched; used conceptcarz reprint of Kia's announcement (secondary).",
+  "Forte5 hatchback, Forte Koup and K4 Hatchback not priced."
+ ]
+}

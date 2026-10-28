@@ -1,0 +1,160 @@
+{
+ "make": "Toyota",
+ "model": "Prius",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/prius/year-2016/",
+   "fetched": "2026-10-28",
+   "page_average": 27654,
+   "page_note": "Unfiltered year page (assignment: no trim filter). Page states 'TrueCar has 75 used 2016 Toyota Prius models for sale nationwide' and 'The average price for the 2016 Toyota Prius LE is $27,654' (also 'XLE and Two averaging $29,903 and $12,390') - boilerplate (no 2016 LE/XLE trims existed), do not rely on it. First 5 cards recorded.",
+   "listings": [
+    {
+     "price": 16032,
+     "miles": 117171,
+     "location": "Burlington, NC",
+     "trim": "Three",
+     "body": "Hatchback / Wagon",
+     "note": "Great price"
+    },
+    {
+     "price": 17948,
+     "miles": 62526,
+     "location": "Tucson, AZ",
+     "trim": "Two",
+     "body": "Hatchback / Wagon",
+     "note": "Excellent price"
+    },
+    {
+     "price": 13999,
+     "miles": 137915,
+     "location": "Alhambra, CA",
+     "trim": "Three Touring",
+     "body": "Hatchback / Wagon",
+     "note": "Excellent price"
+    },
+    {
+     "price": 18045,
+     "miles": 81380,
+     "location": "El Cajon, CA",
+     "trim": "Three",
+     "body": "Hatchback / Wagon",
+     "note": "Excellent price"
+    },
+    {
+     "price": 20585,
+     "miles": 83568,
+     "location": "Hayward, CA",
+     "trim": "Four",
+     "body": "Hatchback / Wagon",
+     "note": "High price"
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/prius/year-2022/",
+   "fetched": "2026-10-28",
+   "page_average": 26420,
+   "page_note": "Unfiltered year page. Page states 'TrueCar has 97 used 2022 Toyota Prius models for sale nationwide' and 'The average price for the 2022 Toyota Prius LE is $26,420' - boilerplate-style sentence, do not rely on it. First 5 cards recorded; the first three are Sponsored.",
+   "listings": [
+    {
+     "price": 13786,
+     "miles": 192287,
+     "location": "Sacramento, CA",
+     "trim": "LE",
+     "body": "Hatchback / Wagon",
+     "note": "LE FWD; Sponsored; Excellent price"
+    },
+    {
+     "price": 18998,
+     "miles": 119401,
+     "location": "Oceanside, CA",
+     "trim": "Nightshade",
+     "body": "Hatchback / Wagon",
+     "note": "Nightshade FWD; Sponsored; Excellent price"
+    },
+    {
+     "price": 23766,
+     "miles": 54344,
+     "location": "Santa Ana, CA",
+     "trim": "LE",
+     "body": "Hatchback / Wagon",
+     "note": "LE FWD; Sponsored; Fair price"
+    },
+    {
+     "price": 19587,
+     "miles": 98703,
+     "location": "Jacksonville, FL",
+     "trim": "Nightshade",
+     "body": "Hatchback / Wagon",
+     "note": "Nightshade FWD; Excellent price"
+    },
+    {
+     "price": 26889,
+     "miles": 28646,
+     "location": "Santa Fe, NM",
+     "trim": "Limited",
+     "body": "Hatchback / Wagon",
+     "note": "Limited FWD; Excellent price"
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/prius/year-2024/",
+   "fetched": "2026-10-28",
+   "page_average": 26972,
+   "page_note": "Unfiltered year page. Page states 'TrueCar has 213 used 2024 Toyota Prius models...' and 'The average price for the 2024 Toyota Prius LE is $26,972' (also 'XLE and Two averaging $29,149 and $13,159') - boilerplate (no 2024 Two exists), do not rely on it. First 5 cards recorded.",
+   "listings": [
+    {
+     "price": 27492,
+     "miles": 11893,
+     "location": "Greenacres, FL",
+     "trim": "XLE",
+     "body": "Hatchback / Wagon",
+     "note": "XLE FWD; Excellent price"
+    },
+    {
+     "price": 33698,
+     "miles": 5874,
+     "location": "Tigard, OR",
+     "trim": "Limited",
+     "body": "Hatchback / Wagon",
+     "note": "Limited AWD; Excellent price"
+    },
+    {
+     "price": 29152,
+     "miles": 18389,
+     "location": "Leesburg, FL",
+     "trim": "XLE",
+     "body": "Hatchback / Wagon",
+     "note": "XLE FWD; Excellent price"
+    },
+    {
+     "price": 29462,
+     "miles": 11284,
+     "location": "Fort Myers, FL",
+     "trim": "XLE",
+     "body": "Hatchback / Wagon",
+     "note": "XLE FWD; CPO; Great price"
+    },
+    {
+     "price": 28586,
+     "miles": 22860,
+     "location": "Lander, WY",
+     "trim": "LE",
+     "body": "Hatchback / Wagon",
+     "note": "LE AWD; Excellent price"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2019: the unfiltered TrueCar page (https://www.truecar.com/used-cars-for-sale/listings/toyota/prius/year-2019/) returned no listing cards (only 'TrueCar has 99 used 2019 Toyota Prius models for sale nationwide' and 'Prices ... range from $13,951 to $29,998'); not re-fetched under the one-page-per-year rule, so no 2019 sample.",
+  "TrueCar 'average price' sentences name trims that did not exist that year (2016 LE/XLE, 2024 Two); recorded as page_average per BRIEF2 but unreliable."
+ ]
+}

@@ -1,0 +1,210 @@
+{
+ "make": "Kia",
+ "model": "Sportage",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/sportage/year-2016/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 17692,
+   "page_note": "Page says 23 used 2016 Sportage LX nationwide. Same $17,692 figure appears on the 2016, 2022 and 2024 LX pages: model-wide boilerplate, not a year-specific average.",
+   "listings": [
+    {
+     "price": 5873,
+     "miles": 176094,
+     "location": "Countryside, IL",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 12998,
+     "miles": 74611,
+     "location": "Riverside, CA",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 10140,
+     "miles": 83500,
+     "location": "Malden, MA",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 11849,
+     "miles": 46029,
+     "location": "Alpharetta, GA",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 8995,
+     "miles": 90644,
+     "location": "Carey, NC",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": "location as returned ('Carey'); probably Cary, NC"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/sportage/year-2019/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 18551,
+   "page_note": "Page says 71 used 2019 Sportage LX nationwide.",
+   "listings": [
+    {
+     "price": 10721,
+     "miles": 98709,
+     "location": "San Antonio, TX",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 12997,
+     "miles": 95236,
+     "location": "Northumberland, PA",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 10341,
+     "miles": 136256,
+     "location": "Waite Park, MN",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 16999,
+     "miles": 20583,
+     "location": "Farmington, UT",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 13794,
+     "miles": 90278,
+     "location": "Sanford, NC",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/sportage/year-2022/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 17692,
+   "page_note": "Page says 89 used 2022 Sportage LX nationwide. Same $17,692 figure appears on the 2016, 2022 and 2024 LX pages: model-wide boilerplate, not a year-specific average.",
+   "listings": [
+    {
+     "price": 19432,
+     "miles": 46909,
+     "location": "Grand Junction, CO",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 10884,
+     "miles": 112951,
+     "location": "Acworth, GA",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 14685,
+     "miles": 80330,
+     "location": "Scottsboro, AL",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 15179,
+     "miles": 71718,
+     "location": "Scottsboro, AL",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": "same dealer as previous row"
+    },
+    {
+     "price": 15341,
+     "miles": 74983,
+     "location": "La Follette, TN",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/sportage/year-2024/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 17692,
+   "page_note": "Page says 117 used 2024 Sportage LX nationwide (page elsewhere gives inconsistent counts). Same $17,692 figure appears on the 2016, 2022 and 2024 LX pages: model-wide boilerplate, not a year-specific average.",
+   "listings": [
+    {
+     "price": 17990,
+     "miles": 90469,
+     "location": "West Palm Beach, FL",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 19916,
+     "miles": 52320,
+     "location": "Columbia, SC",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 23293,
+     "miles": 19353,
+     "location": "Cocoa, FL",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": "CPO"
+    },
+    {
+     "price": 19989,
+     "miles": 41073,
+     "location": "Naples, FL",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": "CPO"
+    },
+    {
+     "price": 19129,
+     "miles": 58404,
+     "location": "North Aurora, IL",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "page_average: the $17,692 'average price' is identical on three of four year pages, so it is boilerplate and should not be used.",
+  "2022 is the old-generation (QL) Sportage; 2024 is the new-generation (NQ5)."
+ ]
+}

@@ -1,0 +1,264 @@
+{
+ "make": "Jeep",
+ "model": "Wrangler",
+ "body": "SUV / Crossover",
+ "note": "Wrangler comes as a two-door and as the four-door Wrangler Unlimited (from the 2024 model year Jeep's own release calls it '4-Door'). `config` says which. JK generation 2016-2018 (a 2018 JK was sold alongside the new JL); JL from the 2018 model year; Wrangler 4xe plug-in hybrid from 2021; Rubicon 392 V8 from 2021 (Final Edition in 2024-2025). All MSRPs exclude destination.",
+ "years": [
+  {
+   "year": 2017,
+   "destination": null,
+   "source": "https://www.cars.com/research/jeep-wrangler-2017/trims/",
+   "source_type": "secondary",
+   "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); the trims page does not say two-door or Unlimited, and gives one price per trim (the cheapest style). Special editions (Freedom, Big Bear, Willys Wheeler; 75th Anniversary, Chief, Smoky Mountain, Winter; Hard Rock, Recon) are shown at their base trim's price, so they are omitted. Sport S and Unlimited prices not on this page.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 23995,
+     "config": "4x4; body not stated on source (lowest-priced Sport style)",
+     "note": ""
+    },
+    {
+     "trim": "Sahara",
+     "msrp": 30445,
+     "config": "4x4; body not stated on source (lowest-priced Sahara style)",
+     "note": ""
+    },
+    {
+     "trim": "Rubicon",
+     "msrp": 33645,
+     "config": "4x4; body not stated on source (lowest-priced Rubicon style)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2020,
+   "destination": null,
+   "source": "https://www.cars.com/research/jeep-wrangler-2020/trims/",
+   "source_type": "secondary",
+   "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); the trims page does not say two-door or Unlimited, and gives one price per trim (the cheapest style). The page shows Sport S, Willys, Willys Sport, Freedom and Black and Tan all at the Sport price ($28,295) and Recon at the Rubicon price, which is a grouping artifact, so only Sport and Rubicon are recorded. Sahara and Unlimited prices not on this page.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 28295,
+     "config": "4x4; body not stated on source (lowest-priced Sport-family style)",
+     "note": ""
+    },
+    {
+     "trim": "Rubicon",
+     "msrp": 38695,
+     "config": "4x4; body not stated on source (lowest-priced Rubicon style)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "destination": 1595,
+   "source": "https://www.iseecars.com/car/jeep-wrangler-unlimited-price",
+   "source_type": "secondary",
+   "note": "Four-door rows from the iSeeCars 2022 Jeep Wrangler Unlimited price page (MSRP and $1,595 destination per style). Two-door rows from https://www.cars.com/research/jeep-wrangler-2022/trims/; they are cheaper than every Unlimited style, so they are two-door. Mixing sources: cars.com's figure may be a later in-year price than iSeeCars'. cars.com also shows Sport S, Willys and Willys Sport at the Sport price (artifact, omitted).",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 29995,
+     "config": "two-door 4x4",
+     "note": "cars.com trims page"
+    },
+    {
+     "trim": "Sport",
+     "msrp": 34045,
+     "config": "Unlimited (four-door) 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sport S",
+     "msrp": 37245,
+     "config": "Unlimited (four-door) 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Willys",
+     "msrp": 40100,
+     "config": "Unlimited (four-door) 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sahara",
+     "msrp": 42150,
+     "config": "Unlimited (four-door) 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Rubicon",
+     "msrp": 42000,
+     "config": "two-door 4x4",
+     "note": "cars.com trims page"
+    },
+    {
+     "trim": "Rubicon",
+     "msrp": 45800,
+     "config": "Unlimited (four-door) 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sahara 4xe",
+     "msrp": 54595,
+     "config": "Unlimited (four-door) 4x4",
+     "note": "plug-in hybrid"
+    },
+    {
+     "trim": "Rubicon 392",
+     "msrp": 79595,
+     "config": "Unlimited (four-door) 4x4",
+     "note": "6.4L V8"
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "destination": 1795,
+   "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=24902&mid=1",
+   "source_type": "manufacturer",
+   "note": "Official release 'Jeep Brand Announces Starting Prices for 2024 Wrangler Lineup', June 6, 2023: 'all prices exclude $1,795 destination'. Also listed: Willys 2-door $39,395, Rubicon X $54,895 2-door / $58,895 4-door, 4xe Sport S $49,995, Willys $54,735, High Altitude $66,995, Rubicon $60,585, Rubicon X $69,085.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 31895,
+     "config": "two-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 35895,
+     "config": "four-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sport S",
+     "msrp": 35395,
+     "config": "two-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sport S",
+     "msrp": 39395,
+     "config": "four-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Willys",
+     "msrp": 43395,
+     "config": "four-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sahara",
+     "msrp": 47825,
+     "config": "four-door 4x4",
+     "note": "four-door only"
+    },
+    {
+     "trim": "Rubicon",
+     "msrp": 45395,
+     "config": "two-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Rubicon",
+     "msrp": 49395,
+     "config": "four-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sahara 4xe",
+     "msrp": 56845,
+     "config": "four-door 4x4",
+     "note": "plug-in hybrid"
+    },
+    {
+     "trim": "Rubicon 392",
+     "msrp": 87595,
+     "config": "four-door 4x4",
+     "note": "6.4L V8"
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "destination": 1895,
+   "source": "https://www.iseecars.com/car/2025-jeep-wrangler-price",
+   "source_type": "secondary",
+   "note": "iSeeCars lists 20 styles as '2dr'/'4dr', each with $1,895 destination. Also listed: Willys 2dr $39,595, Rubicon X $56,905 2dr / $66,905 4dr, Sport S 4xe $50,695, Willys 4xe $55,435, Rubicon 4xe $61,395, Backcountry 4xe $64,290.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 32095,
+     "config": "two-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 36695,
+     "config": "four-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sport S",
+     "msrp": 35695,
+     "config": "two-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sport S",
+     "msrp": 40295,
+     "config": "four-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Willys",
+     "msrp": 44195,
+     "config": "four-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Sahara",
+     "msrp": 49370,
+     "config": "four-door 4x4",
+     "note": "four-door only"
+    },
+    {
+     "trim": "Rubicon",
+     "msrp": 46955,
+     "config": "two-door 4x4",
+     "note": ""
+    },
+    {
+     "trim": "Rubicon",
+     "msrp": 53955,
+     "config": "four-door 4x4",
+     "note": "$7,000 over the two-door, vs $4,000 in 2024; as printed"
+    },
+    {
+     "trim": "Sahara 4xe",
+     "msrp": 57695,
+     "config": "four-door 4x4",
+     "note": "plug-in hybrid"
+    },
+    {
+     "trim": "Rubicon 392 Final Edition",
+     "msrp": 99995,
+     "config": "four-door 4x4",
+     "note": "6.4L V8"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016, 2018, 2019, 2021, 2023, 2026: no sticker source read this round (call budget). Searches of media.stellantisnorthamerica.com found official lineup pricing only for 2024; 2021 releases found cover only the 4xe and Rubicon 392 launch editions; 2026 press-kit items are special-edition announcements.",
+  "Constructed iSeeCars year URLs (2016/2019/2022-jeep-wrangler-price) were blocked by the fetch tool (no permission); only iSeeCars URLs surfaced by search were fetchable.",
+  "2017 and 2020: cars.com trims pages give one price per trim and do not state two-door vs Unlimited; Sport S and all Unlimited prices missing.",
+  "2018: both JK (final year) and JL were sold as 2018 models; not priced.",
+  "2022: two-door Sport and Rubicon rows come from cars.com, four-door rows from iSeeCars (different sources, possibly different points in the year)."
+ ]
+}

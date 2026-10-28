@@ -1,0 +1,210 @@
+{
+  "make": "Toyota",
+  "model": "4Runner",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/4runner/year-2016/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 33425,
+      "page_result_count": 64,
+      "listings": [
+        {
+          "price": 26596,
+          "miles": 116336,
+          "location": "Wilsonville, OR",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "V6 4WD"
+        },
+        {
+          "price": 26285,
+          "miles": 117089,
+          "location": "Winston-Salem, NC",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "V6 4WD"
+        },
+        {
+          "price": 20199,
+          "miles": 136124,
+          "location": "Richardson, TX",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "V6 RWD"
+        },
+        {
+          "price": 15521,
+          "miles": 224885,
+          "location": "Charleston, SC",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "V6 RWD"
+        },
+        {
+          "price": 19851,
+          "miles": 138172,
+          "location": "Clarksville, TN",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "V6 RWD"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/4runner/year-2019/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 33294,
+      "page_result_count": 67,
+      "listings": [
+        {
+          "price": 23961,
+          "miles": 127589,
+          "location": "Tampa, FL",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "RWD"
+        },
+        {
+          "price": 33449,
+          "miles": 74731,
+          "location": "Brunswick, GA",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD"
+        },
+        {
+          "price": 23000,
+          "miles": 154953,
+          "location": "Lugoff, SC",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "RWD"
+        },
+        {
+          "price": 31899,
+          "miles": 79362,
+          "location": "Coeur D'Alene, ID",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD"
+        },
+        {
+          "price": 34900,
+          "miles": 60753,
+          "location": "Hillsboro, OR",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/4runner/year-2022/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 33294,
+      "page_result_count": 61,
+      "listings": [
+        {
+          "price": 31171,
+          "miles": 68088,
+          "location": "Renton, WA",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD"
+        },
+        {
+          "price": 34199,
+          "miles": 88084,
+          "location": "Everett, WA",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD"
+        },
+        {
+          "price": 30327,
+          "miles": 103579,
+          "location": "Chicago, IL",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD"
+        },
+        {
+          "price": 34334,
+          "miles": 83997,
+          "location": "Southern Pines, NC",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD"
+        },
+        {
+          "price": 36453,
+          "miles": 60920,
+          "location": "Portland, OR",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/4runner/year-2024/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 33294,
+      "page_result_count": 52,
+      "listings": [
+        {
+          "price": 38722,
+          "miles": 66123,
+          "location": "San Antonio, TX",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD; Sponsored"
+        },
+        {
+          "price": 37400,
+          "miles": 45239,
+          "location": "Hillsboro, OR",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD; CPO"
+        },
+        {
+          "price": 38825,
+          "miles": 30015,
+          "location": "Vancouver, WA",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD; CPO"
+        },
+        {
+          "price": 38800,
+          "miles": 33355,
+          "location": "Hillsboro, OR",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD; CPO"
+        },
+        {
+          "price": 37375,
+          "miles": 43718,
+          "location": "Pontiac, IL",
+          "trim": "SR5",
+          "body": "SUV / Crossover",
+          "note": "4WD"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "TrueCar 'average price for the <year> 4Runner SR5' is $33,294 on the 2019, 2022 and 2024 pages and $33,425 on 2016: boilerplate, not a year figure; ignore.",
+    "First 5 listings in page order per year; note field holds drivetrain as shown (RWD = 4x2)."
+  ]
+}

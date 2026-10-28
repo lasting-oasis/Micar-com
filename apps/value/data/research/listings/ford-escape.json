@@ -1,0 +1,210 @@
+{
+ "make": "Ford",
+ "model": "Escape",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "SE",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/escape/year-2016/?trim=se",
+   "fetched": "2026-10-28",
+   "page_average": 13573,
+   "listings": [
+    {
+     "price": 9012,
+     "miles": 116732,
+     "location": "Hudson, WI",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 7633,
+     "miles": 82395,
+     "location": "Santa Ana, CA",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 7465,
+     "miles": 132092,
+     "location": "Bloomington, IN",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 5887,
+     "miles": 167334,
+     "location": "Toms River, NJ",
+     "trim": "SE 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 8514,
+     "miles": 119246,
+     "location": "Phoenix, AZ",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ],
+   "page_note": "'The average price for the 2016 Ford Escape SE is $13,573'; 82 listings nationwide. Same $13,573 appears on the 2019 and 2022 pages (boilerplate)."
+  },
+  {
+   "year": 2019,
+   "trim_filter": "SE",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/escape/year-2019/?trim=se",
+   "fetched": "2026-10-28",
+   "page_average": 13573,
+   "listings": [
+    {
+     "price": 11843,
+     "miles": 63309,
+     "location": "Punta Gorda, FL",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 8322,
+     "miles": 120054,
+     "location": "El Cajon, CA",
+     "trim": "SE AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 15174,
+     "miles": 58173,
+     "location": "Homestead, FL",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 13999,
+     "miles": 53000,
+     "location": "Cary, NC",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 13299,
+     "miles": 69231,
+     "location": "Pikeville, KY",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ],
+   "page_note": "135 listings nationwide; page_average is boilerplate."
+  },
+  {
+   "year": 2022,
+   "trim_filter": "SE",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/escape/year-2022/?trim=se",
+   "fetched": "2026-10-28",
+   "page_average": 13573,
+   "listings": [
+    {
+     "price": 14314,
+     "miles": 103264,
+     "location": "Christiansburg, VA",
+     "trim": "SE AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 17364,
+     "miles": 42333,
+     "location": "Adamsburg, PA",
+     "trim": "SE AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 16259,
+     "miles": 55164,
+     "location": "Indianapolis, IN",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 16494,
+     "miles": 61026,
+     "location": "Lumberton, NJ",
+     "trim": "SE AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 18995,
+     "miles": 35374,
+     "location": "Milford, CT",
+     "trim": "SE AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ],
+   "page_note": "287 listings nationwide; page_average is boilerplate."
+  },
+  {
+   "year": 2024,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/escape/year-2024/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "listings": [
+    {
+     "price": 23584,
+     "miles": 12805,
+     "location": "Delray Beach, FL",
+     "trim": "Plug-In Hybrid FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; plug-in hybrid"
+    },
+    {
+     "price": 19999,
+     "miles": 46247,
+     "location": "Turnersville, NJ",
+     "trim": "ST-Line AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; CPO"
+    },
+    {
+     "price": 26202,
+     "miles": 21594,
+     "location": "East Moline, IL",
+     "trim": "Platinum AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 20922,
+     "miles": 21807,
+     "location": "Fort Wayne, IN",
+     "trim": "Active FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 18921,
+     "miles": 31843,
+     "location": "Tampa, FL",
+     "trim": "Active FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ],
+   "page_note": "Unfiltered year page: the ?trim=se page returned 'Oops! No exact matches' (no SE trim after the 2023 rename) and showed only other-year similar vehicles. Page text: 'The average price for the 2024 Ford Escape SE is $13,444', ST-Line and Active 'averaging $22,589 and $21,392'; recorded page_average null since SE is not a 2024 trim. 844 listings nationwide."
+  }
+ ],
+ "gaps": [
+  "2024: SE trim not offered (2023 rename to Active/ST-Line); unfiltered year page used, rows carry their own trims.",
+  "page_average $13,573 is identical on the 2016, 2019 and 2022 SE pages (model-wide boilerplate)."
+ ]
+}

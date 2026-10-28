@@ -1,0 +1,331 @@
+{
+ "make": "Jeep",
+ "model": "Compass",
+ "body": "SUV / Crossover",
+ "note": "Previous-generation (MK) Compass through 2016 (and a carry-over 2017, which cars.com files separately from the 'New Compass'); second generation (MP) from the 2017 model year. From 2023 every U.S. Compass is 4x4. A next-generation Compass was revealed in 2025 but per cars.com is not on sale in the U.S.; the U.S. 2026 Compass is the current generation. Prices exclude destination.",
+ "years": [
+  {
+   "year": 2017,
+   "generation": "MP (new Compass)",
+   "destination": null,
+   "source": "https://www.cars.com/research/jeep-new_compass-2017/trims/",
+   "source_type": "secondary",
+   "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); destination not stated on the page. cars.com files this as 'New Compass'. Latitude 4x4 is shown at the FWD price (grouping artifact), so only Latitude FWD is recorded.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 20995,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 22495,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude",
+     "msrp": 24295,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 28595,
+     "config": "4x4",
+     "note": "4x4 only"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 28995,
+     "config": "4x4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "destination": null,
+   "source": "https://www.cars.com/research/jeep-compass-2019/trims/",
+   "source_type": "secondary",
+   "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); destination not stated on the page. Latitude, Altitude and Latitude w/Sun/Wheel all shown at $25,345 for both FWD and 4x4, and High Altitude at the Limited prices (grouping artifacts, omitted). Upland Edition 4x4 shown at the Sport 4x4 price.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 22095,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 23595,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude",
+     "msrp": 25345,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 28445,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 29945,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 29445,
+     "config": "4x4",
+     "note": "4x4 only"
+    }
+   ]
+  },
+  {
+   "year": 2020,
+   "destination": 1495,
+   "source": "https://www.iseecars.com/car/2020-jeep-compass-price",
+   "source_type": "secondary",
+   "note": "iSeeCars MSRP and $1,495 destination per style. Latitude 4x4 is printed at the same $25,625 as Latitude FWD (every other trim shows a $1,500 4x4 premium), so the 4x4 row is omitted. Also listed: Altitude 4x4 $28,545, High Altitude 4x4 $32,150, North Edition 4x4 $27,975, Sun and Safety $27,320 / $28,820, Sun and Wheel $26,250.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 22280,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 23780,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude",
+     "msrp": 25625,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Altitude",
+     "msrp": 27045,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 28630,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 30130,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 29850,
+     "config": "4x4",
+     "note": "4x4 only"
+    },
+    {
+     "trim": "High Altitude",
+     "msrp": 30650,
+     "config": "FWD",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "destination": 1495,
+   "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=22850&mid=1",
+   "source_type": "manufacturer",
+   "note": "Official release 'Jeep Brand Announces Starting Prices for the 2022 Compass Lineup', July 14, 2021: 'all prices exclude $1,495 destination'. Trailhawk and Limited share the same price.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 24995,
+     "config": "4x2 (FWD)",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 26495,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude",
+     "msrp": 26525,
+     "config": "4x2 (FWD)",
+     "note": ""
+    },
+    {
+     "trim": "Latitude",
+     "msrp": 28025,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude LUX",
+     "msrp": 29595,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 31395,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 31395,
+     "config": "4x4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2023,
+   "destination": 1595,
+   "source": "https://www.iseecars.com/car/2023-jeep-compass-price",
+   "source_type": "secondary",
+   "note": "iSeeCars MSRP and $1,595 destination; all styles 4x4 (FWD dropped). Also listed: (RED) Edition $37,840.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 28400,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude",
+     "msrp": 32395,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude Lux",
+     "msrp": 33695,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Altitude",
+     "msrp": 34290,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 35745,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 35995,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "High Altitude",
+     "msrp": 38740,
+     "config": "4x4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2025,
+   "destination": 1595,
+   "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=26050&mid=",
+   "source_type": "manufacturer",
+   "note": "Official release 'Jeep Brand Announces Starting Prices for 2025 Compass Lineup', Aug 14, 2024. Release prices INCLUDE $1,595 destination (Sport $27,495, Latitude $29,765, Limited $33,840, Trailhawk $33,990); $1,595 subtracted here. Drivetrain not stated (4x4 standard since 2023 per iSeeCars 2023). Big cut vs 2023: Sport -$2,500, Latitude -$4,225.",
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 25900,
+     "config": "4x4 (drivetrain not stated on release)",
+     "note": ""
+    },
+    {
+     "trim": "Latitude",
+     "msrp": 28170,
+     "config": "4x4 (not stated)",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 32245,
+     "config": "4x4 (not stated)",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 32395,
+     "config": "4x4 (not stated)",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2026,
+   "destination": 1995,
+   "source": "https://www.cars.com/research/jeep-compass-2026/",
+   "source_type": "secondary",
+   "note": "cars.com overview page, current-generation U.S. Compass. Its expert review says 'all prices include $1,995 destination charge' and gives Latitude $30,990, Latitude Altitude $32,985, Limited $34,885, Limited Altitude $36,880, Trailhawk $35,390; $1,995 subtracted here. The same page's trim table shows different 'Starts at' figures (Latitude $29,550, Limited $33,560, Trailhawk $34,060) without saying whether destination is included; not used.",
+   "trims": [
+    {
+     "trim": "Latitude",
+     "msrp": 28995,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude Altitude",
+     "msrp": 30990,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 32890,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited Altitude",
+     "msrp": 34885,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 33395,
+     "config": "4x4",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016, 2018, 2021: no sticker source fetched this round (call budget); cars.com overview pages for these exist but older ones show used-market averages, not MSRP.",
+  "2017: only the new-generation (MP) Compass priced; the carry-over previous-generation 2017 Compass is not.",
+  "2024: cars.com 2024 overview shows only used-market average prices plus an untied 'Starts at $25,900'; no 2024 MSRP recorded. No 2024 Stellantis pricing release found in the one search.",
+  "2026: cars.com page carries two inconsistent price sets (review vs trim table); review figures used. No Stellantis 2026 U.S. pricing release found (search surfaced only a Canada 'What's New for 2026').",
+  "2019 and 2020 sources print Latitude 4x4 at the FWD price; 4x4 Latitude rows omitted those years."
+ ]
+}

@@ -1,0 +1,214 @@
+{
+  "make": "Honda",
+  "model": "Odyssey",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "EX-L",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/odyssey/year-2016/?trim=ex-l",
+      "fetched": "2026-10-28",
+      "page_average": 26217,
+      "page_listing_count_stated": 136,
+      "page_average_note": "FAQ sentence 'average price for the 2016 Honda Odyssey EX-L is $26,217'; same figure on the 2019 and 2024 pages, so model-wide boilerplate.",
+      "listings": [
+        {
+          "price": 20707,
+          "miles": 67905,
+          "location": "Cocoa, FL",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 14001,
+          "miles": 129770,
+          "location": "Sterling, IL",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 7899,
+          "miles": 193994,
+          "location": "Maysville, KY",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 13683,
+          "miles": 123055,
+          "location": "San Diego, CA",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 12900,
+          "miles": 134594,
+          "location": "Council Bluffs, IA",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "EX-L",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/odyssey/year-2019/?trim=ex-l",
+      "fetched": "2026-10-28",
+      "page_average": 26217,
+      "page_listing_count_stated": 263,
+      "page_average_note": "Model-wide boilerplate (identical on 2016/2024 pages).",
+      "listings": [
+        {
+          "price": 24045,
+          "miles": 55078,
+          "location": "Clearwater, FL",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 15472,
+          "miles": 136037,
+          "location": "Valencia, CA",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 21498,
+          "miles": 101572,
+          "location": "Wake Forest, NC",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 24801,
+          "miles": 69483,
+          "location": "McDonald, TN",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 22197,
+          "miles": 99734,
+          "location": "Raleigh, NC",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "EX-L",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/odyssey/year-2022/?trim=ex-l",
+      "fetched": "2026-10-28",
+      "page_average": 26704,
+      "page_listing_count_stated": 77,
+      "page_average_note": "FAQ figure $26,704 (differs from the $26,217 on other years' pages but is likely the same kind of boilerplate).",
+      "listings": [
+        {
+          "price": 30059,
+          "miles": 59047,
+          "location": "Bronx, NY",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 25958,
+          "miles": 96147,
+          "location": "Morehead City, NC",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 29142,
+          "miles": 63298,
+          "location": "Cincinnati, OH",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 27188,
+          "miles": 89332,
+          "location": "Fresno, CA",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 30344,
+          "miles": 37485,
+          "location": "Laurel, MD",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "EX-L",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/odyssey/year-2024/?trim=ex-l",
+      "fetched": "2026-10-28",
+      "page_average": 26217,
+      "page_listing_count_stated": 220,
+      "page_average_note": "Model-wide boilerplate (identical on 2016/2019 pages).",
+      "listings": [
+        {
+          "price": 32088,
+          "miles": 31462,
+          "location": "Flemington, NJ",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 33705,
+          "miles": 24876,
+          "location": "Tampa, FL",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 32417,
+          "miles": 25401,
+          "location": "Hollywood, FL",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 32496,
+          "miles": 54083,
+          "location": "Mount Airy, NC",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": ""
+        },
+        {
+          "price": 34000,
+          "miles": 20277,
+          "location": "Riverhead, NY",
+          "trim": "EX-L",
+          "body": "Minivan",
+          "note": "CPO"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "Up to 5 listings per year recorded (round-2 rule); first five vehicle listings in page order, ads excluded.",
+    "page_average values are FAQ boilerplate ($26,217 repeated on 2016/2019/2024 pages) and should not be used as year-specific averages; stated listing counts conflict with FAQ counts (~1,791-2,055 EX-L listings)."
+  ]
+}

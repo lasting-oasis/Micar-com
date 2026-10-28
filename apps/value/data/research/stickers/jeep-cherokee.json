@@ -1,0 +1,223 @@
+{
+ "make": "Jeep",
+ "model": "Cherokee",
+ "body": "SUV / Crossover",
+ "note": "KL generation Cherokee for 2016-2023 (facelift for 2019). No 2024 or 2025 model years. An all-new Cherokee (1.6L turbo hybrid, 210 hp) returned for the 2026 model year (official reveal Aug 21, 2025). Prices exclude destination.",
+ "years": [
+  {
+   "year": 2018,
+   "destination": null,
+   "source": "https://www.cars.com/research/jeep-cherokee-2018/trims/",
+   "source_type": "secondary",
+   "note": "cars.com 'Starting MSRP' (excludes destination per round-1 finding; latest in-year price); destination not stated on the page. Latitude Tech Connect shown at the Latitude price.",
+   "trims": [
+    {
+     "trim": "Latitude",
+     "msrp": 24395,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Latitude",
+     "msrp": 25895,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude Plus",
+     "msrp": 26295,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 29795,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 31295,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 30995,
+     "config": "4x4",
+     "note": "4x4 only"
+    },
+    {
+     "trim": "Overland",
+     "msrp": 34095,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Overland",
+     "msrp": 37340,
+     "config": "4x4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2020,
+   "destination": 1495,
+   "source": "https://www.iseecars.com/car/2020-jeep-cherokee-price",
+   "source_type": "secondary",
+   "note": "iSeeCars MSRP and $1,495 destination per style. Also listed: Latitude Plus 4x4 $29,095, Altitude 4x4 $30,290, Latitude Lux $29,900 / $31,400, High Altitude $35,540 / $36,840, North Edition 4x4 $31,800, Upland 4x4 $30,720, Trailhawk Elite $37,950, Overland 4x4 $38,495.",
+   "trims": [
+    {
+     "trim": "Latitude",
+     "msrp": 25840,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Latitude",
+     "msrp": 27340,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Latitude Plus",
+     "msrp": 27595,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Altitude",
+     "msrp": 28790,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 31600,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 34845,
+     "config": "4x4",
+     "note": "4x4 premium is $3,245 here vs $1,500 on other trims; as printed"
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 34755,
+     "config": "4x4",
+     "note": "4x4 only"
+    },
+    {
+     "trim": "Overland",
+     "msrp": 36995,
+     "config": "FWD",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "destination": null,
+   "source": "https://www.cars.com/research/jeep-cherokee-2022/trims/",
+   "source_type": "secondary",
+   "note": "cars.com 'Starting MSRP' (excludes destination per round-1 finding; latest in-year price); destination not stated on the page. No plain Latitude in the 2022 list; Altitude marked 'Ltd Avail'. Latitude Lux priced above Altitude and X on this page, as printed.",
+   "trims": [
+    {
+     "trim": "Altitude",
+     "msrp": 29995,
+     "config": "FWD",
+     "note": "Ltd Avail"
+    },
+    {
+     "trim": "Altitude",
+     "msrp": 31495,
+     "config": "4x4",
+     "note": "Ltd Avail"
+    },
+    {
+     "trim": "Latitude Lux",
+     "msrp": 34895,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Latitude Lux",
+     "msrp": 36395,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "X",
+     "msrp": 35245,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 37545,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 39345,
+     "config": "4x4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2023,
+   "destination": null,
+   "source": "https://www.cars.com/research/jeep-cherokee-2023/",
+   "source_type": "secondary",
+   "note": "cars.com overview page, figures labeled 'Starts at' (not explicitly MSRP; destination not stated). Page lists only two trims; its review says AWD/4x4 is standard on every 2023 Cherokee.",
+   "trims": [
+    {
+     "trim": "Altitude Lux",
+     "msrp": 37695,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Trailhawk",
+     "msrp": 41295,
+     "config": "4x4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2026,
+   "destination": 1995,
+   "source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=27007&mid=",
+   "source_type": "manufacturer",
+   "generation": "all-new 2026 hybrid",
+   "note": "Official press kit '2026 Jeep Cherokee Takes Adventure Further Than Ever' (revealed Aug 21, 2025). Release gives Cherokee $36,995 and Laredo $39,995 INCLUDING $1,995 destination; $1,995 subtracted here. It also gives Limited $42,495 and Overland $45,995 without saying whether destination is included, so they are not recorded as MSRP rows. (iSeeCars' current Cherokee price page is already for MY2027: Base $35,000, Laredo $38,000, Limited $40,000, Overland $43,000, $1,995 destination; not used for 2026.)",
+   "trims": [
+    {
+     "trim": "Cherokee",
+     "msrp": 35000,
+     "config": "4x4 hybrid",
+     "note": "base; $36,995 incl. destination"
+    },
+    {
+     "trim": "Laredo",
+     "msrp": 38000,
+     "config": "4x4 hybrid",
+     "note": "$39,995 incl. destination"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016: cars.com 2016 page shows only used-market average prices (no MSRP); not priced.",
+  "2017, 2019, 2021: no source fetched this round (call budget).",
+  "No official Stellantis U.S. lineup pricing release found for 2016-2023 (search surfaced only the 2014 launch price and a Latitude LUX add-on release).",
+  "2026: Limited and Overland prices stated without clarity on destination; omitted as rows.",
+  "2024, 2025: no Cherokee model year (per assignment)."
+ ]
+}

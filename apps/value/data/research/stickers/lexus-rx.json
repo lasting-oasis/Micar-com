@@ -1,0 +1,204 @@
+{
+  "make": "Lexus",
+  "model": "RX",
+  "body": "SUV / Crossover",
+  "note": "Single body style (crossover). Three-row RX 350L / RX 450hL offered in the 2018-2022 generation; RX 450h renamed RX 350h for 2023, which also added RX 500h and later RX 450h+ (plug-in).",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 940,
+      "trims": [
+        {
+          "trim": "RX 350",
+          "msrp": 41900,
+          "config": "FWD",
+          "note": "Listed $42,840 including $940 destination; $940 subtracted. TrueDelta base price page also shows RX 350 base $41,900 (with a $950 destination)."
+        },
+        {
+          "trim": "RX 350",
+          "msrp": 43300,
+          "config": "AWD",
+          "note": "Listed $44,240 incl. destination."
+        },
+        {
+          "trim": "RX 350 F SPORT",
+          "msrp": 49125,
+          "config": "AWD",
+          "note": "Listed $50,065 incl. destination."
+        },
+        {
+          "trim": "RX 450h",
+          "msrp": 52235,
+          "config": "FWD",
+          "note": "Listed $53,175 incl. destination; article gives no drivetrain label for this base hybrid price."
+        },
+        {
+          "trim": "RX 450h",
+          "msrp": 53635,
+          "config": "AWD",
+          "note": "Listed $54,575 incl. destination."
+        },
+        {
+          "trim": "RX 450h F SPORT",
+          "msrp": 57045,
+          "config": "AWD",
+          "note": "Listed $57,985 incl. destination."
+        }
+      ],
+      "source": "https://lexusenthusiast.com/2015/10/20/lexus-usa-announces-pricing-for-all-new-2016-rx-350-rx-450h/",
+      "source_type": "secondary",
+      "sources_extra": [
+        "https://www.truedelta.com/Lexus-RX/price-164/2016"
+      ],
+      "note": "Lexus Enthusiast (2015-10-20) reporting Lexus USA's launch pricing for the all-new 2016 RX: 'All prices include a $940 destination charge.' MSRPs are those figures minus $940. TrueDelta (undated) shows destination $950, possibly a later-in-year figure."
+    },
+    {
+      "year": 2020,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "RX 350",
+          "msrp": 45175,
+          "config": "FWD",
+          "note": "As stated; may include destination (not stated)."
+        },
+        {
+          "trim": "RX 350",
+          "msrp": 46575,
+          "config": "AWD",
+          "note": "As stated; may include destination."
+        },
+        {
+          "trim": "RX 350L",
+          "msrp": 48325,
+          "config": "FWD",
+          "note": "Three-row. As stated; may include destination."
+        },
+        {
+          "trim": "RX 350 F SPORT",
+          "msrp": 48975,
+          "config": "FWD",
+          "note": "As stated; may include destination."
+        },
+        {
+          "trim": "RX 350L",
+          "msrp": 49725,
+          "config": "AWD",
+          "note": "Three-row. As stated; may include destination."
+        },
+        {
+          "trim": "RX 350 F SPORT",
+          "msrp": 50375,
+          "config": "AWD",
+          "note": "As stated; may include destination."
+        }
+      ],
+      "source": "https://lexusenthusiast.com/?p=41837",
+      "source_type": "secondary",
+      "note": "Lexus Enthusiast 'Lexus USA Announces Updated 2020 RX Crossover Pricing' (2019-09-08), linking Lexus's pressroom release. The page as read does not state a destination charge or whether it is included; figures recorded as shown and may include destination. Hybrid (RX 450h / 450hL) prices not recorded: see gaps."
+    },
+    {
+      "year": 2023,
+      "destination": 1150,
+      "trims": [
+        {
+          "trim": "RX 350",
+          "msrp": 47400,
+          "config": "FWD",
+          "note": "Listed $48,550 incl. $1,150 destination; AWD is a $1,600 option."
+        },
+        {
+          "trim": "RX 350h",
+          "msrp": 49000,
+          "config": "AWD",
+          "note": "Listed $50,150 incl. destination; AWD standard. Replaces the RX 450h name."
+        },
+        {
+          "trim": "RX 350 Premium Plus",
+          "msrp": 52000,
+          "config": "FWD",
+          "note": "Listed $53,150 incl. destination; AWD +$1,600."
+        },
+        {
+          "trim": "RX 350h Premium Plus",
+          "msrp": 53600,
+          "config": "AWD",
+          "note": "Listed $54,750 incl. destination."
+        },
+        {
+          "trim": "RX 350 F SPORT Handling",
+          "msrp": 56600,
+          "config": "AWD",
+          "note": "Listed $57,750 incl. destination; AWD standard."
+        },
+        {
+          "trim": "RX 500h F SPORT Performance",
+          "msrp": 61600,
+          "config": "AWD",
+          "note": "Listed $62,750 incl. destination; AWD standard."
+        }
+      ],
+      "source": "https://cars.com/articles/2023-lexus-rx-lineup-priced-to-pair-with-redesign-459360",
+      "source_type": "secondary",
+      "note": "cars.com news article (2022-11-14) on launch pricing of the redesigned fifth-generation RX: 'all prices include a $1,150 destination fee.' MSRPs are those figures minus $1,150. The article lists no plain 'Premium' grade."
+    },
+    {
+      "year": 2025,
+      "destination": 1150,
+      "trims": [
+        {
+          "trim": "RX 350",
+          "msrp": 48975,
+          "config": "FWD",
+          "note": "iSeeCars '4dr SUV'."
+        },
+        {
+          "trim": "RX 350",
+          "msrp": 50575,
+          "config": "AWD",
+          "note": "iSeeCars 'AWD 4dr SUV'."
+        },
+        {
+          "trim": "RX 350 Premium",
+          "msrp": 51225,
+          "config": "FWD",
+          "note": "iSeeCars 'Premium 4dr SUV'; AWD 52825."
+        },
+        {
+          "trim": "RX 350 F SPORT Design",
+          "msrp": 53555,
+          "config": "FWD",
+          "note": "iSeeCars 'F SPORT Design 4dr SUV'; AWD 55155."
+        },
+        {
+          "trim": "RX 350 Premium+",
+          "msrp": 54715,
+          "config": "FWD",
+          "note": "iSeeCars 'Premium+ 4dr SUV'; AWD 56315."
+        },
+        {
+          "trim": "RX 350 F SPORT Handling",
+          "msrp": 57825,
+          "config": "AWD",
+          "note": "iSeeCars 'AWD F SPORT Handling 4dr SUV'."
+        },
+        {
+          "trim": "RX 350 Luxury",
+          "msrp": 59770,
+          "config": "FWD",
+          "note": "iSeeCars 'Luxury 4dr SUV'; AWD 61370."
+        }
+      ],
+      "source": "https://iseecars.com/car/2025-lexus-rx_350-price",
+      "source_type": "secondary",
+      "note": "iSeeCars RX 350 price table (MSRP and separate destination 1150); no price date shown. iSeeCars splits the RX by powertrain, so hybrid RX 350h / 450h+ / 500h pages were not fetched."
+    }
+  ],
+  "gaps": [
+    "pressroom.lexus.com tried once (search): only a 2013 pricing release surfaced; no usable RX release for 2016-2026, so all years are secondary.",
+    "Missing years (budget exhausted): 2017, 2018, 2019, 2021, 2022, 2024, 2026. No figures recorded for them.",
+    "2020: destination not stated by the source and the figures may include it; recorded as shown. The page also gave an 'RX 450h' figure of $47,775, which sits below the RX 350L and looks misread or out of context, so it was left out.",
+    "2025: RX 350 trims only; hybrid trims (RX 350h, RX 450h+, RX 500h) not captured.",
+    "2016 hybrid row: the source lists a base RX 450h price without a drivetrain label; recorded as FWD by position (FWD/AWD pairs)."
+  ]
+}

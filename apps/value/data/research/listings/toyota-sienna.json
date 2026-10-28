@@ -1,0 +1,210 @@
+{
+ "make": "Toyota",
+ "model": "Sienna",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "LE",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/year-2016/?trim=le",
+   "fetched": "2026-10-28",
+   "page_average": 29220,
+   "page_note": "Page states 'TrueCar has 21 used 2016 Toyota Sienna LE models for sale nationwide'; average sentence: '...2016 Toyota Sienna LE and 2016 Toyota Sienna XSE averaging $29,220 and $45,125 respectively' - boilerplate (no 2016 XSE existed; the same $29,220/$45,125 pair appears on the 2024 page), do not rely on it. 20 cards on page; first 5 recorded. No CPO or Sponsored badges.",
+   "listings": [
+    {
+     "price": 12593,
+     "miles": 146898,
+     "location": "Raleigh, NC",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Excellent price"
+    },
+    {
+     "price": 16404,
+     "miles": 108085,
+     "location": "Libertyville, IL",
+     "trim": "LE Auto Access Seat",
+     "body": "Minivan",
+     "note": "LE Auto Access Seat 7-Passenger FWD (mobility variant); Excellent price"
+    },
+    {
+     "price": 14731,
+     "miles": 127541,
+     "location": "Fresno, CA",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Excellent price"
+    },
+    {
+     "price": 20481,
+     "miles": 101959,
+     "location": "Harrisburg, PA",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 7-Passenger AWD; Great price"
+    },
+    {
+     "price": 13979,
+     "miles": 134413,
+     "location": "San Diego, CA",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Fair price"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "LE",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/year-2019/?trim=le",
+   "fetched": "2026-10-28",
+   "page_average": 29286,
+   "page_note": "Page states 'TrueCar has 24 used 2019 Toyota Sienna LE models for sale nationwide'; average sentence: '...2019 Toyota Sienna LE and 2019 Toyota Sienna XSE averaging $29,286 and $44,997 respectively' - boilerplate (no 2019 XSE existed), do not rely on it. First 5 cards recorded.",
+   "listings": [
+    {
+     "price": 20525,
+     "miles": 134692,
+     "location": "Vineland, NJ",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Great price"
+    },
+    {
+     "price": 13838,
+     "miles": 172307,
+     "location": "Westbrook, ME",
+     "trim": "LE Auto Access Seat",
+     "body": "Minivan",
+     "note": "LE Auto Access Seat 7-Passenger FWD (mobility variant); Excellent price"
+    },
+    {
+     "price": 22205,
+     "miles": 109865,
+     "location": "San Diego, CA",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Excellent price"
+    },
+    {
+     "price": 29796,
+     "miles": 53014,
+     "location": "Bel Air, MD",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 7-Passenger AWD; Excellent price"
+    },
+    {
+     "price": 27486,
+     "miles": 64520,
+     "location": "Sacramento, CA",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; CPO; Great price"
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "LE",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/year-2022/?trim=le",
+   "fetched": "2026-10-28",
+   "page_average": 30361,
+   "page_note": "Page states 'TrueCar has 41 used 2022 Toyota Sienna LE models for sale nationwide'; average sentence: '...2022 Toyota Sienna LE and 2022 Toyota Sienna XSE averaging $30,361 and $44,983 respectively' - treat as boilerplate, do not rely on it. First 5 cards recorded; no CPO or Sponsored badges.",
+   "listings": [
+    {
+     "price": 30887,
+     "miles": 80321,
+     "location": "Lexington, TN",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Excellent price"
+    },
+    {
+     "price": 28361,
+     "miles": 96892,
+     "location": "Tulsa, OK",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Excellent price"
+    },
+    {
+     "price": 30667,
+     "miles": 77307,
+     "location": "Fairfield, OH",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Excellent price"
+    },
+    {
+     "price": 26283,
+     "miles": 102783,
+     "location": "Wesley Chapel, FL",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Great price"
+    },
+    {
+     "price": 31216,
+     "miles": 74185,
+     "location": "Clarksville, IN",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE 8-Passenger FWD; Great price"
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "LE",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/sienna/year-2024/?trim=le",
+   "fetched": "2026-10-28",
+   "page_average": 29220,
+   "page_note": "Page states 'TrueCar has 64 used 2024 Toyota Sienna LE models for sale nationwide' (a summary table also shows '340 listings' for all 2024 Siennas); average sentence: '...2024 Toyota Sienna LE and 2024 Toyota Sienna XSE averaging $29,220 and $45,125 respectively' - identical to the 2016 page and below every 2024 asking price, so boilerplate; do not rely on it. First 5 cards recorded.",
+   "listings": [
+    {
+     "price": 38995,
+     "miles": 44820,
+     "location": "Thomaston, ME",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE AWD 8-Passenger; Excellent price"
+    },
+    {
+     "price": 44081,
+     "miles": 30558,
+     "location": "Orem, UT",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE AWD 8-Passenger; CPO; Great price"
+    },
+    {
+     "price": 40662,
+     "miles": 57400,
+     "location": "Orem, UT",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE AWD 8-Passenger; CPO; Fair price"
+    },
+    {
+     "price": 39070,
+     "miles": 37529,
+     "location": "Brooklyn, NY",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE AWD 8-Passenger; Excellent price"
+    },
+    {
+     "price": 34630,
+     "miles": 65047,
+     "location": "Billings, MT",
+     "trim": "LE",
+     "body": "Minivan",
+     "note": "LE FWD 8-Passenger; Excellent price"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "TrueCar 'averaging $X' figures are model-wide boilerplate (they name a Sienna XSE for 2016 and 2019, years with no XSE; 2016 and 2024 share the same $29,220 figure). Recorded as page_average per BRIEF2 but unreliable.",
+  "2016 and 2019 samples each include one LE Auto Access Seat (mobility) van; trim recorded as 'LE Auto Access Seat'."
+ ]
+}

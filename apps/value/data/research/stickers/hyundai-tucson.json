@@ -1,0 +1,479 @@
+{
+ "make": "Hyundai",
+ "model": "Tucson",
+ "body": "SUV / Crossover",
+ "note": "Compact crossover, one body style. Rows are the FWD price of each gas trim; AWD premium in each row's note. Tucson Hybrid and Plug-in Hybrid (2022+) are not included.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": 895,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 22700,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Eco",
+     "msrp": 24150,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Sport",
+     "msrp": 26150,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 29900,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2016-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Each trim also listed 'w/Beige Seats' at the same price (dropped)."
+  },
+  {
+   "year": 2017,
+   "destination": 950,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 22700,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Eco",
+     "msrp": 24150,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Sport",
+     "msrp": 25900,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Value",
+     "msrp": 26550,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "SE Plus",
+     "msrp": 26750,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Night",
+     "msrp": 27800,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 29775,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2017-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ."
+  },
+  {
+   "year": 2018,
+   "destination": 980,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 22550,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 23800,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Sport",
+     "msrp": 25150,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Value",
+     "msrp": 26550,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "SEL Plus",
+     "msrp": 26700,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 29425,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2018-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ."
+  },
+  {
+   "year": 2019,
+   "destination": 1095,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 23350,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Value",
+     "msrp": 24800,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 25750,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Sport",
+     "msrp": 27850,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 29050,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Night",
+     "msrp": 30800,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Ultimate",
+     "msrp": 31700,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Refreshed model year."
+  },
+  {
+   "year": 2020,
+   "destination": 1140,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 23550,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Value",
+     "msrp": 25000,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 25950,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Sport",
+     "msrp": 28100,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 29250,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Ultimate",
+     "msrp": 31900,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2020-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ."
+  },
+  {
+   "year": 2021,
+   "destination": 1185,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 23700,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Value",
+     "msrp": 25150,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 26100,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Sport",
+     "msrp": 28250,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 29400,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    },
+    {
+     "trim": "Ultimate",
+     "msrp": 32050,
+     "config": "FWD",
+     "note": "AWD +$1,400"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2021-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ."
+  },
+  {
+   "year": 2022,
+   "destination": 1295,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 25800,
+     "config": "FWD",
+     "note": "AWD $27,300 (+$1,500); a 'midyear release' AWD SE row reads $28,600 on the page, likely a data error"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 27100,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "N Line",
+     "msrp": 30750,
+     "config": "FWD",
+     "note": "AWD +$1,650"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 31550,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 35300,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. All-new generation. Gas trims only; Tucson Hybrid / Plug-in Hybrid are separate iSeeCars models and not captured."
+  },
+  {
+   "year": 2023,
+   "destination": 1335,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 26900,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 28500,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 33725,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "N Line",
+     "msrp": 33775,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 36160,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Gas trims only; hybrids not captured."
+  },
+  {
+   "year": 2024,
+   "destination": 1375,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 27500,
+     "config": "FWD",
+     "note": "AWD +$1,500; 'midyear release' row $27,600"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 29650,
+     "config": "FWD",
+     "note": "AWD +$1,500; 'midyear release' row $29,900"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 34235,
+     "config": "FWD",
+     "note": "AWD $35,825 (+$1,590 as listed)"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 36760,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Gas trims only; N Line not listed on the page; hybrids not captured. Fleet SEL rows (same price as SEL) dropped."
+  },
+  {
+   "year": 2025,
+   "destination": 1495,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 28705,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 30565,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "SEL Convenience",
+     "msrp": 33015,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 33015,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 38645,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Refreshed model year. Gas trims only; hybrids not captured."
+  },
+  {
+   "year": 2026,
+   "destination": 1650,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 29700,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 31050,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "SEL Plus",
+     "msrp": 31550,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "XRT",
+     "msrp": 33725,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "SEL Premium",
+     "msrp": 34050,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 39675,
+     "config": "FWD",
+     "note": "AWD +$1,500"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2026-hyundai-tucson-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Gas trims only; hybrids not captured."
+  }
+ ],
+ "gaps": [
+  "All years secondary (iSeeCars). Three WebSearch attempts for hyundainews.com Tucson price-sheet PDFs returned no hyundainews results, so no manufacturer sheet was fetched.",
+  "Destination charges are iSeeCars' per-style figures and may reflect a late-year freight change rather than the launch figure.",
+  "2022-2026: Tucson Hybrid / Plug-in Hybrid pricing not captured.",
+  "2024-2026: N Line not shown on the iSeeCars page."
+ ]
+}

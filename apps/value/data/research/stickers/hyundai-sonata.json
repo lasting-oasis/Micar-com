@@ -1,0 +1,450 @@
+{
+ "make": "Hyundai",
+ "model": "Sonata",
+ "body": "Sedan",
+ "note": "Midsize sedan, one body style. Gas trims only: Sonata Hybrid / Plug-in Hybrid are separate iSeeCars models and not priced here. Config left blank where iSeeCars does not state the engine; '2.0T'/'2.5T' only where the trim name or model identifies it (N Line = 2.5T).",
+ "years": [
+  {
+   "year": 2016,
+   "destination": 835,
+   "trims": [
+    {
+     "trim": "Base",
+     "msrp": 21600,
+     "config": "",
+     "note": "iSeeCars style is an unnamed '4dr Sedan' (also PZEV, same price); listed with destination 885 vs 835 for every other style"
+    },
+    {
+     "trim": "SE",
+     "msrp": 21750,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 23400,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Eco",
+     "msrp": 23725,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 27350,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Sport 2.0T",
+     "msrp": 28925,
+     "config": "2.0T",
+     "note": ""
+    },
+    {
+     "trim": "Limited 2.0T",
+     "msrp": 34075,
+     "config": "2.0T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2016-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. PZEV / tire-kit / black-leather duplicate rows at the same price dropped."
+  },
+  {
+   "year": 2017,
+   "destination": 885,
+   "trims": [
+    {
+     "trim": "Base",
+     "msrp": 21600,
+     "config": "",
+     "note": "unnamed '4dr Sedan' style (also PZEV, same price)"
+    },
+    {
+     "trim": "SE",
+     "msrp": 21950,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Eco",
+     "msrp": 23125,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 23400,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Sport 2.0T",
+     "msrp": 26600,
+     "config": "2.0T",
+     "note": "lower than 2016's $28,925 as listed"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 27150,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Limited 2.0T",
+     "msrp": 34350,
+     "config": "2.0T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2017-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. PZEV / black-leather duplicates dropped."
+  },
+  {
+   "year": 2018,
+   "destination": 885,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 22050,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Eco",
+     "msrp": 22650,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 23700,
+     "config": "",
+     "note": "'SEL+' midyear release also $23,700"
+    },
+    {
+     "trim": "Sport",
+     "msrp": 25200,
+     "config": "",
+     "note": "'Sport+' midyear release $24,800"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 27400,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Sport 2.0T",
+     "msrp": 27600,
+     "config": "2.0T",
+     "note": ""
+    },
+    {
+     "trim": "Limited 2.0T",
+     "msrp": 32450,
+     "config": "2.0T",
+     "note": "'Limited 2.0T+' midyear release $31,900"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2018-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Refreshed model year; SEL trim introduced. SULEV duplicates dropped."
+  },
+  {
+   "year": 2019,
+   "destination": 930,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 22650,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Eco",
+     "msrp": 23000,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 24300,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 25150,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 27850,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Limited 2.0T",
+     "msrp": 32250,
+     "config": "2.0T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Sport 2.0T not listed for 2019."
+  },
+  {
+   "year": 2020,
+   "destination": 995,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 23600,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 25700,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL Plus",
+     "msrp": 27650,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 33500,
+     "config": "",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2020-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. All-new generation."
+  },
+  {
+   "year": 2021,
+   "destination": 1005,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 23950,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 25800,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL Plus",
+     "msrp": 28300,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "N Line",
+     "msrp": 33300,
+     "config": "2.5T",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 33950,
+     "config": "",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2021-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ."
+  },
+  {
+   "year": 2022,
+   "destination": 1095,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 24150,
+     "config": "",
+     "note": "listed with destination 1025; a 'midyear release' SE row is $24,500 with destination 1095"
+    },
+    {
+     "trim": "SEL",
+     "msrp": 26250,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL Plus",
+     "msrp": 31450,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "N Line",
+     "msrp": 33750,
+     "config": "2.5T",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 34400,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "N Line Night Edition",
+     "msrp": 34750,
+     "config": "2.5T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ."
+  },
+  {
+   "year": 2023,
+   "destination": 1115,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 25450,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 27975,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL Plus",
+     "msrp": 32475,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "N Line",
+     "msrp": 34825,
+     "config": "2.5T",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 35325,
+     "config": "",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ."
+  },
+  {
+   "year": 2024,
+   "destination": 1150,
+   "trims": [
+    {
+     "trim": "SEL",
+     "msrp": 27500,
+     "config": "FWD",
+     "note": "AWD SEL $29,000"
+    },
+    {
+     "trim": "N Line",
+     "msrp": 34950,
+     "config": "2.5T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Refreshed model year; first AWD Sonata. Page lists only SEL, AWD SEL and N Line (no SE, SEL Convenience or Limited rows)."
+  },
+  {
+   "year": 2025,
+   "destination": 1195,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 26900,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL",
+     "msrp": 28000,
+     "config": "FWD",
+     "note": "AWD SEL $29,500"
+    },
+    {
+     "trim": "SEL Convenience",
+     "msrp": 31050,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "N Line",
+     "msrp": 35500,
+     "config": "2.5T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Limited not listed."
+  },
+  {
+   "year": 2026,
+   "destination": 1295,
+   "trims": [
+    {
+     "trim": "SE",
+     "msrp": 27450,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SEL Sport",
+     "msrp": 29150,
+     "config": "FWD",
+     "note": "AWD $30,650; appears to replace 'SEL' (no plain SEL row on the page)"
+    },
+    {
+     "trim": "N Line",
+     "msrp": 36050,
+     "config": "2.5T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2026-hyundai-sonata-price",
+   "source_type": "secondary",
+   "note": "iSeeCars price page; MSRP excludes destination; iSeeCars typically shows one (often late-year) price per style, so launch prices may differ. Only SE, SEL Sport and N Line listed."
+  }
+ ],
+ "gaps": [
+  "All years secondary (iSeeCars). hyundainews.com price-sheet PDFs could not be located via WebSearch (three searches during the Tucson pass returned none), so the budget went to one secondary page per year.",
+  "Sonata Hybrid (all years) and Plug-in Hybrid (2016-2018) not captured.",
+  "2024: page lists only SEL / AWD SEL / N Line; SE, SEL Convenience and Limited (if offered) missing.",
+  "2025: Limited not listed. 2026: only SE, SEL Sport, N Line listed.",
+  "2016 and 2022 show mixed destination figures between styles on the same page (885 vs 835; 1025 vs 1095); the majority figure is recorded in `destination`."
+ ]
+}

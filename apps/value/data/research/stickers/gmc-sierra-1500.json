@@ -1,0 +1,356 @@
+{
+ "make": "GMC",
+ "model": "Sierra 1500",
+ "body": "Pickup Truck",
+ "note": "Light-duty full-size pickup (Regular, Double and Crew Cab; 4x2/4x4; 5.8', 6.6' and 8' boxes). Rows give each trim in its cheapest listed configuration plus a Crew Cab 4x4 5.8' row for SLE and SLT (the common used configuration); other trims' Crew Cab 4x4 prices are in the row notes. All MSRPs exclude destination. Trim lineage seen: 2019-21 Base('Sierra')/SLE/Elevation/SLT/AT4/Denali; 2023-25 Pro/SLE/Elevation/SLT/AT4/AT4X/Denali/Denali Ultimate. Sister truck of the Chevrolet Silverado 1500.",
+ "years": [
+  {
+   "year": 2019,
+   "destination": 1595,
+   "trims": [
+    {
+     "trim": "Base",
+     "msrp": 29600,
+     "config": "Regular Cab 4x2 8' long box",
+     "note": "iSeeCars labels GMC's entry 'Sierra' trim as 'Base'. Double Cab 4x2 6.6' $33,500; Crew Cab 4x4 5.8' $39,200."
+    },
+    {
+     "trim": "SLE",
+     "msrp": 37800,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x2 5.8' $40,200."
+    },
+    {
+     "trim": "SLE",
+     "msrp": 43500,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": ""
+    },
+    {
+     "trim": "Elevation",
+     "msrp": 40300,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Double Cab only in 2019; 4x4 $43,600."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 44300,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x2 5.8' $46,700."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 50000,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "Crew Cab 4x4 6.6' $50,300."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 50800,
+     "config": "Double Cab 4x4 6.6' standard box",
+     "note": "4x4 only. Crew Cab 4x4 5.8' $53,200."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 54700,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab only. Crew Cab 4x4 5.8' $58,000."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-gmc-sierra_1500-price",
+   "source_type": "secondary",
+   "note": "First year of the current-generation (T1) Sierra 1500. iSeeCars lists MSRP and a separate destination charge per configuration (engines not shown); the page does not say in words that MSRP excludes destination, but the separate column implies it. iSeeCars figures are typically the latest in-year price level."
+  },
+  {
+   "year": 2020,
+   "destination": 1595,
+   "trims": [
+    {
+     "trim": "Base",
+     "msrp": 29600,
+     "config": "Regular Cab 4x2 8' long box",
+     "note": "Double Cab 4x2 6.6' $33,500; Crew Cab 4x4 5.8' $39,200."
+    },
+    {
+     "trim": "SLE",
+     "msrp": 38000,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x2 5.8' $40,400."
+    },
+    {
+     "trim": "SLE",
+     "msrp": 43700,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": ""
+    },
+    {
+     "trim": "Elevation",
+     "msrp": 40500,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab added for 2020: 4x2 5.8' $42,900, 4x4 5.8' $46,200."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 44500,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x2 5.8' $46,900."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 50400,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "Crew Cab 4x4 6.6' $50,700."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 51300,
+     "config": "Double Cab 4x4 6.6' standard box",
+     "note": "4x4 only. Crew Cab 4x4 5.8' $53,700."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 55100,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab only. Crew Cab 4x4 5.8' $58,600."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2020-gmc-sierra_1500-price",
+   "source_type": "secondary",
+   "note": "iSeeCars lists MSRP and a separate destination charge per configuration (engines not shown); the page does not say in words that MSRP excludes destination, but the separate column implies it. iSeeCars figures are typically the latest in-year price level."
+  },
+  {
+   "year": 2021,
+   "destination": 1695,
+   "trims": [
+    {
+     "trim": "Base",
+     "msrp": 30100,
+     "config": "Regular Cab 4x2 8' long box",
+     "note": "Double Cab 4x2 6.6' $34,000; Crew Cab 4x4 5.8' $39,700."
+    },
+    {
+     "trim": "SLE",
+     "msrp": 41400,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x2 5.8' $43,800."
+    },
+    {
+     "trim": "SLE",
+     "msrp": 47100,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": ""
+    },
+    {
+     "trim": "Elevation",
+     "msrp": 43100,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x4 5.8' $49,000. iSeeCars also lists an 'Elevation Standard' 4x4 (Double Cab $44,600, Crew Cab 5.8' $47,200)."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 47500,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab only in 2021 (no Double Cab SLT listed)."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 50800,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "Crew Cab 4x4 6.6' $51,100."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 54700,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "4x4 Crew Cab only in 2021 (no Double Cab AT4 listed). 6.6' box $55,900."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 55800,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab 4x4 5.8' $59,300."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2021-gmc-sierra_1500-price",
+   "source_type": "secondary",
+   "note": "SLE jumps ~$3,400 over 2020 on iSeeCars (Double Cab 4x2 $38,000 -> $41,400) while Base/SLT rise $400-500; may reflect a content change. iSeeCars lists MSRP and a separate destination charge per configuration (engines not shown); the page does not say in words that MSRP excludes destination, but the separate column implies it. iSeeCars figures are typically the latest in-year price level."
+  },
+  {
+   "year": 2023,
+   "destination": 1895,
+   "trims": [
+    {
+     "trim": "Pro",
+     "msrp": 37100,
+     "config": "Regular Cab 4x2 6.6' standard box",
+     "note": "Base trim renamed 'Pro' (as listed). Regular Cab 8' LB $37,300; Crew Cab 4x4 5.8' $46,100."
+    },
+    {
+     "trim": "SLE",
+     "msrp": 50200,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x2 5.8' $52,600; Crew Cab 4x4 5.8' $55,900."
+    },
+    {
+     "trim": "Elevation",
+     "msrp": 51900,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x4 5.8' $57,800. 'Elevation Standard' 4x4: Double Cab $53,700, Crew Cab 5.8' $56,300."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 55900,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab only."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 59000,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "Crew Cab 4x4 6.6' $59,500."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 66700,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "6.6' box $67,000. AT4X Crew Cab 4x4 5.8' $81,700."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 65700,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab 4x4 5.8' $69,000."
+    },
+    {
+     "trim": "Denali Ultimate",
+     "msrp": 82100,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "Single configuration listed."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-gmc-sierra_1500-price",
+   "source_type": "secondary",
+   "note": "Refreshed (2022.5+) truck; AT4X and Denali Ultimate are regular production trims. iSeeCars lists MSRP and a separate destination charge per configuration (engines not shown); the page does not say in words that MSRP excludes destination, but the separate column implies it. iSeeCars figures are typically the latest in-year price level."
+  },
+  {
+   "year": 2024,
+   "destination": 1995,
+   "trims": [
+    {
+     "trim": "Pro",
+     "msrp": 37700,
+     "config": "Regular Cab 4x2 6.6' standard box",
+     "note": "Regular Cab 8' LB $37,900; Crew Cab 4x4 5.8' $46,700."
+    },
+    {
+     "trim": "SLE",
+     "msrp": 49100,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x2 5.8' $51,500; Crew Cab 4x4 5.8' $54,800."
+    },
+    {
+     "trim": "Elevation",
+     "msrp": 50800,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x4 5.8' $56,700. 'Elevation Standard' 4x4: Double Cab $52,600, Crew Cab 5.8' $55,200."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 54800,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab only."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 57900,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "Crew Cab 4x4 6.6' $58,400."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 66100,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "6.6' box $66,400. AT4X Crew Cab 4x4 5.8' $79,200."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 66600,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab 4x4 5.8' $69,900."
+    },
+    {
+     "trim": "Denali Ultimate",
+     "msrp": 82500,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "Single configuration listed."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-gmc-sierra_1500-price",
+   "source_type": "secondary",
+   "note": "iSeeCars shows SLE/Elevation/SLT/AT4/AT4X LOWER than its 2023 figures ($500-$2,500) while Pro and Denali rose; the 2023 page may carry a late-year price level. iSeeCars lists MSRP and a separate destination charge per configuration (engines not shown); the page does not say in words that MSRP excludes destination, but the separate column implies it. iSeeCars figures are typically the latest in-year price level."
+  },
+  {
+   "year": 2025,
+   "destination": 2195,
+   "trims": [
+    {
+     "trim": "Pro",
+     "msrp": 38300,
+     "config": "Regular Cab 4x2 6.6' standard box",
+     "note": "Regular Cab 8' LB $38,500; Crew Cab 4x4 5.8' $47,300."
+    },
+    {
+     "trim": "SLE",
+     "msrp": 48800,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x2 5.8' $51,200; Crew Cab 4x4 5.8' $54,500."
+    },
+    {
+     "trim": "Elevation",
+     "msrp": 50500,
+     "config": "Double Cab 4x2 6.6' standard box",
+     "note": "Crew Cab 4x4 5.8' $56,400. 'Elevation Standard' 4x4: Double Cab $52,300, Crew Cab 5.8' $54,900."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 54900,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab only."
+    },
+    {
+     "trim": "SLT",
+     "msrp": 58000,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "Crew Cab 4x4 6.6' $58,700."
+    },
+    {
+     "trim": "AT4",
+     "msrp": 66800,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "6.6' box $67,300. AT4X Crew Cab 4x4 5.8' $79,400."
+    },
+    {
+     "trim": "Denali",
+     "msrp": 65400,
+     "config": "Crew Cab 4x2 5.8' short box",
+     "note": "Crew Cab 4x4 5.8' $68,700."
+    },
+    {
+     "trim": "Denali Ultimate",
+     "msrp": 84200,
+     "config": "Crew Cab 4x4 5.8' short box",
+     "note": "Single configuration listed."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-gmc-sierra_1500-price",
+   "source_type": "secondary",
+   "note": "Destination rises to $2,195; SLE/Elevation/Denali MSRPs slightly below 2024 on iSeeCars. iSeeCars lists MSRP and a separate destination charge per configuration (engines not shown); the page does not say in words that MSRP excludes destination, but the separate column implies it. iSeeCars figures are typically the latest in-year price level."
+  }
+ ],
+ "gaps": [
+  "2016, 2017, 2018: iSeeCars price pages (https://www.iseecars.com/car/<year>-gmc-sierra_1500-price) were refused before sending (URL lacked search provenance and the permission prompt went unanswered); no other source fetched within budget.",
+  "2022: no pricing page reached within budget (2022 had both the carry-over Sierra 1500 Limited and the refreshed 2022 Sierra 1500).",
+  "2026: no pricing page reached within budget.",
+  "All years: GM's pricing releases (media.gmc.com / media.gm.com PDFs) are robots-disallowed, so every recorded year is from a secondary source (iSeeCars)."
+ ]
+}

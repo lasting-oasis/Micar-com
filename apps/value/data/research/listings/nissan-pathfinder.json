@@ -1,0 +1,208 @@
+{
+  "make": "Nissan",
+  "model": "Pathfinder",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/year-2016/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 24993,
+      "listings": [
+        {
+          "price": 8989,
+          "miles": 127409,
+          "location": "Logan, UT",
+          "trim": "SV 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 7586,
+          "miles": 144987,
+          "location": "Orlando, FL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16998,
+          "miles": 54939,
+          "location": "Merrillville, IN",
+          "trim": "SV 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 6298,
+          "miles": 195548,
+          "location": "Longmont, CO",
+          "trim": "SV 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 7093,
+          "miles": 121642,
+          "location": "Wall Township, NJ",
+          "trim": "SV 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/year-2019/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 24993,
+      "listings": [
+        {
+          "price": 11014,
+          "miles": 102319,
+          "location": "Sarasota, FL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14230,
+          "miles": 71500,
+          "location": "Frankfort, KY",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16378,
+          "miles": 76332,
+          "location": "O'Fallon, IL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9900,
+          "miles": 138380,
+          "location": "Winchester, VA",
+          "trim": "SV 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11986,
+          "miles": 119150,
+          "location": "Knoxville, TN",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/year-2022/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 24993,
+      "listings": [
+        {
+          "price": 18277,
+          "miles": 85527,
+          "location": "Deridder, LA",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 19723,
+          "miles": 64858,
+          "location": "Tomball, TX",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 16681,
+          "miles": 97006,
+          "location": "Mount Juliet, TN",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16197,
+          "miles": 125625,
+          "location": "Scottsboro, AL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 23471,
+          "miles": 64192,
+          "location": "LaGrange, GA",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/pathfinder/year-2024/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 24993,
+      "listings": [
+        {
+          "price": 22990,
+          "miles": 50739,
+          "location": "Avondale, AZ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 22390,
+          "miles": 55411,
+          "location": "Avondale, AZ",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 27614,
+          "miles": 25907,
+          "location": "Hinesville, GA",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 24387,
+          "miles": 48472,
+          "location": "Tampa, FL",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 23724,
+          "miles": 66525,
+          "location": "Highland, IN",
+          "trim": "SV FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2021 is not a Pathfinder model year, but it is not one of the four sample years either, so nothing is missing.",
+    "TrueCar's SV average ($24,993, alongside SL $27,623 and Platinum $31,936) is identical on all four year pages, so it is model-wide boilerplate; recorded as page_average but do not rely on it.",
+    "The 2016 SV-filtered page reported only 6 listings (its FAQ separately cites 1,073 SV listings, evidently model-wide); 6 is above the 5-listing threshold so the unfiltered page was not fetched.",
+    "TrueCar labels the 2WD version 'FWD'; Nissan's releases say 2WD."
+  ]
+}

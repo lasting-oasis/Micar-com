@@ -1,0 +1,497 @@
+{
+  "make": "Honda",
+  "model": "Pilot",
+  "body": "SUV / Crossover",
+  "note": "Single body style (3-row midsize SUV). Recorded msrp is the cheapest listed configuration (2WD where offered); AWD and package prices are in each trim note. AWD premium: +$1,800 (2016-17), +$1,900 (2018-19), +$2,000 (2020-22), +$2,100 (2023-26). 3rd gen 2016-2022, 4th gen 2023-on. All MSRPs exclude destination.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 900,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 30345,
+          "config": "2WD",
+          "note": "AWD $32,145"
+        },
+        {
+          "trim": "EX",
+          "msrp": 32780,
+          "config": "2WD",
+          "note": "AWD $34,580; EX w/Honda Sensing $33,780 2WD / $35,580 AWD"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 36255,
+          "config": "2WD",
+          "note": "AWD $38,055; EX-L w/Honda Sensing or w/Navi $37,255 2WD / $39,055 AWD; EX-L w/RES $37,855 2WD / $39,655 AWD"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 41370,
+          "config": "2WD",
+          "note": "AWD $43,170"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 46770,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-honda-pilot-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Unlabeled styles read as 2WD."
+    },
+    {
+      "year": 2017,
+      "destination": 975,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 30745,
+          "config": "2WD",
+          "note": "AWD $32,545"
+        },
+        {
+          "trim": "EX",
+          "msrp": 33180,
+          "config": "2WD",
+          "note": "AWD $34,980; EX w/Honda Sensing $34,180 2WD / $35,980 AWD"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 36605,
+          "config": "2WD",
+          "note": "AWD $38,405; EX-L w/Honda Sensing or w/Navi $37,605 2WD / $39,405 AWD; EX-L w/RES $38,205 2WD / $40,005 AWD"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 41820,
+          "config": "2WD",
+          "note": "AWD $43,620"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 47220,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-honda-pilot-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Unlabeled styles read as 2WD."
+    },
+    {
+      "year": 2018,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 30900,
+          "config": "2WD",
+          "note": "AWD $32,800"
+        },
+        {
+          "trim": "EX",
+          "msrp": 33330,
+          "config": "2WD",
+          "note": "AWD $35,230; EX w/Honda Sensing $34,330 2WD / $36,230 AWD"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 36760,
+          "config": "2WD",
+          "note": "AWD $38,660; EX-L w/Honda Sensing or w/Navi $37,760 2WD / $39,660 AWD; EX-L w/RES $38,360 2WD / $40,260 AWD"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 41970,
+          "config": "2WD",
+          "note": "AWD $43,870"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 47470,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-honda-pilot-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Unlabeled styles read as 2WD."
+    },
+    {
+      "year": 2019,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 31450,
+          "config": "2WD",
+          "note": "AWD $33,350"
+        },
+        {
+          "trim": "EX",
+          "msrp": 34330,
+          "config": "2WD",
+          "note": "AWD $36,230"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 37760,
+          "config": "2WD",
+          "note": "AWD $39,660; EX-L w/Navi and RES $39,760 2WD / $41,660 AWD"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 42520,
+          "config": "2WD 8-passenger",
+          "note": "AWD $44,420; w/Rear Captain's Chairs $42,820 2WD / $44,720 AWD"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 48020,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2019-honda-pilot-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Unlabeled styles read as 2WD. Refresh year; Honda Sensing standard (no separate w/Honda Sensing styles)."
+    },
+    {
+      "year": 2020,
+      "destination": 1120,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 31650,
+          "config": "2WD",
+          "note": "AWD $33,650"
+        },
+        {
+          "trim": "EX",
+          "msrp": 34530,
+          "config": "2WD",
+          "note": "AWD $36,530"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 37960,
+          "config": "2WD",
+          "note": "AWD $39,960; EX-L w/Navi and RES $39,960 2WD / $41,960 AWD"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 42720,
+          "config": "2WD 8-passenger",
+          "note": "AWD $44,720; w/Rear Captain's Chairs $43,020 2WD / $45,020 AWD"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 48220,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Black Edition",
+          "msrp": 49720,
+          "config": "AWD",
+          "note": "AWD only; new for 2020"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-honda-pilot-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Unlabeled styles read as 2WD. $1,120 destination may be a mid-year revision (Honda 2020 releases elsewhere show $1,095 at launch); not verified."
+    },
+    {
+      "year": 2021,
+      "destination": 1120,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 32250,
+          "config": "2WD",
+          "note": "AWD $34,250"
+        },
+        {
+          "trim": "EX",
+          "msrp": 34930,
+          "config": "2WD",
+          "note": "AWD $36,930"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 38360,
+          "config": "2WD",
+          "note": "AWD $40,360"
+        },
+        {
+          "trim": "SE",
+          "msrp": 38960,
+          "config": "2WD",
+          "note": "AWD $40,960; Special Edition, new for 2021"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 42920,
+          "config": "2WD 8-passenger",
+          "note": "AWD $44,920; w/Rear Captain's Chairs $43,220 2WD / $45,220 AWD"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 48420,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Black Edition",
+          "msrp": 49920,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-6c8f365baeb2f83cfe863e5284000731-2021-honda-pilot-adds-new-special-edition-standard-9-speed-automatic-transmission",
+      "source_type": "manufacturer",
+      "note": "Release dated Jun 17, 2020; MSRP column excludes $1,120 destination. 9-speed automatic standard on all trims."
+    },
+    {
+      "year": 2022,
+      "destination": 1295,
+      "trims": [
+        {
+          "trim": "Sport",
+          "msrp": 38080,
+          "config": "2WD",
+          "note": "AWD $40,080"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 40310,
+          "config": "2WD",
+          "note": "AWD $42,310"
+        },
+        {
+          "trim": "SE",
+          "msrp": 40910,
+          "config": "2WD",
+          "note": "AWD $42,910"
+        },
+        {
+          "trim": "TrailSport",
+          "msrp": 44810,
+          "config": "AWD",
+          "note": "AWD only; new for 2022"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 44870,
+          "config": "2WD 8-passenger",
+          "note": "AWD $46,870; w/Rear Captain's Chairs $45,170 2WD / $47,170 AWD"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 50370,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Black Edition",
+          "msrp": 51870,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-honda-pilot-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Unlabeled styles read as 2WD. LX and EX no longer listed; Sport is the base trim. $1,295 destination likely reflects a later in-year revision (not verified against a launch release)."
+    },
+    {
+      "year": 2023,
+      "destination": 1375,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 36300,
+          "config": "2WD",
+          "note": "AWD $38,400"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 39500,
+          "config": "2WD",
+          "note": "AWD $41,600"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 42300,
+          "config": "2WD 8-passenger",
+          "note": "AWD $44,400; w/Rear Captain's Chairs $42,600 2WD / $44,700 AWD"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 46800,
+          "config": "2WD",
+          "note": "AWD $48,900"
+        },
+        {
+          "trim": "TrailSport",
+          "msrp": 48700,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 52380,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-honda-pilot-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Unlabeled styles read as 2WD. All-new 4th-gen Pilot (on sale Dec 2022). No Black Edition listed for 2023."
+    },
+    {
+      "year": 2024,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 37090,
+          "config": "2WD",
+          "note": "AWD $39,190"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 39600,
+          "config": "2WD",
+          "note": "AWD $41,700"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 42400,
+          "config": "2WD 8-passenger",
+          "note": "AWD $44,500; w/Rear Captain's Chairs $42,700 2WD / $44,800 AWD"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 46900,
+          "config": "2WD",
+          "note": "AWD $49,000"
+        },
+        {
+          "trim": "TrailSport",
+          "msrp": 48800,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 52480,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-honda-pilot-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Unlabeled styles read as 2WD."
+    },
+    {
+      "year": 2025,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "Sport",
+          "msrp": 40200,
+          "config": "2WD",
+          "note": "AWD $42,300"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 43500,
+          "config": "2WD",
+          "note": "AWD $45,600; EX-L+ $45,400 2WD / $47,500 AWD"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 47500,
+          "config": "2WD",
+          "note": "AWD $49,600; Touring+ $49,400 2WD / $51,500 AWD"
+        },
+        {
+          "trim": "TrailSport",
+          "msrp": 49400,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 53080,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Black Edition",
+          "msrp": 54580,
+          "config": "AWD",
+          "note": "AWD only; returns for 2025"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-honda-pilot-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (treated as MSRP excluding destination). Unlabeled styles read as 2WD. No LX listed for 2025; EX-L+ and Touring+ styles listed as shown on page."
+    },
+    {
+      "year": 2026,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "Sport",
+          "msrp": 42195,
+          "config": "2WD",
+          "note": "AWD $44,295"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 44495,
+          "config": "2WD",
+          "note": "AWD $46,595"
+        },
+        {
+          "trim": "TrailSport",
+          "msrp": 50395,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 51095,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Elite",
+          "msrp": 53495,
+          "config": "AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "Black Edition",
+          "msrp": 54995,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-31c2789ed27008c713cb157bde00718c-rugged-and-family-friendly-refreshed-2026-honda-pilot-arriving-at-dealers-with-improved-driving-experience-more-standard-technology-and-bold-new-styling",
+      "source_type": "manufacturer",
+      "note": "Release dated Dec 15, 2025 (refreshed 2026 Pilot); footnote: MSRP excludes $1,495 destination. Touring is AWD-only for 2026."
+    }
+  ],
+  "gaps": [
+    "Manufacturer (hondanews.com) sources for 2021 and 2026 only; the Pilot channel page showed no pricing releases for other years and the budget did not allow hunting for them, so 2016-2020 and 2022-2025 use iSeeCars (secondary).",
+    "iSeeCars pages do not state explicitly that MSRP excludes destination; destination is a separate column and figures were treated as excluding it. They may reflect a later in-year price revision rather than launch pricing.",
+    "2022 and 2025: no LX (or EX) style listed; Sport is the entry trim those years.",
+    "2025 shows EX-L+ and Touring+ styles on iSeeCars; not confirmed against a Honda release."
+  ]
+}
