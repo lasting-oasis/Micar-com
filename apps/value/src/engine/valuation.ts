@@ -2,6 +2,7 @@ import {
   ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, TITLES, regionAdjustment,
   type Make, type Region,
 } from './data';
+import calibration from '../data/calibration.json';
 import { findModel, TRAIT_NOTES, type Trait } from './models';
 
 export const MILES_PER_YEAR = 12_000;
@@ -18,6 +19,8 @@ export type Inputs = {
   trim: string;
   body: string;
   msrp: number;
+  /** Base-trim MSRP for the same year, when known; lets the engine depreciate trim content faster. */
+  baseMsrp?: number;
   year: number;
   mileage: number;
   condition: string;
@@ -90,6 +93,10 @@ export const CURVE = {
   inflation: 0.03,
   /** Value lost per 1,000 miles above the expected odometer. */
   milesRate: 0.0055,
+  /** How much of a trim's premium over the base car survives depreciation,
+   * relative to the base car (1 = same as the base car). Options and trim
+   * content usually depreciate faster. Set by scripts/calibrate.ts. */
+  trimRetention: (calibration as { trimRetention?: number }).trimRetention ?? 1.0,
 };
 
 /** Share of MSRP kept after `age` years for a car losing `firstYearLoss`
@@ -205,12 +212,18 @@ export function valuate(input: Inputs, asOf: Date = new Date()): Valuation {
   if (basis > msrp * 1.005) {
     push('New-car prices since then', `a comparable new one costs ~${Math.round((basis / msrp - 1) * 100)}% more today`, basis);
   }
+  const share = titled ? curveShare(firstYearLoss, Math.max(age, 0.05)) : 1;
+  // Trim content above the base car depreciates faster than the car itself.
+  const premium = input.baseMsrp && msrp > input.baseMsrp ? (msrp - input.baseMsrp) / msrp : 0;
+  const premiumShare = premium > 0 ? share * CURVE.trimRetention : share;
+  const blended = basis * ((1 - premium) * share + premium * premiumShare);
+  const trimNote = premium > 0 && CURVE.trimRetention < 1 ? ` · trim content above the base car keeps ${Math.round(CURVE.trimRetention * 100)}% of that` : '';
   push(
     'Age and model resale',
     info
-      ? `${age.toFixed(1)} yrs old · this model typically sells for ~${Math.round(residual5 * 100)}% of a new one's price after 5 yrs`
-      : `${age.toFixed(1)} yrs old · a ${make.name} ${body.name.toLowerCase()} typically sells for ~${Math.round(residual5 * 100)}% of a new one's price after 5 yrs`,
-    titled ? basis * curveShare(firstYearLoss, Math.max(age, 0.05)) : basis,
+      ? `${age.toFixed(1)} yrs old · this model typically sells for ~${Math.round(residual5 * 100)}% of a new one's price after 5 yrs${trimNote}`
+      : `${age.toFixed(1)} yrs old · a ${make.name} ${body.name.toLowerCase()} typically sells for ~${Math.round(residual5 * 100)}% of a new one's price after 5 yrs${trimNote}`,
+    blended,
   );
   const mf = mileageFactor(input.mileage, expectedMiles);
   const milesDiff = input.mileage - expectedMiles;
@@ -284,9 +297,12 @@ export function valuate(input: Inputs, asOf: Date = new Date()): Valuation {
   if (title.name !== 'Clean') { band += 0.05; reasons.push(`${title.name} titles sell in a thin, unpredictable market`); }
   if (accident.name === 'Major') { band += 0.03; reasons.push('Structural damage values vary widely'); }
   if (!info) { band += 0.03; reasons.push(input.make === 'Other' ? 'Brand-level resale is generic for unlisted makes' : 'Pick a listed model to use model-specific resale data'); }
+  else if (info.calibrated) { band -= 0.01; reasons.push(`Resale curve fitted to ${info.calibrated.n} real ${info.model} listings (typical miss ${Math.round(info.calibrated.mae * 100)}%)`); }
+  else reasons.push(`Resale for the ${info.model} is a published-study estimate, not yet fitted to listings`);
   if (Math.abs(milesDiff) > 40_000) { band += 0.02; reasons.push('Mileage is far from typical for this age'); }
   if (cond.name === 'Poor') { band += 0.03; reasons.push('Repair costs on rough cars are hard to predict'); }
   if (input.listings === null) { band += 0.01; reasons.push('Add how many similar cars are listed nearby to account for local supply'); }
+  if (input.baseMsrp === undefined && info) reasons.push('No official sticker on file for this year; the MSRP box is an estimate unless you changed it');
   if (validComps.length) {
     band *= 1 - 0.5 * w;
     reasons.push(`Anchored on ${validComps.length} real asking price${validComps.length > 1 ? 's' : ''} you entered`);

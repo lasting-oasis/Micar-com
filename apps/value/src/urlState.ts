@@ -1,6 +1,7 @@
 import { REGIONS, type Region } from './engine/data';
 import { MARKET, marketNote } from './engine/market';
 import { prefillMsrp } from './engine/prefill';
+import { baseMsrp, stickerFor } from './engine/stickers';
 import type { Inputs, MarketCondition, Urgency } from './engine/valuation';
 
 export type FormState = {
@@ -102,10 +103,12 @@ export function parse(state: FormState, now = new Date()): { inputs: Inputs | nu
   const auto = marketChoice === 'auto';
   const market: MarketCondition = auto ? MARKET.condition : marketChoice;
   const urgency = URGENCY_OPTIONS.find((o) => o.name === state.urgency)?.value ?? 'none';
+  const sticker = stickerFor(state.make, state.model, year);
   return {
     errors,
     inputs: {
       make: state.make, model: state.model, trim: state.trim, body: state.body, msrp, year, mileage,
+      baseMsrp: sticker ? baseMsrp(sticker.year) : undefined,
       condition: state.condition, title: state.title, accident: state.accident,
       region: (REGIONS as readonly string[]).includes(state.region) ? (state.region as Region) : 'Southeast',
       market, marketIndex: auto ? MARKET.index : null, marketNote: auto ? marketNote() : undefined,

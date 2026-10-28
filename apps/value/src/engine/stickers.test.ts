@@ -7,8 +7,8 @@ describe('stickers', () => {
     const civic = STICKERS.find((s) => s.model === 'Civic')!;
     expect(civic.years.map((y) => y.year)).toEqual([2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]);
     for (const y of civic.years) {
-      expect(y.trims[0][0]).toBe('LX');
-      for (let i = 1; i < y.trims.length; i++) expect(y.trims[i][1]).toBeGreaterThan(y.trims[i - 1][1]);
+      expect(y.trims[0].trim).toBe('LX');
+      for (let i = 1; i < y.trims.length; i++) expect(y.trims[i].msrp).toBeGreaterThan(y.trims[i - 1].msrp);
     }
   });
 

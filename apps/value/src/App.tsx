@@ -6,7 +6,7 @@ import { describe as describeListings, parseListingsPage, type ParsedListing } f
 import { MARKET, periodLabel, snapshotAgeDays } from './engine/market';
 import { findModel, modelsForMake } from './engine/models';
 import { prefillMsrp } from './engine/prefill';
-import { stickerFor } from './engine/stickers';
+import { stickerFor, trimChoices } from './engine/stickers';
 import { expectedMilesFor, forecast, mileageAdjustedPrice, valuate, type Inputs, type Valuation } from './engine/valuation';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse, readUrl, shareUrl, urlHasMsrp, writeUrl, type Errors, type FormState } from './urlState';
 
@@ -123,7 +123,7 @@ export default function App() {
       if (k === 'year' || k === 'model' || k === 'make') {
         // Snap the trim to the sticker list for this year when there is one.
         const st = stickerFor(next.make, next.model, Number(next.year));
-        if (st && !st.year.trims.some(([n]) => n === next.trim)) next.trim = k === 'year' && next.trim ? next.trim : st.year.trims[0][0];
+        if (st && !st.year.trims.some((t) => t.trim === next.trim)) next.trim = k === 'year' && next.trim ? next.trim : st.year.trims[0].trim;
       }
       if (refill) {
         const p = prefillMsrp(next.make, next.model, Number(next.year) || now.getFullYear(), next.trim);
@@ -271,8 +271,8 @@ function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k
       <div className="grid grid-cols-2 gap-3">
         <Field id="trim" label="Trim" hint={sticker ? undefined : 'Optional'}>
           {sticker ? (
-            <select id="trim" className="field" value={sticker.year.trims.some(([n]) => n === form.trim) ? form.trim : sticker.year.trims[0][0]} onChange={set('trim')}>
-              {sticker.year.trims.map(([n, p]) => <option key={n} value={n}>{n} · ${p.toLocaleString()}</option>)}
+            <select id="trim" className="field" value={sticker.year.trims.some((t) => t.trim === form.trim) ? form.trim : sticker.year.trims[0].trim} onChange={set('trim')}>
+              {trimChoices(sticker.year).map((t) => <option key={t.trim} value={t.trim}>{t.trim} · ${t.msrp.toLocaleString()}</option>)}
             </select>
           ) : (
             <input id="trim" className="field" placeholder="e.g. XLE" value={form.trim} onChange={set('trim')} maxLength={40} autoComplete="off" />

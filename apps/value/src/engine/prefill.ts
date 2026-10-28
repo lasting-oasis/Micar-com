@@ -1,5 +1,5 @@
 import { findModel, typicalMsrp } from './models';
-import { stickerFor, stickerMsrp } from './stickers';
+import { stickerFor, stickerSourceLabel, stickerTrim } from './stickers';
 
 export type Prefill = { msrp: number; source: 'sticker' | 'typical'; label: string; note?: string };
 
@@ -8,12 +8,12 @@ export type Prefill = { msrp: number; source: 'sticker' | 'typical'; label: stri
 export function prefillMsrp(make: string, model: string, year: number, trim: string): Prefill | null {
   const st = stickerFor(make, model, year);
   if (st) {
-    const trimName = st.year.trims.find(([n]) => n.toLowerCase() === trim.trim().toLowerCase())?.[0] ?? st.year.trims[0][0];
+    const t = stickerTrim(st.year, trim);
     return {
-      msrp: stickerMsrp(st.year, trimName),
+      msrp: t.msrp,
       source: 'sticker',
-      label: `Sticker for the ${year} ${model} ${trimName}, from ${st.set.source.split(' (')[0]}. Change it if yours differs.`,
-      note: st.year.note,
+      label: `Sticker for the ${year} ${model} ${t.trim}${t.config ? ` (${t.config})` : ''}, from ${stickerSourceLabel(st.set, st.year)}. Change it if yours differs.`,
+      note: [st.year.note, t.note].filter(Boolean).join(' ') || undefined,
     };
   }
   const info = findModel(make, model);

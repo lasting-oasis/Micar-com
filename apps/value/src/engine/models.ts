@@ -10,6 +10,8 @@
 // Traits explain the residual and set how sensitive the model is to local
 // oversupply and the market cycle (see elasticity() in valuation.ts).
 
+import calibration from '../data/calibration.json';
+
 export type Trait = 'reliability' | 'enthusiast' | 'fleet' | 'luxury' | 'ev' | 'truck';
 
 export const TRAIT_NOTES: Record<Trait, string> = {
@@ -29,6 +31,8 @@ export type ModelInfo = {
   typicalMsrp: number;
   residual5: number;
   traits: Trait[];
+  /** Set when residual5 was fitted to real listings (scripts/calibrate.ts). */
+  calibrated?: { n: number; mae: number; fittedAt: string };
 };
 
 const BODY: Record<string, string> = {
@@ -273,6 +277,15 @@ export const MODELS: ModelInfo[] = ROWS.map(([make, model, body, typicalMsrp, re
   make, model, body: BODY[body], typicalMsrp, residual5,
   traits: (traits ?? '').split(' ').filter(Boolean) as Trait[],
 }));
+
+// Replace the rule-of-thumb residuals with fitted ones where real listings
+// were available. The guesses stay in ROWS for reference.
+type Calibration = { fittedAt: string; trimRetention: number; models: { make: string; model: string; n: number; residual5: number; mae: number }[] };
+export const CALIBRATION = calibration as Calibration;
+for (const c of CALIBRATION.models) {
+  const m = MODELS.find((x) => x.make === c.make && x.model === c.model);
+  if (m) { m.residual5 = c.residual5; m.calibrated = { n: c.n, mae: c.mae, fittedAt: CALIBRATION.fittedAt }; }
+}
 
 export function modelsForMake(make: string): ModelInfo[] {
   return MODELS.filter((m) => m.make === make);

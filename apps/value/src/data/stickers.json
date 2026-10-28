@@ -1,0 +1,416 @@
+[
+ {
+  "make": "Honda",
+  "model": "Civic",
+  "body": "Sedan",
+  "note": "Sedan; CVT price where both transmissions were offered. Coupe (to 2020) and hatchback not included.",
+  "gaps": [],
+  "years": [
+   {
+    "year": 2016,
+    "destination": 835,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 19440,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX",
+      "msrp": 21040,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX-T",
+      "msrp": 22200,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX-L",
+      "msrp": 23700,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Touring",
+      "msrp": 26500,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://hondanews.com/en-US/releases/release-0c3cc211aaed414e834fa4d0122926a4-2016-honda-civic-pricing-and-epa-data",
+    "sourceType": "manufacturer",
+    "note": "LX 6MT $18,640"
+   },
+   {
+    "year": 2017,
+    "destination": 875,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 19540,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX",
+      "msrp": 21140,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX-T",
+      "msrp": 22300,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX-L",
+      "msrp": 23800,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Touring",
+      "msrp": 26600,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://hondanews.com/en-US/releases/release-b7f8aa41d87c43efb5eeea1b9161f0c6-2017-honda-civic-sedan-coupe-pricing-and-epa-data",
+    "sourceType": "manufacturer",
+    "note": "LX 6MT $18,740"
+   },
+   {
+    "year": 2018,
+    "destination": 890,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 19640,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX",
+      "msrp": 21240,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX-T",
+      "msrp": 22400,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX-L",
+      "msrp": 23900,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Touring",
+      "msrp": 26700,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-add33309b5a54b6ca33b0cdd70bafa8b-2018-honda-civic-sedan-pricing-and-epa-data",
+    "sourceType": "manufacturer",
+    "note": "LX 6MT $18,840"
+   },
+   {
+    "year": 2019,
+    "destination": 920,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 20250,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 21950,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX",
+      "msrp": 23400,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX-L",
+      "msrp": 24600,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Touring",
+      "msrp": 27300,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-7f52fd908ad14684add37ca0fb586620-2019-honda-civic-sedan-pricing-and-epa-ratings",
+    "sourceType": "manufacturer",
+    "note": "LX/Sport 6MT $800 less"
+   },
+   {
+    "year": 2020,
+    "destination": 930,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 20550,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 22250,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX",
+      "msrp": 23700,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX-L",
+      "msrp": 24900,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Touring",
+      "msrp": 27600,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-9966c01b392f59faacdd98d15200f2b0-2020-honda-civic-sedan-pricing-and-epa-ratings",
+    "sourceType": "manufacturer",
+    "note": "LX/Sport 6MT $800 less"
+   },
+   {
+    "year": 2021,
+    "destination": 955,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 21050,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 22850,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX",
+      "msrp": 24200,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX-L",
+      "msrp": 25400,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Touring",
+      "msrp": 28100,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-4f88c507e72a4e7630685979cb044a0a-2021-honda-civic-sedan-pricing-and-epa-ratings",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2022,
+    "destination": 1015,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 21900,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 23300,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX",
+      "msrp": 24900,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Touring",
+      "msrp": 28500,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-f8bfb43dd94cc82c09a8314c0b022438-2022-honda-civic-sedan-pricing-and-epa-ratings",
+    "sourceType": "manufacturer",
+    "note": "All-new 11th generation"
+   },
+   {
+    "year": 2023,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 23450,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 25050,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX",
+      "msrp": 26450,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Touring",
+      "msrp": 30050,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-4e58b4e0fcd795affa5685a66a124760-2023-honda-civic-sedan-pricing-and-epa-ratings-2",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2024,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 23950,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 25550,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "EX",
+      "msrp": 26950,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Touring",
+      "msrp": 30550,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-5003aaa39c009393f5d06d620f08fa05-2024-honda-civic-sedan-pricing-and-epa-ratings",
+    "sourceType": "manufacturer",
+    "note": ""
+   },
+   {
+    "year": 2025,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 24250,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 26250,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport Hybrid",
+      "msrp": 28750,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport Touring Hybrid",
+      "msrp": 31750,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://www.theautochannel.com/news/2024/06/12/1393354-2025-honda-civic-sedan-prices-and-mpg-revealed.html",
+    "sourceType": "secondary",
+    "note": "Refresh; hybrids return"
+   },
+   {
+    "year": 2026,
+    "destination": 1195,
+    "trims": [
+     {
+      "trim": "LX",
+      "msrp": 24695,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport",
+      "msrp": 26695,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport Hybrid",
+      "msrp": 29395,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Si",
+      "msrp": 31495,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Sport Touring Hybrid",
+      "msrp": 32395,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://www.cars.com/research/honda-civic-2026",
+    "sourceType": "secondary",
+    "note": "Prices derived from cars.com figures that include $1,195 destination"
+   }
+  ]
+ }
+]

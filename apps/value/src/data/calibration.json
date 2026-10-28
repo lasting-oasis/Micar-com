@@ -1,0 +1,36 @@
+{
+ "fittedAt": "2026-10-28",
+ "marketIndex": 0.179,
+ "trimRetention": 0.6,
+ "models": [
+  {
+   "make": "Honda",
+   "model": "Civic",
+   "n": 57,
+   "dropped": 2,
+   "residual5": 0.665,
+   "guess": 0.66,
+   "mae": 0.06,
+   "medianBias": -0.019,
+   "byYear": {
+    "2016": {
+     "n": 14,
+     "median": 0.026
+    },
+    "2019": {
+     "n": 14,
+     "median": -0.032
+    },
+    "2022": {
+     "n": 15,
+     "median": -0.066
+    },
+    "2023": {
+     "n": 14,
+     "median": 0.001
+    }
+   },
+   "stickers": 57
+  }
+ ]
+}

@@ -1,0 +1,517 @@
+{
+ "make": "Honda",
+ "model": "Civic",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/civic/year-2016/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 17790,
+   "listings": [
+    {
+     "price": 15675,
+     "miles": 86008,
+     "location": "San Jose, CA",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 10070,
+     "miles": 174890,
+     "location": "Paterson, NJ",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 10383,
+     "miles": 183889,
+     "location": "Gainesville, FL",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 14125,
+     "miles": 99404,
+     "location": "Richmond, MO",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 16073,
+     "miles": 44084,
+     "location": "Burlingame, CA",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 13988,
+     "miles": 118605,
+     "location": "Cary, NC",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 12488,
+     "miles": 145452,
+     "location": "Riverdale, UT",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 14594,
+     "miles": 105718,
+     "location": "Saint Peters, MO",
+     "trim": "LX",
+     "body": "Coupe",
+     "note": ""
+    },
+    {
+     "price": 15178,
+     "miles": 83646,
+     "location": "Albuquerque, NM",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 13845,
+     "miles": 111064,
+     "location": "Morton Grove, IL",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 6795,
+     "miles": 284017,
+     "location": "Greenville, NC",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 8295,
+     "miles": 136166,
+     "location": "Venice, FL",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 14378,
+     "miles": 101524,
+     "location": "Saint Charles, IL",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 13999,
+     "miles": 119211,
+     "location": "Manhattan, KS",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 11274,
+     "miles": 156788,
+     "location": "Los Angeles, CA",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/civic/year-2019/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 17931,
+   "listings": [
+    {
+     "price": 12045,
+     "miles": 105642,
+     "location": "Pembroke Pines, FL",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 16476,
+     "miles": 99290,
+     "location": "Easton, MA",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 13022,
+     "miles": 159860,
+     "location": "Birmingham, AL",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 13998,
+     "miles": 83832,
+     "location": "Delray Beach, FL",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 9264,
+     "miles": 201511,
+     "location": "Columbus, OH",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 18291,
+     "miles": 40636,
+     "location": "Aurora, CO",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 18716,
+     "miles": 42349,
+     "location": "Roseville, CA",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 15584,
+     "miles": 95076,
+     "location": "Poway, CA",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 16921,
+     "miles": 87305,
+     "location": "Oxnard, CA",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 14600,
+     "miles": 119220,
+     "location": "Silver Spring, MD",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 17739,
+     "miles": 80040,
+     "location": "Fairfield, OH",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 17695,
+     "miles": 87493,
+     "location": "Reno, NV",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 12490,
+     "miles": 71531,
+     "location": "Orlando, FL",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 10149,
+     "miles": 157447,
+     "location": "San Antonio, TX",
+     "trim": "LX",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 20501,
+     "miles": 53715,
+     "location": "Bremerton, WA",
+     "trim": "LX",
+     "body": "Coupe",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "Sport",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/civic/year-2022/?trim=sport",
+   "fetched": "2026-10-28",
+   "page_average": 24413,
+   "listings": [
+    {
+     "price": 17813,
+     "miles": 87202,
+     "location": "Dublin, CA",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 23208,
+     "miles": 29365,
+     "location": "Roseville, CA",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 21072,
+     "miles": 39110,
+     "location": "Pembroke Pines, FL",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 22985,
+     "miles": 47209,
+     "location": "Jersey City, NJ",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 21486,
+     "miles": 55848,
+     "location": "Miami, FL",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 21683,
+     "miles": 37594,
+     "location": "Pembroke Pines, FL",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 20655,
+     "miles": 80580,
+     "location": "Live Oak, FL",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 20833,
+     "miles": 53000,
+     "location": "Miami, FL",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 22367,
+     "miles": 44544,
+     "location": "Orlando, FL",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 22514,
+     "miles": 38612,
+     "location": "Belmont, MA",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 23780,
+     "miles": 47740,
+     "location": "Athens, GA",
+     "trim": "Sport",
+     "body": "Hatchback",
+     "note": ""
+    },
+    {
+     "price": 25387,
+     "miles": 27724,
+     "location": "Las Vegas, NV",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 24188,
+     "miles": 38582,
+     "location": "Olympia, WA",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 21170,
+     "miles": 69195,
+     "location": "Bay Shore, NY",
+     "trim": "Sport",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 23014,
+     "miles": 47183,
+     "location": "Keyport, NJ",
+     "trim": "Sport",
+     "body": "Hatchback",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2023,
+   "trim_filter": "Touring",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/civic/year-2023/?trim=touring",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "listings": [
+    {
+     "price": 28426,
+     "miles": 26068,
+     "location": "Tacoma, WA",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 26373,
+     "miles": 26243,
+     "location": "Lemon Grove, CA",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 24575,
+     "miles": 15722,
+     "location": "Jamaica, NY",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 24326,
+     "miles": 42158,
+     "location": "Tampa, FL",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 25241,
+     "miles": 36201,
+     "location": "Somerset, MA",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 26038,
+     "miles": 34568,
+     "location": "Countryside, IL",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 23797,
+     "miles": 63226,
+     "location": "Ramsey, NJ",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 25119,
+     "miles": 47694,
+     "location": "Libertyville, IL",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 26170,
+     "miles": 20945,
+     "location": "Patchogue, NY",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 17987,
+     "miles": 137400,
+     "location": "West New York, NJ",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 24676,
+     "miles": 37334,
+     "location": "Van Nuys, CA",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 25643,
+     "miles": 35995,
+     "location": "Folsom, CA",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 29231,
+     "miles": 35313,
+     "location": "Gilbert, AZ",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 24377,
+     "miles": 49345,
+     "location": "Alhambra, CA",
+     "trim": "Touring",
+     "body": "Sedan",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2023 Touring: TrueCar stated no average for this trim"
+ ]
+}
