@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Area, CartesianGrid, ComposedChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { Check, Link2, RotateCcw } from 'lucide-react';
-import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, TITLES } from './engine/data';
+import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
 import { forecast, valuate, type Inputs, type Valuation } from './engine/valuation';
 import { defaults, parse, readUrl, shareUrl, writeUrl, type Errors, type FormState } from './urlState';
 
@@ -162,7 +162,11 @@ function VehicleForm({ form, set, errors }: { form: FormState; set: (k: keyof Fo
       <div className="grid grid-cols-2 gap-3">
         <Field id="make" label="Make">
           <select id="make" className="field" value={form.make} onChange={set('make')}>
-            {MAKES.map((m) => <option key={m.name}>{m.name}</option>)}
+            {(Object.keys(SEGMENT_LABELS) as (keyof typeof SEGMENT_LABELS)[]).map((seg) => (
+              <optgroup key={seg} label={SEGMENT_LABELS[seg]}>
+                {MAKES.filter((m) => m.segment === seg).map((m) => <option key={m.name}>{m.name}</option>)}
+              </optgroup>
+            ))}
           </select>
         </Field>
         <Field id="body" label="Body style">

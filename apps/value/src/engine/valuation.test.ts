@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { MAKES } from './data';
 import { forecast, mileageFactor, valuate, type Inputs } from './valuation';
 
 const asOf = new Date(2026, 9, 15); // Oct 2026
@@ -60,5 +61,13 @@ describe('valuate', () => {
     const f = forecast(base, 5, 12000, asOf);
     expect(f).toHaveLength(6);
     for (let i = 1; i < f.length; i++) expect(f[i].value).toBeLessThan(f[i - 1].value);
+  });
+
+  it('every make gives a sane value', () => {
+    for (const m of MAKES) {
+      const r = valuate({ ...base, make: m.name }, asOf);
+      expect(r.privateParty / 35000).toBeGreaterThan(0.3);
+      expect(r.privateParty / 35000).toBeLessThan(0.8);
+    }
   });
 });
