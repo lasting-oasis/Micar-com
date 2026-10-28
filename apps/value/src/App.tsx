@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Area, CartesianGrid, ComposedChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { Check, Link2, RotateCcw } from 'lucide-react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
+import { MARKET, periodLabel, snapshotAgeDays } from './engine/market';
 import { findModel, modelsForMake, typicalMsrp } from './engine/models';
 import { forecast, valuate, type Inputs, type Valuation } from './engine/valuation';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse, readUrl, shareUrl, urlHasMsrp, writeUrl, type Errors, type FormState } from './urlState';
@@ -247,6 +248,7 @@ function MarketForm({ form, set, errors }: { form: FormState; set: (k: keyof For
   return (
     <div className="space-y-4">
       <Segmented name="market" legend="Used-car market right now" value={form.market} options={MARKET_OPTIONS} onChange={radio('market')} />
+      {form.market === 'Auto' && <MarketStrip />}
       <Field id="listings" label="Similar cars for sale near you" error={errors.listings} hint="Count the same model, within a few years, on a listing site within about 50 miles. Around 10 is typical.">
         <input id="listings" className="field num" inputMode="numeric" placeholder="e.g. 12" value={form.listings} onChange={set('listings')} aria-invalid={errors.listings ? true : undefined} aria-describedby={errors.listings ? 'listings-err' : undefined} />
       </Field>
@@ -410,6 +412,32 @@ function Drivers({ val, modelName }: { val: Valuation; modelName: string }) {
       <ul className="mt-2 space-y-1.5 text-sm" style={{ color: 'var(--ink-2)' }}>
         {val.drivers.map((d) => <li key={d} className="flex gap-2"><span aria-hidden="true" style={{ color: 'var(--ink-3)' }}>–</span>{d}</li>)}
       </ul>
+    </div>
+  );
+}
+
+/** Two years of the national used-car price index, from the weekly snapshot. */
+function MarketStrip() {
+  const h = MARKET.history;
+  if (h.length < 2) return null;
+  const w = 240, ht = 44, pad = 3;
+  const min = Math.min(...h.map((d) => d.value)), max = Math.max(...h.map((d) => d.value));
+  const x = (i: number) => pad + (i / (h.length - 1)) * (w - pad * 2);
+  const y = (v: number) => ht - pad - ((v - min) / (max - min || 1)) * (ht - pad * 2);
+  const path = h.map((d, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(d.value).toFixed(1)}`).join(' ');
+  const last = h[h.length - 1];
+  const stale = snapshotAgeDays() > 75;
+  const tone = MARKET.condition === 'tight' ? 'var(--gain)' : MARKET.condition === 'soft' ? 'var(--loss)' : 'var(--blue)';
+  return (
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded px-3 py-2" style={{ background: 'var(--sticker-2)' }}>
+      <svg width={w} height={ht} viewBox={`0 0 ${w} ${ht}`} className="max-w-full" role="img" aria-label={`National used-car price index, ${periodLabel(h[0].period)} to ${periodLabel(last.period)}`}>
+        <path d={path} fill="none" stroke={tone} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+        <circle cx={x(h.length - 1)} cy={y(last.value)} r="3" fill={tone} />
+      </svg>
+      <div className="text-xs" style={{ color: 'var(--ink-3)' }}>
+        <p><span className="font-semibold" style={{ color: 'var(--ink-2)' }}>Reading: {MARKET.condition === 'normal' ? 'Normal' : MARKET.condition === 'soft' ? 'Soft' : 'Tight'}</span> · index {MARKET.latestValue.toFixed(1)} for {periodLabel(MARKET.latestPeriod)}</p>
+        <p>{periodLabel(h[0].period)} to {periodLabel(last.period)} · refreshed {MARKET.fetchedAt}{stale ? ' · this snapshot is stale; the weekly update may have failed' : ''}</p>
+      </div>
     </div>
   );
 }

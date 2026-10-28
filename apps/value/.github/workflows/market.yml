@@ -1,0 +1,40 @@
+name: Weekly market snapshot
+
+on:
+  schedule:
+    - cron: '17 11 * * 0' # Sundays 11:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch BLS used-car price index
+        run: node scripts/fetch-market.mjs
+      - name: Commit if changed
+        id: commit
+        run: |
+          if git diff --quiet -- src/data/market.json; then
+            echo "No change in market snapshot"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/market.json
+            git commit -m "Update market snapshot ($(node -p "require('./src/data/market.json').latestPeriod"))"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Redeploy site
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

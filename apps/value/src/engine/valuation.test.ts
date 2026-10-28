@@ -7,7 +7,7 @@ const asOf = new Date(2026, 9, 15); // Oct 2026
 const base: Inputs = {
   make: 'Toyota', model: 'Camry', trim: 'SE', body: 'Sedan', msrp: 30000, year: 2022,
   mileage: 48000, condition: 'Good', title: 'Clean', accident: 'None', region: 'Southeast',
-  market: 'normal', listings: null, urgency: 'none', comps: [],
+  market: 'normal', marketIndex: null, listings: null, urgency: 'none', comps: [],
 };
 
 describe('valuate', () => {
@@ -112,6 +112,16 @@ describe('market layer', () => {
     const bmwSwing = 1 - valuate({ ...bmw, market: 'soft' }, asOf).privateParty / valuate(bmw, asOf).privateParty;
     expect(bmwSwing).toBeGreaterThan(civicSwing * 1.4);
     expect(valuate({ ...civic, market: 'tight' }, asOf).privateParty).toBeGreaterThan(valuate(civic, asOf).privateParty);
+  });
+
+  it('a numeric market index overrides the manual setting and scales smoothly', () => {
+    const flat = valuate(base, asOf).privateParty;
+    const mild = valuate({ ...base, market: 'soft', marketIndex: 0.25 }, asOf).privateParty;
+    const full = valuate({ ...base, marketIndex: 1 }, asOf).privateParty;
+    expect(mild).toBeGreaterThan(flat);
+    expect(full).toBeGreaterThan(mild);
+    expect(full).toBeCloseTo(valuate({ ...base, market: 'tight' }, asOf).privateParty, 0);
+    expect(valuate({ ...base, marketIndex: 0 }, asOf).privateParty).toBeCloseTo(flat, 0);
   });
 
   it('needing to sell fast discounts the price', () => {

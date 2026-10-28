@@ -23,6 +23,12 @@ A pure depreciation formula knows what a car *should* be worth from its sticker 
 
 The model table is a rule-of-thumb snapshot from published depreciation studies, not live listings or auction data. The natural next step is a live comps feed (MarketCheck, Auto.dev or a dealer's own inventory system) feeding the same `comps` input.
 
+## Weekly national market snapshot
+
+`scripts/fetch-market.mjs` pulls the Bureau of Labor Statistics CPI-U index for used cars and trucks (series `CUSR0000SETA02`, public domain, no API key; FRED is the fallback) and writes `src/data/market.json` with the year-over-year change, three-month momentum, a market index from −1 (very soft) to +1 (very tight) and a Soft / Normal / Tight reading. `.github/workflows/market.yml` runs it every Sunday, commits the file when it changes and redeploys the site. The page's "Used-car market right now" control defaults to **Auto**, which uses that reading; the ledger shows the resulting adjustment with the data month it came from.
+
+Why not scrape listing sites for per-model prices? Cars.com, Autotrader and CarGurus all prohibit automated collection in their terms and block search pages in `robots.txt`, and the free tiers of the listings APIs (MarketCheck, Auto.dev) don't allow caching a persistent weekly dataset. A live, user-triggered lookup through a small serverless proxy would fit MarketCheck's free plan; it isn't built yet.
+
 ## What changed from v6 (the AI Studio version)
 
 | Area | Before | Now |
@@ -33,7 +39,7 @@ The model table is a rule-of-thumb snapshot from published depreciation studies,
 | Dealer spreads | Fixed 82% / 118% | Margin scales with price; reconditioning cost by condition |
 | History | Title only | Title plus accident history |
 | Model data | Make only | ~170 models with observed 5-year resale and demand traits; typical MSRP prefilled |
-| Market | None | Market cycle, local listing count, urgency, and real asking prices blended in |
+| Market | None | Market cycle (auto from a weekly BLS snapshot), local listing count, urgency, and real asking prices blended in |
 | Region | None | Small regional demand adjustments (trucks, EVs, AWD) |
 | Uncertainty | Single exact numbers, made-up "Market Trust %" | Price range and an explained confidence rating |
 | Transparency | None | Step-by-step breakdown and methodology note |
@@ -49,6 +55,7 @@ npm run dev        # local dev server
 npm test           # engine unit tests
 npm run build      # production build in dist/
 npm run build:single  # one self-contained HTML file in dist-single/
+node scripts/fetch-market.mjs   # refresh the national market snapshot by hand
 ```
 
 ## Project layout
@@ -57,6 +64,8 @@ npm run build:single  # one self-contained HTML file in dist-single/
 src/engine/data.ts          Makes, body styles, condition/title/accident tables, regional rules
 src/engine/models.ts        Model-level resale data, demand traits, typical MSRP
 src/engine/valuation.ts     Pure valuation + forecast functions (no React)
+src/engine/market.ts        Reads the weekly snapshot in src/data/market.json
+scripts/fetch-market.mjs    Weekly BLS fetch (run by .github/workflows/market.yml)
 src/engine/valuation.test.ts
 src/urlState.ts             Form state, validation and shareable URLs
 src/App.tsx                 UI

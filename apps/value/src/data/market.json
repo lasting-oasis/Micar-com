@@ -1,0 +1,113 @@
+{
+  "source": "U.S. Bureau of Labor Statistics, CPI-U: Used cars and trucks, seasonally adjusted",
+  "seriesId": "CUSR0000SETA02",
+  "fetchedAt": "2026-10-28",
+  "latestPeriod": "2026-09",
+  "latestValue": 182.176,
+  "yoyPct": -1.46,
+  "threeMonthPct": 1.44,
+  "index": 0.179,
+  "condition": "normal",
+  "history": [
+    {
+      "period": "2024-09",
+      "value": 175.834
+    },
+    {
+      "period": "2024-10",
+      "value": 177.734
+    },
+    {
+      "period": "2024-11",
+      "value": 179.904
+    },
+    {
+      "period": "2024-12",
+      "value": 181.705
+    },
+    {
+      "period": "2025-01",
+      "value": 184.891
+    },
+    {
+      "period": "2025-02",
+      "value": 186.557
+    },
+    {
+      "period": "2025-03",
+      "value": 185.728
+    },
+    {
+      "period": "2025-04",
+      "value": 184.8
+    },
+    {
+      "period": "2025-05",
+      "value": 183.664
+    },
+    {
+      "period": "2025-06",
+      "value": 182.833
+    },
+    {
+      "period": "2025-07",
+      "value": 183.746
+    },
+    {
+      "period": "2025-08",
+      "value": 185.259
+    },
+    {
+      "period": "2025-09",
+      "value": 184.869
+    },
+    {
+      "period": "2025-10",
+      "value": 186.111
+    },
+    {
+      "period": "2025-11",
+      "value": 186.298
+    },
+    {
+      "period": "2025-12",
+      "value": 184.668
+    },
+    {
+      "period": "2026-01",
+      "value": 181.269
+    },
+    {
+      "period": "2026-02",
+      "value": 180.589
+    },
+    {
+      "period": "2026-03",
+      "value": 179.83
+    },
+    {
+      "period": "2026-04",
+      "value": 179.822
+    },
+    {
+      "period": "2026-05",
+      "value": 180.005
+    },
+    {
+      "period": "2026-06",
+      "value": 179.591
+    },
+    {
+      "period": "2026-07",
+      "value": 180.306
+    },
+    {
+      "period": "2026-08",
+      "value": 180.965
+    },
+    {
+      "period": "2026-09",
+      "value": 182.176
+    }
+  ]
+}

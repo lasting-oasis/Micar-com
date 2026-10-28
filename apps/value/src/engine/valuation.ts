@@ -24,8 +24,12 @@ export type Inputs = {
   title: string;
   accident: string;
   region: Region;
-  /** The used-car market cycle right now. */
+  /** The used-car market cycle right now (used when marketIndex is null). */
   market: MarketCondition;
+  /** Market cycle from the weekly national snapshot, -1 (very soft) to 1 (very tight); null = use `market`. */
+  marketIndex: number | null;
+  /** Short description of where marketIndex came from, for the ledger. */
+  marketNote?: string;
   /** How many similar cars are listed nearby; null when unknown. */
   listings: number | null;
   /** How fast the car needs to sell. */
@@ -193,11 +197,15 @@ export function valuate(input: Inputs, asOf: Date = new Date()): Valuation {
   if (reg !== 0) push('Regional demand', `${input.region} (${reg > 0 ? '+' : ''}${Math.round(reg * 100)}%)`, v * (1 + reg));
 
   // Market layer: cycle, local supply, urgency.
-  const swing = MARKET_SWING[input.market] * el.market;
-  if (swing !== 0) {
+  const baseSwing = input.marketIndex !== null ? clamp(input.marketIndex, -1, 1) * 0.07 : MARKET_SWING[input.market];
+  const swing = baseSwing * el.market;
+  if (Math.abs(swing) >= 0.0005) {
+    const sensitivity = `this model swings ${el.market >= 1.15 ? 'more' : el.market <= 0.85 ? 'less' : 'about as much'} than average`;
     push(
       'Market conditions',
-      `${input.market === 'soft' ? 'Soft' : 'Tight'} used-car market · this model swings ${el.market >= 1.15 ? 'more' : el.market <= 0.85 ? 'less' : 'about as much'} than average`,
+      input.marketIndex !== null
+        ? `${input.marketNote ?? 'National used-car price trend'} · ${sensitivity}`
+        : `${input.market === 'soft' ? 'Soft' : 'Tight'} used-car market · ${sensitivity}`,
       v * (1 + swing),
     );
   }

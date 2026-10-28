@@ -1,4 +1,5 @@
 import { REGIONS, type Region } from './engine/data';
+import { MARKET, marketNote } from './engine/market';
 import { findModel, typicalMsrp } from './engine/models';
 import type { Inputs, MarketCondition, Urgency } from './engine/valuation';
 
@@ -9,6 +10,7 @@ export type FormState = {
 };
 
 export const MARKET_OPTIONS = [
+  { name: 'Auto', value: 'auto' as const, desc: `${marketNote()}. Updated weekly from public data.` },
   { name: 'Soft', value: 'soft' as MarketCondition, desc: 'Lots of used inventory, prices drifting down' },
   { name: 'Normal', value: 'normal' as MarketCondition, desc: 'Inventory and prices about where they usually are' },
   { name: 'Tight', value: 'tight' as MarketCondition, desc: 'Little inventory, cars selling fast above book' },
@@ -28,7 +30,7 @@ export function defaults(now = new Date()): FormState {
     msrp: String(camry ? typicalMsrp(camry, year) : 30000),
     year: String(year), mileage: '48000', condition: 'Good',
     title: 'Clean', accident: 'None', region: 'Southeast',
-    market: 'Normal', listings: '', urgency: 'No rush', comps: '', annual: '12000',
+    market: 'Auto', listings: '', urgency: 'No rush', comps: '', annual: '12000',
   };
 }
 
@@ -91,7 +93,9 @@ export function parse(state: FormState, now = new Date()): { inputs: Inputs | nu
     else listings = n;
   }
   if (Object.keys(errors).length) return { inputs: null, errors };
-  const market = MARKET_OPTIONS.find((o) => o.name === state.market)?.value ?? 'normal';
+  const marketChoice = MARKET_OPTIONS.find((o) => o.name === state.market)?.value ?? 'auto';
+  const auto = marketChoice === 'auto';
+  const market: MarketCondition = auto ? MARKET.condition : marketChoice;
   const urgency = URGENCY_OPTIONS.find((o) => o.name === state.urgency)?.value ?? 'none';
   return {
     errors,
@@ -99,7 +103,8 @@ export function parse(state: FormState, now = new Date()): { inputs: Inputs | nu
       make: state.make, model: state.model, trim: state.trim, body: state.body, msrp, year, mileage,
       condition: state.condition, title: state.title, accident: state.accident,
       region: (REGIONS as readonly string[]).includes(state.region) ? (state.region as Region) : 'Southeast',
-      market, listings, urgency, comps: parseComps(state.comps),
+      market, marketIndex: auto ? MARKET.index : null, marketNote: auto ? marketNote() : undefined,
+      listings, urgency, comps: parseComps(state.comps),
     },
   };
 }
