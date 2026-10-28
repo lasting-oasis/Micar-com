@@ -97,9 +97,9 @@ Chevrolet,Colorado,Pickup Truck,2024,LT,Crew Cab 4x4 5 ft. short box,35200,1595,
 Chevrolet,Colorado,Pickup Truck,2024,Trail Boss,Crew Cab 4x4 5 ft. short box,37300,1595,secondary,
 Chevrolet,Colorado,Pickup Truck,2024,Z71,Crew Cab 4x4 5 ft. short box,40200,1595,secondary,
 Chevrolet,Colorado,Pickup Truck,2024,ZR2,Crew Cab 4x4 5 ft. short box,46800,1595,secondary,Unchanged from 2023 on this source.
-Chevrolet,Colorado,Pickup Truck,2025,Work Truck,Crew Cab 4x2 5 ft. short box,31900,1695,secondary,"+$2,400 vs 2024."
+Chevrolet,Colorado,Pickup Truck,2025,Work Truck,Crew Cab 4x2 5 ft. short box,31900,1695,secondary,"Up $2,400 vs 2024."
 Chevrolet,Colorado,Pickup Truck,2025,Work Truck,Crew Cab 4x4 5 ft. short box,35200,1695,secondary,
-Chevrolet,Colorado,Pickup Truck,2025,LT,Crew Cab 4x2 5 ft. short box,35800,1695,secondary,"+$3,900 vs 2024."
+Chevrolet,Colorado,Pickup Truck,2025,LT,Crew Cab 4x2 5 ft. short box,35800,1695,secondary,"Up $3,900 vs 2024."
 Chevrolet,Colorado,Pickup Truck,2025,LT,Crew Cab 4x4 5 ft. short box,39100,1695,secondary,
 Chevrolet,Colorado,Pickup Truck,2025,Trail Boss,Crew Cab 4x4 5 ft. short box,39900,1695,secondary,
 Chevrolet,Colorado,Pickup Truck,2025,Z71,Crew Cab 4x4 5 ft. short box,43900,1695,secondary,
@@ -3405,13 +3405,13 @@ Toyota,Tacoma,Pickup Truck,2025,Limited,Double Cab 4x4 5-ft bed 2.4L turbo 8AT,5
 Toyota,Tacoma,Pickup Truck,2025,Trailhunter,Double Cab 4x4 i-FORCE MAX hybrid 8AT,62735,1495,secondary,"KBB $64,230 incl. = $62,735; 6-ft bed $63,235 ($64,730 incl.)"
 Toyota,Tacoma,Pickup Truck,2025,TRD Pro,Double Cab 4x4 i-FORCE MAX hybrid 8AT,63735,1495,secondary,"KBB $65,230 incl. = $63,735"
 Toyota,Tacoma,Pickup Truck,2026,SR,XtraCab 4x2 long bed 2.4L turbo 8AT,32145,1595,secondary,"Carscoops: 'begins at $32,145 before a $1,595 destination fee' (+$555 vs 2025, tow hitch now standard). Double Cab 4x4 short bed $37,005. cars.com later $32,545 / $37,405 (+$400)"
-Toyota,Tacoma,Pickup Truck,2026,SR5,XtraCab 4x2 long bed 2.4L turbo 8AT,36235,1595,secondary,"+$15 vs 2025. TRD PreRunner XtraCab 4x2 $38,735. cars.com later $36,635 / $39,135"
+Toyota,Tacoma,Pickup Truck,2026,SR5,XtraCab 4x2 long bed 2.4L turbo 8AT,36235,1595,secondary,"Up $15 vs 2025. TRD PreRunner XtraCab 4x2 $38,735. cars.com later $36,635 / $39,135"
 Toyota,Tacoma,Pickup Truck,2026,SR5,Double Cab 4x4 short bed 2.4L turbo 8AT,40505,1595,secondary,"long bed 4x4 $41,005. cars.com later $40,905"
 Toyota,Tacoma,Pickup Truck,2026,TRD Sport,Double Cab 4x2 short bed 2.4L turbo 8AT,40015,1595,secondary,"Double Cab 4x4 short bed: 6MT $42,415, 8AT $43,215. i-FORCE MAX 4x4 $46,935. cars.com later $40,415"
 Toyota,Tacoma,Pickup Truck,2026,TRD Off-Road,Double Cab 4x4 short bed 2.4L turbo 6MT,42415,1595,secondary,"8AT $43,515; long bed $44,015. i-FORCE MAX $47,235. cars.com later $42,815"
 Toyota,Tacoma,Pickup Truck,2026,Limited,Double Cab 4x4 short bed 2.4L turbo 8AT,53170,1595,secondary,"i-FORCE MAX $56,495. cars.com later $53,570"
 Toyota,Tacoma,Pickup Truck,2026,Trailhunter,Double Cab 4x4 5-ft bed i-FORCE MAX hybrid 8AT,63350,1595,secondary,"6-ft bed $63,850; +$215 vs 2025"
-Toyota,Tacoma,Pickup Truck,2026,TRD Pro,Double Cab 4x4 i-FORCE MAX hybrid 8AT,64350,1595,secondary,+$215 vs 2025
+Toyota,Tacoma,Pickup Truck,2026,TRD Pro,Double Cab 4x4 i-FORCE MAX hybrid 8AT,64350,1595,secondary,Up $215 vs 2025
 Toyota,Tundra,Pickup Truck,2016,SR,Double Cab 4x2 SB 4.6L V8,29140,1195,secondary,"Double Cab 4x4 from $32,190 (Double Cab 4x4 SB 4.6L V8); Regular Cab from $29,950 (Regular Cab 4x2 LB 5.7L V8); same config 5.7L V8 $30,840"
 Toyota,Tundra,Pickup Truck,2016,SR5,Double Cab 4x2 SB 4.6L V8,30950,1195,secondary,"same config 5.7L V8 $32,650"
 Toyota,Tundra,Pickup Truck,2016,SR5,CrewMax 4x4 SB 4.6L V8,36320,1195,secondary,"CrewMax 4x4 5.7L V8 $38,020"

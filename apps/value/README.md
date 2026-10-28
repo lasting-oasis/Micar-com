@@ -103,7 +103,7 @@ The sample comes in two rounds. Round 1 (15 high-volume models) has up to 20 lis
 
 What the first backtest (Civic only) found still holds and shaped the engine: used prices follow the price of a **new replacement**, so the sticker is inflated to today's dollars (3% a year) before the curve is applied, and depreciation measured that way is close to a constant percentage a year with a drive-off hit at titling. Option content depreciates faster than the base car, so trim premiums are retained at less than face value.
 
-The whole dataset, with sources, also lives in a Google Sheet ("Queen City MyCarValue · Sticker prices and used-price calibration") with tabs for Models, Stickers, Used sample, Calibration (live formulas over the sample) and Data Sources. The Models, Stickers, Used sample and Data Sources tabs pull `exports/*.csv` from this repo with `IMPORTDATA`, so running `npm run sheet-rows -- --csv exports` and pushing refreshes them.
+The whole dataset, with sources, also lives in a Google Sheet ("Queen City MyCarValue · Sticker prices and used-price calibration") with tabs for Models, Stickers, Used sample, Calibration (live formulas over the sample) and Data Sources. The Models, Stickers, Used sample and Data Sources tabs hold static values written through the Sheets API (long free-text notes are shortened there; the full notes stay in `data/research/`), and the Calibration tab and the Models tab's actual-sticker columns are live formulas over them. `npm run sheet-rows -- --csv exports` regenerates the same rows as `exports/*.csv`, which is also the copy to download or re-import after a data refresh.
 
 ## Weekly national market snapshot
 

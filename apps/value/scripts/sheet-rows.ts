@@ -61,9 +61,14 @@ for (const s of samples) for (const p of s.samples) {
   sources.push([`Used sample (${p.year} ${s.make} ${s.model})`, 'TrueCar used-car search results', p.source, 'Read by Claude (one page fetch, no pagination)', `${p.year} ${s.make} ${s.model}, trim ${p.trimFilter}`, 'First page of results', p.fetched, '', p.listings.length, 'Listings without mileage skipped', p.pageAverage ? `Page states a model-wide average of $${p.pageAverage.toLocaleString()} (not year-specific; not used)` : '']);
 }
 
-// --csv <dir>: also write one CSV per tab (models, stickers, samples, sources) for the
-// sheet to pull with IMPORTDATA from the public repo. Calibration has live formulas,
-// so it is written through the Sheets API instead.
+// --csv <dir>: also write one CSV per tab (models, stickers, samples, sources), the
+// downloadable copy of what the Google Sheet holds. The sheet itself stores static
+// values written through the Sheets API (IMPORTDATA needed a manual "Allow access"
+// click per sheet, so it isn't used); Calibration keeps live formulas over those values.
+// Sheets reads a text cell that starts with "+" as a formula (#ERROR!), so notes like
+// "+$2,400 vs 2024." are written as "Up $2,400 vs 2024.".
+for (const rows of [stickerRows, sampleRows, sources]) for (const r of rows) r.forEach((v, i) => { if (typeof v === 'string' && v.startsWith('+')) r[i] = `Up ${v.slice(1)}`; });
+
 const csvAt = process.argv.indexOf('--csv');
 if (csvAt > -1) {
   const dir = process.argv[csvAt + 1];
