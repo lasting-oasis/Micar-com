@@ -19,6 +19,43 @@ export const generateEnvMap = () => {
      return tex;
 };
 
+// Low graphics lights the world with the same sky gradient worked out in the
+// shader instead of sampled from the environment map (several texture reads and
+// a lot of maths for every pixel — a big share of a phone's frame). It patches
+// three.js's shader chunks once and only applies to materials WITHOUT an
+// environment map, i.e. while Low clears scene.environment; High keeps the map.
+let cheapSkyInstalled = false;
+export const installCheapSkyLighting = () => {
+     if (cheapSkyInstalled) return;
+     cheapSkyInstalled = true;
+     THREE.ShaderChunk.lights_physical_pars_fragment += /* glsl */`
+#ifndef USE_ENVMAP
+// generateEnvMap's gradient (top, horizon, bottom) as the linear values the map holds
+vec3 lowSkyRadiance( const in float y ) {
+	float v = acos( clamp( y, -1.0, 1.0 ) ) * RECIPROCAL_PI;
+	return v < 0.5 ? mix( vec3( 0.376, 0.647, 0.98 ), vec3( 0.231, 0.51, 0.965 ), v * 2.0 )
+		: mix( vec3( 0.231, 0.51, 0.965 ), vec3( 0.729, 0.902, 0.992 ), v * 2.0 - 1.0 );
+}
+// the same gradient through a fully rough (cosine) lobe
+vec3 lowSkyIrradiance( const in float y ) {
+	return vec3( 0.30, 0.575, 0.972 ) + vec3( 0.18, 0.13, 0.006 ) * pow( clamp( ( 0.25 - y ) / 1.25, 0.0, 1.0 ), 1.6 );
+}
+#endif
+`;
+     THREE.ShaderChunk.lights_fragment_maps += /* glsl */`
+#if defined( STANDARD ) && ! defined( USE_ENVMAP ) && defined( RE_IndirectDiffuse ) && defined( RE_IndirectSpecular )
+	{
+		float skyUp = inverseTransformDirection( geometryNormal, viewMatrix ).y;
+		iblIrradiance += PI * lowSkyIrradiance( skyUp );
+		vec3 skyDir = reflect( - geometryViewDir, geometryNormal );
+		skyDir = normalize( mix( skyDir, geometryNormal, material.roughness * material.roughness ) );
+		float skyY = inverseTransformDirection( skyDir, viewMatrix ).y;
+		radiance += mix( lowSkyRadiance( skyY ), lowSkyIrradiance( skyY ), material.roughness );
+	}
+#endif
+`;
+};
+
 export const createBuildingSign = (text: string, bgColor: string, txtColor: string) => {
      const canvas = document.createElement('canvas');
      canvas.width = 512; canvas.height = 128;

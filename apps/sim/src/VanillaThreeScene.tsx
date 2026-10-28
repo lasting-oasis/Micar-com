@@ -4,7 +4,7 @@ import { useGameStore } from './store';
 import { LightPool } from './scene/lightPool';
 import { batchStatic } from './scene/staticBatcher';
 import { damp, disposeObject, groundLastOpaqueSort } from './scene/utils';
-import { generateEnvMap } from './scene/textures';
+import { generateEnvMap, installCheapSkyLighting } from './scene/textures';
 import { applyCarPaint, buildCarModel, carColorHex, deriveStyle } from './scene/carModel';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
@@ -35,7 +35,8 @@ export function VanillaThreeScene() {
         const scene = new THREE.Scene();
         
         const envTexture = generateEnvMap();
-        scene.environment = envTexture; // Bind reflection map
+        scene.environment = envTexture; // Bind reflection map (High only, see applyGraphics)
+        installCheapSkyLighting(); // what Low uses instead of the reflection map
         scene.background = new THREE.Color('#87ceeb'); // Bright Sky blue
         scene.fog = new THREE.Fog('#87ceeb', 1500, 6000); // pushed way out so the giant speedway is visible across the infield
 
@@ -283,6 +284,8 @@ export function VanillaThreeScene() {
         const applyGraphics = (q: 'high' | 'low', recompile: boolean) => {
              quality = q;
              lightPool.setActiveCount(poolSizeFor(q));
+             // Low: sky light worked out in the shader instead of read from the map
+             scene.environment = q === 'high' ? envTexture : null;
              if (renderer.getPixelRatio() !== pixelRatioFor(q)) renderer.setPixelRatio(pixelRatioFor(q));
              renderer.shadowMap.enabled = q === 'high';
              dirLight.castShadow = q === 'high';
