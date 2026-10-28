@@ -13,23 +13,24 @@ const models = [
   ['Make', 'Model', 'Body style', 'Traits', 'Typical sticker, 2025 ($, estimate)', 'Resale share after 5 yrs, guess', 'Resale share after 5 yrs, fitted', 'Listings used in fit', 'Mean abs. error of fit', 'Sticker years on file'],
   ...MODELS.map((m) => {
     const c = fitted.get(`${m.make}|${m.model}`);
-    const guess = (c ? c : null) ? (calibration.models.find((x) => x.make === m.make && x.model === m.model) as { guess?: number } | undefined)?.guess ?? m.residual5 : m.residual5;
-    return [m.make, m.model, m.body, m.traits.join(', '), m.typicalMsrp, guess, c ? c.residual5 : '', c ? c.n : '', c ? c.mae : '', stickerYears.get(`${m.make}|${m.model}`) ?? 0];
+    return [m.make, m.model, m.body, m.traits.join(', '), m.typicalMsrp, m.residual5Guess, c ? c.residual5 : '', c ? c.n : '', c ? c.mae : '', stickerYears.get(`${m.make}|${m.model}`) ?? 0];
   }),
 ];
 
+// One row per trim. The year-level source note (which release, mid-year changes) is long and
+// identical for every trim of a year, so it lives once per year on the Data Sources tab.
 const stickerRows: (string | number)[][] = [
-  ['Make', 'Model', 'Body style', 'Model year', 'Trim', 'Configuration', 'MSRP excl. destination ($)', 'Destination ($)', 'Source type', 'Source URL', 'Note'],
+  ['Make', 'Model', 'Body style', 'Model year', 'Trim', 'Configuration', 'MSRP excl. destination ($)', 'Destination ($)', 'Source type', 'Trim note'],
 ];
 for (const s of stickers) for (const y of s.years) for (const t of y.trims) {
-  stickerRows.push([s.make, s.model, s.body, `'${y.year}`, t.trim, t.config, t.msrp, y.destination ?? '', y.sourceType, y.source, [y.note, t.note].filter(Boolean).join(' ')]);
+  stickerRows.push([s.make, s.model, s.body, `'${y.year}`, t.trim, t.config, t.msrp, y.destination ?? '', y.sourceType, t.note]);
 }
 
 const sampleRows: (string | number)[][] = [
-  ['Make', 'Model', 'Model year', 'Trim', 'Asking price ($)', 'Miles', 'Location', 'Body', 'Note', 'Page average ($)', 'Read on', 'Source URL'],
+  ['Make', 'Model', 'Model year', 'Trim', 'Asking price ($)', 'Miles', 'Location', 'Body', 'Note', 'Read on'],
 ];
 for (const s of samples) for (const p of s.samples) for (const l of p.listings) {
-  sampleRows.push([s.make, s.model, `'${p.year}`, l.trim, l.price, l.miles, l.location, l.body, l.note, p.pageAverage ?? '', `'${p.fetched}`, p.source]);
+  sampleRows.push([s.make, s.model, `'${p.year}`, l.trim, l.price, l.miles, l.location, l.body, l.note, `'${p.fetched}`]);
 }
 
 // Calibration: fitted numbers from the script, plus live formulas over the Used sample tab so the sample can be checked.
@@ -53,10 +54,10 @@ const sources: (string | number)[][] = [
   ['Written to', 'Source', 'Object', 'Obtained via', 'Query or request', 'Parameters', 'Run at', 'Requested by', 'Row count', 'Changes after retrieval', 'Notes'],
 ];
 for (const s of stickers) for (const y of s.years) {
-  sources.push([`Stickers!A:K`, y.sourceType === 'manufacturer' ? `${s.make} pricing release` : 'Published price list (secondary)', y.source, 'Read by Claude (one page fetch)', `${y.year} ${s.make} ${s.model} trims and MSRP`, 'MSRP excl. destination', '2026-10-28', '', y.trims.length, 'None; trims listed base to top', y.note]);
+  sources.push([`Stickers (${y.year} ${s.make} ${s.model})`, y.sourceType === 'manufacturer' ? `${s.make} pricing release` : 'Published price list (secondary)', y.source, 'Read by Claude (one page fetch)', `${y.year} ${s.make} ${s.model} trims and MSRP`, 'MSRP excl. destination', '2026-10-28', '', y.trims.length, 'None; trims listed base to top', y.note]);
 }
 for (const s of samples) for (const p of s.samples) {
-  sources.push([`'Used sample'!A:L`, 'TrueCar used-car search results', p.source, 'Read by Claude (one page fetch, no pagination)', `${p.year} ${s.make} ${s.model}, trim ${p.trimFilter}`, 'First page of results', p.fetched, '', p.listings.length, 'Listings without mileage skipped', '']);
+  sources.push([`Used sample (${p.year} ${s.make} ${s.model})`, 'TrueCar used-car search results', p.source, 'Read by Claude (one page fetch, no pagination)', `${p.year} ${s.make} ${s.model}, trim ${p.trimFilter}`, 'First page of results', p.fetched, '', p.listings.length, 'Listings without mileage skipped', p.pageAverage ? `Page states a model-wide average of $${p.pageAverage.toLocaleString()} (not year-specific; not used)` : '']);
 }
 
 process.stdout.write(JSON.stringify({ models, stickers: stickerRows, samples: sampleRows, calibration: calRows, sources }));

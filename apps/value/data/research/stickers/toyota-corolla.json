@@ -1,0 +1,617 @@
+{
+ "make": "Toyota",
+ "model": "Corolla",
+ "body": "Sedan",
+ "note": "Sedan only; the Corolla Hatchback (2019+), Corolla iM, GR Corolla and Corolla Cross are separate models and excluded. MSRP excludes destination throughout. Manual-transmission prices are carried in the CVT row's note; Corolla Hybrid rows (2020-2026) come from iSeeCars' separate Corolla Hybrid pages (listed in sources_extra), with AWD prices carried in the FWD row's note.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": 885,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 17300,
+     "config": "6MT",
+     "note": "4-speed automatic $17,900"
+    },
+    {
+     "trim": "LE",
+     "msrp": 18735,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE Eco",
+     "msrp": 19135,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE Plus",
+     "msrp": 19135,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 19365,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "S Plus",
+     "msrp": 20065,
+     "config": "CVT",
+     "note": "6MT $21,665"
+    },
+    {
+     "trim": "Special Edition",
+     "msrp": 20635,
+     "config": "CVT",
+     "note": "listed as 'S Special Edition'"
+    },
+    {
+     "trim": "S Premium",
+     "msrp": 23125,
+     "config": "CVT",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2016-toyota-corolla-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Also on the page: LE Eco Plus $19,835, LE Premium $22,195, LE Eco Premium $22,895. Toyota's 2016 Corolla product information (pressroom.toyota.com/?generate_pdf=22035) surfaced in search but was not fetched."
+  },
+  {
+   "year": 2017,
+   "destination": 895,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 18500,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 18935,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE Eco",
+     "msrp": 19335,
+     "config": "CVT",
+     "note": "w/Premium Package $21,300"
+    },
+    {
+     "trim": "SE",
+     "msrp": 20445,
+     "config": "CVT",
+     "note": "6MT $21,665"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 21825,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "50th Anniversary Special Edition",
+     "msrp": 21900,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XSE",
+     "msrp": 22680,
+     "config": "CVT",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2017-toyota-corolla-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Refreshed 2017 Corolla renamed the S grades to SE/XSE and added XLE. Toyota's official 2017 Corolla pricing release exists (pressroom.toyota.com/toyota-2017-pricing-corolla-86-corolla-im/); the legacy-host copy (toyotanews.pressroom.toyota.com) returned a client error."
+  },
+  {
+   "year": 2018,
+   "destination": 930,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 18600,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 19035,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE Eco",
+     "msrp": 19435,
+     "config": "CVT",
+     "note": "w/Premium Package $21,400"
+    },
+    {
+     "trim": "SE",
+     "msrp": 20545,
+     "config": "CVT",
+     "note": "6MT $21,765"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 22035,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XSE",
+     "msrp": 22780,
+     "config": "CVT",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2018-toyota-corolla-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Toyota's 2018 Corolla release (stylish-2018-toyota-corolla-offers-standard-toyota-safety-sense-impressive-fuel-economy) was found in search but not fetched."
+  },
+  {
+   "year": 2019,
+   "destination": 955,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 18700,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 19135,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE Eco",
+     "msrp": 19535,
+     "config": "CVT",
+     "note": "w/Premium Package $21,500"
+    },
+    {
+     "trim": "SE",
+     "msrp": 20645,
+     "config": "CVT",
+     "note": "6MT $21,865"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 22135,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XSE",
+     "msrp": 22880,
+     "config": "CVT",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-toyota-corolla-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Final year of the 11th-generation sedan; the all-new 2019 Corolla Hatchback is a separate model and is not included. No Toyota pricing release for the 2019 sedan surfaced in search."
+  },
+  {
+   "year": 2020,
+   "destination": 995,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 19600,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 20050,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 22050,
+     "config": "CVT",
+     "note": "6MT $22,750"
+    },
+    {
+     "trim": "SE Nightshade Edition",
+     "msrp": 22750,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XLE",
+     "msrp": 24050,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XSE",
+     "msrp": 25550,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 23100,
+     "config": "eCVT",
+     "note": "from the iSeeCars 2020 Corolla Hybrid page (destination 995); new for 2020"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2020-toyota-corolla-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.iseecars.com/car/2020-toyota-corolla_hybrid-price",
+    "https://tflcar.com/2019/02/2020-toyota-corolla-sedan-review-how-does-it-drive-what-does-it-cost/"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. All-new 12th-generation sedan. MID-YEAR INCREASE VISIBLE: TFLcar's launch table (article dated Feb 2019 in its URL; destination not stated) gives base pricing L $19,500 / LE $19,950 / SE $21,950 (6MT $22,650) / XLE $23,950 / XSE $25,450 / LE Hybrid $22,950 - exactly $100 below the iSeeCars MSRPs for every gas trim and $150 below for the Hybrid LE. Toyota's 2020 Corolla releases were found in search but not fetched (site was returning client errors)."
+  },
+  {
+   "year": 2021,
+   "destination": 995,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 20025,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 20475,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 22475,
+     "config": "CVT",
+     "note": "6MT $23,175"
+    },
+    {
+     "trim": "SE Nightshade Edition",
+     "msrp": 23175,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XLE",
+     "msrp": 24425,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "SE Apex Edition",
+     "msrp": 25170,
+     "config": "CVT",
+     "note": "6MT $25,560; listed as 'SE Apex'"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 25925,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XSE Apex Edition",
+     "msrp": 28310,
+     "config": "CVT",
+     "note": "listed as 'XSE Apex'"
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 23600,
+     "config": "eCVT",
+     "note": "from the iSeeCars 2021 Corolla Hybrid page, which lists destination 1025 (gas page lists 995)"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2021-toyota-corolla-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.iseecars.com/car/2021-toyota-corolla_hybrid-price"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Destination 995 is from the gas page; the Corolla Hybrid page lists 1025 for the same model year. Toyota's 2021 Apex Edition release was found in search but not fetched."
+  },
+  {
+   "year": 2022,
+   "destination": 1095,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 20425,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 20875,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 22875,
+     "config": "CVT",
+     "note": "6MT $23,575"
+    },
+    {
+     "trim": "SE Nightshade Edition",
+     "msrp": 23575,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XLE",
+     "msrp": 24825,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "SE Apex Edition",
+     "msrp": 25570,
+     "config": "CVT",
+     "note": "6MT $25,960; listed as 'SE Apex'"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 26325,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XSE Apex Edition",
+     "msrp": 28710,
+     "config": "CVT",
+     "note": "listed as 'XSE Apex'"
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 24050,
+     "config": "eCVT",
+     "note": "from the iSeeCars 2022 Corolla Hybrid page (destination 1095)"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-toyota-corolla-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.iseecars.com/car/2022-toyota-corolla_hybrid-price"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Toyota's 2022 Apex/Nightshade release was found in search but not fetched."
+  },
+  {
+   "year": 2023,
+   "destination": 1095,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 21700,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 24140,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XSE",
+     "msrp": 26850,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 23050,
+     "config": "FWD",
+     "note": "AWD $24,450; from the iSeeCars 2023 Corolla Hybrid page (destination 1095)"
+    },
+    {
+     "trim": "Hybrid SE",
+     "msrp": 25490,
+     "config": "FWD",
+     "note": "AWD $26,890; from the iSeeCars 2023 Corolla Hybrid page"
+    },
+    {
+     "trim": "Hybrid SE Infrared Edition",
+     "msrp": 26025,
+     "config": "FWD",
+     "note": "AWD $27,425; listed as 'SE Infrared'; from the iSeeCars 2023 Corolla Hybrid page"
+    },
+    {
+     "trim": "Hybrid XLE",
+     "msrp": 26850,
+     "config": "FWD",
+     "note": "from the iSeeCars 2023 Corolla Hybrid page; no AWD XLE listed"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-toyota-corolla-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.iseecars.com/car/2023-toyota-corolla_hybrid-price"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Refreshed 2023 lineup: no L or XLE gas grade on the page; manual transmission gone; hybrid line expanded to LE/SE/XLE plus the Infrared Edition, with AWD newly available. Toyota's 2023 Corolla release was found in search but not fetched."
+  },
+  {
+   "year": 2024,
+   "destination": 1135,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 22050,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 24490,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "Nightshade",
+     "msrp": 25490,
+     "config": "CVT",
+     "note": "listed as 'Nightshade'"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 27150,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 23500,
+     "config": "FWD",
+     "note": "AWD $24,900; from the iSeeCars 2024 Corolla Hybrid page (destination 1135)"
+    },
+    {
+     "trim": "Hybrid SE",
+     "msrp": 25940,
+     "config": "FWD",
+     "note": "AWD $27,340; from the iSeeCars 2024 Corolla Hybrid page"
+    },
+    {
+     "trim": "Hybrid Nightshade",
+     "msrp": 26940,
+     "config": "FWD",
+     "note": "AWD $28,340; listed as 'Nightshade'; from the iSeeCars 2024 Corolla Hybrid page"
+    },
+    {
+     "trim": "Hybrid XLE",
+     "msrp": 27250,
+     "config": "FWD",
+     "note": "from the iSeeCars 2024 Corolla Hybrid page; no AWD XLE listed"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-toyota-corolla-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.iseecars.com/car/2024-toyota-corolla_hybrid-price"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. No 2024 Corolla sedan pricing release surfaced in search (only the vehicle page). No SE Infrared row on the 2024 hybrid page."
+  },
+  {
+   "year": 2025,
+   "destination": 1195,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 22325,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 24765,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "FX Edition",
+     "msrp": 26650,
+     "config": "CVT",
+     "note": "listed as 'FX'; new for 2025"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 28040,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 23825,
+     "config": "FWD",
+     "note": "AWD $25,225; from the iSeeCars 2025 Corolla Hybrid page (destination 1195)"
+    },
+    {
+     "trim": "Hybrid SE",
+     "msrp": 26265,
+     "config": "FWD",
+     "note": "AWD $27,665; from the iSeeCars 2025 Corolla Hybrid page"
+    },
+    {
+     "trim": "Hybrid XLE",
+     "msrp": 28190,
+     "config": "FWD",
+     "note": "from the iSeeCars 2025 Corolla Hybrid page; no AWD XLE listed"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-toyota-corolla-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.iseecars.com/car/2025-toyota-corolla_hybrid-price"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Toyota's 2025 Corolla and FX Edition releases were found in search but not fetched. No Nightshade row on either 2025 page."
+  },
+  {
+   "year": 2026,
+   "destination": 1295,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 23125,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 25565,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "XSE",
+     "msrp": 28840,
+     "config": "CVT",
+     "note": ""
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 24975,
+     "config": "FWD",
+     "note": "AWD $26,375; from the iSeeCars 2026 Corolla Hybrid page (destination 1295)"
+    },
+    {
+     "trim": "Hybrid SE",
+     "msrp": 27415,
+     "config": "FWD",
+     "note": "AWD $28,815; from the iSeeCars 2026 Corolla Hybrid page"
+    },
+    {
+     "trim": "Hybrid XLE",
+     "msrp": 29340,
+     "config": "FWD",
+     "note": "from the iSeeCars 2026 Corolla Hybrid page; no AWD XLE listed"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2026-toyota-corolla-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.iseecars.com/car/2026-toyota-corolla_hybrid-price"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. FX Edition not on the 2026 gas page. Toyota's 2026 Corolla release returned a client error (main page and PDF export both tried)."
+  }
+ ],
+ "gaps": [
+  "No manufacturer source for any Corolla year: pressroom.toyota.com returned client errors on the 2017 Corolla pricing release (both the main host and the legacy toyotanews host) and on the 2026 Corolla release PDF export, and was returning client errors site-wide, so the other 2018-2026 Corolla releases found in search were not fetched.",
+  "Destination values are iSeeCars' listed 'Destination Charge' per style, not figures stated by Toyota; for 2021 the gas page lists 995 and the hybrid page 1025.",
+  "iSeeCars appears to show the latest MSRP for the model year: for 2020, TFLcar's launch table is $100 below every gas trim and $150 below the Hybrid LE, so other years may also include mid-year increases that these pages cannot show.",
+  "2020-2022 Corolla Hybrid pages list only the LE grade; no AWD XLE hybrid listed for 2023-2026; no 2024 SE Infrared or 2025-2026 Nightshade hybrid rows on the pages.",
+  "2016: 'Special Edition' is listed as 'S Special Edition'; package-level grades (LE Eco Plus, LE Premium, LE Eco Premium) kept in the year note rather than as rows.",
+  "2024 'Nightshade' and 2025 'FX' trim labels are as shown on iSeeCars (Toyota's release titles call them Nightshade Edition / FX Edition)."
+ ]
+}

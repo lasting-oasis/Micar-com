@@ -3923,5 +3923,1883 @@
     "note": "Nissan release originally dated 2025-07-29 was 'Updated February 2026 to reflect the mid-cycle model change' and now carries 2026.5 pricing: SL grade, SV Premium Package and Platinum Technology Package are not available for 2026.5. Original 2026 launch figures are no longer displayed on the newsroom page. Cars.com quotes a $1,545 destination fee (as of Aug 2026) versus the $1,575 on the Nissan page; Nissan's figure recorded."
    }
   ]
+ },
+ {
+  "make": "Toyota",
+  "model": "Camry",
+  "body": "Sedan",
+  "note": "Sedan only. MSRP excludes destination throughout. AWD prices (2020-2026) are carried in the FWD row's note. Hybrid grades listed as rows for 2016-2018; 2025-2026 are hybrid-only generations.",
+  "gaps": [
+   "Manufacturer source only for 2017 (Toyota pricing release). pressroom.toyota.com returned client errors on every other Camry release tried (2016 Special Edition, 2018 launch, 2019, 2020 TRD, 2021 refresh, 2025 all-hybrid, and the Full-Line Pricing page); 2022-2024 and 2026 releases were found in search but not fetched.",
+   "2018 XSE V6 not recorded: The Truth About Cars table shows $25,835 (typo); the article's stated $5,950 V6 upcharge on XSE would imply $34,950 ex-DPH.",
+   "Camry Hybrid grades captured only for 2016 (via the 2017 release's prior-year column), 2017 and 2018. 2019-2024 hybrid MSRPs not captured (iSeeCars Camry pages list gas styles only; Camry Hybrid pages not fetched).",
+   "2021-2024: no L trim on the iSeeCars pages (not captured, may not have been offered).",
+   "iSeeCars MSRPs appear to be the latest MSRP for the model year: 2020 is $130 above the August 2019 launch prices (Motor Authority), so 2019-2026 figures may include mid-year increases.",
+   "Destination: official DPH only for 2017 ($835). Other years use iSeeCars' listed Destination Charge; for 2017 iSeeCars shows $895 vs the official $835, so treat iSeeCars destination values as approximate.",
+   "2018 destination ($885) is the DPH stated by The Truth About Cars, not by Toyota."
+  ],
+  "years": [
+   {
+    "year": 2016,
+    "destination": 885,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 23070,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 23840,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Special Edition",
+      "msrp": 25715,
+      "config": "",
+      "note": "SE-based Special Edition"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 26310,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "XSE",
+      "msrp": 26310,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "XLE V6",
+      "msrp": 31370,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "XSE V6",
+      "msrp": 31370,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 26790,
+      "config": "",
+      "note": "read from the prior-year column of Toyota's 2017 Camry pricing release ($0 change for 2017)"
+     },
+     {
+      "trim": "Hybrid SE",
+      "msrp": 27995,
+      "config": "",
+      "note": "read from the prior-year column of Toyota's 2017 Camry pricing release ($0 change for 2017)"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 30140,
+      "config": "",
+      "note": "read from the prior-year column of Toyota's 2017 Camry pricing release ($0 change for 2017)"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2016-toyota-camry-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Corroborated by Toyota's 2017 Camry pricing release (June 8, 2016), whose prior-year column shows identical figures ($0, 0.0% change) for LE/SE/XLE/XSE/V6 and the three hybrid grades. Destination 885 is iSeeCars' value. Toyota's 2016 Camry Special Edition release (pressroom.toyota.com/2016-toyota-camry-special-edition-debut/) returned a client error on both attempts."
+   },
+   {
+    "year": 2017,
+    "destination": 835,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 23070,
+      "config": "",
+      "note": "L4"
+     },
+     {
+      "trim": "SE",
+      "msrp": 23840,
+      "config": "",
+      "note": "L4"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 26310,
+      "config": "",
+      "note": "L4"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 26310,
+      "config": "",
+      "note": "L4"
+     },
+     {
+      "trim": "XLE V6",
+      "msrp": 31370,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "XSE V6",
+      "msrp": 31370,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 26790,
+      "config": "",
+      "note": "release lists it as 'HV LE'"
+     },
+     {
+      "trim": "Hybrid SE",
+      "msrp": 27995,
+      "config": "",
+      "note": "release lists it as 'HV SE'"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 30140,
+      "config": "",
+      "note": "release lists it as 'HV XLE'"
+     }
+    ],
+    "source": "https://pressroom.toyota.com/2017-toyota-camry-pricing/",
+    "sourceType": "manufacturer",
+    "note": "Toyota pricing release dated June 8, 2016. MSRP excludes the $835 delivery, processing and handling (DPH) fee (SET/GST regions may vary). Release shows $0 / 0.0% change vs the prior year for every grade. iSeeCars' 2017 page shows the same MSRPs but lists destination 895."
+   },
+   {
+    "year": 2018,
+    "destination": 885,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 23495,
+      "config": "",
+      "note": "article price $24,380 incl. $885 DPH"
+     },
+     {
+      "trim": "LE",
+      "msrp": 24000,
+      "config": "",
+      "note": "article price $24,885 incl. $885 DPH"
+     },
+     {
+      "trim": "SE",
+      "msrp": 25200,
+      "config": "",
+      "note": "article price $26,085 incl. $885 DPH"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 28450,
+      "config": "",
+      "note": "article price $29,335 incl. $885 DPH"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 29000,
+      "config": "",
+      "note": "article price $29,885 incl. $885 DPH"
+     },
+     {
+      "trim": "XLE V6",
+      "msrp": 34400,
+      "config": "",
+      "note": "article price $35,285 incl. $885 DPH"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 27800,
+      "config": "",
+      "note": "article price $28,685 incl. $885 DPH"
+     },
+     {
+      "trim": "Hybrid SE",
+      "msrp": 29500,
+      "config": "",
+      "note": "article price $30,385 incl. $885 DPH"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 32250,
+      "config": "",
+      "note": "article price $33,135 incl. $885 DPH"
+     }
+    ],
+    "source": "https://thetruthaboutcars.com/2017/06/2018-toyota-camry-prices-fuel-economy-ratings-money-power-mpgs/",
+    "sourceType": "secondary",
+    "note": "All-new 8th-generation Camry. The Truth About Cars table (June 21, 2017) states its prices include the $885 delivery, processing and handling fee; $885 subtracted from every row. XSE V6 NOT recorded: the table shows $25,835 (evident typo); the article says the V6 is a $5,950 option on the XSE, which would imply $34,950 ex-DPH. Cross-check: Carscoops (June 21, 2017) gives L $23,495, V6 from $34,400 and Hybrid from $27,800, matching the ex-DPH figures. Toyota's launch release (pressroom.toyota.com/all-new-2018-toyota-camry-launch/) returned client errors on three attempts."
+   },
+   {
+    "year": 2019,
+    "destination": 955,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 24095,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "LE",
+      "msrp": 24600,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 25800,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "XLE",
+      "msrp": 29175,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "XSE",
+      "msrp": 29725,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "XLE V6",
+      "msrp": 34300,
+      "config": "",
+      "note": ""
+     },
+     {
+      "trim": "XSE V6",
+      "msrp": 34850,
+      "config": "",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2019-toyota-camry-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. cars.com's 2019 review text gives the L at $25,050 including destination (= 24,095 + 955), consistent. Camry Hybrid grades not on this page (not captured). Toyota's 2019 release returned client errors on both attempts."
+   },
+   {
+    "year": 2020,
+    "destination": 995,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 24425,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "LE",
+      "msrp": 24970,
+      "config": "FWD",
+      "note": "AWD $26,370"
+     },
+     {
+      "trim": "SE",
+      "msrp": 26170,
+      "config": "FWD",
+      "note": "AWD $27,570"
+     },
+     {
+      "trim": "SE Nightshade",
+      "msrp": 26870,
+      "config": "FWD",
+      "note": "AWD $28,270"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 29455,
+      "config": "FWD",
+      "note": "AWD $30,855"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 30005,
+      "config": "FWD",
+      "note": "AWD $31,405"
+     },
+     {
+      "trim": "TRD",
+      "msrp": 31170,
+      "config": "FWD",
+      "note": "V6; first-ever Camry TRD"
+     },
+     {
+      "trim": "XLE V6",
+      "msrp": 34580,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "XSE V6",
+      "msrp": 35130,
+      "config": "FWD",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2020-toyota-camry-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. MID-YEAR INCREASE VISIBLE: Motor Authority (Aug 22, 2019) reported launch pricing of TRD $31,995, SE $26,995 and XLE V6 $35,405 including a $955 destination charge, i.e. $31,040 / $26,040 / $34,450 ex-destination - exactly $130 below the iSeeCars MSRPs, and destination $955 at launch vs $995 here. AWD (new for 2020, 4-cyl only) in trim notes. Hybrid grades not captured. Toyota's 2020 TRD/pricing release returned client errors on both attempts."
+   },
+   {
+    "year": 2021,
+    "destination": 1025,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 25045,
+      "config": "FWD",
+      "note": "AWD $26,445"
+     },
+     {
+      "trim": "SE",
+      "msrp": 26560,
+      "config": "FWD",
+      "note": "AWD $27,960"
+     },
+     {
+      "trim": "SE Nightshade",
+      "msrp": 27260,
+      "config": "FWD",
+      "note": "AWD $28,660"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 29945,
+      "config": "FWD",
+      "note": "AWD $31,345"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 30495,
+      "config": "FWD",
+      "note": "AWD $31,895"
+     },
+     {
+      "trim": "TRD",
+      "msrp": 32260,
+      "config": "FWD",
+      "note": "V6"
+     },
+     {
+      "trim": "XLE V6",
+      "msrp": 35070,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "XSE V6",
+      "msrp": 35620,
+      "config": "FWD",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2021-toyota-camry-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Refreshed 2021 Camry. No L row on the page. Hybrid grades not captured. Toyota's 2021 release returned client errors on both attempts."
+   },
+   {
+    "year": 2022,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 25845,
+      "config": "FWD",
+      "note": "AWD $27,245"
+     },
+     {
+      "trim": "SE",
+      "msrp": 27385,
+      "config": "FWD",
+      "note": "AWD $28,785"
+     },
+     {
+      "trim": "SE Nightshade",
+      "msrp": 28085,
+      "config": "FWD",
+      "note": "AWD $29,485"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 30595,
+      "config": "FWD",
+      "note": "AWD $31,995"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 31145,
+      "config": "FWD",
+      "note": "AWD $32,545"
+     },
+     {
+      "trim": "TRD",
+      "msrp": 32910,
+      "config": "FWD",
+      "note": "V6"
+     },
+     {
+      "trim": "XLE V6",
+      "msrp": 35720,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "XSE V6",
+      "msrp": 36270,
+      "config": "FWD",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2022-toyota-camry-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. No L row on the page. Hybrid grades (incl. new Hybrid Nightshade) not captured. Toyota's 2022 release was found in search but not fetched (site was returning client errors)."
+   },
+   {
+    "year": 2023,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 26320,
+      "config": "FWD",
+      "note": "AWD $27,720"
+     },
+     {
+      "trim": "SE",
+      "msrp": 27860,
+      "config": "FWD",
+      "note": "AWD $29,260"
+     },
+     {
+      "trim": "SE Nightshade",
+      "msrp": 28860,
+      "config": "FWD",
+      "note": "AWD $30,260"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 31070,
+      "config": "FWD",
+      "note": "AWD $32,470"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 31620,
+      "config": "FWD",
+      "note": "AWD $33,020"
+     },
+     {
+      "trim": "TRD",
+      "msrp": 33385,
+      "config": "FWD",
+      "note": "V6"
+     },
+     {
+      "trim": "XLE V6",
+      "msrp": 36195,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "XSE V6",
+      "msrp": 36745,
+      "config": "FWD",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2023-toyota-camry-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. No L row on the page. Hybrid grades not captured. Toyota's 2023 Nightshade release exists only as a PDF export in search results; not fetched."
+   },
+   {
+    "year": 2024,
+    "destination": 1135,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 26420,
+      "config": "FWD",
+      "note": "AWD $27,820"
+     },
+     {
+      "trim": "SE",
+      "msrp": 27960,
+      "config": "FWD",
+      "note": "AWD $29,360"
+     },
+     {
+      "trim": "SE Nightshade",
+      "msrp": 28960,
+      "config": "FWD",
+      "note": "AWD $30,360"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 31170,
+      "config": "FWD",
+      "note": "AWD $32,570"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 31720,
+      "config": "FWD",
+      "note": "AWD $33,120"
+     },
+     {
+      "trim": "TRD",
+      "msrp": 33485,
+      "config": "FWD",
+      "note": "V6"
+     },
+     {
+      "trim": "XLE V6",
+      "msrp": 36295,
+      "config": "FWD",
+      "note": ""
+     },
+     {
+      "trim": "XSE V6",
+      "msrp": 36845,
+      "config": "FWD",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2024-toyota-camry-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Final year of the 8th generation / V6. No L row on the page. Hybrid grades not captured. Toyota's 2024 Camry release was found in search but not fetched (site was returning client errors)."
+   },
+   {
+    "year": 2025,
+    "destination": 1195,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 28700,
+      "config": "FWD",
+      "note": "hybrid; AWD $30,225"
+     },
+     {
+      "trim": "SE",
+      "msrp": 31000,
+      "config": "FWD",
+      "note": "hybrid; AWD $32,525"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 33700,
+      "config": "FWD",
+      "note": "hybrid; AWD $35,225"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 34900,
+      "config": "FWD",
+      "note": "hybrid; AWD $36,425"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2025-toyota-camry-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. All-new 9th-generation Camry is hybrid-only (every row is a hybrid; iSeeCars does not label them). Toyota's 2025 pricing release (pressroom.toyota.com/toyota-camry-goes-exclusively-hybrid-plus-a-new-look-and-more-technology/) returned a client error."
+   },
+   {
+    "year": 2026,
+    "destination": 1295,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 29600,
+      "config": "FWD",
+      "note": "hybrid; AWD $31,125"
+     },
+     {
+      "trim": "SE",
+      "msrp": 32100,
+      "config": "FWD",
+      "note": "hybrid; AWD $33,625"
+     },
+     {
+      "trim": "Nightshade",
+      "msrp": 33100,
+      "config": "FWD",
+      "note": "hybrid; AWD $34,625; listed as 'Nightshade' (Toyota: Nightshade Edition)"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 34800,
+      "config": "FWD",
+      "note": "hybrid; AWD $36,325"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 36000,
+      "config": "FWD",
+      "note": "hybrid; AWD $37,525"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2026-toyota-camry-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Hybrid-only. Toyota's 2026 Nightshade release was found in search but not fetched (site was returning client errors)."
+   }
+  ]
+ },
+ {
+  "make": "Toyota",
+  "model": "Corolla",
+  "body": "Sedan",
+  "note": "Sedan only; the Corolla Hatchback (2019+), Corolla iM, GR Corolla and Corolla Cross are separate models and excluded. MSRP excludes destination throughout. Manual-transmission prices are carried in the CVT row's note; Corolla Hybrid rows (2020-2026) come from iSeeCars' separate Corolla Hybrid pages (listed in sources_extra), with AWD prices carried in the FWD row's note.",
+  "gaps": [
+   "No manufacturer source for any Corolla year: pressroom.toyota.com returned client errors on the 2017 Corolla pricing release (both the main host and the legacy toyotanews host) and on the 2026 Corolla release PDF export, and was returning client errors site-wide, so the other 2018-2026 Corolla releases found in search were not fetched.",
+   "Destination values are iSeeCars' listed 'Destination Charge' per style, not figures stated by Toyota; for 2021 the gas page lists 995 and the hybrid page 1025.",
+   "iSeeCars appears to show the latest MSRP for the model year: for 2020, TFLcar's launch table is $100 below every gas trim and $150 below the Hybrid LE, so other years may also include mid-year increases that these pages cannot show.",
+   "2020-2022 Corolla Hybrid pages list only the LE grade; no AWD XLE hybrid listed for 2023-2026; no 2024 SE Infrared or 2025-2026 Nightshade hybrid rows on the pages.",
+   "2016: 'Special Edition' is listed as 'S Special Edition'; package-level grades (LE Eco Plus, LE Premium, LE Eco Premium) kept in the year note rather than as rows.",
+   "2024 'Nightshade' and 2025 'FX' trim labels are as shown on iSeeCars (Toyota's release titles call them Nightshade Edition / FX Edition)."
+  ],
+  "years": [
+   {
+    "year": 2016,
+    "destination": 885,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 17300,
+      "config": "6MT",
+      "note": "4-speed automatic $17,900"
+     },
+     {
+      "trim": "LE",
+      "msrp": 18735,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE Eco",
+      "msrp": 19135,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE Plus",
+      "msrp": 19135,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "S",
+      "msrp": 19365,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "S Plus",
+      "msrp": 20065,
+      "config": "CVT",
+      "note": "6MT $21,665"
+     },
+     {
+      "trim": "Special Edition",
+      "msrp": 20635,
+      "config": "CVT",
+      "note": "listed as 'S Special Edition'"
+     },
+     {
+      "trim": "S Premium",
+      "msrp": 23125,
+      "config": "CVT",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2016-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Also on the page: LE Eco Plus $19,835, LE Premium $22,195, LE Eco Premium $22,895. Toyota's 2016 Corolla product information (pressroom.toyota.com/?generate_pdf=22035) surfaced in search but was not fetched."
+   },
+   {
+    "year": 2017,
+    "destination": 895,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 18500,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE",
+      "msrp": 18935,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE Eco",
+      "msrp": 19335,
+      "config": "CVT",
+      "note": "w/Premium Package $21,300"
+     },
+     {
+      "trim": "SE",
+      "msrp": 20445,
+      "config": "CVT",
+      "note": "6MT $21,665"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 21825,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "50th Anniversary Special Edition",
+      "msrp": 21900,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XSE",
+      "msrp": 22680,
+      "config": "CVT",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2017-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Refreshed 2017 Corolla renamed the S grades to SE/XSE and added XLE. Toyota's official 2017 Corolla pricing release exists (pressroom.toyota.com/toyota-2017-pricing-corolla-86-corolla-im/); the legacy-host copy (toyotanews.pressroom.toyota.com) returned a client error."
+   },
+   {
+    "year": 2018,
+    "destination": 930,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 18600,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE",
+      "msrp": 19035,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE Eco",
+      "msrp": 19435,
+      "config": "CVT",
+      "note": "w/Premium Package $21,400"
+     },
+     {
+      "trim": "SE",
+      "msrp": 20545,
+      "config": "CVT",
+      "note": "6MT $21,765"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 22035,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XSE",
+      "msrp": 22780,
+      "config": "CVT",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2018-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Toyota's 2018 Corolla release (stylish-2018-toyota-corolla-offers-standard-toyota-safety-sense-impressive-fuel-economy) was found in search but not fetched."
+   },
+   {
+    "year": 2019,
+    "destination": 955,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 18700,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE",
+      "msrp": 19135,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE Eco",
+      "msrp": 19535,
+      "config": "CVT",
+      "note": "w/Premium Package $21,500"
+     },
+     {
+      "trim": "SE",
+      "msrp": 20645,
+      "config": "CVT",
+      "note": "6MT $21,865"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 22135,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XSE",
+      "msrp": 22880,
+      "config": "CVT",
+      "note": ""
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2019-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Final year of the 11th-generation sedan; the all-new 2019 Corolla Hatchback is a separate model and is not included. No Toyota pricing release for the 2019 sedan surfaced in search."
+   },
+   {
+    "year": 2020,
+    "destination": 995,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 19600,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE",
+      "msrp": 20050,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 22050,
+      "config": "CVT",
+      "note": "6MT $22,750"
+     },
+     {
+      "trim": "SE Nightshade Edition",
+      "msrp": 22750,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XLE",
+      "msrp": 24050,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XSE",
+      "msrp": 25550,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 23100,
+      "config": "eCVT",
+      "note": "from the iSeeCars 2020 Corolla Hybrid page (destination 995); new for 2020"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2020-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. All-new 12th-generation sedan. MID-YEAR INCREASE VISIBLE: TFLcar's launch table (article dated Feb 2019 in its URL; destination not stated) gives base pricing L $19,500 / LE $19,950 / SE $21,950 (6MT $22,650) / XLE $23,950 / XSE $25,450 / LE Hybrid $22,950 - exactly $100 below the iSeeCars MSRPs for every gas trim and $150 below for the Hybrid LE. Toyota's 2020 Corolla releases were found in search but not fetched (site was returning client errors)."
+   },
+   {
+    "year": 2021,
+    "destination": 995,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 20025,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE",
+      "msrp": 20475,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 22475,
+      "config": "CVT",
+      "note": "6MT $23,175"
+     },
+     {
+      "trim": "SE Nightshade Edition",
+      "msrp": 23175,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XLE",
+      "msrp": 24425,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "SE Apex Edition",
+      "msrp": 25170,
+      "config": "CVT",
+      "note": "6MT $25,560; listed as 'SE Apex'"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 25925,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XSE Apex Edition",
+      "msrp": 28310,
+      "config": "CVT",
+      "note": "listed as 'XSE Apex'"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 23600,
+      "config": "eCVT",
+      "note": "from the iSeeCars 2021 Corolla Hybrid page, which lists destination 1025 (gas page lists 995)"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2021-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Destination 995 is from the gas page; the Corolla Hybrid page lists 1025 for the same model year. Toyota's 2021 Apex Edition release was found in search but not fetched."
+   },
+   {
+    "year": 2022,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "L",
+      "msrp": 20425,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "LE",
+      "msrp": 20875,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 22875,
+      "config": "CVT",
+      "note": "6MT $23,575"
+     },
+     {
+      "trim": "SE Nightshade Edition",
+      "msrp": 23575,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XLE",
+      "msrp": 24825,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "SE Apex Edition",
+      "msrp": 25570,
+      "config": "CVT",
+      "note": "6MT $25,960; listed as 'SE Apex'"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 26325,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XSE Apex Edition",
+      "msrp": 28710,
+      "config": "CVT",
+      "note": "listed as 'XSE Apex'"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 24050,
+      "config": "eCVT",
+      "note": "from the iSeeCars 2022 Corolla Hybrid page (destination 1095)"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2022-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Toyota's 2022 Apex/Nightshade release was found in search but not fetched."
+   },
+   {
+    "year": 2023,
+    "destination": 1095,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 21700,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 24140,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XSE",
+      "msrp": 26850,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 23050,
+      "config": "FWD",
+      "note": "AWD $24,450; from the iSeeCars 2023 Corolla Hybrid page (destination 1095)"
+     },
+     {
+      "trim": "Hybrid SE",
+      "msrp": 25490,
+      "config": "FWD",
+      "note": "AWD $26,890; from the iSeeCars 2023 Corolla Hybrid page"
+     },
+     {
+      "trim": "Hybrid SE Infrared Edition",
+      "msrp": 26025,
+      "config": "FWD",
+      "note": "AWD $27,425; listed as 'SE Infrared'; from the iSeeCars 2023 Corolla Hybrid page"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 26850,
+      "config": "FWD",
+      "note": "from the iSeeCars 2023 Corolla Hybrid page; no AWD XLE listed"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2023-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Refreshed 2023 lineup: no L or XLE gas grade on the page; manual transmission gone; hybrid line expanded to LE/SE/XLE plus the Infrared Edition, with AWD newly available. Toyota's 2023 Corolla release was found in search but not fetched."
+   },
+   {
+    "year": 2024,
+    "destination": 1135,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 22050,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 24490,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "Nightshade",
+      "msrp": 25490,
+      "config": "CVT",
+      "note": "listed as 'Nightshade'"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 27150,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 23500,
+      "config": "FWD",
+      "note": "AWD $24,900; from the iSeeCars 2024 Corolla Hybrid page (destination 1135)"
+     },
+     {
+      "trim": "Hybrid SE",
+      "msrp": 25940,
+      "config": "FWD",
+      "note": "AWD $27,340; from the iSeeCars 2024 Corolla Hybrid page"
+     },
+     {
+      "trim": "Hybrid Nightshade",
+      "msrp": 26940,
+      "config": "FWD",
+      "note": "AWD $28,340; listed as 'Nightshade'; from the iSeeCars 2024 Corolla Hybrid page"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 27250,
+      "config": "FWD",
+      "note": "from the iSeeCars 2024 Corolla Hybrid page; no AWD XLE listed"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2024-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. No 2024 Corolla sedan pricing release surfaced in search (only the vehicle page). No SE Infrared row on the 2024 hybrid page."
+   },
+   {
+    "year": 2025,
+    "destination": 1195,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 22325,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 24765,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "FX Edition",
+      "msrp": 26650,
+      "config": "CVT",
+      "note": "listed as 'FX'; new for 2025"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 28040,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 23825,
+      "config": "FWD",
+      "note": "AWD $25,225; from the iSeeCars 2025 Corolla Hybrid page (destination 1195)"
+     },
+     {
+      "trim": "Hybrid SE",
+      "msrp": 26265,
+      "config": "FWD",
+      "note": "AWD $27,665; from the iSeeCars 2025 Corolla Hybrid page"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 28190,
+      "config": "FWD",
+      "note": "from the iSeeCars 2025 Corolla Hybrid page; no AWD XLE listed"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2025-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Toyota's 2025 Corolla and FX Edition releases were found in search but not fetched. No Nightshade row on either 2025 page."
+   },
+   {
+    "year": 2026,
+    "destination": 1295,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 23125,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "SE",
+      "msrp": 25565,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "XSE",
+      "msrp": 28840,
+      "config": "CVT",
+      "note": ""
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 24975,
+      "config": "FWD",
+      "note": "AWD $26,375; from the iSeeCars 2026 Corolla Hybrid page (destination 1295)"
+     },
+     {
+      "trim": "Hybrid SE",
+      "msrp": 27415,
+      "config": "FWD",
+      "note": "AWD $28,815; from the iSeeCars 2026 Corolla Hybrid page"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 29340,
+      "config": "FWD",
+      "note": "from the iSeeCars 2026 Corolla Hybrid page; no AWD XLE listed"
+     }
+    ],
+    "source": "https://www.iseecars.com/car/2026-toyota-corolla-price",
+    "sourceType": "secondary",
+    "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. FX Edition not on the 2026 gas page. Toyota's 2026 Corolla release returned a client error (main page and PDF export both tried)."
+   }
+  ]
+ },
+ {
+  "make": "Toyota",
+  "model": "RAV4",
+  "body": "SUV / Crossover",
+  "note": "All model years are the compact 5-door crossover (no other body styles). MSRP = price excluding destination; config column records the drivetrain the price applies to. Most years rely on cars.com research 'trims' pages (secondary) because the Toyota USA Newsroom returned client errors for most historical release URLs in this session and its 2021+ releases embed pricing tables as images.",
+  "gaps": [
+   "Manufacturer-sourced full lineup only for 2017 (gas). 2018 Adventure launch price + $995 DPH, 2024 LE FWD text figure, 2025 base and 2026 LE FWD base price were the only other figures readable on pressroom.toyota.com.",
+   "2016, 2019, 2020, 2021, 2025: Toyota pricing releases returned client errors (HTML and, where tried, legacy-host / PDF-export copies); cars.com used instead.",
+   "2022, 2023, 2024: Toyota releases fetched (or PDF export fetched) but pricing tables are images with no readable figures; cars.com used instead.",
+   "Destination charge not stated on cars.com pages; recorded only where a fetched source stated it (2017 $960, 2018 $995, 2024 $1,350, 2026 $1,450). Other years null.",
+   "cars.com 'Starting MSRP' reflects the latest MSRP for the model year; 2017 (Toyota price cut May 2017), 2018 (Adventure +$250 vs launch), 2021 hybrid (+$400 vs *Ltd Avail* style), 2023 and 2024 (+$200 vs launch LE) show evidence of in-year price changes.",
+   "2024 LE FWD: three different figures seen - $28,475 (Carscoops/Motor1 launch), $28,745 (Toyota release text, possibly a typo), $28,675 (cars.com).",
+   "RAV4 Prime / Plug-in Hybrid (2021-2026) and 2026 PHEV/GR SPORT grades not captured.",
+   "2018 cars.com page lists 'LE Plus Hybrid' ($28,160) and 'SE Hybrid' ($32,435) in addition to the rows recorded; 2017 hybrid base is 'LE Plus' not 'LE'."
+  ],
+  "years": [
+   {
+    "year": 2016,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 24350,
+      "config": "FWD",
+      "note": "AWD $25,750"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 26270,
+      "config": "FWD",
+      "note": "AWD $27,670"
+     },
+     {
+      "trim": "SE",
+      "msrp": 29265,
+      "config": "FWD",
+      "note": "AWD $30,665"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 31510,
+      "config": "FWD",
+      "note": "AWD $32,910"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 28370,
+      "config": "AWD",
+      "note": "from cars.com RAV4 Hybrid 2016 trims page"
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 33610,
+      "config": "AWD",
+      "note": "from cars.com RAV4 Hybrid 2016 trims page"
+     }
+    ],
+    "source": "https://www.cars.com/research/toyota-rav4-2016/trims/",
+    "sourceType": "secondary",
+    "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. Toyota's Oct 2015 pricing release (pressroom.toyota.com/toyota-2016-rav4-hybrid-debut/) returned a client error on both attempts."
+   },
+   {
+    "year": 2017,
+    "destination": 960,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 24410,
+      "config": "FWD",
+      "note": "Launch 17MY MSRP $24,910; reduced to $24,410 effective May 8, 2017. AWD: $26,310 -> $25,810. Model 4430/4432."
+     },
+     {
+      "trim": "XLE",
+      "msrp": 25500,
+      "config": "FWD",
+      "note": "Launch 17MY MSRP $26,830; reduced to $25,500 effective May 8, 2017. AWD: $28,230 -> $26,900. Model 4440/4442."
+     },
+     {
+      "trim": "SE",
+      "msrp": 28790,
+      "config": "FWD",
+      "note": "Launch 17MY MSRP $29,985; reduced to $28,790 effective May 8, 2017. AWD: $31,385 -> $30,190. Model 4470/4472."
+     },
+     {
+      "trim": "Limited",
+      "msrp": 30905,
+      "config": "FWD",
+      "note": "Launch 17MY MSRP $31,830; reduced to $30,905 effective May 8, 2017. AWD: $33,230 -> $32,305. Model 4450/4452."
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 34750,
+      "config": "FWD",
+      "note": "Unchanged by the May 2017 price cut. AWD $36,150. Model 4474/4476."
+     },
+     {
+      "trim": "Hybrid LE Plus",
+      "msrp": 27910,
+      "config": "AWD",
+      "note": "Hybrid prices 'remain unchanged' per Toyota; figure from cars.com RAV4 Hybrid 2017 trims page (secondary)."
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 29030,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2017 trims page (secondary)."
+     },
+     {
+      "trim": "Hybrid SE",
+      "msrp": 32185,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2017 trims page (secondary)."
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 34030,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2017 trims page (secondary)."
+     }
+    ],
+    "source": "https://pressroom.toyota.com/?generate_pdf=16736",
+    "sourceType": "manufacturer",
+    "note": "Toyota USA Newsroom release 'Popular 2017 Toyota RAV4 Crossover Receives Added Value With New Pricing' (Torrance, May 8, 2017), read via the pressroom's PDF export (the HTML URL pressroom.toyota.com/2017-toyota-rav4-crossover-new-pricing/ returned a client error). The release gives both the original and the reduced 17MY gas MSRPs; msrp here is the reduced price, launch price in each note. DPH stated as $960 (SET/GST may vary). Hybrid rows are from cars.com because the release lists no hybrid figures."
+   },
+   {
+    "year": 2018,
+    "destination": 995,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 24660,
+      "config": "FWD",
+      "note": "AWD $26,060"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 25750,
+      "config": "FWD",
+      "note": "AWD $27,150"
+     },
+     {
+      "trim": "Adventure",
+      "msrp": 27950,
+      "config": "FWD",
+      "note": "AWD $28,650. Toyota's Sept 14, 2017 release priced Adventure at launch at $27,700 FWD / $28,400 AWD (model 4445/4446); cars.com's higher figure implies a later +$250 adjustment."
+     },
+     {
+      "trim": "SE",
+      "msrp": 29040,
+      "config": "FWD",
+      "note": "AWD $30,440"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 31155,
+      "config": "FWD",
+      "note": "AWD $32,555"
+     },
+     {
+      "trim": "Platinum",
+      "msrp": 35000,
+      "config": "FWD",
+      "note": "AWD $36,400"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 27385,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2018 trims page; LE Plus Hybrid $28,160"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 29280,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2018 trims page; SE Hybrid $32,435"
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 34280,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2018 trims page"
+     }
+    ],
+    "source": "https://www.cars.com/research/toyota-rav4-2018/trims/",
+    "sourceType": "secondary",
+    "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. Destination $995 is the DPH fee stated in Toyota's Sept 14, 2017 2018 RAV4 Adventure pricing release (manufacturer), which priced only the Adventure grade; the full-lineup 2018 product-info page returned a client error."
+   },
+   {
+    "year": 2019,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 25650,
+      "config": "FWD",
+      "note": "AWD $27,050"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 27450,
+      "config": "FWD",
+      "note": "AWD $28,850"
+     },
+     {
+      "trim": "XLE Premium",
+      "msrp": 29650,
+      "config": "FWD",
+      "note": "AWD $31,050"
+     },
+     {
+      "trim": "Adventure",
+      "msrp": 33050,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 33650,
+      "config": "FWD",
+      "note": "AWD $35,050"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 27850,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2019 trims page"
+     },
+     {
+      "trim": "Hybrid XLE",
+      "msrp": 29650,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2019 trims page; XSE Hybrid $33,850"
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 35850,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2019 trims page"
+     }
+    ],
+    "source": "https://www.cars.com/research/toyota-rav4-2019/trims/",
+    "sourceType": "secondary",
+    "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. Toyota's Nov 2018 release 'All-New 2019 Toyota RAV4 Breaks the Mold' (HTML, legacy-host copy and PDF export ?generate_pdf=10321) all returned client errors."
+   },
+   {
+    "year": 2020,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 25950,
+      "config": "FWD",
+      "note": "AWD $27,350"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 27245,
+      "config": "FWD",
+      "note": "AWD $28,645"
+     },
+     {
+      "trim": "XLE Premium",
+      "msrp": 29950,
+      "config": "FWD",
+      "note": "AWD $31,350"
+     },
+     {
+      "trim": "Adventure",
+      "msrp": 33055,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "TRD Off-Road",
+      "msrp": 35280,
+      "config": "AWD",
+      "note": "AWD only; cars.com spells it 'TRD Off Road'"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 34480,
+      "config": "FWD",
+      "note": "AWD $35,880"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 28350,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2020 trims page; XLE Hybrid $29,645"
+     },
+     {
+      "trim": "Hybrid XSE",
+      "msrp": 34300,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2020 trims page"
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 36880,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2020 trims page"
+     }
+    ],
+    "source": "https://www.cars.com/research/toyota-rav4-2020/trims/",
+    "sourceType": "secondary",
+    "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. Toyota's 2020 RAV4 release (pressroom.toyota.com/2020-toyota-rav4-offers-a-new-trd-off-road-model-and-multimedia-enhancements/) returned a client error."
+   },
+   {
+    "year": 2021,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 26350,
+      "config": "FWD",
+      "note": "AWD $27,750"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 27645,
+      "config": "FWD",
+      "note": "AWD $29,045"
+     },
+     {
+      "trim": "XLE Premium",
+      "msrp": 30350,
+      "config": "FWD",
+      "note": "AWD $31,750"
+     },
+     {
+      "trim": "Adventure",
+      "msrp": 33455,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "TRD Off-Road",
+      "msrp": 36080,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 34880,
+      "config": "FWD",
+      "note": "AWD $36,280"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 28900,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2021 page lists two LE styles: $28,500 (*Ltd Avail*) and $28,900 - looks like a mid-year +$400 increase; XLE Hybrid $29,795 (*Ltd Avail*) / $30,195"
+     },
+     {
+      "trim": "Hybrid XLE Premium",
+      "msrp": 32900,
+      "config": "AWD",
+      "note": "new grade for 2021; cars.com RAV4 Hybrid 2021 page; XSE Hybrid $34,850"
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 37430,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2021 page"
+     }
+    ],
+    "source": "https://www.cars.com/research/toyota-rav4-2021/trims/",
+    "sourceType": "secondary",
+    "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. Toyota's Oct 2020 release 'New XLE Premium Grade for 2021 RAV4 Hybrid' returned a client error. RAV4 Prime (PHEV) not captured."
+   },
+   {
+    "year": 2022,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 26975,
+      "config": "FWD",
+      "note": "AWD $28,375"
+     },
+     {
+      "trim": "XLE",
+      "msrp": 28445,
+      "config": "FWD",
+      "note": "AWD $29,845"
+     },
+     {
+      "trim": "XLE Premium",
+      "msrp": 31335,
+      "config": "FWD",
+      "note": "AWD $32,735"
+     },
+     {
+      "trim": "Adventure",
+      "msrp": 33230,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "TRD Off-Road",
+      "msrp": 36915,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 35475,
+      "config": "FWD",
+      "note": "AWD $36,875"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 29575,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2022 page; XLE Hybrid $31,045; SE Hybrid (new for 2022) $32,230; XLE Premium Hybrid $33,935"
+     },
+     {
+      "trim": "Hybrid XSE",
+      "msrp": 35555,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2022 page"
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 38075,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2022 page"
+     }
+    ],
+    "source": "https://www.cars.com/research/toyota-rav4-2022/trims/",
+    "sourceType": "secondary",
+    "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. Toyota's Nov 12, 2021 release (read via PDF export 70252) has a '2022 RAV4 Pricing' heading but the table is an image, so no manufacturer figures could be read. RAV4 Prime not captured."
+   },
+   {
+    "year": 2023,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 28275,
+      "config": "FWD",
+      "note": "AWD $29,675. Carscoops (Sept 21, 2023) says the 2024 LE launch price was +$900 vs 2023, which implies a lower 2023 launch price than this cars.com figure, i.e. 2023 saw mid-year increases."
+     },
+     {
+      "trim": "XLE",
+      "msrp": 29785,
+      "config": "FWD",
+      "note": "AWD $31,185"
+     },
+     {
+      "trim": "XLE Premium",
+      "msrp": 32675,
+      "config": "FWD",
+      "note": "AWD $34,075"
+     },
+     {
+      "trim": "Adventure",
+      "msrp": 34470,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "TRD Off-Road",
+      "msrp": 37895,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 36580,
+      "config": "FWD",
+      "note": "AWD $37,980"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 31225,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2023 page; XLE Hybrid $32,735; SE Hybrid $33,920; XLE Premium Hybrid $35,625"
+     },
+     {
+      "trim": "Hybrid Woodland Edition",
+      "msrp": 34025,
+      "config": "AWD",
+      "note": "new for 2023; cars.com RAV4 Hybrid 2023 page; XSE Hybrid $36,885"
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 39530,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2023 page"
+     }
+    ],
+    "source": "https://www.cars.com/research/toyota-rav4-2023/trims/",
+    "sourceType": "secondary",
+    "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. Toyota's May 26, 2022 Woodland Edition release fetched but its '2023 RAV4 Pricing*' section contains no readable figures (image table). RAV4 Prime not captured."
+   },
+   {
+    "year": 2024,
+    "destination": 1350,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 28675,
+      "config": "FWD",
+      "note": "AWD $30,075. Launch price per Carscoops/Motor1 (Sept 21, 2023): $28,475 (+$900 vs 2023); Toyota's own release text (PDF export 87387) says MSRP 'starts at $28,745' for LE FWD, which conflicts with both; cars.com's $28,675 appears to be the later in-year MSRP."
+     },
+     {
+      "trim": "XLE",
+      "msrp": 30185,
+      "config": "FWD",
+      "note": "AWD $31,585"
+     },
+     {
+      "trim": "XLE Premium",
+      "msrp": 33075,
+      "config": "FWD",
+      "note": "AWD $34,475"
+     },
+     {
+      "trim": "Adventure",
+      "msrp": 34870,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "TRD Off-Road",
+      "msrp": 38295,
+      "config": "AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 36980,
+      "config": "FWD",
+      "note": "AWD $38,380"
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 31725,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2024 page; XLE Hybrid $33,235; SE Hybrid $34,420; XLE Premium Hybrid $36,125"
+     },
+     {
+      "trim": "Hybrid Woodland Edition",
+      "msrp": 34945,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2024 page; Carscoops quoted $34,695 at launch (Sept 2023); XSE Hybrid $37,385"
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 40030,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2024 page; Carscoops quoted $39,780 at launch (Sept 2023)"
+     }
+    ],
+    "source": "https://www.cars.com/research/toyota-rav4-2024/trims/",
+    "sourceType": "secondary",
+    "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. Destination $1,350 is the figure Carscoops states (Sept 21, 2023: 'all prices exclude $1,350 destination charge'). Toyota's Sept 21, 2023 release ('2024 Toyota RAV4: Go Wild in Style') embeds its pricing table as an image; only the LE FWD starting price appears in its text. RAV4 Prime not captured."
+   },
+   {
+    "year": 2025,
+    "destination": null,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 29800,
+      "config": "FWD",
+      "note": "AWD $31,200. Carscoops (Nov 19, 2025) also cites the 2025 non-hybrid base model at $29,800."
+     },
+     {
+      "trim": "XLE",
+      "msrp": 31310,
+      "config": "FWD",
+      "note": "AWD $32,710"
+     },
+     {
+      "trim": "XLE Premium",
+      "msrp": 34200,
+      "config": "FWD",
+      "note": "AWD $35,600"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 38105,
+      "config": "FWD",
+      "note": "AWD $39,505. cars.com lists no gas Adventure or TRD Off-Road for 2025."
+     },
+     {
+      "trim": "Hybrid LE",
+      "msrp": 32850,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2025 page; Carscoops also cites 2025 Hybrid LE AWD at $32,850. XLE Hybrid $34,360; SE Hybrid $35,545; XLE Premium Hybrid $37,250"
+     },
+     {
+      "trim": "Hybrid Woodland Edition",
+      "msrp": 36070,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2025 page; XSE Hybrid $38,510"
+     },
+     {
+      "trim": "Hybrid Limited",
+      "msrp": 41155,
+      "config": "AWD",
+      "note": "cars.com RAV4 Hybrid 2025 page"
+     }
+    ],
+    "source": "https://www.cars.com/research/toyota-rav4-2025/trims/",
+    "sourceType": "secondary",
+    "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. Toyota's 2025 RAV4 release (pressroom.toyota.com/tackle-everyday-streets-and-weekend-retreats-in-the-2025-toyota-rav4/) returned a client error. RAV4 Plug-in Hybrid (renamed from Prime for 2025) not captured."
+   },
+   {
+    "year": 2026,
+    "destination": 1450,
+    "trims": [
+     {
+      "trim": "LE",
+      "msrp": 31900,
+      "config": "Hybrid FWD",
+      "note": "AWD $33,300. Toyota's Oct 22, 2025 release confirms '$31,900 (Hybrid FWD model), excluding Dealer Processing and Handling fee'."
+     },
+     {
+      "trim": "SE",
+      "msrp": 34700,
+      "config": "Hybrid FWD",
+      "note": "AWD $36,100"
+     },
+     {
+      "trim": "XLE Premium",
+      "msrp": 36100,
+      "config": "Hybrid FWD",
+      "note": "AWD $37,500 (no plain XLE grade listed for 2026)"
+     },
+     {
+      "trim": "Woodland",
+      "msrp": 39900,
+      "config": "Hybrid AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "XSE",
+      "msrp": 41300,
+      "config": "Hybrid AWD",
+      "note": "AWD only"
+     },
+     {
+      "trim": "Limited",
+      "msrp": 43300,
+      "config": "Hybrid AWD",
+      "note": "AWD only"
+     }
+    ],
+    "source": "https://www.carscoops.com/2025/11/2026-toyota-rav4-pricing-revealed-hybrid-only-and-still-a-solid-value/",
+    "sourceType": "secondary",
+    "note": "All-new 6th generation, hybrid-only lineup. Full grade table from Carscoops (Stephen Rivers, Nov 19, 2025), which states prices exclude a $1,450 delivery, processing and handling fee; the LE FWD figure matches Toyota's own release (manufacturer). Toyota's release says PHEV pricing would follow in the first half of 2026; PHEV grades (SE, XSE, Woodland, GR SPORT) are not captured here."
+   }
+  ]
  }
 ]

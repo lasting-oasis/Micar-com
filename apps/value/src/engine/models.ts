@@ -30,6 +30,8 @@ export type ModelInfo = {
   /** Typical new price for a mid-trim 2025 model, used to prefill MSRP. */
   typicalMsrp: number;
   residual5: number;
+  /** The rule-of-thumb value from ROWS, kept when a fitted residual5 replaces it. */
+  residual5Guess: number;
   traits: Trait[];
   /** Set when residual5 was fitted to real listings (scripts/calibrate.ts). */
   calibrated?: { n: number; mae: number; fittedAt: string };
@@ -274,7 +276,7 @@ const ROWS: Row[] = [
 ];
 
 export const MODELS: ModelInfo[] = ROWS.map(([make, model, body, typicalMsrp, residual5, traits]) => ({
-  make, model, body: BODY[body], typicalMsrp, residual5,
+  make, model, body: BODY[body], typicalMsrp, residual5, residual5Guess: residual5,
   traits: (traits ?? '').split(' ').filter(Boolean) as Trait[],
 }));
 
