@@ -95,7 +95,7 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     const treeLeavesGeo = new THREE.ConeGeometry(3, 8, 8);
     const treeLeavesMat = new THREE.MeshStandardMaterial({ color: '#15803d', roughness: 0.9, flatShading: true });
 
-    const numTrees = 80;
+    const numTrees = 80 + 40; // roadside trees + the pocket parks
     const trunkInstanced = new THREE.InstancedMesh(treeTrunkGeo, treeTrunkMat, numTrees);
     trunkInstanced.castShadow = true;
     scene.add(trunkInstanced);
@@ -358,52 +358,37 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          staticCollisionBoxes.push(new THREE.Box3().setFromObject(midMesh));
     };
 
-    // 2. Retail Storefront / Shop
-    const createStorefront = (x: number, z: number, w: number, d: number, h: number, awningColorHex: string) => {
+    // 2. Pocket park: a curbed lawn with crossing paths, benches and trees.
+    // All parks share one lawn material; paths, curbs and benches use the shared trim.
+    const lawnMat = new THREE.MeshStandardMaterial({ color: '#3f7d34', roughness: 0.95 });
+    cityMaterials.push(lawnMat);
+    const parkTrees: [number, number][] = [];
+    const createPocketPark = (x: number, z: number, w: number, d: number) => {
          const group = new THREE.Group();
          group.position.set(x, 0, z);
-         
-         const wallMat = new THREE.MeshStandardMaterial({ color: '#eae5d9', roughness: 0.9, map: concreteTex });
-         const glassMat = makeGlass('#38bdf8', 0.4);
-         cityMaterials.push(wallMat, glassMat);
-         
-         const storeGeo = new THREE.BoxGeometry(w, h, d);
-         const storeMesh = new THREE.Mesh(storeGeo, wallMat);
-         storeMesh.position.y = h / 2;
-         storeMesh.castShadow = true;
-         storeMesh.receiveShadow = true;
-         group.add(storeMesh);
-         
-         const windowGeo = new THREE.BoxGeometry(w * 0.7, h * 0.5, 0.5);
-         const windowMesh = new THREE.Mesh(windowGeo, glassMat);
-         windowMesh.position.set(0, h * 0.4, -d / 2 - 0.1);
-         group.add(windowMesh);
-         
-         const awningGeo = new THREE.BoxGeometry(w * 0.8, 1.2, 3);
-         const awningMat = new THREE.MeshStandardMaterial({ color: awningColorHex, roughness: 0.7 });
-         cityMaterials.push(awningMat);
-         const awning = new THREE.Mesh(awningGeo, awningMat);
-         awning.position.set(0, h * 0.7, -d / 2 - 1.2);
-         awning.rotation.x = Math.PI / 8;
-         awning.castShadow = true;
-         group.add(awning);
-         
-         const doorGeo = new THREE.BoxGeometry(3, h * 0.6, 0.6);
-         const doorMat = new THREE.MeshStandardMaterial({ color: '#1e293b', roughness: 0.2 });
-         cityMaterials.push(doorMat);
-         const door = new THREE.Mesh(doorGeo, doorMat);
-         door.position.set(0, h * 0.3, -d / 2 - 0.25);
-         group.add(door);
-         
-         const sign = createBuildingSign('RETAIL STORE', '#0f172a', awningColorHex);
-         sign.position.set(0, h + 2, -d / 2);
-         group.add(sign);
-         
+         const lawn = arch.box(group, lawnMat, w, 0.12, d, 0, 0.06, 0); lawn.receiveShadow = true;
+         // Curb around the lawn
+         ([[0, -d / 2, w + 0.4, 0.4], [0, d / 2, w + 0.4, 0.4], [-w / 2, 0, 0.4, d], [w / 2, 0, 0.4, d]] as [number, number, number, number][])
+             .forEach(([cx, cz, cw, cd]) => { arch.box(group, arch.trimMat, cw, 0.3, cd, cx, 0.15, cz).receiveShadow = true; });
+         // Crossing paths
+         arch.box(group, arch.trimMat, w, 0.16, 2.2, 0, 0.08, 0).receiveShadow = true;
+         arch.box(group, arch.trimMat, 2.2, 0.16, d, 0, 0.08, 0).receiveShadow = true;
+         // Benches facing the paths (concrete seat, dark metal backrest)
+         const bench = (bx: number, bz: number, alongX: boolean, back: number) => {
+             const [sw, sd] = alongX ? [2.4, 0.7] : [0.7, 2.4];
+             arch.box(group, arch.trimMat, sw, 0.14, sd, bx, 0.5, bz);
+             arch.box(group, arch.trimMat, alongX ? 0.2 : 0.6, 0.45, alongX ? 0.6 : 0.2, bx - (alongX ? 0.9 : 0), 0.22, bz - (alongX ? 0 : 0.9));
+             arch.box(group, arch.trimMat, alongX ? 0.2 : 0.6, 0.45, alongX ? 0.6 : 0.2, bx + (alongX ? 0.9 : 0), 0.22, bz + (alongX ? 0 : 0.9));
+             arch.box(group, arch.frameMat, alongX ? 2.4 : 0.08, 0.5, alongX ? 0.08 : 2.4, bx + (alongX ? 0 : back * 0.33), 0.92, bz + (alongX ? back * 0.33 : 0));
+         };
+         bench(-w / 4, -1.9, true, -1); bench(w / 4, 1.9, true, 1);
+         // Trees in the four lawn quarters
+         ([[-1, -1], [1, -1], [-1, 1], [1, 1]] as [number, number][]).forEach(([sx, sz]) => {
+             parkTrees.push([x + sx * w * 0.3, z + sz * d * 0.3]);
+             if (w > 20) parkTrees.push([x + sx * w * 0.42, z + sz * d * 0.12]);
+         });
          scene.add(group);
          environmentDisposables.push(group);
-         group.updateMatrixWorld(true);
-         
-         staticCollisionBoxes.push(new THREE.Box3().setFromObject(storeMesh));
     };
 
     // 3. Warehouse / Industrial complex: corrugated shed under a shallow barrel
@@ -501,12 +486,6 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          if (zOffset < 115 && side > -62 && side < 82) continue;
          placeTree(side, zOffset);
     }
-    // Only draw the trees actually placed: unused instance slots default to the
-    // world origin, which put a stray tree in the middle of the first player's lot.
-    trunkInstanced.count = treeIndex;
-    leavesInstanced.count = treeIndex;
-    trunkInstanced.instanceMatrix.needsUpdate = true;
-    leavesInstanced.instanceMatrix.needsUpdate = true;
 
     // Deploy Themed Zoned Districts
     
@@ -517,12 +496,19 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     createSkyscraper(-50, 360, 28, 26, 80, '#0f172a');
     createSkyscraper(-50, 285, 30, 26, 105, '#1e1b4b');
 
-    // District 2: Commercial & Storefront Plaza District (Z = 300 to 550)
-    createStorefront(50, 470, 24, 18, 10, '#b91c1c'); // Red shop
-    createStorefront(45, 545, 20, 16, 9, '#047857');  // Green shop
-    createStorefront(-45, 340, 22, 18, 10, '#3b82f6'); // Blue shop
-    createStorefront(-50, 400, 24, 20, 11, '#eab308'); // Yellow department
-    createStorefront(-45, 460, 20, 16, 9, '#7c3aed');  // Purple bookstore
+    // District 2: pocket parks where the old shop plaza stood (Z = 330 to 555)
+    createPocketPark(50, 470, 26, 20);
+    createPocketPark(45, 545, 22, 18);
+    createPocketPark(-45, 336, 22, 12);
+    createPocketPark(-50, 400, 26, 22);
+    createPocketPark(-45, 460, 22, 18);
+    parkTrees.forEach(([tx, tz]) => placeTree(tx, tz));
+    // Only draw the trees actually placed: unused instance slots default to the
+    // world origin, which put a stray tree in the middle of the first player's lot.
+    trunkInstanced.count = treeIndex;
+    leavesInstanced.count = treeIndex;
+    trunkInstanced.instanceMatrix.needsUpdate = true;
+    leavesInstanced.instanceMatrix.needsUpdate = true;
 
     // District 3: Industrial Logistics & Warehouse District (Z = 550 to 800)
     createWarehouse(60, 620, 40, 32, 16);
