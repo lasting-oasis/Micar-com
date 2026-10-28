@@ -111,6 +111,16 @@ function loadGraphicsQuality(): 'high' | 'low' {
   return touchOnly ? 'low' : 'high';
 }
 
+// Low graphics also drops the HUD's frosted-glass blur and endless pulse
+// animations (html.gfx-low in index.css): over the 3D view the browser has to
+// re-blur whatever is behind each blurred panel on every frame, because the
+// world under it changes every frame — a big cost on phones.
+function reflectGraphicsQuality(q: 'high' | 'low') {
+  if (typeof document !== 'undefined') document.documentElement.classList.toggle('gfx-low', q === 'low');
+}
+const initialGraphicsQuality = loadGraphicsQuality();
+reflectGraphicsQuality(initialGraphicsQuality);
+
 export const useGameStore = create<StoreState>((set, get) => ({
   socket: null,
   gameState: null,
@@ -130,9 +140,10 @@ export const useGameStore = create<StoreState>((set, get) => ({
   myWorldPos: null,
   setMyWorldPos: (p) => set({ myWorldPos: p }),
   playerPositions: {},
-  graphicsQuality: loadGraphicsQuality(),
+  graphicsQuality: initialGraphicsQuality,
   setGraphicsQuality: (q) => {
     try { localStorage.setItem('cds.graphics', q); } catch { /* storage blocked */ }
+    reflectGraphicsQuality(q);
     set({ graphicsQuality: q });
   },
   drivingFuel: null,

@@ -21,6 +21,19 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/* Low graphics (see store.ts): no backdrop blur and no endless ping/pulse
+   animations. The panels behind them are already 60-95% opaque. */
+html.gfx-low *,
+html.gfx-low *::before,
+html.gfx-low *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html.gfx-low .animate-ping,
+html.gfx-low .animate-pulse {
+  animation: none !important;
+}
+
 .ui-container {
   @apply absolute inset-0 pointer-events-none z-10;
 }
