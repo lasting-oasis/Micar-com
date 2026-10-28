@@ -1969,6 +1969,7 @@ function App() {
   const gameState = useGameStore(s => s.gameState);
   const playerId = useGameStore(s => s.playerId);
   const activeInteraction = useGameStore(s => s.activeInteraction);
+  const drivingCarIdForPrompt = useGameStore(s => s.drivingCarId); // hide the walk-up prompt while driving
   const { connect, buyCar, buyPsi, buyPart, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal, rentRaceCar } = useGameStore.getState();
   // The live clock (time_update every second), like the HUD badge and the sky:
   // gameState.timeOfDay only changes on full updates, so it can be hours stale.
@@ -3183,45 +3184,6 @@ function App() {
         <InsuranceModal />
         <DealerGuideModal isOpen={showGuide} onClose={() => setShowGuide(false)} step={guideStep} setStep={setGuideStep} />
 
-        {/* Dynamic Action Interaction Overlay (Clickable/Tappable for both PC & Mobile) */}
-        {activeInteraction && (
-          <div className="fixed bottom-28 left-1/2 -translate-x-1/2 z-[1000] pointer-events-auto">
-            <button
-              onClick={() => {
-                if (activeInteraction.type === 'bank') {
-                  openBankModal();
-                } else if (activeInteraction.type === 'auction') {
-                  window.dispatchEvent(new CustomEvent('open_auction'));
-                } else if (activeInteraction.type === 'library') {
-                  window.dispatchEvent(new CustomEvent('open_library'));
-                } else if (activeInteraction.type === 'insurance') {
-                  openInsuranceModal();
-                } else if (activeInteraction.type === 'rental') {
-                  rentRaceCar();
-                } else if (activeInteraction.type === 'car' && activeInteraction.carId) {
-                  // Enter/exit driving state
-                  if ((window as any).setMobileTap) {
-                    (window as any).setMobileTap('e');
-                  } else {
-                    (window as any).setMobileKey?.('e', true);
-                    setTimeout(() => (window as any).setMobileKey?.('e', false), 100);
-                  }
-                }
-              }}
-              className="px-4 py-2 bg-gradient-to-r from-emerald-500/90 to-teal-600/90 hover:from-emerald-600 hover:to-teal-700 border border-emerald-400/40 text-white font-bold rounded-xl shadow-lg active:scale-95 transition-all text-[11px] uppercase tracking-widest flex items-center gap-2 backdrop-blur-md cursor-pointer select-none"
-            >
-              <span className="flex h-3 w-3 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-              </span>
-              <span>{activeInteraction.label}</span>
-              <span className="text-emerald-200 text-xs font-medium ml-1">
-                {activeInteraction.type === 'car' ? '[E]' : '[R]'}
-              </span>
-            </button>
-          </div>
-        )}
-        
         {selectedAgentId && (
             <NegotiationModal 
                agentId={selectedAgentId} 
@@ -3386,6 +3348,47 @@ function App() {
         </AnimatePresence>
 
       </div>
+
+      {/* Dynamic Action Interaction Overlay (Clickable/Tappable for both PC & Mobile). Outside the menu
+          container so it stays visible with the menu hidden; on phones it sits under the top buttons,
+          clear of the D-pad (it used to be an invisible tap target over the up arrow). */}
+      {activeInteraction && !drivingCarIdForPrompt && !(isMobile && showUI) && (
+        <div className={`fixed ${isMobile ? 'top-[76px]' : 'bottom-28'} left-1/2 -translate-x-1/2 z-[1000] pointer-events-auto`}>
+          <button
+            onClick={() => {
+              if (activeInteraction.type === 'bank') {
+                openBankModal();
+              } else if (activeInteraction.type === 'auction') {
+                window.dispatchEvent(new CustomEvent('open_auction'));
+              } else if (activeInteraction.type === 'library') {
+                window.dispatchEvent(new CustomEvent('open_library'));
+              } else if (activeInteraction.type === 'insurance') {
+                openInsuranceModal();
+              } else if (activeInteraction.type === 'rental') {
+                rentRaceCar();
+              } else if (activeInteraction.type === 'car' && activeInteraction.carId) {
+                // Enter/exit driving state
+                if ((window as any).setMobileTap) {
+                  (window as any).setMobileTap('e');
+                } else {
+                  (window as any).setMobileKey?.('e', true);
+                  setTimeout(() => (window as any).setMobileKey?.('e', false), 100);
+                }
+              }
+            }}
+            className="px-4 py-2 bg-gradient-to-r from-emerald-500/90 to-teal-600/90 hover:from-emerald-600 hover:to-teal-700 border border-emerald-400/40 text-white font-bold rounded-xl shadow-lg active:scale-95 transition-all text-[11px] uppercase tracking-widest flex items-center gap-2 backdrop-blur-md cursor-pointer select-none"
+          >
+            <span className="flex h-3 w-3 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+            </span>
+            <span>{activeInteraction.label}</span>
+            <span className="text-emerald-200 text-xs font-medium ml-1">
+              {activeInteraction.type === 'car' ? '[E]' : '[R]'}
+            </span>
+          </button>
+        </div>
+      )}
 
       {/* On-Screen Mobile Touch Controls */}
       {isMobile && playerId && gameState && (
