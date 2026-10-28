@@ -458,6 +458,7 @@ export function VanillaThreeScene() {
         const tmpAvatarBox = new THREE.Box3();
         const carSpheres = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
         let carSyncAccum = 0;
+        let lastDrawAt = 0; // performance.now() of the last renderer.render
 
         const animate = () => {
             animationFrameId = requestAnimationFrame(animate);
@@ -1332,7 +1333,15 @@ export function VanillaThreeScene() {
             const focusObj = (localDrivingCarId && carMeshes[localDrivingCarId]) || avatar;
             lightPool.update(focusObj.position, nightFactor, delta);
 
-            renderer.render(scene, camera);
+            // On Low, while the phone menu covers the world and nothing moves the
+            // camera, draw ~10x a second instead of every frame (the game itself
+            // keeps running every frame). Frees the phone's GPU for the menu.
+            const idleBehindMenu = quality === 'low' && useGameStore.getState().menuCoversWorld
+                && !localDrivingCarId && !keys.w && !keys.a && !keys.s && !keys.d;
+            if (!idleBehindMenu || now - lastDrawAt >= 100) {
+                lastDrawAt = now;
+                renderer.render(scene, camera);
+            }
         };
         
         animate(); // Kick off

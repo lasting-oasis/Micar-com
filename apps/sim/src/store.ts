@@ -45,6 +45,10 @@ interface StoreState {
   // 3D graphics level: 'low' turns off shadows and renders at 1x resolution.
   graphicsQuality: 'high' | 'low';
   setGraphicsQuality: (q: 'high' | 'low') => void;
+  // The phone menu is open over the 3D view: on Low the world is then drawn
+  // only ~10x a second while nothing moves the camera (VanillaThreeScene).
+  menuCoversWorld: boolean;
+  setMenuCoversWorld: (v: boolean) => void;
   setMyWorldPos: (p: { x: number; z: number }) => void;
   drivingFuel: number | null; // live tank level of the car being driven (0-100), for the HUD gauge
   setDrivingFuel: (fuel: number | null) => void;
@@ -146,6 +150,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
     reflectGraphicsQuality(q);
     set({ graphicsQuality: q });
   },
+  menuCoversWorld: false,
+  setMenuCoversWorld: (v) => { if (get().menuCoversWorld !== v) set({ menuCoversWorld: v }); },
   drivingFuel: null,
   setDrivingFuel: (fuel) => set({ drivingFuel: fuel }),
   drivingSpeed: 0,

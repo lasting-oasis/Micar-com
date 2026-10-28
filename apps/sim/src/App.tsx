@@ -2023,6 +2023,11 @@ function App() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // On phones the open menu covers the 3D view; on Low the world is then drawn less often.
+  useEffect(() => {
+    useGameStore.getState().setMenuCoversWorld(isMobile && showUI);
+  }, [isMobile, showUI]);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Tab') {
