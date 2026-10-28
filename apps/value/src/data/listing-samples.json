@@ -2743,6 +2743,695 @@
  },
  {
   "make": "Honda",
+  "model": "Accord",
+  "gaps": [
+   "The LX trim filter returned 26-30 cards on every page, so the Sport fallback was never needed; all four samples are LX-only.",
+   "First 20 of the listings on each page were recorded in page order (the pages showed 26, 30, 26 and 30 cards respectively); every recorded listing had a mileage figure.",
+   "page_average caution: TrueCar's 'average price for the <year> Honda Accord LX' text appears to be boilerplate rather than year-specific. The 2022 and 2024 pages print the identical figure ($20,412), the 2016 figure ($20,922) is well above that page's listings (which averaged roughly $14,500), and the 2024 figure is well below its listings (roughly $23,500). Use the listing rows, not page_average, for calibration.",
+   "2024 page stated two conflicting LX counts (368 and 1,634); 368 recorded. 2019 page's stated price range ($2,300 to $6,001,302) is clearly bad data on TrueCar's side.",
+   "All listings are from the first (default-sort) page, which TrueCar appears to order by its own relevance, not by price or distance; the samples are nationwide and not Charlotte-local."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "LX",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/accord/year-2016/?trim=lx",
+    "fetched": "2026-10-28",
+    "pageAverage": 20922,
+    "listings": [
+     {
+      "price": 16199,
+      "miles": 136556,
+      "location": "Fife, WA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 12968,
+      "miles": 126176,
+      "location": "Westminster, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 12494,
+      "miles": 136918,
+      "location": "Paramus, NJ",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18983,
+      "miles": 41750,
+      "location": "Spokane, WA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16046,
+      "miles": 105111,
+      "location": "Oakland, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 11922,
+      "miles": 164208,
+      "location": "Mesquite, TX",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 12970,
+      "miles": 109200,
+      "location": "Costa Mesa, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15366,
+      "miles": 86337,
+      "location": "Nashua, NH",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 9682,
+      "miles": 143980,
+      "location": "North Miami Beach, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13985,
+      "miles": 123948,
+      "location": "Dublin, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17096,
+      "miles": 85404,
+      "location": "Phoenix, AZ",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15785,
+      "miles": 90574,
+      "location": "Sanford, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 11630,
+      "miles": 145178,
+      "location": "San Diego, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 11074,
+      "miles": 168000,
+      "location": "Libertyville, IL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16195,
+      "miles": 108588,
+      "location": "Reno, NV",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 14393,
+      "miles": 99562,
+      "location": "Columbus, OH",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14216,
+      "miles": 115675,
+      "location": "Georgetown, TX",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 14733,
+      "miles": 96700,
+      "location": "Las Vegas, NV",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 13999,
+      "miles": 139809,
+      "location": "White Bear Lake, MN",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15170,
+      "miles": 96585,
+      "location": "West Nyack, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "LX",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/accord/year-2019/?trim=lx",
+    "fetched": "2026-10-28",
+    "pageAverage": 20460,
+    "listings": [
+     {
+      "price": 16862,
+      "miles": 113930,
+      "location": "Charlotte, NC",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "Sponsored"
+     },
+     {
+      "price": 19675,
+      "miles": 35373,
+      "location": "Copiague, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 20010,
+      "miles": 39129,
+      "location": "Columbia, MO",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15594,
+      "miles": 101534,
+      "location": "Cherry Hill, NJ",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17873,
+      "miles": 73579,
+      "location": "Mount Kisco, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19887,
+      "miles": 40083,
+      "location": "West New York, NJ",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18677,
+      "miles": 85769,
+      "location": "Alhambra, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17998,
+      "miles": 94348,
+      "location": "Wake Forest, NC",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16782,
+      "miles": 84198,
+      "location": "West Palm Beach, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 11196,
+      "miles": 196212,
+      "location": "Sumter, SC",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15998,
+      "miles": 109272,
+      "location": "Centennial, CO",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15919,
+      "miles": 102959,
+      "location": "Philadelphia, PA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17799,
+      "miles": 83636,
+      "location": "Silver Spring, MD",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15988,
+      "miles": 98617,
+      "location": "Orlando, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19012,
+      "miles": 106586,
+      "location": "Arlington, TX",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 19085,
+      "miles": 80951,
+      "location": "Baton Rouge, LA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17990,
+      "miles": 81106,
+      "location": "Roslyn, PA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 15125,
+      "miles": 128014,
+      "location": "Plano, TX",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18499,
+      "miles": 76951,
+      "location": "Torrance, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 21268,
+      "miles": 62448,
+      "location": "Greenfield, MA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "LX",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/accord/year-2022/?trim=lx",
+    "fetched": "2026-10-28",
+    "pageAverage": 20412,
+    "listings": [
+     {
+      "price": 22560,
+      "miles": 29676,
+      "location": "San Antonio, TX",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 23083,
+      "miles": 39311,
+      "location": "Cerritos, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 21730,
+      "miles": 55619,
+      "location": "Orchard Park, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 23487,
+      "miles": 39166,
+      "location": "Lake Elsinore, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 17244,
+      "miles": 129311,
+      "location": "Houston, TX",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 20367,
+      "miles": 90530,
+      "location": "Madison, WI",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 21739,
+      "miles": 63616,
+      "location": "Las Vegas, NV",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 21998,
+      "miles": 59468,
+      "location": "Colorado Springs, CO",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 20251,
+      "miles": 80014,
+      "location": "Harbor City, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 23998,
+      "miles": 29413,
+      "location": "Gainesville, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 18792,
+      "miles": 108502,
+      "location": "Temple Hills, MD",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 22890,
+      "miles": 44483,
+      "location": "Patchogue, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 24076,
+      "miles": 33274,
+      "location": "Fremont, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 20303,
+      "miles": 46686,
+      "location": "West Chicago, IL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 24385,
+      "miles": 33586,
+      "location": "Hayward, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 22293,
+      "miles": 43973,
+      "location": "Mansfield, OH",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 21063,
+      "miles": 53796,
+      "location": "East Rochester, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 23789,
+      "miles": 20023,
+      "location": "Sterling, VA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 23860,
+      "miles": 33131,
+      "location": "Corpus Christi, TX",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16989,
+      "miles": 137519,
+      "location": "Waukegan, IL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "LX",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/accord/year-2024/?trim=lx",
+    "fetched": "2026-10-28",
+    "pageAverage": 20412,
+    "listings": [
+     {
+      "price": 23695,
+      "miles": 24874,
+      "location": "Sanford, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "CPO; Sponsored"
+     },
+     {
+      "price": 21982,
+      "miles": 24648,
+      "location": "Montclair, CA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "Sponsored"
+     },
+     {
+      "price": 22299,
+      "miles": 32259,
+      "location": "Hollywood, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 23489,
+      "miles": 21155,
+      "location": "Davie, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 22709,
+      "miles": 23081,
+      "location": "Miami Lakes, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 22046,
+      "miles": 33547,
+      "location": "Hialeah, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 26396,
+      "miles": 9947,
+      "location": "Reidsville, NC",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 24094,
+      "miles": 12209,
+      "location": "Glen Cove, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 24292,
+      "miles": 24128,
+      "location": "Sanford, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 25029,
+      "miles": 17865,
+      "location": "Chicopee, MA",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 23451,
+      "miles": 16826,
+      "location": "Glen Cove, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 25048,
+      "miles": 19217,
+      "location": "Newton, NJ",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 21895,
+      "miles": 34904,
+      "location": "Miami, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 26252,
+      "miles": 13284,
+      "location": "Portland, OR",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 24093,
+      "miles": 15823,
+      "location": "Patchogue, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 25961,
+      "miles": 21740,
+      "location": "Reno, NV",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 23470,
+      "miles": 24131,
+      "location": "Patchogue, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 23422,
+      "miles": 38662,
+      "location": "Scotia, NY",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "CPO"
+     },
+     {
+      "price": 24348,
+      "miles": 10764,
+      "location": "Winter Haven, FL",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": ""
+     },
+     {
+      "price": 16454,
+      "miles": 122355,
+      "location": "Burlington, NJ",
+      "trim": "LX",
+      "body": "Sedan",
+      "note": "high-mileage outlier for a 2024"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Honda",
   "model": "Civic",
   "gaps": [
    "2023 Touring: TrueCar stated no average for this trim"
@@ -3253,6 +3942,695 @@
       "trim": "Touring",
       "body": "Sedan",
       "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Honda",
+  "model": "CR-V",
+  "gaps": [
+   "The EX trim filter returned 29-30 cards on every page, so the LX fallback was never needed; all four samples are EX-only. Drivetrain (FWD/AWD) is recorded in each listing's note because TrueCar's card line shows it and it moves price by roughly $1,500 at MSRP.",
+   "First 20 of the listings on each page were recorded in page order; every recorded listing had a mileage figure.",
+   "page_average caution: all four pages print the identical sentence 'the <year> Honda CR-V EX and <year> Honda CR-V LX averaging $24,276 and $21,621 respectively', so $24,276 is clearly a cross-year boilerplate figure, not a year-specific average. It is recorded because the page states it for that year/trim, but it should not be used for calibration; use the listing rows.",
+   "Each page also shows conflicting listing counts (e.g. '114 used 2016 Honda CR-V EX models' in the header vs '2,982' EX listings in the FAQ block); the header count is recorded.",
+   "All listings are from the first (default-sort) page; the samples are nationwide and not Charlotte-local."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "EX",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/cr-v/year-2016/?trim=ex",
+    "fetched": "2026-10-28",
+    "pageAverage": 24276,
+    "listings": [
+     {
+      "price": 18362,
+      "miles": 72593,
+      "location": "Fargo, ND",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 12175,
+      "miles": 157448,
+      "location": "Red Springs, NC",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 15700,
+      "miles": 76106,
+      "location": "Las Vegas, NV",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 12215,
+      "miles": 145113,
+      "location": "Louisville, KY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 14495,
+      "miles": 124813,
+      "location": "Alexandria, VA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 18625,
+      "miles": 74053,
+      "location": "Urbana, IL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 13024,
+      "miles": 144738,
+      "location": "League City, TX",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 17883,
+      "miles": 94287,
+      "location": "Dickson, TN",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 16129,
+      "miles": 96861,
+      "location": "Houston, TX",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 16000,
+      "miles": 108048,
+      "location": "Doylestown, PA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 17109,
+      "miles": 79743,
+      "location": "Cerritos, CA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 13120,
+      "miles": 170614,
+      "location": "Fayetteville, TN",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 10000,
+      "miles": 162829,
+      "location": "Austin, TX",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 14994,
+      "miles": 117721,
+      "location": "Winchester, VA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 13782,
+      "miles": 142596,
+      "location": "Knoxville, TN",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 14850,
+      "miles": 123347,
+      "location": "Brandywine, MD",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 15968,
+      "miles": 59668,
+      "location": "Fontana, CA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 16459,
+      "miles": 117046,
+      "location": "Fairfield, OH",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 13900,
+      "miles": 113451,
+      "location": "Edgewood, MD",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 20998,
+      "miles": 58019,
+      "location": "Sterling, VA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "EX",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/cr-v/year-2019/?trim=ex",
+    "fetched": "2026-10-28",
+    "pageAverage": 24276,
+    "listings": [
+     {
+      "price": 19898,
+      "miles": 76052,
+      "location": "Sterling, VA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; Sponsored"
+     },
+     {
+      "price": 19845,
+      "miles": 60163,
+      "location": "Stuart, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD; Sponsored"
+     },
+     {
+      "price": 20705,
+      "miles": 90312,
+      "location": "Plymouth, MA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 21177,
+      "miles": 71689,
+      "location": "Westborough, MA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 22148,
+      "miles": 73360,
+      "location": "Chicopee, MA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 23918,
+      "miles": 39659,
+      "location": "Chicago, IL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 23383,
+      "miles": 66338,
+      "location": "Savannah, GA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 22593,
+      "miles": 46495,
+      "location": "Hudson, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 25878,
+      "miles": 36682,
+      "location": "Watertown, CT",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 16173,
+      "miles": 110732,
+      "location": "Yorktown Heights, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 23557,
+      "miles": 45750,
+      "location": "Salt Lake City, UT",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 21280,
+      "miles": 66390,
+      "location": "Jacksonville, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 21675,
+      "miles": 60334,
+      "location": "Copiague, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 15697,
+      "miles": 149228,
+      "location": "Staunton, VA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 18149,
+      "miles": 65215,
+      "location": "Venice, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 17774,
+      "miles": 121241,
+      "location": "Yorkville, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 23237,
+      "miles": 34495,
+      "location": "Brockport, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 20923,
+      "miles": 71507,
+      "location": "Watertown, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 20920,
+      "miles": 59212,
+      "location": "El Cajon, CA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD; CPO"
+     },
+     {
+      "price": 19139,
+      "miles": 76709,
+      "location": "San Antonio, TX",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "EX",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/cr-v/year-2022/?trim=ex",
+    "fetched": "2026-10-28",
+    "pageAverage": 24276,
+    "listings": [
+     {
+      "price": 23925,
+      "miles": 48513,
+      "location": "Hollywood, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; Sponsored"
+     },
+     {
+      "price": 24672,
+      "miles": 40684,
+      "location": "St. James, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 25807,
+      "miles": 65226,
+      "location": "Raleigh, NC",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 21724,
+      "miles": 92747,
+      "location": "Lawrenceville, GA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 28665,
+      "miles": 37380,
+      "location": "Glen Head, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 28394,
+      "miles": 47718,
+      "location": "South Portland, ME",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD; CPO"
+     },
+     {
+      "price": 22093,
+      "miles": 91551,
+      "location": "Middle Island, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 24379,
+      "miles": 89556,
+      "location": "Westbrook, CT",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 22007,
+      "miles": 111652,
+      "location": "Yorktown Heights, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 24952,
+      "miles": 45834,
+      "location": "Sanford, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 23296,
+      "miles": 63598,
+      "location": "Colma, CA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 16998,
+      "miles": 110259,
+      "location": "Miami, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 22121,
+      "miles": 83676,
+      "location": "Salinas, CA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 26096,
+      "miles": 30192,
+      "location": "Bluffington, SC",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; city as extracted (probably Bluffton, SC)"
+     },
+     {
+      "price": 20121,
+      "miles": 93979,
+      "location": "El Cajon, CA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 23071,
+      "miles": 67857,
+      "location": "Pleasanton, CA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 24290,
+      "miles": 67501,
+      "location": "Wilkes-Barre, PA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 23447,
+      "miles": 57795,
+      "location": "Baton Rouge, LA",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 21132,
+      "miles": 45749,
+      "location": "Miami, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 24956,
+      "miles": 39120,
+      "location": "Delray Beach, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "EX",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/cr-v/year-2024/?trim=ex",
+    "fetched": "2026-10-28",
+    "pageAverage": 24276,
+    "listings": [
+     {
+      "price": 19987,
+      "miles": 138695,
+      "location": "Knoxville, TN",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD; Sponsored; high-mileage outlier for a 2024"
+     },
+     {
+      "price": 28880,
+      "miles": 32892,
+      "location": "Sanford, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO; Sponsored"
+     },
+     {
+      "price": 25594,
+      "miles": 48418,
+      "location": "Miami, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 25811,
+      "miles": 68079,
+      "location": "Glen Cove, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 28544,
+      "miles": 21189,
+      "location": "Keyport, NJ",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 24488,
+      "miles": 52500,
+      "location": "Pembroke Pines, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 28998,
+      "miles": 44768,
+      "location": "Memphis, TN",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 27173,
+      "miles": 39804,
+      "location": "Yorktown Heights, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 26206,
+      "miles": 33298,
+      "location": "Miami Lakes, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD; CPO"
+     },
+     {
+      "price": 28175,
+      "miles": 50234,
+      "location": "Inver Grove Heights, MN",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 29394,
+      "miles": 26028,
+      "location": "Vero Beach, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 28172,
+      "miles": 26712,
+      "location": "Portland, OR",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 29075,
+      "miles": 24719,
+      "location": "Jamaica, NY",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 31104,
+      "miles": 31798,
+      "location": "Toms River, NJ",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 27753,
+      "miles": 29600,
+      "location": "Hollywood, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 26399,
+      "miles": 37657,
+      "location": "Hollywood, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 26700,
+      "miles": 62396,
+      "location": "Clanton, AL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 30200,
+      "miles": 22608,
+      "location": "Loves Park, IL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 29848,
+      "miles": 45141,
+      "location": "Manchester, NH",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 28250,
+      "miles": 21085,
+      "location": "Winter Haven, FL",
+      "trim": "EX",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
      }
     ]
    }
@@ -3891,6 +5269,692 @@
       "trim": "SE",
       "body": "Sedan",
       "note": "CPO"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Jeep",
+  "model": "Grand Cherokee",
+  "gaps": [
+   "2022 and 2024: the 'limited' trim filter mixes two-row Limited and three-row 'L Limited' (Grand Cherokee L) listings; 12 of 20 (2022) and 8 of 20 (2024) rows are L Limited. Filter on trim == 'Limited' for a pure two-row sample.",
+   "TrueCar's FAQ averages ($26,582 / $26,903) are not year-specific; no year-specific 'averages $X' figure was found on the pages."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "Limited",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/grand-cherokee/year-2016/?trim=limited",
+    "fetched": "2026-10-28",
+    "pageAverage": 26582,
+    "listings": [
+     {
+      "price": 16408,
+      "miles": 84117,
+      "location": "Crystal Lake, IL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 13189,
+      "miles": 104356,
+      "location": "Somersworth, NH",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 18100,
+      "miles": 59007,
+      "location": "Joliet, IL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; one owner"
+     },
+     {
+      "price": 8690,
+      "miles": 256042,
+      "location": "Jasper, AL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD"
+     },
+     {
+      "price": 12063,
+      "miles": 107453,
+      "location": "Bellingham, WA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; one owner"
+     },
+     {
+      "price": 15343,
+      "miles": 90343,
+      "location": "Knoxville, TN",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; one owner"
+     },
+     {
+      "price": 9200,
+      "miles": 146697,
+      "location": "Clermont, FL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD"
+     },
+     {
+      "price": 12576,
+      "miles": 85822,
+      "location": "Pembroke Pines, FL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 15712,
+      "miles": 83397,
+      "location": "Englewood, CO",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; one owner"
+     },
+     {
+      "price": 8668,
+      "miles": 169570,
+      "location": "Temecula, CA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD; one owner"
+     },
+     {
+      "price": 9538,
+      "miles": 122020,
+      "location": "Cincinnati, OH",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 11690,
+      "miles": 107000,
+      "location": "Lemon Grove, CA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; one owner"
+     },
+     {
+      "price": 11725,
+      "miles": 127370,
+      "location": "Greer, SC",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 17998,
+      "miles": 73875,
+      "location": "Roseville, CA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; one owner; CarMax no-fee"
+     },
+     {
+      "price": 16065,
+      "miles": 66782,
+      "location": "Westminster, CA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; one owner"
+     },
+     {
+      "price": 18998,
+      "miles": 67082,
+      "location": "Knoxville, TN",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD; CarMax no-fee"
+     },
+     {
+      "price": 13658,
+      "miles": 87203,
+      "location": "Birmingham, AL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD; one owner"
+     },
+     {
+      "price": 12225,
+      "miles": 125570,
+      "location": "Crestview, FL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD"
+     },
+     {
+      "price": 13448,
+      "miles": 93341,
+      "location": "Mesa, AZ",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD"
+     },
+     {
+      "price": 19288,
+      "miles": 44765,
+      "location": "Chandler, AZ",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; one owner"
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "Limited",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/grand-cherokee/year-2019/?trim=limited",
+    "fetched": "2026-10-28",
+    "pageAverage": 26582,
+    "listings": [
+     {
+      "price": 13597,
+      "miles": 108573,
+      "location": "Jacksonville, FL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD; Sponsored"
+     },
+     {
+      "price": 15998,
+      "miles": 97961,
+      "location": "Fremont, CA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Sponsored; CarMax"
+     },
+     {
+      "price": 11697,
+      "miles": 167150,
+      "location": "Scottsboro, AL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 15685,
+      "miles": 97081,
+      "location": "Scottsboro, AL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD"
+     },
+     {
+      "price": 20493,
+      "miles": 67415,
+      "location": "Mount Laurel, NJ",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 15900,
+      "miles": 100167,
+      "location": "Charlotte, NC",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 18518,
+      "miles": 93038,
+      "location": "Carrollton, GA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 14490,
+      "miles": 111000,
+      "location": "Crittenden, KY",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 22671,
+      "miles": 48667,
+      "location": "Knoxville, TN",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 16276,
+      "miles": 100070,
+      "location": "Clarksville, IN",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 16552,
+      "miles": 107544,
+      "location": "Brockton, MA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 20320,
+      "miles": 64402,
+      "location": "Manchester, NH",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 18396,
+      "miles": 32858,
+      "location": "Doral, FL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD"
+     },
+     {
+      "price": 13794,
+      "miles": 149717,
+      "location": "Fayetteville, NC",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 12079,
+      "miles": 108403,
+      "location": "Puyallup, WA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 21299,
+      "miles": 48327,
+      "location": "Verona, NJ",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; CPO"
+     },
+     {
+      "price": 15997,
+      "miles": 89519,
+      "location": "Northumberland, PA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 17602,
+      "miles": 100630,
+      "location": "Macon, GA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 12525,
+      "miles": 116440,
+      "location": "Spring, TX",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD"
+     },
+     {
+      "price": 20826,
+      "miles": 42335,
+      "location": "Las Vegas, NV",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "Limited",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/grand-cherokee/year-2022/?trim=limited",
+    "fetched": "2026-10-28",
+    "pageAverage": 26903,
+    "listings": [
+     {
+      "price": 24940,
+      "miles": 82505,
+      "location": "St. Louis, MO",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Sponsored; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 22189,
+      "miles": 85075,
+      "location": "Pembroke Pines, FL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Sponsored"
+     },
+     {
+      "price": 24860,
+      "miles": 57155,
+      "location": "Jacksonville, FL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Sponsored"
+     },
+     {
+      "price": 18444,
+      "miles": 133145,
+      "location": "Danville, KY",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 25887,
+      "miles": 50916,
+      "location": "Santa Fe, NM",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 27345,
+      "miles": 35582,
+      "location": "Lawrenceville, NJ",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 25469,
+      "miles": 42861,
+      "location": "Longwood, FL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 26091,
+      "miles": 47568,
+      "location": "Bronx, NY",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 24290,
+      "miles": 67805,
+      "location": "Savannah, GA",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 27287,
+      "miles": 30624,
+      "location": "Butler, NJ",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 24884,
+      "miles": 67187,
+      "location": "Charleston, IL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 26899,
+      "miles": 48995,
+      "location": "St Albans, VT",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 28184,
+      "miles": 34586,
+      "location": "Hackettstown, NJ",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 23377,
+      "miles": 82375,
+      "location": "Kenvil, NJ",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 25581,
+      "miles": 57360,
+      "location": "Port Charlotte, FL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 26667,
+      "miles": 56770,
+      "location": "Flint, MI",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 27186,
+      "miles": 48911,
+      "location": "Memphis, TN",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 26011,
+      "miles": 61713,
+      "location": "Fort Worth, TX",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 29075,
+      "miles": 37153,
+      "location": "Riverhead, NY",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 26156,
+      "miles": 52584,
+      "location": "Dover, NH",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "Limited",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/grand-cherokee/year-2024/?trim=limited",
+    "fetched": "2026-10-28",
+    "pageAverage": 26582,
+    "listings": [
+     {
+      "price": 27982,
+      "miles": 40785,
+      "location": "Jacksonville, FL",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD; Sponsored; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 21423,
+      "miles": 85251,
+      "location": "Newark, CA",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Sponsored"
+     },
+     {
+      "price": 28345,
+      "miles": 37793,
+      "location": "Crittenden, KY",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 27098,
+      "miles": 41498,
+      "location": "Las Vegas, NV",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 31695,
+      "miles": 25825,
+      "location": "Greenville, SC",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 31611,
+      "miles": 36176,
+      "location": "Chesterton, IN",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 33511,
+      "miles": 26046,
+      "location": "Charleston, IL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 31000,
+      "miles": 23339,
+      "location": "South St. Paul, MN",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 32677,
+      "miles": 52580,
+      "location": "Mattoon, IL",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 32347,
+      "miles": 37880,
+      "location": "Schaumburg, IL",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 33674,
+      "miles": 24047,
+      "location": "Watertown, NY",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 35754,
+      "miles": 21947,
+      "location": "Glendale Heights, IL",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 31995,
+      "miles": 27285,
+      "location": "Excelsior Springs, MO",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 30253,
+      "miles": 47295,
+      "location": "Morehead, KY",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 36990,
+      "miles": 19669,
+      "location": "Luverne, MN",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 32400,
+      "miles": 28353,
+      "location": "St Louis, MO",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 30652,
+      "miles": 54792,
+      "location": "Pulaski, NY",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 32434,
+      "miles": 35312,
+      "location": "Orlando, FL",
+      "trim": "L Limited",
+      "body": "SUV / Crossover",
+      "note": "RWD; Grand Cherokee L (three-row)"
+     },
+     {
+      "price": 34877,
+      "miles": 31735,
+      "location": "Mattoon, IL",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD"
+     },
+     {
+      "price": 33083,
+      "miles": 19484,
+      "location": "Lake Havasu City, AZ",
+      "trim": "Limited",
+      "body": "SUV / Crossover",
+      "note": "4WD; CPO"
      }
     ]
    }

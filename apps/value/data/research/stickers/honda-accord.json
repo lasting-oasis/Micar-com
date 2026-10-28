@@ -1,0 +1,219 @@
+{
+  "make": "Honda",
+  "model": "Accord",
+  "body": "Sedan",
+  "note": "Sedan is the dominant body. A two-door Accord Coupe was sold through MY2017 (2016 Coupe LX-S from $23,875 6MT / $24,725 CVT; 2017 Coupe LX-S from $24,125 6MT / $24,975 CVT, per the same releases); coupe dropped for MY2018. All MSRPs below exclude destination. Where a trim had manual and CVT versions the CVT (overwhelmingly the common used config) is the recorded row and the manual price is in the note. Honda republished several years' pricing pages mid-year when the destination charge (and occasionally MSRP) changed; the year-level note says which revision was used and what changed.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 835,
+      "trims": [
+        { "trim": "LX", "msrp": 23005, "config": "Sedan 2.4L I4 CVT", "note": "6MT version $22,205 (lowest-priced Accord); LX w/ Honda Sensing CVT $24,005" },
+        { "trim": "Sport", "msrp": 25065, "config": "Sedan 2.4L I4 CVT", "note": "6MT $24,265; Sport w/ Honda Sensing $26,065" },
+        { "trim": "EX", "msrp": 26380, "config": "Sedan 2.4L I4 CVT", "note": "6MT $25,580; EX w/ Honda Sensing $27,380" },
+        { "trim": "EX-L", "msrp": 28670, "config": "Sedan 2.4L I4 CVT", "note": "EX-L Navi w/ Honda Sensing $30,670" },
+        { "trim": "EX-L V-6", "msrp": 30745, "config": "Sedan 3.5L V6 6AT", "note": "EX-L V-6 Navi w/ Honda Sensing $32,745" },
+        { "trim": "Touring V-6", "msrp": 34680, "config": "Sedan 3.5L V6 6AT", "note": "" }
+      ],
+      "source": "https://hondanews.com/en-US/releases/release-05ea539f77f34e08876c41d77b8cb535-2016-honda-accord-pricing-and-epa-data",
+      "source_type": "manufacturer",
+      "note": "No hybrid for MY2016 (Accord Hybrid skipped 2016, returned for 2017). Footnote: MSRP excludes tax, license, registration, $835 destination charge and options."
+    },
+    {
+      "year": 2017,
+      "destination": 890,
+      "trims": [
+        { "trim": "LX", "msrp": 23255, "config": "Sedan 2.4L I4 CVT", "note": "6MT version $22,455 (lowest-priced Accord)" },
+        { "trim": "Sport", "msrp": 25315, "config": "Sedan 2.4L I4 CVT", "note": "6MT $24,515; Sport w/ Honda Sensing $26,315" },
+        { "trim": "Sport SE", "msrp": 26315, "config": "Sedan 2.4L I4 CVT", "note": "Sport Special Edition, new for 2017; 6MT $25,515" },
+        { "trim": "EX", "msrp": 26630, "config": "Sedan 2.4L I4 CVT", "note": "6MT $25,830; EX w/ Honda Sensing $27,630" },
+        { "trim": "EX-L", "msrp": 28920, "config": "Sedan 2.4L I4 CVT", "note": "EX-L w/ Navi & Honda Sensing $30,920" },
+        { "trim": "EX-L V6", "msrp": 30995, "config": "Sedan 3.5L V6 6AT", "note": "EX-L V6 w/ Navi & Honda Sensing $32,995" },
+        { "trim": "Touring", "msrp": 34930, "config": "Sedan 3.5L V6 6AT", "note": "" },
+        { "trim": "Hybrid", "msrp": 29605, "config": "Sedan 2.0L hybrid e-CVT", "note": "From separate 2017 Accord Hybrid pricing release dated Jan 4, 2017, which states an $875 destination charge; Hybrid EX-L $32,905, Hybrid Touring $35,955" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-663e82ddd080443bb44ebb06e5aa4112-2017-honda-accord-pricing-and-epa-data",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-4bbe9c026e214abea141bb3a6e070422-2017-honda-accord-hybrid-pricing-and-epa-data"
+      ],
+      "note": "Gas-model page states $890 destination; the hybrid page (Jan 2017) states $875, so destination evidently rose from $875 to $890 during the 2017 model year."
+    },
+    {
+      "year": 2018,
+      "destination": 875,
+      "trims": [
+        { "trim": "LX", "msrp": 23570, "config": "Sedan 1.5L Turbo CVT", "note": "All-new 10th generation; manual no longer offered on LX" },
+        { "trim": "Sport", "msrp": 25780, "config": "Sedan 1.5L Turbo CVT or 6MT (same price)", "note": "" },
+        { "trim": "EX", "msrp": 27470, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "EX-L", "msrp": 29970, "config": "Sedan 1.5L Turbo CVT", "note": "EX-L w/ Navi $30,970" },
+        { "trim": "Touring", "msrp": 33800, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport 2.0T", "msrp": 30310, "config": "Sedan 2.0L Turbo 10AT or 6MT (same price)", "note": "" },
+        { "trim": "EX-L 2.0T", "msrp": 31970, "config": "Sedan 2.0L Turbo 10AT", "note": "EX-L 2.0T w/ Navi $32,970" },
+        { "trim": "Touring 2.0T", "msrp": 35800, "config": "Sedan 2.0L Turbo 10AT", "note": "" },
+        { "trim": "Hybrid", "msrp": 25100, "config": "Sedan 2.0L hybrid e-CVT", "note": "From separate 2018 Accord Hybrid pricing release dated Mar 16, 2018, which states an $890 destination charge; Hybrid EX $28,890, EX-L $31,440, EX-L Navi $32,440, Touring $34,710" }
+      ],
+      "source": "https://hondanews.com/en-US/releases/release-243ec2fd045b414892d4dea9e8eedb83-2018-honda-accord-pricing-and-epa-data",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/releases/release-33f541e9e98d4099b7aaa755de4e4f1f-2018-honda-accord-hybrid-pricing-and-epa-data"
+      ],
+      "note": "Gas pricing from the launch release dated Oct 2, 2017 ($875 destination). A '5.1.2018' revision of the 2018 pricing page exists (not fetched); the Mar 2018 hybrid page already shows $890 destination, so destination rose from $875 to $890 during MY2018."
+    },
+    {
+      "year": 2019,
+      "destination": 920,
+      "trims": [
+        { "trim": "LX", "msrp": 23720, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport", "msrp": 26180, "config": "Sedan 1.5L Turbo CVT or 6MT (same price)", "note": "" },
+        { "trim": "EX", "msrp": 27620, "config": "Sedan 1.5L Turbo CVT", "note": "Source's 'MSRP incl. destination' column prints $27,540 for EX, which is inconsistent with $27,620 + $920; MSRP column used" },
+        { "trim": "EX-L", "msrp": 30120, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport 2.0T", "msrp": 30710, "config": "Sedan 2.0L Turbo 10AT or 6MT (same price)", "note": "" },
+        { "trim": "EX-L 2.0T", "msrp": 32120, "config": "Sedan 2.0L Turbo 10AT", "note": "Source's 'MSRP incl. destination' column prints $34,040 ($1,920 over MSRP); MSRP column used" },
+        { "trim": "Touring 2.0T", "msrp": 35950, "config": "Sedan 2.0L Turbo 10AT", "note": "" },
+        { "trim": "Hybrid", "msrp": 25320, "config": "Sedan 2.0L hybrid e-CVT", "note": "Same page; Hybrid EX $29,220, Hybrid EX-L $31,720, Hybrid Touring $34,990" }
+      ],
+      "source": "https://hondanews.com/en-US/releases/release-64425dc401714c088c601a43741f0678-2019-honda-accord-pricing-epa-ratings",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/releases/release-a3c415d1c7614fd2a03066b2338c3772-2019-honda-accord-pricing-epa-ratings-7-9"
+      ],
+      "note": "Pricing page dated Jan 3, 2019 ($920 destination). A revision dated Jul 9, 2019 keeps every MSRP identical but raises destination to $930."
+    },
+    {
+      "year": 2020,
+      "destination": 955,
+      "trims": [
+        { "trim": "LX", "msrp": 24020, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport", "msrp": 26830, "config": "Sedan 1.5L Turbo CVT or 6MT (same price)", "note": "" },
+        { "trim": "EX", "msrp": 27920, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "EX-L", "msrp": 30420, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport 2.0T", "msrp": 31360, "config": "Sedan 2.0L Turbo 10AT or 6MT (same price)", "note": "" },
+        { "trim": "EX-L 2.0T", "msrp": 32420, "config": "Sedan 2.0L Turbo 10AT", "note": "" },
+        { "trim": "Touring 2.0T", "msrp": 36250, "config": "Sedan 2.0L Turbo 10AT", "note": "" },
+        { "trim": "Hybrid", "msrp": 25620, "config": "Sedan 2.0L hybrid e-CVT", "note": "From separate 2020 Accord Hybrid pricing page dated Jan 7, 2020 ($955 destination); Hybrid EX $29,520, Hybrid EX-L $32,020, Hybrid Touring $35,290" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-807c080220275f828905387c4f006348-2020-honda-accord-pricing-and-epa-ratings-172020",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-807c080220275f828905387c4f007bee-2020-honda-accord-hybrid-pricing-epa-ratings-172020"
+      ],
+      "note": "Pricing page dated Jan 7, 2020 ($955 destination). Earlier (fall 2019 launch) and later (7.7.2020) versions of the page exist but were not fetched."
+    },
+    {
+      "year": 2021,
+      "destination": 955,
+      "trims": [
+        { "trim": "LX", "msrp": 24770, "config": "Sedan 1.5L Turbo CVT", "note": "Jan 5, 2021 pricing page lists LX at $24,970 (+$200) but its 'incl. destination' figure ($25,765 with $995 destination) still implies $24,770" },
+        { "trim": "Sport", "msrp": 27230, "config": "Sedan 1.5L Turbo CVT", "note": "Manual dropped for 2021; $27,430 from Jan 2021" },
+        { "trim": "Sport SE", "msrp": 28720, "config": "Sedan 1.5L Turbo CVT", "note": "Sport Special Edition, new for 2021; $28,920 from Jan 2021" },
+        { "trim": "EX-L", "msrp": 31090, "config": "Sedan 1.5L Turbo CVT", "note": "EX trim dropped for 2021; $31,290 from Jan 2021" },
+        { "trim": "Sport 2.0T", "msrp": 31910, "config": "Sedan 2.0L Turbo 10AT", "note": "$32,110 from Jan 2021" },
+        { "trim": "Touring", "msrp": 36700, "config": "Sedan 2.0L Turbo 10AT", "note": "$36,900 from Jan 2021" },
+        { "trim": "Hybrid", "msrp": 26370, "config": "Sedan 2.0L hybrid e-CVT", "note": "Same release; Hybrid EX $30,320, Hybrid EX-L $32,690, Hybrid Touring $36,240" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-6863b02537c7e48379ea3d103c0a22e5",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-e1a157df687ff71da1f64a190f067738-2021-honda-accord-pricing-and-epa-ratings-142021",
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-f8bfb43dd94cc82c09a8314c0b012635-2021-honda-accord-pricing-and-epa-ratings"
+      ],
+      "note": "Launch pricing from the Oct 12, 2020 refresh release ($955 destination). Mid-year: Jan 5, 2021 page raises every gas trim $200 and destination to $995; Jul 7, 2021 page keeps those MSRPs and raises destination to $1,015."
+    },
+    {
+      "year": 2022,
+      "destination": 1015,
+      "trims": [
+        { "trim": "LX", "msrp": 25470, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport", "msrp": 27930, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport SE", "msrp": 29420, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "EX-L", "msrp": 31790, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport 2.0T", "msrp": 32610, "config": "Sedan 2.0L Turbo 10AT", "note": "" },
+        { "trim": "Touring 2.0T", "msrp": 37400, "config": "Sedan 2.0L Turbo 10AT", "note": "" },
+        { "trim": "Hybrid", "msrp": 26670, "config": "Sedan 2.0L hybrid e-CVT", "note": "Same release; Hybrid Sport $30,020, Hybrid EX-L $32,990, Hybrid Touring $36,540" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-9cc3a6ebff00753bc08baae86a037692-2022-honda-accords-on-sale-now",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-9cc3a6ebff00753bc08baae86a037f05-2022-honda-accord-pricing-and-epa-ratings"
+      ],
+      "note": "Launch release and pricing page both dated Oct 26, 2021 and agree on all gas MSRPs ($1,015 destination). A '5.03.22' revision of the hybrid pricing page exists (not fetched)."
+    },
+    {
+      "year": 2023,
+      "destination": 1095,
+      "trims": [
+        { "trim": "LX", "msrp": 27295, "config": "Sedan 1.5L Turbo CVT", "note": "All-new 11th generation" },
+        { "trim": "EX", "msrp": 29610, "config": "Sedan 1.5L Turbo CVT", "note": "Printed as '$29.610' in source; incl.-destination figure $30,705 confirms $29,610. Cut to $29,060 in May 17, 2023 revision" },
+        { "trim": "Sport", "msrp": 31895, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid; cut to $31,345 in May 17, 2023 revision" },
+        { "trim": "EX-L", "msrp": 33540, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid; cut to $32,990 in May 17, 2023 revision" },
+        { "trim": "Sport-L", "msrp": 33875, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid; cut to $33,325 in May 17, 2023 revision" },
+        { "trim": "Touring", "msrp": 37890, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid; cut to $37,340 in May 17, 2023 revision" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-4e58b4e0fcd795affa5685a66a10e038-all-new-2023-honda-accord-arriving-at-honda-dealers-this-month-as-newest-midsize-sedan-benchmark",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-4e58b4e0fcd795affa5685a66a11c2b2-2023-honda-accord-pricing-and-epa-ratings"
+      ],
+      "note": "Launch pricing from the Jan 4, 2023 release ($1,095 destination). Mid-year price CUT: the May 17, 2023 pricing page lowers EX and all four hybrid trims by $550 each (LX unchanged, destination unchanged). From 2023 on, Sport/EX-L/Sport-L/Touring are hybrid-only; only LX and EX use the 1.5T gas engine."
+    },
+    {
+      "year": 2024,
+      "destination": 1095,
+      "trims": [
+        { "trim": "LX", "msrp": 27895, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "EX", "msrp": 29910, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport", "msrp": 32195, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" },
+        { "trim": "EX-L", "msrp": 33840, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" },
+        { "trim": "Sport-L", "msrp": 34175, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" },
+        { "trim": "Touring", "msrp": 38190, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-e888887b6471c0aba407829ba719d539-2024-honda-accord-pricing-epa-ratings",
+      "source_type": "manufacturer",
+      "note": "Pricing page dated Sep 6, 2023 ($1,095 destination). A 'Nov 2023 update' version of the page exists (not fetched)."
+    },
+    {
+      "year": 2025,
+      "destination": 1095,
+      "trims": [
+        { "trim": "LX", "msrp": 28295, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "SE", "msrp": 30560, "config": "Sedan 1.5L Turbo CVT", "note": "SE replaces EX as the second gas trim for 2025" },
+        { "trim": "Sport", "msrp": 33655, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" },
+        { "trim": "EX-L", "msrp": 34940, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" },
+        { "trim": "Sport-L", "msrp": 35375, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" },
+        { "trim": "Touring", "msrp": 39300, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-1128768177ab00a73471b1938c000bf3-2025-honda-accord-pricing-epa-ratings",
+      "source_type": "manufacturer",
+      "note": "Pricing page dated Sep 16, 2024 ($1,095 destination)."
+    },
+    {
+      "year": 2026,
+      "destination": 1195,
+      "trims": [
+        { "trim": "LX", "msrp": 28395, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "SE", "msrp": 30695, "config": "Sedan 1.5L Turbo CVT", "note": "" },
+        { "trim": "Sport", "msrp": 33795, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" },
+        { "trim": "EX-L", "msrp": 35095, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid" },
+        { "trim": "Sport-L", "msrp": 35495, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid; source's incl.-destination figure $36,680 does not equal $35,495 + $1,195 ($36,690); MSRP column used" },
+        { "trim": "Touring", "msrp": 39495, "config": "Sedan 2.0L hybrid e-CVT", "note": "Hybrid; source's incl.-destination figure $40,645 does not equal $39,495 + $1,195 ($40,690); MSRP column used" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-c26685400737027f7d053958c309dc82-2026-honda-accord-pricing-epa-ratings",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/honda-automobiles/releases/2026-honda-accord-adds-more-standard-tech-and-sportier-styling-now-arriving-at-dealers"
+      ],
+      "note": "Pricing page and launch release both dated Dec 18, 2025 ($1,195 destination) and agree on all figures."
+    }
+  ],
+  "gaps": [
+    "All 11 model years sourced from hondanews.com (manufacturer); no secondary sources used.",
+    "2016 and 2017: LX/Sport/EX manual-transmission versions were cheaper than the recorded CVT rows (see notes); the recorded msrp is the CVT version.",
+    "2017 and 2018 hybrid rows come from separate Accord Hybrid pricing releases whose destination charge differs from the gas page of the same year (2017: $875 vs $890; 2018: $890 vs $875).",
+    "2019: the source's 'MSRP incl. destination' column has two internal typos (EX, EX-L 2.0T) in both the Jan and Jul 2019 versions; the MSRP column is internally consistent and was used.",
+    "2021: three different releases give three destination charges ($955 Oct 2020, $995 Jan 2021, $1,015 Jul 2021) and a $200 MSRP increase in Jan 2021; launch pricing recorded, later prices in notes.",
+    "2023: mid-year $550 price cut on EX and all hybrid trims (May 2023); launch pricing recorded.",
+    "2026: incl.-destination column for Sport-L and Touring does not reconcile with MSRP + $1,195 on either 2026 page; MSRP column recorded.",
+    "Later-dated revisions of the 2018 (5.1.2018), 2020 (7.7.2020), 2022 hybrid (5.03.22) and 2024 (Nov 2023) pricing pages exist on hondanews.com but were not fetched."
+  ]
+}

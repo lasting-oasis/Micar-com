@@ -1,0 +1,197 @@
+{
+  "make": "Honda",
+  "model": "CR-V",
+  "body": "SUV / Crossover",
+  "note": "Single body style (5-door compact SUV). Honda prices every CR-V trim in 2WD and AWD (AWD = +$1,300 in 2016-17, +$1,400 in 2018-19, +$1,500 from 2020 on). The recorded msrp is the cheaper 2WD version where one exists; the AWD price is in the note. Hybrid trims are AWD-only through 2022 and offered in 2WD/AWD from 2023. All MSRPs exclude destination. Honda republished several years' pricing pages mid-year when the destination charge (and occasionally MSRP) changed; the year-level note says which revision was used and what changed.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 900,
+      "trims": [
+        { "trim": "LX", "msrp": 23845, "config": "2WD CVT", "note": "AWD $25,145" },
+        { "trim": "SE", "msrp": 24645, "config": "2WD CVT", "note": "Special Edition, new for 2016; AWD $25,945" },
+        { "trim": "EX", "msrp": 26095, "config": "2WD CVT", "note": "AWD $27,395" },
+        { "trim": "EX-L", "msrp": 28545, "config": "2WD CVT", "note": "AWD $29,845" },
+        { "trim": "EX-L w/ Navi", "msrp": 30045, "config": "2WD CVT", "note": "AWD $31,345" },
+        { "trim": "Touring", "msrp": 32195, "config": "2WD CVT", "note": "AWD $33,495" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-eb99133c97c348cea5dd25fa7800f731-2016-honda-cr-v-pricing-and-epa-data",
+      "source_type": "manufacturer",
+      "note": "Pricing page is dated Jul 6, 2016 (a mid-year version; the SE trim was added in spring 2016). $900 destination per footnote."
+    },
+    {
+      "year": 2017,
+      "destination": 940,
+      "trims": [
+        { "trim": "LX", "msrp": 24045, "config": "2WD CVT", "note": "All-new 5th generation; LX keeps 2.4L NA engine, EX and up get 1.5L turbo. AWD $25,345" },
+        { "trim": "EX", "msrp": 26795, "config": "2WD CVT", "note": "AWD $28,095" },
+        { "trim": "EX-L", "msrp": 29295, "config": "2WD CVT", "note": "AWD $30,595" },
+        { "trim": "EX-L w/ Navi", "msrp": 30295, "config": "2WD CVT", "note": "AWD $31,595" },
+        { "trim": "Touring", "msrp": 32495, "config": "2WD CVT", "note": "AWD $33,795" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-c4da81b78908489099061f3bdb6566f4-2017-honda-cr-v-pricing-and-epa-data",
+      "source_type": "manufacturer",
+      "note": "Pricing page dated Jan 4, 2017 ($940 destination)."
+    },
+    {
+      "year": 2018,
+      "destination": 975,
+      "trims": [
+        { "trim": "LX", "msrp": 24150, "config": "2WD CVT", "note": "AWD $25,550" },
+        { "trim": "EX", "msrp": 26950, "config": "2WD CVT", "note": "AWD $28,350" },
+        { "trim": "EX-L", "msrp": 29450, "config": "2WD CVT", "note": "AWD $30,850" },
+        { "trim": "EX-L w/ Navi", "msrp": 30450, "config": "2WD CVT", "note": "AWD $31,850" },
+        { "trim": "Touring", "msrp": 32650, "config": "2WD CVT", "note": "AWD $34,050" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-f147b50b17e340af8816ff3316e234d3-2018-honda-cr-v-pricing-and-epa-data",
+      "source_type": "manufacturer",
+      "note": "Pricing page dated Nov 1, 2017 ($975 destination). A '5.1.2018' revision exists on hondanews.com (not fetched)."
+    },
+    {
+      "year": 2019,
+      "destination": 1045,
+      "trims": [
+        { "trim": "LX", "msrp": 24350, "config": "2WD CVT", "note": "AWD $25,750" },
+        { "trim": "EX", "msrp": 27250, "config": "2WD CVT", "note": "AWD $28,650" },
+        { "trim": "EX-L", "msrp": 29750, "config": "2WD CVT", "note": "EX-L w/ Navi dropped as a separate trim for 2019; AWD $31,150" },
+        { "trim": "Touring", "msrp": 32750, "config": "2WD CVT", "note": "AWD $34,150" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-ed68e2d40dc64b5ea16ba9d3357875b6-2019-honda-cr-v-pricing-and-epa-data",
+      "source_type": "manufacturer",
+      "note": "Pricing page dated Jan 3, 2019 ($1,045 destination)."
+    },
+    {
+      "year": 2020,
+      "destination": 1095,
+      "trims": [
+        { "trim": "LX", "msrp": 25050, "config": "2WD CVT", "note": "Refresh; LX now 1.5L turbo. AWD $26,550. $25,150 in Jul 7, 2020 revision" },
+        { "trim": "EX", "msrp": 27560, "config": "2WD CVT", "note": "AWD $29,060. $27,660 in Jul 7, 2020 revision" },
+        { "trim": "EX-L", "msrp": 30050, "config": "2WD CVT", "note": "AWD $31,550. $30,150 in Jul 7, 2020 revision" },
+        { "trim": "Touring", "msrp": 33250, "config": "2WD CVT", "note": "AWD $34,750. $33,350 in Jul 7, 2020 revision" },
+        { "trim": "Hybrid LX", "msrp": 27750, "config": "AWD hybrid (fixed-ratio)", "note": "First CR-V Hybrid; from separate hybrid pricing page dated Mar 17, 2020 ($1,120 destination)" },
+        { "trim": "Hybrid EX", "msrp": 30260, "config": "AWD hybrid (fixed-ratio)", "note": "Hybrid pricing page, Mar 17, 2020" },
+        { "trim": "Hybrid EX-L", "msrp": 32750, "config": "AWD hybrid (fixed-ratio)", "note": "Hybrid pricing page, Mar 17, 2020" },
+        { "trim": "Hybrid Touring", "msrp": 35950, "config": "AWD hybrid (fixed-ratio)", "note": "Hybrid pricing page, Mar 17, 2020" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-47ef5ef525f391ae783334075a012439-2020-honda-cr-v-pricing-and-epa-ratings",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-168a00342ac55d54baad38f03e005bca-2020-honda-cr-v-hybrid-pricing-and-epa-ratings",
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-57638f753d5d5044078bae439c010e98-2020-honda-cr-v-pricing-and-epa-ratings-2"
+      ],
+      "note": "Gas pricing from the launch page dated Nov 4, 2019 ($1,095 destination). Mid-year: the Jul 7, 2020 revision raises every gas trim $100 and destination to $1,120 (the Mar 2020 hybrid page already uses $1,120)."
+    },
+    {
+      "year": 2021,
+      "destination": 1225,
+      "trims": [
+        { "trim": "LX", "msrp": 25350, "config": "2WD CVT", "note": "AWD $26,850" },
+        { "trim": "SE", "msrp": 26550, "config": "2WD CVT", "note": "Special Edition returns for 2021; AWD $28,050 (printed '$28.050' in source)" },
+        { "trim": "EX", "msrp": 27860, "config": "2WD CVT", "note": "AWD $29,360" },
+        { "trim": "EX-L", "msrp": 30450, "config": "2WD CVT", "note": "AWD $31,950" },
+        { "trim": "Touring", "msrp": 33650, "config": "2WD CVT", "note": "AWD $35,150" },
+        { "trim": "Hybrid EX", "msrp": 30560, "config": "AWD hybrid (fixed-ratio)", "note": "Hybrid LX dropped for 2021; from separate hybrid pricing page, also dated Jul 7, 2021" },
+        { "trim": "Hybrid EX-L", "msrp": 33150, "config": "AWD hybrid (fixed-ratio)", "note": "Hybrid pricing page, Jul 7, 2021" },
+        { "trim": "Hybrid Touring", "msrp": 36350, "config": "AWD hybrid (fixed-ratio)", "note": "Hybrid pricing page, Jul 7, 2021" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-f8bfb43dd94cc82c09a8314c0b0160e9-2021-honda-cr-v-pricing-and-epa-ratings",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-f8bfb43dd94cc82c09a8314c0b0153d9-2021-honda-cr-v-hybrid-pricing-and-epa-ratings"
+      ],
+      "note": "Only the Jul 7, 2021 versions of the 2021 gas and hybrid pricing pages were found ($1,225 destination); no fall-2020 launch pricing page surfaced, so an earlier (lower) 2021 destination charge cannot be confirmed from this session."
+    },
+    {
+      "year": 2022,
+      "destination": 1225,
+      "trims": [
+        { "trim": "LX", "msrp": 25750, "config": "2WD CVT", "note": "AWD $27,250" },
+        { "trim": "SE", "msrp": 26950, "config": "2WD CVT", "note": "AWD $28,450" },
+        { "trim": "EX", "msrp": 28260, "config": "2WD CVT", "note": "AWD $29,760" },
+        { "trim": "EX-L", "msrp": 30850, "config": "2WD CVT", "note": "AWD $32,350" },
+        { "trim": "Touring", "msrp": 35550, "config": "AWD CVT", "note": "Touring is AWD-only for 2022 (no 2WD row listed)" },
+        { "trim": "Hybrid EX", "msrp": 30960, "config": "AWD hybrid (fixed-ratio)", "note": "From '2022 Honda CR-V Hybrid On Sale Now' release dated Aug 24, 2021 ($1,225 destination)" },
+        { "trim": "Hybrid EX-L", "msrp": 33550, "config": "AWD hybrid (fixed-ratio)", "note": "Hybrid release, Aug 24, 2021" },
+        { "trim": "Hybrid Touring", "msrp": 36750, "config": "AWD hybrid (fixed-ratio)", "note": "Hybrid release, Aug 24, 2021" }
+      ],
+      "source": "https://hondanews.com/en-US/releases/release-f1f0e61e803f7a104b0113f1c70089c8-2022-honda-cr-v-on-sale-now",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/releases/release-ca54ead83e3667d0b2045585b01e941d-2022-honda-cr-v-hybrid-on-sale-now"
+      ],
+      "note": "Launch releases dated Aug 27, 2021 (gas) and Aug 24, 2021 (hybrid), $1,225 destination. '5.03.22' revisions of both 2022 pricing pages exist (not fetched)."
+    },
+    {
+      "year": 2023,
+      "destination": 1245,
+      "trims": [
+        { "trim": "EX", "msrp": 31110, "config": "2WD 1.5T CVT", "note": "All-new 6th generation; no LX offered for MY2023, EX is the base trim. AWD $32,610" },
+        { "trim": "EX-L", "msrp": 33760, "config": "2WD 1.5T CVT", "note": "AWD $35,260" },
+        { "trim": "Sport", "msrp": 32450, "config": "2WD hybrid", "note": "Hybrid; AWD $33,950" },
+        { "trim": "Sport Touring", "msrp": 38600, "config": "AWD hybrid", "note": "Hybrid, AWD-only" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-1503019bd8a757ea08267d794438d875-2023-honda-cr-v-pricing-and-epa-ratings",
+      "source_type": "manufacturer",
+      "note": "Pricing page dated Sep 14, 2022 ($1,245 destination). Trim ladder for 2023 is EX, Sport (hybrid), EX-L, Sport Touring (hybrid); gas trims listed first here."
+    },
+    {
+      "year": 2024,
+      "destination": 1295,
+      "trims": [
+        { "trim": "LX", "msrp": 29500, "config": "2WD 1.5T CVT", "note": "LX returns for 2024; AWD $31,000" },
+        { "trim": "EX", "msrp": 32010, "config": "2WD 1.5T CVT", "note": "AWD $33,510" },
+        { "trim": "EX-L", "msrp": 34660, "config": "2WD 1.5T CVT", "note": "AWD $36,160" },
+        { "trim": "Sport", "msrp": 33350, "config": "2WD hybrid", "note": "Hybrid; AWD $34,850. Raised to $33,700 in Nov 2, 2023 revision" },
+        { "trim": "Sport-L", "msrp": 36350, "config": "2WD hybrid", "note": "Hybrid, new trim for 2024; AWD $37,850. Raised to $36,700 in Nov 2, 2023 revision" },
+        { "trim": "Sport Touring", "msrp": 39500, "config": "AWD hybrid", "note": "Hybrid, AWD-only. Raised to $39,850 in Nov 2, 2023 revision" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-13f25e90cfe47cd58453f1f710050bfd-2024-honda-cr-v-honda-adds-new-sport-l-trim-to-its-best-selling-suv",
+      "source_type": "manufacturer",
+      "additional_sources": [
+        "https://hondanews.com/en-US/honda-automobiles/releases/release-17db0ac392e05757a316a011940f6ced-2024-honda-cr-v-pricing-and-epa-ratings-nov2023-update"
+      ],
+      "note": "Launch pricing from the Jun 12, 2023 release ($1,295 destination). Mid-year: the Nov 2, 2023 pricing update raises the three hybrid trims $350 each (gas trims unchanged) and destination to $1,325."
+    },
+    {
+      "year": 2025,
+      "destination": 1350,
+      "trims": [
+        { "trim": "LX", "msrp": 30100, "config": "2WD 1.5T CVT", "note": "AWD $31,600" },
+        { "trim": "EX", "msrp": 32350, "config": "2WD 1.5T CVT", "note": "AWD $33,850" },
+        { "trim": "EX-L", "msrp": 35000, "config": "2WD 1.5T CVT", "note": "AWD $36,500" },
+        { "trim": "Sport", "msrp": 34650, "config": "2WD hybrid", "note": "Hybrid; AWD $36,150" },
+        { "trim": "Sport-L", "msrp": 37650, "config": "2WD hybrid", "note": "Hybrid; AWD $39,150" },
+        { "trim": "Sport Touring", "msrp": 41100, "config": "AWD hybrid", "note": "Hybrid, AWD-only" }
+      ],
+      "source": "https://hondanews.com/en-US/releases/release-a7f6e80eb97eda86d5973d3850127757-2025-honda-cr-v-pricing-and-epa-ratings-2",
+      "source_type": "manufacturer",
+      "note": "Pricing page dated Sep 4, 2024 ($1,350 destination)."
+    },
+    {
+      "year": 2026,
+      "destination": 1395,
+      "trims": [
+        { "trim": "LX", "msrp": 30920, "config": "2WD 1.5T CVT", "note": "Refresh; AWD $32,420" },
+        { "trim": "EX", "msrp": 33150, "config": "2WD 1.5T CVT", "note": "AWD $34,650" },
+        { "trim": "EX-L", "msrp": 35400, "config": "2WD 1.5T CVT", "note": "AWD $36,900" },
+        { "trim": "Sport Hybrid", "msrp": 35630, "config": "2WD hybrid", "note": "AWD $37,130; Honda now writes 'Hybrid' into the trim name" },
+        { "trim": "TrailSport Hybrid", "msrp": 38800, "config": "AWD hybrid", "note": "New trim for 2026, AWD-only" },
+        { "trim": "Sport-L Hybrid", "msrp": 38725, "config": "2WD hybrid", "note": "AWD $40,225" },
+        { "trim": "Sport Touring Hybrid", "msrp": 42250, "config": "AWD hybrid", "note": "AWD-only" }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-0d29cf91ab5515b985a1c286910fb0f9-2026-honda-cr-v-pricing-and-epa-ratings",
+      "source_type": "manufacturer",
+      "note": "Pricing page dated May 21, 2025 ($1,395 destination). The hydrogen CR-V e:FCEV (lease-only, separate pricing page) is excluded."
+    }
+  ],
+  "gaps": [
+    "All 11 model years sourced from hondanews.com (manufacturer); no secondary sources used.",
+    "2016: only the Jul 2016 version of the pricing page was found, so the fall-2015 launch destination charge for MY2016 is unconfirmed (page shows $900).",
+    "2020: $100 across-the-board gas MSRP increase and destination change ($1,095 to $1,120) mid-year (Jul 2020); launch pricing recorded.",
+    "2021: only the Jul 2021 pricing pages were found ($1,225 destination); a fall-2020 launch version with a possibly lower destination charge was not located.",
+    "2023: no LX trim existed at launch of the 6th generation; EX ($31,110) is the base trim for MY2023.",
+    "2024: hybrid trims rose $350 and destination rose $1,295 to $1,325 mid-year (Nov 2023); launch pricing recorded.",
+    "Hybrid rows for 2020-2022 come from separate CR-V Hybrid releases (URLs in additional_sources).",
+    "Later-dated revisions of the 2018 (5.1.2018) and 2022 (5.03.22) pricing pages exist on hondanews.com but were not fetched."
+  ]
+}

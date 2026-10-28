@@ -1,36 +1,384 @@
 {
  "fittedAt": "2026-10-28",
  "marketIndex": 0.179,
- "trimRetention": 0.6,
+ "trimRetention": 0.95,
  "models": [
+  {
+   "make": "Chevrolet",
+   "model": "Equinox",
+   "n": 79,
+   "dropped": 1,
+   "residual5": 0.48,
+   "guess": 0.48,
+   "mae": 0.08,
+   "medianBias": 0.01,
+   "byYear": {
+    "2016": {
+     "n": 19,
+     "median": 0.015
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.103
+    },
+    "2022": {
+     "n": 20,
+     "median": -0.011
+    },
+    "2024": {
+     "n": 20,
+     "median": 0.064
+    }
+   },
+   "stickers": 0
+  },
+  {
+   "make": "Chevrolet",
+   "model": "Silverado 1500",
+   "n": 80,
+   "dropped": 0,
+   "residual5": 0.54,
+   "guess": 0.6,
+   "mae": 0.089,
+   "medianBias": -0.001,
+   "byYear": {
+    "2016": {
+     "n": 20,
+     "median": -0.019
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.044
+    },
+    "2022": {
+     "n": 20,
+     "median": -0.005
+    },
+    "2024": {
+     "n": 20,
+     "median": 0.127
+    }
+   },
+   "stickers": 0
+  },
+  {
+   "make": "Ford",
+   "model": "Explorer",
+   "n": 80,
+   "dropped": 0,
+   "residual5": 0.46,
+   "guess": 0.5,
+   "mae": 0.063,
+   "medianBias": -0.017,
+   "byYear": {
+    "2016": {
+     "n": 20,
+     "median": 0.025
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.028
+    },
+    "2022": {
+     "n": 20,
+     "median": -0.027
+    },
+    "2024": {
+     "n": 20,
+     "median": -0.017
+    }
+   },
+   "stickers": 0
+  },
+  {
+   "make": "Ford",
+   "model": "F-150",
+   "n": 79,
+   "dropped": 1,
+   "residual5": 0.59,
+   "guess": 0.62,
+   "mae": 0.072,
+   "medianBias": -0.013,
+   "byYear": {
+    "2016": {
+     "n": 19,
+     "median": 0.044
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.029
+    },
+    "2022": {
+     "n": 20,
+     "median": -0.033
+    },
+    "2024": {
+     "n": 20,
+     "median": -0.067
+    }
+   },
+   "stickers": 0
+  },
+  {
+   "make": "Honda",
+   "model": "Accord",
+   "n": 80,
+   "dropped": 0,
+   "residual5": 0.615,
+   "guess": 0.6,
+   "mae": 0.078,
+   "medianBias": -0.001,
+   "byYear": {
+    "2016": {
+     "n": 20,
+     "median": 0.027
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.04
+    },
+    "2022": {
+     "n": 20,
+     "median": -0.041
+    },
+    "2024": {
+     "n": 20,
+     "median": 0.12
+    }
+   },
+   "stickers": 80
+  },
   {
    "make": "Honda",
    "model": "Civic",
    "n": 57,
    "dropped": 2,
-   "residual5": 0.665,
-   "guess": 0.66,
-   "mae": 0.06,
-   "medianBias": -0.019,
+   "residual5": 0.66,
+   "guess": 0.665,
+   "mae": 0.065,
+   "medianBias": -0.009,
    "byYear": {
     "2016": {
      "n": 14,
-     "median": 0.026
+     "median": 0.012
     },
     "2019": {
      "n": 14,
-     "median": -0.032
+     "median": -0.041
     },
     "2022": {
      "n": 15,
-     "median": -0.066
+     "median": -0.053
     },
     "2023": {
      "n": 14,
-     "median": 0.001
+     "median": 0.075
     }
    },
    "stickers": 57
+  },
+  {
+   "make": "Honda",
+   "model": "CR-V",
+   "n": 80,
+   "dropped": 0,
+   "residual5": 0.615,
+   "guess": 0.63,
+   "mae": 0.078,
+   "medianBias": -0.011,
+   "byYear": {
+    "2016": {
+     "n": 20,
+     "median": 0.086
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.032
+    },
+    "2022": {
+     "n": 20,
+     "median": -0.061
+    },
+    "2024": {
+     "n": 20,
+     "median": 0.01
+    }
+   },
+   "stickers": 80
+  },
+  {
+   "make": "Hyundai",
+   "model": "Elantra",
+   "n": 72,
+   "dropped": 2,
+   "residual5": 0.545,
+   "guess": 0.54,
+   "mae": 0.113,
+   "medianBias": -0.025,
+   "byYear": {
+    "2016": {
+     "n": 18,
+     "median": 0.033
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.162
+    },
+    "2022": {
+     "n": 14,
+     "median": -0.12
+    },
+    "2024": {
+     "n": 20,
+     "median": 0.036
+    }
+   },
+   "stickers": 72
+  },
+  {
+   "make": "Jeep",
+   "model": "Grand Cherokee",
+   "n": 80,
+   "dropped": 0,
+   "residual5": 0.43,
+   "guess": 0.52,
+   "mae": 0.084,
+   "medianBias": 0.001,
+   "byYear": {
+    "2016": {
+     "n": 20,
+     "median": -0.044
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.019
+    },
+    "2022": {
+     "n": 20,
+     "median": 0.001
+    },
+    "2024": {
+     "n": 20,
+     "median": 0.039
+    }
+   },
+   "stickers": 80
+  },
+  {
+   "make": "Nissan",
+   "model": "Altima",
+   "n": 79,
+   "dropped": 1,
+   "residual5": 0.485,
+   "guess": 0.45,
+   "mae": 0.085,
+   "medianBias": -0.006,
+   "byYear": {
+    "2016": {
+     "n": 19,
+     "median": -0.009
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.049
+    },
+    "2022": {
+     "n": 20,
+     "median": -0.027
+    },
+    "2024": {
+     "n": 20,
+     "median": 0.058
+    }
+   },
+   "stickers": 79
+  },
+  {
+   "make": "Nissan",
+   "model": "Rogue",
+   "n": 79,
+   "dropped": 1,
+   "residual5": 0.475,
+   "guess": 0.5,
+   "mae": 0.097,
+   "medianBias": 0.005,
+   "byYear": {
+    "2016": {
+     "n": 20,
+     "median": -0.036
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.009
+    },
+    "2022": {
+     "n": 20,
+     "median": -0.025
+    },
+    "2024": {
+     "n": 19,
+     "median": 0.117
+    }
+   },
+   "stickers": 79
+  },
+  {
+   "make": "Toyota",
+   "model": "Camry",
+   "n": 80,
+   "dropped": 0,
+   "residual5": 0.615,
+   "guess": 0.62,
+   "mae": 0.073,
+   "medianBias": 0.001,
+   "byYear": {
+    "2016": {
+     "n": 20,
+     "median": 0.033
+    },
+    "2019": {
+     "n": 20,
+     "median": -0.014
+    },
+    "2022": {
+     "n": 20,
+     "median": 0.018
+    },
+    "2024": {
+     "n": 20,
+     "median": 0.014
+    }
+   },
+   "stickers": 0
+  },
+  {
+   "make": "Toyota",
+   "model": "Corolla",
+   "n": 79,
+   "dropped": 1,
+   "residual5": 0.635,
+   "guess": 0.64,
+   "mae": 0.091,
+   "medianBias": 0.006,
+   "byYear": {
+    "2016": {
+     "n": 20,
+     "median": -0.061
+    },
+    "2019": {
+     "n": 19,
+     "median": -0.012
+    },
+    "2022": {
+     "n": 20,
+     "median": 0.017
+    },
+    "2024": {
+     "n": 20,
+     "median": 0.058
+    }
+   },
+   "stickers": 0
   }
  ]
 }

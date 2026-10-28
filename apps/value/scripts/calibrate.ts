@@ -10,7 +10,7 @@
 import { writeFileSync } from 'node:fs';
 import samples from '../src/data/listing-samples.json';
 import { MODELS } from '../src/engine/models';
-import { baseMsrp, stickerFor, stickerTrim } from '../src/engine/stickers';
+import { baseMsrp, resolveStickerTrim, stickerFor } from '../src/engine/stickers';
 import { CURVE, valuate, type Inputs } from '../src/engine/valuation';
 import type { Region } from '../src/engine/data';
 
@@ -38,7 +38,7 @@ function observations(make: string, model: string): Obs[] {
     for (const l of page.listings) {
       let msrp: number, baseM: number | undefined, known = false;
       if (st) {
-        const t = stickerTrim(st.year, l.trim || page.trimFilter);
+        const t = resolveStickerTrim(st.year, [l.trim, page.trimFilter], info?.body);
         msrp = t.msrp; baseM = baseMsrp(st.year); known = true;
       } else if (info) {
         msrp = Math.round(info.typicalMsrp * Math.pow(1.03, Math.min(1, page.year - 2025)) / 100) * 100;
@@ -65,7 +65,7 @@ const mae = (xs: number[]) => xs.reduce((a, e) => a + Math.abs(e), 0) / (xs.leng
 
 type Fit = { make: string; model: string; n: number; dropped: number; residual5: number; guess: number; mae: number; medianBias: number; byYear: Record<string, { n: number; median: number }>; stickers: number };
 
-function fitModel(make: string, model: string, trimRetention: number): Fit | null {
+function fitModel(make: string, model: string, trimRetention: number, step = 0.005): Fit | null {
   const info = MODELS.find((m) => m.make === make && m.model === model);
   if (!info) return null;
   let obs = observations(make, model);
@@ -73,7 +73,7 @@ function fitModel(make: string, model: string, trimRetention: number): Fit | nul
   const guess = info.residual5;
   const search = () => {
     let best = { r5: guess, mae: Infinity };
-    for (let r5 = 0.3; r5 <= 0.92; r5 += 0.005) {
+    for (let r5 = 0.3; r5 <= 0.92; r5 += step) {
       info.residual5 = r5;
       CURVE.trimRetention = trimRetention;
       const m = mae(errors(make, model, info.body, obs));
@@ -100,24 +100,36 @@ function fitModel(make: string, model: string, trimRetention: number): Fit | nul
 }
 
 const targets = samples.map((s) => ({ make: s.make, model: s.model }));
+const weighted = (fits: Fit[]) => fits.reduce((a, f) => a + f.mae * f.n, 0) / fits.reduce((a, f) => a + f.n, 0);
 
-// Global trim retention: pick the value that minimises total error across models.
-let bestTr = { tr: 1, total: Infinity, fits: [] as Fit[] };
-for (const tr of [0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]) {
-  const fits = targets.map((t) => fitModel(t.make, t.model, tr)).filter((f): f is Fit => !!f);
-  const total = fits.reduce((a, f) => a + f.mae * f.n, 0) / fits.reduce((a, f) => a + f.n, 0);
-  if (total < bestTr.total - 1e-6) bestTr = { tr, total, fits };
+// Global curve shape and trim retention: coarse search over all models at once,
+// with each model's residual re-fitted inside every combination.
+let best = { driveOff: CURVE.driveOff, decay: CURVE.decay, tr: CURVE.trimRetention, total: Infinity, fits: [] as Fit[] };
+const quick = process.argv.includes('--quick');
+const grid = quick
+  ? { driveOff: [CURVE.driveOff], decay: [CURVE.decay], tr: [0.6, 0.8, 1.0] }
+  : { driveOff: [0.8, 1.2, 1.6, 2.0], decay: [0.95, 1.0, 1.05, 1.1], tr: [0.6, 0.7, 0.8, 0.9, 1.0] };
+for (const driveOff of grid.driveOff) for (const decay of grid.decay) for (const tr of grid.tr) {
+  Object.assign(CURVE, { driveOff, decay });
+  const fits = targets.map((t) => fitModel(t.make, t.model, tr, 0.01)).filter((f): f is Fit => !!f);
+  const total = weighted(fits);
+  if (total < best.total - 1e-6) best = { driveOff, decay, tr, total, fits };
 }
+// Fine residual fit at the chosen curve.
+Object.assign(CURVE, { driveOff: best.driveOff, decay: best.decay });
+const fits = targets.map((t) => fitModel(t.make, t.model, best.tr)).filter((f): f is Fit => !!f);
+const bestTr = { tr: best.tr, total: weighted(fits), fits };
 
 const out = {
   fittedAt: ASOF.toISOString().slice(0, 10),
   marketIndex: MARKET_INDEX,
+  curve: { driveOff: best.driveOff, decay: best.decay },
   trimRetention: bestTr.tr,
   models: bestTr.fits,
 };
 writeFileSync(new URL('../src/data/calibration.json', import.meta.url), JSON.stringify(out, null, 1) + '\n');
 
-console.log(`trimRetention ${bestTr.tr} · weighted MAE ${(bestTr.total * 100).toFixed(1)}%\n`);
+console.log(`curve: driveOff ${best.driveOff}, decay ${best.decay}, trimRetention ${bestTr.tr} · weighted MAE ${(bestTr.total * 100).toFixed(1)}% over ${fits.reduce((a, f) => a + f.n, 0)} listings\n`);
 console.log('model'.padEnd(28), 'n'.padStart(3), 'drop', 'guess', ' fit ', '  MAE', ' bias', ' by year');
 for (const f of bestTr.fits) {
   console.log(`${f.make} ${f.model}`.padEnd(28), String(f.n).padStart(3), String(f.dropped).padStart(4), f.guess.toFixed(2).padStart(5), f.residual5.toFixed(3).padStart(5), `${(f.mae * 100).toFixed(1)}%`.padStart(6), `${f.medianBias >= 0 ? '+' : ''}${(f.medianBias * 100).toFixed(1)}%`.padStart(6), ' ', Object.entries(f.byYear).map(([y, v]) => `${y}:${v.median >= 0 ? '+' : ''}${(v.median * 100).toFixed(0)}%`).join(' '));

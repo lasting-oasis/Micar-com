@@ -39,6 +39,25 @@ export function stickerTrim(y: StickerYear, trim: string): StickerTrim {
   return (want && y.trims.find((t) => norm(t.trim) === want)) || y.trims.find((t) => want && norm(t.trim).startsWith(want)) || y.trims[0];
 }
 
+/** Pick the sticker row for a used listing: the listing's own trim if it is on
+ * file, else the search filter's trim, else the base trim. For pickups, prefer
+ * the crew-cab 4x4 configuration of that trim, which is what most used trucks are. */
+export function resolveStickerTrim(y: StickerYear, candidates: string[], body?: string): StickerTrim {
+  const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+  for (const c of candidates) {
+    const want = norm(c);
+    if (!want) continue;
+    const rows = y.trims.filter((t) => norm(t.trim) === want);
+    if (!rows.length) continue;
+    if (body === 'Pickup Truck') {
+      const crew4x4 = rows.find((t) => /(supercrew|crew\s*cab|double\s*cab|crewmax)/i.test(t.config) && /(4x4|4wd|awd)/i.test(t.config));
+      if (crew4x4) return crew4x4;
+    }
+    return rows[0];
+  }
+  return y.trims[0];
+}
+
 export function stickerMsrp(y: StickerYear, trim: string): number {
   return stickerTrim(y, trim).msrp;
 }

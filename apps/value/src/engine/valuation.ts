@@ -84,9 +84,9 @@ export const CURVE = {
   /** Each year's loss as a multiple of the year before (1 = the same percentage every year).
    * Backtested against real Civic listings: constant-percentage fits better than a
    * front-loaded curve once prices are measured against today's new-car price. */
-  decay: 1.0,
+  decay: (calibration as { curve?: { decay?: number } }).curve?.decay ?? 1.0,
   /** Titling hit, as a fraction of the first year's loss (about 6% of the price for most models). */
-  driveOff: 0.8,
+  driveOff: (calibration as { curve?: { driveOff?: number } }).curve?.driveOff ?? 0.8,
   /** Yearly growth in new-car prices. Used prices track the price of a new
    * replacement, so an old sticker is inflated to today's dollars before the
    * curve is applied. */

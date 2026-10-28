@@ -7,7 +7,7 @@ import samples from '../data/listing-samples.json';
 import calibration from '../data/calibration.json';
 import type { Region } from './data';
 import { MODELS } from './models';
-import { baseMsrp, stickerFor, stickerTrim } from './stickers';
+import { baseMsrp, resolveStickerTrim, stickerFor } from './stickers';
 import { valuate, type Inputs } from './valuation';
 
 const ASOF = new Date(2026, 9, 28);
@@ -26,7 +26,7 @@ describe('engine vs real listings', () => {
       for (const page of set.samples) {
         const st = stickerFor(set.make, set.model, page.year);
         for (const l of page.listings) {
-          const msrp = st ? stickerTrim(st.year, l.trim || page.trimFilter).msrp : Math.round(info!.typicalMsrp * Math.pow(1.03, Math.min(1, page.year - 2025)) / 100) * 100;
+          const msrp = st ? resolveStickerTrim(st.year, [l.trim, page.trimFilter], info!.body).msrp : Math.round(info!.typicalMsrp * Math.pow(1.03, Math.min(1, page.year - 2025)) / 100) * 100;
           const input: Inputs = {
             make: set.make, model: set.model, trim: l.trim, body: info!.body, msrp, baseMsrp: st ? baseMsrp(st.year) : undefined,
             year: page.year, mileage: l.miles, condition: 'Good', title: 'Clean', accident: 'None', region: regionOf(l.location),
