@@ -344,7 +344,7 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          group.add(antenna);
          
          // Red Warning Light at Spire tip
-         const beaconBulb = new THREE.Mesh(new THREE.SphereGeometry(0.4), new THREE.MeshBasicMaterial({ color: '#ef4444' }));
+         const beaconBulb = new THREE.Mesh(new THREE.SphereGeometry(0.4, 10, 6), new THREE.MeshBasicMaterial({ color: '#ef4444' }));
          beaconBulb.position.set(0, h + 8, 0);
          group.add(beaconBulb);
          
@@ -529,7 +529,7 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
 
             addLightSource(x, 14.5, z, '#fef08a', 2, 80, true);
 
-            const bulbGeo = new THREE.SphereGeometry(0.6);
+            const bulbGeo = new THREE.SphereGeometry(0.6, 12, 8); // a small unlit bulb: the 32x16 default was ~1k triangles each
             const bulbMat = new THREE.MeshBasicMaterial({ color: '#fef08a' }); // MeshBasic is unlit — already full-bright, emissive props don't apply
             const bulb = new THREE.Mesh(bulbGeo, bulbMat);
             bulb.position.set(x, 15, z);

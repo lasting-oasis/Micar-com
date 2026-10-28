@@ -124,7 +124,7 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
 
         addLightSource(pos.x, 14.5, pos.z, '#fef08a', 2, 50, true);
 
-        const bulbGeo = new THREE.SphereGeometry(0.6);
+        const bulbGeo = new THREE.SphereGeometry(0.6, 12, 8); // a small unlit bulb: the 32x16 default was ~1k triangles each
         const bulbMat = new THREE.MeshBasicMaterial({ color: '#fef08a' });
         const bulb = new THREE.Mesh(bulbGeo, bulbMat);
         bulb.position.set(pos.x, 15, pos.z);
