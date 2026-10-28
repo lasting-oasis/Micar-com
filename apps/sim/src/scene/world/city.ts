@@ -2,11 +2,12 @@ import * as THREE from 'three';
 import type { WorldContext } from './context';
 import type { FurnitureKit } from './furniture';
 import { createBuildingSign } from '../textures';
+import { boxUVsWorld, type Face } from './architecture';
 
 // The town: ground, roads, trees, districts, bank, auction house, library,
 // insurance office and gas stations. Returns the spots the game loop needs.
 export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
-    const { scene, environmentDisposables, staticCollisionBoxes, cityMaterials, cityTextures, emissiveFacadeMaterials, concreteTex, makeGlass, addLightSource } = ctx;
+    const { scene, environmentDisposables, staticCollisionBoxes, cityMaterials, cityTextures, emissiveFacadeMaterials, concreteTex, makeGlass, addLightSource, arch } = ctx;
     const { makeSofa, makePlant, makePainting, makeCoffeeTable } = furniture;
 
     // Streetlights (no shadows: a shadow-casting point light re-renders the
@@ -131,39 +132,49 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     };
     
 
-    // Procedural Skyscraper Facade Texture Generator
-    const generateFacadeTexture = (cols: number, rows: number, baseColorHex: string) => {
-         const canvas = document.createElement('canvas');
-         canvas.width = 512;
-         canvas.height = 1024;
-         const ctx = canvas.getContext('2d');
-         if (!ctx) return new THREE.Texture();
-         ctx.fillStyle = baseColorHex;
-         ctx.fillRect(0, 0, 512, 1024);
-         
-         const winW = 512 / cols;
-         const winH = 1024 / rows;
-         
-         for (let r = 0; r < rows; r++) {
-             for (let c = 0; c < cols; c++) {
-                 const roll = Math.random();
-                 if (roll < 0.22) {
-                     ctx.fillStyle = '#fef08a'; // Lit yellow window
-                 } else if (roll < 0.30) {
-                     ctx.fillStyle = '#93c5fd'; // Lit blue window
-                 } else {
-                     ctx.fillStyle = '#0b0f19'; // Dark unlit window
+    // Procedural curtain-wall facade for the office towers: per floor a glass
+    // band between aluminium mullions over an opaque spandrel panel at the slab.
+    // One texture repeat = FACADE_COLS bays x FACADE_ROWS floors; the tower boxes
+    // get world-scale UVs (boxUVsWorld) so every tier has the same floor height
+    // and the floor lines run on across the setbacks. The emissive map holds
+    // only the lit offices, so at night the glass glows and the frame stays dark.
+    const FACADE_COLS = 8, FACADE_ROWS = 32, BAY_W = 3.2, FLOOR_H = 3.6;
+    const generateFacadeTextures = (baseColorHex: string) => {
+         const W = 256, H = 1024, cw = W / FACADE_COLS, ch = H / FACADE_ROWS, span = 9, mull = 2;
+         const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
+         const colorCanvas = mk(), glowCanvas = mk();
+         const g = colorCanvas.getContext('2d')!, e = glowCanvas.getContext('2d')!;
+         const base = new THREE.Color(baseColorHex);
+         const css = (c: THREE.Color) => `#${c.getHexString()}`;
+         const spandrel = css(base.clone().lerp(new THREE.Color('#8b95a3'), 0.35));
+         const mullion = css(base.clone().lerp(new THREE.Color('#b8c2ce'), 0.55));
+         const glassTop = base.clone().lerp(new THREE.Color('#9db6cf'), 0.65), glassBot = base.clone().lerp(new THREE.Color('#2a3c55'), 0.5);
+         g.fillStyle = mullion; g.fillRect(0, 0, W, H);
+         e.fillStyle = '#000'; e.fillRect(0, 0, W, H);
+         for (let r = 0; r < FACADE_ROWS; r++) {
+             const floorLit = 0.1 + Math.random() * 0.6; // some floors busier than others
+             for (let c = 0; c < FACADE_COLS; c++) {
+                 const x0 = c * cw + mull, y0 = r * ch, gw = cw - mull, gh = ch - span;
+                 const k = 0.9 + Math.random() * 0.2;
+                 const grad = g.createLinearGradient(0, y0, 0, y0 + gh);
+                 grad.addColorStop(0, css(glassTop.clone().multiplyScalar(k))); grad.addColorStop(1, css(glassBot.clone().multiplyScalar(k)));
+                 g.fillStyle = grad; g.fillRect(x0, y0, gw, gh);
+                 g.fillStyle = spandrel; g.fillRect(x0 - mull, y0 + gh, cw, span);
+                 g.fillStyle = 'rgba(0,0,0,0.35)'; g.fillRect(x0 - mull, y0 + gh, cw, 1); // slab edge shadow
+                 if (Math.random() < floorLit) {
+                     const roll = Math.random();
+                     e.fillStyle = roll < 0.7 ? '#ffe2a8' : roll < 0.85 ? '#e8f1ff' : '#8a7550';
+                     e.fillRect(x0 + 1, y0 + 1, gw - 2, gh - 2);
                  }
-                 // Margin frame
-                 ctx.fillRect(c * winW + 4, r * winH + 4, winW - 8, winH - 8);
              }
          }
-         
-         const tex = new THREE.CanvasTexture(canvas);
-         tex.wrapS = THREE.RepeatWrapping;
-         tex.wrapT = THREE.RepeatWrapping;
-         cityTextures.push(tex);
-         return tex;
+         const tex = (c: HTMLCanvasElement) => {
+             const t = new THREE.CanvasTexture(c);
+             t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.SRGBColorSpace;
+             cityTextures.push(t);
+             return t;
+         };
+         return { map: tex(colorCanvas), emissiveMap: tex(glowCanvas) };
     };
 
     // Procedural Warehouse Texture Generator
@@ -257,54 +268,65 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
 
     // Specialized Procedural Building Model Constructors
     
-    // 1. Skyscraper / Office Tower
+    // 1. Skyscraper / Office Tower: curtain-wall tiers over a recessed, double-
+    // height glass lobby with stone piers, an entrance canopy facing the road.
     const createSkyscraper = (x: number, z: number, w: number, d: number, h: number, baseColorHex: string) => {
          const group = new THREE.Group();
          group.position.set(x, 0, z);
-         
-         const tex = generateFacadeTexture(8, 16, baseColorHex);
+
+         const { map, emissiveMap } = generateFacadeTextures(baseColorHex);
          const facadeMat = new THREE.MeshStandardMaterial({
-             map: tex,
-             roughness: 0.15,
-             metalness: 0.85,
-             emissiveMap: tex,
+             map,
+             roughness: 0.25,
+             metalness: 0.6,
+             emissiveMap,
              emissive: new THREE.Color('#ffffff'),
              emissiveIntensity: 0.15
          });
          emissiveFacadeMaterials.push(facadeMat);
          cityMaterials.push(facadeMat);
-         
-         // Tier 1 Base
+         const tier = (tw: number, th: number, td: number, y0: number) => {
+             const geo = boxUVsWorld(new THREE.BoxGeometry(tw, th, td), tw, th, td, FACADE_COLS * BAY_W, FACADE_ROWS * FLOOR_H, y0);
+             const m = new THREE.Mesh(geo, facadeMat);
+             m.position.y = y0 + th / 2;
+             m.castShadow = true;
+             m.receiveShadow = true;
+             group.add(m);
+             // Projecting cornice at the top of the tier
+             const c = arch.box(group, arch.trimMat, tw + 0.5, 0.7, td + 0.5, 0, y0 + th - 0.35, 0);
+             c.receiveShadow = true;
+             return m;
+         };
+
+         // Ground floor: a recessed glass lobby behind a row of stone piers
+         const LOBBY_H = 7, INSET = 0.9;
          const baseH = h * 0.25;
-         const baseGeo = new THREE.BoxGeometry(w, baseH, d);
-         const baseMesh = new THREE.Mesh(baseGeo, facadeMat);
-         baseMesh.position.y = baseH / 2;
-         baseMesh.castShadow = true;
-         baseMesh.receiveShadow = true;
-         group.add(baseMesh);
-         
-         // Tier 2 Middle
-         const midW = w * 0.85;
-         const midD = d * 0.85;
+         arch.glassBox(group, arch.litGlassMat, w - 2 * INSET, LOBBY_H, d - 2 * INSET, 0, LOBBY_H / 2, 0, 2.4, LOBBY_H / 2);
+         const pier = (px: number, pz: number) => { const p = arch.box(group, arch.trimMat, 0.9, LOBBY_H, 0.9, px, LOBBY_H / 2, pz); p.receiveShadow = true; };
+         const piersAlong = (len: number) => { const n = Math.max(2, Math.round(len / 6)); return Array.from({ length: n + 1 }, (_, i) => -len / 2 + 0.45 + (i * (len - 0.9)) / n); };
+         piersAlong(w).forEach(px => { pier(px, -d / 2 + 0.45); pier(px, d / 2 - 0.45); });
+         // (no pier in front of the entrance, which is in the middle of the road-facing side)
+         const entranceSide = x > 0 ? -1 : 1;
+         piersAlong(d).slice(1, -1).forEach(pz => [-1, 1].forEach(sx => { if (sx !== entranceSide || Math.abs(pz) > 3) pier(sx * (w / 2 - 0.45), pz); }));
+         const band = arch.box(group, arch.trimMat, w + 0.3, 1.0, d + 0.3, 0, LOBBY_H + 0.5, 0); // transfer band over the lobby
+         band.receiveShadow = true;
+
+         // Main entrance on the side facing the main road: glass doors, canopy, entry slab
+         const face = x > 0 ? '-x' : '+x';
+         const s = entranceSide; // outward direction along x
+         const lobbyFace = s * (w / 2 - INSET);
+         arch.place(group, arch.glassDoors(3.8, 3.1, { transom: 0.9 }), face, lobbyFace, 0, 0);
+         arch.box(group, arch.frameMat, 4.6, 0.35, 9, lobbyFace + s * 2.3, 4.9, 0);            // canopy
+         arch.box(group, arch.trimMat, 0.18, 0.55, 9.1, lobbyFace + s * 4.6, 4.9, 0);          // canopy fascia
+         arch.box(group, arch.trimMat, 4.4, 0.14, 7, lobbyFace + s * 2.2, 0.07, 0);            // entry slab
+
+         // Tier 1 Base (above the lobby), Tier 2 Middle, Tier 3 Penthouse Top
+         const baseMesh = tier(w, baseH - LOBBY_H, d, LOBBY_H);
          const midH = h * 0.55;
-         const midGeo = new THREE.BoxGeometry(midW, midH, midD);
-         const midMesh = new THREE.Mesh(midGeo, facadeMat);
-         midMesh.position.y = baseH + midH / 2;
-         midMesh.castShadow = true;
-         midMesh.receiveShadow = true;
-         group.add(midMesh);
-         
-         // Tier 3 Penthouse Top
-         const topW = w * 0.7;
-         const topD = d * 0.7;
+         const midMesh = tier(w * 0.85, midH, d * 0.85, baseH);
          const topH = h * 0.2;
-         const topGeo = new THREE.BoxGeometry(topW, topH, topD);
-         const topMesh = new THREE.Mesh(topGeo, facadeMat);
-         topMesh.position.y = baseH + midH + topH / 2;
-         topMesh.castShadow = true;
-         topMesh.receiveShadow = true;
-         group.add(topMesh);
-         
+         tier(w * 0.7, topH, d * 0.7, baseH + midH);
+
          // HVAC Rooftop Unit Box
          const hvacMat = new THREE.MeshStandardMaterial({ color: '#4b5563', metalness: 0.7, roughness: 0.3 });
          cityMaterials.push(hvacMat);
@@ -330,7 +352,9 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          environmentDisposables.push(group);
          group.updateMatrixWorld(true);
          
-         staticCollisionBoxes.push(new THREE.Box3().setFromObject(baseMesh));
+         // The base box now starts above the lobby: the solid footprint still goes down to the ground.
+         const baseBox = new THREE.Box3().setFromObject(baseMesh); baseBox.min.y = 0;
+         staticCollisionBoxes.push(baseBox);
          staticCollisionBoxes.push(new THREE.Box3().setFromObject(midMesh));
     };
 
@@ -382,19 +406,19 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          staticCollisionBoxes.push(new THREE.Box3().setFromObject(storeMesh));
     };
 
-    // 3. Warehouse / Industrial complex
+    // 3. Warehouse / Industrial complex: corrugated shed under a shallow barrel
+    // roof, truck roll-up doors and a personnel door in front, an office corner
+    // with windows and a glass entrance on the road side, clerestory windows high
+    // on the long walls and a raised loading dock at the back.
+    const warehouseMetalTex = generateWarehouseTexture(); // one texture/material for every shed
+    const metalWallMat = new THREE.MeshStandardMaterial({ color: '#6b7280', roughness: 0.45, metalness: 0.75, map: warehouseMetalTex });
+    const warehouseRoofMat = new THREE.MeshStandardMaterial({ color: '#4b5563', roughness: 0.3, metalness: 0.7 });
+    const cautionMat = new THREE.MeshStandardMaterial({ color: '#fbbf24', roughness: 0.7 });
+    const bollardGeo = new THREE.CylinderGeometry(0.18, 0.18, 1.2, 8);
+    cityMaterials.push(metalWallMat, warehouseRoofMat, cautionMat);
     const createWarehouse = (x: number, z: number, w: number, d: number, h: number) => {
          const group = new THREE.Group();
          group.position.set(x, 0, z);
-         
-         const metalTex = generateWarehouseTexture();
-         const metalWallMat = new THREE.MeshStandardMaterial({ 
-             color: '#6b7280', 
-             roughness: 0.45, 
-             metalness: 0.75,
-             map: metalTex
-         });
-         cityMaterials.push(metalWallMat);
          
          const mainGeo = new THREE.BoxGeometry(w, h, d);
          const mainMesh = new THREE.Mesh(mainGeo, metalWallMat);
@@ -403,37 +427,62 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          mainMesh.receiveShadow = true;
          group.add(mainMesh);
          
-         const roofR = w * 0.52;
-         const roofGeo = new THREE.CylinderGeometry(roofR, roofR, d, 16, 1, false, 0, Math.PI);
-         roofGeo.rotateX(Math.PI / 2);
-         const roofMesh = new THREE.Mesh(roofGeo, new THREE.MeshStandardMaterial({ color: '#4b5563', roughness: 0.3, metalness: 0.7 }));
-         roofMesh.position.set(0, h, 0);
+         // Shallow barrel roof (an arc of a big cylinder) with gable infills at both ends
+         const rise = w * 0.12, R = ((w / 2) ** 2 + rise ** 2) / (2 * rise), alpha = Math.asin(w / 2 / R);
+         const roofGeo = new THREE.CylinderGeometry(R, R, d + 0.6, 12, 1, true, -alpha, 2 * alpha);
+         roofGeo.rotateX(-Math.PI / 2);
+         const roofMesh = new THREE.Mesh(roofGeo, warehouseRoofMat);
+         roofMesh.position.set(0, h - R * Math.cos(alpha), 0);
          roofMesh.castShadow = true;
          group.add(roofMesh);
-         
-         const doorGeo = new THREE.BoxGeometry(w * 0.32, h * 0.75, 0.4);
-         const doorMat = new THREE.MeshStandardMaterial({ color: '#9ca3af', roughness: 0.5, metalness: 0.5 });
-         cityMaterials.push(doorMat);
-         
-         const doorL = new THREE.Mesh(doorGeo, doorMat);
-         doorL.position.set(-w * 0.22, h * 0.375, -d / 2 - 0.1);
-         doorL.castShadow = true;
-         group.add(doorL);
-         
-         const doorR = new THREE.Mesh(doorGeo, doorMat);
-         doorR.position.set(w * 0.22, h * 0.375, -d / 2 - 0.1);
-         doorR.castShadow = true;
-         group.add(doorR);
-         
-         const cautionMat = new THREE.MeshStandardMaterial({ color: '#fbbf24', roughness: 0.7 });
-         cityMaterials.push(cautionMat);
-         const stripeGeo = new THREE.BoxGeometry(w * 0.85, 1.0, 0.5);
-         const cautionStripe = new THREE.Mesh(stripeGeo, cautionMat);
-         cautionStripe.position.set(0, h * 0.82, -d / 2 - 0.2);
-         group.add(cautionStripe);
+         const gable = new THREE.Shape();
+         for (let i = 0; i <= 12; i++) { const t = -alpha + (2 * alpha * i) / 12; const px = R * Math.sin(t), py = R * Math.cos(t) - R * Math.cos(alpha); if (i === 0) gable.moveTo(px, py); else gable.lineTo(px, py); }
+         const gableGeo = new THREE.ShapeGeometry(gable);
+         ([[-d / 2, Math.PI], [d / 2, 0]] as [number, number][]).forEach(([gz, ry]) => { const gm = new THREE.Mesh(gableGeo, metalWallMat); gm.position.set(0, h, gz); gm.rotation.y = ry; gm.castShadow = gm.receiveShadow = true; group.add(gm); });
+
+         // FRONT (-z): two truck doors with bollards and aprons, a personnel door between them
+         const doorW = w * 0.3, doorH = Math.min(h * 0.6, 9.5);
+         [-1, 1].forEach(sx => {
+             const dx = sx * w * 0.22;
+             arch.place(group, arch.rollupDoor(doorW, doorH), '-z', dx, 0, -d / 2);
+             arch.box(group, arch.trimMat, doorW + 1.2, 0.1, 4, dx, 0.05, -d / 2 - 2).receiveShadow = true;
+             [-1, 1].forEach(b => { const bo = new THREE.Mesh(bollardGeo, cautionMat); bo.position.set(dx + b * (doorW / 2 + 0.8), 0.6, -d / 2 - 0.7); bo.receiveShadow = true; group.add(bo); });
+         });
+         arch.place(group, arch.steelDoor(), '-z', 0, 0, -d / 2);
+         arch.place(group, arch.windowUnit(1.6, 1.0, { cols: 2, rows: 1, lit: 0.6 }), '-z', 0, 4.2, -d / 2);
+         arch.box(group, cautionMat, w * 0.85, 0.6, 0.3, 0, Math.max(doorH + 2, h * 0.82), -d / 2 - 0.15);
+
+         // ROAD SIDE: office corner at the front end, glass office entrance, back personnel door
+         const rs = x > 0 ? -1 : 1; // local x direction of the road
+         const roadFace: Face = rs < 0 ? '-x' : '+x', farFace: Face = rs < 0 ? '+x' : '-x';
+         const sideX = rs * w / 2;
+         arch.place(group, arch.glassDoors(2.6, 2.6, { transom: 0.6 }), roadFace, sideX, 0, -d / 2 + 4.5);
+         arch.box(group, arch.frameMat, 2.4, 0.3, 4.2, sideX + rs * 1.2, 3.9, -d / 2 + 4.5);
+         arch.box(group, arch.trimMat, 2.4, 0.12, 3.6, sideX + rs * 1.2, 0.06, -d / 2 + 4.5);
+         arch.windowRow(group, roadFace, 3, 3.2, -d / 2 + 11.4, 1.9, sideX, 2.2, 1.5, { cols: 2, rows: 1, lit: 0.7 });
+         arch.windowRow(group, roadFace, 5, 3.2, -d / 2 + 8.2, 6.2, sideX, 2.2, 1.5, { cols: 2, rows: 1, lit: 0.6 });
+         arch.place(group, arch.steelDoor(), roadFace, sideX, 0, d / 2 - 4);
+         // Clerestory ribbons high on both long walls
+         const ribbonLen = d - 5;
+         ([[roadFace, sideX], [farFace, -sideX]] as [Face, number][]).forEach(([f, sxx]) => {
+             arch.place(group, arch.windowUnit(ribbonLen, 1.6, { cols: Math.round(ribbonLen / 1.7), rows: 1, lit: 0.6, sill: false }), f, sxx, h - 2.4, 0);
+         });
+         arch.place(group, arch.steelDoor(), farFace, -sideX, 0, -d / 2 + 5);
+
+         // BACK (+z): raised loading dock with three dock doors, bumpers, canopy and steps
+         const dockW = w * 0.8, dockH = 1.2, dockD = 3.2;
+         const dock = arch.box(group, arch.trimMat, dockW, dockH, dockD, 0, dockH / 2, d / 2 + dockD / 2);
+         [-1, 0, 1].forEach(i => {
+             const dx = i * w * 0.25;
+             arch.place(group, arch.rollupDoor(3.4, 3.4), '+z', dx, dockH, d / 2);
+             [-1, 1].forEach(b => arch.box(group, arch.frameMat, 0.35, 0.55, 0.3, dx + b * 1.3, 0.7, d / 2 + dockD + 0.15));
+         });
+         arch.box(group, arch.frameMat, dockW + 1, 0.3, dockD + 0.6, 0, dockH + 4.9, d / 2 + (dockD + 0.6) / 2);
+         [0.8, 0.4].forEach((sh, i) => arch.box(group, arch.trimMat, 0.8, sh, 1.6, dockW / 2 + 0.4 + i * 0.8, sh / 2, d / 2 + 1.0)); // steps up to the dock
+         arch.place(group, arch.windowUnit(w - 8, 1.6, { cols: Math.round((w - 8) / 1.7), rows: 1, lit: 0.6, sill: false }), '+z', 0, h - 2.4, d / 2);
          
          const warehouseSign = createBuildingSign('LOGISTICS BAY', '#1f2937', '#eab308');
-         warehouseSign.position.set(0, h + roofR * 0.5 + 2, -d / 2);
+         warehouseSign.position.set(0, h + rise + 2.5, -d / 2);
          group.add(warehouseSign);
          
          scene.add(group);
@@ -441,6 +490,7 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          group.updateMatrixWorld(true);
          
          staticCollisionBoxes.push(new THREE.Box3().setFromObject(mainMesh));
+         staticCollisionBoxes.push(new THREE.Box3().setFromObject(dock));
     };
 
     // Populate Suburban trees
@@ -551,12 +601,48 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     const bArt2 = makePainting(3, 1.8, '#1e3a8a', '#93c5fd'); bArt2.position.set(7, 9, 9.4); bArt2.rotation.y = Math.PI; bankGroup.add(bArt2);
     addLightSource(45, 12, 136, '#fff3da', 1.0, 46, false);
 
-    // Render glass panels specifically on either side of the entrance gap!
-    const bkGlassLeft = new THREE.Mesh(new THREE.BoxGeometry(12, 15, 1), bankGlass);
-    bkGlassLeft.position.set(-9, 8.5, -9.6);
-    const bkGlassRight = new THREE.Mesh(new THREE.BoxGeometry(12, 15, 1), bankGlass);
-    bkGlassRight.position.set(9, 8.5, -9.6);
-    bankGroup.add(bkGlassLeft, bkGlassRight);
+    // Facade: framed curtain wall either side of the entrance over a stone base,
+    // stone pilasters, a frieze and a cornice; tall windows on the sides and back.
+    {
+        const { box, trimMat, frameMat, litGlassMat, glassMat, paneGeo, plane } = arch;
+        const t = (m: THREE.Mesh) => { m.receiveShadow = true; return m; };
+        [-1, 1].forEach(sx => {
+            const cx = sx * 9; // centre of each front wall piece (x 3..15)
+            t(box(bankGroup, trimMat, 12.2, 1.2, 0.5, cx, 0.6, -10.1));                     // stone base
+            plane(bankGroup, litGlassMat, paneGeo(10.2, 15.6, 4, 5), cx - sx * 0.3, 9.0, -10.06).rotation.y = Math.PI;
+            const inner = plane(bankGroup, glassMat, paneGeo(10.2, 15.6, 4, 5), cx - sx * 0.3, 9.0, -8.94); inner.rotation.y = 0; // seen from the lobby
+            box(bankGroup, frameMat, 10.6, 0.3, 0.35, cx - sx * 0.3, 16.95, -10.15);          // curtain-wall frame
+            box(bankGroup, frameMat, 0.3, 15.6, 0.35, cx - sx * 0.3 - 5.25, 9.0, -10.15);
+            box(bankGroup, frameMat, 0.3, 15.6, 0.35, cx - sx * 0.3 + 5.25, 9.0, -10.15);
+            t(box(bankGroup, trimMat, 0.9, 20, 0.7, sx * 14.6, 10, -10.2));                   // corner pilasters
+            t(box(bankGroup, trimMat, 0.9, 20, 0.7, sx * 3.45, 10, -10.2));                   // entrance pilasters
+        });
+        t(box(bankGroup, trimMat, 30.4, 0.9, 0.5, 0, 18.4, -10.2));                            // frieze
+        t(box(bankGroup, trimMat, 31.2, 0.9, 21.2, 0, 20.75, 0));                              // cornice
+        // Entrance: frame in the 6-unit gap, transom glass, solid header, propped-open glass doors
+        box(bankGroup, bankMat, 6, 11.8, 1, 0, 14.1, -9.5).castShadow = true;                  // header above the doors
+        box(bankGroup, frameMat, 0.3, 8.2, 1.05, -2.85, 4.1, -9.5);                            // jambs
+        box(bankGroup, frameMat, 0.3, 8.2, 1.05, 2.85, 4.1, -9.5);
+        box(bankGroup, frameMat, 5.4, 0.3, 1.05, 0, 4.55, -9.5);                               // transom bar
+        box(bankGroup, frameMat, 6, 0.25, 1.05, 0, 8.08, -9.5);
+        plane(bankGroup, litGlassMat, paneGeo(5.4, 3.4, 3, 1), 0, 6.4, -9.9).rotation.y = Math.PI;
+        // Door leaves propped open outward, either side of the walkway (no collision)
+        [-1, 1].forEach(sx => { const leaf = arch.openLeaf(2.7, 4.4, Math.PI / 2 - sx * 0.15, bankGlass); leaf.position.set(sx * 2.7, 0, -10.05); bankGroup.add(leaf); });
+        box(bankGroup, frameMat, 9.6, 0.4, 3.6, 0, 8.6, -11.8);                                // canopy
+        t(box(bankGroup, trimMat, 9.7, 0.6, 0.2, 0, 8.6, -13.6));
+        t(box(bankGroup, trimMat, 9, 0.12, 4, 0, 0.06, -12));                                  // entry slab
+        // Sides and back: two storeys of tall windows with sills and lintels, stone base
+        const wo = { cols: 2, rows: 2, lintel: true, lit: 0.55 };
+        [['+x', 15], ['-x', -15]].forEach(([f, sx]) => {
+            arch.windowRow(bankGroup, f as Face, 3, 5.6, 0, 5.2, sx as number, 2.8, 4.6, wo);
+            arch.windowRow(bankGroup, f as Face, 3, 5.6, 0, 13.4, sx as number, 2.8, 4.6, wo);
+            t(box(bankGroup, trimMat, 0.5, 1.2, 20.4, (sx as number) + Math.sign(sx as number) * 0.1, 0.6, 0));
+        });
+        arch.windowRow(bankGroup, '+z', 4, 6.5, 0, 5.2, 10, 2.8, 4.6, wo);
+        arch.windowRow(bankGroup, '+z', 4, 6.5, 0, 13.4, 10, 2.8, 4.6, wo);
+        t(box(bankGroup, trimMat, 30.4, 1.2, 0.5, 0, 0.6, 10.1));
+        t(box(bankGroup, trimMat, 28, 0.1, 18, 0, 0.05, 0));                                    // stone lobby floor
+    }
 
     const bankSign = createBuildingSign('CAPITAL BANK', '#0f172a', '#38bdf8');
     bankSign.position.set(0, 23, -10);
@@ -578,6 +664,63 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     aucBuilding.receiveShadow = true;
     aucBuilding.userData.solid = true;
     auctionGroup.add(aucBuilding);
+
+    // Facade: stone base, pilasters dividing the walls into bays, a cornice,
+    // ribbon windows at street level and clerestory windows up high, a tall
+    // glass entrance hall in a stone portal facing the street (with a canopy over
+    // the bidding kiosk), a side entrance toward the main road and truck doors
+    // at the back.
+    const aucPortalPosts: THREE.Mesh[] = [];
+    {
+        const { box, trimMat, frameMat, litGlassMat, paneGeo, plane } = arch;
+        const t = (m: THREE.Mesh) => { m.receiveShadow = true; return m; };
+        const W = 40, D = 30; // half extents
+        t(box(auctionGroup, trimMat, 81.2, 1.2, 61.2, 0, 24.6, 0));                          // cornice
+        // Stone base, left open in front of every door: runs of [from, to] along a face
+        const baseX = (z: number, runs: [number, number][]) => runs.forEach(([a, b]) => t(box(auctionGroup, trimMat, b - a, 1.4, 0.5, (a + b) / 2, 0.7, z)));
+        const baseZ = (x: number, runs: [number, number][]) => runs.forEach(([a, b]) => t(box(auctionGroup, trimMat, 0.5, 1.4, b - a, x, 0.7, (a + b) / 2)));
+        const BACK_DOORS = [-26.75, 0, 26.75];
+        baseX(-D - 0.1, [[-40.3, -10], [10, 40.3]]);
+        baseX(D + 0.1, [[-40.3, -30.5], [-23, -3.5], [3.5, 23], [30.5, 40.3]]);
+        baseZ(-W - 0.1, [[-30.3, 30.3]]);
+        baseZ(W + 0.1, [[-30.3, -9.9], [-5.1, 30.3]]);
+        // Pilasters
+        [-40, -30, -20, 20, 30, 40].forEach(px => t(box(auctionGroup, trimMat, 1.4, 22.6, 0.6, px, 12.7, -D - 0.2)));
+        [-40, -13.4, 13.4, 40].forEach(px => t(box(auctionGroup, trimMat, 1.4, 22.6, 0.6, px, 12.7, D + 0.2)));
+        [-15, 0, 15].forEach(pz => [-1, 1].forEach(sx => t(box(auctionGroup, trimMat, 0.6, 22.6, 1.4, sx * (W + 0.2), 12.7, pz))));
+        // Front bays: street-level ribbon + clerestory in each bay
+        [-35, -25, -15, 15, 25, 35].forEach(px => {
+            arch.place(auctionGroup, arch.windowUnit(7.6, 3.6, { cols: 4, rows: 1, lit: 0.7 }), '-z', px, 3.9, -D);
+            arch.place(auctionGroup, arch.windowUnit(7.6, 4.4, { cols: 4, rows: 2, lit: 0.6 }), '-z', px, 18.6, -D);
+        });
+        // Entrance hall: glass wall in a deep stone portal, two pairs of doors, canopy
+        plane(auctionGroup, litGlassMat, paneGeo(17.6, 13, 6, 4), 0, 7.9, -D - 0.06).rotation.y = Math.PI;
+        t(box(auctionGroup, trimMat, 20.4, 1.6, 1.4, 0, 15.2, -D - 0.6));
+        [-1, 1].forEach(sx => aucPortalPosts.push(t(box(auctionGroup, trimMat, 1.4, 14.4, 1.4, sx * 9.5, 7.2, -D - 0.6))));
+        box(auctionGroup, frameMat, 17.6, 0.35, 0.3, 0, 7.9, -D - 0.15);                      // mid transom
+        [-4.4, 4.4].forEach(px => arch.place(auctionGroup, arch.glassDoors(3.6, 3.1, { transom: 0.8 }), '-z', px, 0, -D));
+        box(auctionGroup, frameMat, 19, 0.45, 5, 0, 5.4, -D - 2.5);                            // canopy over the kiosk
+        t(box(auctionGroup, trimMat, 19.1, 0.7, 0.2, 0, 5.4, -D - 5));
+        arch.place(auctionGroup, arch.windowUnit(17, 5, { cols: 6, rows: 2, lit: 0.8, sill: false }), '-z', 0, 19.6, -D); // clerestory over the hall
+        // Sides: four bays each; the side facing the main road (+x) has an entrance in one bay
+        ([['+x', W], ['-x', -W]] as [Face, number][]).forEach(([f, sx]) => {
+            [-22.5, -7.5, 7.5, 22.5].forEach(pz => {
+                arch.place(auctionGroup, arch.windowUnit(12, 4.4, { cols: 6, rows: 2, lit: 0.6 }), f, sx, 18.6, pz);
+                if (f === '+x' && pz === -7.5) return;
+                arch.place(auctionGroup, arch.windowUnit(12, 3.6, { cols: 6, rows: 1, lit: 0.7 }), f, sx, 3.9, pz);
+            });
+        });
+        arch.place(auctionGroup, arch.glassDoors(3.6, 3.1, { transom: 0.8 }), '+x', W, 0, -7.5);
+        [-1, 1].forEach(s => arch.place(auctionGroup, arch.windowUnit(3.2, 3.6, { cols: 2, rows: 1, lit: 0.7 }), '+x', W, 3.9, -7.5 + s * 4.2));
+        box(auctionGroup, frameMat, 4, 0.4, 8, W + 2, 4.9, -7.5);
+        t(box(auctionGroup, trimMat, 0.2, 0.6, 8.1, W + 4, 4.9, -7.5));
+        // Back: three truck doors with aprons, clerestory per bay
+        BACK_DOORS.forEach(px => {
+            arch.place(auctionGroup, arch.rollupDoor(7, 6), '+z', px, 0, D);
+            t(box(auctionGroup, trimMat, 8.5, 0.1, 5, px, 0.05, D + 2.5));
+            arch.place(auctionGroup, arch.windowUnit(22, 4.4, { cols: 10, rows: 2, lit: 0.5 }), '+z', px, 18.6, D);
+        });
+    }
 
     // Huge glowing sign
     const aucSign = createBuildingSign('GLOBAL AUCTION EXCHANGE', '#000000', '#f97316');
@@ -675,6 +818,44 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     const libRoof = new THREE.Mesh(new THREE.BoxGeometry(17, 0.5, 13), libWallMat); libRoof.position.set(0, 5.25, 0); libRoof.castShadow = true; libraryGroup.add(libRoof);
     addLightSource(LIB_X, 4, LIB_Z, '#ffd9a0', 1.2, 32, false);
 
+    // Classic civic front: stone plinth and cornice, small-paned windows in
+    // stone surrounds, a stone door case with fanlight and wooden double doors
+    // propped open, and a pair of pillars carrying a short entablature.
+    const libPillars: THREE.Mesh[] = [];
+    {
+        const { box, trimMat, frameMat, litGlassMat, glassMat, paneGeo, plane } = arch;
+        const t = (m: THREE.Mesh) => { m.receiveShadow = true; return m; };
+        t(box(libraryGroup, trimMat, 17.4, 0.35, 13.4, 0, 5.12, 0));                          // cornice
+        [-1, 1].forEach(sx => {
+            t(box(libraryGroup, trimMat, 5.8, 0.6, 0.3, sx * 5.5, 0.3, -6.35));               // plinth (front, split at the door)
+            t(box(libraryGroup, trimMat, 0.3, 0.6, 12.8, sx * 8.35, 0.3, 0));                  // plinth (sides)
+        });
+        t(box(libraryGroup, trimMat, 16.8, 0.6, 0.3, 0, 0.3, 6.35));                            // plinth (back)
+        // Door case: stone jambs and head in the gap, fanlight, wall infill above
+        [-1, 1].forEach(sx => t(box(libraryGroup, trimMat, 0.45, 4.2, 0.7, sx * 2.3, 2.1, -6)));
+        t(box(libraryGroup, trimMat, 5.4, 0.5, 0.7, 0, 4.45, -6));
+        box(libraryGroup, libWallMat, 5, 0.3, 0.5, 0, 4.85, -6);
+        box(libraryGroup, frameMat, 4.15, 0.14, 0.3, 0, 3.47, -6);
+        plane(libraryGroup, litGlassMat, paneGeo(4.15, 0.66, 4, 1), 0, 3.87, -6.12).rotation.y = Math.PI;
+        [-1, 1].forEach(sx => { const leaf = arch.openLeaf(2.05, 3.4, Math.PI / 2 - sx * 0.15, null, true); leaf.position.set(sx * 2.075, 0, -6.3); libraryGroup.add(leaf); });
+        t(box(libraryGroup, trimMat, 6.4, 0.12, 1.8, 0, 0.06, -7.2));                           // entry step
+        // Pillars and entablature
+        [-1, 1].forEach(sx => {
+            libPillars.push(t(box(libraryGroup, trimMat, 0.6, 4.4, 0.6, sx * 3.3, 2.2, -6.75)));
+            t(box(libraryGroup, trimMat, 0.85, 0.28, 0.85, sx * 3.3, 4.45, -6.75));
+        });
+        t(box(libraryGroup, trimMat, 8, 0.6, 1.3, 0, 4.9, -6.85));
+        // Windows (lit warmly at night — the reading room is open late)
+        const wo = { cols: 2, rows: 3, lintel: true, lit: 0.85, surround: trimMat, frame: 0.18 };
+        [-1, 1].forEach(sx => {
+            arch.place(libraryGroup, arch.windowUnit(1.5, 2.5, wo), '-z', sx * 5.4, 2.35, -6.25);
+            plane(libraryGroup, glassMat, paneGeo(1.5, 2.5, 2, 3), sx * 5.4, 2.35, -5.69);   // seen from inside
+        });
+        arch.windowRow(libraryGroup, '+x', 3, 3.6, 0, 2.35, 8.25, 1.5, 2.5, wo);
+        arch.windowRow(libraryGroup, '-x', 3, 3.6, 0, 2.35, -8.25, 1.5, 2.5, wo);
+        arch.windowRow(libraryGroup, '+z', 3, 5, 0, 2.35, 6.25, 1.5, 2.5, wo);
+    }
+
     const librarySign = createBuildingSign('LIBRARY', '#1f2937', '#fcd34d');
     librarySign.position.set(0, 6.2, -6.2);
     libraryGroup.add(librarySign);
@@ -683,6 +864,7 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     environmentDisposables.push(libraryGroup, librarySign);
     libraryGroup.updateMatrixWorld(true);
     libWalls.forEach(w => staticCollisionBoxes.push(new THREE.Box3().setFromObject(w)));
+    libPillars.forEach(p => staticCollisionBoxes.push(new THREE.Box3().setFromObject(p)));
 
     // --- Apex Mutual Insurance office (teal glass storefront) ---------------
     const INS_X = 95, INS_Z = 150;
@@ -709,6 +891,31 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     insWalls.forEach(w => insGroup.add(w));
     const insRoof = new THREE.Mesh(new THREE.BoxGeometry(15, 0.5, 12), insWallMat); insRoof.position.set(0, 6.25, 0); insRoof.castShadow = true; insGroup.add(insRoof);
     addLightSource(INS_X, 4.5, INS_Z, '#ccfbf1', 1.0, 28, false);
+    // Storefront: mullions and a transom over the glass, automatic sliding
+    // doors standing open behind the side lites, a canopy, metal fascia, and
+    // windows on the sides and back.
+    {
+        const { box, trimMat, frameMat, glassMat, paneGeo, plane } = arch;
+        box(insGroup, frameMat, 15.2, 0.6, 12.2, 0, 6.2, 0);                                     // fascia
+        [-1, 1].forEach(sx => {
+            [2.5, 4, 5.5, 7].forEach(px => box(insGroup, frameMat, 0.14, 6, 0.5, sx * px, 3, -5.5));    // mullions
+            box(insGroup, frameMat, 4.5, 0.14, 0.5, sx * 4.75, 3.2, -5.5);                       // transom bars
+            box(insGroup, frameMat, 4.5, 0.25, 0.5, sx * 4.75, 0.125, -5.5);                     // bottom rail
+            const leaf = arch.openLeaf(2.5, 3.1, 0, insGlassMat); leaf.position.set(sx < 0 ? -5 : 2.5, 0, -5.12); insGroup.add(leaf);
+        });
+        box(insGroup, frameMat, 5, 0.18, 0.5, 0, 3.2, -5.5);                                     // door head
+        box(insGroup, insGlassMat, 5, 2.8, 0.4, 0, 4.6, -5.5);                                   // transom glass over the doorway
+        box(insGroup, frameMat, 10.4, 0.3, 0.3, 0, 3.3, -5.12);                                  // sliding-door track
+        box(insGroup, frameMat, 7, 0.25, 2.2, 0, 3.75, -6.8);                                    // canopy
+        box(insGroup, trimMat, 6, 0.1, 2.2, 0, 0.05, -6.8).receiveShadow = true;                 // entry slab
+        const wo = { cols: 2, rows: 1, lit: 0.7 };
+        ([['+x', 7.25], ['-x', -7.25]] as [Face, number][]).forEach(([f, sx]) => {
+            arch.windowRow(insGroup, f, 2, 4.8, 0, 3.4, sx, 2.4, 2.2, wo);
+            [-2.4, 2.4].forEach(pz => { const p = plane(insGroup, glassMat, paneGeo(2.4, 2.2, 2, 1), sx - Math.sign(sx) * 0.56, 3.4, pz); p.rotation.y = -Math.sign(sx) * Math.PI / 2; });
+        });
+        arch.windowRow(insGroup, '+z', 3, 4.5, 0, 3.4, 5.75, 2.4, 2.2, wo);
+        [-4.5, 0, 4.5].forEach(px => { const p = plane(insGroup, glassMat, paneGeo(2.4, 2.2, 2, 1), px, 3.4, 5.19); p.rotation.y = Math.PI; });
+    }
     const insSign = createBuildingSign('INSURANCE', '#042f2e', '#5eead4');
     insSign.position.set(0, 6.7, -5.7); insGroup.add(insSign);
     scene.add(insGroup);
@@ -739,9 +946,22 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
             const pumpTop = new THREE.Mesh(new THREE.BoxGeometry(1.5, 1, 1.5), new THREE.MeshStandardMaterial({ color: '#1e293b' })); pumpTop.position.set(px, 3.0, pz); g.add(pumpTop);
             const wp = new THREE.Vector3(px, 1.5, pz); g.localToWorld(wp); gasPumps.push(wp);
         });
+        // Small convenience kiosk beside the pad: glass shopfront and door facing the pumps
+        const KX = 17.5;
+        const kiosk = arch.box(g, arch.trimMat, 6, 4.2, 9, KX, 2.1, 0);
+        const fascia = arch.box(g, canopyMat, 6.3, 0.7, 9.3, KX, 4.35, 0);                        // red fascia
+        fascia.castShadow = true; fascia.receiveShadow = false; // same flags as the canopy roof, so they merge
+        arch.place(g, arch.glassDoors(1.8, 2.3, { leaves: 1, transom: 0.5 }), '-x', KX - 3, 0, -1.2);
+        arch.place(g, arch.windowUnit(4.2, 2.2, { cols: 3, rows: 1, lit: true, sill: false }), '-x', KX - 3, 1.9, 2.2);
+        arch.place(g, arch.windowUnit(1.6, 2.2, { cols: 1, rows: 1, lit: true, sill: false }), '-x', KX - 3, 1.9, -3.5);
+        arch.box(g, arch.frameMat, 1.8, 0.2, 9, KX - 3.9, 3.4, 0);                                // shopfront awning
+        arch.place(g, arch.steelDoor(1.1, 2.3, { canopy: false }), '+x', KX + 3, 0, 2.5);
+        arch.place(g, arch.windowUnit(1.4, 1.0, { cols: 1, rows: 1, lit: 0.5 }), '+z', KX, 2.6, 4.5);
         const sign = createBuildingSign('FUEL', '#7f1d1d', '#fca5a5'); sign.position.set(0, 9, 0); g.add(sign);
         scene.add(g);
         environmentDisposables.push(g, sign);
+        g.updateMatrixWorld(true);
+        staticCollisionBoxes.push(new THREE.Box3().setFromObject(kiosk));
     };
     buildGasStation(135, 80);   // near the dealership district
     buildGasStation(45, 1700);  // in the speedway paddock, by the start line
@@ -751,6 +971,7 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     walls.forEach(w => staticCollisionBoxes.push(new THREE.Box3().setFromObject(w)));
     staticCollisionBoxes.push(new THREE.Box3().setFromObject(bkDesk));
     staticCollisionBoxes.push(new THREE.Box3().setFromObject(aucBuilding));
+    aucPortalPosts.forEach(p => staticCollisionBoxes.push(new THREE.Box3().setFromObject(p)));
 
     return { libraryWorldPos, insuranceWorldPos, gasPumps };
 }

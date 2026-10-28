@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { generateAsphaltTexture, generateChainLinkTexture, generateConcreteTexture } from '../textures';
+import { createArchitectureKit, type ArchitectureKit } from './architecture';
 
 // Everything the world builders (city, speedway, dealerships, fences) share:
 // the scene, the lists the component cleans up on unmount, collision boxes,
@@ -25,6 +26,8 @@ export type WorldContext = {
     makeGlass: (color: string, opacity?: number, side?: THREE.Side) => THREE.MeshStandardMaterial;
     /** Registers a lamp/interior light with the shared light pool. */
     addLightSource: (x: number, y: number, z: number, color: string, intensity: number, distance: number, nightOnly: boolean) => void;
+    /** Shared windows / doors / trim (one material per look, merged by the batcher). */
+    arch: ArchitectureKit;
 };
 
 export function createWorldContext(scene: THREE.Scene, addLightSource: WorldContext['addLightSource']): WorldContext {
@@ -74,13 +77,18 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
         return geo;
     };
 
+    // Created before the batcher's keep-unique set is built, so the lit-window
+    // glass (whose glow the day/night cycle changes) is never swapped out.
+    const emissiveFacadeMaterials: THREE.MeshStandardMaterial[] = [];
+    const arch = createArchitectureKit(cityMaterials, cityTextures, emissiveFacadeMaterials);
+
     return {
         scene,
         environmentDisposables: [],
         staticCollisionBoxes: [],
         cityMaterials,
         cityTextures,
-        emissiveFacadeMaterials: [],
+        emissiveFacadeMaterials,
         concreteTex,
         asphaltTex,
         fencePostMat,
@@ -88,5 +96,6 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
         wirePanelGeo,
         makeGlass,
         addLightSource,
+        arch,
     };
 }
