@@ -8706,5 +8706,1380 @@
     ]
    }
   ]
+ },
+ {
+  "make": "Toyota",
+  "model": "RAV4",
+  "gaps": [
+   "All four pages were the XLE-filtered year pages (each showed 29-31 listings, well above the 8-listing threshold), so the unfiltered pages were not needed; first 20 listings per page recorded in page order.",
+   "page_average is TrueCar's stated 'The average price for the <year> Toyota RAV4 XLE is $X' sentence. The 2024 page quotes $27,441, identical to the 2022 page's figure, and the 2016 page's $28,151 exceeds the 2019 figure; these look like TrueCar boilerplate rather than true year averages, so treat page_average with caution.",
+   "Prices are TrueCar 'advertised' asking prices as displayed; note records drivetrain (FWD/AWD) and any Sponsored/CPO badge."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "XLE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/rav4/year-2016/?trim=xle",
+    "fetched": "2026-10-28",
+    "pageAverage": 28151,
+    "listings": [
+     {
+      "price": 15529,
+      "miles": 94829,
+      "location": "Hanover, MD",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; Sponsored"
+     },
+     {
+      "price": 15183,
+      "miles": 130568,
+      "location": "Greenfield, MA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 18670,
+      "miles": 60496,
+      "location": "Bronx, NY",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 17497,
+      "miles": 95871,
+      "location": "Tulsa, OK",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 16797,
+      "miles": 119027,
+      "location": "Dover, DE",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 16962,
+      "miles": 119895,
+      "location": "Phoenix, AZ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 17350,
+      "miles": 115348,
+      "location": "Rockville, MD",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 19092,
+      "miles": 76528,
+      "location": "Roseville, CA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 12600,
+      "miles": 137390,
+      "location": "Palm Beach Gardens, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 9926,
+      "miles": 192853,
+      "location": "Duluth, GA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 14448,
+      "miles": 119213,
+      "location": "Fort Myers, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 12694,
+      "miles": 134120,
+      "location": "Plainfield, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 14995,
+      "miles": 131049,
+      "location": "Raleigh, NC",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 17219,
+      "miles": 101166,
+      "location": "Webster, TX",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 22998,
+      "miles": 51328,
+      "location": "Westborough, MA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 14366,
+      "miles": 148102,
+      "location": "Crestwood, IL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 17672,
+      "miles": 99879,
+      "location": "Colma, CA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 11525,
+      "miles": 156458,
+      "location": "San Antonio, TX",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 11516,
+      "miles": 198775,
+      "location": "Houston, TX",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 10913,
+      "miles": 203022,
+      "location": "Burlingame, CA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "XLE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/rav4/year-2019/?trim=xle",
+    "fetched": "2026-10-28",
+    "pageAverage": 27881,
+    "listings": [
+     {
+      "price": 15294,
+      "miles": 179631,
+      "location": "Centennial, CO",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD; Sponsored"
+     },
+     {
+      "price": 20699,
+      "miles": 101923,
+      "location": "Mooresville, NC",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD; Sponsored"
+     },
+     {
+      "price": 18985,
+      "miles": 112504,
+      "location": "Buford, GA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 22994,
+      "miles": 71474,
+      "location": "Vero Beach, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 24347,
+      "miles": 59846,
+      "location": "Fort Myers, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 21908,
+      "miles": 90755,
+      "location": "Lithia Springs, GA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 22976,
+      "miles": 14334,
+      "location": "Port Charlotte, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 25194,
+      "miles": 45388,
+      "location": "Darien, CT",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 20121,
+      "miles": 117035,
+      "location": "Salinas, CA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 22041,
+      "miles": 83455,
+      "location": "Little Falls, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 24594,
+      "miles": 73658,
+      "location": "East Swanzey, NH",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 22655,
+      "miles": 45218,
+      "location": "St. Petersburg, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 20498,
+      "miles": 127801,
+      "location": "Wake Forest, NC",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 22488,
+      "miles": 98187,
+      "location": "Egg Harbor Township, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 22465,
+      "miles": 79882,
+      "location": "Ocala, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 23978,
+      "miles": 45410,
+      "location": "Miami, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 22495,
+      "miles": 64893,
+      "location": "Sanford, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 16237,
+      "miles": 147339,
+      "location": "Brook Park, OH",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 17965,
+      "miles": 126797,
+      "location": "Dallas, TX",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 21598,
+      "miles": 79386,
+      "location": "Selma, CA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "XLE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/rav4/year-2022/?trim=xle",
+    "fetched": "2026-10-28",
+    "pageAverage": 27441,
+    "listings": [
+     {
+      "price": 20203,
+      "miles": 106019,
+      "location": "Clearwater, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD; Sponsored"
+     },
+     {
+      "price": 22995,
+      "miles": 82399,
+      "location": "Fort Myers, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; Sponsored"
+     },
+     {
+      "price": 23576,
+      "miles": 83541,
+      "location": "Tempe, AZ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 23899,
+      "miles": 80630,
+      "location": "Fort Myers, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD; CPO"
+     },
+     {
+      "price": 25921,
+      "miles": 61304,
+      "location": "Marlton, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 26634,
+      "miles": 38649,
+      "location": "Little Falls, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 26448,
+      "miles": 35066,
+      "location": "Little Falls, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 27750,
+      "miles": 43402,
+      "location": "Hillsboro, OR",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 26664,
+      "miles": 75165,
+      "location": "Homestead, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 27334,
+      "miles": 39536,
+      "location": "Sanford, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 24237,
+      "miles": 78090,
+      "location": "Fort Myers, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 27741,
+      "miles": 50000,
+      "location": "Pasco, WA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 28200,
+      "miles": 59777,
+      "location": "Eatontown, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 27463,
+      "miles": 49505,
+      "location": "Yuma, AZ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 28076,
+      "miles": 67535,
+      "location": "Newnan, GA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 29098,
+      "miles": 71770,
+      "location": "Westbrook, CT",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 24250,
+      "miles": 69195,
+      "location": "Winter Haven, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 29999,
+      "miles": 40579,
+      "location": "Indianapolis, IN",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 27453,
+      "miles": 68199,
+      "location": "Gilbert, AZ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 31093,
+      "miles": 22301,
+      "location": "Brunswick, GA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD; CPO"
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "XLE",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/rav4/year-2024/?trim=xle",
+    "fetched": "2026-10-28",
+    "pageAverage": 27441,
+    "listings": [
+     {
+      "price": 26694,
+      "miles": 74383,
+      "location": "Greenfield, MA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; Sponsored"
+     },
+     {
+      "price": 24014,
+      "miles": 62211,
+      "location": "Clermont, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD; Sponsored"
+     },
+     {
+      "price": 24990,
+      "miles": 68784,
+      "location": "Davie, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD; CPO"
+     },
+     {
+      "price": 28014,
+      "miles": 20621,
+      "location": "Sarasota, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 26789,
+      "miles": 58139,
+      "location": "Mount Laurel, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD; CPO"
+     },
+     {
+      "price": 26410,
+      "miles": 60390,
+      "location": "Little Falls, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 27199,
+      "miles": 40720,
+      "location": "Puyallup, WA",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 29152,
+      "miles": 30068,
+      "location": "Little Falls, NJ",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 30731,
+      "miles": 27125,
+      "location": "Wilsonville, OR",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 25873,
+      "miles": 56031,
+      "location": "Countryside, IL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 26273,
+      "miles": 54180,
+      "location": "Countryside, IL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 29348,
+      "miles": 41149,
+      "location": "Portland, OR",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 26173,
+      "miles": 58617,
+      "location": "Countryside, IL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 25796,
+      "miles": 60506,
+      "location": "Raleigh, NC",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 28990,
+      "miles": 19752,
+      "location": "Pinellas Park, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 29374,
+      "miles": 14938,
+      "location": "Pinellas Park, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 27900,
+      "miles": 59279,
+      "location": "Hillsboro, OR",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD; CPO"
+     },
+     {
+      "price": 28573,
+      "miles": 48088,
+      "location": "Countryside, IL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "AWD"
+     },
+     {
+      "price": 26123,
+      "miles": 61085,
+      "location": "Memphis, TN",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     },
+     {
+      "price": 29295,
+      "miles": 23610,
+      "location": "Fort Myers, FL",
+      "trim": "XLE",
+      "body": "SUV / Crossover",
+      "note": "FWD"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "make": "Toyota",
+  "model": "Tacoma",
+  "gaps": [
+   "All four pages were the SR5-filtered year pages (29-31 listings shown each), so unfiltered pages were not needed; first 20 listings per page recorded in page order.",
+   "page_average is TrueCar's stated average sentence. The 2022 page quotes $33,489, identical to the 2016 page's figure (and the 2016 figure sits above every 2016 asking price on the page); the pages' FAQ sections also cite ~2,485-2,503 SR5 listings versus the 78-420 year totals, so these averages look like all-year boilerplate rather than per-year figures.",
+   "note records cab / bed / engine / drivetrain as shown (2016 page shows bed as 6.1'/5'; 2024 page shows two listings as '5' Bed AT (SE)' with no drivetrain shown) plus any Sponsored/CPO badge. The 2016 page states all prices include dealer fees/add-ons; the 2022 page says the same.",
+   "Every listing on the 2024 SR5 page is a Double Cab (4th-generation Tacoma); 2016-2022 pages mix Access Cab and Double Cab."
+  ],
+  "samples": [
+   {
+    "year": 2016,
+    "trimFilter": "SR5",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tacoma/year-2016/?trim=sr5",
+    "fetched": "2026-10-28",
+    "pageAverage": 33489,
+    "listings": [
+     {
+      "price": 21925,
+      "miles": 110005,
+      "location": "Olympia, WA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab 6.1' / V6 4WD"
+     },
+     {
+      "price": 21485,
+      "miles": 97355,
+      "location": "Starke, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 6.1' / V6 RWD"
+     },
+     {
+      "price": 22523,
+      "miles": 111990,
+      "location": "Avondale, AZ",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab 6.1' / V6 4WD"
+     },
+     {
+      "price": 25240,
+      "miles": 106054,
+      "location": "Wilmington, NC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / V6 4WD"
+     },
+     {
+      "price": 20199,
+      "miles": 139321,
+      "location": "Somersworth, NH",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / V6 4WD"
+     },
+     {
+      "price": 22489,
+      "miles": 159730,
+      "location": "Lenoir, NC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / V6 4WD"
+     },
+     {
+      "price": 25594,
+      "miles": 15183,
+      "location": "Flemington, NJ",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab 6.1' / I4 RWD"
+     },
+     {
+      "price": 15995,
+      "miles": 200961,
+      "location": "Tustin, CA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / I4 RWD"
+     },
+     {
+      "price": 20912,
+      "miles": 123084,
+      "location": "Prince George, VA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / I4 RWD"
+     },
+     {
+      "price": 26766,
+      "miles": 79034,
+      "location": "Fort Myers, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / V6 RWD"
+     },
+     {
+      "price": 23950,
+      "miles": 107191,
+      "location": "Estero, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / V6 4WD"
+     },
+     {
+      "price": 18594,
+      "miles": 70516,
+      "location": "Cliffwood, NJ",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab 6.1' / I4 RWD"
+     },
+     {
+      "price": 24133,
+      "miles": 55034,
+      "location": "Citrus Heights, CA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / I4 RWD"
+     },
+     {
+      "price": 20995,
+      "miles": 81476,
+      "location": "Dade City, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / I4 RWD"
+     },
+     {
+      "price": 25994,
+      "miles": 45830,
+      "location": "Norfolk, VA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / V6 RWD"
+     },
+     {
+      "price": 21967,
+      "miles": 128331,
+      "location": "East Stroudsburg, PA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 5' / V6 4WD"
+     },
+     {
+      "price": 22298,
+      "miles": 164373,
+      "location": "Longmont, CO",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 6.1' / V6 4WD"
+     },
+     {
+      "price": 16690,
+      "miles": 202136,
+      "location": "Kingwood, TX",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab 6.1' / V6 4WD"
+     },
+     {
+      "price": 22923,
+      "miles": 126360,
+      "location": "Blaine, WA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab 6.1' / V6 4WD"
+     },
+     {
+      "price": 23165,
+      "miles": 72597,
+      "location": "East Rochester, NY",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab 6.1' / V6 4WD"
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "trimFilter": "SR5",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tacoma/year-2019/?trim=sr5",
+    "fetched": "2026-10-28",
+    "pageAverage": 33767,
+    "listings": [
+     {
+      "price": 19896,
+      "miles": 149875,
+      "location": "Memphis, TN",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD; Sponsored"
+     },
+     {
+      "price": 29490,
+      "miles": 37053,
+      "location": "Fort Collins, CO",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD; Sponsored"
+     },
+     {
+      "price": 28788,
+      "miles": 44785,
+      "location": "Leesburg, VA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD; Sponsored"
+     },
+     {
+      "price": 28675,
+      "miles": 13048,
+      "location": "Tampa, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD"
+     },
+     {
+      "price": 30595,
+      "miles": 85380,
+      "location": "Wake Forest, NC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 4WD"
+     },
+     {
+      "price": 26715,
+      "miles": 89850,
+      "location": "Morrow, GA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD"
+     },
+     {
+      "price": 31830,
+      "miles": 52832,
+      "location": "Edmonds, WA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 4WD"
+     },
+     {
+      "price": 27378,
+      "miles": 76486,
+      "location": "Henderson, NV",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD"
+     },
+     {
+      "price": 31594,
+      "miles": 48734,
+      "location": "East Swanzey, NH",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab / 4WD"
+     },
+     {
+      "price": 27506,
+      "miles": 88995,
+      "location": "Poway, CA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD"
+     },
+     {
+      "price": 28442,
+      "miles": 125795,
+      "location": "Cumming, GA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD"
+     },
+     {
+      "price": 24622,
+      "miles": 116260,
+      "location": "Union City, GA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD"
+     },
+     {
+      "price": 31284,
+      "miles": 79331,
+      "location": "Billings, MT",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 4WD"
+     },
+     {
+      "price": 30683,
+      "miles": 87336,
+      "location": "Blufton, SC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 4WD"
+     },
+     {
+      "price": 28742,
+      "miles": 106199,
+      "location": "Fairfield, OH",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 4WD"
+     },
+     {
+      "price": 27564,
+      "miles": 84807,
+      "location": "Frisco, TX",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD"
+     },
+     {
+      "price": 30178,
+      "miles": 97103,
+      "location": "Albuquerque, NM",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab (6' bed) / 4WD"
+     },
+     {
+      "price": 31731,
+      "miles": 71424,
+      "location": "Bloomington, IL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 4WD"
+     },
+     {
+      "price": 29084,
+      "miles": 122965,
+      "location": "Salinas, CA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab (6' bed) / 4WD"
+     },
+     {
+      "price": 18944,
+      "miles": 206158,
+      "location": "Houston, TX",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 2WD"
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "trimFilter": "SR5",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tacoma/year-2022/?trim=sr5",
+    "fetched": "2026-10-28",
+    "pageAverage": 33489,
+    "listings": [
+     {
+      "price": 25261,
+      "miles": 56761,
+      "location": "Miami, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab / 6' Bed / 2WD; Sponsored"
+     },
+     {
+      "price": 29744,
+      "miles": 63682,
+      "location": "Harlingen, TX",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD; Sponsored"
+     },
+     {
+      "price": 32900,
+      "miles": 55017,
+      "location": "Hillsboro, OR",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab / 6' Bed / 4WD; CPO"
+     },
+     {
+      "price": 29403,
+      "miles": 74139,
+      "location": "Ivel, KY",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD"
+     },
+     {
+      "price": 28259,
+      "miles": 94145,
+      "location": "Buford, GA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD; CPO"
+     },
+     {
+      "price": 30568,
+      "miles": 56340,
+      "location": "La Follette, TN",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 6' Bed / 2WD"
+     },
+     {
+      "price": 30320,
+      "miles": 60437,
+      "location": "Albertville, AL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 27998,
+      "miles": 95827,
+      "location": "Wake Forest, NC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 30983,
+      "miles": 54947,
+      "location": "Mobile, AL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 32351,
+      "miles": 43917,
+      "location": "Newnan, GA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 34320,
+      "miles": 41080,
+      "location": "Swansea, MA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD"
+     },
+     {
+      "price": 30000,
+      "miles": 55566,
+      "location": "Lugoff, SC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 29367,
+      "miles": 46303,
+      "location": "Doral, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 29139,
+      "miles": 81583,
+      "location": "Chamblee, GA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 30598,
+      "miles": 46640,
+      "location": "Burgaw, NC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 6' Bed / 2WD"
+     },
+     {
+      "price": 31560,
+      "miles": 123188,
+      "location": "Irmo, SC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 6' Bed / 4WD"
+     },
+     {
+      "price": 27502,
+      "miles": 87895,
+      "location": "McKenna, WA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab / 6' Bed / I4 4WD"
+     },
+     {
+      "price": 30599,
+      "miles": 52673,
+      "location": "Tarpon Springs, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 30548,
+      "miles": 45966,
+      "location": "Jacksonville, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 6' Bed / 2WD"
+     },
+     {
+      "price": 25990,
+      "miles": 66890,
+      "location": "Savannah, GA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Access Cab / 6' Bed / 2WD"
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "trimFilter": "SR5",
+    "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tacoma/year-2024/?trim=sr5",
+    "fetched": "2026-10-28",
+    "pageAverage": 34244,
+    "listings": [
+     {
+      "price": 35881,
+      "miles": 11439,
+      "location": "Huntsville, AL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD; Sponsored"
+     },
+     {
+      "price": 31753,
+      "miles": 47972,
+      "location": "Houston, TX",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD; Sponsored"
+     },
+     {
+      "price": 31616,
+      "miles": 45064,
+      "location": "Houston, TX",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD; Sponsored"
+     },
+     {
+      "price": 36865,
+      "miles": 10980,
+      "location": "Ocala, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD"
+     },
+     {
+      "price": 30882,
+      "miles": 33100,
+      "location": "Redwood City, CA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD; CPO"
+     },
+     {
+      "price": 31968,
+      "miles": 35304,
+      "location": "McDonough, GA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 39086,
+      "miles": 22628,
+      "location": "Cornelius, NC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed AT (SE) / drivetrain not shown"
+     },
+     {
+      "price": 33686,
+      "miles": 29038,
+      "location": "Miami Lakes, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 31886,
+      "miles": 43705,
+      "location": "El Cajon, CA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD; CPO"
+     },
+     {
+      "price": 34500,
+      "miles": 27304,
+      "location": "Hillsboro, OR",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD; CPO"
+     },
+     {
+      "price": 33395,
+      "miles": 35635,
+      "location": "Spring, TX",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD"
+     },
+     {
+      "price": 34882,
+      "miles": 34574,
+      "location": "Sarasota, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD"
+     },
+     {
+      "price": 37343,
+      "miles": 28584,
+      "location": "Port Angeles, WA",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 6' Bed / 4WD"
+     },
+     {
+      "price": 36299,
+      "miles": 40532,
+      "location": "Wilmington, NC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD"
+     },
+     {
+      "price": 34799,
+      "miles": 20346,
+      "location": "Henderson, NV",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD"
+     },
+     {
+      "price": 31040,
+      "miles": 36781,
+      "location": "Arlington, TX",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 6' Bed / 2WD"
+     },
+     {
+      "price": 35676,
+      "miles": 11901,
+      "location": "Miami Lakes, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 2WD"
+     },
+     {
+      "price": 38100,
+      "miles": 29129,
+      "location": "Salisbury, NC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD"
+     },
+     {
+      "price": 37388,
+      "miles": 27211,
+      "location": "Zebulon, NC",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed / 4WD"
+     },
+     {
+      "price": 33791,
+      "miles": 4671,
+      "location": "Fort Lauderdale, FL",
+      "trim": "SR5",
+      "body": "Pickup Truck",
+      "note": "Double Cab / 5' Bed AT (SE) / drivetrain not shown"
+     }
+    ]
+   }
+  ]
  }
 ]
