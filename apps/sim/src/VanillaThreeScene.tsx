@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { useGameStore } from './store';
 import { LightPool } from './scene/lightPool';
 import { batchStatic } from './scene/staticBatcher';
-import { damp, disposeObject } from './scene/utils';
+import { damp, disposeObject, groundLastOpaqueSort } from './scene/utils';
 import { generateEnvMap } from './scene/textures';
 import { applyCarPaint, buildCarModel, carColorHex, deriveStyle } from './scene/carModel';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
@@ -70,6 +70,7 @@ export function VanillaThreeScene() {
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.setOpaqueSort(groundLastOpaqueSort); // big ground layers last: far fewer pixels shaded twice
         mountRef.current.appendChild(renderer.domElement);
 
 
