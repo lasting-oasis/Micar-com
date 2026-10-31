@@ -12,7 +12,8 @@
     "build:data": "tsx scripts/build-data.ts",
     "calibrate": "tsx scripts/calibrate.ts",
     "sheet-rows": "tsx scripts/sheet-rows.ts",
-    "build:single": "tsc -b && vite build --mode single && python3 scripts/artifact.py"
+    "build:single": "tsc -b && vite build --mode single && python3 scripts/artifact.py",
+    "build:epa": "tsx scripts/build-epa.ts"
   },
   "dependencies": {
     "lucide-react": "^1.63.0",

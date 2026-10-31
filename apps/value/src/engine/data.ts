@@ -4,7 +4,7 @@
 
 export type Make = {
   name: string;
-  segment: 'Economy' | 'Mainstream' | 'Luxury' | 'Performance' | 'EV' | 'Truck' | 'Average';
+  segment: 'Economy' | 'Mainstream' | 'Luxury' | 'Performance' | 'EV' | 'Truck' | 'Discontinued' | 'Average';
   /** Share of MSRP typically kept after 5 years (rule-of-thumb). */
   residual5: number;
 };
@@ -46,6 +46,25 @@ export const MAKES: Make[] = [
   { name: 'Polestar', segment: 'EV', residual5: 0.4 },
   { name: 'Rivian', segment: 'EV', residual5: 0.46 },
   { name: 'Tesla', segment: 'EV', residual5: 0.48 },
+  // Added with the EPA model list. Rough rule-of-thumb resale shares.
+  { name: 'Fiat', segment: 'Mainstream', residual5: 0.36 },
+  { name: 'Smart', segment: 'Mainstream', residual5: 0.36 },
+  { name: 'Aston Martin', segment: 'Performance', residual5: 0.45 },
+  { name: 'Bentley', segment: 'Performance', residual5: 0.45 },
+  { name: 'Ferrari', segment: 'Performance', residual5: 0.72 },
+  { name: 'Lamborghini', segment: 'Performance', residual5: 0.68 },
+  { name: 'Lotus', segment: 'Performance', residual5: 0.55 },
+  { name: 'Maserati', segment: 'Performance', residual5: 0.35 },
+  { name: 'McLaren', segment: 'Performance', residual5: 0.5 },
+  { name: 'Rolls-Royce', segment: 'Performance', residual5: 0.5 },
+  { name: 'Hummer', segment: 'Discontinued', residual5: 0.45 },
+  { name: 'Isuzu', segment: 'Discontinued', residual5: 0.42 },
+  { name: 'Mercury', segment: 'Discontinued', residual5: 0.42 },
+  { name: 'Pontiac', segment: 'Discontinued', residual5: 0.42 },
+  { name: 'Saab', segment: 'Discontinued', residual5: 0.36 },
+  { name: 'Saturn', segment: 'Discontinued', residual5: 0.4 },
+  { name: 'Scion', segment: 'Discontinued', residual5: 0.55 },
+  { name: 'Suzuki', segment: 'Discontinued', residual5: 0.42 },
   { name: 'Other', segment: 'Average', residual5: 0.52 },
 ];
 
@@ -57,6 +76,7 @@ export const SEGMENT_LABELS: Record<Make['segment'], string> = {
   Luxury: 'Luxury',
   Performance: 'Performance',
   EV: 'Electric',
+  Discontinued: 'No longer sold new',
   Average: 'Not listed',
 };
 

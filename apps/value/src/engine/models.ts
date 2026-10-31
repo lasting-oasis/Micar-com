@@ -11,6 +11,8 @@
 // oversupply and the market cycle (see elasticity() in valuation.ts).
 
 import calibration from '../data/calibration.json';
+import epaLineup from '../data/epa-lineup.json';
+import { BODY_STYLES, MAKES } from './data';
 
 export type Trait = 'reliability' | 'enthusiast' | 'fleet' | 'luxury' | 'ev' | 'truck';
 
@@ -35,6 +37,10 @@ export type ModelInfo = {
   traits: Trait[];
   /** Set when residual5 was fitted to real listings (scripts/calibrate.ts). */
   calibrated?: { n: number; mae: number; fittedAt: string };
+  /** Model years the EPA lists this model as sold (2005 on); absent for trucks the EPA doesn't rate. */
+  years?: number[];
+  /** 'epa': added from the EPA list, with an estimated sticker and the make + body resale share. */
+  source?: 'epa';
 };
 
 const BODY: Record<string, string> = {
@@ -279,6 +285,35 @@ export const MODELS: ModelInfo[] = ROWS.map(([make, model, body, typicalMsrp, re
   make, model, body: BODY[body], typicalMsrp, residual5, residual5Guess: residual5,
   traits: (traits ?? '').split(' ').filter(Boolean) as Trait[],
 }));
+
+/** [make, model] of the hand-set rows, for scripts/build-epa.ts. */
+export const ROW_KEYS: [string, string][] = ROWS.map(([make, model]) => [make, model]);
+
+// Every other model the EPA lists for these makes since 2005 (scripts/build-epa.ts).
+// Sticker: Kaggle 2015-17 base price in 2025 dollars when there is one, else the
+// median of this make's listed models with the same body. Resale: make + body average.
+type EpaRow = { make: string; model: string; body: string; years: number[]; listed: boolean; typicalMsrp?: number };
+const median = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.floor(s.length / 2)] : undefined; };
+for (const e of epaLineup as EpaRow[]) {
+  if (e.listed) { const m = MODELS.find((x) => x.make === e.make && x.model === e.model); if (m) m.years = e.years; continue; }
+  const make = MAKES.find((m) => m.name === e.make);
+  if (!make) continue;
+  const adj = BODY_STYLES.find((b) => b.name === e.body)?.adj ?? 0;
+  const residual5 = Math.min(0.85, Math.max(0.25, make.residual5 + adj));
+  const peers = MODELS.filter((m) => m.make === e.make && !m.source);
+  const typical = e.typicalMsrp ?? median(peers.filter((m) => m.body === e.body).map((m) => m.typicalMsrp)) ?? median(peers.map((m) => m.typicalMsrp)) ?? 35000;
+  MODELS.push({ make: e.make, model: e.model, body: e.body, typicalMsrp: typical, residual5, residual5Guess: residual5, traits: [], years: e.years, source: 'epa' });
+}
+
+/** "2005-2012, 2015-2026" */
+export function yearRanges(years: number[]): string {
+  const out: string[] = [];
+  for (let i = 0; i < years.length; i++) {
+    let j = i; while (j + 1 < years.length && years[j + 1] === years[j] + 1) j++;
+    out.push(i === j ? `${years[i]}` : `${years[i]}–${years[j]}`); i = j;
+  }
+  return out.join(', ');
+}
 
 // Replace the rule-of-thumb residuals with fitted ones where real listings
 // were available. The guesses stay in ROWS for reference.

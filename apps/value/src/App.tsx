@@ -4,7 +4,7 @@ import { Check, Link2, RotateCcw, Search } from 'lucide-react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
 import { describe as describeListings, parseListingsPage, type ParsedListing } from './engine/listings';
 import { MARKET, periodLabel, snapshotAgeDays } from './engine/market';
-import { findModel, modelsForMake } from './engine/models';
+import { findModel, modelsForMake, yearRanges } from './engine/models';
 import { prefillMsrp } from './engine/prefill';
 import { stickerFor, trimChoices } from './engine/stickers';
 import { expectedMilesFor, forecast, mileageAdjustedPrice, valuate, type Inputs, type Valuation } from './engine/valuation';
@@ -263,7 +263,12 @@ function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k
         </Field>
         <Field id="model" label="Model">
           <select id="model" className="field" value={models.some((m) => m.model === form.model) ? form.model : ''} onChange={set('model')}>
-            {models.map((m) => <option key={m.model} value={m.model}>{m.model}</option>)}
+            {models.filter((m) => !m.source).map((m) => <option key={m.model} value={m.model}>{m.model}</option>)}
+            {models.some((m) => m.source) && (
+              <optgroup label={models.some((m) => !m.source) ? 'More models (estimated sticker)' : 'Models (estimated sticker)'}>
+                {models.filter((m) => m.source).sort((a, b) => a.model.localeCompare(b.model)).map((m) => <option key={m.model} value={m.model}>{m.model}</option>)}
+              </optgroup>
+            )}
             <option value="">{models.length ? 'Not listed' : 'No model data for this make'}</option>
           </select>
         </Field>
@@ -291,7 +296,7 @@ function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k
         </div>
       </Field>
       <div className="grid grid-cols-2 gap-3">
-        <Field id="year" label="Model year" error={errors.year}>
+        <Field id="year" label="Model year" error={errors.year} hint={yearHint(form.make, form.model, Number(form.year))}>
           <input id="year" className="field num" inputMode="numeric" value={form.year} onChange={set('year')} {...err('year')} />
         </Field>
         <Field id="mileage" label="Odometer (miles)" error={errors.mileage}>
@@ -571,4 +576,11 @@ function MarketStrip() {
       </div>
     </div>
   );
+}
+
+/** Warns when the EPA list has no such model year (e.g. a year the model wasn't sold). */
+function yearHint(make: string, model: string, year: number): string | undefined {
+  const years = findModel(make, model)?.years;
+  if (!years?.length || !year || years.includes(year)) return undefined;
+  return `The EPA has no ${year} ${model}; it lists ${yearRanges(years)}.`;
 }
