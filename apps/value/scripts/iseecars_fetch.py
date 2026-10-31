@@ -68,12 +68,17 @@ for (y, make), lists in sorted(cands.items()):
                 if time.time() - start > BUDGET:
                     print('time budget reached; rerun to continue'); out.close(); json.dump(tried, open(TRIED, 'w')); sys.exit(0)
                 code, text = fetch(f'https://www.iseecars.com/car/{key}-price')
-                if code in (403, 429, 0):
+                if code in (403, 429, 0, 500, 502, 503):
+                    # Back off and retry once; stop only if the site keeps refusing.
+                    print('refused', code, key, '- backing off'); time.sleep(90)
+                    code, text = fetch(f'https://www.iseecars.com/car/{key}-price')
+                if code in (403, 429, 0, 500, 502, 503):
                     blocked += 1
-                    print('blocked/error', code, key)
+                    print('refused again', code, key)
                     if blocked >= 5:
-                        print('stopping: repeated blocks'); out.close(); json.dump(tried, open(TRIED, 'w')); sys.exit(0)
+                        print('stopping: site keeps refusing'); out.close(); json.dump(tried, open(TRIED, 'w')); sys.exit(0)
                     continue
+                blocked = 0
                 rows = parse(text) if code == 200 else []
                 # A page for the wrong year or a redirect to a search page has no rows for this year.
                 if rows and f'{y} ' in text[:20000]:

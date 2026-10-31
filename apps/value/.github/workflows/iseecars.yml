@@ -1,6 +1,6 @@
 name: iSeeCars 2010-2014 stickers
 
-# Reads iSeeCars price pages for 2010-2014 models, one every 3 seconds, and saves
+# Reads iSeeCars price pages for 2010-2014 models, one every 5 seconds, and saves
 # the trim prices to data/iseecars/prices.jsonl. Resumable: if it stops at the time
 # budget, change data/iseecars/RUN (or run it by hand) to continue.
 on:
@@ -25,7 +25,7 @@ jobs:
       - name: Fetch pages
         run: python3 scripts/iseecars_fetch.py
         env:
-          DELAY: '3'
+          DELAY: '5'
           BUDGET_MIN: '320'
       - name: Commit
         if: always()
