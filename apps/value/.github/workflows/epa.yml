@@ -1,0 +1,43 @@
+name: EPA vehicle list
+
+# Downloads the EPA fuel-economy vehicle file (every light-duty model sold in the
+# US, by year) and saves a slim copy to data/epa/vehicles.csv. Runs when this
+# file changes, monthly, or by hand.
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/epa.yml]
+  schedule:
+    - cron: '17 6 3 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and slim
+        run: |
+          curl -sSfL -o /tmp/v.zip https://www.fueleconomy.gov/feg/epadata/vehicles.csv.zip
+          unzip -o -q /tmp/v.zip -d /tmp/epa
+          mkdir -p data/epa
+          python3 - <<'EOF'
+          import csv
+          keep = ['year','make','model','baseModel','VClass','drive','trany','displ','cylinders','fuelType1','atvType','id']
+          with open('/tmp/epa/vehicles.csv', newline='', encoding='utf-8', errors='replace') as f, open('data/epa/vehicles.csv', 'w', newline='') as o:
+              r = csv.DictReader(f); w = csv.writer(o); w.writerow(keep)
+              rows = [[row.get(k, '') for k in keep] for row in r if int(row['year']) >= 2005]
+              rows.sort(key=lambda x: (x[1], x[3], x[2], int(x[0])))
+              w.writerows(rows)
+          print(len(rows), 'rows')
+          EOF
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/epa/vehicles.csv
+          git diff --cached --quiet || git commit -m "EPA vehicle list $(date -u +%F)"
+          git push
