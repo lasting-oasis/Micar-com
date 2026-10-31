@@ -7,6 +7,8 @@ on:
   push:
     branches: [main]
     paths: [data/iseecars/RUN, .github/workflows/iseecars.yml]
+  schedule:
+    - cron: '23 */6 * * *'   # keeps resuming until every page is tried
   workflow_dispatch:
 
 permissions:
