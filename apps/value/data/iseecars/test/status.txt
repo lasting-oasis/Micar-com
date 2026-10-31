@@ -1,4 +1,0 @@
-robots 200
-2013-lexus-is_350-price 200 216846
-2012-toyota-camry-price 200 224864
-2011-honda-civic-price 200 229939

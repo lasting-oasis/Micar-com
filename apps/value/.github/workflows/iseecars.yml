@@ -1,0 +1,37 @@
+name: iSeeCars 2010-2014 stickers
+
+# Reads iSeeCars price pages for 2010-2014 models, one every 3 seconds, and saves
+# the trim prices to data/iseecars/prices.jsonl. Resumable: if it stops at the time
+# budget, change data/iseecars/RUN (or run it by hand) to continue.
+on:
+  push:
+    branches: [main]
+    paths: [data/iseecars/RUN, .github/workflows/iseecars.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: iseecars
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch pages
+        run: python3 scripts/iseecars_fetch.py
+        env:
+          DELAY: '3'
+          BUDGET_MIN: '320'
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/iseecars/prices.jsonl data/iseecars/tried.json
+          git commit -m "iSeeCars 2010-2014 prices $(date -u +%F)" || exit 0
+          git pull --rebase -q && git push
