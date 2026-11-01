@@ -3342,3 +3342,917 @@
 {"year": 2011, "make": "Volvo", "slug": "2011-volvo-s60", "style": "AWD T6 4dr Sedan", "invoice": 35438, "msrp": 37700, "destination": 875}
 {"year": 2011, "make": "Volvo", "slug": "2011-volvo-s80", "style": "3.2 4dr Sedan", "invoice": 34733, "msrp": 36950, "destination": 875}
 {"year": 2011, "make": "Volvo", "slug": "2011-volvo-s80", "style": "AWD T6 4dr Sedan", "invoice": 38258, "msrp": 40700, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-v50", "style": "T5 4dr Wagon", "invoice": 27260, "msrp": 29000, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-v50", "style": "T5 R-Design 4dr Wagon", "invoice": 30879, "msrp": 32850, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc60", "style": "3.2 4dr SUV", "invoice": 30456, "msrp": 32400, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc60", "style": "AWD 3.2 4dr SUV", "invoice": 32336, "msrp": 34400, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc60", "style": "3.2 R-Design 4dr SUV", "invoice": 35767, "msrp": 38050, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc60", "style": "AWD 3.2 R-Design 4dr SUV", "invoice": 37647, "msrp": 40050, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc60", "style": "AWD T6 4dr SUV", "invoice": 36096, "msrp": 38400, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc60", "style": "AWD T6 R-Design 4dr SUV", "invoice": 39057, "msrp": 41550, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc70", "style": "3.2 4dr Wagon", "invoice": 30080, "msrp": 32000, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc70", "style": "AWD 3.2 4dr Wagon", "invoice": 31960, "msrp": 34000, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc70", "style": "AWD T6 4dr Wagon", "invoice": 35720, "msrp": 38000, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc90", "style": "3.2 4dr SUV", "invoice": 35908, "msrp": 38200, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc90", "style": "AWD 3.2 4dr SUV", "invoice": 37788, "msrp": 40200, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc90", "style": "3.2 R-Design 4dr SUV", "invoice": 37600, "msrp": 40000, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc90", "style": "AWD 3.2 R-Design 4dr SUV", "invoice": 39480, "msrp": 42000, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-xc90", "style": "AWD V8 4dr SUV", "invoice": 45120, "msrp": 48000, "destination": 875}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-mdx", "style": "SH-AWD 4dr SUV", "invoice": 39863, "msrp": 43030, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-mdx", "style": "SH-AWD 4dr SUV w/Advance Package", "invoice": 48672, "msrp": 52655, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-mdx", "style": "SH-AWD 4dr SUV w/Advance and Entertainment Package", "invoice": 50411, "msrp": 54455, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-mdx", "style": "SH-AWD 4dr SUV w/Technology Package", "invoice": 43226, "msrp": 46705, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-mdx", "style": "SH-AWD 4dr SUV w/Technology and Entertainment Package", "invoice": 44965, "msrp": 48605, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-rdx", "style": "4dr SUV", "invoice": 30647, "msrp": 32895, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-rdx", "style": "SH-AWD 4dr SUV", "invoice": 32481, "msrp": 34895, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-rdx", "style": "SH-AWD 4dr SUV w/Technology Package", "invoice": 35323, "msrp": 37995, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-rdx", "style": "4dr SUV w/Technology Package", "invoice": 33489, "msrp": 35995, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-rl", "style": "SH-AWD 4dr Sedan", "invoice": 44098, "msrp": 48200, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-rl", "style": "SH-AWD 4dr Sedan w/Advance Package", "invoice": 51292, "msrp": 56150, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-rl", "style": "SH-AWD 4dr Sedan w/Technology Package", "invoice": 47854, "msrp": 52350, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-rl", "style": "SH-AWD 4dr Sedan w/Technology Package (Hawaii)", "invoice": 47854, "msrp": 52350, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tl", "style": "4dr Sedan", "invoice": 33527, "msrp": 35705, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tl", "style": "SH-AWD 4dr Sedan", "invoice": 36813, "msrp": 39255, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tl", "style": "SH-AWD 4dr Sedan w/Advance Package", "invoice": 42301, "msrp": 45185, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tl", "style": "SH-AWD 4dr Sedan 6M w/Technology Package", "invoice": 40265, "msrp": 42985, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tl", "style": "SH-AWD 4dr Sedan 6A w/Technology Package", "invoice": 40265, "msrp": 42985, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tl", "style": "4dr Sedan w/Advance Package", "invoice": 39015, "msrp": 41635, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tl", "style": "4dr Sedan w/Technology Package", "invoice": 36979, "msrp": 39435, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx", "style": "4dr Sedan", "invoice": 28256, "msrp": 30010, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx", "style": "V-6 4dr Sedan", "invoice": 33384, "msrp": 35550, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx", "style": "V-6 4dr Sedan w/Technology Package", "invoice": 36253, "msrp": 38650, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx", "style": "4dr Sedan 6M w/Special Edition", "invoice": 29182, "msrp": 31010, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx", "style": "4dr Sedan 5A w/Special Edition", "invoice": 29182, "msrp": 31010, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx", "style": "4dr Sedan w/Technology Package", "invoice": 31125, "msrp": 33110, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-zdx", "style": "SH-AWD 4dr SUV", "invoice": 42691, "msrp": 46120, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-zdx", "style": "SH-AWD 4dr SUV w/Advance Package", "invoice": 52346, "msrp": 56670, "destination": 895}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-zdx", "style": "SH-AWD 4dr SUV w/Technology Package", "invoice": 46809, "msrp": 50620, "destination": 895}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-db9", "style": "2dr Coupe 6A", "invoice": 0, "msrp": 189915, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-db9", "style": "Luxury SE 2dr Coupe", "invoice": 0, "msrp": 196160, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-db9", "style": "Sport SE 2dr Coupe", "invoice": 0, "msrp": 196551, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-db9", "style": "Volante 2dr Convertible 6A", "invoice": 0, "msrp": 204915, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-db9", "style": "Volante Luxury SE 2dr Convertible", "invoice": 0, "msrp": 211160, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-db9", "style": "Volante Sport SE 2dr Convertible", "invoice": 0, "msrp": 211821, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-dbs", "style": "2dr Coupe 6M", "invoice": 0, "msrp": 275461, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-dbs", "style": "2dr Coupe 6A", "invoice": 0, "msrp": 275461, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-dbs", "style": "Carbon 2dr Coupe", "invoice": 0, "msrp": 284576, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-dbs", "style": "Volante 2dr Convertible 6M", "invoice": 0, "msrp": 286461, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-dbs", "style": "Volante 2dr Convertible 6A", "invoice": 0, "msrp": 290461, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-dbs", "style": "Volante Carbon 2dr Convertible", "invoice": 0, "msrp": 293461, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-rapide", "style": "4dr Sedan", "invoice": 0, "msrp": 207895, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-rapide", "style": "Luxe 4dr Sedan", "invoice": 0, "msrp": 226850, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-v12_vantage", "style": "2dr Coupe", "invoice": 0, "msrp": 180535, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-v12_vantage", "style": "Carbon Black 2dr Coupe", "invoice": 0, "msrp": 195895, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-v8_vantage", "style": "2dr Coupe", "invoice": 0, "msrp": 118650, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-v8_vantage", "style": "N420 2dr Coupe", "invoice": 0, "msrp": 129900, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-v8_vantage", "style": "N420 Roadster 2dr Convertible", "invoice": 0, "msrp": 142900, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-v8_vantage", "style": "Roadster 2dr Convertible", "invoice": 0, "msrp": 131650, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-v8_vantage", "style": "S 2dr Coupe", "invoice": 0, "msrp": 136300, "destination": 2115}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-v8_vantage", "style": "S Roadster 2dr Convertible", "invoice": 0, "msrp": 149700, "destination": 2115}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0 TDI Premium 4dr Wagon", "invoice": 28133, "msrp": 30250, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0 TDI Premium Plus 4dr Wagon", "invoice": 29993, "msrp": 32250, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0T Premium 4dr Wagon 6M", "invoice": 25361, "msrp": 27270, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0T Premium 4dr Wagon 6A", "invoice": 26737, "msrp": 28750, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0T Premium Plus 4dr Wagon 6M", "invoice": 27221, "msrp": 29270, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0T Premium Plus 4dr Wagon 6A", "invoice": 28597, "msrp": 30750, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0T Premium Plus PZEV 4dr Wagon 6M", "invoice": 27221, "msrp": 29270, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0T Premium Plus PZEV 4dr Wagon 6A", "invoice": 28597, "msrp": 30750, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0T Premium PZEV 4dr Wagon 6M", "invoice": 25361, "msrp": 27270, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "2.0T Premium PZEV 4dr Wagon 6A", "invoice": 26737, "msrp": 28750, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "AWD 2.0T quattro Premium 4dr Wagon", "invoice": 28691, "msrp": 30850, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a3", "style": "AWD 2.0T quattro Premium Plus 4dr Wagon", "invoice": 30551, "msrp": 32850, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "2.0T Premium 4dr Sedan", "invoice": 30227, "msrp": 32500, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "2.0T Premium Plus 4dr Sedan", "invoice": 34227, "msrp": 36800, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "2.0T Prestige 4dr Sedan", "invoice": 39065, "msrp": 42000, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "AWD 2.0T quattro Avant Premium 4dr Wagon", "invoice": 33852, "msrp": 36400, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "AWD 2.0T quattro Avant Premium Plus 4dr Wagon", "invoice": 38130, "msrp": 41000, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "AWD 2.0T quattro Avant Prestige 4dr Wagon", "invoice": 43060, "msrp": 46300, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "AWD 2.0T quattro Premium 4dr Sedan 6M", "invoice": 30970, "msrp": 33300, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "AWD 2.0T quattro Premium 4dr Sedan 8A", "invoice": 32178, "msrp": 34600, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "AWD 2.0T quattro Premium Plus 4dr Sedan 6M", "invoice": 34970, "msrp": 37600, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "AWD 2.0T quattro Premium Plus 4dr Sedan 8A", "invoice": 36178, "msrp": 38900, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "AWD 2.0T quattro Prestige 4dr Sedan 6M", "invoice": 39807, "msrp": 42800, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a4", "style": "AWD 2.0T quattro Prestige 4dr Sedan 8A", "invoice": 41015, "msrp": 44100, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "2.0T Premium 2dr Convertible", "invoice": 39618, "msrp": 42600, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "2.0T Premium Plus 2dr Convertible", "invoice": 43246, "msrp": 46500, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "2.0T Prestige 2dr Convertible", "invoice": 48174, "msrp": 51800, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "AWD 2.0T quattro Premium 2dr Convertible", "invoice": 41572, "msrp": 44700, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "AWD 2.0T quattro Premium 2dr Coupe 8A", "invoice": 35620, "msrp": 38300, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "AWD 2.0T quattro Premium 2dr Coupe 6M", "invoice": 34504, "msrp": 37100, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "AWD 2.0T quattro Premium Plus 2dr Convertible", "invoice": 45500, "msrp": 48600, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "AWD 2.0T quattro Premium Plus 2dr Coupe 8A", "invoice": 39248, "msrp": 42200, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "AWD 2.0T quattro Premium Plus 2dr Coupe 6M", "invoice": 38132, "msrp": 41000, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "AWD 2.0T quattro Prestige 2dr Convertible", "invoice": 50128, "msrp": 53900, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "AWD 2.0T quattro Prestige 2dr Coupe 8A", "invoice": 44176, "msrp": 47500, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a5", "style": "AWD 2.0T quattro Prestige 2dr Coupe 6M", "invoice": 43060, "msrp": 46300, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a6", "style": "2.0T Premium 4dr Sedan CVT", "invoice": 38782, "msrp": 41700, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a6", "style": "2.0T Premium Plus 4dr Sedan CVT", "invoice": 42706, "msrp": 45920, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a6", "style": "AWD 3.0T quattro Premium 4dr Sedan", "invoice": 46408, "msrp": 49900, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a6", "style": "AWD 3.0T quattro Premium Plus 4dr Sedan", "invoice": 50332, "msrp": 54120, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a6", "style": "AWD 3.0T quattro Prestige 4dr Sedan", "invoice": 52806, "msrp": 56780, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a7", "style": "AWD 3.0T quattro Premium 4dr Sportback", "invoice": 55103, "msrp": 59250, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a7", "style": "AWD 3.0T quattro Premium Plus 4dr Sportback", "invoice": 58469, "msrp": 62870, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a7", "style": "AWD 3.0T quattro Prestige 4dr Sportback", "invoice": 60990, "msrp": 65580, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a8", "style": "AWD quattro 4dr Sedan", "invoice": 73237, "msrp": 78750, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a8", "style": "AWD quattro 4dr Sedan", "invoice": 78772, "msrp": 84700, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-a8", "style": "AWD W12 quattro 4dr Sedan", "invoice": 124157, "msrp": 133500, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q5", "style": "AWD 2.0T quattro Premium 4dr SUV", "invoice": 33108, "msrp": 35600, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q5", "style": "AWD 2.0T quattro Premium Plus 4dr SUV", "invoice": 37108, "msrp": 39900, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q5", "style": "AWD 3.2 quattro Premium Plus 4dr SUV", "invoice": 39990, "msrp": 43000, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q5", "style": "AWD 3.2 quattro Prestige 4dr SUV", "invoice": 46594, "msrp": 50100, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q7", "style": "AWD 3.0 quattro TDI Premium 4dr SUV", "invoice": 47849, "msrp": 51450, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q7", "style": "AWD 3.0 quattro TDI Premium Plus 4dr SUV", "invoice": 53709, "msrp": 57750, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q7", "style": "AWD 3.0 quattro TDI Prestige 4dr SUV", "invoice": 59476, "msrp": 63950, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q7", "style": "AWD 3.0T quattro Premium 4dr SUV", "invoice": 43013, "msrp": 46250, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q7", "style": "AWD 3.0T quattro Premium Plus 4dr SUV", "invoice": 48873, "msrp": 52550, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-q7", "style": "AWD 3.0T quattro S line Prestige 4dr SUV", "invoice": 55753, "msrp": 59950, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD 4.2 quattro 2dr Coupe 6M", "invoice": 106206, "msrp": 114200, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD 4.2 quattro 2dr Coupe 6A", "invoice": 114669, "msrp": 123300, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD 4.2 quattro Spyder 2dr Convertible 6M", "invoice": 118761, "msrp": 127700, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD 4.2 quattro Spyder 2dr Convertible 6A", "invoice": 127224, "msrp": 136800, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD 5.2 quattro 2dr Coupe 6M", "invoice": 138750, "msrp": 149000, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD 5.2 quattro 2dr Coupe 6A", "invoice": 147033, "msrp": 158100, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD 5.2 quattro Spyder 2dr Convertible 6M", "invoice": 151311, "msrp": 162700, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD 5.2 quattro Spyder 2dr Convertible 6A", "invoice": 159774, "msrp": 171800, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD GT 5.2 quattro 2dr Coupe", "invoice": 183024, "msrp": 196800, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-r8", "style": "AWD GT 5.2 quattro Spyder 2dr Convertible", "invoice": 195579, "msrp": 210300, "destination": 1250}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s4", "style": "AWD 3.0T quattro Premium Plus 4dr Sedan 6M", "invoice": 43990, "msrp": 47300, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s4", "style": "AWD 3.0T quattro Premium Plus 4dr Sedan 7A", "invoice": 45292, "msrp": 48700, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s4", "style": "AWD 3.0T quattro Prestige 4dr Sedan 6M", "invoice": 50222, "msrp": 54000, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s4", "style": "AWD 3.0T quattro Prestige 4dr Sedan 7A", "invoice": 51524, "msrp": 55400, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s5", "style": "AWD 3.0T quattro Premium Plus 2dr Convertible", "invoice": 55150, "msrp": 59300, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s5", "style": "AWD 3.0T quattro Prestige 2dr Convertible", "invoice": 61010, "msrp": 65600, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s5", "style": "AWD 4.2 quattro Premium Plus 2dr Coupe 6A", "invoice": 51244, "msrp": 55100, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s5", "style": "AWD 4.2 quattro Premium Plus 2dr Coupe 6M", "invoice": 50128, "msrp": 53900, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s5", "style": "AWD 4.2 quattro Prestige 2dr Coupe 6M", "invoice": 55988, "msrp": 60200, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-s5", "style": "AWD 4.2 quattro Prestige 2dr Coupe 6A", "invoice": 57104, "msrp": 61400, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-tt", "style": "AWD 2.0T quattro Premium Plus 2dr Convertible", "invoice": 38410, "msrp": 41300, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-tt", "style": "AWD 2.0T quattro Premium Plus 2dr Coupe", "invoice": 35620, "msrp": 38300, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-tt", "style": "AWD 2.0T quattro Prestige 2dr Convertible", "invoice": 44084, "msrp": 47400, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-tt", "style": "AWD 2.0T quattro Prestige 2dr Coupe", "invoice": 41294, "msrp": 44400, "destination": 875}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-tt_rs", "style": "AWD 2.5 quattro 2dr Coupe", "invoice": 52871, "msrp": 56850, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-1_series", "style": "128i 2dr Convertible", "invoice": 33950, "msrp": 36900, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-1_series", "style": "128i 2dr Convertible SULEV", "invoice": 33950, "msrp": 36900, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-1_series", "style": "128i 2dr Coupe", "invoice": 28705, "msrp": 31200, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-1_series", "style": "128i 2dr Coupe SULEV", "invoice": 28705, "msrp": 31200, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-1_series", "style": "135i 2dr Convertible", "invoice": 40570, "msrp": 44100, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-1_series", "style": "135i 2dr Coupe", "invoice": 33950, "msrp": 39300, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "328i 2dr Convertible", "invoice": 43790, "msrp": 47600, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "328i 2dr Convertible SULEV", "invoice": 43790, "msrp": 47600, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "328i 2dr Coupe", "invoice": 35605, "msrp": 38700, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "328i 2dr Coupe SULEV", "invoice": 35605, "msrp": 38700, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "328i 4dr Sedan", "invoice": 32110, "msrp": 34900, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "328i 4dr Sedan SULEV", "invoice": 32110, "msrp": 34900, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "328i 4dr Wagon", "invoice": 34500, "msrp": 37500, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "AWD 328i xDrive 2dr Coupe", "invoice": 37170, "msrp": 40400, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "AWD 328i xDrive 2dr Coupe SULEV", "invoice": 37170, "msrp": 40400, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "AWD 328i xDrive 4dr Wagon", "invoice": 36340, "msrp": 39500, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "335i 2dr Convertible", "invoice": 49495, "msrp": 53800, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "335i 2dr Coupe", "invoice": 41490, "msrp": 45100, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "335i 4dr Sedan", "invoice": 39012, "msrp": 42400, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "AWD 335i xDrive 2dr Coupe", "invoice": 43055, "msrp": 46800, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "335is 2dr Convertible", "invoice": 55935, "msrp": 60800, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-3_series", "style": "335is 2dr Coupe", "invoice": 47930, "msrp": 52100, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "528i 4dr Sedan", "invoice": 43150, "msrp": 46900, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "AWD 528i xDrive 4dr Sedan", "invoice": 45265, "msrp": 49200, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "535i 4dr Sedan", "invoice": 48300, "msrp": 52500, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "535i Gran Turismo 4dr Hatchback", "invoice": 52440, "msrp": 57000, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "AWD 535i xDrive 4dr Sedan", "invoice": 50415, "msrp": 54800, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "AWD 535i xDrive Gran Turismo 4dr Hatchback", "invoice": 54555, "msrp": 59300, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "550i 4dr Sedan", "invoice": 57040, "msrp": 62000, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "550i Gran Turismo 4dr Hatchback", "invoice": 60720, "msrp": 66000, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "AWD 550i xDrive 4dr Sedan", "invoice": 59155, "msrp": 64300, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "AWD 550i xDrive Gran Turismo 4dr Hatchback", "invoice": 62835, "msrp": 68300, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-5_series", "style": "ActiveHybrid 5 4dr Sedan", "invoice": 56075, "msrp": 60950, "destination": 895}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-6_series", "style": "640i 2dr Convertible", "invoice": 74610, "msrp": 81100, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-6_series", "style": "640i 2dr Coupe", "invoice": 67710, "msrp": 73600, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-6_series", "style": "650i 2dr Convertible", "invoice": 83260, "msrp": 90500, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-6_series", "style": "650i 2dr Coupe", "invoice": 76360, "msrp": 83000, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-6_series", "style": "AWD 650i xDrive 2dr Convertible", "invoice": 86020, "msrp": 93500, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-6_series", "style": "AWD 650i xDrive 2dr Coupe", "invoice": 79120, "msrp": 86000, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "740i 4dr Sedan", "invoice": 65320, "msrp": 71000, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "740Li 4dr Sedan", "invoice": 69460, "msrp": 75500, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "750i 4dr Sedan", "invoice": 77555, "msrp": 84300, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "AWD 750i xDrive 4dr Sedan", "invoice": 80315, "msrp": 87300, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "750Li 4dr Sedan", "invoice": 81145, "msrp": 88200, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "AWD 750Li xDrive 4dr Sedan", "invoice": 83905, "msrp": 91200, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "760Li 4dr Sedan", "invoice": 126315, "msrp": 137300, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "ActiveHybrid 750i 4dr Sedan", "invoice": 89240, "msrp": 97000, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "ActiveHybrid 750Li 4dr Sedan", "invoice": 92920, "msrp": 101000, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "ALPINA B7 LWB 4dr Sedan", "invoice": 116380, "msrp": 126500, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "AWD ALPINA B7 LWB xDrive 4dr Sedan", "invoice": 119140, "msrp": 129500, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "ALPINA B7 SWB 4dr Sedan", "invoice": 112790, "msrp": 122600, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-7_series", "style": "AWD ALPINA B7 SWB xDrive 4dr Sedan", "invoice": 115550, "msrp": 125600, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-m3", "style": "2dr Convertible", "invoice": 63250, "msrp": 68750, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-m3", "style": "2dr Coupe", "invoice": 55290, "msrp": 60100, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-m6", "style": "2dr Convertible", "invoice": 104050, "msrp": 113100, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x3", "style": "AWD xDrive28i 4dr SUV", "invoice": 34130, "msrp": 37100, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x3", "style": "AWD xDrive35i 4dr SUV", "invoice": 39285, "msrp": 42700, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x5", "style": "AWD xDrive35d 4dr SUV", "invoice": 52165, "msrp": 56700, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x5", "style": "AWD xDrive35i 4dr SUV", "invoice": 43700, "msrp": 47500, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x5", "style": "AWD xDrive35i Premium 4dr SUV", "invoice": 50785, "msrp": 55200, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x5", "style": "AWD xDrive35i Sport Activity 4dr SUV", "invoice": 53085, "msrp": 57700, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x5", "style": "AWD xDrive50i 4dr SUV", "invoice": 59065, "msrp": 64200, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x6", "style": "AWD xDrive35i 4dr SUV", "invoice": 54830, "msrp": 59600, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x6", "style": "AWD xDrive50i 4dr SUV", "invoice": 64585, "msrp": 70200, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-z4", "style": "sDrive28i 2dr Convertible", "invoice": 44760, "msrp": 48650, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-z4", "style": "sDrive35i 2dr Convertible", "invoice": 50740, "msrp": 55150, "destination": 875}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-z4", "style": "sDrive35is 2dr Convertible", "invoice": 59065, "msrp": 64200, "destination": 875}
+{"year": 2012, "make": "Bentley", "slug": "2012-bentley-continental", "style": "AWD Flying Spur 4dr Sedan", "invoice": 171306, "msrp": 184200, "destination": 2595}
+{"year": 2012, "make": "Bentley", "slug": "2012-bentley-continental", "style": "AWD Flying Spur Speed 4dr Sedan", "invoice": 194928, "msrp": 209600, "destination": 2595}
+{"year": 2012, "make": "Bentley", "slug": "2012-bentley-continental", "style": "AWD GT 2dr Convertible", "invoice": 197904, "msrp": 212800, "destination": 2595}
+{"year": 2012, "make": "Bentley", "slug": "2012-bentley-continental", "style": "AWD GT 2dr Coupe", "invoice": 176607, "msrp": 189900, "destination": 2595}
+{"year": 2012, "make": "Bentley", "slug": "2012-bentley-continental", "style": "AWD Supersports 2dr Convertible", "invoice": 260772, "msrp": 280400, "destination": 2595}
+{"year": 2012, "make": "Bentley", "slug": "2012-bentley-continental", "style": "AWD Supersports 2dr Coupe", "invoice": 248310, "msrp": 267000, "destination": 2595}
+{"year": 2012, "make": "Bentley", "slug": "2012-bentley-continental", "style": "AWD Supersports ISR 2dr Convertible", "invoice": 271467, "msrp": 291900, "destination": 2595}
+{"year": 2012, "make": "Bentley", "slug": "2012-bentley-mulsanne", "style": "4dr Sedan", "invoice": 269700, "msrp": 290000, "destination": 2595}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-enclave", "style": "Base 4dr Crossover", "invoice": 34533, "msrp": 36350, "destination": 825}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-enclave", "style": "AWD Base 4dr Crossover", "invoice": 36432, "msrp": 38350, "destination": 825}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-enclave", "style": "Convenience 4dr Crossover", "invoice": 35507, "msrp": 37270, "destination": 825}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-enclave", "style": "AWD Convenience 4dr Crossover", "invoice": 37306, "msrp": 39270, "destination": 825}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-enclave", "style": "Leather 4dr Crossover", "invoice": 38238, "msrp": 40250, "destination": 825}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-enclave", "style": "AWD Leather 4dr Crossover", "invoice": 40138, "msrp": 42250, "destination": 825}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-enclave", "style": "Premium 4dr Crossover", "invoice": 41434, "msrp": 43615, "destination": 825}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-enclave", "style": "AWD Premium 4dr Crossover", "invoice": 43334, "msrp": 45615, "destination": 825}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "Base 4dr Sedan", "invoice": 28963, "msrp": 30170, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "Convenience 4dr Sedan", "invoice": 29990, "msrp": 31240, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "Leather 4dr Sedan", "invoice": 31397, "msrp": 32705, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "AWD Leather 4dr Sedan", "invoice": 33475, "msrp": 34870, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "Premium 1 4dr Sedan", "invoice": 32112, "msrp": 33450, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "AWD Premium 1 4dr Sedan", "invoice": 34190, "msrp": 35615, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "Premium 2 4dr Sedan", "invoice": 33470, "msrp": 34865, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "AWD Premium 2 Sedan", "invoice": 35558, "msrp": 37040, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "Premium 3 4dr Sedan", "invoice": 34834, "msrp": 36285, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-lacrosse", "style": "Touring 4dr Sedan", "invoice": 37267, "msrp": 38820, "destination": 875}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-regal", "style": "Base 4dr Sedan", "invoice": 25603, "msrp": 26670, "destination": 860}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-regal", "style": "GS 4dr Sedan", "invoice": 33072, "msrp": 34450, "destination": 860}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-regal", "style": "Premium 1 4dr Sedan", "invoice": 26981, "msrp": 28105, "destination": 860}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-regal", "style": "Premium 1 4dr Sedan Turbo", "invoice": 28680, "msrp": 29875, "destination": 860}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-regal", "style": "Premium 2 4dr Sedan", "invoice": 28334, "msrp": 29515, "destination": 860}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-regal", "style": "Premium 2 4dr Sedan Turbo", "invoice": 30034, "msrp": 31285, "destination": 860}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-regal", "style": "Premium 3 4dr Sedan Turbo", "invoice": 31234, "msrp": 32535, "destination": 860}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-verano", "style": "Base 4dr Sedan", "invoice": 21682, "msrp": 22585, "destination": 885}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-verano", "style": "Convenience Group 4dr Sedan", "invoice": 22834, "msrp": 23785, "destination": 885}
+{"year": 2012, "make": "Buick", "slug": "2012-buick-verano", "style": "Leather Group 4dr Sedan", "invoice": 24927, "msrp": 25965, "destination": 885}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.0L 4dr Sedan", "invoice": 33940, "msrp": 35915, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.0L 4dr Sedan", "invoice": 36964, "msrp": 39115, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.0L 4dr Wagon", "invoice": 36869, "msrp": 39015, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.0L 4dr Wagon", "invoice": 38665, "msrp": 40915, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.0L Luxury 4dr Sedan", "invoice": 36902, "msrp": 39050, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.0L Luxury 4dr Sedan", "invoice": 39926, "msrp": 42250, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.0L Luxury 4dr Wagon", "invoice": 39832, "msrp": 42150, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.0L Luxury 4dr Wagon", "invoice": 41627, "msrp": 44050, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.6L 2dr Coupe", "invoice": 36586, "msrp": 38715, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.6L 2dr Coupe", "invoice": 38381, "msrp": 40615, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.6L Performance 2dr Coupe", "invoice": 43328, "msrp": 45850, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.6L Performance 2dr Coupe", "invoice": 41533, "msrp": 43950, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.6L Performance 4dr Sedan", "invoice": 39964, "msrp": 42290, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.6L Performance 4dr Sedan", "invoice": 41760, "msrp": 44190, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.6L Performance 4dr Wagon", "invoice": 41760, "msrp": 44190, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.6L Performance 4dr Wagon", "invoice": 43555, "msrp": 46090, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.6L Premium 2dr Coupe", "invoice": 45502, "msrp": 48150, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.6L Premium 2dr Coupe", "invoice": 47297, "msrp": 50050, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.6L Premium 4dr Sedan w/Navigation", "invoice": 45634, "msrp": 48290, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.6L Premium 4dr Sedan w/Navigation", "invoice": 47430, "msrp": 50190, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "3.6L Premium 4dr Wagon", "invoice": 47014, "msrp": 49750, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts", "style": "AWD 3.6L Premium 4dr Wagon", "invoice": 48809, "msrp": 51650, "destination": 895}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade", "style": "AWD 4dr SUV", "invoice": 61448, "msrp": 65720, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade", "style": "4dr SUV", "invoice": 59064, "msrp": 63170, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade", "style": "AWD Luxury 4dr SUV", "invoice": 65399, "msrp": 69945, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade", "style": "Luxury 4dr SUV", "invoice": 63014, "msrp": 67395, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade", "style": "AWD Platinum Edition 4dr SUV", "invoice": 77133, "msrp": 82495, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade", "style": "Platinum Edition 4dr SUV", "invoice": 74749, "msrp": 79945, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade", "style": "AWD Premium 4dr SUV", "invoice": 69400, "msrp": 74225, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade", "style": "Premium 4dr SUV", "invoice": 67016, "msrp": 71675, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_esv", "style": "AWD 4dr SUV", "invoice": 63879, "msrp": 68320, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_esv", "style": "4dr SUV", "invoice": 61495, "msrp": 65770, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_esv", "style": "AWD Luxury 4dr SUV", "invoice": 67830, "msrp": 72545, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_esv", "style": "Luxury 4dr SUV", "invoice": 65445, "msrp": 69995, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_esv", "style": "AWD Platinum Edition 4dr SUV", "invoice": 79564, "msrp": 85095, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_esv", "style": "Platinum Edition 4dr SUV", "invoice": 77180, "msrp": 82545, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_esv", "style": "AWD Premium 4dr SUV", "invoice": 72392, "msrp": 77425, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_esv", "style": "Premium 4dr SUV", "invoice": 70008, "msrp": 74875, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_ext", "style": "AWD 4dr Pickup", "invoice": 58961, "msrp": 63060, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_ext", "style": "AWD Luxury 4dr Pickup", "invoice": 62879, "msrp": 67250, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_ext", "style": "AWD Premium 4dr Pickup", "invoice": 65113, "msrp": 69640, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_hybrid", "style": "AWD 4dr SUV", "invoice": 71434, "msrp": 76400, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_hybrid", "style": "4dr SUV", "invoice": 69050, "msrp": 73850, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_hybrid", "style": "AWD Platinum Hybrid 4dr SUV", "invoice": 80265, "msrp": 85845, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-escalade_hybrid", "style": "Platinum Hybrid 4dr SUV", "invoice": 77881, "msrp": 83295, "destination": 995}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-srx", "style": "4dr SUV", "invoice": 34006, "msrp": 35985, "destination": 875}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-srx", "style": "Luxury Collection 4dr SUV", "invoice": 38287, "msrp": 40515, "destination": 875}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-srx", "style": "AWD Luxury Collection 4dr SUV", "invoice": 40644, "msrp": 43010, "destination": 875}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-srx", "style": "AWD Performance Collection 4dr SUV", "invoice": 44547, "msrp": 47140, "destination": 875}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-srx", "style": "Performance Collection 4dr SUV", "invoice": 41892, "msrp": 44330, "destination": 875}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-srx", "style": "Premium Collection 4dr SUV", "invoice": 44202, "msrp": 46775, "destination": 875}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-srx", "style": "AWD Premium Collection 4dr SUV", "invoice": 46858, "msrp": 49585, "destination": 875}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-avalanche", "style": "4x2 LS 4dr Crew Cab Pickup", "invoice": 34224, "msrp": 36800, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-avalanche", "style": "4x4 LS 4dr Crew Cab Pickup", "invoice": 37061, "msrp": 39850, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-avalanche", "style": "4x2 LT 4dr Crew Cab Pickup", "invoice": 37381, "msrp": 40195, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-avalanche", "style": "4x4 LT 4dr Crew Cab Pickup", "invoice": 40218, "msrp": 43245, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-avalanche", "style": "4x2 LTZ 4dr Crew Cab Pickup", "invoice": 43710, "msrp": 47000, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-avalanche", "style": "4x4 LTZ 4dr Crew Cab Pickup", "invoice": 46784, "msrp": 50305, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "LS 2dr Coupe w/1LS", "invoice": 22349, "msrp": 23280, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "LS 2dr Coupe w/2LS", "invoice": 23501, "msrp": 24480, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "LT 2dr Convertible w/1LT", "invoice": 28973, "msrp": 30180, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "LT 2dr Convertible w/2LT", "invoice": 32813, "msrp": 34180, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "LT 2dr Coupe w/1LT", "invoice": 24269, "msrp": 25280, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "LT 2dr Coupe w/2LT", "invoice": 27293, "msrp": 28430, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "SS 2dr Convertible w/1SS", "invoice": 36797, "msrp": 38330, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "SS 2dr Convertible w/2SS", "invoice": 39389, "msrp": 41030, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "SS 2dr Coupe w/1SS", "invoice": 30989, "msrp": 32280, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "SS 2dr Coupe w/2SS", "invoice": 34109, "msrp": 35530, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-camaro", "style": "ZL1 2dr Coupe", "invoice": 51931, "msrp": 54095, "destination": 900}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 LT 2dr Regular Cab w/1LT", "invoice": 19352, "msrp": 20370, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x4 LT 2dr Regular Cab w/1LT", "invoice": 23218, "msrp": 24440, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 LT 4dr Extended Cab w/1LT", "invoice": 21807, "msrp": 22955, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x4 LT 4dr Extended Cab w/1LT", "invoice": 25289, "msrp": 26620, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 LT 4dr Extended Cab w/2LT", "invoice": 24852, "msrp": 26160, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x4 LT 4dr Extended Cab w/2LT", "invoice": 28006, "msrp": 29480, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 LT 4dr Extended Cab w/3LT", "invoice": 25660, "msrp": 27010, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 LT 4dr Crew Cab w/1LT", "invoice": 23071, "msrp": 24285, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x4 LT 4dr Crew Cab w/1LT", "invoice": 27037, "msrp": 28460, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 LT 4dr Crew Cab w/2LT", "invoice": 26116, "msrp": 27490, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x4 LT 4dr Crew Cab w/2LT", "invoice": 28804, "msrp": 30320, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 LT 4dr Crew Cab w/3LT", "invoice": 26923, "msrp": 28340, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 Work Truck 2dr Regular Cab Chassis", "invoice": 18883, "msrp": 19670, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x4 Work Truck 2dr Regular Cab Chassis", "invoice": 22200, "msrp": 23125, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 Work Truck 2dr Regular Cab", "invoice": 16776, "msrp": 17475, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x4 Work Truck 2dr Regular Cab", "invoice": 20141, "msrp": 20980, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x2 Work Truck 4dr Extended Cab", "invoice": 18941, "msrp": 19730, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-colorado", "style": "4x4 Work Truck 4dr Extended Cab", "invoice": 22109, "msrp": 23030, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "2dr Convertible w/1LT", "invoice": 49618, "msrp": 54525, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "2dr Convertible w/2LT", "invoice": 51506, "msrp": 56670, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "2dr Convertible w/3LT", "invoice": 56654, "msrp": 62520, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "2dr Convertible w/4LT", "invoice": 59732, "msrp": 66020, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "2dr Coupe w/1LT", "invoice": 45068, "msrp": 49525, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "2dr Coupe w/2LT", "invoice": 46956, "msrp": 51670, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "2dr Coupe w/3LT", "invoice": 50344, "msrp": 55520, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "2dr Coupe w/4LT", "invoice": 53424, "msrp": 59020, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z06 2dr Coupe w/1LZ", "invoice": 68728, "msrp": 75525, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z06 2dr Coupe w/2LZ", "invoice": 72521, "msrp": 79835, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z06 2dr Coupe w/3LZ", "invoice": 76485, "msrp": 84340, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z16 Grand Sport 2dr Convertible w/1LT", "invoice": 54168, "msrp": 59525, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z16 Grand Sport 2dr Convertible w/2LT", "invoice": 56056, "msrp": 61670, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z16 Grand Sport 2dr Convertible w/3LT", "invoice": 61204, "msrp": 67520, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z16 Grand Sport 2dr Convertible w/4LT", "invoice": 64284, "msrp": 71020, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z16 Grand Sport 2dr Coupe w/1LT", "invoice": 50892, "msrp": 55925, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z16 Grand Sport 2dr Coupe w/2LT", "invoice": 52780, "msrp": 58070, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z16 Grand Sport 2dr Coupe w/3LT", "invoice": 56168, "msrp": 61920, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "Z16 Grand Sport 2dr Coupe w/4LT", "invoice": 59248, "msrp": 65420, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "ZR1 2dr Coupe w/1ZR", "invoice": 104276, "msrp": 111525, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-corvette", "style": "ZR1 2dr Coupe w/3ZR", "invoice": 113076, "msrp": 121525, "destination": 975}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-cruze", "style": "ECO 4dr Sedan", "invoice": 18522, "msrp": 19325, "destination": 790}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-cruze", "style": "LS 4dr Sedan", "invoice": 16212, "msrp": 16800, "destination": 790}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-cruze", "style": "LT 4dr Sedan w/1LT", "invoice": 17813, "msrp": 18555, "destination": 790}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-cruze", "style": "LT 4dr Sedan w/2LT", "invoice": 19857, "msrp": 20685, "destination": 790}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-cruze", "style": "LT Fleet 4dr Sedan", "invoice": 17635, "msrp": 18275, "destination": 790}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-cruze", "style": "LTZ 4dr Sedan w/1LZ", "invoice": 22145, "msrp": 23190, "destination": 790}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-equinox", "style": "LS 4dr SUV", "invoice": 22354, "msrp": 23530, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-equinox", "style": "AWD LS 4dr SUV", "invoice": 24016, "msrp": 25280, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-equinox", "style": "LT 4dr SUV w/ 1LT", "invoice": 23798, "msrp": 25050, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-equinox", "style": "AWD LT 4dr SUV w/ 1LT", "invoice": 25460, "msrp": 26800, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-equinox", "style": "LT 4dr SUV w/ 2LT", "invoice": 25527, "msrp": 26870, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-equinox", "style": "AWD LT 4dr SUV w/ 2LT", "invoice": 27189, "msrp": 28620, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-equinox", "style": "LTZ 4dr SUV", "invoice": 27759, "msrp": 29220, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-equinox", "style": "AWD LTZ 4dr SUV", "invoice": 29422, "msrp": 30970, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "AWD 1500 3dr Cargo Van", "invoice": 27126, "msrp": 30140, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "1500 3dr Cargo Van", "invoice": 22581, "msrp": 25090, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "2500 3dr Cargo Van w/ 1SD", "invoice": 34592, "msrp": 38435, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "2500 3dr Cargo Van w/ 1WT", "invoice": 23841, "msrp": 26490, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "2500 3dr Extended Cargo Van w/ 1WT", "invoice": 25515, "msrp": 28350, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "2500 3dr Extended Cargo Van w/ 1SD", "invoice": 36266, "msrp": 40295, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 3dr Cargo Van w/ 1WT", "invoice": 26829, "msrp": 29810, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 3dr Cargo Van w/ 1SD", "invoice": 37580, "msrp": 41755, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 3dr Extended Cargo Van w/ 1WT", "invoice": 27626, "msrp": 30695, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 3dr Extended Cargo Van w/ 1SD", "invoice": 38376, "msrp": 42640, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 2dr 139 in. WB Cutaway Chassis w/ 1WT", "invoice": 24066, "msrp": 26740, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 2dr 139 in. WB Cutaway Chassis w/ 1SD", "invoice": 34817, "msrp": 38685, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 2dr 159 in. WB Cutaway Chassis w/ 1WT", "invoice": 24174, "msrp": 26860, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 2dr 159 in. WB Cutaway Chassis w/ 1SD", "invoice": 34945, "msrp": 38805, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 2dr 177 in. WB Cutaway Chassis w/ 1WT", "invoice": 25502, "msrp": 28335, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "3500 2dr 177 in. WB Cutaway Chassis w/ 1SD", "invoice": 36252, "msrp": 40280, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LS 1500 3dr Passenger Van", "invoice": 26046, "msrp": 28940, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "AWD LS 1500 3dr Passenger Van", "invoice": 29246, "msrp": 32495, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LS 2500 3dr Passenger Van", "invoice": 26757, "msrp": 29730, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LS 3500 3dr Passenger Van w/ 1LS", "invoice": 28823, "msrp": 32025, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LS 3500 3dr Passenger Van w/ 2LS", "invoice": 40469, "msrp": 44965, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LS 3500 3dr Extended Passenger Van w/ 2LS", "invoice": 42152, "msrp": 46835, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LS 3500 3dr Extended Passenger Van w/ 1LS", "invoice": 30506, "msrp": 33895, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LT 1500 3dr Passenger Van", "invoice": 27619, "msrp": 30790, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "AWD LT 1500 3dr Passenger Van", "invoice": 30819, "msrp": 34345, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LT 2500 3dr Passenger Van", "invoice": 28330, "msrp": 31580, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LT 3500 3dr Passenger Van w/ 2LT", "invoice": 41706, "msrp": 46420, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LT 3500 3dr Passenger Van w/ 1LT", "invoice": 30060, "msrp": 33480, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LT 3500 3dr Extended Passenger Van w/ 2LT", "invoice": 42467, "msrp": 47205, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-express", "style": "LT 3500 3dr Extended Passenger Van w/ 1LT", "invoice": 30821, "msrp": 34265, "destination": 980}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-impala", "style": "LS 4dr Sedan", "invoice": 24619, "msrp": 25645, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-impala", "style": "LS Fleet 4dr Sedan", "invoice": 24062, "msrp": 25065, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-impala", "style": "LT 4dr Sedan", "invoice": 26083, "msrp": 27170, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-impala", "style": "LT Fleet 4dr Sedan", "invoice": 25166, "msrp": 26215, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-impala", "style": "LTZ 4dr Sedan", "invoice": 28978, "msrp": 30185, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-impala", "style": "Police 4dr Sedan w/3FL", "invoice": 26021, "msrp": 27105, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-impala", "style": "Unmarked Police 4dr Sedan w/3FL", "invoice": 26021, "msrp": 27105, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-malibu", "style": "LS 4dr Sedan", "invoice": 21115, "msrp": 22110, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-malibu", "style": "LS Fleet 4dr Sedan", "invoice": 21201, "msrp": 22200, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-malibu", "style": "LT 4dr Sedan w/1LT", "invoice": 22297, "msrp": 23470, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-malibu", "style": "LT 4dr Sedan w/2LT", "invoice": 24985, "msrp": 26300, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-malibu", "style": "LT 4dr Sedan w/3LT", "invoice": 26885, "msrp": 28300, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-malibu", "style": "LTZ 4dr Sedan w/1LZ", "invoice": 27027, "msrp": 28600, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-malibu", "style": "LTZ 4dr Sedan w/2LZ", "invoice": 28539, "msrp": 30200, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LS 4dr Hatchback w/1LS", "invoice": 14396, "msrp": 14765, "destination": 795}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LS 4dr Hatchback w/2LS", "invoice": 15439, "msrp": 15835, "destination": 795}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LS 4dr Sedan w/1LS", "invoice": 13518, "msrp": 13865, "destination": 795}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LS 4dr Sedan w/2LS", "invoice": 14562, "msrp": 14935, "destination": 795}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LT 4dr Hatchback w/1LT", "invoice": 15230, "msrp": 15865, "destination": 795}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LT 4dr Hatchback w/2LT", "invoice": 16258, "msrp": 16935, "destination": 795}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LT 4dr Sedan w/1LT", "invoice": 14463, "msrp": 15065, "destination": 795}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LT 4dr Sedan w/2LT", "invoice": 15490, "msrp": 16135, "destination": 795}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LTZ 4dr Hatchback w/2LZ", "invoice": 17570, "msrp": 18495, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LTZ 4dr Hatchback w/1LZ", "invoice": 16373, "msrp": 17235, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LTZ 4dr Sedan w/1LZ", "invoice": 15708, "msrp": 16535, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-sonic", "style": "LTZ 4dr Sedan w/2LZ", "invoice": 16905, "msrp": 17795, "destination": 760}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x2 Fleet 4dr SUV", "invoice": 38169, "msrp": 40975, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x4 Fleet 4dr SUV", "invoice": 40770, "msrp": 43770, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x2 Fleet 2500 4dr SUV", "invoice": 39413, "msrp": 42535, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x4 Fleet 2500 4dr SUV", "invoice": 42263, "msrp": 45375, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x2 LS 4dr SUV", "invoice": 39264, "msrp": 42220, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x4 LS 4dr SUV", "invoice": 41910, "msrp": 45065, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x2 LS 2500 4dr SUV", "invoice": 40762, "msrp": 43830, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x4 LS 2500 4dr SUV", "invoice": 43403, "msrp": 46670, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x2 LT 4dr SUV", "invoice": 42761, "msrp": 45980, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x4 LT 4dr SUV", "invoice": 45407, "msrp": 48825, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x2 LT 2500 4dr SUV", "invoice": 44240, "msrp": 47570, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x4 LT 2500 4dr SUV", "invoice": 46886, "msrp": 50415, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x2 LTZ 4dr SUV", "invoice": 51257, "msrp": 55115, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban", "style": "4x4 LTZ 4dr SUV", "invoice": 54046, "msrp": 58115, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x2 Fleet 4dr SUV", "invoice": 34946, "msrp": 37510, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x4 Fleet 4dr SUV", "invoice": 38678, "msrp": 41520, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x2 LS 4dr SUV", "invoice": 36042, "msrp": 38755, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x4 LS 4dr SUV", "invoice": 39818, "msrp": 42815, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x2 LT 4dr SUV", "invoice": 40832, "msrp": 43905, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x4 LT 4dr SUV", "invoice": 43482, "msrp": 46755, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x2 LTZ 4dr SUV", "invoice": 49262, "msrp": 52970, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x4 LTZ 4dr SUV", "invoice": 52150, "msrp": 56075, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x2 Police 4dr SUV", "invoice": 31880, "msrp": 34025, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe", "style": "4x4 Special Service 4dr SUV", "invoice": 34793, "msrp": 37105, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe_hybrid", "style": "4x2 4dr SUV", "invoice": 49112, "msrp": 51970, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe_hybrid", "style": "4x4 4dr SUV", "invoice": 51762, "msrp": 54775, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-traverse", "style": "LS 4dr SUV", "invoice": 28177, "msrp": 29660, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-traverse", "style": "AWD LS 4dr SUV", "invoice": 30077, "msrp": 31660, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-traverse", "style": "LT 4dr SUV w/ 1LT", "invoice": 31122, "msrp": 32760, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-traverse", "style": "AWD LT 4dr SUV w/ 1LT", "invoice": 33022, "msrp": 34760, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-traverse", "style": "LT 4dr SUV w/ 2LT", "invoice": 34110, "msrp": 35905, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-traverse", "style": "AWD LT 4dr SUV w/ 2LT", "invoice": 36010, "msrp": 37905, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-traverse", "style": "LTZ 4dr SUV", "invoice": 37083, "msrp": 39035, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-traverse", "style": "AWD LTZ 4dr SUV", "invoice": 38983, "msrp": 41035, "destination": 825}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-volt", "style": "4dr Hatchback", "invoice": 37579, "msrp": 39145, "destination": 850}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-volt", "style": "Premium 4dr Hatchback", "invoice": 38807, "msrp": 40540, "destination": 850}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-200", "style": "Limited 2dr Convertible", "invoice": 30354, "msrp": 31770, "destination": 850}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-200", "style": "Limited 4dr Sedan", "invoice": 23441, "msrp": 24490, "destination": 850}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-200", "style": "LX 4dr Sedan", "invoice": 18765, "msrp": 18995, "destination": 850}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-200", "style": "S 2dr Convertible", "invoice": 30814, "msrp": 32270, "destination": 850}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-200", "style": "S 4dr Sedan", "invoice": 25552, "msrp": 26785, "destination": 850}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-200", "style": "Touring 2dr Convertible", "invoice": 25758, "msrp": 26775, "destination": 850}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-200", "style": "Touring 4dr Sedan", "invoice": 20571, "msrp": 21370, "destination": 850}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "Base 4dr Sedan", "invoice": 26528, "msrp": 27470, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "C 4dr Sedan", "invoice": 36648, "msrp": 38470, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "AWD C 4dr Sedan", "invoice": 38809, "msrp": 40820, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "C Luxury Series 4dr Sedan", "invoice": 39868, "msrp": 41970, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "AWD C Luxury Series 4dr Sedan", "invoice": 42029, "msrp": 44320, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "Limited 4dr Sedan", "invoice": 31128, "msrp": 32470, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "AWD Limited 4dr Sedan", "invoice": 33289, "msrp": 34820, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "MOPAR 12 4dr Sedan", "invoice": 46339, "msrp": 49325, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "S V6 4dr Sedan", "invoice": 32048, "msrp": 33470, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "AWD S V6 4dr Sedan", "invoice": 34209, "msrp": 35820, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "S V8 4dr Sedan", "invoice": 37568, "msrp": 39470, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "AWD S V8 4dr Sedan", "invoice": 39729, "msrp": 41820, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-300", "style": "SRT8 4dr Sedan", "invoice": 45878, "msrp": 47470, "destination": 925}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-town_and_country", "style": "Limited 4dr Mini-Van", "invoice": 37351, "msrp": 39300, "destination": 935}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-town_and_country", "style": "Touring 4dr Mini-Van", "invoice": 28790, "msrp": 29995, "destination": 935}
+{"year": 2012, "make": "Chrysler", "slug": "2012-chrysler-town_and_country", "style": "Touring-L 4dr Mini-Van", "invoice": 31366, "msrp": 32795, "destination": 935}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-avenger", "style": "R/T 4dr Sedan", "invoice": 24800, "msrp": 25995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-avenger", "style": "SE 4dr Sedan", "invoice": 18740, "msrp": 18995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-avenger", "style": "SE V6 4dr Sedan", "invoice": 20965, "msrp": 21495, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-avenger", "style": "SXT 4dr Sedan", "invoice": 20660, "msrp": 21495, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-avenger", "style": "SXT Plus 4dr Sedan", "invoice": 22960, "msrp": 23995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-caliber", "style": "SE 4dr Wagon", "invoice": 16944, "msrp": 17380, "destination": 750}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-caliber", "style": "SXT 4dr Wagon", "invoice": 18232, "msrp": 18765, "destination": 750}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-caliber", "style": "SXT Plus 4dr Wagon", "invoice": 18199, "msrp": 18730, "destination": 750}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-challenger", "style": "R/T 2dr Coupe", "invoice": 28775, "msrp": 29995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-challenger", "style": "R/T Classic 2dr Coupe", "invoice": 32335, "msrp": 33995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-challenger", "style": "R/T Plus 2dr Coupe", "invoice": 30555, "msrp": 31995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-challenger", "style": "Rallye Redline Appearance Group 2dr Coupe", "invoice": 27697, "msrp": 28945, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-challenger", "style": "SRT8 392 2dr Coupe", "invoice": 42675, "msrp": 44125, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-challenger", "style": "SRT8 Yellow Jacket 2dr Coupe", "invoice": 44006, "msrp": 45620, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-challenger", "style": "SXT 2dr Coupe", "invoice": 24359, "msrp": 25195, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-challenger", "style": "SXT Plus 2dr Coupe", "invoice": 26139, "msrp": 27195, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "Police 4dr Sedan", "invoice": 28519, "msrp": 29770, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "R/T 4dr Sedan", "invoice": 28725, "msrp": 29995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "AWD R/T 4dr Sedan", "invoice": 30887, "msrp": 32345, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "R/T Max 4dr Sedan", "invoice": 34243, "msrp": 36195, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "AWD R/T Max 4dr Sedan", "invoice": 36405, "msrp": 38545, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "R/T Plus 4dr Sedan", "invoice": 30505, "msrp": 31995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "AWD R/T Plus 4dr Sedan", "invoice": 32667, "msrp": 34345, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "R/T Road and Track 4dr Sedan", "invoice": 32285, "msrp": 33995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "SE 4dr Sedan", "invoice": 24677, "msrp": 25595, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "SRT8 4dr Sedan", "invoice": 44281, "msrp": 45925, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "SRT8 Super Bee 4dr Sedan", "invoice": 40325, "msrp": 41625, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "SXT 4dr Sedan", "invoice": 29599, "msrp": 30945, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "AWD SXT 4dr Sedan", "invoice": 29507, "msrp": 30845, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "SXT Plus 4dr Sedan", "invoice": 31379, "msrp": 32945, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-charger", "style": "AWD SXT Plus 4dr Sedan", "invoice": 31287, "msrp": 32845, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "Citadel 4dr SUV", "invoice": 38576, "msrp": 40995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "AWD Citadel 4dr SUV", "invoice": 40643, "msrp": 43195, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "Crew 4dr SUV", "invoice": 32024, "msrp": 33795, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "AWD Crew 4dr SUV", "invoice": 34091, "msrp": 35995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "Heat 4dr SUV", "invoice": 29444, "msrp": 30960, "destination": 850}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "AWD Heat 4dr SUV", "invoice": 31374, "msrp": 33010, "destination": 850}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "R/T 4dr SUV", "invoice": 33844, "msrp": 35795, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "AWD R/T 4dr SUV", "invoice": 36275, "msrp": 38395, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "Special Service 4dr SUV", "invoice": 28384, "msrp": 29795, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "AWD Special Service 4dr SUV", "invoice": 30269, "msrp": 31795, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "SXT 4dr SUV", "invoice": 27656, "msrp": 28995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-durango", "style": "AWD SXT 4dr SUV", "invoice": 29723, "msrp": 31195, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-grand_caravan", "style": "American Value Package 4dr Mini-Van", "invoice": 20810, "msrp": 20995, "destination": 935}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-grand_caravan", "style": "Crew 4dr Mini-Van", "invoice": 27290, "msrp": 28495, "destination": 935}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-grand_caravan", "style": "R/T 4dr Mini-Van", "invoice": 28670, "msrp": 29995, "destination": 935}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-grand_caravan", "style": "SE 4dr Mini-Van", "invoice": 22590, "msrp": 22995, "destination": 935}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-grand_caravan", "style": "SXT 4dr Mini-Van", "invoice": 25450, "msrp": 26495, "destination": 935}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "American Value Package 4dr SUV", "invoice": 18855, "msrp": 18995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "Crew 4dr SUV", "invoice": 26939, "msrp": 28195, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "AWD Crew 4dr SUV", "invoice": 28595, "msrp": 29995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "Lux 4dr SUV", "invoice": 30781, "msrp": 32370, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "AWD Lux 4dr SUV", "invoice": 32377, "msrp": 34105, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "R/T 4dr SUV", "invoice": 28595, "msrp": 29995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "AWD R/T 4dr SUV", "invoice": 30251, "msrp": 31795, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "SE 4dr SUV", "invoice": 20635, "msrp": 20995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "SXT 4dr SUV", "invoice": 22155, "msrp": 22995, "destination": 995}
+{"year": 2012, "make": "Dodge", "slug": "2012-dodge-journey", "style": "AWD SXT 4dr SUV", "invoice": 25283, "msrp": 26395, "destination": 995}
+{"year": 2012, "make": "Ferrari", "slug": "2012-ferrari-458_italia", "style": "2dr Coupe", "invoice": 195120, "msrp": 229825, "destination": 3750}
+{"year": 2012, "make": "Ferrari", "slug": "2012-ferrari-california", "style": "2dr Convertible", "invoice": 0, "msrp": 218500, "destination": 3750}
+{"year": 2012, "make": "Ferrari", "slug": "2012-ferrari-ff", "style": "AWD 2dr Hatchback", "invoice": 0, "msrp": 295000, "destination": 3750}
+{"year": 2012, "make": "Fiat", "slug": "2012-fiat-500", "style": "Abarth 2dr Hatchback", "invoice": 21035, "msrp": 22000, "destination": 700}
+{"year": 2012, "make": "Fiat", "slug": "2012-fiat-500", "style": "GUCCI 2dr Hatchback", "invoice": 22350, "msrp": 23500, "destination": 700}
+{"year": 2012, "make": "Fiat", "slug": "2012-fiat-500", "style": "Lounge 2dr Hatchback", "invoice": 17780, "msrp": 18500, "destination": 700}
+{"year": 2012, "make": "Fiat", "slug": "2012-fiat-500", "style": "Pop 2dr Hatchback", "invoice": 14990, "msrp": 15500, "destination": 700}
+{"year": 2012, "make": "Fiat", "slug": "2012-fiat-500", "style": "Sport 2dr Hatchback", "invoice": 16850, "msrp": 17500, "destination": 700}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-edge", "style": "AWD Limited 4dr Crossover", "invoice": 34250, "msrp": 36785, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-edge", "style": "Limited 4dr Crossover", "invoice": 32566, "msrp": 34935, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-edge", "style": "SE 4dr Crossover", "invoice": 26323, "msrp": 27770, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-edge", "style": "AWD SE Fleet 4dr Crossover", "invoice": 28026, "msrp": 29620, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-edge", "style": "SEL 4dr Crossover", "invoice": 29057, "msrp": 31080, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-edge", "style": "AWD SEL 4dr Crossover", "invoice": 30741, "msrp": 32930, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-edge", "style": "AWD Sport 4dr Crossover", "invoice": 36229, "msrp": 38960, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-edge", "style": "Sport 4dr Crossover", "invoice": 34545, "msrp": 37110, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape", "style": "AWD Limited 4dr SUV", "invoice": 26180, "msrp": 28120, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape", "style": "Limited 4dr SUV", "invoice": 24587, "msrp": 26370, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape", "style": "AWD XLS 4dr SUV", "invoice": 21925, "msrp": 23190, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape", "style": "XLS 4dr SUV", "invoice": 20315, "msrp": 21440, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape", "style": "AWD XLT 4dr SUV", "invoice": 24815, "msrp": 26620, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape", "style": "XLT 4dr SUV", "invoice": 23222, "msrp": 24870, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape_hybrid", "style": "AWD Base 4dr SUV", "invoice": 30002, "msrp": 32320, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape_hybrid", "style": "Base 4dr SUV", "invoice": 28409, "msrp": 30570, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape_hybrid", "style": "AWD Limited 4dr SUV", "invoice": 32285, "msrp": 34830, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-escape_hybrid", "style": "Limited 4dr SUV", "invoice": 30692, "msrp": 33080, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-expedition", "style": "4x2 King Ranch 4dr SUV", "invoice": 43569, "msrp": 46780, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-expedition", "style": "4x4 King Ranch 4dr SUV", "invoice": 46208, "msrp": 49680, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-expedition", "style": "4x2 Limited 4dr SUV", "invoice": 42196, "msrp": 45270, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-expedition", "style": "4x4 Limited 4dr SUV", "invoice": 44835, "msrp": 48170, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-expedition", "style": "4x2 XL 4dr SUV", "invoice": 34242, "msrp": 36530, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-expedition", "style": "4x4 XL 4dr SUV", "invoice": 36881, "msrp": 39430, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-expedition", "style": "4x2 XLT 4dr SUV", "invoice": 36617, "msrp": 39140, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-expedition", "style": "4x4 XLT 4dr SUV", "invoice": 39256, "msrp": 42040, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer", "style": "AWD Base 4dr SUV", "invoice": 28677, "msrp": 30280, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer", "style": "Base 4dr SUV", "invoice": 26837, "msrp": 28280, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer", "style": "AWD Limited 4dr SUV", "invoice": 37088, "msrp": 39855, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer", "style": "Limited 4dr SUV", "invoice": 35268, "msrp": 37855, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer", "style": "XLT 4dr SUV", "invoice": 30027, "msrp": 32095, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer", "style": "AWD XLT 4dr SUV", "invoice": 31847, "msrp": 34095, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fiesta", "style": "S 4dr Hatchback", "invoice": 13634, "msrp": 14100, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fiesta", "style": "S 4dr Sedan", "invoice": 12788, "msrp": 13200, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fiesta", "style": "SE 4dr Hatchback", "invoice": 15110, "msrp": 15670, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fiesta", "style": "SE 4dr Sedan", "invoice": 14170, "msrp": 14670, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fiesta", "style": "SEL 4dr Sedan", "invoice": 15984, "msrp": 16600, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fiesta", "style": "SES 4dr Hatchback", "invoice": 16830, "msrp": 17500, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-flex", "style": "Limited 4dr Crossover", "invoice": 33356, "msrp": 35765, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-flex", "style": "AWD Limited 4dr Crossover", "invoice": 35039, "msrp": 37615, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-flex", "style": "AWD Limited 4dr Crossover w/EcoBoost", "invoice": 37765, "msrp": 40610, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-flex", "style": "SE 4dr Crossover", "invoice": 27918, "msrp": 29465, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-flex", "style": "SEL 4dr Crossover", "invoice": 30021, "msrp": 32100, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-flex", "style": "AWD SEL 4dr Crossover", "invoice": 31705, "msrp": 33950, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-flex", "style": "Titanium 4dr Crossover", "invoice": 35627, "msrp": 38260, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-flex", "style": "AWD Titanium 4dr Crossover", "invoice": 37310, "msrp": 40110, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-flex", "style": "AWD Titanium 4dr Crossover w/EcoBoost", "invoice": 40035, "msrp": 43105, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-focus", "style": "Electric 4dr Hatchback", "invoice": 36127, "msrp": 39200, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-focus", "style": "S 4dr Sedan", "invoice": 15635, "msrp": 16500, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-focus", "style": "SE 4dr Hatchback", "invoice": 17108, "msrp": 18300, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-focus", "style": "SE 4dr Sedan", "invoice": 16380, "msrp": 17500, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-focus", "style": "SEL 4dr Hatchback", "invoice": 19838, "msrp": 21300, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-focus", "style": "SEL 4dr Sedan", "invoice": 19110, "msrp": 20500, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-focus", "style": "Titanium 4dr Hatchback", "invoice": 21112, "msrp": 22700, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-focus", "style": "Titanium 4dr Sedan", "invoice": 20657, "msrp": 22200, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion", "style": "S 4dr Sedan", "invoice": 19381, "msrp": 20705, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion", "style": "SE 4dr Sedan", "invoice": 21217, "msrp": 22975, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion", "style": "SEL 4dr Sedan", "invoice": 23423, "msrp": 25425, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion", "style": "AWD SEL 4dr Sedan", "invoice": 26613, "msrp": 28970, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion", "style": "Sport 4dr Sedan", "invoice": 25043, "msrp": 27225, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion", "style": "AWD Sport 4dr Sedan", "invoice": 26797, "msrp": 29175, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion_hybrid", "style": "4dr Sedan", "invoice": 26437, "msrp": 28775, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-mustang", "style": "Boss 302 2dr Fastback", "invoice": 36999, "msrp": 40310, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-mustang", "style": "GT 2dr Convertible", "invoice": 31959, "msrp": 34710, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-mustang", "style": "GT 2dr Fastback", "invoice": 27459, "msrp": 29710, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-mustang", "style": "GT Premium 2dr Convertible", "invoice": 35559, "msrp": 38710, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-mustang", "style": "GT Premium 2dr Fastback", "invoice": 31059, "msrp": 33710, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-mustang", "style": "V6 2dr Convertible", "invoice": 25845, "msrp": 27310, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-mustang", "style": "V6 2dr Fastback", "invoice": 21245, "msrp": 22310, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-mustang", "style": "V6 Premium 2dr Convertible", "invoice": 28899, "msrp": 31310, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-mustang", "style": "V6 Premium 2dr Fastback", "invoice": 24399, "msrp": 26310, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-taurus", "style": "AWD Limited 4dr Sedan", "invoice": 31289, "msrp": 34005, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-taurus", "style": "Limited 4dr Sedan", "invoice": 29625, "msrp": 32155, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-taurus", "style": "SE 4dr Sedan", "invoice": 23685, "msrp": 25555, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-taurus", "style": "SEL 4dr Sedan", "invoice": 25665, "msrp": 27755, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-taurus", "style": "AWD SEL 4dr Sedan", "invoice": 27329, "msrp": 29605, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-taurus", "style": "AWD SHO 4dr Sedan", "invoice": 35025, "msrp": 38155, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-transit_connect", "style": "XL 4dr Cargo Mini-Van w/o Side and Rear Glass", "invoice": 20562, "msrp": 22035, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-transit_connect", "style": "XL 4dr Cargo Mini-Van w/Rear Glass", "invoice": 20731, "msrp": 22220, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-transit_connect", "style": "XL 4dr Cargo Mini-Van w/Side and Rear Glass", "invoice": 20794, "msrp": 22290, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-transit_connect", "style": "XLT 4dr Cargo Mini-Van w/o Side and Rear Glass", "invoice": 21527, "msrp": 23095, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-transit_connect", "style": "XLT 4dr Cargo Mini-Van w/Rear Glass", "invoice": 21836, "msrp": 23435, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-transit_connect", "style": "XLT 4dr Cargo Mini-Van w/Side and Rear Glass", "invoice": 21694, "msrp": 23280, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-transit_connect", "style": "XLT 4dr Mini-Van", "invoice": 22041, "msrp": 23660, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-transit_connect", "style": "XLT Premium 4dr Mini-Van", "invoice": 22177, "msrp": 23810, "destination": 825}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-transit_connect", "style": "XLT 4dr Cargo Mini-Van", "invoice": 0, "msrp": 57400, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "Denali 4dr SUV", "invoice": 42570, "msrp": 44810, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "AWD Denali 4dr SUV", "invoice": 44470, "msrp": 46810, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "SL 4dr SUV", "invoice": 31193, "msrp": 32835, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "AWD SL 4dr SUV", "invoice": 33093, "msrp": 34835, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "SLE 4dr SUV", "invoice": 33545, "msrp": 35310, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "AWD SLE 4dr SUV", "invoice": 35445, "msrp": 37310, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "SLT-1 4dr SUV", "invoice": 37107, "msrp": 39060, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "AWD SLT-1 4dr SUV", "invoice": 39007, "msrp": 41060, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "SLT-2 4dr SUV", "invoice": 37967, "msrp": 39965, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-acadia", "style": "AWD SLT-2 4dr SUV", "invoice": 39867, "msrp": 41965, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x2 SLE-1 2dr Regular Cab", "invoice": 19432, "msrp": 20455, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x4 SLE-1 2dr Regular Cab", "invoice": 24040, "msrp": 25305, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x2 SLE-1 4dr Extended Cab", "invoice": 21888, "msrp": 23040, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x4 SLE-1 4dr Extended Cab", "invoice": 25161, "msrp": 26485, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x2 SLE-1 4dr Crew Cab", "invoice": 23451, "msrp": 24685, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x4 SLE-1 4dr Crew Cab", "invoice": 27180, "msrp": 28610, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x4 SLE-2 4dr Extended Cab", "invoice": 27688, "msrp": 29145, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x2 SLE-2 4dr Crew Cab", "invoice": 25147, "msrp": 26470, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x4 SLE-2 4dr Crew Cab", "invoice": 27669, "msrp": 29125, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x4 SLT 4dr Crew Cab", "invoice": 30201, "msrp": 31790, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x2 Work Truck 2dr Regular Cab", "invoice": 16790, "msrp": 17490, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x4 Work Truck 2dr Regular Cab", "invoice": 21490, "msrp": 22385, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x2 Work Truck 4dr Extended Cab", "invoice": 20006, "msrp": 20840, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-canyon", "style": "4x4 Work Truck 4dr Extended Cab", "invoice": 23458, "msrp": 24435, "destination": 810}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "1500 3dr Cargo Van", "invoice": 22581, "msrp": 25090, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "AWD 1500 3dr Cargo Van", "invoice": 27126, "msrp": 30140, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "2500 3dr Cargo Van w/ 1WT", "invoice": 23841, "msrp": 26490, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "2500 3dr Cargo Van w/ 1SD", "invoice": 34592, "msrp": 38435, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "2500 3dr Extended Cargo Van w/ 1WT", "invoice": 25515, "msrp": 28350, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "2500 3dr Extended Cargo Van w/ 1SD", "invoice": 36266, "msrp": 40295, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 3dr Cargo Van w/ 1WT", "invoice": 26829, "msrp": 29810, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 3dr Cargo Van w/ 1SD", "invoice": 37580, "msrp": 41755, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 3dr Extended Cargo Van w/ 1WT", "invoice": 27626, "msrp": 30695, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 3dr Extended Cargo Van w/ 1SD", "invoice": 38376, "msrp": 42640, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 2dr 177 in. WB Cutaway Chassis w/ 1WT", "invoice": 25502, "msrp": 28335, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 2dr 177 in. WB Cutaway Chassis w/ 1SD", "invoice": 36252, "msrp": 40280, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 2dr 159 in. WB Cutaway Chassis w/ 1WT", "invoice": 24174, "msrp": 26860, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 2dr 159 in. WB Cutaway Chassis w/ 1SD", "invoice": 34925, "msrp": 38805, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 2dr 139 in. WB Cutaway Chassis w/ 1WT", "invoice": 24066, "msrp": 26740, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "3500 2dr 139 in. WB Cutaway Chassis w/ 1SD", "invoice": 34817, "msrp": 38685, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LS 1500 3dr Passenger Van", "invoice": 26046, "msrp": 28940, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "AWD LS 1500 3dr Passenger Van", "invoice": 29246, "msrp": 32495, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LS 2500 3dr Passenger Van", "invoice": 26757, "msrp": 29730, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LS 3500 3dr Passenger Van w/ 2LS", "invoice": 40469, "msrp": 44965, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LS 3500 3dr Passenger Van w/ 1LS", "invoice": 28823, "msrp": 32025, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LS 3500 3dr Extended Passenger Van w/ 2LS", "invoice": 42152, "msrp": 46835, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LS 3500 3dr Extended Passenger Van w/ 1LS", "invoice": 30506, "msrp": 33895, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "AWD LT 1500 3dr Passenger Van", "invoice": 30819, "msrp": 34345, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LT 1500 3dr Passenger Van", "invoice": 27619, "msrp": 30790, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LT 2500 3dr Passenger Van", "invoice": 28330, "msrp": 31580, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LT 3500 3dr Passenger Van w/ 2LT", "invoice": 41706, "msrp": 46420, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LT 3500 3dr Passenger Van w/ 1LT", "invoice": 30396, "msrp": 33875, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LT 3500 3dr Extended Passenger Van w/ 2LT", "invoice": 43389, "msrp": 48290, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-savana", "style": "LT 3500 3dr Extended Passenger Van w/ 1LT", "invoice": 32079, "msrp": 35745, "destination": 980}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-terrain", "style": "SLE-1 4dr SUV", "invoice": 24282, "msrp": 25560, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-terrain", "style": "AWD SLE-1 4dr SUV", "invoice": 25945, "msrp": 27310, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-terrain", "style": "SLE-2 4dr SUV", "invoice": 25612, "msrp": 26960, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-terrain", "style": "AWD SLE-2 4dr SUV", "invoice": 27275, "msrp": 28710, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-terrain", "style": "SLT-1 4dr SUV", "invoice": 27085, "msrp": 28510, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-terrain", "style": "AWD SLT-1 4dr SUV", "invoice": 28747, "msrp": 30260, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-terrain", "style": "SLT-2 4dr SUV", "invoice": 29697, "msrp": 31260, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-terrain", "style": "AWD SLT-2 4dr SUV", "invoice": 31360, "msrp": 33010, "destination": 825}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x2 Denali 4dr SUV", "invoice": 51159, "msrp": 55010, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "AWD Denali 4dr SUV", "invoice": 53945, "msrp": 58005, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x2 Denali Hybrid 4dr SUV", "invoice": 56969, "msrp": 60285, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x4 Denali Hybrid 4dr SUV", "invoice": 59658, "msrp": 63130, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x2 Fleet 4dr SUV", "invoice": 35114, "msrp": 37625, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x4 Fleet 4dr SUV", "invoice": 38843, "msrp": 41635, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x2 Hybrid 4dr SUV", "invoice": 49584, "msrp": 52470, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x4 Hybrid 4dr SUV", "invoice": 52240, "msrp": 55280, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x2 SLE 4dr SUV", "invoice": 37279, "msrp": 40085, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x4 SLE 4dr SUV", "invoice": 41008, "msrp": 44095, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x2 SLT 4dr SUV", "invoice": 42380, "msrp": 45570, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon", "style": "4x4 SLT 4dr SUV", "invoice": 45035, "msrp": 48425, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x2 Denali XL 4dr SUV", "invoice": 53638, "msrp": 57675, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "AWD Denali XL 4dr SUV", "invoice": 56507, "msrp": 60760, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x2 Fleet 4dr SUV", "invoice": 38266, "msrp": 41010, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x4 Fleet 4dr SUV", "invoice": 40859, "msrp": 43800, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x2 Fleet 2500 4dr SUV", "invoice": 39652, "msrp": 42580, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x4 Fleet 2500 4dr SUV", "invoice": 42364, "msrp": 45420, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x2 SLE 4dr SUV", "invoice": 40506, "msrp": 43555, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x4 SLE 4dr SUV", "invoice": 43101, "msrp": 46345, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x2 SLE 2500 4dr SUV", "invoice": 41892, "msrp": 45045, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x4 SLE 2500 4dr SUV", "invoice": 44533, "msrp": 47885, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x2 SLT 4dr SUV", "invoice": 44445, "msrp": 47790, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x4 SLT 4dr SUV", "invoice": 46988, "msrp": 50525, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x2 SLT 2500 4dr SUV", "invoice": 45961, "msrp": 49420, "destination": 995}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon_xl", "style": "4x4 SLT 2500 4dr SUV", "invoice": 48606, "msrp": 52265, "destination": 995}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX 2dr Coupe 5M", "invoice": 22654, "msrp": 24755, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX 2dr Coupe 5A", "invoice": 23384, "msrp": 25555, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX 4dr Sedan 5A", "invoice": 23065, "msrp": 25205, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX 4dr Sedan 5M", "invoice": 22335, "msrp": 24405, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX V6 4dr Sedan", "invoice": 25048, "msrp": 27380, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L 2dr Coupe", "invoice": 25071, "msrp": 27405, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L 4dr Sedan", "invoice": 25299, "msrp": 27655, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L V6 2dr Coupe 6M", "invoice": 27465, "msrp": 30030, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L V6 2dr Coupe 5A", "invoice": 27465, "msrp": 30030, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L V6 4dr Sedan", "invoice": 27192, "msrp": 29730, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L V6 2dr Coupe 6M w/Navi", "invoice": 29290, "msrp": 32030, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L V6 2dr Coupe 5A w/Navi", "invoice": 29290, "msrp": 32030, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L V6 4dr Sedan w/Navi", "invoice": 29198, "msrp": 31930, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L 2dr Coupe w/Navi", "invoice": 26895, "msrp": 29405, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "EX-L 4dr Sedan w/Navi", "invoice": 27306, "msrp": 29855, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "LX 4dr Sedan 5A", "invoice": 20397, "msrp": 22280, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "LX 4dr Sedan 5M", "invoice": 19667, "msrp": 21480, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "LX-P 4dr Sedan", "invoice": 21309, "msrp": 23280, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "LX-S 2dr Coupe 5A", "invoice": 21856, "msrp": 23880, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "LX-S 2dr Coupe 5M", "invoice": 21126, "msrp": 23080, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord", "style": "SE 4dr Sedan", "invoice": 21993, "msrp": 24030, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "DX 2dr Coupe 5A", "invoice": 15402, "msrp": 16555, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "DX 2dr Coupe 5M", "invoice": 14661, "msrp": 15755, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "DX 4dr Sedan 5A", "invoice": 15587, "msrp": 16755, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "DX 4dr Sedan 5M", "invoice": 14846, "msrp": 15955, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "EX 2dr Coupe 5M", "invoice": 18457, "msrp": 19855, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "EX 2dr Coupe 5A", "invoice": 19197, "msrp": 20655, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "EX 4dr Sedan", "invoice": 19197, "msrp": 20655, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "EX 2dr Coupe w/Navi", "invoice": 20586, "msrp": 22155, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "EX 4dr Sedan w/Navi", "invoice": 20586, "msrp": 22155, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "EX-L 2dr Coupe", "invoice": 20540, "msrp": 22105, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "EX-L 4dr Sedan", "invoice": 20540, "msrp": 22105, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "EX-L 2dr Coupe w/Navi", "invoice": 21929, "msrp": 23605, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "EX-L 4dr Sedan w/Navi", "invoice": 21929, "msrp": 23605, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "HF 4dr Sedan", "invoice": 18225, "msrp": 19605, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Hybrid 4dr Sedan", "invoice": 22479, "msrp": 24200, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Hybrid 4dr Sedan w/Leather", "invoice": 23590, "msrp": 25400, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Hybrid 4dr Sedan w/Leather and Navi", "invoice": 24979, "msrp": 26900, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Hybrid 4dr Sedan w/Navi", "invoice": 23868, "msrp": 25700, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "LX 2dr Coupe 5M", "invoice": 16559, "msrp": 17805, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "LX 2dr Coupe 5A", "invoice": 17300, "msrp": 18605, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "LX 4dr Sedan 5M", "invoice": 16744, "msrp": 18005, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "LX 4dr Sedan 5A", "invoice": 17485, "msrp": 18805, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Natural Gas 4dr Sedan", "invoice": 25660, "msrp": 26305, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Natural Gas 4dr Sedan w/Navi", "invoice": 27121, "msrp": 27805, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Si 2dr Coupe", "invoice": 20771, "msrp": 22355, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Si 4dr Sedan", "invoice": 20956, "msrp": 22555, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Si 2dr Coupe w/Navi", "invoice": 22160, "msrp": 23855, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Si 4dr Sedan w/Navi", "invoice": 22345, "msrp": 24055, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Si 2dr Coupe w/Summer Tires", "invoice": 20956, "msrp": 22555, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Si 4dr Sedan w/Summer Tires", "invoice": 21142, "msrp": 22755, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-civic", "style": "Si 2dr Coupe w/Summer Tires and Navi", "invoice": 22345, "msrp": 24055, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-crosstour", "style": "EX 4dr Crossover", "invoice": 25390, "msrp": 27755, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-crosstour", "style": "EX V6 4dr Crossover", "invoice": 27839, "msrp": 30440, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-crosstour", "style": "EX-L 4dr Crossover", "invoice": 28172, "msrp": 30805, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-crosstour", "style": "EX-L V6 4dr Crossover", "invoice": 30256, "msrp": 33090, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-crosstour", "style": "AWD EX-L V6 4dr Crossover", "invoice": 31579, "msrp": 34540, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-crosstour", "style": "EX-L V6 4dr Crossover w/Navi", "invoice": 32172, "msrp": 35190, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-crosstour", "style": "AWD EX-L V6 4dr Crossover w/Navi", "invoice": 33494, "msrp": 36640, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-crosstour", "style": "EX-L 4dr Crossover w/Navi", "invoice": 30088, "msrp": 32905, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-fit", "style": "Base 4dr Hatchback 5M", "invoice": 14926, "msrp": 15325, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-fit", "style": "Base 4dr Hatchback 5A", "invoice": 15701, "msrp": 16125, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-fit", "style": "Sport 4dr Hatchback 5M", "invoice": 16607, "msrp": 17060, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-fit", "style": "Sport 4dr Hatchback 5A", "invoice": 17431, "msrp": 17910, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-fit", "style": "Sport 4dr Hatchback w/Navi", "invoice": 19156, "msrp": 19690, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-insight", "style": "Base 4dr Hatchback", "invoice": 17629, "msrp": 18500, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-insight", "style": "EX 4dr Hatchback", "invoice": 20917, "msrp": 21965, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-insight", "style": "EX 4dr Hatchback w/Navi", "invoice": 22554, "msrp": 23690, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-insight", "style": "LX 4dr Hatchback", "invoice": 19313, "msrp": 20275, "destination": 790}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-odyssey", "style": "EX 4dr Mini-Van", "invoice": 28920, "msrp": 31625, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-odyssey", "style": "EX-L 4dr Mini-Van", "invoice": 32021, "msrp": 35025, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-odyssey", "style": "EX-L 4dr Mini-Van w/DVD", "invoice": 33481, "msrp": 36625, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-odyssey", "style": "EX-L 4dr Mini-Van w/Navi", "invoice": 33846, "msrp": 37025, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-odyssey", "style": "LX 4dr Mini-Van", "invoice": 25956, "msrp": 28375, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-odyssey", "style": "Touring 4dr Mini-Van", "invoice": 37772, "msrp": 41330, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-odyssey", "style": "Touring Elite 4dr Mini-Van", "invoice": 40048, "msrp": 43825, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "4x4 EX 4dr SUV", "invoice": 30238, "msrp": 33070, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "EX 4dr SUV", "invoice": 28779, "msrp": 31470, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "4x4 EX-L 4dr SUV", "invoice": 33203, "msrp": 36320, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "EX-L 4dr SUV", "invoice": 31743, "msrp": 34720, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "4x4 EX-L 4dr SUV w/DVD", "invoice": 34662, "msrp": 37920, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "EX-L 4dr SUV w/DVD", "invoice": 33203, "msrp": 36320, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "EX-L 4dr SUV w/Navi", "invoice": 33567, "msrp": 36720, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "4x4 EX-L 4dr SUV w/Navi", "invoice": 35027, "msrp": 38320, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "4x4 LX 4dr SUV", "invoice": 27639, "msrp": 30220, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "LX 4dr SUV", "invoice": 26179, "msrp": 28620, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "4x4 Touring 4dr SUV", "invoice": 37444, "msrp": 40970, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-pilot", "style": "Touring 4dr SUV", "invoice": 35984, "msrp": 39370, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-ridgeline", "style": "4x4 RT 4dr Crew Cab", "invoice": 26845, "msrp": 29350, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-ridgeline", "style": "4x4 RTL 4dr Crew Cab", "invoice": 31935, "msrp": 34930, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-ridgeline", "style": "4x4 RTL 4dr Crew Cab w/Navi", "invoice": 34078, "msrp": 37280, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-ridgeline", "style": "4x4 RTS 4dr Crew Cab", "invoice": 29312, "msrp": 32055, "destination": 830}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-ridgeline", "style": "4x4 Sport 4dr Crew Cab", "invoice": 27525, "msrp": 30095, "destination": 830}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-accent", "style": "GLS 4dr Sedan", "invoice": 12244, "msrp": 12545, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-accent", "style": "GS 4dr Hatchback", "invoice": 14298, "msrp": 14695, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-accent", "style": "SE 4dr Hatchback", "invoice": 15444, "msrp": 15895, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-azera", "style": "4dr Sedan", "invoice": 29864, "msrp": 32000, "destination": 875}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra", "style": "GLS 4dr Sedan 6M", "invoice": 14918, "msrp": 15345, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra", "style": "GLS 4dr Sedan 6A", "invoice": 17010, "msrp": 17595, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra", "style": "Limited 4dr Sedan", "invoice": 19727, "msrp": 20595, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra_touring", "style": "GLS 4dr Wagon", "invoice": 15539, "msrp": 15995, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra_touring", "style": "SE 4dr Wagon", "invoice": 18687, "msrp": 19495, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-equus", "style": "Signature 4dr Sedan", "invoice": 55134, "msrp": 59000, "destination": 900}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-equus", "style": "Ultimate 4dr Sedan", "invoice": 61644, "msrp": 66000, "destination": 900}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis", "style": "3.8L V6 4dr Sedan", "invoice": 32070, "msrp": 34200, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis", "style": "4.6L V8 4dr Sedan", "invoice": 41204, "msrp": 44500, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis", "style": "5.0L 4dr Sedan", "invoice": 42124, "msrp": 45500, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis", "style": "5.0L R-Spec 4dr Sedan", "invoice": 43044, "msrp": 46500, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis_coupe", "style": "2.0T 2dr Coupe", "invoice": 21180, "msrp": 22250, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis_coupe", "style": "2.0T Premium 2dr Coupe", "invoice": 25410, "msrp": 26750, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis_coupe", "style": "2.0T R-Spec 2dr Coupe", "invoice": 23294, "msrp": 24500, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis_coupe", "style": "3.8 Grand Touring 2dr Coupe", "invoice": 27932, "msrp": 29750, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis_coupe", "style": "3.8 R-Spec 2dr Coupe", "invoice": 25142, "msrp": 26750, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-genesis_coupe", "style": "3.8 Track 2dr Coupe", "invoice": 28862, "msrp": 30750, "destination": 850}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-santa_fe", "style": "GLS 4dr SUV (I4)", "invoice": 22328, "msrp": 23225, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-santa_fe", "style": "AWD GLS 4dr SUV (I4)", "invoice": 23943, "msrp": 24925, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-santa_fe", "style": "GLS 4dr SUV (V6)", "invoice": 24133, "msrp": 25125, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-santa_fe", "style": "AWD GLS 4dr SUV (V6)", "invoice": 25748, "msrp": 26825, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-santa_fe", "style": "Limited 4dr SUV (I4)", "invoice": 25630, "msrp": 27275, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-santa_fe", "style": "AWD Limited 4dr SUV", "invoice": 29024, "msrp": 30295, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-santa_fe", "style": "Limited 4dr SUV (V6)", "invoice": 27443, "msrp": 29225, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-santa_fe", "style": "SE 4dr SUV 6A", "invoice": 24915, "msrp": 26225, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-santa_fe", "style": "AWD SE 4dr SUV", "invoice": 26701, "msrp": 28125, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-sonata", "style": "GLS 4dr Sedan 6M", "invoice": 18971, "msrp": 19795, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-sonata", "style": "GLS 4dr Sedan 6A", "invoice": 19916, "msrp": 20795, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-sonata", "style": "Limited 4dr Sedan 6A", "invoice": 24725, "msrp": 26445, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-sonata", "style": "Limited 2.0T 4dr Sedan 6A", "invoice": 26345, "msrp": 28195, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-sonata", "style": "SE 4dr Sedan 6A", "invoice": 21952, "msrp": 23195, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-sonata", "style": "SE 2.0T 4dr Sedan", "invoice": 23400, "msrp": 24745, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-sonata_hybrid", "style": "Base 4dr Sedan", "invoice": 24434, "msrp": 25850, "destination": 775}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-tucson", "style": "GL 4dr SUV", "invoice": 18452, "msrp": 19145, "destination": 825}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-tucson", "style": "GLS 4dr SUV", "invoice": 21445, "msrp": 22295, "destination": 825}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-tucson", "style": "AWD GLS 4dr SUV", "invoice": 23012, "msrp": 23945, "destination": 825}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-tucson", "style": "Limited 4dr SUV", "invoice": 23760, "msrp": 24995, "destination": 825}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-tucson", "style": "AWD Limited 4dr SUV", "invoice": 25170, "msrp": 26495, "destination": 825}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-veloster", "style": "3dr Coupe 6M", "invoice": 16699, "msrp": 17300, "destination": 760}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-veloster", "style": "3dr Coupe DCT", "invoice": 17887, "msrp": 18550, "destination": 760}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-veracruz", "style": "GLS 4dr Crossover", "invoice": 26908, "msrp": 28345, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-veracruz", "style": "AWD GLS 4dr Crossover", "invoice": 28694, "msrp": 30245, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-veracruz", "style": "Limited 4dr Crossover", "invoice": 32000, "msrp": 34495, "destination": 810}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-veracruz", "style": "AWD Limited 4dr Crossover", "invoice": 33564, "msrp": 36195, "destination": 810}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-ex35", "style": "Base 4dr Crossover", "invoice": 33170, "msrp": 35800, "destination": 950}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-ex35", "style": "AWD Base 4dr Crossover", "invoice": 34464, "msrp": 37200, "destination": 950}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-ex35", "style": "Journey 4dr Crossover", "invoice": 35296, "msrp": 38100, "destination": 950}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-ex35", "style": "AWD Journey 4dr Crossover", "invoice": 36589, "msrp": 39500, "destination": 950}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-fx35", "style": "Base 4dr SUV", "invoice": 40469, "msrp": 43700, "destination": 950}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-fx35", "style": "AWD Base 4dr SUV", "invoice": 41810, "msrp": 45150, "destination": 950}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-fx35", "style": "AWD Limited Edition 4dr SUV", "invoice": 48136, "msrp": 52000, "destination": 950}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-fx50", "style": "AWD Base 4dr SUV", "invoice": 55340, "msrp": 59800, "destination": 950}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g25", "style": "4dr Sedan", "invoice": 30676, "msrp": 33100, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g25", "style": "Journey 4dr Sedan", "invoice": 31970, "msrp": 34500, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g25", "style": "AWD x 4dr Sedan", "invoice": 33447, "msrp": 36100, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g37_convertible", "style": "2dr Convertible", "invoice": 43193, "msrp": 46650, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g37_convertible", "style": "Sport 2dr Convertible", "invoice": 47490, "msrp": 51300, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g37_coupe", "style": "2dr Coupe", "invoice": 35018, "msrp": 37800, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g37_coupe", "style": "IPL 2dr Coupe 6M", "invoice": 46104, "msrp": 49800, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g37_coupe", "style": "IPL 2dr Coupe 7A", "invoice": 47859, "msrp": 51700, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g37_coupe", "style": "Journey 2dr Coupe", "invoice": 36357, "msrp": 39250, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g37_coupe", "style": "Sport 2dr Coupe", "invoice": 40930, "msrp": 44200, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-g37_coupe", "style": "AWD x 2dr Coupe", "invoice": 37883, "msrp": 40900, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-m37", "style": "4dr Sedan", "invoice": 44163, "msrp": 47700, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-m37", "style": "AWD x 4dr Sedan", "invoice": 46149, "msrp": 49850, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-m56", "style": "4dr Sedan", "invoice": 54787, "msrp": 59200, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-m56", "style": "AWD x 4dr Sedan", "invoice": 57096, "msrp": 61700, "destination": 895}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-qx56", "style": "4x2 Base 4dr SUV", "invoice": 55525, "msrp": 60000, "destination": 990}
+{"year": 2012, "make": "Infiniti", "slug": "2012-infiniti-qx56", "style": "4x4 Base 4dr SUV", "invoice": 58389, "msrp": 63100, "destination": 990}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xf", "style": "4dr Sedan", "invoice": 48760, "msrp": 53000, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xf", "style": "Portfolio 4dr Sedan", "invoice": 54280, "msrp": 59000, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xf", "style": "Supercharged 4dr Sedan", "invoice": 62652, "msrp": 68100, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xf", "style": "XFR 4dr Sedan", "invoice": 75440, "msrp": 82000, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xj", "style": "4dr Sedan", "invoice": 67804, "msrp": 73700, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xj", "style": "Supercharged 4dr Sedan", "invoice": 81512, "msrp": 88600, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xj", "style": "Supersport 4dr Sedan", "invoice": 102304, "msrp": 111200, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xk", "style": "2dr Convertible", "invoice": 83260, "msrp": 90500, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xk", "style": "2dr Coupe", "invoice": 77740, "msrp": 84500, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xk", "style": "XKR 2dr Convertible", "invoice": 95220, "msrp": 103500, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xk", "style": "XKR 2dr Coupe", "invoice": 89700, "msrp": 97500, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xk", "style": "XKR-S 2dr Convertible", "invoice": 126869, "msrp": 138000, "destination": 875}
+{"year": 2012, "make": "Jaguar", "slug": "2012-jaguar-xk", "style": "XKR-S 2dr Coupe", "invoice": 121349, "msrp": 132000, "destination": 875}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-compass", "style": "Latitude 4dr SUV", "invoice": 21006, "msrp": 21695, "destination": 880}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-compass", "style": "4x4 Latitude 4dr SUV", "invoice": 22633, "msrp": 23445, "destination": 880}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-compass", "style": "Limited 4dr SUV", "invoice": 23424, "msrp": 24295, "destination": 880}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-compass", "style": "4x4 Limited 4dr SUV", "invoice": 25051, "msrp": 26045, "destination": 880}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-compass", "style": "Sport 4dr SUV", "invoice": 18967, "msrp": 19295, "destination": 880}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-compass", "style": "4x4 Sport 4dr SUV", "invoice": 20612, "msrp": 21045, "destination": 880}
