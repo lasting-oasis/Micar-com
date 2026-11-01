@@ -80,7 +80,8 @@ def harvest(text, mk_model):
         models[mk_model] = years
     for sib in set(re.findall(r'href="/car/(' + re.escape(mk) + r'-[a-z0-9_\-]+?)"', text)):
         if not re.search(r'-(price|specs|interior|colors|dimensions|safety|tire|wheel|reliability|resale|generations)', sib):
-            models.setdefault(sib, None)
+            model_part = sib[len(mk) + 1:]
+            models.setdefault(f'{mk}-' + model_part.replace('-', '_'), None)
 
 def get_page(key):
     """Fetch key's price page with back-off. Returns (code, text) or None to stop the run."""
@@ -94,7 +95,9 @@ def get_page(key):
     if code in (403, 429, 0, 500, 502, 503):
         blocked += 1
         print('refused again', code, key)
-        return None if blocked >= 5 else (code, '')
+        if blocked >= 5:
+            print('stopping: site keeps refusing'); return None
+        return (code, '')
     blocked = 0
     return code, text
 
