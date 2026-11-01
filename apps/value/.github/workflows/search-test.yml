@@ -1,0 +1,46 @@
+name: Search API test
+
+# One-off: 10 MSRP searches through the Searlo API (key in the SEARCH_API_KEY secret),
+# saving the raw responses so the result format can be checked before a full run.
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/search-test.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Search
+        env:
+          KEY: ${{ secrets.SEARCH_API_KEY }}
+        run: |
+          mkdir -p data/search/test
+          while IFS= read -r q; do
+            f="data/search/test/$(echo "$q" | tr ' ' '_' ).json"
+            curl -sS -G "https://api.searlo.tech/api/v1/search/web" --data-urlencode "q=$q MSRP" --data-urlencode "limit=10" -H "x-api-key: $KEY" -o "$f" -w "$q %{http_code}\n" | tee -a data/search/test/status.txt
+            sleep 1
+          done <<'Q'
+2012 Toyota Camry
+2013 Lexus IS 350
+2011 Honda Civic
+2010 Dodge Charger
+2013 Toyota Corolla
+2013 Nissan Altima
+2016 Honda Accord
+2018 Ford F-150
+2015 BMW 3 Series
+2012 Kia Optima
+Q
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/search/test
+          git commit -m "Search API test $(date -u +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
