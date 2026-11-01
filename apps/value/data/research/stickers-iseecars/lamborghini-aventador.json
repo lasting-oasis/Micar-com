@@ -1,0 +1,42 @@
+{
+"make": "Lamborghini",
+"model": "Aventador",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (aventador).",
+"years": [
+{
+"year": 2014,
+"destination": 2995,
+"trims": [
+{
+"trim": "AWD LP 700-4 2dr Coupe",
+"msrp": 397500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 700-4 2dr Roadster",
+"msrp": 441600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 720-4 50 Anniversario 2dr Coupe",
+"msrp": 497650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 720-4 50 Anniversario 2dr Roadster",
+"msrp": 548800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lamborghini-aventador-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

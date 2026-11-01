@@ -1,0 +1,276 @@
+{
+"make": "Ford",
+"model": "Explorer",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (explorer).",
+"years": [
+{
+"year": 2010,
+"destination": 815,
+"trims": [
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 28880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Eddie Bauer 4dr SUV",
+"msrp": 32880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Eddie Bauer 4dr SUV",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 35880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 38200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 805,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 28190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 30190,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 31350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 33350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 37365,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 39365,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 28280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 30280,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 32095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 37855,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 39855,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "Police Interceptor Utility 4dr SUV",
+"msrp": 28580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 29705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 32680,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 34680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 40780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 30015,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 30185,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 32015,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 41675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,294 @@
+{
+"make": "Chevrolet",
+"model": "Equinox",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (equinox).",
+"years": [
+{
+"year": 2010,
+"destination": 745,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 22615,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 23535,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 24365,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/1LT",
+"msrp": 25285,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 25620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 27370,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 28220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 29970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 24160,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 24745,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/1LT",
+"msrp": 25910,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 26220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 27970,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 28570,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 30320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 23530,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/ 1LT",
+"msrp": 25050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 25280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/ 1LT",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/ 2LT",
+"msrp": 26870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/ 2LT",
+"msrp": 28620,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 29220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 30970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 860,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 24255,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/ 1LT",
+"msrp": 25870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 25975,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/ 1LT",
+"msrp": 27620,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/ 2LT",
+"msrp": 27740,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/ 2LT",
+"msrp": 29490,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 30985,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 32735,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 875,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 24440,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 26085,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 26190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/1LT",
+"msrp": 27835,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 29705,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 31650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 33400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

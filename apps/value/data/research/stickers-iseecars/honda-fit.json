@@ -1,0 +1,132 @@
+{
+"make": "Honda",
+"model": "Fit",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (fit).",
+"years": [
+{
+"year": 2010,
+"destination": 710,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 14900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5A",
+"msrp": 15700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5M",
+"msrp": 16410,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5A",
+"msrp": 17260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5M w/Navi",
+"msrp": 18260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5A w/Navi",
+"msrp": 19110,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 770,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 15100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5A",
+"msrp": 15900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5M",
+"msrp": 16860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5A",
+"msrp": 17710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback w/Navi",
+"msrp": 19240,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 15325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5A",
+"msrp": 16125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5M",
+"msrp": 17060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5A",
+"msrp": 17910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback w/Navi",
+"msrp": 19690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

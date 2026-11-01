@@ -1,0 +1,306 @@
+{
+"make": "Nissan",
+"model": "370z",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (370z).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "Base 2dr Coupe 6M",
+"msrp": 30410,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Coupe 7A",
+"msrp": 31710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 6M",
+"msrp": 35080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 7A",
+"msrp": 36380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster 2dr Convertible 6M",
+"msrp": 37320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster 2dr Convertible 7A",
+"msrp": 38620,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO 2dr Coupe",
+"msrp": 39610,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 6M",
+"msrp": 40870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 7A",
+"msrp": 42170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-370z-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "Base 2dr Coupe 6M",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Coupe 7A",
+"msrp": 32750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 6M",
+"msrp": 36150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 7A",
+"msrp": 37450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster 2dr Convertible 6M",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster 2dr Convertible 7A",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO 2dr Coupe",
+"msrp": 40830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 6M",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 7A",
+"msrp": 43500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-370z-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "Base 2dr Coupe 6M",
+"msrp": 32280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Coupe 7A",
+"msrp": 33580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 6M",
+"msrp": 36980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 7A",
+"msrp": 38280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster 2dr Convertible",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO 2dr Coupe",
+"msrp": 41660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 6M",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 7A",
+"msrp": 44500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-370z-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 810,
+"trims": [
+{
+"trim": "Base 2dr Coupe 6M",
+"msrp": 33120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Coupe 7A",
+"msrp": 34420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 6M",
+"msrp": 37820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 7A",
+"msrp": 39120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster 2dr Convertible",
+"msrp": 41470,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO 2dr Coupe",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 6M",
+"msrp": 44170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 7A",
+"msrp": 45470,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-370z-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "Base 2dr Coupe 6M",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Coupe 7A",
+"msrp": 31290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 6M",
+"msrp": 35270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Coupe 7A",
+"msrp": 36570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster 2dr Convertible",
+"msrp": 41470,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO 2dr Coupe 6M",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 6M",
+"msrp": 44170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster Touring 2dr Convertible 7A",
+"msrp": 45470,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-370z-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

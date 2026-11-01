@@ -1,0 +1,147 @@
+{
+"make": "Audi",
+"model": "Q5",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (q5).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 3.2 quattro Premium 4dr SUV",
+"msrp": 37350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Premium Plus 4dr SUV",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Prestige 4dr SUV",
+"msrp": 48850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Premium Plus 4dr SUV",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Prestige 4dr SUV",
+"msrp": 49700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Premium Plus 4dr SUV",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Prestige 4dr SUV",
+"msrp": 50100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr SUV",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI Premium Plus 4dr SUV",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr SUV",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI Prestige 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

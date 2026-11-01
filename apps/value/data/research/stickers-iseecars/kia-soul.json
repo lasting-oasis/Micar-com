@@ -1,0 +1,210 @@
+{
+"make": "Kia",
+"model": "Soul",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (soul).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "4dr Crossover 5M",
+"msrp": 13300,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover 5M",
+"msrp": 15195,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover 4A",
+"msrp": 16195,
+"config": "",
+"note": ""
+},
+{
+"trim": "! 4dr Crossover 5M",
+"msrp": 17195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover 5M",
+"msrp": 17195,
+"config": "",
+"note": ""
+},
+{
+"trim": "! 4dr Crossover 4A",
+"msrp": 18195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover 4A",
+"msrp": 18195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 695,
+"trims": [
+{
+"trim": "4dr Crossover",
+"msrp": 13300,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover 5M",
+"msrp": 15495,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover 4A",
+"msrp": 16495,
+"config": "",
+"note": ""
+},
+{
+"trim": "! 4dr Crossover",
+"msrp": 18495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover 4A",
+"msrp": 18495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 750,
+"trims": [
+{
+"trim": "4dr Crossover 6M",
+"msrp": 13900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Crossover 6A",
+"msrp": 15700,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover 6M",
+"msrp": 16300,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover 6A",
+"msrp": 17300,
+"config": "",
+"note": ""
+},
+{
+"trim": "! 4dr Crossover",
+"msrp": 19600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 775,
+"trims": [
+{
+"trim": "4dr Crossover 6M",
+"msrp": 14400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Crossover 6A",
+"msrp": 16200,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover 6M",
+"msrp": 16700,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover 6A",
+"msrp": 17700,
+"config": "",
+"note": ""
+},
+{
+"trim": "! 4dr Crossover",
+"msrp": 19900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "4dr Crossover 6M",
+"msrp": 14900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Crossover 6A",
+"msrp": 16900,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover",
+"msrp": 18400,
+"config": "",
+"note": ""
+},
+{
+"trim": "! 4dr Crossover",
+"msrp": 20500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

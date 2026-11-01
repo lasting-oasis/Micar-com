@@ -1,0 +1,189 @@
+{
+"make": "Ford",
+"model": "Fiesta",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (fiesta).",
+"years": [
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 13200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 14500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 15500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 16600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SES 4dr Hatchback",
+"msrp": 17500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-fiesta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 795,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 13200,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Hatchback",
+"msrp": 14100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 14670,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 15670,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 16600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SES 4dr Hatchback",
+"msrp": 17500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-fiesta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 13200,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Hatchback",
+"msrp": 14200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 15200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 16200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Sedan",
+"msrp": 17200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Hatchback",
+"msrp": 18200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-fiesta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 14100,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Hatchback",
+"msrp": 14600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 15580,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 16080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Sedan",
+"msrp": 18300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Hatchback",
+"msrp": 18800,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr Hatchback",
+"msrp": 21400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-fiesta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

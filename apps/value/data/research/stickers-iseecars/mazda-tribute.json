@@ -1,0 +1,135 @@
+{
+"make": "Mazda",
+"model": "Tribute",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (tribute).",
+"years": [
+{
+"year": 2010,
+"destination": 780,
+"trims": [
+{
+"trim": "i Sport 4dr SUV 5M",
+"msrp": 20405,
+"config": "",
+"note": ""
+},
+{
+"trim": "i Sport 4dr SUV 6A",
+"msrp": 22445,
+"config": "",
+"note": ""
+},
+{
+"trim": "i Touring 4dr SUV",
+"msrp": 23590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD i Sport 4dr SUV",
+"msrp": 24200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD i Touring 4dr SUV",
+"msrp": 25345,
+"config": "",
+"note": ""
+},
+{
+"trim": "i Grand Touring 4dr SUV",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "s Grand Touring 4dr SUV",
+"msrp": 27165,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD i Grand Touring 4dr SUV",
+"msrp": 27305,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD s Grand Touring 4dr SUV",
+"msrp": 28915,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-mazda-tribute-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "i Sport 4dr SUV 5M",
+"msrp": 20555,
+"config": "",
+"note": ""
+},
+{
+"trim": "i Sport 4dr SUV 6A",
+"msrp": 22595,
+"config": "",
+"note": ""
+},
+{
+"trim": "i Touring 4dr SUV",
+"msrp": 23740,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD i Sport 4dr SUV",
+"msrp": 24350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD i Touring 4dr SUV",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "i Grand Touring 4dr SUV",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "s Grand Touring 4dr SUV",
+"msrp": 27315,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD i Grand Touring 4dr SUV",
+"msrp": 27455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD s Grand Touring 4dr SUV",
+"msrp": 29065,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-mazda-tribute-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

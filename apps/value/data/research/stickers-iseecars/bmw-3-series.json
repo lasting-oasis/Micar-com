@@ -1,0 +1,588 @@
+{
+"make": "BMW",
+"model": "3 Series",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (3_series).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "328i 4dr Sedan",
+"msrp": 32850,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 32850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan SULEV",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Wagon",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe",
+"msrp": 35750,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe SULEV",
+"msrp": 35750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Wagon",
+"msrp": 37400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe SULEV",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Coupe",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 4dr Sedan",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "335d 4dr Sedan",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 2dr Coupe",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible SULEV",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Convertible",
+"msrp": 50700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "328i 4dr Sedan",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan SULEV",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Wagon",
+"msrp": 37150,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe SULEV",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Wagon",
+"msrp": 39150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe",
+"msrp": 39550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe SULEV",
+"msrp": 39550,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 42050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 4dr Sedan",
+"msrp": 44050,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Coupe",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "335d 4dr Sedan",
+"msrp": 44150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 2dr Coupe",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible",
+"msrp": 46450,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible SULEV",
+"msrp": 46450,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Coupe",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Convertible",
+"msrp": 52650,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Convertible",
+"msrp": 59650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "328i 4dr Sedan",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Wagon",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe SULEV",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Wagon",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe SULEV",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Coupe",
+"msrp": 45100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 2dr Coupe",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible SULEV",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Coupe",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Convertible",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Convertible",
+"msrp": 60800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "320i 4dr Sedan",
+"msrp": 32550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 320i xDrive 4dr Sedan",
+"msrp": 34550,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 36850,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan",
+"msrp": 36850,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe SULEV",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan",
+"msrp": 38850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan SULEV",
+"msrp": 38850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe SULEV",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 43150,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Coupe",
+"msrp": 45100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 4dr Sedan",
+"msrp": 45150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 2dr Coupe",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible SULEV",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "ActiveHybrid 3 4dr Sedan",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Coupe",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Convertible",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Convertible",
+"msrp": 60800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "320i 4dr Sedan",
+"msrp": 32750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 320i xDrive 4dr Sedan",
+"msrp": 34750,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "328d 4dr Sedan",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan SULEV",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328d xDrive 4dr Sedan",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Wagon",
+"msrp": 41450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 41450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328d xDrive 4dr Wagon",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 43400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 4dr Sedan",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 46850,
+"config": "",
+"note": ""
+},
+{
+"trim": "ActiveHybrid 3 4dr Sedan",
+"msrp": 49700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

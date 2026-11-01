@@ -1,0 +1,474 @@
+{
+"make": "Nissan",
+"model": "Titan",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (titan).",
+"years": [
+{
+"year": 2010,
+"destination": 950,
+"trims": [
+{
+"trim": "4x2 XE 4dr King Cab SWB Pickup",
+"msrp": 26540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE 4dr King Cab SWB Pickup",
+"msrp": 28540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XE 4dr Crew Cab SWB Pickup",
+"msrp": 29090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XE 4dr King Cab SWB Pickup",
+"msrp": 29390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE 4dr Crew Cab SWB Pickup",
+"msrp": 30740,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE 4dr Crew Cab LWB Pickup",
+"msrp": 31190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE 4dr King Cab SWB Pickup",
+"msrp": 31390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XE 4dr Crew Cab SWB Pickup",
+"msrp": 31940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE 4dr Crew Cab SWB Pickup",
+"msrp": 33590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE 4dr Crew Cab LWB Pickup",
+"msrp": 34070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab SWB Pickup",
+"msrp": 34270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup",
+"msrp": 36470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LE 4dr Crew Cab SWB Pickup",
+"msrp": 36640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE 4dr Crew Cab SWB Pickup",
+"msrp": 39340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 975,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab SWB Pickup",
+"msrp": 27410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab SWB Pickup",
+"msrp": 29410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab SWB Pickup",
+"msrp": 29960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr King Cab SWB Pickup",
+"msrp": 30260,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab SWB Pickup",
+"msrp": 31610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab LWB Pickup",
+"msrp": 32060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr King Cab SWB Pickup",
+"msrp": 32260,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab SWB Pickup",
+"msrp": 32810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab SWB Pickup",
+"msrp": 34460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab LWB Pickup",
+"msrp": 34940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab SWB Pickup",
+"msrp": 35140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup",
+"msrp": 37340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab SWB Pickup",
+"msrp": 37510,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab SWB Pickup",
+"msrp": 40210,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab SWB Pickup",
+"msrp": 28520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab SWB Pickup",
+"msrp": 30520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab SWB Pickup",
+"msrp": 31070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr King Cab SWB Pickup",
+"msrp": 31370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab SWB Pickup",
+"msrp": 32720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab LWB Pickup",
+"msrp": 33170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr King Cab SWB Pickup",
+"msrp": 33370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab SWB Pickup",
+"msrp": 33920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab SWB Pickup",
+"msrp": 35570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab LWB Pickup",
+"msrp": 36050,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab SWB Pickup",
+"msrp": 36070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup",
+"msrp": 38270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab SWB Pickup",
+"msrp": 38440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab SWB Pickup",
+"msrp": 41140,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab SWB Pickup",
+"msrp": 29270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab SWB Pickup",
+"msrp": 31700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab SWB Pickup",
+"msrp": 31820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr King Cab SWB Pickup",
+"msrp": 32120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab SWB Pickup",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab LWB Pickup",
+"msrp": 34350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr King Cab SWB Pickup",
+"msrp": 34550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab SWB Pickup",
+"msrp": 34670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab SWB Pickup",
+"msrp": 36750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab LWB Pickup",
+"msrp": 37230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab SWB Pickup",
+"msrp": 37490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup",
+"msrp": 39690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab SWB Pickup",
+"msrp": 40490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab SWB Pickup",
+"msrp": 43190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 1095,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab SWB Pickup",
+"msrp": 29360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab SWB Pickup",
+"msrp": 31790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab SWB Pickup",
+"msrp": 31910,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr King Cab SWB Pickup",
+"msrp": 32210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab SWB Pickup",
+"msrp": 33990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab LWB Pickup",
+"msrp": 34440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr King Cab SWB Pickup",
+"msrp": 34640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab SWB Pickup",
+"msrp": 34760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab SWB Pickup",
+"msrp": 36840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab LWB Pickup",
+"msrp": 37320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab SWB Pickup",
+"msrp": 37580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup",
+"msrp": 39780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab SWB Pickup",
+"msrp": 40580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab SWB Pickup",
+"msrp": 43280,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

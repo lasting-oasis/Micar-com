@@ -1,0 +1,24 @@
+{
+"make": "Bentley",
+"model": "Azure",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (azure).",
+"years": [
+{
+"year": 2010,
+"destination": 2595,
+"trims": [
+{
+"trim": "T 2dr Convertible",
+"msrp": 363000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bentley-azure-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,222 @@
+{
+"make": "Toyota",
+"model": "Sequoia",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (sequoia).",
+"years": [
+{
+"year": 2010,
+"destination": 950,
+"trims": [
+{
+"trim": "4x2 SR5 4dr SUV (4.6L V8)",
+"msrp": 39030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr SUV (5.7L V8)",
+"msrp": 39655,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV (4.6L V8)",
+"msrp": 42255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV (5.7L V8)",
+"msrp": 42880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV (5.7L V8 FFV)",
+"msrp": 42880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV (5.7L V8)",
+"msrp": 49140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV (5.7L V8)",
+"msrp": 52365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV (5.7L V8 FFV)",
+"msrp": 52365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV (5.7L V8)",
+"msrp": 56180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV (5.7L V8)",
+"msrp": 59405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV (5.7L V8 FFV)",
+"msrp": 59405,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-sequoia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 975,
+"trims": [
+{
+"trim": "4x2 SR5 4dr SUV (4.6L V8)",
+"msrp": 40930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr SUV (5.7L V8)",
+"msrp": 41555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV (4.6L V8)",
+"msrp": 44155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV (5.7L V8)",
+"msrp": 44780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV (5.7L V8 FFV)",
+"msrp": 44780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV (5.7L V8)",
+"msrp": 51040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV (5.7L V8)",
+"msrp": 54265,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV (5.7L V8 FFV)",
+"msrp": 54265,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV (5.7L V8)",
+"msrp": 58080,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV (5.7L V8)",
+"msrp": 61305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV (5.7L V8 FFV)",
+"msrp": 61305,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-sequoia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 SR5 4dr SUV",
+"msrp": 44095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV",
+"msrp": 47320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV FFV",
+"msrp": 47320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 53055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 56280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV FFV",
+"msrp": 56280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 60795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 64020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV FFV",
+"msrp": 64020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-sequoia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

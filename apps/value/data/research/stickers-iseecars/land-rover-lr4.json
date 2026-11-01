@@ -1,0 +1,120 @@
+{
+"make": "Land Rover",
+"model": "LR4",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (lr4).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 4dr SUV",
+"msrp": 47250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-landrover-lr4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 4dr SUV",
+"msrp": 48500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-landrover-lr4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 4dr SUV",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 53125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE LUX 4dr SUV",
+"msrp": 58125,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-landrover-lr4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 4dr SUV",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 53325,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE LUX 4dr SUV",
+"msrp": 58325,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-landrover-lr4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "4x4 4dr SUV",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 54600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE LUX 4dr SUV",
+"msrp": 59900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-landrover-lr4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

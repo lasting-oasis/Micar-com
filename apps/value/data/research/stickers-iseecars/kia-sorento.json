@@ -1,0 +1,309 @@
+{
+"make": "Kia",
+"model": "Sorento",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (sorento).",
+"years": [
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 21195,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr SUV",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr SUV (V6)",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV (V6)",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV (V6)",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV (V6)",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 32395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX 4dr SUV",
+"msrp": 34095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 800,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 21250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr SUV",
+"msrp": 23150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr SUV (I4 GDI)",
+"msrp": 23150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr SUV (V6)",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV (I4 GDI)",
+"msrp": 25950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV (V6)",
+"msrp": 26650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV (I4 GDI)",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX 4dr SUV",
+"msrp": 34850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 800,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 23150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr SUV (I4 GDI)",
+"msrp": 23150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr SUV (V6)",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV (I4 GDI)",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV (V6)",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV (I4 GDI)",
+"msrp": 28650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 31700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX 4dr SUV",
+"msrp": 33400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr SUV (V6)",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV (V6)",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV (V6)",
+"msrp": 30000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV (V6)",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX 4dr SUV",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Limited 4dr SUV",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX Limited 4dr SUV",
+"msrp": 40100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

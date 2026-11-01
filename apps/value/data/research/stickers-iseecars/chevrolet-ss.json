@@ -1,0 +1,24 @@
+{
+"make": "Chevrolet",
+"model": "SS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ss).",
+"years": [
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 43475,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-ss-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

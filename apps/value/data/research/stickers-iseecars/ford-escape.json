@@ -1,0 +1,306 @@
+{
+"make": "Ford",
+"model": "Escape",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (escape, escape_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 725,
+"trims": [
+{
+"trim": "XLS 4dr SUV",
+"msrp": 20515,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLS 4dr SUV",
+"msrp": 22265,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 23540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 25270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 25290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 27020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Hybrid 4dr SUV",
+"msrp": 29750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Hybrid 4dr SUV",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited Hybrid 4dr SUV",
+"msrp": 32260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited Hybrid 4dr SUV",
+"msrp": 34010,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "XLS 4dr SUV",
+"msrp": 21240,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLS 4dr SUV",
+"msrp": 22990,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 24670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 26170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 26420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 27920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Base 4dr SUV",
+"msrp": 30570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Base 4dr SUV",
+"msrp": 32320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr SUV",
+"msrp": 33080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 34830,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "XLS 4dr SUV",
+"msrp": 21440,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLS 4dr SUV",
+"msrp": 23190,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 24870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 26370,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 26620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 28120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Base 4dr SUV",
+"msrp": 30570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Base 4dr SUV",
+"msrp": 32320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr SUV",
+"msrp": 33080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 34830,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 22470,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 25070,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 26820,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 27870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 29620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr SUV",
+"msrp": 30370,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr SUV",
+"msrp": 32120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr SUV",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr SUV",
+"msrp": 30850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

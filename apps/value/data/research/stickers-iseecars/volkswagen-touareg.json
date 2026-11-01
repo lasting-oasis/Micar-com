@@ -1,0 +1,156 @@
+{
+"make": "Volkswagen",
+"model": "Touareg",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (touareg).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "AWD VR6 FSI 4dr SUV",
+"msrp": 40850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 TDI 4dr SUV",
+"msrp": 44350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volkswagen-touareg-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 820,
+"trims": [
+{
+"trim": "AWD VR6 Sport 4dr SUV",
+"msrp": 44450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Sport 4dr SUV",
+"msrp": 47950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 Lux 4dr SUV",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Lux 4dr SUV",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 Executive 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Executive 4dr SUV",
+"msrp": 57500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid 4dr SUV",
+"msrp": 60565,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volkswagen-touareg-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD V6 Sport 4dr SUV",
+"msrp": 44570,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 Sport 4dr SUV w/Navigation",
+"msrp": 48110,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Sport 4dr SUV w/Navigation",
+"msrp": 51610,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 Lux 4dr SUV",
+"msrp": 52050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 R-Line 4dr SUV",
+"msrp": 54690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Lux 4dr SUV",
+"msrp": 55550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X Special Edition 4dr SUV",
+"msrp": 56170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 Executive 4dr SUV",
+"msrp": 57935,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI R-Line 4dr SUV",
+"msrp": 58190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Executive 4dr SUV",
+"msrp": 61435,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid 4dr SUV",
+"msrp": 64745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volkswagen-touareg-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

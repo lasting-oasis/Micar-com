@@ -1,0 +1,219 @@
+{
+"make": "BMW",
+"model": "6 Series",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (6_series).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "650i 2dr Coupe",
+"msrp": 78450,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Convertible",
+"msrp": 85550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "640i 2dr Coupe",
+"msrp": 73600,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i 2dr Convertible",
+"msrp": 81100,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Coupe",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Coupe",
+"msrp": 86000,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Convertible",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Convertible",
+"msrp": 93500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "640i 2dr Coupe",
+"msrp": 74400,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i Gran Coupe 4dr Sedan",
+"msrp": 76000,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i 2dr Convertible",
+"msrp": 81900,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Coupe",
+"msrp": 85500,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i Gran Coupe 4dr Sedan",
+"msrp": 86500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Coupe",
+"msrp": 88500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive Gran Coupe 4dr Sedan",
+"msrp": 89500,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Convertible",
+"msrp": 93000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Convertible",
+"msrp": 96000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "640i 2dr Coupe",
+"msrp": 75400,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i Gran Coupe 4dr Sedan",
+"msrp": 77600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 640i xDrive 2dr Coupe",
+"msrp": 78400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 640i xDrive Gran Coupe 4dr Sedan",
+"msrp": 80600,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i 2dr Convertible",
+"msrp": 82900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 640i xDrive 2dr Convertible",
+"msrp": 85900,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Coupe",
+"msrp": 86700,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i Gran Coupe 4dr Sedan",
+"msrp": 88900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Coupe",
+"msrp": 89700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive Gran Coupe 4dr Sedan",
+"msrp": 91900,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Convertible",
+"msrp": 94200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Convertible",
+"msrp": 97200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

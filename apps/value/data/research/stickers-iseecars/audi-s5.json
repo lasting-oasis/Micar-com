@@ -1,0 +1,234 @@
+{
+"make": "Audi",
+"model": "S5",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (s5).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 4.2 quattro Premium Plus 2dr Coupe 6M",
+"msrp": 52400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.2 quattro Premium Plus 2dr Coupe 6A",
+"msrp": 53600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.2 quattro Prestige 2dr Coupe 6M",
+"msrp": 58100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Convertible",
+"msrp": 58250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.2 quattro Prestige 2dr Coupe 6A",
+"msrp": 59300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Convertible",
+"msrp": 63950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-audi-s5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 4.2 quattro Premium Plus 2dr Coupe 6M",
+"msrp": 53650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.2 quattro Premium Plus 2dr Coupe 6A",
+"msrp": 54850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Convertible",
+"msrp": 59050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.2 quattro Prestige 2dr Coupe 6M",
+"msrp": 59550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.2 quattro Prestige 2dr Coupe 6A",
+"msrp": 60750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Convertible",
+"msrp": 64950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-audi-s5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 4.2 quattro Premium Plus 2dr Coupe 6M",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.2 quattro Premium Plus 2dr Coupe 6A",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Convertible",
+"msrp": 59300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.2 quattro Prestige 2dr Coupe 6M",
+"msrp": 60200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.2 quattro Prestige 2dr Coupe 6A",
+"msrp": 61400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Convertible",
+"msrp": 65600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-s5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Coupe 6M",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Coupe 7A",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Coupe 6M",
+"msrp": 57550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Coupe 7A",
+"msrp": 58950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Convertible",
+"msrp": 59300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Convertible",
+"msrp": 65950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-audi-s5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Coupe 6M",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Coupe 7A",
+"msrp": 53400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Coupe 6M",
+"msrp": 58250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Coupe 7A",
+"msrp": 59650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Convertible",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Convertible",
+"msrp": 66650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-s5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

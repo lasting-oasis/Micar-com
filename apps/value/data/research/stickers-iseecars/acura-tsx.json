@@ -1,0 +1,144 @@
+{
+"make": "Acura",
+"model": "TSX",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (tsx).",
+"years": [
+{
+"year": 2010,
+"destination": 860,
+"trims": [
+{
+"trim": "4dr Sedan 6M",
+"msrp": 29310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 5A",
+"msrp": 29310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 6M w/Technology Package",
+"msrp": 32410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 5A w/Technology Package",
+"msrp": 32410,
+"config": "",
+"note": ""
+},
+{
+"trim": "V-6 4dr Sedan",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "V-6 4dr Sedan w/Technology Package",
+"msrp": 37950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-acura-tsx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 885,
+"trims": [
+{
+"trim": "4dr Sedan 5A",
+"msrp": 29610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 6M",
+"msrp": 29610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 6M w/Technology Package",
+"msrp": 32710,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 5A w/Technology Package",
+"msrp": 32710,
+"config": "",
+"note": ""
+},
+{
+"trim": "V-6 4dr Sedan",
+"msrp": 35150,
+"config": "",
+"note": ""
+},
+{
+"trim": "V-6 4dr Sedan w/Technology Package",
+"msrp": 38250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-acura-tsx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 30010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 6M w/Special Edition",
+"msrp": 31010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 5A w/Special Edition",
+"msrp": 31010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 33110,
+"config": "",
+"note": ""
+},
+{
+"trim": "V-6 4dr Sedan",
+"msrp": 35550,
+"config": "",
+"note": ""
+},
+{
+"trim": "V-6 4dr Sedan w/Technology Package",
+"msrp": 38650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-acura-tsx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

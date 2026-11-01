@@ -1,0 +1,318 @@
+{
+"make": "GMC",
+"model": "Terrain",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (terrain).",
+"years": [
+{
+"year": 2010,
+"destination": 745,
+"trims": [
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 25850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 26000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 27450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 29250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 31000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 24500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 28050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 29850,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 31650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 25560,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 26960,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 27310,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 28510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 28710,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 30260,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 31260,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 33010,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 26305,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 27805,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 28055,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 29355,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 29555,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 31105,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 34350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 36745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 26465,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 27965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 28215,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 29515,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 29715,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 31265,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 32760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 34510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 35155,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 36905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

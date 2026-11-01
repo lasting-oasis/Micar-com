@@ -1,0 +1,276 @@
+{
+"make": "Dodge",
+"model": "Challenger",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (challenger).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "SE 2dr Coupe",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 30860,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 34190,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 2dr Coupe",
+"msrp": 41230,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 2dr Coupe",
+"msrp": 24895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye 2dr Coupe",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 29895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 2dr Coupe",
+"msrp": 31395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 392 2dr Coupe",
+"msrp": 42780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "SXT 2dr Coupe",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 2dr Coupe",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye Redline Appearance Group 2dr Coupe",
+"msrp": 28945,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 2dr Coupe",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 392 2dr Coupe",
+"msrp": 44125,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Yellow Jacket 2dr Coupe",
+"msrp": 45620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "SXT 2dr Coupe",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 2dr Coupe",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye Redline Appearance Group 2dr Coupe",
+"msrp": 29895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 2dr Coupe",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Core 2dr Coupe",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 392 2dr Coupe",
+"msrp": 44195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "SXT 2dr Coupe",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 2dr Coupe",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye Redline 2dr Coupe",
+"msrp": 30295,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 100th Anniversary Appearance Group 2dr Coupe",
+"msrp": 30795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 2dr Coupe",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 100th Anniversary Appearance Group 2dr Coupe",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Shaker Package 2dr Coupe",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Core 2dr Coupe",
+"msrp": 39485,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 2dr Coupe",
+"msrp": 44685,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

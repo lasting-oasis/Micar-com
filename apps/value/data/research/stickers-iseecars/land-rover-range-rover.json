@@ -1,0 +1,174 @@
+{
+"make": "Land Rover",
+"model": "Range Rover",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (range_rover).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 78425,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 94275,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 79685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 95465,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 79425,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE LUX 4dr SUV",
+"msrp": 84025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 94820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Autobiography 4dr SUV",
+"msrp": 125815,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 4dr SUV",
+"msrp": 82650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 87650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 99100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Autobiography 4dr SUV",
+"msrp": 130950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "4x4 4dr SUV",
+"msrp": 83300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 88300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 100100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged LWB 4dr SUV",
+"msrp": 105300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged Ebony Edition 4dr SUV",
+"msrp": 119500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Autobiography 4dr SUV",
+"msrp": 136750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Autobiography LWB 4dr SUV",
+"msrp": 142100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Autobiography Black LWB 4dr SUV",
+"msrp": 184105,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,78 @@
+{
+"make": "Cadillac",
+"model": "XTS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (xts).",
+"years": [
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "3.6L V6 4dr Sedan",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Livery 4dr Sedan w/W20",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury Collection 4dr Sedan",
+"msrp": 49510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury Collection 4dr Sedan",
+"msrp": 51315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Collection 4dr Sedan",
+"msrp": 54455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Collection 4dr Sedan",
+"msrp": 56260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Collection 4dr Sedan",
+"msrp": 61750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Vsport 4dr Sedan",
+"msrp": 62095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum Collection 4dr Sedan",
+"msrp": 63555,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum Vsport 4dr Sedan",
+"msrp": 69095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-cadillac-xts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,270 @@
+{
+"make": "Bentley",
+"model": "Continental",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (continental).",
+"years": [
+{
+"year": 2010,
+"destination": 2595,
+"trims": [
+{
+"trim": "AWD Flying Spur 4dr Sedan",
+"msrp": 177600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Coupe",
+"msrp": 182800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Convertible",
+"msrp": 201500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Flying Spur Speed 4dr Sedan",
+"msrp": 202500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT Speed 2dr Coupe",
+"msrp": 207700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT Speed 2dr Convertible",
+"msrp": 231400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Supersports 2dr Coupe",
+"msrp": 267000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bentley-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 2595,
+"trims": [
+{
+"trim": "AWD Flying Spur 4dr Sedan",
+"msrp": 181200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Convertible",
+"msrp": 205600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Flying Spur Speed 4dr Sedan",
+"msrp": 206600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT Speed 2dr Convertible",
+"msrp": 236100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Supersports 2dr Coupe",
+"msrp": 267000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Supersports 2dr Convertible",
+"msrp": 280400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-bentley-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 2595,
+"trims": [
+{
+"trim": "AWD Flying Spur 4dr Sedan",
+"msrp": 184200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Coupe",
+"msrp": 189900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Flying Spur Speed 4dr Sedan",
+"msrp": 209600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Convertible",
+"msrp": 212800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Supersports 2dr Coupe",
+"msrp": 267000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Supersports 2dr Convertible",
+"msrp": 280400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Supersports ISR 2dr Convertible",
+"msrp": 291900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bentley-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 2725,
+"trims": [
+{
+"trim": "AWD GT V8 2dr Coupe",
+"msrp": 175700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Flying Spur 4dr Sedan",
+"msrp": 184200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT V8 2dr Convertible",
+"msrp": 193300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Coupe",
+"msrp": 196700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Flying Spur Speed 4dr Sedan",
+"msrp": 209600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT Speed 2dr Coupe",
+"msrp": 215000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Convertible",
+"msrp": 216400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Supersports ISR 2dr Convertible",
+"msrp": 291900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bentley-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 2725,
+"trims": [
+{
+"trim": "AWD GT V8 2dr Coupe",
+"msrp": 177500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT V8 2dr Convertible",
+"msrp": 195200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT V8 S 2dr Coupe",
+"msrp": 196500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Coupe",
+"msrp": 198600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT V8 S 2dr Convertible",
+"msrp": 216200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT Speed 2dr Coupe",
+"msrp": 217000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Convertible",
+"msrp": 218500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT Speed 2dr Convertible",
+"msrp": 238700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bentley-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

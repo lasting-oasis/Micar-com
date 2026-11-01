@@ -1,0 +1,264 @@
+{
+"make": "Chevrolet",
+"model": "Malibu",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (malibu, malibu_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 21825,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 21905,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 22715,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 25175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Base 4dr Sedan",
+"msrp": 25925,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan",
+"msrp": 26605,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 21975,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 22055,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 22975,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 25385,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan",
+"msrp": 27165,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 760,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 22110,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 23470,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/3LT",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/1LZ",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/2LZ",
+"msrp": 30200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 760,
+"trims": [
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 22155,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan",
+"msrp": 22390,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 23185,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 24890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Eco 4dr Sedan w/1SA",
+"msrp": 25335,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/3LT",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Eco 4dr Sedan w/2SA",
+"msrp": 26945,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/1LZ",
+"msrp": 27365,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/2LZ",
+"msrp": 29700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 22340,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 22340,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 23610,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 25315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Eco 4dr Sedan",
+"msrp": 25945,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/3LT",
+"msrp": 26850,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/1LZ",
+"msrp": 27790,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/2LZ",
+"msrp": 29950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

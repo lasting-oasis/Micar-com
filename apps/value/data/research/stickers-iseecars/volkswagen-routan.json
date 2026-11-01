@@ -1,0 +1,180 @@
+{
+"make": "Volkswagen",
+"model": "Routan",
+"body": "Minivan",
+"note": "Trim-level MSRPs from iSeeCars price pages (routan).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "S 4dr Mini-Van",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van",
+"msrp": 30600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van w/ RSE",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van w/ RSE and Nav",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Mini-Van w/ Nav",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL CARB 4dr Mini-Van w/ Nav",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Mini-Van w/ RSE and Nav",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL CARB 4dr Mini-Van w/ RSE and Nav",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium 4dr Mini-Van",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium CARB 4dr Mini-Van",
+"msrp": 42500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volkswagen-routan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 820,
+"trims": [
+{
+"trim": "S 4dr Mini-Van",
+"msrp": 26930,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van w/ RSE",
+"msrp": 33790,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van w/ RSE and Navigation",
+"msrp": 34750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Mini-Van w/ Navigation",
+"msrp": 37390,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Mini-Van w/ RSE and Navigation",
+"msrp": 39390,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium 4dr Mini-Van",
+"msrp": 43240,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volkswagen-routan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 820,
+"trims": [
+{
+"trim": "S 4dr Mini-Van",
+"msrp": 27020,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van",
+"msrp": 32010,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van w/RSE",
+"msrp": 33490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van w/RSE and Navigation",
+"msrp": 34490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Mini-Van w/Navigation",
+"msrp": 37890,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Mini-Van w/RSE and Navigation",
+"msrp": 39890,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium 4dr Mini-Van",
+"msrp": 44280,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volkswagen-routan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

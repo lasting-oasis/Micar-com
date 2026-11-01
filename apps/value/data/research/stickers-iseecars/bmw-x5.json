@@ -1,0 +1,186 @@
+{
+"make": "BMW",
+"model": "X5",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (x5).",
+"years": [
+{
+"year": 2010,
+"destination": 820,
+"trims": [
+{
+"trim": "AWD xDrive30i 4dr SUV",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive48i 4dr SUV",
+"msrp": 56300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Premium 4dr SUV",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Sport Activity 4dr SUV",
+"msrp": 54600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 58400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Premium 4dr SUV",
+"msrp": 55200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Sport Activity 4dr SUV",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 64200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Premium 4dr SUV",
+"msrp": 55200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Sport Activity 4dr SUV",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 64200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "sDrive35i 4dr SUV",
+"msrp": 52800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 56600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 68200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

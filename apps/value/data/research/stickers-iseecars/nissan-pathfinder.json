@@ -1,0 +1,300 @@
+{
+"make": "Nissan",
+"model": "Pathfinder",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (pathfinder).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "4x2 S FE+ 4dr SUV",
+"msrp": 27540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV",
+"msrp": 29540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE 4dr SUV",
+"msrp": 30890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE 4dr SUV",
+"msrp": 32890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LE 4dr SUV",
+"msrp": 37050,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE 4dr SUV",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE V8 4dr SUV",
+"msrp": 42300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "4x2 S 4dr SUV",
+"msrp": 28570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV",
+"msrp": 30570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr SUV",
+"msrp": 31920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 33920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Silver Edition 4dr SUV",
+"msrp": 35910,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Silver Edition 4dr SUV",
+"msrp": 37910,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LE 4dr SUV",
+"msrp": 38120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE 4dr SUV",
+"msrp": 40320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE V8 4dr SUV",
+"msrp": 43250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "4x2 S 4dr SUV",
+"msrp": 29290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV",
+"msrp": 31290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr SUV",
+"msrp": 32640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 34640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Silver Edition 4dr SUV",
+"msrp": 36630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Silver Edition 4dr SUV",
+"msrp": 38630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LE 4dr SUV",
+"msrp": 40240,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE 4dr SUV",
+"msrp": 42440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE V8 4dr SUV",
+"msrp": 43970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 860,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 28650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV",
+"msrp": 30250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr SUV",
+"msrp": 31910,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 33510,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr SUV",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr SUV",
+"msrp": 36450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 39550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 41150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 860,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 29210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV",
+"msrp": 30810,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr SUV",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr SUV",
+"msrp": 35250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr SUV",
+"msrp": 36850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 39950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 41550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

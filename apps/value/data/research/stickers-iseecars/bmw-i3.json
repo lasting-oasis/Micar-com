@@ -1,0 +1,30 @@
+{
+"make": "BMW",
+"model": "i3",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (i3).",
+"years": [
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "4dr Hatchback",
+"msrp": 41350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Hatchback w/ Range Extender",
+"msrp": 45200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-i3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

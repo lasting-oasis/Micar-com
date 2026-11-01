@@ -1,0 +1,294 @@
+{
+"make": "Ford",
+"model": "Edge",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (edge).",
+"years": [
+{
+"year": 2010,
+"destination": 775,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 27420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Fleet 4dr Crossover",
+"msrp": 28770,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 30420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 32270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 33220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 33920,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 35070,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 35770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 27640,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Fleet 4dr Crossover",
+"msrp": 29490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 30650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 34650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 36925,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 38775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 27770,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Fleet 4dr Crossover",
+"msrp": 29620,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 31080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 32930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 34935,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 36785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 37110,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 38960,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 27525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 29475,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 31080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 33030,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 34940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 36890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 37110,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 39060,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 30050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 31300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 33250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 35100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 37050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 39550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

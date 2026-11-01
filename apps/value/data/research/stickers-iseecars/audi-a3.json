@@ -1,0 +1,252 @@
+{
+"make": "Audi",
+"model": "A3",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (a3).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "2.0T Premium 4dr Wagon 6M",
+"msrp": 27270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium PZEV 4dr Wagon 6M",
+"msrp": 27270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium 4dr Wagon 6A",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium PZEV 4dr Wagon 6A",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 4dr Wagon 6M",
+"msrp": 29270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus PZEV 4dr Wagon 6M",
+"msrp": 29270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TDI Premium 4dr Wagon",
+"msrp": 29950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 4dr Wagon 6A",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus PZEV 4dr Wagon 6A",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 4dr Wagon",
+"msrp": 30850,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TDI Premium Plus 4dr Wagon",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr Wagon",
+"msrp": 32850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "2.0T Premium 4dr Wagon 6M",
+"msrp": 27270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium PZEV 4dr Wagon 6M",
+"msrp": 27270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium 4dr Wagon 6A",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium PZEV 4dr Wagon 6A",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 4dr Wagon 6M",
+"msrp": 29270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus PZEV 4dr Wagon 6M",
+"msrp": 29270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TDI Premium 4dr Wagon",
+"msrp": 30250,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 4dr Wagon 6A",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus PZEV 4dr Wagon 6A",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 4dr Wagon",
+"msrp": 30850,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TDI Premium Plus 4dr Wagon",
+"msrp": 32250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr Wagon",
+"msrp": 32850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "2.0T Premium 4dr Wagon 6M",
+"msrp": 27270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium PZEV 4dr Wagon 6M",
+"msrp": 27270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium 4dr Wagon 6A",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium PZEV 4dr Wagon 6A",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 4dr Wagon 6M",
+"msrp": 29270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus PZEV 4dr Wagon 6M",
+"msrp": 29270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TDI Premium 4dr Wagon",
+"msrp": 30250,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 4dr Wagon 6A",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus PZEV 4dr Wagon 6A",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 4dr Wagon",
+"msrp": 30850,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TDI Premium Plus 4dr Wagon",
+"msrp": 32250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr Wagon",
+"msrp": 32850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

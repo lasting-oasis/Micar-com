@@ -1,0 +1,105 @@
+{
+"make": "Honda",
+"model": "Element",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (element).",
+"years": [
+{
+"year": 2010,
+"destination": 710,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 20525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 21775,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 22635,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV 5M",
+"msrp": 23085,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV 5A",
+"msrp": 23885,
+"config": "",
+"note": ""
+},
+{
+"trim": "SC 4dr SUV",
+"msrp": 24320,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV w/Navi",
+"msrp": 24335,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV w/Navi",
+"msrp": 25585,
+"config": "",
+"note": ""
+},
+{
+"trim": "SC 4dr SUV w/Navi",
+"msrp": 26020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-honda-element-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 20825,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 22075,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 22935,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 24185,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-honda-element-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

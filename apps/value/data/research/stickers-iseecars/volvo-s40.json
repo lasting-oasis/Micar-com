@@ -1,0 +1,57 @@
+{
+"make": "Volvo",
+"model": "S40",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (s40).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "2.4i 4dr Sedan",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 R-Design 4dr Sedan",
+"msrp": 31150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 R-Design 4dr Sedan",
+"msrp": 31350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volvo-s40-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "T5 4dr Sedan",
+"msrp": 27750,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 R-Design 4dr Sedan",
+"msrp": 31150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volvo-s40-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

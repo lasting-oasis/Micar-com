@@ -1,0 +1,48 @@
+{
+"make": "Dodge",
+"model": "Dart",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (dart).",
+"years": [
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 16495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 18595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Aero 4dr Sedan",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 22995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-dodge-dart-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,120 @@
+{
+"make": "Subaru",
+"model": "Tribeca",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (tribeca).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "AWD 3.6R Premium 4dr SUV",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr SUV",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Touring 4dr SUV",
+"msrp": 35795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-subaru-tribeca-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 725,
+"trims": [
+{
+"trim": "AWD 3.6R Premium 4dr SUV",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr SUV",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Touring 4dr SUV",
+"msrp": 35795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-subaru-tribeca-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 775,
+"trims": [
+{
+"trim": "AWD 3.6R Premium 4dr SUV",
+"msrp": 30595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr SUV",
+"msrp": 32595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Touring 4dr SUV",
+"msrp": 35895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-subaru-tribeca-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "AWD 3.6R Limited 4dr SUV",
+"msrp": 32595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-subaru-tribeca-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 3.6R Limited 4dr SUV",
+"msrp": 34095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-subaru-tribeca-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

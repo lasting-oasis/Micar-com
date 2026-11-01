@@ -1,0 +1,24 @@
+{
+"make": "Audi",
+"model": "S8",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (s8).",
+"years": [
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 4.0T quattro 4dr Sedan",
+"msrp": 112500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-s8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

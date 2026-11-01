@@ -1,0 +1,288 @@
+{
+"make": "Cadillac",
+"model": "SRX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (srx).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 33830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury Collection 4dr SUV",
+"msrp": 37410,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury Collection 4dr SUV",
+"msrp": 39905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance Collection 4dr SUV",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Collection 4dr SUV",
+"msrp": 44395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Performance Collection 4dr SUV",
+"msrp": 45495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Collection 4dr SUV",
+"msrp": 48040,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Performance Collection 4dr SUV",
+"msrp": 49315,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Premium Collection 4dr SUV",
+"msrp": 51860,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-cadillac-srx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 34615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury Collection 4dr SUV",
+"msrp": 39045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury Collection 4dr SUV",
+"msrp": 41540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance Collection 4dr SUV",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Collection 4dr SUV",
+"msrp": 45395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Performance Collection 4dr SUV",
+"msrp": 46410,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Collection 4dr SUV",
+"msrp": 48855,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Performance Collection 4dr SUV",
+"msrp": 49915,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Premium Collection 4dr SUV",
+"msrp": 52360,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-cadillac-srx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 35985,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury Collection 4dr SUV",
+"msrp": 40515,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury Collection 4dr SUV",
+"msrp": 43010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance Collection 4dr SUV",
+"msrp": 44330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Collection 4dr SUV",
+"msrp": 46775,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Performance Collection 4dr SUV",
+"msrp": 47140,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Collection 4dr SUV",
+"msrp": 49585,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-cadillac-srx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 37330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury Collection 4dr SUV",
+"msrp": 42705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance Collection 4dr SUV",
+"msrp": 45080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury Collection 4dr SUV",
+"msrp": 45200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Performance Collection 4dr SUV",
+"msrp": 47890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Collection 4dr SUV",
+"msrp": 47920,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Collection 4dr SUV",
+"msrp": 50730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-cadillac-srx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 37605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury Collection 4dr SUV",
+"msrp": 43280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance Collection 4dr SUV",
+"msrp": 45455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury Collection 4dr SUV",
+"msrp": 45775,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Performance Collection 4dr SUV",
+"msrp": 48265,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Collection 4dr SUV",
+"msrp": 48345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Collection 4dr SUV",
+"msrp": 51155,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-cadillac-srx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

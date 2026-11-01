@@ -12,7 +12,7 @@ export function prefillMsrp(make: string, model: string, year: number, trim: str
     return {
       msrp: t.msrp,
       source: 'sticker',
-      label: `Sticker for the ${year} ${model} ${t.trim}${t.config ? ` (${t.config})` : ''}, from ${stickerSourceLabel(st.set, st.year)}. Change it if yours differs.`,
+      label: `Sticker for the ${year} ${t.trim.startsWith(model + ' ') ? t.trim : `${model} ${t.trim}`}${t.config ? ` (${t.config})` : ''}, from ${stickerSourceLabel(st.set, st.year)}. Change it if yours differs.`,
       note: [st.year.note, t.note].filter(Boolean).join(' ') || undefined,
     };
   }

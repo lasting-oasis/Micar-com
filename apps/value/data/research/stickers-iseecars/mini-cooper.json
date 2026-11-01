@@ -1,0 +1,99 @@
+{
+"make": "Mini",
+"model": "Cooper",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (cooper).",
+"years": [
+{
+"year": 2010,
+"destination": 700,
+"trims": [
+{
+"trim": "Base 2dr Hatchback",
+"msrp": 18800,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Hatchback",
+"msrp": 22300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Convertible",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Convertible",
+"msrp": 27150,
+"config": "",
+"note": ""
+},
+{
+"trim": "John Cooper Works 2dr Hatchback",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "John Cooper Works 2dr Convertible",
+"msrp": 34000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-mini-cooper-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 700,
+"trims": [
+{
+"trim": "Base 2dr Hatchback",
+"msrp": 19400,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Hatchback",
+"msrp": 23000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Convertible",
+"msrp": 24850,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Convertible",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "John Cooper Works 2dr Hatchback",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "John Cooper Works 2dr Convertible",
+"msrp": 34300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-mini-cooper-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,684 @@
+{
+"make": "Subaru",
+"model": "Impreza",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (impreza).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Sedan 5M",
+"msrp": 17495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon 5M",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Sedan 4A",
+"msrp": 18495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan 5M",
+"msrp": 18495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon 4A",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 5M",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan 4A",
+"msrp": 19495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 4A",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Outback Sport 4dr Wagon 5M",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Outback Sport 4dr Wagon 4A",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Sedan",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Wagon",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5GT Premium 4dr Sedan 4A",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5GT Premium 4dr Wagon 4A",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Sedan",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Wagon",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Sedan",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Wagon",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI Special Edition 4dr Wagon",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI 4dr Wagon",
+"msrp": 34995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-subaru-impreza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 725,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Sedan 5M",
+"msrp": 17495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon 5M",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Sedan 4A",
+"msrp": 18495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan 5M",
+"msrp": 18495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon 4A",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 5M",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan 4A",
+"msrp": 19495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 4A",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Outback Sport 4dr Wagon 5M",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Outback Sport 4dr Wagon 4A",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Sedan",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Wagon",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Sedan",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Wagon",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Sedan",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Wagon",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI 4dr Sedan",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI 4dr Wagon",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI Limited 4dr Sedan",
+"msrp": 37345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-subaru-impreza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 750,
+"trims": [
+{
+"trim": "AWD 2.0i 4dr Sedan 5M",
+"msrp": 17495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i 4dr Wagon 5M",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i 4dr Sedan CVT",
+"msrp": 18495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Sedan 5M",
+"msrp": 18795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i 4dr Wagon CVT",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Wagon 5M",
+"msrp": 19295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Sedan CVT",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Wagon CVT",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Sport Premium 4dr Wagon 5M",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Sport Premium 4dr Wagon CVT",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Limited 4dr Sedan",
+"msrp": 21595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Limited 4dr Wagon",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Sport Limited 4dr Wagon",
+"msrp": 22595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Sedan",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Wagon",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Sedan",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Wagon",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Sedan",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Wagon",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI 4dr Sedan",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI 4dr Wagon",
+"msrp": 36095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI Limited 4dr Sedan",
+"msrp": 37445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-subaru-impreza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 770,
+"trims": [
+{
+"trim": "AWD 2.0i 4dr Sedan 5M",
+"msrp": 17895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i 4dr Wagon 5M",
+"msrp": 18395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i 4dr Sedan CVT",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i 4dr Wagon CVT",
+"msrp": 19395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Sedan 5M",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Sedan CVT",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Wagon 5M",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Wagon CVT",
+"msrp": 20795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Sport Premium 4dr Wagon 5M",
+"msrp": 20795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Sport Premium 4dr Wagon CVT",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Limited 4dr Sedan",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Limited 4dr Wagon",
+"msrp": 22495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Sport Limited 4dr Wagon",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Sedan",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Wagon",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Sedan",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Wagon",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Sedan",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Wagon",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI 4dr Sedan",
+"msrp": 34295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI 4dr Wagon",
+"msrp": 36295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI Limited 4dr Sedan",
+"msrp": 37645,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-subaru-impreza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "AWD 2.0i 4dr Sedan 5M",
+"msrp": 17895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i 4dr Wagon 5M",
+"msrp": 18395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i 4dr Sedan CVT",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i 4dr Wagon CVT",
+"msrp": 19395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Sedan 5M",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Sedan CVT",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Wagon 5M",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Wagon CVT",
+"msrp": 20795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Sport Premium 4dr Wagon 5M",
+"msrp": 20795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Sport Premium 4dr Wagon CVT",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Limited 4dr Sedan",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Limited 4dr Wagon",
+"msrp": 22695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Sport Limited 4dr Wagon",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Sedan",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX 4dr Wagon",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Sedan",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Premium 4dr Wagon",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Sedan",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX Limited 4dr Wagon",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI 4dr Sedan",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STI 4dr Wagon",
+"msrp": 36495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD WRX STl Limited 4dr Sedan",
+"msrp": 37845,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-subaru-impreza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

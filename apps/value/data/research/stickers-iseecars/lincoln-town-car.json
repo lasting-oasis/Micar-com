@@ -1,0 +1,87 @@
+{
+"make": "Lincoln",
+"model": "Town Car",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (town_car).",
+"years": [
+{
+"year": 2010,
+"destination": 945,
+"trims": [
+{
+"trim": "Executive 4dr Sedan",
+"msrp": 46035,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature Limited 4dr Sedan",
+"msrp": 46525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Executive L 4dr Sedan",
+"msrp": 48190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature L 4dr Sedan",
+"msrp": 52195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lincoln-town_car-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 945,
+"trims": [
+{
+"trim": "Executive 4dr Sedan",
+"msrp": 46110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature Limited Fleet 4dr Sedan",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature Limited 4dr Sedan",
+"msrp": 47225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Executive L 4dr Sedan",
+"msrp": 48265,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature L Fleet 4dr Sedan",
+"msrp": 52670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature L 4dr Sedan",
+"msrp": 52895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lincoln-town_car-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

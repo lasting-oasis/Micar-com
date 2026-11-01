@@ -1,0 +1,309 @@
+{
+"make": "Dodge",
+"model": "Durango",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (durango).",
+"years": [
+{
+"year": 2011,
+"destination": 850,
+"trims": [
+{
+"trim": "Express 4dr SUV",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Heat 4dr SUV",
+"msrp": 30520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Express 4dr SUV",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Heat 4dr SUV",
+"msrp": 32520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr SUV",
+"msrp": 33420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crew 4dr SUV",
+"msrp": 35420,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV",
+"msrp": 35690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV",
+"msrp": 38090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Lux 4dr SUV",
+"msrp": 38420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crew Lux 4dr SUV",
+"msrp": 40420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel 4dr SUV",
+"msrp": 42020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Citadel 4dr SUV",
+"msrp": 44020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "SXT 4dr SUV",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Service 4dr SUV",
+"msrp": 29795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Heat 4dr SUV",
+"msrp": 30960,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr SUV",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Special Service 4dr SUV",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Heat 4dr SUV",
+"msrp": 33010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr SUV",
+"msrp": 33795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV",
+"msrp": 35795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crew 4dr SUV",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV",
+"msrp": 38395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel 4dr SUV",
+"msrp": 40995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Citadel 4dr SUV",
+"msrp": 43195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "SXT 4dr SUV",
+"msrp": 29795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Service 4dr SUV",
+"msrp": 30095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Special Service 4dr SUV",
+"msrp": 32095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr SUV",
+"msrp": 32145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr SUV",
+"msrp": 35195,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV",
+"msrp": 36495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crew 4dr SUV",
+"msrp": 37545,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV",
+"msrp": 39245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel 4dr SUV",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Citadel 4dr SUV",
+"msrp": 42345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "SXT 4dr SUV",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Service 4dr SUV",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr SUV",
+"msrp": 32395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Special Service 4dr SUV",
+"msrp": 33295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 36495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 38895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV",
+"msrp": 39295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel 4dr SUV",
+"msrp": 40995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV",
+"msrp": 41695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Citadel 4dr SUV",
+"msrp": 43395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

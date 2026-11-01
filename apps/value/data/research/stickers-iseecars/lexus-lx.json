@@ -1,0 +1,69 @@
+{
+"make": "Lexus",
+"model": "LX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (lx_570).",
+"years": [
+{
+"year": 2010,
+"destination": 875,
+"trims": [
+{
+"trim": "LX 570 AWD 4dr SUV",
+"msrp": 76905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lexus-lx_570-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "LX 570 AWD 4dr SUV",
+"msrp": 79455,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lexus-lx_570-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "LX 570 AWD 4dr SUV",
+"msrp": 81530,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lexus-lx_570-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 910,
+"trims": [
+{
+"trim": "LX 570 AWD 4dr SUV",
+"msrp": 82630,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lexus-lx_570-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

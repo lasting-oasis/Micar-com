@@ -1,0 +1,30 @@
+{
+"make": "Audi",
+"model": "SQ5",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (sq5).",
+"years": [
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr SUV",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr SUV",
+"msrp": 59400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-sq5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

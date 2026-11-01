@@ -1,0 +1,36 @@
+{
+"make": "Subaru",
+"model": "BRZ",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (brz).",
+"years": [
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "Premium 2dr Coupe",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6M",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6A",
+"msrp": 28695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

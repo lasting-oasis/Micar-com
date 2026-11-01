@@ -1,0 +1,36 @@
+{
+"make": "BMW",
+"model": "X1",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (x1).",
+"years": [
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "sDrive28i 4dr SUV",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive28i 4dr SUV",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 38800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-x1-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

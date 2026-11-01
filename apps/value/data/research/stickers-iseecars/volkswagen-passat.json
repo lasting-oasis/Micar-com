@@ -1,0 +1,327 @@
+{
+"make": "Volkswagen",
+"model": "Passat",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (passat).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Komfort 4dr Sedan",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Komfort PZEV 4dr Sedan",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Komfort SULEV 4dr Sedan",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Komfort 4dr Wagon",
+"msrp": 28755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Komfort PZEV 4dr Wagon",
+"msrp": 28755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Komfort SULEV 4dr Wagon",
+"msrp": 28755,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volkswagen-passat-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 820,
+"trims": [
+{
+"trim": "2.5L S 4dr Sedan 5M",
+"msrp": 20845,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L S PZEV 4dr Sedan 5M",
+"msrp": 20845,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T S 4dr Sedan 5M",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T S PZEV 4dr Sedan 5M",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L S 4dr Sedan 6A",
+"msrp": 21945,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L S PZEV 4dr Sedan 6A",
+"msrp": 21945,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T S 4dr Sedan 6A",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T S PZEV 4dr Sedan 6A",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L S 4dr Sedan 6A w/Navigation",
+"msrp": 22245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L S PZEV 4dr Sedan 6A w/Navigation",
+"msrp": 22245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L Wolfsburg Edition 4dr Sedan",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L Wolfsburg Edition PZEV 4dr Sedan",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L SE 4dr Sedan 5M",
+"msrp": 23945,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L SE PZEV 4dr Sedan 5M",
+"msrp": 23945,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Wolfsburg Edition 4dr Sedan",
+"msrp": 23965,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Wolfsburg Edition PZEV 4dr Sedan",
+"msrp": 23965,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Wolfsburg Edition 4dr Sedan (midyear release)",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Wolfsburg Edition PZEV 4dr Sedan (midyear release)",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE 4dr Sedan 5M",
+"msrp": 24475,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE PZEV 4dr Sedan 5M",
+"msrp": 24475,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L SE 4dr Sedan 6A",
+"msrp": 25045,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L SE PZEV 4dr Sedan 6A",
+"msrp": 25045,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE 4dr Sedan 6A",
+"msrp": 25575,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE PZEV 4dr Sedan 6A",
+"msrp": 25575,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L SE 4dr Sedan 6A w/Sunroof",
+"msrp": 25845,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L SE PZEV 4dr Sedan 6A w/Sunroof",
+"msrp": 25845,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L TDI SE 4dr Sedan 6M",
+"msrp": 26295,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE 4dr Sedan 6A w/Sunroof",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE PZEV 4dr Sedan 6A w/Sunroof",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Sport 4dr Sedan 5M",
+"msrp": 26475,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Sport PZEV 4dr Sedan 5M",
+"msrp": 26475,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L SE 4dr Sedan 6A w/Sunroof and Navigation",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L SE PZEV 4dr Sedan 6A w/Sunroof and Navigation",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE 4dr Sedan 6A w/Sunroof and Navigation",
+"msrp": 27555,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE PZEV 4dr Sedan 6A w/Sunroof and Navigation",
+"msrp": 27555,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Sport 4dr Sedan 6A",
+"msrp": 27675,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Sport PZEV 4dr Sedan 6A",
+"msrp": 27675,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L TDI SE 4dr Sedan 6A w/Sunroof",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE 4dr Sedan w/ Sunroof",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L TDI SE 4dr Sedan 6A w/Sunroof and Navigation",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SEL Premium 4dr Sedan 6A",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SEL Premium PZEV 4dr Sedan 6A",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L TDI SEL Premium 4dr Sedan 6A",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL Premium 4dr Sedan",
+"msrp": 33895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volkswagen-passat-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

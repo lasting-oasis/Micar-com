@@ -1,0 +1,306 @@
+{
+"make": "Ford",
+"model": "Expedition",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (expedition).",
+"years": [
+{
+"year": 2010,
+"destination": 925,
+"trims": [
+{
+"trim": "4x2 SSV Fleet 4dr SUV",
+"msrp": 33355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 35085,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SSV Fleet 4dr SUV",
+"msrp": 36255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 37985,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Eddie Bauer 4dr SUV",
+"msrp": 40890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 42660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Eddie Bauer 4dr SUV",
+"msrp": 43790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 45190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 45560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 48090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 925,
+"trims": [
+{
+"trim": "4x2 XL 4dr SUV",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 38610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SUV",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 41510,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 45280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 46550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 48180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 49450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 XL 4dr SUV",
+"msrp": 36530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 39140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SUV",
+"msrp": 39430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 42040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 45270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 46780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 48170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 49680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 XL Fleet 4dr SUV",
+"msrp": 36930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL Fleet 4dr SUV",
+"msrp": 39830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 40030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 42930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 46305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 47880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 49205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 50780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 XL Fleet 4dr SUV",
+"msrp": 38535,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL Fleet 4dr SUV",
+"msrp": 41435,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 41635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 44535,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 47910,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 50810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 52170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 55070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

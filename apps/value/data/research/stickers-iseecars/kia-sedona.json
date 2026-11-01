@@ -1,0 +1,99 @@
+{
+"make": "Kia",
+"model": "Sedona",
+"body": "Minivan",
+"note": "Trim-level MSRPs from iSeeCars price pages (sedona).",
+"years": [
+{
+"year": 2010,
+"destination": 795,
+"trims": [
+{
+"trim": "Base 4dr Mini-Van SWB",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Mini-Van LWB",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Mini-Van LWB",
+"msrp": 28695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-kia-sedona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van LWB",
+"msrp": 24595,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Mini-Van LWB",
+"msrp": 29195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-kia-sedona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 800,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van LWB",
+"msrp": 24900,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Mini-Van LWB",
+"msrp": 29190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-kia-sedona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 850,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van LWB",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Mini-Van LWB",
+"msrp": 30900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-kia-sedona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

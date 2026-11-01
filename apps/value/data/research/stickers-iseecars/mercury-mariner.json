@@ -1,0 +1,147 @@
+{
+"make": "Mercury",
+"model": "Mariner",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (mariner, mariner_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 725,
+"trims": [
+{
+"trim": "I4 4dr SUV",
+"msrp": 23560,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 4dr SUV",
+"msrp": 24560,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD I4 4dr SUV",
+"msrp": 25310,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier I4 4dr SUV",
+"msrp": 25630,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 4dr SUV",
+"msrp": 26130,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier V6 4dr SUV",
+"msrp": 26630,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier I4 4dr SUV",
+"msrp": 27380,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier V6 4dr SUV",
+"msrp": 28380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Base 4dr SUV",
+"msrp": 30105,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Base 4dr SUV",
+"msrp": 31855,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-mercury-mariner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 725,
+"trims": [
+{
+"trim": "I4 4dr SUV",
+"msrp": 23565,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 4dr SUV",
+"msrp": 24565,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD I4 4dr SUV",
+"msrp": 25315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier I4 4dr SUV",
+"msrp": 25635,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 4dr SUV",
+"msrp": 26315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier V6 4dr SUV",
+"msrp": 26635,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier I4 4dr SUV",
+"msrp": 27385,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier V6 4dr SUV",
+"msrp": 28385,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Base 4dr SUV",
+"msrp": 30115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Base 4dr SUV",
+"msrp": 31865,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-mercury-mariner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

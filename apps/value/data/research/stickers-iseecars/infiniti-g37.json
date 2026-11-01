@@ -1,0 +1,186 @@
+{
+"make": "Infiniti",
+"model": "G37",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (g37_convertible, g37_coupe).",
+"years": [
+{
+"year": 2010,
+"destination": 865,
+"trims": [
+{
+"trim": "G37 Coupe 2dr Coupe",
+"msrp": 36050,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe Journey 2dr Coupe",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe AWD x 2dr Coupe",
+"msrp": 39150,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe Sport 2dr Coupe",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Convertible 2dr Convertible",
+"msrp": 44350,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Convertible Sport 2dr Convertible",
+"msrp": 46950,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe Anniversary Edition 2dr Coupe",
+"msrp": 50550,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Convertible Anniversary Edition 2dr Convertible",
+"msrp": 54900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-infiniti-g37_convertible-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 895,
+"trims": [
+{
+"trim": "G37 Coupe 2dr Coupe",
+"msrp": 37150,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe Journey 2dr Coupe",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe AWD x 2dr Coupe",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe Sport 2dr Coupe",
+"msrp": 43350,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Convertible 2dr Convertible",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe IPL 2dr Coupe 6M",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Convertible Sport 2dr Convertible",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe IPL 2dr Coupe 7A",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Convertible Limited Edition 2dr Convertible",
+"msrp": 58000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-infiniti-g37_convertible-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 895,
+"trims": [
+{
+"trim": "G37 Coupe 2dr Coupe",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe Journey 2dr Coupe",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe AWD x 2dr Coupe",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe Sport 2dr Coupe",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Convertible 2dr Convertible",
+"msrp": 46650,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe IPL 2dr Coupe 6M",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Convertible Sport 2dr Convertible",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "G37 Coupe IPL 2dr Coupe 7A",
+"msrp": 51700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-infiniti-g37_convertible-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

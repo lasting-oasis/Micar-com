@@ -1,0 +1,108 @@
+{
+"make": "Infiniti",
+"model": "EX35",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (ex35).",
+"years": [
+{
+"year": 2010,
+"destination": 865,
+"trims": [
+{
+"trim": "Base 4dr Crossover",
+"msrp": 33800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Journey 4dr Crossover",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Journey 4dr Crossover",
+"msrp": 37400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-infiniti-ex35-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 895,
+"trims": [
+{
+"trim": "Base 4dr Crossover",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Journey 4dr Crossover",
+"msrp": 37400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Journey 4dr Crossover",
+"msrp": 38800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-infiniti-ex35-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 950,
+"trims": [
+{
+"trim": "Base 4dr Crossover",
+"msrp": 35800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Journey 4dr Crossover",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Journey 4dr Crossover",
+"msrp": 39500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-infiniti-ex35-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

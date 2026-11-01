@@ -1,0 +1,126 @@
+{
+"make": "BMW",
+"model": "X6",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (x6).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 67200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ActiveHybrid 4dr SUV",
+"msrp": 88900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 67700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ActiveHybrid 4dr SUV",
+"msrp": 88900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 59600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 70200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 59800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 70400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 60800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 71400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

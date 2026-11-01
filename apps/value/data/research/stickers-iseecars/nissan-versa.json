@@ -1,0 +1,264 @@
+{
+"make": "Nissan",
+"model": "Versa",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (versa).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "1.6 Base 4dr Sedan",
+"msrp": 9990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 4dr Sedan 5M",
+"msrp": 10990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 4dr Sedan 4A",
+"msrp": 11990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Sedan 6M",
+"msrp": 13100,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Hatchback 6M",
+"msrp": 13150,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Sedan 4A",
+"msrp": 14100,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Hatchback 4A",
+"msrp": 14150,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Sedan",
+"msrp": 16100,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Hatchback",
+"msrp": 16530,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-versa-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "1.6 Base 4dr Sedan",
+"msrp": 9990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 4dr Sedan 5M",
+"msrp": 11420,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 4dr Sedan 4A",
+"msrp": 12420,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Sedan 6M",
+"msrp": 14100,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Hatchback 6M",
+"msrp": 14380,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Sedan 4A",
+"msrp": 15100,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Hatchback 4A",
+"msrp": 15380,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Sedan",
+"msrp": 16650,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Hatchback",
+"msrp": 17410,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-versa-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "1.6 S 4dr Sedan 5M",
+"msrp": 10990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 S 4dr Sedan CVT",
+"msrp": 13120,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Hatchback 6M",
+"msrp": 14670,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 SV 4dr Sedan",
+"msrp": 14980,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Hatchback 4A",
+"msrp": 15870,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 SL 4dr Sedan",
+"msrp": 15990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Hatchback",
+"msrp": 18590,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-versa-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 810,
+"trims": [
+{
+"trim": "1.6 S 4dr Sedan 5M",
+"msrp": 11990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 S 4dr Sedan 4A",
+"msrp": 12990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 S Plus 4dr Sedan",
+"msrp": 13790,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 SV 4dr Sedan",
+"msrp": 15240,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 SL 4dr Sedan",
+"msrp": 16890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-versa-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "1.6 S 4dr Sedan 5M",
+"msrp": 11990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 S 4dr Sedan 4A",
+"msrp": 12990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 S Plus 4dr Sedan",
+"msrp": 13790,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 SV 4dr Sedan",
+"msrp": 15240,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.6 SL 4dr Sedan",
+"msrp": 16890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-versa-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

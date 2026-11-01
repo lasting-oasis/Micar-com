@@ -1,0 +1,51 @@
+{
+"make": "Lexus",
+"model": "HS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (hs_250h).",
+"years": [
+{
+"year": 2010,
+"destination": 875,
+"trims": [
+{
+"trim": "HS 250H 4dr Sedan",
+"msrp": 34650,
+"config": "",
+"note": ""
+},
+{
+"trim": "HS 250H Premium 4dr Sedan",
+"msrp": 37420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lexus-hs_250h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "HS 250H 4dr Sedan",
+"msrp": 36330,
+"config": "",
+"note": ""
+},
+{
+"trim": "HS 250H Premium 4dr Sedan",
+"msrp": 39100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lexus-hs_250h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

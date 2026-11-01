@@ -1,0 +1,234 @@
+{
+"make": "Nissan",
+"model": "Armada",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (armada).",
+"years": [
+{
+"year": 2010,
+"destination": 780,
+"trims": [
+{
+"trim": "4x2 SE 4dr SUV",
+"msrp": 37210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Titanium 4dr SUV",
+"msrp": 42140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE 4dr SUV",
+"msrp": 42810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Titanium 4dr SUV",
+"msrp": 44940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 49390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 52190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-armada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 975,
+"trims": [
+{
+"trim": "4x2 SV 4dr SUV",
+"msrp": 38490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr SUV",
+"msrp": 43640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 44090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr SUV",
+"msrp": 46540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 50890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 53790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-armada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 SV 4dr SUV",
+"msrp": 39870,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr SUV",
+"msrp": 45320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 45470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr SUV",
+"msrp": 48220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 52220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 55120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-armada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 SV 4dr SUV",
+"msrp": 36890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr SUV",
+"msrp": 42180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 42390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr SUV",
+"msrp": 45080,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 49460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 52360,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-armada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 SV 4dr SUV",
+"msrp": 37590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr SUV",
+"msrp": 42680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 42890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr SUV",
+"msrp": 45580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 49960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 52860,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-armada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

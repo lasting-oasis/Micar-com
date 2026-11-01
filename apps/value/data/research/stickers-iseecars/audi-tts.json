@@ -1,0 +1,30 @@
+{
+"make": "Audi",
+"model": "TTS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (tts).",
+"years": [
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 2.0T quattro 2dr Coupe",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro 2dr Convertible",
+"msrp": 51700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-tts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

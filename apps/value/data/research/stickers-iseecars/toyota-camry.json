@@ -1,0 +1,348 @@
+{
+"make": "Toyota",
+"model": "Camry",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (camry, camry_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Base 4dr Sedan 6M",
+"msrp": 19395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 6A",
+"msrp": 20445,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan 6M",
+"msrp": 20850,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan 6A",
+"msrp": 21900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6M",
+"msrp": 22165,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A",
+"msrp": 23165,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE V6 4dr Sedan 6A",
+"msrp": 24565,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 4dr Sedan 6A",
+"msrp": 25840,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan 6A",
+"msrp": 25925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Base 4dr Sedan",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 4dr Sedan 6A",
+"msrp": 29045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "Base 4dr Sedan 6M",
+"msrp": 20195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 6A",
+"msrp": 21245,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan 6M",
+"msrp": 21650,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan 6A",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6M",
+"msrp": 22965,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A",
+"msrp": 23965,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE V6 4dr Sedan 6A",
+"msrp": 25365,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 4dr Sedan 6A",
+"msrp": 26640,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan 6A",
+"msrp": 26725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Base 4dr Sedan",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 4dr Sedan 6A",
+"msrp": 29845,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 760,
+"trims": [
+{
+"trim": "L 4dr Sedan",
+"msrp": 22055,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 23220,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 24775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr Sedan",
+"msrp": 25990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Sport Limited Edition 4dr Sedan",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 4dr Sedan",
+"msrp": 26910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr Sedan",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 4dr Sedan",
+"msrp": 30115,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "L 4dr Sedan",
+"msrp": 22235,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan",
+"msrp": 22680,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 23400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 24855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr Sedan",
+"msrp": 26140,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 4dr Sedan",
+"msrp": 27260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr Sedan",
+"msrp": 27670,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 4dr Sedan",
+"msrp": 30465,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "L 4dr Sedan",
+"msrp": 22425,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan",
+"msrp": 22870,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 23740,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Sport 4dr Sedan",
+"msrp": 24865,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 25810,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr Sedan",
+"msrp": 26330,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 4dr Sedan",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE 4dr Sedan (2014.5)",
+"msrp": 27945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr Sedan",
+"msrp": 28625,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 4dr Sedan",
+"msrp": 30705,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,48 @@
+{
+"make": "Chrysler",
+"model": "Sebring",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (sebring).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 20120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 22115,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Convertible",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible",
+"msrp": 29210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Convertible",
+"msrp": 32710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chrysler-sebring-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

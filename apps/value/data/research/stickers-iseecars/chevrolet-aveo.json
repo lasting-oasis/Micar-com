@@ -1,0 +1,99 @@
+{
+"make": "Chevrolet",
+"model": "Aveo",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (aveo).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "Aveo5 LS 4dr Hatchback",
+"msrp": 11965,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan",
+"msrp": 11965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Aveo5 LT 4dr Hatchback w/1LT",
+"msrp": 14100,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 14100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Aveo5 LT 4dr Hatchback w/2LT",
+"msrp": 15365,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 15365,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-aveo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 11965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Aveo5 LS 4dr Hatchback",
+"msrp": 12115,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 14100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Aveo5 LT 4dr Hatchback w/1LT",
+"msrp": 14250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Aveo5 LT 4dr Hatchback w/2LT",
+"msrp": 15365,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 15365,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-aveo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

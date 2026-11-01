@@ -1,0 +1,288 @@
+{
+"make": "Chevrolet",
+"model": "Sonic",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (sonic).",
+"years": [
+{
+"year": 2012,
+"destination": 795,
+"trims": [
+{
+"trim": "LS 4dr Sedan w/1LS",
+"msrp": 13865,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Hatchback w/1LS",
+"msrp": 14765,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan w/2LS",
+"msrp": 14935,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 15065,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Hatchback w/2LS",
+"msrp": 15835,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Hatchback w/1LT",
+"msrp": 15865,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 16135,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/1LZ",
+"msrp": 16535,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Hatchback w/2LT",
+"msrp": 16935,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Hatchback w/1LZ",
+"msrp": 17235,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/2LZ",
+"msrp": 17795,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Hatchback w/2LZ",
+"msrp": 18495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-sonic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 810,
+"trims": [
+{
+"trim": "LS Manual 4dr Sedan",
+"msrp": 14185,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Manual 4dr Hatchback",
+"msrp": 14785,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Auto 4dr Sedan",
+"msrp": 15280,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Manual 4dr Sedan",
+"msrp": 15640,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Auto 4dr Hatchback",
+"msrp": 15880,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Manual 4dr Hatchback",
+"msrp": 16240,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Auto 4dr Sedan",
+"msrp": 16925,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Manual 4dr Sedan",
+"msrp": 17250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Auto 4dr Hatchback",
+"msrp": 17525,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Manual 4dr Hatchback",
+"msrp": 17850,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Auto 4dr Sedan",
+"msrp": 18585,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Auto 4dr Hatchback",
+"msrp": 19185,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Manual 4dr Hatchback",
+"msrp": 20185,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Auto 4dr Hatchback",
+"msrp": 21470,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-sonic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "LS Manual 4dr Sedan",
+"msrp": 14170,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Manual 4dr Hatchback",
+"msrp": 14770,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Auto 4dr Sedan",
+"msrp": 15420,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Manual 4dr Sedan",
+"msrp": 15780,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Auto 4dr Hatchback",
+"msrp": 16020,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Manual 4dr Hatchback",
+"msrp": 16380,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Auto 4dr Sedan",
+"msrp": 17065,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Manual 4dr Sedan",
+"msrp": 17390,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Auto 4dr Hatchback",
+"msrp": 17665,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Manual 4dr Hatchback",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Auto 4dr Sedan",
+"msrp": 18725,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Auto 4dr Hatchback",
+"msrp": 19325,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Manual 4dr Sedan",
+"msrp": 19705,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Manual 4dr Hatchback",
+"msrp": 20325,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Auto 4dr Sedan",
+"msrp": 20990,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Auto 4dr Hatchback",
+"msrp": 21610,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-sonic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

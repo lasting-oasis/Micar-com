@@ -1,0 +1,378 @@
+{
+"make": "Toyota",
+"model": "Tacoma",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (tacoma).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "4x2 Base 2dr Regular Cab 6.1 ft SB 5M",
+"msrp": 15345,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner 2dr Regular Cab 6.1 ft SB 5M",
+"msrp": 16230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 2dr Regular Cab 6.1 ft SB 4A",
+"msrp": 16245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 2dr Regular Cab 6.1 ft SB 5M",
+"msrp": 19305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Access Cab 6.1 ft SB 5M",
+"msrp": 19380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner 4dr Access Cab 6.1 ft SB 5M",
+"msrp": 20140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Access Cab 6.1 ft SB 4A",
+"msrp": 20280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Access Cab 6.1 ft SB 6M",
+"msrp": 21595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Access Cab 6.1 ft SB 5A",
+"msrp": 22475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Access Cab 6.1 ft SB 5M",
+"msrp": 23215,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Double Cab 5.0 ft SB 5A",
+"msrp": 23675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Double Cab 6.1 ft SB 5A",
+"msrp": 24175,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Access Cab 6.1 ft SB 6M",
+"msrp": 24770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 X-Runner V6 4dr Access Cab 6.1 ft SB 6M",
+"msrp": 25460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Access Cab 6.1 ft SB 5A",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 25870,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Double Cab 5.0 ft SB 5A",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Double Cab 6.1 ft SB 5A",
+"msrp": 27250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "4x2 Base 2dr Regular Cab 6.1 ft SB 5M",
+"msrp": 16365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 2dr Regular Cab 6.1 ft SB 4A",
+"msrp": 17265,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Access Cab 6.1 ft SB 5M",
+"msrp": 19655,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 2dr Regular Cab 6.1 ft SB 5M",
+"msrp": 20220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Access Cab 6.1 ft SB 4A",
+"msrp": 20555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner 4dr Access Cab 6.1 ft SB 4A",
+"msrp": 21315,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 2dr Regular Cab 6.1 ft SB 4A",
+"msrp": 21350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Double Cab 5.0 ft SB 4A",
+"msrp": 21865,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner 4dr Double Cab 5.0 ft SB 4A",
+"msrp": 22515,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Access Cab 6.1 ft SB 5A",
+"msrp": 22750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Access Cab 6.1 ft SB 5M",
+"msrp": 23490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Double Cab 5.0 ft SB 5A",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Access Cab 6.1 ft SB 4A",
+"msrp": 24390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Double Cab 6.1 ft SB 5A",
+"msrp": 24450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Access Cab 6.1 ft SB 6M",
+"msrp": 25045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 X-Runner V6 4dr Access Cab 6.1 ft SB 6M",
+"msrp": 25735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Access Cab 6.1 ft SB 5A",
+"msrp": 25925,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 26145,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Double Cab 5.0 ft SB 5A",
+"msrp": 27025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Double Cab 6.1 ft SB 5A",
+"msrp": 27525,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 860,
+"trims": [
+{
+"trim": "4x2 Base 2dr Regular Cab 6.1 ft SB 5M",
+"msrp": 18125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 2dr Regular Cab 6.1 ft SB 4A",
+"msrp": 19025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Access Cab 6.1 ft SB 5M",
+"msrp": 20615,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Access Cab 6.1 ft SB 4A",
+"msrp": 21515,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 2dr Regular Cab 6.1 ft SB 5M",
+"msrp": 21975,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner 4dr Access Cab 6.1 ft SB 4A",
+"msrp": 22175,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Double Cab 5.0 ft SB 4A",
+"msrp": 22725,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 2dr Regular Cab 6.1 ft SB 4A",
+"msrp": 23105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner 4dr Double Cab 5.0 ft SB 4A",
+"msrp": 23275,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Access Cab 6.1 ft SB 5A",
+"msrp": 23610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Access Cab 6.1 ft SB 5M",
+"msrp": 24450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Double Cab 5.0 ft SB 5A",
+"msrp": 24710,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PreRunner V6 4dr Double Cab 6.1 ft SB 5A",
+"msrp": 25210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Access Cab 6.1 ft SB 4A",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Access Cab 6.1 ft SB 6M",
+"msrp": 26005,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Access Cab 6.1 ft SB 5A",
+"msrp": 26885,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 27005,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Double Cab 5.0 ft SB 5A",
+"msrp": 27885,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 V6 4dr Double Cab 6.1 ft SB 5A",
+"msrp": 28385,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,114 @@
+{
+"make": "Lincoln",
+"model": "MKX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (mkx).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 38345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 40195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lincoln-mkx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 39375,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 41225,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lincoln-mkx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 39525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 41375,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lincoln-mkx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 39545,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 41395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lincoln-mkx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 38575,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 40525,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lincoln-mkx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

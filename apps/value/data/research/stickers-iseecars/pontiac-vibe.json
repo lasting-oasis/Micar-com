@@ -1,0 +1,42 @@
+{
+"make": "Pontiac",
+"model": "Vibe",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (vibe).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "1.8L 4dr Wagon",
+"msrp": 16100,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L 4dr Wagon",
+"msrp": 17445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Wagon",
+"msrp": 20275,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Wagon",
+"msrp": 20875,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-pontiac-vibe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

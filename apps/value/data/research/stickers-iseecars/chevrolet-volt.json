@@ -1,0 +1,93 @@
+{
+"make": "Chevrolet",
+"model": "Volt",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (volt).",
+"years": [
+{
+"year": 2011,
+"destination": 720,
+"trims": [
+{
+"trim": "Base 4dr Hatchback",
+"msrp": 40280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback",
+"msrp": 41675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 850,
+"trims": [
+{
+"trim": "4dr Hatchback",
+"msrp": 39145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback",
+"msrp": 40540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 850,
+"trims": [
+{
+"trim": "4dr Hatchback",
+"msrp": 39145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback",
+"msrp": 40540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "4dr Hatchback",
+"msrp": 34185,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback",
+"msrp": 35580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

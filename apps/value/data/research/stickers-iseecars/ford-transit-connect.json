@@ -1,0 +1,348 @@
+{
+"make": "Ford",
+"model": "Transit Connect",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (transit_connect).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "XL 4dr Cargo Mini-Van w/o Side and Rear Glass",
+"msrp": 20780,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr Cargo Mini-Van w/Rear Glass",
+"msrp": 20965,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr Cargo Mini-Van w/Side and Rear Glass",
+"msrp": 21035,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr Mini-Van",
+"msrp": 21135,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/o Side and Rear Glass",
+"msrp": 21840,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/Rear Glass",
+"msrp": 22180,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/Side and Rear Glass",
+"msrp": 22250,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Mini-Van",
+"msrp": 22350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-transit_connect-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "XL 4dr Cargo Mini-Van w/o Side and Rear Glass",
+"msrp": 21290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr Cargo Mini-Van w/Rear Glass",
+"msrp": 21475,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr Cargo Mini-Van w/Side and Rear Glass",
+"msrp": 21545,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/o Side and Rear Glass",
+"msrp": 22350,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/Rear Glass",
+"msrp": 22690,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/Side and Rear Glass",
+"msrp": 22760,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Mini-Van",
+"msrp": 23140,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT Premium 4dr Mini-Van",
+"msrp": 23290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van",
+"msrp": 57400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-transit_connect-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "XL 4dr Cargo Mini-Van w/o Side and Rear Glass",
+"msrp": 22035,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr Cargo Mini-Van w/Rear Glass",
+"msrp": 22220,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr Cargo Mini-Van w/Side and Rear Glass",
+"msrp": 22290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/o Side and Rear Glass",
+"msrp": 23095,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/Side and Rear Glass",
+"msrp": 23280,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/Rear Glass",
+"msrp": 23435,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Mini-Van",
+"msrp": 23660,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT Premium 4dr Mini-Van",
+"msrp": 23810,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van",
+"msrp": 57400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-transit_connect-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 935,
+"trims": [
+{
+"trim": "XL 4dr Cargo Mini-Van w/o Side and Rear Glass",
+"msrp": 22265,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr Cargo Mini-Van w/Rear Glass",
+"msrp": 22450,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr Cargo Mini-Van w/Side and Rear Glass",
+"msrp": 22520,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/o Side and Rear Glass",
+"msrp": 23325,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/Rear Glass",
+"msrp": 23665,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Cargo Mini-Van w/Side and Rear Glass",
+"msrp": 23735,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr Mini-Van",
+"msrp": 23890,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT Premium 4dr Mini-Van",
+"msrp": 24040,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-transit_connect-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 22000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 22000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 23000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 23000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 23525,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 23525,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 24525,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 24525,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Mini-Van w/Rear Cargo Doors",
+"msrp": 24525,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Mini-Van w/Rear Liftgate",
+"msrp": 24525,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 26525,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 26525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 29000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-transit_connect-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,42 @@
+{
+"make": "Fiat",
+"model": "500 L",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (500l).",
+"years": [
+{
+"year": 2014,
+"destination": 800,
+"trims": [
+{
+"trim": "Pop 4dr Hatchback",
+"msrp": 19195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Easy 4dr Hatchback",
+"msrp": 20395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking 4dr Hatchback",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge 4dr Hatchback",
+"msrp": 24395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-fiat-500l-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

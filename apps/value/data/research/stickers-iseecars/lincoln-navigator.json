@@ -1,0 +1,114 @@
+{
+"make": "Lincoln",
+"model": "Navigator",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (navigator).",
+"years": [
+{
+"year": 2010,
+"destination": 925,
+"trims": [
+{
+"trim": "4x2 Base 4dr SUV",
+"msrp": 54400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 57300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 925,
+"trims": [
+{
+"trim": "4x2 Base 4dr SUV",
+"msrp": 57630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 60530,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 Base 4dr SUV",
+"msrp": 57775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 60675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 Base 4dr SUV",
+"msrp": 57875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 60775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 4dr SUV",
+"msrp": 56165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 4dr SUV",
+"msrp": 59065,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,246 @@
+{
+"make": "Buick",
+"model": "Enclave",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (enclave).",
+"years": [
+{
+"year": 2010,
+"destination": 775,
+"trims": [
+{
+"trim": "CX 4dr Crossover w/ 1CX",
+"msrp": 35465,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CX 4dr Crossover w/1CX",
+"msrp": 37465,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Crossover w/1XL",
+"msrp": 38630,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL 4dr Crossover w/1XL",
+"msrp": 40630,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Crossover w/2XL",
+"msrp": 41995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL 4dr Crossover w/2XL",
+"msrp": 43995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "CX 4dr Crossover w/ 1CX",
+"msrp": 35615,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CX 4dr Crossover w/ 1CX",
+"msrp": 37615,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL-1 4dr Crossover w/1XL",
+"msrp": 38730,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL-1 4dr Crossover w/1XL",
+"msrp": 40730,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL-2 4dr Crossover w/2XL",
+"msrp": 42095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL-2 4dr Crossover w/2XL",
+"msrp": 44095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "Base 4dr Crossover",
+"msrp": 36350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convenience 4dr Crossover",
+"msrp": 37270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Convenience 4dr Crossover",
+"msrp": 39270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Crossover",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 43615,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 45615,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "Convenience 4dr Crossover",
+"msrp": 38445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Convenience 4dr Crossover",
+"msrp": 40445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Crossover",
+"msrp": 42460,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 44460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 45625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 47625,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "Convenience 4dr Crossover",
+"msrp": 38890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Convenience 4dr Crossover",
+"msrp": 40890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Crossover",
+"msrp": 42905,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 44905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 46465,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 48465,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,333 @@
+{
+"make": "Buick",
+"model": "Regal",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (regal).",
+"years": [
+{
+"year": 2011,
+"destination": 860,
+"trims": [
+{
+"trim": "CXL 4dr Sedan w/RL1",
+"msrp": 26360,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL1 (CAN)",
+"msrp": 26360,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL3",
+"msrp": 27205,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL3 (CAN)",
+"msrp": 27205,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL2",
+"msrp": 27360,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL2 (CAN)",
+"msrp": 27360,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL4",
+"msrp": 28205,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL4 (CAN)",
+"msrp": 28205,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO1",
+"msrp": 28860,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO1 (CAN)",
+"msrp": 28860,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL5",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL5 (CAN)",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO2",
+"msrp": 29860,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO2 (CAN)",
+"msrp": 29860,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL6",
+"msrp": 31145,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL6 (CAN)",
+"msrp": 31145,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO3",
+"msrp": 31305,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO3 (CAN)",
+"msrp": 31305,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO5",
+"msrp": 31555,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO5 (CAN)",
+"msrp": 31555,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO6",
+"msrp": 32555,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO6 (CAN)",
+"msrp": 32555,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO4",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO4 (CAN)",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/ TO7",
+"msrp": 34550,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO7 (CAN)",
+"msrp": 34550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 860,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 26670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan",
+"msrp": 28105,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan",
+"msrp": 29515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan Turbo",
+"msrp": 29875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan Turbo",
+"msrp": 31285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 3 4dr Sedan Turbo",
+"msrp": 32535,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 4dr Sedan",
+"msrp": 34450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 29015,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan",
+"msrp": 30635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan Turbo",
+"msrp": 30635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan",
+"msrp": 32045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan Turbo",
+"msrp": 32045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 3 4dr Sedan Turbo",
+"msrp": 33215,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 4dr Sedan",
+"msrp": 34980,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 29690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium I 4dr Sedan",
+"msrp": 31560,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Sedan",
+"msrp": 31865,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium I 4dr Sedan",
+"msrp": 33735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II 4dr Sedan",
+"msrp": 33760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium II 4dr Sedan",
+"msrp": 35935,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 4dr Sedan",
+"msrp": 36905,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GS 4dr Sedan",
+"msrp": 39270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

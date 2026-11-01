@@ -1,0 +1,78 @@
+{
+"make": "Infiniti",
+"model": "FX35",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (fx35).",
+"years": [
+{
+"year": 2010,
+"destination": 865,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 43850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-infiniti-fx35-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 895,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 44050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-infiniti-fx35-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 950,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 45150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited Edition 4dr SUV",
+"msrp": 52000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-infiniti-fx35-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

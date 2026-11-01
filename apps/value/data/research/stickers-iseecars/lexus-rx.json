@@ -1,0 +1,186 @@
+{
+"make": "Lexus",
+"model": "RX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (rx_350, rx_450h).",
+"years": [
+{
+"year": 2010,
+"destination": 875,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 37625,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 39025,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 42685,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 44275,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 39075,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 40475,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 44735,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 46325,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 39075,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 40475,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 45235,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 46825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 39660,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 41060,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 46310,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT 4dr SUV",
+"msrp": 47350,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 47710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 910,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 39760,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 41160,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 46410,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT 4dr SUV",
+"msrp": 47450,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 47810,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

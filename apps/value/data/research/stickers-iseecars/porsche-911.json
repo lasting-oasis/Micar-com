@@ -1,0 +1,540 @@
+{
+"make": "Porsche",
+"model": "911",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (911).",
+"years": [
+{
+"year": 2010,
+"destination": 860,
+"trims": [
+{
+"trim": "Carrera 2dr Coupe",
+"msrp": 77800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Coupe",
+"msrp": 84100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 2dr Convertible",
+"msrp": 88800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Coupe",
+"msrp": 88800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4 2dr Coupe",
+"msrp": 92100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Convertible",
+"msrp": 95100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Coupe",
+"msrp": 95100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Convertible",
+"msrp": 99800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4S 2dr Coupe",
+"msrp": 103100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Convertible",
+"msrp": 106100,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 2dr Coupe",
+"msrp": 112200,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 RS 2dr Coupe",
+"msrp": 132800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Coupe",
+"msrp": 132800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Convertible",
+"msrp": 143800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 950,
+"trims": [
+{
+"trim": "Carrera 2dr Coupe",
+"msrp": 77800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Coupe",
+"msrp": 84100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 2dr Convertible",
+"msrp": 88800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Coupe",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4 2dr Coupe",
+"msrp": 92100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Convertible",
+"msrp": 95100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Coupe",
+"msrp": 96800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Convertible",
+"msrp": 101500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Coupe",
+"msrp": 103100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4S 2dr Coupe",
+"msrp": 104800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Convertible",
+"msrp": 107800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Convertible",
+"msrp": 112900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 2dr Coupe",
+"msrp": 115700,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 RS 2dr Coupe",
+"msrp": 135500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Coupe",
+"msrp": 135500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Convertible",
+"msrp": 146800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Coupe",
+"msrp": 160700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Convertible",
+"msrp": 172100,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT2 RS 2dr Coupe",
+"msrp": 245950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 950,
+"trims": [
+{
+"trim": "Black Edition 2dr Coupe",
+"msrp": 81300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 2dr Coupe",
+"msrp": 82100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Coupe",
+"msrp": 85400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Edition 2dr Convertible",
+"msrp": 91300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4 2dr Coupe",
+"msrp": 93500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 2dr Convertible",
+"msrp": 94650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Coupe",
+"msrp": 96400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Convertible",
+"msrp": 96500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Coupe",
+"msrp": 98300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Coupe",
+"msrp": 103100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4S 2dr Coupe",
+"msrp": 106400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Convertible",
+"msrp": 108950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Convertible",
+"msrp": 109400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 GTS 2dr Coupe",
+"msrp": 110200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Convertible",
+"msrp": 112900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 GTS 2dr Convertible",
+"msrp": 120100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Coupe",
+"msrp": 137500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Convertible",
+"msrp": 149000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Coupe",
+"msrp": 160700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Convertible",
+"msrp": 172100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 950,
+"trims": [
+{
+"trim": "Carrera 2dr Coupe",
+"msrp": 82100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Coupe",
+"msrp": 91030,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 2dr Convertible",
+"msrp": 93700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Coupe",
+"msrp": 96400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Convertible",
+"msrp": 102930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Coupe",
+"msrp": 105630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Convertible",
+"msrp": 108000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Convertible",
+"msrp": 117530,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Coupe",
+"msrp": 137500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Convertible",
+"msrp": 149000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Coupe",
+"msrp": 160700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Convertible",
+"msrp": 172100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 950,
+"trims": [
+{
+"trim": "Carrera 2dr Coupe",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Coupe",
+"msrp": 91030,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 2dr Convertible",
+"msrp": 96200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Coupe",
+"msrp": 98900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4 2dr Convertible",
+"msrp": 101600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Convertible",
+"msrp": 102930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Coupe",
+"msrp": 105630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Convertible",
+"msrp": 110800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4S 2dr Convertible",
+"msrp": 116200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Convertible",
+"msrp": 117530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 50th Anniversary Edition 2dr Coupe",
+"msrp": 125095,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 2dr Coupe",
+"msrp": 130400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Coupe",
+"msrp": 148300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Convertible",
+"msrp": 160700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Coupe",
+"msrp": 181100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Convertible",
+"msrp": 193900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

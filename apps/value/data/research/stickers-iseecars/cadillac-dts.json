@@ -1,0 +1,75 @@
+{
+"make": "Cadillac",
+"model": "DTS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (dts).",
+"years": [
+{
+"year": 2010,
+"destination": 920,
+"trims": [
+{
+"trim": "4.6L V8 4dr Sedan",
+"msrp": 46280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury Collection 4dr Sedan",
+"msrp": 51525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Collection 4dr Sedan",
+"msrp": 54425,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Collection (PLA) 4dr Sedan",
+"msrp": 59475,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-cadillac-dts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 920,
+"trims": [
+{
+"trim": "4.6L V8 4dr Sedan",
+"msrp": 46680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury Collection 4dr Sedan",
+"msrp": 51925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Collection 4dr Sedan",
+"msrp": 54825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Collection (PLA) 4dr Sedan",
+"msrp": 59875,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-cadillac-dts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

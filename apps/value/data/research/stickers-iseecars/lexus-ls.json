@@ -1,0 +1,204 @@
+{
+"make": "Lexus",
+"model": "LS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ls_460, ls_600h_l).",
+"years": [
+{
+"year": 2010,
+"destination": 875,
+"trims": [
+{
+"trim": "LS 460 4dr Sedan",
+"msrp": 65380,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD 4dr Sedan",
+"msrp": 68905,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 L 4dr Sedan",
+"msrp": 70925,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD L 4dr Sedan",
+"msrp": 74450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 600H L AWD Hybrid 4dr Sedan",
+"msrp": 108800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lexus-ls_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "LS 460 4dr Sedan",
+"msrp": 67130,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD 4dr Sedan",
+"msrp": 69435,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 L 4dr Sedan",
+"msrp": 72675,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD L 4dr Sedan",
+"msrp": 74980,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 600H L AWD Hybrid 4dr Sedan",
+"msrp": 111350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lexus-ls_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "LS 460 4dr Sedan",
+"msrp": 67630,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD 4dr Sedan",
+"msrp": 69935,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 L 4dr Sedan",
+"msrp": 73175,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD L 4dr Sedan",
+"msrp": 75480,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 600H L AWD Hybrid 4dr Sedan",
+"msrp": 112750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lexus-ls_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "LS 460 4dr Sedan",
+"msrp": 71990,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD 4dr Sedan",
+"msrp": 74935,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 L 4dr Sedan",
+"msrp": 78290,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD L 4dr Sedan",
+"msrp": 81775,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 600H L AWD Hybrid 4dr Sedan",
+"msrp": 119910,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lexus-ls_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 910,
+"trims": [
+{
+"trim": "LS 460 4dr Sedan",
+"msrp": 72140,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD 4dr Sedan",
+"msrp": 75085,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 L 4dr Sedan",
+"msrp": 78440,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460 AWD L 4dr Sedan",
+"msrp": 81925,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 600H L AWD Hybrid 4dr Sedan",
+"msrp": 120060,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lexus-ls_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

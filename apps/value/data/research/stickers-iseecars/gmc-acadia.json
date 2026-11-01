@@ -1,0 +1,342 @@
+{
+"make": "GMC",
+"model": "Acadia",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (acadia).",
+"years": [
+{
+"year": 2010,
+"destination": 775,
+"trims": [
+{
+"trim": "SL 4dr SUV",
+"msrp": 31740,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 33740,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE 4dr SUV",
+"msrp": 34315,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE 4dr SUV",
+"msrp": 36315,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 38585,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 40185,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 40585,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 42185,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 775,
+"trims": [
+{
+"trim": "SL 4dr SUV",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE 4dr SUV",
+"msrp": 34625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE 4dr SUV",
+"msrp": 36625,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 38345,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 40345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 43220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 45220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "SL 4dr SUV",
+"msrp": 32835,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 34835,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE 4dr SUV",
+"msrp": 35310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE 4dr SUV",
+"msrp": 37310,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 39060,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 39965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 41060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 41965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 44810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 46810,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 34050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 35940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 36050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 37940,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 39780,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 41780,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 45945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 47945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 34485,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 36375,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 36485,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 38375,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 40540,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 41635,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 42540,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 43635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 46825,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 48825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

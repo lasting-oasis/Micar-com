@@ -1,0 +1,132 @@
+{
+"make": "Dodge",
+"model": "Caliber",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (caliber).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Express 4dr Wagon",
+"msrp": 16880,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Wagon",
+"msrp": 16975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Heat 4dr Wagon",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Mainstreet 4dr Wagon",
+"msrp": 18060,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Wagon",
+"msrp": 18740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rush 4dr Wagon",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Uptown 4dr Wagon",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Wagon",
+"msrp": 20555,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-dodge-caliber-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "Express 4dr Wagon",
+"msrp": 17380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Heat 4dr Wagon",
+"msrp": 18585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Mainstreet 4dr Wagon",
+"msrp": 18620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rush 4dr Wagon",
+"msrp": 20585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Uptown 4dr Wagon",
+"msrp": 20585,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-dodge-caliber-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 750,
+"trims": [
+{
+"trim": "SE 4dr Wagon",
+"msrp": 17380,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 4dr Wagon",
+"msrp": 18730,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Wagon",
+"msrp": 18765,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-dodge-caliber-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

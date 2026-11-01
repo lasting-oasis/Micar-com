@@ -1,0 +1,222 @@
+{
+"make": "Acura",
+"model": "MDX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (mdx).",
+"years": [
+{
+"year": 2010,
+"destination": 860,
+"trims": [
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 42230,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 45905,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology and Entertainment Package",
+"msrp": 47805,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 51855,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance and Entertainment Package",
+"msrp": 53755,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 885,
+"trims": [
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 42930,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 46605,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology and Entertainment Package",
+"msrp": 48505,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 52555,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance and Entertainment Package",
+"msrp": 54455,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 895,
+"trims": [
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 43030,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 46705,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology and Entertainment Package",
+"msrp": 48605,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 52655,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance and Entertainment Package",
+"msrp": 54455,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 43280,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 46995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology and Entertainment Package",
+"msrp": 48855,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 52905,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance and Entertainment Package",
+"msrp": 54805,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 42290,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 44290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Technology Package",
+"msrp": 46565,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 48565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Technology and Entertainment Package",
+"msrp": 48565,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology and Entertainment Package",
+"msrp": 50565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Advance and Entertainment Package",
+"msrp": 54505,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance and Entertainment Package",
+"msrp": 56505,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

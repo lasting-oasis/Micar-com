@@ -1,0 +1,243 @@
+{
+"make": "Chevrolet",
+"model": "Cruze",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (cruze).",
+"years": [
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 16525,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan",
+"msrp": 18125,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO 4dr Sedan",
+"msrp": 18425,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 18425,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 20925,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan",
+"msrp": 22225,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 16800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan",
+"msrp": 18275,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 18555,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO 4dr Sedan",
+"msrp": 19325,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 20685,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/1LZ",
+"msrp": 23190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 810,
+"trims": [
+{
+"trim": "LS Manual 4dr Sedan w/1SA",
+"msrp": 17130,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Auto 4dr Sedan w/1SB",
+"msrp": 18225,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Manual 4dr Sedan w/1SC",
+"msrp": 18560,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan w/1FL",
+"msrp": 18810,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Auto 4dr Sedan w/1SD",
+"msrp": 19655,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO Manual 4dr Sedan w/1SE",
+"msrp": 19680,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO Auto 4dr Sedan w/1SF",
+"msrp": 20875,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Manual 4dr Sedan w/1SG",
+"msrp": 21040,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Auto 4dr Sedan w/1SH",
+"msrp": 22325,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Auto 4dr Sedan w/1SJ",
+"msrp": 23550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "LS Manual 4dr Sedan w/1SA",
+"msrp": 17520,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Auto 4dr Sedan w/1SB",
+"msrp": 18705,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Manual 4dr Sedan w/1SC",
+"msrp": 18815,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan w/1FL",
+"msrp": 19065,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Auto 4dr Sedan w/1SD",
+"msrp": 19910,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO Manual 4dr Sedan w/1SE",
+"msrp": 19935,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO Auto 4dr Sedan w/1SF",
+"msrp": 21130,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Manual 4dr Sedan w/1SG",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Auto 4dr Sedan w/1SH",
+"msrp": 22580,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Auto 4dr Sedan w/1SJ",
+"msrp": 23805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Diesel 4dr Sedan",
+"msrp": 24985,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,240 @@
+{
+"make": "Kia",
+"model": "Optima",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (optima, optima_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "LX 4dr Sedan (I4 5M)",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan (I4 5A)",
+"msrp": 19195,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan (I4 5A)",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan (I4 5A)",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan (V6)",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan (V6)",
+"msrp": 22795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-kia-optima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 695,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 20495,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 22495,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Turbo 4dr Sedan",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo 4dr Sedan",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Base 4dr Sedan",
+"msrp": 26500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-kia-optima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 750,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 19500,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 21000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 6A",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Turbo 4dr Sedan",
+"msrp": 25100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LX 4dr Sedan",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo 4dr Sedan 6A",
+"msrp": 26500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-kia-optima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 775,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 21350,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LX 4dr Sedan",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid EX 4dr Sedan",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXL 4dr Sedan",
+"msrp": 34500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-kia-optima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 800,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 21500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan",
+"msrp": 25500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LX 4dr Sedan",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo 4dr Sedan",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid EX 4dr Sedan",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXL Turbo 4dr Sedan",
+"msrp": 35300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-kia-optima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

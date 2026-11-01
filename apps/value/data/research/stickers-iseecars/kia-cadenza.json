@@ -1,0 +1,30 @@
+{
+"make": "Kia",
+"model": "Cadenza",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (cadenza).",
+"years": [
+{
+"year": 2014,
+"destination": 800,
+"trims": [
+{
+"trim": "Premium 4dr Sedan",
+"msrp": 35100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 42400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-kia-cadenza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

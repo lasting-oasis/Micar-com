@@ -1,0 +1,246 @@
+{
+"make": "Buick",
+"model": "LaCrosse",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (lacrosse).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "CX 4dr Sedan (4cyl)",
+"msrp": 26245,
+"config": "",
+"note": ""
+},
+{
+"trim": "CX 4dr Sedan",
+"msrp": 27085,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan",
+"msrp": 29645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL 4dr Sedan",
+"msrp": 31820,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXS 4dr Sedan",
+"msrp": 33015,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-buick-lacrosse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 860,
+"trims": [
+{
+"trim": "CX 4dr Sedan",
+"msrp": 27130,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan",
+"msrp": 29690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL 4dr Sedan",
+"msrp": 33205,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXS 4dr Sedan",
+"msrp": 33900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-buick-lacrosse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 30170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convenience 4dr Sedan",
+"msrp": 31240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Sedan",
+"msrp": 32705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan",
+"msrp": 33450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan",
+"msrp": 34865,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Sedan",
+"msrp": 34870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 1 4dr Sedan",
+"msrp": 35615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 3 4dr Sedan",
+"msrp": 36285,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 2 Sedan",
+"msrp": 37040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 38820,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-buick-lacrosse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 31660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Sedan",
+"msrp": 33870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan",
+"msrp": 35285,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Sedan",
+"msrp": 36035,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan",
+"msrp": 36705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 1 4dr Sedan",
+"msrp": 37460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 39240,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-buick-lacrosse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 33535,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Sedan",
+"msrp": 35610,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Sedan",
+"msrp": 38615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium I 4dr Sedan",
+"msrp": 39210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II 4dr Sedan",
+"msrp": 39755,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium I 4dr Sedan",
+"msrp": 40285,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-buick-lacrosse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

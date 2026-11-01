@@ -1,0 +1,24 @@
+{
+"make": "Ferrari",
+"model": "612 Scaglietti",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (612_scaglietti).",
+"years": [
+{
+"year": 2010,
+"destination": 2000,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 299720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ferrari-612_scaglietti-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

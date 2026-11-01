@@ -1,0 +1,282 @@
+{
+"make": "Nissan",
+"model": "Xterra",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (xterra).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "4x2 X 4dr SUV 6M",
+"msrp": 22450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 X 4dr SUV 5A",
+"msrp": 23250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 X 4dr SUV 6M",
+"msrp": 24500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 X 4dr SUV 5A",
+"msrp": 25300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr SUV",
+"msrp": 25420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV",
+"msrp": 27470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE 4dr SUV",
+"msrp": 28350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Off-Road 4dr SUV 6M",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Off-Road 4dr SUV 5A",
+"msrp": 30400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE 4dr SUV",
+"msrp": 30400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-xterra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "4x2 X 4dr SUV",
+"msrp": 24260,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr SUV",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 X 4dr SUV",
+"msrp": 26310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV 6M",
+"msrp": 27250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV 5A",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr SUV 6M",
+"msrp": 29670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr SUV 5A",
+"msrp": 30720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-xterra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 810,
+"trims": [
+{
+"trim": "4x2 X 4dr SUV",
+"msrp": 25210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr SUV",
+"msrp": 27200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 X 4dr SUV",
+"msrp": 27260,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV 6M",
+"msrp": 28200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV 5A",
+"msrp": 29250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr SUV 6M",
+"msrp": 30370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr SUV 5A",
+"msrp": 31420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-xterra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 860,
+"trims": [
+{
+"trim": "4x2 X 4dr SUV",
+"msrp": 22940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr SUV",
+"msrp": 24850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 X 4dr SUV",
+"msrp": 24990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV 6M",
+"msrp": 25850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV 5A",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr SUV 6M",
+"msrp": 29440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr SUV 5A",
+"msrp": 30490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-xterra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 860,
+"trims": [
+{
+"trim": "4x2 X 4dr SUV",
+"msrp": 23390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr SUV",
+"msrp": 25300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 X 4dr SUV",
+"msrp": 25440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV 6M",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV 5A",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr SUV 6M",
+"msrp": 30320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr SUV 5A",
+"msrp": 31370,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-xterra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

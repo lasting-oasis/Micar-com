@@ -1,0 +1,144 @@
+{
+"make": "Toyota",
+"model": "Avalon",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (avalon).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "XL 4dr Sedan",
+"msrp": 27945,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLS 4dr Sedan",
+"msrp": 32245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 35285,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-avalon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 36435,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-avalon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 760,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 36435,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-toyota-avalon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 30990,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium 4dr Sedan",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Touring 4dr Sedan",
+"msrp": 35500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 39650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-avalon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 31590,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium 4dr Sedan",
+"msrp": 33445,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Touring 4dr Sedan",
+"msrp": 35250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 39900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-avalon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

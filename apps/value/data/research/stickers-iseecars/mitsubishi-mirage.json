@@ -1,0 +1,42 @@
+{
+"make": "Mitsubishi",
+"model": "Mirage",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (mirage).",
+"years": [
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "DE 4dr Hatchback 5M",
+"msrp": 12995,
+"config": "",
+"note": ""
+},
+{
+"trim": "DE 4dr Hatchback CVT",
+"msrp": 13995,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Hatchback 5M",
+"msrp": 14195,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Hatchback CVT",
+"msrp": 15195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-mitsubishi-mirage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

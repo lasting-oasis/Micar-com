@@ -1,0 +1,216 @@
+{
+"make": "Jeep",
+"model": "Wrangler",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (wrangler).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 21165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 26255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 28775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 22045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 27245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 70th Anniversary 2dr SUV",
+"msrp": 28670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport Mojave 2dr SUV",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 29245,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 900,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 22045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 27970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Arctic 2dr SUV",
+"msrp": 31869,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Call of Duty MW3 2dr SUV",
+"msrp": 36495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Freedom Edition 2dr SUV",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Moab 2dr SUV",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 10th Anniversary 2dr SUV",
+"msrp": 36095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys Wheeler Edition 2dr SUV",
+"msrp": 26195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Freedom Edition 2dr SUV",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Altitude Edition 2dr SUV",
+"msrp": 31895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Polar Edition 2dr SUV",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon X 2dr SUV",
+"msrp": 35495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

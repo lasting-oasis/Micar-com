@@ -1,0 +1,72 @@
+{
+"make": "Jeep",
+"model": "Cherokee",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (cherokee).",
+"years": [
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4dr SUV",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4dr SUV",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Altitude 4dr SUV",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhawk 4dr SUV",
+"msrp": 29595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 30095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

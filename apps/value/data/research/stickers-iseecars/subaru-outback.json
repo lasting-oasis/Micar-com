@@ -1,0 +1,276 @@
+{
+"make": "Subaru",
+"model": "Outback",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (outback).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Wagon",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Premium 4dr Wagon",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 30995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 725,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Wagon",
+"msrp": 28195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Premium 4dr Wagon",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 31495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 775,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 23295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Wagon",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon CVT",
+"msrp": 28695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Premium 4dr Wagon",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 31695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Wagon",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 32095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 32095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

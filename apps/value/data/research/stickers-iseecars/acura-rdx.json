@@ -1,0 +1,174 @@
+{
+"make": "Acura",
+"model": "RDX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (rdx).",
+"years": [
+{
+"year": 2010,
+"destination": 860,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 32520,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 34520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Technology Package",
+"msrp": 35620,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 37620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 885,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 32895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Technology Package",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 37995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 32895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Technology Package",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 37995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 34320,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 35720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Technology Package",
+"msrp": 38020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV w/Technology Package",
+"msrp": 39420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 34520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 35920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Technology Package",
+"msrp": 38220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV w/Technology Package",
+"msrp": 39620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

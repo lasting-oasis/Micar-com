@@ -1,0 +1,306 @@
+{
+"make": "Volkswagen",
+"model": "CC",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (cc).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "Sport 4dr Sedan 6M (ends 10/09)",
+"msrp": 27760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6M",
+"msrp": 27760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6M",
+"msrp": 27760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6A (ends 10/09)",
+"msrp": 28860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6A",
+"msrp": 28860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6A",
+"msrp": 28860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr Sedan (ends 10/09)",
+"msrp": 33080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 33080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury PZEV 4dr Sedan",
+"msrp": 33080,
+"config": "",
+"note": ""
+},
+{
+"trim": "VR6 Sport 4dr Sedan",
+"msrp": 39310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 4Motion 4dr Sedan",
+"msrp": 40420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volkswagen-cc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 820,
+"trims": [
+{
+"trim": "Sport 4dr Sedan 6M",
+"msrp": 28200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6M",
+"msrp": 28200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6A",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6A",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 4dr Sedan 6M",
+"msrp": 30120,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line PZEV 4dr Sedan 6M",
+"msrp": 30120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux 4dr Sedan",
+"msrp": 31175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux PZEV 4dr Sedan",
+"msrp": 31175,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 4dr Sedan 6A",
+"msrp": 31220,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line PZEV 4dr Sedan 6A",
+"msrp": 31220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Plus 4dr Sedan",
+"msrp": 33575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Plus PZEV 4dr Sedan",
+"msrp": 33575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Limited 4dr Sedan",
+"msrp": 34375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Limited PZEV 4dr Sedan",
+"msrp": 34375,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 4Motion Executive 4dr Sedan",
+"msrp": 39990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volkswagen-cc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 865,
+"trims": [
+{
+"trim": "Sport 4dr Sedan 6M",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6M",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6M (midyear release)",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6M (midyear release)",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6A",
+"msrp": 32895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6A",
+"msrp": 32895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 4dr Sedan 6M",
+"msrp": 33025,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line PZEV 4dr Sedan 6M",
+"msrp": 33025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6A (midyear release)",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6A (midyear release)",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 4dr Sedan 6M (midyear release)",
+"msrp": 33730,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line PZEV 4dr Sedan 6M (midyear release)",
+"msrp": 33730,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 4dr Sedan 6A",
+"msrp": 34125,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line PZEV 4dr Sedan 6A",
+"msrp": 34125,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 4dr Sedan 6A (midyear release)",
+"msrp": 34830,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line PZEV 4dr Sedan 6A (midyear release)",
+"msrp": 34830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Executive 4dr Sedan",
+"msrp": 37395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Executive PZEV 4dr Sedan",
+"msrp": 37395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 4Motion Executive 4dr Sedan",
+"msrp": 42895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volkswagen-cc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,54 @@
+{
+"make": "Chevrolet",
+"model": "Spark",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (spark).",
+"years": [
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "LS Manual 4dr Hatchback",
+"msrp": 12170,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS CVT 4dr Hatchback",
+"msrp": 13480,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Manual 4dr Hatchback",
+"msrp": 13940,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT CVT 4dr Hatchback",
+"msrp": 14995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Manual 4dr Hatchback",
+"msrp": 15290,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT CVT 4dr Hatchback",
+"msrp": 16385,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-spark-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

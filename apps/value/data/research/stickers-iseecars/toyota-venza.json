@@ -1,0 +1,144 @@
+{
+"make": "Toyota",
+"model": "Venza",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (venza).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "FWD 4cyl 4dr Crossover",
+"msrp": 26275,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4cyl 4dr Crossover",
+"msrp": 27725,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD V6 4dr Crossover",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 4dr Crossover",
+"msrp": 29550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-venza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "FWD 4cyl 4dr Crossover",
+"msrp": 27125,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4cyl 4dr Crossover",
+"msrp": 28575,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD V6 4dr Crossover",
+"msrp": 28950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 4dr Crossover",
+"msrp": 30400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-venza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 860,
+"trims": [
+{
+"trim": "LE 4cyl 4dr Crossover",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4cyl 4dr Crossover",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE V6 4dr Crossover",
+"msrp": 29770,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE V6 4dr Crossover",
+"msrp": 31220,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4cyl 4dr Crossover",
+"msrp": 31810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4cyl 4dr Crossover",
+"msrp": 33260,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 4dr Crossover",
+"msrp": 33630,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE V6 4dr Crossover",
+"msrp": 35080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited V6 4dr Crossover",
+"msrp": 38120,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited V6 4dr Crossover",
+"msrp": 39570,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-venza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

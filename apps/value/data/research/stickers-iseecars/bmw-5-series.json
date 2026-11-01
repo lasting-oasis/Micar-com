@@ -1,0 +1,372 @@
+{
+"make": "BMW",
+"model": "5 Series",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (5_series).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "528i 4dr Sedan",
+"msrp": 45950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 528i xDrive 4dr Sedan",
+"msrp": 48250,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i 4dr Sedan",
+"msrp": 51250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive 4dr Sedan",
+"msrp": 53550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive 4dr Wagon",
+"msrp": 55950,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i Gran Turismo 4dr Hatchback",
+"msrp": 56000,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i 4dr Sedan",
+"msrp": 60600,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i Gran Turismo 4dr Hatchback",
+"msrp": 63900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 66200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "528i 4dr Sedan",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i 4dr Sedan",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive 4dr Sedan",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i Gran Turismo 4dr Hatchback",
+"msrp": 56000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i 4dr Sedan",
+"msrp": 59700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive 4dr Sedan",
+"msrp": 62000,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i Gran Turismo 4dr Hatchback",
+"msrp": 63900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 66200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "528i 4dr Sedan",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 528i xDrive 4dr Sedan",
+"msrp": 49200,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i 4dr Sedan",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive 4dr Sedan",
+"msrp": 54800,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i Gran Turismo 4dr Hatchback",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 59300,
+"config": "",
+"note": ""
+},
+{
+"trim": "ActiveHybrid 5 4dr Sedan",
+"msrp": 60950,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i 4dr Sedan",
+"msrp": 62000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive 4dr Sedan",
+"msrp": 64300,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i Gran Turismo 4dr Hatchback",
+"msrp": 66000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 68300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "528i 4dr Sedan",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 528i xDrive 4dr Sedan",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i 4dr Sedan",
+"msrp": 53100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive 4dr Sedan",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i Gran Turismo 4dr Hatchback",
+"msrp": 58000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 60300,
+"config": "",
+"note": ""
+},
+{
+"trim": "ActiveHybrid 5 4dr Sedan",
+"msrp": 61100,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i 4dr Sedan",
+"msrp": 62400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive 4dr Sedan",
+"msrp": 64700,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i Gran Turismo 4dr Hatchback",
+"msrp": 67500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 69800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "528i 4dr Sedan",
+"msrp": 49500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 528i xDrive 4dr Sedan",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i 4dr Sedan",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "535d 4dr Sedan",
+"msrp": 56600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive 4dr Sedan",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535d xDrive 4dr Sedan",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i Gran Turismo 4dr Hatchback",
+"msrp": 60200,
+"config": "",
+"note": ""
+},
+{
+"trim": "ActiveHybrid 5 4dr Sedan",
+"msrp": 61400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 62500,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i 4dr Sedan",
+"msrp": 63900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive 4dr Sedan",
+"msrp": 66200,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i Gran Turismo 4dr Hatchback",
+"msrp": 68100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 70400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

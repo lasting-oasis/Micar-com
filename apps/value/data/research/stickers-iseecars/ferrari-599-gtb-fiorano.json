@@ -1,0 +1,39 @@
+{
+"make": "Ferrari",
+"model": "599 GTB Fiorano",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (599_gtb_fiorano).",
+"years": [
+{
+"year": 2010,
+"destination": 2000,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 326730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ferrari-599_gtb_fiorano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 3750,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 310543,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ferrari-599_gtb_fiorano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

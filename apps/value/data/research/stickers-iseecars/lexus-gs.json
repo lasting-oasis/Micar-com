@@ -1,0 +1,129 @@
+{
+"make": "Lexus",
+"model": "GS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (gs_350, gs_450h, gs_460).",
+"years": [
+{
+"year": 2010,
+"destination": 875,
+"trims": [
+{
+"trim": "GS 350 4dr Sedan",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 AWD 4dr Sedan",
+"msrp": 47550,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 460 4dr Sedan",
+"msrp": 54070,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 450H 4dr Sedan",
+"msrp": 57450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lexus-gs_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "GS 350 4dr Sedan",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 AWD 4dr Sedan",
+"msrp": 48850,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 460 4dr Sedan",
+"msrp": 55370,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 450H 4dr Sedan",
+"msrp": 58950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lexus-gs_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "GS 350 4dr Sedan",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 AWD 4dr Sedan",
+"msrp": 49450,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 450H 4dr Sedan",
+"msrp": 58950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lexus-gs_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 910,
+"trims": [
+{
+"trim": "GS 350 4dr Sedan",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 AWD 4dr Sedan",
+"msrp": 49950,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 450H 4dr Sedan",
+"msrp": 60430,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lexus-gs_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,99 @@
+{
+"make": "Acura",
+"model": "ILX",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ilx).",
+"years": [
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "2.0L 4dr Sedan",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5L Hybrid 4dr Sedan",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L 4dr Sedan w/Premium Package",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L 4dr Sedan w/Premium Package",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L 4dr Sedan w/Technology Package",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5L Hybrid 4dr Sedan w/Technology Package",
+"msrp": 34400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "2.0L 4dr Sedan",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5L Hybrid 4dr Sedan",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L 4dr Sedan w/Premium Package",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L 4dr Sedan w/Premium Package",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L 4dr Sedan w/Technology Package",
+"msrp": 31600,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5L Hybrid 4dr Sedan w/Technology Package",
+"msrp": 34600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,90 @@
+{
+"make": "Acura",
+"model": "ZDX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (zdx).",
+"years": [
+{
+"year": 2010,
+"destination": 860,
+"trims": [
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 45495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 49995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 56045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-acura-zdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 885,
+"trims": [
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 46020,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 50520,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 56570,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-acura-zdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 895,
+"trims": [
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 46120,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 50620,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 56670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-acura-zdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

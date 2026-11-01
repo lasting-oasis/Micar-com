@@ -1,0 +1,162 @@
+{
+"make": "Aston Martin",
+"model": "DB9",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (db9).",
+"years": [
+{
+"year": 2010,
+"destination": 1350,
+"trims": [
+{
+"trim": "2dr Coupe 6M",
+"msrp": 180070,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 6A",
+"msrp": 185370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible 6M",
+"msrp": 195220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible 6A",
+"msrp": 199220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-astonmartin-db9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 1615,
+"trims": [
+{
+"trim": "2dr Coupe 6M",
+"msrp": 184615,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 6A",
+"msrp": 189915,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible 6M",
+"msrp": 198115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible 6A",
+"msrp": 203015,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-astonmartin-db9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 2115,
+"trims": [
+{
+"trim": "2dr Coupe 6A",
+"msrp": 189915,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury SE 2dr Coupe",
+"msrp": 196160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SE 2dr Coupe",
+"msrp": 196551,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible 6A",
+"msrp": 204915,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante Luxury SE 2dr Convertible",
+"msrp": 211160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante Sport SE 2dr Convertible",
+"msrp": 211821,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-astonmartin-db9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 2825,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 183300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible",
+"msrp": 198300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-astonmartin-db9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 2825,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 183700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible",
+"msrp": 198700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-astonmartin-db9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

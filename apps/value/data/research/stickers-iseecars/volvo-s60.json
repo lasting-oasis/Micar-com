@@ -1,0 +1,111 @@
+{
+"make": "Volvo",
+"model": "S60",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (s60).",
+"years": [
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD T6 4dr Sedan",
+"msrp": 37700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 915,
+"trims": [
+{
+"trim": "T5 4dr Sedan",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 4dr Sedan",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Premier 4dr Sedan",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Premier Plus 4dr Sedan",
+"msrp": 35550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Premier 4dr Sedan",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Premier Plus 4dr Sedan",
+"msrp": 37550,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Platinum 4dr Sedan",
+"msrp": 38250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 4dr Sedan",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Premier Plus 4dr Sedan",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Platinum 4dr Sedan",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Platinum 4dr Sedan",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 R-Design 4dr Sedan",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 R-Design Platinum 4dr Sedan",
+"msrp": 45700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

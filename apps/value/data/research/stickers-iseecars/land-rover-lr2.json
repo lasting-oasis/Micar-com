@@ -1,0 +1,120 @@
+{
+"make": "Land Rover",
+"model": "LR2",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (lr2).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "AWD HSE 4dr SUV",
+"msrp": 36350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-landrover-lr2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 850,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 35700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-landrover-lr2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 850,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE 4dr SUV",
+"msrp": 38150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE LUX 4dr SUV",
+"msrp": 40650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-landrover-lr2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE 4dr SUV",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE LUX 4dr SUV",
+"msrp": 41500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-landrover-lr2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE 4dr SUV",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE LUX 4dr SUV",
+"msrp": 41700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-landrover-lr2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

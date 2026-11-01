@@ -1,0 +1,207 @@
+{
+"make": "Chrysler",
+"model": "200",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (200).",
+"years": [
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 19245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 21245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 23945,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 26240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible",
+"msrp": 26445,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Convertible",
+"msrp": 28545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Convertible",
+"msrp": 31440,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Convertible",
+"msrp": 31940,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chrysler-200-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 850,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 21370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 24490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible",
+"msrp": 26775,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 26785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Convertible",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Convertible",
+"msrp": 32270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chrysler-200-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 19695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 22595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 25255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible",
+"msrp": 27525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Convertible",
+"msrp": 32520,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Convertible",
+"msrp": 33020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chrysler-200-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 25695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Convertible",
+"msrp": 32945,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Convertible",
+"msrp": 33445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chrysler-200-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

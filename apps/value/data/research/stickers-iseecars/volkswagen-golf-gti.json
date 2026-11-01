@@ -1,0 +1,432 @@
+{
+"make": "Volkswagen",
+"model": "Golf GTI",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (golf, gti).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "2.5L 2dr Hatchback 5M",
+"msrp": 17620,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Hatchback 5M",
+"msrp": 17620,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 2dr Hatchback 6A",
+"msrp": 18720,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Hatchback 6A",
+"msrp": 18720,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 4dr Hatchback",
+"msrp": 19335,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 4dr Hatchback",
+"msrp": 19335,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 2dr Hatchback 6M",
+"msrp": 22155,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Hatchback 6M",
+"msrp": 22760,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 2dr Hatchback 6A",
+"msrp": 23255,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 2dr Hatchback 6M",
+"msrp": 23465,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 2dr Hatchback 6M",
+"msrp": 23465,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Hatchback 6A",
+"msrp": 23860,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 4dr Hatchback 6M",
+"msrp": 24070,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 4dr Hatchback 6M",
+"msrp": 24070,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 2dr Hatchback 6A",
+"msrp": 24565,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 2dr Hatchback 6A",
+"msrp": 24565,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 4dr Hatchback 6A",
+"msrp": 25170,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 4dr Hatchback 6A",
+"msrp": 25170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volkswagen-gti-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 770,
+"trims": [
+{
+"trim": "2.5L 2dr Hatchback 5M",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Hatchback 5M",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 2dr Hatchback 6A",
+"msrp": 19095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Hatchback 6A",
+"msrp": 19095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 4dr Hatchback",
+"msrp": 19755,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 4dr Hatchback",
+"msrp": 19755,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 2dr Hatchback 6M",
+"msrp": 23225,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 2dr Hatchback 6M",
+"msrp": 23695,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 2dr Hatchback 6M",
+"msrp": 23695,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Hatchback 6M",
+"msrp": 23885,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 4dr Hatchback 6M",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 4dr Hatchback 6M",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 2dr Hatchback 6A",
+"msrp": 24325,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 2dr Hatchback 6A",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 2dr Hatchback 6A",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Hatchback 6A",
+"msrp": 24985,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 4dr Hatchback 6A",
+"msrp": 25395,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 4dr Hatchback 6A",
+"msrp": 25395,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 2dr Hatchback 6M w/ Sunroof",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 2dr Hatchback 6M w/ Sunroof",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 4dr Hatchback 6M w/ Sunroof",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 4dr Hatchback 6M w/ Sunroof",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 2dr Hatchback 6A w/ Sunroof",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 2dr Hatchback 6A w/ Sunroof",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 2dr Hatchback 6M w/ Sunroof and Navigation",
+"msrp": 27200,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 2dr Hatchback 6M w/ Sunroof and Navigation",
+"msrp": 27200,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 4dr Hatchback 6A w/ Sunroof",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 4dr Hatchback 6A w/ Sunroof",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 4dr Hatchback 6M w/ Sunroof and Navigation",
+"msrp": 27800,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 4dr Hatchback 6M w/ Sunroof and Navigation",
+"msrp": 27800,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 2dr Hatchback 6A w/ Sunroof and Navigation",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 2dr Hatchback 6A w/ Sunroof and Navigation",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base 4dr Hatchback 6A w/ Sunroof and Navigation",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Base PZEV 4dr Hatchback 6A w/ Sunroof and Navigation",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Autobahn 2dr Hatchback 6M",
+"msrp": 29225,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Autobahn PZEV 2dr Hatchback 6M",
+"msrp": 29225,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Autobahn 4dr Hatchback 6M",
+"msrp": 29825,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Autobahn PZEV 4dr Hatchback 6M",
+"msrp": 29825,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Autobahn 2dr Hatchback 6A",
+"msrp": 30325,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Autobahn PZEV 2dr Hatchback 6A",
+"msrp": 30325,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Autobahn 4dr Hatchback 6A",
+"msrp": 30925,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Autobahn PZEV 4dr Hatchback 6A",
+"msrp": 30925,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volkswagen-gti-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 820,
+"trims": [
+{
+"trim": "2.5L PZEV 4dr Hatchback 6A",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 4dr Hatchback 6A w/Convenience and Sunroof",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Hatchback 6M",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Hatchback 6A",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Hatchback 6M w/Sunroof and Navigation",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Hatchback 6A w/Sunroof and Navigation",
+"msrp": 27995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volkswagen-golf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

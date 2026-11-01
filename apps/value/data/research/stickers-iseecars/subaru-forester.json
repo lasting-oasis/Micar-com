@@ -1,0 +1,288 @@
+{
+"make": "Subaru",
+"model": "Forester",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (forester).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "AWD 2.5X 4dr Crossover 5M",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X 4dr Crossover 4A",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Premium 4dr Crossover 5M",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Premium 4dr Crossover 4A",
+"msrp": 23795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Limited 4dr Crossover 4A",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5XT Premium 4dr Crossover 4A",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5XT Limited 4dr Crossover 4A",
+"msrp": 28495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 725,
+"trims": [
+{
+"trim": "AWD 2.5X 4dr Crossover 5M",
+"msrp": 20495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X 4dr Crossover 4A",
+"msrp": 21695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Premium 4dr Crossover 5M",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Premium 4dr Crossover 4A",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Limited 4dr Crossover",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5XT Premium 4dr Crossover",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Touring 4dr Crossover",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5XT Touring 4dr Crossover",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 775,
+"trims": [
+{
+"trim": "AWD 2.5X 4dr Crossover 5M",
+"msrp": 20595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X 4dr Crossover 4A",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Premium 4dr Crossover 5M",
+"msrp": 23295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Premium 4dr Crossover 4A",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Limited 4dr Crossover",
+"msrp": 26595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5XT Premium 4dr Crossover",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Touring 4dr Crossover",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5XT Touring 4dr Crossover",
+"msrp": 29895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "AWD 2.5X 4dr Crossover 5M",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X 4dr Crossover 4A",
+"msrp": 22495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Premium 4dr Crossover 5M",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Premium 4dr Crossover 4A",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Limited 4dr Crossover",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5XT Premium 4dr Crossover",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5X Touring 4dr Crossover",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5XT Touring 4dr Crossover",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Crossover 6M",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Crossover CVT",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Crossover 6M",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Crossover CVT",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0XT Premium 4dr Crossover",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Crossover",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Touring 4dr Crossover",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0XT Touring 4dr Crossover",
+"msrp": 32995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

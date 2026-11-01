@@ -1,0 +1,186 @@
+{
+"make": "Dodge",
+"model": "Avenger",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (avenger).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 20230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Express 4dr Sedan",
+"msrp": 21230,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 21730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-dodge-avenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "Express 4dr Sedan",
+"msrp": 19245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 20980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Mainstreet 4dr Sedan",
+"msrp": 21340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux 4dr Sedan",
+"msrp": 23745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Heat 4dr Sedan",
+"msrp": 23840,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-dodge-avenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 4dr Sedan",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 4dr Sedan",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 25995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-dodge-avenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 Fleet 4dr Sedan",
+"msrp": 22230,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 4dr Sedan",
+"msrp": 22495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 22595,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 25695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-dodge-avenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 20595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 4dr Sedan",
+"msrp": 22035,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 25795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-dodge-avenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,660 @@
+{
+"make": "Toyota",
+"model": "Tundra",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (tundra).",
+"years": [
+{
+"year": 2010,
+"destination": 950,
+"trims": [
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup SB (4.0L V6)",
+"msrp": 23155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup LB (4.0L V6)",
+"msrp": 23485,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup SB (4.6L V8)",
+"msrp": 24355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup LB (4.6L V8)",
+"msrp": 24685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup SB (5.7L V8)",
+"msrp": 25355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup SB (4.0L V6)",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 25640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup LB (5.7L V8)",
+"msrp": 25685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup LB (4.6L V8)",
+"msrp": 26570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 26940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup SB (4.6L V8)",
+"msrp": 27405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup LB (4.6L V8)",
+"msrp": 27735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 27930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 28405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup SB (5.7L V8)",
+"msrp": 28405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 28465,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 28690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup LB (5.7L V8 FFV)",
+"msrp": 28735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup LB (5.7L V8)",
+"msrp": 28735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup LB (4.6L V8)",
+"msrp": 29620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 29765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup LB (5.7L V8 FFV)",
+"msrp": 30980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 30980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 31515,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 32815,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 32815,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 35270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 36560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 37805,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 38320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 39095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 39620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 39620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 40855,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 42155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 42155,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 975,
+"trims": [
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup SB (4.0L V6)",
+"msrp": 24435,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup LB (4.0L V6)",
+"msrp": 24765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup SB (4.6L V8)",
+"msrp": 25635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup SB (4.0L V6)",
+"msrp": 26775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup LB (5.7L V8)",
+"msrp": 26910,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 26920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 28165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 29155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 29630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup SB (5.7L V8)",
+"msrp": 29630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 29745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup LB (5.7L V8 FFV)",
+"msrp": 29960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup LB (5.7L V8)",
+"msrp": 29960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 29970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 30990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 31215,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 31215,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup LB (5.7L V8 FFV)",
+"msrp": 32205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 32205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 32795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 34040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 34040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 37360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 39895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 40420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 40420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 42955,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 42955,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 SR 2dr Regular Cab Pickup LB (4.0L V6)",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab Pickup SB (4.0L V6)",
+"msrp": 27090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 28135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 2dr Regular Cab Pickup LB (5.7L V8)",
+"msrp": 28745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 29635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 29745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 29965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 31185,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 31245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 31575,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 2dr Regular Cab Pickup LB (5.7L V8 FFV)",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 2dr Regular Cab Pickup LB (5.7L V8)",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 32105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 32685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 32685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 32795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup LB (5.7L V8 FFV)",
+"msrp": 33015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 33015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 33605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 34295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 34295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup LB (5.7L V8 FFV)",
+"msrp": 34625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 34625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 35155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 36655,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 36655,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 37220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 39125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 40270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 40270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 42175,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 42175,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 47600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

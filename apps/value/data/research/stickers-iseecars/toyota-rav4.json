@@ -1,0 +1,216 @@
+{
+"make": "Toyota",
+"model": "RAV4",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (rav4).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 21675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 23075,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 23375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV V6",
+"msrp": 23710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 24665,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 24775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV V6",
+"msrp": 25110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV V6",
+"msrp": 25305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 26055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV V6",
+"msrp": 26585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV V6",
+"msrp": 26705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV V6",
+"msrp": 27985,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 22475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 23875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 24175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV V6",
+"msrp": 24510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 25465,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 25575,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV V6",
+"msrp": 25910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV V6",
+"msrp": 26105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 26855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV V6",
+"msrp": 27385,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV V6",
+"msrp": 27505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV V6",
+"msrp": 28785,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 860,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 23550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 28320,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 29720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

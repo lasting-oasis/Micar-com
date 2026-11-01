@@ -1,0 +1,54 @@
+{
+"make": "Infiniti",
+"model": "FX50",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (fx50).",
+"years": [
+{
+"year": 2010,
+"destination": 865,
+"trims": [
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 58400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-infiniti-fx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 57600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-infiniti-fx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 950,
+"trims": [
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 59800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-infiniti-fx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

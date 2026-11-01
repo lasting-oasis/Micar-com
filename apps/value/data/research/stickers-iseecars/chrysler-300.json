@@ -1,0 +1,384 @@
+{
+"make": "Chrysler",
+"model": "300",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (300).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Touring 4dr Sedan w/23E",
+"msrp": 27260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Plus 4dr Sedan",
+"msrp": 28350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 30475,
+"config": "",
+"note": ""
+},
+{
+"trim": "S V6 4dr Sedan",
+"msrp": 31885,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Sedan",
+"msrp": 32640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 35110,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 37415,
+"config": "",
+"note": ""
+},
+{
+"trim": "C HEMI 4dr Sedan",
+"msrp": 38010,
+"config": "",
+"note": ""
+},
+{
+"trim": "S V8 4dr Sedan",
+"msrp": 38010,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C 4dr Sedan",
+"msrp": 40050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT-8 4dr Sedan",
+"msrp": 44865,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 27170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 31170,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 4dr Sedan",
+"msrp": 38170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C 4dr Sedan",
+"msrp": 40320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 925,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 27470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 32470,
+"config": "",
+"note": ""
+},
+{
+"trim": "S V6 4dr Sedan",
+"msrp": 33470,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 34820,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S V6 4dr Sedan",
+"msrp": 35820,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 4dr Sedan",
+"msrp": 38470,
+"config": "",
+"note": ""
+},
+{
+"trim": "S V8 4dr Sedan",
+"msrp": 39470,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C 4dr Sedan",
+"msrp": 40820,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S V8 4dr Sedan",
+"msrp": 41820,
+"config": "",
+"note": ""
+},
+{
+"trim": "C Luxury Series 4dr Sedan",
+"msrp": 41970,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C Luxury Series 4dr Sedan",
+"msrp": 44320,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 4dr Sedan",
+"msrp": 47470,
+"config": "",
+"note": ""
+},
+{
+"trim": "MOPAR 12 4dr Sedan",
+"msrp": 49325,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 30345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Sedan",
+"msrp": 32845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Motown 4dr Sedan",
+"msrp": 33345,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 33345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Sedan",
+"msrp": 35845,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 4dr Sedan",
+"msrp": 36345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Glacier Edition 4dr Sedan",
+"msrp": 36845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C 4dr Sedan",
+"msrp": 38845,
+"config": "",
+"note": ""
+},
+{
+"trim": "C Luxury Series 4dr Sedan",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "C John Varvatos Luxury Edition 4dr Sedan",
+"msrp": 40845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C Luxury Series 4dr Sedan",
+"msrp": 42345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C John Varvatos Luxury Edition 4dr Sedan",
+"msrp": 43345,
+"config": "",
+"note": ""
+},
+{
+"trim": "C John Varvatos Limited Edition 4dr Sedan",
+"msrp": 43845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Core 4dr Sedan",
+"msrp": 44450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 4dr Sedan",
+"msrp": 48450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Sedan",
+"msrp": 33495,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 34395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Sedan",
+"msrp": 36895,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 4dr Sedan",
+"msrp": 37395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C 4dr Sedan",
+"msrp": 39895,
+"config": "",
+"note": ""
+},
+{
+"trim": "C John Varvatos Luxury 4dr Sedan",
+"msrp": 41895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C John Varvatos Luxury 4dr Sedan",
+"msrp": 44395,
+"config": "",
+"note": ""
+},
+{
+"trim": "C John Varvatos Limited Edition 4dr Sedan",
+"msrp": 44895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Core 4dr Sedan",
+"msrp": 44900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD C John Varvatos Limited Edition 4dr Sedan",
+"msrp": 47395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 4dr Sedan",
+"msrp": 48900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

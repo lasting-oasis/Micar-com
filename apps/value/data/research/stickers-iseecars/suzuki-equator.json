@@ -1,0 +1,123 @@
+{
+"make": "Suzuki",
+"model": "Equator",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (equator).",
+"years": [
+{
+"year": 2010,
+"destination": 795,
+"trims": [
+{
+"trim": "4x2 Base 4dr Extended Cab 6.1 ft. SB",
+"msrp": 17520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Comfort 4dr Extended Cab 6.1 ft. SB",
+"msrp": 18825,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premium 4dr Extended Cab 6.1 ft. SB",
+"msrp": 22075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Sport 4dr Extended Cab 6.1 ft. SB",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Sport 4dr Crew Cab 5.0 ft. SB",
+"msrp": 24775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Sport 4dr Crew Cab 6.1 ft. SB",
+"msrp": 25125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Extended Cab 6.1 ft. SB",
+"msrp": 25645,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crew Cab 6.1 ft. SB",
+"msrp": 27825,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RMZ-4 4dr Crew Cab 5.0 ft. SB",
+"msrp": 28850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RMZ-4 Sport 4dr Crew Cab 5.0 ft. SB",
+"msrp": 30900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-suzuki-equator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "4x2 Base 4dr Extended Cab 6.1 ft. SB",
+"msrp": 17595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premium 4dr Extended Cab 6.1 ft. SB",
+"msrp": 22379,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Sport 4dr Crew Cab 5.0 ft. SB",
+"msrp": 25079,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Extended Cab 6.1 ft. SB",
+"msrp": 25779,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crew Cab 6.1 ft. SB",
+"msrp": 28079,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RMZ-4 4dr Crew Cab 5.0 ft. SB",
+"msrp": 28950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-suzuki-equator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

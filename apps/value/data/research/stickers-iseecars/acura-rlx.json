@@ -1,0 +1,60 @@
+{
+"make": "Acura",
+"model": "RLX",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (rlx).",
+"years": [
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 48450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Navigation",
+"msrp": 50950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 54450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Krell Audio Package",
+"msrp": 56950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD Sport Hybrid 4dr Sedan w/Tech",
+"msrp": 59950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Advance Package",
+"msrp": 60450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD Sport Hybrid 4dr Sedan w/Advance",
+"msrp": 65950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-acura-rlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

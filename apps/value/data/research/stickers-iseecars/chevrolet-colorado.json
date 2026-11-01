@@ -1,0 +1,360 @@
+{
+"make": "Chevrolet",
+"model": "Colorado",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (colorado).",
+"years": [
+{
+"year": 2010,
+"destination": 780,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab",
+"msrp": 16985,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 2dr Regular Cab w/1LT",
+"msrp": 18110,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 2dr Regular Cab Chassis",
+"msrp": 19180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Extended Cab",
+"msrp": 19230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab",
+"msrp": 20490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Extended Cab w/1LT",
+"msrp": 20685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 2dr Regular Cab w/1LT",
+"msrp": 21615,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Extended Cab",
+"msrp": 22530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab Chassis",
+"msrp": 22635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Extended Cab w/1LT",
+"msrp": 23785,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab w/1LT",
+"msrp": 23785,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Extended Cab w/2LT",
+"msrp": 25025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Extended Cab w/3LT",
+"msrp": 26215,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab w/2LT",
+"msrp": 26355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab w/1LT",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab w/3LT",
+"msrp": 27545,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Extended Cab w/2LT",
+"msrp": 28075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab w/2LT",
+"msrp": 28915,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab",
+"msrp": 17145,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 2dr Regular Cab w/1LT",
+"msrp": 18270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 2dr Regular Cab Chassis",
+"msrp": 19340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Extended Cab",
+"msrp": 19390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab",
+"msrp": 20650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Extended Cab w/1LT",
+"msrp": 20845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 2dr Regular Cab w/1LT",
+"msrp": 21775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Extended Cab",
+"msrp": 22690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab Chassis",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Extended Cab w/1LT",
+"msrp": 23945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab w/1LT",
+"msrp": 23945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Extended Cab w/2LT",
+"msrp": 25185,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Extended Cab w/3LT",
+"msrp": 26375,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab w/2LT",
+"msrp": 26515,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab w/1LT",
+"msrp": 27555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab w/3LT",
+"msrp": 27705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Extended Cab w/2LT",
+"msrp": 28235,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab w/2LT",
+"msrp": 29075,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 810,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab",
+"msrp": 17475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 2dr Regular Cab Chassis",
+"msrp": 19670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Extended Cab",
+"msrp": 19730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 2dr Regular Cab w/1LT",
+"msrp": 20370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab",
+"msrp": 20980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Extended Cab w/1LT",
+"msrp": 22955,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Extended Cab",
+"msrp": 23030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab Chassis",
+"msrp": 23125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab w/1LT",
+"msrp": 24285,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 2dr Regular Cab w/1LT",
+"msrp": 24440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Extended Cab w/2LT",
+"msrp": 26160,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Extended Cab w/1LT",
+"msrp": 26620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Extended Cab w/3LT",
+"msrp": 27010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab w/2LT",
+"msrp": 27490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab w/3LT",
+"msrp": 28340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab w/1LT",
+"msrp": 28460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Extended Cab w/2LT",
+"msrp": 29480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab w/2LT",
+"msrp": 30320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

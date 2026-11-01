@@ -1,0 +1,30 @@
+{
+"make": "Infiniti",
+"model": "M45",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (m45).",
+"years": [
+{
+"year": 2010,
+"destination": 865,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 52150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD x 4dr Sedan",
+"msrp": 54650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-infiniti-m45-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

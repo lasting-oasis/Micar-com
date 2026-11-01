@@ -1,0 +1,180 @@
+{
+"make": "Toyota",
+"model": "Yaris",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (yaris).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Base 2dr Hatchback 5M",
+"msrp": 12605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 12905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 5M",
+"msrp": 13365,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Hatchback 4A",
+"msrp": 13405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 4A",
+"msrp": 13705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 4A",
+"msrp": 14165,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "Base 2dr Hatchback 5M",
+"msrp": 13155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 13455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 5M",
+"msrp": 13715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Hatchback 4A",
+"msrp": 13955,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 4A",
+"msrp": 14255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 4A",
+"msrp": 14515,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "L 2dr Hatchback 5M",
+"msrp": 14430,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Fleet 2dr Hatchback 5M",
+"msrp": 14430,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 2dr Hatchback 4A",
+"msrp": 15155,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Fleet 2dr Hatchback 4A",
+"msrp": 15155,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr Hatchback",
+"msrp": 15455,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Fleet 4dr Hatchback",
+"msrp": 15455,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 2dr Hatchback",
+"msrp": 16015,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Fleet 2dr Hatchback",
+"msrp": 16015,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 16490,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Fleet 4dr Hatchback",
+"msrp": 16490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 5M",
+"msrp": 16540,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 4A",
+"msrp": 17340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,159 @@
+{
+"make": "Ford",
+"model": "Ranger",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (ranger).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "4x2 XL 2dr Regular Cab SB",
+"msrp": 17440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr Regular Cab SB",
+"msrp": 18580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 2dr Regular Cab LB",
+"msrp": 18725,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 2dr SuperCab SB",
+"msrp": 19135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr SuperCab SB",
+"msrp": 20200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Sport 2dr SuperCab SB",
+"msrp": 21925,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab SB",
+"msrp": 22310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Sport 4dr SuperCab SB",
+"msrp": 22990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr SuperCab SB",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab SB",
+"msrp": 24730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SuperCab SB",
+"msrp": 25570,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "4x2 XL 2dr Regular Cab SB",
+"msrp": 18160,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr Regular Cab SB",
+"msrp": 19120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL Fleet 2dr Regular Cab LB",
+"msrp": 19445,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 2dr SuperCab",
+"msrp": 19855,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr SuperCab",
+"msrp": 20740,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Sport 2dr SuperCab",
+"msrp": 22425,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab",
+"msrp": 22640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Sport 4dr SuperCab",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL Fleet 2dr SuperCab",
+"msrp": 23905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab",
+"msrp": 25060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SuperCab",
+"msrp": 26070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

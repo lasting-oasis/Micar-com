@@ -1,0 +1,300 @@
+{
+"make": "Subaru",
+"model": "Legacy",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (legacy).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Sedan 6M",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Sedan CVT",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan 6M",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan CVT",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Sedan CVT",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Sedan",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Premium 4dr Sedan",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5GT Premium 4dr Sedan",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Sedan",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5GT Limited 4dr Sedan",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 725,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Sedan 6M",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Sedan CVT",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan 6M",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan CVT",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Sedan 5A",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Sedan CVT",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Premium 4dr Sedan 5A",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Sedan 5A",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5GT Limited 4dr Sedan 6M",
+"msrp": 31395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 750,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Sedan 6M",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Sedan CVT",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan 6M",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan CVT",
+"msrp": 22295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Sedan",
+"msrp": 25095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Sedan CVT",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Premium 4dr Sedan",
+"msrp": 26295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Sedan",
+"msrp": 28595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5GT Limited 4dr Sedan",
+"msrp": 31595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 770,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Sedan 6M",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Sedan CVT",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan",
+"msrp": 22495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Sport 4dr Sedan",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Sedan",
+"msrp": 25395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Sedan",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Sedan",
+"msrp": 28895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Sedan 6M",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Sedan CVT",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Sedan",
+"msrp": 23295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Sport 4dr Sedan",
+"msrp": 25245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Sedan",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Sedan",
+"msrp": 28895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

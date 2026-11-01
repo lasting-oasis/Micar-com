@@ -1,0 +1,234 @@
+{
+"make": "Nissan",
+"model": "Rogue",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (rogue).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "AWD S 4dr Crossover",
+"msrp": 21710,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr Crossover",
+"msrp": 21930,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Crossover",
+"msrp": 22050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr Crossover",
+"msrp": 23300,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Krom 4dr Crossover",
+"msrp": 24060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Krom 4dr Crossover",
+"msrp": 25310,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "S 4dr Crossover",
+"msrp": 21460,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Crossover",
+"msrp": 22710,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Crossover",
+"msrp": 23900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Krom 4dr Crossover",
+"msrp": 24430,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV 4dr Crossover",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Krom 4dr Crossover",
+"msrp": 25680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "S 4dr Crossover",
+"msrp": 22070,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Crossover",
+"msrp": 23370,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Crossover",
+"msrp": 24510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV 4dr Crossover",
+"msrp": 25810,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV w/SL Package 4dr Crossover",
+"msrp": 28410,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV w/SL Package 4dr Crossover",
+"msrp": 29710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 860,
+"trims": [
+{
+"trim": "S 4dr Crossover",
+"msrp": 20310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Crossover",
+"msrp": 21610,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Crossover",
+"msrp": 22750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV 4dr Crossover",
+"msrp": 24050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV w/SL Package 4dr Crossover",
+"msrp": 26650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV w/SL Package 4dr Crossover",
+"msrp": 27950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 885,
+"trims": [
+{
+"trim": "S 4dr Crossover",
+"msrp": 22790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Crossover",
+"msrp": 24140,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Crossover",
+"msrp": 24490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV 4dr Crossover",
+"msrp": 25840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr Crossover",
+"msrp": 28280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr Crossover",
+"msrp": 29630,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

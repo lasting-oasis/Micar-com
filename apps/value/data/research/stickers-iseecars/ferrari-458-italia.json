@@ -1,0 +1,84 @@
+{
+"make": "Ferrari",
+"model": "458 Italia",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (458_italia).",
+"years": [
+{
+"year": 2010,
+"destination": 2000,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 225325,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ferrari-458_italia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 2000,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 225000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ferrari-458_italia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 3750,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 229825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ferrari-458_italia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 3750,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 233509,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ferrari-458_italia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 3750,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 233509,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ferrari-458_italia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,264 @@
+{
+"make": "Nissan",
+"model": "Sentra",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (sentra).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "2.0 4dr Sedan 6M",
+"msrp": 15420,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 4dr Sedan CVT",
+"msrp": 16600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 S 4dr Sedan",
+"msrp": 17160,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 SR 4dr Sedan",
+"msrp": 17160,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 SL 4dr Sedan",
+"msrp": 18560,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE-R 4dr Sedan",
+"msrp": 19580,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE-R Spec V 4dr Sedan",
+"msrp": 20080,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "2.0 4dr Sedan 6M",
+"msrp": 16060,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 4dr Sedan CVT",
+"msrp": 17240,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 S 4dr Sedan",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 SR 4dr Sedan",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 SL 4dr Sedan",
+"msrp": 19390,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE-R 4dr Sedan",
+"msrp": 20120,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE-R Spec V 4dr Sedan",
+"msrp": 20620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "2.0 4dr Sedan 6M",
+"msrp": 16430,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 4dr Sedan CVT",
+"msrp": 17610,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 S 4dr Sedan",
+"msrp": 18360,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 SR 4dr Sedan",
+"msrp": 18360,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 SL 4dr Sedan",
+"msrp": 19760,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE-R 4dr Sedan",
+"msrp": 20490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE-R Spec V 4dr Sedan",
+"msrp": 20990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 810,
+"trims": [
+{
+"trim": "S 4dr Sedan 6M",
+"msrp": 15990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan CVT",
+"msrp": 16590,
+"config": "",
+"note": ""
+},
+{
+"trim": "FE+ S 4dr Sedan",
+"msrp": 16990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Sedan",
+"msrp": 17390,
+"config": "",
+"note": ""
+},
+{
+"trim": "FE+ SV 4dr Sedan",
+"msrp": 17790,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 4dr Sedan",
+"msrp": 18690,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr Sedan",
+"msrp": 19590,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "S 4dr Sedan 6M",
+"msrp": 15990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan CVT",
+"msrp": 16840,
+"config": "",
+"note": ""
+},
+{
+"trim": "FE+ S 4dr Sedan",
+"msrp": 17240,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Sedan",
+"msrp": 17540,
+"config": "",
+"note": ""
+},
+{
+"trim": "FE+ SV 4dr Sedan",
+"msrp": 17940,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 4dr Sedan",
+"msrp": 18740,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr Sedan",
+"msrp": 19640,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

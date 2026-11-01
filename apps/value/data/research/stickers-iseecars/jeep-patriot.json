@@ -1,0 +1,270 @@
+{
+"make": "Jeep",
+"model": "Patriot",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (patriot).",
+"years": [
+{
+"year": 2010,
+"destination": 630,
+"trims": [
+{
+"trim": "Sport X 4dr SUV",
+"msrp": 15365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport X 4dr SUV",
+"msrp": 16865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 17795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 19545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4dr SUV",
+"msrp": 20365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 21865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 22800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 24550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-jeep-patriot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 700,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 17695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4dr SUV",
+"msrp": 19695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude X 4dr SUV",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude X 70th Anniversary 4dr SUV",
+"msrp": 22770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude X 4dr SUV",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude X 70th Anniversary 4dr SUV",
+"msrp": 24470,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-jeep-patriot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 880,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 17745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4dr SUV",
+"msrp": 19745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 22780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 23560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 25330,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-jeep-patriot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4dr SUV",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 23095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 23795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 25695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-jeep-patriot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 16395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude Edition 4dr SUV",
+"msrp": 18190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 18595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4dr SUV",
+"msrp": 20695,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude Edition 4dr SUV",
+"msrp": 23075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 26395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-jeep-patriot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

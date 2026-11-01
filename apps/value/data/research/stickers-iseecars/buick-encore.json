@@ -1,0 +1,66 @@
+{
+"make": "Buick",
+"model": "Encore",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (encore).",
+"years": [
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "Base 4dr Crossover",
+"msrp": 24160,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 25660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convenience 4dr Crossover",
+"msrp": 25785,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Convenience 4dr Crossover",
+"msrp": 27285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Crossover",
+"msrp": 27485,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 28965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 28985,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 30465,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-buick-encore-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

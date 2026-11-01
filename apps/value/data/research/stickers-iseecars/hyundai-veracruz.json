@@ -1,0 +1,108 @@
+{
+"make": "Hyundai",
+"model": "Veracruz",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (veracruz).",
+"years": [
+{
+"year": 2010,
+"destination": 795,
+"trims": [
+{
+"trim": "GLS 4dr Crossover",
+"msrp": 28145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GLS 4dr Crossover",
+"msrp": 30045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 34195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 35895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-hyundai-veracruz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "GLS 4dr Crossover",
+"msrp": 28345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GLS 4dr Crossover",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 34395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 36095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-hyundai-veracruz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 810,
+"trims": [
+{
+"trim": "GLS 4dr Crossover",
+"msrp": 28345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GLS 4dr Crossover",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 36195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-hyundai-veracruz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

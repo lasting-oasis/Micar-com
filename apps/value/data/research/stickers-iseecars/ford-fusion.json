@@ -1,0 +1,258 @@
+{
+"make": "Ford",
+"model": "Fusion",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (fusion, fusion_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 725,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 19270,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 20545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 23975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 25825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 27270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 27435,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 27675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-fusion-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 19850,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 21850,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 25300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 27150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 28760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 29000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-fusion-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 795,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 20705,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 22975,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 25425,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 27225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 28775,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 28970,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 29175,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-fusion-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 21900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 23830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE 4dr Sedan",
+"msrp": 27200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Sedan",
+"msrp": 30200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Titanium 4dr Sedan",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Sedan",
+"msrp": 32200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-fusion-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 21970,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 23935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid S 4dr Sedan",
+"msrp": 26270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE 4dr Sedan",
+"msrp": 27280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Sedan",
+"msrp": 30600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Sedan",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Titanium 4dr Sedan",
+"msrp": 32600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-fusion-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

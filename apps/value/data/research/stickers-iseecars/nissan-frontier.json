@@ -1,0 +1,876 @@
+{
+"make": "Nissan",
+"model": "Frontier",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (frontier).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "4x2 XE 4dr King Cab Pickup 5M",
+"msrp": 17540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XE 4dr King Cab Pickup 5A",
+"msrp": 18590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE 4dr King Cab Pickup 5M",
+"msrp": 19640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE V6 4dr King Cab Pickup 6M",
+"msrp": 20440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE 4dr King Cab Pickup 5A",
+"msrp": 20690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE V6 4dr King Cab Pickup 5A",
+"msrp": 21490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE V6 4dr Crew Cab SWB Pickup 6M",
+"msrp": 22290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE V6 4dr Crew Cab LWB Pickup 6M",
+"msrp": 23090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE V6 4dr King Cab Pickup 6M",
+"msrp": 23140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE V6 4dr Crew Cab SWB Pickup 5A",
+"msrp": 23340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE V6 4dr Crew Cab LWB Pickup 5A",
+"msrp": 24140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE V6 4dr King Cab Pickup 5A",
+"msrp": 24190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LE 4dr King Cab Pickup 5A",
+"msrp": 24920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE V6 4dr Crew Cab SWB Pickup 6M",
+"msrp": 24990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PRO-4X 4dr King Cab Pickup 5A",
+"msrp": 25010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE V6 4dr Crew Cab LWB Pickup 6M",
+"msrp": 25790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE V6 4dr Crew Cab SWB Pickup 5A",
+"msrp": 26040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PRO-4X 4dr Crew Cab SWB Pickup 5A",
+"msrp": 26360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LE 4dr Crew Cab SWB Pickup 5A",
+"msrp": 26620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab Pickup 6M",
+"msrp": 26660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE V6 4dr Crew Cab LWB Pickup 5A",
+"msrp": 26840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LE 4dr Crew Cab LWB Pickup 5A",
+"msrp": 27120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE 4dr King Cab Pickup 5A",
+"msrp": 27620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab Pickup 5A",
+"msrp": 27710,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup 5A",
+"msrp": 29060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE 4dr Crew Cab SWB Pickup 5A",
+"msrp": 29270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LE 4dr Crew Cab LWB Pickup 5A",
+"msrp": 29820,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab Pickup 5M",
+"msrp": 18200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr King Cab Pickup 5A",
+"msrp": 19250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab Pickup 5M",
+"msrp": 21380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr King Cab Pickup 6M",
+"msrp": 21970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab SWB Pickup 6M",
+"msrp": 22210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab Pickup 5A",
+"msrp": 22430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr King Cab Pickup 5A",
+"msrp": 23020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr Crew Cab SWB Pickup 6M",
+"msrp": 23220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab SWB Pickup 5A",
+"msrp": 23260,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr Crew Cab SWB Pickup 5A",
+"msrp": 24270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr King Cab Pickup 6M",
+"msrp": 24670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr Crew Cab LWB Pickup 5A",
+"msrp": 24690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab SWB Pickup 6M",
+"msrp": 24910,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr King Cab Pickup 5A",
+"msrp": 25720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr Crew Cab SWB Pickup 6M",
+"msrp": 25920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab SWB Pickup 5A",
+"msrp": 25960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PRO-4X 4dr King Cab Pickup 5A",
+"msrp": 26620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr Crew Cab SWB Pickup 5A",
+"msrp": 26970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 PRO-4X 4dr Crew Cab SWB Pickup 5A",
+"msrp": 27360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr Crew Cab LWB Pickup 5A",
+"msrp": 27390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab Pickup 6M",
+"msrp": 28120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab SWB Pickup 5A",
+"msrp": 28880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup 6M",
+"msrp": 29010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab Pickup 5A",
+"msrp": 29320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab LWB Pickup 5A",
+"msrp": 29380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup 5A",
+"msrp": 30060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab SWB Pickup 5A",
+"msrp": 31530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab LWB Pickup 5A",
+"msrp": 32080,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab Pickup 5M",
+"msrp": 19010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr King Cab Pickup 5A",
+"msrp": 20060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab Pickup 5M",
+"msrp": 22300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr King Cab Pickup 6M",
+"msrp": 22890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab SWB Pickup 6M",
+"msrp": 23050,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab Pickup 5A",
+"msrp": 23350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr King Cab Pickup 5A",
+"msrp": 23940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab SWB Pickup 5A",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr Crew Cab SWB Pickup 6M",
+"msrp": 24140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr Crew Cab SWB Pickup 5A",
+"msrp": 25190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr King Cab Pickup 6M",
+"msrp": 25590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr Crew Cab LWB Pickup 5A",
+"msrp": 25610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab SWB Pickup 6M",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr King Cab Pickup 5A",
+"msrp": 26640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab SWB Pickup 5A",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr Crew Cab SWB Pickup 6M",
+"msrp": 26840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr Crew Cab SWB Pickup 5A",
+"msrp": 27890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr Crew Cab LWB Pickup 5A",
+"msrp": 28310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab Pickup 6M",
+"msrp": 28780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab SWB Pickup 5A",
+"msrp": 29540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup 6M",
+"msrp": 29670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab Pickup 5A",
+"msrp": 29980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab LWB Pickup 5A",
+"msrp": 30040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab SWB Pickup 5A",
+"msrp": 30720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab SWB Pickup 5A",
+"msrp": 32190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab LWB Pickup 5A",
+"msrp": 32740,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 860,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab 6.1 ft. SB Pickup 5M",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 19990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab 6.1 ft. SB Pickup 5M",
+"msrp": 21400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 22030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 22450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 23040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 23080,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Desert Runner 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 23760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr King Cab 6.1 ft. SB Pickup 6M",
+"msrp": 23890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 23990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 6.1 ft. SB Pickup 5A",
+"msrp": 24710,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 24730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Desert Runner 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 25010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 25140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 25740,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 25780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr King Cab 6.1 ft. SB Pickup 6M",
+"msrp": 26590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 26990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 6.1 ft. SB Pickup 5A",
+"msrp": 27410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 27840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab 6.1 ft. SB Pickup 6M",
+"msrp": 29330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 30220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 30530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 30590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab 6.1 ft. SB Pickup 5A",
+"msrp": 31090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 31270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 33240,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab 6.1 ft. SB Pickup 5A",
+"msrp": 33790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 860,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab 6.1 ft. SB Pickup 5M",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 20510,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab 6.1 ft. SB Pickup 5M",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 22550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 22850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 23440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Desert Runner 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 24020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr King Cab 6.1 ft. SB Pickup 6M",
+"msrp": 24370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 24460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 6.1 ft. SB Pickup 5A",
+"msrp": 25180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 25250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Desert Runner 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 25340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 25690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 26140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr King Cab 6.1 ft. SB Pickup 6M",
+"msrp": 27070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 27460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 6.1 ft. SB Pickup 5A",
+"msrp": 27880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 28390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab 6.1 ft. SB Pickup 6M",
+"msrp": 30080,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab 5 ft. SB Pickup 6M",
+"msrp": 31040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 31070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab 6.1 ft. SB Pickup 5A",
+"msrp": 31280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab 6.1 ft. SB Pickup 5A",
+"msrp": 31570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 32090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab 5 ft. SB Pickup 5A",
+"msrp": 33860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab 6.1 ft. SB Pickup 5A",
+"msrp": 34410,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

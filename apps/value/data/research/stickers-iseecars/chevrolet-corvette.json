@@ -1,0 +1,648 @@
+{
+"make": "Chevrolet",
+"model": "Corvette",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (corvette).",
+"years": [
+{
+"year": 2010,
+"destination": 950,
+"trims": [
+{
+"trim": "2dr Coupe w/ 1LT",
+"msrp": 48930,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/ 2LT",
+"msrp": 50125,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/ 3LT",
+"msrp": 53135,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/ 1LT",
+"msrp": 53580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/ 1LT",
+"msrp": 54770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/ 2LT",
+"msrp": 55965,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/ 4LT",
+"msrp": 56635,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/ 2LT",
+"msrp": 56770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/ 1LT",
+"msrp": 58580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/ 3LT",
+"msrp": 58975,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/ 3LT",
+"msrp": 59780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/ 2LT",
+"msrp": 61770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/ 4LT",
+"msrp": 62475,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/ 4LT",
+"msrp": 63280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/ 3LT",
+"msrp": 64780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/ 4LT",
+"msrp": 68280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/ 1LZ",
+"msrp": 74305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/ 2LZ",
+"msrp": 76970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/ 3LZ",
+"msrp": 81475,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/ 1ZR",
+"msrp": 106880,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/ 3ZR",
+"msrp": 116880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 950,
+"trims": [
+{
+"trim": "2dr Coupe w/1LT",
+"msrp": 49045,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/2LT",
+"msrp": 50240,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/3LT",
+"msrp": 53250,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/1LT",
+"msrp": 54045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/1LT",
+"msrp": 55045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/2LT",
+"msrp": 56240,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/4LT",
+"msrp": 56750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/2LT",
+"msrp": 57235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/1LT",
+"msrp": 59045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/3LT",
+"msrp": 59250,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/3LT",
+"msrp": 60245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/2LT",
+"msrp": 62235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/4LT",
+"msrp": 62750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/4LT",
+"msrp": 63745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/3LT",
+"msrp": 65245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/4LT",
+"msrp": 68745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/1LZ",
+"msrp": 74305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/2LZ",
+"msrp": 76970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/3LZ",
+"msrp": 81475,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/1ZR",
+"msrp": 110300,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/3ZR",
+"msrp": 120300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 975,
+"trims": [
+{
+"trim": "2dr Coupe w/1LT",
+"msrp": 49525,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/2LT",
+"msrp": 51670,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/1LT",
+"msrp": 54525,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/3LT",
+"msrp": 55520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/1LT",
+"msrp": 55925,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/2LT",
+"msrp": 56670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/2LT",
+"msrp": 58070,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/4LT",
+"msrp": 59020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/1LT",
+"msrp": 59525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/2LT",
+"msrp": 61670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/3LT",
+"msrp": 61920,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/3LT",
+"msrp": 62520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/4LT",
+"msrp": 65420,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/4LT",
+"msrp": 66020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/3LT",
+"msrp": 67520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/4LT",
+"msrp": 71020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/1LZ",
+"msrp": 75525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/2LZ",
+"msrp": 79835,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/3LZ",
+"msrp": 84340,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/1ZR",
+"msrp": 111525,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/3ZR",
+"msrp": 121525,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 975,
+"trims": [
+{
+"trim": "2dr Coupe w/1LT",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/2LT",
+"msrp": 51745,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/1LT",
+"msrp": 54600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/3LT",
+"msrp": 55595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/1LT",
+"msrp": 56000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/2LT",
+"msrp": 56745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/2LT",
+"msrp": 58145,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe w/4LT",
+"msrp": 59095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/1LT",
+"msrp": 59600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/2LT",
+"msrp": 61745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/3LT",
+"msrp": 61995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/3LT",
+"msrp": 62595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Coupe w/4LT",
+"msrp": 65495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible w/4LT",
+"msrp": 66095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/3LT",
+"msrp": 67595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z16 Grand Sport 2dr Convertible w/4LT",
+"msrp": 71095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/1LZ",
+"msrp": 75600,
+"config": "",
+"note": ""
+},
+{
+"trim": "427 Collector Edition 2dr Convertible w/1SA",
+"msrp": 75925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/2LZ",
+"msrp": 80260,
+"config": "",
+"note": ""
+},
+{
+"trim": "427 Collector Edition 2dr Convertible w/1SB",
+"msrp": 81925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/3LZ",
+"msrp": 84460,
+"config": "",
+"note": ""
+},
+{
+"trim": "427 Collector Edition 2dr Convertible w/1SC",
+"msrp": 85425,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/1ZR",
+"msrp": 111600,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/3ZR",
+"msrp": 121600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "Stingray 2dr Coupe w/1LT",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Z51 2dr Coupe w/1LT",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/2LT",
+"msrp": 57210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/1LT",
+"msrp": 58000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/3LT",
+"msrp": 61005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Z51 2dr Coupe w/2LT",
+"msrp": 61210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Z51 2dr Convertible w/1LT",
+"msrp": 62000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/2LT",
+"msrp": 62210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Z51 2dr Coupe w/3LT",
+"msrp": 65005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/3LT",
+"msrp": 66005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Z51 2dr Convertible w/2LT",
+"msrp": 66210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Z51 2dr Convertible w/3LT",
+"msrp": 70005,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

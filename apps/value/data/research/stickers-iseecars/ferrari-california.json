@@ -1,0 +1,84 @@
+{
+"make": "Ferrari",
+"model": "California",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (california).",
+"years": [
+{
+"year": 2010,
+"destination": 2000,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 210000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ferrari-california-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 2000,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 192000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ferrari-california-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 3750,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 218500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ferrari-california-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 3750,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 198190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ferrari-california-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 3750,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 198190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ferrari-california-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

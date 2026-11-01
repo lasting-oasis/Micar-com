@@ -1,0 +1,36 @@
+{
+"make": "Lamborghini",
+"model": "Murcielago",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (murcielago).",
+"years": [
+{
+"year": 2010,
+"destination": 2995,
+"trims": [
+{
+"trim": "AWD LP 640 2dr Coupe",
+"msrp": 354000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 640 2dr Roadster",
+"msrp": 382400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 670-4 SV 2dr Coupe",
+"msrp": 450000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lamborghini-murcielago-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

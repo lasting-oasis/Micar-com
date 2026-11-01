@@ -1,0 +1,264 @@
+{
+"make": "Porsche",
+"model": "Cayenne",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (cayenne).",
+"years": [
+{
+"year": 2010,
+"destination": 860,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Tiptronic 4dr SUV",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 60700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Transsyberia Tiptronic 4dr SUV",
+"msrp": 70800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 72400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Tiptronic 4dr SUV",
+"msrp": 75400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr SUV",
+"msrp": 99900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr SUV",
+"msrp": 126300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 975,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Tiptronic 4dr SUV",
+"msrp": 50700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 64400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Hybrid 4dr SUV",
+"msrp": 67700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr SUV",
+"msrp": 106000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 975,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Tiptronic 4dr SUV",
+"msrp": 51200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 65000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Hybrid 4dr SUV",
+"msrp": 69000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr SUV",
+"msrp": 107100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 975,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 48850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Tiptronic 4dr SUV",
+"msrp": 51850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Diesel 4dr SUV",
+"msrp": 55750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 65850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Hybrid 4dr SUV",
+"msrp": 69850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 82050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr SUV",
+"msrp": 108750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr SUV",
+"msrp": 146000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 975,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Diesel 4dr SUV",
+"msrp": 56600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 63300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 66800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum Diesel 4dr SUV",
+"msrp": 66900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Hybrid 4dr SUV",
+"msrp": 70900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 83300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr SUV",
+"msrp": 110400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr SUV",
+"msrp": 146000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

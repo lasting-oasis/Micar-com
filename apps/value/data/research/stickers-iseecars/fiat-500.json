@@ -1,0 +1,138 @@
+{
+"make": "Fiat",
+"model": "500",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (500).",
+"years": [
+{
+"year": 2012,
+"destination": 700,
+"trims": [
+{
+"trim": "Pop 2dr Hatchback",
+"msrp": 15500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2dr Hatchback",
+"msrp": 17500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge 2dr Hatchback",
+"msrp": 18500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Abarth 2dr Hatchback",
+"msrp": 22000,
+"config": "",
+"note": ""
+},
+{
+"trim": "GUCCI 2dr Hatchback",
+"msrp": 23500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-fiat-500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 800,
+"trims": [
+{
+"trim": "Pop 2dr Hatchback",
+"msrp": 16100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2dr Hatchback",
+"msrp": 17500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge 2dr Hatchback",
+"msrp": 18500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 2dr Hatchback",
+"msrp": 19500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Abarth 2dr Hatchback",
+"msrp": 22000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gucci 2dr Hatchback",
+"msrp": 22500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-fiat-500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 800,
+"trims": [
+{
+"trim": "Pop 2dr Hatchback",
+"msrp": 16195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2dr Hatchback",
+"msrp": 17500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge 2dr Hatchback",
+"msrp": 18500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 2dr Hatchback",
+"msrp": 19500,
+"config": "",
+"note": ""
+},
+{
+"trim": "1957 Edition 2dr Hatchback",
+"msrp": 20400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Abarth 2dr Hatchback",
+"msrp": 22195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-fiat-500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

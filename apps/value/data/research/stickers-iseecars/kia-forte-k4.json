@@ -1,0 +1,318 @@
+{
+"make": "Kia",
+"model": "Forte / K4",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (forte, forte5, forte_koup).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "LX 4dr Sedan 5M",
+"msrp": 13695,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 4A",
+"msrp": 14695,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 5M",
+"msrp": 15795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 5M",
+"msrp": 16595,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 4A",
+"msrp": 16795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan 6M",
+"msrp": 17195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 4A",
+"msrp": 17595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 6M",
+"msrp": 17695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan 5A",
+"msrp": 18195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 5A",
+"msrp": 18695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 695,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 14995,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 6M",
+"msrp": 16995,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 6A",
+"msrp": 17395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 6A",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 6M",
+"msrp": 18395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan 6A",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 6A",
+"msrp": 19395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 750,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 15200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 16200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 6M",
+"msrp": 17200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 6A",
+"msrp": 17600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 6A",
+"msrp": 18200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 6M",
+"msrp": 18600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan 6A",
+"msrp": 19100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 6A",
+"msrp": 19600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 775,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 15400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 16400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 6M",
+"msrp": 17400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 17800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 6A",
+"msrp": 18400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 6M",
+"msrp": 18800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan",
+"msrp": 19300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 6A",
+"msrp": 19800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 800,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 15900,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 17500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 6M",
+"msrp": 18600,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 19500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup EX 2dr Coupe 6A",
+"msrp": 19600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FORTE5 EX 4dr Hatchback",
+"msrp": 19700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 6M",
+"msrp": 20600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FORTE5 SX 4dr Hatchback 6M",
+"msrp": 20900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Forte Koup SX 2dr Coupe 6A",
+"msrp": 21600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FORTE5 SX 4dr Hatchback 6A",
+"msrp": 21900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

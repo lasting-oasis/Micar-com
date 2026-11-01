@@ -1,7 +1,7 @@
 // Merges the research JSON (data/research/**) into the two files the app and
 // the calibration read: src/data/stickers.json and src/data/listing-samples.json.
 // Run: npx tsx scripts/build-data.ts
-import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = new URL('..', import.meta.url).pathname;
@@ -11,7 +11,10 @@ type RawSticker = { make: string; model: string; body: string; note?: string; ga
 type RawListings = { make: string; model: string; gaps?: string[]; samples: { year: number; trim_filter: string; source: string; fetched: string; page_average: number | null; listings: { price: number; miles: number; location?: string; trim?: string; body?: string; note?: string }[] }[] };
 
 const problems: string[] = [];
-const stickers = read('data/research/stickers').map(({ file, json }) => {
+// Hand-researched files first, then the iSeeCars-derived files (scripts/iseecars_to_research.py);
+// for a model in both, researched years win and iSeeCars fills the missing years.
+const stickerFiles = [...read('data/research/stickers'), ...(existsSync(join(ROOT, 'data/research/stickers-iseecars')) ? read('data/research/stickers-iseecars') : [])];
+const stickerSets = stickerFiles.map(({ file, json }) => {
   const s = json as RawSticker;
   const years = (s.years ?? [])
     .filter((y) => Number.isInteger(y.year) && y.year >= 2010 && y.year <= 2027)
@@ -27,6 +30,13 @@ const stickers = read('data/research/stickers').map(({ file, json }) => {
     .sort((a, b) => a.year - b.year);
   return { make: s.make, model: s.model, body: s.body, note: s.note ?? '', gaps: s.gaps ?? [], years };
 });
+const stickers: typeof stickerSets = [];
+for (const set of stickerSets) {
+  const prev = stickers.find((x) => x.make === set.make && x.model === set.model);
+  if (!prev) { stickers.push(set); continue; }
+  const have = new Set(prev.years.map((y) => y.year));
+  prev.years = [...prev.years, ...set.years.filter((y) => !have.has(y.year))].sort((a, b) => a.year - b.year);
+}
 
 const samples = read('data/research/listings').map(({ file, json }) => {
   const s = json as RawListings;
@@ -40,7 +50,7 @@ const samples = read('data/research/listings').map(({ file, json }) => {
   return { make: s.make, model: s.model, gaps: s.gaps ?? [], samples: out };
 }).filter((s) => s.samples.length);
 
-writeFileSync(join(ROOT, 'src/data/stickers.json'), JSON.stringify(stickers, null, 1) + '\n');
+writeFileSync(join(ROOT, 'src/data/stickers.json'), JSON.stringify(stickers) + '\n');
 writeFileSync(join(ROOT, 'src/data/listing-samples.json'), JSON.stringify(samples, null, 1) + '\n');
 const nSticker = stickers.reduce((a, s) => a + s.years.reduce((b, y) => b + y.trims.length, 0), 0);
 const nList = samples.reduce((a, s) => a + s.samples.reduce((b, p) => b + p.listings.length, 0), 0);

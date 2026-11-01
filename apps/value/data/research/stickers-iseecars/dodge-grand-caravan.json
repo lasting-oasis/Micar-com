@@ -1,0 +1,216 @@
+{
+"make": "Dodge",
+"model": "Grand Caravan",
+"body": "Minivan",
+"note": "Trim-level MSRPs from iSeeCars price pages (grand_caravan).",
+"years": [
+{
+"year": 2010,
+"destination": 835,
+"trims": [
+{
+"trim": "C/V 4dr Cargo Mini-Van",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van",
+"msrp": 23660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hero 4dr Mini-Van",
+"msrp": 25160,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Mini-Van",
+"msrp": 27160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr Mini-Van",
+"msrp": 28360,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 835,
+"trims": [
+{
+"trim": "C/V 4dr Cargo Mini-Van",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Express 4dr Mini-Van",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Mainstreet 4dr Mini-Van",
+"msrp": 25845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr Mini-Van",
+"msrp": 28795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Mini-Van",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux 4dr Mini-Van",
+"msrp": 32960,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 935,
+"trims": [
+{
+"trim": "American Value Package 4dr Mini-Van",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Mini-Van",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr Mini-Van",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Mini-Van",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "American Value Package 4dr Mini-Van",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Mini-Van",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr Mini-Van",
+"msrp": 28595,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Mini-Van",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "American Value Package 4dr Mini-Van",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Mini-Van",
+"msrp": 23795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 30th Anniversary 4dr Mini-Van",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Mini-Van",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 30th Anniversary 4dr Mini-Van",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Mini-Van",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

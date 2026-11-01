@@ -1,0 +1,174 @@
+{
+"make": "Kia",
+"model": "Rio",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (rio).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 11695,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5M",
+"msrp": 13795,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 4A",
+"msrp": 14695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan 5M",
+"msrp": 14895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan 4A",
+"msrp": 15795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-kia-rio-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 695,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 12295,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan",
+"msrp": 14995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan",
+"msrp": 16095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-kia-rio-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 750,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 13400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 14500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 16300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan",
+"msrp": 17500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-kia-rio-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 750,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 13600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 14700,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 16500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan",
+"msrp": 17700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-kia-rio-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 800,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 13900,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 15000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 16800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Sedan",
+"msrp": 17900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-kia-rio-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

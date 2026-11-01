@@ -1,0 +1,123 @@
+{
+"make": "Audi",
+"model": "A8",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (a8).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 74550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 78400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 78050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 84000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 78750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 84700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD W12 quattro 4dr Sedan",
+"msrp": 133500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 3.0T quattro 4dr Sedan",
+"msrp": 75100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro 4dr Sedan",
+"msrp": 78800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI 4dr Sedan",
+"msrp": 82500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.0T quattro 4dr Sedan",
+"msrp": 83900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.0T quattro 4dr Sedan",
+"msrp": 87600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD W12 quattro 4dr Sedan",
+"msrp": 135900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

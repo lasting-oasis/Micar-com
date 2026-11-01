@@ -1,0 +1,288 @@
+{
+"make": "Acura",
+"model": "TL",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (tl).",
+"years": [
+{
+"year": 2010,
+"destination": 860,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 35105,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan",
+"msrp": 38655,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 38835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package and 18 In. Wheels",
+"msrp": 39835,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 5A w/Technology Package",
+"msrp": 42385,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6M w/Technology Package",
+"msrp": 42385,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 5A w/Technology Package and Performance Tires",
+"msrp": 43385,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6M w/Technology Package and Performance Tires",
+"msrp": 43385,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-acura-tl-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 860,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 35305,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan",
+"msrp": 38855,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 39035,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package and 18 In. Wheels",
+"msrp": 40035,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 5A w/Technology Package",
+"msrp": 42585,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6M w/Technology Package",
+"msrp": 42585,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6M w/Technology Package and Performance Tires",
+"msrp": 43585,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 5A w/Technology Package and Performance Tires",
+"msrp": 43585,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-acura-tl-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 35705,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan",
+"msrp": 39255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 39435,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Advance Package",
+"msrp": 41635,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6M w/Technology Package",
+"msrp": 42985,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6A w/Technology Package",
+"msrp": 42985,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan w/Advance Package",
+"msrp": 45185,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-acura-tl-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 35905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Special Edition",
+"msrp": 37405,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan",
+"msrp": 39455,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 39635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Advance Package",
+"msrp": 41835,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6A w/Technology Package",
+"msrp": 43185,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6M w/Technology Package",
+"msrp": 43185,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan w/Advance Package",
+"msrp": 45385,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-acura-tl-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 36030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Special Edition",
+"msrp": 37530,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan",
+"msrp": 39580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 39760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Advance Package",
+"msrp": 41960,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6M w/Technology Package",
+"msrp": 43310,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan 6A w/Technology Package",
+"msrp": 43310,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr Sedan w/Advance Package",
+"msrp": 45540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-acura-tl-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

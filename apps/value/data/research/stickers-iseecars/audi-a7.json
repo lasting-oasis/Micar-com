@@ -1,0 +1,69 @@
+{
+"make": "Audi",
+"model": "A7",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (a7).",
+"years": [
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium 4dr Sportback",
+"msrp": 59250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr Sportback",
+"msrp": 62870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 65580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr Sportback",
+"msrp": 64500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI Premium Plus 4dr Sportback",
+"msrp": 66900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 67400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI Prestige 4dr Sportback",
+"msrp": 69800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

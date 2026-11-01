@@ -1,0 +1,156 @@
+{
+"make": "Smart",
+"model": "fortwo",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (fortwo).",
+"years": [
+{
+"year": 2010,
+"destination": 645,
+"trims": [
+{
+"trim": "pure 2dr Hatchback",
+"msrp": 11990,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion 2dr Hatchback",
+"msrp": 13990,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion cabriolet 2dr Cabriolet",
+"msrp": 16990,
+"config": "",
+"note": ""
+},
+{
+"trim": "BRABUS 2dr Hatchback",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "BRABUS cabriolet 2dr Cabriolet",
+"msrp": 20990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-smart-fortwo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "pure 2dr Hatchback",
+"msrp": 12490,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion 2dr Hatchback",
+"msrp": 14690,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion cabriolet 2dr Cabriolet",
+"msrp": 17690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-smart-fortwo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 750,
+"trims": [
+{
+"trim": "pure 2dr Hatchback",
+"msrp": 12490,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion 2dr Hatchback",
+"msrp": 14690,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion cabriolet 2dr Cabriolet",
+"msrp": 17690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-smart-fortwo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 750,
+"trims": [
+{
+"trim": "pure 2dr Hatchback",
+"msrp": 12490,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion 2dr Hatchback",
+"msrp": 14890,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion cabriolet 2dr Cabriolet",
+"msrp": 17890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-smart-fortwo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 750,
+"trims": [
+{
+"trim": "pure 2dr Hatchback",
+"msrp": 13270,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion 2dr Hatchback",
+"msrp": 14930,
+"config": "",
+"note": ""
+},
+{
+"trim": "passion cabriolet 2dr Cabriolet",
+"msrp": 17930,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-smart-fortwo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

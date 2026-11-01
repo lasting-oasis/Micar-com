@@ -1,0 +1,162 @@
+{
+"make": "Lincoln",
+"model": "MKZ",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (mkz, mkz_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 34115,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 36005,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 34645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 34645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 36535,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 34755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 34755,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 36645,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 4dr Sedan",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 37815,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 4dr Sedan",
+"msrp": 37815,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 36190,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 4dr Sedan",
+"msrp": 36420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 37080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 4dr Sedan",
+"msrp": 38310,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

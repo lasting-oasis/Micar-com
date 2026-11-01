@@ -1,0 +1,408 @@
+{
+"make": "Mitsubishi",
+"model": "Lancer",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (lancer, lancer_evolution, lancer_sportback).",
+"years": [
+{
+"year": 2010,
+"destination": 745,
+"trims": [
+{
+"trim": "DE 4dr Sedan 5M",
+"msrp": 14790,
+"config": "",
+"note": ""
+},
+{
+"trim": "DE 4dr Sedan CVT",
+"msrp": 15690,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Sedan 5M",
+"msrp": 16990,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Sedan CVT",
+"msrp": 17890,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS 4dr Sedan 5M",
+"msrp": 18990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback GTS 4dr Hatchback 5M",
+"msrp": 19190,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS 4dr Sedan CVT",
+"msrp": 19990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback GTS 4dr Hatchback CVT",
+"msrp": 20190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ralliart 4dr Sedan",
+"msrp": 27190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback AWD Ralliart 4dr Hatchback",
+"msrp": 27590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD GSR 4dr Sedan",
+"msrp": 33590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD SE 4dr Sedan",
+"msrp": 35790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD MR 4dr Sedan",
+"msrp": 38990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD MR Touring 4dr Sedan",
+"msrp": 40990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-mitsubishi-lancer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "DE 4dr Sedan",
+"msrp": 15295,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Sedan 5M",
+"msrp": 16695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback ES 4dr Hatchback 5M",
+"msrp": 17095,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Sedan CVT",
+"msrp": 17595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback ES 4dr Hatchback CVT",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS 4dr Sedan 5M",
+"msrp": 19495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback GTS 4dr Hatchback 5M",
+"msrp": 19895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS 4dr Sedan CVT",
+"msrp": 20495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback GTS 4dr Hatchback CVT",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ralliart 4dr Sedan",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback AWD Ralliart 4dr Hatchback",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD GSR 4dr Sedan",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD MR 4dr Sedan",
+"msrp": 37295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-mitsubishi-lancer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 795,
+"trims": [
+{
+"trim": "DE 4dr Sedan",
+"msrp": 15695,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Sedan 5M",
+"msrp": 16995,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Sedan CVT",
+"msrp": 17895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback ES 4dr Hatchback",
+"msrp": 18395,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan 5M",
+"msrp": 19845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Sedan",
+"msrp": 20195,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan CVT",
+"msrp": 20845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback GT 4dr Hatchback",
+"msrp": 21345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ralliart 4dr Sedan",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD GSR 4dr Sedan",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD MR 4dr Sedan",
+"msrp": 37695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-mitsubishi-lancer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "DE 4dr Sedan",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Sedan 5M",
+"msrp": 17095,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Sedan CVT",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback ES 4dr Hatchback",
+"msrp": 18495,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan 5M",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Sedan",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan CVT",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback GT 4dr Hatchback",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ralliart 4dr Sedan",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD GSR 4dr Sedan",
+"msrp": 34695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD MR 4dr Sedan",
+"msrp": 37895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-mitsubishi-lancer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "ES 4dr Sedan 5M",
+"msrp": 17195,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Sedan CVT",
+"msrp": 18095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback ES 4dr Hatchback",
+"msrp": 18595,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan 5M",
+"msrp": 20445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Sedan",
+"msrp": 20695,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan CVT",
+"msrp": 21445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Sportback GT 4dr Hatchback",
+"msrp": 21945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ralliart 4dr Sedan",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD GSR 4dr Sedan",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution AWD MR 4dr Sedan",
+"msrp": 38195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-mitsubishi-lancer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

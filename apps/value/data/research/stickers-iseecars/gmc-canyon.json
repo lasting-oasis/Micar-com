@@ -1,0 +1,312 @@
+{
+"make": "GMC",
+"model": "Canyon",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (canyon).",
+"years": [
+{
+"year": 2010,
+"destination": 780,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab",
+"msrp": 16985,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-1 2dr Regular Cab",
+"msrp": 18180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 2dr Regular Cab Chassis",
+"msrp": 19180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Extended Cab",
+"msrp": 19230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab",
+"msrp": 20490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-1 4dr Extended Cab",
+"msrp": 20755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 2dr Regular Cab",
+"msrp": 21735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Extended Cab",
+"msrp": 22530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab Chassis",
+"msrp": 22635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-1 4dr Crew Cab",
+"msrp": 23875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 4dr Extended Cab",
+"msrp": 23905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Extended Cab",
+"msrp": 25630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Crew Cab",
+"msrp": 27180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 4dr Crew Cab",
+"msrp": 27530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Extended Cab",
+"msrp": 28780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab",
+"msrp": 29835,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab",
+"msrp": 17155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-1 2dr Regular Cab",
+"msrp": 18350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 2dr Regular Cab Chassis",
+"msrp": 19350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Extended Cab",
+"msrp": 19400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab",
+"msrp": 20660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-1 4dr Extended Cab",
+"msrp": 20925,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 2dr Regular Cab",
+"msrp": 21905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Extended Cab",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab Chassis",
+"msrp": 22805,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-1 4dr Crew Cab",
+"msrp": 24045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 4dr Extended Cab",
+"msrp": 24075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Extended Cab",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Crew Cab",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 4dr Crew Cab",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Extended Cab",
+"msrp": 28950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab",
+"msrp": 30005,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 810,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab",
+"msrp": 17490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-1 2dr Regular Cab",
+"msrp": 20455,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Extended Cab",
+"msrp": 20840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab",
+"msrp": 22385,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-1 4dr Extended Cab",
+"msrp": 23040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Extended Cab",
+"msrp": 24435,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-1 4dr Crew Cab",
+"msrp": 24685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 2dr Regular Cab",
+"msrp": 25305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE-2 4dr Crew Cab",
+"msrp": 26470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 4dr Extended Cab",
+"msrp": 26485,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 4dr Crew Cab",
+"msrp": 28610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-2 4dr Crew Cab",
+"msrp": 29125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-2 4dr Extended Cab",
+"msrp": 29145,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab",
+"msrp": 31790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,114 @@
+{
+"make": "Hyundai",
+"model": "Veloster",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (veloster).",
+"years": [
+{
+"year": 2012,
+"destination": 760,
+"trims": [
+{
+"trim": "3dr Coupe 6M",
+"msrp": 17300,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe DCT",
+"msrp": 18550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "3dr Coupe 6M",
+"msrp": 17600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe DCT",
+"msrp": 18700,
+"config": "",
+"note": ""
+},
+{
+"trim": "RE MIX 3dr Coupe",
+"msrp": 20050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 3dr Coupe 6M",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 3dr Coupe 6A",
+"msrp": 22950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "3dr Coupe 6M",
+"msrp": 17800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe DCT",
+"msrp": 19050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo R-Spec 3dr Coupe 6M w/Red Seats",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "RE:Flex 3dr Coupe",
+"msrp": 21650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 3dr Coupe 6M",
+"msrp": 22300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 3dr Coupe 6A",
+"msrp": 23300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}
