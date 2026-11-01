@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: iseecars
@@ -21,11 +22,11 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 115
+    timeout-minutes: 140
     steps:
       - uses: actions/checkout@v4
       - name: Fetch pages
-        run: python3 scripts/iseecars_fetch.py
+        run: python3 -u scripts/iseecars_fetch.py | tee fetch.log
         env:
           DELAY: '5'
           BUDGET_MIN: '100'
@@ -37,3 +38,12 @@ jobs:
           git add data/iseecars/prices.jsonl data/iseecars/tried.json data/iseecars/models.json
           git commit -m "iSeeCars 2010-2014 prices $(date -u +%F)" || exit 0
           for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
+      - name: Start the next run if pages are left
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Out of time: resume in 5 minutes. Site refusing: give it 20 minutes first.
+          if grep -q "time budget reached" fetch.log 2>/dev/null; then sleep 300; gh workflow run iseecars.yml --ref main
+          elif grep -q "site keeps refusing" fetch.log 2>/dev/null; then sleep 1200; gh workflow run iseecars.yml --ref main
+          fi
