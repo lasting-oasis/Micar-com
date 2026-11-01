@@ -34,8 +34,10 @@ def ask(car):
             return {'error': 0, 'message': str(e)[:300]}
 
 out = open(OUT, 'w')
+fails = 0
 for car in json.load(open(IN)):
     res = ask(car)
+    fails = fails + 1 if res.get('error') else 0
     text = ''.join(p.get('text', '') for c in res.get('candidates', []) for p in c.get('content', {}).get('parts', []))
     m = re.search(r'MSRP:\s*\$?([\d,]+)', text)
     got = int(m.group(1).replace(',', '')) if m else None
@@ -46,4 +48,6 @@ for car in json.load(open(IN)):
         row['diff_pct'] = round(100 * (got - car['expected']) / car['expected'], 1)
     out.write(json.dumps(row) + '\n'); out.flush()
     print(car['year'], car['make'], car['model'], '->', got, row.get('diff_pct'), res.get('error') or '')
+    if fails >= 3:
+        print('stopping: 3 errors in a row'); break
     time.sleep(7)
