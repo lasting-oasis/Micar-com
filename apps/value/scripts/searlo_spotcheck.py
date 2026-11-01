@@ -22,7 +22,7 @@ for (y, make, slug) in pick:
     q = f'{y} {make} {name} MSRP'
     url = 'https://api.searlo.tech/api/v1/search/web?' + urllib.parse.urlencode({'q': q, 'limit': 10})
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers={'x-api-key': KEY}), timeout=40) as r:
+        with urllib.request.urlopen(urllib.request.Request(url, headers={'x-api-key': KEY, 'User-Agent': 'curl/8.5.0', 'Accept': 'application/json'}), timeout=40) as r:
             res = json.load(r)
     except Exception as e:
         res = {'error': str(e)}
