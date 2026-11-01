@@ -1,0 +1,28 @@
+name: iSeeCars page discovery
+
+# Lists every iSeeCars price page from its sitemap, the Wayback Machine and Common Crawl,
+# so the fetch job stops guessing names and archived copies can be read instead of the live site.
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/iseecars-discover.yml, scripts/iseecars_discover.py]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/iseecars_discover.py
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/iseecars/sitemap-urls.txt data/iseecars/wayback.tsv data/iseecars/commoncrawl.jsonl data/iseecars/discover-summary.json
+          git commit -m "iSeeCars page discovery $(date -u +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done

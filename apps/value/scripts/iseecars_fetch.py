@@ -27,7 +27,8 @@ tried = json.load(open(TRIED)) if os.path.exists(TRIED) else {}
 start = time.time()
 
 def slug(s):
-    return re.sub(r'_+', '_', re.sub(r'[^a-z0-9\-]+', '_', s.lower())).strip('_')
+    s = re.sub(r'[^a-z0-9\-]+', '_', s.lower()).strip('_')
+    return s.replace('-', '__')
 
 def fetch(url):
     time.sleep(DELAY)
@@ -83,7 +84,7 @@ def harvest(text, mk_model):
             # Sibling links sometimes write spaces as '-' where year pages use '_'
             # (highlander-hybrid vs highlander_hybrid), while names like cr-v keep '-'. Try both.
             model_part = sib[len(mk) + 1:]
-            for form in dict.fromkeys([model_part.replace('-', '_'), model_part]):
+            for form in dict.fromkeys([model_part.replace('-', '_'), model_part, model_part.replace('-', '__')]):
                 models.setdefault(f'{mk}-{form}', None)
 
 def get_page(key):
@@ -122,6 +123,8 @@ def phase1():
                 if res is None:
                     return False
                 code, text = res
+                if code not in (200, 404, 410):
+                    continue  # refused or failed: leave it untried for a later run
                 rows = parse(text) if code == 200 else []
                 if code == 200:
                     harvest(text, mm)
@@ -163,6 +166,8 @@ for (y, make), lists in sorted(cands.items()):
                 if res is None:
                     out.close(); save(); sys.exit(0)
                 code, text = res
+                if code not in (200, 404, 410):
+                    continue  # refused or failed: leave it untried
                 if code == 200:
                     harvest(text, f'{mf}-{slug(v)}')
                 rows = parse(text) if code == 200 else []
