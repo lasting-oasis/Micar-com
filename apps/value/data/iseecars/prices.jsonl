@@ -2241,3 +2241,1104 @@
 {"year": 2011, "make": "Ford", "slug": "2011-ford-escape_hybrid", "style": "AWD Base 4dr SUV", "invoice": 29997, "msrp": 32320, "destination": 825}
 {"year": 2011, "make": "Ford", "slug": "2011-ford-escape_hybrid", "style": "AWD Limited 4dr SUV", "invoice": 32280, "msrp": 34830, "destination": 825}
 {"year": 2011, "make": "Ford", "slug": "2011-ford-escape_hybrid", "style": "Limited 4dr SUV", "invoice": 30687, "msrp": 33080, "destination": 825}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-malibu_hybrid", "style": "Base 4dr Sedan", "invoice": 24629, "msrp": 25925, "destination": 720}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition", "style": "4x2 King Ranch 4dr SUV", "invoice": 43366, "msrp": 46550, "destination": 925}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition", "style": "4x4 King Ranch 4dr SUV", "invoice": 46005, "msrp": 49450, "destination": 925}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition", "style": "4x2 Limited 4dr SUV", "invoice": 42209, "msrp": 45280, "destination": 925}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition", "style": "4x4 Limited 4dr SUV", "invoice": 44848, "msrp": 48180, "destination": 925}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition", "style": "4x2 XL 4dr SUV", "invoice": 33765, "msrp": 36000, "destination": 925}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition", "style": "4x4 XL 4dr SUV", "invoice": 36404, "msrp": 38900, "destination": 925}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition", "style": "4x2 XLT 4dr SUV", "invoice": 36140, "msrp": 38610, "destination": 925}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition", "style": "4x4 XLT 4dr SUV", "invoice": 38779, "msrp": 41510, "destination": 925}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer", "style": "Base 4dr SUV", "invoice": 26730, "msrp": 28190, "destination": 805}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer", "style": "AWD Base 4dr SUV", "invoice": 28570, "msrp": 30190, "destination": 805}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer", "style": "AWD Limited 4dr SUV", "invoice": 36617, "msrp": 39365, "destination": 805}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer", "style": "Limited 4dr SUV", "invoice": 34797, "msrp": 37365, "destination": 805}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer", "style": "XLT 4dr SUV", "invoice": 29324, "msrp": 31350, "destination": 805}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer", "style": "AWD XLT 4dr SUV", "invoice": 31144, "msrp": 33350, "destination": 805}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fiesta", "style": "S 4dr Sedan", "invoice": 12773, "msrp": 13200, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fiesta", "style": "SE 4dr Hatchback", "invoice": 14935, "msrp": 15500, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fiesta", "style": "SE 4dr Sedan", "invoice": 13995, "msrp": 14500, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fiesta", "style": "SEL 4dr Sedan", "invoice": 15969, "msrp": 16600, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fiesta", "style": "SES 4dr Hatchback", "invoice": 16815, "msrp": 17500, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "AWD Limited 4dr Crossover", "invoice": 37237, "msrp": 40030, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "Limited 4dr Crossover", "invoice": 35553, "msrp": 38180, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "AWD Limited 4dr Crossover w/EcoBoost", "invoice": 39963, "msrp": 43025, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "SE 4dr Crossover", "invoice": 27817, "msrp": 29355, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "SEL 4dr Crossover", "invoice": 30121, "msrp": 32210, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "AWD SEL 4dr Crossover", "invoice": 31805, "msrp": 34060, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "AWD SEL 4dr Crossover w/EcoBoost", "invoice": 34530, "msrp": 37055, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "Titanium 4dr Crossover", "invoice": 37824, "msrp": 40675, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "AWD Titanium 4dr Crossover", "invoice": 39508, "msrp": 42525, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-flex", "style": "AWD Titanium 4dr Crossover w/EcoBoost", "invoice": 42234, "msrp": 45520, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-focus", "style": "S 4dr Sedan", "invoice": 15724, "msrp": 16640, "destination": 725}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-focus", "style": "SE 4dr Sedan", "invoice": 16131, "msrp": 17270, "destination": 725}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-focus", "style": "SEL 4dr Sedan", "invoice": 18315, "msrp": 19670, "destination": 725}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-focus", "style": "Sport SES 4dr Sedan", "invoice": 17587, "msrp": 18870, "destination": 725}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fusion", "style": "S 4dr Sedan", "invoice": 18594, "msrp": 19850, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fusion", "style": "SE 4dr Sedan", "invoice": 20196, "msrp": 21850, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fusion", "style": "SEL 4dr Sedan", "invoice": 23300, "msrp": 25300, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fusion", "style": "AWD SEL 4dr Sedan", "invoice": 26414, "msrp": 28760, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fusion", "style": "AWD Sport 4dr Sedan", "invoice": 26630, "msrp": 29000, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fusion", "style": "Sport 4dr Sedan", "invoice": 24966, "msrp": 27150, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-fusion_hybrid", "style": "4dr Sedan", "invoice": 26270, "msrp": 28600, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-mustang", "style": "GT 2dr Convertible", "invoice": 31885, "msrp": 34645, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-mustang", "style": "GT 2dr Fastback", "invoice": 27385, "msrp": 29645, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-mustang", "style": "GT Premium 2dr Convertible", "invoice": 34765, "msrp": 37845, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-mustang", "style": "GT Premium 2dr Fastback", "invoice": 30265, "msrp": 32845, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-mustang", "style": "V6 2dr Convertible", "invoice": 25678, "msrp": 27145, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-mustang", "style": "V6 2dr Fastback", "invoice": 21078, "msrp": 22145, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-mustang", "style": "V6 Premium 2dr Convertible", "invoice": 28465, "msrp": 30845, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-mustang", "style": "V6 Premium 2dr Fastback", "invoice": 23965, "msrp": 25845, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x2 Sport 2dr SuperCab", "invoice": 20887, "msrp": 22425, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x2 Sport 4dr SuperCab", "invoice": 21861, "msrp": 23495, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x4 Sport 4dr SuperCab", "invoice": 24204, "msrp": 26070, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x2 XL 2dr Regular Cab SB", "invoice": 17187, "msrp": 18160, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x2 XL 2dr SuperCab", "invoice": 18747, "msrp": 19855, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x2 XL Fleet 2dr Regular Cab LB", "invoice": 18369, "msrp": 19445, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x4 XL Fleet 2dr SuperCab", "invoice": 22472, "msrp": 23905, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x2 XLT 2dr Regular Cab SB", "invoice": 17880, "msrp": 19120, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x2 XLT 2dr SuperCab", "invoice": 19353, "msrp": 20740, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x4 XLT 4dr SuperCab", "invoice": 23285, "msrp": 25060, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-ranger", "style": "4x2 XLT 4dr SuperCab", "invoice": 21082, "msrp": 22640, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-taurus", "style": "Limited 4dr Sedan", "invoice": 29635, "msrp": 32155, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-taurus", "style": "AWD Limited 4dr Sedan", "invoice": 31299, "msrp": 34005, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-taurus", "style": "SE 4dr Sedan", "invoice": 23695, "msrp": 25555, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-taurus", "style": "SEL 4dr Sedan", "invoice": 25675, "msrp": 27755, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-taurus", "style": "AWD SEL 4dr Sedan", "invoice": 27339, "msrp": 29605, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-taurus", "style": "AWD SHO 4dr Sedan", "invoice": 35035, "msrp": 38155, "destination": 795}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-transit_connect", "style": "XL 4dr Cargo Mini-Van w/o Side and Rear Glass", "invoice": 19874, "msrp": 21290, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-transit_connect", "style": "XL 4dr Cargo Mini-Van w/Rear Glass", "invoice": 20042, "msrp": 21475, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-transit_connect", "style": "XL 4dr Cargo Mini-Van w/Side and Rear Glass", "invoice": 20106, "msrp": 21545, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-transit_connect", "style": "XLT 4dr Cargo Mini-Van w/o Side and Rear Glass", "invoice": 20839, "msrp": 22350, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-transit_connect", "style": "XLT 4dr Mini-Van", "invoice": 21557, "msrp": 23140, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-transit_connect", "style": "XLT 4dr Cargo Mini-Van w/Rear Glass", "invoice": 21148, "msrp": 22690, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-transit_connect", "style": "XLT 4dr Cargo Mini-Van w/Side and Rear Glass", "invoice": 21212, "msrp": 22760, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-transit_connect", "style": "XLT Premium 4dr Mini-Van", "invoice": 21694, "msrp": 23290, "destination": 825}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-transit_connect", "style": "XLT 4dr Cargo Mini-Van", "invoice": 0, "msrp": 57400, "destination": 825}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "Denali 4dr SUV", "invoice": 41059, "msrp": 43220, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "AWD Denali 4dr SUV", "invoice": 42959, "msrp": 45220, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "SL 4dr SUV", "invoice": 30400, "msrp": 32000, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "AWD SL 4dr SUV", "invoice": 32300, "msrp": 34000, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "SLE 4dr SUV", "invoice": 32894, "msrp": 34625, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "AWD SLE 4dr SUV", "invoice": 34794, "msrp": 36625, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "SLT-1 4dr SUV", "invoice": 36428, "msrp": 38345, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "AWD SLT-1 4dr SUV", "invoice": 38328, "msrp": 40345, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "SLT-2 4dr SUV", "invoice": 37288, "msrp": 39250, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-acadia", "style": "AWD SLT-2 4dr SUV", "invoice": 39188, "msrp": 41250, "destination": 775}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x2 SLE-1 2dr Regular Cab", "invoice": 17433, "msrp": 18350, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x2 SLE-1 4dr Extended Cab", "invoice": 19879, "msrp": 20925, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x4 SLE-1 2dr Regular Cab", "invoice": 20810, "msrp": 21905, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x2 SLE-1 4dr Crew Cab", "invoice": 22843, "msrp": 24045, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x4 SLE-1 4dr Extended Cab", "invoice": 22871, "msrp": 24075, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x4 SLE-1 4dr Crew Cab", "invoice": 26315, "msrp": 27700, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x2 SLT 4dr Extended Cab", "invoice": 24510, "msrp": 25800, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x2 SLT 4dr Crew Cab", "invoice": 25983, "msrp": 27350, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x4 SLT 4dr Extended Cab", "invoice": 27503, "msrp": 28950, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x4 SLT 4dr Crew Cab", "invoice": 28505, "msrp": 30005, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x2 Work Truck 2dr Regular Cab Chassis", "invoice": 18576, "msrp": 19350, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x4 Work Truck 2dr Regular Cab Chassis", "invoice": 21893, "msrp": 22805, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x2 Work Truck 2dr Regular Cab", "invoice": 16469, "msrp": 17155, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x2 Work Truck 4dr Extended Cab", "invoice": 18624, "msrp": 19400, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x4 Work Truck 2dr Regular Cab", "invoice": 19834, "msrp": 20660, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-canyon", "style": "4x4 Work Truck 4dr Extended Cab", "invoice": 21792, "msrp": 22700, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "AWD 1500 3dr Cargo Van", "invoice": 26919, "msrp": 29910, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "1500 3dr Cargo Van", "invoice": 22374, "msrp": 24860, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "2500 3dr Extended Cargo Van w/ 1WT", "invoice": 25056, "msrp": 27840, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "2500 3dr Cargo Van w/ 1WT", "invoice": 23382, "msrp": 25980, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "2500 3dr Extended Cargo Van w/ 1SD", "invoice": 35852, "msrp": 39835, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "2500 3dr Cargo Van w/ 1SD", "invoice": 34178, "msrp": 37975, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 3dr Extended Cargo Van w/ 1WT", "invoice": 27167, "msrp": 30185, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 3dr Cargo Van w/ 1WT", "invoice": 27249, "msrp": 29300, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 3dr Extended Cargo Van w/ 1SD", "invoice": 37962, "msrp": 42180, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 3dr Cargo Van w/ 1SD", "invoice": 37166, "msrp": 41295, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 2dr 139 in. WB Cutaway Chassis w/ 1WT", "invoice": 23720, "msrp": 26355, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 2dr 139 in. WB Cutaway Chassis w/ 1SD", "invoice": 34515, "msrp": 38350, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 2dr 159 in. WB Cutaway Chassis w/ 1WT", "invoice": 26186, "msrp": 29095, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 2dr 159 in. WB Cutaway Chassis w/ 1SD", "invoice": 36981, "msrp": 41090, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 2dr 177 in. WB Cutaway Chassis w/ 1SD", "invoice": 35951, "msrp": 39945, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "3500 2dr 177 in. WB Cutaway Chassis w/ 1WT", "invoice": 25155, "msrp": 27950, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LS 1500 3dr Passenger Van", "invoice": 25839, "msrp": 28710, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "AWD LS 1500 3dr Passenger Van", "invoice": 29039, "msrp": 32265, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LS 2500 3dr Passenger Van", "invoice": 26298, "msrp": 29220, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LS 3500 3dr Passenger Van w/ 2LS", "invoice": 40055, "msrp": 44505, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LS 3500 3dr Passenger Van w/ 1LS", "invoice": 29259, "msrp": 32510, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LS 3500 3dr Extended Passenger Van w/ 2LS", "invoice": 41738, "msrp": 46375, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LS 3500 3dr Extended Passenger Van w/ 1LS", "invoice": 30942, "msrp": 34380, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LT 1500 3dr Passenger Van", "invoice": 27412, "msrp": 30560, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "AWD LT 1500 3dr Passenger Van", "invoice": 30612, "msrp": 34115, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LT 2500 3dr Passenger Van", "invoice": 27871, "msrp": 31070, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LT 3500 3dr Passenger Van w/ 2LT", "invoice": 41292, "msrp": 45960, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LT 3500 3dr Passenger Van w/ 1LT", "invoice": 30496, "msrp": 33965, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LT 3500 3dr Extended Passenger Van w/ 2LT", "invoice": 42053, "msrp": 46745, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-savana", "style": "LT 3500 3dr Extended Passenger Van w/ 1LT", "invoice": 31257, "msrp": 34750, "destination": 980}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-terrain", "style": "SLE-1 4dr SUV", "invoice": 23275, "msrp": 24500, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-terrain", "style": "AWD SLE-1 4dr SUV", "invoice": 24938, "msrp": 26250, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-terrain", "style": "SLE-2 4dr SUV", "invoice": 24985, "msrp": 26300, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-terrain", "style": "AWD SLE-2 4dr SUV", "invoice": 26648, "msrp": 28050, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-terrain", "style": "SLT-1 4dr SUV", "invoice": 26695, "msrp": 28100, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-terrain", "style": "AWD SLT-1 4dr SUV", "invoice": 28358, "msrp": 29850, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-terrain", "style": "SLT-2 4dr SUV", "invoice": 28405, "msrp": 29900, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-terrain", "style": "AWD SLT-2 4dr SUV", "invoice": 30068, "msrp": 31650, "destination": 810}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x2 Denali 4dr SUV", "invoice": 49895, "msrp": 53650, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "AWD Denali 4dr SUV", "invoice": 52680, "msrp": 56645, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x2 Denali Hybrid 4dr SUV", "invoice": 55684, "msrp": 58925, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x4 Denali Hybrid 4dr SUV", "invoice": 58373, "msrp": 61770, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x2 Fleet 4dr SUV", "invoice": 34301, "msrp": 36765, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x4 Fleet 4dr SUV", "invoice": 38041, "msrp": 40785, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x2 Hybrid 4dr SUV", "invoice": 48772, "msrp": 51610, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x4 Hybrid 4dr SUV", "invoice": 51427, "msrp": 54420, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x2 SLE 4dr SUV", "invoice": 36219, "msrp": 38945, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x4 SLE 4dr SUV", "invoice": 39995, "msrp": 43005, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x2 SLT 4dr SUV", "invoice": 41348, "msrp": 44460, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon", "style": "4x4 SLT 4dr SUV", "invoice": 44003, "msrp": 47315, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x2 Denali XL 4dr SUV", "invoice": 52373, "msrp": 56315, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "AWD Denali XL 4dr SUV", "invoice": 55242, "msrp": 59400, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x2 Fleet 4dr SUV", "invoice": 37453, "msrp": 40150, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x4 Fleet 4dr SUV", "invoice": 40050, "msrp": 42940, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x2 Fleet 2500 4dr SUV", "invoice": 38923, "msrp": 41720, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x4 Fleet 2500 4dr SUV", "invoice": 41564, "msrp": 44560, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x2 SLE 4dr SUV", "invoice": 39446, "msrp": 42415, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x4 SLE 4dr SUV", "invoice": 42087, "msrp": 45255, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x2 SLE 2500 4dr SUV", "invoice": 41092, "msrp": 44185, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x4 SLE 2500 4dr SUV", "invoice": 43352, "msrp": 46615, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x2 SLT 4dr SUV", "invoice": 43412, "msrp": 46680, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x4 SLT 4dr SUV", "invoice": 45956, "msrp": 49415, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x2 SLT 2500 4dr SUV", "invoice": 44928, "msrp": 48310, "destination": 950}
+{"year": 2011, "make": "GMC", "slug": "2011-gmc-yukon_xl", "style": "4x4 SLT 2500 4dr SUV", "invoice": 47574, "msrp": 51155, "destination": 950}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX 2dr Coupe 5M", "invoice": 22354, "msrp": 24655, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX 2dr Coupe 5A", "invoice": 23077, "msrp": 25455, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX 4dr Sedan 5M", "invoice": 22038, "msrp": 24305, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX 4dr Sedan 5A", "invoice": 22761, "msrp": 25105, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX V6 4dr Sedan", "invoice": 24726, "msrp": 27280, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L 2dr Coupe", "invoice": 24568, "msrp": 27105, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L 4dr Sedan", "invoice": 24975, "msrp": 27555, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L V6 2dr Coupe 6M", "invoice": 27121, "msrp": 29930, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L V6 2dr Coupe 5A", "invoice": 27121, "msrp": 29930, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L V6 4dr Sedan", "invoice": 26850, "msrp": 29630, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L V6 2dr Coupe 6M w/Navi", "invoice": 28928, "msrp": 31930, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L V6 2dr Coupe 5A w/Navi", "invoice": 28928, "msrp": 31930, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L V6 4dr Sedan w/Navi", "invoice": 28838, "msrp": 31830, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L 2dr Coupe w/Navi", "invoice": 26556, "msrp": 29305, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "EX-L 4dr Sedan w/Navi", "invoice": 26963, "msrp": 29755, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "LX 4dr Sedan 5A", "invoice": 20118, "msrp": 22180, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "LX 4dr Sedan 5M", "invoice": 19395, "msrp": 21380, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "LX-P 4dr Sedan", "invoice": 21021, "msrp": 23180, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "LX-S 2dr Coupe 5M", "invoice": 20841, "msrp": 22980, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "LX-S 2dr Coupe 5A", "invoice": 21563, "msrp": 23780, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord", "style": "SE 4dr Sedan", "invoice": 21699, "msrp": 23930, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "DX 2dr Coupe 5M", "invoice": 14388, "msrp": 15605, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "DX 2dr Coupe 5A", "invoice": 15122, "msrp": 16405, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "DX 4dr Sedan 5M", "invoice": 14571, "msrp": 15805, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "DX 4dr Sedan 5A", "invoice": 15305, "msrp": 16605, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX 2dr Coupe 5M", "invoice": 18057, "msrp": 19605, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX 2dr Coupe 5A", "invoice": 18790, "msrp": 20405, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX 4dr Sedan 5M", "invoice": 18057, "msrp": 19605, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX 4dr Sedan 5A", "invoice": 18790, "msrp": 20405, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX 2dr Coupe 5A w/Navi", "invoice": 20625, "msrp": 22405, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX 4dr Sedan 5A w/Navi", "invoice": 20625, "msrp": 22405, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX-L 2dr Coupe 5A", "invoice": 20212, "msrp": 21955, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX-L 4dr Sedan 5A", "invoice": 20212, "msrp": 21955, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX-L 2dr Coupe 5A w/Navi", "invoice": 22047, "msrp": 23955, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "EX-L 4dr Sedan 5A w/Navi", "invoice": 22047, "msrp": 23955, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "GX 4dr Sedan", "invoice": 24022, "msrp": 25490, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Hybrid 4dr Sedan", "invoice": 22042, "msrp": 23950, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Hybrid 4dr Sedan w/Leather", "invoice": 23143, "msrp": 25150, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Hybrid 4dr Sedan w/Navi", "invoice": 23876, "msrp": 25950, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Hybrid 4dr Sedan w/Navi and Leather", "invoice": 24977, "msrp": 27150, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "LX 2dr Coupe 5M", "invoice": 16176, "msrp": 17555, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "LX 2dr Coupe 5A", "invoice": 16910, "msrp": 18355, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "LX 4dr Sedan 5M", "invoice": 16360, "msrp": 17755, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "LX 4dr Sedan 5A", "invoice": 17094, "msrp": 18555, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "LX-S 4dr Sedan 5M", "invoice": 16910, "msrp": 18355, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "LX-S 4dr Sedan 5A", "invoice": 17644, "msrp": 19155, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Si 2dr Coupe", "invoice": 20441, "msrp": 22205, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Si 4dr Sedan", "invoice": 20625, "msrp": 22405, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Si 2dr Coupe w/Navi", "invoice": 22276, "msrp": 24205, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Si 4dr Sedan w/Navi", "invoice": 22460, "msrp": 24405, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Si 2dr Coupe w/Summer tires", "invoice": 20625, "msrp": 22405, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "Si 4dr Sedan w/Summer tires", "invoice": 20808, "msrp": 22605, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "VP 4dr Sedan 5M", "invoice": 15259, "msrp": 16555, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-civic", "style": "VP 4dr Sedan 5A", "invoice": 15993, "msrp": 17355, "destination": 750}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord_crosstour", "style": "EX 4dr Crossover", "invoice": 27175, "msrp": 29990, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord_crosstour", "style": "EX-L 4dr Crossover", "invoice": 29796, "msrp": 32890, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord_crosstour", "style": "AWD EX-L 4dr Crossover", "invoice": 31106, "msrp": 34340, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord_crosstour", "style": "AWD EX-L 4dr Crossover w/Navi", "invoice": 33094, "msrp": 36540, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord_crosstour", "style": "EX-L 4dr Crossover w/Navi", "invoice": 31784, "msrp": 35090, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-element", "style": "AWD EX 4dr SUV", "invoice": 22504, "msrp": 24185, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-element", "style": "EX 4dr SUV", "invoice": 21345, "msrp": 22935, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-element", "style": "LX 4dr SUV", "invoice": 19388, "msrp": 20825, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-element", "style": "AWD LX 4dr SUV", "invoice": 20547, "msrp": 22075, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-fit", "style": "Base 4dr Hatchback 5A", "invoice": 15340, "msrp": 15900, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-fit", "style": "Base 4dr Hatchback 5M", "invoice": 14572, "msrp": 15100, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-fit", "style": "Sport 4dr Hatchback 5A", "invoice": 17077, "msrp": 17710, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-fit", "style": "Sport 4dr Hatchback 5M", "invoice": 16261, "msrp": 16860, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-fit", "style": "Sport 4dr Hatchback w/Navi", "invoice": 18546, "msrp": 19240, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-insight", "style": "Base 4dr Hatchback", "invoice": 17184, "msrp": 18200, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-insight", "style": "EX 4dr Hatchback", "invoice": 20277, "msrp": 21490, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-insight", "style": "EX 4dr Hatchback w/Navi", "invoice": 21945, "msrp": 23265, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-insight", "style": "LX 4dr Hatchback", "invoice": 18782, "msrp": 19900, "destination": 770}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-odyssey", "style": "EX 4dr Mini-Van", "invoice": 28291, "msrp": 31255, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-odyssey", "style": "EX-L 4dr Mini-Van", "invoice": 31454, "msrp": 34725, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-odyssey", "style": "EX-L 4dr Mini-Van w/DVD", "invoice": 32890, "msrp": 36325, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-odyssey", "style": "EX-L 4dr Mini-Van w/Navi", "invoice": 33261, "msrp": 36725, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-odyssey", "style": "LX 4dr Mini-Van", "invoice": 25445, "msrp": 28075, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-odyssey", "style": "Touring 4dr Mini-Van", "invoice": 37151, "msrp": 41030, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-odyssey", "style": "Touring Elite 4dr Mini-Van", "invoice": 39406, "msrp": 43525, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "EX 4dr SUV", "invoice": 28241, "msrp": 31170, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "4x4 EX 4dr SUV", "invoice": 29687, "msrp": 32770, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "EX-L 4dr SUV", "invoice": 31043, "msrp": 34270, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "4x4 EX-L 4dr SUV", "invoice": 32488, "msrp": 35870, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "EX-L 4dr SUV w/DVD", "invoice": 32488, "msrp": 35870, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "4x4 EX-L 4dr SUV w/DVD", "invoice": 33934, "msrp": 37470, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "EX-L 4dr SUV w/Navi", "invoice": 32850, "msrp": 36270, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "4x4 EX-L 4dr SUV w/Navi", "invoice": 34296, "msrp": 37870, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "LX 4dr SUV", "invoice": 25666, "msrp": 28320, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "4x4 LX 4dr SUV", "invoice": 27112, "msrp": 29920, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "Touring 4dr SUV", "invoice": 35380, "msrp": 39070, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-pilot", "style": "4x4 Touring 4dr SUV", "invoice": 36826, "msrp": 40670, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-ridgeline", "style": "4x4 RT 4dr Crew Cab", "invoice": 26416, "msrp": 29150, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-ridgeline", "style": "4x4 RTL 4dr Crew Cab", "invoice": 31458, "msrp": 34730, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-ridgeline", "style": "4x4 RTL 4dr Crew Cab w/Navi", "invoice": 33582, "msrp": 37080, "destination": 810}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-ridgeline", "style": "4x4 RTS 4dr Crew Cab", "invoice": 28860, "msrp": 31855, "destination": 810}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-accent", "style": "GL 2dr Hatchback", "invoice": 9899, "msrp": 9985, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-accent", "style": "GLS 4dr Sedan", "invoice": 13343, "msrp": 13695, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-accent", "style": "GS 2dr Hatchback", "invoice": 12388, "msrp": 12695, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-accent", "style": "SE 2dr Hatchback", "invoice": 14918, "msrp": 15345, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-azera", "style": "GLS 4dr Sedan", "invoice": 24216, "msrp": 25495, "destination": 775}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-azera", "style": "Limited 4dr Sedan", "invoice": 27938, "msrp": 30095, "destination": 775}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-elantra", "style": "GLS 4dr Sedan 6M", "invoice": 14536, "msrp": 14945, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-elantra", "style": "GLS 4dr Sedan 6A", "invoice": 16629, "msrp": 17195, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-elantra", "style": "Limited 4dr Sedan", "invoice": 19349, "msrp": 20195, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-elantra_touring", "style": "GLS 4dr Wagon", "invoice": 15539, "msrp": 15995, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-elantra_touring", "style": "SE 4dr Wagon", "invoice": 18687, "msrp": 19495, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-equus", "style": "Signature 4dr Sedan", "invoice": 54204, "msrp": 58000, "destination": 900}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-equus", "style": "Ultimate 4dr Sedan", "invoice": 60250, "msrp": 64500, "destination": 900}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-genesis", "style": "3.8L V6 4dr Sedan", "invoice": 30954, "msrp": 33000, "destination": 850}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-genesis", "style": "4.6L V8 4dr Sedan", "invoice": 39824, "msrp": 43000, "destination": 850}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-genesis_coupe", "style": "2.0T 2dr Coupe", "invoice": 21180, "msrp": 22250, "destination": 850}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-genesis_coupe", "style": "2.0T Premium 2dr Coupe", "invoice": 25410, "msrp": 26750, "destination": 850}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-genesis_coupe", "style": "2.0T R-Spec 2dr Coupe", "invoice": 23294, "msrp": 24500, "destination": 850}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-genesis_coupe", "style": "3.8L Grand Touring 2dr Coupe", "invoice": 27932, "msrp": 29750, "destination": 850}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-genesis_coupe", "style": "3.8L R-Spec 2dr Coupe", "invoice": 25142, "msrp": 26750, "destination": 850}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-genesis_coupe", "style": "3.8L Track 2dr Coupe", "invoice": 28862, "msrp": 30750, "destination": 850}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-santa_fe", "style": "GLS 4dr SUV (I4)", "invoice": 21017, "msrp": 21845, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-santa_fe", "style": "AWD GLS 4dr SUV (I4)", "invoice": 23867, "msrp": 24845, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-santa_fe", "style": "GLS 4dr SUV (V6)", "invoice": 24057, "msrp": 25045, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-santa_fe", "style": "AWD GLS 4dr SUV (V6)", "invoice": 25672, "msrp": 26745, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-santa_fe", "style": "AWD Limited 4dr SUV", "invoice": 28950, "msrp": 30845, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-santa_fe", "style": "Limited 4dr SUV (I4)", "invoice": 25556, "msrp": 27195, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-santa_fe", "style": "Limited 4dr SUV (V6)", "invoice": 27369, "msrp": 29145, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-santa_fe", "style": "SE 4dr SUV", "invoice": 24840, "msrp": 26145, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-santa_fe", "style": "AWD SE 4dr SUV", "invoice": 26626, "msrp": 28045, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-sonata", "style": "GLS 4dr Sedan 6A", "invoice": 19538, "msrp": 20395, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-sonata", "style": "GLS 4dr Sedan 6M", "invoice": 18593, "msrp": 19395, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-sonata", "style": "Limited 4dr Sedan", "invoice": 23847, "msrp": 25495, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-sonata", "style": "Limited 2.0T 4dr Sedan", "invoice": 25465, "msrp": 27245, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-sonata", "style": "SE 4dr Sedan 6A", "invoice": 21578, "msrp": 22795, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-sonata", "style": "SE 2.0T 4dr Sedan", "invoice": 23026, "msrp": 24345, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-sonata_hybrid", "style": "Base 4dr Sedan", "invoice": 24383, "msrp": 25795, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-sonata_hybrid", "style": "Premium 4dr Sedan", "invoice": 28933, "msrp": 30795, "destination": 750}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-tucson", "style": "GL 4dr SUV", "invoice": 18215, "msrp": 18895, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-tucson", "style": "GLS 4dr SUV", "invoice": 21160, "msrp": 21995, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-tucson", "style": "AWD GLS 4dr SUV", "invoice": 22727, "msrp": 23645, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-tucson", "style": "Limited 4dr SUV", "invoice": 23618, "msrp": 24845, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-tucson", "style": "AWD Limited 4dr SUV", "invoice": 25028, "msrp": 26345, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-veracruz", "style": "GLS 4dr Crossover", "invoice": 26908, "msrp": 28345, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-veracruz", "style": "AWD GLS 4dr Crossover", "invoice": 28694, "msrp": 30245, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-veracruz", "style": "Limited 4dr Crossover", "invoice": 31908, "msrp": 34395, "destination": 795}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-veracruz", "style": "AWD Limited 4dr Crossover", "invoice": 33472, "msrp": 36095, "destination": 795}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-ex35", "style": "AWD Base 4dr Crossover", "invoice": 33812, "msrp": 36600, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-ex35", "style": "Base 4dr Crossover", "invoice": 32523, "msrp": 35200, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-ex35", "style": "AWD Journey 4dr Crossover", "invoice": 35838, "msrp": 38800, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-ex35", "style": "Journey 4dr Crossover", "invoice": 34549, "msrp": 37400, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-fx35", "style": "Base 4dr SUV", "invoice": 39338, "msrp": 42600, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-fx35", "style": "AWD Base 4dr SUV", "invoice": 40675, "msrp": 44050, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-fx50", "style": "AWD Base 4dr SUV", "invoice": 53155, "msrp": 57600, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g25", "style": "4dr Sedan", "invoice": 29575, "msrp": 32000, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g25", "style": "Journey 4dr Sedan", "invoice": 30866, "msrp": 33400, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g25", "style": "AWD x 4dr Sedan", "invoice": 32339, "msrp": 35000, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g37_convertible", "style": "2dr Convertible", "invoice": 42240, "msrp": 45750, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g37_convertible", "style": "Limited Edition 2dr Convertible", "invoice": 53523, "msrp": 58000, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g37_convertible", "style": "Sport 2dr Convertible", "invoice": 46340, "msrp": 50200, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g37_coupe", "style": "2dr Coupe", "invoice": 34319, "msrp": 37150, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g37_coupe", "style": "IPL 2dr Coupe 7A", "invoice": 46892, "msrp": 50800, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g37_coupe", "style": "IPL 2dr Coupe 6M", "invoice": 45143, "msrp": 48900, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g37_coupe", "style": "Journey 2dr Coupe", "invoice": 35654, "msrp": 38600, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g37_coupe", "style": "Sport 2dr Coupe", "invoice": 40029, "msrp": 43350, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-g37_coupe", "style": "AWD x 2dr Coupe", "invoice": 37175, "msrp": 40250, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-m37", "style": "4dr Sedan", "invoice": 43438, "msrp": 47050, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-m37", "style": "AWD x 4dr Sedan", "invoice": 45418, "msrp": 49200, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-m56", "style": "4dr Sedan", "invoice": 53938, "msrp": 58450, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-m56", "style": "AWD x 4dr Sedan", "invoice": 56241, "msrp": 60950, "destination": 895}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-qx56", "style": "4x2 Base 4dr SUV", "invoice": 54169, "msrp": 58700, "destination": 990}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-qx56", "style": "4x4 Base 4dr SUV", "invoice": 57024, "msrp": 61800, "destination": 990}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-qx56", "style": "4x2 Base 4dr SUV w/ Split Bench Seat Package", "invoice": 54169, "msrp": 58700, "destination": 990}
+{"year": 2011, "make": "Infiniti", "slug": "2011-infiniti-qx56", "style": "4x4 Base 4dr SUV w/ Split Bench Seat Package", "invoice": 57024, "msrp": 61800, "destination": 990}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xf", "style": "4dr Sedan", "invoice": 48300, "msrp": 52500, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xf", "style": "Premium 4dr Sedan", "invoice": 51980, "msrp": 56500, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xf", "style": "Supercharged 4dr Sedan", "invoice": 62192, "msrp": 67600, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xf", "style": "XFR 4dr Sedan", "invoice": 73232, "msrp": 79600, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xj", "style": "4dr Sedan", "invoice": 66884, "msrp": 72700, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xj", "style": "Supercharged 4dr Sedan", "invoice": 80684, "msrp": 87700, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xj", "style": "Supersport 4dr Sedan", "invoice": 101384, "msrp": 110200, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xk", "style": "2dr Convertible", "invoice": 81880, "msrp": 89000, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xk", "style": "2dr Coupe", "invoice": 76360, "msrp": 83000, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xk", "style": "XKR 2dr Convertible", "invoice": 93955, "msrp": 102125, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xk", "style": "XKR 2dr Coupe", "invoice": 88435, "msrp": 96125, "destination": 875}
+{"year": 2011, "make": "Jaguar", "slug": "2011-jaguar-xk", "style": "XKR175 2dr Coupe 75th Anniversary", "invoice": 94763, "msrp": 103650, "destination": 875}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-compass", "style": "70th Anniversary 4dr SUV", "invoice": 23942, "msrp": 24870, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-compass", "style": "4x4 70th Anniversary 4dr SUV", "invoice": 25523, "msrp": 26570, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-compass", "style": "Latitude 4dr SUV", "invoice": 21055, "msrp": 21595, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-compass", "style": "4x4 Latitude 4dr SUV", "invoice": 22653, "msrp": 23295, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-compass", "style": "Limited 4dr SUV", "invoice": 23419, "msrp": 24295, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-compass", "style": "4x4 Limited 4dr SUV", "invoice": 25000, "msrp": 25995, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-compass", "style": "Sport 4dr SUV", "invoice": 18962, "msrp": 19295, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-compass", "style": "4x4 Sport 4dr SUV", "invoice": 20560, "msrp": 20995, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x2 70th Anniversary 4dr SUV", "invoice": 33655, "msrp": 35770, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x4 70th Anniversary 4dr SUV", "invoice": 35545, "msrp": 37770, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x4 Laredo 4dr SUV", "invoice": 30601, "msrp": 32215, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x2 Laredo 4dr SUV", "invoice": 28711, "msrp": 30215, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x4 Laredo X 4dr SUV", "invoice": 34161, "msrp": 36215, "destination": 825}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x2 Laredo X 4dr SUV", "invoice": 32271, "msrp": 34215, "destination": 825}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x2 Limited 4dr SUV", "invoice": 34626, "msrp": 36715, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x4 Limited 4dr SUV", "invoice": 36971, "msrp": 39215, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x4 Overland 4dr SUV", "invoice": 39423, "msrp": 41910, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x2 Overland 4dr SUV", "invoice": 36168, "msrp": 38410, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x2 Overland Summit 4dr SUV", "invoice": 39804, "msrp": 42495, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-grand_cherokee", "style": "4x4 Overland Summit 4dr SUV", "invoice": 43059, "msrp": 45995, "destination": 780}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x2 Limited 4dr SUV", "invoice": 25760, "msrp": 26650, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x4 Limited 4dr SUV", "invoice": 27278, "msrp": 28250, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x2 Limited 70th Anniversary 4dr SUV", "invoice": 26506, "msrp": 27470, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x4 Limited 70th Anniversary 4dr SUV", "invoice": 28024, "msrp": 29070, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x2 Limited Jet 4dr SUV", "invoice": 26665, "msrp": 27645, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x4 Limited Jet 4dr SUV", "invoice": 28183, "msrp": 29245, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x4 Renegade 4dr SUV", "invoice": 26348, "msrp": 27250, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x2 Sport 4dr SUV", "invoice": 22598, "msrp": 23250, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x4 Sport 4dr SUV", "invoice": 24130, "msrp": 24865, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x2 Sport 70th Anniversary 4dr SUV", "invoice": 23981, "msrp": 24770, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x4 Sport 70th Anniversary 4dr SUV", "invoice": 25500, "msrp": 26370, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x2 Sport Jet 4dr SUV", "invoice": 23958, "msrp": 24745, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-liberty", "style": "4x4 Sport Jet 4dr SUV", "invoice": 25490, "msrp": 26360, "destination": 745}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-patriot", "style": "Latitude 4dr SUV", "invoice": 19217, "msrp": 19695, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-patriot", "style": "4x4 Latitude 4dr SUV", "invoice": 20815, "msrp": 21395, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-patriot", "style": "Latitude X 4dr SUV", "invoice": 21678, "msrp": 22195, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-patriot", "style": "4x4 Latitude X 4dr SUV", "invoice": 23276, "msrp": 23895, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-patriot", "style": "Latitude X 70th Anniversary 4dr SUV", "invoice": 22201, "msrp": 22770, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-patriot", "style": "4x4 Latitude X 70th Anniversary 4dr SUV", "invoice": 23799, "msrp": 24470, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-patriot", "style": "Sport 4dr SUV", "invoice": 15850, "msrp": 15995, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-patriot", "style": "4x4 Sport 4dr SUV", "invoice": 17448, "msrp": 17695, "destination": 700}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-wrangler", "style": "4x4 70th Anniversary 2dr SUV", "invoice": 27020, "msrp": 28670, "destination": 750}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-wrangler", "style": "4x4 Rubicon 2dr SUV", "invoice": 27543, "msrp": 29245, "destination": 750}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-wrangler", "style": "4x4 Sahara 2dr SUV", "invoice": 25723, "msrp": 27245, "destination": 750}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-wrangler", "style": "4x4 Sport 2dr SUV", "invoice": 21431, "msrp": 22045, "destination": 750}
+{"year": 2011, "make": "Jeep", "slug": "2011-jeep-wrangler", "style": "4x4 Sport Mojave 2dr SUV", "invoice": 27795, "msrp": 29195, "destination": 750}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-forte", "style": "EX 4dr Sedan 6A", "invoice": 16570, "msrp": 17395, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-forte", "style": "LX 4dr Sedan 6A", "invoice": 15680, "msrp": 15995, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-forte", "style": "LX 4dr Sedan 6M", "invoice": 14700, "msrp": 14995, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-forte", "style": "SX 4dr Sedan 6A", "invoice": 18000, "msrp": 18895, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-forte_koup", "style": "EX 2dr Coupe 6M", "invoice": 16190, "msrp": 16995, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-forte_koup", "style": "EX 2dr Coupe 6A", "invoice": 17140, "msrp": 17995, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-forte_koup", "style": "SX 2dr Coupe 6M", "invoice": 17520, "msrp": 18395, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-forte_koup", "style": "SX 2dr Coupe 6A", "invoice": 18470, "msrp": 19395, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima", "style": "EX 4dr Sedan", "invoice": 21020, "msrp": 22495, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima", "style": "EX Turbo 4dr Sedan", "invoice": 22890, "msrp": 24495, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima", "style": "LX 4dr Sedan 6M", "invoice": 18620, "msrp": 18995, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima", "style": "LX 4dr Sedan 6A", "invoice": 19590, "msrp": 20495, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima", "style": "SX Turbo 4dr Sedan", "invoice": 24290, "msrp": 25995, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima_hybrid", "style": "Base 4dr Sedan", "invoice": 24760, "msrp": 26500, "destination": 750}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-rio", "style": "Base 4dr Sedan", "invoice": 12060, "msrp": 12295, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-rio", "style": "LX 4dr Sedan", "invoice": 14480, "msrp": 14995, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-rio", "style": "SX 4dr Sedan", "invoice": 15110, "msrp": 16095, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sedona", "style": "EX 4dr Mini-Van LWB", "invoice": 27275, "msrp": 29195, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sedona", "style": "LX 4dr Mini-Van LWB", "invoice": 23870, "msrp": 24595, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "Base 4dr SUV", "invoice": 20480, "msrp": 21195, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "EX 4dr SUV", "invoice": 23885, "msrp": 25195, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "EX 4dr SUV (V6)", "invoice": 26155, "msrp": 27595, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "AWD EX 4dr SUV", "invoice": 25495, "msrp": 26895, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "AWD EX 4dr SUV (V6)", "invoice": 27770, "msrp": 29295, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "LX 4dr SUV", "invoice": 22025, "msrp": 22795, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "AWD LX 4dr SUV", "invoice": 23665, "msrp": 24095, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "LX 4dr SUV (V6)", "invoice": 24730, "msrp": 25595, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "AWD LX 4dr SUV (V6)", "invoice": 26370, "msrp": 27295, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "SX 4dr SUV", "invoice": 30420, "msrp": 32395, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sorento", "style": "AWD SX 4dr SUV", "invoice": 32015, "msrp": 34095, "destination": 795}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-soul", "style": "! 4dr Crossover", "invoice": 17560, "msrp": 18495, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-soul", "style": "+ 4dr Crossover 4A", "invoice": 15810, "msrp": 16495, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-soul", "style": "+ 4dr Crossover 5M", "invoice": 14850, "msrp": 15495, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-soul", "style": "4dr Crossover", "invoice": 13040, "msrp": 13300, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-soul", "style": "Sport 4dr Crossover 4A", "invoice": 17560, "msrp": 18495, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sportage", "style": "Base 4dr SUV", "invoice": 17930, "msrp": 18295, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sportage", "style": "EX 4dr SUV", "invoice": 21870, "msrp": 23295, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sportage", "style": "AWD EX 4dr SUV", "invoice": 23280, "msrp": 24795, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sportage", "style": "AWD LX 4dr SUV", "invoice": 21060, "msrp": 21795, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sportage", "style": "LX 4dr SUV", "invoice": 19610, "msrp": 20295, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sportage", "style": "SX 4dr SUV", "invoice": 24070, "msrp": 25795, "destination": 695}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-sportage", "style": "AWD SX 4dr SUV", "invoice": 25470, "msrp": 27295, "destination": 695}
+{"year": 2011, "make": "Lamborghini", "slug": "2011-lamborghini-gallardo", "style": "LP 550-2 2dr Coupe", "invoice": 161594, "msrp": 187900, "destination": 2995}
+{"year": 2011, "make": "Lamborghini", "slug": "2011-lamborghini-gallardo", "style": "LP 550-2 Bicolore 2dr Coupe", "invoice": 0, "msrp": 196995, "destination": 2995}
+{"year": 2011, "make": "Lamborghini", "slug": "2011-lamborghini-gallardo", "style": "LP 550-2 Valentino Balboni 2dr Coupe", "invoice": 189028, "msrp": 219800, "destination": 2995}
+{"year": 2011, "make": "Lamborghini", "slug": "2011-lamborghini-gallardo", "style": "AWD LP 560-4 2dr Coupe", "invoice": 173720, "msrp": 202000, "destination": 2995}
+{"year": 2011, "make": "Lamborghini", "slug": "2011-lamborghini-gallardo", "style": "AWD LP 560-4 Spyder 2dr Convertible", "invoice": 193844, "msrp": 225400, "destination": 2995}
+{"year": 2011, "make": "Lamborghini", "slug": "2011-lamborghini-gallardo", "style": "AWD LP 570-4 Spyder Performante 2dr Convertible", "invoice": 0, "msrp": 248000, "destination": 2995}
+{"year": 2011, "make": "Lamborghini", "slug": "2011-lamborghini-gallardo", "style": "AWD LP 570-4 Superleggera 2dr Coupe", "invoice": 204335, "msrp": 237600, "destination": 2995}
+{"year": 2011, "make": "Land Rover", "slug": "2011-land_rover-lr2", "style": "AWD 4dr SUV", "invoice": 32487, "msrp": 35700, "destination": 850}
+{"year": 2011, "make": "Land Rover", "slug": "2011-land_rover-lr4", "style": "4x4 4dr SUV", "invoice": 44212, "msrp": 48500, "destination": 850}
+{"year": 2011, "make": "Land Rover", "slug": "2011-land_rover-range_rover", "style": "4x4 HSE 4dr SUV", "invoice": 72590, "msrp": 79685, "destination": 850}
+{"year": 2011, "make": "Land Rover", "slug": "2011-land_rover-range_rover", "style": "4x4 Supercharged 4dr SUV", "invoice": 86950, "msrp": 95465, "destination": 850}
+{"year": 2011, "make": "Land Rover", "slug": "2011-land_rover-range_rover_sport", "style": "4x4 HSE 4dr SUV", "invoice": 55127, "msrp": 60495, "destination": 850}
+{"year": 2011, "make": "Land Rover", "slug": "2011-land_rover-range_rover_sport", "style": "4x4 Supercharged 4dr SUV", "invoice": 68686, "msrp": 75395, "destination": 850}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-ct_200h", "style": "4dr Hatchback", "invoice": 27052, "msrp": 29120, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-ct_200h", "style": "Premium 4dr Hatchback", "invoice": 28706, "msrp": 30900, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-es_350", "style": "4dr Sedan", "invoice": 33299, "msrp": 36725, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-gs_350", "style": "4dr Sedan", "invoice": 42210, "msrp": 46900, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-gs_350", "style": "AWD 4dr Sedan", "invoice": 43966, "msrp": 48850, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-gs_450h", "style": "4dr Sedan", "invoice": 53056, "msrp": 58950, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-gs_460", "style": "4dr Sedan", "invoice": 49279, "msrp": 55370, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-gx_460", "style": "AWD 4dr SUV", "invoice": 47209, "msrp": 53045, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-gx_460", "style": "AWD Premium 4dr SUV", "invoice": 51477, "msrp": 57840, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-hs_250h", "style": "4dr Sedan", "invoice": 33061, "msrp": 36330, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-hs_250h", "style": "Premium 4dr Sedan", "invoice": 35581, "msrp": 39100, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-is_250", "style": "4dr Sedan 6A", "invoice": 31019, "msrp": 34465, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-is_250", "style": "4dr Sedan 6M", "invoice": 29966, "msrp": 33295, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-is_250", "style": "AWD 4dr Sedan", "invoice": 33233, "msrp": 36925, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-is_350", "style": "4dr Sedan", "invoice": 35748, "msrp": 39720, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-is_350", "style": "AWD 4dr Sedan", "invoice": 37962, "msrp": 42180, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-is_f", "style": "4dr Sedan", "invoice": 54594, "msrp": 60660, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-ls_460", "style": "4dr Sedan", "invoice": 59746, "msrp": 67130, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-ls_460", "style": "AWD 4dr Sedan", "invoice": 61797, "msrp": 69435, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-ls_460", "style": "L 4dr Sedan", "invoice": 64681, "msrp": 72675, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-ls_460", "style": "AWD L 4dr Sedan", "invoice": 66732, "msrp": 74980, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-ls_600h_l", "style": "AWD Hybrid 4dr Sedan", "invoice": 99103, "msrp": 111350, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-lx_570", "style": "AWD 4dr SUV", "invoice": 70716, "msrp": 79455, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-rx_350", "style": "4dr SUV", "invoice": 35363, "msrp": 39075, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-rx_350", "style": "AWD 4dr SUV", "invoice": 36630, "msrp": 40475, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-rx_450h", "style": "4dr SUV", "invoice": 40709, "msrp": 44735, "destination": 875}
+{"year": 2011, "make": "Lexus", "slug": "2011-lexus-rx_450h", "style": "AWD 4dr SUV", "invoice": 42156, "msrp": 46325, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mks", "style": "4dr Sedan", "invoice": 38068, "msrp": 41270, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mks", "style": "AWD 4dr Sedan", "invoice": 39769, "msrp": 43160, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mks", "style": "AWD EcoBoost 4dr Sedan", "invoice": 44269, "msrp": 48160, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkt", "style": "4dr Crossover", "invoice": 41664, "msrp": 44300, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkt", "style": "AWD 4dr Crossover", "invoice": 43519, "msrp": 46295, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkt", "style": "AWD EcoBoost 4dr Crossover", "invoice": 46314, "msrp": 49300, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkx", "style": "4dr SUV", "invoice": 37039, "msrp": 39375, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkx", "style": "AWD 4dr SUV", "invoice": 38760, "msrp": 41225, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkz", "style": "4dr Sedan", "invoice": 32565, "msrp": 34645, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkz", "style": "AWD 4dr Sedan", "invoice": 34323, "msrp": 36535, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkz_hybrid", "style": "4dr Sedan", "invoice": 32565, "msrp": 34645, "destination": 875}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-navigator", "style": "4x2 Base 4dr SUV", "invoice": 54171, "msrp": 57630, "destination": 925}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-navigator", "style": "4x4 Base 4dr SUV", "invoice": 56868, "msrp": 60530, "destination": 925}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-town_car", "style": "Executive 4dr Sedan", "invoice": 43317, "msrp": 46110, "destination": 945}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-town_car", "style": "Executive L 4dr Sedan", "invoice": 45321, "msrp": 48265, "destination": 945}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-town_car", "style": "Signature L 4dr Sedan", "invoice": 49627, "msrp": 52895, "destination": 945}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-town_car", "style": "Signature L Fleet 4dr Sedan", "invoice": 49418, "msrp": 52670, "destination": 945}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-town_car", "style": "Signature Limited 4dr Sedan", "invoice": 44355, "msrp": 47225, "destination": 945}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-town_car", "style": "Signature Limited Fleet 4dr Sedan", "invoice": 44145, "msrp": 47000, "destination": 945}
+{"year": 2011, "make": "Lotus", "slug": "2011-lotus-evora", "style": "2+2 2dr Coupe", "invoice": 0, "msrp": 65500, "destination": 1175}
+{"year": 2011, "make": "Lotus", "slug": "2011-lotus-evora", "style": "2dr Coupe", "invoice": 0, "msrp": 64000, "destination": 1175}
+{"year": 2011, "make": "Lotus", "slug": "2011-lotus-evora", "style": "S 2dr Coupe", "invoice": 0, "msrp": 76000, "destination": 1175}
+{"year": 2011, "make": "Lotus", "slug": "2011-lotus-evora", "style": "S 2+2 2dr Coupe", "invoice": 0, "msrp": 77500, "destination": 1175}
+{"year": 2011, "make": "Maserati", "slug": "2011-maserati-granturismo", "style": "2dr Convertible", "invoice": 0, "msrp": 136300, "destination": 1800}
+{"year": 2011, "make": "Maserati", "slug": "2011-maserati-granturismo", "style": "2dr Coupe", "invoice": 0, "msrp": 118900, "destination": 1800}
+{"year": 2011, "make": "Maserati", "slug": "2011-maserati-granturismo", "style": "S 2dr Coupe", "invoice": 0, "msrp": 135000, "destination": 1500}
+{"year": 2011, "make": "Maserati", "slug": "2011-maserati-granturismo", "style": "S Automatic 2dr Coupe", "invoice": 0, "msrp": 122500, "destination": 1800}
+{"year": 2011, "make": "Maserati", "slug": "2011-maserati-quattroporte", "style": "4dr Sedan", "invoice": 0, "msrp": 121250, "destination": 1800}
+{"year": 2011, "make": "Maserati", "slug": "2011-maserati-quattroporte", "style": "S 4dr Sedan", "invoice": 0, "msrp": 126750, "destination": 1800}
+{"year": 2011, "make": "Maserati", "slug": "2011-maserati-quattroporte", "style": "Sport GT S 4dr Sedan", "invoice": 0, "msrp": 134700, "destination": 1800}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-tribute", "style": "i Grand Touring 4dr SUV", "invoice": 24063, "msrp": 25700, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-tribute", "style": "AWD i Grand Touring 4dr SUV", "invoice": 25705, "msrp": 27455, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-tribute", "style": "i Sport 4dr SUV 5M", "invoice": 19250, "msrp": 20555, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-tribute", "style": "i Sport 4dr SUV 6A", "invoice": 21158, "msrp": 22595, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-tribute", "style": "AWD i Sport 4dr SUV", "invoice": 22800, "msrp": 24350, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-tribute", "style": "i Touring 4dr SUV", "invoice": 22229, "msrp": 23740, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-tribute", "style": "AWD i Touring 4dr SUV", "invoice": 23870, "msrp": 25495, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-tribute", "style": "s Grand Touring 4dr SUV", "invoice": 25573, "msrp": 27315, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-tribute", "style": "AWD s Grand Touring 4dr SUV", "invoice": 27212, "msrp": 29065, "destination": 795}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-grand_marquis", "style": "LS 4dr Sedan", "invoice": 28200, "msrp": 29935, "destination": 875}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-grand_marquis", "style": "LS Fleet 4dr Sedan", "invoice": 28200, "msrp": 29525, "destination": 875}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner", "style": "I4 4dr SUV", "invoice": 22044, "msrp": 23565, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner", "style": "AWD I4 4dr SUV", "invoice": 23636, "msrp": 25315, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner", "style": "Premier I4 4dr SUV", "invoice": 23928, "msrp": 25635, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner", "style": "AWD Premier I4 4dr SUV", "invoice": 25521, "msrp": 27385, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner", "style": "AWD Premier V6 4dr SUV", "invoice": 26431, "msrp": 28385, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner", "style": "Premier V6 4dr SUV", "invoice": 24838, "msrp": 26635, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner", "style": "AWD V6 4dr SUV", "invoice": 24546, "msrp": 26315, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner", "style": "V6 4dr SUV", "invoice": 22954, "msrp": 24565, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner_hybrid", "style": "Base 4dr SUV", "invoice": 28004, "msrp": 30115, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-mariner_hybrid", "style": "AWD Base 4dr SUV", "invoice": 29597, "msrp": 31865, "destination": 725}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-milan", "style": "I-4 4dr Sedan", "invoice": 20398, "msrp": 22025, "destination": 750}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-milan", "style": "I-4 Premier 4dr Sedan", "invoice": 23224, "msrp": 25165, "destination": 750}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-milan", "style": "V6 Premier 4dr Sedan", "invoice": 24691, "msrp": 26795, "destination": 750}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-milan", "style": "AWD V6 Premier 4dr Sedan", "invoice": 26355, "msrp": 28645, "destination": 750}
+{"year": 2011, "make": "Mercury", "slug": "2011-mercury-milan_hybrid", "style": "Base 4dr Sedan", "invoice": 26085, "msrp": 28345, "destination": 750}
+{"year": 2011, "make": "Mini", "slug": "2011-mini-cooper", "style": "Base 2dr Convertible", "invoice": 22365, "msrp": 24850, "destination": 700}
+{"year": 2011, "make": "Mini", "slug": "2011-mini-cooper", "style": "Base 2dr Hatchback", "invoice": 17460, "msrp": 19400, "destination": 700}
+{"year": 2011, "make": "Mini", "slug": "2011-mini-cooper", "style": "John Cooper Works 2dr Convertible", "invoice": 30870, "msrp": 34300, "destination": 700}
+{"year": 2011, "make": "Mini", "slug": "2011-mini-cooper", "style": "John Cooper Works 2dr Hatchback", "invoice": 26190, "msrp": 29100, "destination": 700}
+{"year": 2011, "make": "Mini", "slug": "2011-mini-cooper", "style": "S 2dr Convertible", "invoice": 25065, "msrp": 27850, "destination": 700}
+{"year": 2011, "make": "Mini", "slug": "2011-mini-cooper", "style": "S 2dr Hatchback", "invoice": 20700, "msrp": 23000, "destination": 700}
+{"year": 2011, "make": "Mini", "slug": "2011-mini-cooper_countryman", "style": "Base 4dr Crossover", "invoice": 19485, "msrp": 21650, "destination": 700}
+{"year": 2011, "make": "Mini", "slug": "2011-mini-cooper_countryman", "style": "S 4dr Crossover", "invoice": 22725, "msrp": 25250, "destination": 700}
+{"year": 2011, "make": "Mini", "slug": "2011-mini-cooper_countryman", "style": "AWD S ALL4 4dr Crossover", "invoice": 24255, "msrp": 26950, "destination": 700}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-eclipse", "style": "GS 2dr Hatchback", "invoice": 18354, "msrp": 18999, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-eclipse", "style": "GS Sport 2dr Hatchback", "invoice": 23357, "msrp": 24699, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-eclipse", "style": "GT 2dr Hatchback", "invoice": 27508, "msrp": 29089, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-eclipse_spyder", "style": "GS Sport 2dr Convertible", "invoice": 26500, "msrp": 27999, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-eclipse_spyder", "style": "GT 2dr Convertible", "invoice": 30854, "msrp": 32599, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-endeavor", "style": "LS 4dr SUV", "invoice": 27105, "msrp": 28299, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-endeavor", "style": "AWD LS 4dr SUV", "invoice": 28541, "msrp": 29799, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-endeavor", "style": "SE 4dr SUV", "invoice": 30744, "msrp": 32099, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-endeavor", "style": "AWD SE 4dr SUV", "invoice": 32181, "msrp": 33599, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-galant", "style": "ES 4dr Sedan", "invoice": 20687, "msrp": 21599, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-galant", "style": "FE 4dr Sedan", "invoice": 20687, "msrp": 21599, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-galant", "style": "SE 4dr Sedan", "invoice": 22986, "msrp": 23999, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer", "style": "DE 4dr Sedan", "invoice": 14649, "msrp": 15295, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer", "style": "ES 4dr Sedan 5M", "invoice": 15990, "msrp": 16695, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer", "style": "ES 4dr Sedan CVT", "invoice": 16852, "msrp": 17595, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer", "style": "GTS 4dr Sedan 5M", "invoice": 18672, "msrp": 19495, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer", "style": "GTS 4dr Sedan CVT", "invoice": 19630, "msrp": 20495, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer", "style": "AWD Ralliart 4dr Sedan", "invoice": 26526, "msrp": 27695, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer_evolution", "style": "AWD GSR 4dr Sedan", "invoice": 32656, "msrp": 34095, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer_evolution", "style": "AWD MR 4dr Sedan", "invoice": 35722, "msrp": 37295, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer_sportback", "style": "ES 4dr Hatchback 5M", "invoice": 16373, "msrp": 17095, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer_sportback", "style": "ES 4dr Hatchback CVT", "invoice": 17235, "msrp": 17995, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer_sportback", "style": "GTS 4dr Hatchback 5M", "invoice": 19055, "msrp": 19895, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer_sportback", "style": "GTS 4dr Hatchback CVT", "invoice": 20013, "msrp": 20895, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer_sportback", "style": "AWD Ralliart 4dr Hatchback", "invoice": 26909, "msrp": 28095, "destination": 795}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander", "style": "ES 4dr SUV", "invoice": 21066, "msrp": 21995, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander", "style": "AWD GT 4dr SUV", "invoice": 26621, "msrp": 27795, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander", "style": "SE 4dr SUV", "invoice": 22024, "msrp": 22995, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander", "style": "AWD SE 4dr SUV", "invoice": 23461, "msrp": 24495, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander", "style": "XLS 4dr SUV", "invoice": 24706, "msrp": 25795, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander_sport", "style": "ES 4dr Crossover 5M", "invoice": 17714, "msrp": 18495, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander_sport", "style": "ES 4dr Crossover CVT", "invoice": 18673, "msrp": 19495, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander_sport", "style": "SE 4dr Crossover", "invoice": 20779, "msrp": 21695, "destination": 810}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander_sport", "style": "AWD SE 4dr Crossover", "invoice": 22024, "msrp": 22995, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-370z", "style": "Base 2dr Coupe 6M", "invoice": 29464, "msrp": 31450, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-370z", "style": "Base 2dr Coupe 7A", "invoice": 30680, "msrp": 32750, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-370z", "style": "NISMO 2dr Coupe", "invoice": 38139, "msrp": 40830, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-370z", "style": "Roadster 2dr Convertible 6M", "invoice": 35378, "msrp": 38200, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-370z", "style": "Roadster 2dr Convertible 7A", "invoice": 36581, "msrp": 39500, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-370z", "style": "Roadster Touring 2dr Convertible 6M", "invoice": 39077, "msrp": 42200, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-370z", "style": "Roadster Touring 2dr Convertible 7A", "invoice": 40280, "msrp": 43500, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-370z", "style": "Touring 2dr Coupe 6M", "invoice": 33581, "msrp": 36150, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-370z", "style": "Touring 2dr Coupe 7A", "invoice": 34684, "msrp": 37450, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima", "style": "2.5 4dr Sedan", "invoice": 19431, "msrp": 20270, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima", "style": "2.5 S 2dr Coupe 6M", "invoice": 21917, "msrp": 23380, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima", "style": "2.5 S 2dr Coupe CVT", "invoice": 22385, "msrp": 23880, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima", "style": "2.5 S 4dr Sedan", "invoice": 21028, "msrp": 22430, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima", "style": "2.5 SL 4dr Sedan", "invoice": 24531, "msrp": 26405, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima", "style": "3.5 SR 2dr Coupe CVT", "invoice": 26139, "msrp": 28210, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima", "style": "3.5 SR 2dr Coupe 6M", "invoice": 28294, "msrp": 30540, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima", "style": "3.5 SR 4dr Sedan", "invoice": 23272, "msrp": 25110, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima_hybrid", "style": "Base 4dr Sedan", "invoice": 25116, "msrp": 26800, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-armada", "style": "4x2 Platinum 4dr SUV", "invoice": 46316, "msrp": 50890, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-armada", "style": "4x4 Platinum 4dr SUV", "invoice": 48953, "msrp": 53790, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-armada", "style": "4x2 SL 4dr SUV", "invoice": 39726, "msrp": 43640, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-armada", "style": "4x4 SL 4dr SUV", "invoice": 42362, "msrp": 46540, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-armada", "style": "4x2 SV 4dr SUV", "invoice": 35043, "msrp": 38490, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-armada", "style": "4x4 SV 4dr SUV", "invoice": 40134, "msrp": 44090, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-cube", "style": "1.8 4dr Wagon", "invoice": 14221, "msrp": 14740, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-cube", "style": "1.8 S 4dr Wagon 6M", "invoice": 15528, "msrp": 16100, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-cube", "style": "1.8 S 4dr Wagon CVT", "invoice": 16490, "msrp": 17100, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-cube", "style": "1.8 S Krom Edition 4dr Wagon", "invoice": 20710, "msrp": 21640, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-cube", "style": "1.8 SL 4dr Wagon", "invoice": 17547, "msrp": 18200, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 PRO-4X 4dr Crew Cab SWB Pickup 5A", "invoice": 25639, "msrp": 27360, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 PRO-4X 4dr Crew Cab SWB Pickup 6M", "invoice": 26879, "msrp": 29010, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 PRO-4X 4dr Crew Cab SWB Pickup 5A", "invoice": 27850, "msrp": 30060, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 PRO-4X 4dr King Cab Pickup 5A", "invoice": 24947, "msrp": 26620, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 PRO-4X 4dr King Cab Pickup 6M", "invoice": 26056, "msrp": 28120, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 PRO-4X 4dr King Cab Pickup 5A", "invoice": 27165, "msrp": 29320, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 S 4dr Crew Cab SWB Pickup 6M", "invoice": 21055, "msrp": 22210, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 S 4dr Crew Cab SWB Pickup 5A", "invoice": 22048, "msrp": 23260, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 S 4dr Crew Cab SWB Pickup 6M", "invoice": 23347, "msrp": 24910, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 S 4dr Crew Cab SWB Pickup 5A", "invoice": 24330, "msrp": 25960, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 S 4dr King Cab Pickup 5M", "invoice": 17262, "msrp": 18200, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 S 4dr King Cab Pickup 5A", "invoice": 18255, "msrp": 19250, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 SL 4dr Crew Cab SWB Pickup 5A", "invoice": 27061, "msrp": 28880, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 SL 4dr Crew Cab LWB Pickup 5A", "invoice": 27528, "msrp": 29380, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 SL 4dr Crew Cab SWB Pickup 5A", "invoice": 29210, "msrp": 31530, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 SL 4dr Crew Cab LWB Pickup 5A", "invoice": 29719, "msrp": 32080, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 SV 4dr King Cab Pickup 5M", "invoice": 20269, "msrp": 21380, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 SV 4dr King Cab Pickup 5A", "invoice": 21262, "msrp": 22430, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 SV V6 4dr Crew Cab SWB Pickup 6M", "invoice": 22009, "msrp": 23220, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 SV V6 4dr Crew Cab LWB Pickup 5A", "invoice": 23399, "msrp": 24690, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 SV V6 4dr Crew Cab SWB Pickup 6M", "invoice": 24292, "msrp": 25920, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 SV V6 4dr Crew Cab SWB Pickup 5A", "invoice": 25274, "msrp": 26970, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 SV V6 4dr Crew Cab LWB Pickup 5A", "invoice": 25667, "msrp": 27390, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 SV V6 4dr King Cab Pickup 6M", "invoice": 20827, "msrp": 21970, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 SV V6 4dr King Cab Pickup 5A", "invoice": 21820, "msrp": 23020, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 SV V6 4dr King Cab Pickup 6M", "invoice": 23123, "msrp": 24670, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x4 SV V6 4dr King Cab Pickup 5A", "invoice": 24105, "msrp": 25720, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-frontier", "style": "4x2 SV V6 4dr Crew Cab SWB Pickup 5A", "invoice": 23002, "msrp": 24270, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-juke", "style": "S 4dr Crossover", "invoice": 18660, "msrp": 19570, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-juke", "style": "AWD S 4dr Crossover", "invoice": 20087, "msrp": 21070, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-juke", "style": "SL 4dr Crossover 6M", "invoice": 21991, "msrp": 23200, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-juke", "style": "SL 4dr Crossover CVT", "invoice": 22464, "msrp": 23700, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-juke", "style": "AWD SL 4dr Crossover", "invoice": 23882, "msrp": 25200, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-juke", "style": "SV 4dr Crossover 6M", "invoice": 19796, "msrp": 20880, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-juke", "style": "SV 4dr Crossover CVT", "invoice": 20269, "msrp": 21380, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-juke", "style": "AWD SV 4dr Crossover", "invoice": 21688, "msrp": 22880, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-leaf", "style": "SL 4dr Hatchback", "invoice": 32293, "msrp": 33720, "destination": 850}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-leaf", "style": "SV 4dr Hatchback", "invoice": 31394, "msrp": 32780, "destination": 850}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-maxima", "style": "3.5 S 4dr Sedan", "invoice": 29081, "msrp": 31750, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-maxima", "style": "3.5 SV 4dr Sedan", "invoice": 31550, "msrp": 34450, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano", "style": "LE 4dr SUV", "invoice": 35271, "msrp": 38300, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano", "style": "AWD LE 4dr SUV", "invoice": 36742, "msrp": 39900, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano", "style": "S 4dr SUV", "invoice": 26985, "msrp": 29290, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano", "style": "AWD S 4dr SUV", "invoice": 28456, "msrp": 30890, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano", "style": "SL 4dr SUV", "invoice": 33523, "msrp": 36400, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano", "style": "AWD SL 4dr SUV", "invoice": 34995, "msrp": 38000, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano", "style": "SV 4dr SUV", "invoice": 30269, "msrp": 32860, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano", "style": "AWD SV 4dr SUV", "invoice": 31740, "msrp": 34460, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano_crosscabriolet", "style": "AWD Base 2dr SUV Convertible", "invoice": 42710, "msrp": 46390, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder", "style": "4x2 LE 4dr SUV", "invoice": 35304, "msrp": 38120, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder", "style": "4x4 LE 4dr SUV", "invoice": 37338, "msrp": 40320, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder", "style": "4x4 LE V8 4dr SUV", "invoice": 40048, "msrp": 43250, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder", "style": "4x2 S 4dr SUV", "invoice": 26771, "msrp": 28570, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder", "style": "4x4 S 4dr SUV", "invoice": 28641, "msrp": 30570, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder", "style": "4x2 Silver Edition 4dr SUV", "invoice": 33260, "msrp": 35910, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder", "style": "4x4 Silver Edition 4dr SUV", "invoice": 35110, "msrp": 37910, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder", "style": "4x2 SV 4dr SUV", "invoice": 29570, "msrp": 31920, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder", "style": "4x4 SV 4dr SUV", "invoice": 31420, "msrp": 33920, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-quest", "style": "3.5 LE 4dr Mini-Van", "invoice": 37859, "msrp": 41350, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-quest", "style": "3.5 S 4dr Mini-Van", "invoice": 25859, "msrp": 27750, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-quest", "style": "3.5 SL 4dr Mini-Van", "invoice": 31638, "msrp": 34350, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-quest", "style": "3.5 SV 4dr Mini-Van", "invoice": 28466, "msrp": 30900, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue", "style": "S 4dr Crossover", "invoice": 20458, "msrp": 21460, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue", "style": "AWD S 4dr Crossover", "invoice": 21646, "msrp": 22710, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue", "style": "S Krom 4dr Crossover", "invoice": 23206, "msrp": 24430, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue", "style": "AWD S Krom 4dr Crossover", "invoice": 24395, "msrp": 25680, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue", "style": "AWD SV 4dr Crossover", "invoice": 23442, "msrp": 25150, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue", "style": "SV 4dr Crossover", "invoice": 22278, "msrp": 23900, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-sentra", "style": "2.0 4dr Sedan 6M", "invoice": 15406, "msrp": 16060, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-sentra", "style": "2.0 4dr Sedan CVT", "invoice": 16535, "msrp": 17240, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-sentra", "style": "2.0 S 4dr Sedan", "invoice": 16781, "msrp": 17990, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-sentra", "style": "2.0 SL 4dr Sedan", "invoice": 18084, "msrp": 19390, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-sentra", "style": "2.0 SR 4dr Sedan", "invoice": 16781, "msrp": 17990, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-sentra", "style": "SE-R 4dr Sedan", "invoice": 18763, "msrp": 20120, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-sentra", "style": "SE-R Spec V 4dr Sedan", "invoice": 19228, "msrp": 20620, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x4 PRO-4X 4dr King Cab SWB Pickup", "invoice": 31814, "msrp": 35140, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x4 PRO-4X 4dr Crew Cab SWB Pickup", "invoice": 33802, "msrp": 37340, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x2 S 4dr King Cab SWB Pickup", "invoice": 24827, "msrp": 27410, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x4 S 4dr King Cab SWB Pickup", "invoice": 27403, "msrp": 30260, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x2 S 4dr Crew Cab SWB Pickup", "invoice": 27131, "msrp": 29960, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x4 S 4dr Crew Cab SWB Pickup", "invoice": 29708, "msrp": 32810, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x2 SL 4dr Crew Cab SWB Pickup", "invoice": 33956, "msrp": 37510, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x4 SL 4dr Crew Cab SWB Pickup", "invoice": 36397, "msrp": 40210, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x2 SV 4dr King Cab SWB Pickup", "invoice": 26635, "msrp": 29410, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x4 SV 4dr King Cab SWB Pickup", "invoice": 29211, "msrp": 32260, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x2 SV 4dr Crew Cab SWB Pickup", "invoice": 28623, "msrp": 31610, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x2 SV 4dr Crew Cab LWB Pickup", "invoice": 29030, "msrp": 32060, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x4 SV 4dr Crew Cab SWB Pickup", "invoice": 31199, "msrp": 34460, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-titan", "style": "4x4 SV 4dr Crew Cab LWB Pickup", "invoice": 31633, "msrp": 34940, "destination": 975}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa", "style": "1.6 4dr Sedan 5M", "invoice": 11149, "msrp": 11420, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa", "style": "1.6 4dr Sedan 4A", "invoice": 12121, "msrp": 12420, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa", "style": "1.6 Base 4dr Sedan", "invoice": 9759, "msrp": 9990, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa", "style": "1.8 S 4dr Hatchback 6M", "invoice": 13875, "msrp": 14380, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa", "style": "1.8 S 4dr Hatchback 4A", "invoice": 14837, "msrp": 15380, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa", "style": "1.8 S 4dr Sedan 6M", "invoice": 13606, "msrp": 14100, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa", "style": "1.8 S 4dr Sedan 4A", "invoice": 14567, "msrp": 15100, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa", "style": "1.8 SL 4dr Hatchback", "invoice": 16788, "msrp": 17410, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa", "style": "1.8 SL 4dr Sedan", "invoice": 16058, "msrp": 16650, "destination": 760}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-xterra", "style": "4x4 PRO-4X 4dr SUV 6M", "invoice": 27800, "msrp": 29670, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-xterra", "style": "4x4 PRO-4X 4dr SUV 5A", "invoice": 28781, "msrp": 30720, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-xterra", "style": "4x2 S 4dr SUV", "invoice": 24875, "msrp": 26250, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-xterra", "style": "4x4 S 4dr SUV 6M", "invoice": 25821, "msrp": 27250, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-xterra", "style": "4x4 S 4dr SUV 5A", "invoice": 26814, "msrp": 28300, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-xterra", "style": "4x2 X 4dr SUV", "invoice": 22993, "msrp": 24260, "destination": 810}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-xterra", "style": "4x4 X 4dr SUV", "invoice": 24932, "msrp": 26310, "destination": 810}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "Carrera 2dr Convertible", "invoice": 79740, "msrp": 88800, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "Carrera 2dr Coupe", "invoice": 69840, "msrp": 77800, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Carrera 4 2dr Convertible", "invoice": 85410, "msrp": 95100, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Carrera 4 2dr Coupe", "invoice": 75510, "msrp": 84100, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Carrera 4S 2dr Convertible", "invoice": 96840, "msrp": 107800, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Carrera 4S 2dr Coupe", "invoice": 86940, "msrp": 96800, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "Carrera GTS 2dr Convertible", "invoice": 0, "msrp": 112900, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "Carrera GTS 2dr Coupe", "invoice": 0, "msrp": 103100, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "Carrera S 2dr Convertible", "invoice": 91170, "msrp": 101500, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "Carrera S 2dr Coupe", "invoice": 81270, "msrp": 90500, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "GT2 RS 2dr Coupe", "invoice": 229275, "msrp": 245950, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "GT3 2dr Coupe", "invoice": 103950, "msrp": 115700, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "GT3 RS 2dr Coupe", "invoice": 121770, "msrp": 135500, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Targa 4 2dr Coupe", "invoice": 82710, "msrp": 92100, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Targa 4S 2dr Coupe", "invoice": 94140, "msrp": 104800, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Turbo 2dr Convertible", "invoice": 131940, "msrp": 146800, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Turbo 2dr Coupe", "invoice": 121770, "msrp": 135500, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Turbo S 2dr Convertible", "invoice": 154710, "msrp": 172100, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-911", "style": "AWD Turbo S 2dr Coupe", "invoice": 144450, "msrp": 160700, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-boxster", "style": "2dr Convertible", "invoice": 42660, "msrp": 47600, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-boxster", "style": "S 2dr Convertible", "invoice": 52020, "msrp": 58000, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-boxster", "style": "Spyder 2dr Convertible", "invoice": 54900, "msrp": 61200, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-cayenne", "style": "AWD 4dr SUV", "invoice": 42750, "msrp": 47700, "destination": 975}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-cayenne", "style": "AWD S 4dr SUV", "invoice": 57780, "msrp": 64400, "destination": 975}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-cayenne", "style": "AWD S Hybrid 4dr SUV", "invoice": 60750, "msrp": 67700, "destination": 975}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-cayenne", "style": "AWD Tiptronic 4dr SUV", "invoice": 45300, "msrp": 50700, "destination": 975}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-cayenne", "style": "AWD Turbo 4dr SUV", "invoice": 95220, "msrp": 106000, "destination": 975}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-cayman", "style": "2dr Coupe", "invoice": 46080, "msrp": 51400, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-cayman", "style": "S 2dr Coupe", "invoice": 55170, "msrp": 61500, "destination": 950}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-panamera", "style": "AWD 4 4dr Sedan", "invoice": 70830, "msrp": 78900, "destination": 975}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-panamera", "style": "AWD 4S 4dr Sedan", "invoice": 85050, "msrp": 94700, "destination": 975}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-panamera", "style": "4dr Sedan", "invoice": 66780, "msrp": 74400, "destination": 975}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-panamera", "style": "S 4dr Sedan", "invoice": 80640, "msrp": 89800, "destination": 975}
+{"year": 2011, "make": "Porsche", "slug": "2011-porsche-panamera", "style": "AWD Turbo 4dr Sedan", "invoice": 121590, "msrp": 135300, "destination": 975}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-tc", "style": "Base 2dr Coupe 6A", "invoice": 18311, "msrp": 19275, "destination": 720}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-tc", "style": "Base 2dr Coupe 6M", "invoice": 17361, "msrp": 18275, "destination": 720}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-xb", "style": "Base 4dr Wagon 4A", "invoice": 16102, "msrp": 16950, "destination": 720}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-xb", "style": "Base 4dr Wagon 5M", "invoice": 15200, "msrp": 16000, "destination": 720}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-xb", "style": "Release Series 8.0 4dr Wagon 4A", "invoice": 18386, "msrp": 19355, "destination": 720}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-xb", "style": "Release Series 8.0 4dr Wagon 5M", "invoice": 17484, "msrp": 18405, "destination": 720}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-xd", "style": "Base 4dr Hatchback 4A", "invoice": 15052, "msrp": 15845, "destination": 720}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-xd", "style": "Base 4dr Hatchback 5M", "invoice": 14292, "msrp": 15045, "destination": 720}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-xd", "style": "Release Series 3.0 4dr Hatchback 5M", "invoice": 16059, "msrp": 16905, "destination": 720}
+{"year": 2011, "make": "Scion", "slug": "2011-scion-xd", "style": "Release Series 3.0 4dr Hatchback 4A", "invoice": 16819, "msrp": 17705, "destination": 720}
+{"year": 2011, "make": "Smart", "slug": "2011-smart-fortwo", "style": "passion 2dr Hatchback", "invoice": 13661, "msrp": 14690, "destination": 750}
+{"year": 2011, "make": "Smart", "slug": "2011-smart-fortwo", "style": "passion cabriolet 2dr Cabriolet", "invoice": 16451, "msrp": 17690, "destination": 750}
+{"year": 2011, "make": "Smart", "slug": "2011-smart-fortwo", "style": "pure 2dr Hatchback", "invoice": 11615, "msrp": 12490, "destination": 750}
+{"year": 2011, "make": "Smart", "slug": "2011-smart-fortwo_electric_drive", "style": "passion 2dr Cabriolet", "invoice": 0, "msrp": 47650, "destination": 750}
+{"year": 2011, "make": "Smart", "slug": "2011-smart-fortwo_electric_drive", "style": "passion 2dr Hatchback", "invoice": 0, "msrp": 44837, "destination": 750}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-forester", "style": "AWD 2.5X 4dr Crossover 5M", "invoice": 19397, "msrp": 20495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-forester", "style": "AWD 2.5X 4dr Crossover 4A", "invoice": 20488, "msrp": 21695, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-forester", "style": "AWD 2.5X Limited 4dr Crossover", "invoice": 24814, "msrp": 26495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-forester", "style": "AWD 2.5X Premium 4dr Crossover 5M", "invoice": 21869, "msrp": 23195, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-forester", "style": "AWD 2.5X Premium 4dr Crossover 4A", "invoice": 22778, "msrp": 24195, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-forester", "style": "AWD 2.5X Touring 4dr Crossover", "invoice": 26186, "msrp": 27995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-forester", "style": "AWD 2.5XT Premium 4dr Crossover", "invoice": 25316, "msrp": 26995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-forester", "style": "AWD 2.5XT Touring 4dr Crossover", "invoice": 28084, "msrp": 29995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD 2.5i 4dr Sedan 5M", "invoice": 16734, "msrp": 17495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD 2.5i 4dr Sedan 4A", "invoice": 17651, "msrp": 18495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD 2.5i 4dr Wagon 5M", "invoice": 17198, "msrp": 17995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD 2.5i 4dr Wagon 4A", "invoice": 18115, "msrp": 18995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD 2.5i Premium 4dr Sedan 5M", "invoice": 17659, "msrp": 18495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD 2.5i Premium 4dr Sedan 4A", "invoice": 18576, "msrp": 19495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD 2.5i Premium 4dr Wagon 5M", "invoice": 18123, "msrp": 18995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD 2.5i Premium 4dr Wagon 4A", "invoice": 19040, "msrp": 19995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD Outback Sport 4dr Wagon 5M", "invoice": 19028, "msrp": 19995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD Outback Sport 4dr Wagon 4A", "invoice": 19945, "msrp": 20995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD WRX 4dr Sedan", "invoice": 24079, "msrp": 25495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD WRX 4dr Wagon", "invoice": 24082, "msrp": 25495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD WRX Limited 4dr Sedan", "invoice": 27309, "msrp": 28995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD WRX Limited 4dr Wagon", "invoice": 27312, "msrp": 28995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD WRX Premium 4dr Sedan", "invoice": 26386, "msrp": 27995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD WRX Premium 4dr Wagon", "invoice": 26389, "msrp": 27995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD WRX STI 4dr Sedan", "invoice": 32169, "msrp": 33995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD WRX STI 4dr Wagon", "invoice": 34029, "msrp": 35995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-impreza", "style": "AWD WRX STI Limited 4dr Sedan", "invoice": 35285, "msrp": 37345, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-legacy", "style": "AWD 2.5GT Limited 4dr Sedan 6M", "invoice": 29259, "msrp": 31395, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-legacy", "style": "AWD 2.5i 4dr Sedan 6M", "invoice": 18926, "msrp": 19995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-legacy", "style": "AWD 2.5i 4dr Sedan CVT", "invoice": 19844, "msrp": 20995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-legacy", "style": "AWD 2.5i Limited 4dr Sedan CVT", "invoice": 23791, "msrp": 25295, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-legacy", "style": "AWD 2.5i Premium 4dr Sedan 6M", "invoice": 19876, "msrp": 20995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-legacy", "style": "AWD 2.5i Premium 4dr Sedan CVT", "invoice": 20794, "msrp": 21995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-legacy", "style": "AWD 3.6R 4dr Sedan 5A", "invoice": 23440, "msrp": 24995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-legacy", "style": "AWD 3.6R Limited 4dr Sedan 5A", "invoice": 26546, "msrp": 28295, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-legacy", "style": "AWD 3.6R Premium 4dr Sedan 5A", "invoice": 24474, "msrp": 25995, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-outback", "style": "AWD 2.5i 4dr Wagon 6M", "invoice": 21848, "msrp": 23195, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-outback", "style": "AWD 2.5i 4dr Wagon CVT", "invoice": 22766, "msrp": 24195, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-outback", "style": "AWD 2.5i Limited 4dr Wagon", "invoice": 26730, "msrp": 28495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-outback", "style": "AWD 2.5i Premium 4dr Wagon 6M", "invoice": 23094, "msrp": 24495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-outback", "style": "AWD 2.5i Premium 4dr Wagon CVT", "invoice": 24012, "msrp": 25495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-outback", "style": "AWD 3.6R 4dr Wagon", "invoice": 26369, "msrp": 28195, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-outback", "style": "AWD 3.6R Limited 4dr Wagon", "invoice": 29484, "msrp": 31495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-outback", "style": "AWD 3.6R Premium 4dr Wagon", "invoice": 27416, "msrp": 29195, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-tribeca", "style": "AWD 3.6R Limited 4dr SUV", "invoice": 30565, "msrp": 32495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-tribeca", "style": "AWD 3.6R Premium 4dr SUV", "invoice": 28635, "msrp": 30495, "destination": 725}
+{"year": 2011, "make": "Subaru", "slug": "2011-subaru-tribeca", "style": "AWD 3.6R Touring 4dr SUV", "invoice": 33611, "msrp": 35795, "destination": 725}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-equator", "style": "4x2 Base 4dr Extended Cab 6.1 ft. SB", "invoice": 16892, "msrp": 17595, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-equator", "style": "4x2 Premium 4dr Extended Cab 6.1 ft. SB", "invoice": 21484, "msrp": 22379, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-equator", "style": "4x4 RMZ-4 4dr Crew Cab 5.0 ft. SB", "invoice": 27792, "msrp": 28950, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-equator", "style": "4x4 Sport 4dr Crew Cab 6.1 ft. SB", "invoice": 26956, "msrp": 28079, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-equator", "style": "4x2 Sport 4dr Crew Cab 5.0 ft. SB", "invoice": 24075, "msrp": 25079, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-equator", "style": "4x4 Sport 4dr Extended Cab 6.1 ft. SB", "invoice": 24748, "msrp": 25779, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-grand_vitara", "style": "Base 4dr SUV", "invoice": 18431, "msrp": 19199, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-grand_vitara", "style": "Limited 4dr SUV", "invoice": 22271, "msrp": 23199, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-grand_vitara", "style": "AWD Limited 4dr SUV", "invoice": 23855, "msrp": 24849, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-grand_vitara", "style": "Premium 4dr SUV", "invoice": 20159, "msrp": 20999, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-grand_vitara", "style": "AWD Premium 4dr SUV", "invoice": 21551, "msrp": 22449, "destination": 795}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "S 4dr Sedan 6M", "invoice": 18239, "msrp": 18999, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "AWD S 4dr Sedan", "invoice": 21119, "msrp": 21999, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "S 4dr Sedan CVT", "invoice": 20063, "msrp": 20899, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "SE 4dr Sedan", "invoice": 21023, "msrp": 21899, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "AWD SE 4dr Sedan", "invoice": 22319, "msrp": 23249, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "Sport GTS 4dr Sedan 6M", "invoice": 21983, "msrp": 22899, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "Sport GTS 4dr Sedan CVT", "invoice": 23039, "msrp": 23999, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "AWD Sport GTS 4dr Sedan", "invoice": 24335, "msrp": 25349, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "Sport SLS 4dr Sedan 6M", "invoice": 23711, "msrp": 24699, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "Sport SLS 4dr Sedan CVT", "invoice": 24767, "msrp": 25799, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-kizashi", "style": "AWD Sport SLS 4dr Sedan", "invoice": 26063, "msrp": 27149, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-sx4", "style": "Base 4dr Sedan", "invoice": 12959, "msrp": 13499, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-sx4", "style": "LE 4dr Sedan", "invoice": 14589, "msrp": 15194, "destination": 745}
+{"year": 2011, "make": "Suzuki", "slug": "2011-suzuki-sx4", "style": "LE Anniversary Edition 4dr Sedan", "invoice": 16319, "msrp": 16999, "destination": 745}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-4runner", "style": "4x2 Limited 4dr SUV", "invoice": 35328, "msrp": 38400, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-4runner", "style": "AWD Limited 4dr SUV", "invoice": 37200, "msrp": 40435, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-4runner", "style": "4x2 SR5 4dr SUV", "invoice": 27881, "msrp": 30305, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-4runner", "style": "4x4 SR5 4dr SUV", "invoice": 29482, "msrp": 32045, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-4runner", "style": "4x4 Trail 4dr SUV", "invoice": 33631, "msrp": 36555, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-avalon", "style": "Base 4dr Sedan", "invoice": 29876, "msrp": 33195, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-avalon", "style": "Limited 4dr Sedan", "invoice": 32792, "msrp": 36435, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "Base 4dr Sedan 6A", "invoice": 19864, "msrp": 21245, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "Base 4dr Sedan 6M", "invoice": 18882, "msrp": 20195, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "LE 4dr Sedan 6M", "invoice": 19810, "msrp": 21650, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "LE 4dr Sedan 6A", "invoice": 20771, "msrp": 22700, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "LE V6 4dr Sedan 6A", "invoice": 23082, "msrp": 25365, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "SE 4dr Sedan 6M", "invoice": 20898, "msrp": 22965, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "SE 4dr Sedan 6A", "invoice": 21808, "msrp": 23965, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "SE V6 4dr Sedan 6A", "invoice": 24243, "msrp": 26640, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "XLE 4dr Sedan 6A", "invoice": 24321, "msrp": 26725, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry", "style": "XLE V6 4dr Sedan 6A", "invoice": 27159, "msrp": 29845, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry_hybrid", "style": "Base 4dr Sedan", "invoice": 24887, "msrp": 27050, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-corolla", "style": "Base 4dr Sedan 4A", "invoice": 15782, "msrp": 16700, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-corolla", "style": "Base 4dr Sedan 5M", "invoice": 15027, "msrp": 15900, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-corolla", "style": "LE 4dr Sedan 4A", "invoice": 16284, "msrp": 17600, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-corolla", "style": "S 4dr Sedan 4A", "invoice": 16284, "msrp": 18600, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-corolla", "style": "S 4dr Sedan 5M", "invoice": 16469, "msrp": 17770, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-fj_cruiser", "style": "4x2 4dr SUV", "invoice": 23985, "msrp": 25790, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-fj_cruiser", "style": "4x4 4dr SUV 5A", "invoice": 25464, "msrp": 27380, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-fj_cruiser", "style": "4x4 4dr SUV 6M", "invoice": 25082, "msrp": 26970, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander", "style": "Base 4dr SUV (2.7L l4)", "invoice": 25647, "msrp": 28090, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander", "style": "Base 4dr SUV", "invoice": 26700, "msrp": 29245, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander", "style": "AWD Base 4dr SUV", "invoice": 28025, "msrp": 30695, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander", "style": "Limited 4dr SUV", "invoice": 32498, "msrp": 35595, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander", "style": "AWD Limited 4dr SUV", "invoice": 33822, "msrp": 37045, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander", "style": "SE 4dr SUV (2.7L I4)", "invoice": 29851, "msrp": 32695, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander", "style": "SE 4dr SUV", "invoice": 30905, "msrp": 33850, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander", "style": "AWD SE 4dr SUV", "invoice": 32229, "msrp": 35300, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander_hybrid", "style": "AWD Base 4dr SUV", "invoice": 35090, "msrp": 38140, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander_hybrid", "style": "AWD Limited 4dr SUV", "invoice": 40073, "msrp": 43795, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-land_cruiser", "style": "AWD 4dr SUV", "invoice": 61683, "msrp": 68920, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-matrix", "style": "Base 4dr Wagon 5M", "invoice": 17809, "msrp": 18845, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-matrix", "style": "Base 4dr Wagon 4A", "invoice": 18603, "msrp": 19685, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-matrix", "style": "S 4dr Wagon 5M", "invoice": 18097, "msrp": 19565, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-matrix", "style": "S 4dr Wagon 5A", "invoice": 19199, "msrp": 20755, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-matrix", "style": "AWD S 4dr Wagon 4A", "invoice": 20087, "msrp": 21715, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius", "style": "Five 4dr Hatchback", "invoice": 26801, "msrp": 28790, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius", "style": "Four 4dr Hatchback", "invoice": 25431, "msrp": 27320, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius", "style": "One 4dr Hatchback", "invoice": 21014, "msrp": 22120, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius", "style": "Three 4dr Hatchback", "invoice": 22825, "msrp": 24520, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius", "style": "Two 4dr Hatchback", "invoice": 22108, "msrp": 23520, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "4x4 Base 4dr SUV V6", "invoice": 24225, "msrp": 25910, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "4x4 Base 4dr SUV", "invoice": 22324, "msrp": 23875, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "Base 4dr SUV V6", "invoice": 22916, "msrp": 24510, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "Base 4dr SUV", "invoice": 21015, "msrp": 22475, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "Limited 4dr SUV", "invoice": 23810, "msrp": 25465, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "Limited 4dr SUV V6", "invoice": 25606, "msrp": 27385, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "4x4 Limited 4dr SUV", "invoice": 25110, "msrp": 26855, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "4x4 Limited 4dr SUV V6", "invoice": 26915, "msrp": 28785, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "Sport 4dr SUV", "invoice": 22605, "msrp": 24175, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "Sport 4dr SUV V6", "invoice": 24408, "msrp": 26105, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "4x4 Sport 4dr SUV", "invoice": 23914, "msrp": 25575, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4", "style": "4x4 Sport 4dr SUV V6", "invoice": 25717, "msrp": 27505, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x2 Limited 4dr SUV (5.7L V8)", "invoice": 46446, "msrp": 51040, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x4 Limited 4dr SUV (5.7L V8)", "invoice": 49381, "msrp": 54265, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x4 Limited 4dr SUV (5.7L V8 FFV)", "invoice": 49381, "msrp": 54265, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x2 Platinum 4dr SUV (5.7L V8)", "invoice": 52854, "msrp": 58080, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x4 Platinum 4dr SUV (5.7L V8)", "invoice": 55787, "msrp": 61305, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x4 Platinum 4dr SUV (5.7L V8 FFV)", "invoice": 55787, "msrp": 61305, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x2 SR5 4dr SUV (4.6L V8)", "invoice": 37248, "msrp": 40930, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x2 SR5 4dr SUV (5.7L V8)", "invoice": 37815, "msrp": 41555, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x4 SR5 4dr SUV (4.6L V8)", "invoice": 40181, "msrp": 44155, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x4 SR5 4dr SUV (5.7L V8)", "invoice": 40751, "msrp": 44780, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sequoia", "style": "4x4 SR5 4dr SUV (5.7L V8 FFV)", "invoice": 40751, "msrp": 44780, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "Base 7-Passenger 4dr Mini-Van l4", "invoice": 23431, "msrp": 25060, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "Base 7-Passenger 4dr Mini-Van V6", "invoice": 24328, "msrp": 26300, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "AWD LE 7-Passenger 4dr Mini-Van", "invoice": 29537, "msrp": 31930, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "LE 7-Passenger Auto Access Seat 4dr Mini-Van", "invoice": 33240, "msrp": 35935, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "LE 8-Passenger 4dr Mini-Van l4", "invoice": 24445, "msrp": 26145, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "LE 8-Passenger 4dr Mini-Van V6", "invoice": 27473, "msrp": 29700, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "Limited 7-Passenger 4dr Mini-Van", "invoice": 36156, "msrp": 39300, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "AWD Limited 7-Passenger 4dr Mini-Van", "invoice": 37324, "msrp": 40570, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "SE 8-Passenger 4dr Mini-Van", "invoice": 28999, "msrp": 31350, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "AWD XLE 7-Passenger 4dr Mini-Van", "invoice": 32489, "msrp": 35315, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "XLE 7-Passenger Auto Access Seat 4dr Mini-Van", "invoice": 37025, "msrp": 40245, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-sienna", "style": "XLE 8-Passenger 4dr Mini-Van", "invoice": 30338, "msrp": 32975, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 Base 2dr Regular Cab 6.1 ft SB 5M", "invoice": 15504, "msrp": 16365, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 Base 2dr Regular Cab 6.1 ft SB 4A", "invoice": 16357, "msrp": 17265, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 Base 4dr Access Cab 6.1 ft SB 5M", "invoice": 18427, "msrp": 19655, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 Base 4dr Access Cab 6.1 ft SB 4A", "invoice": 19271, "msrp": 20555, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x4 Base 2dr Regular Cab 6.1 ft SB 5M", "invoice": 19152, "msrp": 20220, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x4 Base 2dr Regular Cab 6.1 ft SB 4A", "invoice": 20223, "msrp": 21350, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x4 Base 4dr Access Cab 6.1 ft SB 5M", "invoice": 22022, "msrp": 23490, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x4 Base 4dr Access Cab 6.1 ft SB 4A", "invoice": 22866, "msrp": 24390, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 Base 4dr Double Cab 5.0 ft SB 4A", "invoice": 20255, "msrp": 21865, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 PreRunner 4dr Access Cab 6.1 ft SB 4A", "invoice": 19983, "msrp": 21315, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 PreRunner 4dr Double Cab 5.0 ft SB 4A", "invoice": 20857, "msrp": 22515, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 PreRunner V6 4dr Access Cab 6.1 ft SB 5A", "invoice": 21329, "msrp": 22750, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 PreRunner V6 4dr Double Cab 5.0 ft SB 5A", "invoice": 22188, "msrp": 23950, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 PreRunner V6 4dr Double Cab 6.1 ft SB 5A", "invoice": 22651, "msrp": 24450, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x4 V6 4dr Access Cab 6.1 ft SB 6M", "invoice": 23479, "msrp": 25045, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x4 V6 4dr Access Cab 6.1 ft SB 5A", "invoice": 24305, "msrp": 25925, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x4 V6 4dr Double Cab 5.0 ft SB 6M", "invoice": 24220, "msrp": 26145, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x4 V6 4dr Double Cab 5.0 ft SB 5A", "invoice": 25037, "msrp": 27025, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x4 V6 4dr Double Cab 6.1 ft SB 5A", "invoice": 25500, "msrp": 27525, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tacoma", "style": "4x2 X-Runner V6 4dr Access Cab 6.1 ft SB 6M", "invoice": 24128, "msrp": 25735, "destination": 810}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 2dr Regular Cab Pickup SB (4.0L V6)", "invoice": 22726, "msrp": 24435, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 2dr Regular Cab Pickup LB (4.0L V6)", "invoice": 23031, "msrp": 24765, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 2dr Regular Cab Pickup SB (4.6L V8)", "invoice": 23841, "msrp": 25635, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 2dr Regular Cab Pickup LB (5.7L V8)", "invoice": 25026, "msrp": 26910, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 2dr Regular Cab Pickup SB (5.7L V8 FFV)", "invoice": 27557, "msrp": 29630, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 2dr Regular Cab Pickup SB (5.7L V8)", "invoice": 27566, "msrp": 29630, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 2dr Regular Cab Pickup LB (5.7L V8 FFV)", "invoice": 27863, "msrp": 29960, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 2dr Regular Cab Pickup LB (5.7L V8)", "invoice": 27863, "msrp": 29960, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 4dr Double Cab Pickup SB (4.0L V6)", "invoice": 24768, "msrp": 26775, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 4dr Double Cab Pickup SB (4.6L V8)", "invoice": 24900, "msrp": 26920, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 4dr Double Cab Pickup LB (5.7L V8)", "invoice": 26969, "msrp": 29155, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 4dr Double Cab Pickup SB (5.7L V8 FFV)", "invoice": 28874, "msrp": 31215, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 4dr Double Cab Pickup LB (5.7L V8 FFV)", "invoice": 29789, "msrp": 32205, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 4dr Double Cab Pickup SB (4.6L V8)", "invoice": 27722, "msrp": 29970, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 4dr Double Cab Pickup SB (5.7L V8)", "invoice": 28873, "msrp": 31215, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 4dr Double Cab Pickup LB (5.7L V8)", "invoice": 29789, "msrp": 32205, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 4dr CrewMax Cab Pickup SB (4.6L V8)", "invoice": 27515, "msrp": 29745, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 4dr CrewMax Cab Pickup SB (5.7L V8)", "invoice": 28666, "msrp": 30990, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 4dr CrewMax Cab Pickup SB (4.6L V8)", "invoice": 30336, "msrp": 32795, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 4dr CrewMax Cab Pickup SB (5.7L V8)", "invoice": 31487, "msrp": 34040, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Grade 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)", "invoice": 31487, "msrp": 34040, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Grade 4dr Double Cab Pickup SB (5.7L V8)", "invoice": 26052, "msrp": 28165, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)", "invoice": 39734, "msrp": 42955, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)", "invoice": 39734, "msrp": 42955, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8 FFV)", "invoice": 37388, "msrp": 40420, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8)", "invoice": 37388, "msrp": 40420, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)", "invoice": 36903, "msrp": 39895, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-tundra", "style": "4x2 Limited 4dr Double Cab Pickup SB (5.7L V8)", "invoice": 34558, "msrp": 37360, "destination": 975}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-venza", "style": "AWD 4cyl 4dr Crossover", "invoice": 26147, "msrp": 28575, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-venza", "style": "AWD V6 4dr Crossover", "invoice": 27664, "msrp": 30400, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-venza", "style": "FWD 4cyl 4dr Crossover", "invoice": 24821, "msrp": 27125, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-venza", "style": "FWD V6 4dr Crossover", "invoice": 26345, "msrp": 28950, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-yaris", "style": "Base 2dr Hatchback 5M", "invoice": 12629, "msrp": 13155, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-yaris", "style": "Base 2dr Hatchback 4A", "invoice": 13397, "msrp": 13955, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-yaris", "style": "Base 4dr Hatchback 5M", "invoice": 12917, "msrp": 13455, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-yaris", "style": "Base 4dr Hatchback 4A", "invoice": 13685, "msrp": 14255, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-yaris", "style": "Base 4dr Sedan 5M", "invoice": 13167, "msrp": 13715, "destination": 760}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-yaris", "style": "Base 4dr Sedan 4A", "invoice": 13934, "msrp": 14515, "destination": 760}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Lux 4dr Sedan", "invoice": 29897, "msrp": 31175, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Lux Limited 4dr Sedan", "invoice": 32966, "msrp": 34375, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Lux Limited PZEV 4dr Sedan", "invoice": 32966, "msrp": 34375, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Lux Plus 4dr Sedan", "invoice": 32199, "msrp": 33575, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Lux Plus PZEV 4dr Sedan", "invoice": 32199, "msrp": 33575, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Lux PZEV 4dr Sedan", "invoice": 29897, "msrp": 31175, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "R-Line 4dr Sedan 6M", "invoice": 28885, "msrp": 30120, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "R-Line 4dr Sedan 6A", "invoice": 29939, "msrp": 31220, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "R-Line PZEV 4dr Sedan 6M", "invoice": 28885, "msrp": 30120, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "R-Line PZEV 4dr Sedan 6A", "invoice": 29939, "msrp": 31220, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Sport 4dr Sedan 6M", "invoice": 27045, "msrp": 28200, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Sport 4dr Sedan 6A", "invoice": 28099, "msrp": 29300, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Sport PZEV 4dr Sedan 6M", "invoice": 27045, "msrp": 28200, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "Sport PZEV 4dr Sedan 6A", "invoice": 28099, "msrp": 29300, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-cc", "style": "AWD VR6 4Motion Executive 4dr Sedan", "invoice": 38351, "msrp": 39990, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-eos", "style": "Komfort SULEV 2dr Convertible 6M", "invoice": 31622, "msrp": 32940, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-eos", "style": "Komfort SULEV 2dr Convertible 6A", "invoice": 32677, "msrp": 34040, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-eos", "style": "Lux SULEV 2dr Convertible", "invoice": 34656, "msrp": 36100, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Autobahn 2dr Hatchback 6M", "invoice": 28057, "msrp": 29225, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Autobahn 2dr Hatchback 6A", "invoice": 29113, "msrp": 30325, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Autobahn 4dr Hatchback 6A", "invoice": 29688, "msrp": 30925, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Autobahn 4dr Hatchback 6M", "invoice": 28633, "msrp": 29825, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Autobahn PZEV 2dr Hatchback 6M", "invoice": 28057, "msrp": 29225, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Autobahn PZEV 2dr Hatchback 6A", "invoice": 29113, "msrp": 30325, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Autobahn PZEV 4dr Hatchback 6A", "invoice": 29688, "msrp": 30925, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Autobahn PZEV 4dr Hatchback 6M", "invoice": 28633, "msrp": 29825, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 2dr Hatchback 6M", "invoice": 22747, "msrp": 23695, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 2dr Hatchback 6A", "invoice": 23803, "msrp": 24795, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 2dr Hatchback 6A w/ Sunroof", "invoice": 25819, "msrp": 26895, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 2dr Hatchback 6M w/ Sunroof", "invoice": 24763, "msrp": 25795, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 2dr Hatchback 6M w/ Sunroof and Navigation", "invoice": 26112, "msrp": 27200, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 2dr Hatchback 6A w/ Sunroof and Navigation", "invoice": 27168, "msrp": 28300, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 4dr Hatchback 6A w/ Sunroof and Navigation", "invoice": 27744, "msrp": 28900, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 4dr Hatchback 6M w/ Sunroof and Navigation", "invoice": 26688, "msrp": 27800, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 4dr Hatchback 6A w/ Sunroof", "invoice": 26395, "msrp": 27495, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 4dr Hatchback 6M w/ Sunroof", "invoice": 25339, "msrp": 26395, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 4dr Hatchback 6A", "invoice": 24379, "msrp": 25395, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base 4dr Hatchback 6M", "invoice": 23323, "msrp": 24295, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 2dr Hatchback 6M", "invoice": 22747, "msrp": 23695, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 2dr Hatchback 6A", "invoice": 23803, "msrp": 24795, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 2dr Hatchback 6A w/ Sunroof", "invoice": 25819, "msrp": 26895, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 2dr Hatchback 6M w/ Sunroof", "invoice": 24763, "msrp": 25795, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 2dr Hatchback 6M w/ Sunroof and Navigation", "invoice": 26112, "msrp": 27200, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 2dr Hatchback 6A w/ Sunroof and Navigation", "invoice": 27168, "msrp": 28300, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 4dr Hatchback 6A w/ Sunroof and Navigation", "invoice": 27744, "msrp": 28900, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 4dr Hatchback 6M w/ Sunroof and Navigation", "invoice": 26688, "msrp": 27800, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 4dr Hatchback 6A w/ Sunroof", "invoice": 26395, "msrp": 27495, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 4dr Hatchback 6M w/ Sunroof", "invoice": 25339, "msrp": 26395, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 4dr Hatchback 6A", "invoice": 24379, "msrp": 25395, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-gti", "style": "Base PZEV 4dr Hatchback 6M", "invoice": 23323, "msrp": 24295, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "2.5L 2dr Hatchback 5M", "invoice": 17275, "msrp": 17995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "2.5L 2dr Hatchback 6A", "invoice": 18331, "msrp": 19095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "2.5L 4dr Hatchback", "invoice": 18965, "msrp": 19755, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "2.5L PZEV 2dr Hatchback 5M", "invoice": 17275, "msrp": 17995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "2.5L PZEV 2dr Hatchback 6A", "invoice": 18331, "msrp": 19095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "2.5L PZEV 4dr Hatchback", "invoice": 18965, "msrp": 19755, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "TDI 2dr Hatchback 6M", "invoice": 22297, "msrp": 23225, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "TDI 2dr Hatchback 6A", "invoice": 23353, "msrp": 24325, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "TDI 4dr Hatchback 6M", "invoice": 22930, "msrp": 23885, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf", "style": "TDI 4dr Hatchback 6A", "invoice": 23986, "msrp": 24985, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "Base 4dr Sedan 5M", "invoice": 14395, "msrp": 14995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "Base 4dr Sedan 6A", "invoice": 15451, "msrp": 16095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "S 4dr Sedan 5M", "invoice": 15355, "msrp": 15995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "S 4dr Sedan 6A", "invoice": 16411, "msrp": 17095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE 4dr Sedan 5M", "invoice": 17467, "msrp": 18195, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE 4dr Sedan 5M w/ Conv. and Sunroof", "invoice": 19963, "msrp": 20795, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE 4dr Sedan 5M w/ Convenience", "invoice": 18763, "msrp": 19545, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE 4dr Sedan 6A w/ Conv. and Sunroof", "invoice": 21019, "msrp": 21895, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE 4dr Sedan 6A", "invoice": 18523, "msrp": 19295, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE 4dr Sedan 6A w/ Convenience", "invoice": 19819, "msrp": 20645, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE PZEV 4dr Sedan 5M", "invoice": 17467, "msrp": 18195, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE PZEV 4dr Sedan 6A", "invoice": 18523, "msrp": 19295, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE PZEV 4dr Sedan 5M w/ Convenience", "invoice": 18763, "msrp": 19545, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE PZEV 4dr Sedan 6A w/ Convenience", "invoice": 19819, "msrp": 20645, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE PZEV 4dr Sedan 5M w/ Conv. and Sunroof", "invoice": 19963, "msrp": 20795, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SE PZEV 4dr Sedan 6A w/ Conv. and Sunroof", "invoice": 21019, "msrp": 21895, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL 4dr Sedan 5M", "invoice": 20539, "msrp": 21395, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL 4dr Sedan 6A w/ Sport Package", "invoice": 23131, "msrp": 24095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL 4dr Sedan 5M w/ Sport Package", "invoice": 22075, "msrp": 22995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL 4dr Sedan 6A w/ Sunroof", "invoice": 22459, "msrp": 23395, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL 4dr Sedan 5M w/ Sunroof", "invoice": 21403, "msrp": 22295, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL 4dr Sedan 6A", "invoice": 21595, "msrp": 22495, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL PZEV 4dr Sedan 5M", "invoice": 20539, "msrp": 21395, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL PZEV 4dr Sedan 6A w/ Sport Package", "invoice": 23131, "msrp": 24095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL PZEV 4dr Sedan 5M w/ Sport Package", "invoice": 22075, "msrp": 22995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL PZEV 4dr Sedan 6A w/ Sunroof", "invoice": 22459, "msrp": 23395, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL PZEV 4dr Sedan 5M w/ Sunroof", "invoice": 21403, "msrp": 22295, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SEL PZEV 4dr Sedan 6A", "invoice": 21595, "msrp": 22495, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SportWagen S 4dr Wagon 5M", "invoice": 19195, "msrp": 19995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SportWagen S 4dr Wagon 6A", "invoice": 20251, "msrp": 21095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SportWagen S PZEV 4dr Wagon 5M", "invoice": 19195, "msrp": 19995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SportWagen S PZEV 4dr Wagon 6A", "invoice": 20251, "msrp": 21095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SportWagen SE 4dr Wagon", "invoice": 22795, "msrp": 23745, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SportWagen SE PZEV 4dr Wagon", "invoice": 22795, "msrp": 23745, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SportWagen TDI 4dr Wagon 6M", "invoice": 23995, "msrp": 24995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "SportWagen TDI 4dr Wagon 6A", "invoice": 25051, "msrp": 26095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "TDI 4dr Sedan 6M", "invoice": 22075, "msrp": 22995, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "TDI 4dr Sedan 6A", "invoice": 23131, "msrp": 24095, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "TDI 4dr Sedan 6M w/ Navigation", "invoice": 23227, "msrp": 24195, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-jetta", "style": "TDI 4dr Sedan 6A w/ Navigation", "invoice": 24283, "msrp": 25295, "destination": 770}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-routan", "style": "S 4dr Mini-Van", "invoice": 25826, "msrp": 26930, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-routan", "style": "SE 4dr Mini-Van", "invoice": 30467, "msrp": 31770, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-routan", "style": "SE 4dr Mini-Van w/ RSE", "invoice": 32404, "msrp": 33790, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-routan", "style": "SE 4dr Mini-Van w/ RSE and Navigation", "invoice": 33326, "msrp": 34750, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-routan", "style": "SEL 4dr Mini-Van w/ Navigation", "invoice": 35857, "msrp": 37390, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-routan", "style": "SEL 4dr Mini-Van w/ RSE and Navigation", "invoice": 37775, "msrp": 39390, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-routan", "style": "SEL Premium 4dr Mini-Van", "invoice": 41467, "msrp": 43240, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "S 4dr SUV 6M", "invoice": 22771, "msrp": 23720, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "S 4dr SUV 6A", "invoice": 23827, "msrp": 24820, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "AWD S 4Motion 4dr SUV", "invoice": 25704, "msrp": 26775, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "SE 4dr SUV", "invoice": 27087, "msrp": 28215, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "SE 4dr SUV w/ Sunroof and Navigation", "invoice": 29208, "msrp": 30425, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "AWD SE 4Motion 4dr SUV", "invoice": 28963, "msrp": 30170, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "AWD SE 4Motion 4dr SUV w/ Sunroof and Navigation", "invoice": 31086, "msrp": 32380, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "SEL 4dr SUV", "invoice": 31810, "msrp": 33135, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "SEL 4dr SUV w/ Premium Navigation", "invoice": 32918, "msrp": 34290, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "AWD SEL 4Motion 4dr SUV", "invoice": 33687, "msrp": 35090, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-tiguan", "style": "AWD SEL 4Motion 4dr SUV w/ Premium Navigation and Dynaudio", "invoice": 35895, "msrp": 37390, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-touareg", "style": "AWD Hybrid 4dr SUV", "invoice": 57598, "msrp": 60565, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-touareg", "style": "AWD TDI Executive 4dr SUV", "invoice": 54683, "msrp": 57500, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-touareg", "style": "AWD TDI Lux 4dr SUV", "invoice": 49261, "msrp": 51800, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-touareg", "style": "AWD TDI Sport 4dr SUV", "invoice": 45601, "msrp": 47950, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-touareg", "style": "AWD VR6 Executive 4dr SUV", "invoice": 51354, "msrp": 54000, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-touareg", "style": "AWD VR6 Lux 4dr SUV", "invoice": 45933, "msrp": 48300, "destination": 820}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-touareg", "style": "AWD VR6 Sport 4dr SUV", "invoice": 42273, "msrp": 44450, "destination": 820}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-c30", "style": "T5 2dr Hatchback", "invoice": 23124, "msrp": 24600, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-c30", "style": "T5 R-Design 2dr Hatchback", "invoice": 25333, "msrp": 26950, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-c70", "style": "T5 2dr Convertible", "invoice": 37553, "msrp": 39950, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-s40", "style": "T5 4dr Sedan", "invoice": 26085, "msrp": 27750, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-s40", "style": "T5 R-Design 4dr Sedan", "invoice": 29281, "msrp": 31150, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-s60", "style": "AWD T6 4dr Sedan", "invoice": 35438, "msrp": 37700, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-s80", "style": "3.2 4dr Sedan", "invoice": 34733, "msrp": 36950, "destination": 875}
+{"year": 2011, "make": "Volvo", "slug": "2011-volvo-s80", "style": "AWD T6 4dr Sedan", "invoice": 38258, "msrp": 40700, "destination": 875}
