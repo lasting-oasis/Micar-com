@@ -34,6 +34,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add data/iseecars/prices.jsonl data/iseecars/tried.json
+          git add data/iseecars/prices.jsonl data/iseecars/tried.json data/iseecars/models.json
           git commit -m "iSeeCars 2010-2014 prices $(date -u +%F)" || exit 0
-          git pull --rebase -q && git push
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
