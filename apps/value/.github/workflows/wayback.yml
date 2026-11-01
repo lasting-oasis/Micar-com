@@ -23,20 +23,22 @@ jobs:
     timeout-minutes: 140
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch archived pages
-        run: python3 -u scripts/wayback_fetch.py | tee wayback.log
-        env:
-          DELAY: '1.5'
-          BUDGET_MIN: '100'
-      - name: Commit
-        if: always()
+      - name: Fetch archived pages, saving every 20 minutes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          cp wayback.log data/iseecars/last-wayback-run.log 2>/dev/null || true
-          git add -A data/iseecars
-          git commit -m "Wayback iSeeCars prices $(date -u +%F)" || exit 0
-          for i in 1 2 3; do git pull --rebase -X theirs -q && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+          : > wayback.log
+          for part in 1 2 3 4 5; do
+            BUDGET_MIN=20 python3 -u scripts/wayback_fetch.py | tee part.log
+            cat part.log >> wayback.log
+            cp wayback.log data/iseecars/last-wayback-run.log
+            git add -A data/iseecars
+            git commit -q -m "Wayback iSeeCars prices $(date -u +%F) (part $part)" || true
+            for i in 1 2 3; do git pull --rebase -X theirs -q && git push -q && break; git rebase --abort 2>/dev/null; sleep 5; done
+            grep -q "time budget reached" part.log || break
+          done
+        env:
+          DELAY: '1.5'
       - name: Start the next run if pages are left
         if: always()
         env:
