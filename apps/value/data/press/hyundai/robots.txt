@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/_app/entry.Dhm-WO0O.css" crossorigin><link rel="modulepreload" as="script" crossorigin href="/_app/BlJ--Oh8.js"><script type="module" src="/_app/BlJ--Oh8.js" crossorigin></script><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" /></head><body><div id="__nuxt"></div><div id="__nuxt-loader"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hyundai</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .page-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="logo">
+        <img src="/img/logo.svg" alt="logo">
+    </div>
+</div>
+</body>
+</html></div><div id="teleports"></div><script>window.__NUXT_SITE_CONFIG__={_priority:{env:-15},env:"production"}</script><script>window.__NUXT__={};window.__NUXT__.config={public:{headTitle:"Hyundai USA Media Center",google_captcha_site_key:"6Lf5Ie0UAAAAAH473AvbaWgLee-mfzNkjb8vmhwT",onetrust_data_domain_src:"https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",enable_ga_tracking_on_optanon_consent:"true",gtm_id:"",accessibility_site_key:"ed6733f8b2acba254b0346f8ee38101f",backendUrl:"https://www.hyundainews.com",prefix:"/api",ga_ua_id:"G-6PVEHMZJVB",onetrust_data_domain_script:"6dda8dd6-b4d7-47a3-9d40-3afff490892d","nuxt-robots":{version:"6.1.2",isNuxtContentV2:false,debug:false,credits:true,groups:[{userAgent:["*"],disallow:[""],allow:[],contentUsage:[],contentSignal:[],_indexable:true,_rules:[],_normalized:true}],sitemap:[],header:true,robotsEnabledValue:"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",robotsDisabledValue:"noindex, nofollow",cacheControl:"max-age=14400, must-revalidate",botDetection:true,pageMetaRobots:{}},i18n:{baseUrl:"",defaultLocale:"",rootRedirect:"",redirectStatusCode:302,skipSettingLocaleOnNavigate:false,locales:[{code:"en_US",language:"en_US"},{code:"es_MX",language:"es_MX"}],detectBrowserLanguage:{alwaysRedirect:false,cookieCrossOrigin:false,cookieDomain:"",cookieKey:"i18n_redirected",cookieSecure:false,fallbackLocale:"",redirectOn:"root",useCookie:true},experimental:{localeDetector:"",typedPages:true,typedOptionsAndMessages:false,alternateLinkCanonicalQueries:true,devCache:false,cacheLifetime:"",stripMessagesPayload:false,preload:false,strictSeo:false,nitroContextDetection:true,httpCacheDuration:10,compactRoutes:false,prerenderMessages:false},domainLocales:{en_US:{domain:""},es_MX:{domain:""}}}},app:{baseURL:"/",buildId:"c6f08a2e-37ba-4829-8fd4-d61e0e30f839",buildAssetsDir:"/_app/",cdnURL:""}}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="false" id="__NUXT_DATA__">[{"prerenderedAt":1,"serverRendered":2},1793098770706,false]</script></body></html>
