@@ -8,7 +8,7 @@ on:
     branches: [main]
     paths: [data/iseecars/RUN, .github/workflows/iseecars.yml]
   schedule:
-    - cron: '23 */6 * * *'   # keeps resuming until every page is tried
+    - cron: '23 */2 * * *'   # keeps resuming every 2 hours until every page is tried
   workflow_dispatch:
 
 permissions:
@@ -21,14 +21,14 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 115
     steps:
       - uses: actions/checkout@v4
       - name: Fetch pages
         run: python3 scripts/iseecars_fetch.py
         env:
           DELAY: '5'
-          BUDGET_MIN: '320'
+          BUDGET_MIN: '100'
       - name: Commit
         if: always()
         run: |
