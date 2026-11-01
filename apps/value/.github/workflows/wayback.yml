@@ -1,7 +1,7 @@
 name: iSeeCars prices from the Wayback Machine
 
 # Reads archived iSeeCars price pages from web.archive.org (no load on iSeeCars),
-# one every 2.5 seconds, newest model years first. Each run hands off to the next
+# one every 1.5 seconds, newest model years first. Each run hands off to the next
 # until every listed page has been read.
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
       - name: Fetch archived pages
         run: python3 -u scripts/wayback_fetch.py | tee wayback.log
         env:
-          DELAY: '2.5'
+          DELAY: '1.5'
           BUDGET_MIN: '100'
       - name: Commit
         if: always()
