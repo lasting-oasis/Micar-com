@@ -1,7 +1,7 @@
 {
   "source": "U.S. Bureau of Labor Statistics, CPI-U: Used cars and trucks, seasonally adjusted",
   "seriesId": "CUSR0000SETA02",
-  "fetchedAt": "2026-10-28",
+  "fetchedAt": "2026-11-01",
   "latestPeriod": "2026-09",
   "latestValue": 182.176,
   "yoyPct": -1.46,
