@@ -5,7 +5,7 @@ name: Search API test
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/search-test.yml]
+    paths: [.github/workflows/search-test.yml, data/search/test-queries.txt]
   workflow_dispatch:
 
 permissions:
@@ -22,21 +22,10 @@ jobs:
         run: |
           mkdir -p data/search/test
           while IFS= read -r q; do
-            f="data/search/test/$(echo "$q" | tr ' ' '_' ).json"
+            f="data/search/test/$(echo "$q" | tr ' ' '_').json"
             curl -sS -G "https://api.searlo.tech/api/v1/search/web" --data-urlencode "q=$q MSRP" --data-urlencode "limit=10" -H "x-api-key: $KEY" -o "$f" -w "$q %{http_code}\n" | tee -a data/search/test/status.txt
             sleep 1
-          done <<'Q'
-2012 Toyota Camry
-2013 Lexus IS 350
-2011 Honda Civic
-2010 Dodge Charger
-2013 Toyota Corolla
-2013 Nissan Altima
-2016 Honda Accord
-2018 Ford F-150
-2015 BMW 3 Series
-2012 Kia Optima
-Q
+          done < data/search/test-queries.txt
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
