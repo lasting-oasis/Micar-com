@@ -1,0 +1,49 @@
+name: iSeeCars prices from the Wayback Machine
+
+# Reads archived iSeeCars price pages from web.archive.org (no load on iSeeCars),
+# one every 2.5 seconds, newest model years first. Each run hands off to the next
+# until every listed page has been read.
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/wayback.yml, scripts/wayback_fetch.py]
+  schedule:
+    - cron: '41 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: wayback
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 140
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch archived pages
+        run: python3 -u scripts/wayback_fetch.py | tee wayback.log
+        env:
+          DELAY: '2.5'
+          BUDGET_MIN: '100'
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          cp wayback.log data/iseecars/last-wayback-run.log 2>/dev/null || true
+          git add data/iseecars/prices-wayback.jsonl data/iseecars/tried-wayback.json data/iseecars/wayback-fail data/iseecars/last-wayback-run.log
+          git commit -m "Wayback iSeeCars prices $(date -u +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
+      - name: Start the next run if pages are left
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q "time budget reached" wayback.log; then sleep 120; gh workflow run wayback.yml --ref main
+          elif grep -q "keeps refusing" wayback.log; then sleep 1200; gh workflow run wayback.yml --ref main
+          fi

@@ -24,6 +24,12 @@ DRIVE = re.compile(r'\b(2WD|4WD|AWD|FWD|RWD|4x4|4X4|AWD/4WD|4matic|xDrive|sDrive
 
 site_makes = set(re.findall(r"name: '([^']+)'", open('src/engine/data.ts').read())) - {'Other', 'Sedan'}
 tried = json.load(open(TRIED)) if os.path.exists(TRIED) else {}
+# Pages the Wayback Machine has are read by scripts/wayback_fetch.py instead; skip them here.
+ARCHIVED = set()
+if os.path.exists('data/iseecars/wayback.tsv'):
+    for _l in open('data/iseecars/wayback.tsv'):
+        _m = re.search(r'/car/(\d{4}-[a-z0-9_\-]+)-price', _l)
+        if _m: ARCHIVED.add(_m.group(1))
 start = time.time()
 
 def slug(s):
@@ -90,6 +96,8 @@ def harvest(text, mk_model):
 def get_page(key):
     """Fetch key's price page with back-off. Returns (code, text) or None to stop the run."""
     global blocked
+    if key in ARCHIVED:
+        return (204, '')  # archived copy is read by the Wayback job
     if time.time() - start > BUDGET:
         print('time budget reached; rerun to continue'); return None
     code, text = fetch(f'https://www.iseecars.com/car/{key}-price')

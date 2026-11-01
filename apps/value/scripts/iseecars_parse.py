@@ -2,23 +2,39 @@
 
 Usage: python3 -I scripts/iseecars_parse.py page.html [...]  -> JSON lines
 Each row: {"page", "style", "invoice", "msrp", "destination"} (dollars, ints).
+Works on the current template (table.table3) and on older archived templates:
+it uses whichever table has an 'MSRP' column header.
 """
 import html, json, re, sys
 
 def money(s):
-    s = re.sub(r'[^0-9]', '', s)
+    s = re.sub(r'[^0-9]', '', s or '')
     return int(s) if s else None
 
+def cells(tr):
+    return [html.unescape(re.sub(r'<[^>]+>', '', c)).strip() for c in re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', tr, re.S | re.I)]
+
 def parse(text):
-    m = re.search(r'<table class="table3">(.*?)</table>', text, re.S)
-    if not m:
-        return []
-    rows = []
-    for tr in re.findall(r'<tr>(.*?)</tr>', m.group(1), re.S):
-        cells = [html.unescape(re.sub(r'<[^>]+>', '', c)).strip() for c in re.findall(r'<td[^>]*>(.*?)</td>', tr, re.S)]
-        if len(cells) >= 4 and money(cells[2]):
-            rows.append({"style": re.sub(r'\s+', ' ', cells[0]), "invoice": money(cells[1]), "msrp": money(cells[2]), "destination": money(cells[3])})
-    return rows
+    for table in re.findall(r'<table[^>]*>(.*?)</table>', text, re.S | re.I):
+        trs = re.findall(r'<tr[^>]*>(.*?)</tr>', table, re.S | re.I)
+        if not trs:
+            continue
+        head = [h.lower() for h in cells(trs[0])]
+        if not any('msrp' in h for h in head):
+            continue
+        im = next(i for i, h in enumerate(head) if 'msrp' in h)
+        ii = next((i for i, h in enumerate(head) if 'invoice' in h), None)
+        idst = next((i for i, h in enumerate(head) if 'destination' in h), None)
+        rows = []
+        for tr in trs[1:]:
+            c = cells(tr)
+            if len(c) <= im or not money(c[im]):
+                continue
+            rows.append({'style': re.sub(r'\s+', ' ', c[0]), 'invoice': money(c[ii]) if ii is not None and ii < len(c) else None,
+                         'msrp': money(c[im]), 'destination': money(c[idst]) if idst is not None and idst < len(c) else None})
+        if rows:
+            return rows
+    return []
 
 if __name__ == '__main__':
     for path in sys.argv[1:]:
