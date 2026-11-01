@@ -80,8 +80,11 @@ def harvest(text, mk_model):
         models[mk_model] = years
     for sib in set(re.findall(r'href="/car/(' + re.escape(mk) + r'-[a-z0-9_\-]+?)"', text)):
         if not re.search(r'-(price|specs|interior|colors|dimensions|safety|tire|wheel|reliability|resale|generations)', sib):
+            # Sibling links sometimes write spaces as '-' where year pages use '_'
+            # (highlander-hybrid vs highlander_hybrid), while names like cr-v keep '-'. Try both.
             model_part = sib[len(mk) + 1:]
-            models.setdefault(f'{mk}-' + model_part.replace('-', '_'), None)
+            for form in dict.fromkeys([model_part.replace('-', '_'), model_part]):
+                models.setdefault(f'{mk}-{form}', None)
 
 def get_page(key):
     """Fetch key's price page with back-off. Returns (code, text) or None to stop the run."""
