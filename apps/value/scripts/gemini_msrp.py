@@ -8,7 +8,7 @@ Key:    GEMINI_API_KEY. Spaced ~7 s apart to stay within free-tier per-minute li
 import json, os, re, sys, time, urllib.request, urllib.error
 
 KEY = os.environ['GEMINI_API_KEY']
-MODEL = os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash')
+MODEL = os.environ.get('GEMINI_MODEL', 'gemini-3.8-flash')
 URL = f'https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={KEY}'
 IN = sys.argv[1] if len(sys.argv) > 1 else 'data/gemini/test-cars.json'
 OUT = 'data/gemini/results.jsonl'

@@ -5,7 +5,7 @@ name: Gemini MSRP test
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/gemini-test.yml, data/gemini/test-cars.json]
+    paths: [.github/workflows/gemini-test.yml, data/gemini/test-cars.json, scripts/gemini_msrp.py]
   workflow_dispatch:
 
 permissions:
