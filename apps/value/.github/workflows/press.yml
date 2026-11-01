@@ -1,11 +1,11 @@
 name: Press-site pricing discovery
 
 # Step 1: list manufacturer pricing announcements from each newsroom's sitemap,
-# respecting robots.txt. Runs separately from the iSeeCars job (different sites).
+# respecting robots.txt; step 2 saves those pages as plain text. Runs separately from the iSeeCars job (different sites).
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/press.yml, scripts/press_discover.py]
+    paths: [.github/workflows/press.yml, scripts/press_discover.py, scripts/press_fetch.py]
   workflow_dispatch:
 
 permissions:
@@ -17,7 +17,8 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - run: python3 scripts/press_discover.py
+      - run: '[ -f data/press/summary.json ] || python3 scripts/press_discover.py'
+      - run: python3 scripts/press_fetch.py
       - name: Commit
         if: always()
         run: |
