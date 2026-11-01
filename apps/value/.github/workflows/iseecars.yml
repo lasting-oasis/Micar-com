@@ -36,9 +36,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           cp fetch.log data/iseecars/last-run.log 2>/dev/null || true
-          git add data/iseecars/prices.jsonl data/iseecars/tried.json data/iseecars/models.json data/iseecars/last-run.log
+          git add -A data/iseecars
           git commit -m "iSeeCars 2010-2014 prices $(date -u +%F)" || exit 0
-          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase -X theirs -q && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
       - name: Start the next run if pages are left
         if: always()
         env:

@@ -7,8 +7,6 @@ on:
   push:
     branches: [main]
     paths: [.github/workflows/wayback.yml, scripts/wayback_fetch.py]
-  schedule:
-    - cron: '41 */3 * * *'
   workflow_dispatch:
 
 permissions:
@@ -17,7 +15,7 @@ permissions:
 
 concurrency:
   group: wayback
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   fetch:
@@ -36,9 +34,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           cp wayback.log data/iseecars/last-wayback-run.log 2>/dev/null || true
-          git add data/iseecars/prices-wayback.jsonl data/iseecars/tried-wayback.json data/iseecars/wayback-fail data/iseecars/last-wayback-run.log
+          git add -A data/iseecars
           git commit -m "Wayback iSeeCars prices $(date -u +%F)" || exit 0
-          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
+          for i in 1 2 3; do git pull --rebase -X theirs -q && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
       - name: Start the next run if pages are left
         if: always()
         env:
