@@ -10034,3 +10034,31 @@
 {"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-g37_convertible", "style": "Sport 2dr Convertible", "invoice": 48135, "msrp": 52750, "destination": 905}
 {"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-m37", "style": "4dr Sedan", "invoice": 44625, "msrp": 48700, "destination": 905}
 {"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-m37", "style": "AWD x 4dr Sedan", "invoice": 46610, "msrp": 50850, "destination": 905}
+{"year": 2012, "make": "Ferrari", "slug": "2012-ferrari-458_spider", "style": "2dr Convertible", "invoice": 0, "msrp": 257700, "destination": 3750}
+{"year": 2014, "make": "Ferrari", "slug": "2014-ferrari-458_spider", "style": "2dr Convertible", "invoice": 0, "msrp": 257412, "destination": 3750}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-prius_plug__in_hybrid", "style": "Advanced 4dr Hatchback", "invoice": 37945, "msrp": 39525, "destination": 795}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-prius_plug__in_hybrid", "style": "Base 4dr Hatchback", "invoice": 30720, "msrp": 32000, "destination": 795}
+{"year": 2014, "make": "Toyota", "slug": "2014-toyota-prius_plug__in_hybrid", "style": "Advanced 4dr Hatchback", "invoice": 33509, "msrp": 34905, "destination": 810}
+{"year": 2014, "make": "Toyota", "slug": "2014-toyota-prius_plug__in_hybrid", "style": "Base 4dr Hatchback", "invoice": 28791, "msrp": 29990, "destination": 810}
+{"year": 2014, "make": "Ferrari", "slug": "2014-ferrari-458_speciale", "style": "2dr Coupe", "invoice": 0, "msrp": 288000, "destination": 3750}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-qx56", "style": "4x2 4dr SUV", "invoice": 56126, "msrp": 60750, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-qx56", "style": "4x4 4dr SUV", "invoice": 58989, "msrp": 63850, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-qx56", "style": "4x2 4dr SUV (midyear release)", "invoice": 0, "msrp": 61350, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-qx56", "style": "4x4 4dr SUV (midyear release)", "invoice": 0, "msrp": 64450, "destination": 995}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-clubman", "style": "Cooper 2dr Wagon", "invoice": 19260, "msrp": 21400, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-clubman", "style": "Cooper S 2dr Wagon", "invoice": 22590, "msrp": 25100, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-clubman", "style": "John Cooper Works 2dr Wagon", "invoice": 29070, "msrp": 32300, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-countryman", "style": "Cooper 4dr Crossover", "invoice": 19800, "msrp": 22000, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-countryman", "style": "Cooper S 4dr Crossover", "invoice": 23040, "msrp": 25600, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-countryman", "style": "AWD Cooper S ALL4 4dr Crossover", "invoice": 24570, "msrp": 27300, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-countryman", "style": "AWD John Cooper Works ALL4 4dr Crossover", "invoice": 31365, "msrp": 34850, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-roadster", "style": "Cooper 2dr Convertible", "invoice": 22995, "msrp": 25550, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-roadster", "style": "Cooper S 2dr Convertible", "invoice": 25695, "msrp": 28550, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-roadster", "style": "John Cooper Works 2dr Convertible", "invoice": 32130, "msrp": 35700, "destination": 700}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-matrix", "style": "L 4dr Wagon 4A", "invoice": 19008, "msrp": 20115, "destination": 795}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-matrix", "style": "L 4dr Wagon 5M", "invoice": 18216, "msrp": 19275, "destination": 795}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-matrix", "style": "S 4dr Wagon 5A", "invoice": 19846, "msrp": 21455, "destination": 795}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-matrix", "style": "S 4dr Wagon 5M", "invoice": 18745, "msrp": 20265, "destination": 795}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-matrix", "style": "AWD S 4dr Wagon", "invoice": 20733, "msrp": 22415, "destination": 795}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-rav4_ev", "style": "Base 4dr SUV", "invoice": 47808, "msrp": 49800, "destination": 845}
+{"year": 2014, "make": "Aston Martin", "slug": "2014-aston_martin-rapide_s", "style": "4dr Sedan", "invoice": 0, "msrp": 198250, "destination": 2825}
