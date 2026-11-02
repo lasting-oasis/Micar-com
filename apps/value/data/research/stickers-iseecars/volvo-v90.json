@@ -2,85 +2,40 @@
 "make": "Volvo",
 "model": "V90",
 "body": "Hatchback / Wagon",
-"note": "Trim-level MSRPs from iSeeCars price pages (v90_cross_country).",
+"note": "Trim-level MSRPs from iSeeCars price pages (v90).",
 "years": [
 {
-"year": 2022,
-"destination": 1095,
+"year": 2019,
+"destination": null,
 "trims": [
 {
-"trim": "V90 Cross Country AWD B6 4dr Wagon",
-"msrp": 56200,
+"trim": "",
+"msrp": 51450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 57450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 59450,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2022-volvo-v90_cross_country-price",
+"source": "https://www.iseecars.com/car/2019-volvo-v90-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2023,
-"destination": 1095,
-"trims": [
-{
-"trim": "V90 Cross Country AWD B6 Plus 4dr Wagon",
-"msrp": 58450,
-"config": "",
-"note": ""
-},
-{
-"trim": "V90 Cross Country AWD B6 Ultimate 4dr Wagon",
-"msrp": 64050,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2023-volvo-v90_cross_country-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2024,
-"destination": 1195,
-"trims": [
-{
-"trim": "V90 Cross Country AWD B6 Plus 4dr Wagon",
-"msrp": 59800,
-"config": "",
-"note": ""
-},
-{
-"trim": "V90 Cross Country AWD B6 Ultimate 4dr Wagon",
-"msrp": 65400,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2024-volvo-v90_cross_country-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2025,
-"destination": 1195,
-"trims": [
-{
-"trim": "V90 Cross Country AWD B6 Plus 4dr Wagon",
-"msrp": 59800,
-"config": "",
-"note": ""
-},
-{
-"trim": "V90 Cross Country AWD B6 Ultra 4dr Wagon",
-"msrp": 64800,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2025-volvo-v90_cross_country-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

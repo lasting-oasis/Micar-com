@@ -248,6 +248,231 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37150,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29350,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37350,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1185,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 27000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 30500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 38750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 40450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy 4dr Crossover",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr Crossover w/19 Inch Wheels",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr Crossover w/20 Inch Wheels",
+"msrp": 42450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

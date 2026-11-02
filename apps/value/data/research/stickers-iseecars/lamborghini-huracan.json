@@ -1,0 +1,87 @@
+{
+"make": "Lamborghini",
+"model": "Huracan",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (huracan).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 203674,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 223654,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 242474,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 266325,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 281048,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 308859,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lamborghini-huracan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 3695,
+"trims": [
+{
+"trim": "LP 610-2 EVO 2dr Coupe",
+"msrp": 208571,
+"config": "",
+"note": ""
+},
+{
+"trim": "LP 610-2 EVO Spyder 2dr Convertible",
+"msrp": 229428,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 640-4 EVO 2dr Coupe",
+"msrp": 261274,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 640-4 EVO Spyder 2dr Convertible",
+"msrp": 287400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lamborghini-huracan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-06-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

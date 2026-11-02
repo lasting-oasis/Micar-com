@@ -212,6 +212,111 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 28045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 2dr SUV",
+"msrp": 31245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 38045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 28475,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38825,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38875,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42375,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1595,
 "trims": [

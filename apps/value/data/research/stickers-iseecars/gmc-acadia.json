@@ -338,6 +338,195 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1395,
 "trims": [

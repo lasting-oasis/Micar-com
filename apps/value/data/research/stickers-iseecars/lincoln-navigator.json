@@ -110,6 +110,129 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 73205,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 75860,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 77555,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 80210,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 85205,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 96395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 76185,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 78855,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 81725,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 84400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 97135,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 76705,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 79375,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 82490,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 85165,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 98655,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1695,
 "trims": [

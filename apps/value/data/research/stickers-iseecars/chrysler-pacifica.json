@@ -5,6 +5,213 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (pacifica, pacifica_hybrid).",
 "years": [
 {
+"year": 2018,
+"destination": 1395,
+"trims": [
+{
+"trim": "Hybrid Touring Plus 4dr Mini-Van",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring L 4dr Mini-Van",
+"msrp": 41995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Mini-Van",
+"msrp": 44995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chrysler-pacifica_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1495,
+"trims": [
+{
+"trim": "",
+"msrp": 27235,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30045,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39645,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring Plus 4dr Mini-Van",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring L 4dr Mini-Van",
+"msrp": 42445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring L 35th Anniversary 4dr Mini-Van",
+"msrp": 43835,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44695,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Mini-Van",
+"msrp": 45795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 35th Anniversary 4dr Mini-Van",
+"msrp": 46490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chrysler-pacifica-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1495,
+"trims": [
+{
+"trim": "",
+"msrp": 33745,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36745,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39745,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring 4dr Mini-Van",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring L 4dr Mini-Van",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring L 35th Anniversary 4dr Mini-Van",
+"msrp": 44285,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44695,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Mini-Van",
+"msrp": 45845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 35th Anniversary 4dr Mini-Van",
+"msrp": 46840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited Red S 4dr Mini-Van",
+"msrp": 49140,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chrysler-pacifica-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1495,
 "trims": [

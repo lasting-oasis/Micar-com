@@ -1,0 +1,48 @@
+{
+"make": "Mazda",
+"model": "RX-8",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (rx__8).",
+"years": [
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "Sport 4dr Coupe 6M",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Coupe 6A",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R3 4dr Coupe 6M",
+"msrp": 32290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 4dr Coupe 6A",
+"msrp": 32960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 4dr Coupe 6M",
+"msrp": 32960,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-mazda-rx__8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

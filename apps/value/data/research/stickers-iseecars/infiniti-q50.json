@@ -5,6 +5,213 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (q50).",
 "years": [
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 35650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51350,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55750,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 57750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1025,
 "trims": [

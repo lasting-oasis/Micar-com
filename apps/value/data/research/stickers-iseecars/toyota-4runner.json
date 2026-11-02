@@ -224,6 +224,255 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 35310,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37140,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37185,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38485,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39015,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40395,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43625,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45365,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45660,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46815,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 36020,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39215,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39740,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41090,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42470,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44285,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44885,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46625,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46920,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48660,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 49765,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36765,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38640,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38740,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39825,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40615,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40730,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43325,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44895,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45670,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 47085,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 47705,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 49120,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 50745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-08-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1335,
 "trims": [

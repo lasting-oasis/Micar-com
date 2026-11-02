@@ -212,6 +212,261 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 25950,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 27245,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 28350,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 28645,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29645,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29950,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 31350,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 33055,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34480,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35280,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35880,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1215,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 26350,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 27645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 27750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 29045,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium 4dr SUV",
+"msrp": 30350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE Premium 4dr SUV",
+"msrp": 31750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Adventure 4dr SUV",
+"msrp": 33455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 34880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TRD Off-Road 4dr SUV",
+"msrp": 36080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 36280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime",
+"msrp": 41425,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1335,
 "trims": [

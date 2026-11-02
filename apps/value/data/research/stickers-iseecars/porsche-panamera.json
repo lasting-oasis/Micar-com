@@ -242,6 +242,393 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 86300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 90900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 97100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 97600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 102900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 104000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 106900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 107400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 110200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 115300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 128300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 134500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 151500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 155500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 161900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 186200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 190200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 196600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1350,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 87200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 91800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Sport Turismo 4dr Wagon",
+"msrp": 98000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Executive 4dr Sedan",
+"msrp": 98500,
+"config": "",
+"note": ""
+},
+{
+"trim": "10 Year Edition 4dr Sedan",
+"msrp": 103300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid 4dr Sedan",
+"msrp": 103800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 105000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 10 Year Edition 4dr Sedan",
+"msrp": 107500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 107800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Executive 4dr Sedan",
+"msrp": 108300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Sport Turismo 4dr Wagon",
+"msrp": 111200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Executive 4dr Sedan",
+"msrp": 116300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid 10 Year Edition 4dr Sedan",
+"msrp": 116900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 129300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Sport Turismo 4dr Wagon",
+"msrp": 135500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 153000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Sport Turismo 4dr Wagon",
+"msrp": 157000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Executive 4dr Sedan",
+"msrp": 163400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid 4dr Sedan",
+"msrp": 187700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 191700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Executive 4dr Sedan",
+"msrp": 198100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 87200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 91800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 98000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 98500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 103800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 105000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 107800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 108300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 111200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 113300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 116300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 117300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 124600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 129300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 135500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 177700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 181700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 187700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 188100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 191700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 198100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1350,
 "trims": [

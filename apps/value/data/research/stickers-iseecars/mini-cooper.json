@@ -2,7 +2,7 @@
 "make": "Mini",
 "model": "Cooper",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (cooper).",
+"note": "Trim-level MSRPs from iSeeCars price pages (cooper, hardtop).",
 "years": [
 {
 "year": 2010,
@@ -93,6 +93,96 @@
 "source": "https://www.iseecars.com/car/2011-mini-cooper-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Hardtop",
+"msrp": 21900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop",
+"msrp": 22900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop",
+"msrp": 31900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mini-hardtop-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 22400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 23400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mini-hardtop-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

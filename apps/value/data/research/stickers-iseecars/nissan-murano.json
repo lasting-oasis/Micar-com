@@ -338,6 +338,177 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 31370,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32970,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34540,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36140,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39330,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40930,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43630,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45230,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-murano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1095,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 31730,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 33330,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr SUV",
+"msrp": 35360,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV 4dr SUV",
+"msrp": 36960,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr SUV",
+"msrp": 39880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 41480,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 43930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 45530,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-murano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1175,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 32810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 34360,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr SUV",
+"msrp": 35940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV 4dr SUV",
+"msrp": 37490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr SUV",
+"msrp": 40310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 41860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 44360,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 45910,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-nissan-murano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

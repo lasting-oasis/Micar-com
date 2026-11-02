@@ -1,0 +1,129 @@
+{
+"make": "Cadillac",
+"model": "CT6",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ct6).",
+"years": [
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 54095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 59195,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 61195,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 65195,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 65295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 69295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 75095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 84295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 88295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-cadillac-ct6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 50495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 58095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 62595,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 66595,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 86795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 95795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-cadillac-ct6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

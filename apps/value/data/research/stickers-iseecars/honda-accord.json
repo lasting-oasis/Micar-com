@@ -704,6 +704,237 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 930,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 23720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 25320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan (1.5T I4 6M)",
+"msrp": 26180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan (1.5T I4 CVT)",
+"msrp": 26180,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 27620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 29220,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan (1.5T I4)",
+"msrp": 30120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan (2.0T I4 6M)",
+"msrp": 30710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan (2.0T I4 10A)",
+"msrp": 30710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 31720,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan (2.0T I4)",
+"msrp": 32120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 34990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 35950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-accord-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 24270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 25870,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26980,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 29670,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30570,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 32170,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 35440,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-accord-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1015,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 24970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Base 4dr Sedan",
+"msrp": 26570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan (1.5T I4 CVT)",
+"msrp": 27430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Special Edition 4dr Sedan",
+"msrp": 28920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid EX 4dr Sedan",
+"msrp": 30520,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan",
+"msrp": 31290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan (2.0T I4 10A)",
+"msrp": 32110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid EX-L 4dr Sedan",
+"msrp": 32890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring 4dr Sedan",
+"msrp": 36440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 36900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-honda-accord-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1095,
 "trims": [

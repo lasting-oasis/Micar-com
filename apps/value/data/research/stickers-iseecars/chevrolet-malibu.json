@@ -260,6 +260,135 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 21680,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23320,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25220,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27920,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 875,
+"trims": [
+{
+"trim": "L 4dr Sedan",
+"msrp": 22090,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan",
+"msrp": 23220,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 23220,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr Sedan",
+"msrp": 24220,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan",
+"msrp": 26620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 28220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr Sedan",
+"msrp": 31820,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23220,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24220,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26620,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": null,
 "trims": [

@@ -308,6 +308,381 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 31000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1495,
 "trims": [

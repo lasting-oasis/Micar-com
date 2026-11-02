@@ -2,7 +2,7 @@
 "make": "Toyota",
 "model": "Prius",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (prius, prius_prime).",
+"note": "Trim-level MSRPs from iSeeCars price pages (prius, prius_plug__in_hybrid, prius_prime).",
 "years": [
 {
 "year": 2010,
@@ -121,6 +121,18 @@
 "msrp": 29805,
 "config": "",
 "note": ""
+},
+{
+"trim": "Plug-In Hybrid Base 4dr Hatchback",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid Advanced 4dr Hatchback",
+"msrp": 39525,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2012-toyota-prius-price",
@@ -210,6 +222,201 @@
 "source": "https://www.iseecars.com/car/2014-toyota-prius-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 930,
+"trims": [
+{
+"trim": "",
+"msrp": 23770,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24980,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime Plus 4dr Hatchback",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27820,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime Premium 4dr Hatchback",
+"msrp": 29050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime Advanced 4dr Hatchback",
+"msrp": 33350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-prius_prime-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 24325,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25535,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28375,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 33800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-prius-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1025,
+"trims": [
+{
+"trim": "L Eco 4dr Hatchback",
+"msrp": 24525,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 25735,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE AWD-e 4dr Hatchback",
+"msrp": 27135,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime LE 4dr Hatchback",
+"msrp": 28220,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Hatchback",
+"msrp": 28575,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE AWD-e 4dr Hatchback",
+"msrp": 29575,
+"config": "",
+"note": ""
+},
+{
+"trim": "2020 Edition 4dr Hatchback",
+"msrp": 29875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime XLE 4dr Hatchback",
+"msrp": 30000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Hatchback",
+"msrp": 32650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime Limited 4dr Hatchback",
+"msrp": 34000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-prius-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

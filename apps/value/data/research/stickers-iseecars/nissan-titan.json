@@ -470,6 +470,309 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 30690,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33960,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34090,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34320,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36680,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37390,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37470,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39830,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39870,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40540,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44880,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47110,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48740,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51940,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54630,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 57840,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36190,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38890,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39390,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39990,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41990,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42310,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43190,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45410,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 47590,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 49790,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 53990,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 55490,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 57190,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 58690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 36550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39280,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39780,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40390,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42410,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42730,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43620,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45860,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48070,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50290,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54530,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56040,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 57760,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 59280,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1795,
 "trims": [

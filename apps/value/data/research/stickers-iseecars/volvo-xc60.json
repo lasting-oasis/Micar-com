@@ -176,6 +176,261 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46650,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 47150,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 48950,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 49450,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 52450,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 52950,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 53700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 60550,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 61050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "T5 Momentum 4dr SUV",
+"msrp": 40150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Momentum 4dr SUV",
+"msrp": 42450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Momentum 4dr SUV",
+"msrp": 45950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Inscription 4dr SUV",
+"msrp": 46850,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 R-Design 4dr SUV",
+"msrp": 46850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Inscription 4dr SUV",
+"msrp": 49150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 R-Design 4dr SUV",
+"msrp": 49150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Inscription 4dr SUV",
+"msrp": 52650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 R-Design 4dr SUV",
+"msrp": 52650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD Momentum 4dr SUV",
+"msrp": 53950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD Inscription 4dr SUV",
+"msrp": 60650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD R-Design 4dr SUV",
+"msrp": 60650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD Polestar Engineered 4dr SUV",
+"msrp": 69500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 49200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50150,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 59650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 61000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 69500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1095,
 "trims": [

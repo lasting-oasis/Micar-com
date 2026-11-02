@@ -252,6 +252,54 @@
 "source": "https://www.iseecars.com/car/2014-chevrolet-impala-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30520,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 31620,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

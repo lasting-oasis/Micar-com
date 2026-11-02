@@ -380,6 +380,195 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": 1395,
+"trims": [
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Sedan",
+"msrp": 31495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring L 4dr Sedan",
+"msrp": 32640,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring L 4dr Sedan",
+"msrp": 35140,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 36295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 37545,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Sedan",
+"msrp": 38795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 40045,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 4dr Sedan",
+"msrp": 40995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1495,
+"trims": [
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 29220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Sedan",
+"msrp": 31720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring L 4dr Sedan",
+"msrp": 32865,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring L 4dr Sedan",
+"msrp": 35365,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 36395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 38245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Sedan",
+"msrp": 38895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 40745,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 4dr Sedan",
+"msrp": 41695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1495,
+"trims": [
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 30040,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Sedan",
+"msrp": 32790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring L 4dr Sedan",
+"msrp": 33315,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring L 4dr Sedan",
+"msrp": 36065,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 38595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Sedan",
+"msrp": 39445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 41345,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 4dr Sedan",
+"msrp": 41995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": null,
 "trims": [

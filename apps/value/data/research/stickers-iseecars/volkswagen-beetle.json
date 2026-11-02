@@ -1,0 +1,261 @@
+{
+"make": "Volkswagen",
+"model": "Beetle",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (beetle).",
+"years": [
+{
+"year": 2012,
+"destination": 770,
+"trims": [
+{
+"trim": "Base 2dr Coupe",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base PZEV 2dr Coupe",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 2dr Coupe 5M",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Coupe 5M",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 2dr Coupe 6A",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Coupe 6A",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 2dr Coupe 5M w/ Sunroof",
+"msrp": 22295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Coupe 5M w/ Sunroof",
+"msrp": 22295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 2dr Coupe 6A w/ Sunroof",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Coupe 6A w/ Sunroof",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 2dr Coupe 6M",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo PZEV 2dr Coupe 6M",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 2dr Coupe 5M w/ Sunroof, Sound and Navigation",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Coupe 5M w/ Sunroof, Sound and Navigation",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Coupe 6A w/ Sound and Navigation",
+"msrp": 24265,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 2dr Coupe 6A",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo PZEV 2dr Coupe 6A",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Turbo 2dr Coupe",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Turbo PZEV 2dr Coupe",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "White Turbo 2dr Coupe",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "White Turbo PZEV 2dr Coupe",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L 2dr Coupe 6A w/ Sunroof, Sound and Navigation",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L PZEV 2dr Coupe 6A w/ Sunroof, Sound and Navigation",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 2dr Coupe 6M w/ Sunroof and Sound",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo PZEV 2dr Coupe 6M w/ Sunroof and Sound",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 2dr Coupe 6A w/ Sunroof and Sound",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo PZEV 2dr Coupe 6A w/ Sunroof and Sound",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 2dr Coupe 6M w/ Sunroof, Sound and Navigation",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo PZEV 2dr Coupe 6M w/ Sunroof, Sound and Navigation",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo PZEV 2dr Coupe 6A w/ Sound and Navigation",
+"msrp": 28165,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 2dr Coupe 6A w/ Sunroof, Sound and Navigation",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo PZEV 2dr Coupe 6A w/ Sunroof, Sound and Navigation",
+"msrp": 29095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-volkswagen-beetle-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23045,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-beetle-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

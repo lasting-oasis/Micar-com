@@ -386,6 +386,459 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 1120,
+"trims": [
+{
+"trim": "LE 4dr SUV (2.7L I4)",
+"msrp": 31830,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr SUV (3.5L V6)",
+"msrp": 33880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 35340,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Plus 4dr SUV",
+"msrp": 36760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 37520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE Plus 4dr SUV",
+"msrp": 38220,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 39720,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 40940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 41180,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 42580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 42930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 44390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Platinum 4dr SUV",
+"msrp": 46050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 46060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited Platinum 4dr SUV",
+"msrp": 47510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited Platinum 4dr SUV",
+"msrp": 49180,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1175,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr SUV",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr SUV",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43650,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr SUV",
+"msrp": 45050,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46850,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 48250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum 4dr SUV",
+"msrp": 48250,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 48800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum 4dr SUV",
+"msrp": 50200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1215,
+"trims": [
+{
+"trim": "",
+"msrp": 34910,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36510,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37110,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38510,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr SUV",
+"msrp": 38735,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39910,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 40335,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41310,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41505,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr SUV",
+"msrp": 41535,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 43135,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43455,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43865,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45265,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr SUV",
+"msrp": 45490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45815,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47065,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 47440,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48465,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum 4dr SUV",
+"msrp": 48690,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 49015,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum 4dr SUV",
+"msrp": 50640,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1335,
 "trims": [

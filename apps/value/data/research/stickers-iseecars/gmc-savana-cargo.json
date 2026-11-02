@@ -1,0 +1,108 @@
+{
+"make": "GMC",
+"model": "Savana Cargo",
+"body": "Minivan",
+"note": "Trim-level MSRPs from iSeeCars price pages (savana_cargo).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-gmc-savana_cargo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-gmc-savana_cargo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1295,
+"trims": [
+{
+"trim": "2500 3dr Cargo Van",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 3dr Extended Cargo Van",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 3dr Cargo Van",
+"msrp": 36100,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 3dr Extended Cargo Van",
+"msrp": 36900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-gmc-savana_cargo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

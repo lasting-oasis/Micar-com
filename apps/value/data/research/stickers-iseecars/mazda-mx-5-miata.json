@@ -5,6 +5,165 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (mx__5_miata).",
 "years": [
 {
+"year": 2019,
+"destination": 920,
+"trims": [
+{
+"trim": "Sport 2dr Convertible 6M",
+"msrp": 25730,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2dr Convertible 6A",
+"msrp": 27080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6M",
+"msrp": 29590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6A",
+"msrp": 30190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M",
+"msrp": 30780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A",
+"msrp": 31855,
+"config": "",
+"note": ""
+},
+{
+"trim": "30th Anniversary 2dr Convertible 6M",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "30th Anniversary 2dr Convertible 6A",
+"msrp": 35495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 26580,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27930,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30290,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30890,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31670,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "Sport 2dr Convertible 6M",
+"msrp": 26830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2dr Convertible 6A",
+"msrp": 28180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6M",
+"msrp": 30290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6A",
+"msrp": 30890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A",
+"msrp": 32295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1015,
 "trims": [

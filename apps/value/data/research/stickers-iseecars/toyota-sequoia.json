@@ -218,6 +218,201 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 49050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51765,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 52275,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 57545,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 60770,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 64760,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 67985,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-sequoia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 49905,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 52620,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53130,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55848,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 58915,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 62140,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 64030,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 65945,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 69170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-sequoia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 52915,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53425,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56140,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 59220,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 60220,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 62445,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 63445,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 64325,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 66250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 69475,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-sequoia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1595,
 "trims": [

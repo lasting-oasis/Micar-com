@@ -998,6 +998,363 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 19550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 20350,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 20750,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 22050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 22250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 22350,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23750,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 20000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 20800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21750,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 22650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 22850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28950,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 21250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1095,
 "trims": [

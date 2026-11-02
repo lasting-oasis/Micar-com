@@ -254,6 +254,165 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 23750,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 25250,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-kia-sportage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 23990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27190,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27690,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28690,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-kia-sportage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1175,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 24090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 25590,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 26590,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 27390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 28290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 28890,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo 4dr SUV",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX Turbo 4dr SUV",
+"msrp": 35250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-kia-sportage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-04-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

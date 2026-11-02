@@ -302,6 +302,270 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 23940,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 29450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr SUV",
+"msrp": 32140,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr SUV",
+"msrp": 33490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1095,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 24105,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 26500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 28000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 28445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 29945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr SUV",
+"msrp": 32620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr SUV",
+"msrp": 34120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1245,
+"trims": [
+{
+"trim": "",
+"msrp": 24885,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26385,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28255,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28595,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29255,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29755,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid SE 4dr SUV",
+"msrp": 33040,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid SEL 4dr SUV",
+"msrp": 35620,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36685,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid Titanium 4dr SUV",
+"msrp": 38835,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1245,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 25555,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 27035,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 27055,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 28535,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 29505,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 31005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid SE 4dr SUV",
+"msrp": 33075,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid SEL 4dr SUV",
+"msrp": 35815,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr SUV",
+"msrp": 36455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid Titanium 4dr SUV",
+"msrp": 38885,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1495,
 "trims": [

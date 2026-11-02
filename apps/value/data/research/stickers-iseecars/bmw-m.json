@@ -164,6 +164,177 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "M2",
+"msrp": 54500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 66500,
+"config": "",
+"note": ""
+},
+{
+"trim": "M4",
+"msrp": 68700,
+"config": "",
+"note": ""
+},
+{
+"trim": "M4",
+"msrp": 77200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 98250,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5",
+"msrp": 102600,
+"config": "",
+"note": ""
+},
+{
+"trim": "M6",
+"msrp": 119800,
+"config": "",
+"note": ""
+},
+{
+"trim": "M6",
+"msrp": 122300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-m2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "M2 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M4",
+"msrp": 69150,
+"config": "",
+"note": ""
+},
+{
+"trim": "M4",
+"msrp": 77650,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD 4dr Sedan",
+"msrp": 102700,
+"config": "",
+"note": ""
+},
+{
+"trim": "M4",
+"msrp": 103100,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD Competition 4dr Sedan",
+"msrp": 110000,
+"config": "",
+"note": ""
+},
+{
+"trim": "M6",
+"msrp": 119900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-m5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "M2",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD 4dr Sedan",
+"msrp": 102700,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD Competition 4dr Sedan",
+"msrp": 110000,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8",
+"msrp": 130000,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8",
+"msrp": 133000,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8",
+"msrp": 142500,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8",
+"msrp": 143000,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8",
+"msrp": 146000,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8",
+"msrp": 155500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-m2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 995,
 "trims": [

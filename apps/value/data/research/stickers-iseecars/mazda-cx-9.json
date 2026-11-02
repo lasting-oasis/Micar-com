@@ -5,6 +5,171 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (cx__9).",
 "years": [
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32280,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34080,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35330,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37130,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40840,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42640,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45365,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mazda-cx__9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 33890,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35710,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35790,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37610,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46215,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mazda-cx__9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1225,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 34160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr SUV",
+"msrp": 35950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 36060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr SUV",
+"msrp": 37850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carbon Edition 4dr SUV",
+"msrp": 41280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 4dr SUV",
+"msrp": 42140,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carbon Edition 4dr SUV",
+"msrp": 43180,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Grand Touring 4dr SUV",
+"msrp": 44040,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Signature 4dr SUV",
+"msrp": 46805,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mazda-cx__9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1225,
 "trims": [

@@ -1,0 +1,102 @@
+{
+"make": "Mini",
+"model": "Clubman",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (clubman).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 24900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mini-clubman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mini-clubman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mini-clubman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

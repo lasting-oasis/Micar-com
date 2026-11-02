@@ -233,6 +233,78 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 138700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 164900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 177100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 194400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 208100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-r8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 169900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 182100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 195900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 208100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-r8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1495,
 "trims": [

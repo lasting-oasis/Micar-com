@@ -5,6 +5,147 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (bronco).",
 "years": [
 {
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x4 Base 2dr SUV",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend 2dr SUV",
+"msrp": 33385,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend 4dr SUV",
+"msrp": 35880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base Advanced 2dr SUV",
+"msrp": 35885,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond 2dr SUV",
+"msrp": 36050,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond Advanced 2dr SUV",
+"msrp": 36845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond 4dr SUV",
+"msrp": 38545,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks 2dr SUV",
+"msrp": 38955,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base Advanced 4dr SUV",
+"msrp": 38990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond Advanced 4dr SUV",
+"msrp": 39340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks Advanced 2dr SUV",
+"msrp": 40545,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend Advanced 2dr SUV",
+"msrp": 40770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks 4dr SUV",
+"msrp": 41450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands Advanced 2dr SUV",
+"msrp": 42095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks Advanced 4dr SUV",
+"msrp": 43040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend Advanced 4dr SUV",
+"msrp": 43265,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands Advanced 4dr SUV",
+"msrp": 44590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Wildtrak Advanced 2dr SUV",
+"msrp": 46980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Wildtrak Advanced 4dr SUV",
+"msrp": 49475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 First Edition Advanced 2dr SUV",
+"msrp": 56915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 First Edition Advanced 4dr SUV",
+"msrp": 61110,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ford-bronco-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1595,
 "trims": [

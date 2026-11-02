@@ -192,6 +192,114 @@
 "source": "https://www.iseecars.com/car/2014-honda-ridgeline-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33390,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34870,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35290,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36770,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41920,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36140,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36670,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38820,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42020,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

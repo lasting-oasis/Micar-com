@@ -216,6 +216,231 @@
 "source": "https://www.iseecars.com/car/2014-acura-mdx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 58150,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 58650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 52800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 58050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 59550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 60050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 49500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 58250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 59750,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 60250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 61750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

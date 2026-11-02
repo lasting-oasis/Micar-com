@@ -50,6 +50,171 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": 875,
+"trims": [
+{
+"trim": "LS Manual 4dr Hatchback",
+"msrp": 13050,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS CVT 4dr Hatchback",
+"msrp": 14150,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Manual 4dr Hatchback",
+"msrp": 14875,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT CVT 4dr Hatchback",
+"msrp": 15975,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV Manual 4dr Hatchback",
+"msrp": 16120,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Manual 4dr Hatchback",
+"msrp": 16375,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV CVT 4dr Hatchback",
+"msrp": 17220,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT CVT 4dr Hatchback",
+"msrp": 17475,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-spark-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 875,
+"trims": [
+{
+"trim": "LS Manual 4dr Hatchback",
+"msrp": 13220,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS CVT 4dr Hatchback",
+"msrp": 14320,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Manual 4dr Hatchback",
+"msrp": 15120,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT CVT 4dr Hatchback",
+"msrp": 16220,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV Manual 4dr Hatchback",
+"msrp": 16220,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Manual 4dr Hatchback",
+"msrp": 16620,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV CVT 4dr Hatchback",
+"msrp": 17320,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT CVT 4dr Hatchback",
+"msrp": 17720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-spark-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 13400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 14500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 15300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 16400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 16800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 17500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 17900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-spark-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 995,
 "trims": [

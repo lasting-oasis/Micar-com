@@ -5,6 +5,78 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (corsair).",
 "years": [
 {
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 35945,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38145,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42630,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44830,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lincoln-corsair-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1095,
+"trims": [
+{
+"trim": "Standard 4dr SUV",
+"msrp": 36105,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Standard 4dr SUV",
+"msrp": 38305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4dr SUV",
+"msrp": 43050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Reserve 4dr SUV",
+"msrp": 45250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Grand Touring 4dr SUV",
+"msrp": 50390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-lincoln-corsair-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1195,
 "trims": [

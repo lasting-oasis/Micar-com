@@ -5,6 +5,51 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (ct5).",
 "years": [
 {
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 36895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 38895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 40695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 41695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 42695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 43695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-cadillac-ct5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1195,
 "trims": [

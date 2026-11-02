@@ -1,0 +1,48 @@
+{
+"make": "Saab",
+"model": "9-4",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (9__4x).",
+"years": [
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "9-4 4X 3.0i 4dr SUV",
+"msrp": 33380,
+"config": "",
+"note": ""
+},
+{
+"trim": "9-4 4X AWD 3.0i 4dr SUV",
+"msrp": 35875,
+"config": "",
+"note": ""
+},
+{
+"trim": "9-4 4X 3.0i Premium 4dr SUV",
+"msrp": 37250,
+"config": "",
+"note": ""
+},
+{
+"trim": "9-4 4X AWD 3.0i Premium 4dr SUV",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "9-4 4X AWD Aero XWD 4dr SUV",
+"msrp": 48010,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-saab-9__4x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

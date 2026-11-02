@@ -260,6 +260,117 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 925,
+"trims": [
+{
+"trim": "S 4dr Sedan 6M",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan CVT",
+"msrp": 18680,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Sedan",
+"msrp": 19290,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 4dr Sedan",
+"msrp": 20790,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR TURBO 4dr Sedan",
+"msrp": 22770,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr Sedan",
+"msrp": 23220,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO 4dr Sedan 6M",
+"msrp": 26040,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO 4dr Sedan CVT",
+"msrp": 26040,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 19310,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 20370,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 975,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 19510,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Sedan",
+"msrp": 20570,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 4dr Sedan",
+"msrp": 21850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1095,
 "trims": [

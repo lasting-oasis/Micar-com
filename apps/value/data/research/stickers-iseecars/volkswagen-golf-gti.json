@@ -399,8 +399,20 @@
 "note": ""
 },
 {
+"trim": "GTI Wolfsburg Edition PZEV 4dr Hatchback 6M",
+"msrp": 25095,
+"config": "",
+"note": ""
+},
+{
 "trim": "TDI 4dr Hatchback 6M",
 "msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Wolfsburg Edition PZEV 4dr Hatchback 6A",
+"msrp": 26195,
 "config": "",
 "note": ""
 },
@@ -421,11 +433,218 @@
 "msrp": 27995,
 "config": "",
 "note": ""
+},
+{
+"trim": "GTI Drivers Edition PZEV 4dr Hatchback 6M",
+"msrp": 29695,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTI Drivers Edition PZEV 4dr Hatchback 6A",
+"msrp": 30795,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2014-volkswagen-golf-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 895,
+"trims": [
+{
+"trim": "1.4T S 4dr Hatchback 6M",
+"msrp": 21845,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T S 4dr Hatchback 8A",
+"msrp": 22945,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE 4dr Hatchback 6M",
+"msrp": 24145,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE 4dr Hatchback 8A",
+"msrp": 25245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI",
+"msrp": 28695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI",
+"msrp": 32895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI",
+"msrp": 37095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-golf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 920,
+"trims": [
+{
+"trim": "TSI 4dr Hatchback 6M",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "TSI 4dr Hatchback 8A",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI S 4dr Hatchback 6M",
+"msrp": 28595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI S 4dr Hatchback 7A",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback 6M",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback 7A",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback 6M",
+"msrp": 36495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback 7A",
+"msrp": 37295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volkswagen-golf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI S 4dr Hatchback 6M",
+"msrp": 28695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI S 4dr Hatchback 7A",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback 6M",
+"msrp": 32665,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback 7A",
+"msrp": 33465,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback 6M",
+"msrp": 36945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback 7A",
+"msrp": 37745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volkswagen-golf_gti-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

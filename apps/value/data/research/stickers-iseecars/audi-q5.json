@@ -164,6 +164,129 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": 975,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV w/Summer of Audi selection",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV w/Summer of Audi selection",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr SUV",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr SUV w/Summer of Audi selection",
+"msrp": 50800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD quattro Premium 45 TFSI 4dr SUV",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Titanium Premium 45 TFSI 4dr SUV",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 4dr SUV",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Titanium Premium Plus 45 TFSI 4dr SUV",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 45 TFSI 4dr SUV",
+"msrp": 51450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Premium 55 TFSI 4dr SUV",
+"msrp": 52900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Titanium Prestige 45 TFSI 4dr SUV",
+"msrp": 53550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Premium Plus 55 TFSI 4dr SUV",
+"msrp": 56600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Prestige 55 TFSI 4dr SUV",
+"msrp": 60350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1095,
 "trims": [

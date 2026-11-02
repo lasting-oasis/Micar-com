@@ -1,0 +1,30 @@
+{
+"make": "Aston Martin",
+"model": "Virage",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (virage).",
+"years": [
+{
+"year": 2012,
+"destination": 1615,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 208295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible",
+"msrp": 223295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-astonmartin-virage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -95,6 +95,135 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1025,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Premium Package",
+"msrp": 27880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 29780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Premium and A-SPEC Package",
+"msrp": 29880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology and A-SPEC Package",
+"msrp": 31780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": null,
 "trims": [

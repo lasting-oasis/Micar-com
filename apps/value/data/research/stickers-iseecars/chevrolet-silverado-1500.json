@@ -5,6 +5,1056 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (silverado_1500).",
 "years": [
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 30400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 47900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 55600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1595,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 35100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Double Cab 6.6 ft. SB",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Double Cab 6.6 ft. SB",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 45100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Double Cab 6.6 ft. SB",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Double Cab 6.6 ft. SB",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 48800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 53300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 53600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 56800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 57100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1695,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Double Cab 6.6 ft. SB",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/2FL",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/1LT",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/2FL",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/1LT",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Double Cab 6.6 ft. SB",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 52700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 57700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1795,
 "trims": [

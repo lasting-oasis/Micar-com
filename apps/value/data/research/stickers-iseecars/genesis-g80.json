@@ -1,0 +1,87 @@
+{
+"make": "Genesis",
+"model": "G80",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (g80).",
+"years": [
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 42550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55750,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 57500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 58250,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 60000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-genesis-g80-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 59100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 62250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-genesis-g80-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

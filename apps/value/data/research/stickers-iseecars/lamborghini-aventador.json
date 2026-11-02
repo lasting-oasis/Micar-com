@@ -36,6 +36,60 @@
 "source": "https://www.iseecars.com/car/2014-lamborghini-aventador-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 417826,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 460422,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 517770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lamborghini-aventador-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 3495,
+"trims": [
+{
+"trim": "AWD LP 740-4 S 2dr Coupe",
+"msrp": 417826,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 770-4 SVJ 2dr Coupe",
+"msrp": 417826,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 770-4 SVJ 2dr Roadster",
+"msrp": 460422,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lamborghini-aventador-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

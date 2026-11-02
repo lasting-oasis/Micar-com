@@ -1,0 +1,30 @@
+{
+"make": "Mitsubishi",
+"model": "i-MiEV",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (i__miev).",
+"years": [
+{
+"year": 2012,
+"destination": 850,
+"trims": [
+{
+"trim": "ES 4dr Hatchback",
+"msrp": 29125,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 31125,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-mitsubishi-i__miev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

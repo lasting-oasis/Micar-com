@@ -206,6 +206,129 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Crossover 6M",
+"msrp": 16490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Crossover 6A",
+"msrp": 18190,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover",
+"msrp": 20490,
+"config": "",
+"note": ""
+},
+{
+"trim": "! 4dr Crossover",
+"msrp": 22990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 17490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 18990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 20290,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 22690,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 17590,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 19090,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 20690,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 21790,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 23350,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 27650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

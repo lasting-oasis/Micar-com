@@ -122,6 +122,153 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 1995,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 107680,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Q4 4dr Sedan",
+"msrp": 113680,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 4dr Sedan",
+"msrp": 113880,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 4dr Sedan",
+"msrp": 113880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Q4 GranLusso 4dr Sedan",
+"msrp": 119780,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Q4 GranSport 4dr Sedan",
+"msrp": 119780,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS GranLusso 4dr Sedan",
+"msrp": 137980,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS GranSport 4dr Sedan",
+"msrp": 137980,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 99490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 103990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 106490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 110990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 124990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1995,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 102190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Q4 4dr Sedan",
+"msrp": 106690,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 4dr Sedan",
+"msrp": 109190,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 4dr Sedan",
+"msrp": 109190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Q4 GranLusso 4dr Sedan",
+"msrp": 113690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Q4 GranSport 4dr Sedan",
+"msrp": 113690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 4dr Sedan",
+"msrp": 142390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1995,
 "trims": [

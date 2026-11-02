@@ -194,6 +194,225 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "25t Premium 4dr Sedan",
+"msrp": 49965,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium 4dr Sedan",
+"msrp": 51465,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Premium 4dr Sedan",
+"msrp": 52965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 25t Premium 4dr Sedan",
+"msrp": 52965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 20d Premium 4dr Sedan",
+"msrp": 54465,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Prestige 4dr Sedan",
+"msrp": 54985,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 30t Premium 4dr Sedan",
+"msrp": 55965,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige 4dr Sedan",
+"msrp": 56485,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Prestige 4dr Sedan",
+"msrp": 57985,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 25t Prestige 4dr Sedan",
+"msrp": 57985,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 20d Prestige 4dr Sedan",
+"msrp": 59485,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 30t Prestige 4dr Sedan",
+"msrp": 60985,
+"config": "",
+"note": ""
+},
+{
+"trim": "300 Sport 4dr Sedan",
+"msrp": 63810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 30t Prestige 4dr Wagon",
+"msrp": 64575,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 300 Sport 4dr Sedan",
+"msrp": 66810,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Portfolio Limited Edition 4dr Sedan",
+"msrp": 67565,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Sedan",
+"msrp": 67625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 30t Portfolio Limited Edition 4dr Sedan",
+"msrp": 70565,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Wagon",
+"msrp": 71215,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jaguar-xf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1150,
+"trims": [
+{
+"trim": "25t Premium 4dr Sedan",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 25t Premium 4dr Sedan",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Prestige 4dr Sedan",
+"msrp": 55550,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Prestige 4dr Sedan",
+"msrp": 58550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 25t Prestige 4dr Sedan",
+"msrp": 58550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 30t Prestige 4dr Sedan",
+"msrp": 61550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Prestige 4dr Wagon",
+"msrp": 65150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Checkered Flag Limited Edition 4dr Sedan",
+"msrp": 66600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Sedan",
+"msrp": 68200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Sport 4dr Wagon",
+"msrp": 71800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-jaguar-xf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1150,
+"trims": [
+{
+"trim": "P250 S 4dr Sedan",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "P250 SE 4dr Sedan",
+"msrp": 47095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 R-Dynamic SE 4dr Sedan",
+"msrp": 49995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-jaguar-xf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1150,
 "trims": [

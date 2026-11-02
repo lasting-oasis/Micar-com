@@ -72,6 +72,63 @@
 "source": "https://www.iseecars.com/car/2014-cadillac-xts-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "Standard 4dr Sedan",
+"msrp": 46395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 50395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 52395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 56795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 58995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr Sedan",
+"msrp": 65695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr Sedan",
+"msrp": 67895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum V-Sport 4dr Sedan",
+"msrp": 72495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-cadillac-xts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

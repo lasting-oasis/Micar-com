@@ -5,6 +5,66 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (i__pace).",
 "years": [
 {
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD EV400 S 4dr SUV",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EV400 SE 4dr SUV",
+"msrp": 75850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EV400 HSE 4dr SUV",
+"msrp": 80500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EV400 First Edition 4dr SUV",
+"msrp": 85900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jaguar-i__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1150,
+"trims": [
+{
+"trim": "AWD EV400 S 4dr SUV",
+"msrp": 69850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EV400 SE 4dr SUV",
+"msrp": 76250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EV400 HSE 4dr SUV",
+"msrp": 80900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-jaguar-i__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1150,
 "trims": [

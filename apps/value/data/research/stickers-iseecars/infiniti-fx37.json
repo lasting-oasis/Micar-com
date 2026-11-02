@@ -1,0 +1,36 @@
+{
+"make": "Infiniti",
+"model": "FX37",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (fx37).",
+"years": [
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 44950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited Edition 4dr SUV",
+"msrp": 53400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-infiniti-fx37-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

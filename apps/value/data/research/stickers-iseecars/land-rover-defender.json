@@ -5,6 +5,126 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (defender).",
 "years": [
 {
+"year": 2020,
+"destination": 1350,
+"trims": [
+{
+"trim": "AWD 110 Standard 4dr SUV",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 S 4dr SUV",
+"msrp": 53350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 SE 4dr SUV",
+"msrp": 62250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 HSE 4dr SUV",
+"msrp": 68350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 First Edition 4dr SUV",
+"msrp": 68650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X 4dr SUV",
+"msrp": 80900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-landrover-defender-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1350,
+"trims": [
+{
+"trim": "AWD 90 Standard 2dr SUV",
+"msrp": 46100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 S 2dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 Standard 4dr SUV",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 S 4dr SUV",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X-Dynamic S 2dr SUV",
+"msrp": 57800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 SE 4dr SUV",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 First Edition 2dr SUV",
+"msrp": 64100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X-Dynamic SE 4dr SUV",
+"msrp": 65500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X-Dynamic HSE 4dr SUV",
+"msrp": 71600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X 2dr SUV",
+"msrp": 80500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X 4dr SUV",
+"msrp": 83000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-landrover-defender-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1350,
 "trims": [

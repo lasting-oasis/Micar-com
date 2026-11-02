@@ -5,6 +5,423 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (atlas).",
 "years": [
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35895,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39245,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41045,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41395,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43195,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43345,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45145,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-atlas-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 31545,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34695,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34745,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36095,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37045,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38445,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40645,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40795,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42445,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42595,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44295,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44395,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46095,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 49195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volkswagen-atlas-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1020,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 31545,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV (midyear release)",
+"msrp": 31555,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 33445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV (midyear release)",
+"msrp": 33455,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV (midyear release)",
+"msrp": 34905,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 36795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV (midyear release)",
+"msrp": 36805,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Technology",
+"msrp": 36895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Technology (midyear release)",
+"msrp": 36945,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE 4dr SUV w/Technology",
+"msrp": 38295,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE 4dr SUV w/Technology (midyear release)",
+"msrp": 38345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 38795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Technology (midyear release)",
+"msrp": 38845,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE R-Line 4dr SUV w/Technology",
+"msrp": 39695,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE R-Line 4dr SUV w/Technology (midyear release)",
+"msrp": 39745,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE 4Motion 4dr SUV w/Technology",
+"msrp": 40195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE 4Motion 4dr SUV w/Technology (midyear release)",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE R-Line 4Motion 4dr SUV w/Technology",
+"msrp": 41595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE R-Line 4Motion 4dr SUV w/Technology (midyear release)",
+"msrp": 41645,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL 4dr SUV",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL 4dr SUV (midyear release)",
+"msrp": 42325,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 42395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV (midyear release)",
+"msrp": 42425,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL R-Line 4dr SUV",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL R-Line 4dr SUV (midyear release)",
+"msrp": 44025,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL 4Motion 4dr SUV",
+"msrp": 44195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL 4Motion 4dr SUV (midyear release)",
+"msrp": 44225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL R-Line 4Motion 4dr SUV",
+"msrp": 45895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL R-Line 4Motion 4dr SUV (midyear release)",
+"msrp": 45925,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium 4Motion 4dr SUV",
+"msrp": 47195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium 4Motion 4dr SUV (midyear release)",
+"msrp": 47225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium 4Motion 4dr SUV",
+"msrp": 48995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium 4Motion 4dr SUV (midyear release)",
+"msrp": 49025,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 50695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium R-Line 4Motion 4dr SUV (midyear release)",
+"msrp": 50725,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volkswagen-atlas-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

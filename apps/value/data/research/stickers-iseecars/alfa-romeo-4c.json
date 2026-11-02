@@ -1,0 +1,60 @@
+{
+"make": "Alfa Romeo",
+"model": "4C",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (4c).",
+"years": [
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 65900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-alfaromeo-4c-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 67150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-alfaromeo-4c-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 67150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-alfaromeo-4c-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

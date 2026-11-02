@@ -183,6 +183,96 @@
 "source": "https://www.iseecars.com/car/2014-ford-fiesta-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 875,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 14205,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Hatchback",
+"msrp": 14505,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 15435,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 15735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Sedan",
+"msrp": 19195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Hatchback",
+"msrp": 19495,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr Hatchback",
+"msrp": 21285,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-fiesta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 14260,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 15490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 15790,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 17625,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-ford-fiesta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

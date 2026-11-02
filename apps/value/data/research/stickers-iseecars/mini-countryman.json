@@ -1,0 +1,93 @@
+{
+"make": "Mini",
+"model": "Countryman",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (countryman).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mini-countryman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mini-countryman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -200,6 +200,237 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 1025,
+"trims": [
+{
+"trim": "LS 460",
+"msrp": 75450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 75450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 78670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 78670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 79960,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500H 4dr Sedan",
+"msrp": 79960,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 81450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 81450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 83180,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500H AWD 4dr Sedan",
+"msrp": 83180,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 84670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 84670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lexus-ls_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1025,
+"trims": [
+{
+"trim": "LS 460",
+"msrp": 75450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 4dr Sedan",
+"msrp": 75450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 78670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 AWD 4dr Sedan",
+"msrp": 78670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 80010,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500H 4dr Sedan",
+"msrp": 80010,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 81450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 F SPORT 4dr Sedan",
+"msrp": 81450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 83230,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500H AWD 4dr Sedan",
+"msrp": 83230,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 84670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 AWD F SPORT 4dr Sedan",
+"msrp": 84670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 Inspiration Series 4dr Sedan",
+"msrp": 97655,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 97665,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 460",
+"msrp": 100865,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 AWD Inspiration Series 4dr Sedan",
+"msrp": 100865,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lexus-ls_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1025,
+"trims": [
+{
+"trim": "LS 500 4dr Sedan",
+"msrp": 76000,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 AWD 4dr Sedan",
+"msrp": 79250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 F SPORT 4dr Sedan",
+"msrp": 79600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500 AWD F SPORT 4dr Sedan",
+"msrp": 82850,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500H 4dr Sedan",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 500H AWD 4dr Sedan",
+"msrp": 93750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-lexus-ls_500h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1075,
 "trims": [

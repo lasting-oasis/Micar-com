@@ -5,6 +5,21 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (2).",
 "years": [
 {
+"year": 2021,
+"destination": 1300,
+"trims": [
+{
+"trim": "AWD Launch Edition 4dr Fastback",
+"msrp": 59900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-polestar-2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1300,
 "trims": [

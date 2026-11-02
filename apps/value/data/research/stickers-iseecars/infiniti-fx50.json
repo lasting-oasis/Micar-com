@@ -48,6 +48,21 @@
 "source": "https://www.iseecars.com/car/2012-infiniti-fx50-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 61500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-infiniti-fx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -30,6 +30,69 @@
 "source": "https://www.iseecars.com/car/2014-bmw-x1-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-x1-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-x1-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-x1-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

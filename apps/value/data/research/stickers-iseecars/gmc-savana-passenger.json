@@ -1,0 +1,108 @@
+{
+"make": "GMC",
+"model": "Savana Passenger",
+"body": "Minivan",
+"note": "Trim-level MSRPs from iSeeCars price pages (savana_passenger).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-gmc-savana_passenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-gmc-savana_passenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1295,
+"trims": [
+{
+"trim": "LS 2500 3dr Passenger Van",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 3500 3dr Passenger Van",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 3500 3dr Extended Passenger Van",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2500 3dr Passenger Van",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 3500 3dr Passenger Van",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 3500 3dr Extended Passenger Van",
+"msrp": 40900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-gmc-savana_passenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

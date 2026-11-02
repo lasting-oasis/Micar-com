@@ -1,0 +1,24 @@
+{
+"make": "McLaren",
+"model": "570S Spider",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (570s_spider).",
+"years": [
+{
+"year": 2019,
+"destination": 2500,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 208800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mclaren-570s_spider-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

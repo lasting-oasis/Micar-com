@@ -5,6 +5,51 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (encore_gx).",
 "years": [
 {
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select 4dr Crossover",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Preferred 4dr Crossover",
+"msrp": 26100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Select 4dr Crossover",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Essence 4dr Crossover",
+"msrp": 30500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-buick-encore_gx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1195,
 "trims": [

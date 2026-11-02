@@ -5,6 +5,138 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (q3).",
 "years": [
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV",
+"msrp": 34700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium S line 4dr SUV",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus S line 4dr SUV",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige S line 4dr SUV",
+"msrp": 42900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD quattro Premium 40 TFSI 4dr SUV",
+"msrp": 34700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium 45 TFSI 4dr SUV",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 40 TFSI 4dr SUV",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium Plus 45 TFSI 4dr SUV",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Prestige 45 TFSI 4dr SUV",
+"msrp": 42900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1195,
 "trims": [

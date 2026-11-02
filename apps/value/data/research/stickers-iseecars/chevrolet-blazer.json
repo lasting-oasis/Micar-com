@@ -5,6 +5,144 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (blazer).",
 "years": [
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-blazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1195,
+"trims": [
+{
+"trim": "L 4dr SUV",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 32800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/3LT",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/3LT",
+"msrp": 39000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr SUV",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD RS 4dr SUV",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier 4dr SUV",
+"msrp": 45600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-blazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": null,
 "trims": [

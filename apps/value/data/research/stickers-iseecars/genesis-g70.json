@@ -5,6 +5,147 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (g70).",
 "years": [
 {
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "2.0T Advanced 4dr Sedan",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T Advanced 4dr Sedan",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Sport 4dr Sedan",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.3T Advanced 4dr Sedan",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T Advanced 4dr Sedan",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.3T Design Edition 4dr Sedan",
+"msrp": 48750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.3T Dynamic Edition 4dr Sedan",
+"msrp": 50250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T Design Edition 4dr Sedan",
+"msrp": 50750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T Dynamic Edition 4dr Sedan",
+"msrp": 52250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-genesis-g70-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "2.0T 4dr Sedan",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T 4dr Sedan",
+"msrp": 37450,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Sport 4dr Sedan",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.3T 4dr Sedan",
+"msrp": 44650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T 4dr Sedan",
+"msrp": 46650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-genesis-g70-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1045,
+"trims": [
+{
+"trim": "2.0T 4dr Sedan",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T 4dr Sedan",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Sport 4dr Sedan",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.3T 4dr Sedan",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T 4dr Sedan",
+"msrp": 48200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-genesis-g70-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1095,
 "trims": [

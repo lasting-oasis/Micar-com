@@ -159,6 +159,99 @@
 "source": "https://www.iseecars.com/car/2011-suzuki-kizashi-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 765,
+"trims": [
+{
+"trim": "S 4dr Sedan 6M",
+"msrp": 18999,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan CVT",
+"msrp": 20999,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport GTS 4dr Sedan 6M",
+"msrp": 22249,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 22299,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Sedan",
+"msrp": 22349,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Sedan",
+"msrp": 23649,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Leather Edition 4dr Sedan",
+"msrp": 23899,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport GTS 4dr Sedan CVT",
+"msrp": 24399,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Leather Edition 4dr Sedan",
+"msrp": 25249,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport GTS 4dr Sedan",
+"msrp": 25749,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SLS 4dr Sedan",
+"msrp": 26199,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport SLS 4dr Sedan",
+"msrp": 27549,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SLS Navigation Edition 4dr Sedan",
+"msrp": 27598,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport SLS Navigation Edition 4dr Sedan",
+"msrp": 28948,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-suzuki-kizashi-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

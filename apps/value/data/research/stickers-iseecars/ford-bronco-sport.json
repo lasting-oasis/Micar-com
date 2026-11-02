@@ -5,6 +5,45 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (bronco_sport).",
 "years": [
 {
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 27215,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Big Bend 4dr SUV",
+"msrp": 28720,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Outer Banks 4dr SUV",
+"msrp": 32860,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Badlands 4dr SUV",
+"msrp": 33360,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD First Edition 4dr SUV",
+"msrp": 38160,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ford-bronco_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1595,
 "trims": [

@@ -5,6 +5,189 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (qx50).",
 "years": [
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 36650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37250,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 53850,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 55850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 37950,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39950,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1025,
 "trims": [

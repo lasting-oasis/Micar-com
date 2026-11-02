@@ -1,0 +1,54 @@
+{
+"make": "Volvo",
+"model": "S90",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (s90).",
+"years": [
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "T5 Momentum 4dr Sedan",
+"msrp": 47350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Momentum 4dr Sedan",
+"msrp": 49850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Momentum 4dr Sedan",
+"msrp": 54350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Inscription 4dr Sedan",
+"msrp": 59450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD Momentum 4dr Sedan",
+"msrp": 63900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD Inscription 4dr Sedan",
+"msrp": 69000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volvo-s90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

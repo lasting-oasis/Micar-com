@@ -104,6 +104,66 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43950,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": null,
 "trims": [

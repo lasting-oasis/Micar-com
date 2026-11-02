@@ -24,6 +24,105 @@
 "source": "https://www.iseecars.com/car/2014-bmw-i3-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 44450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-i3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Hatchback",
+"msrp": 44450,
+"config": "",
+"note": ""
+},
+{
+"trim": "s 4dr Hatchback",
+"msrp": 47650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Hatchback w/ Range Extender",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "s 4dr Hatchback w/ Range Extender",
+"msrp": 51500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-i3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44450,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 47650,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 51500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-i3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

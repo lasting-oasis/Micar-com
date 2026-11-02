@@ -5,6 +5,189 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (arteon).",
 "years": [
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 35845,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37110,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37610,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37645,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38910,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39410,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41260,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41760,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43060,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43560,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44945,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46210,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-arteon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41745,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41895,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43645,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 47695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volkswagen-arteon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41595,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43395,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volkswagen-arteon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

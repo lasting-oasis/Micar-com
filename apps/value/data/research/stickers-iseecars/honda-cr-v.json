@@ -5,6 +5,231 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (cr__v, cr__v_hybrid).",
 "years": [
 {
+"year": 2019,
+"destination": 1095,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 24450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 25850,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 29850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 31250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr SUV",
+"msrp": 32850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr SUV",
+"msrp": 34250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 26650,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 27660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29160,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 30150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 30360,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 31650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32850,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 33350,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1225,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 26550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 26850,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 27860,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 28050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 29360,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 30450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD EX 4dr SUV",
+"msrp": 30560,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD EX-L 4dr SUV",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr SUV",
+"msrp": 33650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr SUV",
+"msrp": 35150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Touring 4dr SUV",
+"msrp": 36350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1245,
 "trims": [

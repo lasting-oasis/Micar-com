@@ -284,6 +284,123 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26695,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1010,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 31095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 34595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31395,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1175,
 "trims": [

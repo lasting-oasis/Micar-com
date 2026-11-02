@@ -512,6 +512,102 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29470,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31745,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33570,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36245,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 65795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 69995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": null,
 "trims": [

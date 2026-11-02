@@ -872,6 +872,291 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 1095,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab 6.1 ft. SB 5M",
+"msrp": 19290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr King Cab 6.1 ft. SB 5A",
+"msrp": 23360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab 6.1 ft. SB 5M",
+"msrp": 24160,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab 6.1 ft. SB 5A",
+"msrp": 25210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab 5 ft. SB 6M",
+"msrp": 25250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV V6 4dr King Cab 6.1 ft. SB 5A",
+"msrp": 25920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab 5 ft. SB 5A",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Desert Runner 4dr King Cab 6.1 ft. SB 5A",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 5 ft. SB 5A",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Desert Runner 4dr Crew Cab 5 ft. SB 5A",
+"msrp": 28030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV V6 4dr King Cab 6.1 ft. SB 5A",
+"msrp": 28810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 6.1 ft. LB 5A",
+"msrp": 29660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab 5 ft. SB 5A",
+"msrp": 29690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 5 ft. SB 5A",
+"msrp": 30240,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 6.1 ft. LB 5A",
+"msrp": 30660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 5 ft. SB 6M",
+"msrp": 33080,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab 5 ft. SB 6M",
+"msrp": 33440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr King Cab 6.1 ft. SB 5A",
+"msrp": 33730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL 4dr Crew Cab 5 ft. SB 5A",
+"msrp": 34310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab 5 ft. SB 5A",
+"msrp": 34490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr Crew Cab 5 ft. SB 5A",
+"msrp": 37150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1095,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab 6.1 ft. SB",
+"msrp": 26790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab 6.1 ft. SB",
+"msrp": 27670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab 5 ft. SB",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 5 ft. SB",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr King Cab 6.1 ft. SB",
+"msrp": 29680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr King Cab 6.1 ft. SB",
+"msrp": 30560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab 5 ft. SB",
+"msrp": 31290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 6.1 ft. LB",
+"msrp": 31410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 5 ft. SB",
+"msrp": 31990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 6.1 ft. LB",
+"msrp": 32410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab 5 ft. SB",
+"msrp": 37490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1175,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab 6.1 ft. SB",
+"msrp": 27190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab 6.1 ft. SB",
+"msrp": 28070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab 5 ft. SB",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 5 ft. SB",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr King Cab 6.1 ft. SB",
+"msrp": 30080,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr King Cab 6.1 ft. SB",
+"msrp": 30960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab 5 ft. SB",
+"msrp": 31690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab 6.1 ft. LB",
+"msrp": 31810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 5 ft. SB",
+"msrp": 32390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab 6.1 ft. LB",
+"msrp": 32810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab 5 ft. SB",
+"msrp": 37890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

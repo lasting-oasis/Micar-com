@@ -1,0 +1,123 @@
+{
+"make": "Land Rover",
+"model": "Range Rover Evoque",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (range_rover_evoque).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 57300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 57800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 62600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 65600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-landrover-range_rover_evoque-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51150,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-landrover-range_rover_evoque-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

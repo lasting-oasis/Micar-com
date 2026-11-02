@@ -155,6 +155,261 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": 1195,
+"trims": [
+{
+"trim": "4x2 XL 4dr SuperCab 127 in. WB Chassis",
+"msrp": 24000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 6.1 ft. SB",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCrew 5.1 ft. SB",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 6.1 ft. SB",
+"msrp": 28120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 6.1 ft. SB",
+"msrp": 28460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 5.1 ft. SB",
+"msrp": 30295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 5.1 ft. SB",
+"msrp": 30860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 6.1 ft. SB",
+"msrp": 32120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCab 6.1 ft. SB",
+"msrp": 32390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 5.1 ft. SB",
+"msrp": 34295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCrew 5.1 ft. SB",
+"msrp": 34565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCab 6.1 ft. SB",
+"msrp": 36390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 5.1 ft. SB",
+"msrp": 38565,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 24110,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 24410,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26810,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28460,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28570,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30635,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30970,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32460,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34635,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34675,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 24820,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27220,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28675,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28870,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31045,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31075,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32570,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32910,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34745,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35085,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36610,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38785,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2023,
 "destination": 1495,
 "trims": [

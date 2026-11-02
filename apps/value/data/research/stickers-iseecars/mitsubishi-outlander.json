@@ -2,7 +2,7 @@
 "make": "Mitsubishi",
 "model": "Outlander",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (outlander).",
+"note": "Trim-level MSRPs from iSeeCars price pages (outlander, outlander_phev).",
 "years": [
 {
 "year": 2010,
@@ -204,6 +204,183 @@
 "source": "https://www.iseecars.com/car/2014-mitsubishi-outlander-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1095,
+"trims": [
+{
+"trim": "ES 4dr SUV",
+"msrp": 24695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 25695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ES 4dr SUV",
+"msrp": 26195,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr SUV",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr SUV",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Phev var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Phev var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 24895,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Phev var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Phev var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Phev var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mitsubishi-outlander_phev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

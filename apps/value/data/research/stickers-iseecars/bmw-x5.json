@@ -182,6 +182,99 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive35i 4dr SUV",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 59500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 61000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive40e iPerformance 4dr SUV",
+"msrp": 63750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 74050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 60700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 75750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 61200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 76150,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 82150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": null,
 "trims": [

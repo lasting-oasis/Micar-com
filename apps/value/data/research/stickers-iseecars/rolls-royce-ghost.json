@@ -1,0 +1,102 @@
+{
+"make": "Rolls-Royce",
+"model": "Ghost",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ghost).",
+"years": [
+{
+"year": 2010,
+"destination": 2000,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 245000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-rolls__royce-ghost-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 2000,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 246500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-rolls__royce-ghost-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 2000,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 250000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EWB 4dr Sedan",
+"msrp": 290000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-rolls__royce-ghost-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 2000,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 256650,
+"config": "",
+"note": ""
+},
+{
+"trim": "EWB 4dr Sedan",
+"msrp": 296000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-rolls__royce-ghost-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 2000,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 263200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EWB 4dr Sedan",
+"msrp": 303300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-rolls__royce-ghost-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

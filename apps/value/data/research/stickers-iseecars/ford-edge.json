@@ -290,6 +290,222 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 29315,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 31310,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 32050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 34045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Crossover",
+"msrp": 36025,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Crossover",
+"msrp": 38020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 40770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35295,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38760,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40755,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42355,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34355,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36350,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43265,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1245,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 32750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 34745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 37185,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST-Line 4dr Crossover",
+"msrp": 38940,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Crossover",
+"msrp": 38940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr Crossover",
+"msrp": 40935,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Crossover",
+"msrp": 40935,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr Crossover",
+"msrp": 43600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1495,
 "trims": [

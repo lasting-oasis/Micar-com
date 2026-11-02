@@ -5,6 +5,567 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (sierra_1500).",
 "years": [
 {
+"year": 2019,
+"destination": 1595,
+"trims": [
+{
+"trim": "4x2 Base 2dr Regular Cab 8 ft. LB",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Double Cab 6.6 ft. SB",
+"msrp": 33500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 2dr Regular Cab 8 ft. LB",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Crew Cab 5.8 ft. SB",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Crew Cab 6.6 ft. SB",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Double Cab 6.6 ft. SB",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Crew Cab 5.8 ft. SB",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Crew Cab 6.6 ft. SB",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Crew Cab 6.6 ft. SB",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 6.6 ft. SB",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Double Cab 6.6 ft. SB",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Double Cab 6.6 ft. SB",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Double Cab 6.6 ft. SB",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5.8 ft. SB",
+"msrp": 53200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 6.6 ft. SB",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr Crew Cab 6.6 ft. SB",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 58000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 6.6 ft. SB",
+"msrp": 58300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 33500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 48000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 50700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 53700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 58600,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 58900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1695,
+"trims": [
+{
+"trim": "4x2 Base 2dr Regular Cab 8 ft. LB",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Double Cab 6.6 ft. SB",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 2dr Regular Cab 8 ft. LB",
+"msrp": 34700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Base 4dr Crew Cab 5.8 ft. SB",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Double Cab 6.6 ft. SB",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Crew Cab 5.8 ft. SB",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr Crew Cab 6.6 ft. SB",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Double Cab 6.6 ft. SB",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 47100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Crew Cab 5.8 ft. SB",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 6.6 ft. SB",
+"msrp": 47400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 6.6 ft. SB",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 6.6 ft. SB",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 59300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 6.6 ft. SB",
+"msrp": 59600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1795,
 "trims": [

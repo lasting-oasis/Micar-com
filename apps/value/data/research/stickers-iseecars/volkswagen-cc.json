@@ -179,6 +179,135 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2012,
+"destination": 820,
+"trims": [
+{
+"trim": "Sport 4dr Sedan 6M",
+"msrp": 28515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6M",
+"msrp": 28515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6A",
+"msrp": 29615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6A",
+"msrp": 29615,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 4dr Sedan 6M",
+"msrp": 30460,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line PZEV 4dr Sedan 6M",
+"msrp": 30460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux 4dr Sedan",
+"msrp": 31420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux PZEV 4dr Sedan",
+"msrp": 31420,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 4dr Sedan 6A",
+"msrp": 31560,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line PZEV 4dr Sedan 6A",
+"msrp": 31560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Plus 4dr Sedan",
+"msrp": 33865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Plus 4dr Sedan (ends 11/09)",
+"msrp": 33865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Plus PZEV 4dr Sedan",
+"msrp": 33865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Plus PZEV 4dr Sedan (ends 11/09)",
+"msrp": 33865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Limited 4dr Sedan",
+"msrp": 34665,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Limited 4dr Sedan (ends 11/09)",
+"msrp": 34665,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Limited PZEV 4dr Sedan",
+"msrp": 34665,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux Limited PZEV 4dr Sedan (ends 11/09)",
+"msrp": 34665,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 4Motion Executive 4dr Sedan",
+"msrp": 40390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 4Motion Executive 4dr Sedan (ends 11/09)",
+"msrp": 40390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-volkswagen-cc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 865,
 "trims": [

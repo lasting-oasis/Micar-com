@@ -5,6 +5,165 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (levante).",
 "years": [
 {
+"year": 2019,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 75980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GranLusso 4dr SUV",
+"msrp": 81980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GranSport 4dr SUV",
+"msrp": 81980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 86980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S GranLusso 4dr SUV",
+"msrp": 91980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S GranSport 4dr SUV",
+"msrp": 91980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 119980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trofeo 4dr SUV",
+"msrp": 169980,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 72990,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 78990,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 83990,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 88990,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 120980,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 149990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 74490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GranLusso 4dr SUV",
+"msrp": 80490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GranSport 4dr SUV",
+"msrp": 80490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 85490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S GranLusso 4dr SUV",
+"msrp": 90490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S GranSport 4dr SUV",
+"msrp": 90490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 122090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trofeo 4dr SUV",
+"msrp": 149990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1495,
 "trims": [

@@ -5,6 +5,105 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (g90).",
 "years": [
 {
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "3.3T Premium 4dr Sedan",
+"msrp": 69350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T Premium 4dr Sedan",
+"msrp": 71850,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0 Ultimate 4dr Sedan",
+"msrp": 73850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.0 Ultimate 4dr Sedan",
+"msrp": 76350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-genesis-g90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "3.3T Premium 4dr Sedan",
+"msrp": 72200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T Premium 4dr Sedan",
+"msrp": 74700,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0 Ultimate 4dr Sedan",
+"msrp": 75700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.0 Ultimate 4dr Sedan",
+"msrp": 78200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-genesis-g90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1045,
+"trims": [
+{
+"trim": "3.3T Premium 4dr Sedan",
+"msrp": 72950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T Premium 4dr Sedan",
+"msrp": 75450,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0 Ultimate 4dr Sedan",
+"msrp": 76700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.0 Ultimate 4dr Sedan",
+"msrp": 79200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-genesis-g90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1095,
 "trims": [

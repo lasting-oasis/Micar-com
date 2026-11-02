@@ -744,6 +744,138 @@
 "source": "https://www.iseecars.com/car/2014-cadillac-cts-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "2.0T 4dr Sedan",
+"msrp": 46495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T 4dr Sedan",
+"msrp": 48495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Luxury 4dr Sedan",
+"msrp": 52195,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L Luxury 4dr Sedan",
+"msrp": 54195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T Luxury 4dr Sedan",
+"msrp": 54195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6L Luxury 4dr Sedan",
+"msrp": 56195,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L Premium Luxury 4dr Sedan",
+"msrp": 59695,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L TT V-sport 4dr Sedan",
+"msrp": 61195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6L Premium Luxury 4dr Sedan",
+"msrp": 61695,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L TT V-sport Premium Luxury 4dr Sedan",
+"msrp": 71295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-cadillac-cts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 46995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 52695,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54695,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56695,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 60195,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 61695,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 62195,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 71795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-cadillac-cts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

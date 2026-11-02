@@ -2,161 +2,206 @@
 "make": "Mitsubishi",
 "model": "Outlander Sport",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (outlander_sport).",
+"note": "Trim-level MSRPs from iSeeCars price pages (outlander-sport).",
 "years": [
 {
-"year": 2011,
-"destination": 810,
+"year": 2010,
+"destination": null,
 "trims": [
 {
-"trim": "ES 4dr Crossover 5M",
-"msrp": 18495,
+"trim": "ES 4dr SUV",
+"msrp": 20840,
 "config": "",
 "note": ""
 },
 {
-"trim": "ES 4dr Crossover CVT",
-"msrp": 19495,
+"trim": "AWD ES 4dr SUV",
+"msrp": 22240,
 "config": "",
 "note": ""
 },
 {
-"trim": "SE 4dr Crossover",
-"msrp": 21695,
+"trim": "SE 4dr SUV",
+"msrp": 22540,
 "config": "",
 "note": ""
 },
 {
-"trim": "AWD SE 4dr Crossover",
-"msrp": 22995,
+"trim": "AWD SE 4dr SUV",
+"msrp": 23940,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLS 4dr SUV",
+"msrp": 24990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLS 4dr SUV",
+"msrp": 26390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr SUV",
+"msrp": 29250,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2011-mitsubishi-outlander_sport-price",
+"source": "https://www.iseecars.com/car/2010-mitsubishi-outlander-sport-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2012,
-"destination": 810,
+"year": 2011,
+"destination": null,
 "trims": [
 {
-"trim": "ES 4dr Crossover 5M",
-"msrp": 18795,
-"config": "",
-"note": ""
-},
-{
-"trim": "ES 4dr Crossover CVT",
-"msrp": 19795,
-"config": "",
-"note": ""
-},
-{
-"trim": "SE 4dr Crossover",
+"trim": "ES 4dr SUV",
 "msrp": 21995,
 "config": "",
 "note": ""
 },
 {
-"trim": "AWD SE 4dr Crossover",
-"msrp": 23295,
+"trim": "SE 4dr SUV",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLS 4dr SUV",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr SUV",
+"msrp": 27795,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2012-mitsubishi-outlander_sport-price",
+"source": "https://www.iseecars.com/car/2011-mitsubishi-outlander-sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": null,
+"trims": [
+{
+"trim": "ES 4dr SUV",
+"msrp": 22345,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 23345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 24845,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr SUV",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr SUV",
+"msrp": 27895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-mitsubishi-outlander-sport-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2013,
-"destination": 825,
+"destination": null,
 "trims": [
 {
-"trim": "ES 4dr Crossover 5M",
-"msrp": 19170,
+"trim": "ES 4dr SUV",
+"msrp": 22695,
 "config": "",
 "note": ""
 },
 {
-"trim": "ES 4dr Crossover CVT",
-"msrp": 20370,
+"trim": "SE 4dr SUV",
+"msrp": 23995,
 "config": "",
 "note": ""
 },
 {
-"trim": "AWD ES 4dr Crossover",
-"msrp": 21770,
+"trim": "AWD SE 4dr SUV",
+"msrp": 25495,
 "config": "",
 "note": ""
 },
 {
-"trim": "SE 4dr Crossover",
-"msrp": 22295,
+"trim": "GT 4dr SUV",
+"msrp": 26595,
 "config": "",
 "note": ""
 },
 {
-"trim": "LE 4dr Crossover",
-"msrp": 23495,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD SE 4dr Crossover",
-"msrp": 23695,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD LE 4dr Crossover",
-"msrp": 24895,
+"trim": "AWD GT 4dr SUV",
+"msrp": 28595,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2013-mitsubishi-outlander_sport-price",
+"source": "https://www.iseecars.com/car/2013-mitsubishi-outlander-sport-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2014,
-"destination": 850,
+"destination": null,
 "trims": [
 {
-"trim": "ES 4dr Crossover 5M",
-"msrp": 19470,
+"trim": "ES 4dr SUV",
+"msrp": 22995,
 "config": "",
 "note": ""
 },
 {
-"trim": "ES 4dr Crossover CVT",
-"msrp": 20670,
+"trim": "SE 4dr SUV",
+"msrp": 23795,
 "config": "",
 "note": ""
 },
 {
-"trim": "AWD ES 4dr Crossover",
-"msrp": 22070,
+"trim": "AWD SE 4dr SUV",
+"msrp": 25795,
 "config": "",
 "note": ""
 },
 {
-"trim": "SE 4dr Crossover",
-"msrp": 22595,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD SE 4dr Crossover",
-"msrp": 23995,
+"trim": "AWD GT 4dr SUV",
+"msrp": 27795,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2014-mitsubishi-outlander_sport-price",
+"source": "https://www.iseecars.com/car/2014-mitsubishi-outlander-sport-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }

@@ -228,6 +228,177 @@
 "source": "https://www.iseecars.com/car/2014-nissan-rogue-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 25020,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26370,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26440,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27790,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31640,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32840,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26620,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27970,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31590,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32940,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27340,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28740,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35430,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36830,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

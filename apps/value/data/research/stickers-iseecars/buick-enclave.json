@@ -242,6 +242,159 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 55800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 56100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": null,
 "trims": [

@@ -374,6 +374,561 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 25850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26680,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27625,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28110,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28515,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 28925,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 30770,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31575,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31665,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31915,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32115,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32415,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 32545,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34110,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34520,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35135,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35490,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35830,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36765,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37375,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37790,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40865,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42960,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45665,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 26050,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 26880,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 27825,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 28310,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 28715,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29125,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 30970,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 31775,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32115,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32315,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32615,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32745,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34310,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34720,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35335,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35690,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36030,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36965,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37575,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 38790,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41865,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43960,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46665,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1215,
+"trims": [
+{
+"trim": "4x2 SR 4dr Access Cab 6.1 ft LB",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab 5.0 ft SB",
+"msrp": 27230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Access Cab 6.1 ft LB",
+"msrp": 28190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR V6 4dr Access Cab 6.1 ft LB",
+"msrp": 28660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab 5.0 ft SB",
+"msrp": 29080,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Access Cab 6.1 ft LB",
+"msrp": 29475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Access Cab 6.1 ft LB",
+"msrp": 31265,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 V6 4dr Access Cab 6.1 ft LB",
+"msrp": 31335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR V6 4dr Access Cab 6.1 ft LB",
+"msrp": 32125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 V6 4dr Double Cab 5.0 ft SB",
+"msrp": 32480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR V6 4dr Double Cab 5.0 ft SB",
+"msrp": 32665,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 V6 4dr Double Cab 6.1 ft LB",
+"msrp": 32980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Access Cab 6.1 ft LB",
+"msrp": 33310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Off-Road 4dr Double Cab 5.0 ft SB",
+"msrp": 34565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 5.0 ft SB",
+"msrp": 34565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 V6 4dr Access Cab 6.1 ft LB",
+"msrp": 34675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 35065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Access Cab 6.1 ft LB 6M",
+"msrp": 35085,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 V6 4dr Double Cab 5.0 ft SB",
+"msrp": 35555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 V6 4dr Double Cab 6.1 ft LB",
+"msrp": 36055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Access Cab 6.1 ft LB",
+"msrp": 36595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Access Cab 6.1 ft LB 6A",
+"msrp": 36595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 6A",
+"msrp": 37530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 6A",
+"msrp": 37530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 6.1 ft LB",
+"msrp": 38140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 38140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab 5.0 ft SB",
+"msrp": 39155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab 5.0 ft SB",
+"msrp": 42230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab 6.1 ft. LB",
+"msrp": 42730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 44325,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro 4dr Double Cab 5.0 ft SB 6A",
+"msrp": 47030,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1335,
 "trims": [

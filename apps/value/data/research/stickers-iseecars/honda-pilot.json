@@ -410,6 +410,273 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33350,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34330,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36230,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37760,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39660,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39760,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41660,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42520,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42820,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44420,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44720,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 31650,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 33650,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 34530,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36530,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37960,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39960,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41960,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 42720,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44720,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 45020,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 48220,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 49720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 32550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34550,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 35230,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37230,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38660,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39260,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40660,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41260,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43220,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43520,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45220,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45520,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48720,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

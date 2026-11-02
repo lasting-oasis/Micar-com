@@ -170,6 +170,219 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 67500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 68500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 72990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 73990,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 75000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 82950,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 86500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 97500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 114500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 68650,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 74250,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 75000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 82950,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 86500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 88990,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 97500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 114500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 78500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 79500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 84000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 87500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 90000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 98500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 115500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 130000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1350,
 "trims": [
