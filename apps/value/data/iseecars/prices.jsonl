@@ -10062,3 +10062,40 @@
 {"year": 2013, "make": "Toyota", "slug": "2013-toyota-matrix", "style": "AWD S 4dr Wagon", "invoice": 20733, "msrp": 22415, "destination": 795}
 {"year": 2013, "make": "Toyota", "slug": "2013-toyota-rav4_ev", "style": "Base 4dr SUV", "invoice": 47808, "msrp": 49800, "destination": 845}
 {"year": 2014, "make": "Aston Martin", "slug": "2014-aston_martin-rapide_s", "style": "4dr Sedan", "invoice": 0, "msrp": 198250, "destination": 2825}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-clubman", "style": "Cooper 2dr Wagon", "invoice": 19690, "msrp": 21400, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-clubman", "style": "Cooper S 2dr Wagon", "invoice": 23090, "msrp": 25100, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-clubman", "style": "John Cooper Works 2dr Wagon", "invoice": 29715, "msrp": 32300, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-countryman", "style": "Cooper 4dr Crossover", "invoice": 20330, "msrp": 22100, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-countryman", "style": "Cooper S 4dr Crossover", "invoice": 23645, "msrp": 25700, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-countryman", "style": "AWD Cooper S ALL4 4dr Crossover", "invoice": 25210, "msrp": 27400, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-countryman", "style": "AWD John Cooper Works ALL4 4dr Crossover", "invoice": 32155, "msrp": 34950, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-hardtop", "style": "Cooper 2dr Hatchback", "invoice": 18355, "msrp": 19950, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-hardtop", "style": "Cooper S 2dr Hatchback", "invoice": 21710, "msrp": 23600, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-paceman", "style": "Cooper 2dr Hatchback", "invoice": 21435, "msrp": 23300, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-paceman", "style": "Cooper S 2dr Hatchback", "invoice": 24750, "msrp": 26900, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-paceman", "style": "AWD Cooper S ALL4 2dr Hatchback", "invoice": 26310, "msrp": 28600, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-paceman", "style": "AWD John Cooper Works ALL4 2dr Hatchback", "invoice": 32750, "msrp": 35600, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-roadster", "style": "Cooper 2dr Convertible", "invoice": 23505, "msrp": 25550, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-roadster", "style": "Cooper S 2dr Convertible", "invoice": 26265, "msrp": 28550, "destination": 795}
+{"year": 2014, "make": "Mini", "slug": "2014-mini-roadster", "style": "John Cooper Works 2dr Convertible", "invoice": 32845, "msrp": 35700, "destination": 795}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-hardtop", "style": "Cooper 2dr Hatchback", "invoice": 17730, "msrp": 19700, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-hardtop", "style": "Cooper S 2dr Hatchback", "invoice": 20970, "msrp": 23300, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-hardtop", "style": "John Cooper Works 2dr Hatchback", "invoice": 27090, "msrp": 30100, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-paceman", "style": "Cooper 2dr Hatchback", "invoice": 21345, "msrp": 23200, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-paceman", "style": "Cooper S 2dr Hatchback", "invoice": 24655, "msrp": 26800, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-paceman", "style": "AWD Cooper S ALL4 2dr Hatchback", "invoice": 26220, "msrp": 28500, "destination": 700}
+{"year": 2013, "make": "Mini", "slug": "2013-mini-paceman", "style": "AWD John Cooper Works ALL4 2dr Hatchback", "invoice": 32660, "msrp": 35500, "destination": 700}
+{"year": 2014, "make": "Honda", "slug": "2014-honda-accord_plug__in", "style": "Base 4dr Sedan", "invoice": 36358, "msrp": 39780, "destination": 790}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q60_coupe", "style": "AWD 2dr Coupe", "invoice": 38943, "msrp": 42600, "destination": 905}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q60_coupe", "style": "IPL 2dr Coupe 7A", "invoice": 49152, "msrp": 53650, "destination": 905}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q60_coupe", "style": "IPL 2dr Coupe 6M", "invoice": 47396, "msrp": 51750, "destination": 905}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q60_coupe", "style": "Journey 2dr Coupe", "invoice": 37420, "msrp": 40950, "destination": 905}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q60_coupe", "style": "Sport 2dr Coupe", "invoice": 42131, "msrp": 46050, "destination": 905}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q70_hybrid", "style": "4dr Sedan", "invoice": 51662, "msrp": 55650, "destination": 905}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-qx60", "style": "4dr SUV", "invoice": 38482, "msrp": 42100, "destination": 995}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-qx60", "style": "AWD 4dr SUV", "invoice": 39775, "msrp": 43500, "destination": 995}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-qx60_hybrid", "style": "4dr SUV", "invoice": 41253, "msrp": 45100, "destination": 995}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-qx60_hybrid", "style": "AWD 4dr SUV", "invoice": 42546, "msrp": 46500, "destination": 995}
+{"year": 2014, "make": "Lexus", "slug": "2014-lexus-es_300h", "style": "4dr Sedan", "invoice": 37000, "msrp": 39500, "destination": 910}
+{"year": 2014, "make": "McLaren", "slug": "2014-mclaren-mp4__12c_spider", "style": "2dr Convertible", "invoice": 0, "msrp": 265750, "destination": 2500}
+{"year": 2014, "make": "McLaren", "slug": "2014-mclaren-p1", "style": "2dr Coupe", "invoice": 0, "msrp": 1150000, "destination": 2500}
