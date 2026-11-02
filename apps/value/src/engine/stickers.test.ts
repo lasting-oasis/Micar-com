@@ -23,7 +23,7 @@ describe('stickers', () => {
     expect(prefillMsrp('Lexus', 'IS', 2013, 'IS 350 4dr Sedan')).toMatchObject({ msrp: 40320, source: 'sticker' });
     expect(prefillMsrp('Honda', 'Civic', 2009, '')?.source).toBe('typical');
     expect(prefillMsrp('Toyota', 'Camry', 2022, 'SE')).toMatchObject({ msrp: 27385, source: 'sticker' });
-    expect(prefillMsrp('Lexus', 'RX', 2022, '')?.source).toBe('typical'); // no sticker table on file
+    expect(prefillMsrp('Lexus', 'RX', 2022, '')?.source).toBe('sticker'); // filled from the archived iSeeCars page
     expect(prefillMsrp('Toyota', 'Nope', 2022, '')).toBeNull();
     expect(stickerMsrp(stickerFor('Honda', 'Civic', 2016)!.year, 'ex-l')).toBe(23700);
   });

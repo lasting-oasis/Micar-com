@@ -47,7 +47,9 @@ export function resolveStickerTrim(y: StickerYear, candidates: (string | null | 
   const words = (s: string) => ` ${s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()} `;
   const pick = (rows: StickerTrim[]) => {
     if (body === 'Pickup Truck') {
-      const crew4x4 = rows.find((t) => /(supercrew|crew\s*cab|double\s*cab|crewmax)/i.test(t.config) && /(4x4|4wd|awd)/i.test(t.config));
+      // Researched files put the cab/drive in config; iSeeCars puts it in the style name.
+      const desc = (t: StickerTrim) => `${t.config} ${t.trim}`;
+      const crew4x4 = rows.find((t) => /(supercrew|crew\s*cab|double\s*cab|crewmax|quad\s*cab)/i.test(desc(t)) && /(4x4|4wd|awd)/i.test(desc(t)));
       if (crew4x4) return crew4x4;
     }
     return rows[0];
@@ -67,6 +69,14 @@ export function resolveStickerTrim(y: StickerYear, candidates: (string | null | 
       const longest = Math.max(...hits.map((t) => norm(t.trim).length));
       return pick(hits.filter((t) => norm(t.trim).length === longest));
     }
+  }
+  // 3. The listing's trim named as whole words inside an iSeeCars style name
+  //    ("SLT" -> "4x4 SLT 4dr Crew Cab 5.8 ft. SB"); cheapest such style, crew 4x4 for pickups.
+  for (const c of list) {
+    const needle = words(c);
+    if (norm(c).length < 2) continue;
+    const hits = y.trims.filter((t) => words(t.trim).includes(needle));
+    if (hits.length) return pick(hits);
   }
   return y.trims[0];
 }
