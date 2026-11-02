@@ -9924,3 +9924,34 @@
 {"year": 2011, "make": "Saab", "slug": "2011-saab-9__4x", "style": "AWD Aero XWD 4dr SUV", "invoice": 45850, "msrp": 48010, "destination": 825}
 {"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-virage", "style": "2dr Coupe", "invoice": 0, "msrp": 208295, "destination": 1615}
 {"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-virage", "style": "Volante 2dr Convertible", "invoice": 0, "msrp": 223295, "destination": 1615}
+{"year": 2014, "make": "Mazda", "slug": "2014-mazda-mazda2", "style": "Sport 4dr Hatchback 5M", "invoice": 14525, "msrp": 14720, "destination": 795}
+{"year": 2014, "make": "Mazda", "slug": "2014-mazda-mazda2", "style": "Sport 4dr Hatchback 4A", "invoice": 15355, "msrp": 15560, "destination": 795}
+{"year": 2014, "make": "Mazda", "slug": "2014-mazda-mazda2", "style": "Touring 4dr Hatchback 5M", "invoice": 15995, "msrp": 16210, "destination": 795}
+{"year": 2014, "make": "Mazda", "slug": "2014-mazda-mazda2", "style": "Touring 4dr Hatchback 4A", "invoice": 16824, "msrp": 17050, "destination": 795}
+{"year": 2012, "make": "Rolls-Royce", "slug": "2012-rolls__royce-ghost", "style": "4dr Sedan", "invoice": 0, "msrp": 250000, "destination": 2000}
+{"year": 2012, "make": "Rolls-Royce", "slug": "2012-rolls__royce-ghost", "style": "EWB 4dr Sedan", "invoice": 0, "msrp": 290000, "destination": 2000}
+{"year": 2013, "make": "Rolls-Royce", "slug": "2013-rolls__royce-ghost", "style": "4dr Sedan", "invoice": 0, "msrp": 256650, "destination": 2000}
+{"year": 2013, "make": "Rolls-Royce", "slug": "2013-rolls__royce-ghost", "style": "EWB 4dr Sedan", "invoice": 0, "msrp": 296000, "destination": 2000}
+{"year": 2014, "make": "Rolls-Royce", "slug": "2014-rolls__royce-ghost", "style": "4dr Sedan", "invoice": 0, "msrp": 263200, "destination": 2000}
+{"year": 2014, "make": "Rolls-Royce", "slug": "2014-rolls__royce-ghost", "style": "EWB 4dr Sedan", "invoice": 0, "msrp": 303300, "destination": 2000}
+{"year": 2012, "make": "Lexus", "slug": "2012-lexus-hs_250h", "style": "4dr Sedan", "invoice": 33698, "msrp": 37030, "destination": 875}
+{"year": 2012, "make": "Lexus", "slug": "2012-lexus-hs_250h", "style": "Premium 4dr Sedan", "invoice": 36218, "msrp": 39800, "destination": 875}
+{"year": 2012, "make": "Mazda", "slug": "2012-mazda-cx__7", "style": "i Sport 4dr SUV", "invoice": 22337, "msrp": 22995, "destination": 795}
+{"year": 2012, "make": "Mazda", "slug": "2012-mazda-cx__7", "style": "i SV 4dr SUV", "invoice": 21555, "msrp": 22190, "destination": 795}
+{"year": 2012, "make": "Mazda", "slug": "2012-mazda-cx__7", "style": "i Touring 4dr SUV", "invoice": 25826, "msrp": 26590, "destination": 795}
+{"year": 2012, "make": "Mazda", "slug": "2012-mazda-cx__7", "style": "s Grand Touring 4dr SUV", "invoice": 30443, "msrp": 31840, "destination": 795}
+{"year": 2012, "make": "Mazda", "slug": "2012-mazda-cx__7", "style": "AWD s Grand Touring 4dr SUV", "invoice": 32066, "msrp": 33540, "destination": 795}
+{"year": 2012, "make": "Mazda", "slug": "2012-mazda-cx__7", "style": "AWD s Touring 4dr SUV", "invoice": 26923, "msrp": 28155, "destination": 795}
+{"year": 2012, "make": "Mazda", "slug": "2012-mazda-cx__7", "style": "s Touring 4dr SUV", "invoice": 25300, "msrp": 26455, "destination": 795}
+{"year": 2012, "make": "McLaren", "slug": "2012-mclaren-mp4__12c", "style": "2dr Coupe", "invoice": 0, "msrp": 229000, "destination": 2400}
+{"year": 2012, "make": "Mini", "slug": "2012-mini-cooper_coupe", "style": "Base 2dr Coupe", "invoice": 19170, "msrp": 21300, "destination": 700}
+{"year": 2012, "make": "Mini", "slug": "2012-mini-cooper_coupe", "style": "John Cooper Works 2dr Coupe", "invoice": 28080, "msrp": 31200, "destination": 700}
+{"year": 2012, "make": "Mini", "slug": "2012-mini-cooper_coupe", "style": "S 2dr Coupe", "invoice": 22140, "msrp": 24600, "destination": 700}
+{"year": 2012, "make": "Mini", "slug": "2012-mini-cooper_roadster", "style": "Base 2dr Convertible", "invoice": 21915, "msrp": 24350, "destination": 700}
+{"year": 2012, "make": "Mini", "slug": "2012-mini-cooper_roadster", "style": "John Cooper Works 2dr Convertible", "invoice": 31050, "msrp": 34500, "destination": 700}
+{"year": 2012, "make": "Mini", "slug": "2012-mini-cooper_roadster", "style": "S 2dr Convertible", "invoice": 24615, "msrp": 27350, "destination": 700}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-eclipse_spyder", "style": "GS Sport 2dr Convertible", "invoice": 26817, "msrp": 27999, "destination": 795}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-eclipse_spyder", "style": "GT 2dr Convertible", "invoice": 31223, "msrp": 32599, "destination": 795}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-eclipse_spyder", "style": "SE 2dr Convertible", "invoice": 27105, "msrp": 28299, "destination": 795}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-i__miev", "style": "ES 4dr Hatchback", "invoice": 28499, "msrp": 29125, "destination": 850}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-i__miev", "style": "SE 4dr Hatchback", "invoice": 30456, "msrp": 31125, "destination": 850}
