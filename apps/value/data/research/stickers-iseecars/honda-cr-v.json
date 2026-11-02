@@ -1,0 +1,339 @@
+{
+"make": "Honda",
+"model": "CR-V",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (cr__v, cr__v_hybrid).",
+"years": [
+{
+"year": 2022,
+"destination": 1245,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 28000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 29310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 30810,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD EX 4dr SUV",
+"msrp": 32010,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD EX-L 4dr SUV",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr SUV",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Touring 4dr SUV",
+"msrp": 37800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1295,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 28410,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 29910,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV w/o BSI",
+"msrp": 31060,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 31610,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Sport 4dr SUV w/o BSI",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV w/o BSI",
+"msrp": 32560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Sport 4dr SUV",
+"msrp": 32950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 33110,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV w/o BSI",
+"msrp": 33710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Sport 4dr SUV w/o BSI",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 34260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Sport 4dr SUV",
+"msrp": 34450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV w/o BSI",
+"msrp": 35210,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 35760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Sport Touring 4dr SUV",
+"msrp": 39100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1325,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 31000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 32010,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 33510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Sport 4dr SUV",
+"msrp": 34050,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 34660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Sport 4dr SUV",
+"msrp": 35550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 36160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Sport-L 4dr SUV",
+"msrp": 37050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Sport-L 4dr SUV",
+"msrp": 38550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Sport Touring 4dr SUV",
+"msrp": 40200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1395,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 31600,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 32350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 33850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Sport 4dr SUV",
+"msrp": 34650,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Sport 4dr SUV",
+"msrp": 36150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Sport-L 4dr SUV",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Sport-L 4dr SUV",
+"msrp": 39150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Sport Touring 4dr SUV",
+"msrp": 41100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -60,6 +60,33 @@
 "source": "https://www.iseecars.com/car/2014-buick-encore-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1195,
+"trims": [
+{
+"trim": "Base 4dr Crossover",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 24600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 25220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-buick-encore-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

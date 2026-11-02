@@ -1,0 +1,42 @@
+{
+"make": "Alfa Romeo",
+"model": "Tonale",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (tonale).",
+"years": [
+{
+"year": 2024,
+"destination": 1595,
+"trims": [
+{
+"trim": "eAWD Sprint 4dr Crossover",
+"msrp": 43845,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD Ti 4dr Crossover",
+"msrp": 45840,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD Veloce 4dr Crossover",
+"msrp": 48840,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD Speciale 4dr Crossover",
+"msrp": 48840,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-alfaromeo-tonale-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

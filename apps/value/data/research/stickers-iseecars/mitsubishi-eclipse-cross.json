@@ -1,0 +1,93 @@
+{
+"make": "Mitsubishi",
+"model": "Eclipse Cross",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (eclipse_cross).",
+"years": [
+{
+"year": 2023,
+"destination": 1345,
+"trims": [
+{
+"trim": "AWD ES 4dr Crossover",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Crossover",
+"msrp": 27045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 28045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ralliart 4dr Crossover",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-mitsubishi-eclipse_cross-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1445,
+"trims": [
+{
+"trim": "AWD ES 4dr Crossover",
+"msrp": 26345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Crossover",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 29045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Edition 4dr Crossover",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ralliart 4dr Crossover",
+"msrp": 31145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-mitsubishi-eclipse_cross-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

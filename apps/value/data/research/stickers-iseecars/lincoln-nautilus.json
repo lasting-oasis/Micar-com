@@ -1,0 +1,141 @@
+{
+"make": "Lincoln",
+"model": "Nautilus",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (nautilus).",
+"years": [
+{
+"year": 2022,
+"destination": 1195,
+"trims": [
+{
+"trim": "Standard 4dr SUV",
+"msrp": 44090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Standard 4dr SUV",
+"msrp": 46590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4dr SUV",
+"msrp": 50505,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Reserve 4dr SUV",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label 4dr SUV",
+"msrp": 66710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-lincoln-nautilus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "Standard 4dr SUV",
+"msrp": 44825,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Standard 4dr SUV",
+"msrp": 47325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4dr SUV",
+"msrp": 51040,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Reserve 4dr SUV",
+"msrp": 53535,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label 4dr SUV",
+"msrp": 67245,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lincoln-nautilus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1595,
+"trims": [
+{
+"trim": "AWD Premiere 4dr SUV",
+"msrp": 50415,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Reserve 4dr SUV",
+"msrp": 54750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label 4dr SUV",
+"msrp": 74250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-lincoln-nautilus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1595,
+"trims": [
+{
+"trim": "AWD Premiere 4dr SUV",
+"msrp": 53940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Reserve 4dr SUV",
+"msrp": 63180,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label 4dr SUV",
+"msrp": 77130,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-lincoln-nautilus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

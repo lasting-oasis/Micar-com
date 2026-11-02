@@ -1,0 +1,411 @@
+{
+"make": "Mazda",
+"model": "Mazda3",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (mazda3).",
+"years": [
+{
+"year": 2022,
+"destination": 1015,
+"trims": [
+{
+"trim": "2.0 4dr Sedan",
+"msrp": 20800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S 4dr Sedan",
+"msrp": 21750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S 4dr Hatchback",
+"msrp": 22750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select 4dr Sedan",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select 4dr Hatchback",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred 4dr Sedan",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred 4dr Hatchback",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Preferred 4dr Sedan",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carbon Edition 4dr Sedan",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Preferred 4dr Hatchback",
+"msrp": 27150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Sedan",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carbon Edition 4dr Hatchback",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback 6A",
+"msrp": 28350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback 6M",
+"msrp": 28350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Sedan",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Hatchback",
+"msrp": 29750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo 4dr Sedan",
+"msrp": 30550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo 4dr Hatchback",
+"msrp": 31550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Plus 4dr Sedan",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Plus 4dr Hatchback",
+"msrp": 34400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-mazda-mazda3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1165,
+"trims": [
+{
+"trim": "2.5 S 4dr Sedan",
+"msrp": 22550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S 4dr Hatchback",
+"msrp": 23550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Select 4dr Sedan",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Select 4dr Hatchback",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Preferred 4dr Sedan",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Preferred 4dr Hatchback",
+"msrp": 26550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Carbon Edition 4dr Sedan",
+"msrp": 27200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Carbon Edition 4dr Hatchback",
+"msrp": 28200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Carbon Edition 4dr Sedan",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Premium 4dr Hatchback",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Premium 4dr Sedan",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Carbon Edition 4dr Hatchback",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Premium 4dr Hatchback",
+"msrp": 30400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo 4dr Hatchback",
+"msrp": 32450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Premium Plus 4dr Sedan",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Premium Plus 4dr Hatchback",
+"msrp": 35300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-mazda-mazda3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1185,
+"trims": [
+{
+"trim": "2.5 S 4dr Sedan",
+"msrp": 24170,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Select Sport 4dr Sedan",
+"msrp": 24690,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Select Sport 4dr Hatchback",
+"msrp": 25690,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Preferred 4dr Sedan",
+"msrp": 26190,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Preferred 4dr Hatchback",
+"msrp": 27390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Carbon Edition 4dr Sedan",
+"msrp": 29060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Carbon Edition 4dr Hatchback",
+"msrp": 30260,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Premium 4dr Hatchback",
+"msrp": 30350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Carbon Turbo 4dr Sedan",
+"msrp": 31750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Carbon Turbo 4dr Hatchback",
+"msrp": 32950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Premium Plus 4dr Sedan",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Premium Plus 4dr Hatchback",
+"msrp": 36650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-mazda-mazda3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1235,
+"trims": [
+{
+"trim": "2.5 S 4dr Sedan",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Select Sport 4dr Sedan",
+"msrp": 24890,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S 4dr Hatchback",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Select Sport 4dr Hatchback",
+"msrp": 26190,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Preferred 4dr Sedan",
+"msrp": 26540,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Preferred 4dr Hatchback",
+"msrp": 27890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Carbon Edition 4dr Sedan",
+"msrp": 29610,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Carbon Edition 4dr Hatchback",
+"msrp": 30760,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Premium 4dr Hatchback",
+"msrp": 30850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Carbon Turbo 4dr Sedan",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Carbon Turbo 4dr Hatchback",
+"msrp": 33450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Premium Plus 4dr Sedan",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Premium Plus 4dr Hatchback",
+"msrp": 37150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-mazda-mazda3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

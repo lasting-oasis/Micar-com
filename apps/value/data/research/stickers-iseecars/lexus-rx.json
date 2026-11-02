@@ -2,7 +2,7 @@
 "make": "Lexus",
 "model": "RX",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (rx_350, rx_450h).",
+"note": "Trim-level MSRPs from iSeeCars price pages (rx_350, rx_350h, rx_450h).",
 "years": [
 {
 "year": 2010,
@@ -180,6 +180,330 @@
 "source": "https://www.iseecars.com/car/2014-lexus-rx_350-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1075,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 45920,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 47320,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT 4dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT 4dr SUV",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT Handling 4dr SUV",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 53200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1150,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD 4dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium 4dr SUV",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium 4dr SUV",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium 4dr SUV",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium+ 4dr SUV",
+"msrp": 52400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium+ 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium+ 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Luxury 4dr SUV",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Luxury 4dr SUV",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Luxury 4dr SUV",
+"msrp": 57400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1195,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium 4dr SUV",
+"msrp": 50750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD 4dr SUV",
+"msrp": 50750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium 4dr SUV",
+"msrp": 52350,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium+ 4dr SUV",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium 4dr SUV",
+"msrp": 52900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium+ 4dr SUV",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium+ 4dr SUV",
+"msrp": 54750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Luxury 4dr SUV",
+"msrp": 57730,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Luxury 4dr SUV",
+"msrp": 59330,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Luxury 4dr SUV",
+"msrp": 59880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1150,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 48975,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 50575,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD 4dr SUV",
+"msrp": 51125,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium 4dr SUV",
+"msrp": 51225,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium 4dr SUV",
+"msrp": 52825,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium 4dr SUV",
+"msrp": 53375,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT Design 4dr SUV",
+"msrp": 53555,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium+ 4dr SUV",
+"msrp": 54715,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Design 4dr SUV",
+"msrp": 55155,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD F SPORT Design 4dr SUV",
+"msrp": 55705,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium+ 4dr SUV",
+"msrp": 56315,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium+ 4dr SUV",
+"msrp": 56865,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 57825,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Luxury 4dr SUV",
+"msrp": 59770,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Luxury 4dr SUV",
+"msrp": 61370,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Luxury 4dr SUV",
+"msrp": 61920,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-lexus-rx_350h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

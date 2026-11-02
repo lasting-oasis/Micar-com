@@ -1,0 +1,54 @@
+{
+"make": "Subaru",
+"model": "WRX",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (wrx).",
+"years": [
+{
+"year": 2025,
+"destination": 1170,
+"trims": [
+{
+"trim": "AWD Premium 4dr Sedan 6M",
+"msrp": 37750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Sedan SPT",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan 6M",
+"msrp": 42130,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan SPT",
+"msrp": 43680,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr Sedan",
+"msrp": 47705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD tS 4dr Sedan",
+"msrp": 47705,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-subaru-wrx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,885 @@
+{
+"make": "Ram",
+"model": "1500",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (ram_pickup_1500).",
+"years": [
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 HFE 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 38137,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 41715,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 41715,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Laramie 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 43345,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 44415,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 44415,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 44715,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 44715,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 45215,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 45215,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 HFE 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 46006,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Laramie 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 46845,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 47915,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 47915,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Rebel 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 48140,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 48215,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 48215,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Laramie 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 50040,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Laramie 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 50340,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Rebel 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 51385,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Laramie 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 53540,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Laramie 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 53840,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Rebel 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 54885,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited Longhorn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 57470,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited Longhorn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 57770,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited Longhorn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 60970,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited Longhorn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 61270,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 62485,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 62785,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 65985,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 66285,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 AWD TRX 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 78790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ram-ram_pickup_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1995,
+"trims": [
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 37410,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 HFE 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 39050,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 40160,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 41260,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 42625,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 42625,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 43455,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 44010,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 45375,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 45375,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 46475,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 46475,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 47305,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 48670,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 48670,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 49225,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 49225,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 52520,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 52520,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Laramie 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 52625,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Rebel 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 53440,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Laramie 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 55920,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Laramie 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 56475,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Rebel 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 57290,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited Longhorn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 59385,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Laramie 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 59770,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited Longhorn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 62680,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited Longhorn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 63235,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 63800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 64100,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited Longhorn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 66530,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 67650,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 67950,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 AWD TRX 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 84355,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ram-ram_pickup_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 39420,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 HFE 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 41060,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 42170,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 43270,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 44585,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 44585,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 45465,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 46020,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 47335,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 47335,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 48435,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 48435,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 49315,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 50630,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 50630,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 51185,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 51185,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 54480,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 54480,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Laramie 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 54635,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Rebel 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 55450,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Laramie 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 57930,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Laramie 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 58485,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Rebel 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 59300,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited Longhorn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 61395,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Laramie 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 61780,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited Longhorn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 64690,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited Longhorn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 65245,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 65810,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Limited 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 66110,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited Longhorn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 68540,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 69660,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 69960,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 AWD TRX 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 96340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ram-ram_pickup_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2095,
+"trims": [
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 40275,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 HFE 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 41060,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Express 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 43025,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 44125,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 44935,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 44935,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Express 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 45150,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 46165,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Express 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 46250,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 46875,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 47685,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 47685,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 48785,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 48785,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Express 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 50015,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 50825,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Lone Star 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 50825,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 51535,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 51535,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Warlock 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 54260,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 54675,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Lone Star 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 54675,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x2 Laramie 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 60030,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Laramie 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 63880,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Rebel 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 64195,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Laramie 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 64325,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 AWD RHO 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 69995,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 75155,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 75455,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited Longhorn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 75650,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Limited Longhorn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 75950,
+"config": "",
+"note": ""
+},
+{
+"trim": "RAM Pickup 1500 4x4 Tungsten 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 87075,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-ram-ram_pickup_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

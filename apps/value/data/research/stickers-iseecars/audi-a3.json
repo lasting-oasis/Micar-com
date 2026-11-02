@@ -246,6 +246,60 @@
 "source": "https://www.iseecars.com/car/2012-audi-a3-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "Premium 40 TFSI 4dr Sedan",
+"msrp": 35800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 40 TFSI 4dr Sedan",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 40 TFSI 4dr Sedan",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 40 TFSI 4dr Sedan",
+"msrp": 41400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD quattro Premium 40 TFSI 4dr Sedan",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 40 TFSI 4dr Sedan",
+"msrp": 40800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

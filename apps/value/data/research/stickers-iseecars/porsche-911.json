@@ -534,6 +534,540 @@
 "source": "https://www.iseecars.com/car/2014-porsche-911-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 101200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 108500,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 114000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 117100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 121300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 124400,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 129900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 137200,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 161100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 174300,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 187100,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 207000,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 219800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1450,
+"trims": [
+{
+"trim": "Carrera 2dr Coupe",
+"msrp": 106100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Coupe",
+"msrp": 113400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera T 2dr Coupe",
+"msrp": 116600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 2dr Cabriolet",
+"msrp": 118900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Coupe",
+"msrp": 123000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4 2dr Convertible",
+"msrp": 126200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Cabriolet",
+"msrp": 126200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Coupe",
+"msrp": 130300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Cabriolet",
+"msrp": 135800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Coupe",
+"msrp": 142600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4S 2dr Convertible",
+"msrp": 143100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Cabriolet",
+"msrp": 143100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 GTS 2dr Coupe",
+"msrp": 149900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Cabriolet",
+"msrp": 155400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4 GTS 2dr Convertible",
+"msrp": 162700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 GTS 2dr Cabriolet",
+"msrp": 162700,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 2dr Coupe",
+"msrp": 169700,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 Touring 2dr Coupe",
+"msrp": 169700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Coupe",
+"msrp": 182900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 50 Years Porsche Design 2dr Convertible",
+"msrp": 186200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Cabriolet",
+"msrp": 195700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Coupe",
+"msrp": 216100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Dakar 2dr Coupe",
+"msrp": 222000,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 RS 2dr Coupe",
+"msrp": 223800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Cabriolet",
+"msrp": 228900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Classic 2dr Coupe",
+"msrp": 272300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1650,
+"trims": [
+{
+"trim": "Carrera 2dr Coupe",
+"msrp": 114400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Coupe",
+"msrp": 121700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera T 2dr Coupe",
+"msrp": 124900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 2dr Cabriolet",
+"msrp": 127200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Coupe",
+"msrp": 131300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4 2dr Convertible",
+"msrp": 134500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 2dr Cabriolet",
+"msrp": 134500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Coupe",
+"msrp": 138600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Cabriolet",
+"msrp": 144100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Coupe",
+"msrp": 150900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4S 2dr Convertible",
+"msrp": 151400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4S 2dr Cabriolet",
+"msrp": 151400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 GTS 2dr Coupe",
+"msrp": 158200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Cabriolet",
+"msrp": 163700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4 GTS 2dr Convertible",
+"msrp": 171000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 GTS 2dr Cabriolet",
+"msrp": 171000,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 2dr Coupe",
+"msrp": 182900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 Touring 2dr Coupe",
+"msrp": 182900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Coupe",
+"msrp": 197200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Cabriolet",
+"msrp": 210000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Dakar 2dr Coupe",
+"msrp": 222000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Coupe",
+"msrp": 230400,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 RS 2dr Coupe",
+"msrp": 241300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Cabriolet",
+"msrp": 243200,
+"config": "",
+"note": ""
+},
+{
+"trim": "S/T 2dr Coupe",
+"msrp": 290000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1995,
+"trims": [
+{
+"trim": "Carrera 2dr Coupe",
+"msrp": 120100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 2dr Cabriolet",
+"msrp": 133400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera T 2dr Coupe",
+"msrp": 134000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Coupe",
+"msrp": 146400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera T 2dr Cabriolet",
+"msrp": 147300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S 2dr Cabriolet",
+"msrp": 159600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Coupe",
+"msrp": 164900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 GTS 2dr Coupe",
+"msrp": 172700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS 2dr Cabriolet",
+"msrp": 178200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Targa 4 GTS 2dr Convertible",
+"msrp": 186000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carrera 4 GTS 2dr Cabriolet",
+"msrp": 186000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Coupe",
+"msrp": 197200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 2dr Cabriolet",
+"msrp": 210000,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 2dr Coupe",
+"msrp": 222500,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 Touring 2dr Coupe",
+"msrp": 222500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Coupe",
+"msrp": 230400,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 RS 2dr Coupe",
+"msrp": 241300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 2dr Cabriolet",
+"msrp": 243200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 50 Years 2dr Coupe",
+"msrp": 261100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

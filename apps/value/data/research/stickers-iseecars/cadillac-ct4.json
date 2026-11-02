@@ -1,0 +1,54 @@
+{
+"make": "Cadillac",
+"model": "CT4",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ct4).",
+"years": [
+{
+"year": 2021,
+"destination": 1195,
+"trims": [
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 33395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 35395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 37595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 38695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 40695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-cadillac-ct4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

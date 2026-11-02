@@ -2,7 +2,7 @@
 "make": "Lexus",
 "model": "ES",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (es_350).",
+"note": "Trim-level MSRPs from iSeeCars price pages (es_250, es_350).",
 "years": [
 {
 "year": 2010,
@@ -78,6 +78,99 @@
 "source": "https://www.iseecars.com/car/2014-lexus-es_350-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1025,
+"trims": [
+{
+"trim": "ES 250 AWD 4dr Sedan",
+"msrp": 40950,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 250 AWD F SPORT 4dr Sedan",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 250 AWD Luxury 4dr Sedan",
+"msrp": 46350,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 250 AWD Ultra Luxury 4dr Sedan",
+"msrp": 50130,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-lexus-es_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1150,
+"trims": [
+{
+"trim": "ES 250 AWD 4dr Sedan",
+"msrp": 41940,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 250 AWD Luxury 4dr Sedan",
+"msrp": 47110,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 250 AWD Ultra Luxury 4dr Sedan",
+"msrp": 50730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lexus-es_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1150,
+"trims": [
+{
+"trim": "ES 250 AWD 4dr Sedan",
+"msrp": 42040,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 250 AWD F SPORT Design 4dr Sedan",
+"msrp": 46625,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 250 AWD Luxury 4dr Sedan",
+"msrp": 47210,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 250 AWD Ultra Luxury 4dr Sedan",
+"msrp": 50930,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-lexus-es_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

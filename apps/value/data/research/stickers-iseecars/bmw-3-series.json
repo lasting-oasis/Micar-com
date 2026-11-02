@@ -582,6 +582,219 @@
 "source": "https://www.iseecars.com/car/2014-bmw-3_series-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 43250,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 46550,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 56700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "330i 4dr Sedan",
+"msrp": 41450,
+"config": "",
+"note": ""
+},
+{
+"trim": "330e 4dr Sedan",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Sedan",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330e xDrive 4dr Sedan",
+"msrp": 44950,
+"config": "",
+"note": ""
+},
+{
+"trim": "M340i 4dr Sedan",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M340i xDrive 4dr Sedan",
+"msrp": 56700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "330i 4dr Sedan",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "330e 4dr Sedan",
+"msrp": 44900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Sedan",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330e xDrive 4dr Sedan",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M340i 4dr Sedan",
+"msrp": 56400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M340i xDrive 4dr Sedan",
+"msrp": 58400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "330i 4dr Sedan",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "330e 4dr Sedan",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Sedan",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330e xDrive 4dr Sedan",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "M340i 4dr Sedan",
+"msrp": 57600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M340i xDrive 4dr Sedan",
+"msrp": 59600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "330i 4dr Sedan",
+"msrp": 45950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Sedan",
+"msrp": 47950,
+"config": "",
+"note": ""
+},
+{
+"trim": "M340i 4dr Sedan",
+"msrp": 60200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M340i xDrive 4dr Sedan",
+"msrp": 62200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

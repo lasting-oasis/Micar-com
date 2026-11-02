@@ -312,6 +312,162 @@
 "source": "https://www.iseecars.com/car/2014-gmc-terrain-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "SLE 4dr SUV",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE 4dr SUV",
+"msrp": 29750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT 4dr SUV",
+"msrp": 32150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT 4dr SUV",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD AT4 4dr SUV",
+"msrp": 34250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 36850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "SLE 4dr SUV",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE 4dr SUV",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT 4dr SUV",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT 4dr SUV",
+"msrp": 35500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD AT4 4dr SUV",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 38600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "SLE 4dr SUV",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE 4dr SUV",
+"msrp": 30300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT 4dr SUV",
+"msrp": 32700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT 4dr SUV",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD AT4 4dr SUV",
+"msrp": 35495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 38600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1395,
+"trims": [
+{
+"trim": "Elevation 4dr SUV",
+"msrp": 30000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr SUV",
+"msrp": 32000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

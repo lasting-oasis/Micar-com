@@ -1,0 +1,180 @@
+{
+"make": "Lexus",
+"model": "RC",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (rc_300, rc_350).",
+"years": [
+{
+"year": 2022,
+"destination": 1075,
+"trims": [
+{
+"trim": "RC 300 2dr Coupe",
+"msrp": 42820,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 300 AWD 2dr Coupe",
+"msrp": 45510,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 2dr Coupe",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 300 F SPORT 2dr Coupe",
+"msrp": 47290,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 AWD 2dr Coupe",
+"msrp": 47915,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 300 AWD F SPORT 2dr Coupe",
+"msrp": 49465,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 F SPORT 2dr Coupe",
+"msrp": 50220,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 AWD F SPORT 2dr Coupe",
+"msrp": 51830,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-lexus-rc_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1150,
+"trims": [
+{
+"trim": "RC 300 2dr Coupe",
+"msrp": 44670,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 300 AWD 2dr Coupe",
+"msrp": 47360,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 2dr Coupe",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 300 F SPORT 2dr Coupe",
+"msrp": 49290,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 AWD 2dr Coupe",
+"msrp": 49765,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 300 AWD F SPORT 2dr Coupe",
+"msrp": 51580,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 F SPORT 2dr Coupe",
+"msrp": 52220,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 AWD F SPORT 2dr Coupe",
+"msrp": 53945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lexus-rc_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1150,
+"trims": [
+{
+"trim": "RC 300 2dr Coupe",
+"msrp": 44770,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 300 AWD 2dr Coupe",
+"msrp": 47460,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 2dr Coupe",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 300 F SPORT 2dr Coupe",
+"msrp": 49390,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 AWD 2dr Coupe",
+"msrp": 49865,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 300 AWD F SPORT 2dr Coupe",
+"msrp": 51680,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 F SPORT 2dr Coupe",
+"msrp": 52320,
+"config": "",
+"note": ""
+},
+{
+"trim": "RC 350 AWD F SPORT 2dr Coupe",
+"msrp": 54045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-lexus-rc_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

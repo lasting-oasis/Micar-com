@@ -1,0 +1,108 @@
+{
+"make": "Mazda",
+"model": "MX-5 Miata",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (mx__5_miata).",
+"years": [
+{
+"year": 2022,
+"destination": 1015,
+"trims": [
+{
+"trim": "Sport 2dr Convertible 6M",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6M",
+"msrp": 30800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A",
+"msrp": 32800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1165,
+"trims": [
+{
+"trim": "Sport 2dr Convertible",
+"msrp": 28050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible",
+"msrp": 31550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M",
+"msrp": 33050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A",
+"msrp": 33550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1185,
+"trims": [
+{
+"trim": "Sport 2dr Convertible",
+"msrp": 28985,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible",
+"msrp": 32485,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M",
+"msrp": 34285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A",
+"msrp": 35205,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

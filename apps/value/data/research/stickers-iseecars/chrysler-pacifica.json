@@ -1,0 +1,402 @@
+{
+"make": "Chrysler",
+"model": "Pacifica",
+"body": "Minivan",
+"note": "Trim-level MSRPs from iSeeCars price pages (pacifica, pacifica_hybrid).",
+"years": [
+{
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "",
+"msrp": 35820,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 38815,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 39120,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40620,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42115,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring 4dr Mini-Van",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring L 4dr Mini-Van",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Mini-Van",
+"msrp": 48525,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48815,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Pinnacle 4dr Mini-Van",
+"msrp": 54030,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 54095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chrysler-pacifica-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 37095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Mini-Van",
+"msrp": 40090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring L 4dr Mini-Van",
+"msrp": 41125,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring L 4dr Mini-Van",
+"msrp": 44120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 48750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring L 4dr Mini-Van",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Mini-Van",
+"msrp": 51545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Mini-Van",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Pinnacle 4dr Mini-Van",
+"msrp": 54045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Pinnacle 4dr Mini-Van",
+"msrp": 56840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Pinnacle 4dr Mini-Van",
+"msrp": 58050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chrysler-pacifica-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1595,
+"trims": [
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 37270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring L 4dr Mini-Van",
+"msrp": 40930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring L 4dr Mini-Van",
+"msrp": 43925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 48205,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring L 4dr Mini-Van",
+"msrp": 50795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Mini-Van",
+"msrp": 51200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Pinnacle 4dr Mini-Van",
+"msrp": 54085,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Mini-Van",
+"msrp": 54895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Pinnacle 4dr Mini-Van",
+"msrp": 57080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Pinnacle 4dr Mini-Van",
+"msrp": 60345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-chrysler-pacifica-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1695,
+"trims": [
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 39645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring L 4dr Mini-Van",
+"msrp": 41805,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring L 4dr Mini-Van",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 48575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Select 4dr Mini-Van",
+"msrp": 50765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Mini-Van",
+"msrp": 51570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid S Appearance 4dr Mini-Van",
+"msrp": 53260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Road Tripper 4dr Mini-Van",
+"msrp": 53460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Pinnacle 4dr Mini-Van",
+"msrp": 54235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Premium S Appearance 4dr Mini-Van",
+"msrp": 56760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Pinnacle 4dr Mini-Van",
+"msrp": 57230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Pinnacle 4dr Mini-Van",
+"msrp": 59495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-chrysler-pacifica-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1995,
+"trims": [
+{
+"trim": "Select 4dr Mini-Van",
+"msrp": 42450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Select 4dr Mini-Van",
+"msrp": 45445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 49570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Select 4dr Mini-Van",
+"msrp": 51055,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Mini-Van",
+"msrp": 52565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Pinnacle 4dr Mini-Van",
+"msrp": 54235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Premium S Appearance 4dr Mini-Van",
+"msrp": 56805,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Pinnacle 4dr Mini-Van",
+"msrp": 57230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Pinnacle 4dr Mini-Van",
+"msrp": 59785,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-chrysler-pacifica-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

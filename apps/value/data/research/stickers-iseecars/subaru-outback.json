@@ -270,6 +270,252 @@
 "source": "https://www.iseecars.com/car/2014-subaru-outback-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 26945,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29145,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35145,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 39945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1225,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition 4dr Crossover",
+"msrp": 33495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 35295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 38445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition XT 4dr Crossover",
+"msrp": 38595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited XT 4dr Crossover",
+"msrp": 39695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 39845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring XT 4dr Crossover",
+"msrp": 42295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1345,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 35795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition 4dr Crossover",
+"msrp": 36105,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition XT 4dr Crossover",
+"msrp": 39360,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 39960,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited XT 4dr Crossover",
+"msrp": 40195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 40345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring XT 4dr Crossover",
+"msrp": 42795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1420,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 33060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition 4dr Crossover",
+"msrp": 37970,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 39720,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition XT 4dr Crossover",
+"msrp": 41225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 41710,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited XT 4dr Crossover",
+"msrp": 42060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 42280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring XT 4dr Crossover",
+"msrp": 44730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

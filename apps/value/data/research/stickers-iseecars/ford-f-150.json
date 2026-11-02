@@ -1,0 +1,939 @@
+{
+"make": "Ford",
+"model": "F-150",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (f__150).",
+"years": [
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x2 XL 2dr Regular Cab 6.5 ft. SB",
+"msrp": 31520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 2dr Regular Cab 8 ft. LB",
+"msrp": 31820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 6.5 ft. SB",
+"msrp": 35940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 6.5 ft. SB",
+"msrp": 36535,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 8 ft. LB",
+"msrp": 36835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 8 ft. LB",
+"msrp": 37335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr Regular Cab 6.5 ft. SB",
+"msrp": 39165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SSV 4dr SuperCrew 5.5 ft. SB",
+"msrp": 39395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr Regular Cab 8 ft. LB",
+"msrp": 39460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SSV 4dr SuperCrew 6.5 ft. SB",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCrew 5.5 ft. SB",
+"msrp": 39570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 6.5 ft. SB",
+"msrp": 39740,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCrew 6.5 ft. SB",
+"msrp": 40965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 6.5 ft. SB",
+"msrp": 42405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 8 ft. LB",
+"msrp": 42555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SSV 4dr SuperCrew 5.5 ft. SB",
+"msrp": 42905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 2dr Regular Cab 6.5 ft. SB",
+"msrp": 42955,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 2dr Regular Cab 8 ft. LB",
+"msrp": 43260,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SSV 4dr SuperCrew 6.5 ft. SB",
+"msrp": 43380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 5.5 ft. SB",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 8 ft. LB",
+"msrp": 43805,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 44765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police Responder 4dr SuperCrew 5.5 ft. SB",
+"msrp": 45130,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 6.5 ft. SB",
+"msrp": 46155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 6.5 ft. SB",
+"msrp": 46205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 6.5 ft. SB",
+"msrp": 46265,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 48625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 8 ft. LB",
+"msrp": 49025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCab 6.5 ft. SB",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCab 8 ft. LB",
+"msrp": 49895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 6.5 ft. SB",
+"msrp": 51450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 51965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCrew 6.5 ft. SB",
+"msrp": 52215,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCab 6.5 ft. SB",
+"msrp": 53390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Tremor 4dr SuperCrew 5.5 ft. SB",
+"msrp": 54120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCab 8 ft. LB",
+"msrp": 55110,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 55755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 6.5 ft. SB",
+"msrp": 57475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SuperCrew 5.5 ft. SB",
+"msrp": 60320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SuperCrew 6.5 ft. SB",
+"msrp": 60625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 63100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SuperCrew 6.5 ft. SB",
+"msrp": 63405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SuperCrew 5.5 ft. SB",
+"msrp": 64120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SuperCrew 6.5 ft. SB",
+"msrp": 64415,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 66895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SuperCrew 6.5 ft. SB",
+"msrp": 67200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SuperCrew 5.5 ft. SB",
+"msrp": 70555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SuperCrew 5.5 ft. SB",
+"msrp": 77625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SuperCrew 5.5 ft. SB",
+"msrp": 81085,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ford-f__150-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1995,
+"trims": [
+{
+"trim": "4x2 XL 2dr Regular Cab 6.5 ft. SB",
+"msrp": 34585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 2dr Regular Cab 8 ft. LB",
+"msrp": 34885,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 6.5 ft. SB",
+"msrp": 39195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 6.5 ft. SB",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 8 ft. LB",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 8 ft. LB",
+"msrp": 40590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr Regular Cab 6.5 ft. SB",
+"msrp": 40760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr Regular Cab 8 ft. LB",
+"msrp": 41055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCrew 5.5 ft. SB",
+"msrp": 41530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCrew 6.5 ft. SB",
+"msrp": 42930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 6.5 ft. SB",
+"msrp": 42995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SSV 4dr SuperCrew 5.5 ft. SB",
+"msrp": 43140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SSV 4dr SuperCrew 6.5 ft. SB",
+"msrp": 43245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 6.5 ft. SB",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 2dr Regular Cab 6.5 ft. SB",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 2dr Regular Cab 8 ft. LB",
+"msrp": 44855,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 8 ft. LB",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 5.5 ft. SB",
+"msrp": 45410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 8 ft. LB",
+"msrp": 46025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 46360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SSV 4dr SuperCrew 5.5 ft. SB",
+"msrp": 46650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SSV 4dr SuperCrew 6.5 ft. SB",
+"msrp": 47125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 6.5 ft. SB",
+"msrp": 47750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 6.5 ft. SB",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 6.5 ft. SB",
+"msrp": 48440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police Responder 4dr SuperCrew 5.5 ft. SB",
+"msrp": 48875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 50220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 8 ft. LB",
+"msrp": 50840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 6.5 ft. SB",
+"msrp": 53265,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 57480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCrew 6.5 ft. SB",
+"msrp": 57730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 61270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Tremor 4dr SuperCrew 5.5 ft. SB",
+"msrp": 61330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 6.5 ft. SB",
+"msrp": 63215,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SuperCrew 5.5 ft. SB",
+"msrp": 63225,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SuperCrew 6.5 ft. SB",
+"msrp": 63530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 64915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SuperCrew 6.5 ft. SB",
+"msrp": 65220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SuperCrew 5.5 ft. SB",
+"msrp": 67025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SuperCrew 6.5 ft. SB",
+"msrp": 67320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 68710,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SuperCrew 6.5 ft. SB",
+"msrp": 69015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SuperCrew 5.5 ft. SB",
+"msrp": 76775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SuperCrew 5.5 ft. SB",
+"msrp": 84910,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ford-f__150-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "4x2 XL 2dr Regular Cab 6.5 ft. SB",
+"msrp": 36965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 2dr Regular Cab 8 ft. LB",
+"msrp": 36975,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 6.5 ft. SB",
+"msrp": 41285,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 6.5 ft. SB",
+"msrp": 41980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 8 ft. LB",
+"msrp": 41990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCrew 5.5 ft. SB",
+"msrp": 43620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 6.5 ft. SB",
+"msrp": 45085,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 STX 4dr SuperCab 6.5 ft. SB",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 5.5 ft. SB",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 6.5 ft. SB",
+"msrp": 47730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 STX 4dr SuperCrew 5.5 ft. SB",
+"msrp": 48335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 6.5 ft. SB",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 STX 4dr SuperCab 6.5 ft. SB",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 50090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 6.5 ft. SB",
+"msrp": 51530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police Responder 4dr SuperCrew 5.5 ft. SB",
+"msrp": 51610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 STX 4dr SuperCrew 5.5 ft. SB",
+"msrp": 52215,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 53950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 6.5 ft. SB",
+"msrp": 56030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Tremor 4dr SuperCrew 5.5 ft. SB",
+"msrp": 64350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 65395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 6.5 ft. SB",
+"msrp": 66000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SuperCrew 5.5 ft. SB",
+"msrp": 73845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 73845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SuperCrew 6.5 ft. SB",
+"msrp": 74150,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SuperCrew 6.5 ft. SB",
+"msrp": 74150,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SuperCrew 5.5 ft. SB",
+"msrp": 78440,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ford-f__150-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2595,
+"trims": [
+{
+"trim": "4x2 XL 2dr Regular Cab 8 ft. LB",
+"msrp": 37450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 2dr Regular Cab 6.5 ft. SB",
+"msrp": 38810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 6.5 ft. SB",
+"msrp": 41760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 8 ft. LB",
+"msrp": 42465,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 6.5 ft. SB",
+"msrp": 43825,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCrew 5.5 ft. SB",
+"msrp": 44095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 STX 4dr SuperCab 6.5 ft. SB",
+"msrp": 45015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 6.5 ft. SB",
+"msrp": 45560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 6.5 ft. SB",
+"msrp": 45695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 STX 4dr SuperCrew 5.5 ft. SB",
+"msrp": 47350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 5.5 ft. SB",
+"msrp": 47980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 48055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 STX 4dr SuperCab 6.5 ft. SB",
+"msrp": 48815,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 6.5 ft. SB",
+"msrp": 49495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 6.5 ft. SB",
+"msrp": 50075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 STX 4dr SuperCrew 5.5 ft. SB",
+"msrp": 51230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 51915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police Responder 4dr SuperCrew 5.5 ft. SB",
+"msrp": 52350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 6.5 ft. SB",
+"msrp": 53995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 59560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 63360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 6.5 ft. SB",
+"msrp": 63965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Tremor 4dr SuperCrew 5.5 ft. SB",
+"msrp": 64915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SuperCrew 5.5 ft. SB",
+"msrp": 71105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SuperCrew 5.5 ft. SB",
+"msrp": 74905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 74905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SuperCrew 6.5 ft. SB",
+"msrp": 75210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SuperCrew 6.5 ft. SB",
+"msrp": 75210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SuperCrew 5.5 ft. SB",
+"msrp": 79005,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-ford-f__150-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

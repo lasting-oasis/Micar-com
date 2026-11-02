@@ -378,6 +378,78 @@
 "source": "https://www.iseecars.com/car/2014-chrysler-300-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 37395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 33545,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Sedan",
+"msrp": 36295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring L 4dr Sedan",
+"msrp": 36745,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring L 4dr Sedan",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S V6 4dr Sedan",
+"msrp": 42155,
+"config": "",
+"note": ""
+},
+{
+"trim": "S V8 4dr Sedan",
+"msrp": 45350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

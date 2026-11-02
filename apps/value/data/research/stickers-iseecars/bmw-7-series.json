@@ -390,6 +390,183 @@
 "source": "https://www.iseecars.com/car/2014-bmw-7_series-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 86800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 89800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 95900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 103000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 143200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 157800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "740i 4dr Sedan",
+"msrp": 86800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 740i xDrive 4dr Sedan",
+"msrp": 89800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 745e xDrive 4dr Sedan",
+"msrp": 95900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 750i xDrive 4dr Sedan",
+"msrp": 103000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA B7 xDrive 4dr Sedan",
+"msrp": 143200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M760i xDrive 4dr Sedan",
+"msrp": 157800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "740i 4dr Sedan",
+"msrp": 95700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 760i xDrive 4dr Sedan",
+"msrp": 116400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "740i 4dr Sedan",
+"msrp": 96400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 740i xDrive 4dr Sedan",
+"msrp": 99400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 750e xDrive 4dr Sedan",
+"msrp": 107000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 760i xDrive 4dr Sedan",
+"msrp": 121300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "740i 4dr Sedan",
+"msrp": 97300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 740i xDrive 4dr Sedan",
+"msrp": 100300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 750e xDrive 4dr Sedan",
+"msrp": 108000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 760i xDrive 4dr Sedan",
+"msrp": 122400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

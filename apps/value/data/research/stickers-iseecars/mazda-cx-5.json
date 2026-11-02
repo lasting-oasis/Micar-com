@@ -1,0 +1,180 @@
+{
+"make": "Mazda",
+"model": "CX-5",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (cx__5).",
+"years": [
+{
+"year": 2022,
+"destination": 1225,
+"trims": [
+{
+"trim": "AWD 2.5 S 4dr SUV",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Select 4dr SUV",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Preferred 4dr SUV",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Carbon Edition 4dr SUV",
+"msrp": 30720,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Premium 4dr SUV",
+"msrp": 32310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Premium Plus 4dr SUV",
+"msrp": 33950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo 4dr SUV",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Signature 4dr SUV",
+"msrp": 38650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-mazda-cx__5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1375,
+"trims": [
+{
+"trim": "AWD 2.5 S 4dr SUV",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Select 4dr SUV",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Preferred 4dr SUV",
+"msrp": 30190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Carbon Edition 4dr SUV",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Premium 4dr SUV",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Premium Plus 4dr SUV",
+"msrp": 35500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo 4dr SUV",
+"msrp": 36850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Signature 4dr SUV",
+"msrp": 39650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-mazda-cx__5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1420,
+"trims": [
+{
+"trim": "AWD 2.5 S Select 4dr SUV",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Preferred 4dr SUV",
+"msrp": 30650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Carbon Edition 4dr SUV",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Premium 4dr SUV",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 S Premium Plus 4dr SUV",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Carbon Turbo 4dr SUV",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Premium 4dr SUV",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5 Turbo Signature 4dr SUV",
+"msrp": 40600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-mazda-cx__5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

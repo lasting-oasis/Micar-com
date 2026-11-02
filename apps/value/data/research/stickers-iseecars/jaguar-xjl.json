@@ -5,6 +5,99 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (xjl).",
 "years": [
 {
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 79700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supercharged 4dr Sedan",
+"msrp": 90700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supersport 4dr Sedan",
+"msrp": 113200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-jaguar-xjl-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "Portfolio 4dr Sedan",
+"msrp": 80700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supercharged 4dr Sedan",
+"msrp": 91600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supersport 4dr Sedan",
+"msrp": 117700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-jaguar-xjl-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "Portfolio 4dr Sedan",
+"msrp": 81200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Portfolio 4dr Sedan",
+"msrp": 83700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supercharged 4dr Sedan",
+"msrp": 92600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supersport 4dr Sedan",
+"msrp": 119100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr Sedan",
+"msrp": 155000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-jaguar-xjl-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 895,
 "trims": [

@@ -294,6 +294,252 @@
 "source": "https://www.iseecars.com/car/2014-nissan-pathfinder-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 34640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV",
+"msrp": 36540,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr SUV",
+"msrp": 37460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 39360,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr SUV",
+"msrp": 40540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr SUV",
+"msrp": 42440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 47140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 49040,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1335,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr SUV",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr SUV",
+"msrp": 38020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr SUV",
+"msrp": 39920,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr SUV",
+"msrp": 41620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rock Creek 4dr SUV",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL 4dr SUV",
+"msrp": 43520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 48170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 50070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1390,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 36650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 38550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr SUV",
+"msrp": 39470,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV 4dr SUV",
+"msrp": 41370,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr SUV",
+"msrp": 43070,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Rock Creek 4dr SUV",
+"msrp": 44470,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 44970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 49620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 51520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1390,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr SUV",
+"msrp": 39390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV 4dr SUV",
+"msrp": 41390,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 4dr SUV",
+"msrp": 42090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 44090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Rock Creek 4dr SUV",
+"msrp": 44490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 48640,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 50640,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

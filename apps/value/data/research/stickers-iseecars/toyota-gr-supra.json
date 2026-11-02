@@ -1,0 +1,171 @@
+{
+"make": "Toyota",
+"model": "GR Supra",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (gr_supra).",
+"years": [
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "2.0 2dr Coupe",
+"msrp": 43540,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 2dr Coupe",
+"msrp": 51890,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 Premium 2dr Coupe",
+"msrp": 55040,
+"config": "",
+"note": ""
+},
+{
+"trim": "A91-CF Edition 2dr Coupe",
+"msrp": 63280,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-gr_supra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "2.0 2dr Coupe",
+"msrp": 44640,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 2dr Coupe 8A",
+"msrp": 53600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 2dr Coupe 6M",
+"msrp": 53600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 Premium 2dr Coupe 8A",
+"msrp": 56750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 Premium 2dr Coupe 6M",
+"msrp": 56750,
+"config": "",
+"note": ""
+},
+{
+"trim": "A91-MT Edition 2dr Coupe",
+"msrp": 58845,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-gr_supra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1135,
+"trims": [
+{
+"trim": "2.0 2dr Coupe",
+"msrp": 46440,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 2dr Coupe 8A",
+"msrp": 56250,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 2dr Coupe 6M",
+"msrp": 56250,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 Premium 2dr Coupe 8A",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 Premium 2dr Coupe 6M",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "45th Anniversary Edition 2dr Coupe 8A",
+"msrp": 65275,
+"config": "",
+"note": ""
+},
+{
+"trim": "45th Anniversary Edition 2dr Coupe 6M",
+"msrp": 65275,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-gr_supra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1195,
+"trims": [
+{
+"trim": "3.0 2dr Coupe 6M",
+"msrp": 56250,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 2dr Coupe 8A",
+"msrp": 56250,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 Premium 2dr Coupe 8A",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 Premium 2dr Coupe 6M",
+"msrp": 59400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-gr_supra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

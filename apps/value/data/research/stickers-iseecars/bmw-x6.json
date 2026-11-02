@@ -120,6 +120,138 @@
 "source": "https://www.iseecars.com/car/2014-bmw-x6-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive40i 4dr Sports Activity Coupe",
+"msrp": 65050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Coupe",
+"msrp": 67350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M50i 4dr Sports Activity Coupe",
+"msrp": 86250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Coupe",
+"msrp": 67350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M50i 4dr Sports Activity Coupe",
+"msrp": 86250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Coupe",
+"msrp": 70100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M50i 4dr Sports Activity Coupe",
+"msrp": 89100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-05-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Coupe",
+"msrp": 73900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M60i 4dr Sports Activity Coupe",
+"msrp": 93600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Coupe",
+"msrp": 75100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M60i 4dr Sports Activity Coupe",
+"msrp": 95150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2026,
+"destination": 1450,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Coupe",
+"msrp": 77300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M60i 4dr Sports Activity Coupe",
+"msrp": 98000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2026-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-07-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

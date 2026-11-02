@@ -228,6 +228,261 @@
 "source": "https://www.iseecars.com/car/2014-toyota-sienna-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1335,
+"trims": [
+{
+"trim": "LE 8-Passenger 4dr Mini-Van",
+"msrp": 35285,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 8-Passenger 4dr Mini-Van",
+"msrp": 37285,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 8-Passenger 4dr Mini-Van",
+"msrp": 40575,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 7-Passenger 4dr Mini-Van",
+"msrp": 40575,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 7-Passenger 4dr Mini-Van",
+"msrp": 42575,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 7-Passenger 4dr Mini-Van",
+"msrp": 42825,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 7-Passenger 4dr Mini-Van",
+"msrp": 43585,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Woodland Edition 7-Passenger 4dr Mini-Van",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 7-Passenger 4dr Mini-Van",
+"msrp": 47525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 7-Passenger 4dr Mini-Van",
+"msrp": 49525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 7-Passenger 4dr Mini-Van",
+"msrp": 50725,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 7-Passenger 4dr Mini-Van",
+"msrp": 51485,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-sienna-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "LE 8-Passenger 4dr Mini-Van",
+"msrp": 36885,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 8-Passenger 4dr Mini-Van",
+"msrp": 38885,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 8-Passenger 4dr Mini-Van",
+"msrp": 42195,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 7-Passenger 4dr Mini-Van",
+"msrp": 42195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 7-Passenger 4dr Mini-Van",
+"msrp": 44195,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 7-Passenger 4dr Mini-Van",
+"msrp": 44445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 7-Passenger 4dr Mini-Van",
+"msrp": 45205,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Woodland Edition 7-Passenger 4dr Mini-Van",
+"msrp": 47695,
+"config": "",
+"note": ""
+},
+{
+"trim": "25th Anniversary Edition 7-Passenger 4dr Mini-Van",
+"msrp": 48170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 25th Anniversary Edition 7-Passenger 4dr Mini-Van",
+"msrp": 48930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 7-Passenger 4dr Mini-Van",
+"msrp": 49145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 7-Passenger 4dr Mini-Van",
+"msrp": 51145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 7-Passenger 4dr Mini-Van",
+"msrp": 52345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 7-Passenger 4dr Mini-Van",
+"msrp": 53105,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-sienna-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1450,
+"trims": [
+{
+"trim": "LE 8-Passenger 4dr Mini-Van",
+"msrp": 37685,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 8-Passenger 4dr Mini-Van",
+"msrp": 39685,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 8-Passenger 4dr Mini-Van",
+"msrp": 42995,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 7-Passenger 4dr Mini-Van",
+"msrp": 42995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 7-Passenger 4dr Mini-Van",
+"msrp": 44995,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 7-Passenger 4dr Mini-Van",
+"msrp": 45245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 7-Passenger 4dr Mini-Van",
+"msrp": 46135,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Woodland Edition 7-Passenger 4dr Mini-Van",
+"msrp": 48625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 7-Passenger 4dr Mini-Van",
+"msrp": 49945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 7-Passenger 4dr Mini-Van",
+"msrp": 51945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 7-Passenger 4dr Mini-Van",
+"msrp": 53145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 7-Passenger 4dr Mini-Van",
+"msrp": 53905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-sienna-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

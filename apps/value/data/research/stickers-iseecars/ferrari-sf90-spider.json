@@ -1,0 +1,60 @@
+{
+"make": "Ferrari",
+"model": "SF90 Spider",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (sf90_spider).",
+"years": [
+{
+"year": 2022,
+"destination": 3950,
+"trims": [
+{
+"trim": "AWD 2dr Convertible",
+"msrp": 557306,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ferrari-sf90_spider-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 5000,
+"trims": [
+{
+"trim": "AWD 2dr Convertible",
+"msrp": 570445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ferrari-sf90_spider-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 5000,
+"trims": [
+{
+"trim": "AWD 2dr Convertible",
+"msrp": 570445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2dr Convertible",
+"msrp": 932000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ferrari-sf90_spider-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

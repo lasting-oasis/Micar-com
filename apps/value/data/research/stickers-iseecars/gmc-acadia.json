@@ -336,6 +336,186 @@
 "source": "https://www.iseecars.com/car/2014-gmc-acadia-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "SLE 4dr SUV",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr SUV",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT 4dr SUV",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr SUV",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 48600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "SLE 4dr SUV",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr SUV",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT 4dr SUV",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr SUV",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 43400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 50600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "Elevation 4dr SUV",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr SUV",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 54300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 56300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "Elevation 4dr SUV",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr SUV",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 56100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

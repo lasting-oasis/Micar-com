@@ -276,6 +276,219 @@
 "source": "https://www.iseecars.com/car/2014-audi-a6-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1045,
+"trims": [
+{
+"trim": "AWD quattro Sport Premium 45 TFSI 4dr Sedan",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 45 TFSI 4dr Sedan",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Sport Premium Plus 45 TFSI 4dr Sedan",
+"msrp": 58800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 4dr Sedan",
+"msrp": 58800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sedan",
+"msrp": 59800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sedan",
+"msrp": 63700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 45 TFSI 4dr Sedan",
+"msrp": 64900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sedan",
+"msrp": 69500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-a6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 45 TFSI 4dr Sedan",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 4dr Sedan",
+"msrp": 59800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sedan",
+"msrp": 59800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sedan",
+"msrp": 63700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sedan",
+"msrp": 69500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-a6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 45 TFSI 4dr Sedan",
+"msrp": 56900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 4dr Sedan",
+"msrp": 60800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sedan",
+"msrp": 60800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sedan",
+"msrp": 64700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sedan",
+"msrp": 70500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-audi-a6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 45 TFSI 4dr Sedan",
+"msrp": 58100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 4dr Sedan",
+"msrp": 61600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sedan",
+"msrp": 62600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sedan",
+"msrp": 66100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sedan",
+"msrp": 71700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-a6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD quattro Premium 45 TFSI 4dr Sedan",
+"msrp": 58100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sedan",
+"msrp": 62600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 4dr Sedan",
+"msrp": 62800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sedan",
+"msrp": 67300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sedan",
+"msrp": 73350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-audi-a6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

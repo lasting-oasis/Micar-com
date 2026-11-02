@@ -153,6 +153,189 @@
 "source": "https://www.iseecars.com/car/2011-ford-ranger-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x2 XL 4dr SuperCab 6.1 ft. SB",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCrew 5.1 ft. SB",
+"msrp": 29585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 6.1 ft. SB",
+"msrp": 31045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 6.1 ft. SB",
+"msrp": 31460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 5.1 ft. SB",
+"msrp": 33230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 5.1 ft. SB",
+"msrp": 33410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 6.1 ft. SB",
+"msrp": 34945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCab 6.1 ft. SB",
+"msrp": 35500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 5.1 ft. SB",
+"msrp": 36905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCrew 5.1 ft. SB",
+"msrp": 37460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCab 6.1 ft. SB",
+"msrp": 38985,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 5.1 ft. SB",
+"msrp": 40945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1595,
+"trims": [
+{
+"trim": "4x2 XL 4dr SuperCrew 5.0 ft. SB",
+"msrp": 32720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 5.0 ft. SB",
+"msrp": 36160,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 5.0 ft. SB",
+"msrp": 36365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 5.0 ft. SB",
+"msrp": 39645,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCrew 5.0 ft. SB",
+"msrp": 43680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 5.0 ft. SB",
+"msrp": 47165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SuperCrew 5.0 ft. SB",
+"msrp": 55620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x2 XL 4dr SuperCrew 5.0 ft. SB",
+"msrp": 33350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCrew 5.0 ft. SB",
+"msrp": 35875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCrew 5.0 ft. SB",
+"msrp": 36850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCrew 5.0 ft. SB",
+"msrp": 39375,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCrew 5.0 ft. SB",
+"msrp": 43755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCrew 5.0 ft. SB",
+"msrp": 47255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SuperCrew 5.0 ft. SB",
+"msrp": 56070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

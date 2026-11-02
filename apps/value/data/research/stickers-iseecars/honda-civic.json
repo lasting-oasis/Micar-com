@@ -996,6 +996,306 @@
 "source": "https://www.iseecars.com/car/2014-honda-civic-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 22550,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 23550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 6M",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback CVT",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Hatchback",
+"msrp": 27250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si w/Summer Tires 4dr Sedan",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback 6M",
+"msrp": 30050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback CVT",
+"msrp": 30050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 23750,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 6M",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback CVT",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan w/o BSI",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Hatchback w/o BSI",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Hatchback",
+"msrp": 28450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 30350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback 6M",
+"msrp": 31250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback CVT",
+"msrp": 31250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Type R 4dr Hatchback",
+"msrp": 43795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 6M",
+"msrp": 26350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback CVT",
+"msrp": 26350,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Hatchback",
+"msrp": 28650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 30550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback 6M",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback CVT",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Type R 4dr Hatchback",
+"msrp": 44795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1150,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback",
+"msrp": 27450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 30250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Summer Tires",
+"msrp": 30550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Type R 4dr Hatchback",
+"msrp": 45895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

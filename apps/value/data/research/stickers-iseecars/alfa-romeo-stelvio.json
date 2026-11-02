@@ -1,0 +1,75 @@
+{
+"make": "Alfa Romeo",
+"model": "Stelvio",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (stelvio).",
+"years": [
+{
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "Sprint 4dr Crossover",
+"msrp": 42350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sprint 4dr Crossover",
+"msrp": 44350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ti 4dr Crossover",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ti Sport 4dr Crossover",
+"msrp": 50800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-alfaromeo-stelvio-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "Sprint 4dr Crossover",
+"msrp": 45150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sprint 4dr Crossover",
+"msrp": 47150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ti 4dr Crossover",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Veloce 4dr Crossover",
+"msrp": 52000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-alfaromeo-stelvio-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

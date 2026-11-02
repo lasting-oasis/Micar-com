@@ -1,0 +1,36 @@
+{
+"make": "Lexus",
+"model": "RZ",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (rz_450e).",
+"years": [
+{
+"year": 2023,
+"destination": 1150,
+"trims": [
+{
+"trim": "RZ 450E AWD Premium 4dr Crossover w/18 Inch Wheels",
+"msrp": 58500,
+"config": "",
+"note": ""
+},
+{
+"trim": "RZ 450E AWD Premium 4dr Crossover w/20 Inch Wheels",
+"msrp": 59740,
+"config": "",
+"note": ""
+},
+{
+"trim": "RZ 450E AWD Luxury 4dr Crossover",
+"msrp": 64000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lexus-rz_450e-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

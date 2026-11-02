@@ -1,0 +1,48 @@
+{
+"make": "Fiat",
+"model": "500 X",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (500x).",
+"years": [
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "AWD Pop 4dr Crossover",
+"msrp": 27965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trekking 4dr Crossover",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 29955,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trekking Plus 4dr Crossover",
+"msrp": 33145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Yachting 4dr Crossover",
+"msrp": 33945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-fiat-500x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -468,6 +468,156 @@
 "source": "https://www.iseecars.com/car/2014-nissan-titan-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab",
+"msrp": 38810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab",
+"msrp": 40580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr King Cab",
+"msrp": 42070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab",
+"msrp": 43740,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab",
+"msrp": 44060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab",
+"msrp": 44140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab",
+"msrp": 47220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr King Cab",
+"msrp": 47400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab",
+"msrp": 51700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum Reserve 4dr Crew Cab",
+"msrp": 57500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum Reserve 4dr Crew Cab",
+"msrp": 60780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x2 S 4dr King Cab",
+"msrp": 40350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 S 4dr Crew Cab",
+"msrp": 42140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr King Cab",
+"msrp": 43640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S 4dr Crew Cab",
+"msrp": 45330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr Crew Cab",
+"msrp": 45650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SV 4dr King Cab",
+"msrp": 45730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr Crew Cab",
+"msrp": 48840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV 4dr King Cab",
+"msrp": 49020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 PRO-4X 4dr Crew Cab",
+"msrp": 53460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum Reserve 4dr Crew Cab",
+"msrp": 59320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum Reserve 4dr Crew Cab",
+"msrp": 62630,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

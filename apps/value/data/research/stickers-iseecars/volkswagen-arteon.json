@@ -1,0 +1,36 @@
+{
+"make": "Volkswagen",
+"model": "Arteon",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (arteon).",
+"years": [
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "SE R-Line 4dr Sedan",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr Sedan",
+"msrp": 45550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium 4Motion 4dr Sedan",
+"msrp": 49550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volkswagen-arteon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

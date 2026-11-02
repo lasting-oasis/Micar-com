@@ -63,6 +63,120 @@
 "source": "https://www.iseecars.com/car/2014-audi-a7-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 69200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 74900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sportback",
+"msrp": 69200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sportback",
+"msrp": 74350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Premium Plus 55 TFSI 4dr Sportback",
+"msrp": 75900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sportback",
+"msrp": 78350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Prestige 55 TFSI 4dr Sportback",
+"msrp": 81250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sportback",
+"msrp": 70200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sportback",
+"msrp": 75350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sportback",
+"msrp": 79350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sportback",
+"msrp": 72000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sportback",
+"msrp": 76750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sportback",
+"msrp": 80550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

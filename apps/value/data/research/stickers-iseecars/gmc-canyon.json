@@ -306,6 +306,210 @@
 "source": "https://www.iseecars.com/car/2012-gmc-canyon-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x2 Elevation Standard 4dr Extended Cab 6 ft. LB",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation Standard 4dr Crew Cab 5 ft. SB",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Extended Cab 6 ft. LB",
+"msrp": 30300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Crew Cab 5 ft. SB",
+"msrp": 32200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Extended Cab 6 ft. LB",
+"msrp": 32200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 5 ft. SB",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 6 ft. LB",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5 ft. SB (Cloth)",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 6 ft. LB (Cloth)",
+"msrp": 39000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5 ft. SB (Leather-Trimmed)",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 6 ft. LB (Leather-Trimmed)",
+"msrp": 40800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr Crew Cab 5 ft. SB",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5 ft. SB",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 6 ft. LB",
+"msrp": 45000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x2 Elevation 4dr Crew Cab 5 ft. SB",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 5 ft. SB",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5 ft. SB",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5 ft. SB",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4X 4dr Crew Cab 5 ft. SB",
+"msrp": 55500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1595,
+"trims": [
+{
+"trim": "4x2 Elevation 4dr Crew Cab 5 ft. SB",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 5 ft. SB",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5 ft. SB",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5 ft. SB",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4X 4dr Crew Cab 5 ft. SB",
+"msrp": 54300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1695,
+"trims": [
+{
+"trim": "4x2 Elevation 4dr Crew Cab 5 ft. SB",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 5 ft. SB",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5 ft. SB",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5 ft. SB",
+"msrp": 52000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-gmc-canyon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

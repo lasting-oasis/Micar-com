@@ -1,0 +1,54 @@
+{
+"make": "Nissan",
+"model": "Z",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (z).",
+"years": [
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "Sport 2dr Coupe 9A",
+"msrp": 40990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2dr Coupe 6M",
+"msrp": 40990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance 2dr Coupe 6M",
+"msrp": 50990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance 2dr Coupe 9A",
+"msrp": 50990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Proto Spec 2dr Coupe 6M",
+"msrp": 53990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Proto Spec 2dr Coupe 9A",
+"msrp": 53990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-nissan-z-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

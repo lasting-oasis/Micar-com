@@ -1,0 +1,99 @@
+{
+"make": "Infiniti",
+"model": "Q50",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (q50).",
+"years": [
+{
+"year": 2022,
+"destination": 1025,
+"trims": [
+{
+"trim": "Luxe 4dr Sedan",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxe 4dr Sedan",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sensory 4dr Sedan",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sensory 4dr Sedan",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Red Sport 400 4dr Sedan",
+"msrp": 55950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Red Sport 400 4dr Sedan",
+"msrp": 57950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1150,
+"trims": [
+{
+"trim": "Luxe 4dr Sedan",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxe 4dr Sedan",
+"msrp": 44650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sensory 4dr Sedan",
+"msrp": 48350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sensory 4dr Sedan",
+"msrp": 50350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Red Sport 400 4dr Sedan",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Red Sport 400 4dr Sedan",
+"msrp": 58500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

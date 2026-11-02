@@ -1,0 +1,288 @@
+{
+"make": "Chevrolet",
+"model": "Trailblazer",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (trailblazer).",
+"years": [
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 19000,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 21600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-trailblazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1195,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV",
+"msrp": 24000,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV 4dr SUV",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 26000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ACTIV 4dr SUV",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RS 4dr SUV",
+"msrp": 27400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chevrolet-trailblazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1295,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV 4dr SUV",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ACTIV 4dr SUV",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RS 4dr SUV",
+"msrp": 27700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-chevrolet-trailblazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1295,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 25100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV 4dr SUV",
+"msrp": 27100,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 27100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ACTIV 4dr SUV",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RS 4dr SUV",
+"msrp": 28700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-chevrolet-trailblazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1395,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 25100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV 4dr SUV",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ACTIV 4dr SUV",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RS 4dr SUV",
+"msrp": 29300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-chevrolet-trailblazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

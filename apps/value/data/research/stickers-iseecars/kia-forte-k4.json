@@ -312,6 +312,84 @@
 "source": "https://www.iseecars.com/car/2014-kia-forte-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "FE 4dr Sedan",
+"msrp": 19090,
+"config": "",
+"note": ""
+},
+{
+"trim": "LXS 4dr Sedan",
+"msrp": 19590,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT-Line 4dr Sedan",
+"msrp": 21290,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan DCT",
+"msrp": 23490,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan 6M",
+"msrp": 24490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1125,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 19690,
+"config": "",
+"note": ""
+},
+{
+"trim": "LXS 4dr Sedan",
+"msrp": 20190,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT-Line 4dr Sedan",
+"msrp": 21890,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan DCT",
+"msrp": 24390,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan 6M",
+"msrp": 25090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

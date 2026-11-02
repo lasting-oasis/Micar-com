@@ -342,6 +342,324 @@
 "source": "https://www.iseecars.com/car/2014-toyota-camry-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "LE 4dr Sedan",
+"msrp": 25845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Sedan",
+"msrp": 27245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 27385,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Nightshade 4dr Sedan",
+"msrp": 28085,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Sedan",
+"msrp": 28785,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Nightshade 4dr Sedan",
+"msrp": 29485,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 30595,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 31145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr Sedan",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 4dr Sedan",
+"msrp": 32545,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD 4dr Sedan",
+"msrp": 32910,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 4dr Sedan",
+"msrp": 35720,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE V6 4dr Sedan",
+"msrp": 36270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "LE 4dr Sedan",
+"msrp": 26320,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Sedan",
+"msrp": 27720,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 27860,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Nightshade 4dr Sedan",
+"msrp": 28860,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Sedan",
+"msrp": 29260,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Nightshade 4dr Sedan",
+"msrp": 30260,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 31070,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 31620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr Sedan",
+"msrp": 32470,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 4dr Sedan",
+"msrp": 33020,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD 4dr Sedan",
+"msrp": 33385,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 4dr Sedan",
+"msrp": 36195,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE V6 4dr Sedan",
+"msrp": 36745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1135,
+"trims": [
+{
+"trim": "LE 4dr Sedan",
+"msrp": 26420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Sedan",
+"msrp": 27820,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 27960,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Nightshade 4dr Sedan",
+"msrp": 28960,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Sedan",
+"msrp": 29360,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Nightshade 4dr Sedan",
+"msrp": 30360,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 31170,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 31720,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr Sedan",
+"msrp": 32570,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 4dr Sedan",
+"msrp": 33120,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD 4dr Sedan",
+"msrp": 33485,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 4dr Sedan",
+"msrp": 36295,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE V6 4dr Sedan",
+"msrp": 36845,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1195,
+"trims": [
+{
+"trim": "LE 4dr Sedan",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Sedan",
+"msrp": 30225,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 31000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Sedan",
+"msrp": 32525,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 33700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr Sedan",
+"msrp": 35225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 4dr Sedan",
+"msrp": 36425,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

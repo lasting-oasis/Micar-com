@@ -1,0 +1,24 @@
+{
+"make": "Audi",
+"model": "RS 5",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (rs_5).",
+"years": [
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 75100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-rs_5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

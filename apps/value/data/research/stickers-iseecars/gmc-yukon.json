@@ -744,6 +744,402 @@
 "source": "https://www.iseecars.com/car/2014-gmc-yukon-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x2 SLE 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 SLE 4dr SUV",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr SUV",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 SLE 4dr SUV",
+"msrp": 59700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr SUV",
+"msrp": 60700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 SLT 4dr SUV",
+"msrp": 63400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr SUV",
+"msrp": 63700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 SLT 4dr SUV",
+"msrp": 66400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 68500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 AT4 4dr SUV",
+"msrp": 71200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr SUV",
+"msrp": 72100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 Denali 4dr SUV",
+"msrp": 74800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 75100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 Denali 4dr SUV",
+"msrp": 77800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-gmc-yukon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x2 SLE 4dr SUV",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr SUV",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 SLE 4dr SUV",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 SLE 4dr SUV",
+"msrp": 63400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr SUV",
+"msrp": 64100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr SUV",
+"msrp": 67100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 SLT 4dr SUV",
+"msrp": 67100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 SLT 4dr SUV",
+"msrp": 70100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 70705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 AT4 4dr SUV",
+"msrp": 73705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr SUV",
+"msrp": 74305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 77305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 Denali 4dr SUV",
+"msrp": 77305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 Denali 4dr SUV",
+"msrp": 80305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali Ultimate 4dr SUV",
+"msrp": 94555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 Denali Ultimate 4dr SUV",
+"msrp": 97555,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-gmc-yukon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "4x2 SLE 4dr SUV",
+"msrp": 58200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr SUV",
+"msrp": 61200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 SLE 4dr SUV",
+"msrp": 61200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 SLE 4dr SUV",
+"msrp": 64200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr SUV",
+"msrp": 64900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr SUV",
+"msrp": 67900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 SLT 4dr SUV",
+"msrp": 67900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 SLT 4dr SUV",
+"msrp": 70900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 71505,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 AT4 4dr SUV",
+"msrp": 74505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr SUV",
+"msrp": 76805,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 79805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 Denali 4dr SUV",
+"msrp": 79805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 Denali 4dr SUV",
+"msrp": 82805,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali Ultimate 4dr SUV",
+"msrp": 98755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 Denali Ultimate 4dr SUV",
+"msrp": 101755,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-gmc-yukon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2195,
+"trims": [
+{
+"trim": "4x2 Elevation 4dr SUV",
+"msrp": 67200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr SUV",
+"msrp": 70200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 Elevation 4dr SUV",
+"msrp": 70200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 Elevation 4dr SUV",
+"msrp": 73200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 74200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 AT4 4dr SUV",
+"msrp": 77200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr SUV",
+"msrp": 77500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 80500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x2 Denali 4dr SUV",
+"msrp": 80500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 Denali 4dr SUV",
+"msrp": 83500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 Ultimate 4dr SUV",
+"msrp": 95800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 AT4 Ultimate 4dr SUV",
+"msrp": 98800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali Ultimate 4dr SUV",
+"msrp": 101800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Yukon XL 4x4 Denali Ultimate 4dr SUV",
+"msrp": 104800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-gmc-yukon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

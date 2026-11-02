@@ -138,6 +138,45 @@
 "source": "https://www.iseecars.com/car/2012-acura-tsx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 30365,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Edition 4dr Sedan 5A",
+"msrp": 31635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Edition 4dr Sedan 6M",
+"msrp": 31635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 33735,
+"config": "",
+"note": ""
+},
+{
+"trim": "V-6 4dr Sedan w/Technology Package",
+"msrp": 39275,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-acura-tsx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

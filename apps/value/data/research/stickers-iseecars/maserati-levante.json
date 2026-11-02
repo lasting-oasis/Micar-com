@@ -1,0 +1,81 @@
+{
+"make": "Maserati",
+"model": "Levante",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (levante).",
+"years": [
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD GT 4dr SUV",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena 4dr SUV",
+"msrp": 90400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD F Tributo 4dr SUV",
+"msrp": 106590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena S 4dr SUV",
+"msrp": 115400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trofeo 4dr SUV",
+"msrp": 153100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD GT 4dr SUV",
+"msrp": 90700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena 4dr SUV",
+"msrp": 101400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena S 4dr SUV",
+"msrp": 127600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trofeo 4dr SUV",
+"msrp": 167000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-04-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

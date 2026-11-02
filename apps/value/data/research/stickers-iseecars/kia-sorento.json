@@ -303,6 +303,276 @@
 "source": "https://www.iseecars.com/car/2014-kia-sorento-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 29590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 31390,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 32390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line S 4dr SUV",
+"msrp": 34390,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 35490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 38290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line EX 4dr SUV",
+"msrp": 39190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX 4dr SUV",
+"msrp": 40090,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Prestige 4dr SUV",
+"msrp": 41190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line SX Prestige 4dr SUV",
+"msrp": 43190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1375,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 30390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 32190,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 32890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line S 4dr SUV",
+"msrp": 34890,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 36290,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 39190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line EX 4dr SUV",
+"msrp": 39990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX 4dr SUV",
+"msrp": 40990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX Prestige 4dr SUV",
+"msrp": 43790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line SX Prestige 4dr SUV",
+"msrp": 43990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1375,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 31990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 34390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 36390,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 37990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line EX 4dr SUV",
+"msrp": 41690,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 41690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line SX 4dr SUV",
+"msrp": 43490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line SX Prestige 4dr SUV",
+"msrp": 46390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Pro SX Prestige 4dr SUV",
+"msrp": 47390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1445,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 31990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 34890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 36890,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 38090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 39590,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 41690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line EX 4dr SUV",
+"msrp": 41790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line SX 4dr SUV",
+"msrp": 43490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Line SX Prestige 4dr SUV",
+"msrp": 46390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD X-Pro SX Prestige 4dr SUV",
+"msrp": 47390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

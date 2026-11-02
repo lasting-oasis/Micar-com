@@ -1,0 +1,177 @@
+{
+"make": "Cadillac",
+"model": "XT5",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (xt5).",
+"years": [
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 45995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 50795,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 55095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-cadillac-xt5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coachbuilder- Funeral Hearse 4dr SUV",
+"msrp": 45995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Coachbuilder- Funeral Hearse 4dr SUV",
+"msrp": 45995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 45995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr SUV",
+"msrp": 48795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr SUV",
+"msrp": 50795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 55895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-cadillac-xt5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 44195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 46195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr SUV",
+"msrp": 49995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr SUV",
+"msrp": 51995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 57095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-cadillac-xt5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 43895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 45895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr SUV",
+"msrp": 50195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr SUV",
+"msrp": 52195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 56795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-cadillac-xt5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

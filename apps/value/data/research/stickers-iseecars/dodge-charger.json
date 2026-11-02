@@ -510,6 +510,267 @@
 "source": "https://www.iseecars.com/car/2014-dodge-charger-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41095,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 69995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan",
+"msrp": 35275,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr Sedan",
+"msrp": 36100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 36355,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr Sedan",
+"msrp": 38275,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police 4dr Sedan",
+"msrp": 38655,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack 4dr Sedan",
+"msrp": 46225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack 4dr Widebody Sedan",
+"msrp": 52220,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat 4dr Widebody Sedan",
+"msrp": 74900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye 4dr Widebody Sedan",
+"msrp": 83500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Jailbreak 4dr Widebody Sedan",
+"msrp": 84495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1595,
+"trims": [
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 34230,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan",
+"msrp": 36930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr Sedan",
+"msrp": 37830,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr Sedan",
+"msrp": 39930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police 4dr Sedan",
+"msrp": 42635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 43085,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 43970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack 4dr Sedan",
+"msrp": 50330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack 4dr Widebody Sedan",
+"msrp": 56325,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat 4dr Widebody Sedan",
+"msrp": 77345,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Jailbreak 4dr Widebody Sedan",
+"msrp": 79555,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Jailbreak 4dr Widebody Sedan",
+"msrp": 86940,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye 4dr Widebody Sedan",
+"msrp": 88155,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "AWD Daytona R/T 2dr Coupe",
+"msrp": 59595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Daytona Scat Pack 2dr Coupe",
+"msrp": 68195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1995,
+"trims": [
+{
+"trim": "AWD Daytona R/T 2dr Coupe",
+"msrp": 59595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Daytona Scat Pack 2dr Coupe",
+"msrp": 68195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

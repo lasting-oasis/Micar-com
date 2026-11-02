@@ -1,0 +1,294 @@
+{
+"make": "Alfa Romeo",
+"model": "Giulia",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (giulia).",
+"years": [
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 39450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41450,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 74750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-alfaromeo-giulia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "Sprint 4dr Sedan",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sprint 4dr Sedan",
+"msrp": 44950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ti 4dr Sedan",
+"msrp": 45090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ti 4dr Sedan",
+"msrp": 47090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Veloce 4dr Sedan",
+"msrp": 48690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Veloce 4dr Sedan",
+"msrp": 50690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-alfaromeo-giulia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1595,
+"trims": [
+{
+"trim": "Sprint 4dr Sedan",
+"msrp": 44280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sprint 4dr Sedan",
+"msrp": 46280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ti 4dr Sedan",
+"msrp": 46320,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ti 4dr Sedan",
+"msrp": 48320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ti Lusso 4dr Sedan",
+"msrp": 49520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Veloce 4dr Sedan",
+"msrp": 49920,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ti Lusso 4dr Sedan",
+"msrp": 51520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Veloce 4dr Sedan",
+"msrp": 51920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Estrema 4dr Sedan",
+"msrp": 55420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Estrema 4dr Sedan",
+"msrp": 57420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Quadrifoglio 4dr Sedan",
+"msrp": 79760,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-alfaromeo-giulia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1595,
+"trims": [
+{
+"trim": "Sprint 4dr Sedan",
+"msrp": 41690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sprint 4dr Sedan",
+"msrp": 43690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ti 4dr Sedan",
+"msrp": 44190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ti 4dr Sedan",
+"msrp": 46190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Veloce 4dr Sedan",
+"msrp": 47790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Veloce 4dr Sedan",
+"msrp": 49790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Competizione 4dr Sedan",
+"msrp": 51190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Competizione 4dr Sedan",
+"msrp": 53190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Quadrifoglio 4dr Sedan",
+"msrp": 81370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Quadrifoglio Carbon 4dr Sedan",
+"msrp": 85370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Quadrifoglio 100th Anniversary 4dr Sedan",
+"msrp": 86770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Quadrifoglio Supersport 4dr Sedan",
+"msrp": 86770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-alfaromeo-giulia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 3250,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 45995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tributo Italiano 4dr Sedan",
+"msrp": 48995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Intensa 4dr Sedan",
+"msrp": 49995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Tributo Italiano 4dr Sedan",
+"msrp": 50995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Intensa 4dr Sedan",
+"msrp": 51995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-alfaromeo-giulia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

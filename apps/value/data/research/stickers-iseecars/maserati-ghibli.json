@@ -24,6 +24,84 @@
 "source": "https://www.iseecars.com/car/2014-maserati-ghibli-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "GT 4dr Sedan",
+"msrp": 76200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Modena 4dr Sedan",
+"msrp": 80900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena Q4 4dr Sedan",
+"msrp": 83500,
+"config": "",
+"note": ""
+},
+{
+"trim": "F Tributo 4dr Sedan",
+"msrp": 98890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD F Tributo Q4 4dr Sedan",
+"msrp": 101390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 4dr Sedan",
+"msrp": 110600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1495,
+"trims": [
+{
+"trim": "GT 4dr Sedan",
+"msrp": 85300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Modena 4dr Sedan",
+"msrp": 92100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena Q4 4dr Sedan",
+"msrp": 94900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 4dr Sedan",
+"msrp": 118500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

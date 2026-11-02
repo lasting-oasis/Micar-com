@@ -1,0 +1,60 @@
+{
+"make": "Jeep",
+"model": "Renegade",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (renegade).",
+"years": [
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 24695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Altitude 4dr SUV",
+"msrp": 30140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 (Red) Edition 4dr SUV",
+"msrp": 30540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhawk 4dr SUV",
+"msrp": 30945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 31145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

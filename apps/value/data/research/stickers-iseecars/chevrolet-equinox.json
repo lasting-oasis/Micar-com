@@ -288,6 +288,390 @@
 "source": "https://www.iseecars.com/car/2014-chevrolet-equinox-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 33000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "LS 4dr SUV w/1LS",
+"msrp": 26050,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr SUV w/1FL",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 27150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2FL",
+"msrp": 27550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV w/1LS",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV w/1FL",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV w/1LT",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV w/2FL",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 30350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr SUV",
+"msrp": 31250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RS 4dr SUV",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 32850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "LS 4dr SUV w/1FL",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr SUV w/1LS",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2FL",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV w/1FL",
+"msrp": 28200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV w/1LS",
+"msrp": 28200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV w/1LT",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV w/2FL",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr SUV",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RS 4dr SUV",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 33400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "LS 4dr SUV w/1LS",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr SUV w/1FL",
+"msrp": 26850,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2FL",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV w/1LS",
+"msrp": 28200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV w/1FL",
+"msrp": 28450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV w/2FL",
+"msrp": 29750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 30950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV w/1LT",
+"msrp": 31095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr SUV",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RS 4dr SUV",
+"msrp": 32550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 33400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1395,
+"trims": [
+{
+"trim": "LT 4dr SUV",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 30600,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV 4dr SUV",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ACTIV 4dr SUV",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RS 4dr SUV",
+"msrp": 35000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2026,
+"destination": 1995,
+"trims": [
+{
+"trim": "LT 4dr SUV",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 30800,
+"config": "",
+"note": ""
+},
+{
+"trim": "ACTIV 4dr SUV",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ACTIV 4dr SUV",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RS 4dr SUV",
+"msrp": 35600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2026-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

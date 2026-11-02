@@ -1,0 +1,96 @@
+{
+"make": "Honda",
+"model": "Passport",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (passport).",
+"years": [
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 38370,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 40470,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TrailSport 4dr SUV",
+"msrp": 42970,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Elite 4dr SUV",
+"msrp": 45930,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-honda-passport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1375,
+"trims": [
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TrailSport 4dr SUV",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Elite 4dr SUV",
+"msrp": 46560,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-honda-passport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TrailSport 4dr SUV",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Edition 4dr SUV",
+"msrp": 47970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-honda-passport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

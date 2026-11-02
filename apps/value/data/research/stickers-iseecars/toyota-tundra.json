@@ -654,6 +654,990 @@
 "source": "https://www.iseecars.com/car/2014-toyota-tundra-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x2 SR 4dr Double Cab Pickup SB",
+"msrp": 35950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab Pickup LB",
+"msrp": 36280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr CrewMax Cab Pickup SB",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup SB",
+"msrp": 38950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup LB",
+"msrp": 39280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr CrewMax Cab Pickup SB",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup SB",
+"msrp": 41455,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup LB",
+"msrp": 42765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup SB",
+"msrp": 43505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup SB",
+"msrp": 44455,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup LB",
+"msrp": 44815,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup LB",
+"msrp": 45765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup SB",
+"msrp": 46505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab Pickup SB",
+"msrp": 47550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup LB",
+"msrp": 47815,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup SB",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup LB",
+"msrp": 49930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB",
+"msrp": 50550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup LB",
+"msrp": 52930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited HV 4dr CrewMax Cab Pickup SB",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited HV 4dr CrewMax Cab Pickup LB",
+"msrp": 53330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr CrewMax Cab Pickup SB",
+"msrp": 56000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr CrewMax Cab Pickup LB",
+"msrp": 56330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr CrewMax Cab Pickup SB",
+"msrp": 57690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr CrewMax Cab Pickup LB",
+"msrp": 58020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition 4dr CrewMax Cab Pickup SB",
+"msrp": 58390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition 4dr CrewMax Cab Pickup LB",
+"msrp": 58720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup SB",
+"msrp": 60690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup LB",
+"msrp": 61020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum HV 4dr CrewMax Cab Pickup SB",
+"msrp": 61090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup SB",
+"msrp": 61390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum HV 4dr CrewMax Cab Pickup LB",
+"msrp": 61420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup LB",
+"msrp": 61720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition HV 4dr CrewMax Cab Pickup SB",
+"msrp": 61790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition HV 4dr CrewMax Cab Pickup LB",
+"msrp": 62120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum HV 4dr CrewMax Cab Pickup SB",
+"msrp": 64090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum HV 4dr CrewMax Cab Pickup LB",
+"msrp": 64420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition HV 4dr CrewMax Cab Pickup SB",
+"msrp": 64790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition HV 4dr CrewMax Cab Pickup LB",
+"msrp": 65120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro HV 4dr CrewMax Cab Pickup SB",
+"msrp": 67505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Capstone HV 4dr CrewMax Cab Pickup SB",
+"msrp": 74230,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1850,
+"trims": [
+{
+"trim": "4x2 SR 4dr Double Cab Pickup SB",
+"msrp": 38965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab Pickup LB",
+"msrp": 39295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr CrewMax Cab Pickup SB",
+"msrp": 41015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup SB",
+"msrp": 41965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup LB",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr CrewMax Cab Pickup SB",
+"msrp": 44015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup SB",
+"msrp": 44470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup LB",
+"msrp": 45780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup SB",
+"msrp": 46520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup SB",
+"msrp": 47470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup LB",
+"msrp": 47830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup LB",
+"msrp": 48780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup SB",
+"msrp": 49520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab Pickup SB",
+"msrp": 50565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup LB",
+"msrp": 50830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup SB",
+"msrp": 52615,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup LB",
+"msrp": 52945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB",
+"msrp": 53565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB",
+"msrp": 55615,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup LB",
+"msrp": 55945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited HV 4dr CrewMax Cab Pickup SB",
+"msrp": 56415,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited HV 4dr CrewMax Cab Pickup LB",
+"msrp": 56745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr CrewMax Cab Pickup SB",
+"msrp": 59415,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr CrewMax Cab Pickup LB",
+"msrp": 59745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr CrewMax Cab Pickup SB",
+"msrp": 60775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr CrewMax Cab Pickup LB",
+"msrp": 61105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition 4dr CrewMax Cab Pickup SB",
+"msrp": 61460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition 4dr CrewMax Cab Pickup LB",
+"msrp": 61790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup SB",
+"msrp": 63775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup LB",
+"msrp": 64105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup SB",
+"msrp": 64460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum HV 4dr CrewMax Cab Pickup SB",
+"msrp": 64505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup LB",
+"msrp": 64790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum HV 4dr CrewMax Cab Pickup LB",
+"msrp": 64835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition HV 4dr CrewMax Cab Pickup SB",
+"msrp": 65205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition HV 4dr CrewMax Cab Pickup LB",
+"msrp": 65535,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum HV 4dr CrewMax Cab Pickup SB",
+"msrp": 67505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum HV 4dr CrewMax Cab Pickup LB",
+"msrp": 67835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition HV 4dr CrewMax Cab Pickup SB",
+"msrp": 68205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition HV 4dr CrewMax Cab Pickup LB",
+"msrp": 68535,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro HV 4dr CrewMax Cab Pickup SB",
+"msrp": 70920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Capstone HV 4dr CrewMax Cab Pickup SB",
+"msrp": 77645,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1945,
+"trims": [
+{
+"trim": "4x2 SR 4dr Double Cab Pickup SB",
+"msrp": 39965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab Pickup LB",
+"msrp": 40295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr CrewMax Cab Pickup SB",
+"msrp": 42015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup SB",
+"msrp": 42965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup LB",
+"msrp": 43295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr CrewMax Cab Pickup SB",
+"msrp": 45015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup SB",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup LB",
+"msrp": 46810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup SB",
+"msrp": 47550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup SB",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup LB",
+"msrp": 48860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup LB",
+"msrp": 49810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup SB",
+"msrp": 50550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab Pickup SB",
+"msrp": 51855,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup LB",
+"msrp": 51860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup SB",
+"msrp": 53905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup LB",
+"msrp": 54235,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB",
+"msrp": 54855,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB",
+"msrp": 56905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup LB",
+"msrp": 57235,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited HV 4dr CrewMax Cab Pickup SB",
+"msrp": 57625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited HV 4dr CrewMax Cab Pickup LB",
+"msrp": 57955,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr CrewMax Cab Pickup SB",
+"msrp": 60625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr CrewMax Cab Pickup LB",
+"msrp": 60955,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr CrewMax Cab Pickup SB",
+"msrp": 61775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr CrewMax Cab Pickup LB",
+"msrp": 62105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition 4dr CrewMax Cab Pickup SB",
+"msrp": 62460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition 4dr CrewMax Cab Pickup LB",
+"msrp": 62790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup SB",
+"msrp": 64775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup LB",
+"msrp": 65105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup SB",
+"msrp": 65460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum HV 4dr CrewMax Cab Pickup SB",
+"msrp": 65705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup LB",
+"msrp": 65790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum HV 4dr CrewMax Cab Pickup LB",
+"msrp": 66035,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition HV 4dr CrewMax Cab Pickup SB",
+"msrp": 66405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition HV 4dr CrewMax Cab Pickup LB",
+"msrp": 66735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum HV 4dr CrewMax Cab Pickup SB",
+"msrp": 68705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum HV 4dr CrewMax Cab Pickup LB",
+"msrp": 69035,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition HV 4dr CrewMax Cab Pickup SB",
+"msrp": 69405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition HV 4dr CrewMax Cab Pickup LB",
+"msrp": 69735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro HV 4dr CrewMax Cab Pickup SB",
+"msrp": 72130,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Limited Edition HV 4dr CrewMax Cab Pickup SB",
+"msrp": 76565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Capstone HV 4dr CrewMax Cab Pickup SB",
+"msrp": 78845,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2095,
+"trims": [
+{
+"trim": "4x2 SR 4dr Double Cab Pickup SB",
+"msrp": 40090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab Pickup LB",
+"msrp": 40420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr CrewMax Cab Pickup SB",
+"msrp": 42140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab Pickup SB",
+"msrp": 43090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr CrewMax Cab Pickup SB",
+"msrp": 45140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab Pickup SB",
+"msrp": 45960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup SB",
+"msrp": 48010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup SB",
+"msrp": 48960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr CrewMax Cab Pickup LB",
+"msrp": 49320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab Pickup LB",
+"msrp": 50270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup SB",
+"msrp": 51010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr CrewMax Cab Pickup LB",
+"msrp": 52320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup SB",
+"msrp": 54305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup LB",
+"msrp": 54635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB",
+"msrp": 57305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup LB",
+"msrp": 57635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited HV 4dr CrewMax Cab Pickup SB",
+"msrp": 58005,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr CrewMax Cab Pickup SB",
+"msrp": 61005,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr CrewMax Cab Pickup LB",
+"msrp": 61335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr CrewMax Cab Pickup SB",
+"msrp": 63675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 1794 Edition 4dr CrewMax Cab Pickup SB",
+"msrp": 64360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup SB",
+"msrp": 66675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup LB",
+"msrp": 67005,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup SB",
+"msrp": 67360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition 4dr CrewMax Cab Pickup LB",
+"msrp": 67690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum HV 4dr CrewMax Cab Pickup SB",
+"msrp": 70585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum HV 4dr CrewMax Cab Pickup LB",
+"msrp": 70915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition HV 4dr CrewMax Cab Pickup SB",
+"msrp": 71285,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 1794 Edition HV 4dr CrewMax Cab Pickup LB",
+"msrp": 71615,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro HV 4dr CrewMax Cab Pickup SB",
+"msrp": 72510,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Capstone HV 4dr CrewMax Cab Pickup SB",
+"msrp": 80725,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

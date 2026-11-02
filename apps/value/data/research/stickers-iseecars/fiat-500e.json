@@ -5,6 +5,21 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (500e).",
 "years": [
 {
+"year": 2013,
+"destination": 800,
+"trims": [
+{
+"trim": "Base 2dr Hatchback",
+"msrp": 31800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-fiat-500e-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 850,
 "trims": [

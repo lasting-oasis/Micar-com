@@ -1,0 +1,213 @@
+{
+"make": "Hyundai",
+"model": "Santa Cruz",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (santa_cruz).",
+"years": [
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "SE 4dr Crew Cab 4.3ft SB",
+"msrp": 24440,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crew Cab 4.3ft SB",
+"msrp": 25940,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crew Cab 4.3ft SB",
+"msrp": 27640,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crew Cab 4.3ft SB",
+"msrp": 29140,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium 4dr Crew Cab 4.3ft SB",
+"msrp": 36130,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crew Cab 4.3ft SB",
+"msrp": 40170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-hyundai-santa_cruz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1335,
+"trims": [
+{
+"trim": "SE 4dr Crew Cab 4.3ft SB",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crew Cab 4.3ft SB",
+"msrp": 27200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crew Cab 4.3ft SB",
+"msrp": 28190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crew Cab 4.3ft SB",
+"msrp": 29690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Night 4dr Crew Cab 4.3ft SB",
+"msrp": 36060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium 4dr Crew Cab 4.3ft SB",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crew Cab 4.3ft SB",
+"msrp": 40570,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-hyundai-santa_cruz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "SE 4dr Crew Cab 4.3ft SB",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crew Cab 4.3ft SB",
+"msrp": 28400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crew Cab 4.3ft SB",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crew Cab 4.3ft SB",
+"msrp": 31150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Night 4dr Crew Cab 4.3ft SB",
+"msrp": 38460,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr Crew Cab 4.3ft. SB",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crew Cab 4.3ft SB",
+"msrp": 41320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-hyundai-santa_cruz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "SE 4dr Crew Cab 4.3ft SB",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crew Cab 4.3ft SB",
+"msrp": 30250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crew Cab 4.3ft SB",
+"msrp": 30450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crew Cab 4.3ft SB",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Activity 4dr Crew Cab 4.3ft SB",
+"msrp": 33450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Activity 4dr Crew Cab 4.3ft SB",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr Crew Cab 4.3ft. SB",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crew Cab 4.3ft SB",
+"msrp": 42750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-hyundai-santa_cruz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -258,6 +258,114 @@
 "source": "https://www.iseecars.com/car/2014-nissan-sentra-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 19950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Sedan",
+"msrp": 21030,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 4dr Sedan",
+"msrp": 22700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 20200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Sedan",
+"msrp": 21420,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 4dr Sedan",
+"msrp": 23090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1140,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 21180,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Sedan",
+"msrp": 22110,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 4dr Sedan",
+"msrp": 24270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1140,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 21590,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Sedan",
+"msrp": 22290,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 4dr Sedan",
+"msrp": 24590,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

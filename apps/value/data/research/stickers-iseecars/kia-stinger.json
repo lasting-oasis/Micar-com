@@ -1,0 +1,54 @@
+{
+"make": "Kia",
+"model": "Stinger",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (stinger).",
+"years": [
+{
+"year": 2022,
+"destination": 1145,
+"trims": [
+{
+"trim": "GT-Line 4dr Sedan",
+"msrp": 36290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT-Line 4dr Sedan",
+"msrp": 38490,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT1 4dr Sedan",
+"msrp": 43890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT1 4dr Sedan",
+"msrp": 46090,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT2 4dr Sedan",
+"msrp": 51490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT2 4dr Sedan",
+"msrp": 53690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-kia-stinger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

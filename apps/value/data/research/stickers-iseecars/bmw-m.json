@@ -2,7 +2,7 @@
 "make": "BMW",
 "model": "M",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (m3, m5, m6).",
+"note": "Trim-level MSRPs from iSeeCars price pages (m2, m3, m4, m5, m6, m8).",
 "years": [
 {
 "year": 2010,
@@ -162,6 +162,249 @@
 "source": "https://www.iseecars.com/car/2014-bmw-m5-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "M2 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 69900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M4 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 71800,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 72800,
+"config": "",
+"note": ""
+},
+{
+"trim": "M4 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 74700,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD 4dr Sedan",
+"msrp": 103500,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8 AWD Gran Coupe 4dr Sedan",
+"msrp": 130000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-m2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-08-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 70100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Competition 4dr Sedan",
+"msrp": 73000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Competition xDrive 4dr Sedan",
+"msrp": 77100,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD 4dr Sedan",
+"msrp": 103500,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 130000,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 139500,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD CS 4dr Sedan",
+"msrp": 142000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-m3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 74300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Competition 4dr Sedan",
+"msrp": 78600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Competition xDrive 4dr Sedan",
+"msrp": 82600,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD 4dr Sedan",
+"msrp": 109900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8 AWD Competition 2dr Coupe",
+"msrp": 134100,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8 AWD Competition Gran Coupe 4dr Sedan",
+"msrp": 134100,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8 AWD Competition 2dr Convertible",
+"msrp": 143700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-m3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 76000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Competition 4dr Sedan",
+"msrp": 80200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Competition xDrive 4dr Sedan",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CS 4dr Sedan",
+"msrp": 118700,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8 AWD Competition 2dr Coupe",
+"msrp": 138800,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8 AWD Competition Gran Coupe 4dr Sedan",
+"msrp": 138800,
+"config": "",
+"note": ""
+},
+{
+"trim": "M8 AWD Competition 2dr Convertible",
+"msrp": 148800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-m3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 76700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Competition 4dr Sedan",
+"msrp": 80900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Competition xDrive 4dr Sedan",
+"msrp": 86000,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD 4dr Sedan",
+"msrp": 119500,
+"config": "",
+"note": ""
+},
+{
+"trim": "M5 AWD Touring 4dr Wagon",
+"msrp": 121500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-m3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

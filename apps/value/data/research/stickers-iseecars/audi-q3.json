@@ -1,0 +1,75 @@
+{
+"make": "Audi",
+"model": "Q3",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (q3).",
+"years": [
+{
+"year": 2022,
+"destination": 1195,
+"trims": [
+{
+"trim": "AWD quattro Premium 40 TFSI 4dr SUV",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium 45 TFSI 4dr SUV",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 40 TFSI 4dr SUV",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium Plus 45 TFSI 4dr SUV",
+"msrp": 42000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1195,
+"trims": [
+{
+"trim": "AWD quattro Premium 40 TFSI 4dr SUV",
+"msrp": 37400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium 45 TFSI 4dr SUV",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 40 TFSI 4dr SUV",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium Plus 45 TFSI 4dr SUV",
+"msrp": 42600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

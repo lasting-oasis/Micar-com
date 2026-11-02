@@ -1,0 +1,30 @@
+{
+"make": "Hyundai",
+"model": "Nexo",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (nexo).",
+"years": [
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "Blue 4dr SUV",
+"msrp": 59435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 62885,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-hyundai-nexo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

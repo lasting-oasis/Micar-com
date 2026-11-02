@@ -99,6 +99,108 @@
 "source": "https://www.iseecars.com/car/2014-nissan-leaf-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "S 4dr Hatchback",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 4dr Hatchback",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "S PLUS 4dr Hatchback",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV PLUS 4dr Hatchback",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL PLUS 4dr Hatchback",
+"msrp": 37400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-nissan-leaf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "S 4dr Hatchback",
+"msrp": 28040,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV PLUS 4dr Hatchback",
+"msrp": 36040,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-nissan-leaf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1140,
+"trims": [
+{
+"trim": "S 4dr Hatchback",
+"msrp": 28140,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV PLUS 4dr Hatchback",
+"msrp": 36190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-nissan-leaf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1140,
+"trims": [
+{
+"trim": "S 4dr Hatchback",
+"msrp": 28140,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV PLUS 4dr Hatchback",
+"msrp": 36190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-nissan-leaf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

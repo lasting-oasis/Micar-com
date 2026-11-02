@@ -1,0 +1,51 @@
+{
+"make": "Jaguar",
+"model": "E-Pace",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (e__pace).",
+"years": [
+{
+"year": 2022,
+"destination": 1050,
+"trims": [
+{
+"trim": "AWD P250 4dr SUV",
+"msrp": 40995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P250 SE 4dr SUV",
+"msrp": 45995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 300 Sport 4dr SUV",
+"msrp": 49995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-jaguar-e__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1175,
+"trims": [
+{
+"trim": "AWD P250 SE 4dr SUV",
+"msrp": 48000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-jaguar-e__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -204,6 +204,117 @@
 "source": "https://www.iseecars.com/car/2014-kia-soul-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "LX 4dr Crossover CVT",
+"msrp": 19290,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Crossover",
+"msrp": 21590,
+"config": "",
+"note": ""
+},
+{
+"trim": "X-Line 4dr Crossover",
+"msrp": 22690,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT-Line 4dr Crossover",
+"msrp": 22690,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Crossover",
+"msrp": 23590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 4dr Crossover",
+"msrp": 27890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1325,
+"trims": [
+{
+"trim": "LX 4dr Crossover",
+"msrp": 19890,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Crossover",
+"msrp": 22390,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT-Line 4dr Crossover",
+"msrp": 23490,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Crossover",
+"msrp": 24190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1375,
+"trims": [
+{
+"trim": "LX 4dr Crossover",
+"msrp": 20190,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Crossover",
+"msrp": 22690,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT-Line 4dr Crossover",
+"msrp": 23790,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Crossover",
+"msrp": 24490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

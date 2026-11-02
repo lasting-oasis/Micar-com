@@ -1,0 +1,99 @@
+{
+"make": "Tesla",
+"model": "Model S",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (model_s).",
+"years": [
+{
+"year": 2022,
+"destination": 1200,
+"trims": [
+{
+"trim": "AWD 4dr Liftback",
+"msrp": 104990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Plaid 4dr Liftback",
+"msrp": 135990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-tesla-model_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1200,
+"trims": [
+{
+"trim": "AWD Standard Range 4dr Liftback",
+"msrp": 78490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Liftback",
+"msrp": 88490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Plaid 4dr Liftback",
+"msrp": 108490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-tesla-model_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1390,
+"trims": [
+{
+"trim": "AWD 4dr Liftback",
+"msrp": 74990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Plaid 4dr Liftback",
+"msrp": 89990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-tesla-model_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1390,
+"trims": [
+{
+"trim": "AWD 4dr Liftback",
+"msrp": 79990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Plaid 4dr Liftback",
+"msrp": 94990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-tesla-model_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -258,6 +258,156 @@
 "source": "https://www.iseecars.com/car/2014-honda-odyssey-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 33040,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Mini-Van",
+"msrp": 36440,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Mini-Van",
+"msrp": 39710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite 4dr Mini-Van",
+"msrp": 48770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1375,
+"trims": [
+{
+"trim": "EX 4dr Mini-Van",
+"msrp": 37490,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Mini-Van",
+"msrp": 40560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Mini-Van",
+"msrp": 41360,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite 4dr Mini-Van",
+"msrp": 49620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "EX 4dr Mini-Van",
+"msrp": 38240,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Mini-Van",
+"msrp": 41310,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Mini-Van",
+"msrp": 42260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite 4dr Mini-Van",
+"msrp": 50370,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "EX-L 4dr Mini-Van",
+"msrp": 42220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport-L 4dr Mini-Van",
+"msrp": 43370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 46910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite 4dr Mini-Van",
+"msrp": 51180,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

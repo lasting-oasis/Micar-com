@@ -1,0 +1,198 @@
+{
+"make": "Buick",
+"model": "Envision",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (envision).",
+"years": [
+{
+"year": 2021,
+"destination": 1195,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Essence 4dr Crossover",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Avenir 4dr Crossover",
+"msrp": 42200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-buick-envision-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Essence 4dr Crossover",
+"msrp": 37400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 39850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Avenir 4dr Crossover",
+"msrp": 41650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-buick-envision-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 37050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Essence 4dr Crossover",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 45660,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Avenir 4dr Crossover",
+"msrp": 47460,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-buick-envision-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport Touring 4dr Crossover",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Avenir 4dr Crossover",
+"msrp": 47000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-buick-envision-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1895,
+"trims": [
+{
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport Touring 4dr Crossover",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Avenir 4dr Crossover",
+"msrp": 47700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-buick-envision-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

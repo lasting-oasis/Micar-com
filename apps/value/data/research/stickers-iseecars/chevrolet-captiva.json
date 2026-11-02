@@ -1,0 +1,108 @@
+{
+"make": "Chevrolet",
+"model": "Captiva",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (captiva_sport).",
+"years": [
+{
+"year": 2012,
+"destination": 810,
+"trims": [
+{
+"trim": "Captiva Sport LS 4dr SUV w/ 1LS",
+"msrp": 23435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Captiva Sport LS 4dr SUV w/ 2LS",
+"msrp": 24505,
+"config": "",
+"note": ""
+},
+{
+"trim": "Captiva Sport LT 4dr SUV",
+"msrp": 26585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Captiva Sport AWD LTZ 4dr SUV",
+"msrp": 32035,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-captiva_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 860,
+"trims": [
+{
+"trim": "Captiva Sport LS 4dr SUV w/ 1LS",
+"msrp": 24255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Captiva Sport LS 4dr SUV w/ 2LS",
+"msrp": 25010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Captiva Sport LT 4dr SUV",
+"msrp": 25840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Captiva Sport LTZ 4dr SUV",
+"msrp": 29685,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-captiva_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 875,
+"trims": [
+{
+"trim": "Captiva Sport LS 4dr SUV w/1LS",
+"msrp": 24360,
+"config": "",
+"note": ""
+},
+{
+"trim": "Captiva Sport LS 4dr SUV w/2LS",
+"msrp": 25145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Captiva Sport LT 4dr SUV",
+"msrp": 25975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Captiva Sport LTZ 4dr SUV",
+"msrp": 29495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-captiva_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

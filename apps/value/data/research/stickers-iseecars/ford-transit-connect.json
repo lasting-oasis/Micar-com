@@ -342,6 +342,93 @@
 "source": "https://www.iseecars.com/car/2014-ford-transit_connect-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 29365,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 29365,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 30365,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 30365,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 31540,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 31540,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 31860,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 31860,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 32540,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 32540,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 33975,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 33975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 36060,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ford-transit_connect-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

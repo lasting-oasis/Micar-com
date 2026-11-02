@@ -828,6 +828,51 @@
 "source": "https://www.iseecars.com/car/2014-volkswagen-jetta-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "1.5T S 4dr Sedan 6M",
+"msrp": 20365,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T S 4dr Sedan 8A",
+"msrp": 21165,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T Sport 4dr Sedan 6M",
+"msrp": 21265,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T Sport 4dr Sedan 8A",
+"msrp": 22065,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T SE 4dr Sedan",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T SEL 4dr Sedan",
+"msrp": 28095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

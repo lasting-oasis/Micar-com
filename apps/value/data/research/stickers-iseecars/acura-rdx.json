@@ -168,6 +168,267 @@
 "source": "https://www.iseecars.com/car/2014-acura-rdx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 51000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1195,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Technology Package",
+"msrp": 43250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 45450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/A-SPEC Package",
+"msrp": 46250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/A-SPEC Package",
+"msrp": 48450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance and A-SPEC Package",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD PMC Edition 4dr SUV",
+"msrp": 53300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1195,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 41750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 43950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/Technology Package",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV w/A-SPEC Package",
+"msrp": 47400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/A-SPEC Package",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 51750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance and A-SPEC Package",
+"msrp": 53750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1350,
+"trims": [
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 44350,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/A-SPEC Package",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 52150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance and A-SPEC Package",
+"msrp": 54150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1350,
+"trims": [
+{
+"trim": "SH-AWD 4dr SUV",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Technology Package",
+"msrp": 47300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/A-SPEC Package",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance Package",
+"msrp": 52450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 4dr SUV w/Advance and A-SPEC Package",
+"msrp": 54450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-acura-rdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -282,6 +282,210 @@
 "source": "https://www.iseecars.com/car/2014-subaru-forester-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1175,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 30465,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 32575,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 33520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 35995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1225,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 30965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 33075,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 34020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 36495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 30295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 31865,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 33975,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 34920,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 37395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1420,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 33385,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 36105,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 36285,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Hybrid 4dr Crossover",
+"msrp": 36595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 37695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport Hybrid 4dr Crossover",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited Hybrid 4dr Crossover",
+"msrp": 41010,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 41595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring Hybrid 4dr Crossover",
+"msrp": 43295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

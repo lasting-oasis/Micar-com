@@ -1,0 +1,789 @@
+{
+"make": "GMC",
+"model": "Sierra 1500",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (sierra_1500).",
+"years": [
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x2 Pro 2dr Regular Cab 6.6 ft. SB",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 2dr Regular Cab 8 ft. LB",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 4dr Double Cab 6.6 ft. SB",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 2dr Regular Cab 6.6 ft. SB",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 2dr Regular Cab 8 ft. LB",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 4dr Crew Cab 5.8 ft. SB",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Double Cab 6.6 ft. SB",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Crew Cab 5.8 ft. SB",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Crew Cab 6.6 ft. SB",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 46660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 49960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Double Cab 6.6 ft. SB",
+"msrp": 50100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 51600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 52200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 52360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 6.6 ft. SB",
+"msrp": 52660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Crew Cab 5.8 ft. SB",
+"msrp": 52700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 6.6 ft. SB",
+"msrp": 54500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5.8 ft. SB",
+"msrp": 62500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 62800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 6.6 ft. SB",
+"msrp": 62800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 66100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 6.6 ft. SB",
+"msrp": 66600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4X 4dr Crew Cab 5.8 ft. SB",
+"msrp": 76500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali Ultimate 4dr Crew Cab 5.8 ft. SB",
+"msrp": 81900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x2 Pro 2dr Regular Cab 6.6 ft. SB",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 2dr Regular Cab 8 ft. LB",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 4dr Double Cab 6.6 ft. SB",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 2dr Regular Cab 6.6 ft. SB",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 2dr Regular Cab 8 ft. LB",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Double Cab 6.6 ft. SB",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Crew Cab 5.8 ft. SB",
+"msrp": 46100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Crew Cab 6.6 ft. SB",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Double Cab 6.6 ft. SB",
+"msrp": 53700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 55200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 6.6 ft. SB",
+"msrp": 56200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Crew Cab 5.8 ft. SB",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 57800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 6.6 ft. SB",
+"msrp": 58100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 59500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 65700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5.8 ft. SB",
+"msrp": 66700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 6.6 ft. SB",
+"msrp": 67000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 69000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 6.6 ft. SB",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4X 4dr Crew Cab 5.8 ft. SB",
+"msrp": 81700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali Ultimate 4dr Crew Cab 5.8 ft. SB",
+"msrp": 82100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "4x2 Pro 2dr Regular Cab 6.6 ft. SB",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 2dr Regular Cab 8 ft. LB",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 4dr Double Cab 6.6 ft. SB",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 2dr Regular Cab 6.6 ft. SB",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 2dr Regular Cab 8 ft. LB",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 4dr Crew Cab 5.8 ft. SB",
+"msrp": 43400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Double Cab 6.6 ft. SB",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Crew Cab 5.8 ft. SB",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Crew Cab 6.6 ft. SB",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 52400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Double Cab 6.6 ft. SB",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 53400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 6.6 ft. SB",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Crew Cab 5.8 ft. SB",
+"msrp": 55200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 6.6 ft. SB",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 57900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 58400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5.8 ft. SB",
+"msrp": 66100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 6.6 ft. SB",
+"msrp": 66400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 66600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 69900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 6.6 ft. SB",
+"msrp": 70400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4X 4dr Crew Cab 5.8 ft. SB",
+"msrp": 79200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali Ultimate 4dr Crew Cab 5.8 ft. SB",
+"msrp": 82500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2195,
+"trims": [
+{
+"trim": "4x2 Pro 2dr Regular Cab 6.6 ft. SB",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 2dr Regular Cab 8 ft. LB",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 4dr Double Cab 6.6 ft. SB",
+"msrp": 41600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 2dr Regular Cab 6.6 ft. SB",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 2dr Regular Cab 8 ft. LB",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Pro 4dr Crew Cab 5.8 ft. SB",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Double Cab 6.6 ft. SB",
+"msrp": 44900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Crew Cab 5.8 ft. SB",
+"msrp": 47300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Pro 4dr Crew Cab 6.6 ft. SB",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 48800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Double Cab 6.6 ft. SB",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Double Cab 6.6 ft. SB",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 53100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Double Cab 6.6 ft. SB",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr Crew Cab 6.6 ft. SB",
+"msrp": 54800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation Standard 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 5.8 ft. SB",
+"msrp": 56400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr Crew Cab 6.6 ft. SB",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 58000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 58700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 65400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 5.8 ft. SB",
+"msrp": 66800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr Crew Cab 6.6 ft. SB",
+"msrp": 67300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 5.8 ft. SB",
+"msrp": 68700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr Crew Cab 6.6 ft. SB",
+"msrp": 69200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4X 4dr Crew Cab 5.8 ft. SB",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali Ultimate 4dr Crew Cab 5.8 ft. SB",
+"msrp": 84200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

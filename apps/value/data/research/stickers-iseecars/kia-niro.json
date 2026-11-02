@@ -1,0 +1,120 @@
+{
+"make": "Kia",
+"model": "Niro",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (niro, niro_plug__in_hybrid).",
+"years": [
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "LX 4dr Crossover",
+"msrp": 24690,
+"config": "",
+"note": ""
+},
+{
+"trim": "LXS 4dr Crossover",
+"msrp": 26090,
+"config": "",
+"note": ""
+},
+{
+"trim": "LXS Special Edition 4dr Crossover",
+"msrp": 27590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Special Edition 4dr Crossover",
+"msrp": 29890,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Premium 4dr Crossover",
+"msrp": 31990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-kia-niro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1325,
+"trims": [
+{
+"trim": "LX 4dr Crossover",
+"msrp": 26590,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Crossover",
+"msrp": 29190,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Touring 4dr Crossover",
+"msrp": 31490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Crossover",
+"msrp": 32590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX 4dr Crossover",
+"msrp": 33840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Touring 4dr Crossover",
+"msrp": 34890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid SX Touring 4dr Crossover",
+"msrp": 39590,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-kia-niro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1445,
+"trims": [
+{
+"trim": "Plug-In Hybrid EX 4dr Crossover",
+"msrp": 34490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid SX Touring 4dr Crossover",
+"msrp": 40790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-kia-niro_plug__in_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

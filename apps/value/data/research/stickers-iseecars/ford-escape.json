@@ -2,7 +2,7 @@
 "make": "Ford",
 "model": "Escape",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (escape, escape_hybrid).",
+"note": "Trim-level MSRPs from iSeeCars price pages (escape, escape_hybrid, escape_plug__in_hybrid).",
 "years": [
 {
 "year": 2010,
@@ -300,6 +300,33 @@
 "source": "https://www.iseecars.com/car/2014-ford-escape-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "Plug-In Hybrid SE 4dr SUV",
+"msrp": 35455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid SEL 4dr SUV",
+"msrp": 38190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid Titanium 4dr SUV",
+"msrp": 40700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ford-escape_plug__in_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

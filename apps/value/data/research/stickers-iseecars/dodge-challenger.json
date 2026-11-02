@@ -270,6 +270,138 @@
 "source": "https://www.iseecars.com/car/2014-dodge-challenger-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 29065,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 32065,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35065,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 35765,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 40840,
+"config": "",
+"note": ""
+},
+{
+"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"msrp": 59765,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "SXT 2dr Coupe",
+"msrp": 30430,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 2dr Coupe",
+"msrp": 33430,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 2dr Coupe",
+"msrp": 33705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Coupe",
+"msrp": 36705,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 37980,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack 2dr Coupe",
+"msrp": 44155,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack Widebody 2dr Coupe",
+"msrp": 50150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat 2dr Coupe",
+"msrp": 63530,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Widebody 2dr Coupe",
+"msrp": 69530,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye 2dr Coupe",
+"msrp": 75130,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Widebody 2dr Coupe",
+"msrp": 81130,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Widebody Jailbreak 2dr Coupe",
+"msrp": 82125,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Super Stock 2dr Coupe",
+"msrp": 84130,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

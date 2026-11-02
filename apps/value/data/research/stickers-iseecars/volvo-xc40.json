@@ -1,0 +1,63 @@
+{
+"make": "Volvo",
+"model": "XC40",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (xc40_recharge).",
+"years": [
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "XC40 Recharge eAWD Twin Core 4dr SUV",
+"msrp": 51700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XC40 Recharge eAWD Twin Plus 4dr SUV",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XC40 Recharge eAWD Twin Ultimate 4dr SUV",
+"msrp": 58150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volvo-xc40_recharge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "XC40 Recharge eAWD Twin Core 4dr SUV",
+"msrp": 53550,
+"config": "",
+"note": ""
+},
+{
+"trim": "XC40 Recharge eAWD Twin Plus 4dr SUV",
+"msrp": 56250,
+"config": "",
+"note": ""
+},
+{
+"trim": "XC40 Recharge eAWD Twin Ultimate 4dr SUV",
+"msrp": 59500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-volvo-xc40_recharge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

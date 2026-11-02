@@ -408,6 +408,342 @@
 "source": "https://www.iseecars.com/car/2014-honda-pilot-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 38080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 40080,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 40310,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 40910,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 42310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 42910,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TrailSport 4dr SUV",
+"msrp": 44810,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring-8P 4dr SUV",
+"msrp": 44870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring-7P 4dr SUV",
+"msrp": 45170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring-8P 4dr SUV",
+"msrp": 46870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring-7P 4dr SUV",
+"msrp": 47170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Elite 4dr SUV",
+"msrp": 50370,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Edition 4dr SUV",
+"msrp": 51870,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1375,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 36300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 41600,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV w/Rear Captain's Chairs",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV w/Rear Captain's Chairs",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr SUV",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TrailSport 4dr SUV",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr SUV",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Elite 4dr SUV",
+"msrp": 52380,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 37090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 39190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV w/Rear Captain's Chairs",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV w/Rear Captain's Chairs",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr SUV",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TrailSport 4dr SUV",
+"msrp": 48800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr SUV",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Elite 4dr SUV",
+"msrp": 52480,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr SUV",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L+ 4dr SUV",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L 4dr SUV",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L+ 4dr SUV",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr SUV",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring+ 4dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TrailSport 4dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr SUV",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring+ 4dr SUV",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Elite 4dr SUV",
+"msrp": 53080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Edition 4dr SUV",
+"msrp": 54580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

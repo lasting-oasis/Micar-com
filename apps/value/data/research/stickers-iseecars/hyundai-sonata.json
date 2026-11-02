@@ -258,6 +258,180 @@
 "source": "https://www.iseecars.com/car/2014-hyundai-sonata-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan (midyear release)",
+"msrp": 24500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Blue 4dr Sedan",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SEL 4dr Sedan",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Plus 4dr Sedan",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Sedan",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line Night Edition 4dr Sedan",
+"msrp": 34750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Sedan",
+"msrp": 35700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-hyundai-sonata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1115,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 25450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 27975,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Plus 4dr Sedan",
+"msrp": 32475,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Sedan",
+"msrp": 34825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 35325,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-hyundai-sonata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1150,
+"trims": [
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Sedan",
+"msrp": 34950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-hyundai-sonata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1195,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 28000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Convenience 4dr Sedan",
+"msrp": 31050,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Sedan",
+"msrp": 35500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-hyundai-sonata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

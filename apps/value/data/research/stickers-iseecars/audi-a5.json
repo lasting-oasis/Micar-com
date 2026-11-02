@@ -420,6 +420,141 @@
 "source": "https://www.iseecars.com/car/2014-audi-a5-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium S line 2dr Coupe",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus S line 2dr Coupe",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Convertible",
+"msrp": 52200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige S line 2dr Coupe",
+"msrp": 55450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 57100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 62950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro S line Premium 45 TFSI 2dr Coupe",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium Plus 45 TFSI 2dr Coupe",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 45 TFSI 2dr Convertible",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Prestige 45 TFSI 2dr Coupe",
+"msrp": 55950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 2dr Convertible",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 45 TFSI 2dr Convertible",
+"msrp": 64000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro S line Premium 45 TFSI 2dr Coupe",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium Plus 45 TFSI 2dr Coupe",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 45 TFSI 2dr Convertible",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Prestige 45 TFSI 2dr Coupe",
+"msrp": 56650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 2dr Convertible",
+"msrp": 59700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 45 TFSI 2dr Convertible",
+"msrp": 64700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

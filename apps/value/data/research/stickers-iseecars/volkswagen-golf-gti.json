@@ -2,7 +2,7 @@
 "make": "Volkswagen",
 "model": "Golf GTI",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (golf, gti).",
+"note": "Trim-level MSRPs from iSeeCars price pages (golf, golf_gti, gti).",
 "years": [
 {
 "year": 2010,
@@ -426,6 +426,180 @@
 "source": "https://www.iseecars.com/car/2014-volkswagen-golf-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "Golf GTI S 4dr Hatchback 6M",
+"msrp": 29880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI S 4dr Hatchback 7A",
+"msrp": 30680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback 6M",
+"msrp": 34630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback 7A",
+"msrp": 35430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback 6M",
+"msrp": 38330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback 7A",
+"msrp": 39130,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volkswagen-golf_gti-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-04-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "Golf GTI S 4dr Hatchback 6M",
+"msrp": 30530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI S 4dr Hatchback 7A",
+"msrp": 31330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 40th Anniversary Edition 4dr Hatchback 6M",
+"msrp": 33055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 40th Anniversary Edition 4dr Hatchback 7A",
+"msrp": 33855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback 6M",
+"msrp": 35330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback 7A",
+"msrp": 36130,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback 6M",
+"msrp": 39070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback 7A",
+"msrp": 39870,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-volkswagen-golf_gti-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-04-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1225,
+"trims": [
+{
+"trim": "Golf GTI S 4dr Hatchback",
+"msrp": 31965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 380 S 4dr Hatchback",
+"msrp": 32685,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback",
+"msrp": 36915,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 380 SE 4dr Hatchback",
+"msrp": 37485,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback",
+"msrp": 40505,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 380 Autobahn 4dr Hatchback",
+"msrp": 40825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-volkswagen-golf_gti-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1225,
+"trims": [
+{
+"trim": "Golf GTI S 4dr Hatchback",
+"msrp": 32445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI SE 4dr Hatchback",
+"msrp": 37420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI Autobahn 4dr Hatchback",
+"msrp": 40880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-volkswagen-golf_gti-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -2,7 +2,7 @@
 "make": "Toyota",
 "model": "Prius",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (prius).",
+"note": "Trim-level MSRPs from iSeeCars price pages (prius, prius_prime).",
 "years": [
 {
 "year": 2010,
@@ -210,6 +210,246 @@
 "source": "https://www.iseecars.com/car/2014-toyota-prius-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "L Eco 4dr Hatchback",
+"msrp": 25075,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 26285,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE AWD-e 4dr Hatchback",
+"msrp": 27685,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Hatchback",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime LE 4dr Hatchback",
+"msrp": 28770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade 4dr Hatchback",
+"msrp": 29545,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE AWD-e 4dr Hatchback",
+"msrp": 30125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime XLE 4dr Hatchback",
+"msrp": 30550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Nightshade AWD-e 4dr Hatchback",
+"msrp": 30675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Hatchback",
+"msrp": 33370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime Limited 4dr Hatchback",
+"msrp": 34550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-prius-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-05-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 27450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Hatchback",
+"msrp": 28850,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Hatchback",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr Hatchback",
+"msrp": 32295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime SE 4dr Hatchback",
+"msrp": 32350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Hatchback",
+"msrp": 34465,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime XSE 4dr Hatchback",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Hatchback",
+"msrp": 35865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime XSE Premium 4dr Hatchback",
+"msrp": 39170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-prius-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1135,
+"trims": [
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Hatchback",
+"msrp": 29350,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Hatchback",
+"msrp": 31395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr Hatchback",
+"msrp": 32795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Hatchback",
+"msrp": 34965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Hatchback",
+"msrp": 36365,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-prius-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1195,
+"trims": [
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 28350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Hatchback",
+"msrp": 29750,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Hatchback",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade 4dr Hatchback",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr Hatchback",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Nightshade 4dr Hatchback",
+"msrp": 33895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Hatchback",
+"msrp": 35365,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Hatchback",
+"msrp": 36765,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-prius-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -270,6 +270,384 @@
 "source": "https://www.iseecars.com/car/2014-ford-explorer-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 35510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 37510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 37740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 38570,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 40570,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST-Line 4dr SUV",
+"msrp": 45760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 47070,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr SUV",
+"msrp": 47760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Timberline 4dr SUV",
+"msrp": 48320,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49070,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr SUV",
+"msrp": 49260,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr SUV",
+"msrp": 51260,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4dr SUV",
+"msrp": 53630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 53775,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD King Ranch 4dr SUV",
+"msrp": 55630,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 55775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1595,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 36760,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 38570,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 38760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 40570,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 44335,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST-Line 4dr SUV",
+"msrp": 46355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 47420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr SUV",
+"msrp": 48355,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Timberline 4dr SUV",
+"msrp": 49330,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49420,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr SUV",
+"msrp": 50005,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr SUV",
+"msrp": 52005,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4dr SUV",
+"msrp": 54525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 54670,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD King Ranch 4dr SUV",
+"msrp": 56525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 56670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1595,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 36860,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 38670,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 38860,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 40670,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 44335,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST-Line 4dr SUV",
+"msrp": 46455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 47520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr SUV",
+"msrp": 48455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Timberline 4dr SUV",
+"msrp": 49430,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49520,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr SUV",
+"msrp": 50105,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr SUV",
+"msrp": 52105,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4dr SUV",
+"msrp": 54625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 54770,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD King Ranch 4dr SUV",
+"msrp": 56625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 56770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1695,
+"trims": [
+{
+"trim": "Active 4dr SUV",
+"msrp": 40050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Active 4dr SUV",
+"msrp": 42050,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST-Line 4dr SUV",
+"msrp": 45020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr SUV",
+"msrp": 47020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 47185,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 52525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 54525,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr SUV",
+"msrp": 54770,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr SUV",
+"msrp": 56770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

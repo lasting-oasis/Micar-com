@@ -1,0 +1,270 @@
+{
+"make": "BMW",
+"model": "2 Series",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (2_series).",
+"years": [
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "228i Gran Coupe 4dr Sedan",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "230i 2dr Coupe",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 228i xDrive Gran Coupe 4dr Sedan",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 230i xDrive 2dr Coupe",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "230i 2dr Convertible",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 230i xDrive 2dr Convertible",
+"msrp": 43850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M235i xDrive Gran Coupe 4dr Sedan",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "M240i 2dr Coupe",
+"msrp": 46350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M240i xDrive 2dr Coupe",
+"msrp": 48350,
+"config": "",
+"note": ""
+},
+{
+"trim": "M240i 2dr Convertible",
+"msrp": 50950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M240i xDrive 2dr Convertible",
+"msrp": 52950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-2_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "228i Gran Coupe 4dr Sedan",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "230i 2dr Coupe",
+"msrp": 36350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 228i xDrive Gran Coupe 4dr Sedan",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M235i xDrive Gran Coupe 4dr Sedan",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M240i xDrive 2dr Coupe",
+"msrp": 48550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-2_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "228i Gran Coupe 4dr Sedan",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "230i 2dr Coupe",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 228i xDrive Gran Coupe 4dr Sedan",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 230i xDrive 2dr Coupe",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M235i xDrive Gran Coupe 4dr Sedan",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "M240i 2dr Coupe",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M240i xDrive 2dr Coupe",
+"msrp": 50900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-2_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "228i Gran Coupe 4dr Sedan",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "230i 2dr Coupe",
+"msrp": 38800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 228i xDrive Gran Coupe 4dr Sedan",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 230i xDrive 2dr Coupe",
+"msrp": 40800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M235i xDrive Gran Coupe 4dr Sedan",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "M240i 2dr Coupe",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M240i xDrive 2dr Coupe",
+"msrp": 51700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-2_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "230i 2dr Coupe",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 230i xDrive 2dr Coupe",
+"msrp": 41600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 228 xDrive Gran Coupe 4dr Sedan",
+"msrp": 41600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M235 xDrive Gran Coupe 4dr Sedan",
+"msrp": 49500,
+"config": "",
+"note": ""
+},
+{
+"trim": "M240i 2dr Coupe",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M240i xDrive 2dr Coupe",
+"msrp": 52600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-2_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

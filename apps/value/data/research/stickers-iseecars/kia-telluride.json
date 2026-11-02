@@ -1,0 +1,252 @@
+{
+"make": "Kia",
+"model": "Telluride",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (telluride).",
+"years": [
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 33390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 35390,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 35890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 37890,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 38390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 40090,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 43290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX 4dr SUV",
+"msrp": 45190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-kia-telluride-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1365,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 35890,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 37790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 37890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 39790,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 41490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 43490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX X-Line 4dr SUV",
+"msrp": 45685,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 45690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX 4dr SUV",
+"msrp": 47690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX X-Line 4dr SUV",
+"msrp": 49085,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX X-Pro 4dr SUV",
+"msrp": 50085,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX-Prestige 4dr SUV",
+"msrp": 50590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX-Prestige X-Line 4dr SUV",
+"msrp": 51985,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX-Prestige X-Pro 4dr SUV",
+"msrp": 52985,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-kia-telluride-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "LX 4dr SUV",
+"msrp": 36190,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 38090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 38190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 40090,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr SUV",
+"msrp": 41790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 43790,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
+"msrp": 45990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX X-Line 4dr SUV",
+"msrp": 46085,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX 4dr SUV",
+"msrp": 47990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX X-Line 4dr SUV",
+"msrp": 49485,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX X-Pro 4dr SUV",
+"msrp": 50485,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX-Prestige 4dr SUV",
+"msrp": 50890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX-Prestige X-Line 4dr SUV",
+"msrp": 52385,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX-Prestige X-Pro 4dr SUV",
+"msrp": 53385,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-kia-telluride-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

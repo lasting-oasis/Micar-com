@@ -1,0 +1,39 @@
+{
+"make": "Jaguar",
+"model": "I-Pace",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (i__pace).",
+"years": [
+{
+"year": 2022,
+"destination": 1150,
+"trims": [
+{
+"trim": "AWD EV400 HSE 4dr SUV",
+"msrp": 69900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-jaguar-i__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1275,
+"trims": [
+{
+"trim": "AWD EV400 HSE 4dr SUV",
+"msrp": 71300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-jaguar-i__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

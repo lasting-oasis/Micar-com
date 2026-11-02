@@ -66,6 +66,78 @@
 "source": "https://www.iseecars.com/car/2014-jeep-cherokee-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "Altitude 4dr SUV",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Altitude 4dr SUV",
+"msrp": 31495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Lux 4dr SUV",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 X 4dr SUV",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude Lux 4dr SUV",
+"msrp": 36395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhawk 4dr SUV",
+"msrp": 37545,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 39345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1595,
+"trims": [
+{
+"trim": "4x4 Altitude Lux 4dr SUV",
+"msrp": 37695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhawk 4dr SUV",
+"msrp": 41295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

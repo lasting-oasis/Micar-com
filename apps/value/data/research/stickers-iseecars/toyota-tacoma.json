@@ -372,6 +372,768 @@
 "source": "https://www.iseecars.com/car/2014-toyota-tacoma-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1335,
+"trims": [
+{
+"trim": "4x2 SR 4dr Access Cab 6.1 ft LB",
+"msrp": 27150,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab 5.0 ft SB",
+"msrp": 27980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Access Cab 6.1 ft LB",
+"msrp": 28940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR V6 4dr Access Cab 6.1 ft LB",
+"msrp": 29410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab 5.0 ft SB",
+"msrp": 29830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Access Cab 6.1 ft LB",
+"msrp": 30225,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Access Cab 6.1 ft LB",
+"msrp": 32015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 V6 4dr Access Cab 6.1 ft LB",
+"msrp": 32085,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR V6 4dr Access Cab 6.1 ft LB",
+"msrp": 32875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 V6 4dr Double Cab 5.0 ft SB",
+"msrp": 33230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR V6 4dr Double Cab 5.0 ft SB",
+"msrp": 33415,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 V6 4dr Double Cab 6.1 ft LB",
+"msrp": 33730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Access Cab 6.1 ft LB",
+"msrp": 34060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 5.0 ft SB",
+"msrp": 35315,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Off-Road 4dr Double Cab 5.0 ft SB",
+"msrp": 35340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 V6 4dr Access Cab 6.1 ft LB",
+"msrp": 35395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 35815,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Access Cab 6.1 ft LB 6M",
+"msrp": 35835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 V6 4dr Double Cab 5.0 ft SB",
+"msrp": 36305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 36450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 36475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 V6 4dr Double Cab 6.1 ft LB",
+"msrp": 36805,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Access Cab 6.1 ft LB 6A",
+"msrp": 37345,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Access Cab 6.1 ft LB",
+"msrp": 37370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 6A",
+"msrp": 38280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 6A",
+"msrp": 38305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 38890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 6.1 ft LB",
+"msrp": 38915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab 5.0 ft SB",
+"msrp": 39905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab 5.0 ft SB",
+"msrp": 42980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab 6.1 ft. LB",
+"msrp": 43480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 46585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro 4dr Double Cab 5.0 ft SB 6A",
+"msrp": 49290,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x2 SR 4dr Access Cab 6.1 ft LB",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab 5.0 ft SB",
+"msrp": 29430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Access Cab 6.1 ft LB",
+"msrp": 30390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR V6 4dr Access Cab 6.1 ft LB",
+"msrp": 30860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab 5.0 ft SB",
+"msrp": 31280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Access Cab 6.1 ft LB",
+"msrp": 31675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Access Cab 6.1 ft LB",
+"msrp": 33465,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 V6 4dr Access Cab 6.1 ft LB",
+"msrp": 33835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR V6 4dr Access Cab 6.1 ft LB",
+"msrp": 34325,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR V6 4dr Double Cab 5.0 ft SB",
+"msrp": 34865,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 V6 4dr Double Cab 5.0 ft SB",
+"msrp": 34980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 V6 4dr Double Cab 6.1 ft LB",
+"msrp": 35480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Access Cab 6.1 ft LB",
+"msrp": 35510,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 5.0 ft SB",
+"msrp": 36765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Off-Road 4dr Double Cab 5.0 ft SB",
+"msrp": 36790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 V6 4dr Access Cab 6.1 ft LB",
+"msrp": 37175,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 37265,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Access Cab 6.1 ft LB 6M",
+"msrp": 37285,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 37925,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 V6 4dr Double Cab 5.0 ft SB",
+"msrp": 38055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 V6 4dr Double Cab 6.1 ft LB",
+"msrp": 38555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Access Cab 6.1 ft LB 6A",
+"msrp": 38795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Access Cab 6.1 ft LB",
+"msrp": 38820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 6A",
+"msrp": 39730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 6A",
+"msrp": 39755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 40340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 6.1 ft LB",
+"msrp": 40365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab 5.0 ft SB",
+"msrp": 41355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trail Special Edition 4dr Double Cab 5.0 ft SB",
+"msrp": 41820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab 5.0 ft SB",
+"msrp": 44430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab 6.1 ft. LB",
+"msrp": 44930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 48035,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro 4dr Double Cab 5.0 ft SB 6A",
+"msrp": 50740,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x2 SR 2dr XtraCab 6.1 ft LB",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab 5.0 ft SB",
+"msrp": 33700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 2dr XtraCab 6.1 ft LB",
+"msrp": 34700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 2dr XtraCab 6.1 ft LB",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab 5.0 ft SB 8A",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab 5.0 ft SB",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab 6.1 ft LB",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD PreRunner 2dr XtraCab 6.1 ft LB",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 5.0 ft SB",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 2dr XtraCab 6.1 ft LB",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab 5.0 ft SB",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab 6.1 ft LB",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 8A",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 8A",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 6.1 ft LB",
+"msrp": 43400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport HV 4dr Double Cab 5.0 ft SB",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road HV 4dr Double Cab 5.0 ft SB",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab 5.0 ft SB",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr Double Cab 5.0 ft SB",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhunter HV 4dr Double Cab 5.0 ft SB",
+"msrp": 62900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhunter HV 4dr Double Cab 6.1 ft LB",
+"msrp": 63400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro HV 4dr Double Cab 5.0 ft SB",
+"msrp": 63900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1595,
+"trims": [
+{
+"trim": "4x2 SR 2dr XtraCab 6.1 ft LB",
+"msrp": 31590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR 4dr Double Cab 5.0 ft SB",
+"msrp": 33790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 2dr XtraCab 6.1 ft LB",
+"msrp": 34790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 2dr XtraCab 6.1 ft LB",
+"msrp": 36220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab 5.0 ft SB 8A",
+"msrp": 36990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 36990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab 5.0 ft SB",
+"msrp": 37290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 4dr Double Cab 6.1 ft LB",
+"msrp": 37790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD PreRunner 2dr XtraCab 6.1 ft LB",
+"msrp": 38520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 2dr XtraCab 6.1 ft LB",
+"msrp": 39420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 5.0 ft SB",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab 5.0 ft SB",
+"msrp": 40490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr Double Cab 6.1 ft LB",
+"msrp": 40990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 6M",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 5.0 ft SB 8A",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 5.0 ft SB 8A",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr Double Cab 6.1 ft LB",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr Double Cab 6.1 ft LB",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport HV 4dr Double Cab 5.0 ft SB",
+"msrp": 46720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road HV 4dr Double Cab 5.0 ft SB",
+"msrp": 47020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab 5.0 ft SB",
+"msrp": 52955,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited HV 4dr Double Cab 5.0 ft SB",
+"msrp": 56280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhunter HV 4dr Double Cab 5.0 ft SB",
+"msrp": 63135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhunter HV 4dr Double Cab 6.1 ft LB",
+"msrp": 63635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro HV 4dr Double Cab 5.0 ft SB",
+"msrp": 64135,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

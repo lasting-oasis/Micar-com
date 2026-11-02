@@ -1,0 +1,54 @@
+{
+"make": "Jaguar",
+"model": "F-Type",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (f__type).",
+"years": [
+{
+"year": 2022,
+"destination": 1150,
+"trims": [
+{
+"trim": "P450 2dr Coupe",
+"msrp": 69900,
+"config": "",
+"note": ""
+},
+{
+"trim": "P450 2dr Convertible",
+"msrp": 73000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P450 R-Dynamic 2dr Coupe",
+"msrp": 79900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P450 R-Dynamic 2dr Convertible",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R 2dr Coupe",
+"msrp": 103200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R 2dr Convertible",
+"msrp": 105900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-jaguar-f__type-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

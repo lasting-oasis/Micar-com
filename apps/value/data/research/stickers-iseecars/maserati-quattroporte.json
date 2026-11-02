@@ -120,6 +120,72 @@
 "source": "https://www.iseecars.com/car/2014-maserati-quattroporte-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1995,
+"trims": [
+{
+"trim": "GT 4dr Sedan",
+"msrp": 96000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Modena 4dr Sedan",
+"msrp": 105800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena Q4 4dr Sedan",
+"msrp": 110300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 4dr Sedan",
+"msrp": 143200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1995,
+"trims": [
+{
+"trim": "GT 4dr Sedan",
+"msrp": 108400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Modena 4dr Sedan",
+"msrp": 119700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena Q4 4dr Sedan",
+"msrp": 124400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 4dr Sedan",
+"msrp": 157000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

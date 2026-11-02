@@ -174,6 +174,240 @@
 "source": "https://www.iseecars.com/car/2014-volvo-xc60-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "B5 Momentum 4dr SUV",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Momentum 4dr SUV",
+"msrp": 44950,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 R-Design 4dr SUV",
+"msrp": 48800,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Inscription 4dr SUV",
+"msrp": 50150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 R-Design 4dr SUV",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Inscription 4dr SUV",
+"msrp": 52450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 R-Design 4dr SUV",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Inscription 4dr SUV",
+"msrp": 56450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "B5 Core 4dr SUV",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Core 4dr SUV",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Plus Bright Theme 4dr SUV",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Plus Dark Theme 4dr SUV",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Bright Theme 4dr SUV",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Dark Theme 4dr SUV",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Ultimate Bright Theme 4dr SUV",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Ultimate Dark Theme 4dr SUV",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultimate Bright Theme 4dr SUV",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultimate Dark Theme 4dr SUV",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultimate Bright Theme 4dr SUV",
+"msrp": 59050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultimate Dark Theme 4dr SUV",
+"msrp": 59050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD B5 Core Dark Theme 4dr SUV",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Dark Theme 4dr SUV",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultimate Dark Theme 4dr SUV",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultimate Black Edition 4dr SUV",
+"msrp": 58100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD B5 Core Dark Theme 4dr SUV",
+"msrp": 47050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Dark Theme 4dr SUV",
+"msrp": 51700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultra Dark Theme 4dr SUV",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Core Dark Theme 4dr SUV",
+"msrp": 58050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultra Black Edition 4dr SUV",
+"msrp": 58100,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Plus Dark Theme 4dr SUV",
+"msrp": 62600,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Ultra Dark Theme 4dr SUV",
+"msrp": 67850,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Ultra Black Edition 4dr SUV",
+"msrp": 68950,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Polestar Engineered 4dr SUV",
+"msrp": 75250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -642,6 +642,435 @@
 "source": "https://www.iseecars.com/car/2014-chevrolet-corvette-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 66200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 66400,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 70850,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 73200,
+"config": "",
+"note": ""
+},
+{
+"trim": "",
+"msrp": 77850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "Stingray 2dr Coupe w/1LT",
+"msrp": 60900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/2LT",
+"msrp": 68200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/1LT",
+"msrp": 68400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/3LT",
+"msrp": 72850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/2LT",
+"msrp": 75200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/3LT",
+"msrp": 79850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "Stingray 2dr Coupe w/1LT",
+"msrp": 64500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/2LT",
+"msrp": 71800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/1LT",
+"msrp": 72000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/3LT",
+"msrp": 76450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/2LT",
+"msrp": 78800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/3LT",
+"msrp": 83450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/1LZ",
+"msrp": 105300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Convertible w/1LZ",
+"msrp": 112800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/2LZ",
+"msrp": 114500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/3LZ",
+"msrp": 119150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Convertible w/2LZ",
+"msrp": 121500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Convertible w/3LZ",
+"msrp": 126150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1695,
+"trims": [
+{
+"trim": "Stingray 2dr Coupe w/1LT",
+"msrp": 68300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/1LT",
+"msrp": 75300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/2LT",
+"msrp": 75400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/3LT",
+"msrp": 80050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/2LT",
+"msrp": 82400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/3LT",
+"msrp": 87050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Coupe w/1LZ",
+"msrp": 104900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/1LZ",
+"msrp": 110100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Coupe w/2LZ",
+"msrp": 110400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Convertible w/1LZ",
+"msrp": 111900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Coupe w/3LZ",
+"msrp": 115850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Convertible w/1LZ",
+"msrp": 117100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Convertible w/2LZ",
+"msrp": 117400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/2LZ",
+"msrp": 119000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Convertible w/3LZ",
+"msrp": 122850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/3LZ",
+"msrp": 123650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Convertible w/2LZ",
+"msrp": 126000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Convertible w/3LZ",
+"msrp": 130650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1895,
+"trims": [
+{
+"trim": "Stingray 2dr Coupe w/1LT",
+"msrp": 68300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/1LT",
+"msrp": 75300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/2LT",
+"msrp": 75400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Coupe w/3LT",
+"msrp": 80050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/2LT",
+"msrp": 82400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray 2dr Convertible w/3LT",
+"msrp": 87050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Coupe w/1LZ",
+"msrp": 106900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/1LZ",
+"msrp": 112100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Coupe w/2LZ",
+"msrp": 112400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Convertible w/1LZ",
+"msrp": 113900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Coupe w/3LZ",
+"msrp": 117850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Convertible w/1LZ",
+"msrp": 119100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Convertible w/2LZ",
+"msrp": 119400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/2LZ",
+"msrp": 121000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Ray 2dr Convertible w/3LZ",
+"msrp": 124850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Coupe w/3LZ",
+"msrp": 125650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Convertible w/2LZ",
+"msrp": 128000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z06 2dr Convertible w/3LZ",
+"msrp": 132650,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/1LZ",
+"msrp": 173300,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Convertible w/1LZ",
+"msrp": 183300,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Coupe w/3LZ",
+"msrp": 184300,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZR1 2dr Convertible w/3LZ",
+"msrp": 194300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

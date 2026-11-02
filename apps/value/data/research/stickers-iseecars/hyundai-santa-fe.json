@@ -2,7 +2,7 @@
 "make": "Hyundai",
 "model": "Santa Fe",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (santa_fe).",
+"note": "Trim-level MSRPs from iSeeCars price pages (santa_fe, santa_fe_plug__in_hybrid).",
 "years": [
 {
 "year": 2010,
@@ -246,6 +246,294 @@
 "source": "https://www.iseecars.com/car/2014-hyundai-santa_fe-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "SE 4dr Crossover (midyear release)",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Crossover",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover (midyear release)",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 29450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 31150,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRT 4dr Crossover",
+"msrp": 32750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr Crossover",
+"msrp": 34450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 39410,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid AWD SEL Convenience 4dr Crossover",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 41110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy 4dr Crossover",
+"msrp": 41410,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr Crossover",
+"msrp": 42660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid AWD Limited 4dr Crossover",
+"msrp": 46010,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1335,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 30450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 32450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 34150,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRT 4dr Crossover",
+"msrp": 34250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr Crossover",
+"msrp": 35950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy 4dr Crossover",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr Crossover",
+"msrp": 44300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1415,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 33950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 35750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 36450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 38250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr SUV",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 43350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 45150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy 4dr SUV",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr SUV",
+"msrp": 48300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1475,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 36700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr SUV",
+"msrp": 40850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy 4dr SUV",
+"msrp": 46750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr SUV",
+"msrp": 48550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

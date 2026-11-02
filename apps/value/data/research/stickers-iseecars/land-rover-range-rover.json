@@ -168,6 +168,348 @@
 "source": "https://www.iseecars.com/car/2014-landrover-range_rover-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1350,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 93800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P400 SE 4dr SUV (midyear release)",
+"msrp": 104000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P400 HSE Westminster Edition 4dr SUV",
+"msrp": 105600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P400 SE LWB 4dr SUV w/ 7 Seat (midyear release)",
+"msrp": 110000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P525 HSE Westminster Edition 4dr SUV",
+"msrp": 115800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SE 4dr SUV (midyear release)",
+"msrp": 118700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P525 HSE Westminster Edition LWB 4dr SUV",
+"msrp": 119900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SE LWB 4dr SUV w/ 7 Seat (midyear release)",
+"msrp": 124700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Autobiography 4dr SUV",
+"msrp": 147400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography 4dr SUV (midyear release)",
+"msrp": 152000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography LWB 4dr SUV w/ 7 Seat (midyear release)",
+"msrp": 154000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Autobiography LWB 4dr SUV",
+"msrp": 154000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography LWB 4dr SUV (midyear release)",
+"msrp": 156000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 First Edition 4dr SUV (midyear release)",
+"msrp": 158200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 First Edition LWB 4dr SUV (midyear release)",
+"msrp": 163500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SVAutobiography Dynamic 4dr SUV",
+"msrp": 183100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SVAutobiography Dynamic Black 4dr SUV",
+"msrp": 186700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SVAutobiography LWB 4dr SUV",
+"msrp": 215200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1475,
+"trims": [
+{
+"trim": "AWD P400 SE 4dr SUV",
+"msrp": 104500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P440e SE 4dr SUV",
+"msrp": 108400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P400 SE LWB 4dr SUV w/ 7 Seat",
+"msrp": 110500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SE 4dr SUV",
+"msrp": 122800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SE LWB 4dr SUV w/ 7 Seat",
+"msrp": 128800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography 4dr SUV",
+"msrp": 157600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography LWB 4dr SUV w/ 7 Seat",
+"msrp": 159600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography LWB 4dr SUV",
+"msrp": 161600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 First Edition 4dr SUV",
+"msrp": 164000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 First Edition LWB 4dr SUV",
+"msrp": 169400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SV 4dr SUV",
+"msrp": 193100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SV LWB 4dr SUV",
+"msrp": 218300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1475,
+"trims": [
+{
+"trim": "AWD P400 SE 4dr SUV",
+"msrp": 107400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P400 SE LWB 4dr SUV w/ 7 Seat",
+"msrp": 113400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SE 4dr SUV",
+"msrp": 130400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SE LWB 4dr SUV w/ 7 Seat",
+"msrp": 136400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P550e Autobiography 4dr SUV",
+"msrp": 141100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography 4dr SUV",
+"msrp": 166400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography LWB 4dr SUV w/ 7 Seat",
+"msrp": 168400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography LWB 4dr SUV",
+"msrp": 170400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P615 SV 4dr SUV",
+"msrp": 209000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P615 SV LWB 4dr SUV",
+"msrp": 234000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1625,
+"trims": [
+{
+"trim": "AWD P400 SE 4dr SUV",
+"msrp": 107900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P400 SE LWB 4dr SUV w/ 7 Seat",
+"msrp": 114900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P550e SE 4dr SUV",
+"msrp": 119900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SE 4dr SUV",
+"msrp": 131400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 SE LWB 4dr SUV w/ 7 Seat",
+"msrp": 138400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P550e Autobiography 4dr SUV",
+"msrp": 151600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography 4dr SUV",
+"msrp": 166400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography LWB 4dr SUV w/ 7 Seat",
+"msrp": 169400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography LWB 4dr SUV",
+"msrp": 170900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P615 SV 4dr SUV",
+"msrp": 209000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P615 SV LWB 4dr SUV",
+"msrp": 234000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

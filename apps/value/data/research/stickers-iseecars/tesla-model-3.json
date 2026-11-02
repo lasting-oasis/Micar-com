@@ -1,0 +1,123 @@
+{
+"make": "Tesla",
+"model": "Model 3",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (model_3).",
+"years": [
+{
+"year": 2022,
+"destination": 1200,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 46990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Long Range 4dr Sedan",
+"msrp": 57990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Performance 4dr Sedan",
+"msrp": 62990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-tesla-model_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1390,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 40240,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Long Range 4dr Sedan",
+"msrp": 47240,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Performance 4dr Sedan",
+"msrp": 53240,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-tesla-model_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1390,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 38990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range 4dr Sedan",
+"msrp": 42490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Long Range 4dr Sedan",
+"msrp": 47490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Performance 4dr Sedan",
+"msrp": 54990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-tesla-model_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1390,
+"trims": [
+{
+"trim": "Long Range 4dr Fastback",
+"msrp": 42490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Long Range 4dr Fastback",
+"msrp": 47490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Performance 4dr Fastback",
+"msrp": 54990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-tesla-model_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,42 @@
+{
+"make": "Ford",
+"model": "Bronco Sport",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (bronco_sport).",
+"years": [
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 28815,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Big Bend 4dr SUV",
+"msrp": 30530,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Outer Banks 4dr SUV",
+"msrp": 34450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Badlands 4dr SUV",
+"msrp": 36590,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ford-bronco_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

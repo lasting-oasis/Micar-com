@@ -228,6 +228,222 @@
 "source": "https://www.iseecars.com/car/2014-volkswagen-tiguan-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 26490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 27990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 30120,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 31620,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 32950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 34450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 37320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1295,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 28450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 30580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 32080,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 33310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 34810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 37680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1425,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 28880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wolfsburg Edition 4dr SUV",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 31580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wolfsburg Edition 4Motion 4dr SUV",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 33080,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 34580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 36080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 38880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1425,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 31745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 33045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 34545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 36205,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 37705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 40505,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

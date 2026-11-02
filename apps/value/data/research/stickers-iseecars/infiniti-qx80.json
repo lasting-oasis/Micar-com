@@ -1,0 +1,54 @@
+{
+"make": "Infiniti",
+"model": "QX80",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (qx80).",
+"years": [
+{
+"year": 2022,
+"destination": 1695,
+"trims": [
+{
+"trim": "Luxe 4dr SUV",
+"msrp": 71950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxe 4dr SUV",
+"msrp": 75050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Select 4dr SUV",
+"msrp": 76250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Select 4dr SUV",
+"msrp": 79350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sensory 4dr SUV",
+"msrp": 83100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sensory 4dr SUV",
+"msrp": 86200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-infiniti-qx80-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

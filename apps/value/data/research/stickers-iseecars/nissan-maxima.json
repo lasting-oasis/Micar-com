@@ -108,6 +108,33 @@
 "source": "https://www.iseecars.com/car/2014-nissan-maxima-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "3.5 SV 4dr Sedan",
+"msrp": 37840,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5 SR 4dr Sedan",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr Sedan",
+"msrp": 43150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-nissan-maxima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

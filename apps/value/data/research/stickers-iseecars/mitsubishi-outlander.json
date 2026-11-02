@@ -204,6 +204,324 @@
 "source": "https://www.iseecars.com/car/2014-mitsubishi-outlander-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1345,
+"trims": [
+{
+"trim": "ES 4dr SUV",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ES 4dr SUV",
+"msrp": 28795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Launch Edition 4dr SUV",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 30045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Edition 4dr SUV",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Launch Edition 4dr SUV",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 31845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Edition 4dr SUV",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 32845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Special Edition 4dr SUV",
+"msrp": 33145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 34645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Special Edition 4dr SUV",
+"msrp": 34945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Launch Edition 4dr SUV",
+"msrp": 35345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1345,
+"trims": [
+{
+"trim": "ES 4dr SUV",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ES 4dr SUV",
+"msrp": 29695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Special Edition 4dr SUV",
+"msrp": 29845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 30945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Special Edition 4dr SUV",
+"msrp": 31645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Edition 4dr SUV",
+"msrp": 32145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 32745,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Edition 4dr SUV",
+"msrp": 33945,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 34445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Black Edition 4dr SUV",
+"msrp": 35895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ralliart 4dr SUV",
+"msrp": 35945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 36245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Black Edition 4dr SUV",
+"msrp": 37695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 40th Anniversary 4dr SUV",
+"msrp": 40295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1445,
+"trims": [
+{
+"trim": "ES 4dr SUV",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ES 4dr SUV",
+"msrp": 30195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 31445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Black Edition 4dr SUV",
+"msrp": 32645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 33245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Black Edition 4dr SUV",
+"msrp": 34445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 34945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ralliart 4dr SUV",
+"msrp": 36445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 36745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Black Edition 4dr SUV",
+"msrp": 37445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Black Edition 4dr SUV",
+"msrp": 39245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Platinum Edition 4dr SUV",
+"msrp": 40845,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "ES 4dr SUV",
+"msrp": 29645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ES 4dr SUV",
+"msrp": 31445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 32395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 34195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trail Edition 4dr SUV",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 38795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Platinum Edition 4dr SUV",
+"msrp": 43145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

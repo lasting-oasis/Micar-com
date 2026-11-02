@@ -288,6 +288,84 @@
 "source": "https://www.iseecars.com/car/2014-ford-edge-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 37945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 39345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr Crossover",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Crossover",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr Crossover",
+"msrp": 46485,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 37945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 39345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr Crossover",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Crossover",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr Crossover",
+"msrp": 46485,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ford-edge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -1,0 +1,477 @@
+{
+"make": "Ford",
+"model": "Bronco",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (bronco).",
+"years": [
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "4x4 Base 2dr SUV",
+"msrp": 31300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base Advanced 2dr SUV",
+"msrp": 32095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend 2dr SUV",
+"msrp": 35785,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base Advanced 4dr SUV",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend Advanced 2dr SUV",
+"msrp": 36580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend 4dr SUV",
+"msrp": 37880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond 2dr SUV",
+"msrp": 37950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend Advanced 4dr SUV",
+"msrp": 38675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond Advanced 2dr SUV",
+"msrp": 38745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond 4dr SUV",
+"msrp": 40045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond Advanced 4dr SUV",
+"msrp": 40840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks 2dr SUV",
+"msrp": 41355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks Advanced 2dr SUV",
+"msrp": 42945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks 4dr SUV",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands Advanced 2dr SUV",
+"msrp": 44495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks Advanced 4dr SUV",
+"msrp": 45040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands Advanced 4dr SUV",
+"msrp": 46590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Wildtrak Advanced 2dr SUV",
+"msrp": 49780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Wildtrak Advanced 4dr SUV",
+"msrp": 51225,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Everglades Advanced 4dr SUV",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SUV",
+"msrp": 68500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ford-bronco-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x4 Base 2dr SUV",
+"msrp": 34890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base Advanced 2dr SUV",
+"msrp": 35685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 38040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base Advanced 4dr SUV",
+"msrp": 38835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend 2dr SUV",
+"msrp": 39130,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend 4dr SUV",
+"msrp": 39870,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend Advanced 2dr SUV",
+"msrp": 39925,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend Advanced 4dr SUV",
+"msrp": 40370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond 2dr SUV",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond 4dr SUV",
+"msrp": 42240,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond Advanced 2dr SUV",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond Advanced 4dr SUV",
+"msrp": 43035,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks 2dr SUV",
+"msrp": 46350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heritage Edition Advanced 2dr SUV",
+"msrp": 47105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heritage Edition Advanced 4dr SUV",
+"msrp": 47595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks 4dr SUV",
+"msrp": 47940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks Advanced 2dr SUV",
+"msrp": 47940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands Advanced 2dr SUV",
+"msrp": 48145,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands Advanced 4dr SUV",
+"msrp": 49435,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks Advanced 4dr SUV",
+"msrp": 49530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Everglades Advanced 4dr SUV",
+"msrp": 54645,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Wildtrak Advanced 2dr SUV",
+"msrp": 58775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Wildtrak Advanced 4dr SUV",
+"msrp": 59315,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heritage Limited Edition Advanced 2dr SUV",
+"msrp": 69445,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heritage Limited Edition Advanced 4dr SUV",
+"msrp": 70485,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SUV",
+"msrp": 86580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ford-bronco-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x4 Big Bend 2dr SUV",
+"msrp": 39630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend 4dr SUV",
+"msrp": 40370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond 2dr SUV",
+"msrp": 43330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Diamond 4dr SUV",
+"msrp": 44070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks 4dr SUV",
+"msrp": 47940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heritage Edition 2dr SUV",
+"msrp": 48555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heritage Edition 4dr SUV",
+"msrp": 49475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands 2dr SUV",
+"msrp": 50095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands 4dr SUV",
+"msrp": 51385,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Everglades 4dr SUV",
+"msrp": 55520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Wildtrak 2dr SUV",
+"msrp": 60225,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Wildtrak 4dr SUV",
+"msrp": 60765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heritage Limited Edition 2dr SUV",
+"msrp": 69685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heritage Limited Edition 4dr SUV",
+"msrp": 71105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SUV",
+"msrp": 90035,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ford-bronco-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1995,
+"trims": [
+{
+"trim": "4x4 Base 2dr SUV",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Big Bend 4dr SUV",
+"msrp": 40845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Outer Banks 4dr SUV",
+"msrp": 47940,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands 2dr SUV",
+"msrp": 49585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Badlands 4dr SUV",
+"msrp": 49585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heritage Edition 4dr SUV",
+"msrp": 51475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Stroppe Edition 2dr SUV",
+"msrp": 75635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Raptor 4dr SUV",
+"msrp": 79995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-ford-bronco-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

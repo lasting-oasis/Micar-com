@@ -258,6 +258,414 @@
 "source": "https://www.iseecars.com/car/2014-porsche-cayenne-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1350,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 69000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Coupe 4dr SUV",
+"msrp": 77500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum Edition 4dr SUV",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid 4dr SUV",
+"msrp": 83300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Coupe Platinum Edition 4dr SUV",
+"msrp": 83300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 86800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid Coupe 4dr SUV",
+"msrp": 88600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Coupe 4dr SUV",
+"msrp": 91100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid Platinum Edition 4dr SUV",
+"msrp": 92700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Platinum Edition 4dr SUV",
+"msrp": 93400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid Coupe Platinum Edition 4dr SUV",
+"msrp": 93800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Coupe Platinum Edition 4dr SUV",
+"msrp": 95600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 109000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Coupe 4dr SUV",
+"msrp": 111700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr SUV",
+"msrp": 129900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Coupe 4dr SUV",
+"msrp": 133500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid 4dr SUV",
+"msrp": 165300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Coupe 4dr SUV",
+"msrp": 167800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo GT 4dr SUV",
+"msrp": 180800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1450,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 72200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum Edition 4dr SUV",
+"msrp": 80400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Coupe 4dr SUV",
+"msrp": 80700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Coupe Platinum Edition 4dr SUV",
+"msrp": 84800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid 4dr SUV",
+"msrp": 86500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 90900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid Coupe 4dr SUV",
+"msrp": 91800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid Platinum Edition 4dr SUV",
+"msrp": 94400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Platinum Edition 4dr SUV",
+"msrp": 95100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Coupe 4dr SUV",
+"msrp": 95200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid Coupe Platinum Edition 4dr SUV",
+"msrp": 95500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Coupe Platinum Edition 4dr SUV",
+"msrp": 97300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 113100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Coupe 4dr SUV",
+"msrp": 115800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr SUV",
+"msrp": 135900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Coupe 4dr SUV",
+"msrp": 139500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid 4dr SUV",
+"msrp": 171300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Coupe 4dr SUV",
+"msrp": 173800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo GT 4dr SUV",
+"msrp": 188700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-04-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1650,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 79200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Coupe 4dr SUV",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid 4dr SUV",
+"msrp": 91700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 95700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid Coupe 4dr SUV",
+"msrp": 95700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S E-Hybrid 4dr SUV",
+"msrp": 99100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Coupe 4dr SUV",
+"msrp": 102100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S E-Hybrid Coupe 4dr SUV",
+"msrp": 104400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo E-Hybrid 4dr SUV",
+"msrp": 146900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo E-Hybrid Coupe 4dr SUV",
+"msrp": 151400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo GT 4dr SUV",
+"msrp": 196300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1995,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 84700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Coupe 4dr SUV",
+"msrp": 89800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid 4dr SUV",
+"msrp": 97200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD E-Hybrid Coupe 4dr SUV",
+"msrp": 101200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 101600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S E-Hybrid 4dr SUV",
+"msrp": 105100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Coupe 4dr SUV",
+"msrp": 108000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S E-Hybrid Coupe 4dr SUV",
+"msrp": 110400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 124900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Coupe 4dr SUV",
+"msrp": 129500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo E-Hybrid 4dr SUV",
+"msrp": 157000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo E-Hybrid Coupe 4dr SUV",
+"msrp": 161500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo GT 4dr SUV",
+"msrp": 203800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

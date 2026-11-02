@@ -1,0 +1,42 @@
+{
+"make": "Genesis",
+"model": "G90",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (g90).",
+"years": [
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "3.3T Premium 4dr Sedan",
+"msrp": 74950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T Premium 4dr Sedan",
+"msrp": 77450,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0 Ultimate 4dr Sedan",
+"msrp": 78700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.0 Ultimate 4dr Sedan",
+"msrp": 81200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-genesis-g90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

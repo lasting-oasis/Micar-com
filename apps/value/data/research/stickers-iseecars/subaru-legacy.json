@@ -294,6 +294,129 @@
 "source": "https://www.iseecars.com/car/2014-subaru-legacy-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD Base 4dr Sedan",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Sedan",
+"msrp": 25745,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 29290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited XT 4dr Sedan",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring XT 4dr Sedan",
+"msrp": 36695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1020,
+"trims": [
+{
+"trim": "AWD Base 4dr Sedan",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Sedan",
+"msrp": 26695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 31445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 33895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring XT 4dr Sedan",
+"msrp": 37695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1120,
+"trims": [
+{
+"trim": "AWD Base 4dr Sedan",
+"msrp": 24895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Sedan",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 31945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring XT 4dr Sedan",
+"msrp": 38195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

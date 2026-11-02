@@ -1,0 +1,54 @@
+{
+"make": "Mazda",
+"model": "CX-9",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (cx__9).",
+"years": [
+{
+"year": 2022,
+"destination": 1225,
+"trims": [
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 35280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr SUV",
+"msrp": 37430,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring Plus 4dr SUV",
+"msrp": 41660,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Carbon Edition 4dr SUV",
+"msrp": 43580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Grand Touring 4dr SUV",
+"msrp": 44440,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Signature 4dr SUV",
+"msrp": 47210,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-mazda-cx__9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

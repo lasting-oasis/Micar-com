@@ -222,6 +222,354 @@
 "source": "https://www.iseecars.com/car/2014-toyota-4runner-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1335,
+"trims": [
+{
+"trim": "4x2 SR5 4dr SUV",
+"msrp": 38105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV",
+"msrp": 39980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Trail Special Edition 4dr SUV",
+"msrp": 40075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr SUV",
+"msrp": 40950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 Premium 4dr SUV",
+"msrp": 41515,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr SUV",
+"msrp": 41935,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trail Special Edition 4dr SUV",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr SUV",
+"msrp": 42825,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 Premium 4dr SUV",
+"msrp": 43390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road Premium 4dr SUV",
+"msrp": 44380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 47690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49725,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro 4dr SUV",
+"msrp": 52420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-04-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "4x2 SR5 4dr SUV",
+"msrp": 40155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV",
+"msrp": 42030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr SUV",
+"msrp": 43015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 Premium 4dr SUV",
+"msrp": 43215,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr SUV",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr SUV",
+"msrp": 44890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 Premium 4dr SUV",
+"msrp": 45090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road Premium 4dr SUV",
+"msrp": 46580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 40th Anniversary Special Edition 4dr SUV",
+"msrp": 47720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 49390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 51425,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro 4dr SUV",
+"msrp": 54620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1450,
+"trims": [
+{
+"trim": "4x2 SR5 4dr SUV",
+"msrp": 40705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV",
+"msrp": 42580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr SUV",
+"msrp": 43565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SR5 Premium 4dr SUV",
+"msrp": 43765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr SUV",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr SUV",
+"msrp": 45440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 Premium 4dr SUV",
+"msrp": 45640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road Premium 4dr SUV",
+"msrp": 47130,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 49940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 51975,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro 4dr SUV",
+"msrp": 55170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x2 SR5 4dr SUV",
+"msrp": 41270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SR5 4dr SUV",
+"msrp": 43270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport 4dr SUV",
+"msrp": 47750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road 4dr SUV",
+"msrp": 49690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport 4dr SUV",
+"msrp": 49750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road HV 4dr SUV",
+"msrp": 52490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 TRD Sport Premium 4dr SUV",
+"msrp": 53110,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Sport Premium 4dr SUV",
+"msrp": 55110,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road Premium 4dr SUV",
+"msrp": 55470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 57900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Off-Road Premium HV 4dr SUV",
+"msrp": 58270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited HV 4dr SUV",
+"msrp": 60700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum HV 4dr SUV",
+"msrp": 63360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhunter HV 4dr SUV",
+"msrp": 67400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 TRD Pro HV 4dr SUV",
+"msrp": 67400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

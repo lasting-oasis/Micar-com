@@ -1,0 +1,216 @@
+{
+"make": "Bentley",
+"model": "Flying Spur",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (flying_spur).",
+"years": [
+{
+"year": 2021,
+"destination": 2725,
+"trims": [
+{
+"trim": "AWD V8 4dr Sedan",
+"msrp": 196000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD W12 4dr Sedan",
+"msrp": 216700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 2725,
+"trims": [
+{
+"trim": "AWD V8 4dr Sedan",
+"msrp": 198100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid 4dr Sedan",
+"msrp": 204000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD W12 4dr Sedan",
+"msrp": 224300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 2725,
+"trims": [
+{
+"trim": "AWD V8 4dr Sedan",
+"msrp": 208600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid 4dr Sedan",
+"msrp": 214800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Hybrid 4dr Sedan",
+"msrp": 240500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S V8 4dr Sedan",
+"msrp": 241200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Azure Hybrid 4dr Sedan",
+"msrp": 249100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Azure V8 4dr Sedan",
+"msrp": 250300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Speed 4dr Sedan",
+"msrp": 258700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 3150,
+"trims": [
+{
+"trim": "AWD V8 4dr Sedan",
+"msrp": 214900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid 4dr Sedan",
+"msrp": 221200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Edition 8 4dr Sedan",
+"msrp": 224800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Hybrid 4dr Sedan",
+"msrp": 247700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S V8 4dr Sedan",
+"msrp": 248400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Azure Hybrid 4dr Sedan",
+"msrp": 256600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Azure V8 4dr Sedan",
+"msrp": 257800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Speed 4dr Sedan",
+"msrp": 266500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Speed Edition 12 4dr Sedan",
+"msrp": 300200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Mulliner Hybrid 4dr Sedan",
+"msrp": 306300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Mulliner V8 4dr Sedan",
+"msrp": 308200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Mulliner W12 4dr Sedan",
+"msrp": 324700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 4150,
+"trims": [
+{
+"trim": "AWD Black Edition 4dr Sedan",
+"msrp": 262100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Speed 4dr Sedan",
+"msrp": 272300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Mulliner 4dr Sedan",
+"msrp": 294100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}
