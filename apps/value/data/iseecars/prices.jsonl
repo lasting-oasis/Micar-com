@@ -10099,3 +10099,20 @@
 {"year": 2014, "make": "Lexus", "slug": "2014-lexus-es_300h", "style": "4dr Sedan", "invoice": 37000, "msrp": 39500, "destination": 910}
 {"year": 2014, "make": "McLaren", "slug": "2014-mclaren-mp4__12c_spider", "style": "2dr Convertible", "invoice": 0, "msrp": 265750, "destination": 2500}
 {"year": 2014, "make": "McLaren", "slug": "2014-mclaren-p1", "style": "2dr Coupe", "invoice": 0, "msrp": 1150000, "destination": 2500}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q50-hybrid", "style": "4dr Sedan", "invoice": null, "msrp": 37150, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q50-hybrid", "style": "AWD 4dr Sedan", "invoice": null, "msrp": 38950, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q50-hybrid", "style": "AWD Premium 4dr Sedan", "invoice": null, "msrp": 41800, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q50-hybrid", "style": "Premium 4dr Sedan", "invoice": null, "msrp": 40000, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q50-hybrid", "style": "AWD Sport 4dr Sedan", "invoice": null, "msrp": 45450, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q50-hybrid", "style": "Sport 4dr Sedan", "invoice": null, "msrp": 43650, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q70-hybrid", "style": "3.7 4dr Sedan", "invoice": null, "msrp": 49600, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q70-hybrid", "style": "AWD 3.7 4dr Sedan", "invoice": null, "msrp": 51750, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q70-hybrid", "style": "5.6 4dr Sedan", "invoice": null, "msrp": 62100, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-q70-hybrid", "style": "AWD 5.6 4dr Sedan", "invoice": null, "msrp": 64600, "destination": null}
+{"year": 2013, "make": "McLaren", "slug": "2013-mclaren-mp4__12c_spider", "style": "2dr Convertible", "invoice": 0, "msrp": 265750, "destination": 2500}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-qx60-hybrid", "style": "4dr SUV", "invoice": null, "msrp": 42100, "destination": null}
+{"year": 2014, "make": "Infiniti", "slug": "2014-infiniti-qx60-hybrid", "style": "AWD 4dr SUV", "invoice": null, "msrp": 43500, "destination": null}
+{"year": 2014, "make": "Scion", "slug": "2014-scion-fr__s", "style": "2dr Coupe 6A", "invoice": 24510, "msrp": 25800, "destination": 755}
+{"year": 2014, "make": "Scion", "slug": "2014-scion-fr__s", "style": "2dr Coupe 6M", "invoice": 23465, "msrp": 24700, "destination": 755}
+{"year": 2014, "make": "Scion", "slug": "2014-scion-fr__s", "style": "Monogram 2dr Coupe 6A", "invoice": 27075, "msrp": 28500, "destination": 755}
+{"year": 2014, "make": "Scion", "slug": "2014-scion-fr__s", "style": "Monogram 2dr Coupe 6M", "invoice": 26030, "msrp": 27400, "destination": 755}
