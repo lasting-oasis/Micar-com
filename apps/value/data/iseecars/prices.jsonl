@@ -8040,3 +8040,396 @@
 {"year": 2012, "make": "Kia", "slug": "2012-kia-rio5", "style": "LX 4dr Wagon 6A", "invoice": 14205, "msrp": 14700, "destination": 750}
 {"year": 2012, "make": "Kia", "slug": "2012-kia-rio5", "style": "LX 4dr Wagon 6M", "invoice": 13335, "msrp": 13600, "destination": 750}
 {"year": 2012, "make": "Kia", "slug": "2012-kia-rio5", "style": "SX 4dr Wagon", "invoice": 16880, "msrp": 17700, "destination": 750}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx-sport-wagon", "style": "4dr Sedan", "invoice": null, "msrp": 30010, "destination": null}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx-sport-wagon", "style": "V-6 4dr Sedan", "invoice": null, "msrp": 35550, "destination": null}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx-sport-wagon", "style": "V-6 4dr Sedan w/Technology Package", "invoice": null, "msrp": 38650, "destination": null}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx-sport-wagon", "style": "4dr Sedan 6M w/Special Edition", "invoice": null, "msrp": 31010, "destination": null}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx-sport-wagon", "style": "4dr Sedan 5A w/Special Edition", "invoice": null, "msrp": 31010, "destination": null}
+{"year": 2012, "make": "Acura", "slug": "2012-acura-tsx-sport-wagon", "style": "4dr Sedan w/Technology Package", "invoice": null, "msrp": 33110, "destination": null}
+{"year": 2013, "make": "Audi", "slug": "2013-audi-q5-hybrid", "style": "AWD 2.0T quattro Premium 4dr SUV", "invoice": null, "msrp": 35900, "destination": null}
+{"year": 2013, "make": "Audi", "slug": "2013-audi-q5-hybrid", "style": "AWD 2.0T quattro Premium Plus 4dr SUV", "invoice": null, "msrp": 40200, "destination": null}
+{"year": 2013, "make": "Audi", "slug": "2013-audi-q5-hybrid", "style": "AWD 3.0T quattro Premium Plus 4dr SUV", "invoice": null, "msrp": 43900, "destination": null}
+{"year": 2013, "make": "Audi", "slug": "2013-audi-q5-hybrid", "style": "AWD 3.0T quattro Prestige 4dr SUV", "invoice": null, "msrp": 51400, "destination": null}
+{"year": 2013, "make": "Audi", "slug": "2013-audi-q5_hybrid", "style": "AWD 2.0T quattro Prestige Hybrid 4dr SUV", "invoice": 47338, "msrp": 50900, "destination": 895}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-tt-rs", "style": "AWD 2.0T quattro Premium Plus 2dr Convertible", "invoice": null, "msrp": 41300, "destination": null}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-tt-rs", "style": "AWD 2.0T quattro Premium Plus 2dr Coupe", "invoice": null, "msrp": 38300, "destination": null}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-tt-rs", "style": "AWD 2.0T quattro Prestige 2dr Convertible", "invoice": null, "msrp": 47400, "destination": null}
+{"year": 2012, "make": "Audi", "slug": "2012-audi-tt-rs", "style": "AWD 2.0T quattro Prestige 2dr Coupe", "invoice": null, "msrp": 44400, "destination": null}
+{"year": 2013, "make": "BMW", "slug": "2013-bmw-x5-m", "style": "AWD xDrive35d 4dr SUV", "invoice": null, "msrp": 56700, "destination": null}
+{"year": 2013, "make": "BMW", "slug": "2013-bmw-x5-m", "style": "AWD xDrive35i 4dr SUV", "invoice": null, "msrp": 47500, "destination": null}
+{"year": 2013, "make": "BMW", "slug": "2013-bmw-x5-m", "style": "AWD xDrive35i Premium 4dr SUV", "invoice": null, "msrp": 55200, "destination": null}
+{"year": 2013, "make": "BMW", "slug": "2013-bmw-x5-m", "style": "AWD xDrive35i Sport Activity 4dr SUV", "invoice": null, "msrp": 57700, "destination": null}
+{"year": 2013, "make": "BMW", "slug": "2013-bmw-x5-m", "style": "AWD xDrive50i 4dr SUV", "invoice": null, "msrp": 64200, "destination": null}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x6-m", "style": "AWD xDrive35i 4dr SUV", "invoice": null, "msrp": 59600, "destination": null}
+{"year": 2012, "make": "BMW", "slug": "2012-bmw-x6-m", "style": "AWD xDrive50i 4dr SUV", "invoice": null, "msrp": 70200, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.0L 4dr Sedan", "invoice": null, "msrp": 35915, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.0L 4dr Sedan", "invoice": null, "msrp": 39115, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.0L 4dr Wagon", "invoice": null, "msrp": 39015, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.0L 4dr Wagon", "invoice": null, "msrp": 40915, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.0L Luxury 4dr Sedan", "invoice": null, "msrp": 39050, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.0L Luxury 4dr Sedan", "invoice": null, "msrp": 42250, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.0L Luxury 4dr Wagon", "invoice": null, "msrp": 42150, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.0L Luxury 4dr Wagon", "invoice": null, "msrp": 44050, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.6L 2dr Coupe", "invoice": null, "msrp": 38715, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.6L 2dr Coupe", "invoice": null, "msrp": 40615, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.6L Performance 2dr Coupe", "invoice": null, "msrp": 45850, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.6L Performance 2dr Coupe", "invoice": null, "msrp": 43950, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.6L Performance 4dr Sedan", "invoice": null, "msrp": 42290, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.6L Performance 4dr Sedan", "invoice": null, "msrp": 44190, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.6L Performance 4dr Wagon", "invoice": null, "msrp": 44190, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.6L Performance 4dr Wagon", "invoice": null, "msrp": 46090, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.6L Premium 2dr Coupe", "invoice": null, "msrp": 48150, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.6L Premium 2dr Coupe", "invoice": null, "msrp": 50050, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.6L Premium 4dr Sedan w/Navigation", "invoice": null, "msrp": 48290, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.6L Premium 4dr Sedan w/Navigation", "invoice": null, "msrp": 50190, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "3.6L Premium 4dr Wagon", "invoice": null, "msrp": 49750, "destination": null}
+{"year": 2012, "make": "Cadillac", "slug": "2012-cadillac-cts-v", "style": "AWD 3.6L Premium 4dr Wagon", "invoice": null, "msrp": 51650, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-esv", "style": "AWD 4dr SUV", "invoice": null, "msrp": 66295, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-esv", "style": "4dr SUV", "invoice": null, "msrp": 63745, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-esv", "style": "AWD Luxury 4dr SUV", "invoice": null, "msrp": 70520, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-esv", "style": "Luxury 4dr SUV", "invoice": null, "msrp": 67970, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-esv", "style": "AWD Platinum Edition 4dr SUV", "invoice": null, "msrp": 83070, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-esv", "style": "Platinum Edition 4dr SUV", "invoice": null, "msrp": 80520, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-esv", "style": "AWD Premium 4dr SUV", "invoice": null, "msrp": 74800, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-esv", "style": "Premium 4dr SUV", "invoice": null, "msrp": 72250, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-ext", "style": "AWD 4dr SUV", "invoice": null, "msrp": 66295, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-ext", "style": "4dr SUV", "invoice": null, "msrp": 63745, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-ext", "style": "AWD Luxury 4dr SUV", "invoice": null, "msrp": 70520, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-ext", "style": "Luxury 4dr SUV", "invoice": null, "msrp": 67970, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-ext", "style": "AWD Platinum Edition 4dr SUV", "invoice": null, "msrp": 83070, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-ext", "style": "Platinum Edition 4dr SUV", "invoice": null, "msrp": 80520, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-ext", "style": "AWD Premium 4dr SUV", "invoice": null, "msrp": 74800, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-ext", "style": "Premium 4dr SUV", "invoice": null, "msrp": 72250, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-hybrid", "style": "AWD 4dr SUV", "invoice": null, "msrp": 66295, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-hybrid", "style": "4dr SUV", "invoice": null, "msrp": 63745, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-hybrid", "style": "AWD Luxury 4dr SUV", "invoice": null, "msrp": 70520, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-hybrid", "style": "Luxury 4dr SUV", "invoice": null, "msrp": 67970, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-hybrid", "style": "AWD Platinum Edition 4dr SUV", "invoice": null, "msrp": 83070, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-hybrid", "style": "Platinum Edition 4dr SUV", "invoice": null, "msrp": 80520, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-hybrid", "style": "AWD Premium 4dr SUV", "invoice": null, "msrp": 74800, "destination": null}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade-hybrid", "style": "Premium 4dr SUV", "invoice": null, "msrp": 72250, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-captiva_sport", "style": "LS 4dr SUV w/ 1LS", "invoice": 22263, "msrp": 23435, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-captiva_sport", "style": "LS 4dr SUV w/ 2LS", "invoice": 23280, "msrp": 24505, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-captiva_sport", "style": "LT 4dr SUV", "invoice": 25256, "msrp": 26585, "destination": 810}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-captiva_sport", "style": "AWD LTZ 4dr SUV", "invoice": 30433, "msrp": 32035, "destination": 810}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-captiva_sport", "style": "LS 4dr SUV w/ 1LS", "invoice": 23014, "msrp": 24255, "destination": 860}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-captiva_sport", "style": "LS 4dr SUV w/ 2LS", "invoice": 23760, "msrp": 25010, "destination": 860}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-captiva_sport", "style": "LT 4dr SUV", "invoice": 24548, "msrp": 25840, "destination": 860}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-captiva_sport", "style": "LTZ 4dr SUV", "invoice": 28201, "msrp": 29685, "destination": 860}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LT 2dr Regular Cab LB SRW", "invoice": 31532, "msrp": 33905, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LT 2dr Regular Cab LB DRW", "invoice": 32848, "msrp": 35320, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LT 2dr Regular Cab LB SRW", "invoice": 34438, "msrp": 37030, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LT 2dr Regular Cab LB DRW", "invoice": 35754, "msrp": 38445, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LT 4dr Extended Cab LB SRW", "invoice": 35121, "msrp": 37765, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LT 4dr Extended Cab LB DRW", "invoice": 36335, "msrp": 39070, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LT 4dr Crew Cab SRW", "invoice": 36544, "msrp": 39305, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LT 4dr Crew Cab LB SRW", "invoice": 36735, "msrp": 39500, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LT 4dr Crew Cab LB DRW", "invoice": 38177, "msrp": 41050, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LT 4dr Extended Cab LB SRW", "invoice": 38097, "msrp": 40965, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LT 4dr Extended Cab LB DRW", "invoice": 39311, "msrp": 42270, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LT 4dr Crew Cab SRW", "invoice": 39483, "msrp": 42455, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LT 4dr Crew Cab LB SRW", "invoice": 39665, "msrp": 42650, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LT 4dr Crew Cab LB DRW", "invoice": 41106, "msrp": 44200, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LTZ 4dr Extended Cab LB DRW", "invoice": 39176, "msrp": 42125, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LTZ 4dr Extended Cab LB SRW", "invoice": 39418, "msrp": 42374, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LTZ 4dr Crew Cab SRW", "invoice": 41008, "msrp": 44095, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LTZ 4dr Crew Cab LB SRW", "invoice": 41190, "msrp": 44290, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 LTZ 4dr Crew Cab LB DRW", "invoice": 41511, "msrp": 44635, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LTZ 4dr Extended Cab LB SRW", "invoice": 42348, "msrp": 45535, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LTZ 4dr Extended Cab LB DRW", "invoice": 42106, "msrp": 45275, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LTZ 4dr Crew Cab SRW", "invoice": 43938, "msrp": 47245, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LTZ 4dr Crew Cab LB SRW", "invoice": 44119, "msrp": 47440, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 LTZ 4dr Crew Cab LB DRW", "invoice": 44440, "msrp": 47785, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 Work Truck 2dr Regular Cab LB SRW", "invoice": 29182, "msrp": 31045, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 Work Truck 2dr Regular Cab LB DRW", "invoice": 29916, "msrp": 31825, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 Work Truck 2dr Regular Cab LB SRW", "invoice": 31960, "msrp": 34000, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 Work Truck 2dr Regular Cab LB DRW", "invoice": 32693, "msrp": 34780, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 Work Truck 4dr Extended Cab LB SRW", "invoice": 32308, "msrp": 34370, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 Work Truck 4dr Extended Cab LB DRW", "invoice": 32585, "msrp": 34665, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 Work Truck 4dr Crew Cab SRW", "invoice": 33469, "msrp": 35605, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 Work Truck 4dr Crew Cab LB SRW", "invoice": 33652, "msrp": 35800, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x2 Work Truck 4dr Crew Cab LB DRW", "invoice": 34150, "msrp": 36330, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 Work Truck 4dr Extended Cab LB SRW", "invoice": 35086, "msrp": 37325, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 Work Truck 4dr Extended Cab LB DRW", "invoice": 35363, "msrp": 37620, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 Work Truck 4dr Crew Cab SRW", "invoice": 36246, "msrp": 38560, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 Work Truck 4dr Crew Cab LB SRW", "invoice": 36430, "msrp": 38755, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-silverado_3500hd", "style": "4x4 Work Truck 4dr Crew Cab LB DRW", "invoice": 36928, "msrp": 39285, "destination": 995}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x4 Fleet 4dr SUV", "invoice": 39411, "msrp": 42315, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x2 Fleet 4dr SUV", "invoice": 36809, "msrp": 39520, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x2 Fleet 2500 4dr SUV", "invoice": 38263, "msrp": 41080, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x4 Fleet 2500 4dr SUV", "invoice": 40718, "msrp": 43720, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x4 LS 4dr SUV", "invoice": 40219, "msrp": 43480, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x2 LS 4dr SUV", "invoice": 37587, "msrp": 40635, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x2 LS 2500 4dr SUV", "invoice": 39077, "msrp": 42245, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x4 LS 2500 4dr SUV", "invoice": 41519, "msrp": 44885, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x2 LT 4dr SUV", "invoice": 40834, "msrp": 44145, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x4 LT 4dr SUV", "invoice": 43466, "msrp": 46990, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x2 LT 2500 4dr SUV", "invoice": 42305, "msrp": 45735, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x4 LT 2500 4dr SUV", "invoice": 44937, "msrp": 48580, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x2 LTZ 4dr SUV", "invoice": 48914, "msrp": 52880, "destination": 950}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban_shield", "style": "4x4 LTZ 4dr SUV", "invoice": 51453, "msrp": 55625, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x2 Fleet 4dr SUV", "invoice": 38441, "msrp": 41335, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x4 Fleet 4dr SUV", "invoice": 41087, "msrp": 44180, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x2 Fleet 2500 4dr SUV", "invoice": 39939, "msrp": 42945, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x4 Fleet 2500 4dr SUV", "invoice": 42580, "msrp": 45785, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x2 LS 4dr SUV", "invoice": 38442, "msrp": 41335, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x4 LS 4dr SUV", "invoice": 41087, "msrp": 44180, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x2 LS 2500 4dr SUV", "invoice": 39939, "msrp": 42945, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x4 LS 2500 4dr SUV", "invoice": 42580, "msrp": 45785, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x2 LT 4dr SUV", "invoice": 41706, "msrp": 44845, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x4 LT 4dr SUV", "invoice": 44352, "msrp": 47690, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x2 LT 2500 4dr SUV", "invoice": 43185, "msrp": 46435, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x4 LT 2500 4dr SUV", "invoice": 45830, "msrp": 49280, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x2 LTZ 4dr SUV", "invoice": 49829, "msrp": 53580, "destination": 950}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-suburban_shield", "style": "4x4 LTZ 4dr SUV", "invoice": 52619, "msrp": 56580, "destination": 950}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x2 Fleet 4dr SUV", "invoice": 38169, "msrp": 40975, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x4 Fleet 4dr SUV", "invoice": 40770, "msrp": 43770, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x2 Fleet 2500 4dr SUV", "invoice": 39413, "msrp": 42535, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x4 Fleet 2500 4dr SUV", "invoice": 42263, "msrp": 45375, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x2 LS 4dr SUV", "invoice": 39264, "msrp": 42220, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x4 LS 4dr SUV", "invoice": 41910, "msrp": 45065, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x2 LS 2500 4dr SUV", "invoice": 40762, "msrp": 43830, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x4 LS 2500 4dr SUV", "invoice": 43403, "msrp": 46670, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x2 LT 4dr SUV", "invoice": 42761, "msrp": 45980, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x4 LT 4dr SUV", "invoice": 45407, "msrp": 48825, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x2 LT 2500 4dr SUV", "invoice": 44240, "msrp": 47570, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x4 LT 2500 4dr SUV", "invoice": 46886, "msrp": 50415, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x2 LTZ 4dr SUV", "invoice": 51257, "msrp": 55115, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-suburban_shield", "style": "4x4 LTZ 4dr SUV", "invoice": 54046, "msrp": 58115, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x2 Fleet 4dr SUV", "invoice": 39703, "msrp": 42625, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x4 Fleet 4dr SUV", "invoice": 42305, "msrp": 45420, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x2 Fleet 2500 4dr SUV", "invoice": 41156, "msrp": 44185, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x4 Fleet 2500 4dr SUV", "invoice": 43798, "msrp": 47025, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x2 LS 4dr SUV", "invoice": 40799, "msrp": 43870, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x4 LS 4dr SUV", "invoice": 43445, "msrp": 46715, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x2 LS 2500 4dr SUV", "invoice": 42296, "msrp": 45480, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x4 LS 2500 4dr SUV", "invoice": 44938, "msrp": 48320, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x2 LT 4dr SUV", "invoice": 44296, "msrp": 47630, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x4 LT 4dr SUV", "invoice": 46942, "msrp": 50475, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x2 LT 2500 4dr SUV", "invoice": 45775, "msrp": 49220, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x4 LT 2500 4dr SUV", "invoice": 48420, "msrp": 52065, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x2 LTZ 4dr SUV", "invoice": 52791, "msrp": 56765, "destination": 995}
+{"year": 2013, "make": "Chevrolet", "slug": "2013-chevrolet-suburban_shield", "style": "4x4 LTZ 4dr SUV", "invoice": 55581, "msrp": 59765, "destination": 995}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x2 Fleet 4dr SUV", "invoice": null, "msrp": 37510, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x4 Fleet 4dr SUV", "invoice": null, "msrp": 41520, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x2 LS 4dr SUV", "invoice": null, "msrp": 38755, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x4 LS 4dr SUV", "invoice": null, "msrp": 42815, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x2 LT 4dr SUV", "invoice": null, "msrp": 43905, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x4 LT 4dr SUV", "invoice": null, "msrp": 46755, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x2 LTZ 4dr SUV", "invoice": null, "msrp": 52970, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x4 LTZ 4dr SUV", "invoice": null, "msrp": 56075, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x2 Police 4dr SUV", "invoice": null, "msrp": 34025, "destination": null}
+{"year": 2012, "make": "Chevrolet", "slug": "2012-chevrolet-tahoe-hybrid", "style": "4x4 Special Service 4dr SUV", "invoice": null, "msrp": 37105, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-150 3dr Extended Cargo Van", "invoice": 24173, "msrp": 26215, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-150 3dr Cargo Van", "invoice": 23306, "msrp": 25250, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-150 XL 3dr Passenger Van", "invoice": 25303, "msrp": 27470, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-150 XLT 3dr Passenger Van", "invoice": 27729, "msrp": 30165, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-250 3dr Extended Cargo Van", "invoice": 25204, "msrp": 27360, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-250 3dr Cargo Van", "invoice": 24206, "msrp": 26250, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-250 SD 2dr 138 in. WB SRW Cutaway Chassis", "invoice": 22718, "msrp": 24515, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 3dr Cargo Van", "invoice": 26626, "msrp": 28940, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 3dr Extended Cargo Van", "invoice": 27436, "msrp": 29840, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 2dr 138 in. WB DRW Cutaway Chassis", "invoice": 24253, "msrp": 26220, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 2dr 138 in. WB SRW Cutaway Chassis w/ Rear Fuel Tank", "invoice": 23893, "msrp": 25820, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 2dr 158 in. WB SRW Cutaway Chassis", "invoice": 24262, "msrp": 26230, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 2dr 158 in. WB DRW Cutaway Chassis", "invoice": 24622, "msrp": 26630, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 2dr 176 in. WB DRW Cutaway Chassis", "invoice": 25122, "msrp": 27185, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 138 in. WB SRW Stripped Chassis", "invoice": 21049, "msrp": 22660, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 158 in. WB SRW Stripped Chassis", "invoice": 21135, "msrp": 22755, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 176 in. WB DRW Stripped Chassis", "invoice": 21458, "msrp": 23115, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 2dr 138 in. WB SRW Cutaway Chassis w/ Midship Fuel Tank", "invoice": 23789, "msrp": 25705, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 138 in. WB DRW Stripped Chassis", "invoice": 21464, "msrp": 23160, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD 158 in. WB DRW Stripped Chassis", "invoice": 21550, "msrp": 23255, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD XL 3dr Passenger Van", "invoice": 28089, "msrp": 30565, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD XL 3dr Extended Passenger Van", "invoice": 30163, "msrp": 32870, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD XLT 3dr Extended Passenger Van", "invoice": 31707, "msrp": 34585, "destination": 980}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-e__series", "style": "E-350 SD XLT 3dr Passenger Van", "invoice": 30537, "msrp": 33285, "destination": 980}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-150 3dr Cargo Van", "invoice": 24212, "msrp": 26175, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-150 3dr Extended Cargo Van", "invoice": 25302, "msrp": 27385, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-150 XL 3dr Passenger Van", "invoice": 26129, "msrp": 28305, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-150 XLT 3dr Passenger Van", "invoice": 28339, "msrp": 30760, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-250 3dr Cargo Van", "invoice": 25112, "msrp": 27175, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-250 3dr Extended Cargo Van", "invoice": 26332, "msrp": 28530, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-250 SD 2dr 138 in. WB SRW Cutaway Chassis", "invoice": 22822, "msrp": 24630, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 3dr Cargo Van", "invoice": 27749, "msrp": 30105, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 3dr Extended Cargo Van", "invoice": 28559, "msrp": 31005, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 2dr 138 in. WB DRW Cutaway Chassis", "invoice": 24356, "msrp": 26335, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 2dr 138 in. WB SRW Cutaway Chassis w/ Rear Fuel Tank", "invoice": 23996, "msrp": 25935, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 2dr 158 in. WB SRW Cutaway Chassis", "invoice": 24365, "msrp": 26345, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 2dr 158 in. WB DRW Cutaway Chassis", "invoice": 24725, "msrp": 26745, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 2dr 176 in. WB DRW Cutaway Chassis", "invoice": 25225, "msrp": 27300, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 138 in. WB DRW Stripped Chassis", "invoice": 21464, "msrp": 23160, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 158 in. WB DRW Stripped Chassis", "invoice": 21550, "msrp": 23255, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 176 in. WB DRW Stripped Chassis", "invoice": 21458, "msrp": 23115, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 2dr 138 in. WB SRW Cutaway Chassis w/ Midship Fuel Tank", "invoice": 23893, "msrp": 25820, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 138 in. WB SRW Stripped Chassis", "invoice": 21049, "msrp": 22660, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD 158 in. WB SRW Stripped Chassis", "invoice": 21135, "msrp": 22755, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD XL 3dr Extended Passenger Van", "invoice": 30989, "msrp": 33705, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD XL 3dr Passenger Van", "invoice": 28915, "msrp": 31400, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD XLT 3dr Extended Passenger Van", "invoice": 32317, "msrp": 35180, "destination": 995}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-e__series", "style": "E-350 SD XLT 3dr Passenger Van", "invoice": 31147, "msrp": 33880, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-150 3dr Cargo Van", "invoice": 24637, "msrp": 26630, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-150 3dr Extended Cargo Van", "invoice": 25726, "msrp": 27840, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-150 XL 3dr Passenger Van", "invoice": 26554, "msrp": 28760, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-150 XLT 3dr Passenger Van", "invoice": 28750, "msrp": 31200, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-250 3dr Cargo Van", "invoice": 25537, "msrp": 27630, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-250 3dr Extended Cargo Van", "invoice": 26757, "msrp": 28985, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-250 SD 2dr 138 in. WB SRW Cutaway Chassis", "invoice": 23354, "msrp": 25205, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 3dr Cargo Van", "invoice": 28174, "msrp": 30560, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 3dr Extended Cargo Van", "invoice": 28984, "msrp": 31460, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 2dr 138 in. WB DRW Cutaway Chassis", "invoice": 24889, "msrp": 26910, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 2dr 138 in. WB SRW Cutaway Chassis w/ Rear Fuel Tank", "invoice": 24529, "msrp": 26510, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 2dr 158 in. WB SRW Cutaway Chassis", "invoice": 24898, "msrp": 26920, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 2dr 158 in. WB DRW Cutaway Chassis", "invoice": 25258, "msrp": 27320, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 2dr 176 in. WB DRW Cutaway Chassis", "invoice": 25757, "msrp": 27875, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 138 in. WB DRW Stripped Chassis", "invoice": 21983, "msrp": 23720, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 158 in. WB DRW Stripped Chassis", "invoice": 22068, "msrp": 23815, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 176 in. WB DRW Stripped Chassis", "invoice": 21977, "msrp": 23675, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 138 in. WB SRW Stripped Chassis", "invoice": 21568, "msrp": 23220, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 158 in. WB SRW Stripped Chassis", "invoice": 21653, "msrp": 23315, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD 2dr 138 in. WB SRW Cutaway Chassis w/ Midship Fuel Tank", "invoice": 24426, "msrp": 26395, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD XL 3dr Extended Passenger Van", "invoice": 31414, "msrp": 34160, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD XL 3dr Passenger Van", "invoice": 29340, "msrp": 31855, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD XLT 3dr Extended Passenger Van", "invoice": 32728, "msrp": 35620, "destination": 995}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-e__series", "style": "E-350 SD XLT 3dr Passenger Van", "invoice": 31558, "msrp": 34320, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-150 3dr Cargo Van", "invoice": 24723, "msrp": 26800, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-150 3dr Extended Cargo Van", "invoice": 25843, "msrp": 28015, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-150 XL 3dr Passenger Van", "invoice": 26688, "msrp": 28930, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-150 XLT 3dr Passenger Van", "invoice": 28943, "msrp": 31375, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-250 3dr Cargo Van", "invoice": 26070, "msrp": 28260, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-250 3dr Extended Cargo Van", "invoice": 27324, "msrp": 29620, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 3dr Cargo Van", "invoice": 28561, "msrp": 30960, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 3dr Extended Cargo Van", "invoice": 29391, "msrp": 31860, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 2dr 138 in. WB DRW Cutaway Chassis", "invoice": 25304, "msrp": 27430, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 2dr 138 in. WB SRW Cutaway Chassis", "invoice": 24935, "msrp": 27030, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 2dr 158 in. WB SRW Cutaway Chassis", "invoice": 25308, "msrp": 27435, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 2dr 158 in. WB DRW Cutaway Chassis", "invoice": 25677, "msrp": 27835, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 2dr 176 in. WB DRW Cutaway Chassis", "invoice": 26190, "msrp": 28390, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 138 in. WB DRW Stripped Chassis", "invoice": 22320, "msrp": 24195, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 158 in. WB DRW Stripped Chassis", "invoice": 22496, "msrp": 24385, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD 176 in. WB DRW Stripped Chassis", "invoice": 22826, "msrp": 24745, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD XL 3dr Passenger Van", "invoice": 29760, "msrp": 32260, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD XL 3dr Extended Passenger Van", "invoice": 31882, "msrp": 34560, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD XLT 3dr Passenger Van", "invoice": 32029, "msrp": 34720, "destination": 995}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-e__series", "style": "E-350 SD XLT 3dr Extended Passenger Van", "invoice": 33228, "msrp": 36020, "destination": 995}
+{"year": 2014, "make": "Ford", "slug": "2014-ford-escape-hybrid", "style": "S 4dr SUV", "invoice": null, "msrp": 23100, "destination": null}
+{"year": 2014, "make": "Ford", "slug": "2014-ford-escape-hybrid", "style": "SE 4dr SUV", "invoice": null, "msrp": 25550, "destination": null}
+{"year": 2014, "make": "Ford", "slug": "2014-ford-escape-hybrid", "style": "AWD SE 4dr SUV", "invoice": null, "msrp": 27300, "destination": null}
+{"year": 2014, "make": "Ford", "slug": "2014-ford-escape-hybrid", "style": "AWD Titanium 4dr SUV", "invoice": null, "msrp": 30850, "destination": null}
+{"year": 2014, "make": "Ford", "slug": "2014-ford-escape-hybrid", "style": "Titanium 4dr SUV", "invoice": null, "msrp": 29100, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition-el", "style": "4x2 King Ranch 4dr SUV", "invoice": null, "msrp": 46550, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition-el", "style": "4x4 King Ranch 4dr SUV", "invoice": null, "msrp": 49450, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition-el", "style": "4x2 Limited 4dr SUV", "invoice": null, "msrp": 45280, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition-el", "style": "4x4 Limited 4dr SUV", "invoice": null, "msrp": 48180, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition-el", "style": "4x2 XL 4dr SUV", "invoice": null, "msrp": 36000, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition-el", "style": "4x4 XL 4dr SUV", "invoice": null, "msrp": 38900, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition-el", "style": "4x2 XLT 4dr SUV", "invoice": null, "msrp": 38610, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-expedition-el", "style": "4x4 XLT 4dr SUV", "invoice": null, "msrp": 41510, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion-energi", "style": "S 4dr Sedan", "invoice": null, "msrp": 20705, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion-energi", "style": "SE 4dr Sedan", "invoice": null, "msrp": 22975, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion-energi", "style": "SE 4dr Sedan", "invoice": null, "msrp": 22975, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion-energi", "style": "SEL 4dr Sedan", "invoice": null, "msrp": 25425, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion-energi", "style": "SEL 4dr Sedan", "invoice": null, "msrp": 25425, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion-energi", "style": "AWD SEL 4dr Sedan", "invoice": null, "msrp": 28970, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion-energi", "style": "Sport 4dr Sedan", "invoice": null, "msrp": 27225, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-fusion-energi", "style": "AWD Sport 4dr Sedan", "invoice": null, "msrp": 29175, "destination": null}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-fusion-hybrid", "style": "S 4dr Sedan", "invoice": null, "msrp": 21900, "destination": null}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-fusion-hybrid", "style": "SE 4dr Sedan", "invoice": null, "msrp": 23830, "destination": null}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-fusion-hybrid", "style": "Titanium 4dr Sedan", "invoice": null, "msrp": 30200, "destination": null}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-fusion-hybrid", "style": "AWD Titanium 4dr Sedan", "invoice": null, "msrp": 32200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-shelby_gt500", "style": "2dr Convertible", "invoice": 46250, "msrp": 51225, "destination": 850}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-shelby_gt500", "style": "2dr Coupe", "invoice": 41800, "msrp": 46325, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-shelby_gt500", "style": "2dr Convertible", "invoice": 48449, "msrp": 53645, "destination": 850}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-shelby_gt500", "style": "2dr Coupe", "invoice": 43999, "msrp": 48645, "destination": 850}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-shelby_gt500", "style": "2dr Convertible", "invoice": 48611, "msrp": 53810, "destination": 795}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-shelby_gt500", "style": "2dr Coupe", "invoice": 44161, "msrp": 48810, "destination": 795}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-shelby_gt500", "style": "2dr Convertible", "invoice": 54020, "msrp": 59200, "destination": 795}
+{"year": 2013, "make": "Ford", "slug": "2013-ford-shelby_gt500", "style": "2dr Coupe", "invoice": 49458, "msrp": 54200, "destination": 795}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x2 Denali 4dr SUV", "invoice": null, "msrp": 55010, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "AWD Denali 4dr SUV", "invoice": null, "msrp": 58005, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x2 Denali Hybrid 4dr SUV", "invoice": null, "msrp": 60285, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x4 Denali Hybrid 4dr SUV", "invoice": null, "msrp": 63130, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x2 Fleet 4dr SUV", "invoice": null, "msrp": 37625, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x4 Fleet 4dr SUV", "invoice": null, "msrp": 41635, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x2 Hybrid 4dr SUV", "invoice": null, "msrp": 52470, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x4 Hybrid 4dr SUV", "invoice": null, "msrp": 55280, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x2 SLE 4dr SUV", "invoice": null, "msrp": 40085, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x4 SLE 4dr SUV", "invoice": null, "msrp": 44095, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x2 SLT 4dr SUV", "invoice": null, "msrp": 45570, "destination": null}
+{"year": 2012, "make": "GMC", "slug": "2012-gmc-yukon-xl", "style": "4x4 SLT 4dr SUV", "invoice": null, "msrp": 48425, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX 2dr Coupe 5M", "invoice": null, "msrp": 24755, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX 2dr Coupe 5A", "invoice": null, "msrp": 25555, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX 4dr Sedan 5A", "invoice": null, "msrp": 25205, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX 4dr Sedan 5M", "invoice": null, "msrp": 24405, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX V6 4dr Sedan", "invoice": null, "msrp": 27380, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L 2dr Coupe", "invoice": null, "msrp": 27405, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L 4dr Sedan", "invoice": null, "msrp": 27655, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L V6 2dr Coupe 6M", "invoice": null, "msrp": 30030, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L V6 2dr Coupe 5A", "invoice": null, "msrp": 30030, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L V6 4dr Sedan", "invoice": null, "msrp": 29730, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L V6 2dr Coupe 6M w/Navi", "invoice": null, "msrp": 32030, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L V6 2dr Coupe 5A w/Navi", "invoice": null, "msrp": 32030, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L V6 4dr Sedan w/Navi", "invoice": null, "msrp": 31930, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L 2dr Coupe w/Navi", "invoice": null, "msrp": 29405, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "EX-L 4dr Sedan w/Navi", "invoice": null, "msrp": 29855, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "LX 4dr Sedan 5A", "invoice": null, "msrp": 22280, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "LX 4dr Sedan 5M", "invoice": null, "msrp": 21480, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "LX-P 4dr Sedan", "invoice": null, "msrp": 23280, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "LX-S 2dr Coupe 5A", "invoice": null, "msrp": 23880, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "LX-S 2dr Coupe 5M", "invoice": null, "msrp": 23080, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-hybrid", "style": "SE 4dr Sedan", "invoice": null, "msrp": 24030, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX 2dr Coupe CVT", "invoice": null, "msrp": 25875, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX 2dr Coupe 6M", "invoice": null, "msrp": 25025, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX 4dr Sedan 6M", "invoice": null, "msrp": 24605, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX 4dr Sedan CVT", "invoice": null, "msrp": 25405, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L 2dr Coupe", "invoice": null, "msrp": 28070, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L 4dr Sedan", "invoice": null, "msrp": 27995, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L V6 2dr Coupe 6M", "invoice": null, "msrp": 30350, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L V6 2dr Coupe 6A", "invoice": null, "msrp": 30350, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L V6 4dr Sedan", "invoice": null, "msrp": 30070, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L V6 2dr Coupe 6A w/Navi", "invoice": null, "msrp": 32350, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L V6 2dr Coupe 6M w/Navi", "invoice": null, "msrp": 32350, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L V6 4dr Sedan w/Navi", "invoice": null, "msrp": 32070, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L 2dr Coupe w/Navi", "invoice": null, "msrp": 30070, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "EX-L 4dr Sedan w/Navi", "invoice": null, "msrp": 29995, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "LX 4dr Sedan 6M", "invoice": null, "msrp": 21680, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "LX 4dr Sedan CVT", "invoice": null, "msrp": 22480, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "LX-S 2dr Coupe 6M", "invoice": null, "msrp": 23350, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "LX-S 2dr Coupe CVT", "invoice": null, "msrp": 24200, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "Sport 4dr Sedan CVT", "invoice": null, "msrp": 24190, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "Sport 4dr Sedan 6M", "invoice": null, "msrp": 23390, "destination": null}
+{"year": 2013, "make": "Honda", "slug": "2013-honda-accord-plug-in", "style": "Touring 4dr Sedan", "invoice": null, "msrp": 33430, "destination": null}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra-coupe", "style": "GLS 4dr Sedan 6M", "invoice": null, "msrp": 15345, "destination": null}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra-coupe", "style": "GLS 4dr Sedan 6A", "invoice": null, "msrp": 17595, "destination": null}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra-coupe", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 20595, "destination": null}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra-gt", "style": "GLS 4dr Sedan 6M", "invoice": null, "msrp": 15345, "destination": null}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra-gt", "style": "GLS 4dr Sedan 6A", "invoice": null, "msrp": 17595, "destination": null}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra-gt", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 20595, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-genesis-coupe", "style": "3.8L 4dr Sedan", "invoice": null, "msrp": 34200, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-genesis-coupe", "style": "5.0L R-Spec 4dr Sedan", "invoice": null, "msrp": 46800, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-sonata-hybrid", "style": "GLS 4dr Sedan", "invoice": null, "msrp": 21195, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-sonata-hybrid", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 25845, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-sonata-hybrid", "style": "Limited 2.0T 4dr Sedan", "invoice": null, "msrp": 27595, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-sonata-hybrid", "style": "SE 4dr Sedan", "invoice": null, "msrp": 23545, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-sonata-hybrid", "style": "SE 2.0T 4dr Sedan", "invoice": null, "msrp": 25095, "destination": null}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-wrangler-unlimited", "style": "4x4 Arctic 2dr SUV", "invoice": null, "msrp": 31869, "destination": null}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-wrangler-unlimited", "style": "4x4 Call of Duty MW3 2dr SUV", "invoice": null, "msrp": 36495, "destination": null}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-wrangler-unlimited", "style": "4x4 Rubicon 2dr SUV", "invoice": null, "msrp": 29995, "destination": null}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-wrangler-unlimited", "style": "4x4 Sahara 2dr SUV", "invoice": null, "msrp": 27970, "destination": null}
+{"year": 2012, "make": "Jeep", "slug": "2012-jeep-wrangler-unlimited", "style": "4x4 Sport 2dr SUV", "invoice": null, "msrp": 22045, "destination": null}
+{"year": 2013, "make": "Kia", "slug": "2013-kia-forte-koup", "style": "EX 4dr Sedan", "invoice": null, "msrp": 17800, "destination": null}
+{"year": 2013, "make": "Kia", "slug": "2013-kia-forte-koup", "style": "LX 4dr Sedan 6M", "invoice": null, "msrp": 15400, "destination": null}
+{"year": 2013, "make": "Kia", "slug": "2013-kia-forte-koup", "style": "LX 4dr Sedan 6A", "invoice": null, "msrp": 16400, "destination": null}
+{"year": 2013, "make": "Kia", "slug": "2013-kia-forte-koup", "style": "SX 4dr Sedan", "invoice": null, "msrp": 19300, "destination": null}
+{"year": 2013, "make": "Kia", "slug": "2013-kia-optima-hybrid", "style": "EX 4dr Sedan", "invoice": null, "msrp": 23650, "destination": null}
+{"year": 2013, "make": "Kia", "slug": "2013-kia-optima-hybrid", "style": "LX 4dr Sedan", "invoice": null, "msrp": 21350, "destination": null}
+{"year": 2013, "make": "Kia", "slug": "2013-kia-optima-hybrid", "style": "SX 4dr Sedan", "invoice": null, "msrp": 26800, "destination": null}
+{"year": 2013, "make": "Kia", "slug": "2013-kia-optima-hybrid", "style": "SXL 4dr Sedan", "invoice": null, "msrp": 34500, "destination": null}
+{"year": 2014, "make": "Lincoln", "slug": "2014-lincoln-mkt-town-car", "style": "4dr Crossover", "invoice": null, "msrp": 43050, "destination": null}
+{"year": 2014, "make": "Lincoln", "slug": "2014-lincoln-mkt-town-car", "style": "AWD Ecoboost 4dr Crossover", "invoice": null, "msrp": 45045, "destination": null}
+{"year": 2014, "make": "Lincoln", "slug": "2014-lincoln-mkz-hybrid", "style": "4dr Sedan", "invoice": null, "msrp": 35190, "destination": null}
+{"year": 2014, "make": "Lincoln", "slug": "2014-lincoln-mkz-hybrid", "style": "AWD 4dr Sedan", "invoice": null, "msrp": 37080, "destination": null}
+{"year": 2014, "make": "Lincoln", "slug": "2014-lincoln-mkz-hybrid", "style": "V6 4dr Sedan", "invoice": null, "msrp": 36420, "destination": null}
+{"year": 2014, "make": "Lincoln", "slug": "2014-lincoln-mkz-hybrid", "style": "AWD V6 4dr Sedan", "invoice": null, "msrp": 38310, "destination": null}
+{"year": 2014, "make": "Lincoln", "slug": "2014-lincoln-navigator-l", "style": "4x2 4dr SUV", "invoice": null, "msrp": 56165, "destination": null}
+{"year": 2014, "make": "Lincoln", "slug": "2014-lincoln-navigator-l", "style": "4x4 4dr SUV", "invoice": null, "msrp": 59065, "destination": null}
