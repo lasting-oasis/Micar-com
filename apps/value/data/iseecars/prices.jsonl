@@ -9955,3 +9955,82 @@
 {"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-eclipse_spyder", "style": "SE 2dr Convertible", "invoice": 27105, "msrp": 28299, "destination": 795}
 {"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-i__miev", "style": "ES 4dr Hatchback", "invoice": 28499, "msrp": 29125, "destination": 850}
 {"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-i__miev", "style": "SE 4dr Hatchback", "invoice": 30456, "msrp": 31125, "destination": 850}
+{"year": 2013, "make": "McLaren", "slug": "2013-mclaren-mp4__12c", "style": "2dr Coupe", "invoice": 0, "msrp": 239400, "destination": 2500}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-grand_vitara", "style": "Base 4dr SUV", "invoice": 18718, "msrp": 19499, "destination": 815}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-grand_vitara", "style": "Limited 4dr SUV", "invoice": 22798, "msrp": 23749, "destination": 815}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-grand_vitara", "style": "AWD Limited 4dr SUV", "invoice": 24238, "msrp": 25249, "destination": 815}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-grand_vitara", "style": "AWD Premium 4dr SUV", "invoice": 21934, "msrp": 22849, "destination": 815}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-grand_vitara", "style": "Premium 4dr SUV", "invoice": 20542, "msrp": 21399, "destination": 815}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-grand_vitara", "style": "AWD Ultimate Adventure 4dr SUV", "invoice": 22990, "msrp": 23949, "destination": 815}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-grand_vitara", "style": "Ultimate Adventure 4dr SUV", "invoice": 21406, "msrp": 22299, "destination": 815}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "S 4dr Sedan CVT", "invoice": 20158, "msrp": 20999, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "AWD S 4dr Sedan", "invoice": 21454, "msrp": 22349, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "S 4dr Sedan 6M", "invoice": 18238, "msrp": 18999, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "SE 4dr Sedan", "invoice": 21406, "msrp": 22299, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "AWD SE 4dr Sedan", "invoice": 22702, "msrp": 23649, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "SE Leather Edition 4dr Sedan", "invoice": 22942, "msrp": 23899, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "AWD SE Leather Edition 4dr Sedan", "invoice": 24238, "msrp": 25249, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "AWD Sport GTS 4dr Sedan", "invoice": 24718, "msrp": 25749, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "Sport GTS 4dr Sedan CVT", "invoice": 23422, "msrp": 24399, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "Sport GTS 4dr Sedan 6M", "invoice": 21358, "msrp": 22249, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "Sport SLS 4dr Sedan", "invoice": 25150, "msrp": 26199, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "AWD Sport SLS 4dr Sedan", "invoice": 26446, "msrp": 27549, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "Sport SLS Navigation Edition 4dr Sedan", "invoice": 26492, "msrp": 27598, "destination": 765}
+{"year": 2012, "make": "Suzuki", "slug": "2012-suzuki-kizashi", "style": "AWD Sport SLS Navigation Edition 4dr Sedan", "invoice": 27788, "msrp": 28948, "destination": 765}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius_plug__in_hybrid", "style": "Advanced 4dr Hatchback", "invoice": 37945, "msrp": 39525, "destination": 760}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius_plug__in_hybrid", "style": "Base 4dr Hatchback", "invoice": 30721, "msrp": 32000, "destination": 760}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L 2dr Coupe 5M", "invoice": 19003, "msrp": 19795, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L 2dr Coupe 6A", "invoice": 20259, "msrp": 20895, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L 2dr Coupe 5M w/ Sunroof", "invoice": 21403, "msrp": 22295, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L 2dr Coupe 6A w/ Sunroof", "invoice": 22459, "msrp": 23395, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L 2dr Coupe 5M w/ Sunroof, Sound and Navigation", "invoice": 23131, "msrp": 24095, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L 2dr Coupe 6A w/ Sunroof, Sound and Navigation", "invoice": 24187, "msrp": 25195, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L PZEV 2dr Coupe 5M", "invoice": 19003, "msrp": 19795, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L PZEV 2dr Coupe 6A", "invoice": 20059, "msrp": 20895, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L PZEV 2dr Coupe 5M w/ Sunroof", "invoice": 21403, "msrp": 22295, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L PZEV 2dr Coupe 6A w/ Sunroof", "invoice": 22459, "msrp": 23395, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L PZEV 2dr Coupe 5M w/ Sunroof, Sound and Navigation", "invoice": 23131, "msrp": 24095, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L PZEV 2dr Coupe 6A w/ Sunroof, Sound and Navigation", "invoice": 24187, "msrp": 25195, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "2.5L PZEV 2dr Coupe 6A w/ Sound and Navigation", "invoice": 23294, "msrp": 24265, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Base 2dr Coupe", "invoice": 18235, "msrp": 18995, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Base PZEV 2dr Coupe", "invoice": 18235, "msrp": 18995, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Black Turbo 2dr Coupe", "invoice": 23953, "msrp": 24950, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Black Turbo PZEV 2dr Coupe", "invoice": 23953, "msrp": 24950, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo 2dr Coupe 6M", "invoice": 22459, "msrp": 23395, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo 2dr Coupe 6A", "invoice": 23515, "msrp": 24495, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo 2dr Coupe 6M w/ Sunroof and Sound", "invoice": 25339, "msrp": 26395, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo 2dr Coupe 6A w/ Sunroof and Sound", "invoice": 26395, "msrp": 27495, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo 2dr Coupe 6M w/ Sunroof, Sound and Navigation", "invoice": 26875, "msrp": 27995, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo 2dr Coupe 6A w/ Sunroof, Sound and Navigation", "invoice": 27931, "msrp": 29095, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo PZEV 2dr Coupe 6M", "invoice": 22459, "msrp": 23395, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo PZEV 2dr Coupe 6A", "invoice": 23515, "msrp": 24495, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo PZEV 2dr Coupe 6M w/ Sunroof and Sound", "invoice": 25339, "msrp": 26395, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo PZEV 2dr Coupe 6A w/ Sunroof and Sound", "invoice": 26395, "msrp": 27495, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo PZEV 2dr Coupe 6M w/ Sunroof, Sound and Navigation", "invoice": 26875, "msrp": 27995, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo PZEV 2dr Coupe 6A w/ Sunroof, Sound and Navigation", "invoice": 27931, "msrp": 29095, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "Turbo PZEV 2dr Coupe 6A w/ Sound and Navigation", "invoice": 27038, "msrp": 28165, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "White Turbo 2dr Coupe", "invoice": 23953, "msrp": 24950, "destination": 770}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-beetle", "style": "White Turbo PZEV 2dr Coupe", "invoice": 23953, "msrp": 24950, "destination": 770}
+{"year": 2013, "make": "Audi", "slug": "2013-audi-tt_rs", "style": "AWD 2.5 quattro 2dr Coupe", "invoice": 53196, "msrp": 57200, "destination": 895}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade_hybrid", "style": "AWD 4dr SUV", "invoice": 71972, "msrp": 76975, "destination": 995}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade_hybrid", "style": "4dr SUV", "invoice": 69587, "msrp": 74425, "destination": 995}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade_hybrid", "style": "AWD Platinum Hybrid 4dr SUV", "invoice": 80803, "msrp": 86420, "destination": 995}
+{"year": 2013, "make": "Cadillac", "slug": "2013-cadillac-escalade_hybrid", "style": "Platinum Hybrid 4dr SUV", "invoice": 78418, "msrp": 83870, "destination": 995}
+{"year": 2013, "make": "Ferrari", "slug": "2013-ferrari-458_spider", "style": "2dr Convertible", "invoice": 218800, "msrp": 257412, "destination": 3750}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-santa_fe_sport", "style": "2.0T 4dr SUV", "invoice": 26536, "msrp": 27950, "destination": 855}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-santa_fe_sport", "style": "AWD 2.0T 4dr SUV", "invoice": 28182, "msrp": 29700, "destination": 855}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-santa_fe_sport", "style": "2.4L 4dr SUV", "invoice": 23728, "msrp": 24700, "destination": 855}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-santa_fe_sport", "style": "AWD 2.4L 4dr SUV", "invoice": 25390, "msrp": 26450, "destination": 855}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-ex37", "style": "4dr Crossover", "invoice": 33678, "msrp": 36900, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-ex37", "style": "AWD 4dr Crossover", "invoice": 34971, "msrp": 38300, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-ex37", "style": "Journey 4dr Crossover", "invoice": 35803, "msrp": 39250, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-ex37", "style": "AWD Journey 4dr Crossover", "invoice": 37096, "msrp": 40650, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-fx37", "style": "4dr SUV", "invoice": 41022, "msrp": 44950, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-fx37", "style": "AWD 4dr SUV", "invoice": 42362, "msrp": 46400, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-fx37", "style": "AWD Limited Edition 4dr SUV", "invoice": 48828, "msrp": 53400, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-fx50", "style": "AWD 4dr SUV", "invoice": 56126, "msrp": 61500, "destination": 995}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-g37_convertible", "style": "2dr Convertible", "invoice": 43702, "msrp": 47900, "destination": 905}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-g37_convertible", "style": "IPL 2dr Convertible", "invoice": 56079, "msrp": 61450, "destination": 905}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-g37_convertible", "style": "Sport 2dr Convertible", "invoice": 48135, "msrp": 52750, "destination": 905}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-m37", "style": "4dr Sedan", "invoice": 44625, "msrp": 48700, "destination": 905}
+{"year": 2013, "make": "Infiniti", "slug": "2013-infiniti-m37", "style": "AWD x 4dr Sedan", "invoice": 46610, "msrp": 50850, "destination": 905}
