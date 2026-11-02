@@ -9215,3 +9215,712 @@
 {"year": 2010, "make": "Honda", "slug": "2010-honda-accord-plug-in", "style": "LX-P 4dr Sedan 5A", "invoice": null, "msrp": 22855, "destination": null}
 {"year": 2010, "make": "Honda", "slug": "2010-honda-accord-plug-in", "style": "LX-S 2dr Coupe 5A", "invoice": null, "msrp": 23355, "destination": null}
 {"year": 2010, "make": "Honda", "slug": "2010-honda-accord-plug-in", "style": "LX-S 2dr Coupe 5M", "invoice": null, "msrp": 22555, "destination": null}
+{"year": 2010, "make": "Acura", "slug": "2010-acura-tsx-sport-wagon", "style": "4dr Sedan 6M", "invoice": null, "msrp": 29310, "destination": null}
+{"year": 2010, "make": "Acura", "slug": "2010-acura-tsx-sport-wagon", "style": "4dr Sedan 5A", "invoice": null, "msrp": 29310, "destination": null}
+{"year": 2010, "make": "Acura", "slug": "2010-acura-tsx-sport-wagon", "style": "V-6 4dr Sedan", "invoice": null, "msrp": 34850, "destination": null}
+{"year": 2010, "make": "Acura", "slug": "2010-acura-tsx-sport-wagon", "style": "V-6 4dr Sedan w/Technology Package", "invoice": null, "msrp": 37950, "destination": null}
+{"year": 2010, "make": "Acura", "slug": "2010-acura-tsx-sport-wagon", "style": "4dr Sedan 6M w/Technology Package", "invoice": null, "msrp": 32410, "destination": null}
+{"year": 2010, "make": "Acura", "slug": "2010-acura-tsx-sport-wagon", "style": "4dr Sedan 5A w/Technology Package", "invoice": null, "msrp": 32410, "destination": null}
+{"year": 2010, "make": "Audi", "slug": "2010-audi-q5-hybrid", "style": "AWD 3.2 quattro Premium 4dr SUV", "invoice": null, "msrp": 37350, "destination": null}
+{"year": 2010, "make": "Audi", "slug": "2010-audi-q5-hybrid", "style": "AWD 3.2 quattro Premium Plus 4dr SUV", "invoice": null, "msrp": 41400, "destination": null}
+{"year": 2010, "make": "Audi", "slug": "2010-audi-q5-hybrid", "style": "AWD 3.2 quattro Prestige 4dr SUV", "invoice": null, "msrp": 48850, "destination": null}
+{"year": 2010, "make": "Cadillac", "slug": "2010-cadillac-escalade-esv", "style": "AWD 4dr SUV", "invoice": null, "msrp": 65045, "destination": null}
+{"year": 2010, "make": "Cadillac", "slug": "2010-cadillac-escalade-esv", "style": "4dr SUV", "invoice": null, "msrp": 62495, "destination": null}
+{"year": 2010, "make": "Cadillac", "slug": "2010-cadillac-escalade-esv", "style": "AWD Luxury 4dr SUV", "invoice": null, "msrp": 71160, "destination": null}
+{"year": 2010, "make": "Cadillac", "slug": "2010-cadillac-escalade-esv", "style": "Luxury 4dr SUV", "invoice": null, "msrp": 68610, "destination": null}
+{"year": 2010, "make": "Cadillac", "slug": "2010-cadillac-escalade-esv", "style": "AWD Platinum Edition 4dr SUV", "invoice": null, "msrp": 84125, "destination": null}
+{"year": 2010, "make": "Cadillac", "slug": "2010-cadillac-escalade-esv", "style": "Platinum Edition 4dr SUV", "invoice": null, "msrp": 81625, "destination": null}
+{"year": 2010, "make": "Cadillac", "slug": "2010-cadillac-escalade-esv", "style": "AWD Premium 4dr SUV", "invoice": null, "msrp": 73550, "destination": null}
+{"year": 2010, "make": "Cadillac", "slug": "2010-cadillac-escalade-esv", "style": "Premium 4dr SUV", "invoice": null, "msrp": 71000, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x4 Fleet 4dr SUV", "invoice": null, "msrp": 42315, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x2 Fleet 4dr SUV", "invoice": null, "msrp": 39520, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x2 Fleet 2500 4dr SUV", "invoice": null, "msrp": 41080, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x4 Fleet 2500 4dr SUV", "invoice": null, "msrp": 43720, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x4 LS 4dr SUV", "invoice": null, "msrp": 43480, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x2 LS 4dr SUV", "invoice": null, "msrp": 40635, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x2 LS 2500 4dr SUV", "invoice": null, "msrp": 42245, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x4 LS 2500 4dr SUV", "invoice": null, "msrp": 44885, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x2 LT 4dr SUV", "invoice": null, "msrp": 44145, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x4 LT 4dr SUV", "invoice": null, "msrp": 46990, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x2 LT 2500 4dr SUV", "invoice": null, "msrp": 45735, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x4 LT 2500 4dr SUV", "invoice": null, "msrp": 48580, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x2 LTZ 4dr SUV", "invoice": null, "msrp": 52880, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-suburban-shield", "style": "4x4 LTZ 4dr SUV", "invoice": null, "msrp": 55625, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer-sport-trac", "style": "AWD Base 4dr SUV", "invoice": null, "msrp": 30280, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer-sport-trac", "style": "Base 4dr SUV", "invoice": null, "msrp": 28280, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer-sport-trac", "style": "Base 4dr SUV", "invoice": null, "msrp": 28280, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer-sport-trac", "style": "AWD Limited 4dr SUV", "invoice": null, "msrp": 39855, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer-sport-trac", "style": "Limited 4dr SUV", "invoice": null, "msrp": 37855, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer-sport-trac", "style": "Limited 4dr SUV", "invoice": null, "msrp": 37855, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer-sport-trac", "style": "XLT 4dr SUV", "invoice": null, "msrp": 32095, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer-sport-trac", "style": "XLT 4dr SUV", "invoice": null, "msrp": 32095, "destination": null}
+{"year": 2012, "make": "Ford", "slug": "2012-ford-explorer-sport-trac", "style": "AWD XLT 4dr SUV", "invoice": null, "msrp": 34095, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-fusion-hybrid", "style": "S 4dr Sedan", "invoice": null, "msrp": 19270, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-fusion-hybrid", "style": "SE 4dr Sedan", "invoice": null, "msrp": 20545, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-fusion-hybrid", "style": "SE 4dr Sedan", "invoice": null, "msrp": 20545, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-fusion-hybrid", "style": "SEL 4dr Sedan", "invoice": null, "msrp": 23975, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-fusion-hybrid", "style": "SEL 4dr Sedan", "invoice": null, "msrp": 23975, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-fusion-hybrid", "style": "AWD SEL 4dr Sedan", "invoice": null, "msrp": 27435, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-fusion-hybrid", "style": "Sport 4dr Sedan", "invoice": null, "msrp": 25825, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-fusion-hybrid", "style": "AWD Sport 4dr Sedan", "invoice": null, "msrp": 27675, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX 2dr Coupe 5M", "invoice": null, "msrp": 24755, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX 2dr Coupe 5A", "invoice": null, "msrp": 25555, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX 4dr Sedan 5A", "invoice": null, "msrp": 25205, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX 4dr Sedan 5M", "invoice": null, "msrp": 24405, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX V6 4dr Sedan", "invoice": null, "msrp": 27380, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L 2dr Coupe", "invoice": null, "msrp": 27405, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L 4dr Sedan", "invoice": null, "msrp": 27655, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 6M", "invoice": null, "msrp": 30030, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 5A", "invoice": null, "msrp": 30030, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L V6 4dr Sedan", "invoice": null, "msrp": 29730, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 6M w/Navi", "invoice": null, "msrp": 32030, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 5A w/Navi", "invoice": null, "msrp": 32030, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L V6 4dr Sedan w/Navi", "invoice": null, "msrp": 31930, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L 2dr Coupe w/Navi", "invoice": null, "msrp": 29405, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "EX-L 4dr Sedan w/Navi", "invoice": null, "msrp": 29855, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "LX 4dr Sedan 5A", "invoice": null, "msrp": 22280, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "LX 4dr Sedan 5M", "invoice": null, "msrp": 21480, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "LX-P 4dr Sedan", "invoice": null, "msrp": 23280, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "LX-S 2dr Coupe 5A", "invoice": null, "msrp": 23880, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "LX-S 2dr Coupe 5M", "invoice": null, "msrp": 23080, "destination": null}
+{"year": 2012, "make": "Honda", "slug": "2012-honda-accord-crosstour", "style": "SE 4dr Sedan", "invoice": null, "msrp": 24030, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-elantra-touring", "style": "GLS 4dr Sedan 6M", "invoice": null, "msrp": 16965, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-elantra-touring", "style": "GLS 4dr Sedan 6A", "invoice": null, "msrp": 17965, "destination": null}
+{"year": 2013, "make": "Hyundai", "slug": "2013-hyundai-elantra-touring", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 21115, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-sonata-hybrid", "style": "GLS 4dr Sedan 5A", "invoice": null, "msrp": 19900, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-sonata-hybrid", "style": "GLS 4dr Sedan 5M", "invoice": null, "msrp": 18700, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-sonata-hybrid", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 24550, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-sonata-hybrid", "style": "Limited V6 4dr Sedan", "invoice": null, "msrp": 26550, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-sonata-hybrid", "style": "SE 4dr Sedan", "invoice": null, "msrp": 22050, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-sonata-hybrid", "style": "SE V6 4dr Sedan", "invoice": null, "msrp": 24050, "destination": null}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima-hybrid", "style": "EX 4dr Sedan", "invoice": null, "msrp": 22495, "destination": null}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima-hybrid", "style": "EX Turbo 4dr Sedan", "invoice": null, "msrp": 24495, "destination": null}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima-hybrid", "style": "LX 4dr Sedan 6M", "invoice": null, "msrp": 18995, "destination": null}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima-hybrid", "style": "LX 4dr Sedan 6A", "invoice": null, "msrp": 20495, "destination": null}
+{"year": 2011, "make": "Kia", "slug": "2011-kia-optima-hybrid", "style": "SX Turbo 4dr Sedan", "invoice": null, "msrp": 25995, "destination": null}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkt-town-car", "style": "4dr Crossover", "invoice": null, "msrp": 44300, "destination": null}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkt-town-car", "style": "AWD 4dr Crossover", "invoice": null, "msrp": 46295, "destination": null}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkt-town-car", "style": "AWD EcoBoost 4dr Crossover", "invoice": null, "msrp": 49300, "destination": null}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkz-hybrid", "style": "4dr Sedan", "invoice": null, "msrp": 34645, "destination": null}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-mkz-hybrid", "style": "AWD 4dr Sedan", "invoice": null, "msrp": 36535, "destination": null}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-navigator-l", "style": "4x2 Base 4dr SUV", "invoice": null, "msrp": 57630, "destination": null}
+{"year": 2011, "make": "Lincoln", "slug": "2011-lincoln-navigator-l", "style": "4x4 Base 4dr SUV", "invoice": null, "msrp": 60530, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-evolution", "style": "DE 4dr Sedan", "invoice": null, "msrp": 15695, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-evolution", "style": "ES 4dr Sedan 5M", "invoice": null, "msrp": 16995, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-evolution", "style": "ES 4dr Sedan CVT", "invoice": null, "msrp": 17895, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-evolution", "style": "GT 4dr Sedan 5M", "invoice": null, "msrp": 19845, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-evolution", "style": "GT 4dr Sedan CVT", "invoice": null, "msrp": 20845, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-evolution", "style": "AWD Ralliart 4dr Sedan", "invoice": null, "msrp": 27995, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-evolution", "style": "AWD SE 4dr Sedan", "invoice": null, "msrp": 20195, "destination": null}
+{"year": 2014, "make": "Mitsubishi", "slug": "2014-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan 5M", "invoice": null, "msrp": 17195, "destination": null}
+{"year": 2014, "make": "Mitsubishi", "slug": "2014-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan CVT", "invoice": null, "msrp": 18095, "destination": null}
+{"year": 2014, "make": "Mitsubishi", "slug": "2014-mitsubishi-lancer-sportback", "style": "GT 4dr Sedan 5M", "invoice": null, "msrp": 20445, "destination": null}
+{"year": 2014, "make": "Mitsubishi", "slug": "2014-mitsubishi-lancer-sportback", "style": "GT 4dr Sedan CVT", "invoice": null, "msrp": 21445, "destination": null}
+{"year": 2014, "make": "Mitsubishi", "slug": "2014-mitsubishi-lancer-sportback", "style": "AWD Ralliart 4dr Sedan", "invoice": null, "msrp": 28395, "destination": null}
+{"year": 2014, "make": "Mitsubishi", "slug": "2014-mitsubishi-lancer-sportback", "style": "AWD SE 4dr Sedan", "invoice": null, "msrp": 20695, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-outlander-sport", "style": "ES 4dr SUV", "invoice": null, "msrp": 22695, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-outlander-sport", "style": "GT 4dr SUV", "invoice": null, "msrp": 26595, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-outlander-sport", "style": "AWD GT 4dr SUV", "invoice": null, "msrp": 28595, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-outlander-sport", "style": "SE 4dr SUV", "invoice": null, "msrp": 23995, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-outlander-sport", "style": "AWD SE 4dr SUV", "invoice": null, "msrp": 25495, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "LE 4dr SUV", "invoice": null, "msrp": 37880, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "AWD LE 4dr SUV", "invoice": null, "msrp": 39480, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "AWD Platinum Edition 4dr SUV", "invoice": null, "msrp": 41830, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "Platinum Edition 4dr SUV", "invoice": null, "msrp": 40230, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "S 4dr SUV", "invoice": null, "msrp": 28440, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "AWD S 4dr SUV", "invoice": null, "msrp": 30230, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "SL 4dr SUV", "invoice": null, "msrp": 35390, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "AWD SL 4dr SUV", "invoice": null, "msrp": 36990, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "AWD SV 4dr SUV", "invoice": null, "msrp": 33130, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-murano-crosscabriolet", "style": "SV 4dr SUV", "invoice": null, "msrp": 31530, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-pathfinder-hybrid", "style": "Platinum 4dr SUV", "invoice": null, "msrp": 39550, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-pathfinder-hybrid", "style": "4x4 Platinum 4dr SUV", "invoice": null, "msrp": 41150, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-pathfinder-hybrid", "style": "S 4dr SUV", "invoice": null, "msrp": 28650, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-pathfinder-hybrid", "style": "4x4 S 4dr SUV", "invoice": null, "msrp": 30250, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-pathfinder-hybrid", "style": "SL 4dr SUV", "invoice": null, "msrp": 34850, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-pathfinder-hybrid", "style": "4x4 SL 4dr SUV", "invoice": null, "msrp": 36450, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-pathfinder-hybrid", "style": "SV 4dr SUV", "invoice": null, "msrp": 31910, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-pathfinder-hybrid", "style": "4x4 SV 4dr SUV", "invoice": null, "msrp": 33510, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-rogue-select", "style": "S 4dr Crossover", "invoice": null, "msrp": 20310, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-rogue-select", "style": "AWD S 4dr Crossover", "invoice": null, "msrp": 21610, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-rogue-select", "style": "SV 4dr Crossover", "invoice": null, "msrp": 22750, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-rogue-select", "style": "AWD SV 4dr Crossover", "invoice": null, "msrp": 24050, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-rogue-select", "style": "AWD SV w/SL Package 4dr Crossover", "invoice": null, "msrp": 27950, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-rogue-select", "style": "SV w/SL Package 4dr Crossover", "invoice": null, "msrp": 26650, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-versa-note", "style": "1.6 S 4dr Sedan 5M", "invoice": null, "msrp": 10990, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-versa-note", "style": "1.6 S 4dr Sedan CVT", "invoice": null, "msrp": 13120, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-versa-note", "style": "1.6 SL 4dr Sedan", "invoice": null, "msrp": 15990, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-versa-note", "style": "1.6 SV 4dr Sedan", "invoice": null, "msrp": 14980, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-versa-note", "style": "1.8 S 4dr Hatchback 6M", "invoice": null, "msrp": 14670, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-versa-note", "style": "1.8 S 4dr Hatchback 4A", "invoice": null, "msrp": 15870, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-versa-note", "style": "1.8 SL 4dr Hatchback", "invoice": null, "msrp": 18590, "destination": null}
+{"year": 2012, "make": "Smart", "slug": "2012-smart-fortwo-electric-drive", "style": "passion 2dr Hatchback", "invoice": null, "msrp": 14690, "destination": null}
+{"year": 2012, "make": "Smart", "slug": "2012-smart-fortwo-electric-drive", "style": "passion cabriolet 2dr Cabriolet", "invoice": null, "msrp": 17690, "destination": null}
+{"year": 2012, "make": "Smart", "slug": "2012-smart-fortwo-electric-drive", "style": "pure 2dr Hatchback", "invoice": null, "msrp": 12490, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-avalon-hybrid", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 39650, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-avalon-hybrid", "style": "XLE 4dr Sedan", "invoice": null, "msrp": 30990, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-avalon-hybrid", "style": "XLE Premium 4dr Sedan", "invoice": null, "msrp": 33195, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-avalon-hybrid", "style": "XLE Touring 4dr Sedan", "invoice": null, "msrp": 35500, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-camry-hybrid", "style": "L 4dr Sedan", "invoice": null, "msrp": 22235, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-camry-hybrid", "style": "LE 4dr Sedan", "invoice": null, "msrp": 22680, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-camry-hybrid", "style": "SE 4dr Sedan", "invoice": null, "msrp": 23400, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-camry-hybrid", "style": "SE V6 4dr Sedan", "invoice": null, "msrp": 27260, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-camry-hybrid", "style": "XLE 4dr Sedan", "invoice": null, "msrp": 24855, "destination": null}
+{"year": 2013, "make": "Toyota", "slug": "2013-toyota-camry-hybrid", "style": "XLE V6 4dr Sedan", "invoice": null, "msrp": 30465, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-highlander-hybrid", "style": "Base 4dr SUV (2.7L l4)", "invoice": null, "msrp": 28240, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-highlander-hybrid", "style": "Base 4dr SUV", "invoice": null, "msrp": 29395, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-highlander-hybrid", "style": "AWD Base 4dr SUV", "invoice": null, "msrp": 30845, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-highlander-hybrid", "style": "Limited 4dr SUV", "invoice": null, "msrp": 35745, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-highlander-hybrid", "style": "AWD Limited 4dr SUV", "invoice": null, "msrp": 37195, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-highlander-hybrid", "style": "SE 4dr SUV (2.7L l4)", "invoice": null, "msrp": 32845, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-highlander-hybrid", "style": "SE 4dr SUV", "invoice": null, "msrp": 34000, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-highlander-hybrid", "style": "AWD SE 4dr SUV", "invoice": null, "msrp": 35450, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-c", "style": "Five 4dr Hatchback", "invoice": null, "msrp": 29805, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-c", "style": "Four 4dr Hatchback", "invoice": null, "msrp": 28235, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-c", "style": "One 4dr Hatchback", "invoice": null, "msrp": 23015, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-c", "style": "Three 4dr Hatchback", "invoice": null, "msrp": 25565, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-c", "style": "Two 4dr Hatchback", "invoice": null, "msrp": 24000, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-plug-in-hybrid", "style": "Five 4dr Hatchback", "invoice": null, "msrp": 29805, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-plug-in-hybrid", "style": "Four 4dr Hatchback", "invoice": null, "msrp": 28235, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-plug-in-hybrid", "style": "One 4dr Hatchback", "invoice": null, "msrp": 23015, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-plug-in-hybrid", "style": "Three 4dr Hatchback", "invoice": null, "msrp": 25565, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-plug-in-hybrid", "style": "Two 4dr Hatchback", "invoice": null, "msrp": 24000, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-v", "style": "Five 4dr Hatchback", "invoice": null, "msrp": 29805, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-v", "style": "Four 4dr Hatchback", "invoice": null, "msrp": 28235, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-v", "style": "One 4dr Hatchback", "invoice": null, "msrp": 23015, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-v", "style": "Three 4dr Hatchback", "invoice": null, "msrp": 25565, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-prius-v", "style": "Two 4dr Hatchback", "invoice": null, "msrp": 24000, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "Base 4dr SUV", "invoice": null, "msrp": 22650, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "Base 4dr SUV V6", "invoice": null, "msrp": 24685, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "4x4 Base 4dr SUV", "invoice": null, "msrp": 24050, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "4x4 Base 4dr SUV V6", "invoice": null, "msrp": 26085, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "Limited 4dr SUV", "invoice": null, "msrp": 25330, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "Limited 4dr SUV V6", "invoice": null, "msrp": 27250, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "4x4 Limited 4dr SUV", "invoice": null, "msrp": 26720, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "4x4 Limited 4dr SUV V6", "invoice": null, "msrp": 28650, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "Sport 4dr SUV", "invoice": null, "msrp": 24350, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "Sport 4dr SUV V6", "invoice": null, "msrp": 26280, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "4x4 Sport 4dr SUV", "invoice": null, "msrp": 25750, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-rav4-ev", "style": "4x4 Sport 4dr SUV V6", "invoice": null, "msrp": 27680, "destination": null}
+{"year": 2014, "make": "Volkswagen", "slug": "2014-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback 6A", "invoice": null, "msrp": 19995, "destination": null}
+{"year": 2014, "make": "Volkswagen", "slug": "2014-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback 6A w/Convenience and Sunroof", "invoice": null, "msrp": 22995, "destination": null}
+{"year": 2014, "make": "Volkswagen", "slug": "2014-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A", "invoice": null, "msrp": 26300, "destination": null}
+{"year": 2014, "make": "Volkswagen", "slug": "2014-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M", "invoice": null, "msrp": 25200, "destination": null}
+{"year": 2014, "make": "Volkswagen", "slug": "2014-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A w/Sunroof and Navigation", "invoice": null, "msrp": 27995, "destination": null}
+{"year": 2014, "make": "Volkswagen", "slug": "2014-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M w/Sunroof and Navigation", "invoice": null, "msrp": 26895, "destination": null}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-malibu-hybrid", "style": "LS 4dr Sedan", "invoice": null, "msrp": 21975, "destination": null}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-malibu-hybrid", "style": "LS Fleet 4dr Sedan", "invoice": null, "msrp": 22055, "destination": null}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-malibu-hybrid", "style": "LT 4dr Sedan w/2LT", "invoice": null, "msrp": 25385, "destination": null}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-malibu-hybrid", "style": "LT 4dr Sedan w/2LT", "invoice": null, "msrp": 25385, "destination": null}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-malibu-hybrid", "style": "LT 4dr Sedan w/1LT", "invoice": null, "msrp": 22975, "destination": null}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-malibu-hybrid", "style": "LTZ 4dr Sedan", "invoice": null, "msrp": 27165, "destination": null}
+{"year": 2011, "make": "Chevrolet", "slug": "2011-chevrolet-malibu-hybrid", "style": "LTZ 4dr Sedan", "invoice": null, "msrp": 27165, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "Limited 4dr SUV", "invoice": null, "msrp": 25270, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "Limited 4dr SUV", "invoice": null, "msrp": 25270, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "AWD Limited 4dr SUV", "invoice": null, "msrp": 27020, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "AWD Limited 4dr SUV", "invoice": null, "msrp": 27020, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "AWD XLS 4dr SUV", "invoice": null, "msrp": 22265, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "XLS 4dr SUV", "invoice": null, "msrp": 20515, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "AWD XLT 4dr SUV", "invoice": null, "msrp": 25290, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "AWD XLT 4dr SUV", "invoice": null, "msrp": 25290, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "XLT 4dr SUV", "invoice": null, "msrp": 23540, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-escape-hybrid", "style": "XLT 4dr SUV", "invoice": null, "msrp": 23540, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX 2dr Coupe 5M", "invoice": null, "msrp": 24655, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX 2dr Coupe 5A", "invoice": null, "msrp": 25455, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX 4dr Sedan 5M", "invoice": null, "msrp": 24305, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX 4dr Sedan 5A", "invoice": null, "msrp": 25105, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX V6 4dr Sedan", "invoice": null, "msrp": 27280, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L 2dr Coupe", "invoice": null, "msrp": 27105, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L 4dr Sedan", "invoice": null, "msrp": 27555, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 6M", "invoice": null, "msrp": 29930, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 5A", "invoice": null, "msrp": 29930, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L V6 4dr Sedan", "invoice": null, "msrp": 29630, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 6M w/Navi", "invoice": null, "msrp": 31930, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 5A w/Navi", "invoice": null, "msrp": 31930, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L V6 4dr Sedan w/Navi", "invoice": null, "msrp": 31830, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L 2dr Coupe w/Navi", "invoice": null, "msrp": 29305, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "EX-L 4dr Sedan w/Navi", "invoice": null, "msrp": 29755, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "LX 4dr Sedan 5A", "invoice": null, "msrp": 22180, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "LX 4dr Sedan 5M", "invoice": null, "msrp": 21380, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "LX-P 4dr Sedan", "invoice": null, "msrp": 23180, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "LX-S 2dr Coupe 5M", "invoice": null, "msrp": 22980, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "LX-S 2dr Coupe 5A", "invoice": null, "msrp": 23780, "destination": null}
+{"year": 2011, "make": "Honda", "slug": "2011-honda-accord-crosstour", "style": "SE 4dr Sedan", "invoice": null, "msrp": 23930, "destination": null}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra-touring", "style": "GLS 4dr Sedan 6M", "invoice": null, "msrp": 15345, "destination": null}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra-touring", "style": "GLS 4dr Sedan 6A", "invoice": null, "msrp": 17595, "destination": null}
+{"year": 2012, "make": "Hyundai", "slug": "2012-hyundai-elantra-touring", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 20595, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-genesis-coupe", "style": "3.8L V6 4dr Sedan", "invoice": null, "msrp": 33000, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-genesis-coupe", "style": "4.6L V8 4dr Sedan", "invoice": null, "msrp": 39500, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-forte-koup", "style": "EX 4dr Sedan 5M", "invoice": null, "msrp": 15795, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-forte-koup", "style": "EX 4dr Sedan 4A", "invoice": null, "msrp": 16795, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-forte-koup", "style": "LX 4dr Sedan 5M", "invoice": null, "msrp": 13695, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-forte-koup", "style": "LX 4dr Sedan 4A", "invoice": null, "msrp": 14695, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-forte-koup", "style": "SX 4dr Sedan 6M", "invoice": null, "msrp": 17195, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-forte-koup", "style": "SX 4dr Sedan 5A", "invoice": null, "msrp": 18195, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-optima-hybrid", "style": "EX 4dr Sedan (V6)", "invoice": null, "msrp": 21995, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-optima-hybrid", "style": "EX 4dr Sedan (I4 5A)", "invoice": null, "msrp": 20995, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-optima-hybrid", "style": "LX 4dr Sedan (I4 5A)", "invoice": null, "msrp": 19195, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-optima-hybrid", "style": "LX 4dr Sedan (I4 5M)", "invoice": null, "msrp": 17995, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-optima-hybrid", "style": "SX 4dr Sedan (I4 5A)", "invoice": null, "msrp": 21795, "destination": null}
+{"year": 2010, "make": "Kia", "slug": "2010-kia-optima-hybrid", "style": "SX 4dr Sedan (V6)", "invoice": null, "msrp": 22795, "destination": null}
+{"year": 2010, "make": "Lincoln", "slug": "2010-lincoln-mkz-hybrid", "style": "4dr Sedan", "invoice": null, "msrp": 34115, "destination": null}
+{"year": 2010, "make": "Lincoln", "slug": "2010-lincoln-mkz-hybrid", "style": "AWD 4dr Sedan", "invoice": null, "msrp": 36005, "destination": null}
+{"year": 2010, "make": "Lincoln", "slug": "2010-lincoln-navigator-l", "style": "4x4 Base 4dr SUV", "invoice": null, "msrp": 57300, "destination": null}
+{"year": 2010, "make": "Lincoln", "slug": "2010-lincoln-navigator-l", "style": "4x2 Base 4dr SUV", "invoice": null, "msrp": 54400, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-evolution", "style": "DE 4dr Sedan", "invoice": null, "msrp": 15295, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-evolution", "style": "ES 4dr Sedan 5M", "invoice": null, "msrp": 16695, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-evolution", "style": "ES 4dr Sedan CVT", "invoice": null, "msrp": 17595, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-evolution", "style": "GTS 4dr Sedan 5M", "invoice": null, "msrp": 19495, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-evolution", "style": "GTS 4dr Sedan CVT", "invoice": null, "msrp": 20495, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-evolution", "style": "AWD Ralliart 4dr Sedan", "invoice": null, "msrp": 27695, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-outlander-sport", "style": "ES 4dr SUV", "invoice": null, "msrp": 22345, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-outlander-sport", "style": "GT 4dr SUV", "invoice": null, "msrp": 25895, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-outlander-sport", "style": "AWD GT 4dr SUV", "invoice": null, "msrp": 27895, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-outlander-sport", "style": "SE 4dr SUV", "invoice": null, "msrp": 23345, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-outlander-sport", "style": "AWD SE 4dr SUV", "invoice": null, "msrp": 24845, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "AWD LE 4dr SUV", "invoice": null, "msrp": 40560, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "LE 4dr SUV", "invoice": null, "msrp": 38960, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "AWD Platinum Edition 4dr SUV", "invoice": null, "msrp": 42580, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "Platinum Edition 4dr SUV", "invoice": null, "msrp": 40980, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "AWD S 4dr SUV", "invoice": null, "msrp": 31560, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "S 4dr SUV", "invoice": null, "msrp": 29960, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "AWD SL 4dr SUV", "invoice": null, "msrp": 38830, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "SL 4dr SUV", "invoice": null, "msrp": 37230, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "AWD SV 4dr SUV", "invoice": null, "msrp": 35130, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-murano-crosscabriolet", "style": "SV 4dr SUV", "invoice": null, "msrp": 33530, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-pathfinder-hybrid", "style": "4x2 LE 4dr SUV", "invoice": null, "msrp": 40240, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-pathfinder-hybrid", "style": "4x4 LE 4dr SUV", "invoice": null, "msrp": 42440, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-pathfinder-hybrid", "style": "4x4 LE V8 4dr SUV", "invoice": null, "msrp": 43970, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-pathfinder-hybrid", "style": "4x2 S 4dr SUV", "invoice": null, "msrp": 29290, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-pathfinder-hybrid", "style": "4x4 S 4dr SUV", "invoice": null, "msrp": 31290, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-pathfinder-hybrid", "style": "4x2 Silver Edition 4dr SUV", "invoice": null, "msrp": 36630, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-pathfinder-hybrid", "style": "4x4 Silver Edition 4dr SUV", "invoice": null, "msrp": 38630, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-pathfinder-hybrid", "style": "4x2 SV 4dr SUV", "invoice": null, "msrp": 32640, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-pathfinder-hybrid", "style": "4x4 SV 4dr SUV", "invoice": null, "msrp": 34640, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-rogue-select", "style": "S 4dr Crossover", "invoice": null, "msrp": 22070, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-rogue-select", "style": "AWD S 4dr Crossover", "invoice": null, "msrp": 23370, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-rogue-select", "style": "SV 4dr Crossover", "invoice": null, "msrp": 24510, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-rogue-select", "style": "AWD SV 4dr Crossover", "invoice": null, "msrp": 25810, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-rogue-select", "style": "SV w/SL Package 4dr Crossover", "invoice": null, "msrp": 28410, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-rogue-select", "style": "AWD SV w/SL Package 4dr Crossover", "invoice": null, "msrp": 29710, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa-note", "style": "1.6 4dr Sedan 5M", "invoice": null, "msrp": 11420, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa-note", "style": "1.6 4dr Sedan 4A", "invoice": null, "msrp": 12420, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa-note", "style": "1.6 Base 4dr Sedan", "invoice": null, "msrp": 9990, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa-note", "style": "1.8 S 4dr Hatchback 6M", "invoice": null, "msrp": 14380, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa-note", "style": "1.8 S 4dr Hatchback 4A", "invoice": null, "msrp": 15380, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa-note", "style": "1.8 S 4dr Sedan 6M", "invoice": null, "msrp": 14100, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa-note", "style": "1.8 S 4dr Sedan 4A", "invoice": null, "msrp": 15100, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa-note", "style": "1.8 SL 4dr Hatchback", "invoice": null, "msrp": 17410, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-versa-note", "style": "1.8 SL 4dr Sedan", "invoice": null, "msrp": 16650, "destination": null}
+{"year": 2011, "make": "Smart", "slug": "2011-smart-fortwo-electric-drive", "style": "passion 2dr Hatchback", "invoice": null, "msrp": 14690, "destination": null}
+{"year": 2011, "make": "Smart", "slug": "2011-smart-fortwo-electric-drive", "style": "passion cabriolet 2dr Cabriolet", "invoice": null, "msrp": 17690, "destination": null}
+{"year": 2011, "make": "Smart", "slug": "2011-smart-fortwo-electric-drive", "style": "pure 2dr Hatchback", "invoice": null, "msrp": 12490, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-avalon-hybrid", "style": "Base 4dr Sedan", "invoice": null, "msrp": 33195, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-avalon-hybrid", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 36435, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-camry-hybrid", "style": "L 4dr Sedan", "invoice": null, "msrp": 22055, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-camry-hybrid", "style": "LE 4dr Sedan", "invoice": null, "msrp": 22600, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-camry-hybrid", "style": "SE 4dr Sedan", "invoice": null, "msrp": 23220, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-camry-hybrid", "style": "SE Sport Limited Edition 4dr Sedan", "invoice": null, "msrp": 25995, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-camry-hybrid", "style": "SE V6 4dr Sedan", "invoice": null, "msrp": 26910, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-camry-hybrid", "style": "XLE 4dr Sedan", "invoice": null, "msrp": 24775, "destination": null}
+{"year": 2012, "make": "Toyota", "slug": "2012-toyota-camry-hybrid", "style": "XLE V6 4dr Sedan", "invoice": null, "msrp": 30115, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander-hybrid", "style": "Base 4dr SUV (2.7L l4)", "invoice": null, "msrp": 28090, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander-hybrid", "style": "Base 4dr SUV", "invoice": null, "msrp": 29245, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander-hybrid", "style": "AWD Base 4dr SUV", "invoice": null, "msrp": 30695, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander-hybrid", "style": "Limited 4dr SUV", "invoice": null, "msrp": 35595, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander-hybrid", "style": "AWD Limited 4dr SUV", "invoice": null, "msrp": 37045, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander-hybrid", "style": "SE 4dr SUV (2.7L I4)", "invoice": null, "msrp": 32695, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander-hybrid", "style": "SE 4dr SUV", "invoice": null, "msrp": 33850, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-highlander-hybrid", "style": "AWD SE 4dr SUV", "invoice": null, "msrp": 35300, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-c", "style": "Five 4dr Hatchback", "invoice": null, "msrp": 28790, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-c", "style": "Four 4dr Hatchback", "invoice": null, "msrp": 27320, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-c", "style": "One 4dr Hatchback", "invoice": null, "msrp": 22120, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-c", "style": "Three 4dr Hatchback", "invoice": null, "msrp": 24520, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-c", "style": "Two 4dr Hatchback", "invoice": null, "msrp": 23520, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-plug-in-hybrid", "style": "Five 4dr Hatchback", "invoice": null, "msrp": 28790, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-plug-in-hybrid", "style": "Four 4dr Hatchback", "invoice": null, "msrp": 27320, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-plug-in-hybrid", "style": "One 4dr Hatchback", "invoice": null, "msrp": 22120, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-plug-in-hybrid", "style": "Three 4dr Hatchback", "invoice": null, "msrp": 24520, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-plug-in-hybrid", "style": "Two 4dr Hatchback", "invoice": null, "msrp": 23520, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-v", "style": "Five 4dr Hatchback", "invoice": null, "msrp": 28790, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-v", "style": "Four 4dr Hatchback", "invoice": null, "msrp": 27320, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-v", "style": "One 4dr Hatchback", "invoice": null, "msrp": 22120, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-v", "style": "Three 4dr Hatchback", "invoice": null, "msrp": 24520, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-prius-v", "style": "Two 4dr Hatchback", "invoice": null, "msrp": 23520, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 5M", "invoice": null, "msrp": 18095, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 5M w/ Convenience", "invoice": null, "msrp": 19295, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 5M w/ Convenience and Sunroof", "invoice": null, "msrp": 21200, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 6A", "invoice": null, "msrp": 19195, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 6A w/ Convenience", "invoice": null, "msrp": 20395, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 6A w/ Convenience and Sunroof", "invoice": null, "msrp": 22300, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L 4dr Hatchback 6A", "invoice": null, "msrp": 19995, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L 4dr Hatchback 6A w/ Convenience", "invoice": null, "msrp": 21095, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L 4dr Hatchback 6A w/ Convenience and Sunroof", "invoice": null, "msrp": 22995, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 5M", "invoice": null, "msrp": 18095, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 6A", "invoice": null, "msrp": 19195, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 5M w/ Convenience", "invoice": null, "msrp": 19295, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 6A w/ Convenience", "invoice": null, "msrp": 20395, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 5M w/ Convenience and Sunroof", "invoice": null, "msrp": 21200, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 6A w/ Convenience and Sunroof", "invoice": null, "msrp": 22300, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback 6A", "invoice": null, "msrp": 19995, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback 6A w/ Convenience", "invoice": null, "msrp": 21095, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback 6A w/ Convenience and Sunroof", "invoice": null, "msrp": 22995, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6M", "invoice": null, "msrp": 24495, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6A", "invoice": null, "msrp": 25595, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M", "invoice": null, "msrp": 25200, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A", "invoice": null, "msrp": 26300, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6M w/ Sunroof and Navigation", "invoice": null, "msrp": 26225, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6A w/ Sunroof and Navigation", "invoice": null, "msrp": 27325, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M w/ Sunroof and Navigation", "invoice": null, "msrp": 26895, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A w/ Sunroof and Navigation", "invoice": null, "msrp": 27995, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6M w/ Tech Package", "invoice": null, "msrp": 27925, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6A w/ Tech Package", "invoice": null, "msrp": 29025, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M w/ Tech Package", "invoice": null, "msrp": 28625, "destination": null}
+{"year": 2013, "make": "Volkswagen", "slug": "2013-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A w/ Tech Package", "invoice": null, "msrp": 29725, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-malibu-hybrid", "style": "LS 4dr Sedan", "invoice": null, "msrp": 21825, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-malibu-hybrid", "style": "LS Fleet 4dr Sedan", "invoice": null, "msrp": 21905, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-malibu-hybrid", "style": "LS Fleet 4dr Sedan", "invoice": null, "msrp": 21905, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-malibu-hybrid", "style": "LT 4dr Sedan w/1LT", "invoice": null, "msrp": 22715, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-malibu-hybrid", "style": "LT 4dr Sedan w/2LT", "invoice": null, "msrp": 25175, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-malibu-hybrid", "style": "LT 4dr Sedan w/2LT", "invoice": null, "msrp": 25175, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-malibu-hybrid", "style": "LTZ 4dr Sedan", "invoice": null, "msrp": 26605, "destination": null}
+{"year": 2010, "make": "Chevrolet", "slug": "2010-chevrolet-malibu-hybrid", "style": "LTZ 4dr Sedan", "invoice": null, "msrp": 26605, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer-sport-trac", "style": "Base 4dr SUV", "invoice": null, "msrp": 28190, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer-sport-trac", "style": "AWD Base 4dr SUV", "invoice": null, "msrp": 30190, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer-sport-trac", "style": "AWD Limited 4dr SUV", "invoice": null, "msrp": 39365, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer-sport-trac", "style": "Limited 4dr SUV", "invoice": null, "msrp": 37365, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer-sport-trac", "style": "XLT 4dr SUV", "invoice": null, "msrp": 31350, "destination": null}
+{"year": 2011, "make": "Ford", "slug": "2011-ford-explorer-sport-trac", "style": "AWD XLT 4dr SUV", "invoice": null, "msrp": 33350, "destination": null}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-elantra-touring", "style": "GLS 4dr Sedan 6M", "invoice": null, "msrp": 14945, "destination": null}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-elantra-touring", "style": "GLS 4dr Sedan 6A", "invoice": null, "msrp": 17195, "destination": null}
+{"year": 2011, "make": "Hyundai", "slug": "2011-hyundai-elantra-touring", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 20195, "destination": null}
+{"year": 2010, "make": "Lincoln", "slug": "2010-lincoln-mkt-town-car", "style": "AWD 4dr Crossover", "invoice": null, "msrp": 46195, "destination": null}
+{"year": 2010, "make": "Lincoln", "slug": "2010-lincoln-mkt-town-car", "style": "4dr Crossover", "invoice": null, "msrp": 44200, "destination": null}
+{"year": 2010, "make": "Lincoln", "slug": "2010-lincoln-mkt-town-car", "style": "AWD EcoBoost 4dr Crossover", "invoice": null, "msrp": 49200, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-evolution", "style": "DE 4dr Sedan CVT", "invoice": null, "msrp": 15690, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-evolution", "style": "DE 4dr Sedan 5M", "invoice": null, "msrp": 14790, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-evolution", "style": "ES 4dr Sedan 5M", "invoice": null, "msrp": 16990, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-evolution", "style": "ES 4dr Sedan CVT", "invoice": null, "msrp": 17890, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-evolution", "style": "GTS 4dr Sedan 5M", "invoice": null, "msrp": 18990, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-evolution", "style": "GTS 4dr Sedan CVT", "invoice": null, "msrp": 19990, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-evolution", "style": "AWD Ralliart 4dr Sedan", "invoice": null, "msrp": 27190, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-lancer-sportback", "style": "DE 4dr Sedan", "invoice": null, "msrp": 15995, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan 5M", "invoice": null, "msrp": 17095, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan CVT", "invoice": null, "msrp": 17995, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-lancer-sportback", "style": "GT 4dr Sedan 5M", "invoice": null, "msrp": 19995, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-lancer-sportback", "style": "GT 4dr Sedan CVT", "invoice": null, "msrp": 20995, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-lancer-sportback", "style": "AWD Ralliart 4dr Sedan", "invoice": null, "msrp": 28095, "destination": null}
+{"year": 2013, "make": "Mitsubishi", "slug": "2013-mitsubishi-lancer-sportback", "style": "AWD SE 4dr Sedan", "invoice": null, "msrp": 20295, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander-sport", "style": "ES 4dr SUV", "invoice": null, "msrp": 21995, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander-sport", "style": "AWD GT 4dr SUV", "invoice": null, "msrp": 27795, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander-sport", "style": "SE 4dr SUV", "invoice": null, "msrp": 22995, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander-sport", "style": "AWD SE 4dr SUV", "invoice": null, "msrp": 24495, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-outlander-sport", "style": "XLS 4dr SUV", "invoice": null, "msrp": 25795, "destination": null}
+{"year": 2014, "make": "Nissan", "slug": "2014-nissan-altima-hybrid", "style": "2.5 4dr Sedan", "invoice": null, "msrp": 22170, "destination": null}
+{"year": 2014, "make": "Nissan", "slug": "2014-nissan-altima-hybrid", "style": "2.5 S 4dr Sedan", "invoice": null, "msrp": 22690, "destination": null}
+{"year": 2014, "make": "Nissan", "slug": "2014-nissan-altima-hybrid", "style": "2.5 SL 4dr Sedan", "invoice": null, "msrp": 27920, "destination": null}
+{"year": 2014, "make": "Nissan", "slug": "2014-nissan-altima-hybrid", "style": "2.5 SV 4dr Sedan", "invoice": null, "msrp": 24340, "destination": null}
+{"year": 2014, "make": "Nissan", "slug": "2014-nissan-altima-hybrid", "style": "3.5 S 4dr Sedan", "invoice": null, "msrp": 26320, "destination": null}
+{"year": 2014, "make": "Nissan", "slug": "2014-nissan-altima-hybrid", "style": "3.5 SL 4dr Sedan", "invoice": null, "msrp": 30820, "destination": null}
+{"year": 2014, "make": "Nissan", "slug": "2014-nissan-altima-hybrid", "style": "3.5 SV 4dr Sedan", "invoice": null, "msrp": 28520, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano-crosscabriolet", "style": "LE 4dr SUV", "invoice": null, "msrp": 38300, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano-crosscabriolet", "style": "AWD LE 4dr SUV", "invoice": null, "msrp": 39900, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano-crosscabriolet", "style": "S 4dr SUV", "invoice": null, "msrp": 29290, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano-crosscabriolet", "style": "AWD S 4dr SUV", "invoice": null, "msrp": 30890, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano-crosscabriolet", "style": "SL 4dr SUV", "invoice": null, "msrp": 36400, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano-crosscabriolet", "style": "AWD SL 4dr SUV", "invoice": null, "msrp": 38000, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano-crosscabriolet", "style": "SV 4dr SUV", "invoice": null, "msrp": 32860, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-murano-crosscabriolet", "style": "AWD SV 4dr SUV", "invoice": null, "msrp": 34460, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder-hybrid", "style": "4x2 LE 4dr SUV", "invoice": null, "msrp": 38120, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder-hybrid", "style": "4x4 LE 4dr SUV", "invoice": null, "msrp": 40320, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder-hybrid", "style": "4x4 LE V8 4dr SUV", "invoice": null, "msrp": 43250, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder-hybrid", "style": "4x2 S 4dr SUV", "invoice": null, "msrp": 28570, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder-hybrid", "style": "4x4 S 4dr SUV", "invoice": null, "msrp": 30570, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder-hybrid", "style": "4x2 Silver Edition 4dr SUV", "invoice": null, "msrp": 35910, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder-hybrid", "style": "4x4 Silver Edition 4dr SUV", "invoice": null, "msrp": 37910, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder-hybrid", "style": "4x2 SV 4dr SUV", "invoice": null, "msrp": 31920, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-pathfinder-hybrid", "style": "4x4 SV 4dr SUV", "invoice": null, "msrp": 33920, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue-select", "style": "S 4dr Crossover", "invoice": null, "msrp": 21460, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue-select", "style": "AWD S 4dr Crossover", "invoice": null, "msrp": 22710, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue-select", "style": "S Krom 4dr Crossover", "invoice": null, "msrp": 24430, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue-select", "style": "AWD S Krom 4dr Crossover", "invoice": null, "msrp": 25680, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue-select", "style": "AWD SV 4dr Crossover", "invoice": null, "msrp": 25150, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-rogue-select", "style": "SV 4dr Crossover", "invoice": null, "msrp": 23900, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-versa-note", "style": "1.6 4dr Sedan 5M", "invoice": null, "msrp": 10990, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-versa-note", "style": "1.6 4dr Sedan 4A", "invoice": null, "msrp": 11990, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-versa-note", "style": "1.6 Base 4dr Sedan", "invoice": null, "msrp": 9990, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-versa-note", "style": "1.8 S 4dr Hatchback 4A", "invoice": null, "msrp": 14150, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-versa-note", "style": "1.8 S 4dr Hatchback 6M", "invoice": null, "msrp": 13150, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-versa-note", "style": "1.8 S 4dr Sedan 6M", "invoice": null, "msrp": 13100, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-versa-note", "style": "1.8 S 4dr Sedan 4A", "invoice": null, "msrp": 14100, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-versa-note", "style": "1.8 SL 4dr Hatchback", "invoice": null, "msrp": 16530, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-versa-note", "style": "1.8 SL 4dr Sedan", "invoice": null, "msrp": 16100, "destination": null}
+{"year": 2010, "make": "Smart", "slug": "2010-smart-fortwo-electric-drive", "style": "BRABUS 2dr Hatchback", "invoice": null, "msrp": 17990, "destination": null}
+{"year": 2010, "make": "Smart", "slug": "2010-smart-fortwo-electric-drive", "style": "BRABUS cabriolet 2dr Cabriolet", "invoice": null, "msrp": 20990, "destination": null}
+{"year": 2010, "make": "Smart", "slug": "2010-smart-fortwo-electric-drive", "style": "passion 2dr Hatchback", "invoice": null, "msrp": 13990, "destination": null}
+{"year": 2010, "make": "Smart", "slug": "2010-smart-fortwo-electric-drive", "style": "passion cabriolet 2dr Cabriolet", "invoice": null, "msrp": 16990, "destination": null}
+{"year": 2010, "make": "Smart", "slug": "2010-smart-fortwo-electric-drive", "style": "pure 2dr Hatchback", "invoice": null, "msrp": 11990, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-avalon-hybrid", "style": "Base 4dr Sedan", "invoice": null, "msrp": 33195, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-avalon-hybrid", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 36435, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "Base 4dr Sedan 6A", "invoice": null, "msrp": 21245, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "Base 4dr Sedan 6M", "invoice": null, "msrp": 20195, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "LE 4dr Sedan 6M", "invoice": null, "msrp": 21650, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "LE 4dr Sedan 6A", "invoice": null, "msrp": 22700, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "LE V6 4dr Sedan 6A", "invoice": null, "msrp": 25365, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "SE 4dr Sedan 6M", "invoice": null, "msrp": 22965, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "SE 4dr Sedan 6A", "invoice": null, "msrp": 23965, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "SE V6 4dr Sedan 6A", "invoice": null, "msrp": 26640, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "XLE 4dr Sedan 6A", "invoice": null, "msrp": 26725, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-camry-hybrid", "style": "XLE V6 4dr Sedan 6A", "invoice": null, "msrp": 29845, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-highlander-hybrid", "style": "Base 4dr SUV", "invoice": null, "msrp": 27750, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-highlander-hybrid", "style": "AWD Base 4dr SUV", "invoice": null, "msrp": 29200, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-highlander-hybrid", "style": "Base 4dr SUV (2.7L l4)", "invoice": null, "msrp": 25855, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-highlander-hybrid", "style": "Limited 4dr SUV", "invoice": null, "msrp": 33220, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-highlander-hybrid", "style": "AWD Limited 4dr SUV", "invoice": null, "msrp": 34670, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-highlander-hybrid", "style": "AWD SE 4dr SUV", "invoice": null, "msrp": 33930, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-highlander-hybrid", "style": "SE 4dr SUV", "invoice": null, "msrp": 32480, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-highlander-hybrid", "style": "Sport 4dr SUV", "invoice": null, "msrp": 30200, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-highlander-hybrid", "style": "AWD Sport 4dr SUV", "invoice": null, "msrp": 31650, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-c", "style": "I 4dr Hatchback", "invoice": null, "msrp": 21400, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-c", "style": "II 4dr Hatchback", "invoice": null, "msrp": 22800, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-c", "style": "III 4dr Hatchback", "invoice": null, "msrp": 23800, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-c", "style": "IV 4dr Hatchback", "invoice": null, "msrp": 26600, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-c", "style": "PHV 4dr Hatchback", "invoice": null, "msrp": 31200, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-c", "style": "V 4dr Hatchback", "invoice": null, "msrp": 28070, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-plug-in-hybrid", "style": "I 4dr Hatchback", "invoice": null, "msrp": 21400, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-plug-in-hybrid", "style": "II 4dr Hatchback", "invoice": null, "msrp": 22800, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-plug-in-hybrid", "style": "III 4dr Hatchback", "invoice": null, "msrp": 23800, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-plug-in-hybrid", "style": "IV 4dr Hatchback", "invoice": null, "msrp": 26600, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-plug-in-hybrid", "style": "PHV 4dr Hatchback", "invoice": null, "msrp": 31200, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-plug-in-hybrid", "style": "V 4dr Hatchback", "invoice": null, "msrp": 28070, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-v", "style": "I 4dr Hatchback", "invoice": null, "msrp": 21400, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-v", "style": "II 4dr Hatchback", "invoice": null, "msrp": 22800, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-v", "style": "III 4dr Hatchback", "invoice": null, "msrp": 23800, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-v", "style": "IV 4dr Hatchback", "invoice": null, "msrp": 26600, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-v", "style": "PHV 4dr Hatchback", "invoice": null, "msrp": 31200, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-prius-v", "style": "V 4dr Hatchback", "invoice": null, "msrp": 28070, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "4x4 Base 4dr SUV V6", "invoice": null, "msrp": 25910, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "4x4 Base 4dr SUV", "invoice": null, "msrp": 23875, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "Base 4dr SUV V6", "invoice": null, "msrp": 24510, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "Base 4dr SUV", "invoice": null, "msrp": 22475, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "Limited 4dr SUV", "invoice": null, "msrp": 25465, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "Limited 4dr SUV V6", "invoice": null, "msrp": 27385, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "4x4 Limited 4dr SUV", "invoice": null, "msrp": 26855, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "4x4 Limited 4dr SUV V6", "invoice": null, "msrp": 28785, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "Sport 4dr SUV", "invoice": null, "msrp": 24175, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "Sport 4dr SUV V6", "invoice": null, "msrp": 26105, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "4x4 Sport 4dr SUV", "invoice": null, "msrp": 25575, "destination": null}
+{"year": 2011, "make": "Toyota", "slug": "2011-toyota-rav4-ev", "style": "4x4 Sport 4dr SUV V6", "invoice": null, "msrp": 27505, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 5M", "invoice": null, "msrp": 17995, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 6A", "invoice": null, "msrp": 19095, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L 4dr Hatchback 6A", "invoice": null, "msrp": 19795, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 5M w/ Convenience", "invoice": null, "msrp": 18840, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 6A w/ Convenience", "invoice": null, "msrp": 19940, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L 4dr Hatchback 6A w/ Convenience", "invoice": null, "msrp": 20640, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 5M w/ Convenience and Sunroof", "invoice": null, "msrp": 20655, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 6A w/ Convenience and Sunroof", "invoice": null, "msrp": 21755, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L 4dr Hatchback 6A w/ Convenience and Sunroof", "invoice": null, "msrp": 22455, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 5M", "invoice": null, "msrp": 17995, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 6A", "invoice": null, "msrp": 19095, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback 6A", "invoice": null, "msrp": 19795, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 5M w/ Convenience", "invoice": null, "msrp": 18840, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 6A w/ Convenience", "invoice": null, "msrp": 19940, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback 6A w/ Convenience", "invoice": null, "msrp": 20640, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 5M w/ Convenience and Sunroof", "invoice": null, "msrp": 20655, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 6A w/ Convenience and Sunroof", "invoice": null, "msrp": 21755, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback 6A w/ Convenience and Sunroof", "invoice": null, "msrp": 22455, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6M", "invoice": null, "msrp": 24235, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6A", "invoice": null, "msrp": 25335, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M", "invoice": null, "msrp": 24935, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A", "invoice": null, "msrp": 26035, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6M w/ Sunroof and Navigation", "invoice": null, "msrp": 25955, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6A w/ Sunroof and Navigation", "invoice": null, "msrp": 27055, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M w/ Sunroof and Navigation", "invoice": null, "msrp": 26655, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A w/ Sunroof and Navigation", "invoice": null, "msrp": 27755, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6M w/ Tech Package", "invoice": null, "msrp": 27640, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6A w/ Tech Package", "invoice": null, "msrp": 28740, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M w/ Tech Package", "invoice": null, "msrp": 28340, "destination": null}
+{"year": 2012, "make": "Volkswagen", "slug": "2012-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A w/ Tech Package", "invoice": null, "msrp": 29440, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "4x2 Eddie Bauer 4dr SUV", "invoice": null, "msrp": 32880, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "4x4 Eddie Bauer 4dr SUV", "invoice": null, "msrp": 35200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "4x4 Eddie Bauer 4dr SUV", "invoice": null, "msrp": 35200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "4x2 Limited 4dr SUV", "invoice": null, "msrp": 35880, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "4x4 Limited 4dr SUV", "invoice": null, "msrp": 38200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "4x4 Limited 4dr SUV", "invoice": null, "msrp": 38200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "AWD Limited 4dr SUV", "invoice": null, "msrp": 38200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "AWD Limited 4dr SUV", "invoice": null, "msrp": 38200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "4x4 XLT 4dr SUV", "invoice": null, "msrp": 31200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "4x4 XLT 4dr SUV", "invoice": null, "msrp": 31200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "AWD XLT 4dr SUV", "invoice": null, "msrp": 31200, "destination": null}
+{"year": 2010, "make": "Ford", "slug": "2010-ford-explorer-sport-trac", "style": "4x2 XLT 4dr SUV", "invoice": null, "msrp": 28880, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX 2dr Coupe 5M", "invoice": null, "msrp": 23880, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX 2dr Coupe 5A", "invoice": null, "msrp": 24680, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX 4dr Sedan 5M", "invoice": null, "msrp": 23830, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX 4dr Sedan 5A", "invoice": null, "msrp": 24630, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX V6 4dr Sedan", "invoice": null, "msrp": 26805, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L 2dr Coupe 5M", "invoice": null, "msrp": 26080, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L 2dr Coupe 5A", "invoice": null, "msrp": 26880, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L 4dr Sedan 5M", "invoice": null, "msrp": 26030, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L 4dr Sedan 5A", "invoice": null, "msrp": 26830, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 6M", "invoice": null, "msrp": 29305, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 5A", "invoice": null, "msrp": 29305, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L V6 4dr Sedan", "invoice": null, "msrp": 29105, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 6M w/Navi", "invoice": null, "msrp": 31305, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L V6 2dr Coupe 5A w/Navi", "invoice": null, "msrp": 31305, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L V6 4dr Sedan w/Navi", "invoice": null, "msrp": 31105, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L 2dr Coupe 5M w/Navi", "invoice": null, "msrp": 28080, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L 2dr Coupe 5A w/Navi", "invoice": null, "msrp": 28880, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L 4dr Sedan 5M w/Navi", "invoice": null, "msrp": 28030, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "EX-L 4dr Sedan 5A w/Navi", "invoice": null, "msrp": 28830, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "LX 4dr Sedan 5A", "invoice": null, "msrp": 21855, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "LX 4dr Sedan 5M", "invoice": null, "msrp": 21055, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "LX-P 4dr Sedan 5M", "invoice": null, "msrp": 22055, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "LX-P 4dr Sedan 5A", "invoice": null, "msrp": 22855, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "LX-S 2dr Coupe 5A", "invoice": null, "msrp": 23355, "destination": null}
+{"year": 2010, "make": "Honda", "slug": "2010-honda-accord-crosstour", "style": "LX-S 2dr Coupe 5M", "invoice": null, "msrp": 22555, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-elantra-touring", "style": "Blue 4dr Sedan", "invoice": null, "msrp": 14145, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-elantra-touring", "style": "GLS 4dr Sedan", "invoice": null, "msrp": 16895, "destination": null}
+{"year": 2010, "make": "Hyundai", "slug": "2010-hyundai-elantra-touring", "style": "SE 4dr Sedan", "invoice": null, "msrp": 17845, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-sportback", "style": "DE 4dr Sedan", "invoice": null, "msrp": 15695, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan 5M", "invoice": null, "msrp": 16995, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan CVT", "invoice": null, "msrp": 17895, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-sportback", "style": "GT 4dr Sedan 5M", "invoice": null, "msrp": 19845, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-sportback", "style": "GT 4dr Sedan CVT", "invoice": null, "msrp": 20845, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-sportback", "style": "AWD Ralliart 4dr Sedan", "invoice": null, "msrp": 27995, "destination": null}
+{"year": 2012, "make": "Mitsubishi", "slug": "2012-mitsubishi-lancer-sportback", "style": "AWD SE 4dr Sedan", "invoice": null, "msrp": 20195, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-altima-hybrid", "style": "2.5 4dr Sedan", "invoice": null, "msrp": 21760, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-altima-hybrid", "style": "2.5 S 2dr Coupe", "invoice": null, "msrp": 25230, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-altima-hybrid", "style": "2.5 S 4dr Sedan", "invoice": null, "msrp": 22280, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-altima-hybrid", "style": "2.5 SL 4dr Sedan", "invoice": null, "msrp": 27660, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-altima-hybrid", "style": "2.5 SV 4dr Sedan", "invoice": null, "msrp": 24080, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-altima-hybrid", "style": "3.5 S 4dr Sedan", "invoice": null, "msrp": 25760, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-altima-hybrid", "style": "3.5 SL 4dr Sedan", "invoice": null, "msrp": 30560, "destination": null}
+{"year": 2013, "make": "Nissan", "slug": "2013-nissan-altima-hybrid", "style": "3.5 SV 4dr Sedan", "invoice": null, "msrp": 28260, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-murano-crosscabriolet", "style": "LE 4dr SUV", "invoice": null, "msrp": 36580, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-murano-crosscabriolet", "style": "AWD LE 4dr SUV", "invoice": null, "msrp": 38180, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-murano-crosscabriolet", "style": "AWD S 4dr SUV", "invoice": null, "msrp": 29650, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-murano-crosscabriolet", "style": "S 4dr SUV", "invoice": null, "msrp": 28050, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-murano-crosscabriolet", "style": "SL 4dr SUV", "invoice": null, "msrp": 29600, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-murano-crosscabriolet", "style": "AWD SL 4dr SUV", "invoice": null, "msrp": 31200, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-pathfinder-hybrid", "style": "4x2 LE 4dr SUV", "invoice": null, "msrp": 37050, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-pathfinder-hybrid", "style": "4x4 LE 4dr SUV", "invoice": null, "msrp": 39250, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-pathfinder-hybrid", "style": "4x4 LE V8 4dr SUV", "invoice": null, "msrp": 42300, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-pathfinder-hybrid", "style": "4x4 S 4dr SUV", "invoice": null, "msrp": 29540, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-pathfinder-hybrid", "style": "4x2 S FE+ 4dr SUV", "invoice": null, "msrp": 27540, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-pathfinder-hybrid", "style": "4x2 SE 4dr SUV", "invoice": null, "msrp": 30890, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-pathfinder-hybrid", "style": "4x4 SE 4dr SUV", "invoice": null, "msrp": 32890, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-rogue-select", "style": "AWD S 4dr Crossover", "invoice": null, "msrp": 21710, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-rogue-select", "style": "S 4dr Crossover", "invoice": null, "msrp": 22050, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-rogue-select", "style": "S Krom 4dr Crossover", "invoice": null, "msrp": 24060, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-rogue-select", "style": "AWD S Krom 4dr Crossover", "invoice": null, "msrp": 25310, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-rogue-select", "style": "AWD SL 4dr Crossover", "invoice": null, "msrp": 23300, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-rogue-select", "style": "SL 4dr Crossover", "invoice": null, "msrp": 21930, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "4x4 Base 4dr SUV", "invoice": null, "msrp": 23075, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "Base 4dr SUV V6", "invoice": null, "msrp": 23710, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "4x4 Base 4dr SUV V6", "invoice": null, "msrp": 25110, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "Base 4dr SUV", "invoice": null, "msrp": 21675, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "Limited 4dr SUV", "invoice": null, "msrp": 24665, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "4x4 Limited 4dr SUV", "invoice": null, "msrp": 26055, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "Limited 4dr SUV V6", "invoice": null, "msrp": 26585, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "4x4 Limited 4dr SUV V6", "invoice": null, "msrp": 27985, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "Sport 4dr SUV", "invoice": null, "msrp": 23375, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "4x4 Sport 4dr SUV", "invoice": null, "msrp": 24775, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "Sport 4dr SUV V6", "invoice": null, "msrp": 25305, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-rav4-ev", "style": "4x4 Sport 4dr SUV V6", "invoice": null, "msrp": 26705, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-sportback", "style": "DE 4dr Sedan", "invoice": null, "msrp": 15295, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan 5M", "invoice": null, "msrp": 16695, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan CVT", "invoice": null, "msrp": 17595, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-sportback", "style": "GTS 4dr Sedan 5M", "invoice": null, "msrp": 19495, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-sportback", "style": "GTS 4dr Sedan CVT", "invoice": null, "msrp": 20495, "destination": null}
+{"year": 2011, "make": "Mitsubishi", "slug": "2011-mitsubishi-lancer-sportback", "style": "AWD Ralliart 4dr Sedan", "invoice": null, "msrp": 27695, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-outlander-sport", "style": "AWD ES 4dr SUV", "invoice": null, "msrp": 22240, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-outlander-sport", "style": "ES 4dr SUV", "invoice": null, "msrp": 20840, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-outlander-sport", "style": "AWD GT 4dr SUV", "invoice": null, "msrp": 29250, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-outlander-sport", "style": "AWD SE 4dr SUV", "invoice": null, "msrp": 23940, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-outlander-sport", "style": "SE 4dr SUV", "invoice": null, "msrp": 22540, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-outlander-sport", "style": "XLS 4dr SUV", "invoice": null, "msrp": 24990, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-outlander-sport", "style": "AWD XLS 4dr SUV", "invoice": null, "msrp": 26390, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-altima-hybrid", "style": "2.5 4dr Sedan", "invoice": null, "msrp": 20550, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-altima-hybrid", "style": "2.5 S 2dr Coupe 6M", "invoice": null, "msrp": 24040, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-altima-hybrid", "style": "2.5 S 2dr Coupe CVT", "invoice": null, "msrp": 24640, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-altima-hybrid", "style": "2.5 S 4dr Sedan", "invoice": null, "msrp": 22710, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-altima-hybrid", "style": "2.5 SL 4dr Sedan", "invoice": null, "msrp": 26750, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-altima-hybrid", "style": "3.5 SR 2dr Coupe CVT", "invoice": null, "msrp": 28970, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-altima-hybrid", "style": "3.5 SR 2dr Coupe 6M", "invoice": null, "msrp": 31200, "destination": null}
+{"year": 2012, "make": "Nissan", "slug": "2012-nissan-altima-hybrid", "style": "3.5 SR 4dr Sedan", "invoice": null, "msrp": 25570, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-avalon-hybrid", "style": "Limited 4dr Sedan", "invoice": null, "msrp": 35285, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-avalon-hybrid", "style": "XL 4dr Sedan", "invoice": null, "msrp": 27945, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-avalon-hybrid", "style": "XLS 4dr Sedan", "invoice": null, "msrp": 32245, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 5M", "invoice": null, "msrp": 17995, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 6A", "invoice": null, "msrp": 19095, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "2.5L 4dr Hatchback", "invoice": null, "msrp": 19755, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 5M", "invoice": null, "msrp": 17995, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 6A", "invoice": null, "msrp": 19095, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback", "invoice": null, "msrp": 19755, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6M", "invoice": null, "msrp": 23225, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6A", "invoice": null, "msrp": 24325, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M", "invoice": null, "msrp": 23885, "destination": null}
+{"year": 2011, "make": "Volkswagen", "slug": "2011-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A", "invoice": null, "msrp": 24985, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-sportback", "style": "DE 4dr Sedan CVT", "invoice": null, "msrp": 15690, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-sportback", "style": "DE 4dr Sedan 5M", "invoice": null, "msrp": 14790, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan 5M", "invoice": null, "msrp": 16990, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-sportback", "style": "ES 4dr Sedan CVT", "invoice": null, "msrp": 17890, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-sportback", "style": "GTS 4dr Sedan 5M", "invoice": null, "msrp": 18990, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-sportback", "style": "GTS 4dr Sedan CVT", "invoice": null, "msrp": 19990, "destination": null}
+{"year": 2010, "make": "Mitsubishi", "slug": "2010-mitsubishi-lancer-sportback", "style": "AWD Ralliart 4dr Sedan", "invoice": null, "msrp": 27190, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "Base 4dr Sedan 6M", "invoice": null, "msrp": 19395, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "Base 4dr Sedan 6A", "invoice": null, "msrp": 20445, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "LE 4dr Sedan 6M", "invoice": null, "msrp": 20850, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "LE 4dr Sedan 6A", "invoice": null, "msrp": 21900, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "LE V6 4dr Sedan 6A", "invoice": null, "msrp": 24565, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "SE 4dr Sedan 6M", "invoice": null, "msrp": 22165, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "SE 4dr Sedan 6A", "invoice": null, "msrp": 23165, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "SE V6 4dr Sedan 6A", "invoice": null, "msrp": 25840, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "XLE 4dr Sedan 6A", "invoice": null, "msrp": 25925, "destination": null}
+{"year": 2010, "make": "Toyota", "slug": "2010-toyota-camry-hybrid", "style": "XLE V6 4dr Sedan 6A", "invoice": null, "msrp": 29045, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "2.5L 4dr Hatchback", "invoice": null, "msrp": 19335, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 6A", "invoice": null, "msrp": 18720, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "2.5L 2dr Hatchback 5M", "invoice": null, "msrp": 17620, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "2.5L PZEV 4dr Hatchback", "invoice": null, "msrp": 19335, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 6A", "invoice": null, "msrp": 18720, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "2.5L PZEV 2dr Hatchback 5M", "invoice": null, "msrp": 17620, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6M", "invoice": null, "msrp": 22760, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "TDI 4dr Hatchback 6A", "invoice": null, "msrp": 23860, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6M", "invoice": null, "msrp": 22155, "destination": null}
+{"year": 2010, "make": "Volkswagen", "slug": "2010-volkswagen-golf-r", "style": "TDI 2dr Hatchback 6A", "invoice": null, "msrp": 23255, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima-hybrid", "style": "2.5 4dr Sedan", "invoice": null, "msrp": 20270, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima-hybrid", "style": "2.5 S 2dr Coupe 6M", "invoice": null, "msrp": 23380, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima-hybrid", "style": "2.5 S 2dr Coupe CVT", "invoice": null, "msrp": 23880, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima-hybrid", "style": "2.5 S 4dr Sedan", "invoice": null, "msrp": 22430, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima-hybrid", "style": "2.5 SL 4dr Sedan", "invoice": null, "msrp": 26405, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima-hybrid", "style": "3.5 SR 2dr Coupe CVT", "invoice": null, "msrp": 28210, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima-hybrid", "style": "3.5 SR 2dr Coupe 6M", "invoice": null, "msrp": 30540, "destination": null}
+{"year": 2011, "make": "Nissan", "slug": "2011-nissan-altima-hybrid", "style": "3.5 SR 4dr Sedan", "invoice": null, "msrp": 25110, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-altima-hybrid", "style": "2.5 4dr Sedan", "invoice": null, "msrp": 19900, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-altima-hybrid", "style": "2.5 S 2dr Coupe CVT", "invoice": null, "msrp": 22940, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-altima-hybrid", "style": "2.5 S 2dr Coupe 6M", "invoice": null, "msrp": 22440, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-altima-hybrid", "style": "2.5 S 4dr Sedan", "invoice": null, "msrp": 21840, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-altima-hybrid", "style": "2.5 SL 4dr Sedan", "invoice": null, "msrp": 25630, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-altima-hybrid", "style": "3.5 SR 2dr Coupe CVT", "invoice": null, "msrp": 27270, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-altima-hybrid", "style": "3.5 SR 2dr Coupe 6M", "invoice": null, "msrp": 29600, "destination": null}
+{"year": 2010, "make": "Nissan", "slug": "2010-nissan-altima-hybrid", "style": "3.5 SR 4dr Sedan", "invoice": null, "msrp": 24520, "destination": null}
+{"year": 2010, "make": "Mercedes-Benz", "slug": "2010-mercedes__benz-r__class", "style": "AWD R 350 4MATIC 4dr Wagon", "invoice": 45849, "msrp": 49300, "destination": 875}
+{"year": 2010, "make": "Mercedes-Benz", "slug": "2010-mercedes__benz-r__class", "style": "AWD R 350 BlueTEC 4MATIC 4dr Wagon", "invoice": 47244, "msrp": 50800, "destination": 875}
+{"year": 2010, "make": "Rolls-Royce", "slug": "2010-rolls__royce-ghost", "style": "4dr Sedan", "invoice": 0, "msrp": 245000, "destination": 2000}
+{"year": 2010, "make": "Rolls-Royce", "slug": "2010-rolls__royce-phantom", "style": "4dr Sedan", "invoice": 0, "msrp": 380000, "destination": 2000}
+{"year": 2010, "make": "Rolls-Royce", "slug": "2010-rolls__royce-phantom", "style": "EWB 4dr Sedan", "invoice": 0, "msrp": 450000, "destination": 2000}
+{"year": 2010, "make": "Rolls-Royce", "slug": "2010-rolls__royce-phantom_coupe", "style": "2dr Coupe", "invoice": 0, "msrp": 408000, "destination": 2000}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-rx__8", "style": "Grand Touring 4dr Coupe 6A", "invoice": 30526, "msrp": 32960, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-rx__8", "style": "Grand Touring 4dr Coupe 6M", "invoice": 29878, "msrp": 32960, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-rx__8", "style": "R3 4dr Coupe 6M", "invoice": 29904, "msrp": 32290, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-rx__8", "style": "Sport 4dr Coupe 6M", "invoice": 24819, "msrp": 26795, "destination": 795}
+{"year": 2011, "make": "Mazda", "slug": "2011-mazda-rx__8", "style": "Sport 4dr Coupe 6A", "invoice": 24819, "msrp": 26795, "destination": 795}
+{"year": 2011, "make": "Rolls-Royce", "slug": "2011-rolls__royce-ghost", "style": "4dr Sedan", "invoice": 223147, "msrp": 246500, "destination": 2000}
+{"year": 2011, "make": "Saab", "slug": "2011-saab-9__3x", "style": "AWD SportCombi 4dr Wagon", "invoice": 35496, "msrp": 36975, "destination": 825}
+{"year": 2011, "make": "Saab", "slug": "2011-saab-9__4x", "style": "3.0i 4dr SUV", "invoice": 32212, "msrp": 33380, "destination": 825}
+{"year": 2011, "make": "Saab", "slug": "2011-saab-9__4x", "style": "AWD 3.0i 4dr SUV", "invoice": 34619, "msrp": 35875, "destination": 825}
+{"year": 2011, "make": "Saab", "slug": "2011-saab-9__4x", "style": "AWD 3.0i Premium 4dr SUV", "invoice": 38434, "msrp": 40245, "destination": 825}
+{"year": 2011, "make": "Saab", "slug": "2011-saab-9__4x", "style": "3.0i Premium 4dr SUV", "invoice": 35574, "msrp": 37250, "destination": 825}
+{"year": 2011, "make": "Saab", "slug": "2011-saab-9__4x", "style": "AWD Aero XWD 4dr SUV", "invoice": 45850, "msrp": 48010, "destination": 825}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-virage", "style": "2dr Coupe", "invoice": 0, "msrp": 208295, "destination": 1615}
+{"year": 2012, "make": "Aston Martin", "slug": "2012-aston_martin-virage", "style": "Volante 2dr Convertible", "invoice": 0, "msrp": 223295, "destination": 1615}
