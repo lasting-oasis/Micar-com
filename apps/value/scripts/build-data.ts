@@ -50,6 +50,12 @@ const samples = read('data/research/listings').map(({ file, json }) => {
   return { make: s.make, model: s.model, gaps: s.gaps ?? [], samples: out };
 }).filter((s) => s.samples.length);
 
+// Data checks: refuse to ship junk trim names or impossible prices.
+const bad: string[] = [];
+for (const st of stickers) for (const y of st.years) for (const t of y.trims) {
+  if (!t.trim || t.trim.length < 2 || t.trim.length > 90 || /var |function|[{}<>]/.test(t.trim)) bad.push(`${st.make} ${st.model} ${y.year}: trim name "${t.trim.slice(0, 40)}"`);
+}
+if (bad.length) { console.error(`${bad.length} bad trim rows, e.g.\n${bad.slice(0, 10).join('\n')}`); process.exit(1); }
 writeFileSync(join(ROOT, 'src/data/stickers.json'), JSON.stringify(stickers) + '\n');
 writeFileSync(join(ROOT, 'src/data/listing-samples.json'), JSON.stringify(samples, null, 1) + '\n');
 const nSticker = stickers.reduce((a, s) => a + s.years.reduce((b, y) => b + y.trims.length, 0), 0);
