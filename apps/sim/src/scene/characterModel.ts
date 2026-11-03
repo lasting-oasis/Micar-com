@@ -16,6 +16,10 @@ import * as THREE from 'three';
 // and +X to the person's right; `root` is scaled to world units (2 per metre).
 
 export const UNITS_PER_METRE = 2;
+// The road and lot paving tops are 0.03 up (scene/world/roads.ts, Y.road): people stand on them.
+const GROUND_TOP = 0.03;
+// Blob shadows just above the highest paving people walk on (the driveway crossing, 0.045).
+const BLOB_Y = 0.05;
 
 // ---- Looks ---------------------------------------------------------------------------
 
@@ -1151,6 +1155,7 @@ export class Character {
         this.root.add(mesh);
         this.scale = UNITS_PER_METRE * look.height / (look.female ? 1.66 : 1.76);
         this.root.scale.setScalar(this.scale);
+        this.root.position.y = GROUND_TOP;
         this.root.userData.character = this;
         this.update(0.016, 0);
     }
@@ -1297,7 +1302,7 @@ export class BlobShadows {
     add(x: number, z: number, person: Character) {
         if (this.count >= this.capacity) return;
         const r = person.size * (0.42 + 0.08 * person.moving);
-        tmpMatrix.makeScale(r * 2, 1, r * 1.8).setPosition(x, 0.03, z);
+        tmpMatrix.makeScale(r * 2, 1, r * 1.8).setPosition(x, BLOB_Y, z);
         this.mesh.setMatrixAt(this.count++, tmpMatrix);
     }
     end() {
