@@ -2,7 +2,7 @@
 "make": "Buick",
 "model": "Regal",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (regal, regal_sportback).",
+"note": "Trim-level MSRPs from iSeeCars price pages (regal, regal_sportback, regal_tourx).",
 "years": [
 {
 "year": 2011,
@@ -329,6 +329,246 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan FWD",
+"msrp": 27065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Turbo FWD",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium I FWD",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Turbo AWD",
+"msrp": 32415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II FWD",
+"msrp": 34100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium I AWD",
+"msrp": 34325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II AWD",
+"msrp": 36525,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS FWD",
+"msrp": 37385,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS AWD",
+"msrp": 39810,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 27065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring FWD",
+"msrp": 28565,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD",
+"msrp": 28990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 31415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II FWD",
+"msrp": 31565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II AWD",
+"msrp": 33990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS FWD",
+"msrp": 34065,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS AWD",
+"msrp": 36490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 27065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring FWD",
+"msrp": 28615,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 31465,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II FWD",
+"msrp": 31615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II AWD",
+"msrp": 34040,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS FWD",
+"msrp": 34115,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS AWD",
+"msrp": 36540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sportback FWD",
+"msrp": 24990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred FWD",
+"msrp": 27670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx AWD",
+"msrp": 29070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred II FWD",
+"msrp": 29770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence FWD",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred II AWD",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx Preferred AWD",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence AWD",
+"msrp": 33870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx Essence AWD",
+"msrp": 35070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback GS AWD",
+"msrp": 39070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-buick-regal_tourx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 925,
 "trims": [
@@ -341,6 +581,12 @@
 {
 "trim": "Sportback Preferred 4dr Sportback",
 "msrp": 27670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx AWD",
+"msrp": 29070,
 "config": "",
 "note": ""
 },
@@ -363,8 +609,20 @@
 "note": ""
 },
 {
+"trim": "Tourx Preferred AWD",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
 "trim": "Sportback AWD Essence 4dr Sportback",
 "msrp": 33870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx Essence AWD",
+"msrp": 35070,
 "config": "",
 "note": ""
 },
@@ -383,7 +641,52 @@
 ],
 "source": "https://www.iseecars.com/car/2019-buick-regal_sportback-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sportback FWD",
+"msrp": 25370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred FWD",
+"msrp": 27970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence FWD",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence AWD",
+"msrp": 33870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Avenir FWD",
+"msrp": 35770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback GS AWD",
+"msrp": 39070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-buick-regal_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

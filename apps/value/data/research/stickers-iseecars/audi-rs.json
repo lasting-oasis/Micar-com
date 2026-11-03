@@ -2,8 +2,191 @@
 "make": "Audi",
 "model": "RS",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (rs_5_sportback, rs_6_avant, rs_e__tron_gt_performance, rs_q8).",
+"note": "Trim-level MSRPs from iSeeCars price pages (rs_3, rs_5, rs_5_sportback, rs_6, rs_6_avant, rs_7, rs_e__tron_gt_performance, rs_q8).",
 "years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "RS 5 RS 5",
+"msrp": 70900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 5 RS 5",
+"msrp": 79200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 7 4dr HB Prestige",
+"msrp": 106500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-rs_5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "RS 7 4dr HB Prestige",
+"msrp": 108900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 7 4dr HB performance Prestige",
+"msrp": 129000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-rs_7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "RS 3 2.5 TFSI S Tronic",
+"msrp": 54500,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 7 4.0 TFSI Prestige",
+"msrp": 110700,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 7 4.0 TFSI performance Prestige",
+"msrp": 129500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-rs_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "RS 3 2.5 TFSI S Tronic",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 5 2.9 TFSI quattro tiptronic",
+"msrp": 69900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 7 4.0 TFSI",
+"msrp": 113900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 7 4.0 TFSI performance",
+"msrp": 130700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-rs_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "RS 3 2.5 TFSI",
+"msrp": 56200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 5 2.9 TFSI quattro",
+"msrp": 74200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 5 Sportback 2.9 TFSI quattro",
+"msrp": 74200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-rs_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "RS Q8 4.0 TFSI quattro",
+"msrp": 113000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-rs_q8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "RS 5 2.9 TFSI quattro",
+"msrp": 75100,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 5 Sportback 2.9 TFSI quattro",
+"msrp": 75400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 6 4.0 TFSI quattro",
+"msrp": 109000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Q8 4.0 TFSI quattro",
+"msrp": 114500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-rs_5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
 {
 "year": 2022,
 "destination": 1095,

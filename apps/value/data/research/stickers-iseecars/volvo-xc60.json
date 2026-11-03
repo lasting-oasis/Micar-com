@@ -176,6 +176,282 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr T5 Drive-E",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr T5",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr T5 Drive-E Premier",
+"msrp": 39650,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr T6 Drive-E",
+"msrp": 41150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr T5 Premier",
+"msrp": 41150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr T6",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr T5 Drive-E Platinum",
+"msrp": 43950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr T5 Platinum",
+"msrp": 45450,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr T6 Drive-E Platinum",
+"msrp": 45550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr T6 R-Design",
+"msrp": 46950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr T6 Platinum",
+"msrp": 47050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr T6 R-Design Platinum",
+"msrp": 51050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-01-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Dynamic",
+"msrp": 40950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 40950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Dynamic",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Inscription",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Dynamic",
+"msrp": 46350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 46350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 51000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "T5 AWD Momentum",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum",
+"msrp": 44900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Inscription",
+"msrp": 45300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Momentum",
+"msrp": 52900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid R-Design",
+"msrp": 56200,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription",
+"msrp": 56700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design",
+"msrp": 46650,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 47150,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design",
+"msrp": 48950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Inscription",
+"msrp": 49450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 52450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 52950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Momentum",
+"msrp": 53700,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid R-Design",
+"msrp": 60550,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription",
+"msrp": 61050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volvo-xc60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 995,
 "trims": [
@@ -267,13 +543,79 @@
 "destination": 995,
 "trims": [
 {
+"trim": "T5 FWD Momentum",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design",
+"msrp": 47850,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 49200,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design",
+"msrp": 50150,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Inscription",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
 "trim": "Recharge eAWD T8 Inscription Expression 4dr SUV",
 "msrp": 53500,
 "config": "",
 "note": ""
 },
 {
+"trim": "Recharge T8 eAWD PHEV Inscription Expression",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 53650,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
 "trim": "Recharge eAWD T8 R-Design 4dr SUV",
+"msrp": 59650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV R-Design",
 "msrp": 59650,
 "config": "",
 "note": ""
@@ -285,7 +627,19 @@
 "note": ""
 },
 {
+"trim": "Recharge T8 eAWD PHEV Inscription",
+"msrp": 61000,
+"config": "",
+"note": ""
+},
+{
 "trim": "Recharge eAWD T8 Polestar Engineered 4dr SUV",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Polestar",
 "msrp": 69500,
 "config": "",
 "note": ""
@@ -293,7 +647,7 @@
 ],
 "source": "https://www.iseecars.com/car/2021-volvo-xc60_recharge-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

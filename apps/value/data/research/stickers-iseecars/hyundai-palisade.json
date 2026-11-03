@@ -5,6 +5,108 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (palisade).",
 "years": [
 {
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 33675,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 33925,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 35625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 45125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 46825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-palisade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 32675,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 34375,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 35325,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 37025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 45275,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy FWD",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 46975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy AWD",
+"msrp": 47900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-hyundai-palisade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

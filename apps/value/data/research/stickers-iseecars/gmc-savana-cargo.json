@@ -74,6 +74,168 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 29555,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 2500 135\" Paratransit",
+"msrp": 29555,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 31415,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 2500 155\" Paratransit",
+"msrp": 31415,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 32875,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 3500 135\" Paratransit",
+"msrp": 32875,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 33760,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 3500 155\" Paratransit",
+"msrp": 33760,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive Diesel",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Extended Wheelbase Rear-Wheel Drive Diesel",
+"msrp": 43360,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive Diesel",
+"msrp": 44820,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive Diesel",
+"msrp": 45705,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-gmc-savana_cargo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 30595,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 2500 135\" Paratransit",
+"msrp": 30595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 32455,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 2500 155\" Paratransit",
+"msrp": 32455,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 33915,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 3500 135\" Paratransit",
+"msrp": 33915,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 3500 155\" Paratransit",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive Diesel",
+"msrp": 42540,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Extended Wheelbase Rear-Wheel Drive Diesel",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive Diesel",
+"msrp": 45860,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive Diesel",
+"msrp": 46745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-gmc-savana_cargo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 1195,
 "trims": [
@@ -105,6 +267,105 @@
 "source": "https://www.iseecars.com/car/2017-gmc-savana_cargo-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 31295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 33155,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 34615,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 35500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-gmc-savana_cargo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 33800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 35800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-gmc-savana_cargo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive",
+"msrp": 36400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-gmc-savana_cargo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

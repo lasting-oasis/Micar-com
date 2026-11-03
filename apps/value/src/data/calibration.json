@@ -41,58 +41,58 @@
    "model": "Colorado",
    "n": 17,
    "dropped": 3,
-   "residual5": 0.617,
+   "residual5": 0.627,
    "guess": 0.62,
-   "mae": 0.061,
-   "medianBias": 0.009,
+   "mae": 0.073,
+   "medianBias": -0.011,
    "byYear": {
     "2016": {
      "n": 5,
-     "median": -0.044
+     "median": -0.011
     },
     "2019": {
      "n": 5,
-     "median": 0.04
+     "median": -0.128
     },
     "2022": {
      "n": 2,
-     "median": 0.141
+     "median": 0.156
     },
     "2024": {
      "n": 5,
-     "median": -0.01
+     "median": -0.001
     }
    },
-   "stickers": 12
+   "stickers": 17
   },
   {
    "make": "Chevrolet",
    "model": "Equinox",
    "n": 79,
    "dropped": 1,
-   "residual5": 0.516,
+   "residual5": 0.507,
    "guess": 0.48,
-   "mae": 0.07,
-   "medianBias": -0.01,
+   "mae": 0.067,
+   "medianBias": -0.006,
    "byYear": {
     "2016": {
      "n": 19,
-     "median": -0.035
+     "median": -0.007
     },
     "2019": {
      "n": 20,
-     "median": -0.041
+     "median": -0.049
     },
     "2022": {
      "n": 20,
-     "median": 0.004
+     "median": -0.011
     },
     "2024": {
      "n": 20,
-     "median": 0.024
+     "median": 0.013
     }
    },
-   "stickers": 40
+   "stickers": 79
   },
   {
    "make": "Chevrolet",
@@ -128,29 +128,29 @@
    "model": "Silverado 1500",
    "n": 80,
    "dropped": 0,
-   "residual5": 0.591,
+   "residual5": 0.609,
    "guess": 0.6,
-   "mae": 0.093,
-   "medianBias": 0.001,
+   "mae": 0.1,
+   "medianBias": 0.023,
    "byYear": {
     "2016": {
      "n": 20,
-     "median": 0.002
+     "median": -0.115
     },
     "2019": {
      "n": 20,
-     "median": -0.066
+     "median": -0.027
     },
     "2022": {
      "n": 20,
-     "median": 0.047
+     "median": 0.073
     },
     "2024": {
      "n": 20,
-     "median": 0.113
+     "median": 0.131
     }
    },
-   "stickers": 60
+   "stickers": 80
   },
   {
    "make": "Chevrolet",
@@ -414,21 +414,21 @@
    "model": "Sierra 1500",
    "n": 10,
    "dropped": 0,
-   "residual5": 0.65,
+   "residual5": 0.653,
    "guess": 0.6,
    "mae": 0.062,
-   "medianBias": -0.055,
+   "medianBias": -0.06,
    "byYear": {
     "2019": {
      "n": 5,
-     "median": -0.044
+     "median": -0.038
     },
     "2022": {
      "n": 5,
-     "median": -0.064
+     "median": -0.069
     }
    },
-   "stickers": 5
+   "stickers": 10
   },
   {
    "make": "GMC",
@@ -754,54 +754,54 @@
    "model": "Cherokee",
    "n": 15,
    "dropped": 0,
-   "residual5": 0.46,
+   "residual5": 0.483,
    "guess": 0.45,
-   "mae": 0.09,
-   "medianBias": -0.011,
+   "mae": 0.096,
+   "medianBias": -0.033,
    "byYear": {
     "2016": {
      "n": 5,
-     "median": -0.132
+     "median": -0.121
     },
     "2019": {
      "n": 5,
-     "median": 0.028
+     "median": -0.053
     },
     "2022": {
      "n": 5,
-     "median": -0.002
+     "median": 0.04
     }
    },
-   "stickers": 5
+   "stickers": 15
   },
   {
    "make": "Jeep",
    "model": "Compass",
    "n": 17,
    "dropped": 1,
-   "residual5": 0.467,
+   "residual5": 0.47,
    "guess": 0.47,
-   "mae": 0.088,
-   "medianBias": 0,
+   "mae": 0.08,
+   "medianBias": -0.012,
    "byYear": {
     "2016": {
      "n": 4,
-     "median": 0.128
+     "median": 0.084
     },
     "2019": {
      "n": 4,
-     "median": -0.001
+     "median": 0.008
     },
     "2022": {
      "n": 5,
-     "median": -0.062
+     "median": -0.057
     },
     "2024": {
      "n": 4,
-     "median": 0.094
+     "median": -0.017
     }
    },
-   "stickers": 9
+   "stickers": 17
   },
   {
    "make": "Jeep",
@@ -837,29 +837,29 @@
    "model": "Wrangler",
    "n": 20,
    "dropped": 0,
-   "residual5": 0.596,
+   "residual5": 0.639,
    "guess": 0.7,
-   "mae": 0.092,
-   "medianBias": 0.051,
+   "mae": 0.093,
+   "medianBias": 0.066,
    "byYear": {
     "2016": {
      "n": 5,
-     "median": 0.122
+     "median": 0.023
     },
     "2019": {
      "n": 5,
-     "median": 0.171
+     "median": 0.152
     },
     "2022": {
      "n": 5,
-     "median": -0.002
+     "median": 0.058
     },
     "2024": {
      "n": 5,
-     "median": 0.01
+     "median": 0.05
     }
    },
-   "stickers": 10
+   "stickers": 20
   },
   {
    "make": "Kia",
@@ -978,29 +978,29 @@
    "model": "RX",
    "n": 20,
    "dropped": 0,
-   "residual5": 0.602,
+   "residual5": 0.609,
    "guess": 0.62,
-   "mae": 0.067,
-   "medianBias": 0.003,
+   "mae": 0.07,
+   "medianBias": -0.004,
    "byYear": {
     "2016": {
      "n": 5,
-     "median": -0.015
+     "median": 0.009
     },
     "2019": {
      "n": 5,
-     "median": 0.093
+     "median": 0.118
     },
     "2022": {
      "n": 5,
-     "median": 0.016
+     "median": -0.008
     },
     "2024": {
      "n": 5,
-     "median": -0.062
+     "median": -0.089
     }
    },
-   "stickers": 5
+   "stickers": 20
   },
   {
    "make": "Mazda",
@@ -1039,7 +1039,7 @@
    "residual5": 0.646,
    "guess": 0.6,
    "mae": 0.068,
-   "medianBias": -0.011,
+   "medianBias": 0.007,
    "byYear": {
     "2016": {
      "n": 5,
@@ -1055,7 +1055,7 @@
     },
     "2024": {
      "n": 5,
-     "median": 0.005
+     "median": 0.026
     }
    },
    "stickers": 20

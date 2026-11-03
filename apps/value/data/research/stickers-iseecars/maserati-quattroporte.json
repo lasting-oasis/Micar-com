@@ -143,6 +143,147 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Quattroporte S",
+"msrp": 99900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Quattroporte S Q4",
+"msrp": 107900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Quattroporte GTS",
+"msrp": 141500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "S 3.0L",
+"msrp": 103400,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 3.0L",
+"msrp": 109500,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 3.0L",
+"msrp": 109900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 3.0L",
+"msrp": 109900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 GranLusso 3.0L",
+"msrp": 116000,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 GranSport 3.0L",
+"msrp": 116000,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS GranLusso 3.8L",
+"msrp": 145500,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS GranSport 3.8L",
+"msrp": 145500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "S 3.0L",
+"msrp": 105600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 3.0L",
+"msrp": 111800,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 3.0L",
+"msrp": 112400,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 3.0L",
+"msrp": 112400,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 GranLusso 3.0L",
+"msrp": 118600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 GranSport 3.0L",
+"msrp": 118600,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS GranLusso 3.8L",
+"msrp": 136600,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS GranSport 3.8L",
+"msrp": 136600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1995,
 "trims": [
@@ -198,6 +339,63 @@
 "source": "https://www.iseecars.com/car/2019-maserati-quattroporte-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "S 3.0L",
+"msrp": 99490,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 3.0L",
+"msrp": 103990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 3.0L",
+"msrp": 106490,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 3.0L",
+"msrp": 106490,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 GranLusso 3.0L",
+"msrp": 110990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 GranSport 3.0L",
+"msrp": 110990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS GranLusso 3.8L",
+"msrp": 124990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS GranSport 3.8L",
+"msrp": 124990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

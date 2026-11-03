@@ -1,0 +1,39 @@
+{
+"make": "Lotus",
+"model": "Evora",
+"body": "Coupe / Sports",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 94900,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2018+Lotus+Evora+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, edmunds.com, gatormotorsport.com)."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 96950,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2020+Lotus+Evora+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (autosportdesigns.com, carbuzz.com, jdpower.com)."
+}
+],
+"gaps": []
+}

@@ -392,6 +392,477 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Man i Sport",
+"msrp": 17845,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Man i Sport",
+"msrp": 18545,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto i Sport",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Auto i Sport",
+"msrp": 19595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man i Touring",
+"msrp": 20045,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Man i Touring",
+"msrp": 20745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto i Touring",
+"msrp": 21095,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Auto i Touring",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man i Grand Touring",
+"msrp": 22545,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Man i Grand Touring",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto i Grand Touring",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Auto i Grand Touring",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man s Grand Touring",
+"msrp": 24745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto s Touring",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Man s Grand Touring",
+"msrp": 25445,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Auto s Touring",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto s Grand Touring",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Auto s Grand Touring",
+"msrp": 26495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-mazda-mazda3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sport Manual",
+"msrp": 17845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Auto",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual",
+"msrp": 19095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Auto",
+"msrp": 20145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Manual",
+"msrp": 20445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 22245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2.5 Manual",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Manual",
+"msrp": 23145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2.5 Auto",
+"msrp": 23445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Manual",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Auto",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Auto",
+"msrp": 24945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-mazda-mazda3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-06-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sport Manual",
+"msrp": 18095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Auto",
+"msrp": 19145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual",
+"msrp": 19345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Manual",
+"msrp": 20090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Auto",
+"msrp": 20395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Manual",
+"msrp": 20840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 21140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 21890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Manual",
+"msrp": 23145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Manual",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Auto",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Auto",
+"msrp": 24945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-mazda-mazda3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 21000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Select Pkg",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Auto",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD w/Select Pkg",
+"msrp": 24000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Preferred Pkg",
+"msrp": 24200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Auto",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Auto w/Preferred Pkg",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD w/Preferred Pkg",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Premium Pkg",
+"msrp": 26500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Auto w/Preferred Pkg",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Auto w/Premium Pkg",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Manual w/Premium Pkg",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD w/Premium Pkg",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Auto w/Premium Pkg",
+"msrp": 28900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mazda-mazda3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 21500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select Package FWD",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto FWD",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select Package AWD",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred Package FWD",
+"msrp": 24200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto AWD",
+"msrp": 25100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred Package Auto FWD",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred Package AWD",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Package FWD",
+"msrp": 26500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred Package Auto AWD",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Package Manual FWD",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Package Auto FWD",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Package AWD",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Package Auto AWD",
+"msrp": 28900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mazda-mazda3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 995,
 "trims": [

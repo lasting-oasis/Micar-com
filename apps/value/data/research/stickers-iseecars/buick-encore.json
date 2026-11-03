@@ -62,6 +62,63 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr",
+"msrp": 24065,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr",
+"msrp": 25565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convenience FWD",
+"msrp": 26155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convenience AWD",
+"msrp": 27655,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather FWD",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium FWD",
+"msrp": 29435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather AWD",
+"msrp": 29450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 30935,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-buick-encore-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2016,
 "destination": 925,
 "trims": [
@@ -204,6 +261,183 @@
 "source": "https://www.iseecars.com/car/2017-buick-encore-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 22990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred FWD",
+"msrp": 24400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring FWD",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred AWD",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred ll FWD",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring AWD",
+"msrp": 27100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred ll AWD",
+"msrp": 28400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence FWD",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium FWD",
+"msrp": 30600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence AWD",
+"msrp": 30600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 32100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-buick-encore-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred FWD",
+"msrp": 24600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring FWD",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred AWD",
+"msrp": 26100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring AWD",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence FWD",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence AWD",
+"msrp": 30800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-buick-encore-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred FWD",
+"msrp": 24600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Preferred AWD",
+"msrp": 25220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring FWD",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring AWD",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence FWD",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence AWD",
+"msrp": 30800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-buick-encore-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

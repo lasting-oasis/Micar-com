@@ -212,6 +212,156 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr GLS",
+"msrp": 21650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr GLS",
+"msrp": 23150,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE PZEV",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 26450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited PZEV",
+"msrp": 27950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr SE",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE w/Beige Int",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE w/Beige Int",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Eco",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Eco w/Beige Int",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Eco",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Eco w/Beige Int",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Sport",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Sport w/Beige Int",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sport",
+"msrp": 27550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sport w/Beige Int",
+"msrp": 27550,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited",
+"msrp": 31300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 950,
 "trims": [
@@ -384,6 +534,111 @@
 "source": "https://www.iseecars.com/car/2018-hyundai-tucson-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 23350,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value FWD",
+"msrp": 24800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD ULEV",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value AWD",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 27150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 29050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 29250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 30450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Night FWD",
+"msrp": 30800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate FWD",
+"msrp": 31700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Night AWD",
+"msrp": 32200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Night AWD ULEV",
+"msrp": 32200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate AWD",
+"msrp": 33100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

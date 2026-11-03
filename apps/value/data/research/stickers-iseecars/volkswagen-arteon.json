@@ -5,6 +5,189 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (arteon).",
 "years": [
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 35845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line FWD",
+"msrp": 37110,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line FWD w/20\" Wheels",
+"msrp": 37610,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4MOTION",
+"msrp": 37645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line 4MOTION",
+"msrp": 38910,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line 4MOTION w/20\" Wheels",
+"msrp": 39410,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line FWD",
+"msrp": 41260,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line FWD w/20\" Wheels",
+"msrp": 41760,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4MOTION",
+"msrp": 41795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line 4MOTION",
+"msrp": 43060,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line 4MOTION w/20\" Wheels",
+"msrp": 43560,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium 4MOTION",
+"msrp": 44945,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium R-Line 4MOTION",
+"msrp": 46210,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium R-Line 4MOTION w/20\" Wheels",
+"msrp": 46710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-arteon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4MOTION",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line FWD",
+"msrp": 41745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4MOTION",
+"msrp": 41895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line 4MOTION",
+"msrp": 43645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium R-Line 4MOTION",
+"msrp": 47695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volkswagen-arteon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line FWD",
+"msrp": 41595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line 4MOTION",
+"msrp": 43395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium R-Line 4MOTION",
+"msrp": 46995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volkswagen-arteon-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1295,
 "trims": [

@@ -584,6 +584,534 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 32950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 32950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV South Africa",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 39000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV South Africa",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon SULEV",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon",
+"msrp": 47250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 50150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 35150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 35150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV South Africa",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 39850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV",
+"msrp": 40350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV South Africa",
+"msrp": 40350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon SULEV",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 44150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon",
+"msrp": 49200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 33450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 33450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 38750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 38750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 44450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 47900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 47900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 50550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 41750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 44650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 45050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 46150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 48950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 48950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 50950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 50950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [
@@ -621,6 +1149,138 @@
 "source": "https://www.iseecars.com/car/2019-bmw-3_series-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 42750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 42750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 56000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 43250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 43250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid North America",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 46550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid North America",
+"msrp": 46550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 56700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

@@ -143,6 +143,225 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD",
+"msrp": 23845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2WD",
+"msrp": 24645,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 25145,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 25945,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD",
+"msrp": 28545,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD",
+"msrp": 29845,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD with Navigation",
+"msrp": 30045,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD with Navigation",
+"msrp": 31345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2WD",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 33495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD",
+"msrp": 24045,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 25345,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD w/Navi",
+"msrp": 30295,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD",
+"msrp": 30595,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD w/Navi",
+"msrp": 31595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2WD",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 33795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 28450,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD",
+"msrp": 29550,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD w/Navi",
+"msrp": 30550,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD",
+"msrp": 30950,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD w/Navi",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2WD",
+"msrp": 32750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 34150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1095,
 "trims": [
@@ -198,6 +417,87 @@
 "source": "https://www.iseecars.com/car/2019-honda-cr__v-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 26650,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD",
+"msrp": 27660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LX AWD",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 29160,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD",
+"msrp": 30150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid EX AWD",
+"msrp": 30360,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD",
+"msrp": 31650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid EX-L AWD",
+"msrp": 32850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2WD",
+"msrp": 33350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Touring AWD",
+"msrp": 36050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-cr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

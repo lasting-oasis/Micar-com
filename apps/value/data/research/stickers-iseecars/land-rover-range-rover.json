@@ -170,6 +170,75 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4WD 4dr",
+"msrp": 84950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Diesel",
+"msrp": 86450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr HSE",
+"msrp": 91950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Diesel HSE",
+"msrp": 93450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Supercharged",
+"msrp": 103195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Supercharged Long Wheelbase",
+"msrp": 108195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Autobiography",
+"msrp": 139995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Autobiography Long Wheelbase",
+"msrp": 144995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr SV Autobiography Long Wheelbase",
+"msrp": 199495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Holland & Holland Long Wheelbase",
+"msrp": 244500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 995,
 "trims": [
@@ -239,9 +308,198 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Velar P250",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P250 S",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar D180 S",
+"msrp": 56200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P250 R-Dynamic SE",
+"msrp": 60100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar D180 R-Dynamic SE",
+"msrp": 61600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P380 S",
+"msrp": 64200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P250 R-Dynamic HSE",
+"msrp": 67600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar D180 R-Dynamic HSE",
+"msrp": 69100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P380 R-Dynamic SE",
+"msrp": 69600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P380 R-Dynamic HSE",
+"msrp": 77100,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Supercharged SWB",
+"msrp": 87350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P380 First Edition",
+"msrp": 89300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel SWB",
+"msrp": 89350,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Supercharged HSE SWB",
+"msrp": 94050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel HSE SWB",
+"msrp": 96050,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged SWB",
+"msrp": 104850,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged LWB",
+"msrp": 108895,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged Autobiography SWB",
+"msrp": 141995,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged Autobiography LWB",
+"msrp": 148295,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged SV Autobiography Dynamic SWB",
+"msrp": 177200,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged SV Autobiography LWB",
+"msrp": 207900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-landrover-range_rover-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1295,
 "trims": [
+{
+"trim": "Velar P250",
+"msrp": 49950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P250 S",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar D180 S",
+"msrp": 56200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P250 R-Dynamic SE",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P340 S",
+"msrp": 61200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P380 S",
+"msrp": 63300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P340 R-Dynamic SE",
+"msrp": 65600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P380 R-Dynamic SE",
+"msrp": 67600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Velar P380 R-Dynamic HSE",
+"msrp": 74500,
+"config": "",
+"note": ""
+},
 {
 "trim": "AWD 4dr SUV",
 "msrp": 89500,
@@ -311,7 +569,7 @@
 ],
 "source": "https://www.iseecars.com/car/2019-landrover-range_rover-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
@@ -427,11 +685,95 @@
 "msrp": 76900,
 "config": "",
 "note": ""
+},
+{
+"trim": "SWB",
+"msrp": 92000,
+"config": "",
+"note": ""
+},
+{
+"trim": "PHEV HSE",
+"msrp": 97000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel HSE SWB",
+"msrp": 98000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Westminster SWB",
+"msrp": 103500,
+"config": "",
+"note": ""
+},
+{
+"trim": "P525 Westminster SWB",
+"msrp": 113500,
+"config": "",
+"note": ""
+},
+{
+"trim": "P525 Westminster LWB",
+"msrp": 117500,
+"config": "",
+"note": ""
+},
+{
+"trim": "PHEV Autobiography",
+"msrp": 131000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Autobiography SWB",
+"msrp": 144500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Fifty SWB",
+"msrp": 148500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Autobiography LWB",
+"msrp": 151000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Fifty LWB",
+"msrp": 155000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV Autobiography Dynamic SWB",
+"msrp": 179500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV Autobiography Dynamic Black SWB",
+"msrp": 183000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV Autobiography LWB",
+"msrp": 211000,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-landrover-range_rover_velar-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

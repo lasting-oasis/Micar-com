@@ -2,7 +2,7 @@
 "make": "Mini",
 "model": "Cooper",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (cooper, cooper_countryman, cooper_coupe, cooper_roadster, hardtop).",
+"note": "Trim-level MSRPs from iSeeCars price pages (cooper, cooper_clubman, cooper_convertible, cooper_countryman, cooper_coupe, cooper_paceman, cooper_roadster, hardtop).",
 "years": [
 {
 "year": 2010,
@@ -204,6 +204,201 @@
 "source": "https://www.iseecars.com/car/2014-mini-hardtop-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Countryman Cooper",
+"msrp": 22750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Paceman Cooper",
+"msrp": 23550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Clubman Cooper",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Cooper",
+"msrp": 25950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Countryman Cooper S",
+"msrp": 26100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Paceman Cooper S",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Clubman Cooper S",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Countryman Cooper S ALL4",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Paceman Cooper S ALL4",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Cooper S",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Countryman John Cooper Works ALL4",
+"msrp": 35350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Paceman John Cooper Works ALL4",
+"msrp": 35600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-mini-cooper_clubman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Hardtop Oxford Edition FWD",
+"msrp": 21900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Cooper FWD",
+"msrp": 21900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Cooper FWD",
+"msrp": 22900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Oxford Edition FWD",
+"msrp": 22900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Cooper S FWD",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Cooper S FWD",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop John Cooper Works FWD",
+"msrp": 31900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mini-hardtop-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Hardtop Cooper FWD",
+"msrp": 22400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Oxford Edition FWD",
+"msrp": 22400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Cooper FWD",
+"msrp": 23400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Oxford Edition FWD",
+"msrp": 23400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Cooper S FWD",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Cooper S FWD",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Cooper SE FWD",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop John Cooper Works FWD",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop John Cooper Works GP FWD",
+"msrp": 44900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mini-hardtop-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -302,6 +302,228 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Base",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Base",
+"msrp": 32700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr XLT",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr XLT",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 43100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Base",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Base",
+"msrp": 32700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr XLT",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr XLT",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Platinum",
+"msrp": 52600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Base FWD",
+"msrp": 31660,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT FWD",
+"msrp": 33775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4WD",
+"msrp": 33810,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 41675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD",
+"msrp": 43825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4WD",
+"msrp": 45355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD",
+"msrp": 53235,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Base FWD",
+"msrp": 32140,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT FWD",
+"msrp": 34175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4WD",
+"msrp": 34290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD",
+"msrp": 36325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 42090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD",
+"msrp": 44240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4WD",
+"msrp": 45950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD",
+"msrp": 53940,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1095,
 "trims": [
@@ -363,6 +585,63 @@
 "source": "https://www.iseecars.com/car/2019-ford-explorer-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Base RWD",
+"msrp": 32765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4WD",
+"msrp": 34765,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT RWD",
+"msrp": 36925,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD",
+"msrp": 38925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited RWD",
+"msrp": 48380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD",
+"msrp": 50380,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4WD",
+"msrp": 54740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD",
+"msrp": 58250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

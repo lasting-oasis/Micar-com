@@ -455,6 +455,138 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 55850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 57350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 58150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 59650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon",
+"msrp": 60900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 62100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon",
+"msrp": 63200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 66300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 68600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon",
+"msrp": 72500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 51200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 56450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 58750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 60900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 63200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 72500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [
@@ -561,6 +693,108 @@
 "source": "https://www.iseecars.com/car/2019-bmw-5_series-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 56200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 56200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 59450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 61750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 76650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 59450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 59500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 61750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 76800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

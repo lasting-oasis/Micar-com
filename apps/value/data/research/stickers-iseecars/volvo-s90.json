@@ -5,6 +5,84 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (s90).",
 "years": [
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum",
+"msrp": 46950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 49650,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum",
+"msrp": 52950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 55450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volvo-s90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 58600,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Momentum",
+"msrp": 63650,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription",
+"msrp": 68150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volvo-s90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [

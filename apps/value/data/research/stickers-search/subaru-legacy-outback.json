@@ -1,0 +1,39 @@
+{
+"make": "Subaru",
+"model": "Legacy/Outback",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2011,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 23000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2011+Subaru+Legacy/Outback+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, jdpower.com, media.subaru.com)."
+},
+{
+"year": 2014,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 20295,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2014+Subaru+Legacy/Outback+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (autoguide.com, jdpower.com, media.subaru.com)."
+}
+],
+"gaps": []
+}

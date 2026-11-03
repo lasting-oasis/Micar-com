@@ -254,6 +254,141 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 27055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SEL FWD",
+"msrp": 29485,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SEL AWD",
+"msrp": 31335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited FWD",
+"msrp": 34405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited AWD",
+"msrp": 36255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SHO AWD",
+"msrp": 40220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-07-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 27220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SEL FWD",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SEL AWD",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited FWD",
+"msrp": 34570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited AWD",
+"msrp": 36420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SHO AWD",
+"msrp": 40385,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-07-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 27345,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 29775,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 31625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 36855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 38705,
+"config": "",
+"note": ""
+},
+{
+"trim": "SHO AWD",
+"msrp": 42520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 875,
 "trims": [

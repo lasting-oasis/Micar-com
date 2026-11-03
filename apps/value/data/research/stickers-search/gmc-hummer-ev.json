@@ -1,0 +1,39 @@
+{
+"make": "GMC",
+"model": "Hummer EV",
+"body": "Pickup Truck",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 79995,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+GMC+Hummer+EV+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (buickgmcbrooksville.com, cavagmc.com, daleearnhardtjrbuickgmc.com)."
+},
+{
+"year": 2025,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 96550,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2025+GMC+Hummer+EV+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (billkaybuickgmc.com, buickgmcbrooksville.com, carrbuickgmc.com)."
+}
+],
+"gaps": []
+}

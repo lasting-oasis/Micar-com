@@ -230,6 +230,186 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "4x2 SV",
+"msrp": 44900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL",
+"msrp": 49650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL",
+"msrp": 52550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum",
+"msrp": 57590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum",
+"msrp": 60490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-nissan-armada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "4x2 SV",
+"msrp": 46090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV",
+"msrp": 48990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL",
+"msrp": 50850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL",
+"msrp": 53750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum",
+"msrp": 59190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum",
+"msrp": 62090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-armada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "4x2 SV",
+"msrp": 47100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV",
+"msrp": 50100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum",
+"msrp": 60330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum",
+"msrp": 63330,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-armada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "4x2 SV",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SL",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum",
+"msrp": 60930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum",
+"msrp": 63930,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-armada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1495,
 "trims": [

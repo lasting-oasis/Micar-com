@@ -108,6 +108,198 @@
 "source": "https://www.iseecars.com/car/2014-lincoln-mkx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Wagon 3.7L V6 FWD",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon 3.7L V6 AWD",
+"msrp": 40850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-lincoln-mkx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Premiere",
+"msrp": 38260,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Premiere",
+"msrp": 40755,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Select",
+"msrp": 41550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Select",
+"msrp": 44045,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Reserve",
+"msrp": 45315,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Reserve",
+"msrp": 47810,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Black Label",
+"msrp": 53475,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Black Label",
+"msrp": 55970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lincoln-mkx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Premiere FWD",
+"msrp": 38260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premiere AWD",
+"msrp": 40755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select FWD",
+"msrp": 41550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select AWD",
+"msrp": 44045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve FWD",
+"msrp": 45560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 48055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label FWD",
+"msrp": 53475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 55970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lincoln-mkx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Premiere FWD",
+"msrp": 39035,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premiere AWD",
+"msrp": 41530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select FWD",
+"msrp": 42550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select AWD",
+"msrp": 45045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve FWD",
+"msrp": 46560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 49055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label FWD",
+"msrp": 54230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 56725,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lincoln-mkx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

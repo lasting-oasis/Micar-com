@@ -410,6 +410,210 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LX",
+"msrp": 29870,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LX",
+"msrp": 31470,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX",
+"msrp": 32120,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SE",
+"msrp": 33120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD EX",
+"msrp": 33720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SE",
+"msrp": 34720,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX-L",
+"msrp": 35370,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX-L with DVD Rear Entertainment System",
+"msrp": 36970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD EX-L",
+"msrp": 36970,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX-L with Navigation",
+"msrp": 37370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD EX-L with DVD Rear Entertainment System",
+"msrp": 38570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD EX-L with Navigation",
+"msrp": 38970,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Touring with DVD Rear Entertainment System and Navigation",
+"msrp": 40020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Touring with DVD Rear Entertainment System and Navigation",
+"msrp": 41620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LX",
+"msrp": 30145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX",
+"msrp": 31945,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX",
+"msrp": 32580,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX with Honda Sensing",
+"msrp": 33580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX",
+"msrp": 34380,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr EX with Honda Sensing",
+"msrp": 35380,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX-L",
+"msrp": 36055,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX-L with Honda Sensing",
+"msrp": 37055,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX-L with Navigation",
+"msrp": 37055,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX-L with DVD Rear Entertainment System",
+"msrp": 37655,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L",
+"msrp": 37855,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L with Honda Sensing",
+"msrp": 38855,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L with Navigation",
+"msrp": 38855,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L with DVD Rear Entertainment System",
+"msrp": 39455,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Touring with DVD Rear Entertainment System and Navigation",
+"msrp": 41170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring with DVD Rear Entertainment System and Navigation",
+"msrp": 42970,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Elite with DVD Rear Entertainment System and Navigation",
+"msrp": 46570,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 975,
 "trims": [
@@ -630,6 +834,279 @@
 "source": "https://www.iseecars.com/car/2018-honda-pilot-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 33350,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD",
+"msrp": 34330,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 36230,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD",
+"msrp": 37760,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD",
+"msrp": 39660,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD w/Navi & RES",
+"msrp": 39760,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD w/Navi & RES",
+"msrp": 41660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 8-Passenger 2WD",
+"msrp": 42520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 7-Passenger 2WD",
+"msrp": 42820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 8-Passenger AWD",
+"msrp": 44420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 7-Passenger AWD",
+"msrp": 44720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite AWD",
+"msrp": 48020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD",
+"msrp": 31650,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 33650,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD",
+"msrp": 34530,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 36530,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD",
+"msrp": 37960,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L w/Navi & RES 2WD",
+"msrp": 39960,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD",
+"msrp": 39960,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L w/Navi & RES AWD",
+"msrp": 41960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 8-Passenger 2WD",
+"msrp": 42720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 7-Passenger 2WD",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 8-Passenger AWD",
+"msrp": 44720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 7-Passenger AWD",
+"msrp": 45020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite AWD",
+"msrp": 48220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Edition AWD",
+"msrp": 49720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD",
+"msrp": 32550,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 34550,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD",
+"msrp": 35230,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 37230,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD",
+"msrp": 38660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Edition 2WD",
+"msrp": 39260,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD",
+"msrp": 40660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Edition AWD",
+"msrp": 41260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 8-Passenger 2WD",
+"msrp": 43220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 7-Passenger 2WD",
+"msrp": 43520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 8-Passenger AWD",
+"msrp": 45220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 7-Passenger AWD",
+"msrp": 45520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite AWD",
+"msrp": 48720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Edition AWD",
+"msrp": 50220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-honda-pilot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

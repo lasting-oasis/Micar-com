@@ -1,0 +1,552 @@
+{
+"make": "Jaguar",
+"model": "XE",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (xe).",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "25t RWD",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d RWD",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Premium RWD",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d AWD",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium RWD",
+"msrp": 39000,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Prestige RWD",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium AWD",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Premium RWD",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige RWD",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Premium AWD",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige AWD",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Prestige RWD",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport RWD",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Prestige AWD",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport AWD",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t R-Sport RWD",
+"msrp": 49200,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t R-Sport AWD",
+"msrp": 51700,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t First Edition RWD",
+"msrp": 55500,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t First Edition AWD",
+"msrp": 58000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jaguar-xe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "25t RWD",
+"msrp": 35725,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d RWD",
+"msrp": 37225,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t AWD",
+"msrp": 38225,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Premium RWD",
+"msrp": 38325,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d AWD",
+"msrp": 39725,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium RWD",
+"msrp": 39825,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Premium AWD",
+"msrp": 40825,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Premium RWD",
+"msrp": 42125,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Prestige RWD",
+"msrp": 42225,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium AWD",
+"msrp": 42325,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Premium RWD",
+"msrp": 42525,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige RWD",
+"msrp": 43725,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Premium AWD",
+"msrp": 44625,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Prestige AWD",
+"msrp": 44725,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Premium AWD",
+"msrp": 45025,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t R-Sport RWD",
+"msrp": 45825,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Prestige RWD",
+"msrp": 46025,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige AWD",
+"msrp": 46225,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Prestige RWD",
+"msrp": 46425,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport RWD",
+"msrp": 47325,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t R-Sport AWD",
+"msrp": 48325,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Prestige AWD",
+"msrp": 48525,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Prestige AWD",
+"msrp": 48925,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport AWD",
+"msrp": 49825,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t R-Sport RWD",
+"msrp": 50025,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t R-Sport RWD",
+"msrp": 50125,
+"config": "",
+"note": ""
+},
+{
+"trim": "S RWD",
+"msrp": 52275,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t R-Sport AWD",
+"msrp": 52525,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t R-Sport AWD",
+"msrp": 52625,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 54775,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Portfolio Limited Edition RWD",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Portfolio Limited Edition RWD",
+"msrp": 56910,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Portfolio Limited Edition AWD",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Portfolio Limited Edition AWD",
+"msrp": 59410,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jaguar-xe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "25t RWD",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d RWD",
+"msrp": 38515,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Premium RWD",
+"msrp": 39275,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t AWD",
+"msrp": 39495,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium RWD",
+"msrp": 40775,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d AWD",
+"msrp": 41015,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Premium AWD",
+"msrp": 41775,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Premium RWD",
+"msrp": 43075,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium AWD",
+"msrp": 43275,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Prestige RWD",
+"msrp": 43735,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige RWD",
+"msrp": 45235,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Premium AWD",
+"msrp": 45575,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Prestige AWD",
+"msrp": 46235,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Prestige RWD",
+"msrp": 47535,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige AWD",
+"msrp": 47735,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t R-Sport RWD",
+"msrp": 47845,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Landmark RWD",
+"msrp": 48990,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport RWD",
+"msrp": 49345,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Prestige AWD",
+"msrp": 50035,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t R-Sport AWD",
+"msrp": 50345,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Landmark RWD",
+"msrp": 50490,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Landmark AWD",
+"msrp": 51490,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t R-Sport RWD",
+"msrp": 51635,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport AWD",
+"msrp": 51845,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Landmark AWD",
+"msrp": 52990,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t 300 Sport RWD",
+"msrp": 53400,
+"config": "",
+"note": ""
+},
+{
+"trim": "S RWD",
+"msrp": 53785,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t R-Sport AWD",
+"msrp": 54135,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Sport AWD",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 56285,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Portfolio RWD",
+"msrp": 57590,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Portfolio AWD",
+"msrp": 60090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Project 8 AWD",
+"msrp": 187500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jaguar-xe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

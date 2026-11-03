@@ -512,6 +512,201 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE RWD",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE AWD",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT AWD",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan RT RWD",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Road/Track RWD",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan RT Scat Pack RWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SRT 392 RWD",
+"msrp": 47995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SRT Hellcat RWD",
+"msrp": 62295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE RWD",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE AWD",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT AWD",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan R/T RWD",
+"msrp": 33895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Road/Track RWD",
+"msrp": 33895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan R/T Scat Pack RWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SRT 392 RWD",
+"msrp": 50995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SRT Hellcat RWD",
+"msrp": 65945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SE RWD",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Daytona 340 RWD",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack RWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Daytona 392 RWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT 392 RWD",
+"msrp": 51145,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 65945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 1395,
 "trims": [
@@ -597,6 +792,171 @@
 "source": "https://www.iseecars.com/car/2018-dodge-charger-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 29470,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 31745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 33570,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 36245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack RWD",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 65795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 36495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack RWD",
+"msrp": 40495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack Widebody RWD",
+"msrp": 40495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 69995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack RWD",
+"msrp": 41095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack Widebody RWD",
+"msrp": 41095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Widebody RWD",
+"msrp": 69995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Widebody RWD",
+"msrp": 69995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

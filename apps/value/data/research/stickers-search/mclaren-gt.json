@@ -1,0 +1,54 @@
+{
+"make": "McLaren",
+"model": "GT",
+"body": "Coupe / Sports",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 210000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2020+McLaren+GT+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, carpro.com, kbb.com)."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 210000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2021+McLaren+GT+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, kbb.com, motorauthority.com)."
+},
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 200000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2022+McLaren+GT+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, jdpower.com, kbb.com)."
+}
+],
+"gaps": []
+}

@@ -5,6 +5,165 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (model_3).",
 "years": [
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Standard RWD",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range RWD",
+"msrp": 44000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-tesla-model_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Mid Range Battery RWD",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range Battery RWD",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range Battery AWD",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance AWD",
+"msrp": 64000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-tesla-model_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Standard Range RWD",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard Range Plus RWD",
+"msrp": 39990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Mid Range RWD",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range RWD",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range AWD",
+"msrp": 48990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance AWD",
+"msrp": 56990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-tesla-model_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Standard Range RWD",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard Range Plus RWD",
+"msrp": 37990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range AWD",
+"msrp": 46990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance AWD",
+"msrp": 54990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-tesla-model_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Standard Range Plus RWD",
+"msrp": 39490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range AWD",
+"msrp": 48490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance AWD",
+"msrp": 56990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-tesla-model_3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1200,
 "trims": [

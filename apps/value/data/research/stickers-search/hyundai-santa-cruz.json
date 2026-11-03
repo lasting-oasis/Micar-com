@@ -1,0 +1,24 @@
+{
+"make": "Hyundai",
+"model": "Santa Cruz",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2026,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 29500,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2026+Hyundai+Santa+Cruz+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (beavertonhyundai.com, cars.com, edmunds.com)."
+}
+],
+"gaps": []
+}

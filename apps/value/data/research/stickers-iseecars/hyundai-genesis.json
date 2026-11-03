@@ -318,6 +318,87 @@
 "source": "https://www.iseecars.com/car/2014-hyundai-genesis-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Genesis Coupe 2dr 3.8L Man Base w/Black Seats",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Man Base w/Gray Seats",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Auto Base w/Black Seats",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Auto Base w/Gray Seats",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Man R-Spec",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Man Ultimate w/Black Seats",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Man Ultimate w/Tan Seats",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Auto Ultimate w/Black Seats",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Auto Ultimate w/Tan Seats",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.8L RWD",
+"msrp": 38750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.8L AWD",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V8 5.0L RWD",
+"msrp": 53850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-hyundai-genesis-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

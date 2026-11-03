@@ -1031,6 +1031,528 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Manual 1.4T S Sedan",
+"msrp": 17680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 1.4T S with Technology Sedan",
+"msrp": 18675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.4T S Sedan",
+"msrp": 18780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 1.4T SE Sedan",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.4T S with Technology Sedan",
+"msrp": 19775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.4T SE Sedan",
+"msrp": 20095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 1.8T Sport PZEV Sedan",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T Sport PZEV Sedan",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.4T SE with Connectivity Sedan",
+"msrp": 22325,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T SEL Sedan",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T SEL PZEV Sedan",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T SEL Premium Sedan",
+"msrp": 25380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T SEL Premium PZEV Sedan",
+"msrp": 25380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 2.0T GLI SE Sedan",
+"msrp": 26920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 2.0T GLI SE PZEV Sedan",
+"msrp": 26920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 2.0T GLI SE Sedan",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 2.0T GLI SE PZEV Sedan",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 2.0T GLI SEL Sedan",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 2.0T GLI SEL PZEV Sedan",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 2.0T GLI SEL Sedan",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 2.0T GLI SEL PZEV Sedan",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr DSG Hybrid SEL Premium Sedan",
+"msrp": 31120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "1.4T S Manual",
+"msrp": 17895,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T S Auto",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE Manual",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE Auto",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Sport Auto",
+"msrp": 22175,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SEL Auto",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SEL Premium Auto",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Manual",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Auto",
+"msrp": 28995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "1.4T S Manual",
+"msrp": 18645,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T S Auto",
+"msrp": 19645,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T Wolfsburg Edition Manual",
+"msrp": 20345,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE Manual",
+"msrp": 21245,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T Wolfsburg Edition Auto",
+"msrp": 21345,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE Auto",
+"msrp": 22245,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE Sport Auto",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SEL Auto",
+"msrp": 26245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T GLI DSG",
+"msrp": 29545,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual w/SULEV",
+"msrp": 18745,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto w/SULEV",
+"msrp": 19545,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto w/ULEV",
+"msrp": 19545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto w/SULEV",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto w/ULEV",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto w/SULEV",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto w/ULEV",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto w/SULEV",
+"msrp": 24695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto w/ULEV",
+"msrp": 24695,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Manual",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S DSG",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "35th Anniversary Edition Manual",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/SULEV",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/ULEV",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/CWP/SULEV",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/CWP/ULEV",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "35th Anniversary Edition DSG",
+"msrp": 27795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Autobahn Manual",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Autobahn DSG",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual w/SULEV",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto w/ULEV",
+"msrp": 19695,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto w/SULEV",
+"msrp": 19695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto w/ULEV",
+"msrp": 22645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto w/SULEV",
+"msrp": 22645,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Manual w/SULEV",
+"msrp": 22695,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto w/ULEV",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto w/SULEV",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto w/ULEV",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto w/SULEV",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/ULEV",
+"msrp": 27945,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/SULEV",
+"msrp": 27945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Manual",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto",
+"msrp": 22895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto",
+"msrp": 25745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto",
+"msrp": 28045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1095,
 "trims": [

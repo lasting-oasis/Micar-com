@@ -254,9 +254,282 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan S FWD",
+"msrp": 22500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 24035,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S FWD",
+"msrp": 26575,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 27380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE AWD",
+"msrp": 27830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium FWD",
+"msrp": 30780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium FWD",
+"msrp": 32330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium AWD",
+"msrp": 32780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-fusion-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-03-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan S FWD",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 24170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S FWD",
+"msrp": 25675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 26480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE AWD",
+"msrp": 27965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium FWD",
+"msrp": 31120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium FWD",
+"msrp": 31430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium AWD",
+"msrp": 33120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Energi 4dr Sedan SE Luxury",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Energi 4dr Sedan Titanium",
+"msrp": 35730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-fusion-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan S FWD",
+"msrp": 22610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 23610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S FWD",
+"msrp": 25675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 26480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE AWD",
+"msrp": 27405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium FWD",
+"msrp": 30610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium FWD",
+"msrp": 31010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium AWD",
+"msrp": 32610,
+"config": "",
+"note": ""
+},
+{
+"trim": "Energi 4dr Sedan SE Luxury",
+"msrp": 33120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Sport AWD",
+"msrp": 33475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Energi 4dr Sedan Titanium",
+"msrp": 34120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Platinum FWD",
+"msrp": 36620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Platinum FWD",
+"msrp": 37020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Platinum AWD",
+"msrp": 38620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Energi 4dr Sedan Platinum",
+"msrp": 41120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-fusion-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 875,
 "trims": [
+{
+"trim": "S FWD",
+"msrp": 22215,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD",
+"msrp": 23490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid S FWD",
+"msrp": 25390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE FWD",
+"msrp": 26340,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 27285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium FWD",
+"msrp": 30490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Titanium FWD",
+"msrp": 30870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium AWD",
+"msrp": 32490,
+"config": "",
+"note": ""
+},
 {
 "trim": "Energi SE Luxury 4dr Sedan",
 "msrp": 33400,
@@ -264,8 +537,32 @@
 "note": ""
 },
 {
+"trim": "Sport AWD",
+"msrp": 33845,
+"config": "",
+"note": ""
+},
+{
 "trim": "Energi Titanium 4dr Sedan",
 "msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum FWD",
+"msrp": 36990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum FWD",
+"msrp": 37370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum AWD",
+"msrp": 38990,
 "config": "",
 "note": ""
 },
@@ -278,7 +575,103 @@
 ],
 "source": "https://www.iseecars.com/car/2018-ford-fusion_energi-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-06-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "S FWD",
+"msrp": 22840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD",
+"msrp": 24120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE FWD",
+"msrp": 27555,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 27775,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 28580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SEL FWD",
+"msrp": 31520,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 32065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium FWD",
+"msrp": 34340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Titanium FWD",
+"msrp": 34485,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium AWD",
+"msrp": 36340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Energi Titanium FWD",
+"msrp": 36595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 40015,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-ford-fusion-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Energi Titanium FWD",
+"msrp": 37000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-fusion_energi-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

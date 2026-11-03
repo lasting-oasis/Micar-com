@@ -851,6 +851,1260 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD Double Cab Standard Bed 4.6L V8 SR (Natl)",
+"msrp": 29140,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Regular Cab Long Bed 5.7L V8 SR (Natl)",
+"msrp": 29950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Regular Cab Long Bed 5.7L FFV V8 SR (Natl)",
+"msrp": 29950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Standard Bed 5.7L V8 SR (Natl)",
+"msrp": 30840,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Standard Bed 5.7L FFV V8 SR (Natl)",
+"msrp": 30840,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Standard Bed 4.6L V8 SR5 (Natl)",
+"msrp": 30950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Long Bed 5.7L V8 SR (Natl)",
+"msrp": 31170,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Long Bed 5.7L FFV V8 SR (Natl)",
+"msrp": 31170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 4.6L V8 SR (Natl)",
+"msrp": 32190,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Standard Bed 5.7L V8 SR5 (Natl)",
+"msrp": 32650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Standard Bed 5.7L FFV V8 SR5 (Natl)",
+"msrp": 32650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Long Bed 5.7L V8 SR5 (Natl)",
+"msrp": 32980,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Long Bed 5.7L FFV V8 SR5 (Natl)",
+"msrp": 32980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Regular Cab Long Bed 5.7L V8 SR (Natl)",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Regular Cab Long Bed 5.7L FFV V8 SR (Natl)",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD CrewMax Short Bed 4.6L SR5 (Natl)",
+"msrp": 33270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 5.7L V8 SR (Natl)",
+"msrp": 33890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 5.7L FFV V8 SR (Natl)",
+"msrp": 33890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 4.6L V8 SR5 (Natl)",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Long Bed 5.7L V8 SR (Natl)",
+"msrp": 34220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Long Bed 5.7L FFV V8 SR (Natl)",
+"msrp": 34220,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD CrewMax Short Bed 5.7L SR5 (Natl)",
+"msrp": 34970,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD CrewMax Short Bed 5.7L FFV SR5 (Natl)",
+"msrp": 34970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 5.7L V8 SR5 (Natl)",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 5.7L FFV V8 SR5 (Natl)",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Long Bed 5.7L V8 SR5 (Natl)",
+"msrp": 36030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Long Bed 5.7L FFV V8 SR5 (Natl)",
+"msrp": 36030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 4.6L SR5 (Natl)",
+"msrp": 36320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L SR5 (Natl)",
+"msrp": 38020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L FFV SR5 (Natl)",
+"msrp": 38020,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Standard Bed 5.7L V8 Limited (Natl)",
+"msrp": 38670,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Standard Bed 5.7L FFV V8 Limited (Natl)",
+"msrp": 38670,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD CrewMax Short Bed 5.7L Limited (Natl)",
+"msrp": 40535,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD CrewMax Short Bed 5.7L FFV Limited (Natl)",
+"msrp": 40535,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 5.7L V8 Limited (Natl)",
+"msrp": 41720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 5.7L FFV V8 Limited (Natl)",
+"msrp": 41720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 5.7L V8 TRD Pro (Natl)",
+"msrp": 42945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Standard Bed 5.7L FFV V8 TRD Pro (Natl)",
+"msrp": 42945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L Limited (Natl)",
+"msrp": 43585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L FFV Limited (Natl)",
+"msrp": 43585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L TRD Pro (Natl)",
+"msrp": 45560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L FFV TRD Pro (Natl)",
+"msrp": 45560,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD CrewMax Standard Bed 5.7L 1794 Edition (Natl)",
+"msrp": 46530,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD CrewMax Standard Bed 5.7L FFV 1794 Edition (Natl)",
+"msrp": 46530,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD CrewMax Standard Bed 5.7L Platinum (Natl)",
+"msrp": 46530,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD CrewMax Standard Bed 5.7L FFV Platinum (Natl)",
+"msrp": 46530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L 1794 (Natl)",
+"msrp": 49580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L FFV 1794 (Natl)",
+"msrp": 49580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L Platinum (Natl)",
+"msrp": 49580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD CrewMax Short Bed 5.7L FFV Platinum (Natl)",
+"msrp": 49580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2WD SR Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 30120,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Regular Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 30500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Regular Cab 8.1' Bed 5.7L FFV (Natl)",
+"msrp": 30500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 31390,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 31390,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 8.1' Bed 5.7L FFV (Natl)",
+"msrp": 31720,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 31720,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 31930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 33170,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 8.1' Bed 5.7L FFV (Natl)",
+"msrp": 33530,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 33530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Regular Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 33550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Regular Cab 8.1' Bed 5.7L FFV (Natl)",
+"msrp": 33550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 CrewMax 5.5' Bed 4.6L (Natl)",
+"msrp": 34250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 34440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 34440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 8.1' Bed 5.7L FFV (Natl)",
+"msrp": 34770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 34770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 34980,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 35520,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 35520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 36250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 36250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 8.1' Bed 5.7L FFV (Natl)",
+"msrp": 36580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 36580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 4.6L (Natl)",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 38570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 38570,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 39380,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 39380,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 41245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 41245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 42430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 42430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 43495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 43495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 44295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 44295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 46110,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 46110,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Platinum CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 47080,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 47080,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1794 Edition CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 47080,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 47080,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 50130,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 50130,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1794 Edition CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 50130,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 50130,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2WD SR Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 31320,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 32590,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 32920,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 33030,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 34370,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 34630,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 CrewMax 5.5' Bed 4.6L (Natl)",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 35640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 35640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 35970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 8.1' Bed 5.7L FFV (Natl)",
+"msrp": 35970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 36080,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 36720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 37350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 37350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 37680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 8.1' Bed 5.7L FFV (Natl)",
+"msrp": 37680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 4.6L (Natl)",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 39770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 39770,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 40585,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 42450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 43635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 43635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 47280,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 47280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 50330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1794 Edition CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 50330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 50330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 50330,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2WD SR Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 31670,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 32940,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 33270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 33470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 34720,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 34740,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 35070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 35990,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 CrewMax 5.5' Bed 4.6L (Natl)",
+"msrp": 36075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 36320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 4.6L (Natl)",
+"msrp": 36520,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 37345,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 5.7L FFV (Natl)",
+"msrp": 37790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 37790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 38120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 4.6L (Natl)",
+"msrp": 39125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 5.7L FFV (Natl)",
+"msrp": 40395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 40395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 40935,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 43985,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 45850,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 47630,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 47630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 49895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 50680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 50680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 33575,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 33905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 35245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 35575,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 36625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 36955,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 37850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 38295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 38625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 42270,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 44135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 45320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 47185,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 48655,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 48775,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 48775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 51825,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 51825,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 52930,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "2WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 33825,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 34155,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 35515,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 35845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 36875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 37205,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 38120,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 38565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 8.1' Bed 5.7L (Natl)",
+"msrp": 38895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 41170,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 42540,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 44405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 45590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 47455,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro Double Cab 6.5' Bed 5.7L (Natl)",
+"msrp": 48925,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 49045,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 49045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 52095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 52095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro CrewMax 5.5' Bed 5.7L (Natl)",
+"msrp": 53200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1795,
 "trims": [

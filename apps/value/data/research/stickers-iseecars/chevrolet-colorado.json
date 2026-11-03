@@ -354,6 +354,897 @@
 "source": "https://www.iseecars.com/car/2012-chevrolet-colorado-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Base",
+"msrp": 20120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive WT",
+"msrp": 21775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 24330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive LT",
+"msrp": 25170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive WT",
+"msrp": 25850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive WT",
+"msrp": 26885,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 27110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Z71",
+"msrp": 27630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 28630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive LT",
+"msrp": 29220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Z71",
+"msrp": 29550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 29705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive WT",
+"msrp": 30005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive Z71",
+"msrp": 30785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive Z71",
+"msrp": 31555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 32085,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 32385,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Z71",
+"msrp": 34115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Z71",
+"msrp": 34415,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Base",
+"msrp": 20055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive WT",
+"msrp": 22925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 25480,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive LT",
+"msrp": 26470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive WT",
+"msrp": 27000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive WT",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 28410,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Z71",
+"msrp": 29005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 29930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive LT",
+"msrp": 30180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 30515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive WT",
+"msrp": 30815,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Z71",
+"msrp": 30925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive Z71",
+"msrp": 32160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive Z71",
+"msrp": 32590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 33045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 33345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Z71",
+"msrp": 35150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Z71",
+"msrp": 35450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Base",
+"msrp": 20000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive WT",
+"msrp": 23230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 25785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive LT",
+"msrp": 26775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive WT",
+"msrp": 27455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive WT",
+"msrp": 28000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 28715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Z71",
+"msrp": 29310,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 30385,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive LT",
+"msrp": 30660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 30970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Z71",
+"msrp": 31230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive WT",
+"msrp": 31270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive Z71",
+"msrp": 32615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive Z71",
+"msrp": 33070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 33675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 33975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Z71",
+"msrp": 35780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Z71",
+"msrp": 36080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive ZR2",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive ZR2",
+"msrp": 41625,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Base",
+"msrp": 20200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive WT",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive LT",
+"msrp": 27100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive WT",
+"msrp": 28000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive WT",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Z71",
+"msrp": 29700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive LT",
+"msrp": 31000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Z71",
+"msrp": 31600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive WT",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive Z71",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive Z71",
+"msrp": 33500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Z71",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Z71",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive ZR2",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive ZR2",
+"msrp": 42000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Base",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive WT",
+"msrp": 24800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive LT",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive WT",
+"msrp": 28400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive WT",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Z71",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive LT",
+"msrp": 31300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 31700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive WT",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Z71",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive Z71",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive Z71",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Z71",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Z71",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive ZR2",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive ZR2",
+"msrp": 42900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive Base",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive WT",
+"msrp": 24800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive LT",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive WT",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive WT",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 29700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive LT",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 31700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive WT",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Z71",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 35300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive Z71",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Z71",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Z71",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive ZR2",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive ZR2",
+"msrp": 43000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive WT",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 27100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 2-Wheel Drive LT",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive WT",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive WT",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 29700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive LT",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive WT",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Z71",
+"msrp": 33800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 35300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive Z71",
+"msrp": 35500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Z71",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Z71",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Cab Long Box 4-Wheel Drive ZR2",
+"msrp": 41600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive ZR2",
+"msrp": 43200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-colorado-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

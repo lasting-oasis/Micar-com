@@ -296,6 +296,207 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan I4 2.5",
+"msrp": 22300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 2.5 S",
+"msrp": 22560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 2.5 SV",
+"msrp": 24720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.5 S",
+"msrp": 26450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 2.5 SL",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.5 SV",
+"msrp": 29830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.5 SL",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.5 SL",
+"msrp": 32350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-nissan-altima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan I4 2.5",
+"msrp": 22500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 2.5 S",
+"msrp": 22900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 2.5 SR",
+"msrp": 24470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 2.5 SV",
+"msrp": 25460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.5 SR",
+"msrp": 27390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.5 SR",
+"msrp": 27990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 2.5 SL",
+"msrp": 28570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.5 SL",
+"msrp": 32090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.5 SL",
+"msrp": 32690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-nissan-altima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.5 Sedan",
+"msrp": 22500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S Sedan",
+"msrp": 22900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 2.5 S Sedan",
+"msrp": 22900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SR Sedan",
+"msrp": 24470,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 2.5 SR Sedan",
+"msrp": 24470,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SV Sedan",
+"msrp": 25460,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 2.5 SV Sedan",
+"msrp": 25760,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5 SR Sedan",
+"msrp": 27990,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SL Sedan",
+"msrp": 28570,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 2.5 SL Sedan",
+"msrp": 28870,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5 SL Sedan",
+"msrp": 32690,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 3.5 SL Sedan",
+"msrp": 32990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-nissan-altima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 895,
 "trims": [
@@ -333,6 +534,174 @@
 "source": "https://www.iseecars.com/car/2018-nissan-altima-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2.5 S Sedan",
+"msrp": 24000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SR Sedan",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S AWD Sedan",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SR AWD Sedan",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SV Sedan",
+"msrp": 28180,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 SR Sedan",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SV AWD Sedan",
+"msrp": 29530,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SL Sedan",
+"msrp": 30090,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SL AWD Sedan",
+"msrp": 31440,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 Platinum Sedan",
+"msrp": 32030,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 Platinum AWD Sedan",
+"msrp": 33380,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 Platinum Sedan",
+"msrp": 35030,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 Edition ONE Sedan",
+"msrp": 35750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-altima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2.5 S Sedan",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 S AWD Sedan",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SR Sedan",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SR AWD Sedan",
+"msrp": 27250,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SV Sedan",
+"msrp": 28140,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SV AWD Sedan",
+"msrp": 29490,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 SR Sedan",
+"msrp": 29750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SL Sedan",
+"msrp": 30240,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 SL AWD Sedan",
+"msrp": 31590,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 Platinum Sedan",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5 Platinum AWD Sedan",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 Platinum Sedan",
+"msrp": 35180,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-altima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

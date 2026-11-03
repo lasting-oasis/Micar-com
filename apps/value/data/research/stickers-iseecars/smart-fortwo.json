@@ -306,6 +306,45 @@
 "source": "https://www.iseecars.com/car/2018-smart-fortwo_electric_drive-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Electric Drive pure coupe",
+"msrp": 23900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive passion coupe",
+"msrp": 25390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive prime coupe",
+"msrp": 26740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive passion cabriolet",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive prime cabriolet",
+"msrp": 29100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-smart-fortwo_electric_drive-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -509,6 +509,474 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "RWD 4dr Laredo",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 4dr 75th Anniversary",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Laredo",
+"msrp": 32295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr 75th Anniversary",
+"msrp": 32295,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 4dr Limited",
+"msrp": 37365,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 4dr Limited 75th Anniversary",
+"msrp": 37365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 39365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited 75th Anniversary",
+"msrp": 39365,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 4dr Overland",
+"msrp": 44195,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 4dr High Altitude",
+"msrp": 44195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Overland",
+"msrp": 47195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr High Altitude",
+"msrp": 47195,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 4dr Summit",
+"msrp": 49595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Summit",
+"msrp": 52595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr SRT",
+"msrp": 65495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jeep-grand_cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-02-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Laredo 4x2",
+"msrp": 30395,
+"config": "",
+"note": ""
+},
+{
+"trim": "75th Anniversary Edition 4x2",
+"msrp": 30395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x2",
+"msrp": 30395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laredo 4x4",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "75th Anniversary Edition 4x4",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x2",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 75th Anniversary Edition 4x2",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 75th Anniversary Edition 4x4",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 43095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x2",
+"msrp": 44795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x4",
+"msrp": 47795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Summit 4x2",
+"msrp": 50495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Summit 4x4",
+"msrp": 53495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT 4x4",
+"msrp": 66895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jeep-grand_cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Laredo 4x2",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laredo E 4x2",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x2",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laredo 4x4",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laredo E 4x4",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland 4x4",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x2",
+"msrp": 38495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sterling Edition 4x2",
+"msrp": 38495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 40495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sterling Edition 4x4",
+"msrp": 40495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 43595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x2",
+"msrp": 45295,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x2",
+"msrp": 45295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x4",
+"msrp": 48295,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x4",
+"msrp": 48295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Summit 4x2",
+"msrp": 50995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Summit 4x4",
+"msrp": 53995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT 4x4",
+"msrp": 67695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trackhawk 4x4",
+"msrp": 86200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jeep-grand_cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Laredo 4x2",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland 4x2",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laredo E 4x2",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x2",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laredo 4x4",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laredo E 4x4",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland 4x4",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x2",
+"msrp": 39445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited X 4x2",
+"msrp": 39445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 41445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited X 4x4",
+"msrp": 41445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 44545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x2",
+"msrp": 46245,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x2",
+"msrp": 46245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x4",
+"msrp": 49245,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x4",
+"msrp": 49245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Summit 4x2",
+"msrp": 51945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Summit 4x4",
+"msrp": 54945,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT 4x4",
+"msrp": 68645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trackhawk 4x4",
+"msrp": 87150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jeep-grand_cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 1495,
 "trims": [

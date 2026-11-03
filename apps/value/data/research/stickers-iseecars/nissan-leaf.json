@@ -167,6 +167,33 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "S Hatchback",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV Hatchback",
+"msrp": 32490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL Hatchback",
+"msrp": 36200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-leaf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 925,
 "trims": [
@@ -210,6 +237,45 @@
 "source": "https://www.iseecars.com/car/2019-nissan-leaf-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "S Hatchback",
+"msrp": 31600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV Hatchback",
+"msrp": 34190,
+"config": "",
+"note": ""
+},
+{
+"trim": "S PLUS Hatchback",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV PLUS Hatchback",
+"msrp": 39750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL PLUS Hatchback",
+"msrp": 43900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-leaf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

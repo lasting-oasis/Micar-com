@@ -402,6 +402,123 @@
 "source": "https://www.iseecars.com/car/2014-mitsubishi-lancer-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Lancer Evolution Man GSR AWD",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution Man Final Edition AWD",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lancer Evolution TC-SST MR AWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-mitsubishi-lancer_evolution-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Man ES FWD",
+"msrp": 17595,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT ES FWD",
+"msrp": 18595,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT ES AWC",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT SE AWC",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT SEL AWC",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Man GT FWD",
+"msrp": 22495,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT GT FWD",
+"msrp": 23495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-mitsubishi-lancer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "ES 2.0 FWD Manual",
+"msrp": 17795,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 2.0 FWD CVT",
+"msrp": 18795,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 2.4 AWC CVT",
+"msrp": 20295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.4 AWC CVT",
+"msrp": 21095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.4 AWC CVT",
+"msrp": 22095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-mitsubishi-lancer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

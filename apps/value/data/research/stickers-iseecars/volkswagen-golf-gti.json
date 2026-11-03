@@ -2,7 +2,7 @@
 "make": "Volkswagen",
 "model": "Golf GTI",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (golf, golf_alltrack, golf_gti, golf_r, gti).",
+"note": "Trim-level MSRPs from iSeeCars price pages (golf, golf_alltrack, golf_gti, golf_r, golf_sportwagen, gti).",
 "years": [
 {
 "year": 2010,
@@ -801,8 +801,44 @@
 "note": ""
 },
 {
+"trim": "Golf GTI 2dr HB Man S",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
 "trim": "1.8T SE 4dr Hatchback",
 "msrp": 25225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB Man S",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2dr HB DSG S",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2dr HB Man S w/Performance Pkg",
+"msrp": 26490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB DSG S",
+"msrp": 26695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB Man S w/Performance Pkg",
+"msrp": 27090,
 "config": "",
 "note": ""
 },
@@ -811,19 +847,205 @@
 "msrp": 27425,
 "config": "",
 "note": ""
+},
+{
+"trim": "Golf GTI 2dr HB DSG S w/Performance Pkg",
+"msrp": 27590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2dr HB Man SE",
+"msrp": 28025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB DSG S w/Performance Pkg",
+"msrp": 28190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB Man SE",
+"msrp": 28625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2dr HB DSG SE",
+"msrp": 29125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2dr HB Man SE w/Performance Pkg",
+"msrp": 29520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB DSG SE",
+"msrp": 29725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB Man SE w/Performance Pkg",
+"msrp": 30120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB Man Autobahn",
+"msrp": 30135,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2dr HB DSG SE w/Performance Pkg",
+"msrp": 30620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB DSG SE w/Performance Pkg",
+"msrp": 31220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB DSG Autobahn",
+"msrp": 31235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB Man Autobahn w/Performance Pkg",
+"msrp": 31630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 4dr HB DSG Autobahn w/Performance Pkg",
+"msrp": 32730,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 4dr HB Man",
+"msrp": 35650,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 4dr HB DSG",
+"msrp": 36750,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 4dr HB Man w/DCC/Nav",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 4dr HB DSG w/DCC/Nav",
+"msrp": 38995,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2016-volkswagen-golf-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2017,
 "destination": 820,
 "trims": [
 {
+"trim": "1.8T 4-Door S Manual",
+"msrp": 19895,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T 4-Door S Auto",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportwagen 1.8T S Manual",
+"msrp": 21580,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T 4-Door Wolfsburg Edition Manual",
+"msrp": 21595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportwagen 1.8T S Auto",
+"msrp": 22680,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T 4-Door Wolfsburg Edition Auto",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportwagen 1.8T S Manual 4MOTION",
+"msrp": 23830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportwagen 1.8T S Auto 4MOTION",
+"msrp": 24930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T 2-Door S Manual",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T 4-Door SE Auto",
+"msrp": 25445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T 4-Door S Manual",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
 "trim": "Alltrack AWD TSI S 4Motion 4dr Wagon 6M",
 "msrp": 25850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T 2-Door S DSG",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T 4-Door S DSG",
+"msrp": 26695,
 "config": "",
 "note": ""
 },
@@ -834,8 +1056,38 @@
 "note": ""
 },
 {
+"trim": "Sportwagen 1.8T SE Auto",
+"msrp": 27030,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T 4-Door SEL Auto",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T 4-Door Sport Manual",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T 4-Door Sport DSG",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
 "trim": "Alltrack AWD TSI SE 4Motion 4dr Wagon 6M",
 "msrp": 29430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportwagen 1.8T SEL Auto",
+"msrp": 29970,
 "config": "",
 "note": ""
 },
@@ -846,15 +1098,63 @@
 "note": ""
 },
 {
+"trim": "Golf GTI 2.0T 4-Door SE Manual",
+"msrp": 30890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T 4-Door SE DSG",
+"msrp": 31990,
+"config": "",
+"note": ""
+},
+{
 "trim": "Alltrack AWD TSI SEL 4Motion 4dr Wagon",
 "msrp": 32890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T 4-Door Autobahn Manual",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T 4-Door Autobahn DSG",
+"msrp": 35195,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 4-Door Manual",
+"msrp": 35655,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 4-Door DSG",
+"msrp": 36755,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 4-Door Manual w/DCC/Nav",
+"msrp": 39375,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 4-Door DSG w/DCC/Nav",
+"msrp": 40475,
 "config": "",
 "note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2017-volkswagen-golf_alltrack-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2018,
@@ -867,8 +1167,20 @@
 "note": ""
 },
 {
+"trim": "Sportwagen 1.8T S Manual",
+"msrp": 21685,
+"config": "",
+"note": ""
+},
+{
 "trim": "1.8T S 4dr Hatchback 6A",
 "msrp": 22010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportwagen 1.8T S Auto",
+"msrp": 22785,
 "config": "",
 "note": ""
 },
@@ -879,8 +1191,26 @@
 "note": ""
 },
 {
+"trim": "Sportwagen 1.8T S Manual 4MOTION",
+"msrp": 23935,
+"config": "",
+"note": ""
+},
+{
 "trim": "1.8T SE 4dr Hatchback 6A",
 "msrp": 24755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportwagen 1.8T S Auto 4MOTION",
+"msrp": 25035,
+"config": "",
+"note": ""
+},
+{
+"trim": "Alltrack 1.8T S Manual",
+"msrp": 25955,
 "config": "",
 "note": ""
 },
@@ -891,14 +1221,44 @@
 "note": ""
 },
 {
+"trim": "Alltrack 1.8T S DSG",
+"msrp": 27055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportwagen 1.8T SE Auto",
+"msrp": 27320,
+"config": "",
+"note": ""
+},
+{
 "trim": "Golf GTI S 4dr Hatchback 6A",
 "msrp": 27515,
 "config": "",
 "note": ""
 },
 {
+"trim": "Alltrack 1.8T SE Manual",
+"msrp": 29765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportwagen 1.8T SEL Auto",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
 "trim": "Golf GTI SE 4dr Hatchback 6M",
 "msrp": 30470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Alltrack 1.8T SE DSG",
+"msrp": 30865,
 "config": "",
 "note": ""
 },
@@ -915,15 +1275,33 @@
 "note": ""
 },
 {
+"trim": "Alltrack 1.8T SEL DSG",
+"msrp": 35660,
+"config": "",
+"note": ""
+},
+{
 "trim": "Golf GTI Autobahn 4dr Hatchback 6A",
 "msrp": 36170,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 2.0T Manual w/DCC/Nav",
+"msrp": 39785,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 2.0T DSG w/DCC/Nav",
+"msrp": 40885,
 "config": "",
 "note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2018-volkswagen-golf-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -954,6 +1332,54 @@
 "note": ""
 },
 {
+"trim": "Golf GTI 2.0T S Manual",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T S DSG",
+"msrp": 28695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T Rabbit Edition Manual",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T Rabbit Edition DSG",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T SE Manual",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T SE DSG",
+"msrp": 32895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T Autobahn Manual",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Golf GTI 2.0T Autobahn DSG",
+"msrp": 37095,
+"config": "",
+"note": ""
+},
+{
 "trim": "R AWD 4Motion 4dr Hatchback 6M w/DCC and Navigation",
 "msrp": 40395,
 "config": "",
@@ -968,7 +1394,7 @@
 ],
 "source": "https://www.iseecars.com/car/2019-volkswagen-golf-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
@@ -1032,6 +1458,18 @@
 "destination": 995,
 "trims": [
 {
+"trim": "1.4T TSI Manual",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T TSI Auto",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
 "trim": "Golf GTI S 4dr Hatchback 6M",
 "msrp": 28695,
 "config": "",
@@ -1070,7 +1508,7 @@
 ],
 "source": "https://www.iseecars.com/car/2021-volkswagen-golf_gti-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

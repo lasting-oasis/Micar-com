@@ -290,6 +290,519 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD L",
+"msrp": 22120,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LS",
+"msrp": 24520,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LT",
+"msrp": 26170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 26270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LT",
+"msrp": 27920,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2LT",
+"msrp": 28170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2LT",
+"msrp": 29920,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LTZ",
+"msrp": 31920,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ",
+"msrp": 33670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD L",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LS",
+"msrp": 25410,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 26650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 27160,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 28400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LTZ",
+"msrp": 29940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ",
+"msrp": 31690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "FWD L",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LS",
+"msrp": 25510,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 27260,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 30040,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 31790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "FWD L",
+"msrp": 23580,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LS",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 30800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 37300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FWD L",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LS",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 27200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 28315,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 29700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 30015,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 31300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 35100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 35700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "FWD L",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LS",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 30000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 31600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 34100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 35700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "FWD L",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LS",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 33000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-equinox-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1395,
 "trims": [

@@ -143,9 +143,273 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr 3.5L V6 2WD Select",
+"msrp": 63195,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr 3.5L V6 2WD Select",
+"msrp": 65560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr 3.5L V6 4WD Select",
+"msrp": 66770,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr 3.5L V6 4WD Select",
+"msrp": 69135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr 3.5L V6 2WD Reserve",
+"msrp": 71260,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr 3.5L V6 2WD Reserve",
+"msrp": 73645,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr 3.5L V6 4WD Reserve",
+"msrp": 74260,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr 3.5L V6 4WD Reserve",
+"msrp": 76650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "4x2 Select",
+"msrp": 63515,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x2 Select",
+"msrp": 65905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Select",
+"msrp": 67090,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Select",
+"msrp": 69480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Reserve",
+"msrp": 71580,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x2 Reserve",
+"msrp": 73970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Reserve",
+"msrp": 74580,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Reserve",
+"msrp": 76970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "4x2 Premiere",
+"msrp": 72555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premiere",
+"msrp": 75210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Select",
+"msrp": 76555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Select",
+"msrp": 79210,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x2 Select",
+"msrp": 79755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Reserve",
+"msrp": 81705,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Select",
+"msrp": 82410,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Reserve",
+"msrp": 84905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Black Label",
+"msrp": 94205,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Black Label",
+"msrp": 97405,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lincoln-navigator_l-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Standard 4x2",
+"msrp": 73205,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard 4x4",
+"msrp": 75860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select 4x2",
+"msrp": 77555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select 4x4",
+"msrp": 80210,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Select 4x2",
+"msrp": 80755,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Select 4x4",
+"msrp": 83410,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4x4",
+"msrp": 85205,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Reserve 4x4",
+"msrp": 88405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label 4x4",
+"msrp": 96395,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Black Label 4x4",
+"msrp": 99595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lincoln-navigator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 1295,
 "trims": [
+{
+"trim": "Standard 4x2",
+"msrp": 76185,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard 4x4",
+"msrp": 78855,
+"config": "",
+"note": ""
+},
 {
 "trim": "L 4x2 Standard 4dr SUV",
 "msrp": 79385,
@@ -153,8 +417,20 @@
 "note": ""
 },
 {
+"trim": "Reserve 4x2",
+"msrp": 81725,
+"config": "",
+"note": ""
+},
+{
 "trim": "L 4x4 Standard 4dr SUV",
 "msrp": 82055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4x4",
+"msrp": 84400,
 "config": "",
 "note": ""
 },
@@ -171,6 +447,12 @@
 "note": ""
 },
 {
+"trim": "Black Label 4x4",
+"msrp": 97135,
+"config": "",
+"note": ""
+},
+{
 "trim": "L 4x4 Black Label 4dr SUV",
 "msrp": 100335,
 "config": "",
@@ -179,12 +461,24 @@
 ],
 "source": "https://www.iseecars.com/car/2020-lincoln-navigator_l-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
 "destination": 1295,
 "trims": [
+{
+"trim": "Standard 4x2",
+"msrp": 76705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard 4x4",
+"msrp": 79375,
+"config": "",
+"note": ""
+},
 {
 "trim": "L 4x2 Standard 4dr SUV",
 "msrp": 79905,
@@ -192,8 +486,20 @@
 "note": ""
 },
 {
+"trim": "Reserve 4x2",
+"msrp": 82490,
+"config": "",
+"note": ""
+},
+{
 "trim": "L 4x4 Standard 4dr SUV",
 "msrp": 82575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4x4",
+"msrp": 85165,
 "config": "",
 "note": ""
 },
@@ -210,6 +516,12 @@
 "note": ""
 },
 {
+"trim": "Black Label 4x4",
+"msrp": 98655,
+"config": "",
+"note": ""
+},
+{
 "trim": "L 4x4 Black Label 4dr SUV",
 "msrp": 101855,
 "config": "",
@@ -218,7 +530,7 @@
 ],
 "source": "https://www.iseecars.com/car/2021-lincoln-navigator_l-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

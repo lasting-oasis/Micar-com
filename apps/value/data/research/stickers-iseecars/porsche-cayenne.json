@@ -260,6 +260,114 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "AWD 4dr",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Diesel",
+"msrp": 62300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr S",
+"msrp": 74800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr S E-Hybrid",
+"msrp": 77200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr GTS",
+"msrp": 95500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Turbo",
+"msrp": 114700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Turbo S",
+"msrp": 157300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "AWD",
+"msrp": 59600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Edition AWD",
+"msrp": 65600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 76200,
+"config": "",
+"note": ""
+},
+{
+"trim": "S E-Hybrid AWD",
+"msrp": 78700,
+"config": "",
+"note": ""
+},
+{
+"trim": "S E-Hybrid Platinum Edition AWD",
+"msrp": 81600,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS AWD",
+"msrp": 97200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 116500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S AWD",
+"msrp": 159600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 1050,
 "trims": [
@@ -315,6 +423,189 @@
 "source": "https://www.iseecars.com/car/2018-porsche-cayenne-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "AWD",
+"msrp": 65700,
+"config": "",
+"note": ""
+},
+{
+"trim": "E-Hybrid AWD",
+"msrp": 79900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 82900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 124600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "AWD",
+"msrp": 66800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe AWD",
+"msrp": 75300,
+"config": "",
+"note": ""
+},
+{
+"trim": "E-Hybrid AWD",
+"msrp": 81100,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "E-Hybrid Coupe AWD",
+"msrp": 86400,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Coupe AWD",
+"msrp": 88600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 126500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Coupe AWD",
+"msrp": 130100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid AWD",
+"msrp": 161900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid Coupe AWD",
+"msrp": 164400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "AWD",
+"msrp": 67500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe AWD",
+"msrp": 76500,
+"config": "",
+"note": ""
+},
+{
+"trim": "E-Hybrid AWD",
+"msrp": 81800,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 85100,
+"config": "",
+"note": ""
+},
+{
+"trim": "E-Hybrid Coupe AWD",
+"msrp": 87600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Coupe AWD",
+"msrp": 89900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS AWD",
+"msrp": 107300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS Coupe AWD",
+"msrp": 110500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 127800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Coupe AWD",
+"msrp": 131900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid AWD",
+"msrp": 163200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid Coupe AWD",
+"msrp": 166200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-porsche-cayenne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

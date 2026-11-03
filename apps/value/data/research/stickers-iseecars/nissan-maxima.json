@@ -149,6 +149,96 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "S 3.5L",
+"msrp": 32610,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 3.5L",
+"msrp": 32910,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 3.5L",
+"msrp": 34590,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 3.5L",
+"msrp": 34890,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 3.5L",
+"msrp": 37250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 3.5L",
+"msrp": 38030,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 3.5L",
+"msrp": 40340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-nissan-maxima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "S 3.5L",
+"msrp": 33420,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 3.5L",
+"msrp": 35420,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 3.5L",
+"msrp": 37840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 3.5L",
+"msrp": 38680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 3.5L",
+"msrp": 41090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-maxima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 925,
 "trims": [
@@ -186,6 +276,45 @@
 "source": "https://www.iseecars.com/car/2019-nissan-maxima-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "S 3.5L",
+"msrp": 34450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV 3.5L",
+"msrp": 36650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL 3.5L",
+"msrp": 38840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR 3.5L",
+"msrp": 41650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 3.5L",
+"msrp": 41840,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-maxima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

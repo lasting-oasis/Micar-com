@@ -230,6 +230,339 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "5dr 7-Pass Van L FWD (Natl)",
+"msrp": 28850,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 8-Pass Van LE FWD (Natl)",
+"msrp": 31640,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van LE FWD Mobility (SE)",
+"msrp": 31840,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van LE FWD Mobility (GS)",
+"msrp": 31840,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van LE FWD Mobility (Natl)",
+"msrp": 31840,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van LE AWD (Natl)",
+"msrp": 34180,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 8-Pass Van SE FWD (Natl)",
+"msrp": 35210,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 8-Pass Van XLE FWD (Natl)",
+"msrp": 35410,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van XLE AWD (Natl)",
+"msrp": 37620,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van LE AAS FWD (Natl)",
+"msrp": 37655,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 8-Pass Van XLE Premium FWD (Natl)",
+"msrp": 38605,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 8-Pass Van SE Premium FWD (Natl)",
+"msrp": 39930,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van XLE Premium AWD (Natl)",
+"msrp": 40815,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van XLE AAS FWD (Natl)",
+"msrp": 41245,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van Ltd FWD (Natl)",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van Ltd AWD (Natl)",
+"msrp": 43040,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van Ltd Premium FWD (Natl)",
+"msrp": 45270,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr 7-Pass Van Ltd Premium AWD (Natl)",
+"msrp": 46410,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-sienna-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-07-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "L FWD 7-Passenger (Natl)",
+"msrp": 30850,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE FWD 8-Passenger (Natl)",
+"msrp": 33760,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD 7-Passenger (Natl)",
+"msrp": 36300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD 8-Passenger (Natl)",
+"msrp": 37090,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD 8-Passenger (Natl)",
+"msrp": 37090,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD 7-Passenger (Natl)",
+"msrp": 39520,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Auto Access Seat FWD 7-Passenger (Natl)",
+"msrp": 39685,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium FWD 8-Passenger (Natl)",
+"msrp": 40780,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Premium FWD 8-Passenger (Natl)",
+"msrp": 42305,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium AWD 7-Passenger (Natl)",
+"msrp": 43210,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto Access Seat FWD 7-Passenger (Natl)",
+"msrp": 43225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD 7-Passenger (Natl)",
+"msrp": 43835,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD 7-Passenger (Natl)",
+"msrp": 45195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Premium FWD 7-Passenger (Natl)",
+"msrp": 47355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Premium AWD 7-Passenger (Natl)",
+"msrp": 48715,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-sienna-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "L FWD 7-Passenger (Natl)",
+"msrp": 31315,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE FWD 8-Passenger (Natl)",
+"msrp": 34135,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Mobility FWD 7-Passenger Mobility (Natl)",
+"msrp": 34145,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD 7-Passenger (Natl)",
+"msrp": 36675,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD 8-Passenger (Natl)",
+"msrp": 37465,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD 8-Passenger (Natl)",
+"msrp": 37465,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD 7-Passenger (Natl)",
+"msrp": 38970,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD 7-Passenger (Natl)",
+"msrp": 39895,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Auto Access Seat FWD 7-Passenger (Natl)",
+"msrp": 40060,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium FWD 8-Passenger (Natl)",
+"msrp": 41155,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Premium FWD 8-Passenger (Natl)",
+"msrp": 43560,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium AWD 7-Passenger (Natl)",
+"msrp": 43585,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto Access Seat FWD 7-Passenger (Natl)",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD 7-Passenger (Natl)",
+"msrp": 44210,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Premium AWD 7-Passenger (Natl)",
+"msrp": 45065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD 7-Passenger (Natl)",
+"msrp": 45570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Premium FWD 7-Passenger (Natl)",
+"msrp": 47730,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Premium AWD 7-Passenger (Natl)",
+"msrp": 49090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-sienna-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 1175,
 "trims": [

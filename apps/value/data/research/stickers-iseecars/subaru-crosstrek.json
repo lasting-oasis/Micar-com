@@ -56,6 +56,39 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0i Manual",
+"msrp": 21695,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0i Premium Manual",
+"msrp": 22495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0i Premium CVT",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0i Limited CVT",
+"msrp": 25195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-subaru-crosstrek-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 915,
 "trims": [
@@ -138,6 +171,51 @@
 "source": "https://www.iseecars.com/car/2019-subaru-crosstrek-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Manual",
+"msrp": 22145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Manual",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 24545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT",
+"msrp": 35145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-subaru-crosstrek-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

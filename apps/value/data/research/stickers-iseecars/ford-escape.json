@@ -302,6 +302,123 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr S",
+"msrp": 23450,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr SE",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Titanium",
+"msrp": 29735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Titanium",
+"msrp": 31485,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr S",
+"msrp": 23590,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE",
+"msrp": 25790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr SE",
+"msrp": 27540,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Titanium",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Titanium",
+"msrp": 31745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "S FWD",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD",
+"msrp": 25100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4WD",
+"msrp": 26850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium FWD",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4WD",
+"msrp": 30850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-escape-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [
@@ -408,14 +525,80 @@
 "destination": 1245,
 "trims": [
 {
+"trim": "S FWD",
+"msrp": 24885,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 26385,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Sport Hybrid FWD",
+"msrp": 28255,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 28595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 29255,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Sport Hybrid AWD",
+"msrp": 29755,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 30755,
+"config": "",
+"note": ""
+},
+{
 "trim": "Plug-In Hybrid SE 4dr SUV",
 "msrp": 33040,
 "config": "",
 "note": ""
 },
 {
+"trim": "Titanium Hybrid FWD",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium Hybrid AWD",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
 "trim": "Plug-In Hybrid SEL 4dr SUV",
 "msrp": 35620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium AWD",
+"msrp": 36685,
 "config": "",
 "note": ""
 },
@@ -428,7 +611,7 @@
 ],
 "source": "https://www.iseecars.com/car/2020-ford-escape_plug__in_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

@@ -155,6 +155,132 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Convertible Man Sport",
+"msrp": 23970,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto Sport",
+"msrp": 26230,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Man Club",
+"msrp": 26905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto Club",
+"msrp": 27505,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Man Grand Touring",
+"msrp": 27550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto Grand Touring",
+"msrp": 28650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Hard Top Man Club",
+"msrp": 28665,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Hard Top Auto Club",
+"msrp": 29265,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Hard Top Man Grand Touring",
+"msrp": 29450,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Hard Top Auto Grand Touring",
+"msrp": 30550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Hard Top Man 25th Anniversary Edition",
+"msrp": 32205,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Hard Top Auto 25th Anniversary Edition",
+"msrp": 32655,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Convertible Man Sport",
+"msrp": 24915,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto Sport",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Man Club",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto Club",
+"msrp": 29330,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Man Grand Touring",
+"msrp": 30065,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto Grand Touring",
+"msrp": 31270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 875,
 "trims": [
@@ -193,11 +319,116 @@
 "msrp": 31270,
 "config": "",
 "note": ""
+},
+{
+"trim": "RF Club Manual",
+"msrp": 31555,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Club Auto",
+"msrp": 32285,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring Manual",
+"msrp": 32620,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Launch Edition Manual",
+"msrp": 33720,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring Auto",
+"msrp": 33825,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Launch Edition Auto",
+"msrp": 34925,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2017-mazda-mx__5_miata-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sport Manual",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Auto",
+"msrp": 26645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club Manual",
+"msrp": 29155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club Auto",
+"msrp": 29755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Manual",
+"msrp": 30195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Auto",
+"msrp": 31270,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Club Manual",
+"msrp": 31910,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Club Auto",
+"msrp": 32510,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring Manual",
+"msrp": 32750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring Auto",
+"msrp": 33825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -291,6 +522,99 @@
 "source": "https://www.iseecars.com/car/2019-mazda-mx__5_miata-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sport Manual",
+"msrp": 26580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Auto",
+"msrp": 27930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club Manual",
+"msrp": 30290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club Auto",
+"msrp": 30890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Manual",
+"msrp": 31670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Auto",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "100th Anniversary Manual",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Club Manual",
+"msrp": 33045,
+"config": "",
+"note": ""
+},
+{
+"trim": "100th Anniversary Auto",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Club Auto",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring Manual",
+"msrp": 34425,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring Auto",
+"msrp": 34750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF 100th Anniversary Manual",
+"msrp": 35425,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF 100th Anniversary Auto",
+"msrp": 35750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

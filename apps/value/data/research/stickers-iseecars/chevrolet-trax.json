@@ -1,0 +1,267 @@
+{
+"make": "Chevrolet",
+"model": "Trax",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (trax).",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr LS",
+"msrp": 20120,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LS",
+"msrp": 21620,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr LT",
+"msrp": 22445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LT",
+"msrp": 23945,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr LTZ",
+"msrp": 25030,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LTZ",
+"msrp": 26530,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-trax-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr LS",
+"msrp": 20300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LS",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr LT",
+"msrp": 22645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LT",
+"msrp": 24145,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr LTZ",
+"msrp": 25230,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LTZ",
+"msrp": 26730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-trax-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr LS",
+"msrp": 21000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LS",
+"msrp": 22500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr LT",
+"msrp": 22900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LT",
+"msrp": 24400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Premier",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Premier",
+"msrp": 28800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-trax-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr LS",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LS",
+"msrp": 22800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr LT",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LT",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Premier",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Premier",
+"msrp": 29100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-trax-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "FWD LS",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 22020,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT",
+"msrp": 23820,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 29100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-trax-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "LS FWD",
+"msrp": 21400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS AWD",
+"msrp": 22020,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT FWD",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT AWD",
+"msrp": 23820,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-trax-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

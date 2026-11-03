@@ -2,7 +2,7 @@
 "make": "Toyota",
 "model": "Yaris",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (yaris).",
+"note": "Trim-level MSRPs from iSeeCars price pages (yaris, yaris_ia).",
 "years": [
 {
 "year": 2010,
@@ -227,6 +227,120 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "3dr Liftback Man L (Natl)",
+"msrp": 14895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Liftback Auto L (Natl)",
+"msrp": 15620,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Liftback Auto L (Natl)",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Liftback Auto LE (Natl)",
+"msrp": 16555,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Liftback Man SE (Natl)",
+"msrp": 16870,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Liftback Auto LE (Natl)",
+"msrp": 16930,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Liftback Auto SE (Natl)",
+"msrp": 17670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "3-Door L Manual (Natl)",
+"msrp": 15250,
+"config": "",
+"note": ""
+},
+{
+"trim": "IA Manual (Natl)",
+"msrp": 15950,
+"config": "",
+"note": ""
+},
+{
+"trim": "3-Door L Auto (Natl)",
+"msrp": 16000,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-Door L Auto (Natl)",
+"msrp": 16375,
+"config": "",
+"note": ""
+},
+{
+"trim": "3-Door LE Auto (Natl)",
+"msrp": 16910,
+"config": "",
+"note": ""
+},
+{
+"trim": "IA Auto (Natl)",
+"msrp": 17050,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-Door SE Manual (Natl)",
+"msrp": 17200,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-Door LE Auto (Natl)",
+"msrp": 17285,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-Door SE Auto (Natl)",
+"msrp": 18000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 930,
 "trims": [
@@ -276,6 +390,45 @@
 "source": "https://www.iseecars.com/car/2018-toyota-yaris-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "L Manual (Natl)",
+"msrp": 15600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Manual (Natl)",
+"msrp": 16600,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Auto (Natl)",
+"msrp": 16700,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Auto (Natl)",
+"msrp": 17700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto (Natl)",
+"msrp": 18700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

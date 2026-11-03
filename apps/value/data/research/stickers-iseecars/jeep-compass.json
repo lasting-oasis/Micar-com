@@ -266,6 +266,288 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Altitude Edition",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Altitude Edition",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr High Altitude Edition",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr High Altitude Edition",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 28795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-jeep-compass-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 19595,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Sport SE Pkg",
+"msrp": 19595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 21595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport SE Pkg",
+"msrp": 21595,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr High Altitude Edition",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr High Altitude Edition",
+"msrp": 25895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jeep-compass-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 21095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4",
+"msrp": 22595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude FWD",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude w/Sun/Wheel Pkg FWD",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 28795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 29195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jeep-compass-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland Edition 4x4",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude FWD",
+"msrp": 25345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude w/Sun/Wheel Pkg FWD",
+"msrp": 25345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 25345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 25345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 25345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 28445,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude FWD",
+"msrp": 28445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 29445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 29945,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x4",
+"msrp": 29945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jeep-compass-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1495,
 "trims": [

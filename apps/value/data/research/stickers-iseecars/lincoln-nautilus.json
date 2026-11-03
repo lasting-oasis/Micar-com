@@ -62,6 +62,45 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Standard FWD",
+"msrp": 41040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard AWD",
+"msrp": 43535,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve FWD",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 50995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 63800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lincoln-nautilus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1095,
 "trims": [

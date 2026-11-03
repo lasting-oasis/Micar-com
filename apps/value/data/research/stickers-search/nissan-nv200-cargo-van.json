@@ -1,0 +1,99 @@
+{
+"make": "Nissan",
+"model": "NV200 Cargo Van",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2013,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 19900,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2013+Nissan+NV200+Cargo+Van+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (autoweek.com, carbuzz.com)."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 20870,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2016+Nissan+NV200+Cargo+Van+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, carfax.com)."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 21230,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2017+Nissan+NV200+Cargo+Van+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (motormatchup.com, usa.nissannews.com)."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 21780,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2018+Nissan+NV200+Cargo+Van+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (automotive-fleet.com, carbuzz.com, motormatchup.com)."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 22200,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2019+Nissan+NV200+Cargo+Van+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (ccjdigital.com, motormatchup.com, usa.nissannews.com)."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 22830,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2020+Nissan+NV200+Cargo+Van+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (kbb.com, lhmnissanmesa.com, usa.nissannews.com)."
+}
+],
+"gaps": []
+}

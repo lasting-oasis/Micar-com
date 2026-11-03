@@ -284,6 +284,111 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan LS Manual",
+"msrp": 14245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LS Manual",
+"msrp": 14845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS Auto",
+"msrp": 15495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Manual",
+"msrp": 15855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LS Auto",
+"msrp": 16095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LT Manual",
+"msrp": 16455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Auto",
+"msrp": 17245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LT Auto",
+"msrp": 17845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LTZ Manual",
+"msrp": 18235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LTZ Manual",
+"msrp": 18835,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LTZ Auto",
+"msrp": 19680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan RS Manual",
+"msrp": 19945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LTZ Auto",
+"msrp": 20245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch RS Manual",
+"msrp": 20545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan RS Auto",
+"msrp": 21345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch RS Auto",
+"msrp": 21945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-sonic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2016,
 "destination": 875,
 "trims": [
@@ -375,6 +480,213 @@
 "source": "https://www.iseecars.com/car/2016-chevrolet-sonic-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan LS Manual",
+"msrp": 15145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS Auto",
+"msrp": 16395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Manual",
+"msrp": 17530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LT Manual",
+"msrp": 17580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Auto",
+"msrp": 18170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LT Auto",
+"msrp": 18970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier Manual",
+"msrp": 19720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch Premier Manual",
+"msrp": 19720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier Auto",
+"msrp": 20415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch Premier Auto",
+"msrp": 21215,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-sonic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan LS Manual",
+"msrp": 15295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS Auto",
+"msrp": 16520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Manual",
+"msrp": 17720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LT Manual",
+"msrp": 17820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Auto",
+"msrp": 18420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LT Auto",
+"msrp": 19220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier Manual",
+"msrp": 19820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch Premier Manual",
+"msrp": 19820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier Auto",
+"msrp": 20520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch Premier Auto",
+"msrp": 21320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-sonic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan LS Manual",
+"msrp": 15420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS Auto",
+"msrp": 16720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Manual",
+"msrp": 17920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LT Manual",
+"msrp": 18020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Auto",
+"msrp": 18620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LT Auto",
+"msrp": 19420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier Manual",
+"msrp": 20020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch Premier Manual",
+"msrp": 20020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier Auto",
+"msrp": 20720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch Premier Auto",
+"msrp": 21520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-sonic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

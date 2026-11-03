@@ -89,6 +89,60 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Hybrid Automatic with Technology Package",
+"msrp": 59950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Automatic with Advance Package",
+"msrp": 65950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-acura-rlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan w/Technology Pkg",
+"msrp": 54450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Sport Hybrid w/Technology Pkg",
+"msrp": 59950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Advance Pkg",
+"msrp": 60450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Sport Hybrid w/Advance Pkg",
+"msrp": 65950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-acura-rlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [
@@ -108,6 +162,27 @@
 "source": "https://www.iseecars.com/car/2018-acura-rlx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan w/Technology Pkg",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Sport Hybrid w/Advance Pkg",
+"msrp": 61900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-acura-rlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -5,6 +5,108 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (passport).",
 "years": [
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 31990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 33890,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L FWD",
+"msrp": 36410,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD",
+"msrp": 38310,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 39280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 41180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite AWD",
+"msrp": 43680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-passport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 31990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 33990,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L FWD",
+"msrp": 36410,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD",
+"msrp": 38410,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 39280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 41280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite AWD",
+"msrp": 43780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-passport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-08-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1225,
 "trims": [

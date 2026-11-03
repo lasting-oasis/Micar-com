@@ -380,6 +380,213 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Limited RWD",
+"msrp": 31695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited AWD",
+"msrp": 34195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300S RWD",
+"msrp": 35070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300S AWD",
+"msrp": 37570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300C RWD",
+"msrp": 38070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300C AWD",
+"msrp": 40570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300C Platinum RWD",
+"msrp": 42395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300C Platinum AWD",
+"msrp": 44895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Limited RWD",
+"msrp": 32260,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Anniversary Edition RWD",
+"msrp": 32260,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited AWD",
+"msrp": 34760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Anniversary Edition AWD",
+"msrp": 34760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300S RWD",
+"msrp": 35595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300S Alloy Edition RWD",
+"msrp": 35595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300S AWD",
+"msrp": 38095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300S Alloy Edition AWD",
+"msrp": 38095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300C RWD",
+"msrp": 38555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300C AWD",
+"msrp": 41055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300C Platinum RWD",
+"msrp": 42690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 300C Platinum AWD",
+"msrp": 45190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Limited RWD",
+"msrp": 32340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 34840,
+"config": "",
+"note": ""
+},
+{
+"trim": "300S RWD",
+"msrp": 35675,
+"config": "",
+"note": ""
+},
+{
+"trim": "300S Alloy Edition RWD",
+"msrp": 35675,
+"config": "",
+"note": ""
+},
+{
+"trim": "300S AWD",
+"msrp": 38175,
+"config": "",
+"note": ""
+},
+{
+"trim": "300S Alloy Edition AWD",
+"msrp": 38175,
+"config": "",
+"note": ""
+},
+{
+"trim": "300C RWD",
+"msrp": 38635,
+"config": "",
+"note": ""
+},
+{
+"trim": "300C AWD",
+"msrp": 41135,
+"config": "",
+"note": ""
+},
+{
+"trim": "300C Platinum RWD",
+"msrp": 42770,
+"config": "",
+"note": ""
+},
+{
+"trim": "300C Platinum AWD",
+"msrp": 45270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 1395,
 "trims": [
@@ -567,6 +774,45 @@
 "source": "https://www.iseecars.com/car/2020-chrysler-300-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Touring RWD",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring L RWD",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring L AWD",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "300S RWD",
+"msrp": 37395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chrysler-300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

@@ -305,6 +305,174 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr I4 LX",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr I4 LX",
+"msrp": 26100,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr V6 LX",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr V6 LX",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr V6 EX",
+"msrp": 31700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr V6 EX",
+"msrp": 33500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr V6 SX",
+"msrp": 36700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr V6 SX",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr V6 SX Limited",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr V6 SX Limited",
+"msrp": 41700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr 2.4L L",
+"msrp": 25100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 2.4L LX",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr 2.4L LX",
+"msrp": 28200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 3.3L LX",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr 3.3L LX",
+"msrp": 30500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 2.0T EX",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 3.3L EX",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr 2.0T EX",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr 3.3L EX",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 3.3L SX",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 2.0T SXL",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr 3.3L SX",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 3.3L SXL",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr 2.0T SXL",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr 3.3L SXL",
+"msrp": 43300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 895,
 "trims": [
@@ -392,6 +560,192 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "L FWD",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX FWD",
+"msrp": 27200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX V6 FWD",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX V6 AWD",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX FWD",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX V6 FWD",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX V6 AWD",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX V6 FWD",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX V6 AWD",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Limited V6 FWD",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Limited V6 AWD",
+"msrp": 46300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "L FWD",
+"msrp": 26290,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX FWD",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 29450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX V6 FWD",
+"msrp": 31290,
+"config": "",
+"note": ""
+},
+{
+"trim": "S V6 FWD",
+"msrp": 32690,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX V6 AWD",
+"msrp": 33090,
+"config": "",
+"note": ""
+},
+{
+"trim": "S V6 AWD",
+"msrp": 34490,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Sport V6 FWD",
+"msrp": 34990,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX V6 FWD",
+"msrp": 35590,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Sport V6 AWD",
+"msrp": 36790,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX V6 AWD",
+"msrp": 37390,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX V6 FWD",
+"msrp": 39990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX V6 AWD",
+"msrp": 41790,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Limited V6 FWD",
+"msrp": 44690,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Limited V6 AWD",
+"msrp": 46490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 1120,
 "trims": [
@@ -465,6 +819,75 @@
 "source": "https://www.iseecars.com/car/2020-kia-sorento-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "LX FWD",
+"msrp": 29390,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 31190,
+"config": "",
+"note": ""
+},
+{
+"trim": "S FWD",
+"msrp": 31890,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 33690,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX FWD",
+"msrp": 34990,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 36790,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX FWD",
+"msrp": 37990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX AWD",
+"msrp": 39790,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Prestige FWD",
+"msrp": 40590,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Prestige X-Line AWD",
+"msrp": 42590,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-kia-sorento-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

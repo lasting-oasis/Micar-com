@@ -320,6 +320,99 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "V10 quattro AWD",
+"msrp": 162900,
+"config": "",
+"note": ""
+},
+{
+"trim": "V10 plus quattro AWD",
+"msrp": 189900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-r8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "V10 RWD",
+"msrp": 138700,
+"config": "",
+"note": ""
+},
+{
+"trim": "V10 quattro",
+"msrp": 164900,
+"config": "",
+"note": ""
+},
+{
+"trim": "V10 quattro",
+"msrp": 177100,
+"config": "",
+"note": ""
+},
+{
+"trim": "V10 plus quattro",
+"msrp": 194400,
+"config": "",
+"note": ""
+},
+{
+"trim": "V10 plus quattro",
+"msrp": 208100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-r8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "V10 quattro",
+"msrp": 169900,
+"config": "",
+"note": ""
+},
+{
+"trim": "V10 quattro",
+"msrp": 182100,
+"config": "",
+"note": ""
+},
+{
+"trim": "V10 performance quattro",
+"msrp": 195900,
+"config": "",
+"note": ""
+},
+{
+"trim": "V10 performance quattro",
+"msrp": 208100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-r8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1495,
 "trims": [

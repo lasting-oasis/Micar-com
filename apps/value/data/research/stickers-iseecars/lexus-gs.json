@@ -2,7 +2,7 @@
 "make": "Lexus",
 "model": "GS",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (gs_350, gs_450h, gs_460).",
+"note": "Trim-level MSRPs from iSeeCars price pages (gs_200t, gs_300, gs_350, gs_450h, gs_460, gs_f).",
 "years": [
 {
 "year": 2010,
@@ -151,16 +151,103 @@
 "msrp": 57330,
 "config": "",
 "note": ""
+},
+{
+"trim": "GS 450H 4dr Sedan Hybrid",
+"msrp": 61330,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2015-lexus-gs_350-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "GS 200T 4dr Sedan RWD",
+"msrp": 45615,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 200T 4dr Sedan F Sport RWD",
+"msrp": 45615,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 4dr Sedan RWD",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 4dr Sedan RWD F Sport",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 4dr Sedan AWD",
+"msrp": 50470,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 450H 4dr Sedan Hybrid",
+"msrp": 63080,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lexus-gs_200t-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-08-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2017,
 "destination": 995,
 "trims": [
+{
+"trim": "GS 200T RWD",
+"msrp": 46310,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 AWD",
+"msrp": 50365,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 RWD",
+"msrp": 50695,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 200T RWD",
+"msrp": 53980,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 RWD",
+"msrp": 54810,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 AWD",
+"msrp": 56555,
+"config": "",
+"note": ""
+},
 {
 "trim": "GS 450H 4dr Sedan",
 "msrp": 63635,
@@ -172,16 +259,28 @@
 "msrp": 68680,
 "config": "",
 "note": ""
+},
+{
+"trim": "GS F RWD",
+"msrp": 83940,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2017-lexus-gs_450h-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-05-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2018,
 "destination": 1025,
 "trims": [
+{
+"trim": "GS 300 RWD",
+"msrp": 46510,
+"config": "",
+"note": ""
+},
 {
 "trim": "GS 350 AWD 4dr Sedan",
 "msrp": 50565,
@@ -191,6 +290,12 @@
 {
 "trim": "GS 350 4dr Sedan",
 "msrp": 50895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 300 RWD",
+"msrp": 51100,
 "config": "",
 "note": ""
 },
@@ -205,11 +310,113 @@
 "msrp": 54005,
 "config": "",
 "note": ""
+},
+{
+"trim": "GS 450H RWD",
+"msrp": 63635,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 450H RWD",
+"msrp": 68680,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2018-lexus-gs_350-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "GS 350 AWD",
+"msrp": 50915,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 RWD",
+"msrp": 51245,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 F SPORT RWD",
+"msrp": 52610,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 F SPORT AWD",
+"msrp": 54355,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS F RWD",
+"msrp": 84600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lexus-gs_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "GS 350 AWD",
+"msrp": 51065,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 RWD",
+"msrp": 51395,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 F SPORT RWD",
+"msrp": 52760,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 F SPORT Black Line RWD",
+"msrp": 53410,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 F SPORT AWD",
+"msrp": 54505,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 F SPORT Black Line AWD",
+"msrp": 55155,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS F RWD",
+"msrp": 85010,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lexus-gs_f-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

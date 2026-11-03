@@ -2,7 +2,7 @@
 "make": "Hyundai",
 "model": "Santa Fe",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (santa_fe, santa_fe_plug__in_hybrid, santa_fe_sport).",
+"note": "Trim-level MSRPs from iSeeCars price pages (santa_fe, santa_fe_plug__in_hybrid, santa_fe_sport, santa_fe_xl).",
 "years": [
 {
 "year": 2010,
@@ -276,14 +276,50 @@
 "destination": 895,
 "trims": [
 {
+"trim": "Sport FWD 4dr 2.4",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 4dr 2.4",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
 "trim": "GLS 4dr SUV",
 "msrp": 30150,
 "config": "",
 "note": ""
 },
 {
+"trim": "Sport FWD 4dr 2.0T",
+"msrp": 31250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD 4dr 2.0T w/Saddle Int",
+"msrp": 31250,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD GLS 4dr SUV",
 "msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 4dr 2.0T",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 4dr 2.0T w/Saddle Int",
+"msrp": 33000,
 "config": "",
 "note": ""
 },
@@ -302,12 +338,174 @@
 ],
 "source": "https://www.iseecars.com/car/2015-hyundai-santa_fe-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD 4dr 2.4",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 4dr 2.4",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE",
+"msrp": 30400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD 4dr 2.0T",
+"msrp": 31250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE",
+"msrp": 32150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 4dr 2.0T",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited",
+"msrp": 36250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sport Sport 2.4L Automatic",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Sport 2.4L Automatic AWD",
+"msrp": 27100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 3.3L Automatic",
+"msrp": 30800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Sport 2.0T Automatic",
+"msrp": 31700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 3.3L Automatic AWD",
+"msrp": 32550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Sport 2.0T Automatic AWD",
+"msrp": 33450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 3.3L Automatic",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Sport 2.0T Ultimate Automatic",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 3.3L Automatic AWD",
+"msrp": 36700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Sport 2.0T Ultimate Automatic AWD",
+"msrp": 38250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Ultimate 3.3L Automatic",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Ultimate 3.3L Automatic",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Ultimate 3.3L Automatic AWD",
+"msrp": 40450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Ultimate 3.3L Automatic AWD",
+"msrp": 41150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-03-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2018,
 "destination": 980,
 "trims": [
+{
+"trim": "Sport 2.4L Auto",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2.4L Auto AWD",
+"msrp": 26500,
+"config": "",
+"note": ""
+},
 {
 "trim": "SE 4dr SUV",
 "msrp": 30850,
@@ -315,8 +513,32 @@
 "note": ""
 },
 {
+"trim": "Sport 2.0T Auto",
+"msrp": 31350,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD SE 4dr SUV",
 "msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2.0T Auto AWD",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2.0T Ultimate Auto",
+"msrp": 35650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2.0T Ultimate Auto AWD",
+"msrp": 37200,
 "config": "",
 "note": ""
 },
@@ -347,7 +569,211 @@
 ],
 "source": "https://www.iseecars.com/car/2018-hyundai-santa_fe-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SE 2.4L Auto FWD",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.4L Auto AWD",
+"msrp": 27450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.4L Auto FWD",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.4L Auto AWD",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Plus 2.4L Auto FWD",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL SE FWD",
+"msrp": 30950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Plus 2.4L Auto AWD",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.4L Auto FWD",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL SE AWD",
+"msrp": 32700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0T Auto FWD",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.4L Auto AWD",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 2.4L Auto FWD",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0T Auto AWD",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 2.0T Auto FWD",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 2.4L Auto AWD",
+"msrp": 37150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 2.0T Auto AWD",
+"msrp": 38800,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL Limited Ultimate FWD",
+"msrp": 39650,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL Limited Ultimate AWD",
+"msrp": 41400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SE 2.4L Auto FWD",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.4L Auto FWD w/SULEV",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.4L Auto AWD",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.4L Auto FWD",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.4L Auto FWD w/SULEV",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.4L Auto AWD",
+"msrp": 29350,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.0T Auto FWD",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.4L Auto FWD",
+"msrp": 35650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.4L Auto FWD w/SULEV",
+"msrp": 35650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.0T Auto AWD",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.4L Auto AWD",
+"msrp": 37350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0T Auto FWD",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0T Auto AWD",
+"msrp": 39200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

@@ -212,6 +212,51 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Wagon American Value Pkg",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon SE",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon SE Plus",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon SXT",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon SXT Plus",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon R/T",
+"msrp": 30995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2016,
 "destination": 995,
 "trims": [
@@ -255,6 +300,132 @@
 "source": "https://www.iseecars.com/car/2016-dodge-grand_caravan-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SE Wagon",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Plus Wagon",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Wagon",
+"msrp": 31395,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Wagon Retail",
+"msrp": 34395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "SE Wagon",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Plus Wagon",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Wagon",
+"msrp": 31750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SE Wagon",
+"msrp": 27040,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Plus Wagon",
+"msrp": 27040,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 35th Anniversary Edition Wagon",
+"msrp": 27040,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Wagon",
+"msrp": 32540,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 35th Anniversary Edition Wagon",
+"msrp": 32540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SE Wagon",
+"msrp": 27530,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Plus Wagon",
+"msrp": 27530,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Wagon",
+"msrp": 32995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-dodge-grand_caravan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

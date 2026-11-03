@@ -42,13 +42,61 @@
 "destination": 905,
 "trims": [
 {
+"trim": "RWD",
+"msrp": 37150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 38950,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Premium",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Sport",
+"msrp": 43650,
+"config": "",
+"note": ""
+},
+{
 "trim": "Hybrid Premium 4dr Sedan",
 "msrp": 44400,
 "config": "",
 "note": ""
 },
 {
+"trim": "RWD Hybrid Premium",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport",
+"msrp": 45450,
+"config": "",
+"note": ""
+},
+{
 "trim": "Hybrid AWD Premium 4dr Sedan",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid Premium",
 "msrp": 46200,
 "config": "",
 "note": ""
@@ -60,7 +108,19 @@
 "note": ""
 },
 {
+"trim": "RWD Hybrid Sport",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
 "trim": "Hybrid AWD Sport 4dr Sedan",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid Sport",
 "msrp": 48600,
 "config": "",
 "note": ""
@@ -68,7 +128,7 @@
 ],
 "source": "https://www.iseecars.com/car/2015-infiniti-q50_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-05-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2016,
@@ -85,11 +145,122 @@
 "msrp": 49050,
 "config": "",
 "note": ""
+},
+{
+"trim": "AWD Hybrid",
+"msrp": 49050,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2016-infiniti-q50_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0t RWD",
+"msrp": 33950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t AWD",
+"msrp": 35950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t Premium RWD",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Signature Edition RWD",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t Premium AWD",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Premium RWD",
+"msrp": 40650,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Signature Edition AWD",
+"msrp": 40700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t Sport RWD",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Premium AWD",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t Sport AWD",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Sport RWD",
+"msrp": 44650,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Sport AWD",
+"msrp": 46650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid RWD",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Red Sport 400 RWD",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Red Sport 400 AWD",
+"msrp": 50700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2018,
@@ -159,6 +330,213 @@
 "source": "https://www.iseecars.com/car/2018-infiniti-q50-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2.0t PURE RWD",
+"msrp": 35650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t PURE AWD",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE RWD",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE RWD",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE AWD",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE AWD",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Signature Edition RWD",
+"msrp": 41650,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Signature Edition AWD",
+"msrp": 43650,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t SPORT RWD",
+"msrp": 48050,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t SPORT AWD",
+"msrp": 50050,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 RWD",
+"msrp": 51350,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 AWD",
+"msrp": 53350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "3.0t PURE RWD",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t PURE AWD",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE RWD",
+"msrp": 38850,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE AWD",
+"msrp": 40850,
+"config": "",
+"note": ""
+},
+{
+"trim": "EDITION 30 RWD",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "EDITION 30 AWD",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t SPORT RWD",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t SPORT AWD",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 RWD",
+"msrp": 54250,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 AWD",
+"msrp": 56250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "3.0t PURE RWD",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t PURE AWD",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE RWD",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE AWD",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t SENSORY RWD",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t SENSORY AWD",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 RWD",
+"msrp": 55750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 AWD",
+"msrp": 57750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

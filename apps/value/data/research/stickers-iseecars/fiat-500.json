@@ -183,6 +183,123 @@
 "source": "https://www.iseecars.com/car/2015-fiat-500-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Pop",
+"msrp": 16995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Easy",
+"msrp": 17745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport",
+"msrp": 17900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo",
+"msrp": 19700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge",
+"msrp": 20395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Retro",
+"msrp": 20395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Abarth",
+"msrp": 22575,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-fiat-500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Pop Hatch",
+"msrp": 14995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge Hatch",
+"msrp": 18495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cabrio",
+"msrp": 21490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-fiat-500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Pop Hatch",
+"msrp": 16245,
+"config": "",
+"note": ""
+},
+{
+"trim": "1957 Edition Hatch",
+"msrp": 19745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge Hatch",
+"msrp": 19745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Abarth Hatch",
+"msrp": 20495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-fiat-500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

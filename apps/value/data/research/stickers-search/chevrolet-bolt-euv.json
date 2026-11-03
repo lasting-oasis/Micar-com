@@ -1,0 +1,39 @@
+{
+"make": "Chevrolet",
+"model": "Bolt EUV",
+"body": "Hatchback / Wagon",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 33500,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2022+Chevrolet+Bolt+EUV+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (bowmanchevy.com, hamdenchevy.com, npchevy.com)."
+},
+{
+"year": 2023,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 27800,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2023+Chevrolet+Bolt+EUV+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (dahlchevroletgmcwinona.com, johnholtchevrolet.com, kbb.com)."
+}
+],
+"gaps": []
+}

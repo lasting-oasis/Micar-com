@@ -344,6 +344,198 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "LX FWD",
+"msrp": 22990,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 24490,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX FWD",
+"msrp": 25500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 27000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo FWD",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo AWD",
+"msrp": 34000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-kia-sportage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "LX FWD",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 25100,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX FWD",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo FWD",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo AWD",
+"msrp": 34400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-kia-sportage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "LX FWD",
+"msrp": 23750,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 25250,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX FWD",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo FWD",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo AWD",
+"msrp": 34600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-kia-sportage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LX FWD",
+"msrp": 23990,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD",
+"msrp": 25490,
+"config": "",
+"note": ""
+},
+{
+"trim": "S FWD",
+"msrp": 25990,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX FWD",
+"msrp": 27190,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 27690,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD",
+"msrp": 28690,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo FWD",
+"msrp": 33490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo AWD",
+"msrp": 34990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-kia-sportage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1175,
 "trims": [

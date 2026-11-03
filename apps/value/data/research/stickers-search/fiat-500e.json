@@ -1,0 +1,54 @@
+{
+"make": "Fiat",
+"model": "500e",
+"body": "Coupe / Sports",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 31800,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2016+Fiat+500e+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, cleanfleetreport.com)."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 33210,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2019+Fiat+500e+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, carfax.com, cleanfleetreport.com)."
+},
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 32500,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+Fiat+500e+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (autoweb.com, autoweek.com, carbuzz.com)."
+}
+],
+"gaps": []
+}

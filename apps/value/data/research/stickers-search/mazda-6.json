@@ -1,0 +1,54 @@
+{
+"make": "Mazda",
+"model": "6",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2014,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 20880,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2014+Mazda+6+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carfax.com, kbb.com, timesunion.com)."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 21950,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2018+Mazda+6+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (headquartermazda.com, kbb.com, news.mazdausa.com)."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 24100,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2020+Mazda+6+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (mazdaofescondido.com, townnorthmazda.com)."
+}
+],
+"gaps": []
+}

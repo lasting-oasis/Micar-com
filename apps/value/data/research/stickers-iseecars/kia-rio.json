@@ -321,8 +321,32 @@
 "destination": 825,
 "trims": [
 {
+"trim": "4dr Sedan Man LX",
+"msrp": 14165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto LX",
+"msrp": 15395,
+"config": "",
+"note": ""
+},
+{
 "trim": "RIO5 LX 4dr Wagon",
 "msrp": 15495,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Auto LX",
+"msrp": 15495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto EX",
+"msrp": 17755,
 "config": "",
 "note": ""
 },
@@ -333,7 +357,25 @@
 "note": ""
 },
 {
+"trim": "5dr HB Auto EX",
+"msrp": 17905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto SX",
+"msrp": 20755,
+"config": "",
+"note": ""
+},
+{
 "trim": "RIO5 SX 4dr Wagon",
+"msrp": 20905,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Auto SX",
 "msrp": 20905,
 "config": "",
 "note": ""
@@ -341,7 +383,7 @@
 ],
 "source": "https://www.iseecars.com/car/2016-kia-rio5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2017,
@@ -408,6 +450,18 @@
 "destination": 895,
 "trims": [
 {
+"trim": "LX Auto",
+"msrp": 15390,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto",
+"msrp": 16190,
+"config": "",
+"note": ""
+},
+{
 "trim": "RIO5 S 4dr Wagon",
 "msrp": 16400,
 "config": "",
@@ -416,12 +470,24 @@
 ],
 "source": "https://www.iseecars.com/car/2019-kia-rio5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
 "destination": 965,
 "trims": [
+{
+"trim": "LX IVT",
+"msrp": 15850,
+"config": "",
+"note": ""
+},
+{
+"trim": "S IVT",
+"msrp": 16490,
+"config": "",
+"note": ""
+},
 {
 "trim": "RIO5 S 4dr Wagon",
 "msrp": 16790,
@@ -431,12 +497,24 @@
 ],
 "source": "https://www.iseecars.com/car/2020-kia-rio5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
 "destination": 995,
 "trims": [
+{
+"trim": "LX IVT",
+"msrp": 16050,
+"config": "",
+"note": ""
+},
+{
+"trim": "S IVT",
+"msrp": 16690,
+"config": "",
+"note": ""
+},
 {
 "trim": "RIO5 S 4dr Wagon",
 "msrp": 16990,
@@ -446,7 +524,7 @@
 ],
 "source": "https://www.iseecars.com/car/2021-kia-rio5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

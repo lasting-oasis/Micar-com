@@ -5,6 +5,66 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (nsx).",
 "years": [
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe",
+"msrp": 156000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-acura-nsx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe",
+"msrp": 156000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-acura-nsx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe",
+"msrp": 157500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-acura-nsx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe",
+"msrp": 157500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-acura-nsx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1995,
 "trims": [

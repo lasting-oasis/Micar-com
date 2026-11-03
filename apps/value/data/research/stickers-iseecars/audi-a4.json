@@ -425,9 +425,90 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "CVT FrontTrak 2.0T Premium",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT FrontTrak 2.0T Premium Plus",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Man quattro 2.0T Premium",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Man quattro 2.0T Premium Plus",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto quattro 2.0T Premium",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto quattro 2.0T Premium Plus",
+"msrp": 38000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-a4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 950,
 "trims": [
+{
+"trim": "2.0 TFSI Premium front-wheel drive",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige front-wheel drive",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus front-wheel drive",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium quattro all-wheel drive",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige quattro all-wheel drive",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus quattro all-wheel drive",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
 {
 "trim": "Allroad AWD 2.0T quattro Premium 4dr Wagon",
 "msrp": 44000,
@@ -449,7 +530,142 @@
 ],
 "source": "https://www.iseecars.com/car/2017-audi-a4_allroad-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI ultra Premium S Tronic FWD",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI ultra Prestige S Tronic FWD",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI ultra Premium Plus S Tronic FWD",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI ultra Tech Premium S Tronic FWD",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI ultra Tech Premium Plus S Tronic FWD",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Manual quattro AWD",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium S Tronic quattro AWD",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus Manual quattro AWD",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige Manual quattro AWD",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus S Tronic quattro AWD",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige S Tronic quattro AWD",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium S Tronic quattro AWD",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium Manual quattro AWD",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium Plus S Tronic quattro AWD",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium Plus Manual quattro AWD",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad 2.0 TFSI Premium",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad 2.0 TFSI Prestige",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad 2.0 TFSI Premium Plus",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad 2.0 TFSI Tech Premium",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad 2.0 TFSI Tech Prestige",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad 2.0 TFSI Tech Premium Plus",
+"msrp": 47200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-a4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -480,6 +696,24 @@
 "note": ""
 },
 {
+"trim": "Allroad Premium 45 TFSI quattro",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad Prestige 45 TFSI quattro",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad Premium Plus 45 TFSI quattro",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
 "trim": "2.0T Prestige 4dr Sedan",
 "msrp": 46200,
 "config": "",
@@ -500,12 +734,48 @@
 ],
 "source": "https://www.iseecars.com/car/2019-audi-a4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
 "destination": 995,
 "trims": [
+{
+"trim": "Premium 40 TFSI",
+"msrp": 37400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 40 TFSI",
+"msrp": 37400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 40 TFSI",
+"msrp": 37400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 45 TFSI quattro",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 45 TFSI quattro",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 45 TFSI quattro",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
 {
 "trim": "Allroad AWD 2.0T quattro Premium 4dr Wagon",
 "msrp": 44600,
@@ -527,7 +797,70 @@
 ],
 "source": "https://www.iseecars.com/car/2020-audi-a4_allroad-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 40 TFSI quattro",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 40 TFSI quattro",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 40 TFSI quattro",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Premium 45 TFSI quattro",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Premium Plus 45 TFSI quattro",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Prestige 45 TFSI quattro",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad Premium 45 TFSI quattro",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad Prestige 45 TFSI quattro",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad Premium Plus 45 TFSI quattro",
+"msrp": 44600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-a4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

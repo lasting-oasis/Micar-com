@@ -2,7 +2,7 @@
 "make": "BMW",
 "model": "X6",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (x6).",
+"note": "Trim-level MSRPs from iSeeCars price pages (x6, x6_m).",
 "years": [
 {
 "year": 2010,
@@ -122,6 +122,66 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "RWD 4dr Sports Activity Coupe",
+"msrp": 59600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sports Activity Coupe",
+"msrp": 61900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sports Activity Coupe",
+"msrp": 72900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "RWD 4dr Sports Activity Coupe",
+"msrp": 60600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sports Activity Coupe",
+"msrp": 62900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sports Activity Coupe",
+"msrp": 75300,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X6 AWD 4dr Sports Activity Coupe",
+"msrp": 102200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 995,
 "trims": [
@@ -149,6 +209,99 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Coupe",
+"msrp": 62950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Coupe",
+"msrp": 65250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Coupe",
+"msrp": 77700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Coupe",
+"msrp": 63550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Coupe",
+"msrp": 65850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Coupe",
+"msrp": 78300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Coupe",
+"msrp": 64300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Coupe",
+"msrp": 66600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Coupe",
+"msrp": 85650,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X6 M Sports Activity Coupe",
+"msrp": 108600,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X6 M Competition Sports Activity Coupe",
+"msrp": 117600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-x6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 995,
 "trims": [
@@ -169,11 +322,17 @@
 "msrp": 86250,
 "config": "",
 "note": ""
+},
+{
+"trim": "M X6 M Sports Activity Coupe",
+"msrp": 108600,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-bmw-x6-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

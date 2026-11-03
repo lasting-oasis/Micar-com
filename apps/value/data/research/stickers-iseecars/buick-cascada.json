@@ -26,6 +26,33 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Conv",
+"msrp": 33065,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Premium",
+"msrp": 36065,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Sport Touring",
+"msrp": 37065,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-buick-cascada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-10-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 925,
 "trims": [
@@ -51,6 +78,33 @@
 "source": "https://www.iseecars.com/car/2018-buick-cascada-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Conv",
+"msrp": 33070,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Premium",
+"msrp": 36070,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Sport Touring",
+"msrp": 37070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-buick-cascada-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

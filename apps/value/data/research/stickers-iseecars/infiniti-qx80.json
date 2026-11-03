@@ -5,6 +5,33 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (qx80).",
 "years": [
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr",
+"msrp": 63250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr",
+"msrp": 66350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 88850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-infiniti-qx80-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2016,
 "destination": 995,
 "trims": [
@@ -30,6 +57,66 @@
 "source": "https://www.iseecars.com/car/2016-infiniti-qx80-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "RWD",
+"msrp": 63850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 66950,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Signature Edition",
+"msrp": 67335,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Signature Edition",
+"msrp": 70435,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited",
+"msrp": 89450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-infiniti-qx80-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "RWD",
+"msrp": 64750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 67850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-infiniti-qx80-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -84,6 +171,51 @@
 "source": "https://www.iseecars.com/car/2020-infiniti-qx80-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "LUXE RWD",
+"msrp": 69150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LUXE AWD",
+"msrp": 72250,
+"config": "",
+"note": ""
+},
+{
+"trim": "PREMIUM SELECT RWD",
+"msrp": 73450,
+"config": "",
+"note": ""
+},
+{
+"trim": "PREMIUM SELECT AWD",
+"msrp": 76550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SENSORY RWD",
+"msrp": 80300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SENSORY AWD",
+"msrp": 83400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-infiniti-qx80-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

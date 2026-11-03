@@ -1,0 +1,24 @@
+{
+"make": "Dodge",
+"model": "Viper",
+"body": "Coupe / Sports",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 87895,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2017+Dodge+Viper+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, edmunds.com, jdpower.com)."
+}
+],
+"gaps": []
+}

@@ -303,6 +303,468 @@
 "source": "https://www.iseecars.com/car/2014-dodge-durango-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr SXT",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SXT",
+"msrp": 33095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Limited",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr R/T",
+"msrp": 40295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Citadel",
+"msrp": 41295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr R/T",
+"msrp": 42895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Citadel",
+"msrp": 43895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr SXT",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SXT",
+"msrp": 33095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Limited",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Citadel",
+"msrp": 41295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Citadel Anodized Platinum",
+"msrp": 41295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr R/T",
+"msrp": 41995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Citadel",
+"msrp": 43895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Citadel Anodized Platinum",
+"msrp": 43895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr R/T",
+"msrp": 44595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 32595,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 40095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel RWD",
+"msrp": 41395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel Anodized Platinum RWD",
+"msrp": 41395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 42095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel AWD",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel Anodized Platinum AWD",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T AWD",
+"msrp": 44695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-03-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 32595,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 40495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel RWD",
+"msrp": 42195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel Anodized Platinum RWD",
+"msrp": 42195,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 43745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel AWD",
+"msrp": 44795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel Anodized Platinum AWD",
+"msrp": 44795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T AWD",
+"msrp": 46345,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT AWD",
+"msrp": 62995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus RWD",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 33045,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus AWD",
+"msrp": 33045,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Plus RWD",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Plus AWD",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel RWD",
+"msrp": 43245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel Anodized Platinum RWD",
+"msrp": 43245,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 44245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel AWD",
+"msrp": 45845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel Anodized Platinum AWD",
+"msrp": 45845,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T AWD",
+"msrp": 46845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT AWD",
+"msrp": 63245,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 31765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus RWD",
+"msrp": 31765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 34365,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus AWD",
+"msrp": 34365,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 35965,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Plus RWD",
+"msrp": 35965,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 38565,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Plus AWD",
+"msrp": 38565,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 45305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel RWD",
+"msrp": 47805,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T AWD",
+"msrp": 47905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Citadel AWD",
+"msrp": 50405,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT 392 AWD",
+"msrp": 62995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat AWD",
+"msrp": 80995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-dodge-durango-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

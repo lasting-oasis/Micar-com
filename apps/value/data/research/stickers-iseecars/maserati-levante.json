@@ -5,6 +5,72 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (levante).",
 "years": [
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "3.0L",
+"msrp": 72600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 3.0L",
+"msrp": 83800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "3.0L",
+"msrp": 74050,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranLusso 3.0L",
+"msrp": 80050,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranSport 3.0L",
+"msrp": 80050,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 3.0L",
+"msrp": 85250,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 3.0L",
+"msrp": 90750,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 3.0L",
+"msrp": 90750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1495,
 "trims": [
@@ -60,6 +126,63 @@
 "source": "https://www.iseecars.com/car/2019-maserati-levante-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "3.0L",
+"msrp": 72990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranLusso 3.0L",
+"msrp": 78990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranSport 3.0L",
+"msrp": 78990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 3.0L",
+"msrp": 83990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 3.0L",
+"msrp": 88990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 3.0L",
+"msrp": 88990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS 3.8L",
+"msrp": 120980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 3.8L",
+"msrp": 149990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

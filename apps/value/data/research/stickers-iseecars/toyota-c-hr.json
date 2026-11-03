@@ -1,0 +1,117 @@
+{
+"make": "Toyota",
+"model": "C-HR",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (c__hr).",
+"years": [
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 22500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium FWD (Natl)",
+"msrp": 24350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-c__hr-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "LE FWD (Natl)",
+"msrp": 21145,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 23180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 26200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-c__hr-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LE FWD (Natl)",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 23330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 26350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-c__hr-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "LE FWD (Natl)",
+"msrp": 21545,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 23580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade FWD (Natl)",
+"msrp": 24345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 26600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-c__hr-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

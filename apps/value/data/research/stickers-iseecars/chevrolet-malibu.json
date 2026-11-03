@@ -2,7 +2,7 @@
 "make": "Chevrolet",
 "model": "Malibu",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (malibu, malibu_hybrid).",
+"note": "Trim-level MSRPs from iSeeCars price pages (malibu, malibu_hybrid, malibu_limited).",
 "years": [
 {
 "year": 2010,
@@ -260,6 +260,156 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "1LS",
+"msrp": 22465,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT",
+"msrp": 23735,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "3LT",
+"msrp": 27130,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LTZ",
+"msrp": 28320,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LTZ",
+"msrp": 30480,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Limited 1LS",
+"msrp": 22565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 1LT",
+"msrp": 23835,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 1LTZ",
+"msrp": 28420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-malibu_limited-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "1VL",
+"msrp": 21680,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LS",
+"msrp": 23225,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT",
+"msrp": 25125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 27875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier",
+"msrp": 30975,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "1VL",
+"msrp": 21680,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LS",
+"msrp": 23320,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT",
+"msrp": 25220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid",
+"msrp": 27920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier",
+"msrp": 31020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 875,
 "trims": [
@@ -309,6 +459,84 @@
 "source": "https://www.iseecars.com/car/2019-chevrolet-malibu-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "1VL",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LS",
+"msrp": 23220,
+"config": "",
+"note": ""
+},
+{
+"trim": "1SP",
+"msrp": 24220,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT",
+"msrp": 26620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier",
+"msrp": 33320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "L",
+"msrp": 22270,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS",
+"msrp": 23400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS",
+"msrp": 24400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier",
+"msrp": 33500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-malibu-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

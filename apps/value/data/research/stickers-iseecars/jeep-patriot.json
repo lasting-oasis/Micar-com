@@ -264,6 +264,201 @@
 "source": "https://www.iseecars.com/car/2014-jeep-patriot-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 16895,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Altitude Edition",
+"msrp": 16895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Altitude Edition",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr High Altitude Edition",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr High Altitude Edition",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 24895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 26895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-jeep-patriot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 17595,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Sport SE",
+"msrp": 17595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 19595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport SE",
+"msrp": 19595,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr High Altitude Edition",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr High Altitude Edition",
+"msrp": 25495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jeep-patriot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 18040,
+"config": "",
+"note": ""
+},
+{
+"trim": "75th Anniversary Edition FWD",
+"msrp": 18040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SE FWD",
+"msrp": 18040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4",
+"msrp": 20040,
+"config": "",
+"note": ""
+},
+{
+"trim": "75th Anniversary Edition 4x4",
+"msrp": 20040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SE 4x4",
+"msrp": 20040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude FWD",
+"msrp": 22540,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude FWD",
+"msrp": 22540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 25840,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x4",
+"msrp": 25840,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jeep-patriot-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

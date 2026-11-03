@@ -5,6 +5,93 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (bentayga).",
 "years": [
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "W12 AWD",
+"msrp": 229100,
+"config": "",
+"note": ""
+},
+{
+"trim": "W12 First Edition AWD",
+"msrp": 297400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bentley-bentayga-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Onyx Edition AWD",
+"msrp": 195000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Activity Edition AWD",
+"msrp": 215000,
+"config": "",
+"note": ""
+},
+{
+"trim": "W12 Signature AWD",
+"msrp": 229100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Edition AWD",
+"msrp": 239000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Mulliner AWD",
+"msrp": 298000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bentley-bentayga-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "V8 AWD",
+"msrp": 165000,
+"config": "",
+"note": ""
+},
+{
+"trim": "W12 AWD",
+"msrp": 229100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Mulliner AWD",
+"msrp": 298000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bentley-bentayga-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 2725,
 "trims": [
@@ -36,6 +123,39 @@
 "source": "https://www.iseecars.com/car/2020-bentley-bentayga-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Hybrid AWD",
+"msrp": 160000,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 AWD",
+"msrp": 177000,
+"config": "",
+"note": ""
+},
+{
+"trim": "First Edition AWD",
+"msrp": 219430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Speed AWD",
+"msrp": 245000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bentley-bentayga-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

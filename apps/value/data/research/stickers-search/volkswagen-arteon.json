@@ -1,0 +1,24 @@
+{
+"make": "Volkswagen",
+"model": "Arteon",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2023,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 42530,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2023+Volkswagen+Arteon+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (evansvolkswagen.com, kbb.com, media.vw.com)."
+}
+],
+"gaps": []
+}

@@ -2,7 +2,7 @@
 "make": "Land Rover",
 "model": "Range Rover Evoque",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (range_rover_evoque_coupe).",
+"note": "Trim-level MSRPs from iSeeCars price pages (range_rover_evoque, range_rover_evoque_coupe).",
 "years": [
 {
 "year": 2012,
@@ -114,6 +114,246 @@
 "source": "https://www.iseecars.com/car/2016-landrover-range_rover_evoque_coupe-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "5 Door SE",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe SE Premium",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door SE Premium",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door HSE",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible SE Dynamic",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door HSE Dynamic",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible HSE Dynamic",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door Autobiography",
+"msrp": 62500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-landrover-range_rover_evoque-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "5 Door SE",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door SE Premium",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door Landmark Edition",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door HSE",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible SE Dynamic",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door HSE Dynamic",
+"msrp": 54300,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door 286hp HSE Dynamic",
+"msrp": 57300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible HSE Dynamic",
+"msrp": 57800,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door Autobiography",
+"msrp": 62600,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door 286hp Autobiography",
+"msrp": 65600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-landrover-range_rover_evoque-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "5 Door SE",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door SE Premium",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door Landmark Edition",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door HSE",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible SE Dynamic",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door HSE Dynamic",
+"msrp": 54300,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door 286hp HSE Dynamic",
+"msrp": 57300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible HSE Dynamic",
+"msrp": 57800,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door Autobiography",
+"msrp": 62600,
+"config": "",
+"note": ""
+},
+{
+"trim": "5 Door 286hp Autobiography",
+"msrp": 65600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-landrover-range_rover_evoque-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "P250 S",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 R-Dynamic S",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "P250 SE",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 R-Dynamic SE",
+"msrp": 51150,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 R-Dynamic HSE",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "P250 First Edition",
+"msrp": 56850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-landrover-range_rover_evoque-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

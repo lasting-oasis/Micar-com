@@ -284,6 +284,228 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2.5i Manual",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i CVT",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium Manual",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium CVT",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited",
+"msrp": 28795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0XT Premium",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Touring",
+"msrp": 30795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0XT Touring",
+"msrp": 33795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.5i Manual",
+"msrp": 22595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i CVT",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium Manual",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium CVT",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited CVT",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0XT Premium CVT",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Touring CVT",
+"msrp": 31295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0XT Touring CVT",
+"msrp": 34295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.5i Manual",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i CVT",
+"msrp": 23795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium Manual",
+"msrp": 25695,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium CVT",
+"msrp": 26195,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium Black Edition CVT",
+"msrp": 27345,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium Black Edition w/EyeSight CVT",
+"msrp": 28540,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited CVT",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0XT Premium CVT",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Touring CVT",
+"msrp": 33090,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0XT Touring CVT",
+"msrp": 36090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2.5i",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium",
+"msrp": 26695,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Sport",
+"msrp": 28795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited",
+"msrp": 30795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Touring",
+"msrp": 34295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 1010,
 "trims": [
@@ -321,6 +543,45 @@
 "source": "https://www.iseecars.com/car/2020-subaru-forester-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "CVT",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 27795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 31395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT",
+"msrp": 34895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-subaru-forester-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

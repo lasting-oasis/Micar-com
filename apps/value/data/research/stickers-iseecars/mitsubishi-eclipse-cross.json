@@ -44,6 +44,120 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "ES FWD",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES S-AWC",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE S-AWC",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SP S-AWC",
+"msrp": 26190,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE S-AWC",
+"msrp": 26695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL S-AWC",
+"msrp": 28195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mitsubishi-eclipse_cross-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "ES FWD",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE FWD",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES S-AWC",
+"msrp": 24595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SP FWD",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD",
+"msrp": 25645,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE S-AWC",
+"msrp": 25695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SP S-AWC",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 27145,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE S-AWC",
+"msrp": 27245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL S-AWC",
+"msrp": 28745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mitsubishi-eclipse_cross-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2023,
 "destination": 1345,
 "trims": [

@@ -152,9 +152,393 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD 5-Passenger Momentum",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 5-Passenger Momentum",
+"msrp": 47950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD 5-Passenger R-Design",
+"msrp": 51150,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger Momentum",
+"msrp": 52250,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 5-Passenger R-Design",
+"msrp": 53350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger R-Design",
+"msrp": 56250,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger Inscription",
+"msrp": 57350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger R-Design",
+"msrp": 67800,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger Inscription",
+"msrp": 68900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Excellence",
+"msrp": 104900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD 5-Passenger Momentum",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD 7-Passenger Momentum",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 5-Passenger Momentum",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 7-Passenger Momentum",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD 7-Passenger R-Design",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD 5-Passenger R-Design",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 7-Passenger R-Design",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger Momentum",
+"msrp": 54350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 5-Passenger R-Design",
+"msrp": 54500,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger R-Design",
+"msrp": 57950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger Inscription",
+"msrp": 59450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger Momentum",
+"msrp": 64950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger R-Design",
+"msrp": 68550,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger Inscription",
+"msrp": 70050,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Excellence",
+"msrp": 104900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design",
+"msrp": 54950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design",
+"msrp": 57450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 61250,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 62350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Momentum",
+"msrp": 67000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid R-Design",
+"msrp": 71950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription",
+"msrp": 73050,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Excellence",
+"msrp": 104900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum 7 Passenger",
+"msrp": 48350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum 7 Passenger",
+"msrp": 50850,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design 7 Passenger",
+"msrp": 56100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum 7 Passenger",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum 6 Passenger",
+"msrp": 56800,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design 7 Passenger",
+"msrp": 58600,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design 7 Passenger",
+"msrp": 62000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription 7 Passenger",
+"msrp": 62600,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription 6 Passenger",
+"msrp": 63100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Momentum 7 Passenger",
+"msrp": 67000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Momentum 6 Passenger",
+"msrp": 67500,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid R-Design 7 Passenger",
+"msrp": 72700,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription 7 Passenger",
+"msrp": 73300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription 6 Passenger",
+"msrp": 73800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 995,
 "trims": [
+{
+"trim": "T5 FWD Momentum 7P",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum 7P",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design 7P",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum 7P",
+"msrp": 56950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum 6P",
+"msrp": 57450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design 7P",
+"msrp": 58100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design 7P",
+"msrp": 62650,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription 7P",
+"msrp": 63250,
+"config": "",
+"note": ""
+},
 {
 "trim": "Recharge eAWD T8 Inscription Expression 7-Passenger 4dr SUV",
 "msrp": 63450,
@@ -162,7 +546,25 @@
 "note": ""
 },
 {
+"trim": "Recharge T8 eAWD PHEV Inscription Expression 7P",
+"msrp": 63450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription 6P",
+"msrp": 63750,
+"config": "",
+"note": ""
+},
+{
 "trim": "Recharge eAWD T8 Inscription Expression 6-Passenger 4dr SUV",
+"msrp": 63950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Inscription Expression 6P",
 "msrp": 63950,
 "config": "",
 "note": ""
@@ -174,7 +576,19 @@
 "note": ""
 },
 {
+"trim": "Recharge T8 eAWD PHEV R-Design 7P",
+"msrp": 69150,
+"config": "",
+"note": ""
+},
+{
 "trim": "Recharge eAWD T8 Inscription 7-Passenger 4dr SUV",
+"msrp": 69750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Inscription 7P",
 "msrp": 69750,
 "config": "",
 "note": ""
@@ -184,11 +598,17 @@
 "msrp": 70250,
 "config": "",
 "note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Inscription 6P",
+"msrp": 70250,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-volvo-xc90_recharge-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

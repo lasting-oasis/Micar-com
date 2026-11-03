@@ -260,6 +260,216 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "LX",
+"msrp": 28975,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX",
+"msrp": 32275,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L",
+"msrp": 35775,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L with DVD Rear Entertainment System",
+"msrp": 37375,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L with Navigation",
+"msrp": 37775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring with DVD Rear Entertainment System and Navigation",
+"msrp": 42030,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Elite with DVD Rear Entertainment System and Navigation",
+"msrp": 44600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-03-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "LX",
+"msrp": 29275,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX",
+"msrp": 32425,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE",
+"msrp": 33375,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L with DVD Rear Entertainment System",
+"msrp": 37525,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L with Navigation",
+"msrp": 37925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring with DVD Rear Entertainment System and Navigation",
+"msrp": 42180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Elite with DVD Rear Entertainment System and Navigation",
+"msrp": 44750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "LX Auto",
+"msrp": 29850,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Auto",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto",
+"msrp": 33950,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Auto",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L w/RES Auto",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L w/Navi Auto",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 42755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Elite Auto",
+"msrp": 45325,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "LX Auto",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Auto",
+"msrp": 33960,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Auto",
+"msrp": 37460,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L w/Navi/RES Auto",
+"msrp": 39460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 44610,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite Auto",
+"msrp": 46770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1095,
 "trims": [
@@ -303,6 +513,90 @@
 "source": "https://www.iseecars.com/car/2019-honda-odyssey-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LX Auto",
+"msrp": 30790,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Auto",
+"msrp": 34790,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Auto",
+"msrp": 38060,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L w/Navi/RES Auto",
+"msrp": 40160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 45060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite Auto",
+"msrp": 47420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "LX Auto",
+"msrp": 31790,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Auto",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Auto",
+"msrp": 38460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elite Auto",
+"msrp": 47820,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-honda-odyssey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

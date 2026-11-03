@@ -54,6 +54,432 @@
 "source": "https://www.iseecars.com/car/2015-acura-tlx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 31695,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD V6",
+"msrp": 35320,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Tech",
+"msrp": 35750,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD V6 Tech",
+"msrp": 39375,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD V6 Tech",
+"msrp": 41575,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD V6 Advance",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD V6 Advance",
+"msrp": 44800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-acura-tlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD V6",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Technology Pkg",
+"msrp": 36050,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD V6 w/Technology Pkg",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD V6 w/Technology Pkg",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD V6 w/Advance Pkg",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD V6 w/Advance Pkg",
+"msrp": 44900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-acura-tlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.4L FWD",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L FWD w/Technology Pkg",
+"msrp": 36700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/Technology Pkg",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/Technology Pkg",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/A-SPEC Pkg",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/A-SPEC Pkg Red Leather",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/Advance Pkg",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/A-SPEC Pkg",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/A-SPEC Pkg Red Leather",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/Advance Pkg",
+"msrp": 45750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-acura-tlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2.4L FWD",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L FWD w/Technology Pkg",
+"msrp": 36700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L FWD w/A-Spec Pkg",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L FWD w/A-Spec Pkg Red Leather",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/Technology Pkg",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/Technology Pkg",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/A-Spec Pkg",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/A-Spec Pkg Red Leather",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/Advance Pkg",
+"msrp": 43950,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/A-Spec Pkg",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/A-Spec Pkg Red Leather",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/Advance Pkg",
+"msrp": 45950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-acura-tlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2.4L FWD",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L FWD w/Technology Pkg",
+"msrp": 36700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L FWD w/A-Spec Pkg",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L FWD w/A-Spec Pkg Red Leather",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/Technology Pkg",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/Technology Pkg",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/A-Spec Pkg",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L FWD w/A-Spec Pkg Red Leather",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/A-Spec Pkg",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/A-Spec Pkg Red Leather",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD w/Advance Pkg",
+"msrp": 45950,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L SH-AWD PMC Edition",
+"msrp": 48950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-acura-tlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Technology Package",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Technology Package",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/A-Spec Package",
+"msrp": 44250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/A-Spec Package",
+"msrp": 46250,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Advance Package",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Advance Package",
+"msrp": 48300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-acura-tlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

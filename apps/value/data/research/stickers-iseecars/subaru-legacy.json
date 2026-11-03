@@ -296,6 +296,57 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2.5i",
+"msrp": 21745,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i PZEV",
+"msrp": 22045,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium",
+"msrp": 23845,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium PZEV",
+"msrp": 24145,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited",
+"msrp": 26845,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited PZEV",
+"msrp": 27145,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6R Limited",
+"msrp": 29945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 820,
 "trims": [
@@ -333,6 +384,174 @@
 "source": "https://www.iseecars.com/car/2017-subaru-legacy-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.5i",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Sport",
+"msrp": 26345,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6R Limited",
+"msrp": 31945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2.5i",
+"msrp": 22545,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium",
+"msrp": 24695,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Sport",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited",
+"msrp": 29245,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6R Limited",
+"msrp": 31545,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "CVT",
+"msrp": 22745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT",
+"msrp": 26945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 29745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited XT CVT",
+"msrp": 34195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring XT CVT",
+"msrp": 35895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "CVT",
+"msrp": 22895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 25145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 29895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited XT CVT",
+"msrp": 34445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring XT CVT",
+"msrp": 36145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-subaru-legacy-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

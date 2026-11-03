@@ -392,6 +392,369 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 74000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 78000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 81000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 82500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 87300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 90300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 91000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 94000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 128300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 131300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 132200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 135200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 141200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 81300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 94400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 97400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 81500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 84500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 89100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 94600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 97600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 137000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 153800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 83100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 86100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 90700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 96400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 99400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 138800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 156700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 83650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 86650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 91250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 96950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 99950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 139350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 156700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 86450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 89450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 95550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 102650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 142800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 157700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 86800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 89800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 95900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 103000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 143200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 157800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-7_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 995,
 "trims": [

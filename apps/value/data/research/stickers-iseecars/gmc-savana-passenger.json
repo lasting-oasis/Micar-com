@@ -5,6 +5,324 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (savana_passenger).",
 "years": [
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 32190,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 32190,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 34485,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 34485,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 36355,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 36355,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 2LS",
+"msrp": 47425,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 2LT",
+"msrp": 47425,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 2LS",
+"msrp": 49295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 2LT",
+"msrp": 49295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-gmc-savana_passenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 32990,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 32990,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 35285,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 35285,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 37155,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 37155,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 2LS",
+"msrp": 48225,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 2LT",
+"msrp": 48225,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 2LS",
+"msrp": 50095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 2LT",
+"msrp": 50095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-gmc-savana_passenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 33140,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 33140,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 35435,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 35435,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 37305,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 37305,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-gmc-savana_passenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 33515,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 33515,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 35810,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 35810,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 37680,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 37680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-gmc-savana_passenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 38000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-gmc-savana_passenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Regular Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LS",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 Extended Wheelbase Rear-Wheel Drive 1LT",
+"msrp": 38000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-gmc-savana_passenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1295,
 "trims": [

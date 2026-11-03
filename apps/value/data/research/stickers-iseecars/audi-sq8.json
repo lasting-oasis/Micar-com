@@ -1,0 +1,30 @@
+{
+"make": "Audi",
+"model": "SQ8",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (sq8).",
+"years": [
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Premium Plus 4.0 TFSI quattro",
+"msrp": 89100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 4.0 TFSI quattro",
+"msrp": 89100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-sq8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

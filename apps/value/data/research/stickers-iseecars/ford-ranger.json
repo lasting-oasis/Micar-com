@@ -242,6 +242,180 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "XL 2WD SuperCab Pickup Box Delete",
+"msrp": 24110,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 6' Box",
+"msrp": 24410,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCrew 5' Box",
+"msrp": 26810,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 6' Box",
+"msrp": 28460,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 6' Box",
+"msrp": 28570,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCrew 5' Box",
+"msrp": 30635,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCrew 5' Box",
+"msrp": 30970,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 6' Box",
+"msrp": 32460,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 6' Box",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCrew 5' Box",
+"msrp": 34635,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCrew 5' Box",
+"msrp": 34675,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 6' Box",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCrew 5' Box",
+"msrp": 38675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "XL 2WD SuperCab 6' Box",
+"msrp": 24820,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab Pickup Box Delete",
+"msrp": 24820,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCrew 5' Box",
+"msrp": 27220,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 6' Box",
+"msrp": 28675,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 6' Box",
+"msrp": 28870,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCrew 5' Box",
+"msrp": 31045,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCrew 5' Box",
+"msrp": 31075,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 6' Box",
+"msrp": 32570,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 6' Box",
+"msrp": 32910,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCrew 5' Box",
+"msrp": 34745,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCrew 5' Box",
+"msrp": 35085,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 6' Box",
+"msrp": 36610,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCrew 5' Box",
+"msrp": 38785,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ford-ranger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2023,
 "destination": 1495,
 "trims": [

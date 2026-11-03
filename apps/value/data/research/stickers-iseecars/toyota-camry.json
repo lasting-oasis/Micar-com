@@ -344,6 +344,480 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan I4 Auto LE (Natl)",
+"msrp": 23070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 Auto SE (Natl)",
+"msrp": 23840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 Auto SE w/Special Edition Pkg (Natl)",
+"msrp": 25715,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 Auto XLE (Natl)",
+"msrp": 26310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 Auto XSE (Natl)",
+"msrp": 26310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 Auto XLE (Natl)",
+"msrp": 31370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 Auto XSE (Natl)",
+"msrp": 31370,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "LE Auto (Natl)",
+"msrp": 23070,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto (Natl)",
+"msrp": 23840,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto (Natl)",
+"msrp": 26310,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE Auto (Natl)",
+"msrp": 26310,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE CVT (Natl)",
+"msrp": 26790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE CVT (Natl)",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE CVT (Natl)",
+"msrp": 30140,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 Auto (Natl)",
+"msrp": 31370,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE V6 Auto (Natl)",
+"msrp": 31370,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "L Auto (Natl)",
+"msrp": 23645,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Auto (Natl)",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto (Natl)",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE CVT (Natl)",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto (Natl)",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE Auto (Natl)",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE CVT (Natl)",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE CVT (Natl)",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 Auto (Natl)",
+"msrp": 34550,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE V6 Auto (Natl)",
+"msrp": 35100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "L Auto (Natl)",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Auto (Natl)",
+"msrp": 24600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto (Natl)",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE CVT (Natl)",
+"msrp": 28400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto (Natl)",
+"msrp": 29175,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE Auto (Natl)",
+"msrp": 29725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE CVT (Natl)",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE CVT (Natl)",
+"msrp": 32975,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 Auto (Natl)",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE V6 Auto (Natl)",
+"msrp": 34850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "L Auto (Natl)",
+"msrp": 24425,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Auto (Natl)",
+"msrp": 24970,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto (Natl)",
+"msrp": 26170,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Auto AWD (Natl)",
+"msrp": 26370,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Nightshade Auto (Natl)",
+"msrp": 26870,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto AWD (Natl)",
+"msrp": 27570,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Nightshade Auto AWD (Natl)",
+"msrp": 28270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE CVT (Natl)",
+"msrp": 28430,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto (Natl)",
+"msrp": 29455,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE Auto (Natl)",
+"msrp": 30005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE CVT (Natl)",
+"msrp": 30130,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto AWD (Natl)",
+"msrp": 30855,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD V6 Auto (Natl)",
+"msrp": 31170,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE Auto AWD (Natl)",
+"msrp": 31405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE CVT (Natl)",
+"msrp": 32730,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 Auto (Natl)",
+"msrp": 34580,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE V6 Auto (Natl)",
+"msrp": 35130,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "LE Auto (Natl)",
+"msrp": 25045,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Auto AWD (Natl)",
+"msrp": 26445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto (Natl)",
+"msrp": 26560,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Nightshade Auto (Natl)",
+"msrp": 27260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE CVT (Natl)",
+"msrp": 27270,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto AWD (Natl)",
+"msrp": 27960,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Nightshade Auto AWD (Natl)",
+"msrp": 28660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE CVT (Natl)",
+"msrp": 28785,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto (Natl)",
+"msrp": 29945,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE Auto (Natl)",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto AWD (Natl)",
+"msrp": 31345,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE Auto AWD (Natl)",
+"msrp": 31895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE CVT (Natl)",
+"msrp": 32170,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD V6 Auto (Natl)",
+"msrp": 32260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XSE CVT (Natl)",
+"msrp": 32720,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 Auto (Natl)",
+"msrp": 35070,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE V6 Auto (Natl)",
+"msrp": 35620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-camry-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1095,
 "trims": [

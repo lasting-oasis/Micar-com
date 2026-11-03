@@ -230,6 +230,567 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr S",
+"msrp": 23290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr S",
+"msrp": 24640,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SV",
+"msrp": 24740,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SV",
+"msrp": 26090,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SV Hybrid",
+"msrp": 27440,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SL",
+"msrp": 28690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SV Hybrid",
+"msrp": 28790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SL",
+"msrp": 30040,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SL Hybrid",
+"msrp": 32050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SL Hybrid",
+"msrp": 33400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD S",
+"msrp": 21420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD S",
+"msrp": 22770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD SV",
+"msrp": 23020,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD S",
+"msrp": 23820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD SV",
+"msrp": 24370,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 FWD S",
+"msrp": 24420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S",
+"msrp": 25170,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV",
+"msrp": 25240,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 FWD SV",
+"msrp": 25640,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 AWD S",
+"msrp": 25770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD SL",
+"msrp": 26070,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV Hybrid",
+"msrp": 26240,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV",
+"msrp": 26590,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 FWD SV Hybrid",
+"msrp": 26640,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 AWD SV",
+"msrp": 26990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD SL",
+"msrp": 27420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV Hybrid",
+"msrp": 27590,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 AWD SV Hybrid",
+"msrp": 27990,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL",
+"msrp": 29960,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 FWD SL",
+"msrp": 30360,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL Hybrid",
+"msrp": 31160,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL",
+"msrp": 31310,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 FWD SL Hybrid",
+"msrp": 31560,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 AWD SL",
+"msrp": 31710,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL Hybrid",
+"msrp": 32510,
+"config": "",
+"note": ""
+},
+{
+"trim": "2017.5 AWD SL Hybrid",
+"msrp": 32910,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD S",
+"msrp": 21640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2018.5 FWD S",
+"msrp": 22110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD S",
+"msrp": 22990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD SV",
+"msrp": 23240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2018.5 AWD S",
+"msrp": 23460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2018.5 FWD SV",
+"msrp": 23740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD SV",
+"msrp": 24590,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD S",
+"msrp": 24800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2018.5 AWD SV",
+"msrp": 25090,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV",
+"msrp": 26020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD SL",
+"msrp": 26290,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV Hybrid",
+"msrp": 27020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2018.5 FWD SL",
+"msrp": 27190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV",
+"msrp": 27370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD SL",
+"msrp": 27640,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV Hybrid",
+"msrp": 28370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2018.5 AWD SL",
+"msrp": 28540,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL",
+"msrp": 31180,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL Hybrid",
+"msrp": 32380,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL",
+"msrp": 32530,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL Hybrid",
+"msrp": 33730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD S",
+"msrp": 22340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD S",
+"msrp": 23690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD SV",
+"msrp": 24140,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD S",
+"msrp": 25020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD SV",
+"msrp": 25490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S",
+"msrp": 26370,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV",
+"msrp": 26440,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV Hybrid",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV",
+"msrp": 27790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD SL",
+"msrp": 28060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV Hybrid",
+"msrp": 29050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD SL",
+"msrp": 29410,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL",
+"msrp": 31490,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL Hybrid",
+"msrp": 31640,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL",
+"msrp": 32840,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL Hybrid",
+"msrp": 32990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-rogue-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD S",
+"msrp": 23430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD S",
+"msrp": 24780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD SV",
+"msrp": 24900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD S",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD SV",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S",
+"msrp": 26550,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV",
+"msrp": 26620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV",
+"msrp": 27970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD SL",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD SL",
+"msrp": 29950,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL",
+"msrp": 31590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL",
+"msrp": 32940,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-rogue_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1175,
 "trims": [
@@ -246,14 +807,38 @@
 "note": ""
 },
 {
+"trim": "FWD S",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
 "trim": "Sport SV 4dr Crossover",
 "msrp": 25730,
 "config": "",
 "note": ""
 },
 {
+"trim": "AWD S",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
 "trim": "Sport AWD SV 4dr Crossover",
 "msrp": 27130,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV",
+"msrp": 27340,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV",
+"msrp": 28740,
 "config": "",
 "note": ""
 },
@@ -268,11 +853,35 @@
 "msrp": 30190,
 "config": "",
 "note": ""
+},
+{
+"trim": "FWD SL",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Platinum",
+"msrp": 35430,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum",
+"msrp": 36830,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-nissan-rogue_sport-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

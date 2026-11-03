@@ -5,6 +5,525 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (sierra_1500).",
 "years": [
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive",
+"msrp": 27020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive",
+"msrp": 27410,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive",
+"msrp": 30960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive",
+"msrp": 31260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive SLE",
+"msrp": 33945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive SLE",
+"msrp": 34070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive",
+"msrp": 34675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive",
+"msrp": 35740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive",
+"msrp": 36040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive SLE",
+"msrp": 36550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 37850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive SLE",
+"msrp": 38150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive",
+"msrp": 38890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive SLE",
+"msrp": 39015,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive",
+"msrp": 39190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive SLE",
+"msrp": 39315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 40395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive SLT",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive SLE",
+"msrp": 42985,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 43285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive SLT",
+"msrp": 43710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive SLT",
+"msrp": 44010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive SLT",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive SLT",
+"msrp": 46860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive SLT",
+"msrp": 47160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Denali",
+"msrp": 50015,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Denali",
+"msrp": 50315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Denali",
+"msrp": 53165,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Denali",
+"msrp": 53465,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive",
+"msrp": 27815,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive",
+"msrp": 28205,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive",
+"msrp": 31755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive",
+"msrp": 31840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive",
+"msrp": 32055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive SLE",
+"msrp": 34565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive SLE",
+"msrp": 34690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive",
+"msrp": 35820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive",
+"msrp": 36330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive SLE",
+"msrp": 37170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 38470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive SLE",
+"msrp": 38770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive",
+"msrp": 39480,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive SLE",
+"msrp": 39635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive",
+"msrp": 40875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 41015,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive SLT",
+"msrp": 41760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive SLE",
+"msrp": 43605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive SLT",
+"msrp": 44220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive SLT",
+"msrp": 45010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive SLT",
+"msrp": 47370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive SLT",
+"msrp": 47670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Denali",
+"msrp": 51190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Denali",
+"msrp": 54340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Denali",
+"msrp": 54640,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive",
+"msrp": 28405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive",
+"msrp": 28795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive",
+"msrp": 32345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive",
+"msrp": 32430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive",
+"msrp": 32645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive SLE",
+"msrp": 35305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive SLE",
+"msrp": 35430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive",
+"msrp": 36410,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive",
+"msrp": 36920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive SLE",
+"msrp": 37910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 39210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive SLE",
+"msrp": 39510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive",
+"msrp": 40070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive SLE",
+"msrp": 40375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive",
+"msrp": 41465,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 41755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive SLT",
+"msrp": 42430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive SLE",
+"msrp": 44345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive SLT",
+"msrp": 44890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive SLT",
+"msrp": 45680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 45740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive SLT",
+"msrp": 48040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive SLT",
+"msrp": 48340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Denali",
+"msrp": 52505,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Denali",
+"msrp": 55655,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Denali",
+"msrp": 55955,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 1395,
 "trims": [
@@ -375,6 +894,213 @@
 "source": "https://www.iseecars.com/car/2019-gmc-sierra_1500-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive",
+"msrp": 33500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive SLE",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive SLE",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive Elevation",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive SLE",
+"msrp": 40700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Elevation",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Elevation",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive SLE",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Elevation",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive SLE",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive SLT",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Elevation",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Elevation",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive SLT",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive SLT",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive SLT",
+"msrp": 48000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive SLT",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive SLT",
+"msrp": 50700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive AT4",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive AT4",
+"msrp": 53700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive AT4",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Denali",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Denali",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Denali",
+"msrp": 58600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Denali",
+"msrp": 58900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-gmc-sierra_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

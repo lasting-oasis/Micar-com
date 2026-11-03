@@ -50,6 +50,234 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe Man RWD",
+"msrp": 65000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Auto RWD",
+"msrp": 66300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Man RWD",
+"msrp": 68100,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto RWD",
+"msrp": 69400,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Man S RWD",
+"msrp": 77300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Auto S RWD",
+"msrp": 78800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Man S RWD",
+"msrp": 80400,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto S RWD",
+"msrp": 81900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Auto S AWD",
+"msrp": 84800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto S AWD",
+"msrp": 87900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Auto R AWD",
+"msrp": 103600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto R AWD",
+"msrp": 106450,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible Auto Project 7 RWD",
+"msrp": 165000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jaguar-f__type-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe Manual",
+"msrp": 61400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Automatic",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Manual",
+"msrp": 65400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Automatic",
+"msrp": 66700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Manual Premium",
+"msrp": 66800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Automatic Premium",
+"msrp": 68100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Manual Premium",
+"msrp": 69900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Automatic Premium",
+"msrp": 71200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Manual S",
+"msrp": 79100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Automatic S",
+"msrp": 80600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Manual S",
+"msrp": 82200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Automatic S",
+"msrp": 83700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Automatic S AWD",
+"msrp": 86600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Automatic S AWD",
+"msrp": 89700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Automatic S British Design Edition",
+"msrp": 92100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Automatic S British Design Edition",
+"msrp": 95200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Automatic S British Design Edition AWD",
+"msrp": 98100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Automatic S British Design Edition AWD",
+"msrp": 101200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Automatic R AWD",
+"msrp": 105400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Automatic R AWD",
+"msrp": 108250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Automatic SVR AWD",
+"msrp": 125950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Automatic SVR AWD",
+"msrp": 128800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jaguar-f__type-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [
@@ -330,6 +558,168 @@
 "source": "https://www.iseecars.com/car/2019-jaguar-f__type-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe Auto P300",
+"msrp": 61600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto P300",
+"msrp": 64700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto P340",
+"msrp": 71100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto Checkered Flag",
+"msrp": 71900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto P340",
+"msrp": 74200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto Checkered Flag",
+"msrp": 74300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto R-Dynamic",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto R-Dynamic AWD",
+"msrp": 87300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto R-Dynamic",
+"msrp": 87400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto R-Dynamic AWD",
+"msrp": 90400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto Checkered Flag AWD",
+"msrp": 94500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto Checkered Flag AWD",
+"msrp": 96900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto R AWD",
+"msrp": 101800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto R AWD",
+"msrp": 104900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto SVR AWD",
+"msrp": 123600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto SVR AWD",
+"msrp": 126700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-jaguar-f__type-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe Auto P300",
+"msrp": 61600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto P300",
+"msrp": 64700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto First Edition",
+"msrp": 73100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto First Edition",
+"msrp": 75400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto R-Dynamic AWD",
+"msrp": 81800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto R-Dynamic AWD",
+"msrp": 84900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Auto R AWD",
+"msrp": 103200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Auto R AWD",
+"msrp": 105900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-jaguar-f__type-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

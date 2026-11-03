@@ -36,6 +36,144 @@
 "source": "https://www.iseecars.com/car/2014-fiat-500l-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Pop",
+"msrp": 19345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Easy",
+"msrp": 20695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking",
+"msrp": 21695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Urbana Trekking",
+"msrp": 21695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge",
+"msrp": 24695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-fiat-500l-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Pop",
+"msrp": 19495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Easy",
+"msrp": 20795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking",
+"msrp": 21880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Urbana Trekking",
+"msrp": 21880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge",
+"msrp": 24795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-fiat-500l-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Pop Hatch",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking Hatch",
+"msrp": 23325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge Hatch",
+"msrp": 23895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-fiat-500l-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Pop Hatch",
+"msrp": 22500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking Hatch",
+"msrp": 23825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Urbana Hatch",
+"msrp": 23825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge Hatch",
+"msrp": 24645,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-fiat-500l-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

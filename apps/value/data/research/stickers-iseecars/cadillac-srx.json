@@ -282,6 +282,108 @@
 "source": "https://www.iseecars.com/car/2014-cadillac-srx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Base",
+"msrp": 37605,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Luxury Collection",
+"msrp": 43640,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Performance Collection",
+"msrp": 46030,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Luxury Collection",
+"msrp": 46135,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Performance Collection",
+"msrp": 48840,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Premium Collection",
+"msrp": 48920,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Premium Collection",
+"msrp": 51730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-cadillac-srx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Base",
+"msrp": 37605,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Luxury Collection",
+"msrp": 43640,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Performance Collection",
+"msrp": 46030,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Luxury Collection",
+"msrp": 46135,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Performance Collection",
+"msrp": 48840,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Premium Collection",
+"msrp": 48920,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Premium Collection",
+"msrp": 51730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-cadillac-srx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-01-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

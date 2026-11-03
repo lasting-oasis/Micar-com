@@ -5,6 +5,75 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (stinger).",
 "years": [
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Base RWD",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base AWD",
+"msrp": 34100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium RWD",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 40550,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT1 RWD",
+"msrp": 43250,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT1 AWD",
+"msrp": 45450,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT2 RWD",
+"msrp": 49200,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT2 AWD",
+"msrp": 51400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-kia-stinger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [
@@ -84,6 +153,63 @@
 "source": "https://www.iseecars.com/car/2019-kia-stinger-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "GT-Line RWD",
+"msrp": 33090,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT-Line AWD",
+"msrp": 35290,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT1 RWD",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT1 AWD",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT2 RWD",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT2 AWD",
+"msrp": 52500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-kia-stinger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

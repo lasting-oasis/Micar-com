@@ -644,6 +644,813 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Stingray Coupe 1LT",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 2LT",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 3LT",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 1LT",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 2LT",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 3LT",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 1LT",
+"msrp": 60000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 2LT",
+"msrp": 60000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 3LT",
+"msrp": 60000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 1LT",
+"msrp": 64000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 2LT",
+"msrp": 64000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 3LT",
+"msrp": 64000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 1LZ",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 2LZ",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 3LZ",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 1LZ",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 2LZ",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 3LZ",
+"msrp": 83000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Stingray Coupe 1LT",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 2LT",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 3LT",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 1LT",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 2LT",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 3LT",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 1LT",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 2LT",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 3LT",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 1LT",
+"msrp": 64400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 2LT",
+"msrp": 64400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 3LT",
+"msrp": 64400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 1LZ",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 2LZ",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 3LZ",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 1LZ",
+"msrp": 83400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 2LZ",
+"msrp": 83400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 3LZ",
+"msrp": 83400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Stingray Coupe 1LT",
+"msrp": 55450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 2LT",
+"msrp": 55450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 3LT",
+"msrp": 55450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 1LT",
+"msrp": 59450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 2LT",
+"msrp": 59450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 3LT",
+"msrp": 59450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 1LT",
+"msrp": 60450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 2LT",
+"msrp": 60450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 3LT",
+"msrp": 60450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 1LT",
+"msrp": 64450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 2LT",
+"msrp": 64450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 3LT",
+"msrp": 64450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Coupe 1LT",
+"msrp": 65450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Coupe 2LT",
+"msrp": 65450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Coupe 3LT",
+"msrp": 65450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Convertible 1LT",
+"msrp": 69450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Convertible 2LT",
+"msrp": 69450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Convertible 3LT",
+"msrp": 69450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 1LZ",
+"msrp": 79450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 2LZ",
+"msrp": 79450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 3LZ",
+"msrp": 79450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 1LZ",
+"msrp": 83450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 2LZ",
+"msrp": 83450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 3LZ",
+"msrp": 83450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Stingray Coupe 1LT",
+"msrp": 55495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 2LT",
+"msrp": 55495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 3LT",
+"msrp": 55495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 1LT",
+"msrp": 59495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 2LT",
+"msrp": 59495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 3LT",
+"msrp": 59495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 1LT",
+"msrp": 60495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 2LT",
+"msrp": 60495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 3LT",
+"msrp": 60495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 1LT",
+"msrp": 64495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 2LT",
+"msrp": 64495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 3LT",
+"msrp": 64495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Coupe 1LT",
+"msrp": 65495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Coupe 2LT",
+"msrp": 65495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Coupe 3LT",
+"msrp": 65495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Convertible 1LT",
+"msrp": 69495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Convertible 2LT",
+"msrp": 69495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Convertible 3LT",
+"msrp": 69495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 1LZ",
+"msrp": 79495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 2LZ",
+"msrp": 79495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 3LZ",
+"msrp": 79495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 1LZ",
+"msrp": 83495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 2LZ",
+"msrp": 83495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 3LZ",
+"msrp": 83495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Stingray Coupe 1LT",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 2LT",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 3LT",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 1LT",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 2LT",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 3LT",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 1LT",
+"msrp": 60900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 2LT",
+"msrp": 60900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe Z51 3LT",
+"msrp": 60900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 1LT",
+"msrp": 65400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 2LT",
+"msrp": 65400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible Z51 3LT",
+"msrp": 65400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Coupe 1LT",
+"msrp": 65900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Coupe 2LT",
+"msrp": 65900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Coupe 3LT",
+"msrp": 65900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Convertible 1LT",
+"msrp": 70400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Convertible 2LT",
+"msrp": 70400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Sport Convertible 3LT",
+"msrp": 70400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 1LZ",
+"msrp": 80900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 2LZ",
+"msrp": 80900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Z06 3LZ",
+"msrp": 80900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 1LZ",
+"msrp": 85400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 2LZ",
+"msrp": 85400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible Z06 3LZ",
+"msrp": 85400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe ZR1 1ZR",
+"msrp": 120900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe ZR1 3ZR",
+"msrp": 120900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible ZR1 1ZR",
+"msrp": 125400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible ZR1 3ZR",
+"msrp": 125400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Stingray Coupe 1LT",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 2LT",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 3LT",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 1LT",
+"msrp": 66400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 2LT",
+"msrp": 66400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 3LT",
+"msrp": 66400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Stingray Coupe 1LT",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 2LT",
+"msrp": 66200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 1LT",
+"msrp": 66400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Coupe 3LT",
+"msrp": 70850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 2LT",
+"msrp": 73200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Stingray Convertible 3LT",
+"msrp": 77850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-corvette-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1395,
 "trims": [

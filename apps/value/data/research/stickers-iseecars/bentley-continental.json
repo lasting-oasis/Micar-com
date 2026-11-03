@@ -2,7 +2,7 @@
 "make": "Bentley",
 "model": "Continental",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (continental).",
+"note": "Trim-level MSRPs from iSeeCars price pages (continental, continental_gt).",
 "years": [
 {
 "year": 2010,
@@ -264,6 +264,225 @@
 "source": "https://www.iseecars.com/car/2014-bentley-continental-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "GT 2dr Coupe",
+"msrp": 209600,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 2dr Conv",
+"msrp": 230300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bentley-continental_gt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "GT V8 Coupe",
+"msrp": 198500,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT V8 S Coupe",
+"msrp": 210700,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Coupe",
+"msrp": 214600,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT V8 Convertible",
+"msrp": 218400,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT V8 S Convertible",
+"msrp": 231800,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Convertible",
+"msrp": 236100,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Speed Coupe",
+"msrp": 240300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Speed Convertible",
+"msrp": 264300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Supersports Coupe",
+"msrp": 293300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Supersports Convertible",
+"msrp": 322600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bentley-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "GT V8 Convertible",
+"msrp": 218400,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT V8 S Convertible",
+"msrp": 231800,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Convertible",
+"msrp": 236100,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Speed Convertible",
+"msrp": 264300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Supersports Convertible",
+"msrp": 322600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bentley-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "GT V8 Coupe",
+"msrp": 202500,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Coupe",
+"msrp": 218900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT V8 Convertible",
+"msrp": 222700,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Convertible",
+"msrp": 240800,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT V8 First Edition Coupe",
+"msrp": 250265,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT First Edition Coupe",
+"msrp": 266665,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT V8 First Edition Convertible",
+"msrp": 271555,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT First Edition Convertible",
+"msrp": 289655,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bentley-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "GT V8 Coupe",
+"msrp": 202500,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Coupe",
+"msrp": 218900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT V8 Convertible",
+"msrp": 222700,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Convertible",
+"msrp": 240800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bentley-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-08-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

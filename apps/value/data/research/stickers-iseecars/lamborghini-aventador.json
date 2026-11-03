@@ -182,6 +182,33 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "S Coupe",
+"msrp": 417826,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Roadster",
+"msrp": 460422,
+"config": "",
+"note": ""
+},
+{
+"trim": "SVJ Coupe",
+"msrp": 517770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lamborghini-aventador-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 3495,
 "trims": [

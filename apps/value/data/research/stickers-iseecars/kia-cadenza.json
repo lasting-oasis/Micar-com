@@ -26,6 +26,27 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Premium",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited",
+"msrp": 43800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-kia-cadenza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2016,
 "destination": 825,
 "trims": [
@@ -51,6 +72,87 @@
 "source": "https://www.iseecars.com/car/2016-kia-cadenza-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Premium Sedan",
+"msrp": 31990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Technology Sedan",
+"msrp": 38990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan",
+"msrp": 44390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-kia-cadenza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Premium Sedan",
+"msrp": 32290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Technology Sedan",
+"msrp": 39290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan",
+"msrp": 44690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-kia-cadenza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Premium Sedan",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Technology Sedan",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan",
+"msrp": 44100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-kia-cadenza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

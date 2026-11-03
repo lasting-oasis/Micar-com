@@ -272,6 +272,75 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr LE (Natl)",
+"msrp": 24350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LE (Natl)",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr XLE (Natl)",
+"msrp": 26270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr XLE (Natl)",
+"msrp": 27670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD 4dr XLE (Natl)",
+"msrp": 28370,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE (Natl)",
+"msrp": 29265,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE (Natl)",
+"msrp": 30665,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited (Natl)",
+"msrp": 31510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited (Natl)",
+"msrp": 32910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD 4dr Limited (Natl)",
+"msrp": 33610,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 995,
 "trims": [
@@ -306,6 +375,12 @@
 "note": ""
 },
 {
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 29030,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD SE 4dr SUV",
 "msrp": 30190,
 "config": "",
@@ -318,8 +393,20 @@
 "note": ""
 },
 {
+"trim": "Hybrid SE AWD (Natl)",
+"msrp": 32185,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD Limited 4dr SUV",
 "msrp": 32305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 34030,
 "config": "",
 "note": ""
 },
@@ -338,7 +425,292 @@
 ],
 "source": "https://www.iseecars.com/car/2017-toyota-rav4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "LE FWD (Natl)",
+"msrp": 24660,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD (Natl)",
+"msrp": 26060,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD (Natl)",
+"msrp": 27150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE AWD (Natl)",
+"msrp": 27385,
+"config": "",
+"note": ""
+},
+{
+"trim": "Adventure FWD (Natl)",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Adventure AWD (Natl)",
+"msrp": 28650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD (Natl)",
+"msrp": 29040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD (Natl)",
+"msrp": 30440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 31155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE AWD (Natl)",
+"msrp": 32435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD (Natl)",
+"msrp": 32555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 34280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum FWD (Natl)",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum AWD (Natl)",
+"msrp": 36400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "LE FWD (Natl)",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD (Natl)",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 27450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE AWD (Natl)",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD (Natl)",
+"msrp": 28850,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium FWD (Natl)",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium AWD (Natl)",
+"msrp": 31050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Adventure AWD (Natl)",
+"msrp": 33050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 33650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XSE AWD (Natl)",
+"msrp": 33850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD (Natl)",
+"msrp": 35050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 35850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LE FWD (Natl)",
+"msrp": 25950,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 27245,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD (Natl)",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE AWD (Natl)",
+"msrp": 28350,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD (Natl)",
+"msrp": 28645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 29645,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium FWD (Natl)",
+"msrp": 29950,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium AWD (Natl)",
+"msrp": 31350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Adventure AWD (Natl)",
+"msrp": 33055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XSE AWD (Natl)",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 34480,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road AWD (Natl)",
+"msrp": 35280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD (Natl)",
+"msrp": 35880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 36880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
@@ -403,11 +775,23 @@
 "msrp": 36280,
 "config": "",
 "note": ""
+},
+{
+"trim": "Prime SE (Natl)",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime XSE (Natl)",
+"msrp": 41425,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-toyota-rav4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

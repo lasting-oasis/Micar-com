@@ -41,6 +41,60 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan V8",
+"msrp": 201000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan W12",
+"msrp": 222300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "V8 Sedan",
+"msrp": 189000,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 S Sedan",
+"msrp": 205000,
+"config": "",
+"note": ""
+},
+{
+"trim": "W12 Sedan",
+"msrp": 224500,
+"config": "",
+"note": ""
+},
+{
+"trim": "W12 S Sedan",
+"msrp": 244600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 2725,
 "trims": [
@@ -72,6 +126,21 @@
 "source": "https://www.iseecars.com/car/2018-bentley-flying_spur-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "W12 Sedan",
+"msrp": 258735,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

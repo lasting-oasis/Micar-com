@@ -255,6 +255,84 @@
 "source": "https://www.iseecars.com/car/2014-volkswagen-touareg-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr V6 Sport",
+"msrp": 42705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr V6 Sport w/Technology",
+"msrp": 46745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr TDI Sport w/Technology",
+"msrp": 50245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr V6 Lux",
+"msrp": 51450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr TDI Lux",
+"msrp": 54950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr V6 Executive",
+"msrp": 59745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr TDI Executive",
+"msrp": 63245,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-volkswagen-touareg-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "V6 Sport w/Technology",
+"msrp": 49495,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Wolfsburg Edition",
+"msrp": 52795,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Executive",
+"msrp": 60195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volkswagen-touareg-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

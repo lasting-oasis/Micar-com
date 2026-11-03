@@ -13,7 +13,7 @@ type RawListings = { make: string; model: string; gaps?: string[]; samples: { ye
 const problems: string[] = [];
 // Hand-researched files first, then the iSeeCars-derived files (scripts/iseecars_to_research.py);
 // for a model in both, researched years win and iSeeCars fills the missing years.
-const stickerFiles = [...read('data/research/stickers'), ...(existsSync(join(ROOT, 'data/research/stickers-iseecars')) ? read('data/research/stickers-iseecars') : [])];
+const stickerFiles = [...read('data/research/stickers'), ...(existsSync(join(ROOT, 'data/research/stickers-iseecars')) ? read('data/research/stickers-iseecars') : []), ...(existsSync(join(ROOT, 'data/research/stickers-search')) ? read('data/research/stickers-search') : [])];
 const stickerSets = stickerFiles.map(({ file, json }) => {
   const s = json as RawSticker;
   const years = (s.years ?? [])

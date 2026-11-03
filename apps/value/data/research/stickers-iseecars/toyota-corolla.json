@@ -2,7 +2,7 @@
 "make": "Toyota",
 "model": "Corolla",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (corolla, corolla_hybrid).",
+"note": "Trim-level MSRPs from iSeeCars price pages (corolla, corolla_hybrid, corolla_im).",
 "years": [
 {
 "year": 2010,
@@ -272,12 +272,105 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Man L (Natl)",
+"msrp": 17300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto L (Natl)",
+"msrp": 17900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE (Natl)",
+"msrp": 18735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE ECO (Natl)",
+"msrp": 19135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE Plus (Natl)",
+"msrp": 19135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto S (Natl)",
+"msrp": 19365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE ECO Plus (Natl)",
+"msrp": 19835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto S Plus (Natl)",
+"msrp": 20065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto S w/Special Edition Pkg (Natl)",
+"msrp": 20635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man S Plus (Natl)",
+"msrp": 21665,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE Premium (Natl)",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE ECO Premium (Natl)",
+"msrp": 22895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto S Premium (Natl)",
+"msrp": 23125,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 895,
 "trims": [
 {
 "trim": "L 4dr Sedan",
 "msrp": 18500,
+"config": "",
+"note": ""
+},
+{
+"trim": "IM Manual (Natl)",
+"msrp": 18750,
 "config": "",
 "note": ""
 },
@@ -290,6 +383,12 @@
 {
 "trim": "LE Eco 4dr Sedan",
 "msrp": 19335,
+"config": "",
+"note": ""
+},
+{
+"trim": "IM CVT (Natl)",
+"msrp": 19490,
 "config": "",
 "note": ""
 },
@@ -332,7 +431,7 @@
 ],
 "source": "https://www.iseecars.com/car/2017-toyota-corolla-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2018,
@@ -392,34 +491,205 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "L CVT (Natl)",
+"msrp": 18700,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE CVT (Natl)",
+"msrp": 19135,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco CVT (Natl)",
+"msrp": 19535,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco w/Premium Package CVT (Natl)",
+"msrp": 19535,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE CVT (Natl)",
+"msrp": 20645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Manual (Natl)",
+"msrp": 21865,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE CVT (Natl)",
+"msrp": 22135,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE CVT (Natl)",
+"msrp": 22880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 995,
 "trims": [
 {
+"trim": "L CVT (Natl)",
+"msrp": 19600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE CVT (Natl)",
+"msrp": 20050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE CVT (Natl)",
+"msrp": 22050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Manual (Natl)",
+"msrp": 22750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade CVT (Natl)",
+"msrp": 22750,
+"config": "",
+"note": ""
+},
+{
 "trim": "Hybrid LE 4dr Sedan",
 "msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE CVT (Natl)",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE CVT (Natl)",
+"msrp": 24050,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE CVT (Natl)",
+"msrp": 25550,
 "config": "",
 "note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2020-toyota-corolla_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
 "destination": 1025,
 "trims": [
 {
+"trim": "L CVT (Natl)",
+"msrp": 20025,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE CVT (Natl)",
+"msrp": 20475,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE CVT (Natl)",
+"msrp": 22475,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Manual (Natl)",
+"msrp": 23175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade CVT (Natl)",
+"msrp": 23175,
+"config": "",
+"note": ""
+},
+{
 "trim": "Hybrid LE 4dr Sedan",
 "msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE CVT (Natl)",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE CVT (Natl)",
+"msrp": 24425,
+"config": "",
+"note": ""
+},
+{
+"trim": "APEX SE CVT (Natl)",
+"msrp": 25170,
+"config": "",
+"note": ""
+},
+{
+"trim": "APEX SE Manual (Natl)",
+"msrp": 25560,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE CVT (Natl)",
+"msrp": 25925,
+"config": "",
+"note": ""
+},
+{
+"trim": "APEX XSE CVT (Natl)",
+"msrp": 28310,
 "config": "",
 "note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-toyota-corolla_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

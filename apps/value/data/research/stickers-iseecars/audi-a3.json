@@ -2,7 +2,7 @@
 "make": "Audi",
 "model": "A3",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (a3).",
+"note": "Trim-level MSRPs from iSeeCars price pages (a3, a3_sportback_e__tron).",
 "years": [
 {
 "year": 2010,
@@ -246,6 +246,600 @@
 "source": "https://www.iseecars.com/car/2012-audi-a3-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 1.8T Premium",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Prestige",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Premium Plus",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2.0 TDI Premium",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2.0 TDI Prestige",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2.0 TDI Premium Plus",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Premium",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Prestige",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Premium Plus",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Premium",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Prestige",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Premium Plus",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Premium",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Prestige",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Premium Plus",
+"msrp": 38600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 1.8T Premium",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Prestige",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Premium Plus",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2.0 TDI Premium",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2.0 TDI Prestige",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2.0 TDI Premium Plus",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Premium",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Prestige",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Premium Plus",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Premium",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Prestige",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1.8T Premium Plus",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 4dr HB Premium",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 4dr HB Prestige",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 4dr HB Premium Plus",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Premium",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Prestige",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 2.0T Premium Plus",
+"msrp": 39600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI Premium FWD",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige FWD",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus FWD",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium quattro AWD",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige quattro AWD",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus quattro AWD",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium FWD",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige FWD",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus FWD",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 1.4 TFSI PHEV Premium",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 1.4 TFSI PHEV Prestige",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 1.4 TFSI PHEV Premium Plus",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium quattro AWD",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige quattro AWD",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus quattro AWD",
+"msrp": 40300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI Premium FWD",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige FWD",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus FWD",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium FWD",
+"msrp": 33650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium Plus FWD",
+"msrp": 33650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium quattro AWD",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige quattro AWD",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus quattro AWD",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium quattro AWD",
+"msrp": 36650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium Plus quattro AWD",
+"msrp": 36650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium FWD",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige FWD",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus FWD",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 1.4 TFSI PHEV Premium",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 1.4 TFSI PHEV Prestige",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 1.4 TFSI PHEV Premium Plus",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium FWD",
+"msrp": 40050,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium Plus FWD",
+"msrp": 40050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 1.4 TFSI PHEV Tech Premium",
+"msrp": 40650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback E-Tron 1.4 TFSI PHEV Tech Premium Plus",
+"msrp": 40650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium quattro AWD",
+"msrp": 41050,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige quattro AWD",
+"msrp": 41050,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus quattro AWD",
+"msrp": 41050,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium quattro AWD",
+"msrp": 42750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium Plus quattro AWD",
+"msrp": 42750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 40 TFSI",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 40 TFSI",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 40 TFSI",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium Premium 40 TFSI",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 45 TFSI quattro",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 45 TFSI quattro",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 45 TFSI quattro",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 40 TFSI",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 40 TFSI",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 40 TFSI",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 45 TFSI quattro",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 45 TFSI quattro",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 45 TFSI quattro",
+"msrp": 41700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 40 TFSI",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 40 TFSI",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Premium 45 TFSI quattro",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Premium Plus 45 TFSI quattro",
+"msrp": 36500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-a3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2024,

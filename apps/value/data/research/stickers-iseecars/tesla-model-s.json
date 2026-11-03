@@ -110,6 +110,57 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "60 RWD",
+"msrp": 68000,
+"config": "",
+"note": ""
+},
+{
+"trim": "75 RWD",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "60D AWD",
+"msrp": 73000,
+"config": "",
+"note": ""
+},
+{
+"trim": "75D AWD",
+"msrp": 74500,
+"config": "",
+"note": ""
+},
+{
+"trim": "90D AWD",
+"msrp": 87500,
+"config": "",
+"note": ""
+},
+{
+"trim": "100D AWD",
+"msrp": 94000,
+"config": "",
+"note": ""
+},
+{
+"trim": "P100D AWD",
+"msrp": 135000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-tesla-model_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 1200,
 "trims": [
@@ -135,6 +186,135 @@
 "source": "https://www.iseecars.com/car/2018-tesla-model_s-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Standard Range AWD",
+"msrp": 75000,
+"config": "",
+"note": ""
+},
+{
+"trim": "75D AWD",
+"msrp": 76000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range AWD",
+"msrp": 79990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 85000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD w/Extended Range",
+"msrp": 93000,
+"config": "",
+"note": ""
+},
+{
+"trim": "100D AWD",
+"msrp": 94000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance AWD",
+"msrp": 99990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance AWD w/Ludicrous Mode",
+"msrp": 119990,
+"config": "",
+"note": ""
+},
+{
+"trim": "P100D AWD",
+"msrp": 133000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-tesla-model_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Long Range Plus AWD",
+"msrp": 69420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range AWD",
+"msrp": 79990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance AWD",
+"msrp": 91990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-tesla-model_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Long Range Plus AWD",
+"msrp": 69420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Long Range AWD",
+"msrp": 79990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performance AWD",
+"msrp": 91990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plaid AWD",
+"msrp": 119990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plaid+ AWD",
+"msrp": 149990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-tesla-model_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

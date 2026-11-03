@@ -216,6 +216,498 @@
 "source": "https://www.iseecars.com/car/2014-acura-mdx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 42765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD",
+"msrp": 44765,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with Technology Package",
+"msrp": 47040,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with Technology and Entertainment Package",
+"msrp": 49040,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with Technology Package",
+"msrp": 49040,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with Technology and Entertainment Package",
+"msrp": 51040,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with Advance and Entertainment Package",
+"msrp": 54980,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with Advance and Entertainment Package",
+"msrp": 56980,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 43015,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with AcuraWatch Plus",
+"msrp": 44515,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD",
+"msrp": 45015,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with AcuraWatch Plus",
+"msrp": 46515,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with Technology Package",
+"msrp": 47440,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with Technology Package and AcuraWatch Plus",
+"msrp": 48640,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with Technology and Entertainment Packages",
+"msrp": 49440,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with Technology Package",
+"msrp": 49440,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with Technology and Entertainment Packages and AcuraWatch Plus",
+"msrp": 50640,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with Technology Package and AcuraWatch Plus",
+"msrp": 50640,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with Technology and Entertainment Packages",
+"msrp": 51440,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with Technology and Entertainment Packages and AcuraWatch Plus",
+"msrp": 52640,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with Advance Package",
+"msrp": 53230,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD with Advance and Entertainment Packages",
+"msrp": 55230,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with Advance Package",
+"msrp": 55230,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD with Advance and Entertainment Packages",
+"msrp": 57230,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 44050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD",
+"msrp": 46050,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Technology Pkg",
+"msrp": 48460,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Technology/Entertainment Pkg",
+"msrp": 50460,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Technology Pkg",
+"msrp": 50460,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD Sport Hybrid w/Technology Pkg",
+"msrp": 51960,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Technology/Entertainment Pkg",
+"msrp": 52460,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Advance Pkg",
+"msrp": 54500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Advance/Entertainment Pkg",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Advance Pkg",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD Sport Hybrid w/Advance Pkg",
+"msrp": 58000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Advance/Entertainment Pkg",
+"msrp": 58500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Technology Pkg",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Technology/Entertainment Pkg",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Technology Pkg",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD Sport Hybrid w/Technology Pkg",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Technology/Entertainment Pkg",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Advance Pkg",
+"msrp": 54650,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Advance/Entertainment Pkg",
+"msrp": 56650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Advance Pkg",
+"msrp": 56650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD Sport Hybrid w/Advance Pkg",
+"msrp": 58150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Advance/Entertainment Pkg",
+"msrp": 58650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Technology Pkg",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Technology/Entertainment Pkg",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Technology Pkg",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD Sport Hybrid w/Technology Pkg",
+"msrp": 52800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Technology/Entertainment Pkg",
+"msrp": 53300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Technology/A-Spec Pkg",
+"msrp": 54800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Advance Pkg",
+"msrp": 56050,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD w/Advance/Entertainment Pkg",
+"msrp": 58050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Advance Pkg",
+"msrp": 58050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD Sport Hybrid w/Advance Pkg",
+"msrp": 59550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD w/Advance/Entertainment Pkg",
+"msrp": 60050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 7-Passenger",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 7-Passenger",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 7-Passenger w/Technology Pkg",
+"msrp": 49500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 7-Passenger w/Technology Pkg",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 7-Passenger Sport Hybrid w/Technology Pkg",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 6-Passenger w/Technology/Entertainment Pkg",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 7-Passenger w/Technology/A-Spec Pkg",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 6-Passenger w/Advance Pkg",
+"msrp": 56250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 6-Passenger w/Advance Pkg",
+"msrp": 58250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 6-Passenger Sport Hybrid w/Advance Pkg",
+"msrp": 59750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 7-Passenger w/Advance/Entertainment Pkg",
+"msrp": 60250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SH-AWD 6-Passenger PMC Edition",
+"msrp": 61750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-acura-mdx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

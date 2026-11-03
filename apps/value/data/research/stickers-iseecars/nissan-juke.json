@@ -261,6 +261,75 @@
 "source": "https://www.iseecars.com/car/2014-nissan-juke-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "5dr Wagon CVT S FWD",
+"msrp": 20250,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon CVT S AWD",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon CVT SV FWD",
+"msrp": 22300,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon CVT SV AWD",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon Manual NISMO FWD",
+"msrp": 24830,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon CVT SL FWD",
+"msrp": 25240,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon CVT SL AWD",
+"msrp": 26940,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon CVT NISMO AWD",
+"msrp": 27230,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon Manual NISMO RS FWD",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon CVT NISMO RS AWD",
+"msrp": 30020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-nissan-juke-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

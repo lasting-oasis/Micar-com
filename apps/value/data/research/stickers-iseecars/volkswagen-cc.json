@@ -429,6 +429,150 @@
 "source": "https://www.iseecars.com/car/2014-volkswagen-cc-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Man",
+"msrp": 31570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man PZEV",
+"msrp": 31570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG PZEV",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG Sport",
+"msrp": 34475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG Sport PZEV",
+"msrp": 34475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man R-Line",
+"msrp": 34655,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man R-Line PZEV",
+"msrp": 34655,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG R-Line",
+"msrp": 35755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG R-Line PZEV",
+"msrp": 35755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG R-Line Executive",
+"msrp": 37820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG R-Line Executive PZEV",
+"msrp": 37820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG R-Line Executive w/Carbon",
+"msrp": 37820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan DSG R-Line Executive w/Carbon PZEV",
+"msrp": 37820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan VR6 Executive 4Motion",
+"msrp": 44355,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-volkswagen-cc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0T Sport DSG",
+"msrp": 34475,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Sport DSG PZEV",
+"msrp": 34475,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 2.0T Executive DSG",
+"msrp": 37820,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 2.0T Executive DSG PZEV",
+"msrp": 37820,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 2.0T Executive w/Carbon DSG",
+"msrp": 37820,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 2.0T Executive w/Carbon DSG PZEV",
+"msrp": 37820,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volkswagen-cc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -872,6 +872,453 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD King Cab I4 Manual S",
+"msrp": 18290,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD King Cab I4 Auto S",
+"msrp": 21460,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD King Cab I4 Manual SV",
+"msrp": 22680,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab SWB Manual S",
+"msrp": 23500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD King Cab I4 Auto SV",
+"msrp": 23730,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD King Cab V6 Auto SV",
+"msrp": 24440,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab SWB Auto S",
+"msrp": 24550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD King Cab V6 Auto Desert Runner",
+"msrp": 25020,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab SWB Auto SV",
+"msrp": 25460,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab LWB Auto SV",
+"msrp": 26180,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab SWB Auto Desert Runner",
+"msrp": 26340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD King Cab Auto SV",
+"msrp": 27140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab SWB Auto S",
+"msrp": 27250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab SWB Auto SV",
+"msrp": 28460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab LWB Auto SV",
+"msrp": 28880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab SWB Manual SV",
+"msrp": 28890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab SWB Manual SV",
+"msrp": 29410,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab SWB Auto SL",
+"msrp": 31690,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab SWB Auto SL",
+"msrp": 32210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab SWB Manual PRO-4X",
+"msrp": 32340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD King Cab Auto PRO-4X",
+"msrp": 32580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab SWB Auto PRO-4X",
+"msrp": 33390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab SWB Auto SL",
+"msrp": 34340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab SWB Auto SL",
+"msrp": 34860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab LWB Auto SL",
+"msrp": 35590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab LWB Auto SL",
+"msrp": 36110,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-05-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "King Cab 4x2 S Manual",
+"msrp": 18390,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 S Auto",
+"msrp": 22160,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 SV Manual",
+"msrp": 22860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 S Manual",
+"msrp": 23900,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 SV Auto",
+"msrp": 23910,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 SV V6 Auto",
+"msrp": 24620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 S Auto",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 Desert Runner Auto",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 SV V6 Auto",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 SV V6 Auto Long Bed",
+"msrp": 26470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 Desert Runner Auto",
+"msrp": 26630,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x4 SV V6 Auto",
+"msrp": 27320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 S Auto",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SV V6 Auto",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SV V6 Auto Long Bed",
+"msrp": 29170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SV V6 Manual",
+"msrp": 29700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 PRO-4X Manual",
+"msrp": 32340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 SL Auto",
+"msrp": 32510,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x4 PRO-4X Auto",
+"msrp": 32580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 PRO-4X Auto",
+"msrp": 33390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SL Auto",
+"msrp": 35160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SL Auto Long Bed",
+"msrp": 36410,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "King Cab 4x2 S Manual",
+"msrp": 18990,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 S Auto",
+"msrp": 22660,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 SV Manual",
+"msrp": 23460,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 SV Auto",
+"msrp": 24510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 S Manual",
+"msrp": 24550,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 SV V6 Auto",
+"msrp": 25220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 S Auto",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x2 Desert Runner Auto",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 SV V6 Auto",
+"msrp": 26350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 Desert Runner Auto",
+"msrp": 27330,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x4 SV V6 Auto",
+"msrp": 28110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 SV V6 Auto Long Bed",
+"msrp": 28960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 S Auto",
+"msrp": 29090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SV V6 Auto",
+"msrp": 29540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SV V6 Auto Long Bed",
+"msrp": 29960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SV V6 Manual",
+"msrp": 32380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 PRO-4X Manual",
+"msrp": 32740,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Cab 4x4 PRO-4X Auto",
+"msrp": 33030,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x2 SL Auto",
+"msrp": 33560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 PRO-4X Auto",
+"msrp": 33790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SL Auto",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab 4x4 SL Auto Long Bed",
+"msrp": 36800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-frontier-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1095,
 "trims": [

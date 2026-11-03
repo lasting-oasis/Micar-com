@@ -5,6 +5,330 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (cx__5).",
 "years": [
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Man Sport",
+"msrp": 21545,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Auto Sport",
+"msrp": 22945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Auto Sport",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Auto Touring",
+"msrp": 24965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Auto Touring",
+"msrp": 26215,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Auto Grand Touring",
+"msrp": 27970,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Auto Grand Touring",
+"msrp": 29220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-mazda-cx__5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-05-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Man Sport",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Auto Sport",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Auto Sport",
+"msrp": 24445,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Auto Touring",
+"msrp": 25215,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Auto Touring",
+"msrp": 26465,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Auto Grand Touring",
+"msrp": 28220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Auto Grand Touring",
+"msrp": 29470,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-mazda-cx__5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 24045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 25345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 25915,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 27215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Select FWD",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring FWD",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Select AWD",
+"msrp": 30195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring AWD",
+"msrp": 30695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-mazda-cx__5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 25450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 26215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 27515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring FWD",
+"msrp": 29645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring AWD",
+"msrp": 30945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-mazda-cx__5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 24350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 26615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 28015,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring FWD",
+"msrp": 30045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring AWD",
+"msrp": 31445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Reserve AWD",
+"msrp": 34870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature AWD",
+"msrp": 36890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature Diesel AWD",
+"msrp": 41000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mazda-cx__5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 25190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 26590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 26830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 28230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring FWD",
+"msrp": 30310,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring AWD",
+"msrp": 31710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Reserve AWD",
+"msrp": 35135,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature AWD",
+"msrp": 37155,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mazda-cx__5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 1225,
 "trims": [

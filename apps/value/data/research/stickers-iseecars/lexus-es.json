@@ -86,6 +86,69 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "ES 350 4dr Sedan",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 350 4dr Sedan Crafted Line",
+"msrp": 40440,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 300H 4dr Sedan Hybrid",
+"msrp": 40580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-lexus-es_300h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "ES 300H 4dr Sedan Hybrid",
+"msrp": 41020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lexus-es_300h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "ES 350 FWD",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 300H FWD",
+"msrp": 41820,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lexus-es_300h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 1025,
 "trims": [
@@ -94,11 +157,101 @@
 "msrp": 38950,
 "config": "",
 "note": ""
+},
+{
+"trim": "ES 300H FWD",
+"msrp": 41820,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2018-lexus-es_350-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "ES 350 FWD",
+"msrp": 39750,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 350 Luxury FWD",
+"msrp": 42405,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 350 Ultra Luxury FWD",
+"msrp": 43400,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 350 F SPORT FWD",
+"msrp": 44285,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lexus-es_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "ES 350 FWD",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 300H FWD",
+"msrp": 41810,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 350 Luxury FWD",
+"msrp": 42755,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 350 Ultra Luxury FWD",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 350 F SPORT FWD",
+"msrp": 44635,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 300H Luxury FWD",
+"msrp": 44665,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 300H Ultra Luxury FWD",
+"msrp": 45660,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lexus-es_300h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
@@ -111,7 +264,25 @@
 "note": ""
 },
 {
+"trim": "ES 350 FWD",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 300H FWD",
+"msrp": 41910,
+"config": "",
+"note": ""
+},
+{
 "trim": "ES 250 AWD Luxury 4dr Sedan",
+"msrp": 45200,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 350 Luxury FWD",
 "msrp": 45200,
 "config": "",
 "note": ""
@@ -123,15 +294,39 @@
 "note": ""
 },
 {
+"trim": "ES 350 F SPORT FWD",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 300H Luxury FWD",
+"msrp": 47110,
+"config": "",
+"note": ""
+},
+{
 "trim": "ES 250 AWD Ultra Luxury 4dr Sedan",
 "msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 350 Ultra Luxury FWD",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 300H Ultra Luxury FWD",
+"msrp": 50910,
 "config": "",
 "note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-lexus-es_250-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

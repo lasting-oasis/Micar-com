@@ -2,7 +2,7 @@
 "make": "BMW",
 "model": "X3",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (x3).",
+"note": "Trim-level MSRPs from iSeeCars price pages (x3, x3_m).",
 "years": [
 {
 "year": 2010,
@@ -168,6 +168,165 @@
 "source": "https://www.iseecars.com/car/2016-bmw-x3-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 40050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 42050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 42750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 48950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 54500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 54650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 43950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 48550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X3 M Sports Activity Vehicle",
+"msrp": 69900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X3 M Competition Sports Activity Vehicle",
+"msrp": 76900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 56600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

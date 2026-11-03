@@ -2,7 +2,7 @@
 "make": "Ram",
 "model": "1500",
 "body": "Pickup Truck",
-"note": "Trim-level MSRPs from iSeeCars price pages (ram_pickup_1500).",
+"note": "Trim-level MSRPs from iSeeCars price pages (1500, ram_pickup_1500).",
 "years": [
 {
 "year": 2011,
@@ -3972,7 +3972,19 @@
 "note": ""
 },
 {
+"trim": "Tradesman 4x2 Quad Cab 6'4\" Box",
+"msrp": 32145,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x2 HFE 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "HFE 4x2 Quad Cab 6'4\" Box",
 "msrp": 34095,
 "config": "",
 "note": ""
@@ -3984,13 +3996,31 @@
 "note": ""
 },
 {
+"trim": "Tradesman 4x2 Crew Cab 5'7\" Box",
+"msrp": 34945,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x2 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
 "msrp": 35245,
 "config": "",
 "note": ""
 },
 {
+"trim": "Tradesman 4x2 Crew Cab 6'4\" Box",
+"msrp": 35245,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x4 Tradesman 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 35645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tradesman 4x4 Quad Cab 6'4\" Box",
 "msrp": 35645,
 "config": "",
 "note": ""
@@ -4008,13 +4038,37 @@
 "note": ""
 },
 {
+"trim": "Lone Star 4x2 Quad Cab 6'4\" Box",
+"msrp": 36690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Big Horn 4x2 Quad Cab 6'4\" Box",
+"msrp": 36690,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 5.6 ft. SB Pickup",
 "msrp": 38445,
 "config": "",
 "note": ""
 },
 {
+"trim": "Tradesman 4x4 Crew Cab 5'7\" Box",
+"msrp": 38445,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x4 Tradesman 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 38745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tradesman 4x4 Crew Cab 6'4\" Box",
 "msrp": 38745,
 "config": "",
 "note": ""
@@ -4032,6 +4086,18 @@
 "note": ""
 },
 {
+"trim": "Lone Star 4x2 Crew Cab 5'7\" Box",
+"msrp": 39390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Big Horn 4x2 Crew Cab 5'7\" Box",
+"msrp": 39390,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x2 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
 "msrp": 39690,
 "config": "",
@@ -4039,6 +4105,18 @@
 },
 {
 "trim": "RAM Pickup 1500 4x2 Lone Star 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 39690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lone Star 4x2 Crew Cab 6'4\" Box",
+"msrp": 39690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Big Horn 4x2 Crew Cab 6'4\" Box",
 "msrp": 39690,
 "config": "",
 "note": ""
@@ -4056,7 +4134,25 @@
 "note": ""
 },
 {
+"trim": "Lone Star 4x4 Quad Cab 6'4\" Box",
+"msrp": 40190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Big Horn 4x4 Quad Cab 6'4\" Box",
+"msrp": 40190,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x2 Laramie 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 40790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laramie 4x2 Quad Cab 6'4\" Box",
 "msrp": 40790,
 "config": "",
 "note": ""
@@ -4074,6 +4170,18 @@
 "note": ""
 },
 {
+"trim": "Big Horn 4x4 Crew Cab 5'7\" Box",
+"msrp": 42890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lone Star 4x4 Crew Cab 5'7\" Box",
+"msrp": 42890,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x4 Big Horn 4dr Crew Cab 6.4 ft. SB Pickup",
 "msrp": 43190,
 "config": "",
@@ -4086,7 +4194,25 @@
 "note": ""
 },
 {
+"trim": "Lone Star 4x4 Crew Cab 6'4\" Box",
+"msrp": 43190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Big Horn 4x4 Crew Cab 6'4\" Box",
+"msrp": 43190,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x2 Laramie 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 43490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laramie 4x2 Crew Cab 5'7\" Box",
 "msrp": 43490,
 "config": "",
 "note": ""
@@ -4098,7 +4224,19 @@
 "note": ""
 },
 {
+"trim": "Laramie 4x2 Crew Cab 6'4\" Box",
+"msrp": 43790,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x4 Laramie 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 44290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laramie 4x4 Quad Cab 6'4\" Box",
 "msrp": 44290,
 "config": "",
 "note": ""
@@ -4110,7 +4248,19 @@
 "note": ""
 },
 {
+"trim": "Rebel 4x2 Crew Cab 5'7\" Box",
+"msrp": 44740,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x4 Rebel 4dr Quad Cab 6.4 ft. SB Pickup",
+"msrp": 45440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rebel 4x4 Quad Cab 6'4\" Box",
 "msrp": 45440,
 "config": "",
 "note": ""
@@ -4122,7 +4272,19 @@
 "note": ""
 },
 {
+"trim": "Laramie 4x4 Crew Cab 5'7\" Box",
+"msrp": 46990,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x4 Laramie 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 47290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Laramie 4x4 Crew Cab 6'4\" Box",
 "msrp": 47290,
 "config": "",
 "note": ""
@@ -4134,13 +4296,31 @@
 "note": ""
 },
 {
+"trim": "Rebel 4x4 Crew Cab 5'7\" Box",
+"msrp": 48240,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x2 Laramie Longhorn 4dr Crew Cab 5.6 ft. SB Pickup",
 "msrp": 51140,
 "config": "",
 "note": ""
 },
 {
+"trim": "Longhorn 4x2 Crew Cab 5'7\" Box",
+"msrp": 51140,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x2 Laramie Longhorn 4dr Crew Cab 6.4 ft. SB Pickup",
+"msrp": 51440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Longhorn 4x2 Crew Cab 6'4\" Box",
 "msrp": 51440,
 "config": "",
 "note": ""
@@ -4158,7 +4338,25 @@
 "note": ""
 },
 {
+"trim": "Limited 4x2 Crew Cab 5'7\" Box",
+"msrp": 53715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x2 Crew Cab 6'4\" Box",
+"msrp": 53715,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x4 Laramie Longhorn 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 54640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Longhorn 4x4 Crew Cab 5'7\" Box",
 "msrp": 54640,
 "config": "",
 "note": ""
@@ -4170,7 +4368,19 @@
 "note": ""
 },
 {
+"trim": "Longhorn 4x4 Crew Cab 6'4\" Box",
+"msrp": 54940,
+"config": "",
+"note": ""
+},
+{
 "trim": "RAM Pickup 1500 4x4 Limited 4dr Crew Cab 5.6 ft. SB Pickup",
+"msrp": 57215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4 Crew Cab 5'7\" Box",
 "msrp": 57215,
 "config": "",
 "note": ""
@@ -4180,11 +4390,17 @@
 "msrp": 57515,
 "config": "",
 "note": ""
+},
+{
+"trim": "Limited 4x4 Crew Cab 6'4\" Box",
+"msrp": 57515,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2020-ram-ram_pickup_1500-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

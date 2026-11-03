@@ -56,6 +56,51 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "P250 AWD",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "P250 AWD S",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "P250 AWD SE",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 AWD R-Dynamic S",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 AWD R-Dynamic SE",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 AWD R-Dynamic HSE",
+"msrp": 53200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jaguar-e__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 1050,
 "trims": [

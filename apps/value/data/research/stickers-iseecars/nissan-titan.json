@@ -470,6 +470,123 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "XD 2WD Crew Cab S Gas",
+"msrp": 35290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab S Gas",
+"msrp": 38290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 2WD Crew Cab SV Gas",
+"msrp": 39060,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 2WD Crew Cab S Diesel",
+"msrp": 40290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab SV Gas",
+"msrp": 42010,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab S Diesel",
+"msrp": 43290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 2WD Crew Cab SV Diesel",
+"msrp": 44060,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab PRO-4X Gas",
+"msrp": 45970,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab SV Diesel",
+"msrp": 47010,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 2WD Crew Cab SL Gas",
+"msrp": 47030,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab SL Gas",
+"msrp": 50030,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab PRO-4X Diesel",
+"msrp": 50970,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 2WD Crew Cab SL Diesel",
+"msrp": 52030,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 2WD Crew Cab Platinum Reserve Gas",
+"msrp": 52470,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab SL Diesel",
+"msrp": 55030,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab Platinum Reserve Gas",
+"msrp": 55520,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 2WD Crew Cab Platinum Reserve Diesel",
+"msrp": 57470,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4WD Crew Cab Platinum Reserve Diesel",
+"msrp": 60520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-nissan-titan_xd-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 1395,
 "trims": [
@@ -803,12 +920,672 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "4x2 Single Cab S",
+"msrp": 30030,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas Single Cab S",
+"msrp": 32290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Cab S",
+"msrp": 33250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Single Cab S",
+"msrp": 33310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Single Cab SV",
+"msrp": 33610,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas King Cab S",
+"msrp": 34260,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Single Cab S",
+"msrp": 35320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab S",
+"msrp": 35930,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas Single Cab SV",
+"msrp": 36190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab S",
+"msrp": 36280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Cab SV",
+"msrp": 36630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Single Cab SV",
+"msrp": 36640,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas King Cab S",
+"msrp": 37290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas Crew Cab S",
+"msrp": 37490,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel Single Cab S",
+"msrp": 37840,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas King Cab SV",
+"msrp": 38660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab S",
+"msrp": 38960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab SV",
+"msrp": 39070,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Single Cab SV",
+"msrp": 39220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab SV",
+"msrp": 39660,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab S",
+"msrp": 40520,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel King Cab S",
+"msrp": 40810,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Single Cab S",
+"msrp": 40870,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas Crew Cab SV",
+"msrp": 41650,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas King Cab SV",
+"msrp": 41690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab SV",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel Single Cab SV",
+"msrp": 42240,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel Crew Cab S",
+"msrp": 42740,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab PRO-4X",
+"msrp": 43990,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel King Cab S",
+"msrp": 44340,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab SV",
+"msrp": 44630,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel King Cab SV",
+"msrp": 44710,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Single Cab SV",
+"msrp": 45270,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab S",
+"msrp": 45770,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas King Cab PRO-4X",
+"msrp": 46140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab PRO-4X",
+"msrp": 46170,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel Crew Cab SV",
+"msrp": 46450,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel King Cab SV",
+"msrp": 47240,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab SL",
+"msrp": 47780,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab PRO-4X",
+"msrp": 48380,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab SV",
+"msrp": 49430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab SL",
+"msrp": 50860,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel King Cab PRO-4X",
+"msrp": 51190,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab SL",
+"msrp": 52940,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab PRO-4X",
+"msrp": 53630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab Platinum Reserve",
+"msrp": 53710,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas Crew Cab Platinum Reserve",
+"msrp": 55280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab Platinum Reserve",
+"msrp": 56800,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab SL",
+"msrp": 58190,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab Platinum Reserve",
+"msrp": 58860,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel Crew Cab Platinum Reserve",
+"msrp": 60530,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab Platinum Reserve",
+"msrp": 64110,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "4x2 Single Cab S",
+"msrp": 30690,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas Single Cab S",
+"msrp": 32990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Cab S",
+"msrp": 33960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Single Cab S",
+"msrp": 34090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Single Cab SV",
+"msrp": 34320,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas King Cab S",
+"msrp": 34990,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Single Cab S",
+"msrp": 36140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab S",
+"msrp": 36680,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas Single Cab SV",
+"msrp": 37090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab S",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Cab SV",
+"msrp": 37390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Single Cab SV",
+"msrp": 37470,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas King Cab S",
+"msrp": 38140,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel Single Cab S",
+"msrp": 38620,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Gas King Cab SV",
+"msrp": 39590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab S",
+"msrp": 39830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab SV",
+"msrp": 39870,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Single Cab SV",
+"msrp": 40230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab SV",
+"msrp": 40540,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab S",
+"msrp": 41430,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel King Cab S",
+"msrp": 41640,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Single Cab S",
+"msrp": 41770,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas King Cab SV",
+"msrp": 42740,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab SV",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel Single Cab SV",
+"msrp": 43230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab PRO-4X",
+"msrp": 44880,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel King Cab S",
+"msrp": 45300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x2 Diesel King Cab SV",
+"msrp": 45740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab SV",
+"msrp": 45740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Single Cab SV",
+"msrp": 46380,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab S",
+"msrp": 46760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab PRO-4X",
+"msrp": 47110,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas King Cab PRO-4X",
+"msrp": 47210,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel King Cab SV",
+"msrp": 48380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab SL",
+"msrp": 48740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab PRO-4X",
+"msrp": 49490,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab SV",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab SL",
+"msrp": 51940,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel King Cab PRO-4X",
+"msrp": 52340,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab SL",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab Platinum Reserve",
+"msrp": 54630,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab PRO-4X",
+"msrp": 54830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab Platinum Reserve",
+"msrp": 57840,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab SL",
+"msrp": 59530,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Gas Crew Cab Platinum Reserve",
+"msrp": 60080,
+"config": "",
+"note": ""
+},
+{
+"trim": "XD 4x4 Diesel Crew Cab Platinum Reserve",
+"msrp": 65410,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-titan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 1595,
 "trims": [
 {
+"trim": "4x2 King Cab S",
+"msrp": 36190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab S",
+"msrp": 38890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab S",
+"msrp": 39390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Cab SV",
+"msrp": 39990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab S",
+"msrp": 41990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab SV",
+"msrp": 42310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab SV",
+"msrp": 43190,
+"config": "",
+"note": ""
+},
+{
 "trim": "XD 4x4 S 4dr Crew Cab",
 "msrp": 44580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab SV",
+"msrp": 45410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab PRO-4X",
+"msrp": 47590,
 "config": "",
 "note": ""
 },
@@ -819,14 +1596,44 @@
 "note": ""
 },
 {
+"trim": "4x4 Crew Cab PRO-4X",
+"msrp": 49790,
+"config": "",
+"note": ""
+},
+{
 "trim": "XD 4x4 PRO-4X 4dr Crew Cab",
 "msrp": 53980,
 "config": "",
 "note": ""
 },
 {
+"trim": "4x2 Crew Cab SL",
+"msrp": 53990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab Platinum Reserve",
+"msrp": 55490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab SL",
+"msrp": 57190,
+"config": "",
+"note": ""
+},
+{
 "trim": "XD 4x4 SL 4dr Crew Cab",
 "msrp": 58490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab Platinum Reserve",
+"msrp": 58690,
 "config": "",
 "note": ""
 },
@@ -839,15 +1646,69 @@
 ],
 "source": "https://www.iseecars.com/car/2020-nissan-titan_xd-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
 "destination": 1695,
 "trims": [
 {
+"trim": "4x2 King Cab S",
+"msrp": 36550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab S",
+"msrp": 39280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab S",
+"msrp": 39780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Cab SV",
+"msrp": 40390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab S",
+"msrp": 42410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab SV",
+"msrp": 42730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab SV",
+"msrp": 43620,
+"config": "",
+"note": ""
+},
+{
 "trim": "XD 4x4 S 4dr Crew Cab",
 "msrp": 45430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab SV",
+"msrp": 45860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Cab PRO-4X",
+"msrp": 48070,
 "config": "",
 "note": ""
 },
@@ -858,8 +1719,38 @@
 "note": ""
 },
 {
+"trim": "4x4 Crew Cab PRO-4X",
+"msrp": 50290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab SL",
+"msrp": 54530,
+"config": "",
+"note": ""
+},
+{
 "trim": "XD 4x4 PRO-4X 4dr Crew Cab",
 "msrp": 54920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Crew Cab Platinum Reserve",
+"msrp": 56040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab SL",
+"msrp": 57760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Crew Cab Platinum Reserve",
+"msrp": 59280,
 "config": "",
 "note": ""
 },
@@ -878,7 +1769,7 @@
 ],
 "source": "https://www.iseecars.com/car/2021-nissan-titan_xd-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

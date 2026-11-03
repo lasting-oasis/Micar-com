@@ -2,748 +2,97 @@
 "make": "Cadillac",
 "model": "CTS-V",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (cts-v).",
+"note": "Trim-level MSRPs from iSeeCars price pages (cts__v).",
 "years": [
 {
 "year": 2010,
-"destination": null,
+"destination": 825,
 "trims": [
 {
-"trim": "3.0L V6 4dr Sedan",
-"msrp": 35165,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L V6 Luxury 4dr Sedan",
-"msrp": 37865,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L 4dr Wagon",
-"msrp": 38265,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L V6 4dr Sedan",
-"msrp": 38365,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L V6 Performance 4dr Sedan",
-"msrp": 39765,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L 4dr Wagon",
-"msrp": 40165,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Luxury 4dr Wagon",
-"msrp": 40965,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L V6 Luxury 4dr Sedan",
-"msrp": 41065,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Performance 4dr Wagon",
-"msrp": 41565,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L V6 Performance 4dr Sedan",
-"msrp": 41565,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L V6 Performance 4dr Sedan",
-"msrp": 41665,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Luxury 4dr Wagon",
-"msrp": 42865,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 4dr Wagon",
-"msrp": 43365,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Performance 4dr Wagon",
-"msrp": 43465,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L V6 Performance 4dr Sedan",
-"msrp": 43465,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 4dr Wagon",
-"msrp": 45265,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L V6 Premium 4dr Sedan",
-"msrp": 46865,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 4dr Wagon",
-"msrp": 48665,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L V6 Premium 4dr Sedan",
-"msrp": 48765,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 4dr Wagon",
-"msrp": 50565,
+"trim": "4dr Sedan",
+"msrp": 60720,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2010-cadillac-cts-v-price",
+"source": "https://www.iseecars.com/car/2010-cadillac-cts__v-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2011,
+"year": 2015,
 "destination": null,
 "trims": [
 {
-"trim": "3.0L 4dr Sedan",
-"msrp": 35165,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L 2dr Coupe",
-"msrp": 38165,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Luxury 4dr Sedan",
-"msrp": 38220,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L 4dr Wagon",
-"msrp": 38265,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L 4dr Sedan",
-"msrp": 38365,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Performance 4dr Sedan",
-"msrp": 39765,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L 2dr Coupe",
-"msrp": 40065,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L 4dr Wagon",
-"msrp": 40165,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Luxury 4dr Wagon",
-"msrp": 41320,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Luxury 4dr Sedan",
-"msrp": 41420,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Performance 4dr Wagon",
-"msrp": 41565,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 4dr Sedan",
-"msrp": 41565,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Performance 4dr Sedan",
-"msrp": 41665,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 2dr Coupe",
-"msrp": 42605,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Luxury 4dr Wagon",
-"msrp": 43220,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 4dr Wagon",
-"msrp": 43365,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Performance 4dr Wagon",
-"msrp": 43465,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 4dr Sedan",
-"msrp": 43465,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 2dr Coupe",
-"msrp": 44505,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 4dr Wagon",
-"msrp": 45265,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 2dr Coupe",
-"msrp": 47010,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 4dr Sedan",
-"msrp": 47620,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 2dr Coupe",
-"msrp": 48910,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 4dr Wagon",
-"msrp": 49065,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 4dr Sedan",
-"msrp": 49520,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 4dr Wagon",
-"msrp": 50965,
+"trim": "CTS-V Coupe",
+"msrp": 69900,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2011-cadillac-cts-v-price",
+"source": "https://www.iseecars.com/car/2015-cadillac-cts__v-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-10-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2012,
+"year": 2016,
 "destination": null,
 "trims": [
 {
-"trim": "3.0L 4dr Sedan",
-"msrp": 35915,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L 2dr Coupe",
-"msrp": 38715,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L 4dr Wagon",
-"msrp": 39015,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Luxury 4dr Sedan",
-"msrp": 39050,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L 4dr Sedan",
-"msrp": 39115,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L 2dr Coupe",
-"msrp": 40615,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L 4dr Wagon",
-"msrp": 40915,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Luxury 4dr Wagon",
-"msrp": 42150,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Luxury 4dr Sedan",
-"msrp": 42250,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 4dr Sedan",
-"msrp": 42290,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 2dr Coupe",
-"msrp": 43950,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Luxury 4dr Wagon",
-"msrp": 44050,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 4dr Sedan",
-"msrp": 44190,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 4dr Wagon",
-"msrp": 44190,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 2dr Coupe",
-"msrp": 45850,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 4dr Wagon",
-"msrp": 46090,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 2dr Coupe",
-"msrp": 48150,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 4dr Sedan w/Navigation",
-"msrp": 48290,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 4dr Wagon",
-"msrp": 49750,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 2dr Coupe",
-"msrp": 50050,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 4dr Sedan w/Navigation",
-"msrp": 50190,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 4dr Wagon",
-"msrp": 51650,
+"trim": "CTS-V",
+"msrp": 83995,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2012-cadillac-cts-v-price",
+"source": "https://www.iseecars.com/car/2016-cadillac-cts__v-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2013,
-"destination": null,
+"year": 2017,
+"destination": 995,
 "trims": [
 {
-"trim": "3.6L 2dr Coupe",
-"msrp": 38905,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Luxury 4dr Sedan",
-"msrp": 39095,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L 4dr Wagon",
-"msrp": 39205,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L 2dr Coupe",
-"msrp": 40805,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Luxury 4dr Sedan",
-"msrp": 40920,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L 4dr Wagon",
-"msrp": 41105,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Luxury 4dr Wagon",
-"msrp": 42150,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 4dr Sedan",
-"msrp": 43340,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 2dr Coupe",
-"msrp": 43950,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Luxury 4dr Wagon",
-"msrp": 44050,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 4dr Wagon",
-"msrp": 44190,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 4dr Sedan",
-"msrp": 45240,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 2dr Coupe",
-"msrp": 45850,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 4dr Wagon",
-"msrp": 46090,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 2dr Coupe",
-"msrp": 48150,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 4dr Sedan",
-"msrp": 48290,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 4dr Wagon",
-"msrp": 49750,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 2dr Coupe",
-"msrp": 50050,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 4dr Sedan",
-"msrp": 50190,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 4dr Wagon",
-"msrp": 54650,
+"trim": "4dr Sedan",
+"msrp": 85995,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2013-cadillac-cts-v-price",
+"source": "https://www.iseecars.com/car/2017-cadillac-cts__v-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2014,
+"year": 2018,
 "destination": null,
 "trims": [
 {
-"trim": "3.6L 2dr Coupe",
-"msrp": 39495,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L 2dr Coupe",
-"msrp": 41495,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.0L Luxury 4dr Wagon",
-"msrp": 42195,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 2dr Coupe",
-"msrp": 43795,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.0L Luxury 4dr Wagon",
-"msrp": 44095,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance 4dr Wagon",
-"msrp": 44195,
-"config": "",
-"note": ""
-},
-{
-"trim": "2.0T Standard 4dr Sedan",
-"msrp": 45100,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 2dr Coupe",
-"msrp": 45795,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance 4dr Wagon",
-"msrp": 46095,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 2.0T Standard 4dr Sedan",
-"msrp": 47100,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 2dr Coupe",
-"msrp": 47995,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium 4dr Wagon",
-"msrp": 49795,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 2dr Coupe",
-"msrp": 49995,
-"config": "",
-"note": ""
-},
-{
-"trim": "2.0T Luxury Collection 4dr Sedan",
-"msrp": 51000,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium 4dr Wagon",
-"msrp": 51695,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 2.0T Luxury Collection 4dr Sedan",
-"msrp": 53000,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Luxury Collection 4dr Sedan",
-"msrp": 53700,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Luxury Collection 4dr Sedan",
-"msrp": 55700,
-"config": "",
-"note": ""
-},
-{
-"trim": "2.0T Performance Collection 4dr Sedan",
-"msrp": 57400,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L TT Vsport 4dr Sedan",
-"msrp": 59070,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 2.0T Performance Collection 4dr Sedan",
-"msrp": 59400,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Performance Collection 4dr Sedan",
-"msrp": 60100,
-"config": "",
-"note": ""
-},
-{
-"trim": "2.0T Premium Collection 4dr Sedan",
-"msrp": 61800,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Performance Collection 4dr Sedan",
-"msrp": 62100,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 2.0T Premium Collection 4dr Sedan",
-"msrp": 63800,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L Premium Collection 4dr Sedan",
-"msrp": 64500,
-"config": "",
-"note": ""
-},
-{
-"trim": "AWD 3.6L Premium Collection 4dr Sedan",
-"msrp": 66500,
-"config": "",
-"note": ""
-},
-{
-"trim": "3.6L TT Vsport Premium 4dr Sedan",
-"msrp": 69070,
+"trim": "CTS-V",
+"msrp": 86495,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2014-cadillac-cts-v-price",
+"source": "https://www.iseecars.com/car/2018-cadillac-cts__v-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "CTS-V",
+"msrp": 86995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-cadillac-cts__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

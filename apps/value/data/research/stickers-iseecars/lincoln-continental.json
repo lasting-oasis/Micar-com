@@ -74,6 +74,63 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Premiere FWD",
+"msrp": 45160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premiere AWD",
+"msrp": 47160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select FWD",
+"msrp": 48115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select AWD",
+"msrp": 50115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve FWD",
+"msrp": 54785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 56785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label FWD",
+"msrp": 65415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 67415,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lincoln-continental-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [

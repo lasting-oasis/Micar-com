@@ -260,6 +260,177 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan I4 Manual S",
+"msrp": 16780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 CVT S",
+"msrp": 17760,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 CVT FE+ S",
+"msrp": 18160,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 CVT SV",
+"msrp": 18550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 CVT SR",
+"msrp": 20410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan I4 CVT SL",
+"msrp": 22170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual",
+"msrp": 16990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S CVT",
+"msrp": 18090,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV CVT",
+"msrp": 18840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR CVT",
+"msrp": 19990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL CVT",
+"msrp": 21500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR Turbo Manual",
+"msrp": 21990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR Turbo CVT",
+"msrp": 21990,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO Manual",
+"msrp": 24990,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO CVT",
+"msrp": 24990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual",
+"msrp": 16990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S CVT",
+"msrp": 18275,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV CVT",
+"msrp": 19085,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR CVT",
+"msrp": 20500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR Turbo Manual",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR Turbo CVT",
+"msrp": 22490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL CVT",
+"msrp": 23440,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO Manual",
+"msrp": 25790,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO CVT",
+"msrp": 25790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 925,
 "trims": [
@@ -315,6 +486,33 @@
 "source": "https://www.iseecars.com/car/2019-nissan-sentra-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "S CVT",
+"msrp": 19310,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV CVT",
+"msrp": 20370,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR CVT",
+"msrp": 21650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-sentra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

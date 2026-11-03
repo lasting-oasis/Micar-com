@@ -2,7 +2,7 @@
 "make": "Nissan",
 "model": "Versa",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (versa).",
+"note": "Trim-level MSRPs from iSeeCars price pages (versa, versa_note).",
 "years": [
 {
 "year": 2010,
@@ -258,6 +258,264 @@
 "source": "https://www.iseecars.com/car/2014-nissan-versa-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Manual 1.6 S",
+"msrp": 11990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto 1.6 S",
+"msrp": 13490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT 1.6 S Plus",
+"msrp": 13990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note 5dr HB Manual 1.6 S",
+"msrp": 14180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note 5dr HB CVT 1.6 S Plus",
+"msrp": 15430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT 1.6 SV",
+"msrp": 15530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note 5dr HB CVT 1.6 SV",
+"msrp": 16330,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT 1.6 SL",
+"msrp": 17090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note 5dr HB CVT 1.6 SR",
+"msrp": 17930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note 5dr HB CVT 1.6 SL",
+"msrp": 18660,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-nissan-versa-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual",
+"msrp": 11990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto",
+"msrp": 13680,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Plus CVT",
+"msrp": 14130,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note S Plus CVT",
+"msrp": 15480,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV CVT",
+"msrp": 15720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note SV CVT",
+"msrp": 16380,
+"config": "",
+"note": ""
+},
+{
+"trim": "SL CVT",
+"msrp": 17280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note SR CVT",
+"msrp": 17980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note SL CVT",
+"msrp": 18710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-nissan-versa-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual",
+"msrp": 12110,
+"config": "",
+"note": ""
+},
+{
+"trim": "2018.5 S Manual",
+"msrp": 12310,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Plus CVT",
+"msrp": 14250,
+"config": "",
+"note": ""
+},
+{
+"trim": "2018.5 S Plus CVT",
+"msrp": 14450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note S CVT",
+"msrp": 15600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note 2018.5 S CVT",
+"msrp": 15600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV CVT",
+"msrp": 15840,
+"config": "",
+"note": ""
+},
+{
+"trim": "2018.5 SV CVT",
+"msrp": 15940,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note SV CVT",
+"msrp": 16500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note 2018.5 SV CVT",
+"msrp": 16500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note SR CVT",
+"msrp": 18100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note 2018.5 SR CVT",
+"msrp": 18100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-versa-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual",
+"msrp": 12460,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Plus CVT",
+"msrp": 14600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note S CVT",
+"msrp": 15650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SV CVT",
+"msrp": 16090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note SV CVT",
+"msrp": 16550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Note SR CVT",
+"msrp": 18360,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-versa-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

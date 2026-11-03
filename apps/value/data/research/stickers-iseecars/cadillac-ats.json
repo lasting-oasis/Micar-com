@@ -108,6 +108,570 @@
 "source": "https://www.iseecars.com/car/2014-cadillac-ats-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2.5L I4 RWD",
+"msrp": 33215,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD",
+"msrp": 35245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD",
+"msrp": 37245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L I4 RWD Luxury",
+"msrp": 37340,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Luxury",
+"msrp": 39340,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD",
+"msrp": 40445,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Luxury",
+"msrp": 41340,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Luxury",
+"msrp": 41340,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Luxury",
+"msrp": 41920,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Performance",
+"msrp": 42660,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Luxury",
+"msrp": 43340,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Luxury",
+"msrp": 44520,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Performance",
+"msrp": 44660,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Performance",
+"msrp": 44660,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Performance",
+"msrp": 44935,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Luxury",
+"msrp": 45150,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Premium",
+"msrp": 45615,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Performance",
+"msrp": 46660,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Premium",
+"msrp": 46715,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Performance",
+"msrp": 46935,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Premium",
+"msrp": 47095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium",
+"msrp": 47615,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Luxury",
+"msrp": 47750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Performance",
+"msrp": 48165,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Premium",
+"msrp": 48205,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium",
+"msrp": 48715,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Performance",
+"msrp": 50165,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium",
+"msrp": 50325,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium",
+"msrp": 51435,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-cadillac-ats-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2.5L I4 RWD",
+"msrp": 33215,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD",
+"msrp": 35245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD",
+"msrp": 37245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5L I4 RWD Luxury Collection",
+"msrp": 37340,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Luxury Collection",
+"msrp": 39340,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD",
+"msrp": 40445,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Luxury Collection",
+"msrp": 41340,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Luxury Collection",
+"msrp": 41340,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Luxury Collection",
+"msrp": 41920,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Performance Collection",
+"msrp": 43155,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Luxury Collection",
+"msrp": 43340,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Luxury Collection",
+"msrp": 44520,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Luxury Collection",
+"msrp": 45150,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Performance Collection",
+"msrp": 45155,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Performance Collection",
+"msrp": 45155,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Performance Collection",
+"msrp": 45445,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Premium Collection",
+"msrp": 46110,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Performance Collection",
+"msrp": 47155,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Premium Collection",
+"msrp": 47210,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Performance Collection",
+"msrp": 47445,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Premium Collection",
+"msrp": 47605,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Luxury Collection",
+"msrp": 47750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Collection",
+"msrp": 48110,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Performance Collection",
+"msrp": 48675,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Premium Collection",
+"msrp": 48715,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium Collection",
+"msrp": 49210,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Performance Collection",
+"msrp": 50675,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Collection",
+"msrp": 50835,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium Collection",
+"msrp": 51945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-cadillac-ats-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0L I4 RWD",
+"msrp": 34595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD",
+"msrp": 36595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD",
+"msrp": 37595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Luxury",
+"msrp": 38395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Luxury",
+"msrp": 40395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Luxury",
+"msrp": 41395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Luxury",
+"msrp": 43395,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Luxury",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium Luxury",
+"msrp": 45995,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Luxury",
+"msrp": 46995,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Performance",
+"msrp": 46995,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium Luxury",
+"msrp": 48995,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Performance",
+"msrp": 49495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-cadillac-ats-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0L I4 RWD",
+"msrp": 35495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD",
+"msrp": 38495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Luxury",
+"msrp": 39295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD",
+"msrp": 40895,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Luxury",
+"msrp": 41295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 RWD Luxury",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L I4 AWD Luxury",
+"msrp": 44295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Luxury",
+"msrp": 44895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium Luxury",
+"msrp": 46895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Luxury",
+"msrp": 47895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Performance",
+"msrp": 47895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium Luxury",
+"msrp": 49895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 RWD Premium Performance",
+"msrp": 50395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-cadillac-ats-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

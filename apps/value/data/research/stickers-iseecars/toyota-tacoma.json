@@ -374,6 +374,390 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD Access Cab Standard Bed I4 Automatic SR (Natl)",
+"msrp": 23660,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Short Bed I4 Automatic SR (Natl)",
+"msrp": 24490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Access Cab Standard Bed I4 Manual SR (Natl)",
+"msrp": 25185,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Access Cab Standard Bed I4 Automatic SR5 (Natl)",
+"msrp": 25745,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Short Bed I4 Automatic SR5 (Natl)",
+"msrp": 26635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Access Cab Standard Bed I4 Automatic SR (Natl)",
+"msrp": 26735,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Access Cab Standard Bed V6 Automatic SR5 (Natl)",
+"msrp": 27355,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Short Bed V6 Automatic SR5 (Natl)",
+"msrp": 28345,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Access Cab Standard Bed I4 Automatic SR5 (Natl)",
+"msrp": 28820,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Long Bed V6 Automatic SR5 (Natl)",
+"msrp": 28845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Short Bed V6 Automatic SR (Natl)",
+"msrp": 29275,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Access Cab Standard Bed V6 Automatic TRD Sport (Natl)",
+"msrp": 30025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Access Cab Standard Bed V6 Automatic SR5 (Natl)",
+"msrp": 30530,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Short Bed V6 Automatic TRD Off Road (Natl)",
+"msrp": 31125,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Short Bed V6 Automatic TRD Sport (Natl)",
+"msrp": 31125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Short Bed V6 Automatic SR5 (Natl)",
+"msrp": 31420,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Long Bed V6 Automatic TRD Sport (Natl)",
+"msrp": 31625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Access Cab Standard Bed V6 Manual TRD Sport (Natl)",
+"msrp": 31680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Long Bed V6 Automatic SR5 (Natl)",
+"msrp": 31920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Short Bed V6 Manual TRD Off Road (Natl)",
+"msrp": 32460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Short Bed V6 Manual TRD Sport (Natl)",
+"msrp": 32460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Access Cab Standard Bed V6 Automatic TRD Off Road (Natl)",
+"msrp": 33310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Access Cab Standard Bed V6 Automatic TRD Sport (Natl)",
+"msrp": 33310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Short Bed V6 Automatic TRD Off Road (Natl)",
+"msrp": 34090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Short Bed V6 Automatic TRD Sport (Natl)",
+"msrp": 34090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Long Bed V6 Automatic TRD Off Road (Natl)",
+"msrp": 34700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Long Bed V6 Automatic TRD Sport (Natl)",
+"msrp": 34700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Double Cab Short Bed V6 Automatic Limited (Natl)",
+"msrp": 35105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Double Cab Short Bed V6 Automatic Limited (Natl)",
+"msrp": 38180,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SR Access Cab 6' Bed I4 4x2 AT (Natl)",
+"msrp": 24575,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR Double Cab 5' Bed I4 4x2 AT (Natl)",
+"msrp": 25405,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR Access Cab 6' Bed I4 4x4 MT (Natl)",
+"msrp": 26100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR Access Cab 6' Bed V6 4x2 AT (Natl)",
+"msrp": 26185,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Access Cab 6' Bed I4 4x2 AT (Natl)",
+"msrp": 26660,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Double Cab 5' Bed I4 4x2 AT (Natl)",
+"msrp": 27550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR Access Cab 6' Bed I4 4x4 AT (Natl)",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Access Cab 6' Bed V6 4x2 AT (Natl)",
+"msrp": 29155,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Access Cab 6' Bed I4 4x4 AT (Natl)",
+"msrp": 29735,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Double Cab 5' Bed V6 4x2 AT (Natl)",
+"msrp": 30145,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR Double Cab 5' Bed V6 4x4 AT (Natl)",
+"msrp": 30190,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Double Cab 6' Bed V6 4x2 AT (Natl)",
+"msrp": 30645,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Sport Access Cab 6' Bed V6 4x2 AT (Natl)",
+"msrp": 30940,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road Double Cab 5' Bed V6 4x2 AT (Natl)",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Sport Double Cab 5' Bed V6 4x2 AT (Natl)",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Access Cab 6' Bed V6 4x4 AT (Natl)",
+"msrp": 32330,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Sport Double Cab 6' Bed V6 4x2 AT (Natl)",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Sport Access Cab 6' Bed V6 4x4 MT (Natl)",
+"msrp": 32845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Double Cab 5' Bed V6 4x4 AT (Natl)",
+"msrp": 33220,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road Double Cab 5' Bed V6 4x4 MT (Natl)",
+"msrp": 33530,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Sport Double Cab 5' Bed V6 4x4 MT (Natl)",
+"msrp": 33530,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Double Cab 6' Bed V6 4x4 AT (Natl)",
+"msrp": 33720,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road Access Cab 6' Bed V6 4x4 AT (Natl)",
+"msrp": 34225,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Sport Access Cab 6' Bed V6 4x4 AT (Natl)",
+"msrp": 34225,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road Double Cab 5' Bed V6 4x4 AT (Natl)",
+"msrp": 35160,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Sport Double Cab 5' Bed V6 4x4 AT (Natl)",
+"msrp": 35160,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road Double Cab 6' Bed V6 4x4 AT (Natl)",
+"msrp": 35770,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Sport Double Cab 6' Bed V6 4x4 AT (Natl)",
+"msrp": 35770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Double Cab 5' Bed V6 4x2 AT (Natl)",
+"msrp": 36175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Double Cab 5' Bed V6 4x4 AT (Natl)",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Pro Double Cab 5' Bed V6 4x4 MT (Natl)",
+"msrp": 41215,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Pro Double Cab 5' Bed V6 4x4 AT (Natl)",
+"msrp": 43215,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 1095,
 "trims": [
@@ -567,6 +951,414 @@
 "source": "https://www.iseecars.com/car/2018-toyota-tacoma-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2WD SR Access Cab 6' Bed I4 AT (Natl)",
+"msrp": 25850,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 5' Bed I4 AT (Natl)",
+"msrp": 26680,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Access Cab 6' Bed I4 AT (Natl)",
+"msrp": 27625,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 28110,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 5' Bed I4 AT (Natl)",
+"msrp": 28515,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Access Cab 6' Bed I4 AT (Natl)",
+"msrp": 28925,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Access Cab 6' Bed I4 AT (Natl)",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 30770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 31575,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 5' Bed V6 MT (Natl)",
+"msrp": 31665,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 31915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 32115,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 32415,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD TRD Sport Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 32545,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD TRD Sport Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 33800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD TRD Off Road Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 33800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 34110,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD TRD Sport Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Access Cab 6' Bed V6 MT (Natl)",
+"msrp": 34520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 34990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Double Cab 5' Bed V6 MT (Natl)",
+"msrp": 35135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Off Road Double Cab 5' Bed V6 MT (Natl)",
+"msrp": 35135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 35490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 35830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Off Road Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 35830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 36765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Off Road Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 36765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 37375,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Off Road Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 37375,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 37790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 40865,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro Double Cab 5' Bed V6 MT (Natl)",
+"msrp": 42960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 45665,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2WD SR Access Cab 6' Bed I4 AT (Natl)",
+"msrp": 26050,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Double Cab 5' Bed I4 AT (Natl)",
+"msrp": 26880,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Access Cab 6' Bed I4 AT (Natl)",
+"msrp": 27825,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 28310,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 5' Bed I4 AT (Natl)",
+"msrp": 28715,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Access Cab 6' Bed I4 AT (Natl)",
+"msrp": 29125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Access Cab 6' Bed I4 AT (Natl)",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 30970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 31775,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 32115,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 32315,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SR5 Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 32615,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD TRD Sport Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 32745,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD TRD Sport Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD TRD Off Road Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 34310,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD TRD Sport Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Access Cab 6' Bed V6 MT (Natl)",
+"msrp": 34720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Double Cab 5' Bed V6 MT (Natl)",
+"msrp": 35335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Off Road Double Cab 5' Bed V6 MT (Natl)",
+"msrp": 35335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SR5 Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 35690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 36030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Off Road Access Cab 6' Bed V6 AT (Natl)",
+"msrp": 36030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 36965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Off Road Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 36965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Sport Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 37575,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Off Road Double Cab 6' Bed V6 AT (Natl)",
+"msrp": 37575,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Limited Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 38790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Limited Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 41865,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro Double Cab 5' Bed V6 MT (Natl)",
+"msrp": 43960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD TRD Pro Double Cab 5' Bed V6 AT (Natl)",
+"msrp": 46665,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-tacoma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

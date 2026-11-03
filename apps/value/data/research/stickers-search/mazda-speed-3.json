@@ -1,0 +1,54 @@
+{
+"make": "Mazda",
+"model": "Speed 3",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2010,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 23195,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2010+Mazda+Speed+3+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, motormatchup.com, news.mazdausa.com)."
+},
+{
+"year": 2011,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 23700,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2011+Mazda+Speed+3+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, kbb.com, motormatchup.com)."
+},
+{
+"year": 2012,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 23700,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2012+Mazda+Speed+3+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, cargurus.com, motormatchup.com)."
+}
+],
+"gaps": []
+}

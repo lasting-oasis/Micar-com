@@ -2,7 +2,7 @@
 "make": "Mitsubishi",
 "model": "Outlander",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (outlander).",
+"note": "Trim-level MSRPs from iSeeCars price pages (outlander, outlander_phev).",
 "years": [
 {
 "year": 2010,
@@ -206,6 +206,204 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr ES",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr SE",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr SE",
+"msrp": 26195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr GT",
+"msrp": 28195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr ES",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr SE",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr SEL",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWC 4dr ES",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWC 4dr SE",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWC 4dr SEL",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWC 4dr GT",
+"msrp": 30995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "ES FWD",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES S-AWC",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE S-AWC",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL S-AWC",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT S-AWC",
+"msrp": 31695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "ES FWD",
+"msrp": 23945,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD",
+"msrp": 24945,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES AWC",
+"msrp": 25445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 26145,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE FWD",
+"msrp": 26145,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE S-AWC",
+"msrp": 26945,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL S-AWC",
+"msrp": 28145,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE S-AWC",
+"msrp": 28145,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT S-AWC",
+"msrp": 32245,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1095,
 "trims": [
@@ -262,11 +460,125 @@
 "msrp": 33195,
 "config": "",
 "note": ""
+},
+{
+"trim": "Phev SEL S-AWC",
+"msrp": 35795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Phev GT S-AWC",
+"msrp": 41495,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2019-mitsubishi-outlander-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "ES FWD",
+"msrp": 24895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES S-AWC",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE FWD",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE S-AWC",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SP FWD",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE S-AWC",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL S-AWC",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SP S-AWC",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT S-AWC",
+"msrp": 33745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mitsubishi-outlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Phev SEL S-AWC",
+"msrp": 36295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Phev LE S-AWC",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Phev GT S-AWC",
+"msrp": 41995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mitsubishi-outlander_phev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

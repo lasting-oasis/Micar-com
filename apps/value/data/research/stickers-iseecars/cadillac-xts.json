@@ -74,6 +74,285 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "3.6L V6 FWD",
+"msrp": 44660,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Livery Package",
+"msrp": 45860,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Stretch Livery Package",
+"msrp": 47370,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Funeral Package",
+"msrp": 48315,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Limousine",
+"msrp": 48695,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Luxury",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Armored",
+"msrp": 49660,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Luxury",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Premium",
+"msrp": 54670,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium",
+"msrp": 56900,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Platinum",
+"msrp": 62015,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 Turbo Vsport AWD Premium",
+"msrp": 62735,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Platinum",
+"msrp": 64245,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 Turbo Vsport AWD Platinum",
+"msrp": 69785,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-cadillac-xts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "3.6L V6 FWD",
+"msrp": 45295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Livery Package",
+"msrp": 46295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Stretch Livery Package",
+"msrp": 47805,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Funeral Package",
+"msrp": 48750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Limousine",
+"msrp": 49130,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Luxury",
+"msrp": 49250,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Armored",
+"msrp": 50095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Luxury",
+"msrp": 51250,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Premium",
+"msrp": 55705,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium",
+"msrp": 57935,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 Turbo Vsport AWD Premium",
+"msrp": 63770,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Platinum",
+"msrp": 64550,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Platinum",
+"msrp": 66780,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 Turbo Vsport AWD Platinum",
+"msrp": 72320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-cadillac-xts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "3.6L V6 FWD",
+"msrp": 45595,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Livery Package",
+"msrp": 46295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Stretch Livery Package",
+"msrp": 47805,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Funeral Package",
+"msrp": 48750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Limousine",
+"msrp": 49130,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Luxury",
+"msrp": 49595,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Armored",
+"msrp": 50095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Luxury",
+"msrp": 51595,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Premium Luxury",
+"msrp": 56095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Premium Luxury",
+"msrp": 58295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 Turbo Vsport AWD Premium Luxury",
+"msrp": 64095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 FWD Platinum",
+"msrp": 64895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 AWD Platinum",
+"msrp": 67095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 Turbo Vsport AWD Platinum",
+"msrp": 72695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-cadillac-xts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [

@@ -214,11 +214,17 @@
 "msrp": 70100,
 "config": "",
 "note": ""
+},
+{
+"trim": "M X5 AWD 4dr SAV",
+"msrp": 98700,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2015-bmw-x5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2016,
@@ -253,11 +259,62 @@
 "msrp": 71500,
 "config": "",
 "note": ""
+},
+{
+"trim": "M X5 AWD 4dr SAV",
+"msrp": 98800,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2016-bmw-x5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-06-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 56600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 63200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 73650,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X5 M Sports Activity Vehicle",
+"msrp": 100700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2018,
@@ -292,16 +349,112 @@
 "msrp": 74050,
 "config": "",
 "note": ""
+},
+{
+"trim": "M X5 M Sports Activity Vehicle",
+"msrp": 101700,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2018-bmw-x5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 60700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 75750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 61200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 76150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 82150,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X5 M Sports Activity Vehicle",
+"msrp": 105100,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X5 M Competition Sports Activity Vehicle",
+"msrp": 114100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
 "destination": 995,
 "trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 61700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 65400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 82800,
+"config": "",
+"note": ""
+},
 {
 "trim": "M AWD 4dr Sports Activity Vehicle",
 "msrp": 105100,
@@ -311,7 +464,7 @@
 ],
 "source": "https://www.iseecars.com/car/2021-bmw-x5_m-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

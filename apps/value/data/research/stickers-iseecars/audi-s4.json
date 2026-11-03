@@ -170,6 +170,93 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Man Premium Plus",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man Prestige",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S Tronic Premium Plus",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S Tronic Prestige",
+"msrp": 49800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-s4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Man Premium Plus",
+"msrp": 49200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man Prestige",
+"msrp": 49200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S Tronic Premium Plus",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S Tronic Prestige",
+"msrp": 50200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-s4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "3.0 TFSI Prestige quattro AWD",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 TFSI Premium Plus quattro AWD",
+"msrp": 51400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-s4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [
@@ -195,6 +282,33 @@
 "source": "https://www.iseecars.com/car/2019-audi-s4-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 3.0 TFSI quattro",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 3.0 TFSI quattro",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 3.0 TFSI quattro",
+"msrp": 49900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-s4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

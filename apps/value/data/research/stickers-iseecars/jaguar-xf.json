@@ -194,6 +194,237 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan I4 T Premium RWD",
+"msrp": 50175,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 Portfolio RWD",
+"msrp": 57175,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 Sport RWD",
+"msrp": 57175,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 Portfolio AWD",
+"msrp": 59875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 Sport AWD",
+"msrp": 59875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V8 Supercharged RWD",
+"msrp": 70875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V8 XFR RWD",
+"msrp": 83550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V8 XFR-S RWD",
+"msrp": 99000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-jaguar-xf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan 35t Premium RWD",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 35t Premium AWD",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 35t Prestige RWD",
+"msrp": 56550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 35t Prestige AWD",
+"msrp": 59550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 35t R-Sport RWD",
+"msrp": 60650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S RWD",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 35t R-Sport AWD",
+"msrp": 63650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S AWD",
+"msrp": 65700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jaguar-xf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "20d RWD",
+"msrp": 47450,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium RWD",
+"msrp": 49550,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d AWD",
+"msrp": 50450,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t RWD",
+"msrp": 50490,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Premium RWD",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium AWD",
+"msrp": 52550,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t AWD",
+"msrp": 53490,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige RWD",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Premium AWD",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Prestige RWD",
+"msrp": 56550,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige AWD",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport RWD",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Prestige AWD",
+"msrp": 59550,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t R-Sport RWD",
+"msrp": 60650,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport AWD",
+"msrp": 61300,
+"config": "",
+"note": ""
+},
+{
+"trim": "S RWD",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t R-Sport AWD",
+"msrp": 63650,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 65700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jaguar-xf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [

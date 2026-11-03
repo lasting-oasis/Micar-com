@@ -68,6 +68,663 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 23095,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 25095,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude Altitude",
+"msrp": 25095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 25095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude Altitude",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Trailhawk",
+"msrp": 30395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 30895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude Altitude",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 75th Anniversary",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 25395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude Altitude",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr 75th Anniversary",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Trailhawk",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Overland",
+"msrp": 34695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Overland",
+"msrp": 38395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-02-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 23695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 23695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude FWD",
+"msrp": 25645,
+"config": "",
+"note": ""
+},
+{
+"trim": "75th Anniversary Edition FWD",
+"msrp": 25645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4",
+"msrp": 25695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 25695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 27645,
+"config": "",
+"note": ""
+},
+{
+"trim": "75th Anniversary Edition 4x4",
+"msrp": 27645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude FWD",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk L Plus 4x4",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 31495,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x4",
+"msrp": 31495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland FWD",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x4",
+"msrp": 37695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Latitude FWD",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Tech Connect FWD",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Tech Connect 4x4",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Plus FWD",
+"msrp": 26295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Plus 4x4",
+"msrp": 27795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 29795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 31295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland FWD",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x4",
+"msrp": 37340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Latitude FWD",
+"msrp": 25045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 26545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland 4x4",
+"msrp": 26545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Plus FWD",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Plus 4x4",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude FWD",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 34195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk Elite 4x4",
+"msrp": 34195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 34695,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x4",
+"msrp": 34695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland FWD",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x4",
+"msrp": 38495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Latitude FWD",
+"msrp": 25840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 27340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland 4x4",
+"msrp": 27340,
+"config": "",
+"note": ""
+},
+{
+"trim": "North 4x4",
+"msrp": 27340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Plus FWD",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux FWD",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Plus 4x4",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux 4x4",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 31600,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude FWD",
+"msrp": 31600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 34755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk Elite 4x4",
+"msrp": 34755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 34845,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x4",
+"msrp": 34845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland FWD",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Overland 4x4",
+"msrp": 38495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Latitude FWD",
+"msrp": 27210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Freedom FWD",
+"msrp": 27210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 28710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Freedom 4x4",
+"msrp": 28710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Plus FWD",
+"msrp": 29525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 29525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Lux FWD",
+"msrp": 30875,
+"config": "",
+"note": ""
+},
+{
+"trim": "80th Anniversary FWD",
+"msrp": 30875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Plus 4x4",
+"msrp": 31025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 31025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude Lux 4x4",
+"msrp": 32375,
+"config": "",
+"note": ""
+},
+{
+"trim": "80th Anniversary 4x4",
+"msrp": 32375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 34785,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude FWD",
+"msrp": 34785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 36085,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 36285,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4x4",
+"msrp": 36285,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-jeep-cherokee-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2022,
 "destination": 1595,
 "trims": [

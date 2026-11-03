@@ -305,9 +305,156 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "C 5dr HB One (Natl)",
+"msrp": 19560,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 5dr HB Two (Natl)",
+"msrp": 20360,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 5dr HB Persona Series (Natl)",
+"msrp": 21355,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 5dr HB Three (Natl)",
+"msrp": 21785,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Two (Natl)",
+"msrp": 24200,
+"config": "",
+"note": ""
+},
+{
+"trim": "C 5dr HB Four (Natl)",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Two Eco (Natl)",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Three (Natl)",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "V 5dr Wagon Two (Natl)",
+"msrp": 26675,
+"config": "",
+"note": ""
+},
+{
+"trim": "V 5dr Wagon Three (Natl)",
+"msrp": 28060,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Three Touring (Natl)",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Four (Natl)",
+"msrp": 28650,
+"config": "",
+"note": ""
+},
+{
+"trim": "V 5dr Wagon Four (Natl)",
+"msrp": 29695,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Four Touring (Natl)",
+"msrp": 30000,
+"config": "",
+"note": ""
+},
+{
+"trim": "V 5dr Wagon Five (Natl)",
+"msrp": 30935,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-prius-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-03-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 895,
 "trims": [
+{
+"trim": "C One (Natl)",
+"msrp": 20150,
+"config": "",
+"note": ""
+},
+{
+"trim": "C Two (Natl)",
+"msrp": 20950,
+"config": "",
+"note": ""
+},
+{
+"trim": "C Three (Natl)",
+"msrp": 22375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Two (Natl)",
+"msrp": 24685,
+"config": "",
+"note": ""
+},
+{
+"trim": "C Four (Natl)",
+"msrp": 24965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Two Eco (Natl)",
+"msrp": 25165,
+"config": "",
+"note": ""
+},
+{
+"trim": "V Two (Natl)",
+"msrp": 26675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Three (Natl)",
+"msrp": 26735,
+"config": "",
+"note": ""
+},
 {
 "trim": "Prime Plus 4dr Hatchback",
 "msrp": 27100,
@@ -315,8 +462,44 @@
 "note": ""
 },
 {
+"trim": "V Three (Natl)",
+"msrp": 28060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Three Touring (Natl)",
+"msrp": 28115,
+"config": "",
+"note": ""
+},
+{
 "trim": "Prime Premium 4dr Hatchback",
 "msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Four (Natl)",
+"msrp": 29135,
+"config": "",
+"note": ""
+},
+{
+"trim": "V Four (Natl)",
+"msrp": 29695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Four Touring (Natl)",
+"msrp": 30015,
+"config": "",
+"note": ""
+},
+{
+"trim": "V Five (Natl)",
+"msrp": 30935,
 "config": "",
 "note": ""
 },
@@ -329,12 +512,135 @@
 ],
 "source": "https://www.iseecars.com/car/2017-toyota-prius_prime-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "C One (Natl)",
+"msrp": 20630,
+"config": "",
+"note": ""
+},
+{
+"trim": "C Two (Natl)",
+"msrp": 21430,
+"config": "",
+"note": ""
+},
+{
+"trim": "C Three (Natl)",
+"msrp": 22855,
+"config": "",
+"note": ""
+},
+{
+"trim": "One (Natl)",
+"msrp": 23475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Two (Natl)",
+"msrp": 24685,
+"config": "",
+"note": ""
+},
+{
+"trim": "C Four (Natl)",
+"msrp": 24965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Two Eco (Natl)",
+"msrp": 25165,
+"config": "",
+"note": ""
+},
+{
+"trim": "Three (Natl)",
+"msrp": 26735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime Plus (Natl)",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Three Touring (Natl)",
+"msrp": 28115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime Premium (Natl)",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Four (Natl)",
+"msrp": 29685,
+"config": "",
+"note": ""
+},
+{
+"trim": "Four Touring (Natl)",
+"msrp": 30565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime Advanced (Natl)",
+"msrp": 33300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-prius-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
 "destination": 930,
 "trims": [
+{
+"trim": "C L (Natl)",
+"msrp": 21530,
+"config": "",
+"note": ""
+},
+{
+"trim": "C LE (Natl)",
+"msrp": 22955,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Eco (Natl)",
+"msrp": 23770,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE (Natl)",
+"msrp": 24980,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD-e (Natl)",
+"msrp": 26380,
+"config": "",
+"note": ""
+},
 {
 "trim": "Prime Plus 4dr Hatchback",
 "msrp": 27350,
@@ -342,8 +648,26 @@
 "note": ""
 },
 {
+"trim": "XLE (Natl)",
+"msrp": 27820,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD-e (Natl)",
+"msrp": 28820,
+"config": "",
+"note": ""
+},
+{
 "trim": "Prime Premium 4dr Hatchback",
 "msrp": 29050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited (Natl)",
+"msrp": 32200,
 "config": "",
 "note": ""
 },
@@ -356,7 +680,70 @@
 ],
 "source": "https://www.iseecars.com/car/2019-toyota-prius_prime-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "L Eco (Natl)",
+"msrp": 24325,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE (Natl)",
+"msrp": 25535,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD-e (Natl)",
+"msrp": 26935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime LE (Natl)",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE (Natl)",
+"msrp": 28375,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD-e (Natl)",
+"msrp": 29375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime XLE (Natl)",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited (Natl)",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime Limited (Natl)",
+"msrp": 33800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-prius-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

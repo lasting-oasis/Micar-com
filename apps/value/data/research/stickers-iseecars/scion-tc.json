@@ -168,6 +168,51 @@
 "source": "https://www.iseecars.com/car/2014-scion-tc-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr HB Man (SE)",
+"msrp": 19385,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Man (GS)",
+"msrp": 19385,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Man (Natl)",
+"msrp": 19385,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Auto (GS)",
+"msrp": 20535,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Auto (Natl)",
+"msrp": 20535,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Auto (SE)",
+"msrp": 20535,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-scion-tc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

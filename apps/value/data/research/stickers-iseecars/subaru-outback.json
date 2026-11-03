@@ -305,6 +305,57 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2.5i",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i PZEV",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium PZEV",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited",
+"msrp": 30395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited PZEV",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6R Limited",
+"msrp": 33395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 875,
 "trims": [
@@ -438,6 +489,165 @@
 "source": "https://www.iseecars.com/car/2019-subaru-outback-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "CVT",
+"msrp": 26645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 33445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Onyx Edition XT CVT",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT",
+"msrp": 37345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited XT CVT",
+"msrp": 37745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring XT CVT",
+"msrp": 39695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "CVT",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 29045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Onyx Edition XT CVT",
+"msrp": 35145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited XT CVT",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring XT CVT",
+"msrp": 39945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "CVT",
+"msrp": 26945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 29145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Onyx Edition XT CVT",
+"msrp": 35145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wilderness CVT",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited XT CVT",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring XT CVT",
+"msrp": 39945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2023,

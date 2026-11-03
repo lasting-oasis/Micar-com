@@ -323,6 +323,261 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan 1.8T Auto S",
+"msrp": 22440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto S PZEV",
+"msrp": 22440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto R-Line",
+"msrp": 23975,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto R-Line PZEV",
+"msrp": 23975,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto R-Line w/Comfort Pkg",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto R-Line w/Comfort Pkg PZEV",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto SE",
+"msrp": 26280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto SE PZEV",
+"msrp": 26280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto SE w/Technology",
+"msrp": 28410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto SE w/Technology PZEV",
+"msrp": 28410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto SEL",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto SEL PZEV",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto SEL Premium",
+"msrp": 34270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 1.8T Auto SEL Premium PZEV",
+"msrp": 34270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L V6 DSG SEL Premium",
+"msrp": 36835,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-volkswagen-passat-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "1.8T S Auto",
+"msrp": 22440,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line w/Comfort Pkg Auto",
+"msrp": 23975,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE Auto",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE w/Technology Auto",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE w/Technology DSG",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SEL Premium Auto",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL Premium DSG",
+"msrp": 33995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volkswagen-passat-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0T S Auto",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE Auto",
+"msrp": 26295,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 GT DSG",
+"msrp": 29145,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE w/Technology Auto",
+"msrp": 29595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL Premium Auto",
+"msrp": 31650,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL Premium DSG",
+"msrp": 34650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volkswagen-passat-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2.0T Wolfsburg Edition Auto",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE R-Line Auto",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-passat-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2.0T S Auto",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE Auto",
+"msrp": 25845,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T R-Line Auto",
+"msrp": 28645,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL Auto",
+"msrp": 31095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volkswagen-passat-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 995,
 "trims": [

@@ -5,6 +5,174 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (q3).",
 "years": [
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FrontTrak 4dr 2.0T Premium Plus",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "FrontTrak 4dr 2.0T Prestige",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 2.0T Premium Plus",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 2.0T Prestige",
+"msrp": 34600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FrontTrak 4dr Premium Plus",
+"msrp": 33700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FrontTrak 4dr Prestige",
+"msrp": 33700,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr Premium Plus",
+"msrp": 35800,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr Prestige",
+"msrp": 35800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI Premium FWD",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige FWD",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus FWD",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium quattro AWD",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige quattro AWD",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus quattro AWD",
+"msrp": 33900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI Premium FWD",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus FWD",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Sport Premium FWD",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Sport Premium Plus FWD",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium quattro AWD",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus quattro AWD",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Sport Premium quattro AWD",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Sport Premium Plus quattro AWD",
+"msrp": 36000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [
@@ -81,6 +249,39 @@
 "source": "https://www.iseecars.com/car/2020-audi-q3-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 40 TFSI quattro",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 40 TFSI quattro",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Premium 45 TFSI quattro",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Premium Plus 45 TFSI quattro",
+"msrp": 36000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-q3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

@@ -38,9 +38,54 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Man DE",
+"msrp": 12995,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT DE",
+"msrp": 14095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Man ES",
+"msrp": 14295,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT RF",
+"msrp": 14945,
+"config": "",
+"note": ""
+},
+{
+"trim": "CVT ES",
+"msrp": 15395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-mitsubishi-mirage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 895,
 "trims": [
+{
+"trim": "ES Manual",
+"msrp": 12995,
+"config": "",
+"note": ""
+},
 {
 "trim": "G4 ES 4dr Sedan 5M",
 "msrp": 13995,
@@ -48,8 +93,32 @@
 "note": ""
 },
 {
+"trim": "ES CVT",
+"msrp": 14195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Manual",
+"msrp": 14795,
+"config": "",
+"note": ""
+},
+{
 "trim": "G4 ES 4dr Sedan CVT",
 "msrp": 15195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE CVT",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT CVT",
+"msrp": 16495,
 "config": "",
 "note": ""
 },
@@ -62,7 +131,7 @@
 ],
 "source": "https://www.iseecars.com/car/2017-mitsubishi-mirage_g4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2018,
@@ -141,6 +210,108 @@
 "source": "https://www.iseecars.com/car/2019-mitsubishi-mirage-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "ES Manual",
+"msrp": 13995,
+"config": "",
+"note": ""
+},
+{
+"trim": "G4 ES Manual",
+"msrp": 14995,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES CVT",
+"msrp": 15295,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE CVT",
+"msrp": 16195,
+"config": "",
+"note": ""
+},
+{
+"trim": "G4 ES CVT",
+"msrp": 16295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE CVT",
+"msrp": 16745,
+"config": "",
+"note": ""
+},
+{
+"trim": "G4 LE CVT",
+"msrp": 17195,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT CVT",
+"msrp": 17295,
+"config": "",
+"note": ""
+},
+{
+"trim": "G4 SE CVT",
+"msrp": 17745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mitsubishi-mirage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "ES Manual",
+"msrp": 14295,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES CVT",
+"msrp": 15595,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE CVT",
+"msrp": 16220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carbonite Edition CVT",
+"msrp": 16995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE CVT",
+"msrp": 17445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mitsubishi-mirage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

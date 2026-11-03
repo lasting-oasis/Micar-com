@@ -332,6 +332,63 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr S",
+"msrp": 29830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr S",
+"msrp": 31520,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr SV",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr SV",
+"msrp": 34840,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr SL",
+"msrp": 36410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr SL",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Platinum",
+"msrp": 41610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Platinum",
+"msrp": 43300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-09-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 995,
 "trims": [
@@ -387,6 +444,177 @@
 "source": "https://www.iseecars.com/car/2017-nissan-pathfinder-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "FWD S",
+"msrp": 31040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S",
+"msrp": 32730,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV",
+"msrp": 33730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV",
+"msrp": 35420,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL",
+"msrp": 37750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL",
+"msrp": 39440,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Platinum",
+"msrp": 42570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum",
+"msrp": 44260,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FWD S",
+"msrp": 31530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S",
+"msrp": 33220,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV",
+"msrp": 34370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV",
+"msrp": 36060,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL",
+"msrp": 38020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL",
+"msrp": 39710,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Platinum",
+"msrp": 42870,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum",
+"msrp": 44560,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "FWD S",
+"msrp": 31980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 S",
+"msrp": 33670,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SV",
+"msrp": 34770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SV",
+"msrp": 36460,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SL",
+"msrp": 38390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SL",
+"msrp": 40080,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Platinum",
+"msrp": 43220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum",
+"msrp": 44910,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-pathfinder-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

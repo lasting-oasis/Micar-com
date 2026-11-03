@@ -159,6 +159,222 @@
 "source": "https://www.iseecars.com/car/2014-mitsubishi-outlander_sport-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr Man ES",
+"msrp": 19595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr CVT ES",
+"msrp": 19595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr CVT ES",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr CVT SE",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr CVT SE",
+"msrp": 24195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-mitsubishi-outlander_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-03-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "AWC 4dr CVT 2.0 ES",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWC 4dr CVT 2.4 ES",
+"msrp": 22695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWC 4dr CVT 2.4 SE",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWC 4dr CVT 2.4 SEL",
+"msrp": 25395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWC 4dr CVT 2.4 GT",
+"msrp": 27395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-mitsubishi-outlander_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "ES 2.0 Manual",
+"msrp": 20395,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 2.0 CVT",
+"msrp": 21595,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 2.0 CVT",
+"msrp": 22595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.4 CVT",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 2.0 AWC CVT",
+"msrp": 23095,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 2.0 AWC CVT",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.4 CVT",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.4 AWC CVT",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.4 AWC CVT",
+"msrp": 25995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-mitsubishi-outlander_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "ES 2.0 Manual",
+"msrp": 20945,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 2.0 CVT",
+"msrp": 22145,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 2.0 CVT",
+"msrp": 23145,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0 CVT",
+"msrp": 23545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SP 2.0 CVT",
+"msrp": 23545,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 2.0 AWC CVT",
+"msrp": 23645,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 2.0 AWC CVT",
+"msrp": 24645,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 2.4 CVT",
+"msrp": 25045,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0 AWC CVT",
+"msrp": 25045,
+"config": "",
+"note": ""
+},
+{
+"trim": "SP 2.0 AWC CVT",
+"msrp": 25045,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 2.4 AWC CVT",
+"msrp": 26545,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mitsubishi-outlander_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

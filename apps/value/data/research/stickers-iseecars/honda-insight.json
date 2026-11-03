@@ -191,6 +191,33 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LX CVT",
+"msrp": 22930,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT",
+"msrp": 24310,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT",
+"msrp": 28340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-insight-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 995,
 "trims": [

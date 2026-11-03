@@ -5,6 +5,21 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (huracan).",
 "years": [
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe LP 610-4",
+"msrp": 237250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-lamborghini-huracan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 3495,
 "trims": [
@@ -48,6 +63,51 @@
 "source": "https://www.iseecars.com/car/2018-lamborghini-huracan-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "RWD Coupe",
+"msrp": 203674,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Sypder",
+"msrp": 223654,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 242474,
+"config": "",
+"note": ""
+},
+{
+"trim": "Spyder",
+"msrp": 266325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performante Coupe",
+"msrp": 281048,
+"config": "",
+"note": ""
+},
+{
+"trim": "Performante Spyder",
+"msrp": 308859,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lamborghini-huracan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

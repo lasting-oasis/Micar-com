@@ -302,6 +302,69 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Fastback V6",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Fastback EcoBoost",
+"msrp": 25300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Fastback EcoBoost Premium",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible V6",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Fastback GT",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible EcoBoost Premium",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Fastback GT Premium",
+"msrp": 36300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible GT Premium",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Fastback GT 50 Years Limited Edition",
+"msrp": 46170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-mustang-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2016,
 "destination": 900,
 "trims": [
@@ -371,6 +434,75 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "V6 Fastback",
+"msrp": 25185,
+"config": "",
+"note": ""
+},
+{
+"trim": "EcoBoost Fastback",
+"msrp": 26195,
+"config": "",
+"note": ""
+},
+{
+"trim": "EcoBoost Premium Fastback",
+"msrp": 30195,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Convertible",
+"msrp": 30685,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Fastback",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "EcoBoost Premium Convertible",
+"msrp": 35695,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Premium Fastback",
+"msrp": 37195,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Premium Convertible",
+"msrp": 42695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shelby GT350R Fastback",
+"msrp": 54845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shelby GT350 Fastback",
+"msrp": 54845,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-mustang-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 900,
 "trims": [
@@ -432,6 +564,150 @@
 "source": "https://www.iseecars.com/car/2018-ford-mustang-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "EcoBoost Fastback",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "EcoBoost Premium Fastback",
+"msrp": 31410,
+"config": "",
+"note": ""
+},
+{
+"trim": "EcoBoost Convertible",
+"msrp": 31895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Fastback",
+"msrp": 35355,
+"config": "",
+"note": ""
+},
+{
+"trim": "EcoBoost Premium Convertible",
+"msrp": 36910,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Premium Fastback",
+"msrp": 39355,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Premium Convertible",
+"msrp": 44855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Bullitt Fastback",
+"msrp": 46595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shelby GT350R Fastback",
+"msrp": 59140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shelby GT350 Fastback",
+"msrp": 59140,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-ford-mustang-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "EcoBoost Fastback",
+"msrp": 26670,
+"config": "",
+"note": ""
+},
+{
+"trim": "EcoBoost Premium Fastback",
+"msrp": 31685,
+"config": "",
+"note": ""
+},
+{
+"trim": "EcoBoost Convertible",
+"msrp": 32170,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Fastback",
+"msrp": 35630,
+"config": "",
+"note": ""
+},
+{
+"trim": "EcoBoost Premium Convertible",
+"msrp": 37185,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Premium Fastback",
+"msrp": 39630,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Premium Convertible",
+"msrp": 45130,
+"config": "",
+"note": ""
+},
+{
+"trim": "Bullitt Fastback",
+"msrp": 47810,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shelby GT350R Fastback",
+"msrp": 59140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shelby GT350 Fastback",
+"msrp": 59140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shelby GT500 Fastback",
+"msrp": 70300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-mustang-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

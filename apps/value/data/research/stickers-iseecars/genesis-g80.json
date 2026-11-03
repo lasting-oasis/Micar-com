@@ -1,0 +1,87 @@
+{
+"make": "Genesis",
+"model": "G80",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (g80).",
+"years": [
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "3.8L RWD",
+"msrp": 42550,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.8L AWD",
+"msrp": 45050,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.3T Sport RWD",
+"msrp": 55750,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0L Ultimate RWD",
+"msrp": 57500,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.3T Sport AWD",
+"msrp": 58250,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0L Ultimate AWD",
+"msrp": 60000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-genesis-g80-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "2.5T RWD",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5T AWD",
+"msrp": 50850,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5T RWD",
+"msrp": 59100,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5T AWD",
+"msrp": 62250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-genesis-g80-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

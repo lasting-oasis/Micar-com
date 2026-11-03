@@ -5,6 +5,72 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (86, gr86).",
 "years": [
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Manual (Natl)",
+"msrp": 26255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Automatic (Natl)",
+"msrp": 26975,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-86-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-08-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Manual (Natl)",
+"msrp": 26455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto (Natl)",
+"msrp": 27175,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Manual w/Black Accents (Natl)",
+"msrp": 28585,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Manual (Natl)",
+"msrp": 28585,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Auto w/Black Accents (Natl)",
+"msrp": 29305,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Auto (Natl)",
+"msrp": 29305,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-86-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 955,
 "trims": [

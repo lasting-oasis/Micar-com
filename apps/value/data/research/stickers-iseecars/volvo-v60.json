@@ -2,7 +2,7 @@
 "make": "Volvo",
 "model": "V60",
 "body": "Hatchback / Wagon",
-"note": "Trim-level MSRPs from iSeeCars price pages (v60, v60_recharge).",
+"note": "Trim-level MSRPs from iSeeCars price pages (v60, v60_cross_country, v60_recharge).",
 "years": [
 {
 "year": 2016,
@@ -80,6 +80,75 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD",
+"msrp": 36150,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Premier",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD",
+"msrp": 38150,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Dynamic",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Premier",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Dynamic",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Platinum",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Platinum",
+"msrp": 43950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design Platinum",
+"msrp": 48950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Polestar AWD",
+"msrp": 61600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volvo-v60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [
@@ -152,11 +221,74 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum",
+"msrp": 39650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country T5 AWD",
+"msrp": 45100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Polestar",
+"msrp": 67300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volvo-v60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2021,
 "destination": 995,
 "trims": [
 {
+"trim": "T5 FWD Momentum",
+"msrp": 40950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
 "trim": "Recharge eAWD T8 Polestar Engineered 4dr Wagon",
+"msrp": 67300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Polestar",
 "msrp": 67300,
 "config": "",
 "note": ""
@@ -164,7 +296,7 @@
 ],
 "source": "https://www.iseecars.com/car/2021-volvo-v60_recharge-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

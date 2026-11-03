@@ -2,7 +2,7 @@
 "make": "Kia",
 "model": "Forte / K4",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (forte, forte5, forte_koup).",
+"note": "Trim-level MSRPs from iSeeCars price pages (forte, forte5, forte_5__door, forte_koup).",
 "years": [
 {
 "year": 2010,
@@ -366,7 +366,31 @@
 "destination": 825,
 "trims": [
 {
+"trim": "4dr Sedan Man LX",
+"msrp": 15890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto LX",
+"msrp": 17490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto EX",
+"msrp": 19390,
+"config": "",
+"note": ""
+},
+{
 "trim": "FORTE5 EX 4dr Hatchback",
+"msrp": 19690,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-DOOR 5dr HB Auto EX",
 "msrp": 19690,
 "config": "",
 "note": ""
@@ -378,7 +402,19 @@
 "note": ""
 },
 {
+"trim": "5-DOOR 5dr HB Man SX",
+"msrp": 20890,
+"config": "",
+"note": ""
+},
+{
 "trim": "FORTE5 SX 4dr Hatchback 6A",
+"msrp": 21890,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-DOOR 5dr HB Auto SX",
 "msrp": 21890,
 "config": "",
 "note": ""
@@ -386,15 +422,33 @@
 ],
 "source": "https://www.iseecars.com/car/2015-kia-forte5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2016,
 "destination": 850,
 "trims": [
 {
+"trim": "4dr Sedan Man LX",
+"msrp": 15990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto LX",
+"msrp": 17700,
+"config": "",
+"note": ""
+},
+{
 "trim": "FORTE5 LX 4dr Hatchback",
 "msrp": 18090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto EX",
+"msrp": 19990,
 "config": "",
 "note": ""
 },
@@ -419,7 +473,7 @@
 ],
 "source": "https://www.iseecars.com/car/2016-kia-forte5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2017,
@@ -438,6 +492,12 @@
 "note": ""
 },
 {
+"trim": "FORTE5 LX Auto",
+"msrp": 18200,
+"config": "",
+"note": ""
+},
+{
 "trim": "S 4dr Sedan",
 "msrp": 19300,
 "config": "",
@@ -448,11 +508,101 @@
 "msrp": 21300,
 "config": "",
 "note": ""
+},
+{
+"trim": "FORTE5 EX Auto",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FORTE5 SX DCT",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FORTE5 SX Manual",
+"msrp": 26000,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2017-kia-forte-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual",
+"msrp": 16800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX Auto",
+"msrp": 17900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto",
+"msrp": 19400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Auto",
+"msrp": 21700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FE Manual",
+"msrp": 17790,
+"config": "",
+"note": ""
+},
+{
+"trim": "FE IVT",
+"msrp": 18690,
+"config": "",
+"note": ""
+},
+{
+"trim": "LXS IVT",
+"msrp": 19190,
+"config": "",
+"note": ""
+},
+{
+"trim": "S IVT",
+"msrp": 20290,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX IVT",
+"msrp": 21990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

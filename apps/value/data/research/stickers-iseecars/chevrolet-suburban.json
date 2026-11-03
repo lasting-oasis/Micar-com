@@ -818,6 +818,186 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LS",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LS",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LT",
+"msrp": 54205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LT",
+"msrp": 57205,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LTZ",
+"msrp": 63785,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LTZ",
+"msrp": 66785,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 1500 LS",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LS",
+"msrp": 52700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LT",
+"msrp": 54730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LT",
+"msrp": 57730,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LTZ",
+"msrp": 64440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LTZ",
+"msrp": 67440,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 1500 LS",
+"msrp": 49915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LS",
+"msrp": 52915,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LT",
+"msrp": 55155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LT",
+"msrp": 58155,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 Premier",
+"msrp": 64840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 Premier",
+"msrp": 67840,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 1500 LS",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LS",
+"msrp": 53200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LT",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LT",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 Premier",
+"msrp": 64900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 Premier",
+"msrp": 67900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1295,
 "trims": [
@@ -885,6 +1065,51 @@
 "source": "https://www.iseecars.com/car/2019-chevrolet-suburban-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 1500 LS",
+"msrp": 51700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LS",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LT",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LT",
+"msrp": 59500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 Premier",
+"msrp": 65500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 Premier",
+"msrp": 68500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

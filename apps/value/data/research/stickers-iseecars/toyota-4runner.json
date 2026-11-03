@@ -287,6 +287,69 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "RWD 4dr V6 SR5 (Natl)",
+"msrp": 34010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V6 SR5 (Natl)",
+"msrp": 35885,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 4dr V6 SR5 Premium (Natl)",
+"msrp": 36690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V6 Trail (Natl)",
+"msrp": 36915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V6 SR5 Premium (Natl)",
+"msrp": 38565,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V6 Trail Premium (Natl)",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V6 TRD Pro (Natl)",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 4dr V6 Limited (Natl)",
+"msrp": 42325,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V6 Limited (Natl)",
+"msrp": 44360,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 995,
 "trims": [
@@ -348,6 +411,318 @@
 "source": "https://www.iseecars.com/car/2017-toyota-4runner-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-04-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "SR5 2WD (Natl)",
+"msrp": 34810,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Premium 2WD (Natl)",
+"msrp": 36640,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 4WD (Natl)",
+"msrp": 36685,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road 4WD (Natl)",
+"msrp": 37985,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Premium 4WD (Natl)",
+"msrp": 38515,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road Premium 4WD (Natl)",
+"msrp": 39895,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Pro 4WD (Natl)",
+"msrp": 43075,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2WD (Natl)",
+"msrp": 43125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD (Natl)",
+"msrp": 45160,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SR5 2WD (Natl)",
+"msrp": 35310,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Premium 2WD (Natl)",
+"msrp": 37140,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 4WD (Natl)",
+"msrp": 37185,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road 4WD (Natl)",
+"msrp": 38485,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Premium 4WD (Natl)",
+"msrp": 39015,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road Premium 4WD (Natl)",
+"msrp": 40395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2WD (Natl)",
+"msrp": 43625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Nightshade 2WD (Natl)",
+"msrp": 45365,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD (Natl)",
+"msrp": 45660,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Pro 4WD (Natl)",
+"msrp": 46815,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Nightshade 4WD (Natl)",
+"msrp": 47400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SR5 2WD (Natl)",
+"msrp": 36020,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 4WD (Natl)",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Premium 2WD (Natl)",
+"msrp": 39215,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road 4WD (Natl)",
+"msrp": 39740,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Premium 4WD (Natl)",
+"msrp": 41090,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road Premium 4WD (Natl)",
+"msrp": 42470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Venture 4WD (Natl)",
+"msrp": 44285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2WD (Natl)",
+"msrp": 44885,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade 2WD (Natl)",
+"msrp": 46625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD (Natl)",
+"msrp": 46920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade 4WD (Natl)",
+"msrp": 48660,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Pro 4WD (Natl)",
+"msrp": 49765,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "SR5 2WD (Natl)",
+"msrp": 36765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 4WD (Natl)",
+"msrp": 38640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trail Special Edition 2WD (Natl)",
+"msrp": 38740,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Premium 2WD (Natl)",
+"msrp": 39825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trail Special Edition 4WD (Natl)",
+"msrp": 40615,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road 4WD (Natl)",
+"msrp": 40730,
+"config": "",
+"note": ""
+},
+{
+"trim": "SR5 Premium 4WD (Natl)",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road Premium 4WD (Natl)",
+"msrp": 43325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Venture 4WD (Natl)",
+"msrp": 44895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2WD (Natl)",
+"msrp": 45670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade 2WD (Natl)",
+"msrp": 47085,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD (Natl)",
+"msrp": 47705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade 4WD (Natl)",
+"msrp": 49120,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Pro 4WD (Natl)",
+"msrp": 50745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-4runner-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-08-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

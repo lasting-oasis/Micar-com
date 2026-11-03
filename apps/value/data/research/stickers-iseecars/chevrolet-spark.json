@@ -2,7 +2,7 @@
 "make": "Chevrolet",
 "model": "Spark",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (spark).",
+"note": "Trim-level MSRPs from iSeeCars price pages (spark, spark_ev).",
 "years": [
 {
 "year": 2014,
@@ -48,6 +48,177 @@
 "source": "https://www.iseecars.com/car/2014-chevrolet-spark-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Hatch LS (Manual)",
+"msrp": 12270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LS (Automatic)",
+"msrp": 13580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 1LT (Manual)",
+"msrp": 14040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 1LT (Automatic)",
+"msrp": 15095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 2LT (Manual)",
+"msrp": 15440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 2LT (Automatic)",
+"msrp": 16535,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV Hatch 1LT (Automatic)",
+"msrp": 25170,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV Hatch 2LT (Automatic)",
+"msrp": 25560,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-spark-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Hatch LS (Manual)",
+"msrp": 12660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LS (Automatic)",
+"msrp": 13760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 1LT (Manual)",
+"msrp": 14685,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 1LT (Automatic)",
+"msrp": 15785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 2LT (Manual)",
+"msrp": 16185,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 2LT (Automatic)",
+"msrp": 17285,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV Hatch 1LT (Automatic)",
+"msrp": 25120,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV Hatch 2LT (Automatic)",
+"msrp": 25510,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-spark-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Hatch LS (Manual)",
+"msrp": 13000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LS (Automatic)",
+"msrp": 14100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 1LT (Manual)",
+"msrp": 14825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 1LT (Automatic)",
+"msrp": 15925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch ACTIV (Manual)",
+"msrp": 16070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 2LT (Manual)",
+"msrp": 16325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch ACTIV (Automatic)",
+"msrp": 17170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 2LT (Automatic)",
+"msrp": 17425,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-spark-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2018,
@@ -162,6 +333,63 @@
 "source": "https://www.iseecars.com/car/2019-chevrolet-spark-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Hatch LS (Manual)",
+"msrp": 13400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch LS (Automatic)",
+"msrp": 14500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 1LT (Manual)",
+"msrp": 15300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 1LT (Automatic)",
+"msrp": 16400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch ACTIV (Manual)",
+"msrp": 16400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 2LT (Manual)",
+"msrp": 16800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch ACTIV (Automatic)",
+"msrp": 17500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatch 2LT (Automatic)",
+"msrp": 17900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-spark-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

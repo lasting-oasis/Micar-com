@@ -5,6 +5,126 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (renegade).",
 "years": [
 {
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 23295,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Trailhawk",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 26795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 75th Anniversary",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Justice",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr 75th Anniversary",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Trailhawk",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 26995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 1095,
 "trims": [
@@ -72,6 +192,144 @@
 "source": "https://www.iseecars.com/car/2017-jeep-renegade-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 18750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4",
+"msrp": 20250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland Edition 4x4",
+"msrp": 20250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude FWD",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 25945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 27445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 22275,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4",
+"msrp": 23775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland 4x4",
+"msrp": 23775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude FWD",
+"msrp": 24125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 24125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 25625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 25625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 26645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 27795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 28145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

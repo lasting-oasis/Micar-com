@@ -536,6 +536,165 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe Carrera",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Carrera Black Edition",
+"msrp": 88800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Carrera 4",
+"msrp": 91030,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Carrera 4 Black Edition",
+"msrp": 94800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet Carrera",
+"msrp": 96200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet Carrera Black Edition",
+"msrp": 98500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Carrera S",
+"msrp": 98900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Targa 4",
+"msrp": 102930,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet Carrera 4",
+"msrp": 102930,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet Carrera 4 Black Edition",
+"msrp": 104600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Carrera 4S",
+"msrp": 105630,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet Carrera S",
+"msrp": 110800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Carrera GTS",
+"msrp": 114200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Targa 4S",
+"msrp": 117530,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet Carrera 4S",
+"msrp": 117530,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Carrera 4 GTS",
+"msrp": 120900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet Carrera GTS",
+"msrp": 126100,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe GT3",
+"msrp": 130400,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Targa 4 GTS",
+"msrp": 132800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet Carrera 4 GTS",
+"msrp": 132800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Turbo",
+"msrp": 151100,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet Turbo",
+"msrp": 163000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe GT3 RS",
+"msrp": 175900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe S Turbo",
+"msrp": 182700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Cabriolet S Turbo",
+"msrp": 194600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2017,
 "destination": 1050,
 "trims": [
@@ -657,6 +816,300 @@
 "source": "https://www.iseecars.com/car/2017-porsche-911-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Carrera Coupe",
+"msrp": 91100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 Coupe",
+"msrp": 98000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera T Coupe",
+"msrp": 102100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera Cabriolet",
+"msrp": 103400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S Coupe",
+"msrp": 105100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Targa 4",
+"msrp": 110300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 Cabriolet",
+"msrp": 110300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4S Coupe",
+"msrp": 112000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S Cabriolet",
+"msrp": 117400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS Coupe",
+"msrp": 120700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Targa 4S",
+"msrp": 124300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4S Cabriolet",
+"msrp": 124300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 GTS Coupe",
+"msrp": 127600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS Cabriolet",
+"msrp": 133000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Targa 4 GTS",
+"msrp": 139900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 GTS Cabriolet",
+"msrp": 139900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 Coupe",
+"msrp": 143600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Coupe",
+"msrp": 161800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Cabriolet",
+"msrp": 174100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S Coupe",
+"msrp": 190700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S Cabriolet",
+"msrp": 203000,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT2 RS Coupe",
+"msrp": 293200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Carrera Coupe",
+"msrp": 91100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 Coupe",
+"msrp": 98000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera T Coupe",
+"msrp": 102100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera Cabriolet",
+"msrp": 103400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S Coupe",
+"msrp": 105100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Targa 4",
+"msrp": 110300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 Cabriolet",
+"msrp": 110300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4S Coupe",
+"msrp": 112000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S Cabriolet",
+"msrp": 117400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS Coupe",
+"msrp": 120700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Targa 4S",
+"msrp": 124300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4S Cabriolet",
+"msrp": 124300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 GTS Coupe",
+"msrp": 127600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera GTS Cabriolet",
+"msrp": 133000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Targa 4 GTS",
+"msrp": 139900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 GTS Cabriolet",
+"msrp": 139900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 Coupe",
+"msrp": 143600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Coupe",
+"msrp": 161800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Cabriolet",
+"msrp": 174100,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 RS Coupe",
+"msrp": 187500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S Coupe",
+"msrp": 190700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S Cabriolet",
+"msrp": 203000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Speedster Cabriolet",
+"msrp": 274500,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT2 RS Coupe",
+"msrp": 293200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
@@ -813,6 +1266,105 @@
 "source": "https://www.iseecars.com/car/2021-porsche-911-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "Carrera Coupe",
+"msrp": 101200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 Coupe",
+"msrp": 108500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera Cabriolet",
+"msrp": 114000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S Coupe",
+"msrp": 117100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Targa 4",
+"msrp": 121300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4 Cabriolet",
+"msrp": 121300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4S Coupe",
+"msrp": 124400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera S Cabriolet",
+"msrp": 129900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Targa 4S",
+"msrp": 137200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carrera 4S Cabriolet",
+"msrp": 137200,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT3 Coupe",
+"msrp": 161100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Coupe",
+"msrp": 174300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Cabriolet",
+"msrp": 187100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S Coupe",
+"msrp": 207000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S Cabriolet",
+"msrp": 219800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-porsche-911-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2023,

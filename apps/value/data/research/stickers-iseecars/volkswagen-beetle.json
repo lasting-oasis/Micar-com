@@ -204,6 +204,333 @@
 "source": "https://www.iseecars.com/car/2012-volkswagen-beetle-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Auto 1.8T S",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T S PZEV",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 1.8T SE",
+"msrp": 21350,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 1.8T SE PZEV",
+"msrp": 21350,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T SE",
+"msrp": 22450,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T SE PZEV",
+"msrp": 22450,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T S",
+"msrp": 25490,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T S PZEV",
+"msrp": 25490,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T SEL",
+"msrp": 25975,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T SEL PZEV",
+"msrp": 25975,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line SE",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line SE PZEV",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line SE",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line SE PZEV",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T SE",
+"msrp": 28070,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T SE PZEV",
+"msrp": 28070,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line S",
+"msrp": 29790,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line S PZEV",
+"msrp": 29790,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T SEL",
+"msrp": 30500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Auto 1.8T SEL PZEV",
+"msrp": 30500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line S",
+"msrp": 30890,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line S PZEV",
+"msrp": 30890,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line SEL",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line SEL PZEV",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line SE",
+"msrp": 31570,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line SE PZEV",
+"msrp": 31570,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line SEL",
+"msrp": 32550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line SEL PZEV",
+"msrp": 32550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line SE",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line SE PZEV",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line SEL",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Man 2.0T R-Line SEL PZEV",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line SEL",
+"msrp": 36050,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr DSG 2.0T R-Line SEL PZEV",
+"msrp": 36050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-volkswagen-beetle-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "S Auto",
+"msrp": 20220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coast Auto",
+"msrp": 23120,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto",
+"msrp": 24020,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto",
+"msrp": 25440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Dune Auto",
+"msrp": 26790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coast Auto",
+"msrp": 26840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto",
+"msrp": 28040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Dune Auto",
+"msrp": 32090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volkswagen-beetle-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "S Auto",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Final Edition SE Auto",
+"msrp": 23045,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Final Edition SEL Auto",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Final Edition SE Auto",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Final Edition SEL Auto",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-beetle-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []
