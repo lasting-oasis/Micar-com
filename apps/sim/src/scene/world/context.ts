@@ -1,11 +1,12 @@
 import * as THREE from 'three';
 import {
     generateAggregateTexture, generateChainLinkTexture, generateConcreteTexture, generateGrassTexture, generateMacroTexture,
-    generatePaintPaletteTexture, generateRoadAtlasTexture, generateSlabTexture, generateVegetationTexture, ROAD_ATLAS_BASE,
+    generatePaintPaletteTexture, generateRoadAtlasTexture, generateSlabTexture, generateVegetationTexture, ROAD_ATLAS_BASE, SLAB_REPEAT,
 } from '../textures';
 import { createArchitectureKit, type ArchitectureKit } from './architecture';
+import { CullingDriver, PackedMesh } from './cells';
 import { makeGroundMaterial } from './groundShader';
-import { createStreetLightKit, type StreetLightKit } from './streetLights';
+import { createPropsKit, type PropsKit } from './streetProps';
 import { createVegetationKit, type VegetationKit } from './vegetation';
 
 // Everything the world builders (city, speedway, dealerships, fences) share:
@@ -41,10 +42,18 @@ export type WorldContext = {
      * curbs, gutters, wheel stops. paint: all road and lot markings (u picks the colour).
      */
     ground: { grass: THREE.MeshStandardMaterial; lawn: THREE.MeshStandardMaterial; asphalt: THREE.MeshStandardMaterial; concrete: THREE.MeshStandardMaterial; paint: THREE.MeshStandardMaterial };
-    /** Instanced trees and bushes for the whole world. */
+    /**
+     * The town's ground layers in those materials, one mesh each, drawn only where in view
+     * (see cells.ts). Add geometry near (x, z) with `layers.asphalt.at(x, z)` etc., before
+     * the first frame. (Dealership lots, built later, make meshes of their own.)
+     */
+    layers: { asphalt: PackedMesh; concrete: PackedMesh; paint: PackedMesh; lawn: PackedMesh };
+    /** Runs the per-cell culling of the packed layers, plants and props. */
+    culling: CullingDriver;
+    /** Trees, bushes and hedges for the whole world (instanced, culled by cell). */
     plants: VegetationKit;
-    /** Instanced street and lot lights (with night glow and light pools). */
-    lamps: StreetLightKit;
+    /** Street and lot lights and street furniture (with night glow and light pools). */
+    props: PropsKit;
     /** 0 = day, 1 = night: lamp glow, light pools. Call whenever the time of day changes. */
     setNight: (nightFactor: number) => void;
 };
@@ -129,7 +138,7 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
         }),
         // Concrete ~#9c9a94 (in the slab texture): 1.5 m slabs with joints
         concrete: makeGroundMaterial({ map: slabTex, roughness: 0.85, metalness: 0 }, {
-            mapScale: 1 / 6, detail: aggregate, detailScale: 1 / 1.5, detailStrength: 0.22,
+            mapScale: 1 / SLAB_REPEAT, detail: aggregate, detailScale: 1 / 1.5, detailStrength: 0.22,
             macro, macroScale: 1 / 55, macroLo: linear(0.92, 0.92, 0.91), macroHi: linear(1.04, 1.03, 1.0),
             dirtColor: '#787267', dirtAmount: 0.18, dirtFrom: 0.72, dirtTo: 0.95,
         }),
@@ -141,10 +150,21 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
     };
     cityMaterials.push(ground.grass, ground.lawn, ground.asphalt, ground.concrete, ground.paint);
 
+    const culling = new CullingDriver(scene);
+    const packed = (name: string, material: THREE.Material, castShadow = false) => {
+        const p = new PackedMesh(material, { castShadow, receiveShadow: true, flatGround: true });
+        p.mesh.name = `ground:${name}`;
+        scene.add(p.mesh); environmentDisposables.push(p.mesh);
+        culling.register(p);
+        return p;
+    };
+    // (The paving hardly rises above the ground: none of it casts a shadow.)
+    const layers = { asphalt: packed('asphalt', ground.asphalt), concrete: packed('concrete', ground.concrete), paint: packed('paint', ground.paint), lawn: packed('lawn', ground.lawn) };
+
     const vegTex = generateVegetationTexture();
     cityTextures.push(vegTex);
-    const plants = createVegetationKit(scene, environmentDisposables, cityMaterials, vegTex);
-    const lamps = createStreetLightKit(scene, environmentDisposables, cityMaterials, cityTextures, addLightSource);
+    const plants = createVegetationKit(scene, culling, environmentDisposables, cityMaterials, vegTex);
+    const props = createPropsKit(scene, culling, environmentDisposables, cityMaterials, cityTextures, addLightSource);
 
     return {
         scene,
@@ -161,8 +181,10 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
         addLightSource,
         arch,
         ground,
+        layers,
+        culling,
         plants,
-        lamps,
-        setNight: lamps.setNight,
+        props,
+        setNight: props.setNight,
     };
 }

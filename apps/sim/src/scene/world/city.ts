@@ -3,9 +3,10 @@ import type { WorldContext } from './context';
 import type { FurnitureKit } from './furniture';
 import { createBuildingSign } from '../textures';
 import { boxUVsWorld, type Face } from './architecture';
-import { buildStreetscape, STREETSCAPE_SAMPLE } from './roads';
+import { buildStreets, KeepOut } from './roads';
+import { buildLandscape } from './landscape';
 
-// The town: ground, roads, trees, districts, bank, auction house, library,
+// The town: ground, streets, trees, districts, bank, auction house, library,
 // insurance office and gas stations. Returns the spots the game loop needs.
 // Seeded random numbers (mulberry32) so trees and lit office windows land in the same
 // places for every player and on every reload.
@@ -22,11 +23,11 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     const { makeSofa, makePlant, makePainting, makeCoffeeTable } = furniture;
 
     // Grassy floor (huge 10000x10000 open world so the giant speedway has ground under it).
-    // Split into 125-unit tiles: as two giant triangles, its depth values were too
+    // Split into 200-unit tiles: as two giant triangles, its depth values were too
     // imprecise near the camera and the grass was drawn over the lot paving, lane
     // lines and track that sit a few centimetres above it. The grass material is pushed
     // slightly "behind" anything lying on it, and varies in colour over hundreds of metres.
-    const floorGeo = new THREE.PlaneGeometry(10000, 10000, 80, 80);
+    const floorGeo = new THREE.PlaneGeometry(10000, 10000, 50, 50);
     floorGeo.rotateX(-Math.PI / 2);
     const floor = new THREE.Mesh(floorGeo, ctx.ground.grass);
     floor.position.y = 0;
@@ -34,85 +35,23 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     scene.add(floor);
     environmentDisposables.push(floor);
 
-    // New streets (see roads.ts) — so far the sample from the lot's junction (z=200) up the
-    // main road past the junction at z=500. The old flat roads, sidewalks and lamps remain
-    // outside it, lowered so the road surface sits on the ground (cars no longer sink in).
-    buildStreetscape(ctx);
-    const SAMPLE = STREETSCAPE_SAMPLE;
-    // [x0, z0, x1, z1] boxes minus the sample area
-    const outsideSample = (x0: number, z0: number, x1: number, z1: number): [number, number, number, number][] => {
-        if (x1 <= SAMPLE.x0 || x0 >= SAMPLE.x1 || z1 <= SAMPLE.z0 || z0 >= SAMPLE.z1) return [[x0, z0, x1, z1]];
-        const out: [number, number, number, number][] = [];
-        if (z0 < SAMPLE.z0) out.push([x0, z0, x1, SAMPLE.z0]);
-        if (z1 > SAMPLE.z1) out.push([x0, SAMPLE.z1, x1, z1]);
-        const zz0 = Math.max(z0, SAMPLE.z0), zz1 = Math.min(z1, SAMPLE.z1);
-        if (x0 < SAMPLE.x0) out.push([x0, zz0, SAMPLE.x0, zz1]);
-        if (x1 > SAMPLE.x1) out.push([SAMPLE.x1, zz0, x1, zz1]);
-        return out;
-    };
-    const oldSlab = (mat: THREE.Material, x0: number, z0: number, x1: number, z1: number, h: number, yTop: number) => {
-        outsideSample(x0, z0, x1, z1).forEach(([a, b, c, d]) => {
-            const m = new THREE.Mesh(new THREE.BoxGeometry(c - a, h, d - b), mat);
-            m.position.set((a + c) / 2, yTop - h / 2, (b + d) / 2);
-            m.receiveShadow = true;
-            scene.add(m);
-            environmentDisposables.push(m);
-        });
-    };
+    // Building footprints, dealership lot slots and the lots' frontage: trees, lights and
+    // street furniture keep clear of them.
+    const buildings = new KeepOut()
+        .rect(-100, 210, -20, 270).rect(-21, 226, -15, 239)                                        // auction house, side entrance canopy
+        .rect(29, 313, 67, 347).rect(35, 258, 70, 292).rect(-66, 343, -30, 377).rect(-67, 268, -30, 302) // office towers (with canopies)
+        .rect(-57, 329, -33, 343).rect(-64, 388, -36, 412).rect(-57, 450, -33, 470).rect(36, 459, 64, 481).rect(33, 535, 57, 555) // parks
+        .rect(36, 598, 82, 641).rect(45, 720, 85, 759).rect(-81, 615, -39, 654).rect(-87, 723, -43, 766) // warehouses (aprons, docks)
+        .rect(28, 125, 62, 152).rect(-104, 131, -86, 147).rect(87, 141, 103, 157)                  // bank, library, insurance
+        .rect(120, 69, 158, 91).rect(30, 1689, 65, 1711).rect(-50, 1696, -40, 1704);               // gas stations, rental kiosk
+    // (the server hands out lot slots 250 apart: five a row, rows toward -z)
+    for (let row = 0; row < 3; row++) for (let i = 0; i < 5; i++) {
+        const lx = i * 250, lz = -row * 250;
+        buildings.rect(lx - 57, lz - 48, lx + 77, lz + 102).rect(lx - 48, lz + 100, lx + 25, lz + 178);
+    }
 
-    // Old roads (outside the sample): near-black asphalt with raised yellow dividers
-    const roadMat = new THREE.MeshStandardMaterial({ color: '#191a1d', roughness: 0.95 });
-    const dividerMat = new THREE.MeshStandardMaterial({ color: '#fbbf24' });
-    oldSlab(roadMat, -12.5, 200, 12.5, 1040, 0.06, 0.03);       // main road
-    oldSlab(dividerMat, -0.25, 200, 0.25, 1040, 0.12, 0.09);
-    [200, 500].forEach(z => {                                   // cross streets
-        oldSlab(roadMat, -500, z - 12.5, 500, z + 12.5, 0.06, 0.03);
-        oldSlab(dividerMat, -500, z - 0.25, 500, z + 0.25, 0.12, 0.09);
-    });
-
-    // --- Procedural Generation 3D Assets ---
-    // 1. Organic Trees
-    const treeTrunkGeo = new THREE.CylinderGeometry(0.8, 1, 4, 8);
-    const treeTrunkMat = new THREE.MeshStandardMaterial({ color: '#5c4033', roughness: 0.9 });
-    const treeLeavesGeo = new THREE.ConeGeometry(3, 8, 8);
-    const treeLeavesMat = new THREE.MeshStandardMaterial({ color: '#15803d', roughness: 0.9, flatShading: true });
-
-    const numTrees = 80 + 40; // roadside trees + the pocket parks
-    const trunkInstanced = new THREE.InstancedMesh(treeTrunkGeo, treeTrunkMat, numTrees);
-    trunkInstanced.castShadow = true;
-    scene.add(trunkInstanced);
-    environmentDisposables.push(trunkInstanced);
-
-    const leavesInstanced = new THREE.InstancedMesh(treeLeavesGeo, treeLeavesMat, numTrees);
-    leavesInstanced.castShadow = true;
-    scene.add(leavesInstanced);
-    environmentDisposables.push(leavesInstanced);
-
-    let treeIndex = 0;
-    const placeTree = (x: number, z: number) => {
-         if (treeIndex >= numTrees) return;
-         const s = 0.8 + random() * 0.6; // Organic scale variation
-         const rot = random() * Math.PI;
-
-         const dummy = new THREE.Object3D();
-         dummy.position.set(x, 0, z);
-         dummy.rotation.y = rot;
-         dummy.scale.set(s, s, s);
-         dummy.updateMatrixWorld(true);
-
-         const trunkMatrix = new THREE.Matrix4();
-         const trunkLocal = new THREE.Matrix4().makeTranslation(0, 2, 0);
-         trunkMatrix.multiplyMatrices(dummy.matrixWorld, trunkLocal);
-         trunkInstanced.setMatrixAt(treeIndex, trunkMatrix);
-         
-         const leavesMatrix = new THREE.Matrix4();
-         const leavesLocal = new THREE.Matrix4().makeTranslation(0, 6, 0);
-         leavesMatrix.multiplyMatrices(dummy.matrixWorld, leavesLocal);
-         leavesInstanced.setMatrixAt(treeIndex, leavesMatrix);
-
-         treeIndex++;
-    };
-    
+    // Streets (see roads.ts): asphalt, curbs, sidewalks, lights, signals, street trees
+    const streets = buildStreets(ctx, buildings);
 
     // Procedural curtain-wall facade for the office towers: per floor a glass
     // band between aluminium mullions over an opaque spandrel panel at the slab.
@@ -184,16 +123,6 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          cityTextures.push(tex);
          return tex;
     };
-
-    // Old sidewalks (outside the sample)
-    const sidewalkMat = new THREE.MeshStandardMaterial({ 
-        color: '#a1a1aa', 
-        roughness: 0.85, 
-        map: concreteTex 
-    });
-    cityMaterials.push(sidewalkMat);
-    [-17.5, 17.5].forEach(x => oldSlab(sidewalkMat, x - 5, 200, x + 5, 1040, 0.2, 0.15));
-    [217.5, 182.5, 517.5, 482.5].forEach(z => oldSlab(sidewalkMat, -400, z - 5, 400, z + 5, 0.2, 0.15));
 
     // Specialized Procedural Building Model Constructors
     
@@ -287,21 +216,25 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          staticCollisionBoxes.push(new THREE.Box3().setFromObject(midMesh));
     };
 
-    // 2. Pocket park: a curbed lawn with crossing paths, benches and trees.
-    // All parks share one lawn material; paths, curbs and benches use the shared trim.
-    const lawnMat = new THREE.MeshStandardMaterial({ color: '#3f7d34', roughness: 0.95 });
-    cityMaterials.push(lawnMat);
+    // 2. Pocket park: a curbed lawn with crossing paths, benches and trees. The lawn,
+    // curb and paths are part of the town's ground (as low as the sidewalks); the benches
+    // use the shared trim.
     const parkTrees: [number, number][] = [];
     const createPocketPark = (x: number, z: number, w: number, d: number) => {
          const group = new THREE.Group();
          group.position.set(x, 0, z);
-         const lawn = arch.box(group, lawnMat, w, 0.12, d, 0, 0.06, 0); lawn.receiveShadow = true;
-         // Curb around the lawn
-         ([[0, -d / 2, w + 0.4, 0.4], [0, d / 2, w + 0.4, 0.4], [-w / 2, 0, 0.4, d], [w / 2, 0, 0.4, d]] as [number, number, number, number][])
-             .forEach(([cx, cz, cw, cd]) => { arch.box(group, arch.trimMat, cw, 0.3, cd, cx, 0.15, cz).receiveShadow = true; });
+         const { lawn, concrete } = ctx.layers;
+         const x0 = x - w / 2, x1 = x + w / 2, z0 = z - d / 2, z1 = z + d / 2;
+         lawn.at(x, z).rect(x0, z0, x1, z1, 0.09);
+         // Curb around the lawn (0.4 wide, centred on its edge)
+         const c = concrete.at(x, z), CY = 0.13;
+         ([[x0 - 0.2, z0 - 0.2, x1 + 0.2, z0 + 0.2], [x0 - 0.2, z1 - 0.2, x1 + 0.2, z1 + 0.2], [x0 - 0.2, z0 + 0.2, x0 + 0.2, z1 - 0.2], [x1 - 0.2, z0 + 0.2, x1 + 0.2, z1 - 0.2]] as [number, number, number, number][])
+             .forEach(([a, b, e, f]) => c.rect(a, b, e, f, CY));
+         c.wall(x0 - 0.2, z0 - 0.2, x1 + 0.2, z0 - 0.2, 0, CY, 0, -1); c.wall(x0 - 0.2, z1 + 0.2, x1 + 0.2, z1 + 0.2, 0, CY, 0, 1);
+         c.wall(x0 - 0.2, z0 - 0.2, x0 - 0.2, z1 + 0.2, 0, CY, -1, 0); c.wall(x1 + 0.2, z0 - 0.2, x1 + 0.2, z1 + 0.2, 0, CY, 1, 0);
          // Crossing paths
-         arch.box(group, arch.trimMat, w, 0.16, 2.2, 0, 0.08, 0).receiveShadow = true;
-         arch.box(group, arch.trimMat, 2.2, 0.16, d, 0, 0.08, 0).receiveShadow = true;
+         c.rect(x0 + 0.2, z - 1.1, x1 - 0.2, z + 1.1, 0.1);
+         c.rect(x - 1.1, z0 + 0.2, x + 1.1, z - 1.1, 0.1); c.rect(x - 1.1, z + 1.1, x + 1.1, z1 - 0.2, 0.1);
          // Benches facing the paths (concrete seat, dark metal backrest)
          const bench = (bx: number, bz: number, alongX: boolean, back: number) => {
              const [sw, sd] = alongX ? [2.4, 0.7] : [0.7, 2.4];
@@ -407,16 +340,17 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          staticCollisionBoxes.push(new THREE.Box3().setFromObject(dock));
     };
 
-    // Populate Suburban trees
+    // Suburban trees along the main road. (They used to be cone trees; the seeded spots
+    // still pick where some of the new trees stand, and every number is still drawn: the
+    // same sequence also picks the lit office windows and the library's books.)
+    const oldTreeSpots: [number, number][] = [];
     for(let i = 0; i < 80; i++) {
          const zOffset = 50 + random() * 900;
          const side = random() > 0.5 ? (-20 - random() * 40) : (20 + random() * 40);
          // Keep the dealership plot (x -62..82, z < 115) clear of trees
          if (zOffset < 115 && side > -62 && side < 82) continue;
-         // The new streets have their own trees (still draw the numbers: the same
-         // sequence also picks the lit office windows)
-         if (Math.abs(side) < SAMPLE.mainRoadHalfWidth && zOffset > SAMPLE.z0 - 8 && zOffset < SAMPLE.z1 + 8) { random(); random(); continue; }
-         placeTree(side, zOffset);
+         random(); random(); // (the old tree's size and turn)
+         oldTreeSpots.push([side, zOffset]);
     }
 
     // Deploy Themed Zoned Districts
@@ -434,13 +368,20 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     createPocketPark(-45, 336, 22, 12);
     createPocketPark(-50, 400, 26, 22);
     createPocketPark(-45, 460, 22, 18);
-    parkTrees.forEach(([tx, tz]) => placeTree(tx, tz));
-    // Only draw the trees actually placed: unused instance slots default to the
-    // world origin, which put a stray tree in the middle of the first player's lot.
-    trunkInstanced.count = treeIndex;
-    leavesInstanced.count = treeIndex;
-    trunkInstanced.instanceMatrix.needsUpdate = true;
-    leavesInstanced.instanceMatrix.needsUpdate = true;
+    parkTrees.forEach(() => { random(); random(); }); // (numbers of the old park trees: see above)
+
+    // Trees: the parks' (in the lawn quarters), the old suburban spots that are clear of
+    // the streets and buildings, then open-ground trees, groves, the tree line and the
+    // hills on the horizon (see landscape.ts).
+    const treeRand = seededRandom(77031);
+    // (one tree per lawn quarter: the parks are small)
+    parkTrees.forEach(([tx, tz], i) => { if (i % 2 === 0) ctx.plants.add(i % 4 === 2 ? 'roundleaf' : 'broadleaf', tx, tz, treeRand, 1.0); });
+    const clear = (x: number, z: number, r: number) => !buildings.blocked(x, z, r) && !streets.roads.blocked(x, z, r) && !streets.placed.blocked(x, z, r) && !streets.corridor(x, z);
+    oldTreeSpots.forEach(([tx, tz], i) => {
+         const kind = treeRand() < 0.3 ? 'conifer' : treeRand() < 0.5 ? 'roundleaf' : 'broadleaf';
+         if (i % 2 === 0 && clear(tx, tz, 5)) ctx.plants.add(kind, tx, tz, treeRand, 0.95 + treeRand() * 0.3);
+    });
+    buildLandscape(ctx, clear);
 
     // District 3: Industrial Logistics & Warehouse District (Z = 550 to 800)
     createWarehouse(60, 620, 40, 32, 16);
@@ -824,8 +765,13 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     const buildGasStation = (gx: number, gz: number) => {
         const g = new THREE.Group();
         g.position.set(gx, 0, gz);
-        const pad = new THREE.Mesh(new THREE.BoxGeometry(26, 0.2, 18), new THREE.MeshStandardMaterial({ color: '#3f3f46', roughness: 0.95 }));
-        pad.position.set(0, 0.1, 0); pad.receiveShadow = true; g.add(pad);
+        // Forecourt: concrete paving as low as the sidewalks (cars and people stay at y = 0)
+        {
+            const PY = 0.1, c = ctx.layers.concrete.at(gx, gz), x0 = gx - 13, x1 = gx + 13, z0 = gz - 9, z1 = gz + 9;
+            c.rect(x0, z0, x1, z1, PY);
+            c.wall(x0, z0, x1, z0, 0, PY, 0, -1); c.wall(x0, z1, x1, z1, 0, PY, 0, 1);
+            c.wall(x0, z0, x0, z1, 0, PY, -1, 0); c.wall(x1, z0, x1, z1, 0, PY, 1, 0);
+        }
         const canopyMat = new THREE.MeshStandardMaterial({ color: '#e11d48', roughness: 0.5, metalness: 0.3 });
         const whiteMat = new THREE.MeshStandardMaterial({ color: '#f8fafc', roughness: 0.6 });
         const roof = new THREE.Mesh(new THREE.BoxGeometry(22, 0.9, 14), canopyMat); roof.position.set(0, 7, 0); roof.castShadow = true; g.add(roof);

@@ -1,47 +1,71 @@
 import * as THREE from 'three';
 import type { WorldContext } from './context';
-import { createBuildingSign } from '../textures';
+import { createBuildingSign, ROAD_ATLAS_LENGTH } from '../textures';
+import type { UVFn } from './meshBuilder';
+import { chunks, cleanUV, gravelUV, paintUV, roadUV, Y } from './roads';
 
 export function buildSpeedway(ctx: WorldContext) {
     const { scene, environmentDisposables, makeGlass } = ctx;
 
     // ============================================================
-    //  SPEEDWAY  (big circular circuit on open ground far WEST of the city —
-    //  no buildings/lots/trees out here. Reached via the z=200 / z=500 cross
-    //  streets, which both span the full map width to x=-255.)
+    //  SPEEDWAY  (big circular circuit round the whole town, on open ground.
+    //  Reached via the main road and its access road north to the paddock.)
     // ============================================================
     const RACE_CX = 0, RACE_CZ = 300;       // circuit centre — the whole city sits inside the infield
     const RC = 1450;                         // centreline radius — HUGE (~2900 across, ~10x bigger)
     const TRACK_W = 40;                      // track width in world units (wide for the scale)
-    const baseR = 50;
-    const raceScale = RC / baseR;
-    const halfW = (TRACK_W / raceScale) / 2; // base-space half-width so the scaled ring is exactly TRACK_W wide
-    // No infield disc: this ring encircles the whole city, so the inside is just
-    // the existing grass floor + the town (a disc here would paint over the roads/lots).
-    // asphalt ring track surface. Pushed slightly back (like the grass, which is
-    // pushed back further) so the curbs, start/finish strip and access road lying
-    // on it always draw on top; pulling it forward hid them at a distance.
-    const ring = new THREE.Mesh(new THREE.RingGeometry(baseR - halfW, baseR + halfW, 200), new THREE.MeshStandardMaterial({ color: '#2b2b30', roughness: 0.95, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 }));
-    ring.rotation.x = -Math.PI / 2; ring.position.set(RACE_CX, 0.05, RACE_CZ); ring.scale.set(raceScale, raceScale, 1); ring.receiveShadow = true;
-    scene.add(ring); environmentDisposables.push(ring);
-    // red/white curbs on inner & outer edges
-    ([[baseR - halfW, '#dc2626'], [baseR + halfW, '#e5e7eb']] as [number, string][]).forEach(([rr, col]) => {
-        const curb = new THREE.Mesh(new THREE.RingGeometry(rr - 0.7, rr, 200), new THREE.MeshStandardMaterial({ color: col, roughness: 0.7, side: THREE.DoubleSide }));
-        curb.rotation.x = -Math.PI / 2; curb.position.set(RACE_CX, 0.08, RACE_CZ); curb.scale.set(raceScale, raceScale, 1);
-        scene.add(curb); environmentDisposables.push(curb);
-    });
     // centreline points (perfect circle, so uniform track width everywhere)
     const racePt = (deg: number) => new THREE.Vector3(RACE_CX + RC * Math.cos(deg * Math.PI / 180), 0, RACE_CZ + RC * Math.sin(deg * Math.PI / 180));
     const raceStartPos = racePt(90);                                   // start/finish (south side, by the paddock)
     const raceStartRotY = Math.PI / 2;                                 // faces -x toward turn 1
     const raceCheckpoints = [racePt(180), racePt(270), racePt(0)];     // W, N, E — must be hit in order
-    // start/finish checkered strip across the full track width (radial = z at the south point)
-    const sfGroup = new THREE.Group(); sfGroup.position.copy(raceStartPos); sfGroup.position.y = 0.1;
-    for (let i = 0; i < 10; i++) {
-        const c = new THREE.Mesh(new THREE.BoxGeometry(2, 0.06, TRACK_W / 10), new THREE.MeshStandardMaterial({ color: i % 2 ? '#0a0a0a' : '#fafafa' }));
-        c.position.set(0, 0, -TRACK_W / 2 + (i + 0.5) * (TRACK_W / 10)); sfGroup.add(c);
+
+    // No infield disc: this ring encircles the whole city, so the inside is just the grass
+    // floor and the town. The track is part of the town's ground layers (asphalt and paint,
+    // drawn only where in view: see cells.ts), at road height; the asphalt is pushed back
+    // in depth and the paint pulled forward, so kerbs and the start line always draw on top.
+    const { asphalt, paint } = ctx.layers;
+    const R_IN = RC - TRACK_W / 2, R_OUT = RC + TRACK_W / 2, KERB = 2.6, KERB_LEN = 7.4, SEGS = 360;
+    const ringPt = (r: number, a: number): [number, number] => [RACE_CX + r * Math.cos(a), RACE_CZ + r * Math.sin(a)];
+    const arcQuad = (layer: typeof asphalt, r0: number, r1: number, a0: number, a1: number, y: number, uv: UVFn) => {
+        const [mx, mz] = ringPt((r0 + r1) / 2, (a0 + a1) / 2);
+        layer.at(mx, mz).flat([ringPt(r0, a0), ringPt(r1, a0), ringPt(r1, a1), ringPt(r0, a1)], y, uv);
+    };
+    // the surface: the road atlas's clean column, a whole number of repeats round the ring
+    const REPEATS = Math.round((2 * Math.PI * RC) / ROAD_ATLAS_LENGTH), U = cleanUV(0, 0, 0)[0];
+    for (let i = 0; i < SEGS; i++) {
+        const a0 = (i / SEGS) * Math.PI * 2, a1 = ((i + 1) / SEGS) * Math.PI * 2, am = (a0 + a1) / 2;
+        const uv: UVFn = (x, _y, z) => {
+            let a = Math.atan2(z - RACE_CZ, x - RACE_CX);
+            a += 2 * Math.PI * Math.round((am - a) / (2 * Math.PI)); // the same turn as this piece
+            return [U, (a / (2 * Math.PI)) * REPEATS];
+        };
+        arcQuad(asphalt, R_IN, R_OUT, a0, a1, Y.road, uv);
     }
-    scene.add(sfGroup); environmentDisposables.push(sfGroup);
+    // red and white kerbs on both edges; a white line inside each (not across the start line)
+    const kerbs = Math.round((2 * Math.PI * RC) / KERB_LEN);
+    for (let i = 0; i < kerbs; i++) {
+        const a0 = (i / kerbs) * Math.PI * 2, a1 = ((i + 1) / kerbs) * Math.PI * 2, uv = paintUV(i % 2 ? 'red' : 'white');
+        arcQuad(paint, R_IN, R_IN + KERB, a0, a1, Y.paint, uv);
+        arcQuad(paint, R_OUT - KERB, R_OUT, a0, a1, Y.paint, uv);
+    }
+    const SQ = 2, START_COLS = 3, startHalf = (START_COLS * SQ) / 2 / RC + 0.002;
+    for (let i = 0; i < SEGS; i++) {
+        const a0 = (i / SEGS) * Math.PI * 2, a1 = ((i + 1) / SEGS) * Math.PI * 2;
+        const cut = (a: number) => Math.min(Math.max(a, Math.PI / 2 - startHalf), Math.PI / 2 + startHalf);
+        for (const r of [R_IN + KERB + 0.8, R_OUT - KERB - 0.8]) {
+            // (split round the start line)
+            [[a0, Math.min(a1, cut(a0))], [Math.max(a0, cut(a1)), a1]].forEach(([p, q]) => { if (q - p > 1e-6) arcQuad(paint, r - 0.15, r + 0.15, p, q, Y.paint, paintUV('white')); });
+        }
+    }
+    // start/finish: a checkered band across the track between the kerbs (radial = z here)
+    {
+        const z0 = raceStartPos.z - TRACK_W / 2 + KERB, rows = 18, h = (TRACK_W - 2 * KERB) / rows;
+        for (let i = 0; i < START_COLS; i++) for (let k = 0; k < rows; k++) {
+            const x0 = raceStartPos.x - (START_COLS * SQ) / 2 + i * SQ;
+            paint.at(raceStartPos.x, raceStartPos.z).rect(x0, z0 + k * h, x0 + SQ, z0 + (k + 1) * h, Y.paint, paintUV((i + k) % 2 ? 'black' : 'white'));
+        }
+    }
     // checkpoint marker pylons flanking the track so the route reads clearly
     raceCheckpoints.forEach((cp, i) => {
         ([-TRACK_W / 2 - 1.5, TRACK_W / 2 + 1.5]).forEach(off => {
@@ -52,20 +76,35 @@ export function buildSpeedway(ctx: WorldContext) {
     });
     const speedwaySign = createBuildingSign('SPEEDWAY', '#1e1b4b', '#a5b4fc'); speedwaySign.position.set(RACE_CX, 28, RACE_CZ + RC + 35); speedwaySign.scale.setScalar(6); scene.add(speedwaySign); environmentDisposables.push(speedwaySign);
 
-    // Access road across the grass connecting the city road network to the start line.
-    const accRoadFrom = 1040, accRoadTo = RACE_CZ + RC - 5; // ends just before the start strip
-    const accLen = accRoadTo - accRoadFrom, accCenter = (accRoadFrom + accRoadTo) / 2;
-    const accessRoadMat = new THREE.MeshStandardMaterial({ color: '#191a1d', roughness: 0.95 });
-    const accessRoad = new THREE.Mesh(new THREE.BoxGeometry(26, 0.5, accLen), accessRoadMat);
-    accessRoad.position.set(0, 0.06, accCenter); accessRoad.receiveShadow = true;
-    scene.add(accessRoad); environmentDisposables.push(accessRoad);
-    const accessDivider = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.6, accLen), new THREE.MeshStandardMaterial({ color: '#fbbf24' }));
-    accessDivider.position.set(0, 0.08, accCenter); scene.add(accessDivider); environmentDisposables.push(accessDivider);
+    // Access road across the fields from the end of the main road to the track (26 wide,
+    // as before; it now stops at the track's inner edge instead of running on under the
+    // start line): a country road with gravel shoulders, then a gravel paddock apron either
+    // side of it by the rental kiosk and the gas station.
+    const ROAD_FROM = 1040, ROAD_TO = RACE_CZ + R_IN, H = 13, SHOULDER = 2.6;
+    const roadSurface = roadUV('z', 0, H);
+    for (const [z0, z1] of chunks(ROAD_FROM, ROAD_TO)) {
+        asphalt.at(0, (z0 + z1) / 2).rect(-H, z0, H, z1, Y.road, roadSurface);
+        for (const sgn of [-1, 1]) asphalt.at(sgn * H, (z0 + z1) / 2).rect(sgn * H, z0, sgn * (H + SHOULDER), z1, Y.road - 0.004, gravelUV);
+    }
+    const lines = (d0: number, d1: number, col: 'white' | 'yellow', dash: number, period: number) => {
+        for (const sgn of [-1, 1]) for (let z = Math.ceil(ROAD_FROM / period) * period; z < ROAD_TO - 1; z += period) {
+            paint.at(sgn * d0, z).rect(Math.min(sgn * d0, sgn * d1), z, Math.max(sgn * d0, sgn * d1), Math.min(ROAD_TO - 1, z + dash), Y.paint, paintUV(col));
+        }
+    };
+    lines(0.1, 0.3, 'yellow', 30, 30);    // double yellow centre line
+    lines(5.9, 6.1, 'white', 6, 24);       // lane lines
+    lines(12.1, 12.35, 'white', 30, 30);   // edge lines
+    for (const sgn of [-1, 1]) {
+        const [x0, x1] = [sgn * (H + SHOULDER), sgn * 78].sort((p, q) => p - q);
+        asphalt.at((x0 + x1) / 2, 1700).rect(x0, 1672, x1, ROAD_TO - 3, Y.road - 0.004, gravelUV);
+    }
+    // street lights along the paddock
+    for (const z of [1650, 1700]) for (const sgn of [-1, 1]) ctx.props.street(sgn * (H + 1.4), z + (sgn > 0 ? 25 : 0), -sgn, 0, Y.road);
 
     // Paddock in the infield just inside the start line: rental kiosk.
     const rentalKioskPos = new THREE.Vector3(-45, 1.5, 1700);
     const kiosk = new THREE.Group(); kiosk.position.set(-45, 0, 1700);
-    const kFloor = new THREE.Mesh(new THREE.BoxGeometry(8, 0.2, 6), new THREE.MeshStandardMaterial({ color: '#3f3f46' })); kFloor.position.y = 0.1; kiosk.add(kFloor);
+    const kFloor = new THREE.Mesh(new THREE.BoxGeometry(8, 0.1, 6), new THREE.MeshStandardMaterial({ color: '#3f3f46' })); kFloor.position.y = 0.05; kiosk.add(kFloor);
     const kMat = new THREE.MeshStandardMaterial({ color: '#4338ca', roughness: 0.5, metalness: 0.3 });
     const kBooth = new THREE.Mesh(new THREE.BoxGeometry(5, 4, 4), kMat); kBooth.position.set(0, 2.2, 0); kBooth.castShadow = true; kiosk.add(kBooth);
     const kGlass = new THREE.Mesh(new THREE.BoxGeometry(4, 1.6, 0.2), makeGlass('#a5b4fc', 0.45)); kGlass.position.set(0, 2.6, -2.05); kiosk.add(kGlass);

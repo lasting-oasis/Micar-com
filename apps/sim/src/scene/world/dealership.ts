@@ -2,10 +2,11 @@ import * as THREE from 'three';
 import type { WorldContext } from './context';
 import type { FenceKit } from './fences';
 import type { FurnitureKit } from './furniture';
-import { createBuildingSign } from '../textures';
+import { createBuildingSign, seededRandom } from '../textures';
 import type { Face } from './architecture';
 import { createGroundLayers, lotUV, paintUV, Y } from './roads';
-import { clipToRect, paintText } from './meshBuilder';
+import { clipToRect, GeoBuilder, paintText } from './meshBuilder';
+import { useGameStore } from '../../store';
 
 // Hinged driveway gate of one dealership lot (animated by the render loop).
 export type DealershipGate = { left: THREE.Group; right: THREE.Group; ownerId: string; x: number; z: number; barrier: THREE.Box3; isOwner: boolean };
@@ -112,15 +113,77 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
     scene.add(sign);
     environmentDisposables.push(sign);
 
-    // Lot lights: bronze poles on concrete piers with twin shoebox heads (instanced; at night
-    // their heads glow and they throw pools of light on the paving), set between the rows.
-    ([[-30.25, 20], [-30.25, 62], [-20, 92], [35, -15], [35, 35], [31, 85], [-9.5, -37], [66, 27]] as [number, number][])
-        .forEach(([dx, dz]) => ctx.lamps.add('lot', lotX + dx, lotZ + dz, 0, 1, Y.road));
+    // Lot dressing, all in one merged mesh of the shared props material (see streetProps.ts):
+    // lot lights (bronze poles on concrete piers with twin shoebox heads; at night their
+    // heads glow and they throw pools of light on the paving), set between the rows; flags
+    // and a pylon sign out front; strings of pennants between the lights.
+    const dress = new GeoBuilder();
+    const LIGHTS: [number, number][] = [[-30.25, 20], [-30.25, 62], [-20, 92], [35, -15], [35, 35], [31, 85], [-9.5, -37], [66, 27]];
+    LIGHTS.forEach(([dx, dz]) => ctx.props.lot(dress, lotX + dx, lotZ + dz, 0, Y.road));
+    const pennant = (a: number, b: number) => {
+        const [ax, az] = LIGHTS[a], [bx, bz] = LIGHTS[b];
+        ctx.props.furniture.pennants(dress, new THREE.Vector3(lotX + ax, 16.6, lotZ + az), new THREE.Vector3(lotX + bx, 16.6, lotZ + bz), 2.2, ['red', 'white', 'blue', 'yellow']);
+    };
+    pennant(0, 1); pennant(3, 4); pennant(4, 5); pennant(2, 5);
+    ([[-36, ['blue', 'white', 'red']], [-40, ['red', 'white', 'red']], [-44, ['green', 'white', 'yellow']]] as [number, ('blue' | 'white' | 'red' | 'green' | 'yellow')[]][])
+        .forEach(([dx, cols]) => ctx.props.furniture.flag(dress, lotX + dx, lotZ + 106, -Math.PI / 2, cols));
+    const pylon = ctx.props.furniture.signCabinet(dress, lotX - 26, lotZ + 108, 0, 1);
+    const dressMesh = new THREE.Mesh(dress.build(), ctx.props.material);
+    dressMesh.castShadow = true; dressMesh.receiveShadow = true;
+    scene.add(dressMesh); environmentDisposables.push(dressMesh);
 
-    // Lot paving: evenly sealed asphalt, and the driveway out to the cross street's sidewalk
+    // The pylon's lit faces: the owner's name (one small texture per lot, made once)
+    {
+        const owner = useGameStore.getState().gameState?.players?.[playerId]?.name || 'Pre-Owned';
+        const c = document.createElement('canvas'); c.width = 256; c.height = 128;
+        const g = c.getContext('2d');
+        if (g) {
+            const grad = g.createLinearGradient(0, 0, 0, 128);
+            grad.addColorStop(0, '#16233b'); grad.addColorStop(1, '#0b1322');
+            g.fillStyle = grad; g.fillRect(0, 0, 256, 128);
+            g.fillStyle = '#c8a24a'; g.fillRect(0, 0, 256, 6); g.fillRect(0, 122, 256, 6);
+            g.textAlign = 'center'; g.textBaseline = 'middle';
+            const name = owner.toUpperCase().slice(0, 24);
+            let size = 44;
+            g.font = `bold ${size}px sans-serif`;
+            while (g.measureText(name).width > 236 && size > 16) { size -= 2; g.font = `bold ${size}px sans-serif`; }
+            g.fillStyle = '#ffffff'; g.fillText(name, 128, 50);
+            g.font = 'bold 20px sans-serif'; g.fillStyle = '#e8c766'; g.fillText('QUALITY  USED  CARS', 128, 96);
+        }
+        const tex = new THREE.CanvasTexture(c);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.anisotropy = 4;
+        const faceMat = new THREE.MeshStandardMaterial({ map: tex, emissiveMap: tex, emissive: '#ffffff', emissiveIntensity: 0.15, roughness: 0.4, metalness: 0 });
+        ctx.cityTextures.push(tex); ctx.cityMaterials.push(faceMat);
+        ctx.emissiveFacadeMaterials.push(faceMat); // glows at night with the lit windows
+        for (const side of [1, -1]) {
+            const face = new THREE.Mesh(new THREE.PlaneGeometry(7.8, 3.4), faceMat);
+            face.position.set(lotX - 26, pylon.y, lotZ + 108 + side * 0.36);
+            face.rotation.y = side > 0 ? 0 : Math.PI;
+            scene.add(face); environmentDisposables.push(face);
+        }
+    }
+
+    // Lot paving: evenly sealed, warm charcoal asphalt with a strip of grass inside the fence
+    // (left, right and front) behind a low curb, and the driveway out to the street.
     const G = createGroundLayers(ctx);
-    G.asphalt.rect(lotX - 55, lotZ - 40, lotX + 75, lotZ + 100, Y.road, lotUV);
-    G.asphalt.rect(lotX - 15, lotZ + 100, lotX + 15, lotZ + 177.5, Y.road, lotUV);
+    const PX0 = lotX - 52.5, PX1 = lotX + 72.5, PZ1 = lotZ + 97.5;
+    G.asphalt.rect(PX0, lotZ - 40, PX1, PZ1, Y.road, lotUV);
+    G.asphalt.rect(lotX - 15, PZ1, lotX + 15, lotZ + 177.5, Y.road, lotUV);
+    const curb = (x0: number, z0: number, x1: number, z1: number) => {
+        const c = new THREE.Mesh(new THREE.BoxGeometry(Math.abs(x1 - x0) || 0.3, 0.13, Math.abs(z1 - z0) || 0.3), arch.trimMat);
+        c.position.set((x0 + x1) / 2, 0.065, (z0 + z1) / 2);
+        c.receiveShadow = true;
+        scene.add(c); environmentDisposables.push(c);
+    };
+    curb(PX0 - 0.15, lotZ - 40, PX0 - 0.15, PZ1 + 0.3); curb(PX1 + 0.15, lotZ - 40, PX1 + 0.15, PZ1 + 0.3);
+    curb(PX0 - 0.3, PZ1 + 0.15, lotX - 15, PZ1 + 0.15); curb(lotX + 15, PZ1 + 0.15, PX1 + 0.3, PZ1 + 0.15);
+    // a clipped hedge along the front strip, either side of the gate
+    const hedgeRand = seededRandom(Math.round(lotX * 7 + lotZ * 13) + 991);
+    for (const [x0, x1] of [[PX0 + 0.6, lotX - 17], [lotX + 17, PX1 - 0.6]]) {
+        const n = Math.floor((x1 - x0) / 4.2);
+        for (let i = 0; i < n; i++) ctx.plants.add('hedge', x0 + 2.1 + i * 4.2, lotZ + 98.8, hedgeRand, 1, 0);
+    }
     const white = paintUV('white'), yellow = paintUV('yellow');
     const line = (x1: number, z1: number, x2: number, z2: number, w: number, uv = white, cap = 0) =>
         G.paint.strip(lotX + x1, lotZ + z1, lotX + x2, lotZ + z2, w, Y.paint, uv, cap);
@@ -185,7 +248,7 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
     const wheelStopGeo = new THREE.BoxGeometry(4.0, 0.3, 0.5);
 
     // Central drive lane: two yellow edge lines from the gate back into the lot
-    [-8, 8].forEach(ex => line(ex, -35.5, ex, 99.5, 0.15, yellow));
+    [-8, 8].forEach(ex => line(ex, -35.5, ex, 97, 0.2, yellow));
 
     // Paint a block of perpendicular stalls. Cars nose toward `openX` (the drive
     // aisle); wheel stops sit at the closed/back end.
@@ -193,10 +256,10 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
         const count = Math.max(1, Math.round((zTo - zFrom) / 6));
         for (let s = 0; s <= count; s++) {
             const z = zFrom + (s * (zTo - zFrom)) / count;
-            line(openX, z, backX, z, 0.15);
+            line(openX, z, backX, z, 0.2);
         }
         // Back boundary line along the stall heads
-        line(backX, zFrom, backX, zTo, 0.15, white, 0.075);
+        line(backX, zFrom, backX, zTo, 0.2, white, 0.1);
         if (withStops) {
             const stopX = backX + (openX - backX) * 0.18;
             for (let s = 0; s < count; s++) {

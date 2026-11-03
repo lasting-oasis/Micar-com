@@ -76,6 +76,51 @@ export class GeoBuilder {
         }
     }
 
+    /**
+     * Appends a three.js geometry (e.g. a low-poly cylinder) moved by `matrix`; its UVs are
+     * replaced by `uv` when given (props pick a palette colour by UV).
+     */
+    geometry(src: THREE.BufferGeometry, matrix: THREE.Matrix4, uv?: [number, number]) {
+        const g = src;
+        const pos = g.attributes.position as THREE.BufferAttribute, nor = g.attributes.normal as THREE.BufferAttribute, suv = g.attributes.uv as THREE.BufferAttribute | undefined;
+        const nm = new THREE.Matrix3().getNormalMatrix(matrix);
+        const v = new THREE.Vector3(), n = new THREE.Vector3();
+        const base = this.pos.length / 3;
+        for (let i = 0; i < pos.count; i++) {
+            v.fromBufferAttribute(pos, i).applyMatrix4(matrix);
+            n.fromBufferAttribute(nor, i).applyMatrix3(nm).normalize();
+            this.pos.push(v.x, v.y, v.z);
+            this.nor.push(n.x, n.y, n.z);
+            if (uv) this.uvs.push(uv[0], uv[1]); else this.uvs.push(suv ? suv.getX(i) : 0, suv ? suv.getY(i) : 0);
+        }
+        const flip = matrix.determinant() < 0;
+        if (g.index) {
+            const ix = g.index;
+            for (let i = 0; i < ix.count; i += 3) {
+                const a = ix.getX(i) + base, b = ix.getX(i + 1) + base, c = ix.getX(i + 2) + base;
+                if (flip) this.idx.push(a, c, b); else this.idx.push(a, b, c);
+            }
+        } else {
+            for (let i = 0; i < pos.count; i += 3) {
+                if (flip) this.idx.push(base + i, base + i + 2, base + i + 1); else this.idx.push(base + i, base + i + 1, base + i + 2);
+            }
+        }
+    }
+
+    /** Arbitrary indexed triangles with their own (smooth) normals. */
+    mesh(points: V3[], normals: V3[], indices: number[], uv: UVFn = zeroUV) {
+        const base = this.pos.length / 3;
+        points.forEach((p, i) => {
+            this.pos.push(p[0], p[1], p[2]);
+            this.nor.push(normals[i][0], normals[i][1], normals[i][2]);
+            this.uvs.push(...uv(p[0], p[1], p[2]));
+        });
+        for (const i of indices) this.idx.push(base + i);
+    }
+
+    /** The raw arrays (for packing several builders into one buffer). */
+    export() { return { pos: this.pos, nor: this.nor, uv: this.uvs, idx: this.idx }; }
+
     build() {
         const g = new THREE.BufferGeometry();
         g.setAttribute('position', new THREE.Float32BufferAttribute(this.pos, 3));
