@@ -219,7 +219,7 @@ function ScaledSheet({ children }: { children: ReactNode }) {
     ro.observe(el); return () => ro.disconnect();
   }, []);
   return (
-    <div ref={ref} className="w-full overflow-hidden rounded-sm shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7)]" style={{ height: SHEET_H * scale }}>
+    <div ref={ref} className="w-full min-w-0 overflow-hidden rounded-sm shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7)]" style={{ height: SHEET_H * scale, contain: 'inline-size' }}>
       <div style={{ transform: `scale(${scale})`, transformOrigin: 'top left', width: SHEET_W }}>{children}</div>
     </div>
   );
@@ -244,10 +244,20 @@ function Text({ label, value, onChange, max, placeholder, hint, mono }: { label:
   );
 }
 
+/** A whole-number box. What's typed is kept as text while the field has focus, so a year can be
+ *  deleted and retyped digit by digit; the value is committed as soon as it is in range and
+ *  clamped only when the field is left (clamping on every keystroke turned "2" into 1990). */
 function Num({ label, value, onChange, min, max, placeholder, hint }: { label: string; value: number | ''; onChange: (v: number) => void; min: number; max: number; placeholder?: string; hint?: string }) {
+  const [draft, setDraft] = useState(String(value));
+  const [focused, setFocused] = useState(false);
+  useEffect(() => { if (!focused) setDraft(String(value)); }, [value, focused]);
+  const digits = (s: string) => s.replace(/[^\d]/g, '').slice(0, 9);
   return (
     <label className="block text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>{label}
-      <input className="field num mt-1 w-full" inputMode="numeric" value={value} placeholder={placeholder} onChange={(e) => { const n = Number(e.target.value.replace(/[^\d]/g, '')); onChange(Math.min(max, Math.max(min, Number.isFinite(n) ? n : 0))); }} />
+      <input className="field num mt-1 w-full" inputMode="numeric" value={focused ? draft : String(value)} placeholder={placeholder}
+        onFocus={() => { setDraft(String(value)); setFocused(true); }}
+        onChange={(e) => { const d = digits(e.target.value); setDraft(d); const n = Number(d); if (d !== '' && n >= min && n <= max) onChange(n); }}
+        onBlur={() => { setFocused(false); if (draft === '') { if (min === 0) onChange(0); return; } onChange(Math.min(max, Math.max(min, Number(draft)))); }} />
       {hint && <span className="mt-1 block text-xs font-normal" style={{ color: 'var(--ink-3)' }}>{hint}</span>}
     </label>
   );

@@ -75,6 +75,8 @@ body {
 
 .field {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   background: var(--sticker);
   color: var(--ink);
   border: 1px solid var(--rule);
@@ -98,6 +100,10 @@ select.field { appearance: none; padding-right: 2rem; background-image: linear-g
 
 /* Ledger rows with dotted leaders, as on a price sticker */
 .leader { flex: 1; border-bottom: 1.5px dotted var(--rule); margin: 0 0.5rem 0.35rem; min-width: 1rem; }
+
+/* Grid cells never grow past their column because of a wide select option or a fixed-width
+   preview; they shrink and let the content wrap or scale instead. */
+.grid > * { min-width: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
