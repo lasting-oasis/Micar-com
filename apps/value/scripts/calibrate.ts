@@ -9,7 +9,7 @@
 // Run: npx tsx scripts/calibrate.ts
 import { writeFileSync } from 'node:fs';
 import samples from '../src/data/listing-samples.json';
-import { MODELS } from '../src/engine/models';
+import { MODELS, typicalMsrp } from '../src/engine/models';
 import { baseMsrp, resolveStickerTrim, stickerFor } from '../src/engine/stickers';
 import { CURVE, valuate, type Inputs } from '../src/engine/valuation';
 import type { Region } from '../src/engine/data';
@@ -41,7 +41,7 @@ function observations(make: string, model: string): Obs[] {
         const t = resolveStickerTrim(st.year, [l.trim, page.trimFilter], info?.body);
         msrp = t.msrp; baseM = baseMsrp(st.year); known = true;
       } else if (info) {
-        msrp = Math.round(info.typicalMsrp * Math.pow(1.03, Math.min(1, page.year - 2025)) / 100) * 100;
+        msrp = typicalMsrp(info, page.year);
       } else continue;
       out.push({ year: page.year, trim: l.trim || page.trimFilter, price: l.price, miles: l.miles, region: regionOf(l.location), msrp, baseMsrp: baseM, stickerKnown: known });
     }

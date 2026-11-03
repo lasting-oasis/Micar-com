@@ -57,6 +57,28 @@ for (const st of stickers) for (const y of st.years) for (const t of y.trims) {
 }
 if (bad.length) { console.error(`${bad.length} bad trim rows, e.g.\n${bad.slice(0, 10).join('\n')}`); process.exit(1); }
 writeFileSync(join(ROOT, 'src/data/stickers.json'), JSON.stringify(stickers) + '\n');
+
+// New-car price level by model year, measured from the stickers: the median year-over-year
+// change of each model's median trim price (same model, consecutive years; changes outside
+// -15%..+20% treated as redesign noise). 2025 = 1. Used to bring old stickers to today's dollars.
+{
+  const med = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+  const change = new Map<number, number[]>();
+  for (const st of stickers) {
+    const byYear = new Map(st.years.filter((y) => !y.trims[0].trim.startsWith('Base (starting')).map((y) => [y.year, med(y.trims.map((t) => t.msrp))]));
+    for (const [y, v] of byYear) {
+      const prev = byYear.get(y - 1);
+      if (prev) { const r = v / prev; if (r > 0.85 && r < 1.2) change.set(y, [...(change.get(y) ?? []), r]); }
+    }
+  }
+  const level: Record<string, number> = { 2025: 1 };
+  const years = [...change.keys()].sort((a, b) => a - b);
+  for (let y = 2026; y <= years[years.length - 1]; y++) level[y] = level[y - 1] * med(change.get(y) ?? [1]);
+  for (let y = 2025; y > years[0] - 1; y--) level[y - 1] = level[y] / med(change.get(y) ?? [1]);
+  const rounded = Object.fromEntries(Object.entries(level).sort(([a], [b]) => +a - +b).map(([y, v]) => [y, Math.round(v * 10000) / 10000]));
+  const samples = Object.fromEntries(years.map((y) => [y, change.get(y)!.length]));
+  writeFileSync(join(ROOT, 'src/data/price-index.json'), JSON.stringify({ base: 2025, level: rounded, samples, method: 'median year-over-year change of each model\'s median trim MSRP' }, null, 1) + '\n');
+}
 writeFileSync(join(ROOT, 'src/data/listing-samples.json'), JSON.stringify(samples, null, 1) + '\n');
 const nSticker = stickers.reduce((a, s) => a + s.years.reduce((b, y) => b + y.trims.length, 0), 0);
 const nList = samples.reduce((a, s) => a + s.samples.reduce((b, p) => b + p.listings.length, 0), 0);

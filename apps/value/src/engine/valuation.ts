@@ -87,9 +87,10 @@ export const CURVE = {
   decay: (calibration as { curve?: { decay?: number } }).curve?.decay ?? 1.0,
   /** Titling hit, as a fraction of the first year's loss (about 6% of the price for most models). */
   driveOff: (calibration as { curve?: { driveOff?: number } }).curve?.driveOff ?? 0.8,
-  /** Yearly growth in new-car prices. Used prices track the price of a new
-   * replacement, so an old sticker is inflated to today's dollars before the
-   * curve is applied. */
+  /** Yearly growth in what used buyers compare against: today's new-car prices including
+   * redesigns and trim mix. Tested 3 Nov 2026: the measured within-model sticker index
+   * (src/data/price-index.json, ~1%/yr before 2021) fit real listings worse than 3%,
+   * so 3% stays here; the index is used only to estimate missing stickers (typicalMsrp). */
   inflation: 0.03,
   /** Value lost per 1,000 miles above the expected odometer. */
   milesRate: 0.0055,

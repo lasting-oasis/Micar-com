@@ -11,6 +11,7 @@
 // oversupply and the market cycle (see elasticity() in valuation.ts).
 
 import calibration from '../data/calibration.json';
+import { priceGrowth } from './priceIndex';
 import epaLineup from '../data/epa-lineup.json';
 import { BODY_STYLES, MAKES } from './data';
 
@@ -332,8 +333,8 @@ export function findModel(make: string, model: string): ModelInfo | undefined {
   return MODELS.find((m) => m.make === make && m.model === model);
 }
 
-/** Typical sticker price for a given model year, assuming ~3% yearly price growth. */
+/** Typical sticker price for a given model year, scaled by the measured new-car price level. */
 export function typicalMsrp(info: ModelInfo, year: number): number {
-  const raw = info.typicalMsrp * Math.pow(1.03, Math.min(1, year - 2025));
+  const raw = info.typicalMsrp * priceGrowth(2025, Math.min(year, 2026));
   return Math.round(raw / 100) * 100;
 }
