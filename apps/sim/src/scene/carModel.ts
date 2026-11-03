@@ -116,7 +116,10 @@ function getShared(): Shared {
         color: '#0b1218', roughness: 0.05, metalness: 0.2, transparent: true, opacity: 0.72,
         side: THREE.DoubleSide, depthWrite: false, forceSinglePass: true,
     };
-    const glass = new THREE.MeshStandardMaterial(glassParams);
+    // (a plain white map, so the clean and the cracked glass share one shader program)
+    const white = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
+    white.needsUpdate = true;
+    const glass = new THREE.MeshStandardMaterial({ ...glassParams, map: white });
     reflectiveGlass(glass);
     // Wrecked bodies: cloudy, cracked glass
     const crackTex = new THREE.CanvasTexture(makeCanvas(256, 256, g => {
@@ -142,25 +145,26 @@ function getShared(): Shared {
         gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(0.5, 'rgba(255,255,255,0.45)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
         g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
     }));
-    const smoke = new THREE.PointsMaterial({ color: 0x8a8a8a, size: 1.3, map: puffTex, transparent: true, opacity: 0.5, depthWrite: false });
+    const smoke = new THREE.PointsMaterial({ color: 0x8a8a8a, size: 1.3, map: puffTex, vertexColors: true, transparent: true, opacity: 0.5, depthWrite: false });
     const halo = new THREE.PointsMaterial({ size: 1.5, map: puffTex, vertexColors: true, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending });
-    // a lamp's glow is seen from in front of the lamp only (head lamps from ahead, tail lamps from behind)
-    halo.onBeforeCompile = (sh) => {
+    // a lamp's glow is seen from in front of the lamp only (head lamps from ahead, tail lamps from
+    // behind); smoke (lampDir 0) from everywhere. Smoke and glow share one shader program.
+    smoke.onBeforeCompile = halo.onBeforeCompile = (sh) => {
         sh.vertexShader = sh.vertexShader
             .replace('#include <common>', '#include <common>\nattribute float lampDir;')
             .replace('#include <fog_vertex>', `#include <fog_vertex>
-	float lampFacing = smoothstep( 0.0, 0.5, dot( normalize( ( modelViewMatrix * vec4( 0.0, 0.0, lampDir, 0.0 ) ).xyz ), normalize( - mvPosition.xyz ) ) );
+	float lampFacing = lampDir == 0.0 ? 1.0 : smoothstep( 0.0, 0.5, dot( normalize( ( modelViewMatrix * vec4( 0.0, 0.0, lampDir, 0.0 ) ).xyz ), normalize( - mvPosition.xyz ) ) );
 	gl_PointSize *= 0.3 + 0.7 * lampFacing;
 	#ifdef USE_COLOR
 		vColor *= lampFacing;
 	#endif`);
     };
-    halo.customProgramCacheKey = () => 'carHalo1';
+    smoke.customProgramCacheKey = halo.customProgramCacheKey = () => 'carPoints1';
     // Contact shadow: darkest under the middle of the car, fading out past its edges
     const shadowTex = new THREE.CanvasTexture(fieldCanvas(32, 64, (u, v) => [0, 0, 0, (1 - smooth(0.45, 1, Math.abs(u))) * (1 - smooth(0.62, 1, Math.abs(v)))]));
     const shadow = new THREE.MeshBasicMaterial({ map: shadowTex, color: 0x000000, transparent: true, opacity: 0.55, depthWrite: false,
         polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -4 });
-    shared = { trim, trimLit, trimBrake, trimReverse, glass, glassBroken, smoke, halo, shadow, textures: [crackTex, puffTex, shadowTex] };
+    shared = { trim, trimLit, trimBrake, trimReverse, glass, glassBroken, smoke, halo, shadow, textures: [crackTex, puffTex, shadowTex, white] };
     return shared;
 }
 
@@ -273,6 +277,7 @@ type CarParts = {
     // contact shadow bookkeeping: the transform last written to the instanced mesh
     sx: number; sz: number; sqy: number; sqw: number; ss: number; sv: boolean;
 };
+const CAR_LIFT = 0.03; // the paving's top, above y = 0
 const cars: THREE.Object3D[] = []; // every car built and not yet disposed (also CPU racers)
 const partsOf = (g: THREE.Object3D) => g.userData.car as CarParts | undefined;
 const tmpM = new THREE.Matrix4(), tmpQ = new THREE.Quaternion(), ONE = new THREE.Vector3(1, 1, 1);
@@ -326,10 +331,14 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
         pPos[i * 3] = (Math.random() - 0.5) * 1.6; pPos[i * 3 + 1] = Math.random() * 3; pPos[i * 3 + 2] = (Math.random() - 0.5) * 1.6;
     }
     partGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+    partGeo.setAttribute('color', new THREE.BufferAttribute(new Float32Array(partCount * 3).fill(1), 3));
+    partGeo.setAttribute('lampDir', new THREE.BufferAttribute(new Float32Array(partCount), 1));
     const smokeParticles = new THREE.Points(partGeo, S.smoke);
     smokeParticles.position.copy(geo.smokePos);
     smokeParticles.visible = mechCond < 50;
     group.add(smokeParticles);
+    // the paving's top is 3 cm up: lift the whole model so the tyres stand on it
+    for (const o of group.children) o.position.y += CAR_LIFT;
 
     const parts: CarParts = {
         style, length: geo.length, width: geo.width, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
@@ -428,7 +437,7 @@ export const updateCarLights = (nightFactor: number) => {
 let shadowMesh: THREE.InstancedMesh | null = null, shadowScene: THREE.Object3D | null = null;
 let shadowsDirtyFrom = 0, lastLodCheck = -1e9;
 const tmpV = new THREE.Vector3(), tmpS = new THREE.Vector3();
-const SHADOW_Y = 0.105; // just above the lot / road surfaces (and the 0.1 drop-off pad)
+const SHADOW_Y = 0.05; // just above the paving (top at 0.03, paint 0.038, driveway aprons 0.045); polygonOffset does the rest
 
 /** Add the shared contact-shadow mesh (one draw for every car) to the scene. Call once. */
 export const attachCarShadows = (scene: THREE.Object3D) => { shadowScene = scene; };
@@ -496,6 +505,31 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
     if (sm.count !== cars.length) { sm.count = cars.length; changed = true; }
     if (changed) sm.instanceMatrix.needsUpdate = true;
 };
+/**
+ * Compile every car shader program now (call once, just before the first frame is drawn,
+ * after the scene's lights and sky are set up), so the first car of each kind that comes
+ * into view does not stall the game while its shaders compile. Builds one hidden car with
+ * every variant shown (body, trim, both glasses, wheels, far version, glow, smoke, beam,
+ * contact shadows) and compiles it against the scene; it is removed again afterwards.
+ */
+export const precompileCars = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
+    const probe = buildCarModel('sedan', '#808080', 100, 20);
+    const g = probe.group, c = partsOf(g)!, S = shared!;
+    g.position.set(0, -500, 0);
+    const broken = new THREE.Mesh(c.glass.geometry, S.glassBroken);
+    const b = getBeam();
+    c.farBody.visible = c.farTrim.visible = c.halos.visible = c.smoke.visible = true;
+    g.add(broken, b); b.visible = true;
+    scene.add(g);
+    ensureShadowMesh(1);
+    const shadowWasVisible = shadowMesh?.visible;
+    const done = () => { b.removeFromParent(); b.visible = false; broken.removeFromParent(); disposeCarModel(g); };
+    const r = renderer as THREE.WebGLRenderer & { compileAsync?: (o: THREE.Object3D, c: THREE.Camera, t?: THREE.Scene) => Promise<unknown> };
+    if (r.compileAsync) r.compileAsync(scene, camera).then(done, done);
+    else { renderer.compile(scene, camera); done(); }
+    if (shadowMesh) shadowMesh.visible = shadowWasVisible ?? true;
+};
+
 /** Remove a car and free what belongs to it alone (shared geometry/materials stay). */
 export const disposeCarModel = (group: THREE.Object3D) => {
     group.removeFromParent();

@@ -341,7 +341,7 @@ const suv: Builder = () => {
 const van: Builder = () => {
     const s: BodySpec = {
         noseZ: -5.15, tailZ: 5.15, hw: 1.98,
-        front: { x0: 0.95, bulge: 0.26, len: 0.8, rake: 0.42 }, rear: { x0: 1.3, bulge: 0.08, len: 0.45, rake: 0.05 },
+        front: { x0: 1.05, bulge: 0.16, len: 0.7, rake: 0.3 }, rear: { x0: 1.3, bulge: 0.08, len: 0.45, rake: 0.05 },
         wheelR: 0.72, tyreW: 0.5, rimR: 0.47, wheelX: 1.68, axles: [-3.25, 2.85],
         archR: 0.88, archY: 0.66, archP: 2,
         bottom: C([[-5.15, 0.6], [-5.08, 0.5], [-4.85, 0.43], [-4.2, 0.4], [3.8, 0.4], [4.6, 0.47], [5.0, 0.58], [5.15, 0.7]]),
@@ -369,7 +369,7 @@ const van: Builder = () => {
         lamps(soup, s, t, 'head', CELL.headS, 0.55, 1.74, 1.42, 1.7, 10);
         t.decal(soup, s, 'front', -0.5, 0.5, 1.28, 1.52, { r: LAMP, cell: CELL.grilleS, na: 6, nb: 2, flipU: true, far: 'blackMatte' });
         t.decal(soup, s, 'front', -1.28, 1.28, 0.55, 0.98, { r: LAMP, cell: CELL.intakeS, na: 12, nb: 3, flipU: true, far: 'blackMatte' });
-        t.decal(soup, s, 'front', -1.5, 1.5, 0.46, 0.55, { r: black, na: 12, nb: 1 });
+        t.decal(soup, s, 'front', -1.5, 1.5, 0.5, 0.56, { r: black, na: 16, nb: 1, eps: 0.03 });
         plate(soup, s, t, -1, 1.08);
         // tall tail lamps on the tailgate corners with a light bar between them
         lamps(soup, s, t, 'tail', CELL.tailT, 1.42, 1.9, 1.48, 2.08, 4, 3);
