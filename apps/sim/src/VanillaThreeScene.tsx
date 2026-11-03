@@ -5,7 +5,7 @@ import { LightPool } from './scene/lightPool';
 import { batchStatic } from './scene/staticBatcher';
 import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
-import { applyCarPaint, buildCarModel, carColorHex, deriveStyle, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights } from './scene/carModel';
+import { applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, disposeCarModel, disposeSharedCarAssets, prepareCarStyles, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
@@ -124,6 +124,7 @@ export function VanillaThreeScene() {
         let raceStartMs = 0, raceCountdownUntil = 0, raceHudAccum = 0;
         // CPU racing opponents
         type CpuRacer = { mesh: THREE.Group; wheels: THREE.Object3D[]; angleDeg: number; startAngDeg: number; lane: number; speedDegPerSec: number; finished: boolean };
+        const CPU_STYLES = ['sports', 'coupe', 'sedan']; // the rivals' body styles
         let cpuRacers: CpuRacer[] = [];
         let cpuFinishCount = 0, racePlace = 1;
         const clearCpuRacers = () => { cpuRacers.forEach(c => disposeCarModel(c.mesh)); cpuRacers = []; };
@@ -172,6 +173,7 @@ export function VanillaThreeScene() {
         const carSmokes: Record<string, THREE.Points> = {};
         const carWheels: Record<string, THREE.Object3D[]> = {};   // wheel nodes: rotateX rolls them (then syncCarWheels)
         const carSteering: Record<string, THREE.Object3D[]> = {}; // front steering pivots: rotation.y
+        attachCarShadows(scene); // a soft shadow under every car (one draw for all of them)
         const vehiclePhysics: Record<string, { v: number, yaw: number }> = {};
         // Per-car handling from real specs (src/carSpecs.ts), recomputed only when the car's
         // model or mechanical condition changes.
@@ -793,11 +795,14 @@ export function VanillaThreeScene() {
             }
 
             // Object Synchronization
+            carFrameTick();
             updateCarLights(nightFactor); // lamps of driven cars glow brighter as night falls
             if (me) {
                 me.inventory.forEach((car) => {
                     if (!carMeshes[car.id]) {
                         const carStyle = (car as any).bodyStyle || deriveStyle(car.model);
+                        // body styles are built a few milliseconds per frame; the car appears once its style is ready
+                        if (!carStyleReady(carStyle)) return;
                         const assets = buildCarModel(carStyle, carColorHex(car.color), car.bodyCondition, car.mechanicCondition);
                         
                         const mesh = assets.group;
@@ -835,8 +840,12 @@ export function VanillaThreeScene() {
                             applyCarPaint(body, carColorHex(car.color), car.bodyCondition ?? 100, !!car.isDirty);
                         }
                     }
-                    // head and tail lamps on while someone drives it (you, or a customer on a test drive)
-                    setCarLights(carMeshes[car.id], car.id === localDrivingCarId || !!aiDriveSequence[car.id]);
+                    // head and tail lamps on while someone drives it (you, or a customer on a test drive);
+                    // yours also show braking (S while rolling forward) and reversing
+                    const ph = vehiclePhysics[car.id];
+                    setCarLights(carMeshes[car.id], car.id === localDrivingCarId
+                        ? (ph && ph.v < -0.5 ? 'reverse' : ph && keys.s && ph.v > 0.5 ? 'brake' : 'on')
+                        : aiDriveSequence[car.id] ? 'on' : 'off');
                     // AI Pathing Spawn Subroutine
                     if (car.hasOffer && !aiBots[car.id]) {
                         // A customer walks up to the car (seeded by the car, so the same car brings the same person)
@@ -1249,6 +1258,7 @@ export function VanillaThreeScene() {
                     const nowp = performance.now();
                     const nearStart = activeCar.position.distanceTo(raceStartPos) < 18;
                     store2.setRaceTrackPrompt(!!nearStart && !ar && !raceActive);
+                    if (!raceActive && activeCar.position.distanceTo(raceStartPos) < 150) prepareCarStyles(CPU_STYLES); // rivals' cars ready before the start
 
                     if (ar && !raceActive) {
                         // a freshly paid entry — line the car up on the grid
@@ -1262,7 +1272,7 @@ export function VanillaThreeScene() {
                         clearCpuRacers(); cpuFinishCount = 0; racePlace = 1;
                         const cpuSkill = (ar as any).cpuSkill || 0.85;
                         const cpuColors = ['#ef4444', '#f59e0b', '#a855f7'];
-                        const cpuStyles = ['sports', 'coupe', 'sedan'];
+                        const cpuStyles = CPU_STYLES;
                         const REF_LAP = 46; // seconds for a quick clean lap
                         ([-12, 0, 12] as number[]).forEach((lane, i) => {
                             const assets = buildCarModel(cpuStyles[i], cpuColors[i], 100, 100);
@@ -1516,6 +1526,8 @@ export function VanillaThreeScene() {
             lightPool.update(focusObj.position, nightFactor, delta);
             atmosphere.followShadow(focusObj.position);
             atmosphere.updateEnvironment(quality === 'high');
+            // distant cars as their far versions, contact shadows under moved cars, headlight beam
+            updateCars(camera.position, quality === 'high', (localDrivingCarId && carMeshes[localDrivingCarId]) || null);
 
             // On Low, while the phone menu covers the world and nothing moves the
             // camera, draw ~10x a second instead of every frame (the game itself
