@@ -15,6 +15,7 @@ to each trim. A few models are mapped by hand in ALIAS.
 import collections, json, os, re
 
 LINEUP = json.load(open('src/data/epa-lineup.json'))
+LINEUP += [{'make': 'Ford', 'model': 'F-250 Super Duty', 'body': 'Pickup Truck'}, {'make': 'Chevrolet', 'model': 'Silverado 2500HD', 'body': 'Pickup Truck'}, {'make': 'Ram', 'model': '2500', 'body': 'Pickup Truck'}]
 OUT = 'data/research/stickers-iseecars'
 Y0, Y1 = 2010, 2026
 VARIANTS = {'hybrid', 'plug__in', 'plug__in_hybrid', 'prime', 'energi', 'phev', 'hybrid_plug__in'}
@@ -29,7 +30,8 @@ ALIAS = {
     'Chevrolet|Bolt EV': ['bolt_ev'], 'Subaru|Impreza': ['impreza', 'impreza_wrx'], 'Volkswagen|Golf GTI': ['golf', 'gti', 'golf_gti'],
     'Cadillac|Escalade': ['escalade', 'escalade_esv'], 'GMC|Yukon': ['yukon', 'yukon_xl'], 'Hyundai|Genesis': ['genesis', 'genesis_coupe'],
     'Mitsubishi|Lancer': ['lancer', 'lancer_sportback', 'lancer_evolution'], 'Nissan|Murano': ['murano', 'murano_crosscabriolet'],
-    'BMW|M': ['m3', 'm5', 'm6', 'm2', 'm4', 'm8'], 'Honda|Crosstour': ['crosstour', 'accord_crosstour'], 'Hyundai|Elantra': ['elantra', 'elantra_touring', 'elantra_gt'],
+    'BMW|M': ['m3', 'm5', 'm6', 'm2', 'm4', 'm8'], 'Mazda|6': ['mazda6'], 'Mazda|2': ['mazda2'], 'Mazda|5': ['mazda5'],
+    'Kia|Rio': ['rio', 'rio5'], 'Ram|2500': ['2500', 'ram_pickup_2500'], 'Ford|F-250 Super Duty': ['super_duty_f__250'], 'Chevrolet|Silverado 2500HD': ['silverado_2500hd'], 'GMC|Sierra 2500HD': ['sierra_2500hd'], 'Honda|Crosstour': ['crosstour', 'accord_crosstour'], 'Hyundai|Elantra': ['elantra', 'elantra_touring', 'elantra_gt'],
 }
 norm = lambda s: re.sub(r'[^a-z0-9]', '', s.lower())
 MAKE_SLUG = {norm(e['make']): e['make'] for e in LINEUP}
@@ -72,6 +74,29 @@ def slugs_for(make, model):
     for s in slugs_by_make[make]:
         if norm(s).startswith(nm) and (s[len(nm):len(nm) + 1] in ('_',) or norm(s) == nm):
             out[s] = f"{model} {pretty(s[len(nm) + 1:])}".strip()
+    return out
+
+COMMERCIAL = re.compile(r'(3500|4500|5500|f__4[05]0|f__550|f__53|f__59|f__350|cutaway|chassis|motorhome|cargo|express|savana|transit|promaster|sprinter|_pro$|hearse|limo)')
+claimed = set()
+for e in LINEUP:
+    for s_ in slugs_for(e['make'], e['model']): claimed.add((e['make'], s_))
+EXTRA = collections.defaultdict(dict)   # (make, model) -> {slug: label}
+for (y, make, ms) in pages:
+    if (make, ms) in claimed or COMMERCIAL.search(ms): continue
+    best = None
+    for e in LINEUP:
+        if e['make'] != make: continue
+        own = [x for x in slugs_for(make, e['model'])] or [re.sub(r'[^a-z0-9]+', '_', e['model'].lower())]
+        for base in own:
+            if ms.startswith(base + '_') and (best is None or len(base) > len(best[1])):
+                best = (e['model'], base)
+    if best:
+        EXTRA[(make, best[0])][ms] = f"{pretty(ms[len(best[1]) + 1:])}"
+_slugs_for = slugs_for
+def slugs_for(make, model):
+    out = dict(_slugs_for(make, model))
+    for ms, label in EXTRA.get((make, model), {}).items():
+        out.setdefault(ms, label)
     return out
 
 os.makedirs(OUT, exist_ok=True)
