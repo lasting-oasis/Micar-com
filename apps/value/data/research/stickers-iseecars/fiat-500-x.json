@@ -5,109 +5,61 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (500x).",
 "years": [
 {
-"year": 2018,
-"destination": null,
+"year": 2017,
+"destination": 995,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"trim": "Pop 4dr Crossover",
 "msrp": 19995,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 23685,
+"trim": "Trekking 4dr Crossover",
+"msrp": 23350,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"trim": "AWD Pop 4dr Crossover",
 "msrp": 23890,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25515,
+"trim": "Urbana Edition 4dr Crossover",
+"msrp": 24195,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25585,
+"trim": "Lounge 4dr Crossover",
+"msrp": 25150,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 27415,
+"trim": "AWD Trekking 4dr Crossover",
+"msrp": 25250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Urbana Edition 4dr Crossover",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Lounge 4dr Crossover",
+"msrp": 27050,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-fiat-500x-price",
+"source": "https://www.iseecars.com/car/2017-fiat-500x-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 24740,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 26245,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 29445,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-fiat-500x-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 24590,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25995,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 26895,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 29495,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-fiat-500x-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

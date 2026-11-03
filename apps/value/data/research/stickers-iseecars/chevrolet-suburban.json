@@ -2,7 +2,7 @@
 "make": "Chevrolet",
 "model": "Suburban",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (suburban).",
+"note": "Trim-level MSRPs from iSeeCars price pages (suburban, suburban_shield).",
 "years": [
 {
 "year": 2010,
@@ -15,7 +15,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 39520,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LS 4dr SUV",
+"msrp": 40635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
 "msrp": 40635,
 "config": "",
 "note": ""
@@ -27,7 +39,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 Fleet 2500 4dr SUV",
+"msrp": 41080,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LS 2500 4dr SUV",
+"msrp": 42245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 2500 4dr SUV",
 "msrp": 42245,
 "config": "",
 "note": ""
@@ -39,7 +63,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 Fleet 4dr SUV",
+"msrp": 42315,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LS 4dr SUV",
+"msrp": 43480,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
 "msrp": 43480,
 "config": "",
 "note": ""
@@ -51,7 +87,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 Fleet 2500 4dr SUV",
+"msrp": 43720,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LT 4dr SUV",
+"msrp": 44145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 4dr SUV",
 "msrp": 44145,
 "config": "",
 "note": ""
@@ -63,7 +111,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 LS 2500 4dr SUV",
+"msrp": 44885,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LT 2500 4dr SUV",
+"msrp": 45735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 2500 4dr SUV",
 "msrp": 45735,
 "config": "",
 "note": ""
@@ -75,7 +135,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 LT 4dr SUV",
+"msrp": 46990,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LT 2500 4dr SUV",
+"msrp": 48580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 2500 4dr SUV",
 "msrp": 48580,
 "config": "",
 "note": ""
@@ -87,7 +159,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 52880,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LTZ 4dr SUV",
+"msrp": 55625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
 "msrp": 55625,
 "config": "",
 "note": ""
@@ -114,6 +198,18 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 41335,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
+"msrp": 41335,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 Fleet 2500 4dr SUV",
 "msrp": 42945,
 "config": "",
@@ -121,6 +217,18 @@
 },
 {
 "trim": "4x2 LS 2500 4dr SUV",
+"msrp": 42945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 2500 4dr SUV",
+"msrp": 42945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 2500 4dr SUV",
 "msrp": 42945,
 "config": "",
 "note": ""
@@ -138,7 +246,25 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 Fleet 4dr SUV",
+"msrp": 44180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
+"msrp": 44180,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LT 4dr SUV",
+"msrp": 44845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 4dr SUV",
 "msrp": 44845,
 "config": "",
 "note": ""
@@ -156,7 +282,25 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 Fleet 2500 4dr SUV",
+"msrp": 45785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 2500 4dr SUV",
+"msrp": 45785,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LT 2500 4dr SUV",
+"msrp": 46435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 2500 4dr SUV",
 "msrp": 46435,
 "config": "",
 "note": ""
@@ -168,7 +312,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 LT 4dr SUV",
+"msrp": 47690,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LT 2500 4dr SUV",
+"msrp": 49280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 2500 4dr SUV",
 "msrp": 49280,
 "config": "",
 "note": ""
@@ -180,7 +336,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 53580,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LTZ 4dr SUV",
+"msrp": 56580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
 "msrp": 56580,
 "config": "",
 "note": ""
@@ -201,7 +369,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 40975,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LS 4dr SUV",
+"msrp": 42220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
 "msrp": 42220,
 "config": "",
 "note": ""
@@ -213,7 +393,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 Fleet 2500 4dr SUV",
+"msrp": 42535,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Fleet 4dr SUV",
+"msrp": 43770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 4dr SUV",
 "msrp": 43770,
 "config": "",
 "note": ""
@@ -225,7 +417,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 LS 2500 4dr SUV",
+"msrp": 43830,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LS 4dr SUV",
+"msrp": 45065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
 "msrp": 45065,
 "config": "",
 "note": ""
@@ -237,7 +441,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 Fleet 2500 4dr SUV",
+"msrp": 45375,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LT 4dr SUV",
+"msrp": 45980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 4dr SUV",
 "msrp": 45980,
 "config": "",
 "note": ""
@@ -249,7 +465,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 LS 2500 4dr SUV",
+"msrp": 46670,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LT 2500 4dr SUV",
+"msrp": 47570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 2500 4dr SUV",
 "msrp": 47570,
 "config": "",
 "note": ""
@@ -261,7 +489,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 LT 4dr SUV",
+"msrp": 48825,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LT 2500 4dr SUV",
+"msrp": 50415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 2500 4dr SUV",
 "msrp": 50415,
 "config": "",
 "note": ""
@@ -273,7 +513,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 55115,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LTZ 4dr SUV",
+"msrp": 58115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
 "msrp": 58115,
 "config": "",
 "note": ""
@@ -294,7 +546,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 42625,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LS 4dr SUV",
+"msrp": 43870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
 "msrp": 43870,
 "config": "",
 "note": ""
@@ -306,7 +570,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 Fleet 2500 4dr SUV",
+"msrp": 44185,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Fleet 4dr SUV",
+"msrp": 45420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 4dr SUV",
 "msrp": 45420,
 "config": "",
 "note": ""
@@ -318,7 +594,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 LS 2500 4dr SUV",
+"msrp": 45480,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LS 4dr SUV",
+"msrp": 46715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
 "msrp": 46715,
 "config": "",
 "note": ""
@@ -330,7 +618,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 Fleet 2500 4dr SUV",
+"msrp": 47025,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LT 4dr SUV",
+"msrp": 47630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 4dr SUV",
 "msrp": 47630,
 "config": "",
 "note": ""
@@ -342,7 +642,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 LS 2500 4dr SUV",
+"msrp": 48320,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LT 2500 4dr SUV",
+"msrp": 49220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 2500 4dr SUV",
 "msrp": 49220,
 "config": "",
 "note": ""
@@ -354,7 +666,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 LT 4dr SUV",
+"msrp": 50475,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LT 2500 4dr SUV",
+"msrp": 52065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 2500 4dr SUV",
 "msrp": 52065,
 "config": "",
 "note": ""
@@ -366,7 +690,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 56765,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LTZ 4dr SUV",
+"msrp": 59765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
 "msrp": 59765,
 "config": "",
 "note": ""
@@ -387,7 +723,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 LS 4dr SUV",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
 "msrp": 46300,
 "config": "",
 "note": ""
@@ -399,7 +747,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x4 Fleet 4dr SUV",
+"msrp": 46945,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LS 4dr SUV",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
 "msrp": 49300,
 "config": "",
 "note": ""
@@ -411,7 +771,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 LT 4dr SUV",
+"msrp": 49715,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LT 4dr SUV",
+"msrp": 52560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 4dr SUV",
 "msrp": 52560,
 "config": "",
 "note": ""
@@ -423,7 +795,19 @@
 "note": ""
 },
 {
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 58400,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 LTZ 4dr SUV",
+"msrp": 61400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
 "msrp": 61400,
 "config": "",
 "note": ""
@@ -432,51 +816,6 @@
 "source": "https://www.iseecars.com/car/2014-chevrolet-suburban-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2018,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 50200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 58300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 64900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 67900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2018-chevrolet-suburban-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -546,51 +885,6 @@
 "source": "https://www.iseecars.com/car/2019-chevrolet-suburban-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 51700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 54700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 65500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 68500,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-chevrolet-suburban-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

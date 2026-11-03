@@ -134,31 +134,55 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2015,
+"destination": 980,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 16245,
+"trim": "Pop 2dr Hatchback",
+"msrp": 16845,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 19745,
+"trim": "Ribelle 2dr Hatchback",
+"msrp": 17495,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 20495,
+"trim": "Sport 2dr Hatchback",
+"msrp": 17700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge 2dr Hatchback",
+"msrp": 18700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 2dr Hatchback",
+"msrp": 19700,
+"config": "",
+"note": ""
+},
+{
+"trim": "1957 Edition 2dr Hatchback",
+"msrp": 20500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Abarth 2dr Hatchback",
+"msrp": 22495,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-fiat-500-price",
+"source": "https://www.iseecars.com/car/2015-fiat-500-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

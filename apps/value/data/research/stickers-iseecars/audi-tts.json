@@ -26,34 +26,19 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2017,
+"destination": 950,
 "trims": [
 {
-"trim": "",
-"msrp": 52950,
+"trim": "AWD 2.0T quattro 2dr Coupe",
+"msrp": 52500,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-audi-tts-price",
+"source": "https://www.iseecars.com/car/2017-audi-tts-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 53800,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-audi-tts-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
@@ -69,21 +54,6 @@
 "source": "https://www.iseecars.com/car/2020-audi-tts-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 59500,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-audi-tts-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

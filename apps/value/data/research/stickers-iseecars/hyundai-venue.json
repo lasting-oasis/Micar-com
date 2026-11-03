@@ -5,39 +5,6 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (venue).",
 "years": [
 {
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 17350,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 18550,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 19250,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 22050,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-hyundai-venue-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2023,
 "destination": 1335,
 "trims": [

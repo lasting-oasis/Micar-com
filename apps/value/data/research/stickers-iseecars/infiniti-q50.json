@@ -2,214 +2,163 @@
 "make": "Infiniti",
 "model": "Q50",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (q50).",
+"note": "Trim-level MSRPs from iSeeCars price pages (q50, q50_hybrid).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2014,
+"destination": 905,
 "trims": [
 {
-"trim": "",
-"msrp": 35650,
+"trim": "Hybrid Premium 4dr Sedan",
+"msrp": 44400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 37650,
+"trim": "Hybrid AWD Premium 4dr Sedan",
+"msrp": 46200,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 38300,
+"trim": "Hybrid Sport 4dr Sedan",
+"msrp": 46800,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 38400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 51350,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53350,
+"trim": "Hybrid AWD Sport 4dr Sedan",
+"msrp": 48600,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-infiniti-q50-price",
+"source": "https://www.iseecars.com/car/2014-infiniti-q50_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2015,
+"destination": 905,
 "trims": [
 {
-"trim": "",
-"msrp": 36400,
+"trim": "Hybrid Premium 4dr Sedan",
+"msrp": 44400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 38400,
+"trim": "Hybrid AWD Premium 4dr Sedan",
+"msrp": 46200,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 38850,
+"trim": "Hybrid Sport 4dr Sedan",
+"msrp": 46800,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 40850,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 54250,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56250,
+"trim": "Hybrid AWD Sport 4dr Sedan",
+"msrp": 48600,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-infiniti-q50-price",
+"source": "https://www.iseecars.com/car/2015-infiniti-q50_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2021,
-"destination": null,
+"year": 2016,
+"destination": 905,
 "trims": [
 {
-"trim": "",
-"msrp": 36600,
+"trim": "Hybrid Premium 4dr Sedan",
+"msrp": 47050,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 38600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 49600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55750,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 57750,
+"trim": "Hybrid AWD Premium 4dr Sedan",
+"msrp": 49050,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-infiniti-q50-price",
+"source": "https://www.iseecars.com/car/2016-infiniti-q50_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "2.0T Pure 4dr",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T Pure 4dr Sedan",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Luxe 4dr Sedan",
+"msrp": 37550,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0T Luxe 4dr Sedan",
+"msrp": 39150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T Luxe 4dr Sedan",
+"msrp": 39550,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0T Sport 4dr Sedan",
+"msrp": 40650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T Luxe 4dr Sedan",
+"msrp": 41150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T Sport 4dr Sedan",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Red Sport 400 4dr Sedan",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Red Sport 400 4dr Sedan",
+"msrp": 53000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-infiniti-q50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

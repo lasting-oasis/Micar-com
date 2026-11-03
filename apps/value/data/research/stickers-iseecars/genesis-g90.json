@@ -5,6 +5,72 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (g90).",
 "years": [
 {
+"year": 2017,
+"destination": 975,
+"trims": [
+{
+"trim": "3.3T Premium 4dr Sedan",
+"msrp": 68100,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0 Ultimate 4dr Sedan",
+"msrp": 69700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T Premium 4dr Sedan",
+"msrp": 70600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.0 Ultimate 4dr Sedan",
+"msrp": 72200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-genesis-g90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "3.3T Premium 4dr Sedan",
+"msrp": 68350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.3T Premium 4dr Sedan",
+"msrp": 70850,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0 Ultimate 4dr Sedan",
+"msrp": 71850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.0 Ultimate 4dr Sedan",
+"msrp": 74350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-genesis-g90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [

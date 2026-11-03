@@ -78,6 +78,36 @@
 "source": "https://www.iseecars.com/car/2014-ferrari-california-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 3750,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 198973,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ferrari-california-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 3750,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 202723,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ferrari-california-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

@@ -86,63 +86,6 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 33090,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52500,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-kia-stinger-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2021,
 "destination": 1045,
 "trims": [

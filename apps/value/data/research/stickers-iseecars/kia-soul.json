@@ -2,7 +2,7 @@
 "make": "Kia",
 "model": "Soul",
 "body": "Hatchback / Wagon",
-"note": "Trim-level MSRPs from iSeeCars price pages (soul).",
+"note": "Trim-level MSRPs from iSeeCars price pages (soul, soul_ev).",
 "years": [
 {
 "year": 2010,
@@ -206,6 +206,87 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": 825,
+"trims": [
+{
+"trim": "EV 4dr Crossover",
+"msrp": 33700,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV + 4dr Crossover",
+"msrp": 35700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-kia-soul_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 895,
+"trims": [
+{
+"trim": "EV EV-E 4dr Crossover",
+"msrp": 32250,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV 4dr Crossover",
+"msrp": 33950,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV + 4dr Crossover",
+"msrp": 35950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-kia-soul_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Crossover 6M",
+"msrp": 16200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Crossover 6A",
+"msrp": 17800,
+"config": "",
+"note": ""
+},
+{
+"trim": "+ 4dr Crossover",
+"msrp": 20400,
+"config": "",
+"note": ""
+},
+{
+"trim": "! 4dr Crossover",
+"msrp": 22900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-kia-soul-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [
@@ -237,96 +318,6 @@
 "source": "https://www.iseecars.com/car/2019-kia-soul-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 17490,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 18990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 20290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 21490,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 22690,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27490,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-kia-soul-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 17590,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 19090,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 20690,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 21790,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 23350,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 27650,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-kia-soul-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

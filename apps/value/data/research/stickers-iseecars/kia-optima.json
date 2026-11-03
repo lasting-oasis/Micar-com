@@ -236,70 +236,181 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": 925,
+"year": 2015,
+"destination": 825,
 "trims": [
 {
-"trim": "",
-"msrp": 22990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 24990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 26890,
+"trim": "Hybrid 4dr Sedan",
+"msrp": 25990,
 "config": "",
 "note": ""
 },
 {
 "trim": "Hybrid EX 4dr Sedan",
-"msrp": 28090,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 31990,
-"config": "",
-"note": ""
-},
-{
-"trim": "Plug-In Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 35390,
+"msrp": 32150,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-kia-optima-price",
+"source": "https://www.iseecars.com/car/2015-kia-optima_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2016,
+"destination": 850,
 "trims": [
 {
-"trim": "Hybrid",
-"msrp": 29310,
+"trim": "LX 4dr Sedan",
+"msrp": 22140,
 "config": "",
 "note": ""
 },
 {
-"trim": "Plug-In Hybrid",
+"trim": "LX Turbo 4dr Sedan",
+"msrp": 24140,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 25140,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo 4dr Sedan",
+"msrp": 29940,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXL Turbo 4dr Sedan",
+"msrp": 36040,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-kia-optima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 895,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX Turbo 4dr Sedan",
+"msrp": 24140,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 25440,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo 4dr Sedan",
+"msrp": 29940,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX 4dr Sedan",
+"msrp": 35210,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXL Turbo 4dr Sedan",
 "msrp": 36090,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-kia-optima_hybrid-price",
+"source": "https://www.iseecars.com/car/2017-kia-optima-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 895,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX Turbo 4dr Sedan",
+"msrp": 24400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Premium 4dr Sedan",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Turbo 4dr Sedan",
+"msrp": 30600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid EX 4dr Sedan",
+"msrp": 30990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX 4dr Sedan",
+"msrp": 35210,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-kia-optima-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 925,
+"trims": [
+{
+"trim": "Hybrid EX 4dr Sedan",
+"msrp": 28090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-kia-optima_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

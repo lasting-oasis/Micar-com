@@ -2,7 +2,7 @@
 "make": "Hyundai",
 "model": "Sonata",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (sonata, sonata_hybrid, sonata_plug__in_hybrid).",
+"note": "Trim-level MSRPs from iSeeCars price pages (sonata, sonata_hybrid).",
 "years": [
 {
 "year": 2010,
@@ -260,90 +260,114 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2016,
+"destination": 835,
 "trims": [
 {
-"trim": "",
-"msrp": 22650,
+"trim": "4dr Sedan",
+"msrp": 21600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 23000,
+"trim": "4dr Sedan PZEV",
+"msrp": 21600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 24300,
+"trim": "SE 4dr Sedan",
+"msrp": 21750,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 25150,
+"trim": "SE 4dr Sedan PZEV",
+"msrp": 21750,
 "config": "",
 "note": ""
 },
 {
-"trim": "Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25750,
+"trim": "Sport 4dr Sedan",
+"msrp": 23400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27850,
+"trim": "Sport 4dr Sedan PZEV",
+"msrp": 23400,
 "config": "",
 "note": ""
 },
 {
-"trim": "Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 31300,
+"trim": "Eco 4dr Sedan",
+"msrp": 23725,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 32250,
+"trim": "Eco 4dr Sedan w/Tire Kit",
+"msrp": 23725,
 "config": "",
 "note": ""
 },
 {
-"trim": "Plug-In Hybrid",
-"msrp": 33400,
+"trim": "Hybrid SE 4dr Sedan",
+"msrp": 26000,
 "config": "",
 "note": ""
 },
 {
-"trim": "Plug-In Hybrid",
-"msrp": 39000,
+"trim": "Limited 4dr Sedan",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan PZEV",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2.0T 4dr Sedan",
+"msrp": 28925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2.0T 4dr Sedan w/Black Leather Interior",
+"msrp": 28925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Sedan",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Sedan w/Blue Pearl Interior",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0T 4dr Sedan",
+"msrp": 34075,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-hyundai-sonata-price",
+"source": "https://www.iseecars.com/car/2016-hyundai-sonata-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
 "destination": 995,
 "trims": [
-{
-"trim": "",
-"msrp": 23600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 25700,
-"config": "",
-"note": ""
-},
 {
 "trim": "Hybrid Blue 4dr Sedan",
 "msrp": 27250,
@@ -351,20 +375,8 @@
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27650,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid SEL 4dr Sedan",
 "msrp": 29900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33500,
 "config": "",
 "note": ""
 },
@@ -375,26 +387,14 @@
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-hyundai-sonata-price",
+"source": "https://www.iseecars.com/car/2020-hyundai-sonata_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
 "destination": 1005,
 "trims": [
-{
-"trim": "",
-"msrp": 23600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 25700,
-"config": "",
-"note": ""
-},
 {
 "trim": "Hybrid Blue 4dr Sedan",
 "msrp": 27750,
@@ -402,26 +402,8 @@
 "note": ""
 },
 {
-"trim": "",
-"msrp": 28200,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid SEL 4dr Sedan",
 "msrp": 29900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33850,
 "config": "",
 "note": ""
 },
@@ -432,9 +414,9 @@
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-hyundai-sonata-price",
+"source": "https://www.iseecars.com/car/2021-hyundai-sonata_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

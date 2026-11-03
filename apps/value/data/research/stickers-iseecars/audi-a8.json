@@ -119,25 +119,37 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2016,
+"destination": 925,
 "trims": [
 {
-"trim": "",
-"msrp": 82500,
+"trim": "AWD 3.0T quattro 4dr Sedan",
+"msrp": 81500,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 92000,
+"trim": "AWD 3.0 quattro TDI 4dr Sedan",
+"msrp": 85200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.0T quattro Sport 4dr Sedan",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD W12 quattro 4dr Sedan",
+"msrp": 137900,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-audi-a8-price",
+"source": "https://www.iseecars.com/car/2016-audi-a8-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -159,54 +171,6 @@
 "source": "https://www.iseecars.com/car/2019-audi-a8-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 85200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 94000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 96800,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-audi-a8-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 86500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 98900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-audi-a8-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

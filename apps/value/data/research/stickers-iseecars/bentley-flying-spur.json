@@ -5,6 +5,42 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (flying_spur).",
 "years": [
 {
+"year": 2014,
+"destination": 2725,
+"trims": [
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 200500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 2725,
+"trims": [
+{
+"trim": "AWD V8 4dr Sedan",
+"msrp": 195100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD W12 4dr Sedan",
+"msrp": 215800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bentley-flying_spur-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 2725,
 "trims": [
@@ -36,21 +72,6 @@
 "source": "https://www.iseecars.com/car/2018-bentley-flying_spur-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 258735,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-bentley-flying_spur-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

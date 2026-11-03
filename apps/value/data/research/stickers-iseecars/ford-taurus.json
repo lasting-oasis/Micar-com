@@ -252,6 +252,63 @@
 "source": "https://www.iseecars.com/car/2014-ford-taurus-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 875,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 27690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor 4dr Sedan",
+"msrp": 28250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor 4dr Sedan",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 30120,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 31970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 39050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SHO 4dr Sedan",
+"msrp": 42865,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

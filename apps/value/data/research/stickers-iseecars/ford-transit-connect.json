@@ -344,6 +344,315 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": 995,
+"trims": [
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 22675,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 22675,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 23675,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 23675,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 24200,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 24200,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Mini-Van w/Rear Cargo Doors",
+"msrp": 24825,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Mini-Van w/Rear Liftgate",
+"msrp": 24825,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 25300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 25300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 26825,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 26825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 29300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-transit_connect-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 995,
+"trims": [
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 23010,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 23010,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 24010,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 24010,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 24535,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 24535,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 25535,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 25535,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 25695,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 25695,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Mini-Van w/Rear Cargo Doors",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Mini-Van w/Rear Liftgate",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr SWB Mini-Van w/Rear Liftgate",
+"msrp": 28325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 30325,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-transit_connect-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 1120,
+"trims": [
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 23215,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 23215,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 24215,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 24215,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 24740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 24740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Cargo Doors",
+"msrp": 25740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Cargo Mini-Van w/Rear Liftgate",
+"msrp": 25740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Mini-Van w/Rear Cargo Doors",
+"msrp": 25905,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SWB Mini-Van w/Rear Liftgate",
+"msrp": 25905,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Cargo Doors",
+"msrp": 27905,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 27905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr SWB Mini-Van w/Rear Liftgate",
+"msrp": 28530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr LWB Mini-Van w/Rear Liftgate",
+"msrp": 30530,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-transit_connect-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1295,
 "trims": [

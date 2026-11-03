@@ -2,7 +2,7 @@
 "make": "Honda",
 "model": "Fit",
 "body": "Hatchback / Wagon",
-"note": "Trim-level MSRPs from iSeeCars price pages (fit).",
+"note": "Trim-level MSRPs from iSeeCars price pages (fit, fit_ev).",
 "years": [
 {
 "year": 2010,
@@ -128,118 +128,19 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2014,
+"destination": 790,
 "trims": [
 {
-"trim": "",
-"msrp": 16190,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 16990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 17500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 17990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 18160,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 18300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 18960,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 19300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 20520,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 21520,
+"trim": "EV Base 4dr Hatchback",
+"msrp": 36625,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-honda-fit-price",
+"source": "https://www.iseecars.com/car/2014-honda-fit_ev-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 16190,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 16990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 17600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 18400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 19060,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 20620,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-honda-fit-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

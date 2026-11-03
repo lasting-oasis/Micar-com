@@ -2,121 +2,118 @@
 "make": "Land Rover",
 "model": "Range Rover Evoque",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (range_rover_evoque).",
+"note": "Trim-level MSRPs from iSeeCars price pages (range_rover_evoque_coupe).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2012,
+"destination": 850,
 "trims": [
 {
-"trim": "",
-"msrp": 41800,
+"trim": "Coupe AWD Pure Plus 2dr SUV",
+"msrp": 44145,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 45900,
+"trim": "Coupe AWD Dynamic 2dr SUV",
+"msrp": 52045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-landrover-range_rover_evoque_coupe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "Coupe AWD Pure Plus 2dr SUV",
+"msrp": 44145,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 48400,
+"trim": "Coupe AWD Dynamic 2dr SUV",
+"msrp": 52045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-landrover-range_rover_evoque_coupe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "Coupe AWD Pure Plus 2dr SUV",
+"msrp": 44145,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 51100,
+"trim": "Coupe AWD Pure Premium 2dr SUV",
+"msrp": 49700,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 52100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 54300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
+"trim": "Coupe AWD Dynamic 2dr SUV",
 "msrp": 57300,
 "config": "",
 "note": ""
-},
-{
-"trim": "",
-"msrp": 57800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 62600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 65600,
-"config": "",
-"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-landrover-range_rover_evoque-price",
+"source": "https://www.iseecars.com/car/2014-landrover-range_rover_evoque_coupe-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2015,
+"destination": 925,
 "trims": [
 {
-"trim": "",
-"msrp": 42650,
+"trim": "Coupe AWD Pure Plus 2dr SUV",
+"msrp": 45100,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 46600,
+"trim": "Coupe AWD Pure Premium 2dr SUV",
+"msrp": 49900,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 47200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 51150,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56850,
+"trim": "Coupe AWD Dynamic 2dr SUV",
+"msrp": 57600,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-landrover-range_rover_evoque-price",
+"source": "https://www.iseecars.com/car/2015-landrover-range_rover_evoque_coupe-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 995,
+"trims": [
+{
+"trim": "Coupe AWD SE Premium 2dr SUV",
+"msrp": 46675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-landrover-range_rover_evoque_coupe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

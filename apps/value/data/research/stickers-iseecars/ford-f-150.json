@@ -2,1087 +2,370 @@
 "make": "Ford",
 "model": "F-150",
 "body": "Pickup Truck",
-"note": "Trim-level MSRPs from iSeeCars price pages (f__150).",
+"note": "Trim-level MSRPs from iSeeCars price pages (f__150, f__150_lightning).",
 "years": [
 {
-"year": 2018,
+"year": 2010,
 "destination": null,
 "trims": [
 {
-"trim": "",
-"msrp": 27705,
+"trim": "XL",
+"msrp": 22060,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 28005,
+"trim": "XL",
+"msrp": 22360,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 31790,
+"trim": "XL w/Mid-Box Prep",
+"msrp": 22360,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 32350,
+"trim": "STX",
+"msrp": 25085,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 32650,
+"trim": "XL",
+"msrp": 25885,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 33095,
+"trim": "XL w/HD Payload Pkg",
+"msrp": 26185,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 33300,
+"trim": "XL w/Mid-Box Prep",
+"msrp": 26185,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 33600,
+"trim": "XLT",
+"msrp": 26255,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 34245,
+"trim": "XL",
+"msrp": 26430,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35220,
+"trim": "XLT",
+"msrp": 26555,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35550,
+"trim": "XLT w/Mid-Box Prep",
+"msrp": 26555,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 36210,
+"trim": "XL",
+"msrp": 26730,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 36725,
+"trim": "XL w/Mid-Box Prep",
+"msrp": 26730,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 37025,
+"trim": "STX",
+"msrp": 27685,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 37475,
+"trim": "STX",
+"msrp": 28230,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 37515,
+"trim": "XL",
+"msrp": 29030,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 37755,
+"trim": "XL",
+"msrp": 29295,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 38560,
+"trim": "XL w/HD Payload Pkg",
+"msrp": 29330,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 39635,
+"trim": "XL w/Mid-Box Prep",
+"msrp": 29330,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 39865,
+"trim": "XLT",
+"msrp": 29400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 40010,
+"trim": "XL",
+"msrp": 29595,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 41515,
+"trim": "XLT",
+"msrp": 29700,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 41815,
+"trim": "XLT w/Mid-Box Prep",
+"msrp": 29700,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 41890,
+"trim": "XLT",
+"msrp": 29795,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 42055,
+"trim": "XLT w/HD Payload Pkg",
+"msrp": 30095,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 43875,
+"trim": "XLT w/Mid-Box Prep",
+"msrp": 30095,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 44175,
+"trim": "STX",
+"msrp": 30830,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 44310,
+"trim": "FX2 Sport",
+"msrp": 31680,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 44940,
+"trim": "XLT",
+"msrp": 32260,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 46190,
+"trim": "XLT",
+"msrp": 32560,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 47300,
+"trim": "XLT",
+"msrp": 32940,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 48550,
+"trim": "XLT w/HD Payload Pkg",
+"msrp": 33240,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 50675,
+"trim": "XLT w/Mid-Box Prep",
+"msrp": 33240,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 51930,
+"trim": "XL",
+"msrp": 33255,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 52230,
+"trim": "XL",
+"msrp": 33555,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 53660,
+"trim": "Lariat",
+"msrp": 34005,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 54485,
+"trim": "FX2 Sport",
+"msrp": 34145,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 54785,
+"trim": "FX2 Sport",
+"msrp": 34445,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 55355,
+"trim": "XLT",
+"msrp": 35405,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 55655,
+"trim": "XLT",
+"msrp": 35705,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 57910,
+"trim": "FX4",
+"msrp": 35890,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 58210,
+"trim": "Lariat",
+"msrp": 36470,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 61360,
+"trim": "Lariat",
+"msrp": 36770,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 64785,
+"trim": "Lariat",
+"msrp": 37150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SVT Raptor",
+"msrp": 38260,
+"config": "",
+"note": ""
+},
+{
+"trim": "FX4",
+"msrp": 38355,
+"config": "",
+"note": ""
+},
+{
+"trim": "FX4",
+"msrp": 38655,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat",
+"msrp": 39615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat",
+"msrp": 39915,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch",
+"msrp": 41105,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch",
+"msrp": 41405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum",
+"msrp": 43125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum",
+"msrp": 43425,
+"config": "",
+"note": ""
+},
+{
+"trim": "Harley-Davidson",
+"msrp": 43595,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch",
+"msrp": 44250,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum",
+"msrp": 46270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum",
+"msrp": 46570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Harley-Davidson",
+"msrp": 46740,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-ford-f__150-price",
+"source": "https://www.iseecars.com/car/2010-ford-f__150-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 28155,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 28455,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32240,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33545,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34160,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34460,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34695,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35670,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37070,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37585,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37885,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37925,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38205,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38375,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39420,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40460,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40495,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40725,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42750,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42915,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44560,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44860,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45170,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45625,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 46875,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47985,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 49235,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52390,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52690,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52855,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 54920,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55220,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55815,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55840,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56115,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 58345,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 58645,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 67135,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 70560,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-ford-f__150-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 28745,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29045,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32830,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33390,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33690,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34135,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34760,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35060,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35285,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36260,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36590,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37670,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38185,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38485,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38515,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38795,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38975,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40020,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41095,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41325,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43250,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43350,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43515,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43550,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45610,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45770,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45910,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 46675,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47925,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 49035,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50285,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53455,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55520,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55820,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56415,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56440,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56715,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 58945,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59245,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 67735,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 71160,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-ford-f__150-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 28940,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29240,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33025,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33585,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33885,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34330,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35350,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36455,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37955,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37960,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38475,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38775,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38930,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39265,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40160,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40310,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41385,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41615,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42635,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43805,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43870,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45195,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45495,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 46290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47555,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47810,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48620,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50085,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50980,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52445,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56330,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56630,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59110,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59410,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59755,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 60055,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 62535,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 62835,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 70825,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 74250,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-ford-f__150-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2011-09-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,
@@ -1157,6 +440,12 @@
 {
 "trim": "4x4 XL 4dr SuperCab 6.5 ft. SB",
 "msrp": 39740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lightning AWD Pro 4dr SuperCrew 5.5 ft. SB",
+"msrp": 39974,
 "config": "",
 "note": ""
 },
@@ -1287,6 +576,12 @@
 "note": ""
 },
 {
+"trim": "Lightning AWD XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 52974,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Lariat 4dr SuperCab 6.5 ft. SB",
 "msrp": 53390,
 "config": "",
@@ -1365,6 +660,12 @@
 "note": ""
 },
 {
+"trim": "Lightning AWD Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 67474,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Raptor 4dr SuperCrew 5.5 ft. SB",
 "msrp": 70555,
 "config": "",
@@ -1379,6 +680,12 @@
 {
 "trim": "4x4 Limited 4dr SuperCrew 5.5 ft. SB",
 "msrp": 81085,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lightning AWD Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 90874,
 "config": "",
 "note": ""
 }
@@ -1548,6 +855,12 @@
 "note": ""
 },
 {
+"trim": "Lightning AWD Pro 4dr SuperCrew 5.5 ft. SB",
+"msrp": 49995,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 XLT 4dr SuperCrew 5.5 ft. SB",
 "msrp": 50220,
 "config": "",
@@ -1562,6 +875,12 @@
 {
 "trim": "4x4 XLT 4dr SuperCrew 6.5 ft. SB",
 "msrp": 53265,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lightning AWD XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 54995,
 "config": "",
 "note": ""
 },
@@ -1644,6 +963,12 @@
 "note": ""
 },
 {
+"trim": "Lightning AWD Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 69995,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Raptor 4dr SuperCrew 5.5 ft. SB",
 "msrp": 76775,
 "config": "",
@@ -1654,9 +979,15 @@
 "msrp": 84910,
 "config": "",
 "note": ""
+},
+{
+"trim": "Lightning AWD Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 91995,
+"config": "",
+"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2023-ford-f__150-price",
+"source": "https://www.iseecars.com/car/2023-ford-f__150_lightning-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
@@ -1773,8 +1104,20 @@
 "note": ""
 },
 {
+"trim": "Lightning AWD Pro 4dr SuperCrew 5.5 ft. SB",
+"msrp": 54995,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 XLT 4dr SuperCrew 6.5 ft. SB",
 "msrp": 56030,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lightning AWD XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 62995,
 "config": "",
 "note": ""
 },
@@ -1793,6 +1136,12 @@
 {
 "trim": "4x4 Lariat 4dr SuperCrew 6.5 ft. SB",
 "msrp": 66000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lightning AWD Flash 4dr SuperCrew 5.5 ft. SB",
+"msrp": 67995,
 "config": "",
 "note": ""
 },
@@ -1821,8 +1170,20 @@
 "note": ""
 },
 {
+"trim": "Lightning AWD Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 76995,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Raptor 4dr SuperCrew 5.5 ft. SB",
 "msrp": 78440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lightning AWD Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 84995,
 "config": "",
 "note": ""
 }
@@ -1920,6 +1281,12 @@
 "note": ""
 },
 {
+"trim": "Lightning AWD Pro 4dr SuperCrew 5.5 ft. SB",
+"msrp": 49780,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 XL 4dr SuperCrew 6.5 ft. SB",
 "msrp": 50075,
 "config": "",
@@ -1956,6 +1323,12 @@
 "note": ""
 },
 {
+"trim": "Lightning AWD XLT 4dr SuperCrew 5.5 ft. SB",
+"msrp": 63345,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Lariat 4dr SuperCrew 5.5 ft. SB",
 "msrp": 63360,
 "config": "",
@@ -1970,6 +1343,12 @@
 {
 "trim": "4x4 Tremor 4dr SuperCrew 5.5 ft. SB",
 "msrp": 64915,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lightning AWD Flash 4dr SuperCrew 5.5 ft. SB",
+"msrp": 69995,
 "config": "",
 "note": ""
 },
@@ -2004,8 +1383,20 @@
 "note": ""
 },
 {
+"trim": "Lightning AWD Lariat 4dr SuperCrew 5.5 ft. SB",
+"msrp": 76995,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Raptor 4dr SuperCrew 5.5 ft. SB",
 "msrp": 79005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lightning AWD Platinum 4dr SuperCrew 5.5 ft. SB",
+"msrp": 84995,
 "config": "",
 "note": ""
 }

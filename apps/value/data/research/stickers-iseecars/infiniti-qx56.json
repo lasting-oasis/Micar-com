@@ -78,6 +78,39 @@
 "source": "https://www.iseecars.com/car/2012-infiniti-qx56-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 4dr SUV",
+"msrp": 60750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 4dr SUV (midyear release)",
+"msrp": 61350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 4dr SUV",
+"msrp": 63850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 4dr SUV (midyear release)",
+"msrp": 64450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-infiniti-qx56-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

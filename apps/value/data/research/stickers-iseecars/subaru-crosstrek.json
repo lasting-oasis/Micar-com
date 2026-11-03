@@ -5,6 +5,96 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (crosstrek).",
 "years": [
 {
+"year": 2016,
+"destination": 850,
+"trims": [
+{
+"trim": "AWD 2.0i Base 4dr Crossover",
+"msrp": 21595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Crossover 5M",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Crossover CVT",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Limited 4dr Crossover",
+"msrp": 25095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Special Edition 4dr Crossover",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid 4dr Crossover",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid Touring 4dr Crossover",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-subaru-crosstrek-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 915,
+"trims": [
+{
+"trim": "AWD 2.0i Base 4dr Crossover 6M",
+"msrp": 21795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Crossover 6M",
+"msrp": 22595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Base 4dr Crossover CVT",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Premium 4dr Crossover CVT",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0i Limited 4dr Crossover",
+"msrp": 26295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-subaru-crosstrek-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 975,
 "trims": [
@@ -48,51 +138,6 @@
 "source": "https://www.iseecars.com/car/2019-subaru-crosstrek-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 22145,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 23195,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 23495,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 24545,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27395,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35145,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-subaru-crosstrek-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

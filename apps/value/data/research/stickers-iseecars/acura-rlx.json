@@ -56,6 +56,39 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": 920,
+"trims": [
+{
+"trim": "4dr Sedan w/Navigation",
+"msrp": 50950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 54450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Krell Audio Package",
+"msrp": 56950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Advance Package",
+"msrp": 60450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-acura-rlx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [
@@ -75,27 +108,6 @@
 "source": "https://www.iseecars.com/car/2018-acura-rlx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 54900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 61900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-acura-rlx-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

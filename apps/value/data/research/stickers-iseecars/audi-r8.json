@@ -233,76 +233,91 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2015,
+"destination": 1250,
 "trims": [
 {
-"trim": "",
-"msrp": 138700,
+"trim": "AWD 4.2 quattro 2dr Coupe 6M",
+"msrp": 115900,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 164900,
+"trim": "AWD 4.2 quattro 2dr Coupe 7A",
+"msrp": 124900,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 177100,
+"trim": "AWD 4.2 quattro Spyder 2dr Convertible 6M",
+"msrp": 129400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 194400,
+"trim": "AWD 4.2 quattro Spyder 2dr Convertible 7A",
+"msrp": 138400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 208100,
+"trim": "AWD 5.2 quattro 2dr Coupe 6M",
+"msrp": 153900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.2 quattro 2dr Coupe 7A",
+"msrp": 162900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.2 quattro Spyder 2dr Convertible 6M",
+"msrp": 166100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.2 quattro 2dr Coupe (5.2L V10 plus) 6M",
+"msrp": 173500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.2 quattro Spyder 2dr Convertible 7A",
+"msrp": 175100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.2 quattro 2dr Coupe (5.2L V10 plus) 7A",
+"msrp": 182500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.2 quattro Carbon Spyder 2dr Convertible 6M",
+"msrp": 190600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.2 quattro Carbon Spyder 2dr Convertible 7A",
+"msrp": 199600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.2 quattro 2dr Competition Coupe",
+"msrp": 199900,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-audi-r8-price",
+"source": "https://www.iseecars.com/car/2015-audi-r8-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 169900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 182100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 195900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 208100,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-audi-r8-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

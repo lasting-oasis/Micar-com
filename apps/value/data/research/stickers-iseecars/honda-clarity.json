@@ -2,30 +2,51 @@
 "make": "Honda",
 "model": "Clarity",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (clarity_electric, clarity_fuel_cell, clarity_plug__in_hybrid).",
+"note": "Trim-level MSRPs from iSeeCars price pages (clarity_fuel_cell).",
 "years": [
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Clarity Fuel Cell Sedan",
+"msrp": 10990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Clarity Fuel Cell 5-Passenger Sedan",
+"msrp": 10990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Clarity Fuel Cell FWD Sedan",
+"msrp": 10990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Clarity Fuel Cell Honda Sedan",
+"msrp": 15805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Clarity Fuel Cell Midsize Sedan",
+"msrp": 16720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-honda-clarity_fuel_cell-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
 {
 "year": 2019,
 "destination": 930,
 "trims": [
-{
-"trim": "Clarity Plug-In Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 33400,
-"config": "",
-"note": ""
-},
-{
-"trim": "Clarity Plug-In Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 36600,
-"config": "",
-"note": ""
-},
-{
-"trim": "Clarity Electric",
-"msrp": 36620,
-"config": "",
-"note": ""
-},
 {
 "trim": "Clarity Fuel Cell Base 4dr Sedan",
 "msrp": 58490,
@@ -35,34 +56,7 @@
 ],
 "source": "https://www.iseecars.com/car/2019-honda-clarity_fuel_cell-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "Clarity Plug-In Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 33400,
-"config": "",
-"note": ""
-},
-{
-"trim": "Clarity Plug-In Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 36600,
-"config": "",
-"note": ""
-},
-{
-"trim": "Clarity Fuel Cell",
-"msrp": 58490,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-honda-clarity_fuel_cell-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

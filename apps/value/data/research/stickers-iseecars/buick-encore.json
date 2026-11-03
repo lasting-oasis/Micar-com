@@ -62,106 +62,148 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2016,
+"destination": 925,
 "trims": [
 {
-"trim": "",
-"msrp": 23200,
+"trim": "Base 4dr Crossover",
+"msrp": 24065,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 24600,
+"trim": "AWD Base 4dr Crossover",
+"msrp": 25565,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 25800,
+"trim": "Convenience 4dr Crossover",
+"msrp": 26355,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 26100,
+"trim": "Sport Touring 4dr Crossover",
+"msrp": 27350,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27300,
+"trim": "AWD Convenience 4dr Crossover",
+"msrp": 27855,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 29300,
+"trim": "Leather 4dr Crossover",
+"msrp": 28300,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 30800,
+"trim": "AWD Sport Touring 4dr Crossover",
+"msrp": 28850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 29785,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 31285,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-buick-encore-price",
+"source": "https://www.iseecars.com/car/2016-buick-encore-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2017,
+"destination": 925,
 "trims": [
 {
-"trim": "",
-"msrp": 23200,
+"trim": "Base 4dr Crossover",
+"msrp": 22990,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 24600,
+"trim": "Preferred 4dr Crossover",
+"msrp": 24365,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 25220,
+"trim": "Sport Touring 4dr Crossover",
+"msrp": 25565,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 25800,
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 25865,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27300,
+"trim": "Preferred II 4dr Crossover",
+"msrp": 26865,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 29300,
+"trim": "AWD Sport Touring 4dr Crossover",
+"msrp": 27065,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 30800,
+"trim": "AWD Preferred II 4dr Crossover",
+"msrp": 28365,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 29065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 30465,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Essence 4dr Crossover",
+"msrp": 30565,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 31965,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-buick-encore-price",
+"source": "https://www.iseecars.com/car/2017-buick-encore-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

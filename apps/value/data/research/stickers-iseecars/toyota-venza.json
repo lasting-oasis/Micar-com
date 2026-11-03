@@ -71,6 +71,75 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2013,
+"destination": 810,
+"trims": [
+{
+"trim": "LE 4cyl 4dr Crossover",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4cyl 4dr Crossover",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE V6 4dr Crossover",
+"msrp": 29520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE V6 4dr Crossover",
+"msrp": 30970,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD XLE 4cyl 4dr Crossover",
+"msrp": 31360,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4cyl 4dr Crossover",
+"msrp": 32810,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD XLE V6 4dr Crossover",
+"msrp": 33180,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE V6 4dr Crossover",
+"msrp": 34630,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Limited V6 4dr Crossover",
+"msrp": 37420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited V6 4dr Crossover",
+"msrp": 38870,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-venza-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 860,
 "trims": [
@@ -138,33 +207,6 @@
 "source": "https://www.iseecars.com/car/2014-toyota-venza-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 32570,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 36100,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 39900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-toyota-venza-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

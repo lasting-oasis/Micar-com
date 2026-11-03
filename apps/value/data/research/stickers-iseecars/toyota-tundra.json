@@ -419,6 +419,201 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup SB (4.0L V6)",
+"msrp": 25455,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup LB (4.0L V6)",
+"msrp": 25785,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup SB (4.6L V8)",
+"msrp": 26655,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup SB (4.0L V6)",
+"msrp": 27665,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 27810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 2dr Regular Cab Pickup LB (5.7L V8)",
+"msrp": 27930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 29055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 30045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 30635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 30650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup SB (5.7L V8)",
+"msrp": 30650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup SB (4.6L V8)",
+"msrp": 30860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup LB (5.7L V8 FFV)",
+"msrp": 30980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 2dr Regular Cab Pickup LB (5.7L V8)",
+"msrp": 30980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Grade 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 31880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup LB (5.7L V8 FFV)",
+"msrp": 32095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 32105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 32105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr Double Cab Pickup LB (5.7L V8)",
+"msrp": 33095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr CrewMax Cab Pickup SB (4.6L V8)",
+"msrp": 33685,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 34930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Grade 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 34930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 40835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 41360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr Double Cab Pickup SB (5.7L V8)",
+"msrp": 41360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 43895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 43895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 45110,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup SB (5.7L V8 FFV)",
+"msrp": 48170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr CrewMax Cab Pickup SB (5.7L V8)",
+"msrp": 48170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-tundra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 995,
 "trims": [
@@ -654,387 +849,6 @@
 "source": "https://www.iseecars.com/car/2014-toyota-tundra-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 31670,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 32940,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 33270,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 33470,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 34720,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 34740,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 35070,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 35990,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 36075,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 36320,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 36520,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 37345,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 37790,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 38120,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 39125,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 40395,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 40935,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 42800,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 43985,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 45850,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 47630,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 49895,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 50680,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-toyota-tundra-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 33575,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33905,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35245,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35575,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36625,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36955,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37850,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38295,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38625,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42270,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44135,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45320,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47185,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48655,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48775,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 51825,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52930,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-toyota-tundra-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 33825,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34155,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35515,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35845,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36875,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37205,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38120,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38565,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38895,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41170,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42540,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44405,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45590,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47455,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48925,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 49045,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52095,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53200,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-toyota-tundra-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

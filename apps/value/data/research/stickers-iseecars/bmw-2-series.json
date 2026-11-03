@@ -5,6 +5,84 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (2_series).",
 "years": [
 {
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "228i 2dr Coupe",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "M235i 2dr Coupe",
+"msrp": 40945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-2_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 995,
+"trims": [
+{
+"trim": "230i 2dr Coupe",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 230i xDrive 2dr Coupe",
+"msrp": 35150,
+"config": "",
+"note": ""
+},
+{
+"trim": "230i 2dr Convertible",
+"msrp": 38950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 230i xDrive 2dr Convertible",
+"msrp": 40950,
+"config": "",
+"note": ""
+},
+{
+"trim": "M240i 2dr Coupe",
+"msrp": 44450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M240i xDrive 2dr Coupe",
+"msrp": 46450,
+"config": "",
+"note": ""
+},
+{
+"trim": "M240i 2dr Convertible",
+"msrp": 49050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M240i xDrive 2dr Convertible",
+"msrp": 51050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-2_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [
@@ -60,120 +138,6 @@
 "source": "https://www.iseecars.com/car/2018-bmw-2_series-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 35300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52400,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-bmw-2_series-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 35300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 47800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52400,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-bmw-2_series-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

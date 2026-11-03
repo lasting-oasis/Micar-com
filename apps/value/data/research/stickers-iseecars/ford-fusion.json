@@ -258,44 +258,8 @@
 "destination": 875,
 "trims": [
 {
-"trim": "",
-"msrp": 22215,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 23490,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27285,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30490,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32490,
-"config": "",
-"note": ""
-},
-{
 "trim": "Energi SE Luxury 4dr Sedan",
 "msrp": 33400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33845,
 "config": "",
 "note": ""
 },
@@ -306,123 +270,15 @@
 "note": ""
 },
 {
-"trim": "",
-"msrp": 36990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38990,
-"config": "",
-"note": ""
-},
-{
 "trim": "Energi Platinum 4dr Sedan",
 "msrp": 41400,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-ford-fusion-price",
+"source": "https://www.iseecars.com/car/2018-ford-fusion_energi-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 22840,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 24120,
-"config": "",
-"note": ""
-},
-{
-"trim": "Hybrid",
-"msrp": 27555,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27775,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 28580,
-"config": "",
-"note": ""
-},
-{
-"trim": "Hybrid",
-"msrp": 31520,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32065,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34340,
-"config": "",
-"note": ""
-},
-{
-"trim": "Hybrid",
-"msrp": 34485,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36340,
-"config": "",
-"note": ""
-},
-{
-"trim": "Energi",
-"msrp": 36595,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40015,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-ford-fusion-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "Energi",
-"msrp": 37000,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-ford-fusion_energi-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-06-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

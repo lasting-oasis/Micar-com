@@ -5,57 +5,6 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (trailblazer).",
 "years": [
 {
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 19000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 21600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 23600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 23700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 25500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 25700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27000,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-chevrolet-trailblazer-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2022,
 "destination": 1195,
 "trims": [

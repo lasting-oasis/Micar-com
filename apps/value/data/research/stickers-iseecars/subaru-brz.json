@@ -32,66 +32,6 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 25795,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 28645,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29745,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30140,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-subaru-brz-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 28845,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29945,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 31495,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-subaru-brz-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2022,
 "destination": 995,
 "trims": [

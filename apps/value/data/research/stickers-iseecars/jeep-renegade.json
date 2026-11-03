@@ -5,55 +5,73 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (renegade).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2017,
+"destination": 1095,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 22275,
+"trim": "Sport 4dr SUV",
+"msrp": 17995,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 23775,
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 19995,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 24125,
+"trim": "Latitude 4dr SUV",
+"msrp": 21495,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25625,
+"trim": "Altitude 4dr SUV",
+"msrp": 22190,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 26645,
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 23495,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 27795,
+"trim": "4x4 Altitude 4dr SUV",
+"msrp": 24190,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 28145,
+"trim": "Limited 4dr SUV",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhawk 4dr SUV",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Deserthawk 4dr SUV",
+"msrp": 28390,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-jeep-renegade-price",
+"source": "https://www.iseecars.com/car/2017-jeep-renegade-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

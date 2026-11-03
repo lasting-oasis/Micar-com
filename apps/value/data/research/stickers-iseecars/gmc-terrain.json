@@ -314,6 +314,144 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2016,
+"destination": 925,
+"trims": [
+{
+"trim": "SL 4dr SUV",
+"msrp": 23975,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 27000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 30250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT 4dr SUV",
+"msrp": 30820,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT 4dr SUV",
+"msrp": 32570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 34175,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 35925,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 975,
+"trims": [
+{
+"trim": "SL 4dr SUV",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE 4dr SUV",
+"msrp": 27820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr SUV",
+"msrp": 29570,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT 4dr SUV",
+"msrp": 31320,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE Diesel 4dr SUV",
+"msrp": 31590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr SUV",
+"msrp": 33070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE Diesel 4dr SUV",
+"msrp": 33340,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT Diesel 4dr SUV",
+"msrp": 34165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT Diesel 4dr SUV",
+"msrp": 35915,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 37520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 39270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-gmc-terrain-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1195,
 "trims": [
@@ -387,57 +525,6 @@
 "source": "https://www.iseecars.com/car/2019-gmc-terrain-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 25000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 28400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 31200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-gmc-terrain-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

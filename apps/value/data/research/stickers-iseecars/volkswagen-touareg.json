@@ -77,6 +77,111 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2012,
+"destination": 870,
+"trims": [
+{
+"trim": "AWD VR6 Sport 4dr SUV",
+"msrp": 43375,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 Sport 4dr SUV w/ Navigation (ends 11/09)",
+"msrp": 45455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 Sport 4dr SUV w/ Navigation",
+"msrp": 45455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Sport 4dr SUV",
+"msrp": 46875,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Sport 4dr SUV w/ Navigation (ends 11/09)",
+"msrp": 48955,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Sport 4dr SUV w/ Navigation",
+"msrp": 48955,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 Lux 4dr SUV (ends 11/09)",
+"msrp": 49395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 Lux 4dr SUV",
+"msrp": 49395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Lux 4dr SUV (ends 11/09)",
+"msrp": 52895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Lux 4dr SUV",
+"msrp": 52895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 Executive 4dr SUV (ends 11/09)",
+"msrp": 54795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD VR6 Executive 4dr SUV",
+"msrp": 55095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Executive 4dr SUV (ends 11/09)",
+"msrp": 58295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TDI Executive 4dr SUV",
+"msrp": 58595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid 4dr SUV (ends 11/09)",
+"msrp": 61695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hybrid 4dr SUV",
+"msrp": 61995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-volkswagen-touareg-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 875,
 "trims": [

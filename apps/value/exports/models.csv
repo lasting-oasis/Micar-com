@@ -2,39 +2,39 @@ Make,Model,Body style,Traits,"Typical sticker, 2025 ($, estimate)","Resale share
 Toyota,Camry,Sedan,"reliability, fleet",30000,0.62,0.643,80,0.074,16
 Toyota,Corolla,Sedan,"reliability, fleet",24000,0.64,0.676,79,0.086,16
 Toyota,Corolla Cross,SUV / Crossover,reliability,27000,0.62,0.687,10,0.067,5
-Toyota,RAV4,SUV / Crossover,reliability,32000,0.64,0.676,80,0.08,14
+Toyota,RAV4,SUV / Crossover,reliability,32000,0.64,0.676,80,0.08,16
 Toyota,Highlander,SUV / Crossover,reliability,42000,0.61,0.614,20,0.07,16
 Toyota,Grand Highlander,SUV / Crossover,reliability,46000,0.62,,,,1
-Toyota,4Runner,SUV / Crossover,"reliability, enthusiast",45000,0.7,0.721,20,0.07,15
-Toyota,Sequoia,SUV / Crossover,"reliability, truck",65000,0.62,,,,10
+Toyota,4Runner,SUV / Crossover,"reliability, enthusiast",45000,0.7,0.721,20,0.07,16
+Toyota,Sequoia,SUV / Crossover,"reliability, truck",65000,0.62,,,,9
 Toyota,Tacoma,Pickup Truck,"reliability, enthusiast, truck",38000,0.72,0.743,80,0.076,14
-Toyota,Tundra,Pickup Truck,"reliability, truck",48000,0.66,0.737,19,0.07,14
-Toyota,Prius,Hatchback / Wagon,reliability,30000,0.6,0.649,15,0.066,16
+Toyota,Tundra,Pickup Truck,"reliability, truck",48000,0.66,0.737,19,0.07,15
+Toyota,Prius,Hatchback / Wagon,reliability,30000,0.6,0.649,15,0.066,17
 Toyota,Sienna,Minivan,reliability,42000,0.62,0.645,20,0.15,14
 Toyota,GR86,Coupe / Sports,enthusiast,32000,0.68,,,,3
-Toyota,GR Supra,Coupe / Sports,enthusiast,56000,0.66,,,,6
-Honda,Civic,Sedan,"reliability, enthusiast",26000,0.66,0.691,57,0.052,16
+Toyota,GR Supra,Coupe / Sports,enthusiast,56000,0.66,,,,5
+Honda,Civic,Sedan,"reliability, enthusiast",26000,0.66,0.691,57,0.052,17
 Honda,Accord,Sedan,reliability,30000,0.6,0.641,80,0.069,16
-Honda,CR-V,SUV / Crossover,reliability,33000,0.63,0.648,80,0.071,11
+Honda,CR-V,SUV / Crossover,reliability,33000,0.63,0.648,80,0.071,13
 Honda,HR-V,SUV / Crossover,reliability,27000,0.6,0.654,20,0.062,11
 Honda,Pilot,SUV / Crossover,reliability,42000,0.58,0.562,20,0.084,16
-Honda,Passport,SUV / Crossover,reliability,44000,0.55,,,,6
+Honda,Passport,SUV / Crossover,reliability,44000,0.55,,,,4
 Honda,Odyssey,Minivan,reliability,43000,0.55,0.557,20,0.088,16
-Honda,Ridgeline,Pickup Truck,"reliability, truck",42000,0.62,,,,7
+Honda,Ridgeline,Pickup Truck,"reliability, truck",42000,0.62,,,,5
 Subaru,Crosstrek,SUV / Crossover,"reliability, enthusiast",28000,0.68,0.637,20,0.066,11
 Subaru,Forester,SUV / Crossover,reliability,32000,0.62,0.599,19,0.08,15
-Subaru,Outback,Hatchback / Wagon,reliability,32000,0.6,0.575,20,0.06,16
-Subaru,Impreza,Hatchback / Wagon,reliability,25000,0.62,,,,12
+Subaru,Outback,Hatchback / Wagon,reliability,32000,0.6,0.575,20,0.06,17
+Subaru,Impreza,Hatchback / Wagon,reliability,25000,0.62,,,,10
 Subaru,Ascent,SUV / Crossover,reliability,38000,0.55,,,,5
 Subaru,WRX,Sedan,enthusiast,35000,0.64,,,,1
-Subaru,BRZ,Coupe / Sports,enthusiast,32000,0.68,,,,7
-Mazda,Mazda3,Sedan,reliability,26000,0.6,0.646,20,0.068,9
+Subaru,BRZ,Coupe / Sports,enthusiast,32000,0.68,,,,5
+Mazda,Mazda3,Sedan,reliability,26000,0.6,0.646,20,0.068,11
 Mazda,CX-5,SUV / Crossover,reliability,31000,0.6,0.607,20,0.065,11
 Mazda,CX-50,SUV / Crossover,reliability,32000,0.58,,,,0
 Mazda,CX-90,SUV / Crossover,,42000,0.52,,,,0
-Mazda,MX-5 Miata,Coupe / Sports,"enthusiast, reliability",32000,0.7,,,,6
-Ford,F-150,Pickup Truck,truck,45000,0.62,0.625,78,0.063,11
-Ford,F-250 Super Duty,Pickup Truck,truck,55000,0.64,,,,0
+Mazda,MX-5 Miata,Coupe / Sports,"enthusiast, reliability",32000,0.7,,,,8
+Ford,F-150,Pickup Truck,truck,45000,0.62,0.625,78,0.063,12
+Ford,F-250 Super Duty,Pickup Truck,truck,55000,0.64,,,,1
 Ford,Ranger,Pickup Truck,truck,36000,0.62,0.62,15,0.043,10
 Ford,Maverick,Pickup Truck,"truck, enthusiast",28000,0.7,,,,0
 Ford,Mustang,Coupe / Sports,"enthusiast, fleet",35000,0.64,0.594,19,0.1,16
@@ -45,107 +45,107 @@ Ford,Escape,SUV / Crossover,fleet,31000,0.47,0.466,20,0.078,16
 Ford,Edge,SUV / Crossover,fleet,40000,0.46,0.45,17,0.127,14
 Ford,Expedition,SUV / Crossover,truck,60000,0.52,0.474,20,0.101,16
 Ford,Mustang Mach-E,SUV / Crossover,ev,45000,0.42,,,,0
-Chevrolet,Silverado 1500,Pickup Truck,truck,48000,0.6,0.591,80,0.093,9
+Chevrolet,Silverado 1500,Pickup Truck,truck,48000,0.6,0.591,80,0.093,10
 Chevrolet,Silverado 2500HD,Pickup Truck,truck,55000,0.63,,,,0
-Chevrolet,Colorado,Pickup Truck,truck,36000,0.62,0.617,17,0.061,14
-Chevrolet,Equinox,SUV / Crossover,fleet,30000,0.48,0.516,79,0.07,14
-Chevrolet,Trax,SUV / Crossover,fleet,22000,0.5,,,,4
-Chevrolet,Trailblazer,SUV / Crossover,fleet,25000,0.5,,,,5
-Chevrolet,Blazer,SUV / Crossover,fleet,38000,0.48,,,,7
-Chevrolet,Traverse,SUV / Crossover,fleet,42000,0.48,0.491,20,0.095,14
-Chevrolet,Tahoe,SUV / Crossover,truck,62000,0.56,0.546,19,0.11,14
-Chevrolet,Suburban,SUV / Crossover,truck,65000,0.55,,,,13
+Chevrolet,Colorado,Pickup Truck,truck,36000,0.62,0.617,17,0.061,13
+Chevrolet,Equinox,SUV / Crossover,fleet,30000,0.48,0.516,79,0.07,11
+Chevrolet,Trax,SUV / Crossover,fleet,22000,0.5,,,,0
+Chevrolet,Trailblazer,SUV / Crossover,fleet,25000,0.5,,,,4
+Chevrolet,Blazer,SUV / Crossover,fleet,38000,0.48,,,,5
+Chevrolet,Traverse,SUV / Crossover,fleet,42000,0.48,0.491,20,0.095,13
+Chevrolet,Tahoe,SUV / Crossover,truck,62000,0.56,0.546,19,0.11,13
+Chevrolet,Suburban,SUV / Crossover,truck,65000,0.55,,,,11
 Chevrolet,Malibu,Sedan,fleet,27000,0.44,0.489,19,0.111,15
-Chevrolet,Camaro,Coupe / Sports,"enthusiast, fleet",35000,0.6,,,,8
-Chevrolet,Corvette,Coupe / Sports,enthusiast,72000,0.7,,,,13
-Chevrolet,Bolt EV,Hatchback / Wagon,ev,30000,0.38,,,,5
-GMC,Sierra 1500,Pickup Truck,truck,50000,0.6,0.65,10,0.062,7
-GMC,Canyon,Pickup Truck,truck,40000,0.62,,,,10
-GMC,Terrain,SUV / Crossover,fleet,31000,0.47,0.481,20,0.078,16
-GMC,Acadia,SUV / Crossover,fleet,45000,0.47,,,,12
-GMC,Yukon,SUV / Crossover,truck,65000,0.56,,,,15
-Ram,1500,Pickup Truck,"truck, fleet",48000,0.57,,,,9
-Ram,2500,Pickup Truck,truck,55000,0.62,,,,0
+Chevrolet,Camaro,Coupe / Sports,"enthusiast, fleet",35000,0.6,,,,5
+Chevrolet,Corvette,Coupe / Sports,enthusiast,72000,0.7,,,,9
+Chevrolet,Bolt EV,Hatchback / Wagon,ev,30000,0.38,,,,1
+GMC,Sierra 1500,Pickup Truck,truck,50000,0.6,0.65,10,0.062,8
+GMC,Canyon,Pickup Truck,truck,40000,0.62,,,,7
+GMC,Terrain,SUV / Crossover,fleet,31000,0.47,0.481,20,0.078,15
+GMC,Acadia,SUV / Crossover,fleet,45000,0.47,,,,10
+GMC,Yukon,SUV / Crossover,truck,65000,0.56,,,,14
+Ram,1500,Pickup Truck,"truck, fleet",48000,0.57,,,,15
+Ram,2500,Pickup Truck,truck,55000,0.62,,,,15
 Jeep,Wrangler,SUV / Crossover,enthusiast,40000,0.7,0.596,20,0.092,13
-Jeep,Gladiator,Pickup Truck,"enthusiast, truck",42000,0.6,,,,1
-Jeep,Grand Cherokee,SUV / Crossover,fleet,45000,0.52,0.493,78,0.083,17
-Jeep,Cherokee,SUV / Crossover,fleet,35000,0.45,0.46,15,0.09,8
+Jeep,Gladiator,Pickup Truck,"enthusiast, truck",42000,0.6,,,,0
+Jeep,Grand Cherokee,SUV / Crossover,fleet,45000,0.52,0.493,78,0.083,18
+Jeep,Cherokee,SUV / Crossover,fleet,35000,0.45,0.46,15,0.09,6
 Jeep,Compass,SUV / Crossover,fleet,30000,0.47,0.467,17,0.088,13
-Dodge,Charger,Sedan,"enthusiast, fleet",40000,0.56,,,,12
-Dodge,Challenger,Coupe / Sports,enthusiast,38000,0.6,,,,10
-Dodge,Durango,SUV / Crossover,fleet,45000,0.52,,,,7
+Dodge,Charger,Sedan,"enthusiast, fleet",40000,0.56,,,,10
+Dodge,Challenger,Coupe / Sports,enthusiast,38000,0.6,,,,6
+Dodge,Durango,SUV / Crossover,fleet,45000,0.52,,,,4
 Dodge,Hornet,SUV / Crossover,,32000,0.42,,,,0
-Chrysler,Pacifica,Minivan,fleet,42000,0.45,,,,8
-Chrysler,300,Sedan,fleet,38000,0.44,,,,10
-Buick,Enclave,SUV / Crossover,fleet,45000,0.44,0.426,20,0.078,16
-Buick,Envision,SUV / Crossover,fleet,37000,0.45,,,,8
+Chrysler,Pacifica,Minivan,fleet,42000,0.45,,,,9
+Chrysler,300,Sedan,fleet,38000,0.44,,,,9
+Buick,Enclave,SUV / Crossover,fleet,45000,0.44,0.426,20,0.078,17
+Buick,Envision,SUV / Crossover,fleet,37000,0.45,,,,7
 Buick,Encore GX,SUV / Crossover,fleet,28000,0.44,,,,6
 Buick,Envista,SUV / Crossover,,25000,0.46,,,,2
-Cadillac,Escalade,SUV / Crossover,"luxury, truck",90000,0.5,,,,13
-Cadillac,XT5,SUV / Crossover,"luxury, fleet",48000,0.44,,,,7
+Cadillac,Escalade,SUV / Crossover,"luxury, truck",90000,0.5,,,,12
+Cadillac,XT5,SUV / Crossover,"luxury, fleet",48000,0.44,,,,4
 Cadillac,XT4,SUV / Crossover,luxury,40000,0.44,,,,6
 Cadillac,CT5,Sedan,luxury,48000,0.42,,,,6
 Cadillac,Lyriq,SUV / Crossover,"luxury, ev",62000,0.4,,,,0
 Lincoln,Navigator,SUV / Crossover,"luxury, truck",100000,0.48,,,,12
-Lincoln,Aviator,SUV / Crossover,luxury,58000,0.44,,,,6
-Lincoln,Nautilus,SUV / Crossover,luxury,52000,0.45,,,,7
-Lincoln,Corsair,SUV / Crossover,luxury,42000,0.44,,,,6
+Lincoln,Aviator,SUV / Crossover,luxury,58000,0.44,,,,4
+Lincoln,Nautilus,SUV / Crossover,luxury,52000,0.45,,,,6
+Lincoln,Corsair,SUV / Crossover,luxury,42000,0.44,,,,5
 Nissan,Altima,Sedan,fleet,28000,0.45,0.518,80,0.089,16
 Nissan,Sentra,Sedan,fleet,22000,0.5,0.539,20,0.106,15
-Nissan,Versa,Sedan,fleet,19000,0.5,,,,7
+Nissan,Versa,Sedan,fleet,19000,0.5,,,,6
 Nissan,Rogue,SUV / Crossover,fleet,30000,0.5,0.509,79,0.096,16
-Nissan,Kicks,SUV / Crossover,fleet,23000,0.52,,,,2
-Nissan,Murano,SUV / Crossover,fleet,40000,0.45,,,,12
+Nissan,Kicks,SUV / Crossover,fleet,23000,0.52,,,,0
+Nissan,Murano,SUV / Crossover,fleet,40000,0.45,,,,11
 Nissan,Pathfinder,SUV / Crossover,fleet,38000,0.5,0.454,19,0.084,15
 Nissan,Frontier,Pickup Truck,truck,33000,0.64,0.647,20,0.096,14
 Nissan,Titan,Pickup Truck,truck,48000,0.52,,,,10
-Nissan,Leaf,Hatchback / Wagon,ev,29000,0.35,,,,11
-Infiniti,QX50,SUV / Crossover,luxury,42000,0.42,,,,6
-Infiniti,QX60,SUV / Crossover,luxury,52000,0.42,,,,0
+Nissan,Leaf,Hatchback / Wagon,ev,29000,0.35,,,,12
+Infiniti,QX50,SUV / Crossover,luxury,42000,0.42,,,,5
+Infiniti,QX60,SUV / Crossover,luxury,52000,0.42,,,,1
 Infiniti,QX80,SUV / Crossover,"luxury, truck",85000,0.42,,,,4
-Infiniti,Q50,Sedan,luxury,45000,0.44,,,,5
+Infiniti,Q50,Sedan,luxury,45000,0.44,,,,6
 Hyundai,Elantra,Sedan,fleet,23000,0.54,0.581,72,0.097,16
 Hyundai,Sonata,Sedan,fleet,28000,0.48,0.501,20,0.078,16
-Hyundai,Venue,SUV / Crossover,,21000,0.54,,,,2
+Hyundai,Venue,SUV / Crossover,,21000,0.54,,,,1
 Hyundai,Kona,SUV / Crossover,,26000,0.53,,,,7
 Hyundai,Tucson,SUV / Crossover,,30000,0.55,0.554,20,0.068,16
-Hyundai,Santa Fe,SUV / Crossover,,36000,0.52,0.52,20,0.088,16
-Hyundai,Palisade,SUV / Crossover,,40000,0.58,,,,6
+Hyundai,Santa Fe,SUV / Crossover,,36000,0.52,0.52,20,0.088,17
+Hyundai,Palisade,SUV / Crossover,,40000,0.58,,,,4
 Hyundai,Santa Cruz,Pickup Truck,truck,30000,0.58,,,,4
 Hyundai,Ioniq 5,SUV / Crossover,ev,45000,0.42,,,,0
-Kia,Forte / K4,Sedan,fleet,23000,0.54,0.551,19,0.075,16
+Kia,Forte / K4,Sedan,fleet,23000,0.54,0.551,19,0.075,17
 Kia,K5,Sedan,fleet,28000,0.5,,,,2
-Kia,Soul,Hatchback / Wagon,,22000,0.54,,,,11
+Kia,Soul,Hatchback / Wagon,,22000,0.54,,,,12
 Kia,Seltos,SUV / Crossover,,26000,0.55,,,,1
-Kia,Niro,SUV / Crossover,,28000,0.52,,,,6
-Kia,Sportage,SUV / Crossover,,30000,0.55,0.529,20,0.08,16
+Kia,Niro,SUV / Crossover,,28000,0.52,,,,5
+Kia,Sportage,SUV / Crossover,,30000,0.55,0.529,20,0.08,17
 Kia,Sorento,SUV / Crossover,,34000,0.53,0.509,19,0.096,15
 Kia,Telluride,SUV / Crossover,enthusiast,38000,0.63,0.584,15,0.044,6
 Kia,Carnival,Minivan,,38000,0.52,,,,0
 Kia,EV6,SUV / Crossover,ev,45000,0.4,,,,0
 Genesis,G70,Sedan,luxury,43000,0.45,,,,7
-Genesis,G80,Sedan,luxury,55000,0.44,,,,2
+Genesis,G80,Sedan,luxury,55000,0.44,,,,0
 Genesis,GV70,SUV / Crossover,luxury,48000,0.5,,,,1
 Genesis,GV80,SUV / Crossover,luxury,60000,0.52,,,,0
-Volkswagen,Jetta,Sedan,fleet,24000,0.52,,,,7
-Volkswagen,Golf GTI,Hatchback / Wagon,enthusiast,33000,0.6,,,,10
+Volkswagen,Jetta,Sedan,fleet,24000,0.52,,,,5
+Volkswagen,Golf GTI,Hatchback / Wagon,enthusiast,33000,0.6,,,,16
 Volkswagen,Taos,SUV / Crossover,,26000,0.5,,,,4
-Volkswagen,Tiguan,SUV / Crossover,fleet,30000,0.46,0.467,20,0.089,14
-Volkswagen,Atlas,SUV / Crossover,,40000,0.48,,,,7
+Volkswagen,Tiguan,SUV / Crossover,fleet,30000,0.46,0.467,20,0.089,15
+Volkswagen,Atlas,SUV / Crossover,,40000,0.48,,,,6
 Volkswagen,ID.4,SUV / Crossover,ev,42000,0.38,,,,0
 Audi,A4,Sedan,luxury,45000,0.46,,,,12
-Audi,A5,Coupe / Sports,luxury,48000,0.46,,,,12
-Audi,A6,Sedan,luxury,60000,0.42,,,,13
-Audi,Q3,SUV / Crossover,luxury,40000,0.47,,,,6
+Audi,A5,Coupe / Sports,luxury,48000,0.46,,,,9
+Audi,A6,Sedan,luxury,60000,0.42,,,,10
+Audi,Q3,SUV / Crossover,luxury,40000,0.47,,,,4
 Audi,Q5,SUV / Crossover,luxury,48000,0.46,,,,12
-Audi,Q7,SUV / Crossover,luxury,62000,0.42,,,,7
+Audi,Q7,SUV / Crossover,luxury,62000,0.42,,,,5
 Audi,Q8 e-tron,SUV / Crossover,"luxury, ev",75000,0.35,,,,0
-BMW,3 Series,Sedan,luxury,48000,0.45,,,,13
-BMW,4 Series,Coupe / Sports,luxury,52000,0.46,,,,3
-BMW,5 Series,Sedan,luxury,60000,0.4,,,,14
-BMW,7 Series,Sedan,luxury,100000,0.36,,,,13
-BMW,X1,SUV / Crossover,luxury,42000,0.47,,,,4
-BMW,X3,SUV / Crossover,luxury,50000,0.47,,,,12
+BMW,3 Series,Sedan,luxury,48000,0.45,,,,10
+BMW,4 Series,Coupe / Sports,luxury,52000,0.46,,,,0
+BMW,5 Series,Sedan,luxury,60000,0.4,,,,13
+BMW,7 Series,Sedan,luxury,100000,0.36,,,,9
+BMW,X1,SUV / Crossover,luxury,42000,0.47,,,,1
+BMW,X3,SUV / Crossover,luxury,50000,0.47,,,,11
 BMW,X5,SUV / Crossover,luxury,68000,0.45,,,,13
 BMW,X7,SUV / Crossover,luxury,85000,0.44,,,,7
 BMW,i4,Sedan,"luxury, ev",55000,0.4,,,,1
@@ -158,51 +158,51 @@ Mercedes-Benz,GLC,SUV / Crossover,luxury,50000,0.46,,,,0
 Mercedes-Benz,GLE,SUV / Crossover,luxury,65000,0.45,,,,0
 Mercedes-Benz,GLS,SUV / Crossover,luxury,90000,0.44,,,,0
 Mercedes-Benz,EQE,Sedan,"luxury, ev",78000,0.32,,,,0
-Lexus,ES,Sedan,"reliability, luxury",45000,0.58,,,,11
-Lexus,IS,Sedan,"reliability, luxury",42000,0.58,,,,11
-Lexus,UX,SUV / Crossover,"reliability, luxury",38000,0.56,,,,5
-Lexus,NX,SUV / Crossover,"reliability, luxury",42000,0.6,,,,5
-Lexus,RX,SUV / Crossover,"reliability, luxury",52000,0.62,0.602,20,0.067,13
+Lexus,ES,Sedan,"reliability, luxury",45000,0.58,,,,10
+Lexus,IS,Sedan,"reliability, luxury",42000,0.58,,,,10
+Lexus,UX,SUV / Crossover,"reliability, luxury",38000,0.56,,,,4
+Lexus,NX,SUV / Crossover,"reliability, luxury",42000,0.6,,,,4
+Lexus,RX,SUV / Crossover,"reliability, luxury",52000,0.62,0.602,20,0.067,15
 Lexus,TX,SUV / Crossover,"reliability, luxury",58000,0.58,,,,2
-Lexus,GX,SUV / Crossover,"reliability, enthusiast",65000,0.68,,,,7
+Lexus,GX,SUV / Crossover,"reliability, enthusiast",65000,0.68,,,,5
 Lexus,LX,SUV / Crossover,"reliability, luxury",100000,0.65,,,,6
 Acura,Integra,Hatchback / Wagon,reliability,34000,0.6,,,,3
-Acura,TLX,Sedan,"reliability, luxury",46000,0.5,,,,4
-Acura,RDX,SUV / Crossover,"reliability, luxury",46000,0.54,,,,13
-Acura,MDX,SUV / Crossover,"reliability, luxury",52000,0.55,,,,8
+Acura,TLX,Sedan,"reliability, luxury",46000,0.5,,,,1
+Acura,RDX,SUV / Crossover,"reliability, luxury",46000,0.54,,,,9
+Acura,MDX,SUV / Crossover,"reliability, luxury",52000,0.55,,,,5
 Acura,ZDX,SUV / Crossover,"luxury, ev",65000,0.38,,,,3
-Volvo,XC40,SUV / Crossover,luxury,42000,0.48,,,,1
-Volvo,XC60,SUV / Crossover,luxury,48000,0.46,,,,10
-Volvo,XC90,SUV / Crossover,luxury,60000,0.44,,,,10
-Volvo,S60,Sedan,luxury,43000,0.42,,,,8
-Land Rover,Range Rover,SUV / Crossover,luxury,110000,0.44,,,,12
-Land Rover,Range Rover Sport,SUV / Crossover,luxury,85000,0.45,,,,12
-Land Rover,Range Rover Evoque,SUV / Crossover,luxury,50000,0.4,,,,2
+Volvo,XC40,SUV / Crossover,luxury,42000,0.48,,,,3
+Volvo,XC60,SUV / Crossover,luxury,48000,0.46,,,,9
+Volvo,XC90,SUV / Crossover,luxury,60000,0.44,,,,8
+Volvo,S60,Sedan,luxury,43000,0.42,,,,6
+Land Rover,Range Rover,SUV / Crossover,luxury,110000,0.44,,,,13
+Land Rover,Range Rover Sport,SUV / Crossover,luxury,85000,0.45,,,,10
+Land Rover,Range Rover Evoque,SUV / Crossover,luxury,50000,0.4,,,,5
 Land Rover,Defender,SUV / Crossover,"luxury, enthusiast",60000,0.58,,,,6
 Land Rover,Discovery,SUV / Crossover,luxury,62000,0.4,,,,7
 Jaguar,F-Pace,SUV / Crossover,luxury,58000,0.38,,,,0
 Jaguar,E-Pace,SUV / Crossover,luxury,48000,0.36,,,,5
-Jaguar,XF,Sedan,luxury,50000,0.36,,,,10
+Jaguar,XF,Sedan,luxury,50000,0.36,,,,11
 Jaguar,F-Type,Coupe / Sports,"luxury, enthusiast",78000,0.45,,,,4
-Alfa Romeo,Giulia,Sedan,luxury,45000,0.38,,,,8
+Alfa Romeo,Giulia,Sedan,luxury,45000,0.38,,,,4
 Alfa Romeo,Stelvio,SUV / Crossover,luxury,48000,0.38,,,,5
 Alfa Romeo,Tonale,SUV / Crossover,luxury,42000,0.4,,,,1
-Mini,Cooper,Hatchback / Wagon,enthusiast,30000,0.5,,,,4
+Mini,Cooper,Hatchback / Wagon,enthusiast,30000,0.5,,,,5
 Mini,Countryman,SUV / Crossover,,35000,0.48,,,,2
 Mitsubishi,Mirage,Hatchback / Wagon,fleet,18000,0.45,,,,6
-Mitsubishi,Outlander,SUV / Crossover,fleet,30000,0.46,,,,12
-Mitsubishi,Outlander Sport,SUV / Crossover,fleet,25000,0.45,,,,5
-Mitsubishi,Eclipse Cross,SUV / Crossover,fleet,27000,0.45,,,,4
-Porsche,911,Coupe / Sports,"enthusiast, luxury",125000,0.78,,,,12
-Porsche,718 Cayman / Boxster,Coupe / Sports,"enthusiast, luxury",75000,0.74,,,,7
-Porsche,Macan,SUV / Crossover,luxury,65000,0.58,,,,3
-Porsche,Cayenne,SUV / Crossover,luxury,85000,0.55,,,,12
+Mitsubishi,Outlander,SUV / Crossover,fleet,30000,0.46,,,,10
+Mitsubishi,Outlander Sport,SUV / Crossover,fleet,25000,0.45,,,,4
+Mitsubishi,Eclipse Cross,SUV / Crossover,fleet,27000,0.45,,,,3
+Porsche,911,Coupe / Sports,"enthusiast, luxury",125000,0.78,,,,11
+Porsche,718 Cayman / Boxster,Coupe / Sports,"enthusiast, luxury",75000,0.74,,,,6
+Porsche,Macan,SUV / Crossover,luxury,65000,0.58,,,,0
+Porsche,Cayenne,SUV / Crossover,luxury,85000,0.55,,,,10
 Porsche,Panamera,Sedan,luxury,105000,0.45,,,,12
-Porsche,Taycan,Sedan,"luxury, ev",100000,0.4,,,,5
+Porsche,Taycan,Sedan,"luxury, ev",100000,0.4,,,,4
 Tesla,Model 3,Sedan,ev,42000,0.45,,,,10
 Tesla,Model Y,SUV / Crossover,ev,47000,0.48,,,,5
-Tesla,Model S,Sedan,"ev, luxury",85000,0.4,,,,7
-Tesla,Model X,SUV / Crossover,"ev, luxury",90000,0.4,,,,3
+Tesla,Model S,Sedan,"ev, luxury",85000,0.4,,,,8
+Tesla,Model X,SUV / Crossover,"ev, luxury",90000,0.4,,,,0
 Tesla,Cybertruck,Pickup Truck,"ev, enthusiast",80000,0.5,,,,0
 Rivian,R1T,Pickup Truck,"ev, enthusiast",75000,0.45,,,,0
 Rivian,R1S,SUV / Crossover,"ev, enthusiast",78000,0.45,,,,0
@@ -210,16 +210,16 @@ Lucid,Air,Sedan,"ev, luxury",80000,0.32,,,,3
 Polestar,2,Hatchback / Wagon,"ev, luxury",55000,0.35,,,,4
 Polestar,3,SUV / Crossover,"ev, luxury",70000,0.38,,,,0
 Acura,ADX,Hatchback / Wagon,,34000,0.55,,,,0
-Acura,ILX,Sedan,,35500,0.53,,,,6
-Acura,NSX,Coupe / Sports,,197600,0.55,,,,4
+Acura,ILX,Sedan,,35500,0.53,,,,3
+Acura,NSX,Coupe / Sports,,197600,0.55,,,,1
 Acura,RL,Sedan,,46000,0.53,,,,3
 Acura,RLX,Sedan,,69000,0.53,,,,3
 Acura,RSX,Sedan,,46000,0.53,,,,0
 Acura,TL,Sedan,,46000,0.53,,,,5
-Acura,TSX,Sedan,,46000,0.53,,,,4
-Alfa Romeo,4C,Coupe / Sports,,72900,0.38,,,,3
+Acura,TSX,Sedan,,46000,0.53,,,,5
+Alfa Romeo,4C,Coupe / Sports,,72900,0.38,,,,0
 Alfa Romeo,Spider,Coupe / Sports,,45000,0.38,,,,0
-Aston Martin,DB11,Coupe / Sports,,35000,0.45,,,,2
+Aston Martin,DB11,Coupe / Sports,,35000,0.45,,,,1
 Aston Martin,DB12 S,Coupe / Sports,,35000,0.45,,,,0
 Aston Martin,DB12 V8,Coupe / Sports,,35000,0.45,,,,0
 Aston Martin,DB9,Coupe / Sports,,253100,0.45,,,,5
@@ -227,103 +227,103 @@ Aston Martin,DBS,Coupe / Sports,,35000,0.45,,,,0
 Aston Martin,DBX 707,SUV / Crossover,,35000,0.47000000000000003,,,,0
 Aston Martin,DBX 727,SUV / Crossover,,35000,0.47000000000000003,,,,0
 Aston Martin,DBX V8,SUV / Crossover,,35000,0.47000000000000003,,,,0
-Aston Martin,Rapide,Sedan,,35000,0.43,,,,1
+Aston Martin,Rapide,Sedan,,35000,0.43,,,,2
 Aston Martin,Valhalla,Coupe / Sports,,35000,0.45,,,,0
 Aston Martin,Valour,Coupe / Sports,,35000,0.45,,,,0
 Aston Martin,Vanquish,Coupe / Sports,,375300,0.45,,,,0
-Aston Martin,Vantage,Coupe / Sports,,35000,0.45,,,,3
+Aston Martin,Vantage,Coupe / Sports,,35000,0.45,,,,1
 Aston Martin,Vantage Manual,Coupe / Sports,,35000,0.45,,,,0
 Aston Martin,Virage,Coupe / Sports,,35000,0.45,,,,0
-Audi,A3,Sedan,,39500,0.43,,,,8
-Audi,A7,Sedan,,87200,0.43,,,,9
-Audi,A8,Sedan,,104500,0.43,,,,12
+Audi,A3,Sedan,,39500,0.43,,,,5
+Audi,A7,Sedan,,87200,0.43,,,,6
+Audi,A8,Sedan,,104500,0.43,,,,10
 Audi,Allroad,Hatchback / Wagon,,55700,0.45,,,,0
-Audi,e-tron,SUV / Crossover,,62000,0.47000000000000003,,,,1
+Audi,e-tron,SUV / Crossover,,62000,0.47000000000000003,,,,0
 Audi,e-tron GT,Sedan,,60000,0.43,,,,0
 Audi,e-tron S,SUV / Crossover,,62000,0.47000000000000003,,,,0
-Audi,Q4 e-tron,SUV / Crossover,,62000,0.47000000000000003,,,,2
+Audi,Q4 e-tron,SUV / Crossover,,62000,0.47000000000000003,,,,3
 Audi,Q6 e-tron,SUV / Crossover,,62000,0.47000000000000003,,,,0
-Audi,Q8,SUV / Crossover,,62000,0.47000000000000003,,,,7
-Audi,R8,Coupe / Sports,,206400,0.45,,,,8
+Audi,Q8,SUV / Crossover,,62000,0.47000000000000003,,,,5
+Audi,R8,Coupe / Sports,,206400,0.45,,,,7
 Audi,R8 Spyder,Coupe / Sports,,48000,0.45,,,,0
-Audi,RS,Sedan,,60000,0.43,,,,8
-Audi,RS 3,Sedan,,60000,0.43,,,,2
+Audi,RS,Sedan,,60000,0.43,,,,4
+Audi,RS 3,Sedan,,60000,0.43,,,,0
 Audi,RS 4,Sedan,,60000,0.43,,,,0
-Audi,RS 5,Sedan,,95300,0.43,,,,3
-Audi,RS 7,Sedan,,140200,0.43,,,,1
+Audi,RS 5,Sedan,,95300,0.43,,,,0
+Audi,RS 7,Sedan,,140200,0.43,,,,0
 Audi,RS e-tron,Sedan,,60000,0.43,,,,0
 Audi,RS e-tron GT,Sedan,,60000,0.43,,,,0
-Audi,RS Q8,SUV / Crossover,,62000,0.47000000000000003,,,,4
+Audi,RS Q8,SUV / Crossover,,62000,0.47000000000000003,,,,2
 Audi,S e-tron,Sedan,,60000,0.43,,,,0
-Audi,S3,Sedan,,54300,0.43,,,,6
-Audi,S4,Sedan,,64200,0.43,,,,12
+Audi,S3,Sedan,,54300,0.43,,,,4
+Audi,S4,Sedan,,64200,0.43,,,,10
 Audi,S5,Sedan,,67300,0.43,,,,13
-Audi,S6,Sedan,,89800,0.43,,,,8
+Audi,S6,Sedan,,89800,0.43,,,,7
 Audi,S6 e-tron,Sedan,,60000,0.43,,,,0
-Audi,S7,Sedan,,101200,0.43,,,,3
-Audi,S8,Sedan,,146800,0.43,,,,8
-Audi,SQ5,SUV / Crossover,,67500,0.47000000000000003,,,,3
+Audi,S7,Sedan,,101200,0.43,,,,1
+Audi,S8,Sedan,,146800,0.43,,,,7
+Audi,SQ5,SUV / Crossover,,67500,0.47000000000000003,,,,2
 Audi,SQ6 e-tron,SUV / Crossover,,62000,0.47000000000000003,,,,0
-Audi,SQ7,SUV / Crossover,,62000,0.47000000000000003,,,,1
-Audi,SQ8,SUV / Crossover,,62000,0.47000000000000003,,,,1
+Audi,SQ7,SUV / Crossover,,62000,0.47000000000000003,,,,0
+Audi,SQ8,SUV / Crossover,,62000,0.47000000000000003,,,,0
 Audi,SQ8 e-tron,SUV / Crossover,,62000,0.47000000000000003,,,,0
-Audi,TT,Sedan,,55100,0.43,,,,10
+Audi,TT,Sedan,,55100,0.43,,,,8
 Audi,TT Coupe,Sedan,,60000,0.43,,,,0
 Audi,TT Roadster,Coupe / Sports,,48000,0.45,,,,0
-Audi,TT RS,Sedan,,60000,0.43,,,,6
-Audi,TTS,Sedan,,66500,0.43,,,,6
+Audi,TT RS,Sedan,,60000,0.43,,,,2
+Audi,TTS,Sedan,,66500,0.43,,,,4
 Audi,TTS Coupe,Sedan,,60000,0.43,,,,0
 Bentley,Arnage,Sedan,,35000,0.43,,,,0
 Bentley,Azure,Sedan,,35000,0.43,,,,0
-Bentley,Bentayga,SUV / Crossover,,35000,0.47000000000000003,,,,6
+Bentley,Bentayga,SUV / Crossover,,35000,0.47000000000000003,,,,3
 Bentley,Brooklands,Sedan,,35000,0.43,,,,0
 Bentley,Continental,Sedan,,35000,0.43,,,,5
 Bentley,Continental Flying Spur,Sedan,,35000,0.43,,,,0
 Bentley,Continental GT Convertible,Sedan,,35000,0.43,,,,0
 Bentley,Continental Supersports,Coupe / Sports,,35000,0.45,,,,0
 Bentley,Continental Supersports Convertible,Sedan,,35000,0.43,,,,0
-Bentley,Flying Spur,Sedan,,262300,0.43,,,,3
+Bentley,Flying Spur,Sedan,,262300,0.43,,,,4
 Bentley,Mulsanne,Sedan,,396300,0.43,,,,0
 BMW,1 Series,Sedan,,60000,0.42,,,,3
 BMW,2 Series,Sedan,,42000,0.42,,,,8
-BMW,6 Series,Sedan,,98300,0.42,,,,5
-BMW,8 Series,Sedan,,60000,0.42,,,,7
+BMW,6 Series,Sedan,,98300,0.42,,,,4
+BMW,8 Series,Sedan,,60000,0.42,,,,4
 BMW,Active E,Sedan,,60000,0.42,,,,0
 BMW,ActiveHybrid X6,SUV / Crossover,,68000,0.46,,,,0
-BMW,i3,Sedan,,53700,0.42,,,,4
+BMW,i3,Sedan,,53700,0.42,,,,3
 BMW,i5,Sedan,,60000,0.42,,,,0
 BMW,i7,Sedan,,60000,0.42,,,,3
 BMW,i8,Sedan,,60000,0.42,,,,2
 BMW,iX,SUV / Crossover,,68000,0.46,,,,1
 BMW,iX3,SUV / Crossover,,68000,0.46,,,,0
-BMW,M,Sedan,,60000,0.42,,,,13
-BMW,X2,Sedan,,60000,0.42,,,,8
-BMW,X4,SUV / Crossover,,57700,0.46,,,,2
-BMW,X6,SUV / Crossover,,77800,0.46,,,,14
+BMW,M,Sedan,,60000,0.42,,,,14
+BMW,X2,Sedan,,60000,0.42,,,,6
+BMW,X4,SUV / Crossover,,57700,0.46,,,,1
+BMW,X6,SUV / Crossover,,77800,0.46,,,,12
 BMW,XM,SUV / Crossover,,68000,0.46,,,,0
-BMW,Z4,Coupe / Sports,,64800,0.44,,,,12
+BMW,Z4,Coupe / Sports,,64800,0.44,,,,11
 Buick,Cascada,Sedan,,41900,0.45999999999999996,,,,2
 Buick,Century,Sedan,,37000,0.45999999999999996,,,,0
 Buick,Encore,SUV / Crossover,,30900,0.5,,,,4
-Buick,LaCrosse,Sedan,,40600,0.45999999999999996,,,,7
+Buick,LaCrosse,Sedan,,40600,0.45999999999999996,,,,5
 Buick,Lacrosse/Allure,Sedan,,37000,0.45999999999999996,,,,0
 Buick,LeSabre,Sedan,,37000,0.45999999999999996,,,,0
 Buick,Lucerne,Sedan,,37000,0.45999999999999996,,,,2
 Buick,Park Avenue,Sedan,,37000,0.45999999999999996,,,,0
 Buick,Rainier,SUV / Crossover,,37000,0.5,,,,0
-Buick,Regal,Sedan,,34300,0.45999999999999996,,,,4
+Buick,Regal,Sedan,,34300,0.45999999999999996,,,,5
 Buick,Rendezvous,SUV / Crossover,,37000,0.5,,,,0
 Buick,Terraza,Minivan,,37000,0.44999999999999996,,,,0
 Buick,Verano,Sedan,,26700,0.45999999999999996,,,,3
 Cadillac,Armored Deville,Sedan,,48000,0.42,,,,0
 Cadillac,Armored DTS,Sedan,,48000,0.42,,,,0
-Cadillac,ATS,Sedan,,43800,0.42,,,,2
-Cadillac,ATS-V,Sedan,,76900,0.42,,,,2
+Cadillac,ATS,Sedan,,43800,0.42,,,,1
+Cadillac,ATS-V,Sedan,,76900,0.42,,,,0
 Cadillac,CELESTIQ,Hatchback / Wagon,,48000,0.44,,,,0
-Cadillac,CT4,Sedan,,48000,0.42,,,,2
-Cadillac,CT6,Sedan,,67800,0.42,,,,2
-Cadillac,CTS,Sedan,,58300,0.42,,,,7
-Cadillac,CTS-V,Sedan,,108900,0.42,,,,2
+Cadillac,CT4,Sedan,,48000,0.42,,,,5
+Cadillac,CT6,Sedan,,67800,0.42,,,,0
+Cadillac,CTS,Sedan,,58300,0.42,,,,8
+Cadillac,CTS-V,Sedan,,108900,0.42,,,,5
 Cadillac,DeVille,Sedan,,48000,0.42,,,,0
 Cadillac,DTS,Sedan,,48000,0.42,,,,2
 Cadillac,ELR,Sedan,,48000,0.42,,,,1
@@ -336,7 +336,7 @@ Cadillac,STS-V,Sedan,,48000,0.42,,,,0
 Cadillac,VISTIQ,SUV / Crossover,,62000,0.46,,,,0
 Cadillac,XLR,Coupe / Sports,,48000,0.44,,,,0
 Cadillac,XLR-V,Coupe / Sports,,48000,0.44,,,,0
-Cadillac,XT6,SUV / Crossover,,62000,0.46,,,,2
+Cadillac,XT6,SUV / Crossover,,62000,0.46,,,,0
 Cadillac,XTS,Sedan,,57400,0.42,,,,2
 Cadillac,XTS Hearse,SUV / Crossover,,62000,0.46,,,,0
 Cadillac,XTS Limo,SUV / Crossover,,62000,0.46,,,,0
@@ -350,24 +350,24 @@ Chevrolet,Cavalier,Sedan,,27000,0.48,,,,0
 Chevrolet,City Express Cargo Van,SUV / Crossover,,38000,0.52,,,,0
 Chevrolet,Classic,Sedan,,27000,0.48,,,,0
 Chevrolet,Cobalt,Sedan,,27000,0.48,,,,1
-Chevrolet,Cruze,Sedan,,21500,0.48,,,,6
+Chevrolet,Cruze,Sedan,,21500,0.48,,,,4
 Chevrolet,Epica,Sedan,,27000,0.48,,,,0
 Chevrolet,Express Cargo,Minivan,,38000,0.47,,,,0
 Chevrolet,Express Passenger,Minivan,,38000,0.47,,,,0
 Chevrolet,HHR,SUV / Crossover,,38000,0.52,,,,2
-Chevrolet,Impala,Sedan,,45200,0.48,,,,7
+Chevrolet,Impala,Sedan,,45200,0.48,,,,6
 Chevrolet,Monte Carlo,Sedan,,27000,0.48,,,,0
 Chevrolet,Optra,Sedan,,27000,0.48,,,,0
-Chevrolet,Sonic,Sedan,,19200,0.48,,,,5
-Chevrolet,Spark,Sedan,,16500,0.48,,,,5
-Chevrolet,SS,Sedan,,60800,0.48,,,,1
+Chevrolet,Sonic,Sedan,,19200,0.48,,,,4
+Chevrolet,Spark,Sedan,,16500,0.48,,,,4
+Chevrolet,SS,Sedan,,60800,0.48,,,,2
 Chevrolet,SSR Pickup,Pickup Truck,,48000,0.54,,,,0
 Chevrolet,Uplander,Minivan,,38000,0.47,,,,0
 Chevrolet,Van 15/25 Conversion,Minivan,,38000,0.47,,,,0
 Chevrolet,Van 1500,Minivan,,38000,0.47,,,,0
 Chevrolet,Van 1500/2500,Minivan,,38000,0.47,,,,0
 Chevrolet,Venture,Minivan,,38000,0.47,,,,0
-Chevrolet,Volt,Sedan,,27000,0.48,,,,6
+Chevrolet,Volt,Sedan,,27000,0.48,,,,4
 Chrysler,200,Sedan,,27900,0.43,,,,4
 Chrysler,Aspen,SUV / Crossover,,42000,0.47000000000000003,,,,0
 Chrysler,Crossfire,Coupe / Sports,,42000,0.45,,,,0
@@ -375,15 +375,15 @@ Chrysler,PT Cruiser,SUV / Crossover,,42000,0.47000000000000003,,,,1
 Chrysler,Sebring,Sedan,,38000,0.43,,,,1
 Chrysler,Town and Country,Minivan,,39100,0.42000000000000004,,,,5
 Chrysler,Town and Country/Voyager/Grand Voyager,Minivan,,42000,0.42000000000000004,,,,0
-Chrysler,Voyager,Minivan,,42000,0.42000000000000004,,,,6
+Chrysler,Voyager,Minivan,,42000,0.42000000000000004,,,,4
 Chrysler,Voyager/Town and Country,Minivan,,42000,0.42000000000000004,,,,0
 Dodge,Avenger,Sedan,,40000,0.5,,,,5
 Dodge,Caliber,Hatchback / Wagon,,40000,0.52,,,,3
 Dodge,Caravan/Grand Caravan,Minivan,,40000,0.49,,,,0
 Dodge,Dakota Pickup,Pickup Truck,,40000,0.56,,,,0
 Dodge,Dart,Sedan,,22200,0.5,,,,1
-Dodge,Grand Caravan,Minivan,,30400,0.49,,,,8
-Dodge,Journey,SUV / Crossover,,26600,0.54,,,,7
+Dodge,Grand Caravan,Minivan,,30400,0.49,,,,6
+Dodge,Journey,SUV / Crossover,,26600,0.54,,,,6
 Dodge,Magnum,SUV / Crossover,,45000,0.54,,,,0
 Dodge,Neon/SRT-4/SX 2.0,Sedan,,40000,0.5,,,,0
 Dodge,Nitro,SUV / Crossover,,45000,0.54,,,,2
@@ -414,7 +414,7 @@ Ferrari,812 Competizione,Coupe / Sports,,35000,0.72,,,,0
 Ferrari,812 GTS,Coupe / Sports,,35000,0.72,,,,0
 Ferrari,812 Superfast,Coupe / Sports,,35000,0.72,,,,0
 Ferrari,Amalfi,Sedan,,35000,0.7,,,,0
-Ferrari,California,Coupe / Sports,,35000,0.72,,,,3
+Ferrari,California,Coupe / Sports,,35000,0.72,,,,4
 Ferrari,California T,Coupe / Sports,,267400,0.72,,,,0
 Ferrari,Daytona SP3,Coupe / Sports,,35000,0.72,,,,0
 Ferrari,F12,Coupe / Sports,,35000,0.72,,,,0
@@ -440,11 +440,11 @@ Ferrari,SF90,Coupe / Sports,,35000,0.72,,,,0
 Ferrari,SF90 Spider,Coupe / Sports,,35000,0.72,,,,0
 Ferrari,SF90 Stradale,Coupe / Sports,,35000,0.72,,,,0
 Ferrari,SF90 Stradale Coupe,Coupe / Sports,,35000,0.72,,,,0
-Fiat,124 Spider,Coupe / Sports,,31700,0.36,,,,1
+Fiat,124 Spider,Coupe / Sports,,31700,0.36,,,,2
 Fiat,500,Coupe / Sports,,20300,0.36,,,,4
-Fiat,500 L,Hatchback / Wagon,,26600,0.36,,,,3
-Fiat,500 X,SUV / Crossover,,25300,0.38,,,,5
-Fiat,500e,Coupe / Sports,,40300,0.36,,,,3
+Fiat,500 L,Hatchback / Wagon,,26600,0.36,,,,1
+Fiat,500 X,SUV / Crossover,,25300,0.38,,,,3
+Fiat,500e,Coupe / Sports,,40300,0.36,,,,2
 Ford,C-MAX,Sedan,,42000,0.5,,,,0
 Ford,Crown Victoria,Sedan,,42000,0.5,,,,2
 Ford,E150 Club Wagon,Minivan,,42000,0.49,,,,0
@@ -455,50 +455,50 @@ Ford,E250 Econoline,Minivan,,42000,0.49,,,,0
 Ford,E250 Van,Minivan,,42000,0.49,,,,0
 Ford,E350 Van,Minivan,,42000,0.49,,,,0
 Ford,E350 Wagon,Minivan,,42000,0.49,,,,0
-Ford,EcoSport,SUV / Crossover,,42000,0.54,,,,4
+Ford,EcoSport,SUV / Crossover,,42000,0.54,,,,0
 Ford,Fiesta,Sedan,,17900,0.5,,,,6
 Ford,Five Hundred,Sedan,,42000,0.5,,,,0
 Ford,Flex,SUV / Crossover,,38000,0.54,,,,5
 Ford,Focus,Sedan,,21300,0.5,,,,6
 Ford,Freestar,Minivan,,42000,0.49,,,,0
 Ford,Freestyle,SUV / Crossover,,42000,0.54,,,,0
-Ford,Fusion,Sedan,,28600,0.5,,,,8
+Ford,Fusion,Sedan,,28600,0.5,,,,6
 Ford,GT,Coupe / Sports,,35000,0.52,,,,0
-Ford,Taurus,Sedan,,34600,0.5,,,,5
+Ford,Taurus,Sedan,,34600,0.5,,,,6
 Ford,Thunderbird,Coupe / Sports,,35000,0.52,,,,0
-Ford,Transit Connect,SUV / Crossover,,29000,0.54,,,,9
+Ford,Transit Connect,SUV / Crossover,,29000,0.54,,,,12
 Ford,Transit T150 Wagon,Minivan,,42000,0.49,,,,0
-Genesis,G90,Sedan,,55000,0.44999999999999996,,,,4
+Genesis,G90,Sedan,,55000,0.44999999999999996,,,,6
 Genesis,GV60,SUV / Crossover,,60000,0.49,,,,3
 GMC,Envoy,SUV / Crossover,,45000,0.59,,,,0
 GMC,Hummer EV,Pickup Truck,,50000,0.61,,,,0
 GMC,Safari Cargo,Minivan,,45000,0.5399999999999999,,,,0
 GMC,Safari Passenger,Minivan,,45000,0.5399999999999999,,,,0
 GMC,Savana Cargo,Minivan,,39900,0.5399999999999999,,,,3
-GMC,Savana Passenger,Minivan,,45000,0.5399999999999999,,,,3
+GMC,Savana Passenger,Minivan,,45000,0.5399999999999999,,,,1
 Honda,Clarity,Sedan,,30000,0.6,,,,2
-Honda,CR-Z,Coupe / Sports,,26500,0.62,,,,0
+Honda,CR-Z,Coupe / Sports,,26500,0.62,,,,1
 Honda,Crosstour,SUV / Crossover,,37000,0.64,,,,5
 Honda,Element,SUV / Crossover,,42000,0.64,,,,2
-Honda,Fit,Hatchback / Wagon,,20300,0.62,,,,5
-Honda,Insight,Sedan,,30000,0.6,,,,8
+Honda,Fit,Hatchback / Wagon,,20300,0.62,,,,4
+Honda,Insight,Sedan,,30000,0.6,,,,7
 Honda,Prelude,Sedan,,30000,0.6,,,,0
 Honda,Prologue,SUV / Crossover,,42000,0.64,,,,0
 Honda,S2000,Coupe / Sports,,42000,0.62,,,,0
 Hummer,H3,SUV / Crossover,,35000,0.47000000000000003,,,,1
 Hummer,H3T,Pickup Truck,,35000,0.49,,,,1
-Hyundai,Accent,Sedan,,19200,0.52,,,,7
+Hyundai,Accent,Sedan,,19200,0.52,,,,5
 Hyundai,Accent/Brio,Sedan,,28000,0.52,,,,0
 Hyundai,Azera,Sedan,,43200,0.52,,,,5
 Hyundai,Entourage,Minivan,,30000,0.51,,,,0
 Hyundai,Equus,Sedan,,80200,0.52,,,,4
 Hyundai,Genesis,Sedan,,50600,0.52,,,,5
-Hyundai,Ioniq,Sedan,,28000,0.52,,,,2
+Hyundai,Ioniq,Sedan,,28000,0.52,,,,0
 Hyundai,Ioniq 6,Sedan,,28000,0.52,,,,0
 Hyundai,Ioniq 9,SUV / Crossover,,36000,0.56,,,,0
-Hyundai,Nexo,SUV / Crossover,,36000,0.56,,,,4
+Hyundai,Nexo,SUV / Crossover,,36000,0.56,,,,3
 Hyundai,Tiburon,Sedan,,28000,0.52,,,,0
-Hyundai,Veloster,Sedan,,23500,0.52,,,,6
+Hyundai,Veloster,Sedan,,23500,0.52,,,,3
 Hyundai,Veracruz,SUV / Crossover,,36000,0.56,,,,3
 Hyundai,XG,Sedan,,28000,0.52,,,,0
 Infiniti,EX35,Hatchback / Wagon,,52000,0.45,,,,3
@@ -511,17 +511,17 @@ Infiniti,G25,Sedan,,45000,0.43,,,,2
 Infiniti,G35,Sedan,,45000,0.43,,,,0
 Infiniti,G37,Sedan,,45000,0.43,,,,4
 Infiniti,JX35,SUV / Crossover,,52000,0.47000000000000003,,,,0
-Infiniti,M35,Sedan,,45000,0.43,,,,1
+Infiniti,M35,Sedan,,45000,0.43,,,,2
 Infiniti,M37,Sedan,,45000,0.43,,,,3
 Infiniti,M45,Sedan,,45000,0.43,,,,1
 Infiniti,M56,Sedan,,45000,0.43,,,,2
 Infiniti,Q40,Sedan,,45600,0.43,,,,0
 Infiniti,Q45,Sedan,,45000,0.43,,,,0
 Infiniti,Q60,Sedan,,45000,0.43,,,,1
-Infiniti,Q70,Sedan,,65000,0.43,,,,1
-Infiniti,QX30,Sedan,,45000,0.43,,,,0
+Infiniti,Q70,Sedan,,65000,0.43,,,,3
+Infiniti,QX30,Sedan,,45000,0.43,,,,2
 Infiniti,QX55,SUV / Crossover,,52000,0.47000000000000003,,,,3
-Infiniti,QX56,SUV / Crossover,,52000,0.47000000000000003,,,,3
+Infiniti,QX56,SUV / Crossover,,52000,0.47000000000000003,,,,4
 Infiniti,QX65,SUV / Crossover,,52000,0.47000000000000003,,,,0
 Infiniti,QX70,SUV / Crossover,,58100,0.47000000000000003,,,,0
 Isuzu,Ascender,SUV / Crossover,,35000,0.44,,,,0
@@ -535,9 +535,9 @@ Jaguar,S-type,Sedan,,50000,0.36,,,,0
 Jaguar,Super V8,Sedan,,50000,0.36,,,,0
 Jaguar,Vdp,Sedan,,50000,0.36,,,,0
 Jaguar,X-Type,Sedan,,50000,0.36,,,,0
-Jaguar,XE,Sedan,,50000,0.36,,,,1
-Jaguar,XJ,Sedan,,50000,0.36,,,,6
-Jaguar,XJL,Sedan,,50000,0.36,,,,4
+Jaguar,XE,Sedan,,50000,0.36,,,,0
+Jaguar,XJ,Sedan,,50000,0.36,,,,5
+Jaguar,XJL,Sedan,,50000,0.36,,,,5
 Jaguar,XJR,Sedan,,50000,0.36,,,,1
 Jaguar,XK,Coupe / Sports,,78000,0.38,,,,5
 Jaguar,XK8,Sedan,,50000,0.36,,,,0
@@ -556,15 +556,15 @@ Kia,Cadenza,Sedan,,40500,0.53,,,,2
 Kia,EV3,SUV / Crossover,,34000,0.5700000000000001,,,,0
 Kia,EV9,SUV / Crossover,,34000,0.5700000000000001,,,,0
 Kia,K900,Sedan,,63900,0.53,,,,0
-Kia,Optima,Sedan,,28900,0.53,,,,7
-Kia,Rio,Sedan,,17900,0.53,,,,9
+Kia,Optima,Sedan,,28900,0.53,,,,10
+Kia,Rio,Sedan,,17900,0.53,,,,13
 Kia,Rondo,Hatchback / Wagon,,22000,0.55,,,,1
-Kia,Sedona,Minivan,,33900,0.52,,,,6
+Kia,Sedona,Minivan,,33900,0.52,,,,9
 Kia,Spectra,Sedan,,28000,0.53,,,,0
-Kia,Stinger,Sedan,,28000,0.53,,,,4
+Kia,Stinger,Sedan,,28000,0.53,,,,3
 Lamborghini,Aventador,Coupe / Sports,,521300,0.68,,,,0
 Lamborghini,Gallardo,Coupe / Sports,,35000,0.68,,,,5
-Lamborghini,Huracan,Coupe / Sports,,260700,0.68,,,,0
+Lamborghini,Huracan,Coupe / Sports,,260700,0.68,,,,1
 Lamborghini,Murcielago,Coupe / Sports,,35000,0.68,,,,0
 Lamborghini,Revuelto,Coupe / Sports,,35000,0.68,,,,0
 Lamborghini,Urus,SUV / Crossover,,35000,0.7000000000000001,,,,0
@@ -575,23 +575,23 @@ Land Rover,LR2,SUV / Crossover,,49200,0.44,,,,5
 Land Rover,LR3,SUV / Crossover,,62000,0.44,,,,0
 Land Rover,LR4,SUV / Crossover,,65800,0.44,,,,5
 Lexus,CT,Sedan,,45000,0.61,,,,4
-Lexus,GS,Sedan,,45000,0.61,,,,6
+Lexus,GS,Sedan,,45000,0.61,,,,7
 Lexus,HS,Sedan,,45000,0.61,,,,3
-Lexus,LC,Sedan,,45000,0.61,,,,2
+Lexus,LC,Sedan,,45000,0.61,,,,0
 Lexus,LFA,Coupe / Sports,,52000,0.63,,,,0
-Lexus,LS,Sedan,,45000,0.61,,,,11
-Lexus,RC,Sedan,,45000,0.61,,,,6
-Lexus,RC F,Sedan,,81300,0.61,,,,2
+Lexus,LS,Sedan,,45000,0.61,,,,12
+Lexus,RC,Sedan,,45000,0.61,,,,5
+Lexus,RC F,Sedan,,81300,0.61,,,,0
 Lexus,RZ,SUV / Crossover,,58000,0.65,,,,1
 Lexus,SC,Coupe / Sports,,52000,0.63,,,,1
-Lincoln,Continental,Sedan,,56400,0.43,,,,1
+Lincoln,Continental,Sedan,,56400,0.43,,,,2
 Lincoln,LS,Sedan,,58000,0.43,,,,0
 Lincoln,Mark LT,Pickup Truck,,58000,0.49,,,,0
-Lincoln,MKC,SUV / Crossover,,41400,0.47000000000000003,,,,1
+Lincoln,MKC,SUV / Crossover,,41400,0.47000000000000003,,,,0
 Lincoln,MKS,Sedan,,50900,0.43,,,,5
-Lincoln,MKT,SUV / Crossover,,55100,0.47000000000000003,,,,5
+Lincoln,MKT,SUV / Crossover,,55100,0.47000000000000003,,,,9
 Lincoln,MKX,SUV / Crossover,,48500,0.47000000000000003,,,,5
-Lincoln,MKZ,Sedan,,44300,0.43,,,,7
+Lincoln,MKZ,Sedan,,44300,0.43,,,,10
 Lincoln,Town Car,Sedan,,58000,0.43,,,,2
 Lincoln,Zephyr,Sedan,,58000,0.43,,,,0
 Lotus,Elise/exige,Coupe / Sports,,35000,0.55,,,,0
@@ -603,31 +603,31 @@ Maserati,Coupe and Gransport,Sedan,,35000,0.32999999999999996,,,,0
 Maserati,Coupe Cambiocorsa/GT/G-Sport,Sedan,,35000,0.32999999999999996,,,,0
 Maserati,Ghibli,Sedan,,90700,0.32999999999999996,,,,6
 Maserati,Grancabrio,Sedan,,35000,0.32999999999999996,,,,0
-Maserati,Granturismo,Sedan,,173300,0.32999999999999996,,,,8
-Maserati,GranTurismo,Sedan,,173300,0.32999999999999996,,,,8
+Maserati,Granturismo,Sedan,,173300,0.32999999999999996,,,,7
+Maserati,GranTurismo,Sedan,,173300,0.32999999999999996,,,,7
 Maserati,Grecale,SUV / Crossover,,35000,0.37,,,,2
 Maserati,GT2 Stradale,Coupe / Sports,,35000,0.35,,,,0
-Maserati,Levante,SUV / Crossover,,91200,0.37,,,,5
+Maserati,Levante,SUV / Crossover,,91200,0.37,,,,4
 Maserati,MC20,Coupe / Sports,,35000,0.35,,,,0
 Maserati,MCPURA,Coupe / Sports,,35000,0.35,,,,0
 Maserati,Quattroporte,Sedan,,131000,0.32999999999999996,,,,10
 Maserati,Spyder,Coupe / Sports,,35000,0.35,,,,0
-Mazda,2,Sedan,,26000,0.5599999999999999,,,,0
-Mazda,5,Minivan,,28500,0.5499999999999999,,,,0
+Mazda,2,Sedan,,26000,0.5599999999999999,,,,1
+Mazda,5,Minivan,,28500,0.5499999999999999,,,,2
 Mazda,6,Sedan,,27800,0.5599999999999999,,,,0
 Mazda,B Pickup,Pickup Truck,,32000,0.62,,,,0
 Mazda,CX-3,Sedan,,25300,0.5599999999999999,,,,0
 Mazda,CX-30,SUV / Crossover,,32000,0.6,,,,0
-Mazda,CX-7,SUV / Crossover,,32000,0.6,,,,1
+Mazda,CX-7,SUV / Crossover,,32000,0.6,,,,2
 Mazda,CX-70,SUV / Crossover,,32000,0.6,,,,0
-Mazda,CX-9,SUV / Crossover,,41100,0.6,,,,4
+Mazda,CX-9,SUV / Crossover,,41100,0.6,,,,5
 Mazda,MPV,Minivan,,32000,0.5499999999999999,,,,0
 Mazda,MX-30,Sedan,,26000,0.5599999999999999,,,,0
 Mazda,RX-8,Sedan,,26000,0.5599999999999999,,,,1
 Mazda,Speed 3,Sedan,,26000,0.5599999999999999,,,,0
 Mazda,Tribute,SUV / Crossover,,32000,0.6,,,,2
 McLaren,540C Coupe,Coupe / Sports,,35000,0.5,,,,0
-McLaren,570GT,Coupe / Sports,,35000,0.5,,,,0
+McLaren,570GT,Coupe / Sports,,35000,0.5,,,,1
 McLaren,570S Coupe,Coupe / Sports,,35000,0.5,,,,0
 McLaren,570S Spider,Coupe / Sports,,35000,0.5,,,,0
 McLaren,600LT Coupe,Coupe / Sports,,35000,0.5,,,,0
@@ -682,13 +682,13 @@ Mercury,Montego,Sedan,,35000,0.39999999999999997,,,,0
 Mercury,Monterey,Minivan,,35000,0.39,,,,0
 Mercury,Mountaineer,SUV / Crossover,,35000,0.44,,,,1
 Mercury,Sable,Sedan,,35000,0.39999999999999997,,,,0
-Mini,Clubman,Sedan,,35000,0.47,,,,3
+Mini,Clubman,Sedan,,35000,0.47,,,,2
 Mini,John Cooper Works,Sedan,,35000,0.47,,,,0
 Mini,MiniE,Coupe / Sports,,35000,0.49,,,,0
-Mini,Paceman,Sedan,,35000,0.47,,,,0
-Mini,Roadster,Coupe / Sports,,35000,0.49,,,,0
+Mini,Paceman,Sedan,,35000,0.47,,,,2
+Mini,Roadster,Coupe / Sports,,35000,0.49,,,,2
 Mitsubishi,Diamante,Sedan,,27000,0.44999999999999996,,,,0
-Mitsubishi,Eclipse,Sedan,,27000,0.44999999999999996,,,,2
+Mitsubishi,Eclipse,Sedan,,27000,0.44999999999999996,,,,3
 Mitsubishi,Endeavor,SUV / Crossover,,27000,0.49,,,,2
 Mitsubishi,Galant,Sedan,,27000,0.44999999999999996,,,,2
 Mitsubishi,i-MiEV,Sedan,,29100,0.44999999999999996,,,,1
@@ -696,12 +696,12 @@ Mitsubishi,Lancer,Sedan,,22500,0.44999999999999996,,,,5
 Mitsubishi,Montero,SUV / Crossover,,27000,0.49,,,,0
 Mitsubishi,Raider Pickup,Pickup Truck,,27000,0.51,,,,0
 Nissan,350z,Coupe / Sports,,30000,0.48,,,,0
-Nissan,370z,Coupe / Sports,,38000,0.48,,,,7
-Nissan,370Z,Coupe / Sports,,38000,0.48,,,,7
+Nissan,370z,Coupe / Sports,,38000,0.48,,,,5
+Nissan,370Z,Coupe / Sports,,38000,0.48,,,,5
 Nissan,ARIYA,Hatchback / Wagon,,29000,0.48,,,,0
-Nissan,Armada,SUV / Crossover,,56900,0.5,,,,12
+Nissan,Armada,SUV / Crossover,,56900,0.5,,,,10
 Nissan,Cube,Hatchback / Wagon,,29000,0.48,,,,5
-Nissan,GT-R,Sedan,,139300,0.45999999999999996,,,,4
+Nissan,GT-R,Sedan,,139300,0.45999999999999996,,,,3
 Nissan,Juke,Hatchback / Wagon,,25700,0.48,,,,4
 Nissan,Maxima,Sedan,,41300,0.45999999999999996,,,,9
 Nissan,NV200 Cargo Van,SUV / Crossover,,38000,0.5,,,,0
@@ -777,7 +777,7 @@ Saturn,Outlook,SUV / Crossover,,35000,0.42000000000000004,,,,1
 Saturn,Relay,Minivan,,35000,0.37,,,,0
 Saturn,SKY,Coupe / Sports,,35000,0.4,,,,0
 Saturn,Vue,SUV / Crossover,,35000,0.42000000000000004,,,,0
-Scion,FR-S,Coupe / Sports,,33000,0.55,,,,0
+Scion,FR-S,Coupe / Sports,,33000,0.55,,,,1
 Scion,iA,Sedan,,20500,0.53,,,,0
 Scion,iM,Sedan,,24100,0.53,,,,0
 Scion,iQ,Coupe / Sports,,21100,0.55,,,,1
@@ -785,9 +785,9 @@ Scion,tC,Sedan,,25300,0.53,,,,5
 Scion,xA,Sedan,,35000,0.53,,,,0
 Scion,xB,Hatchback / Wagon,,23000,0.55,,,,5
 Scion,xD,Sedan,,35000,0.53,,,,5
-Smart,fortwo,Coupe / Sports,,35000,0.36,,,,5
+Smart,fortwo,Coupe / Sports,,35000,0.36,,,,9
 Subaru,Baja,SUV / Crossover,,32000,0.62,,,,0
-Subaru,Legacy,Sedan,,27900,0.58,,,,11
+Subaru,Legacy,Sedan,,27900,0.58,,,,9
 Subaru,Legacy/Outback,Sedan,,35000,0.58,,,,0
 Subaru,Solterra,SUV / Crossover,,32000,0.62,,,,0
 Subaru,Trailseeker,SUV / Crossover,,32000,0.62,,,,0
@@ -803,33 +803,33 @@ Suzuki,Swift,Sedan,,35000,0.39999999999999997,,,,0
 Suzuki,SX4,Sedan,,35000,0.39999999999999997,,,,2
 Suzuki,Verona,Sedan,,35000,0.39999999999999997,,,,0
 Suzuki,XL7,SUV / Crossover,,35000,0.44,,,,0
-Toyota,Avalon,Sedan,,42100,0.62,,,,8
+Toyota,Avalon,Sedan,,42100,0.62,,,,10
 Toyota,bZ,SUV / Crossover,,45000,0.66,,,,0
 Toyota,bZ4X,SUV / Crossover,,45000,0.66,,,,0
-Toyota,C-HR,Sedan,,30000,0.62,,,,3
+Toyota,C-HR,Sedan,,30000,0.62,,,,0
 Toyota,Celica,Sedan,,30000,0.62,,,,0
 Toyota,Crown,Sedan,,30000,0.62,,,,0
 Toyota,Crown Signia,Hatchback / Wagon,,30000,0.64,,,,0
 Toyota,Echo,Sedan,,30000,0.62,,,,0
 Toyota,FJ Cruiser,SUV / Crossover,,45000,0.66,,,,5
-Toyota,Land Cruiser,SUV / Crossover,,106800,0.66,,,,10
-Toyota,Matrix,Hatchback / Wagon,,30000,0.64,,,,2
-Toyota,Mirai,Sedan,,30000,0.62,,,,1
+Toyota,Land Cruiser,SUV / Crossover,,106800,0.66,,,,8
+Toyota,Matrix,Hatchback / Wagon,,30000,0.64,,,,4
+Toyota,Mirai,Sedan,,30000,0.62,,,,0
 Toyota,MR2,Coupe / Sports,,56000,0.64,,,,0
 Toyota,Venza,SUV / Crossover,,39100,0.66,,,,5
-Toyota,Yaris,Sedan,,19300,0.62,,,,4
-Volkswagen,Arteon,Sedan,,24000,0.48,,,,4
-Volkswagen,Beetle,Sedan,,25300,0.48,,,,2
+Toyota,Yaris,Sedan,,19300,0.62,,,,5
+Volkswagen,Arteon,Sedan,,24000,0.48,,,,1
+Volkswagen,Beetle,Sedan,,25300,0.48,,,,1
 Volkswagen,CC,Sedan,,43700,0.48,,,,4
-Volkswagen,Eos,Sedan,,41700,0.48,,,,3
+Volkswagen,Eos,Sedan,,41700,0.48,,,,4
 Volkswagen,GLI,Sedan,,24000,0.48,,,,0
 Volkswagen,ID. Buzz,Minivan,,33000,0.47,,,,0
-Volkswagen,Passat,Sedan,,28400,0.48,,,,5
+Volkswagen,Passat,Sedan,,28400,0.48,,,,3
 Volkswagen,Phaeton,Sedan,,24000,0.48,,,,0
 Volkswagen,R32,Sedan,,24000,0.48,,,,0
 Volkswagen,Rabbit,Sedan,,24000,0.48,,,,0
-Volkswagen,Routan,Minivan,,33000,0.47,,,,3
-Volkswagen,Touareg,SUV / Crossover,,62700,0.52,,,,3
+Volkswagen,Routan,Minivan,,33000,0.47,,,,4
+Volkswagen,Touareg,SUV / Crossover,,62700,0.52,,,,4
 Volvo,C30,Sedan,,43000,0.45999999999999996,,,,2
 Volvo,C40,SUV / Crossover,,48000,0.5,,,,0
 Volvo,C70,Sedan,,43000,0.45999999999999996,,,,2
@@ -842,7 +842,7 @@ Volvo,S40,Sedan,,43000,0.45999999999999996,,,,2
 Volvo,S80,Sedan,,56700,0.45999999999999996,,,,3
 Volvo,S90,Sedan,,59500,0.45999999999999996,,,,1
 Volvo,V50,Hatchback / Wagon,,48000,0.48,,,,2
-Volvo,V60,Hatchback / Wagon,,45800,0.48,,,,4
+Volvo,V60,Hatchback / Wagon,,45800,0.48,,,,6
 Volvo,V70,Hatchback / Wagon,,48000,0.48,,,,1
-Volvo,V90,Hatchback / Wagon,,48000,0.48,,,,1
-Volvo,XC70,SUV / Crossover,,48400,0.5,,,,3
+Volvo,V90,Hatchback / Wagon,,48000,0.48,,,,7
+Volvo,XC70,SUV / Crossover,,48400,0.5,,,,4

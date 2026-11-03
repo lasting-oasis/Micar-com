@@ -5,70 +5,106 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (savana_cargo).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2014,
+"destination": 995,
 "trims": [
 {
-"trim": "",
-"msrp": 31900,
+"trim": "1500 3dr Cargo Van",
+"msrp": 27710,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 33800,
+"trim": "2500 3dr Cargo Van w/1WT",
+"msrp": 29215,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35000,
+"trim": "2500 3dr Extended Cargo Van w/1WT",
+"msrp": 31075,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35800,
+"trim": "3500 3dr Cargo Van w/1WT",
+"msrp": 32535,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1500 3dr Cargo Van",
+"msrp": 32760,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 3dr Extended Cargo Van w/1WT",
+"msrp": 33420,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 3dr Cargo Van w/1SD",
+"msrp": 41160,
+"config": "",
+"note": ""
+},
+{
+"trim": "2500 3dr Extended Cargo Van w/1SD",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 3dr Cargo Van w/1SD",
+"msrp": 44480,
+"config": "",
+"note": ""
+},
+{
+"trim": "3500 3dr Extended Cargo Van w/1SD",
+"msrp": 45365,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-gmc-savana_cargo-price",
+"source": "https://www.iseecars.com/car/2014-gmc-savana_cargo-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2017,
+"destination": 1195,
 "trims": [
 {
-"trim": "",
-"msrp": 32500,
+"trim": "2500 3dr Cargo Van",
+"msrp": 30745,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 34400,
+"trim": "2500 3dr Extended Cargo Van",
+"msrp": 32605,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35600,
+"trim": "3500 3dr Cargo Van",
+"msrp": 34065,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 36400,
+"trim": "3500 3dr Extended Cargo Van",
+"msrp": 34950,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-gmc-savana_cargo-price",
+"source": "https://www.iseecars.com/car/2017-gmc-savana_cargo-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

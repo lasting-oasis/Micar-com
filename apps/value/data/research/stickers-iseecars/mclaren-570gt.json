@@ -5,19 +5,34 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (570gt).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2017,
+"destination": 2500,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"trim": "2dr Coupe",
+"msrp": 198950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-mclaren-570gt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 2500,
+"trims": [
+{
+"trim": "2dr Coupe",
 "msrp": 202950,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-mclaren-570gt-price",
+"source": "https://www.iseecars.com/car/2018-mclaren-570gt-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

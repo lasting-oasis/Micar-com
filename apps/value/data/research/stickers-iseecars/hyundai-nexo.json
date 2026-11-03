@@ -5,27 +5,6 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (nexo).",
 "years": [
 {
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 58300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 61800,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-hyundai-nexo-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2020,
 "destination": 1175,
 "trims": [

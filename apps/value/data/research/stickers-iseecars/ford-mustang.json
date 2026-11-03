@@ -302,136 +302,136 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2016,
+"destination": 900,
 "trims": [
 {
-"trim": "",
-"msrp": 26395,
+"trim": "V6 2dr Fastback",
+"msrp": 24145,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 31410,
+"trim": "EcoBoost 2dr Fastback",
+"msrp": 25645,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 31895,
+"trim": "EcoBoost Premium 2dr Fastback",
+"msrp": 29645,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35355,
+"trim": "V6 2dr Convertible",
+"msrp": 29645,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 36910,
+"trim": "GT 2dr Fastback",
+"msrp": 32395,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 39355,
+"trim": "EcoBoost Premium 2dr Convertible",
+"msrp": 35145,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 44855,
+"trim": "GT Premium 2dr Fastback",
+"msrp": 36395,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 46595,
+"trim": "GT Premium 2dr Convertible",
+"msrp": 41895,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 59140,
+"trim": "Shelby GT350 2dr Fastback",
+"msrp": 47795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shelby GT350R 2dr Fastback",
+"msrp": 61295,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-ford-mustang-price",
+"source": "https://www.iseecars.com/car/2016-ford-mustang-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2018,
+"destination": 900,
 "trims": [
 {
-"trim": "",
-"msrp": 26670,
+"trim": "EcoBoost 2dr Fastback",
+"msrp": 25680,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 31685,
+"trim": "EcoBoost Premium 2dr Fastback",
+"msrp": 30695,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 32170,
+"trim": "EcoBoost 2dr Convertible",
+"msrp": 31180,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35630,
+"trim": "GT 2dr Fastback",
+"msrp": 35190,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 37185,
+"trim": "EcoBoost Premium 2dr Convertible",
+"msrp": 36195,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 39630,
+"trim": "GT Premium 2dr Fastback",
+"msrp": 39190,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 45130,
+"trim": "GT Premium 2dr Convertible",
+"msrp": 44690,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 47810,
+"trim": "Shelby GT350 2dr Fastback",
+"msrp": 55940,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 59140,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 70300,
+"trim": "Shelby GT350R 2dr Fastback",
+"msrp": 63440,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-ford-mustang-price",
+"source": "https://www.iseecars.com/car/2018-ford-mustang-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

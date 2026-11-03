@@ -2,7 +2,7 @@
 "make": "Smart",
 "model": "fortwo",
 "body": "Coupe / Sports",
-"note": "Trim-level MSRPs from iSeeCars price pages (fortwo).",
+"note": "Trim-level MSRPs from iSeeCars price pages (fortwo, fortwo_electric_drive).",
 "years": [
 {
 "year": 2010,
@@ -64,6 +64,18 @@
 "msrp": 17690,
 "config": "",
 "note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Hatchback",
+"msrp": 44837,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Cabriolet",
+"msrp": 47650,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2011-smart-fortwo-price",
@@ -118,6 +130,18 @@
 "msrp": 17890,
 "config": "",
 "note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Hatchback",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Cabriolet",
+"msrp": 28000,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2013-smart-fortwo-price",
@@ -145,11 +169,143 @@
 "msrp": 17930,
 "config": "",
 "note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Hatchback",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Cabriolet",
+"msrp": 28000,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2014-smart-fortwo-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 750,
+"trims": [
+{
+"trim": "Electric Drive Base 2dr Hatchback",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive Base 2dr Cabriolet",
+"msrp": 28000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-smart-fortwo_electric_drive-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 750,
+"trims": [
+{
+"trim": "Electric Drive Base 2dr Hatchback",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive Base 2dr Cabriolet",
+"msrp": 28000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-smart-fortwo_electric_drive-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 750,
+"trims": [
+{
+"trim": "Electric Drive pure 2dr Hatchback",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Hatchback",
+"msrp": 25290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive prime 2dr Hatchback",
+"msrp": 26640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Cabriolet",
+"msrp": 28000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive prime 2dr Cabriolet",
+"msrp": 29000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-smart-fortwo_electric_drive-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 750,
+"trims": [
+{
+"trim": "Electric Drive pure 2dr Hatchback",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Hatchback",
+"msrp": 25290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive prime 2dr Hatchback",
+"msrp": 26640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive passion 2dr Cabriolet",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Drive prime 2dr Cabriolet",
+"msrp": 29100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-smart-fortwo_electric_drive-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

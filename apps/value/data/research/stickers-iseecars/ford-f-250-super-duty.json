@@ -1,0 +1,222 @@
+{
+"make": "Ford",
+"model": "F-250 Super Duty",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (super_duty_f__250).",
+"years": [
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 XL 2dr Regular Cab 8 ft. LB Pickup",
+"msrp": 29875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 32070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 32270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 8 ft. LB Pickup",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 33470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 33670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr Regular Cab 8 ft. LB Pickup",
+"msrp": 33905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 34870,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 35075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 36270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 36405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 36475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 36605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 2dr Regular Cab 8 ft. LB Pickup",
+"msrp": 36705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 38310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 38505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 39210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 39410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 41105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 41305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 41570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 41770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 43970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 44170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 44755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 44960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 47155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 47360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 49355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 49555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 52550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 52750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 53240,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 53440,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-super_duty_f__250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-06-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

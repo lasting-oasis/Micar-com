@@ -122,6 +122,27 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": 1800,
+"trims": [
+{
+"trim": "AWD S Q4 4dr Sedan",
+"msrp": 106900,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS 4dr Sedan",
+"msrp": 140500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-maserati-quattroporte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 1995,
 "trims": [
@@ -177,45 +198,6 @@
 "source": "https://www.iseecars.com/car/2019-maserati-quattroporte-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 99490,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 103990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 106490,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 110990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 124990,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-maserati-quattroporte-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

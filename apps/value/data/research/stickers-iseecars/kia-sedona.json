@@ -74,6 +74,57 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2013,
+"destination": null,
+"trims": [
+{
+"trim": "Minivan",
+"msrp": 19195,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Minivan",
+"msrp": 19195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gasoline Minivan",
+"msrp": 19195,
+"config": "",
+"note": ""
+},
+{
+"trim": "7-Passenger Minivan",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Minivan",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Kia Sedona",
+"msrp": 24900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Kia Minivan",
+"msrp": 24900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-kia-sedona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2013-12-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 850,
 "trims": [
@@ -93,6 +144,123 @@
 "source": "https://www.iseecars.com/car/2014-kia-sedona-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 895,
+"trims": [
+{
+"trim": "L 4dr Mini-Van",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Mini-Van",
+"msrp": 32700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Mini-Van",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 39900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-kia-sedona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 950,
+"trims": [
+{
+"trim": "L 4dr Mini-Van",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Mini-Van",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Mini-Van",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXL 4dr Mini-Van",
+"msrp": 41900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-kia-sedona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 990,
+"trims": [
+{
+"trim": "L 4dr Mini-Van",
+"msrp": 27000,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Mini-Van",
+"msrp": 33700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Mini-Van",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXL 4dr Mini-Van",
+"msrp": 42000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-kia-sedona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -126,39 +294,6 @@
 "source": "https://www.iseecars.com/car/2019-kia-sedona-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 27600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41500,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-kia-sedona-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

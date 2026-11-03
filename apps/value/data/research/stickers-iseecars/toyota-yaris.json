@@ -95,6 +95,57 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "L 2dr Hatchback 5M",
+"msrp": 14370,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 2dr Hatchback 4A",
+"msrp": 15095,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr Hatchback",
+"msrp": 15395,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 2dr Hatchback",
+"msrp": 15955,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 16430,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 5M",
+"msrp": 16480,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 4A",
+"msrp": 17280,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 795,
 "trims": [
@@ -176,43 +227,55 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2018,
+"destination": 930,
 "trims": [
 {
-"trim": "",
-"msrp": 15600,
+"trim": "L 2dr Hatchback 5M",
+"msrp": 15635,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 16600,
+"trim": "L 2dr Hatchback 4A",
+"msrp": 16385,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 16700,
+"trim": "L 4dr Hatchback",
+"msrp": 16760,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 17700,
+"trim": "LE 2dr Hatchback",
+"msrp": 17285,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 18700,
+"trim": "LE 4dr Hatchback",
+"msrp": 17660,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 5M",
+"msrp": 18260,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 4A",
+"msrp": 19060,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-toyota-yaris-price",
+"source": "https://www.iseecars.com/car/2018-toyota-yaris-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

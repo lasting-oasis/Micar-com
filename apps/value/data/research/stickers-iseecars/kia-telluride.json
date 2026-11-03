@@ -5,63 +5,6 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (telluride).",
 "years": [
 {
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 31890,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33890,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41790,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43790,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-kia-telluride-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2021,
 "destination": 1225,
 "trims": [

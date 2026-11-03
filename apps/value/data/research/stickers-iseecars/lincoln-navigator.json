@@ -2,7 +2,7 @@
 "make": "Lincoln",
 "model": "Navigator",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (navigator).",
+"note": "Trim-level MSRPs from iSeeCars price pages (navigator, navigator_l).",
 "years": [
 {
 "year": 2010,
@@ -110,127 +110,115 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2015,
+"destination": 995,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 73205,
+"trim": "4x2 4dr SUV",
+"msrp": 61920,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 75860,
+"trim": "L 4x2 4dr SUV",
+"msrp": 64285,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 77555,
+"trim": "4x4 4dr SUV",
+"msrp": 65495,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 80210,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 85205,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 96395,
+"trim": "L 4x4 4dr SUV",
+"msrp": 67860,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-lincoln-navigator-price",
+"source": "https://www.iseecars.com/car/2015-lincoln-navigator_l-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
-"destination": null,
+"destination": 1295,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 76185,
+"trim": "L 4x2 Standard 4dr SUV",
+"msrp": 79385,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 78855,
+"trim": "L 4x4 Standard 4dr SUV",
+"msrp": 82055,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 81725,
+"trim": "L 4x2 Reserve 4dr SUV",
+"msrp": 84925,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 84400,
+"trim": "L 4x4 Reserve 4dr SUV",
+"msrp": 87600,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 97135,
+"trim": "L 4x4 Black Label 4dr SUV",
+"msrp": 100335,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-lincoln-navigator-price",
+"source": "https://www.iseecars.com/car/2020-lincoln-navigator_l-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
-"destination": null,
+"destination": 1295,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 76705,
+"trim": "L 4x2 Standard 4dr SUV",
+"msrp": 79905,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 79375,
+"trim": "L 4x4 Standard 4dr SUV",
+"msrp": 82575,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 82490,
+"trim": "L 4x2 Reserve 4dr SUV",
+"msrp": 85715,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 85165,
+"trim": "L 4x4 Reserve 4dr SUV",
+"msrp": 88385,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 98655,
+"trim": "L 4x4 Black Label 4dr SUV",
+"msrp": 101855,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-lincoln-navigator-price",
+"source": "https://www.iseecars.com/car/2021-lincoln-navigator_l-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,
@@ -243,8 +231,20 @@
 "note": ""
 },
 {
+"trim": "L 4x2 Standard 4dr SUV",
+"msrp": 80630,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Standard 4dr SUV",
 "msrp": 80635,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Standard 4dr SUV",
+"msrp": 83630,
 "config": "",
 "note": ""
 },
@@ -261,8 +261,26 @@
 "note": ""
 },
 {
+"trim": "L 4x2 Reserve 4dr SUV",
+"msrp": 92855,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Reserve 4dr SUV",
+"msrp": 95550,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Black Label 4dr SUV",
 "msrp": 106635,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Black Label 4dr SUV",
+"msrp": 109680,
 "config": "",
 "note": ""
 }
@@ -282,8 +300,20 @@
 "note": ""
 },
 {
+"trim": "L 4x2 Standard 4dr SUV",
+"msrp": 82720,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Standard 4dr SUV",
 "msrp": 82725,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Standard 4dr SUV",
+"msrp": 85720,
 "config": "",
 "note": ""
 },
@@ -300,15 +330,33 @@
 "note": ""
 },
 {
+"trim": "L 4x2 Reserve 4dr SUV",
+"msrp": 94965,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Reserve 4dr SUV",
+"msrp": 97660,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Black Label 4dr SUV",
 "msrp": 109255,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Black Label 4dr SUV",
+"msrp": 112300,
 "config": "",
 "note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2023-lincoln-navigator-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2024,
@@ -321,8 +369,20 @@
 "note": ""
 },
 {
+"trim": "L 4x4 Premiere 4dr SUV",
+"msrp": 86260,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Reserve 4dr SUV",
 "msrp": 95695,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Reserve 4dr SUV",
+"msrp": 98695,
 "config": "",
 "note": ""
 },
@@ -331,11 +391,17 @@
 "msrp": 111095,
 "config": "",
 "note": ""
+},
+{
+"trim": "L 4x4 Black Label 4dr SUV",
+"msrp": 114095,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2024-lincoln-navigator-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2025,
@@ -348,15 +414,27 @@
 "note": ""
 },
 {
+"trim": "L 4x4 Reserve 4dr SUV",
+"msrp": 102985,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x4 Black Label 4dr SUV",
 "msrp": 116995,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4x4 Black Label 4dr SUV",
+"msrp": 119995,
 "config": "",
 "note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2025-lincoln-navigator-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

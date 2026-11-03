@@ -218,199 +218,148 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2017,
+"destination": 1295,
 "trims": [
 {
-"trim": "",
-"msrp": 49050,
+"trim": "4x2 SR5 4dr SUV",
+"msrp": 45560,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 51765,
+"trim": "4x4 SR5 4dr SUV FFV",
+"msrp": 48785,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 52275,
+"trim": "4x4 SR5 4dr SUV",
+"msrp": 48785,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 54990,
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 54350,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 57545,
+"trim": "4x4 Limited 4dr SUV FFV",
+"msrp": 57575,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 60770,
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 57575,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 64760,
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 62090,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 67985,
+"trim": "4x4 Platinum 4dr SUV FFV",
+"msrp": 65315,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 65315,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-toyota-sequoia-price",
+"source": "https://www.iseecars.com/car/2017-toyota-sequoia-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2018,
+"destination": 1295,
 "trims": [
 {
-"trim": "",
-"msrp": 49905,
+"trim": "4x2 SR5 4dr SUV",
+"msrp": 48600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 52620,
+"trim": "4x2 TRD Sport 4dr SUV",
+"msrp": 51315,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 53130,
+"trim": "4x4 SR5 4dr SUV FFV",
+"msrp": 51525,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 55848,
+"trim": "4x4 SR5 4dr SUV",
+"msrp": 51825,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 58915,
+"trim": "4x4 TRD Sport 4dr SUV FFV",
+"msrp": 54240,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 62140,
+"trim": "4x4 TRD Sport 4dr SUV",
+"msrp": 54540,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 64030,
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 57095,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 65945,
+"trim": "4x4 Limited 4dr SUV FFV",
+"msrp": 60020,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 69170,
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 60320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 64310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV FFV",
+"msrp": 67235,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 67535,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-toyota-sequoia-price",
+"source": "https://www.iseecars.com/car/2018-toyota-sequoia-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 50200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52915,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53425,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56140,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59220,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 60220,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 62445,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 63445,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 64325,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 66250,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 69475,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-toyota-sequoia-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

@@ -5,49 +5,49 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (huracan).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2018,
+"destination": 3495,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 203674,
+"trim": "LP 580-2 2dr Coupe",
+"msrp": 199800,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 223654,
+"trim": "LP 580-2 Spyder 2dr Convertible",
+"msrp": 219780,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 242474,
+"trim": "AWD LP 610-4 2dr Coupe",
+"msrp": 238600,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 266325,
+"trim": "AWD LP 610-4 Spyder 2dr Convertible",
+"msrp": 262450,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 281048,
+"trim": "AWD LP 640-4 Performante 2dr Coupe",
+"msrp": 274390,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"trim": "AWD LP 640-4 Performante Spyder 2dr Convertible",
 "msrp": 308859,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-lamborghini-huracan-price",
+"source": "https://www.iseecars.com/car/2018-lamborghini-huracan-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

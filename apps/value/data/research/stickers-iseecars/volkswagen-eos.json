@@ -59,6 +59,39 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "Komfort SULEV 2dr Convertible",
+"msrp": 34650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SULEV 2dr Convertible",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux SULEV 2dr Convertible",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Executive SULEV 2dr Convertible",
+"msrp": 41450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-volkswagen-eos-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 825,
 "trims": [

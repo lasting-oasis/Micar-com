@@ -2,7 +2,7 @@
 "make": "Mini",
 "model": "Cooper",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (cooper, hardtop).",
+"note": "Trim-level MSRPs from iSeeCars price pages (cooper, cooper_countryman, cooper_coupe, cooper_roadster, hardtop).",
 "years": [
 {
 "year": 2010,
@@ -60,6 +60,12 @@
 "note": ""
 },
 {
+"trim": "Countryman Base 4dr Crossover",
+"msrp": 21650,
+"config": "",
+"note": ""
+},
+{
 "trim": "S 2dr Hatchback",
 "msrp": 23000,
 "config": "",
@@ -68,6 +74,18 @@
 {
 "trim": "Base 2dr Convertible",
 "msrp": 24850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Countryman S 4dr Crossover",
+"msrp": 25250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Countryman AWD S ALL4 4dr Crossover",
+"msrp": 26950,
 "config": "",
 "note": ""
 },
@@ -95,94 +113,97 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2012,
+"destination": 700,
 "trims": [
 {
-"trim": "Hardtop",
-"msrp": 21900,
+"trim": "Coupe Base 2dr Coupe",
+"msrp": 21300,
 "config": "",
 "note": ""
 },
 {
-"trim": "Hardtop",
-"msrp": 22900,
+"trim": "Roadster Base 2dr Convertible",
+"msrp": 24350,
 "config": "",
 "note": ""
 },
 {
-"trim": "Hardtop",
-"msrp": 25900,
+"trim": "Coupe S 2dr Coupe",
+"msrp": 24600,
 "config": "",
 "note": ""
 },
 {
-"trim": "Hardtop",
-"msrp": 26900,
+"trim": "Roadster S 2dr Convertible",
+"msrp": 27350,
 "config": "",
 "note": ""
 },
 {
-"trim": "Hardtop",
-"msrp": 31900,
+"trim": "Coupe John Cooper Works 2dr Coupe",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Roadster John Cooper Works 2dr Convertible",
+"msrp": 34500,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-mini-hardtop-price",
+"source": "https://www.iseecars.com/car/2012-mini-cooper_coupe-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2021,
-"destination": null,
+"year": 2013,
+"destination": 700,
 "trims": [
 {
-"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 22400,
+"trim": "Hardtop Cooper 2dr Hatchback",
+"msrp": 19700,
 "config": "",
 "note": ""
 },
 {
-"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 23400,
+"trim": "Hardtop Cooper S 2dr Hatchback",
+"msrp": 23300,
 "config": "",
 "note": ""
 },
 {
-"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 26400,
-"config": "",
-"note": ""
-},
-{
-"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 27400,
-"config": "",
-"note": ""
-},
-{
-"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 29900,
-"config": "",
-"note": ""
-},
-{
-"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 32400,
-"config": "",
-"note": ""
-},
-{
-"trim": "Hardtop var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 44900,
+"trim": "Hardtop John Cooper Works 2dr Hatchback",
+"msrp": 30100,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-mini-hardtop-price",
+"source": "https://www.iseecars.com/car/2013-mini-hardtop-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "Hardtop Cooper 2dr Hatchback",
+"msrp": 19950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hardtop Cooper S 2dr Hatchback",
+"msrp": 23600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-mini-hardtop-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

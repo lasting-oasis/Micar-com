@@ -284,130 +284,97 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2016,
+"destination": 875,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 15295,
+"trim": "LS Manual 4dr Sedan",
+"msrp": 14345,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 16520,
+"trim": "LS Manual 4dr Hatchback",
+"msrp": 14945,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 17720,
+"trim": "LS Auto 4dr Sedan",
+"msrp": 15595,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 17820,
+"trim": "LT Manual 4dr Sedan",
+"msrp": 16155,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 18420,
+"trim": "LS Auto 4dr Hatchback",
+"msrp": 16195,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 19220,
+"trim": "LT Manual 4dr Hatchback",
+"msrp": 16755,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 19820,
+"trim": "LT Auto 4dr Sedan",
+"msrp": 17545,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 20520,
+"trim": "LT Auto 4dr Hatchback",
+"msrp": 18145,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 21320,
+"trim": "LTZ Auto 4dr Sedan",
+"msrp": 19780,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Manual 4dr Sedan",
+"msrp": 20095,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Manual 4dr Hatchback",
+"msrp": 20095,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Auto 4dr Hatchback",
+"msrp": 20345,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Auto 4dr Sedan",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Auto 4dr Hatchback",
+"msrp": 21495,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-chevrolet-sonic-price",
+"source": "https://www.iseecars.com/car/2016-chevrolet-sonic-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 15420,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 16720,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 17920,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 18020,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 18620,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 19420,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 20020,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 20720,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 21520,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-chevrolet-sonic-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

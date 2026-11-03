@@ -374,51 +374,6 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 47500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 62200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 65200,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2018-chevrolet-tahoe-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2019,
 "destination": 1295,
 "trims": [
@@ -492,51 +447,6 @@
 "source": "https://www.iseecars.com/car/2019-chevrolet-tahoe-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 49000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 62700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 65700,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-chevrolet-tahoe-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

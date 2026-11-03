@@ -2,49 +2,22 @@
 "make": "BMW",
 "model": "X4",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (x4).",
+"note": "Trim-level MSRPs from iSeeCars price pages (x4_m).",
 "years": [
 {
-"year": 2020,
-"destination": null,
+"year": 2022,
+"destination": 995,
 "trims": [
 {
-"trim": "",
-"msrp": 51100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 61000,
+"trim": "X4 M AWD 4dr Sports Activity Coupe",
+"msrp": 73600,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-bmw-x4-price",
+"source": "https://www.iseecars.com/car/2022-bmw-x4_m-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 51600,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 61700,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-bmw-x4-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

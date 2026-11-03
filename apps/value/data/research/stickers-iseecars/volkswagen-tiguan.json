@@ -155,6 +155,147 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "S 4dr SUV 6M",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6M (ends 1/13)",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A",
+"msrp": 25010,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A (ends 1/13)",
+"msrp": 25010,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A w/Sunroof",
+"msrp": 26810,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A w/Sunroof (ends 1/13)",
+"msrp": 26810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 26965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV (ends 1/13)",
+"msrp": 26965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV w/Sunroof",
+"msrp": 28765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV w/Sunroof (ends 1/13)",
+"msrp": 28765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 29470,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV (ends 1/13)",
+"msrp": 29470,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Sunroof and Navigation",
+"msrp": 31410,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Sunroof and Navigation (ends 1/13)",
+"msrp": 31410,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 31425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV (ends 1/13)",
+"msrp": 31425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Sunroof and Navigation",
+"msrp": 33365,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Sunroof and Navigation (ends 1/13)",
+"msrp": 33365,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 35175,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV (ends 1/13)",
+"msrp": 35175,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 37310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV (ends 1/13)",
+"msrp": 37310,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 875,
 "trims": [

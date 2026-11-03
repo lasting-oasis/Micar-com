@@ -5,6 +5,33 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (pacifica, pacifica_hybrid).",
 "years": [
 {
+"year": 2017,
+"destination": 1095,
+"trims": [
+{
+"trim": "Hybrid Touring Plus 4dr Mini-Van",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Premium 4dr Mini-Van",
+"msrp": 41995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum 4dr Mini-Van",
+"msrp": 44995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chrysler-pacifica_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 1395,
 "trims": [
@@ -36,50 +63,8 @@
 "destination": 1495,
 "trims": [
 {
-"trim": "",
-"msrp": 27235,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30045,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33495,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36795,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39645,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40245,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid Touring Plus 4dr Mini-Van",
 "msrp": 40245,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42445,
 "config": "",
 "note": ""
 },
@@ -96,18 +81,6 @@
 "note": ""
 },
 {
-"trim": "",
-"msrp": 44695,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45795,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid Limited 4dr Mini-Van",
 "msrp": 45795,
 "config": "",
@@ -120,47 +93,17 @@
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-chrysler-pacifica-price",
+"source": "https://www.iseecars.com/car/2019-chrysler-pacifica_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
 "destination": 1495,
 "trims": [
 {
-"trim": "",
-"msrp": 33745,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36745,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39745,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39995,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid Touring 4dr Mini-Van",
 "msrp": 39995,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42295,
 "config": "",
 "note": ""
 },
@@ -173,18 +116,6 @@
 {
 "trim": "Hybrid Touring L 35th Anniversary 4dr Mini-Van",
 "msrp": 44285,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44695,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45845,
 "config": "",
 "note": ""
 },
@@ -207,50 +138,14 @@
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-chrysler-pacifica-price",
+"source": "https://www.iseecars.com/car/2020-chrysler-pacifica_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
 "destination": 1495,
 "trims": [
-{
-"trim": "",
-"msrp": 35820,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38815,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39120,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40620,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42115,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42920,
-"config": "",
-"note": ""
-},
 {
 "trim": "Hybrid Touring 4dr Mini-Van",
 "msrp": 43100,
@@ -264,38 +159,8 @@
 "note": ""
 },
 {
-"trim": "",
-"msrp": 45795,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 46045,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid Limited 4dr Mini-Van",
 "msrp": 48525,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48815,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50795,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 51550,
 "config": "",
 "note": ""
 },
@@ -304,17 +169,11 @@
 "msrp": 54030,
 "config": "",
 "note": ""
-},
-{
-"trim": "",
-"msrp": 54095,
-"config": "",
-"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-chrysler-pacifica-price",
+"source": "https://www.iseecars.com/car/2021-chrysler-pacifica_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

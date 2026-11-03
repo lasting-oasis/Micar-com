@@ -2,7 +2,7 @@
 "make": "Toyota",
 "model": "RAV4",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (rav4, rav4_hybrid, rav4_prime).",
+"note": "Trim-level MSRPs from iSeeCars price pages (rav4, rav4_ev, rav4_hybrid, rav4_prime).",
 "years": [
 {
 "year": 2010,
@@ -167,6 +167,21 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2013,
+"destination": 845,
+"trims": [
+{
+"trim": "EV Base 4dr SUV",
+"msrp": 49800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-rav4_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 860,
 "trims": [
@@ -212,178 +227,118 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2015,
+"destination": 885,
 "trims": [
 {
-"trim": "",
-"msrp": 25650,
+"trim": "LE 4dr SUV",
+"msrp": 23680,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27050,
+"trim": "AWD LE 4dr SUV",
+"msrp": 25080,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27450,
+"trim": "XLE 4dr SUV",
+"msrp": 25240,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27850,
+"trim": "AWD XLE 4dr SUV",
+"msrp": 26640,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 28850,
+"trim": "Limited 4dr SUV",
+"msrp": 28450,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 29650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 31050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33850,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35850,
+"trim": "AWD Limited 4dr SUV",
+"msrp": 29850,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-toyota-rav4-price",
+"source": "https://www.iseecars.com/car/2015-toyota-rav4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2017,
+"destination": 995,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25950,
+"trim": "LE 4dr SUV",
+"msrp": 24410,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 27245,
+"trim": "XLE 4dr SUV",
+"msrp": 25500,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 27350,
+"trim": "AWD LE 4dr SUV",
+"msrp": 25810,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 28350,
+"trim": "AWD XLE 4dr SUV",
+"msrp": 26900,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 28645,
+"trim": "SE 4dr SUV",
+"msrp": 28790,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 29645,
+"trim": "AWD SE 4dr SUV",
+"msrp": 30190,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 29950,
+"trim": "Limited 4dr SUV",
+"msrp": 30905,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 31350,
+"trim": "AWD Limited 4dr SUV",
+"msrp": 32305,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 33055,
+"trim": "Platinum 4dr SUV",
+"msrp": 34750,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 34300,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 34480,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 35280,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 35880,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 36880,
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 36150,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-toyota-rav4-price",
+"source": "https://www.iseecars.com/car/2017-toyota-rav4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
@@ -448,23 +403,11 @@
 "msrp": 36280,
 "config": "",
 "note": ""
-},
-{
-"trim": "Prime",
-"msrp": 38100,
-"config": "",
-"note": ""
-},
-{
-"trim": "Prime",
-"msrp": 41425,
-"config": "",
-"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-toyota-rav4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

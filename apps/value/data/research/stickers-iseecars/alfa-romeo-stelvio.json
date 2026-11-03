@@ -2,7 +2,7 @@
 "make": "Alfa Romeo",
 "model": "Stelvio",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (stelvio).",
+"note": "Trim-level MSRPs from iSeeCars price pages (stelvio, stelvio_quadrifoglio).",
 "years": [
 {
 "year": 2018,
@@ -37,11 +37,17 @@
 "msrp": 46495,
 "config": "",
 "note": ""
+},
+{
+"trim": "Quadrifoglio AWD Base 4dr Crossover",
+"msrp": 79795,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2018-alfaromeo-stelvio-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -94,11 +100,17 @@
 "msrp": 52245,
 "config": "",
 "note": ""
+},
+{
+"trim": "Quadrifoglio AWD Base 4dr Crossover",
+"msrp": 80245,
+"config": "",
+"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-alfaromeo-stelvio-price",
+"source": "https://www.iseecars.com/car/2019-alfaromeo-stelvio_quadrifoglio-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
@@ -151,6 +163,12 @@
 "msrp": 52300,
 "config": "",
 "note": ""
+},
+{
+"trim": "Quadrifoglio AWD 4dr Crossover",
+"msrp": 80500,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2020-alfaromeo-stelvio-price",
@@ -184,11 +202,17 @@
 "msrp": 50800,
 "config": "",
 "note": ""
+},
+{
+"trim": "Quadrifoglio AWD 4dr Crossover",
+"msrp": 81250,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-alfaromeo-stelvio-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,
@@ -217,11 +241,17 @@
 "msrp": 52000,
 "config": "",
 "note": ""
+},
+{
+"trim": "Quadrifoglio AWD 4dr Crossover",
+"msrp": 84650,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2022-alfaromeo-stelvio-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

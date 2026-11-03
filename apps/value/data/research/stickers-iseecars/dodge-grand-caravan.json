@@ -212,67 +212,49 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2016,
+"destination": 995,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 26250,
+"trim": "American Value Package 4dr Mini-Van",
+"msrp": 22595,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 31750,
+"trim": "SE 4dr Mini-Van",
+"msrp": 25095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Plus 4dr Mini-Van",
+"msrp": 26195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Mini-Van",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 4dr Mini-Van",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Mini-Van",
+"msrp": 31495,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-dodge-grand_caravan-price",
+"source": "https://www.iseecars.com/car/2016-dodge-grand_caravan-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 27040,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 32540,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-dodge-grand_caravan-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 27530,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32995,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-dodge-grand_caravan-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

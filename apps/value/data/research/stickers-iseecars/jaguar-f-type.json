@@ -5,6 +5,204 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (f__type).",
 "years": [
 {
+"year": 2015,
+"destination": 925,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 65000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible",
+"msrp": 69000,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Coupe",
+"msrp": 77000,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 2dr Convertible",
+"msrp": 81000,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 S 2dr Convertible",
+"msrp": 92000,
+"config": "",
+"note": ""
+},
+{
+"trim": "R 2dr Coupe",
+"msrp": 99000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-jaguar-f__type-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "296HP 2dr Coupe",
+"msrp": 59900,
+"config": "",
+"note": ""
+},
+{
+"trim": "296HP 2dr Convertible",
+"msrp": 63000,
+"config": "",
+"note": ""
+},
+{
+"trim": "340HP 2dr Coupe 6M",
+"msrp": 68000,
+"config": "",
+"note": ""
+},
+{
+"trim": "340HP 2dr Coupe 8A",
+"msrp": 69300,
+"config": "",
+"note": ""
+},
+{
+"trim": "340HP 2dr Convertible 6M",
+"msrp": 71100,
+"config": "",
+"note": ""
+},
+{
+"trim": "340HP 2dr Convertible 8A",
+"msrp": 72400,
+"config": "",
+"note": ""
+},
+{
+"trim": "380HP 2dr Coupe",
+"msrp": 79900,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Dynamic 2dr Coupe 6M",
+"msrp": 81200,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Dynamic 2dr Coupe 8A",
+"msrp": 82500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 380HP 2dr Coupe",
+"msrp": 82900,
+"config": "",
+"note": ""
+},
+{
+"trim": "380HP 2dr Convertible",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Dynamic 2dr Convertible 6M",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R-Dynamic 2dr Coupe",
+"msrp": 85500,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Dynamic 2dr Convertible 8A",
+"msrp": 85600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 380HP 2dr Convertible",
+"msrp": 86000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R-Dynamic 2dr Convertible",
+"msrp": 88600,
+"config": "",
+"note": ""
+},
+{
+"trim": "400 SPORT 2dr Coupe",
+"msrp": 89500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 400 SPORT 2dr Coupe",
+"msrp": 92500,
+"config": "",
+"note": ""
+},
+{
+"trim": "400 SPORT 2dr Convertible",
+"msrp": 92600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 400 SPORT 2dr Convertible",
+"msrp": 95600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R 2dr Coupe",
+"msrp": 99900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R 2dr Convertible",
+"msrp": 103000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SVR 2dr Coupe",
+"msrp": 121900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SVR 2dr Convertible",
+"msrp": 125000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jaguar-f__type-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [
@@ -132,168 +330,6 @@
 "source": "https://www.iseecars.com/car/2019-jaguar-f__type-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 61600,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 64700,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 71100,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 71900,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 74200,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 74300,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 84300,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 87300,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 87400,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 90400,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 94500,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 96900,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 101800,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 104900,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 123600,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 126700,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-jaguar-f__type-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 61600,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 64700,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 73100,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 75400,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 81800,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 84900,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 103200,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 105900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-jaguar-f__type-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

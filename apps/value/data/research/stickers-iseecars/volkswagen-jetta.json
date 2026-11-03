@@ -830,193 +830,205 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2015,
+"destination": 820,
 "trims": [
 {
-"trim": "",
-"msrp": 18745,
+"trim": "4dr Sedan 5M",
+"msrp": 16215,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 19545,
+"trim": "S 4dr Sedan 5M",
+"msrp": 17325,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 22395,
+"trim": "S 4dr Sedan 5M w/Technology",
+"msrp": 18320,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 23245,
+"trim": "S 4dr Sedan 6A",
+"msrp": 18425,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 24695,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 25995,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 26795,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 26995,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27195,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27695,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27795,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29195,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29995,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-volkswagen-jetta-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 18895,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 19695,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 22645,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 22695,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 23495,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25495,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 27945,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-volkswagen-jetta-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
+"trim": "SE 4dr Sedan 5M",
 "msrp": 18995,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 19795,
+"trim": "SE PZEV 4dr Sedan 5M",
+"msrp": 18995,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 22795,
+"trim": "S 4dr Sedan 6A w/Technology",
+"msrp": 19420,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 22895,
+"trim": "SE 4dr Sedan 6A",
+"msrp": 20095,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 23595,
+"trim": "SE PZEV 4dr Sedan 6A",
+"msrp": 20095,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 25745,
+"trim": "Sport PZEV 4dr Sedan 5M",
+"msrp": 20895,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 28045,
+"trim": "TDI S 4dr Sedan 6M",
+"msrp": 21640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6A",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A w/Connectivity",
+"msrp": 22325,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A w/Connectivity",
+"msrp": 22325,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI S 4dr Sedan 6A",
+"msrp": 22740,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A w/Connectivity and Navigation",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A w/Connectivity and Navigation",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI SE 4dr Sedan 6M w/Connectivity",
+"msrp": 24075,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI SE 4dr Sedan 6A w/Connectivity",
+"msrp": 25175,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan 6A",
+"msrp": 25380,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan 6A",
+"msrp": 25380,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI SEL 4dr Sedan 6M",
+"msrp": 26410,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SE 4dr Sedan 6M",
+"msrp": 26920,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SE PZEV 4dr Sedan 6M",
+"msrp": 26920,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI SEL 4dr Sedan 6A",
+"msrp": 27510,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SE 4dr Sedan 6A",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SE PZEV 4dr Sedan 6A",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SEL 4dr Sedan 6M",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SEL PZEV 4dr Sedan 6M",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SEL 4dr Sedan 6A",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SEL PZEV 4dr Sedan 6A",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SEL Premium 4dr Sedan",
+"msrp": 31120,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-volkswagen-jetta-price",
+"source": "https://www.iseecars.com/car/2015-volkswagen-jetta-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

@@ -5,27 +5,6 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (urus).",
 "years": [
 {
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 218009,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 239231,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-lamborghini-urus-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2024,
 "destination": 3995,
 "trims": [

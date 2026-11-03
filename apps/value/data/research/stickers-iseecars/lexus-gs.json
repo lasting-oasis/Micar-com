@@ -2,7 +2,7 @@
 "make": "Lexus",
 "model": "GS",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (gs_350, gs_450h, gs_460, gs_f).",
+"note": "Trim-level MSRPs from iSeeCars price pages (gs_350, gs_450h, gs_460).",
 "years": [
 {
 "year": 2010,
@@ -125,94 +125,91 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2015,
+"destination": 925,
 "trims": [
 {
-"trim": "GS 350 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 50915,
+"trim": "GS 350 4dr Sedan",
+"msrp": 48600,
 "config": "",
 "note": ""
 },
 {
-"trim": "GS 350 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 51245,
+"trim": "GS 350 AWD 4dr Sedan",
+"msrp": 50850,
 "config": "",
 "note": ""
 },
 {
-"trim": "GS 350 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 52610,
+"trim": "GS 350 Crafted Line 4dr Sedan",
+"msrp": 55070,
 "config": "",
 "note": ""
 },
 {
-"trim": "GS 350 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 54355,
-"config": "",
-"note": ""
-},
-{
-"trim": "GS F",
-"msrp": 84600,
+"trim": "GS 350 AWD Crafted Line 4dr Sedan",
+"msrp": 57330,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-lexus-gs_350-price",
+"source": "https://www.iseecars.com/car/2015-lexus-gs_350-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2017,
+"destination": 995,
 "trims": [
 {
-"trim": "GS 350",
-"msrp": 51065,
+"trim": "GS 450H 4dr Sedan",
+"msrp": 63635,
 "config": "",
 "note": ""
 },
 {
-"trim": "GS 350",
-"msrp": 51395,
-"config": "",
-"note": ""
-},
-{
-"trim": "GS 350",
-"msrp": 52760,
-"config": "",
-"note": ""
-},
-{
-"trim": "GS 350",
-"msrp": 53410,
-"config": "",
-"note": ""
-},
-{
-"trim": "GS 350",
-"msrp": 54505,
-"config": "",
-"note": ""
-},
-{
-"trim": "GS 350",
-"msrp": 55155,
-"config": "",
-"note": ""
-},
-{
-"trim": "GS F",
-"msrp": 85010,
+"trim": "GS 450H F SPORT 4dr Sedan",
+"msrp": 68680,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-lexus-gs_350-price",
+"source": "https://www.iseecars.com/car/2017-lexus-gs_450h-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 1025,
+"trims": [
+{
+"trim": "GS 350 AWD 4dr Sedan",
+"msrp": 50565,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 4dr Sedan",
+"msrp": 50895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 F SPORT 4dr Sedan",
+"msrp": 52260,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 350 AWD F SPORT 4dr Sedan",
+"msrp": 54005,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lexus-gs_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

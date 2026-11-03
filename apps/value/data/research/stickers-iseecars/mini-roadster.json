@@ -1,0 +1,63 @@
+{
+"make": "Mini",
+"model": "Roadster",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (roadster).",
+"years": [
+{
+"year": 2013,
+"destination": 700,
+"trims": [
+{
+"trim": "Cooper 2dr Convertible",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S 2dr Convertible",
+"msrp": 28550,
+"config": "",
+"note": ""
+},
+{
+"trim": "John Cooper Works 2dr Convertible",
+"msrp": 35700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-mini-roadster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "Cooper 2dr Convertible",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S 2dr Convertible",
+"msrp": 28550,
+"config": "",
+"note": ""
+},
+{
+"trim": "John Cooper Works 2dr Convertible",
+"msrp": 35700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-mini-roadster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

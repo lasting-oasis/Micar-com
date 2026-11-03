@@ -408,68 +408,8 @@
 "destination": 1245,
 "trims": [
 {
-"trim": "",
-"msrp": 24885,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 26385,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27095,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 28255,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 28595,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29255,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29755,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30755,
-"config": "",
-"note": ""
-},
-{
 "trim": "Plug-In Hybrid SE 4dr SUV",
 "msrp": 33040,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34900,
 "config": "",
 "note": ""
 },
@@ -480,21 +420,15 @@
 "note": ""
 },
 {
-"trim": "",
-"msrp": 36685,
-"config": "",
-"note": ""
-},
-{
 "trim": "Plug-In Hybrid Titanium 4dr SUV",
 "msrp": 38835,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-ford-escape-price",
+"source": "https://www.iseecars.com/car/2020-ford-escape_plug__in_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

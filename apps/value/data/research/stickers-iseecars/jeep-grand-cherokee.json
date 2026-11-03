@@ -404,79 +404,109 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2015,
+"destination": 995,
 "trims": [
 {
-"trim": "",
-"msrp": 32195,
+"trim": "4x2 Laredo 4dr SUV",
+"msrp": 29995,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 34495,
+"trim": "4x2 Laredo E 4dr SUV",
+"msrp": 31995,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 39445,
+"trim": "4x4 Laredo 4dr SUV",
+"msrp": 31995,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 41445,
+"trim": "4x4 Laredo E 4dr SUV",
+"msrp": 33995,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 44545,
+"trim": "4x2 Altitude 4dr SUV",
+"msrp": 35800,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 46245,
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 37065,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 49245,
+"trim": "4x4 Altitude 4dr SUV",
+"msrp": 37800,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 51945,
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 39065,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 54945,
+"trim": "4x2 Overland 4dr SUV",
+"msrp": 43595,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 68645,
+"trim": "4x2 High Altitude 4dr SUV",
+"msrp": 46090,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 87150,
+"trim": "4x4 Overland 4dr SUV",
+"msrp": 46595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Summit 4dr SUV",
+"msrp": 48995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Altitude 4dr SUV",
+"msrp": 49090,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Summit 4dr SUV",
+"msrp": 51995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SRT 4dr SUV",
+"msrp": 64895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SRT Red Vapor Edition 4dr SUV",
+"msrp": 68590,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-jeep-grand_cherokee-price",
+"source": "https://www.iseecars.com/car/2015-jeep-grand_cherokee-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

@@ -2,7 +2,7 @@
 "make": "Hyundai",
 "model": "Santa Fe",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (santa_fe, santa_fe_plug__in_hybrid).",
+"note": "Trim-level MSRPs from iSeeCars price pages (santa_fe, santa_fe_plug__in_hybrid, santa_fe_sport).",
 "years": [
 {
 "year": 2010,
@@ -186,8 +186,32 @@
 "destination": 855,
 "trims": [
 {
+"trim": "Sport 2.4L 4dr SUV",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 2.4L 4dr SUV",
+"msrp": 26450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2.0T 4dr SUV",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
 "trim": "GLS 4dr SUV",
 "msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 2.0T 4dr SUV",
+"msrp": 29700,
 "config": "",
 "note": ""
 },
@@ -248,166 +272,82 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2015,
+"destination": 895,
 "trims": [
 {
-"trim": "",
-"msrp": 25750,
+"trim": "GLS 4dr SUV",
+"msrp": 30150,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27450,
+"trim": "AWD GLS 4dr SUV",
+"msrp": 31900,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27600,
+"trim": "Limited 4dr SUV",
+"msrp": 34250,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 29300,
+"trim": "AWD Limited 4dr SUV",
+"msrp": 36000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-hyundai-santa_fe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 980,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 30850,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 29800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 31500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
+"trim": "AWD SE 4dr SUV",
 "msrp": 32600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 34200,
+"trim": "SE Ultimate 4dr SUV",
+"msrp": 38850,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 34300,
+"trim": "Limited Ultimate 4dr SUV",
+"msrp": 39550,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35450,
+"trim": "AWD SE Ultimate 4dr SUV",
+"msrp": 40600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37150,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38800,
+"trim": "AWD Limited Ultimate 4dr SUV",
+"msrp": 41300,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-hyundai-santa_fe-price",
+"source": "https://www.iseecars.com/car/2018-hyundai-santa_fe-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 25900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29350,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37350,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39200,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-hyundai-santa_fe-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

@@ -746,210 +746,6 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 49600,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 52400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 54800,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 55400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 57600,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 57600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 57800,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 60400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 60600,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 60600,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 63400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 66700,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 69500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 69700,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 72500,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-gmc-yukon-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 50600,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 53400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 54800,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 56400,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 57600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 57800,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 60500,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 60600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 60800,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 63500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 67700,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 70500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 70700,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 73500,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-gmc-yukon-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2021,
 "destination": 1695,
 "trims": [
@@ -960,20 +756,8 @@
 "note": ""
 },
 {
-"trim": "Yukon XL",
-"msrp": 53400,
-"config": "",
-"note": ""
-},
-{
 "trim": "4x4 SLE 4dr SUV",
 "msrp": 54000,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 56400,
 "config": "",
 "note": ""
 },
@@ -984,20 +768,8 @@
 "note": ""
 },
 {
-"trim": "Yukon XL",
-"msrp": 60500,
-"config": "",
-"note": ""
-},
-{
 "trim": "4x4 SLT 4dr SUV",
 "msrp": 61000,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 63500,
 "config": "",
 "note": ""
 },
@@ -1008,20 +780,8 @@
 "note": ""
 },
 {
-"trim": "Yukon XL",
-"msrp": 67500,
-"config": "",
-"note": ""
-},
-{
 "trim": "4x2 Denali 4dr SUV",
 "msrp": 68600,
-"config": "",
-"note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 71100,
 "config": "",
 "note": ""
 },
@@ -1030,17 +790,11 @@
 "msrp": 71600,
 "config": "",
 "note": ""
-},
-{
-"trim": "Yukon XL",
-"msrp": 74100,
-"config": "",
-"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-gmc-yukon-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

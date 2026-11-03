@@ -2,7 +2,7 @@
 "make": "Buick",
 "model": "Regal",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (regal).",
+"note": "Trim-level MSRPs from iSeeCars price pages (regal, regal_sportback).",
 "years": [
 {
 "year": 2011,
@@ -327,6 +327,63 @@
 "source": "https://www.iseecars.com/car/2014-buick-regal-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 925,
+"trims": [
+{
+"trim": "Sportback Base 4dr Sportback",
+"msrp": 25070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred 4dr Sportback",
+"msrp": 27670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred II 4dr Sportback",
+"msrp": 29770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD Preferred II 4dr Sportback",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence 4dr Sportback",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD Essence 4dr Sportback",
+"msrp": 33870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Avenir 4dr Sportback",
+"msrp": 35270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD GS 4dr Sportback",
+"msrp": 39070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-buick-regal_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

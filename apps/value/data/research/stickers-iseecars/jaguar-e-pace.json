@@ -5,49 +5,55 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (e__pace).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2018,
+"destination": 995,
 "trims": [
 {
-"trim": "",
-"msrp": 38900,
+"trim": "AWD P250 4dr SUV",
+"msrp": 38600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 41200,
+"trim": "AWD P250 S 4dr SUV",
+"msrp": 41500,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 43900,
+"trim": "AWD P250 SE 4dr SUV",
+"msrp": 44300,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 46700,
+"trim": "AWD P300 R-Dynamic S 4dr SUV",
+"msrp": 47250,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 49400,
+"trim": "AWD P300 R-Dynamic SE 4dr SUV",
+"msrp": 50050,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 53200,
+"trim": "AWD P300 R-Dynamic HSE 4dr SUV",
+"msrp": 53100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P250 First Edition 4dr SUV",
+"msrp": 53550,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-jaguar-e__pace-price",
+"source": "https://www.iseecars.com/car/2018-jaguar-e__pace-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

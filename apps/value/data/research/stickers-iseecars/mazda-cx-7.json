@@ -5,6 +5,51 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (cx__7).",
 "years": [
 {
+"year": 2010,
+"destination": null,
+"trims": [
+{
+"trim": "SV",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport",
+"msrp": 22490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring",
+"msrp": 25950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring",
+"msrp": 31335,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring",
+"msrp": 33035,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-mazda-cx__7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2011-09-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2012,
 "destination": 795,
 "trims": [

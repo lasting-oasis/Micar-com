@@ -15,6 +15,7 @@ def cells(tr):
     return [html.unescape(re.sub(r'<[^>]+>', '', c)).strip() for c in re.findall(r'<t[dh][^>]*>(.*?)</t[dh]>', tr, re.S | re.I)]
 
 def parse(text):
+    text = re.sub(r'(?is)<(script|style)[^>]*>.*?</\1>', ' ', text)
     for table in re.findall(r'<table[^>]*>(.*?)</table>', text, re.S | re.I):
         trs = re.findall(r'<tr[^>]*>(.*?)</tr>', table, re.S | re.I)
         if not trs:
@@ -25,12 +26,19 @@ def parse(text):
         im = next(i for i, h in enumerate(head) if 'msrp' in h)
         ii = next((i for i, h in enumerate(head) if 'invoice' in h), None)
         idst = next((i for i, h in enumerate(head) if 'destination' in h), None)
+        # Name column: 'Style' when present (older pages: image | Trim | Style | ...), else the first column.
+        isty = next((i for i, h in enumerate(head) if h == 'style'), None)
+        itrim = next((i for i, h in enumerate(head) if h == 'trim'), None)
+        iname = isty if isty is not None else (itrim if itrim is not None else 0)
         rows = []
         for tr in trs[1:]:
             c = cells(tr)
             if len(c) <= im or not money(c[im]):
                 continue
-            rows.append({'style': re.sub(r'\s+', ' ', c[0]), 'invoice': money(c[ii]) if ii is not None and ii < len(c) else None,
+            name = re.sub(r'\s+', ' ', re.sub(r'\*[^*]*\*', '', c[iname] if iname < len(c) else '')).strip()
+            if not name or len(name) > 90:
+                continue
+            rows.append({'style': name, 'invoice': money(c[ii]) if ii is not None and ii < len(c) else None,
                          'msrp': money(c[im]), 'destination': money(c[idst]) if idst is not None and idst < len(c) else None})
         if rows:
             return rows

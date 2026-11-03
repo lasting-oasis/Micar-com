@@ -2,7 +2,7 @@
 "make": "Mitsubishi",
 "model": "Mirage",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (mirage).",
+"note": "Trim-level MSRPs from iSeeCars price pages (mirage, mirage_g4).",
 "years": [
 {
 "year": 2014,
@@ -36,6 +36,66 @@
 "source": "https://www.iseecars.com/car/2014-mitsubishi-mirage-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 895,
+"trims": [
+{
+"trim": "G4 ES 4dr Sedan 5M",
+"msrp": 13995,
+"config": "",
+"note": ""
+},
+{
+"trim": "G4 ES 4dr Sedan CVT",
+"msrp": 15195,
+"config": "",
+"note": ""
+},
+{
+"trim": "G4 SE 4dr Sedan",
+"msrp": 16995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-mitsubishi-mirage_g4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 895,
+"trims": [
+{
+"trim": "ES 4dr Hatchback 5M",
+"msrp": 13395,
+"config": "",
+"note": ""
+},
+{
+"trim": "ES 4dr Hatchback CVT",
+"msrp": 14595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 16095,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Hatchback",
+"msrp": 16595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-mitsubishi-mirage-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -81,84 +141,6 @@
 "source": "https://www.iseecars.com/car/2019-mitsubishi-mirage-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 13995,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 15295,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 16195,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 16745,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 17295,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-mitsubishi-mirage-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 14295,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 15595,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 16220,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 16995,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 17445,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-mitsubishi-mirage-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

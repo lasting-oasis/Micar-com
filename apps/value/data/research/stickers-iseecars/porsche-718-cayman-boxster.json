@@ -2,7 +2,7 @@
 "make": "Porsche",
 "model": "718 Cayman / Boxster",
 "body": "Coupe / Sports",
-"note": "Trim-level MSRPs from iSeeCars price pages (718_boxster, 718_cayman, boxster, cayman).",
+"note": "Trim-level MSRPs from iSeeCars price pages (718_cayman, boxster, cayman).",
 "years": [
 {
 "year": 2010,
@@ -188,39 +188,6 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "718 Cayman",
-"msrp": 57500,
-"config": "",
-"note": ""
-},
-{
-"trim": "718 Cayman",
-"msrp": 66400,
-"config": "",
-"note": ""
-},
-{
-"trim": "718 Cayman",
-"msrp": 69900,
-"config": "",
-"note": ""
-},
-{
-"trim": "718 Cayman",
-"msrp": 99200,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-porsche-718_cayman-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2021,
 "destination": 1350,
 "trims": [
@@ -231,20 +198,8 @@
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 62000,
-"config": "",
-"note": ""
-},
-{
 "trim": "718 Cayman T 2dr Coupe",
 "msrp": 68900,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 71000,
 "config": "",
 "note": ""
 },
@@ -255,26 +210,8 @@
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 74000,
-"config": "",
-"note": ""
-},
-{
 "trim": "718 Cayman GTS 4.0 2dr Coupe",
 "msrp": 86800,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 88900,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 98600,
 "config": "",
 "note": ""
 },
@@ -285,9 +222,9 @@
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-porsche-718_boxster-price",
+"source": "https://www.iseecars.com/car/2021-porsche-718_cayman-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

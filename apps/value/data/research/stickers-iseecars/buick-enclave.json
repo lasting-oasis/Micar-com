@@ -242,208 +242,82 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2015,
+"destination": 925,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 39995,
+"trim": "Convenience 4dr Crossover",
+"msrp": 39050,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 44300,
+"trim": "Leather 4dr Crossover",
+"msrp": 43450,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 46300,
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 45450,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 48100,
+"trim": "Premium 4dr Crossover",
+"msrp": 47305,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 50400,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 53500,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 55800,
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 49305,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-buick-enclave-price",
+"source": "https://www.iseecars.com/car/2015-buick-enclave-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2017,
+"destination": 925,
 "trims": [
 {
-"trim": "",
-"msrp": 40000,
+"trim": "Convenience 4dr Crossover",
+"msrp": 39065,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 42000,
+"trim": "Leather 4dr Crossover",
+"msrp": 43765,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 44000,
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 45765,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 48100,
+"trim": "Premium 4dr Crossover",
+"msrp": 47625,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 50400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55800,
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 49625,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-buick-enclave-price",
+"source": "https://www.iseecars.com/car/2017-buick-enclave-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 40000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56100,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-buick-enclave-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 40000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56000,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-buick-enclave-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

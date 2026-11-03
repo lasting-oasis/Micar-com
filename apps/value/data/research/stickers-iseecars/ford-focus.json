@@ -242,73 +242,73 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2017,
+"destination": 875,
 "trims": [
 {
-"trim": "",
-"msrp": 17950,
+"trim": "S 4dr Sedan",
+"msrp": 16775,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 19245,
+"trim": "SE 4dr Sedan",
+"msrp": 18175,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 20540,
+"trim": "SE 4dr Hatchback",
+"msrp": 19765,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 21870,
+"trim": "SEL 4dr Sedan",
+"msrp": 21175,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 22070,
+"trim": "SEL 4dr Hatchback",
+"msrp": 21675,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 24270,
+"trim": "Titanium 4dr Sedan",
+"msrp": 23575,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 24470,
+"trim": "Titanium 4dr Hatchback",
+"msrp": 24075,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 25170,
+"trim": "ST 4dr Hatchback",
+"msrp": 24775,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
+"trim": "Electric 4dr Hatchback",
 "msrp": 29120,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 41120,
+"trim": "AWD RS 4dr Hatchback",
+"msrp": 36120,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-ford-focus-price",
+"source": "https://www.iseecars.com/car/2017-ford-focus-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

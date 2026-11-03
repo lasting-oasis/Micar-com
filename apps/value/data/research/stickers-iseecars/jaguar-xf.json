@@ -194,6 +194,231 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "25t 4dr Sedan",
+"msrp": 47775,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d 4dr Sedan",
+"msrp": 49275,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Premium 4dr Sedan",
+"msrp": 49765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 25t 4dr Sedan",
+"msrp": 50775,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium 4dr Sedan",
+"msrp": 51265,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 20d 4dr Sedan",
+"msrp": 52275,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Premium 4dr Sedan",
+"msrp": 52765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 25t Premium 4dr Sedan",
+"msrp": 52765,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Premium 4dr Sedan",
+"msrp": 53965,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t Prestige 4dr Sedan",
+"msrp": 54225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 20d Premium 4dr Sedan",
+"msrp": 54265,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige 4dr Sedan",
+"msrp": 55725,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 30t Premium 4dr Sedan",
+"msrp": 55765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 35t Premium 4dr Sedan",
+"msrp": 56965,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Prestige 4dr Sedan",
+"msrp": 57225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 25t Prestige 4dr Sedan",
+"msrp": 57225,
+"config": "",
+"note": ""
+},
+{
+"trim": "25t R-Sport 4dr Sedan",
+"msrp": 58125,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Prestige 4dr Sedan",
+"msrp": 58425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 20d Prestige 4dr Sedan",
+"msrp": 58725,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport 4dr Sedan",
+"msrp": 59625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 30t Prestige 4dr Sedan",
+"msrp": 60225,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t R-Sport 4dr Sedan",
+"msrp": 61125,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 25t R-Sport 4dr Sedan",
+"msrp": 61125,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 35t Prestige 4dr Sedan",
+"msrp": 61425,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t R-Sport 4dr Sedan",
+"msrp": 62325,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 20d R-Sport 4dr Sedan",
+"msrp": 62625,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 63865,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 30t R-Sport 4dr Sedan",
+"msrp": 64125,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 35t R-Sport 4dr Sedan",
+"msrp": 65325,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Sedan",
+"msrp": 66865,
+"config": "",
+"note": ""
+},
+{
+"trim": "30t Portfolio Limited Edition 4dr Sedan",
+"msrp": 67425,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Portfolio Limited Edition 4dr Sedan",
+"msrp": 68025,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 30t Portfolio Limited Edition 4dr Sedan",
+"msrp": 70425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr Wagon",
+"msrp": 70450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 35t Portfolio Limited Edition 4dr Sedan",
+"msrp": 71025,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD First Edition 4dr Wagon",
+"msrp": 72100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jaguar-xf-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [

@@ -5,106 +5,139 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (cx__9).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2013,
+"destination": 795,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 32280,
+"trim": "Sport 4dr SUV",
+"msrp": 29785,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 34080,
+"trim": "AWD Sport 4dr SUV",
+"msrp": 31375,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 35330,
+"trim": "Touring 4dr SUV",
+"msrp": 32230,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 37130,
+"trim": "AWD Touring 4dr SUV",
+"msrp": 33820,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 40840,
+"trim": "Grand Touring 4dr SUV",
+"msrp": 34785,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 42640,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 45365,
+"trim": "AWD Grand Touring 4dr SUV",
+"msrp": 36375,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-mazda-cx__9-price",
+"source": "https://www.iseecars.com/car/2013-mazda-cx__9-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2014,
+"destination": 830,
 "trims": [
 {
-"trim": "",
-"msrp": 33890,
+"trim": "Sport 4dr SUV",
+"msrp": 29985,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35710,
+"trim": "AWD Sport 4dr SUV",
+"msrp": 31575,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 35790,
+"trim": "Touring 4dr SUV",
+"msrp": 32480,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 37610,
+"trim": "AWD Touring 4dr SUV",
+"msrp": 34070,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 41550,
+"trim": "Grand Touring 4dr SUV",
+"msrp": 35035,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 43450,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 46215,
+"trim": "AWD Grand Touring 4dr SUV",
+"msrp": 36625,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-mazda-cx__9-price",
+"source": "https://www.iseecars.com/car/2014-mazda-cx__9-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 880,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 29985,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 31575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr SUV",
+"msrp": 32480,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr SUV",
+"msrp": 34070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 4dr SUV",
+"msrp": 35035,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Grand Touring 4dr SUV",
+"msrp": 36625,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-mazda-cx__9-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

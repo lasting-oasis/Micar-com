@@ -65,6 +65,27 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2018,
+"destination": 1295,
+"trims": [
+{
+"trim": "LX 570 AWD Two-Row 4dr SUV",
+"msrp": 85630,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 570 AWD Three-Row 4dr SUV",
+"msrp": 90630,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lexus-lx_570-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2020,
 "destination": 1295,
 "trims": [
@@ -84,27 +105,6 @@
 "source": "https://www.iseecars.com/car/2020-lexus-lx_570-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "LX 570",
-"msrp": 86730,
-"config": "",
-"note": ""
-},
-{
-"trim": "LX 570",
-"msrp": 91730,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-lexus-lx_570-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

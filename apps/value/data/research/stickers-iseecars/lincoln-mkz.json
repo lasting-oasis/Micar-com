@@ -158,30 +158,120 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": 895,
+"trims": [
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Black Label 4dr Sedan",
+"msrp": 45605,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-lincoln-mkz_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 925,
+"trims": [
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Black Label 4dr Sedan",
+"msrp": 45605,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lincoln-mkz_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 925,
+"trims": [
+{
+"trim": "Hybrid Premiere 4dr Sedan",
+"msrp": 35170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Select 4dr Sedan",
+"msrp": 36920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve 4dr Sedan",
+"msrp": 39670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Black Label 4dr Sedan",
+"msrp": 47830,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lincoln-mkz_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 925,
+"trims": [
+{
+"trim": "Hybrid Premiere 4dr Sedan",
+"msrp": 35605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Select 4dr Sedan",
+"msrp": 37355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve 4dr Sedan",
+"msrp": 40170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Black Label 4dr Sedan",
+"msrp": 47990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lincoln-mkz_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 995,
 "trims": [
 {
-"trim": "",
-"msrp": 35995,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid 4dr Sedan",
 "msrp": 35995,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37995,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38995,
 "config": "",
 "note": ""
 },
@@ -192,66 +282,15 @@
 "note": ""
 },
 {
-"trim": "",
-"msrp": 40995,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44995,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid Reserve II 4dr Sedan",
 "msrp": 44995,
 "config": "",
 "note": ""
-},
-{
-"trim": "",
-"msrp": 46995,
-"config": "",
-"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-lincoln-mkz-price",
+"source": "https://www.iseecars.com/car/2019-lincoln-mkz_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 36750,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38750,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44500,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-lincoln-mkz-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

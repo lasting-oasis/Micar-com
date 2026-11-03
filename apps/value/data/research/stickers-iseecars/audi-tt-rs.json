@@ -33,66 +33,6 @@
 "source": "https://www.iseecars.com/car/2013-audi-tt_rs-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2018,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 64900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2018-audi-tt_rs-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 66900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-audi-tt_rs-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 67600,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-audi-tt_rs-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 72500,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-audi-tt_rs-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

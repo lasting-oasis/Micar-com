@@ -53,6 +53,81 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "3.2 4dr Wagon",
+"msrp": 32550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 4dr Wagon",
+"msrp": 34550,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.2 Premier 4dr Wagon",
+"msrp": 35500,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.2 Premier Plus 4dr Wagon",
+"msrp": 37350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 Premier 4dr Wagon",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 4dr Wagon",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 Premier Plus 4dr Wagon",
+"msrp": 39350,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.2 Platinum 4dr Wagon",
+"msrp": 40050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Premier Plus 4dr Wagon",
+"msrp": 40450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 Platinum 4dr Wagon",
+"msrp": 42050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Platinum 4dr Wagon",
+"msrp": 43150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-volvo-xc70-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2014,
 "destination": 915,
 "trims": [

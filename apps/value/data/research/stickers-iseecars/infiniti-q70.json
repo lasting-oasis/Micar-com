@@ -2,40 +2,88 @@
 "make": "Infiniti",
 "model": "Q70",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (q70).",
+"note": "Trim-level MSRPs from iSeeCars price pages (q70, q70_hybrid).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2014,
+"destination": 905,
 "trims": [
 {
-"trim": "",
-"msrp": 50400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 52550,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 63450,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 66000,
+"trim": "Hybrid 4dr Sedan",
+"msrp": 55650,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-infiniti-q70-price",
+"source": "https://www.iseecars.com/car/2014-infiniti-q70_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 905,
+"trims": [
+{
+"trim": "3.7 4dr Sedan",
+"msrp": 49850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.7 4dr Sedan",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.6 4dr Sedan",
+"msrp": 62850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.6 4dr Sedan",
+"msrp": 65350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-infiniti-q70-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "3.7 Luxe 4dr Sedan",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.7 Luxe 4dr Sedan",
+"msrp": 52450,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.6 Luxe 4dr Sedan",
+"msrp": 63350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 5.6 Luxe 4dr Sedan",
+"msrp": 65900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-infiniti-q70-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

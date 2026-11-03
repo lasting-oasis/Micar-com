@@ -368,6 +368,93 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2015,
+"destination": 950,
+"trims": [
+{
+"trim": "528i 4dr Sedan",
+"msrp": 49950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 528i xDrive 4dr Sedan",
+"msrp": 52250,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i 4dr Sedan",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "535d 4dr Sedan",
+"msrp": 57100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive 4dr Sedan",
+"msrp": 57900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535d xDrive 4dr Sedan",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "535i Gran Turismo 4dr Hatchback",
+"msrp": 60700,
+"config": "",
+"note": ""
+},
+{
+"trim": "ActiveHybrid 5 4dr Sedan",
+"msrp": 61900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 535i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 63000,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i 4dr Sedan",
+"msrp": 64900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive 4dr Sedan",
+"msrp": 67200,
+"config": "",
+"note": ""
+},
+{
+"trim": "550i Gran Turismo 4dr Hatchback",
+"msrp": 69100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 550i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 71400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bmw-5_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2018,
 "destination": 995,
 "trims": [
@@ -474,96 +561,6 @@
 "source": "https://www.iseecars.com/car/2019-bmw-5_series-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 53900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59450,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 61750,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 76650,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-bmw-5_series-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 54200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 57200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59450,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 61750,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 76800,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-bmw-5_series-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

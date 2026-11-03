@@ -569,33 +569,6 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 30445,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33195,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37395,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-chrysler-300-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2022,
 "destination": 1595,
 "trims": [

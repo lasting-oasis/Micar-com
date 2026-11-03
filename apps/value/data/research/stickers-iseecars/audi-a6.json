@@ -2,7 +2,7 @@
 "make": "Audi",
 "model": "A6",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (a6).",
+"note": "Trim-level MSRPs from iSeeCars price pages (a6, a6_allroad).",
 "years": [
 {
 "year": 2010,
@@ -278,93 +278,6 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 49700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 51200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 51900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 58000,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2018-audi-a6-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 54100,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 58900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-audi-a6-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 54900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 59800,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-audi-a6-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2021,
 "destination": 1045,
 "trims": [
@@ -450,8 +363,20 @@
 "note": ""
 },
 {
+"trim": "Allroad AWD quattro Premium Plus 55 TFSI 4dr Wagon",
+"msrp": 66900,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro Prestige 55 TFSI 4dr Sedan",
 "msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad AWD quattro Prestige 55 TFSI 4dr Wagon",
+"msrp": 72400,
 "config": "",
 "note": ""
 }
@@ -489,13 +414,25 @@
 "note": ""
 },
 {
+"trim": "Allroad AWD quattro Premium Plus 55 TFSI 4dr Wagon",
+"msrp": 67900,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro Prestige 55 TFSI 4dr Sedan",
 "msrp": 70500,
 "config": "",
 "note": ""
+},
+{
+"trim": "Allroad AWD quattro Prestige 55 TFSI 4dr Wagon",
+"msrp": 73400,
+"config": "",
+"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2023-audi-a6-price",
+"source": "https://www.iseecars.com/car/2023-audi-a6_allroad-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
@@ -528,8 +465,20 @@
 "note": ""
 },
 {
+"trim": "Allroad AWD quattro Premium Plus 55 TFSI 4dr Wagon",
+"msrp": 69300,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro Prestige 55 TFSI 4dr Sedan",
 "msrp": 71700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad AWD quattro Prestige 55 TFSI 4dr Wagon",
+"msrp": 74600,
 "config": "",
 "note": ""
 }
@@ -567,8 +516,20 @@
 "note": ""
 },
 {
+"trim": "Allroad AWD quattro Premium Plus 55 TFSI 4dr Wagon",
+"msrp": 70500,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro Prestige 55 TFSI 4dr Sedan",
 "msrp": 73350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad AWD quattro Prestige 55 TFSI 4dr Wagon",
+"msrp": 76600,
 "config": "",
 "note": ""
 }

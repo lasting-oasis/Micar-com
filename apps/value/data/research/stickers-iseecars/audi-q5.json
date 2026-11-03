@@ -2,7 +2,7 @@
 "make": "Audi",
 "model": "Q5",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (q5, q5_hybrid).",
+"note": "Trim-level MSRPs from iSeeCars price pages (q5, q5_hybrid, q5_sportback).",
 "years": [
 {
 "year": 2010,
@@ -209,21 +209,6 @@
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 42950,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-audi-q5-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2020,
 "destination": 995,
 "trims": [
@@ -297,8 +282,20 @@
 "note": ""
 },
 {
+"trim": "Sportback AWD quattro Premium 45 TFSI 4dr Sportback",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro Premium Plus 45 TFSI 4dr SUV",
 "msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 51000,
 "config": "",
 "note": ""
 },
@@ -317,6 +314,12 @@
 {
 "trim": "AWD e quattro Premium Plus 55 TFSI 4dr SUV",
 "msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Prestige 45 TFSI 4dr Sportback",
+"msrp": 56500,
 "config": "",
 "note": ""
 },
@@ -354,8 +357,20 @@
 "note": ""
 },
 {
+"trim": "Sportback AWD quattro S line Premium 45 TFSI 4dr Sportback",
+"msrp": 50100,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD 2.0T quattro Premium Plus S line 45 TFSI 4dr SUV",
 "msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 53500,
 "config": "",
 "note": ""
 },
@@ -374,6 +389,12 @@
 {
 "trim": "AWD 2.0T quattro Prestige S line 45 TFSI 4dr SUV",
 "msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Prestige 45 TFSI 4dr Sportback",
+"msrp": 58800,
 "config": "",
 "note": ""
 },
@@ -417,8 +438,20 @@
 "note": ""
 },
 {
+"trim": "Sportback AWD quattro S line Premium 45 TFSI 4dr Sportback",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro S line Premium Plus 45 TFSI 4dr SUV",
 "msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 54600,
 "config": "",
 "note": ""
 },
@@ -437,6 +470,12 @@
 {
 "trim": "AWD e quattro S line Premium 55 TFSI 4dr SUV",
 "msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Prestige 45 TFSI 4dr Sportback",
+"msrp": 59700,
 "config": "",
 "note": ""
 },
@@ -480,8 +519,20 @@
 "note": ""
 },
 {
+"trim": "Sportback AWD quattro S line Premium 45 TFSI 4dr Sportback",
+"msrp": 52200,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro S line Premium Plus 45 TFSI 4dr SUV",
 "msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 53400,
 "config": "",
 "note": ""
 },
@@ -504,6 +555,12 @@
 "note": ""
 },
 {
+"trim": "Sportback AWD quattro S line Prestige 45 TFSI 4dr Sportback",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD e quattro S line Premium Plus 55 TFSI 4dr SUV",
 "msrp": 62400,
 "config": "",
@@ -519,6 +576,51 @@
 "source": "https://www.iseecars.com/car/2024-audi-q5-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "Sportback AWD quattro S line Premium 45 TFSI 4dr Sportback",
+"msrp": 52200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium TFSI 4dr Sportback (midyear release)",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium Plus TFSI 4dr Sportback (midyear release)",
+"msrp": 58800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Prestige 45 TFSI 4dr Sportback",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Prestige TFSI 4dr Sportback (midyear release)",
+"msrp": 62700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-audi-q5_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-07-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

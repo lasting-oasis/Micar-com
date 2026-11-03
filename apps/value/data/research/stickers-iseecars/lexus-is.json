@@ -2,7 +2,7 @@
 "make": "Lexus",
 "model": "IS",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (is_250, is_300, is_350, is_f).",
+"note": "Trim-level MSRPs from iSeeCars price pages (is_250, is_300, is_350, is_350c, is_f).",
 "years": [
 {
 "year": 2010,
@@ -123,6 +123,12 @@
 "note": ""
 },
 {
+"trim": "IS 350C 2dr Convertible",
+"msrp": 46640,
+"config": "",
+"note": ""
+},
+{
 "trim": "IS F 4dr Sedan",
 "msrp": 61300,
 "config": "",
@@ -131,7 +137,7 @@
 ],
 "source": "https://www.iseecars.com/car/2012-lexus-is_250-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2013,
@@ -162,6 +168,12 @@
 "note": ""
 },
 {
+"trim": "IS 350C 2dr Convertible",
+"msrp": 46790,
+"config": "",
+"note": ""
+},
+{
 "trim": "IS F 4dr Sedan",
 "msrp": 61600,
 "config": "",
@@ -170,7 +182,7 @@
 ],
 "source": "https://www.iseecars.com/car/2013-lexus-is_250-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2014,
@@ -201,6 +213,12 @@
 "note": ""
 },
 {
+"trim": "IS 350C 2dr Convertible",
+"msrp": 47140,
+"config": "",
+"note": ""
+},
+{
 "trim": "IS F 4dr Sedan",
 "msrp": 63600,
 "config": "",
@@ -209,40 +227,28 @@
 ],
 "source": "https://www.iseecars.com/car/2014-lexus-is_250-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2017,
+"destination": 995,
 "trims": [
 {
-"trim": "IS 300",
-"msrp": 38560,
+"trim": "IS 350 4dr Sedan",
+"msrp": 41370,
 "config": "",
 "note": ""
 },
 {
-"trim": "IS 300",
-"msrp": 41010,
-"config": "",
-"note": ""
-},
-{
-"trim": "IS 350 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 42180,
-"config": "",
-"note": ""
-},
-{
-"trim": "IS 350 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 44345,
+"trim": "IS 350 AWD 4dr Sedan",
+"msrp": 43535,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-lexus-is_300-price",
+"source": "https://www.iseecars.com/car/2017-lexus-is_350-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
@@ -259,44 +265,11 @@
 "msrp": 41010,
 "config": "",
 "note": ""
-},
-{
-"trim": "IS 350 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 42180,
-"config": "",
-"note": ""
-},
-{
-"trim": "IS 350 var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 44345,
-"config": "",
-"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2020-lexus-is_300-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "IS 300",
-"msrp": 39050,
-"config": "",
-"note": ""
-},
-{
-"trim": "IS 300",
-"msrp": 41050,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-lexus-is_300-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

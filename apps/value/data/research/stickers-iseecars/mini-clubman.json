@@ -5,97 +5,58 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (clubman).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2013,
+"destination": 700,
 "trims": [
 {
-"trim": "",
-"msrp": 24900,
+"trim": "Cooper 2dr Wagon",
+"msrp": 21400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 26900,
+"trim": "Cooper S 2dr Wagon",
+"msrp": 25100,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 28900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35900,
+"trim": "John Cooper Works 2dr Wagon",
+"msrp": 32300,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-mini-clubman-price",
+"source": "https://www.iseecars.com/car/2013-mini-clubman-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2014,
+"destination": 795,
 "trims": [
 {
-"trim": "",
-"msrp": 30900,
+"trim": "Cooper 2dr Wagon",
+"msrp": 21400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 32900,
+"trim": "Cooper S 2dr Wagon",
+"msrp": 25100,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 39400,
+"trim": "John Cooper Works 2dr Wagon",
+"msrp": 32300,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-mini-clubman-price",
+"source": "https://www.iseecars.com/car/2014-mini-clubman-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 29900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39500,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-mini-clubman-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

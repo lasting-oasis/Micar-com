@@ -2,52 +2,46 @@
 "make": "Infiniti",
 "model": "Q60",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (q60).",
+"note": "Trim-level MSRPs from iSeeCars price pages (q60_coupe).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2014,
+"destination": 905,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 40850,
+"trim": "Q60 Coupe Journey 2dr Coupe",
+"msrp": 40950,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 42850,
+"trim": "Q60 Coupe AWD 2dr Coupe",
+"msrp": 42600,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 45000,
+"trim": "Q60 Coupe Sport 2dr Coupe",
+"msrp": 46050,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 47000,
+"trim": "Q60 Coupe IPL 2dr Coupe 6M",
+"msrp": 51750,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 55000,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 57000,
+"trim": "Q60 Coupe IPL 2dr Coupe 7A",
+"msrp": 53650,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-infiniti-q60-price",
+"source": "https://www.iseecars.com/car/2014-infiniti-q60_coupe-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

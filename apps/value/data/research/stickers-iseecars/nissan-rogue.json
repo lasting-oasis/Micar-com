@@ -2,7 +2,7 @@
 "make": "Nissan",
 "model": "Rogue",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (rogue).",
+"note": "Trim-level MSRPs from iSeeCars price pages (rogue, rogue_sport).",
 "years": [
 {
 "year": 2010,
@@ -230,175 +230,49 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 25020,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 26370,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 26440,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27790,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 31490,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 31640,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32840,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32990,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-nissan-rogue-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 25200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 26550,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 26620,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27970,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 31590,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32940,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-nissan-rogue-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2021,
-"destination": null,
+"destination": 1175,
 "trims": [
 {
-"trim": "",
-"msrp": 25650,
+"trim": "Sport S 4dr Crossover",
+"msrp": 24160,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27050,
+"trim": "Sport AWD S 4dr Crossover",
+"msrp": 25560,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27340,
+"trim": "Sport SV 4dr Crossover",
+"msrp": 25730,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 28740,
+"trim": "Sport AWD SV 4dr Crossover",
+"msrp": 27130,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 32000,
+"trim": "Sport SL 4dr Crossover",
+"msrp": 28790,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 33400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 35430,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36830,
+"trim": "Sport AWD SL 4dr Crossover",
+"msrp": 30190,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-nissan-rogue-price",
+"source": "https://www.iseecars.com/car/2021-nissan-rogue_sport-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

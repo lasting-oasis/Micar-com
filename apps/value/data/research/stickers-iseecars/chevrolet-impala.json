@@ -2,7 +2,7 @@
 "make": "Chevrolet",
 "model": "Impala",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (impala).",
+"note": "Trim-level MSRPs from iSeeCars price pages (impala, impala_limited).",
 "years": [
 {
 "year": 2010,
@@ -201,6 +201,18 @@
 "destination": 810,
 "trims": [
 {
+"trim": "Limited LS Fleet 4dr Sedan",
+"msrp": 25830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited LT Fleet 4dr Sedan",
+"msrp": 26840,
+"config": "",
+"note": ""
+},
+{
 "trim": "LS 4dr Sedan",
 "msrp": 26860,
 "config": "",
@@ -209,6 +221,18 @@
 {
 "trim": "LS Fleet 4dr Sedan",
 "msrp": 26860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Police 4dr Sedan",
+"msrp": 27340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Unmarked Police 4dr Sedan",
+"msrp": 27340,
 "config": "",
 "note": ""
 },
@@ -227,6 +251,12 @@
 {
 "trim": "LT 4dr Sedan w/2LT",
 "msrp": 30085,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited LTZ Fleet 4dr Sedan",
+"msrp": 30535,
 "config": "",
 "note": ""
 },
@@ -254,52 +284,37 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2018,
+"destination": 875,
 "trims": [
 {
-"trim": "",
-"msrp": 28020,
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 27895,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 30520,
+"trim": "LS 4dr Sedan",
+"msrp": 27895,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 36720,
+"trim": "LT 4dr Sedan",
+"msrp": 30420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr Sedan",
+"msrp": 36620,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-chevrolet-impala-price",
+"source": "https://www.iseecars.com/car/2018-chevrolet-impala-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 31620,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36720,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-chevrolet-impala-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

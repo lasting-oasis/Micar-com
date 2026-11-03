@@ -90,6 +90,12 @@
 "note": ""
 },
 {
+"trim": "FORTE5 EX 4dr Hatchback 6M",
+"msrp": 16895,
+"config": "",
+"note": ""
+},
+{
 "trim": "Forte Koup EX 2dr Coupe 6M",
 "msrp": 16995,
 "config": "",
@@ -98,6 +104,12 @@
 {
 "trim": "EX 4dr Sedan 6A",
 "msrp": 17395,
+"config": "",
+"note": ""
+},
+{
+"trim": "FORTE5 EX 4dr Hatchback 6A",
+"msrp": 17895,
 "config": "",
 "note": ""
 },
@@ -114,6 +126,12 @@
 "note": ""
 },
 {
+"trim": "FORTE5 SX 4dr Hatchback 6M",
+"msrp": 18395,
+"config": "",
+"note": ""
+},
+{
 "trim": "SX 4dr Sedan 6A",
 "msrp": 18895,
 "config": "",
@@ -124,11 +142,17 @@
 "msrp": 19395,
 "config": "",
 "note": ""
+},
+{
+"trim": "FORTE5 SX 4dr Hatchback 6A",
+"msrp": 19395,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2011-kia-forte-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2012,
@@ -159,6 +183,12 @@
 "note": ""
 },
 {
+"trim": "FORTE5 EX 4dr Hatchback 6A",
+"msrp": 18100,
+"config": "",
+"note": ""
+},
+{
 "trim": "Forte Koup EX 2dr Coupe 6A",
 "msrp": 18200,
 "config": "",
@@ -181,11 +211,17 @@
 "msrp": 19600,
 "config": "",
 "note": ""
+},
+{
+"trim": "FORTE5 SX 4dr Hatchback 6A",
+"msrp": 19600,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2012-kia-forte-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2013,
@@ -216,6 +252,12 @@
 "note": ""
 },
 {
+"trim": "FORTE5 EX 4dr Hatchback",
+"msrp": 18300,
+"config": "",
+"note": ""
+},
+{
 "trim": "Forte Koup EX 2dr Coupe 6A",
 "msrp": 18400,
 "config": "",
@@ -238,11 +280,17 @@
 "msrp": 19800,
 "config": "",
 "note": ""
+},
+{
+"trim": "FORTE5 SX 4dr Hatchback",
+"msrp": 19800,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2013-kia-forte-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2014,
@@ -314,43 +362,97 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2015,
+"destination": 825,
 "trims": [
 {
-"trim": "",
-"msrp": 17790,
+"trim": "FORTE5 EX 4dr Hatchback",
+"msrp": 19690,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 18690,
+"trim": "FORTE5 SX 4dr Hatchback 6M",
+"msrp": 20890,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 19190,
+"trim": "FORTE5 SX 4dr Hatchback 6A",
+"msrp": 21890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-kia-forte5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 850,
+"trims": [
+{
+"trim": "FORTE5 LX 4dr Hatchback",
+"msrp": 18090,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 20290,
+"trim": "FORTE5 EX 4dr Hatchback",
+"msrp": 20390,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
+"trim": "FORTE5 SX 4dr Hatchback 6M",
+"msrp": 20990,
+"config": "",
+"note": ""
+},
+{
+"trim": "FORTE5 SX 4dr Hatchback 6A",
 "msrp": 21990,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-kia-forte-price",
+"source": "https://www.iseecars.com/car/2016-kia-forte5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 895,
+"trims": [
+{
+"trim": "LX 4dr Sedan 6M",
+"msrp": 16600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 6A",
+"msrp": 17600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 19300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 21300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-kia-forte-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

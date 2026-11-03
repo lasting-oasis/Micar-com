@@ -2,7 +2,7 @@
 "make": "Audi",
 "model": "Q4 e-tron",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (q4_e__tron).",
+"note": "Trim-level MSRPs from iSeeCars price pages (q4_e__tron, q4_e__tron_sportback).",
 "years": [
 {
 "year": 2022,
@@ -54,6 +54,12 @@
 "note": ""
 },
 {
+"trim": "Sportback AWD quattro Premium 50 4dr Sportback",
+"msrp": 58200,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro Premium Plus 50 4dr SUV",
 "msrp": 61400,
 "config": "",
@@ -64,11 +70,68 @@
 "msrp": 62900,
 "config": "",
 "note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium Plus 50 4dr Sportback",
+"msrp": 64400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Prestige 50 4dr Sportback",
+"msrp": 65900,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2023-audi-q4_e__tron-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1195,
+"trims": [
+{
+"trim": "Sportback AWD quattro Premium 50 4dr Sportback",
+"msrp": 58200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium 55 4dr Sportback",
+"msrp": 58200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium Plus 50 4dr Sportback",
+"msrp": 62900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium Plus 55 4dr Sportback",
+"msrp": 62900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Prestige 50 4dr Sportback",
+"msrp": 65200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Prestige 55 4dr Sportback",
+"msrp": 65200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-q4_e__tron_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

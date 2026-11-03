@@ -254,106 +254,94 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2015,
+"destination": 895,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 23750,
+"trim": "LX 4dr SUV",
+"msrp": 21750,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25250,
+"trim": "AWD LX 4dr SUV",
+"msrp": 23250,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 26600,
+"trim": "EX 4dr SUV",
+"msrp": 25150,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
+"trim": "AWD EX 4dr SUV",
+"msrp": 26650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr SUV",
 "msrp": 28100,
 "config": "",
 "note": ""
 },
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 33100,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 34600,
+"trim": "AWD SX 4dr SUV",
+"msrp": 29600,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-kia-sportage-price",
+"source": "https://www.iseecars.com/car/2015-kia-sportage-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2020,
-"destination": null,
+"year": 2016,
+"destination": 895,
 "trims": [
 {
-"trim": "",
-"msrp": 23990,
+"trim": "LX 4dr SUV",
+"msrp": 22150,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 25490,
+"trim": "AWD LX 4dr SUV",
+"msrp": 23650,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 25990,
+"trim": "EX 4dr SUV",
+"msrp": 25350,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27190,
+"trim": "AWD EX 4dr SUV",
+"msrp": 26850,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 27690,
+"trim": "SX 4dr SUV",
+"msrp": 29990,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 28690,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33490,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34990,
+"trim": "AWD SX 4dr SUV",
+"msrp": 31490,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-kia-sportage-price",
+"source": "https://www.iseecars.com/car/2016-kia-sportage-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

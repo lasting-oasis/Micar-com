@@ -2,8 +2,203 @@
 "make": "Mazda",
 "model": "MX-5 Miata",
 "body": "Coupe / Sports",
-"note": "Trim-level MSRPs from iSeeCars price pages (mx__5_miata).",
+"note": "Trim-level MSRPs from iSeeCars price pages (mx__5_miata, mx__5_miata_rf).",
 "years": [
+{
+"year": 2012,
+"destination": 795,
+"trims": [
+{
+"trim": "Sport 2dr Convertible 5M",
+"msrp": 23470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2dr Convertible 6A",
+"msrp": 25730,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible 6M",
+"msrp": 25830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible 6A",
+"msrp": 26930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M",
+"msrp": 27100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible 6M w/Power Hard Top",
+"msrp": 27540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A",
+"msrp": 28200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible 6A w/Power Hard Top",
+"msrp": 28640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M w/Power Hard Top",
+"msrp": 28950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A w/Power Hard Top",
+"msrp": 30050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Edition 2dr Convertible 6M w/Power Hard Top",
+"msrp": 31225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Edition 2dr Convertible 6A w/Power Hard Top",
+"msrp": 31675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "Sport 2dr Convertible 5M",
+"msrp": 23720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2dr Convertible 6A",
+"msrp": 25980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6M",
+"msrp": 26905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6A",
+"msrp": 27505,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M",
+"msrp": 27550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A",
+"msrp": 28650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6M w/Power Hard Top",
+"msrp": 28665,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6A w/Power Hard Top",
+"msrp": 29265,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M w/Power Hard Top",
+"msrp": 29450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A w/Power Hard Top",
+"msrp": 30550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 875,
+"trims": [
+{
+"trim": "Sport 2dr Convertible 6M",
+"msrp": 24915,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2dr Convertible 6A",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6M",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Club 2dr Convertible 6A",
+"msrp": 29530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6M",
+"msrp": 30065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring 2dr Convertible 6A",
+"msrp": 31270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-mazda-mx__5_miata-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
 {
 "year": 2019,
 "destination": 920,
@@ -45,6 +240,30 @@
 "note": ""
 },
 {
+"trim": "RF Club 2dr Convertible 6M",
+"msrp": 32345,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Club 2dr Convertible 6A",
+"msrp": 32945,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring 2dr Convertible 6M",
+"msrp": 33335,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring 2dr Convertible 6A",
+"msrp": 34410,
+"config": "",
+"note": ""
+},
+{
 "trim": "30th Anniversary 2dr Convertible 6M",
 "msrp": 34995,
 "config": "",
@@ -55,68 +274,23 @@
 "msrp": 35495,
 "config": "",
 "note": ""
+},
+{
+"trim": "RF 30th Anniversary 2dr Convertible 6M",
+"msrp": 37595,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF 30th Anniversary 2dr Convertible 6A",
+"msrp": 37995,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2019-mazda-mx__5_miata-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 26580,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 27930,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30890,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 31670,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32195,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32670,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33195,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-mazda-mx__5_miata-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
@@ -157,11 +331,35 @@
 "msrp": 32295,
 "config": "",
 "note": ""
+},
+{
+"trim": "RF Club 2dr Convertible 6M",
+"msrp": 33045,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Club 2dr Convertible 6A",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring 2dr Convertible 6M",
+"msrp": 34525,
+"config": "",
+"note": ""
+},
+{
+"trim": "RF Grand Touring 2dr Convertible 6A",
+"msrp": 35050,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2021-mazda-mx__5_miata-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

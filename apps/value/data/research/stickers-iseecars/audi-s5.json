@@ -2,7 +2,7 @@
 "make": "Audi",
 "model": "S5",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (s5).",
+"note": "Trim-level MSRPs from iSeeCars price pages (s5, s5_sportback).",
 "years": [
 {
 "year": 2010,
@@ -230,88 +230,130 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2015,
+"destination": 925,
 "trims": [
 {
-"trim": "",
-"msrp": 54600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 62300,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2018-audi-s5-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 52400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 65100,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-audi-s5-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 51900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 60200,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-audi-s5-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
+"trim": "AWD 3.0T quattro Premium Plus 2dr Coupe 6M",
 "msrp": 52500,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 60600,
+"trim": "AWD 3.0T quattro Premium Plus 2dr Coupe 7A",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Coupe 6M",
+"msrp": 58750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Coupe 7A",
+"msrp": 60150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 2dr Convertible",
+"msrp": 60900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 2dr Convertible",
+"msrp": 67150,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-audi-s5-price",
+"source": "https://www.iseecars.com/car/2015-audi-s5-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 950,
+"trims": [
+{
+"trim": "AWD 3.0T quattro 2dr Coupe 6M",
+"msrp": 53100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro 2dr Coupe 7A",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro 2dr Convertible",
+"msrp": 61100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-s5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "Sportback AWD 3.0T quattro Premium 4dr Sportback",
+"msrp": 52400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Premium Plus 4dr Sportback",
+"msrp": 56800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 60500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-s5_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1045,
+"trims": [
+{
+"trim": "Sportback AWD 3.0T quattro Premium 4dr Sportback",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Premium Plus 4dr Sportback",
+"msrp": 56100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 60900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-s5_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,
@@ -324,7 +366,19 @@
 "note": ""
 },
 {
+"trim": "Sportback AWD 3.0T quattro Premium 4dr Sportback",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD 3.0T quattro Premium Plus 2dr Coupe",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Premium Plus 4dr Sportback",
 "msrp": 58900,
 "config": "",
 "note": ""
@@ -338,6 +392,12 @@
 {
 "trim": "AWD 3.0T quattro Prestige 2dr Coupe",
 "msrp": 63400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 63700,
 "config": "",
 "note": ""
 },
@@ -369,7 +429,19 @@
 "note": ""
 },
 {
+"trim": "Sportback AWD 3.0T quattro Premium 4dr Sportback",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD 3.0T quattro Premium Plus 2dr Coupe",
+"msrp": 59800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Premium Plus 4dr Sportback",
 "msrp": 59800,
 "config": "",
 "note": ""
@@ -377,6 +449,12 @@
 {
 "trim": "AWD 3.0T quattro Prestige 2dr Coupe",
 "msrp": 63900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 64200,
 "config": "",
 "note": ""
 },
@@ -414,7 +492,19 @@
 "note": ""
 },
 {
+"trim": "Sportback AWD 3.0T quattro Premium 4dr Sportback",
+"msrp": 57500,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD 3.0T quattro Premium Plus 2dr Coupe",
+"msrp": 60500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Premium Plus 4dr Sportback",
 "msrp": 60500,
 "config": "",
 "note": ""
@@ -422,6 +512,12 @@
 {
 "trim": "AWD 3.0T quattro Prestige 4dr Coupe",
 "msrp": 64600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 64900,
 "config": "",
 "note": ""
 },

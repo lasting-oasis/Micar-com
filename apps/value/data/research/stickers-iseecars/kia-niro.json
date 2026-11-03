@@ -5,69 +5,12 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (niro, niro_plug__in_hybrid).",
 "years": [
 {
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "Plug-In Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 28500,
-"config": "",
-"note": ""
-},
-{
-"trim": "Plug-In Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 32100,
-"config": "",
-"note": ""
-},
-{
-"trim": "Plug-In Hybrid var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 35200,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-kia-niro_plug__in_hybrid-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2020,
 "destination": 1175,
 "trims": [
 {
-"trim": "",
-"msrp": 24590,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 25990,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 28290,
-"config": "",
-"note": ""
-},
-{
 "trim": "Plug-In Hybrid LXS 4dr Crossover",
 "msrp": 29490,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 30790,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 32790,
 "config": "",
 "note": ""
 },
@@ -84,9 +27,9 @@
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-kia-niro-price",
+"source": "https://www.iseecars.com/car/2020-kia-niro_plug__in_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

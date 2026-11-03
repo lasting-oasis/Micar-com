@@ -38,31 +38,148 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2015,
+"destination": 3495,
 "trims": [
 {
-"trim": "",
-"msrp": 417826,
+"trim": "AWD LP 700-4 2dr Coupe",
+"msrp": 397500,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 460422,
+"trim": "AWD LP 700-4 2dr Roadster",
+"msrp": 441600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 517770,
+"trim": "AWD LP 750-4 SV 2dr Coupe",
+"msrp": 485900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 720-4 50 Anniversario 2dr Coupe",
+"msrp": 497650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 720-4 50 Anniversario 2dr Roadster",
+"msrp": 548800,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-lamborghini-aventador-price",
+"source": "https://www.iseecars.com/car/2015-lamborghini-aventador-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 3495,
+"trims": [
+{
+"trim": "AWD LP 700-4 2dr Coupe",
+"msrp": 399500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 700-4 Pirelli Edition 2dr Coupe",
+"msrp": 416300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 700-4 2dr Roadster",
+"msrp": 443800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 700-4 Pirelli Edition 2dr Roadster",
+"msrp": 460600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 750-4 SV 2dr Coupe",
+"msrp": 485900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 750-4 SV 2dr Roadster",
+"msrp": 522880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lamborghini-aventador-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 3495,
+"trims": [
+{
+"trim": "AWD LP 700-4 2dr Coupe",
+"msrp": 399500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 700-4 2dr Roadster",
+"msrp": 443800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 750-4 SV 2dr Coupe",
+"msrp": 490700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 740-4 S 2dr Coupe",
+"msrp": 490700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 750-4 SV 2dr Roadster",
+"msrp": 535500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lamborghini-aventador-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 3495,
+"trims": [
+{
+"trim": "AWD LP 740-4 S 2dr Coupe",
+"msrp": 417650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 740-4 S 2dr Roadster",
+"msrp": 460247,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lamborghini-aventador-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,

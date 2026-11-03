@@ -266,51 +266,6 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 22095,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 23595,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 25345,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 28445,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29445,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 29945,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-jeep-compass-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2021,
 "destination": 1495,
 "trims": [

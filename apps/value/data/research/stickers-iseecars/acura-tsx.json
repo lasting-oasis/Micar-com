@@ -2,7 +2,7 @@
 "make": "Acura",
 "model": "TSX",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (tsx).",
+"note": "Trim-level MSRPs from iSeeCars price pages (tsx, tsx_sport_wagon).",
 "years": [
 {
 "year": 2010,
@@ -138,6 +138,57 @@
 "source": "https://www.iseecars.com/car/2012-acura-tsx-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 30510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Edition 4dr Sedan 6M",
+"msrp": 31510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Edition 4dr Sedan 5A",
+"msrp": 31510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Wagon 4dr Sport Wagon",
+"msrp": 31860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 33610,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Wagon 4dr Sport Wagon w/Technology Package",
+"msrp": 35510,
+"config": "",
+"note": ""
+},
+{
+"trim": "V-6 4dr Sedan w/Technology Package",
+"msrp": 39150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-acura-tsx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2014,

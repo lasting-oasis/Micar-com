@@ -1,0 +1,24 @@
+{
+"make": "McLaren",
+"model": "P1",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (p1).",
+"years": [
+{
+"year": 2014,
+"destination": 2500,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 1150000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-mclaren-p1-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

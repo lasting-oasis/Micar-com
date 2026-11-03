@@ -338,193 +338,79 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2018,
+"destination": 995,
 "trims": [
 {
-"trim": "",
+"trim": "SL 4dr SUV",
 "msrp": 29000,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 32800,
+"trim": "SLE-1 4dr SUV",
+"msrp": 32600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 34800,
+"trim": "4x4 SLE-1 4dr SUV",
+"msrp": 34600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
+"trim": "SLE-2 4dr SUV",
 "msrp": 35200,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
+"trim": "4x4 SLE-2 4dr SUV",
 "msrp": 37200,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 38000,
+"trim": "SLT-1 4dr SUV",
+"msrp": 38500,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 41100,
+"trim": "4x4 SLT-1 4dr SUV",
+"msrp": 41600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
+"trim": "SLT-2 4dr SUV",
 "msrp": 41900,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
+"trim": "4x4 SLT-2 4dr SUV",
 "msrp": 43900,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 45500,
+"trim": "Denali 4dr SUV",
+"msrp": 45100,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 47500,
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 47100,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-gmc-acadia-price",
+"source": "https://www.iseecars.com/car/2018-gmc-acadia-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 29800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41700,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42200,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 46300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48300,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-gmc-acadia-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 29800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 33600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 40800,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 46300,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48300,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-gmc-acadia-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

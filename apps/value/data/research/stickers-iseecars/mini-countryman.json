@@ -5,88 +5,70 @@
 "note": "Trim-level MSRPs from iSeeCars price pages (countryman).",
 "years": [
 {
-"year": 2019,
-"destination": null,
+"year": 2013,
+"destination": 700,
 "trims": [
 {
-"trim": "",
-"msrp": 26900,
+"trim": "Cooper 4dr Crossover",
+"msrp": 22000,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 28900,
+"trim": "Cooper S 4dr Crossover",
+"msrp": 25600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 30900,
+"trim": "AWD Cooper S ALL4 4dr Crossover",
+"msrp": 27300,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 31400,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37900,
+"trim": "AWD John Cooper Works ALL4 4dr Crossover",
+"msrp": 34850,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-mini-countryman-price",
+"source": "https://www.iseecars.com/car/2013-mini-countryman-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2021,
-"destination": null,
+"year": 2014,
+"destination": 795,
 "trims": [
 {
-"trim": "",
-"msrp": 29100,
+"trim": "Cooper 4dr Crossover",
+"msrp": 22100,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 31100,
+"trim": "Cooper S 4dr Crossover",
+"msrp": 25700,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 31900,
+"trim": "AWD Cooper S ALL4 4dr Crossover",
+"msrp": 27400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 33900,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 41500,
+"trim": "AWD John Cooper Works ALL4 4dr Crossover",
+"msrp": 34950,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-mini-countryman-price",
+"source": "https://www.iseecars.com/car/2014-mini-countryman-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

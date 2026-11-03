@@ -2,7 +2,7 @@
 "make": "Volvo",
 "model": "XC90",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (xc90).",
+"note": "Trim-level MSRPs from iSeeCars price pages (xc90, xc90_recharge).",
 "years": [
 {
 "year": 2010,
@@ -152,265 +152,43 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 47700,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 50200,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 54950,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 56300,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 57450,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 61250,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 62350,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 67000,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 71950,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 73050,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 104900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2019-volvo-xc90-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 48350,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 50850,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 56100,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 56300,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 56800,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 58600,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 62000,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 62600,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 63100,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 67000,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 67500,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 72700,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 73300,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 73800,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-volvo-xc90-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2021,
-"destination": null,
+"destination": 995,
 "trims": [
 {
-"trim": "",
-"msrp": 49000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 51500,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 55600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 56950,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 57450,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 58100,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 62650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 63250,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
+"trim": "Recharge eAWD T8 Inscription Expression 7-Passenger 4dr SUV",
 "msrp": 63450,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 63750,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
+"trim": "Recharge eAWD T8 Inscription Expression 6-Passenger 4dr SUV",
 "msrp": 63950,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
+"trim": "Recharge eAWD T8 R-Design 4dr SUV",
 "msrp": 69150,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
+"trim": "Recharge eAWD T8 Inscription 7-Passenger 4dr SUV",
 "msrp": 69750,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
+"trim": "Recharge eAWD T8 Inscription 6-Passenger 4dr SUV",
 "msrp": 70250,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-volvo-xc90-price",
+"source": "https://www.iseecars.com/car/2021-volvo-xc90_recharge-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,
@@ -453,6 +231,12 @@
 "note": ""
 },
 {
+"trim": "Recharge eAWD T8 Inscription Expression 7-Passenger 4dr SUV",
+"msrp": 64800,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD T6 Inscription 6-Passenger 4dr SUV",
 "msrp": 65100,
 "config": "",
@@ -465,7 +249,19 @@
 "note": ""
 },
 {
+"trim": "Recharge eAWD T8 Inscription Expression 6-Passenger 4dr SUV",
+"msrp": 65300,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD Recharge eAWD Inscription Expression 7-Passenger Extended Range 4dr SUV",
+"msrp": 65800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription Expression 7-Passenger Extended Range 4dr SUV",
 "msrp": 65800,
 "config": "",
 "note": ""
@@ -477,7 +273,19 @@
 "note": ""
 },
 {
+"trim": "Recharge eAWD T8 Inscription Expression 6-Passenger Extended Range 4dr SUV",
+"msrp": 66300,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD Recharge eAWD R-Design 4dr SUV",
+"msrp": 70500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 R-Design 4dr SUV",
 "msrp": 70500,
 "config": "",
 "note": ""
@@ -489,7 +297,19 @@
 "note": ""
 },
 {
+"trim": "Recharge eAWD T8 Inscription 7-Passenger 4dr SUV",
+"msrp": 71100,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD Recharge eAWD R-Design Extended Range 4dr SUV",
+"msrp": 71500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 R-Design Extended Range 4dr SUV",
 "msrp": 71500,
 "config": "",
 "note": ""
@@ -501,13 +321,31 @@
 "note": ""
 },
 {
+"trim": "Recharge eAWD T8 Inscription 6-Passenger 4dr SUV",
+"msrp": 71600,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD Recharge eAWD Inscription 7-Passenger Extended Range 4dr SUV",
 "msrp": 72100,
 "config": "",
 "note": ""
 },
 {
+"trim": "Recharge eAWD T8 Inscription 7-Passenger Extended Range 4dr SUV",
+"msrp": 72100,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD Recharge eAWD Inscription 6-Passenger Extended Range 4dr SUV",
+"msrp": 72600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription 6-Passenger Extended Range 4dr SUV",
 "msrp": 72600,
 "config": "",
 "note": ""
@@ -562,9 +400,51 @@
 "msrp": 69700,
 "config": "",
 "note": ""
+},
+{
+"trim": "Recharge eAWD T8 Core Bright Theme 4dr SUV",
+"msrp": 71900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Plus Bright Theme 7-Passenger 4dr SUV",
+"msrp": 73600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Plus Dark Theme 4dr SUV",
+"msrp": 73600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Plus Bright Theme 6-Passenger 4dr SUV",
+"msrp": 74100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Ultimate Bright Theme 7-Passenger 4dr SUV",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Ultimate Dark Theme 4dr SUV",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Ultimate Bright Theme 6-Passenger 4dr SUV",
+"msrp": 79900,
+"config": "",
+"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2023-volvo-xc90-price",
+"source": "https://www.iseecars.com/car/2023-volvo-xc90_recharge-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-04-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },

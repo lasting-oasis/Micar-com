@@ -272,187 +272,154 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2019,
-"destination": null,
+"year": 2017,
+"destination": 895,
 "trims": [
 {
-"trim": "",
-"msrp": 18700,
+"trim": "L 4dr Sedan",
+"msrp": 18500,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 19135,
+"trim": "LE 4dr Sedan",
+"msrp": 18935,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 19535,
+"trim": "LE Eco 4dr Sedan",
+"msrp": 19335,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 20645,
+"trim": "SE 4dr Sedan CVT",
+"msrp": 20445,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 21865,
+"trim": "LE Eco 4dr Sedan w/Premium Package",
+"msrp": 21300,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 22135,
+"trim": "SE 4dr Sedan 6M",
+"msrp": 21665,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 22880,
+"trim": "XLE 4dr Sedan",
+"msrp": 21825,
+"config": "",
+"note": ""
+},
+{
+"trim": "50th Anniversary Special Edition 4dr Sedan",
+"msrp": 21900,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 22680,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-toyota-corolla-price",
+"source": "https://www.iseecars.com/car/2017-toyota-corolla-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 930,
+"trims": [
+{
+"trim": "L 4dr Sedan",
+"msrp": 18600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan",
+"msrp": 19035,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco 4dr Sedan",
+"msrp": 19435,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan CVT",
+"msrp": 20545,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco 4dr Sedan w/Premium Package",
+"msrp": 21400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6M",
+"msrp": 21765,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 22035,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 22780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
 "destination": 995,
 "trims": [
 {
-"trim": "",
-"msrp": 19600,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 20050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 22050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 22750,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 23100,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid LE 4dr Sedan",
 "msrp": 23100,
 "config": "",
 "note": ""
-},
-{
-"trim": "",
-"msrp": 24050,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 25550,
-"config": "",
-"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-toyota-corolla-price",
+"source": "https://www.iseecars.com/car/2020-toyota-corolla_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
 "destination": 1025,
 "trims": [
 {
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 20025,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 20475,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 22475,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 23175,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 23600,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid LE 4dr Sedan",
 "msrp": 23600,
 "config": "",
 "note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 24425,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25170,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25560,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 25925,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 28310,
-"config": "",
-"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2021-toyota-corolla-price",
+"source": "https://www.iseecars.com/car/2021-toyota-corolla_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,

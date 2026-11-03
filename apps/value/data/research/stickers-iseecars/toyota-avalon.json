@@ -140,36 +140,66 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
+"year": 2017,
+"destination": 895,
+"trims": [
+{
+"trim": "Hybrid XLE Plus 4dr Sedan",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE Premium 4dr Sedan",
+"msrp": 38750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Sedan",
+"msrp": 42600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-avalon_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 930,
+"trims": [
+{
+"trim": "Hybrid XLE Plus 4dr Sedan",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE Premium 4dr Sedan",
+"msrp": 38950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr Sedan",
+"msrp": 42800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-avalon_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
 "year": 2019,
 "destination": 955,
 "trims": [
 {
-"trim": "",
-"msrp": 35650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36650,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid XLE 4dr Sedan",
 "msrp": 36650,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38150,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39150,
 "config": "",
 "note": ""
 },
@@ -180,65 +210,23 @@
 "note": ""
 },
 {
-"trim": "",
-"msrp": 41950,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42350,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42950,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid Limited 4dr Sedan",
 "msrp": 42950,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2019-toyota-avalon-price",
+"source": "https://www.iseecars.com/car/2019-toyota-avalon_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2020,
 "destination": 995,
 "trims": [
 {
-"trim": "",
-"msrp": 35875,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 37000,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid XLE 4dr Sedan",
 "msrp": 37000,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38375,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 39500,
 "config": "",
 "note": ""
 },
@@ -249,39 +237,15 @@
 "note": ""
 },
 {
-"trim": "",
-"msrp": 42175,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42375,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42575,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 43300,
-"config": "",
-"note": ""
-},
-{
 "trim": "Hybrid Limited 4dr Sedan",
 "msrp": 43300,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-toyota-avalon-price",
+"source": "https://www.iseecars.com/car/2020-toyota-avalon_hybrid-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,

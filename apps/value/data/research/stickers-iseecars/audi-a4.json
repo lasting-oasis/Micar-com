@@ -2,7 +2,7 @@
 "make": "Audi",
 "model": "A4",
 "body": "Sedan",
-"note": "Trim-level MSRPs from iSeeCars price pages (a4).",
+"note": "Trim-level MSRPs from iSeeCars price pages (a4, a4_allroad).",
 "years": [
 {
 "year": 2010,
@@ -362,37 +362,94 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
+"year": 2015,
+"destination": 925,
 "trims": [
 {
-"trim": "",
-"msrp": 36000,
+"trim": "2.0T Premium 4dr Sedan",
+"msrp": 35500,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 38700,
+"trim": "AWD 2.0T quattro Premium 4dr Sedan 6M",
+"msrp": 36400,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 40500,
+"trim": "AWD 2.0T quattro Premium 4dr Sedan 8A",
+"msrp": 37600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 43200,
+"trim": "2.0T Premium Plus 4dr Sedan",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr Sedan 6M",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr Sedan 8A",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Prestige 4dr Sedan",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr Sedan 6M",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr Sedan 8A",
+"msrp": 45000,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2018-audi-a4-price",
+"source": "https://www.iseecars.com/car/2015-audi-a4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 950,
+"trims": [
+{
+"trim": "Allroad AWD 2.0T quattro Premium 4dr Wagon",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad AWD 2.0T quattro Premium Plus 4dr Wagon",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad AWD 2.0T quattro Prestige 4dr Wagon",
+"msrp": 51400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-a4_allroad-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2019,
@@ -447,45 +504,30 @@
 },
 {
 "year": 2020,
-"destination": null,
+"destination": 995,
 "trims": [
 {
-"trim": "",
-"msrp": 37400,
+"trim": "Allroad AWD 2.0T quattro Premium 4dr Wagon",
+"msrp": 44600,
 "config": "",
 "note": ""
 },
 {
-"trim": "",
-"msrp": 40900,
+"trim": "Allroad AWD 2.0T quattro Premium Plus 4dr Wagon",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad AWD 2.0T quattro Prestige 4dr Wagon",
+"msrp": 53650,
 "config": "",
 "note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2020-audi-a4-price",
+"source": "https://www.iseecars.com/car/2020-audi-a4_allroad-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2021,
-"destination": null,
-"trims": [
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 39100,
-"config": "",
-"note": ""
-},
-{
-"trim": "var fixImageWithDependencies = fixImageWithDependencies || function(maxSize, imageId, waitRemaining) { iseecars.loader.executeWithDependencies(function() { fixImage(maxSize, imageId, waitRemaining) }, [\"omnisee.js\"]) }",
-"msrp": 40900,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2021-audi-a4-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2022,
@@ -510,8 +552,20 @@
 "note": ""
 },
 {
+"trim": "Allroad AWD quattro Premium 45 TFSI 4dr Wagon",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD 2.0T quattro Premium Plus S line 45 TFSI 4dr Sedan",
 "msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad AWD quattro Premium Plus 45 TFSI 4dr Wagon",
+"msrp": 49700,
 "config": "",
 "note": ""
 },
@@ -526,9 +580,15 @@
 "msrp": 50900,
 "config": "",
 "note": ""
+},
+{
+"trim": "Allroad AWD quattro Prestige 45 TFSI 4dr Wagon",
+"msrp": 55400,
+"config": "",
+"note": ""
 }
 ],
-"source": "https://www.iseecars.com/car/2022-audi-a4-price",
+"source": "https://www.iseecars.com/car/2022-audi-a4_allroad-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
@@ -555,8 +615,20 @@
 "note": ""
 },
 {
+"trim": "Allroad AWD quattro Premium 45 TFSI 4dr Wagon",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro S line Premium Plus 45 TFSI 4dr Sedan",
 "msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad AWD quattro Premium Plus 45 TFSI 4dr Wagon",
+"msrp": 50500,
 "config": "",
 "note": ""
 },
@@ -571,11 +643,17 @@
 "msrp": 51300,
 "config": "",
 "note": ""
+},
+{
+"trim": "Allroad AWD quattro Prestige 45 TFSI 4dr Wagon",
+"msrp": 55800,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2023-audi-a4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2024,
@@ -600,8 +678,20 @@
 "note": ""
 },
 {
+"trim": "Allroad AWD quattro Premium 45 TFSI 4dr Wagon",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
 "trim": "AWD quattro S line Premium Plus 45 TFSI 4dr Sedan",
 "msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Allroad AWD quattro Premium Plus 45 TFSI 4dr Wagon",
+"msrp": 51200,
 "config": "",
 "note": ""
 },
@@ -616,11 +706,17 @@
 "msrp": 52000,
 "config": "",
 "note": ""
+},
+{
+"trim": "Allroad AWD quattro Prestige 45 TFSI 4dr Wagon",
+"msrp": 56500,
+"config": "",
+"note": ""
 }
 ],
 "source": "https://www.iseecars.com/car/2024-audi-a4-price",
 "source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 }
 ],
 "gaps": []

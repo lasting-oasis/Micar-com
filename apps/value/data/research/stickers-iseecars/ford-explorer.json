@@ -2,15 +2,27 @@
 "make": "Ford",
 "model": "Explorer",
 "body": "SUV / Crossover",
-"note": "Trim-level MSRPs from iSeeCars price pages (explorer).",
+"note": "Trim-level MSRPs from iSeeCars price pages (explorer, explorer_sport_trac).",
 "years": [
 {
 "year": 2010,
 "destination": 815,
 "trims": [
 {
+"trim": "Sport Trac 4x2 XLT 4dr Crew Cab",
+"msrp": 27810,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 XLT 4dr SUV",
 "msrp": 28880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Trac 4x4 XLT 4dr Crew Cab",
+"msrp": 30335,
 "config": "",
 "note": ""
 },
@@ -27,8 +39,26 @@
 "note": ""
 },
 {
+"trim": "Sport Trac 4x2 Limited 4dr Crew Cab",
+"msrp": 32665,
+"config": "",
+"note": ""
+},
+{
 "trim": "4x2 Eddie Bauer 4dr SUV",
 "msrp": 32880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Trac 4x4 Limited 4dr Crew Cab",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Trac AWD Limited 4dr Crew Cab",
+"msrp": 35190,
 "config": "",
 "note": ""
 },
@@ -272,63 +302,6 @@
 "note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
-"year": 2018,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 32140,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34175,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34290,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36325,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 42090,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 44240,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 45950,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 53940,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2018-ford-explorer-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
 "year": 2019,
 "destination": 1095,
 "trims": [
@@ -390,63 +363,6 @@
 "source": "https://www.iseecars.com/car/2019-ford-explorer-price",
 "source_type": "secondary",
 "note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
-},
-{
-"year": 2020,
-"destination": null,
-"trims": [
-{
-"trim": "",
-"msrp": 32765,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 34765,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 36925,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 38925,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 48380,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 50380,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 54740,
-"config": "",
-"note": ""
-},
-{
-"trim": "",
-"msrp": 58250,
-"config": "",
-"note": ""
-}
-],
-"source": "https://www.iseecars.com/car/2020-ford-explorer-price",
-"source_type": "secondary",
-"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
 },
 {
 "year": 2021,
