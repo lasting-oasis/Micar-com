@@ -3,9 +3,9 @@ import * as THREE from 'three';
 import { useGameStore } from './store';
 import { LightPool } from './scene/lightPool';
 import { batchStatic } from './scene/staticBatcher';
-import { damp, disposeObject, groundLastOpaqueSort } from './scene/utils';
+import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
-import { applyCarPaint, buildCarModel, carColorHex, deriveStyle } from './scene/carModel';
+import { applyCarPaint, buildCarModel, carColorHex, deriveStyle, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
@@ -123,10 +123,10 @@ export function VanillaThreeScene() {
         let raceActive = false, raceState = '', raceDifficulty = '', raceLapTarget = 0, raceLaps = 0, raceCpIndex = 0;
         let raceStartMs = 0, raceCountdownUntil = 0, raceHudAccum = 0;
         // CPU racing opponents
-        type CpuRacer = { mesh: THREE.Group; angleDeg: number; startAngDeg: number; lane: number; speedDegPerSec: number; finished: boolean };
+        type CpuRacer = { mesh: THREE.Group; wheels: THREE.Object3D[]; angleDeg: number; startAngDeg: number; lane: number; speedDegPerSec: number; finished: boolean };
         let cpuRacers: CpuRacer[] = [];
         let cpuFinishCount = 0, racePlace = 1;
-        const clearCpuRacers = () => { cpuRacers.forEach(c => disposeObject(c.mesh)); cpuRacers = []; };
+        const clearCpuRacers = () => { cpuRacers.forEach(c => disposeCarModel(c.mesh)); cpuRacers = []; };
         let boostUntil = 0, starUntil = 0, spinUntil = 0; // boost / invincible-star / spin-out timers
         const bananas: { mesh: THREE.Mesh; expireAt: number; alive: boolean }[] = [];   // dropped peel hazards
         const shells: { mesh: THREE.Mesh; dir: THREE.Vector3; expireAt: number; alive: boolean }[] = []; // fired shells
@@ -170,8 +170,8 @@ export function VanillaThreeScene() {
         const carMeshes: Record<string, THREE.Group> = {};
         const carBodies: Record<string, THREE.Mesh> = {};
         const carSmokes: Record<string, THREE.Points> = {};
-        const carWheels: Record<string, THREE.Mesh[]> = {};
-        const carSteering: Record<string, THREE.Group[]> = {};
+        const carWheels: Record<string, THREE.Object3D[]> = {};   // wheel nodes: rotateX rolls them (then syncCarWheels)
+        const carSteering: Record<string, THREE.Object3D[]> = {}; // front steering pivots: rotation.y
         const vehiclePhysics: Record<string, { v: number, yaw: number }> = {};
         // Per-car handling from real specs (src/carSpecs.ts), recomputed only when the car's
         // model or mechanical condition changes.
@@ -792,6 +792,7 @@ export function VanillaThreeScene() {
             }
 
             // Object Synchronization
+            updateCarLights(nightFactor); // lamps of driven cars glow brighter as night falls
             if (me) {
                 me.inventory.forEach((car) => {
                     if (!carMeshes[car.id]) {
@@ -830,9 +831,11 @@ export function VanillaThreeScene() {
                         const paintKey = `${car.isDirty ? 1 : 0}|${car.color}|${Math.round(car.bodyCondition ?? 100)}`;
                         if (body.userData.paintKey !== paintKey) {
                             body.userData.paintKey = paintKey;
-                            applyCarPaint(body.material as THREE.MeshStandardMaterial, carColorHex(car.color), car.bodyCondition ?? 100, !!car.isDirty);
+                            applyCarPaint(body, carColorHex(car.color), car.bodyCondition ?? 100, !!car.isDirty);
                         }
                     }
+                    // head and tail lamps on while someone drives it (you, or a customer on a test drive)
+                    setCarLights(carMeshes[car.id], car.id === localDrivingCarId || !!aiDriveSequence[car.id]);
                     // AI Pathing Spawn Subroutine
                     if (car.hasOffer && !aiBots[car.id]) {
                         // A customer walks up to the car (seeded by the car, so the same car brings the same person)
@@ -886,7 +889,7 @@ export function VanillaThreeScene() {
                         const st = useGameStore.getState();
                         st.setDrivingCarId(null); st.setDrivingFuel(null); st.setRaceTrackPrompt(false); st.abortRace();
                     }
-                    disposeObject(carMeshes[carId]);
+                    disposeCarModel(carMeshes[carId]);
                     delete carMeshes[carId];
                     delete carBodies[carId];
                     delete carSmokes[carId];
@@ -1008,7 +1011,7 @@ export function VanillaThreeScene() {
                            const dx = target.x - car.position.x, dz = target.z - car.position.z;
                            const dist = Math.hypot(dx, dz);
                            const step = AI_DRIVE_SPEED * delta;
-                           if (dist > 0.01) car.rotation.set(0, Math.atan2(dx, dz), 0); // face the direction of travel
+                           if (dist > 0.01) car.rotation.set(0, Math.atan2(-dx, -dz), 0); // nose (-Z) along the direction of travel
                            if (dist <= step) {
                                car.position.set(target.x, car.position.y, target.z);
                                seq.index++;
@@ -1024,7 +1027,7 @@ export function VanillaThreeScene() {
                                car.position.z += (dz / dist) * step;
                            }
                            const localWheels = carWheels[key];
-                           if (localWheels) localWheels.forEach(w => w.rotateX(-AI_DRIVE_SPEED * delta * 0.5));
+                           if (localWheels) { localWheels.forEach(w => w.rotateX(-AI_DRIVE_SPEED * delta * 0.5)); syncCarWheels(car); }
                       }
                   } else if (bot.status === 'walking_out') {
                       bot.mesh.visible = true; // In case they left from a test drive
@@ -1211,7 +1214,7 @@ export function VanillaThreeScene() {
 
                     // Spin the wheels with speed
                     const localWheels = carWheels[localDrivingCarId!];
-                    if (localWheels) localWheels.forEach(w => w.rotateX(-phys.v * delta * 0.5));
+                    if (localWheels) { localWheels.forEach(w => w.rotateX(-phys.v * delta * 0.5)); syncCarWheels(activeCar); }
 
                     // Chase cam that looks down the road ahead (keeps the track visible)
                     tmpCam.set(0, 7.5, 21).applyQuaternion(activeCar.quaternion).add(activeCar.position);
@@ -1263,13 +1266,14 @@ export function VanillaThreeScene() {
                         ([-12, 0, 12] as number[]).forEach((lane, i) => {
                             const assets = buildCarModel(cpuStyles[i], cpuColors[i], 100, 100);
                             const m = assets.group;
+                            setCarLights(m, true);
                             const startA = 88; // line up just behind the player's pole
                             const aRad = startA * Math.PI / 180, rr = RC + lane;
                             m.position.set(RACE_CX + rr * Math.cos(aRad), 0, RACE_CZ + rr * Math.sin(aRad));
-                            m.rotation.y = Math.PI - aRad;
+                            m.rotation.y = Math.PI - aRad; // nose (-Z) along the direction of travel (counter-clockwise)
                             scene.add(m); // disposed by clearCpuRacers() when the race ends
                             const variation = 0.92 + Math.random() * 0.16;
-                            cpuRacers.push({ mesh: m, angleDeg: startA, startAngDeg: startA, lane, speedDegPerSec: 360 / (REF_LAP / (cpuSkill * variation)), finished: false });
+                            cpuRacers.push({ mesh: m, wheels: assets.wheels, angleDeg: startA, startAngDeg: startA, lane, speedDegPerSec: 360 / (REF_LAP / (cpuSkill * variation)), finished: false });
                         });
                     }
                     if (raceActive) {
@@ -1284,6 +1288,8 @@ export function VanillaThreeScene() {
                                 const aRad = c.angleDeg * Math.PI / 180, rr = RC + c.lane;
                                 c.mesh.position.set(RACE_CX + rr * Math.cos(aRad), 0, RACE_CZ + rr * Math.sin(aRad));
                                 c.mesh.rotation.y = Math.PI - aRad;
+                                const roll = -(c.speedDegPerSec * Math.PI / 180) * rr * delta * 0.5; // same visual roll rate as the player's car
+                                c.wheels.forEach(w => w.rotateX(roll)); syncCarWheels(c.mesh);
                                 if ((c.angleDeg - c.startAngDeg) / 360 >= raceLapTarget) { c.finished = true; cpuFinishCount++; }
                             });
                             // player's live position = 1 + rivals ahead on track
@@ -1546,15 +1552,8 @@ export function VanillaThreeScene() {
             cityMaterials.forEach(m => m.dispose());
             cityTextures.forEach(t => t.dispose());
             
-            Object.values(carMeshes).forEach(group => {
-               group.traverse(child => {
-                   if (child instanceof THREE.Mesh) {
-                       child.geometry?.dispose();
-                       if (Array.isArray(child.material)) child.material.forEach(m => m.dispose());
-                       else child.material?.dispose();
-                   }
-               });
-            });
+            Object.values(carMeshes).forEach(disposeCarModel);
+            disposeSharedCarAssets(); // body-style geometry, trim/glass materials and the car textures
             
             environmentDisposables.forEach(obj => {
                 if (obj instanceof THREE.Mesh || obj instanceof THREE.Sprite) {
