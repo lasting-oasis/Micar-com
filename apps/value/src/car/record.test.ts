@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { decodeRecord, emptyRecord, encodeRecord, recordInputs, recordMsrp, type CarRecord } from './record';
-import { snapshot } from './value';
+import { retention, snapshot } from './value';
 
 const car: CarRecord = {
   ...emptyRecord(new Date('2026-11-03')),
@@ -52,8 +52,26 @@ describe('car record', () => {
     expect(snap.val.privateParty).toBeLessThan(23400);
     expect(snap.curve).toHaveLength(6);
     expect(['below', 'within', 'above']).toContain(snap.verdict.kind);
+    expect(['great', 'good', 'fair', 'above', 'high']).toContain(snap.verdict.tier);
+    expect(snapshot({ ...car, price: Math.round(snap.val.dealerRetail * 0.85) }, now)!.verdict).toMatchObject({ tier: 'great', label: 'Great deal', kind: 'below' });
+    expect(snapshot({ ...car, price: Math.round(snap.val.dealerRetail * 1.15) }, now)!.verdict).toMatchObject({ tier: 'high', label: 'High price', kind: 'above' });
+    expect(snapshot({ ...car, price: 0 }, now)!.verdict.tier).toBe('none');
     const typed = recordInputs({ ...car, make: 'Other', model: '', msrp: 30000 }, now)!;
     expect(typed.msrp).toBe(30000);
     expect(recordInputs({ ...car, make: 'Other', model: '', msrp: null }, now)).toBeNull();
+  });
+
+  it('rates how the model holds value against its body style', () => {
+    const civic = retention(car);
+    expect(civic).toMatchObject({ rated: true, makeLevel: false, bodyWord: 'sedan', kind: 'better', calibrated: true });
+    expect(civic.own).toBeGreaterThan(civic.typical);
+    expect(civic.percentile).toBeGreaterThan(0.8);
+    expect(civic.stars).toBeGreaterThanOrEqual(4);
+    // an EPA-only model is rated at make level, and says so
+    const crosstour = retention({ ...car, model: 'Crosstour', body: 'SUV / Crossover' });
+    expect(crosstour).toMatchObject({ rated: true, makeLevel: true, ownLabel: 'Honda SUVs', bodyWord: 'SUV' });
+    // a car we don't list at all gets only the typical figure
+    expect(retention({ ...car, make: 'Other', model: '', modelText: 'Kit car' })).toMatchObject({ rated: false });
+    for (const r of [civic, crosstour]) { expect(r.stars).toBeGreaterThanOrEqual(1); expect(r.stars).toBeLessThanOrEqual(5); }
   });
 });

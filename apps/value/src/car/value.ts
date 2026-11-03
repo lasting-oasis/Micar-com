@@ -9,8 +9,9 @@ export type Snapshot = {
   msrp: ReturnType<typeof recordMsrp>;
   /** Value by year from today, at `milesPerYear`. */
   curve: ReturnType<typeof forecast>;
-  /** Where the asking price sits against the private-party range. */
-  verdict: { kind: 'below' | 'within' | 'above' | 'none'; diff: number; text: string };
+  /** Where the asking price sits against typical dealer retail, with a deal rating in the terms
+   *  shoppers know from the big listing sites: great deal, good deal, fair price, above market, high price. */
+  verdict: { kind: 'below' | 'within' | 'above' | 'none'; tier: 'great' | 'good' | 'fair' | 'above' | 'high' | 'none'; diff: number; label: string; text: string };
 };
 
 export function snapshot(r: CarRecord, now = new Date(), milesPerYear = 12000): Snapshot | null {
@@ -18,14 +19,16 @@ export function snapshot(r: CarRecord, now = new Date(), milesPerYear = 12000): 
   if (!inputs) return null;
   const val = valuate(inputs, now);
   const curve = forecast(inputs, 5, milesPerYear, now);
-  let verdict: Snapshot['verdict'] = { kind: 'none', diff: 0, text: '' };
+  let verdict: Snapshot['verdict'] = { kind: 'none', tier: 'none', diff: 0, label: '', text: '' };
   if (r.price > 0) {
     // Dealer asking prices are judged against dealer retail, which includes reconditioning and margin.
     const diff = r.price - val.dealerRetail;
     const pct = diff / val.dealerRetail;
-    if (pct <= -0.03) verdict = { kind: 'below', diff, text: `${usd(-diff)} below typical dealer retail` };
-    else if (pct < 0.03) verdict = { kind: 'within', diff, text: 'In line with typical dealer retail' };
-    else verdict = { kind: 'above', diff, text: `${usd(diff)} above typical dealer retail` };
+    const tier = pct <= -0.08 ? 'great' : pct <= -0.03 ? 'good' : pct < 0.03 ? 'fair' : pct < 0.08 ? 'above' : 'high';
+    const label = { great: 'Great deal', good: 'Good deal', fair: 'Fair price', above: 'Above market', high: 'High price' }[tier];
+    const kind = pct <= -0.03 ? 'below' : pct < 0.03 ? 'within' : 'above';
+    const text = kind === 'below' ? `${usd(-diff)} under market value` : kind === 'within' ? 'At market value' : `${usd(diff)} over market value`;
+    verdict = { kind, tier, diff, label, text };
   }
   return { inputs, val, msrp: recordMsrp(r), curve, verdict };
 }
@@ -37,31 +40,54 @@ export const monthYear = (d: Date) => d.toLocaleDateString('en-US', { month: 'lo
 /** How this model holds value next to others of its body style: the share of a new one's price
  *  a 5-year-old keeps, against the median for curated models with the same body. */
 export type Retention = {
-  /** This model's 5-year share, when it is a model we have data for. */
-  own?: number;
+  /** The 5-year share for this model, or for the make's cars of this body when the model has no data of its own. */
+  own: number;
+  /** What `own` describes: the model's name, or e.g. "Honda SUVs". */
+  ownLabel: string;
+  /** True when `own` is the make-and-body average rather than this model's own figure. */
+  makeLevel: boolean;
+  /** False when the car isn't in our lists at all; then only `typical` means anything. */
+  rated: boolean;
   /** Median 5-year share for this body style. */
   typical: number;
   /** 'sedan', 'SUV', 'pickup'... for a sentence. */
   bodyWord: string;
-  kind: 'better' | 'average' | 'worse' | 'unknown';
+  /** Share of models with this body style that keep less value than this one (0-1). */
+  percentile: number;
+  /** 1-5, from the percentile. */
+  stars: number;
+  kind: 'better' | 'average' | 'worse';
   calibrated: boolean;
 };
 
 const BODY_WORDS: Record<string, string> = { 'Sedan': 'sedan', 'SUV / Crossover': 'SUV', 'Pickup Truck': 'pickup', 'Coupe / Sports': 'coupe', 'Hatchback / Wagon': 'hatchback or wagon', 'Minivan': 'minivan' };
-const typicalByBody = new Map<string, number>();
+const peersByBody = new Map<string, number[]>();
+
+/** 5-year shares of the models we have figures for, by body style (ascending); bodies with few models borrow the whole list. */
+function peers(body: string): number[] {
+  let xs = peersByBody.get(body);
+  if (!xs) {
+    xs = MODELS.filter((m) => m.body === body && !m.source).map((m) => m.residual5);
+    if (xs.length < 10) xs = MODELS.filter((m) => !m.source).map((m) => m.residual5);
+    xs.sort((a, b) => a - b);
+    peersByBody.set(body, xs);
+  }
+  return xs;
+}
 
 export function retention(r: CarRecord): Retention {
   const info = r.model ? findModel(r.make, r.model) : undefined;
   const body = info?.body ?? r.body;
-  let typical = typicalByBody.get(body);
-  if (typical === undefined) {
-    const xs = MODELS.filter((m) => m.body === body && !m.source).map((m) => m.residual5).sort((a, b) => a - b);
-    typical = xs.length ? xs[Math.floor(xs.length / 2)] : 0.5;
-    typicalByBody.set(body, typical);
-  }
+  const xs = peers(body);
+  const typical = xs[Math.floor(xs.length / 2)];
   const bodyWord = BODY_WORDS[body] ?? 'car';
-  // EPA-only models carry a make-and-body average rather than their own figure.
-  if (!info || info.source === 'epa') return { typical, bodyWord, kind: 'unknown', calibrated: false };
-  const d = info.residual5 - typical;
-  return { own: info.residual5, typical, bodyWord, kind: d >= 0.04 ? 'better' : d <= -0.04 ? 'worse' : 'average', calibrated: !!info.calibrated };
+  const makeLevel = !info || info.source === 'epa';
+  // A model the EPA lists but we have no figure for carries its make's average for the body style.
+  const own = info?.residual5 ?? typical;
+  const ownLabel = makeLevel ? `${r.make} ${bodyWord}s` : `${r.year} ${info.model}`;
+  const below = xs.filter((x) => x < own).length, ties = xs.filter((x) => x === own).length;
+  const percentile = xs.length ? (below + ties / 2) / xs.length : 0.5;
+  const stars = percentile >= 0.9 ? 5 : percentile >= 0.7 ? 4 : percentile >= 0.45 ? 3 : percentile >= 0.2 ? 2 : 1;
+  const d = own - typical;
+  return { own, ownLabel, makeLevel, rated: !!info, typical, bodyWord, percentile, stars, kind: d >= 0.04 ? 'better' : d <= -0.04 ? 'worse' : 'average', calibrated: !!info?.calibrated };
 }

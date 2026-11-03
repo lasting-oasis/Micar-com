@@ -146,44 +146,63 @@ function CellLabel({ children }: { children: string }) {
   return <p style={{ fontSize: 9.5, letterSpacing: '0.1em', textTransform: 'uppercase', color: ink3 }}>{children}</p>;
 }
 
-/** The asking price against today's value, said plainly: the number a buyer is looking for. */
+/** The deal rating, in the words shoppers know from the listing sites, with the dollar gap. */
 function PriceCell({ snap, price }: { snap: Snapshot; price: number }) {
-  const { verdict } = snap;
-  const diff = Math.abs(verdict.diff);
-  const head = verdict.kind === 'below' ? `${usd(diff)} below` : verdict.kind === 'above' ? `${usd(diff)} above` : 'Fairly priced';
+  const { verdict, val } = snap;
   const color = verdict.kind === 'below' ? gain : ink;
+  const detail = verdict.kind === 'below' ? `${verdict.text}. You pay ${usd(price)}; comparable cars at dealers go for about ${usd(val.dealerRetail)}.`
+    : verdict.kind === 'within' ? `${verdict.text}. You pay ${usd(price)}, right at the typical dealer price of ${usd(val.dealerRetail)} for this car.`
+      : `${verdict.text}. Asking ${usd(price)} against a typical dealer price of ${usd(val.dealerRetail)}; ask what's included.`;
   return (
     <>
-      <CellLabel>This price vs. today's value</CellLabel>
-      <p className="font-cond num" style={{ fontSize: 34, fontWeight: 700, lineHeight: 1, marginTop: 3, color }}>{head}</p>
-      <p style={{ fontSize: 10, color: ink2, marginTop: 4, lineHeight: 1.35 }}>
-        {verdict.kind === 'below' ? `Asking ${usd(price)} against a typical dealer retail of ${usd(snap.val.dealerRetail)}.`
-          : verdict.kind === 'above' ? `Asking ${usd(price)}; typical dealer retail is ${usd(snap.val.dealerRetail)}. Ask what's included.`
-            : `Asking ${usd(price)}, within 3% of the typical dealer retail of ${usd(snap.val.dealerRetail)}.`}
-      </p>
+      <CellLabel>Deal rating</CellLabel>
+      <p className="font-cond" style={{ fontSize: 34, fontWeight: 700, lineHeight: 1, marginTop: 3, color }}>{verdict.label}</p>
+      <p style={{ fontSize: 10, color: ink2, marginTop: 4, lineHeight: 1.35 }}>{detail}</p>
     </>
   );
 }
 
-/** Depreciation next to the rest of the body style: two bars, the model's and the typical one's. */
+function Stars({ n }: { n: number }) {
+  return (
+    <span aria-label={`${n} of 5 stars`} style={{ display: 'inline-flex', gap: 2, verticalAlign: 'middle' }}>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <svg key={i} width="15" height="15" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.8L12 17.6 6 21l1.3-6.8-5-4.7 6.8-.8z" fill={i <= n ? '#e0a52a' : 'none'} stroke={i <= n ? '#c98f12' : rule} strokeWidth="1.6" strokeLinejoin="round" />
+        </svg>
+      ))}
+    </span>
+  );
+}
+
+/** Value retention: a star rating from where the model ranks among its body style, then the two bars behind it. */
 function HoldCell({ hold }: { hold: Retention }) {
   const pct = (x: number) => `${Math.round(x * 100)}%`;
-  const verdict = hold.kind === 'better' ? `Holds value better than most ${hold.bodyWord}s` : hold.kind === 'worse' ? `Loses value faster than most ${hold.bodyWord}s` : hold.kind === 'average' ? `Holds value like a typical ${hold.bodyWord}` : `What a typical ${hold.bodyWord} keeps`;
-  const rows: [string, number, string][] = hold.own !== undefined ? [['This model', hold.own, hold.kind === 'worse' ? loss : hold.kind === 'better' ? gain : ink2], [`Typical ${hold.bodyWord}`, hold.typical, ink3]] : [[`Typical ${hold.bodyWord}`, hold.typical, ink3]];
+  const p = Math.round(hold.percentile * 100);
+  const rank = p >= 95 ? `Top 5% of ${hold.bodyWord}s` : p >= 90 ? `Top 10% of ${hold.bodyWord}s` : p >= 50 ? `Better than ${p}% of ${hold.bodyWord}s` : `Keeps less value than ${100 - p}% of ${hold.bodyWord}s`;
+  const rows: [string, number, string][] = hold.rated
+    ? [[hold.ownLabel, hold.own, hold.kind === 'worse' ? loss : hold.kind === 'better' ? gain : ink2], [`Typical ${hold.bodyWord}`, hold.typical, ink3]]
+    : [[`Typical ${hold.bodyWord}`, hold.typical, ink3]];
   return (
     <div style={{ padding: '10px 14px 9px', borderLeft: `1px solid ${rule}` }}>
-      <CellLabel>Value kept after 5 years</CellLabel>
-      <p className="font-cond" style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.1, marginTop: 4 }}>{verdict}</p>
+      <CellLabel>Value retention</CellLabel>
+      {hold.rated ? (
+        <>
+          <p style={{ marginTop: 4, display: 'flex', alignItems: 'center', gap: 6 }}><Stars n={hold.stars} /><span className="font-cond num" style={{ fontSize: 15, fontWeight: 700 }}>{hold.stars} of 5</span></p>
+          <p className="font-cond" style={{ fontSize: 13, fontWeight: 600, lineHeight: 1.15, marginTop: 2 }}>{rank}</p>
+        </>
+      ) : <p className="font-cond" style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.1, marginTop: 4 }}>What a typical {hold.bodyWord} keeps</p>}
       <div style={{ marginTop: 6, display: 'grid', rowGap: 4 }}>
         {rows.map(([label, x, color]) => (
-          <div key={label} style={{ display: 'grid', gridTemplateColumns: '64px 1fr 30px', alignItems: 'center', columnGap: 6, fontSize: 9.5, color: ink2 }}>
+          <div key={label} style={{ display: 'grid', gridTemplateColumns: '68px 1fr 30px', alignItems: 'center', columnGap: 6, fontSize: 9.5, color: ink2 }}>
             <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{label}</span>
             <div style={{ height: 7, borderRadius: 4, background: paper2, boxShadow: `inset 0 0 0 1px ${rule}` }}><div style={{ width: pct(Math.min(1, x)), height: '100%', borderRadius: 4, background: color }} /></div>
             <span className="num" style={{ fontWeight: 700, color: ink, textAlign: 'right' }}>{pct(x)}</span>
           </div>
         ))}
       </div>
-      <p style={{ fontSize: 9, color: ink3, marginTop: 4, lineHeight: 1.3 }}>Share of a new one's price at 5 years old{hold.calibrated ? ', measured on real listings' : ''}.</p>
+      <p style={{ fontSize: 9, color: ink3, marginTop: 4, lineHeight: 1.3 }}>
+        Share of a new one's price kept at 5 years old{hold.calibrated ? ', measured on real listings' : ''}.{hold.rated && hold.makeLevel ? ` Rating is for ${hold.ownLabel} as a group; no figure for this model yet.` : ''}
+      </p>
     </div>
   );
 }

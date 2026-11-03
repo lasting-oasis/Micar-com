@@ -87,7 +87,7 @@ function Car({ r, code, now }: { r: CarRecord; code: string; now: Date }) {
               <p className="mt-1 text-xs" style={{ color: 'var(--ink-3)' }}>plus tax, title, registration and fees</p>
               {snap && r.price > 0 && (
                 <div className="mt-5 border-t pt-4" style={{ borderColor: 'var(--rule)' }}>
-                  <p className="text-sm font-semibold" style={{ color: snap.verdict.kind === 'above' ? 'var(--loss)' : snap.verdict.kind === 'below' ? 'var(--gain)' : 'var(--ink-2)' }}>{snap.verdict.text}</p>
+                  <p className="text-sm font-semibold" style={{ color: snap.verdict.kind === 'above' ? 'var(--loss)' : snap.verdict.kind === 'below' ? 'var(--gain)' : 'var(--ink-2)' }}>{snap.verdict.label}: {snap.verdict.text.toLowerCase()}</p>
                   <p className="mt-1 text-sm" style={{ color: 'var(--ink-2)' }}>
                     An independent estimate puts a {r.condition.toLowerCase()}-condition {r.year} {displayModel(r)} with {r.mileage ? miles(r.mileage) : 'these miles'} at <strong className="num">{usd(snap.val.dealerRetail)}</strong> on a dealer lot, or <strong className="num">{usd(snap.val.range.low)}–{usd(snap.val.range.high)}</strong> in a private sale. Dealer prices include reconditioning, a warranty of some kind and margin.
                   </p>
