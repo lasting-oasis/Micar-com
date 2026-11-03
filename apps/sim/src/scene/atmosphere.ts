@@ -97,6 +97,35 @@ vec3 lowSkyIrradiance( const in float y ) {
 `;
 };
 
+// ---- Clouds: a tileable noise texture built once (two reads per sky pixel) --------
+const makeCloudTexture = (size = 256) => {
+    let seed = 1337;
+    const rand = () => { seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+    const grids = [4, 8, 16, 32, 64].map(period => { const g = new Float32Array(period * period); for (let i = 0; i < g.length; i++) g[i] = rand(); return { period, g }; });
+    const smooth = (t: number) => t * t * (3 - 2 * t);
+    const sample = (o: { period: number; g: Float32Array }, u: number, v: number) => {
+        const x = u * o.period, y = v * o.period;
+        const x0 = Math.floor(x), y0 = Math.floor(y), fx = smooth(x - x0), fy = smooth(y - y0);
+        const P = o.period, at = (i: number, j: number) => o.g[((j % P) + P) % P * P + ((i % P) + P) % P];
+        const a = at(x0, y0), b = at(x0 + 1, y0), c = at(x0, y0 + 1), d = at(x0 + 1, y0 + 1);
+        return (a + (b - a) * fx) + ((c + (d - c) * fx) - (a + (b - a) * fx)) * fy;
+    };
+    const data = new Uint8Array(size * size * 4);
+    for (let j = 0; j < size; j++) for (let i = 0; i < size; i++) {
+        let v = 0, amp = 0.5, norm = 0;
+        for (const o of grids) { v += sample(o, i / size, j / size) * amp; norm += amp; amp *= 0.5; }
+        const k = (j * size + i) * 4;
+        data[k] = data[k + 1] = data[k + 2] = Math.round(255 * v / norm); data[k + 3] = 255;
+    }
+    const tex = new THREE.DataTexture(data, size, size, THREE.RGBAFormat);
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.magFilter = THREE.LinearFilter;
+    tex.minFilter = THREE.LinearMipmapLinearFilter;
+    tex.generateMipmaps = true;
+    tex.needsUpdate = true;
+    return tex;
+};
+
 // ---- The visible sky ---------------------------------------------------------------
 const skyVertex = /* glsl */`
 varying vec3 vDir;
@@ -117,6 +146,11 @@ uniform float uGlow;
 uniform float uSunDisc;
 uniform float uStars;
 uniform float uIntensity;
+uniform sampler2D uClouds;
+uniform float uCloudTime;
+uniform float uCloudCover;
+uniform vec3 uCloudLit;
+uniform vec3 uCloudShade;
 varying vec3 vDir;
 float starHash( vec3 p ) {
 	p = fract( p * 0.3183099 + 0.1 ); p *= 17.0;
@@ -136,6 +170,17 @@ void main() {
 	if ( uStars > 0.0 && y > 0.0 ) {
 		float h = starHash( floor( d * 700.0 ) );
 		col += vec3( step( 0.9982, h ) * ( 0.35 + 0.65 * fract( h * 91.7 ) ) ) * uStars * smoothstep( 0.02, 0.2, y );
+	}
+	if ( y > 0.0 ) {
+		// a cloud layer seen from below: project onto a plane, flatten toward the horizon
+		vec2 uv = d.xz / ( y + 0.08 ) * 0.11;
+		float n = texture2D( uClouds, uv + vec2( uCloudTime * 0.0025, uCloudTime * 0.001 ) ).r * 0.62
+			+ texture2D( uClouds, uv * 2.9 + vec2( - uCloudTime * 0.004, uCloudTime * 0.002 ) ).r * 0.38;
+		float c = smoothstep( uCloudCover, uCloudCover + 0.22, n ) * smoothstep( 0.0, 0.18, y );
+		float thick = smoothstep( uCloudCover, uCloudCover + 0.45, n );
+		vec3 cloud = mix( uCloudLit, uCloudShade, thick * 0.75 );
+		cloud += uSunColor * uGlow * 0.6 * pow( cosSun, 10.0 ) * ( 1.0 - thick ); // bright edges toward the sun
+		col = mix( col, cloud, c * 0.92 );
 	}
 	gl_FragColor = vec4( col * uIntensity, 1.0 );
 	#include <tonemapping_fragment>
@@ -167,6 +212,8 @@ export class Atmosphere {
             uZenith: { value: new THREE.Color() }, uHorizon: { value: new THREE.Color() }, uHorizonSun: { value: new THREE.Color() },
             uGround: { value: new THREE.Color() }, uSunColor: { value: new THREE.Color() }, uSunDir: { value: new THREE.Vector3(0, 1, 0) },
             uGlow: { value: 0.3 }, uSunDisc: { value: 18 }, uStars: { value: 0 }, uIntensity: { value: 1 },
+            uClouds: { value: makeCloudTexture() }, uCloudTime: { value: 0 }, uCloudCover: { value: 0.52 },
+            uCloudLit: { value: new THREE.Color() }, uCloudShade: { value: new THREE.Color() },
         };
         const material = new THREE.ShaderMaterial({
             uniforms: this.uniforms, vertexShader: skyVertex, fragmentShader: skyFragment,
@@ -203,6 +250,7 @@ export class Atmosphere {
         const el = sunElevationAt(t);
         const az = sunAzimuthAt(t);
         this.elevation = el;
+        this.uniforms.uCloudTime.value = t * 60; // drift with the game clock
         const elR = THREE.MathUtils.degToRad(Math.max(el, -6)); // keep the glow just under the horizon at dusk
         this.sunDir.set(Math.cos(elR) * Math.sin(az), Math.sin(elR), Math.cos(elR) * Math.cos(az)).normalize();
 
@@ -234,6 +282,14 @@ export class Atmosphere {
             this.sun.intensity = MOON_INTENSITY * this.nightFactor;
             this.sunLightDir.set(-Math.sin(az) * 0.5, 0.8, -Math.cos(az) * 0.5).normalize();
         }
+
+        // Clouds: lit by the sun and sky by day, warm at sunset, dim grey-blue at night
+        const lit = u.uCloudLit.value as THREE.Color, shade = u.uCloudShade.value as THREE.Color;
+        const sunCol = u.uSunColor.value as THREE.Color;
+        const dayLight = THREE.MathUtils.clamp(sunI / 3, 0, 1);
+        lit.copy(u.uZenith.value).multiplyScalar(0.55).lerp(tmpB.copy(sunCol).multiplyScalar(0.95), 0.25 + 0.55 * dayLight).add(tmpA.copy(u.uHorizonSun.value).multiplyScalar(0.25));
+        shade.copy(u.uZenith.value).multiplyScalar(0.5).add(tmpA.copy(u.uHorizon.value).multiplyScalar(0.45));
+        if (dayLight < 0.05) { lit.multiplyScalar(0.6); shade.multiplyScalar(0.6); }
 
         // Low graphics sky light (shared uniforms) and the fog: the average horizon colour
         const zen = u.uZenith.value as THREE.Color, hor = u.uHorizon.value as THREE.Color, horSun = u.uHorizonSun.value as THREE.Color;
@@ -288,6 +344,7 @@ export class Atmosphere {
         this.scene.remove(this.sky);
         this.sky.geometry.dispose();
         (this.sky.material as THREE.Material).dispose();
+        (this.uniforms.uClouds.value as THREE.Texture).dispose();
         this.cubeTarget.dispose();
         this.envTarget?.dispose();
         this.pmrem.dispose();
