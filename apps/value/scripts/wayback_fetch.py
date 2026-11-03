@@ -4,7 +4,7 @@ data/iseecars/wayback.tsv (from iseecars_discover.py) lists every archived price
 its latest snapshot. This fetches each wanted page (years in Y0..Y1, newest years first)
 from web.archive.org, one every DELAY seconds, parses the price table and appends to
 data/iseecars/prices-wayback.jsonl. Resumable via data/iseecars/tried-wayback.json.
-Pages the live job already found are skipped. Stops at the time budget or after 5
+Pages the live job already found are skipped. Parsing is in iseecars_parse.py (reads the Style column on older layouts). Stops at the time budget or after 5
 consecutive failures; the workflow then starts the next run.
 """
 import json, os, re, sys, time, urllib.request, urllib.error

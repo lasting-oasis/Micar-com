@@ -6,7 +6,7 @@ name: iSeeCars prices from the Wayback Machine
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/wayback.yml, scripts/wayback_fetch.py]
+    paths: [.github/workflows/wayback.yml, scripts/wayback_fetch.py, scripts/iseecars_parse.py]
   workflow_dispatch:
 
 permissions:
