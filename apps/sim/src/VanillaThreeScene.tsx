@@ -6,7 +6,7 @@ import { batchStatic } from './scene/staticBatcher';
 import { damp, disposeObject, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
 import { applyCarPaint, buildCarModel, carColorHex, deriveStyle } from './scene/carModel';
-import { Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
+import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
 import { createFenceKit } from './scene/world/fences';
@@ -188,10 +188,13 @@ export function VanillaThreeScene() {
             return t;
         };
         
-        // A walk-in customer: `mesh` places and turns them, `person` is their body (scene/characterModel.ts)
-        type BotState = { mesh: THREE.Group, person: Character, targetPos: THREE.Vector3, status: 'walking_in' | 'waiting' | 'walking_out' | 'test_driving' };
+        // --- People (scene/characterModel.ts) ----------------------------------------------
+        // Customers at a car, by car ID: walk-ins negotiating for that car (`agentId`) and the
+        // older offer customers. `mesh` places and turns them, `person` is their body; they
+        // follow `route` (waypoints) before heading for `targetPos`.
+        type BotState = { mesh: THREE.Group, person: Character, targetPos: THREE.Vector3, status: 'walking_in' | 'waiting' | 'walking_out' | 'test_driving', route?: THREE.Vector3[], agentId?: string };
         const aiBots: Record<string, BotState> = {}; // Mapped by target car ID
-        const CUSTOMER_WALK_SPEED = 8; // world units per second
+        const CUSTOMER_WALK_SPEED = 3.4; // world units per second: a natural walk
         // Turn a person (they face −Z) toward the direction (dx, dz), at most 9 rad/s. Returns the turn rate.
         const faceToward = (obj: THREE.Object3D, dx: number, dz: number, delta: number) => {
             if (dx * dx + dz * dz < 1e-6 || delta <= 0) return 0;
@@ -201,40 +204,202 @@ export function VanillaThreeScene() {
             obj.rotation.y += turn;
             return turn / delta;
         };
-        // Walk a customer toward `target`, facing where they go; true once they're there.
-        const walkCustomer = (bot: BotState, target: THREE.Vector3, delta: number) => {
-            const p = bot.mesh.position;
-            const dx = target.x - p.x, dz = target.z - p.z, d = Math.hypot(dx, dz);
-            if (d < 0.3 || delta <= 0) { bot.person.update(delta, 0); return d < 0.3; }
+        // Walk a person through `route`'s waypoints and on to `target`, facing where they go; true once there.
+        const walkTo = (mesh: THREE.Group, person: Character, route: THREE.Vector3[] | undefined, target: THREE.Vector3, delta: number) => {
+            const p = mesh.position;
+            const goal = route && route.length ? route[0] : target;
+            const dx = goal.x - p.x, dz = goal.z - p.z, d = Math.hypot(dx, dz);
+            if (d < 0.3 || delta <= 0) {
+                if (route && route.length && delta > 0) { route.shift(); person.update(delta, CUSTOMER_WALK_SPEED); return false; }
+                person.update(delta, 0);
+                return d < 0.3;
+            }
             const step = Math.min(d, CUSTOMER_WALK_SPEED * delta);
             p.x += dx / d * step; p.z += dz / d * step;
-            faceToward(bot.mesh, dx, dz, delta);
-            bot.person.update(delta, step / delta);
+            faceToward(mesh, dx, dz, delta);
+            person.update(delta, step / delta);
             return false;
         };
+        const walkCustomer = (bot: BotState, target: THREE.Vector3, delta: number) => walkTo(bot.mesh, bot.person, bot.route, target, delta);
         // Where a customer stands to look at a car: beside it, on the side they come from.
         const tmpSide = new THREE.Vector3();
-        const customerSpot = (car: THREE.Object3D, from: THREE.Vector3) => {
-            const side = tmpSide.set(1, 0, 0).applyQuaternion(car.quaternion);
-            const s = (from.x - car.position.x) * side.x + (from.z - car.position.z) * side.z >= 0 ? 1 : -1;
-            return car.position.clone().addScaledVector(side, s * 3.6).setY(0);
+        const customerSpot = (car: THREE.Object3D, from: THREE.Vector3, side = 0) => {
+            const across = tmpSide.set(1, 0, 0).applyQuaternion(car.quaternion);
+            const s = side || ((from.x - car.position.x) * across.x + (from.z - car.position.z) * across.z >= 0 ? 1 : -1);
+            return car.position.clone().addScaledVector(across, s * 3.6).setY(0);
         };
         // Customers leave toward the middle of the lot they came from
         const customerExit = (lot?: { x: number; z: number }) => new THREE.Vector3((lot?.x || 0) + Math.random() * 20 - 10, 0, (lot?.z || 0) + 45);
+        // Walking on a lot: along the central drive lane (lot x ± 5, between the display rows),
+        // out to the lane and in again at the ends, so people don't cut through parked cars.
+        type Lot = { x: number; z: number };
+        const lanePoint = (lot: Lot, side: number, z: number) => new THREE.Vector3(lot.x + side * 5, 0, lot.z + Math.max(-25, Math.min(90, z - lot.z)));
+        const laneRoute = (lot: Lot, from: THREE.Vector3, to: THREE.Vector3) => {
+            const toSide = to.x >= lot.x ? 1 : -1, fromSide = Math.abs(from.x - lot.x) < 5 ? toSide : Math.sign(from.x - lot.x);
+            const pts = [lanePoint(lot, fromSide, from.z), lanePoint(lot, toSide, to.z)];
+            return pts.filter((q, i) => q.distanceTo(i ? pts[0] : from) > 1.5 && q.distanceTo(to) > 1.5);
+        };
+        // Would walking from a to b go through a car or a wall?
+        const tmpSeg = new THREE.Vector3();
+        const tmpWalkBox = new THREE.Box3();
+        const segmentBlocked = (a: THREE.Vector3, b: THREE.Vector3) => {
+            const n = Math.ceil(Math.hypot(b.x - a.x, b.z - a.z) / 1.2);
+            for (let i = 1; i < n; i++) {
+                const x = a.x + (b.x - a.x) * i / n, z = a.z + (b.z - a.z) * i / n;
+                for (const id in carMeshes) {
+                    const c = carMeshes[id].position;
+                    if (Math.abs(x - c.x) > 8 || Math.abs(z - c.z) > 8) continue;
+                    const f = tmpSeg.set(0, 0, 3).applyQuaternion(carMeshes[id].quaternion);
+                    if (Math.hypot(x - c.x, z - c.z) < 2.6 || Math.hypot(x - c.x - f.x, z - c.z - f.z) < 2.6 || Math.hypot(x - c.x + f.x, z - c.z + f.z) < 2.6) return true;
+                }
+                tmpWalkBox.min.set(x - 0.4, 0.1, z - 0.4); tmpWalkBox.max.set(x + 0.4, 3, z + 0.4);
+                for (let j = 0; j < staticCollisionBoxes.length; j++) if (tmpWalkBox.intersectsBox(staticCollisionBoxes[j])) return true;
+            }
+            return false;
+        };
         // Customer test drives in progress, by car ID: a list of waypoints the car
         // drives through (out the gate, down the road, back, and into its spot).
         const aiDriveSequence: Record<string, { waypoints: THREE.Vector3[]; index: number; startRotY: number }> = {};
         const AI_DRIVE_SPEED = 40;
-        
+
+        // Walk-in customers mirrored from the server (gameState.activeWalkIns): one person per
+        // agent. Browsing: they wander the lot and look at cars. Negotiating: they hand over to
+        // aiBots[carId] (walk up to that car, wait by it, maybe take it for a test drive).
+        // Gone or left: they walk out through the gate.
+        type WalkIn = { mesh: THREE.Group; person: Character; mode: 'walking' | 'looking' | 'attached' | 'leaving'; route: THREE.Vector3[]; target: THREE.Vector3; look: THREE.Vector3 | null; lookCar: string | null; until: number; leftAt: number; carId: string | null };
+        const walkIns: Record<string, WalkIn> = {};
+        const arrivals: Record<string, number> = {}; // when each new walk-in shows up (they don't all arrive at once)
+        const agentById = (agents: { id: string; state: string; carId?: string }[], id: string) => { for (const a of agents) if (a.id === id) return a; return undefined; };
+        // Is this car customer a walk-in who is (still) negotiating for this car?
+        const negotiatingFor = (bot: BotState, carId: string) => {
+            if (!bot.agentId) return false;
+            const st = stateRef.current;
+            const a = agentById((st.gameState?.activeWalkIns?.[st.playerId || ''] || []) as { id: string; state: string; carId?: string }[], bot.agentId);
+            return !!a && a.state === 'negotiating' && a.carId === carId;
+        };
+        const onLot = (lot: Lot, p: THREE.Vector3) => p.x > lot.x - 50 && p.x < lot.x + 70 && p.z > lot.z - 35 && p.z < lot.z + 96;
+        // Choose the next car to look at (or a spot on the lane) and the way there
+        const planBrowse = (w: WalkIn, lot: Lot, cars: { id: string }[]) => {
+            const taken = new Set<string>(Object.keys(aiBots));
+            for (const id in walkIns) if (walkIns[id] !== w && walkIns[id].lookCar) taken.add(walkIns[id].lookCar!);
+            const choices = cars.filter(c => carMeshes[c.id] && !taken.has(c.id) && c.id !== w.lookCar && !aiDriveSequence[c.id] && c.id !== localDrivingCarId && onLot(lot, carMeshes[c.id].position));
+            // one of the nearest few, so they work their way along the rows
+            const here = w.mesh.position;
+            choices.sort((p, q) => carMeshes[p.id].position.distanceToSquared(here) - carMeshes[q.id].position.distanceToSquared(here));
+            for (let tries = 0; tries < 4 && choices.length; tries++) {
+                const id = choices.splice(Math.floor(Math.random() * Math.min(3, choices.length)), 1)[0].id, car = carMeshes[id];
+                for (const side of Math.random() < 0.5 ? [1, -1] : [-1, 1]) {
+                    const spot = customerSpot(car, w.mesh.position, side);
+                    const route = laneRoute(lot, w.mesh.position, spot);
+                    const from = route.length ? route[route.length - 1] : w.mesh.position;
+                    if (!onLot(lot, spot) || segmentBlocked(from, spot)) continue;
+                    w.route = route; w.target = spot; w.look = car.position; w.lookCar = id; w.mode = 'walking';
+                    return;
+                }
+            }
+            // nothing to look at: stroll along the lane
+            const spot = lanePoint(lot, Math.random() < 0.5 ? 1 : -1, lot.z + 5 + Math.random() * 70);
+            w.route = laneRoute(lot, w.mesh.position, spot); w.target = spot; w.look = null; w.lookCar = null; w.mode = 'walking';
+        };
+        const removeWalkIn = (id: string) => {
+            const w = walkIns[id];
+            if (w.carId && aiBots[w.carId]?.agentId === id) delete aiBots[w.carId];
+            w.person.dispose(); w.mesh.removeFromParent();
+            delete walkIns[id];
+        };
+        const tmpFrustum = new THREE.Frustum(), tmpProj = new THREE.Matrix4(), tmpSphere = new THREE.Sphere();
+        const updateWalkIns = (me: { id: string; lotPosition?: Lot; inventory: { id: string }[] }, delta: number) => {
+            const lot = me.lotPosition;
+            const agents = (stateRef.current.gameState?.activeWalkIns?.[me.id] || []) as { id: string; state: string; carId?: string }[];
+            if (!lot) return;
+            const now = performance.now();
+            // A new walk-in arrives from the customer parking by the gate
+            for (const a of agents) {
+                if (a.state === 'left') { delete arrivals[a.id]; continue; }
+                if (walkIns[a.id]) continue;
+                arrivals[a.id] ??= now + Math.random() * 12000;
+                if (now < arrivals[a.id] && a.state === 'browsing') continue;
+                delete arrivals[a.id];
+                const person = new Character(customerLook(a.id), a.id);
+                const mesh = new THREE.Group();
+                mesh.add(person.root);
+                mesh.userData.walkIn = a.id;
+                mesh.position.set(lot.x + 36 + Math.random() * 8, 0, lot.z + 82 + Math.random() * 8);
+                mesh.rotation.y = Math.PI / 2; // facing the lot
+                scene.add(mesh);
+                const w: WalkIn = walkIns[a.id] = { mesh, person, mode: 'walking', route: [], target: mesh.position.clone(), look: null, lookCar: null, until: 0, leftAt: 0, carId: null };
+                planBrowse(w, lot, me.inventory);
+            }
+            tmpFrustum.setFromProjectionMatrix(tmpProj.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse));
+            for (const id in walkIns) {
+                const w = walkIns[id];
+                const a = agentById(agents, id);
+                const gone = !a || a.state === 'left';
+                if (w.mode === 'attached') {
+                    // aiBots walks them while they're at "their" car, until it lets them go
+                    if (w.carId && aiBots[w.carId]?.agentId === id) continue;
+                    w.carId = null; w.lookCar = null;
+                    if (!gone) { planBrowse(w, lot, me.inventory); continue; }
+                }
+                if (gone) {
+                    if (w.mode !== 'leaving') {
+                        // out through the gate
+                        const gate = new THREE.Vector3(lot.x + Math.random() * 10 - 5, 0, lot.z + 95);
+                        w.mode = 'leaving'; w.leftAt = now; w.look = null; w.lookCar = null;
+                        w.route = laneRoute(lot, w.mesh.position, gate); w.target = gate;
+                    }
+                } else if (a.state === 'negotiating' && a.carId && carMeshes[a.carId] && !aiBots[a.carId]) {
+                    // walk up to the car they're negotiating for (aiBots takes over)
+                    const spot = customerSpot(carMeshes[a.carId], w.mesh.position);
+                    aiBots[a.carId] = { mesh: w.mesh, person: w.person, targetPos: spot, status: 'walking_in', agentId: id, route: laneRoute(lot, w.mesh.position, spot) };
+                    w.mode = 'attached'; w.carId = a.carId; w.lookCar = a.carId;
+                    continue;
+                }
+                if (w.mode === 'walking') {
+                    if (walkTo(w.mesh, w.person, w.route, w.target, delta)) { w.mode = 'looking'; w.until = now + 4000 + Math.random() * 6000; }
+                } else if (w.mode === 'looking') {
+                    // look at the car for a while (breathing, glancing around), then on to the next one
+                    const turning = w.look ? faceToward(w.mesh, w.look.x - w.mesh.position.x, w.look.z - w.mesh.position.z, delta) : 0;
+                    w.person.update(delta, 0, turning);
+                    if (now > w.until) planBrowse(w, lot, me.inventory);
+                } else if (w.mode === 'leaving') {
+                    const there = walkTo(w.mesh, w.person, w.route, w.target, delta);
+                    if (there && w.target.z < lot.z + 100) {
+                        // at the gate: walk on out if it's open
+                        const gate = dealershipGates.find(g => g.ownerId === me.id);
+                        if (gate && Math.abs(gate.left.rotation.y) > 1.2) w.target = new THREE.Vector3(w.mesh.position.x, 0, lot.z + 115);
+                    }
+                    // gone once outside the lot, or (out of sight / after a while) at the closed gate
+                    const outside = w.mesh.position.z > lot.z + 105;
+                    tmpSphere.center.copy(w.mesh.position).setY(1.7); tmpSphere.radius = 2.5;
+                    const unseen = there && !tmpFrustum.intersectsSphere(tmpSphere);
+                    if (outside || unseen || (there && now - w.leftAt > 30000) || now - w.leftAt > 60000) removeWalkIn(id);
+                }
+            }
+        };
+
         const otherPlayerMeshes: Record<string, THREE.Group> = {}; // Mapped by player ID
+        // Another player's dealer and name label
+        const removeOtherPlayer = (id: string) => {
+            const g = otherPlayerMeshes[id];
+            if (!g) return;
+            (g.userData.person as Character | undefined)?.dispose();
+            g.traverse(o => { if ((o as THREE.Sprite).isSprite) { const m = (o as THREE.Sprite).material; m.map?.dispose(); m.dispose(); } });
+            g.removeFromParent();
+            delete otherPlayerMeshes[id];
+        };
 
-        // The player: a car dealer in shirt and tie (scene/characterModel.ts), facing −Z
-        // like the game's forward. Posed every frame by the walking code below.
+        // The player: a car dealer (scene/characterModel.ts) facing −Z like the game's forward,
+        // posed every frame by the walking code below. Their look comes from their name, so
+        // every client draws them the same.
         const avatar = new THREE.Group();
-        const avatarPerson = new Character(dealerLook(), 'player');
+        let avatarName = stateRef.current.gameState?.players[stateRef.current.playerId || '']?.name ?? '';
+        let avatarPerson = new Character(dealerLook(avatarName), avatarName);
         avatar.add(avatarPerson.root);
+        // Low graphics has no shadow maps: a soft blob under each person keeps them on the ground
+        const blobs = new BlobShadows(64);
+        scene.add(blobs.mesh);
 
-        
         const initialMe = stateRef.current.gameState?.players[stateRef.current.playerId || ''];
         if (initialMe && initialMe.lotPosition) {
             let spawnX = initialMe.lotPosition.x;
@@ -679,11 +844,13 @@ export function VanillaThreeScene() {
                         group.position.set(lotX + (Math.random() * 20 - 10), 0, lotZ + 40); // Distributed slightly relative to lot
                         scene.add(group);
 
-                        aiBots[car.id] = { mesh: group, person, targetPos: customerSpot(carMeshes[car.id], group.position), status: 'walking_in' };
-                    } else if (!car.hasOffer && aiBots[car.id] && aiBots[car.id].status !== 'walking_out') {
-                        // Offer accepted or declined, customer leaves!
+                        const spot = customerSpot(carMeshes[car.id], group.position);
+                        aiBots[car.id] = { mesh: group, person, targetPos: spot, status: 'walking_in', route: laneRoute({ x: lotX, z: lotZ }, group.position, spot) };
+                    } else if (!car.hasOffer && aiBots[car.id] && aiBots[car.id].status !== 'walking_out' && !negotiatingFor(aiBots[car.id], car.id)) {
+                        // Offer accepted or declined (or the walk-in stopped negotiating), customer leaves!
                         aiBots[car.id].status = 'walking_out';
                         aiBots[car.id].targetPos = customerExit(me.lotPosition);
+                        aiBots[car.id].route = laneRoute(me.lotPosition, aiBots[car.id].mesh.position, aiBots[car.id].targetPos);
                         // If they were out on a test drive, park the car straight back in its spot
                         const seq = aiDriveSequence[car.id];
                         if (seq) {
@@ -701,6 +868,7 @@ export function VanillaThreeScene() {
                     if (!carExists && aiBots[key].status !== 'walking_out') {
                         aiBots[key].status = 'walking_out';
                         aiBots[key].targetPos = customerExit(me.lotPosition);
+                        aiBots[key].route = laneRoute(me.lotPosition, aiBots[key].mesh.position, aiBots[key].targetPos);
                     }
                 });
 
@@ -803,6 +971,13 @@ export function VanillaThreeScene() {
                   } else if (bot.status === 'waiting') {
                       // Stand by the car looking at it: breathing, shifting weight, glancing around
                       const viewed = carMeshes[key];
+                      if (viewed && key !== localDrivingCarId && me?.lotPosition && viewed.position.distanceTo(bot.mesh.position) > 9) {
+                          // the car was parked somewhere else: walk over to it
+                          bot.targetPos = customerSpot(viewed, bot.mesh.position);
+                          bot.route = laneRoute(me.lotPosition, bot.mesh.position, bot.targetPos);
+                          bot.status = 'walking_in';
+                          return;
+                      }
                       const turning = viewed ? faceToward(bot.mesh, viewed.position.x - bot.mesh.position.x, viewed.position.z - bot.mesh.position.z, delta) : 0;
                       bot.person.update(delta, 0, turning);
                       
@@ -853,6 +1028,7 @@ export function VanillaThreeScene() {
                       }
                   } else if (bot.status === 'walking_out') {
                       bot.mesh.visible = true; // In case they left from a test drive
+                      if (bot.agentId) { delete aiBots[key]; return; } // a walk-in: updateWalkIns walks them on
                       if (walkCustomer(bot, bot.targetPos, delta)) {
                           // Gone: free their colours and skeleton (the body shape and material are shared)
                           bot.person.dispose();
@@ -861,6 +1037,16 @@ export function VanillaThreeScene() {
                       }
                   }
              });
+
+             // Walk-in customers browsing the lot, arriving and leaving
+             if (me) updateWalkIns(me, delta);
+             // Our look comes from our name (every client draws us the same)
+             if (me && me.name !== avatarName) {
+                 avatarName = me.name;
+                 avatarPerson.dispose();
+                 avatarPerson = new Character(dealerLook(avatarName), avatarName);
+                 avatar.add(avatarPerson.root);
+             }
 
              // --- Dynamic Interaction Prompts ---
              // Fade speeds are per second so the label behaves the same at any frame rate.
@@ -1236,10 +1422,7 @@ export function VanillaThreeScene() {
             if (current.gameState && current.gameState.players) {
                 const activeIds = new Set(Object.keys(current.gameState.players));
                 Object.keys(otherPlayerMeshes).forEach(id => {
-                    if (!activeIds.has(id) || id === current.playerId) {
-                        disposeObject(otherPlayerMeshes[id]);
-                        delete otherPlayerMeshes[id];
-                    }
+                    if (!activeIds.has(id) || id === current.playerId) removeOtherPlayer(id);
                 });
                 // Live positions relayed by the server ~10x/sec; fall back to the last full update.
                 const livePositions = useGameStore.getState().playerPositions;
@@ -1262,12 +1445,15 @@ export function VanillaThreeScene() {
                     if (p.id === current.playerId || !wp) return;
                     
                     let meshGroup = otherPlayerMeshes[p.id];
+                    if (meshGroup && meshGroup.userData.name !== p.name) { removeOtherPlayer(p.id); meshGroup = otherPlayerMeshes[p.id]; } // renamed: new look
                     if (!meshGroup) {
+                        // Their dealer, from their name (the same rule as our own avatar)
                         meshGroup = new THREE.Group();
-                        const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.5, 1, 4, 8), new THREE.MeshStandardMaterial({ color: '#f59e0b' }));
-                        body.position.y = 1; body.castShadow = true; meshGroup.add(body);
-                        const vis = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.3, 0.6), new THREE.MeshStandardMaterial({ color: '#d97706' }));
-                        vis.position.set(0, 1.4, 0.3); meshGroup.add(vis);
+                        const person = new Character(dealerLook(p.name), p.name);
+                        meshGroup.add(person.root);
+                        meshGroup.userData.person = person;
+                        meshGroup.userData.name = p.name;
+                        meshGroup.userData.inCar = 0;
                         
                         const canvas = document.createElement('canvas'); canvas.width = 256; canvas.height = 64;
                         const ctx = canvas.getContext('2d');
@@ -1276,7 +1462,7 @@ export function VanillaThreeScene() {
                             ctx.fillStyle = '#ffffff'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(p.name, 128, 42);
                         }
                         const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true }));
-                        sprite.position.y = 2.5; sprite.scale.set(3, 0.75, 1); meshGroup.add(sprite);
+                        sprite.position.y = 4.4; sprite.scale.set(3, 0.75, 1); meshGroup.add(sprite); // above their head
 
                         // Start where they are (not at the world origin, sliding in from there)
                         meshGroup.position.set(wp.x, wp.y ?? 0, wp.z);
@@ -1286,7 +1472,36 @@ export function VanillaThreeScene() {
                     }
                     meshGroup.position.lerp(tmpTarget.set(wp.x, wp.y ?? 0, wp.z), follow);
                     meshGroup.quaternion.slerp(tmpQuat.setFromAxisAngle(UP, wp.rotation ?? 0), follow);
+                    // How fast they really move: their network position over half-second windows
+                    // (updates arrive in bursts, so per-update speeds are noisy). Walk or run at that
+                    // speed; faster than anyone runs means they're driving (we don't draw their
+                    // car): hide their body and keep the name label.
+                    const ud = meshGroup.userData, person = ud.person as Character, nowS = now / 1000;
+                    if (ud.winT === undefined) { ud.winX = wp.x; ud.winZ = wp.z; ud.winT = nowS; ud.netSpeed = 0; ud.netDir = 1; }
+                    else if (nowS - ud.winT >= 0.5) {
+                        const ddx = wp.x - ud.winX, ddz = wp.z - ud.winZ;
+                        ud.netSpeed = Math.hypot(ddx, ddz) / (nowS - ud.winT);
+                        tmpFwd.set(0, 0, -1).applyQuaternion(meshGroup.quaternion);
+                        ud.netDir = ddx * tmpFwd.x + ddz * tmpFwd.z < 0 ? -1 : 1; // backing up?
+                        ud.winX = wp.x; ud.winZ = wp.z; ud.winT = nowS;
+                    }
+                    ud.inCar = ud.netSpeed > 26 ? 1.5 : Math.max(0, ud.inCar - delta); // seconds left
+                    person.root.visible = ud.inCar <= 0;
+                    if (person.root.visible) person.update(delta, Math.min(ud.netSpeed, 18) * (ud.netDir ?? 1));
                 });
+
+                // Low graphics: a soft blob shadow under everyone (High has real shadows)
+                blobs.begin();
+                if (quality === 'low') {
+                    if (avatar.visible) blobs.add(avatar.position.x, avatar.position.z, avatarPerson);
+                    for (const id in aiBots) { const b = aiBots[id]; if (b.mesh.visible) blobs.add(b.mesh.position.x, b.mesh.position.z, b.person); }
+                    for (const id in walkIns) { const w = walkIns[id]; if (w.mode !== 'attached') blobs.add(w.mesh.position.x, w.mesh.position.z, w.person); }
+                    for (const id in otherPlayerMeshes) {
+                        const g = otherPlayerMeshes[id], pp = g.userData.person as Character | undefined;
+                        if (pp && pp.root.visible) blobs.add(g.position.x, g.position.z, pp);
+                    }
+                }
+                blobs.end();
             }
             
             // Move the small pool of real lights to the lamps nearest the player
@@ -1323,8 +1538,9 @@ export function VanillaThreeScene() {
             [bananaGeo, shellGeo, itemBoxGeo].forEach(g => g.dispose());
             [bananaMat, shellMat].forEach(m => m.dispose());
             qTex.dispose(); uiTex.dispose();
-            Object.values(aiBots).forEach(b => { b.mesh.removeFromParent(); b.person.dispose(); });
-            Object.values(otherPlayerMeshes).forEach(disposeObject);
+            Object.values(aiBots).forEach(b => { if (!b.agentId) { b.mesh.removeFromParent(); b.person.dispose(); } }); // walk-ins: below
+            Object.keys(walkIns).forEach(removeWalkIn);
+            Object.keys(otherPlayerMeshes).forEach(removeOtherPlayer);
 
             // Dispose procedural city materials & textures
             cityMaterials.forEach(m => m.dispose());
@@ -1359,7 +1575,8 @@ export function VanillaThreeScene() {
             });
             
             avatarPerson.dispose();
-            disposeCharacterAssets(); // shared material and body shapes, after every person is gone
+            blobs.dispose();
+            disposeCharacterAssets(); // shared material, blob texture and body shapes, after every person is gone
             atmosphere.dispose();
 
             // Last: renderer.dispose() forgets which GPU textures belong to which
