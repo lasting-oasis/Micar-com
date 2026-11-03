@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Area, CartesianGrid, ComposedChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { Check, Link2, RotateCcw, Search } from 'lucide-react';
+import { Check, Link2, RotateCcw, Search, Tag } from 'lucide-react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
 import { describe as describeListings, parseListingsPage, type ParsedListing } from './engine/listings';
 import { MARKET, periodLabel, snapshotAgeDays } from './engine/market';
@@ -159,6 +159,7 @@ export default function App() {
           <div className="flex gap-2">
             <GlassButton onClick={() => { setForm(defaults()); setMsrpAuto(true); setLive(null); setLiveState({ status: 'idle' }); }} icon={<RotateCcw size={15} />}>Start over</GlassButton>
             {canShare && <GlassButton onClick={copyLink} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? 'Link copied' : 'Copy link to this estimate'}</GlassButton>}
+            <GlassButton onClick={() => { window.location.hash = '#/sticker'; }} icon={<Tag size={15} />}>Dealers: window sheet</GlassButton>
           </div>
         </header>
 
@@ -396,7 +397,7 @@ function MarketForm({ form, set, errors, pageResult, usePage, setUsePage, live, 
   );
 }
 
-function Prices({ val }: { val: Valuation }) {
+export function Prices({ val }: { val: Valuation }) {
   const pp = useTween(val.privateParty);
   return (
     <div>
@@ -447,7 +448,7 @@ function PriceCell({ label, value, note }: { label: string; value: number; note:
   );
 }
 
-function Ledger({ val }: { val: Valuation }) {
+export function Ledger({ val }: { val: Valuation }) {
   return (
     <div className="mt-7">
       <h3 className="font-cond text-xl font-semibold">How the price is built</h3>
@@ -474,7 +475,7 @@ function Ledger({ val }: { val: Valuation }) {
   );
 }
 
-function Forecast({ curve, annual, setAnnual }: { curve: ReturnType<typeof forecast>; annual: number; setAnnual: (e: { target: { value: string } }) => void }) {
+export function Forecast({ curve, annual, setAnnual }: { curve: ReturnType<typeof forecast>; annual: number; setAnnual: (e: { target: { value: string } }) => void }) {
   const first = curve[0]?.value ?? 0, last = curve[curve.length - 1]?.value ?? 0;
   const data = curve.map((d) => ({ ...d, band: [d.low, d.high] as [number, number] }));
   const min = Math.min(...curve.map((d) => d.low)), max = Math.max(...curve.map((d) => d.high));
@@ -521,7 +522,7 @@ function ForecastTip({ active, payload }: { active?: boolean; payload?: { payloa
   );
 }
 
-function Confidence({ val }: { val: Valuation }) {
+export function Confidence({ val }: { val: Valuation }) {
   const color = val.confidence === 'High' ? 'var(--gain)' : val.confidence === 'Medium' ? 'var(--warn)' : 'var(--loss)';
   const filled = val.confidence === 'High' ? 3 : val.confidence === 'Medium' ? 2 : 1;
   return (
@@ -541,7 +542,7 @@ function Confidence({ val }: { val: Valuation }) {
   );
 }
 
-function Drivers({ val, modelName }: { val: Valuation; modelName: string }) {
+export function Drivers({ val, modelName }: { val: Valuation; modelName: string }) {
   return (
     <div className="mt-6">
       <h3 className="font-cond text-xl font-semibold">{val.modelKnown && modelName ? `Why the ${modelName} prices this way` : 'What drives this price'}</h3>

@@ -1,0 +1,148 @@
+// Buyer side: what the QR code opens. Every detail from the sheet, then the independent
+// value check: how the asking price compares, how the value was built, and the 5-year forecast.
+import { Check, Link2, MapPin, Pencil, Phone, Search } from 'lucide-react';
+import { useMemo, useState, type ReactNode } from 'react';
+import { Confidence, Drivers, Forecast, Ledger, Prices } from '../App';
+import { forecast } from '../engine/valuation';
+import { FEATURES, FEATURE_GROUPS, calculatorUrl, carName, decodeRecord, displayModel, stickerPageUrl, type CarRecord } from './record';
+import { miles, monthYear, snapshot, usd } from './value';
+
+export default function CarPage({ code }: { code: string }) {
+  const now = useMemo(() => new Date(), []);
+  const r = useMemo(() => decodeRecord(code), [code]);
+  if (!r) return <Shell><Notice>This link doesn't point to a car. It may have been cut short when copied. Ask the dealer for the sheet, or <a className="underline" href={calculatorUrl()}>value a car yourself</a>.</Notice></Shell>;
+  return <Shell><Car r={r} code={code} now={now} /></Shell>;
+}
+
+function Car({ r, code, now }: { r: CarRecord; code: string; now: Date }) {
+  const [annual, setAnnual] = useState(12000);
+  const [copied, setCopied] = useState(false);
+  const snap = useMemo(() => snapshot(r, now, annual), [r, now, annual]);
+  const curve = useMemo(() => (snap ? forecast(snap.inputs, 5, annual, now) : []), [snap, annual, now]);
+  const feats = FEATURES.filter((f) => r.features.includes(f.id));
+  const copy = async () => { try { await navigator.clipboard.writeText(window.location.href); setCopied(true); setTimeout(() => setCopied(false), 1800); } catch { /* no clipboard */ } };
+  const d = r.dealer;
+  const hasDealer = d.name || d.phone || d.address || d.web;
+  const webHref = d.web ? (d.web.startsWith('http') ? d.web : `https://${d.web}`) : '';
+
+  return (
+    <>
+      <header className="mb-5 flex flex-wrap items-end justify-between gap-3" style={{ color: 'var(--glass-ink)' }}>
+        <div>
+          <p className="text-xs uppercase tracking-widest" style={{ color: 'var(--glass-muted)' }}>Nexus Valuation · car page</p>
+          <h1 className="font-cond mt-1 text-3xl font-semibold leading-none tracking-tight sm:text-4xl">{carName(r)}</h1>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Glass onClick={copy} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? 'Link copied' : 'Share'}</Glass>
+          <Glass onClick={() => { window.location.href = calculatorUrl(); }} icon={<Search size={15} />}>Value another car</Glass>
+        </div>
+      </header>
+
+      <main className="overflow-hidden rounded-md shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)]" style={{ background: 'var(--sticker)' }}>
+        {hasDealer && (
+          <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-3 text-sm sm:px-7" style={{ background: 'var(--ink)', color: 'var(--sticker)' }}>
+            <p className="font-cond text-xl font-semibold">{d.name || 'Offered by the dealer'}</p>
+            <div className="flex flex-wrap gap-x-5 gap-y-1 opacity-90">
+              {d.phone && <a className="inline-flex items-center gap-1 hover:underline" href={`tel:${d.phone.replace(/[^\d+]/g, '')}`}><Phone size={14} />{d.phone}</a>}
+              {d.address && <a className="inline-flex items-center gap-1 hover:underline" href={`https://www.google.com/maps/search/${encodeURIComponent(d.address)}`} target="_blank" rel="noreferrer"><MapPin size={14} />{d.address}</a>}
+              {d.web && <a className="hover:underline" href={webHref} target="_blank" rel="noreferrer">{d.web.replace(/^https?:\/\//, '')}</a>}
+            </div>
+          </div>
+        )}
+
+        <section className="grid gap-6 p-5 sm:p-7 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <p className="font-cond num text-2xl" style={{ color: 'var(--ink-2)' }}>{r.year}</p>
+            <h2 className="font-cond text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:text-6xl">{r.make} {displayModel(r)}</h2>
+            <p className="mt-2 text-base" style={{ color: 'var(--ink-2)' }}>{[r.trim, r.body, r.exterior && `${r.exterior} exterior`, r.interior && `${r.interior} interior`].filter(Boolean).join(' · ')}</p>
+            <dl className="mt-5 grid grid-cols-2 gap-px overflow-hidden rounded sm:grid-cols-4" style={{ background: 'var(--rule)' }}>
+              {[['Odometer', r.mileage ? miles(r.mileage) : '—'], ['Title', r.title], ['Accidents', r.accident === 'None' ? 'None reported' : `${r.accident} reported`], ['Condition', r.condition]].map(([k, v]) => (
+                <div key={k} className="p-3" style={{ background: 'var(--sticker)' }}>
+                  <dt className="text-xs uppercase tracking-wide" style={{ color: 'var(--ink-3)' }}>{k}</dt>
+                  <dd className="font-cond num text-xl font-semibold">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            {(r.vin || r.stock) && <p className="mt-3 text-xs" style={{ color: 'var(--ink-3)' }}>{r.vin && <>VIN <span className="font-mono tracking-wider">{r.vin}</span></>}{r.vin && r.stock && ' · '}{r.stock && <>Stock {r.stock}</>}</p>}
+            {feats.length > 0 && (
+              <div className="mt-6">
+                <h3 className="font-cond text-xl font-semibold">Equipment & highlights</h3>
+                {FEATURE_GROUPS.filter((g) => feats.some((f) => f.group === g)).map((g) => (
+                  <div key={g} className="mt-3">
+                    <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--ink-3)' }}>{g}</p>
+                    <ul className="mt-1 flex flex-wrap gap-1.5">
+                      {feats.filter((f) => f.group === g).map((f) => <li key={f.id} className="rounded-full px-3 py-1 text-sm" style={{ background: 'var(--sticker-2)', boxShadow: 'inset 0 0 0 1px var(--rule)' }}>{f.label}</li>)}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+            {r.notes && <p className="mt-6 text-sm leading-relaxed"><span className="mr-2 text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--ink-3)' }}>From the dealer</span>{r.notes}</p>}
+            <p className="mt-4 text-xs" style={{ color: 'var(--ink-3)' }}>{r.warranty}</p>
+          </div>
+
+          <aside className="lg:col-span-5">
+            <div className="rounded-md p-5" style={{ background: 'var(--sticker-2)', boxShadow: 'inset 0 0 0 1px var(--rule)' }}>
+              <p className="text-xs uppercase tracking-widest" style={{ color: 'var(--ink-3)' }}>Asking price</p>
+              <p className="font-cond num text-6xl font-bold leading-none tracking-tight">{r.price ? usd(r.price) : 'Ask'}</p>
+              <p className="mt-1 text-xs" style={{ color: 'var(--ink-3)' }}>plus tax, title, registration and fees</p>
+              {snap && r.price > 0 && (
+                <div className="mt-5 border-t pt-4" style={{ borderColor: 'var(--rule)' }}>
+                  <p className="text-sm font-semibold" style={{ color: snap.verdict.kind === 'above' ? 'var(--loss)' : snap.verdict.kind === 'below' ? 'var(--gain)' : 'var(--ink-2)' }}>{snap.verdict.text}</p>
+                  <p className="mt-1 text-sm" style={{ color: 'var(--ink-2)' }}>
+                    An independent estimate puts a {r.condition.toLowerCase()}-condition {r.year} {displayModel(r)} with {r.mileage ? miles(r.mileage) : 'these miles'} at <strong className="num">{usd(snap.val.dealerRetail)}</strong> on a dealer lot, or <strong className="num">{usd(snap.val.range.low)}–{usd(snap.val.range.high)}</strong> in a private sale. Dealer prices include reconditioning, a warranty of some kind and margin.
+                  </p>
+                  {snap.msrp.msrp > 0 && <p className="mt-2 text-xs" style={{ color: 'var(--ink-3)' }}>Original sticker price: {usd(snap.msrp.msrp)}{snap.msrp.source === 'typical' ? ' (estimated)' : snap.msrp.source === 'dealer' ? ' (entered by the dealer)' : ` (${r.year} ${r.trim || 'base'} MSRP)`}.</p>}
+                </div>
+              )}
+            </div>
+            <p className="mt-3 text-xs" style={{ color: 'var(--ink-3)' }}>Estimate as of {monthYear(now)}, national market, no local comps. It's a starting point for a conversation, not an appraisal.</p>
+          </aside>
+        </section>
+
+        {snap ? (
+          <>
+            <div className="grid border-t lg:grid-cols-12" style={{ borderColor: 'var(--rule)' }}>
+              <section className="border-b p-5 sm:p-7 lg:col-span-7 lg:border-b-0 lg:border-r" style={{ borderColor: 'var(--rule)' }}>
+                <h2 className="font-cond text-2xl font-semibold">How the value was worked out</h2>
+                <p className="mb-5 text-sm" style={{ color: 'var(--ink-3)' }}>Starting from what this car cost new, step by step.</p>
+                <Prices val={snap.val} />
+                <Ledger val={snap.val} />
+              </section>
+              <section className="p-5 sm:p-7 lg:col-span-5">
+                <Confidence val={snap.val} />
+                <Drivers val={snap.val} modelName={displayModel(r)} />
+              </section>
+            </div>
+            <section className="border-t p-5 sm:p-7" style={{ borderColor: 'var(--rule)' }}>
+              <Forecast curve={curve} annual={annual} setAnnual={(e) => setAnnual(Math.min(60000, Math.max(1000, Number(e.target.value) || 12000)))} />
+            </section>
+          </>
+        ) : (
+          <section className="border-t p-5 text-sm sm:p-7" style={{ borderColor: 'var(--rule)', color: 'var(--ink-2)' }}>
+            No value estimate: there is no original sticker price on file for this car and the dealer didn't enter one. You can <a className="underline" href={calculatorUrl()}>enter it yourself in the calculator</a>.
+          </section>
+        )}
+
+        <footer className="flex flex-wrap items-center justify-between gap-3 border-t px-5 py-4 text-xs sm:px-7" style={{ borderColor: 'var(--rule)', background: 'var(--sticker-2)', color: 'var(--ink-3)' }}>
+          <span>This page was generated from the dealer's window sheet; the value check is independent of the dealer.</span>
+          <a className="inline-flex items-center gap-1 hover:underline" href={stickerPageUrl(code)}><Pencil size={12} /> Dealer: edit or reprint this sheet</a>
+        </footer>
+      </main>
+    </>
+  );
+}
+
+function Shell({ children }: { children: ReactNode }) {
+  return <div className="min-h-screen py-6 sm:px-4 sm:py-10"><div className="mx-auto max-w-6xl">{children}</div></div>;
+}
+function Notice({ children }: { children: ReactNode }) {
+  return <p className="rounded-md p-6 text-sm" style={{ background: 'var(--sticker)', color: 'var(--ink-2)' }}>{children}</p>;
+}
+function Glass({ children, icon, onClick }: { children: ReactNode; icon: ReactNode; onClick: () => void }) {
+  return (
+    <button type="button" onClick={onClick} className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition hover:brightness-110" style={{ background: 'rgba(255,255,255,0.08)', color: 'var(--glass-ink)', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.14)' }}>
+      {icon}{children}
+    </button>
+  );
+}

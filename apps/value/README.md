@@ -25,6 +25,10 @@ A pure depreciation formula knows what a car *should* be worth from its sticker 
 
 The model table is a rule-of-thumb snapshot from published depreciation studies, not live listings or auction data. The natural next step is a live comps feed (MarketCheck, Auto.dev or a dealer's own inventory system) feeding the same `comps` input.
 
+## Dealer window sheet
+
+`#/sticker` is a builder for a printable window sheet (letter paper) for a car on the lot: dealer block, the car (model and trim picked from the site's lists, so the original MSRP, body style and value come from the engine), odometer, asking price, colors, VIN, stock number, condition and history, a highlights checklist, notes and a warranty line. The sheet carries a value snapshot (original MSRP, typical dealer retail, 3-year projection, and where the asking price sits) and a QR code. The QR opens `#/car/<code>`: every detail plus the independent value check (price verdict, ledger, forecast). The whole car record is encoded in the URL (`src/car/record.ts`, ~300-550 characters), so nothing is stored on a server; dealers can reopen a sheet for editing from the car page. It is a dealer information sheet, not the manufacturer's Monroney label, and does not replace the FTC Buyers Guide on used cars.
+
 ## Real sticker prices
 
 `src/engine/stickers.ts` serves official MSRPs by model year and trim (excluding destination) from `src/data/stickers.json`. When the chosen make, model and year are on file, the Trim field becomes a picker and the MSRP box is prefilled with the real sticker; otherwise it falls back to `typicalMsrp` in `models.ts`, a rough mid-trim figure scaled 3% a year, and says so. Sixty models are on file for 2016–2026 (3,580 trim-year prices; years a source couldn't confirm are listed as gaps in each research file). Each year records where the price came from: the manufacturer's own pricing release where one could be read, otherwise a published price list marked `secondary`. Pickups carry a configuration on every row, and the engine picks the crew-cab 4x4 row for a trim because that is what most used trucks are.

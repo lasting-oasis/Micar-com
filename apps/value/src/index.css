@@ -102,3 +102,13 @@ select.field { appearance: none; padding-right: 2rem; background-image: linear-g
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* Window sheet: the dealer's printable page (src/car/Sticker.tsx). */
+.print-root { display: none; }
+@media print {
+  @page { size: letter; margin: 0.4in; }
+  html, body { background: #fff !important; }
+  .no-print { display: none !important; }
+  .print-root { display: block !important; }
+  .sheet { break-inside: avoid; }
+}

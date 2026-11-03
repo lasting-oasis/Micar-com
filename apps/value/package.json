@@ -16,7 +16,9 @@
     "build:epa": "tsx scripts/build-epa.ts"
   },
   "dependencies": {
+    "@types/qrcode": "^1.5.6",
     "lucide-react": "^1.63.0",
+    "qrcode": "^1.5.4",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "recharts": "^3.10.1"
