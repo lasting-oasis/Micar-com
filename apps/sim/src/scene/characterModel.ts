@@ -999,7 +999,7 @@ function buildBody(B: Builder, body: Body, s: Shape) {
 
 interface Template {
     position: THREE.BufferAttribute; normal: THREE.BufferAttribute; skinIndex: THREE.BufferAttribute; skinWeight: THREE.BufferAttribute;
-    index: THREE.BufferAttribute; slot: Uint8Array; shade: Float32Array; body: Body; refs: number; triangles: number;
+    index: THREE.BufferAttribute; slot: Uint8Array; shade: Float32Array; body: Body; refs: number; triangles: number; key: string;
 }
 const templates = new Map<string, Template>();
 const SHARED = ['position', 'normal', 'skinIndex', 'skinWeight'] as const;
@@ -1019,7 +1019,7 @@ function templateFor(look: Look): Template {
         skinWeight: new THREE.Float32BufferAttribute(B.wgt, 4),
         index: new THREE.Uint16BufferAttribute(B.idx, 1),
         slot: Uint8Array.from(B.slot), shade: Float32Array.from(B.shade),
-        body, refs: 0, triangles: B.idx.length / 3,
+        body, refs: 0, triangles: B.idx.length / 3, key,
     };
     if (n > 65535) throw new Error('character mesh too large');
     templates.set(key, t);
@@ -1247,9 +1247,10 @@ export class Character {
     dispose() {
         this.root.removeFromParent();
         const g = this.mesh.geometry;
-        // Other people still use the shared shape: free only this person's colours
+        // Other people still use the shared shape: free only this person's colours. The last one
+        // frees the shape too (and it leaves the cache: most customers' shapes are one-offs).
         if (this.tpl.refs > 1) { for (const name of SHARED) g.deleteAttribute(name); g.setIndex(null); }
-        this.tpl.refs--;
+        if (--this.tpl.refs <= 0 && templates.get(this.tpl.key) === this.tpl) templates.delete(this.tpl.key);
         g.dispose();
         this.mesh.skeleton.dispose();
     }
