@@ -33,7 +33,7 @@ const KEYS: Key[] = [
 // game reads better a little brighter than physically exact.
 const SKY_LIGHT_BOOST = 1.8;
 const MOON_COLOR = new THREE.Color('#9db4e6');
-const MOON_INTENSITY = 0.7;
+const MOON_INTENSITY = 1.0;
 
 // Sun path for the game clock (the business day runs 8:00–20:00 and the clock stops at 20:00).
 const SUNRISE = 6.5, SUNSET = 19.0, PEAK_ELEVATION = 55;
@@ -287,9 +287,11 @@ export class Atmosphere {
         const lit = u.uCloudLit.value as THREE.Color, shade = u.uCloudShade.value as THREE.Color;
         const sunCol = u.uSunColor.value as THREE.Color;
         const dayLight = THREE.MathUtils.clamp(sunI / 3, 0, 1);
-        lit.copy(u.uZenith.value).multiplyScalar(0.55).lerp(tmpB.copy(sunCol).multiplyScalar(0.95), 0.25 + 0.55 * dayLight).add(tmpA.copy(u.uHorizonSun.value).multiplyScalar(0.25));
+        // lit side: sky + horizon glow + direct sun (scaled by how strong the sun really is)
+        lit.copy(u.uZenith.value).multiplyScalar(0.5)
+            .add(tmpA.copy(u.uHorizonSun.value).multiplyScalar(0.3))
+            .add(tmpB.copy(sunCol).multiplyScalar(0.8 * dayLight));
         shade.copy(u.uZenith.value).multiplyScalar(0.5).add(tmpA.copy(u.uHorizon.value).multiplyScalar(0.45));
-        if (dayLight < 0.05) { lit.multiplyScalar(0.6); shade.multiplyScalar(0.6); }
 
         // Low graphics sky light (shared uniforms) and the fog: the average horizon colour
         const zen = u.uZenith.value as THREE.Color, hor = u.uHorizon.value as THREE.Color, horSun = u.uHorizonSun.value as THREE.Color;
