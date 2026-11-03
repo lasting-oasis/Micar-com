@@ -512,6 +512,7 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
  * every variant shown (body, trim, both glasses, wheels, far version, glow, smoke, beam,
  * contact shadows) and compiles it against the scene; it is removed again afterwards.
  */
+let keptPaint: THREE.Material | null = null;
 export const precompileCars = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
     const probe = buildCarModel('sedan', '#808080', 100, 20);
     const g = probe.group, c = partsOf(g)!, S = shared!;
@@ -523,10 +524,28 @@ export const precompileCars = (renderer: THREE.WebGLRenderer, scene: THREE.Scene
     scene.add(g);
     ensureShadowMesh(1);
     const shadowWasVisible = shadowMesh?.visible;
-    const done = () => { b.removeFromParent(); b.visible = false; broken.removeFromParent(); disposeCarModel(g); };
-    const r = renderer as THREE.WebGLRenderer & { compileAsync?: (o: THREE.Object3D, c: THREE.Camera, t?: THREE.Scene) => Promise<unknown> };
-    if (r.compileAsync) r.compileAsync(scene, camera).then(done, done);
-    else { renderer.compile(scene, camera); done(); }
+    // Take the probe away again, but keep its paint material: disposing it would release the
+    // shared paint program (and its shadow variant) that the next car would then compile again.
+    const done = () => {
+        b.removeFromParent(); b.visible = false; broken.removeFromParent(); g.removeFromParent();
+        const i = cars.indexOf(g); if (i >= 0) { cars.splice(i, 1); shadowsDirtyFrom = Math.min(shadowsDirtyFrom, i); }
+        keptPaint?.dispose(); keptPaint = c.body.material as THREE.Material;
+        c.smoke.geometry.dispose(); c.halos.geometry.dispose(); c.wheelMesh.dispose();
+    };
+    renderer.compile(scene, camera);
+    // Some drivers (and software rendering) only finish a shader, and upload textures, when it
+    // is first drawn: draw the scene once with the probe in front of the camera, limited to
+    // a single pixel (same output as normal frames, so the same shader programs).
+    camera.updateMatrixWorld();
+    g.position.copy(camera.position).add(tmpV.set(0, 0, -12).applyQuaternion(camera.quaternion));
+    g.position.y = 0;
+    const sc = renderer.getScissorTest(), box = renderer.getScissor(new THREE.Vector4());
+    renderer.setScissorTest(true); renderer.setScissor(0, 0, 1, 1);
+    if (renderer.shadowMap.enabled) renderer.shadowMap.needsUpdate = true; // the shadow-casting variants too
+    renderer.render(scene, camera);
+    if (renderer.shadowMap.enabled) renderer.shadowMap.needsUpdate = true; // and redraw the real shadows without the probe
+    renderer.setScissor(box); renderer.setScissorTest(sc);
+    done();
     if (shadowMesh) shadowMesh.visible = shadowWasVisible ?? true;
 };
 
@@ -556,6 +575,7 @@ export const disposeSharedCarAssets = () => {
         shared = null;
     }
     disposeCarAtlas();
+    keptPaint?.dispose(); keptPaint = null;
     cars.length = 0;
     nightOn = false; frameNo = 0; stepsThisFrame = 0;
 };
