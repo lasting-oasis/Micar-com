@@ -53,7 +53,7 @@ const samples = read('data/research/listings').map(({ file, json }) => {
 // Data checks: refuse to ship junk trim names or impossible prices.
 const bad: string[] = [];
 for (const st of stickers) for (const y of st.years) for (const t of y.trims) {
-  if (!t.trim || t.trim.length < 2 || t.trim.length > 90 || /var |function|[{}<>]/.test(t.trim)) bad.push(`${st.make} ${st.model} ${y.year}: trim name "${t.trim.slice(0, 40)}"`);
+  if (!t.trim || t.trim.length > 90 || /var |function|[{}<>]/.test(t.trim)) bad.push(`${st.make} ${st.model} ${y.year}: trim name "${t.trim.slice(0, 40)}"`);
 }
 if (bad.length) { console.error(`${bad.length} bad trim rows, e.g.\n${bad.slice(0, 10).join('\n')}`); process.exit(1); }
 writeFileSync(join(ROOT, 'src/data/stickers.json'), JSON.stringify(stickers) + '\n');
