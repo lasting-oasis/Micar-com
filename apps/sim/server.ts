@@ -21,6 +21,11 @@ const SAFETY_FEE = 13.6;     // NC annual safety inspection fee
 const EMISSIONS_FEE = 30;    // NC OBD-II emissions fee (Mecklenburg is an emissions county)
 // Vehicles in the 3 newest model years AND under 70k miles are exempt from emissions.
 const emissionsRequired = (car: Car) => !((CURRENT_YEAR - car.year) <= 2 && car.mileage < 70000);
+// Where newly delivered stock lands: the delivery zone along the lot's left edge.
+// Cars stand side by side 6 units apart, nose toward the lot. (Lined up nose to
+// tail at that spacing, the 9-11-unit-long cars overlapped.)
+const dropOffSpot = (lot: { x: number; z: number }, index: number) =>
+    ({ x: lot.x - 40, z: lot.z + 15 + index * 6, r: -Math.PI / 2 });
 
 // Validate & clamp position payloads coming from clients. Rejects anything that
 // isn't a finite x/z so a malicious or buggy client can't inject NaN / Infinity
@@ -667,11 +672,7 @@ const economyTick = () => {
                                 daysOnLot: 0,
                                 isRegistered: true, // Repo is still in player's name
                                 ownerId: p.id,
-                                lotPosition: {
-                                     x: p.lotPosition.x - 40,
-                                     z: p.lotPosition.z + 15 + (unparkedCount * 6),
-                                     r: 0
-                                }
+                                lotPosition: dropOffSpot(p.lotPosition, unparkedCount)
                             });
                         }
                         return false; // Contract voided upon recovery
@@ -914,11 +915,7 @@ io.on('connection', (socket) => {
             car.isProcessed = false;
             // Spawn inside the red Drop-Off Zone lined up neatly
             const unparkedCount = player.inventory.filter(c => !c.isProcessed).length;
-            car.lotPosition = { 
-                 x: player.lotPosition.x - 40, 
-                 z: player.lotPosition.z + 15 + (unparkedCount * 6), 
-                 r: 0 
-            };
+            car.lotPosition = dropOffSpot(player.lotPosition, unparkedCount);
             player.inventory.push(car);
             gameState.market.splice(carIndex, 1);
             broadcastState(io, gameState);
@@ -932,11 +929,7 @@ io.on('connection', (socket) => {
             car.isProcessed = false;
             // Spawn inside the red Drop-Off Zone lined up neatly
             const unparkedCount = player.inventory.filter(c => !c.isProcessed).length;
-            car.lotPosition = { 
-                 x: player.lotPosition.x - 40, 
-                 z: player.lotPosition.z + 15 + (unparkedCount * 6), 
-                 r: 0 
-            };
+            car.lotPosition = dropOffSpot(player.lotPosition, unparkedCount);
             player.inventory.push(car);
             gameState.market.splice(carIndex, 1);
             broadcastState(io, gameState);
@@ -1259,11 +1252,7 @@ io.on('connection', (socket) => {
               mileage: 120000 + Math.floor(Math.random() * 80000),
               isRegistered: false,
               ownerId: player.id,
-              lotPosition: {
-                   x: player.lotPosition.x - 40,
-                   z: player.lotPosition.z + 15 + (unparkedCount * 6),
-                   r: 0
-              }
+              lotPosition: dropOffSpot(player.lotPosition, unparkedCount)
           });
       }
 
@@ -1512,11 +1501,7 @@ io.on('connection', (socket) => {
           player.balanceSheet.lastTickExpense += car.buyPrice;
           car.ownerId = player.id;
           const unparkedCount = player.inventory.filter(c => !c.isProcessed).length;
-          car.lotPosition = { 
-               x: player.lotPosition.x - 40, 
-               z: player.lotPosition.z + 15 + (unparkedCount * 6), 
-               r: 0 
-          };
+          car.lotPosition = dropOffSpot(player.lotPosition, unparkedCount);
           player.inventory.push(car);
           gameState.junkyard.splice(index, 1);
           broadcastState(io, gameState);
