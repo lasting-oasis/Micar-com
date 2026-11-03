@@ -90,11 +90,10 @@ export function VanillaThreeScene() {
         const lightPool = new LightPool(scene, 8);
         const addLightSource = (x: number, y: number, z: number, color: string, intensity: number, distance: number, nightOnly: boolean) =>
             lightPool.add({ position: new THREE.Vector3(x, y, z), color, intensity, distance, nightOnly });
-        // Pool lights in the scene: all 8 on High, none on Low. Each costs every lit
-        // pixel (even switched off), and at the lamps' intensities (candela, with
-        // three.js's physical light falloff) they change the picture by at most
-        // one colour level, day or night — on a phone that's pure cost.
-        const poolSizeFor = (q: 'high' | 'low') => q === 'high' ? lightPool.size : 0;
+        // Pool lights in the scene: none, on High or Low. The street and lot lamps now light
+        // the scene in the shader (scene/world/lampLight.ts); with that, these point lights
+        // changed under 0.05% of the pixels at night, and each one costs every lit pixel.
+        const poolSizeFor = (_q: 'high' | 'low') => 0;
 
         // --- 3. World ---
         // The builders live in ./scene/world; they share this context (scene,
@@ -576,7 +575,7 @@ export function VanillaThreeScene() {
             nightFactor = atmosphere.nightFactor; // street lamps and lit windows fade in as the sun goes down
             const glowIntensity = 0.15 + 1.25 * nightFactor;
             emissiveFacadeMaterials.forEach(m => m.emissiveIntensity = glowIntensity);
-            world.setNight(nightFactor);
+            world.setNight(nightFactor); // street and lot lights: glowing heads, pools of light
         };
 
         // Buildings you can walk up to and use. Defined once (the old code rebuilt
