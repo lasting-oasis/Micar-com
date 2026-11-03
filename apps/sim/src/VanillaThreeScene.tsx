@@ -4,7 +4,7 @@ import { useGameStore } from './store';
 import { LightPool } from './scene/lightPool';
 import { batchStatic } from './scene/staticBatcher';
 import { damp, disposeObject, groundLastOpaqueSort } from './scene/utils';
-import { generateEnvMap, installCheapSkyLighting } from './scene/textures';
+import { Atmosphere } from './scene/atmosphere';
 import { applyCarPaint, buildCarModel, carColorHex, deriveStyle } from './scene/carModel';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
@@ -34,11 +34,6 @@ export function VanillaThreeScene() {
         // --- 1. Core Scene Setup ---
         const scene = new THREE.Scene();
         
-        const envTexture = generateEnvMap();
-        scene.environment = envTexture; // Bind reflection map (High only, see applyGraphics)
-        installCheapSkyLighting(); // what Low uses instead of the reflection map
-        scene.background = new THREE.Color('#87ceeb'); // Bright Sky blue
-        scene.fog = new THREE.Fog('#87ceeb', 1500, 6000); // pushed way out so the giant speedway is visible across the infield
 
         // Far plane just past the fog's end (6000): anything further is fully fogged
         // anyway. A near plane of 2 keeps a normal depth buffer precise enough that
@@ -72,25 +67,21 @@ export function VanillaThreeScene() {
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         renderer.setOpaqueSort(groundLastOpaqueSort); // big ground layers last: far fewer pixels shaded twice
+        // Filmic tone mapping: bright skies and sunlit paint roll off softly instead of clipping
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
         mountRef.current.appendChild(renderer.domElement);
 
 
-        // --- 2. Lighting (Daylight) ---
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-        scene.add(ambientLight);
-        
-        const dirLight = new THREE.DirectionalLight(0xffffff, 2.5); // Intense Sun
-        dirLight.position.set(200, 300, -100);
+        // --- 2. Lighting ---
+        // The sun (a faint moon at night) plus the sky: sky colours, sky light, fog and
+        // exposure all follow the time of day (see scene/atmosphere.ts). The sun's
+        // shadow box follows the player.
+        const dirLight = new THREE.DirectionalLight(0xffffff, 3);
         dirLight.castShadow = true;
         dirLight.shadow.mapSize.width = 2048;
         dirLight.shadow.mapSize.height = 2048;
-        dirLight.shadow.bias = -0.001;
-        // Keep the shadow camera tightly bounded to the dealership and town area for better resolution
-        dirLight.shadow.camera.left = -150;
-        dirLight.shadow.camera.right = 150;
-        dirLight.shadow.camera.top = 150;
-        dirLight.shadow.camera.bottom = -150;
         scene.add(dirLight);
+        const atmosphere = new Atmosphere(renderer, scene, dirLight);
 
         // Small fixed pool of real lights that follows the player around the lamps
         // (see lightPool.ts). Every lamp below registers a light *source* instead of
@@ -283,8 +274,9 @@ export function VanillaThreeScene() {
         const applyGraphics = (q: 'high' | 'low', recompile: boolean) => {
              quality = q;
              lightPool.setActiveCount(poolSizeFor(q));
-             // Low: sky light worked out in the shader instead of read from the map
-             scene.environment = q === 'high' ? envTexture : null;
+             // High: sky light + reflections from a map of the live sky; Low: the same sky
+             // worked out in the shader (no map)
+             atmosphere.updateEnvironment(q === 'high');
              if (renderer.getPixelRatio() !== pixelRatioFor(q)) renderer.setPixelRatio(pixelRatioFor(q));
              renderer.shadowMap.enabled = q === 'high';
              dirLight.castShadow = q === 'high';
@@ -383,41 +375,15 @@ export function VanillaThreeScene() {
         let lastGateKeypad = false;
         (window as any).__authorizeGate = () => { gateAuthorizedUntil = performance.now() + 9000; };
 
-        // Sky palette + scratch colour reused every update (no per-frame allocations)
-        const SKY_MORNING = new THREE.Color('#fcd34d');
-        const SKY_NOON = new THREE.Color('#60a5fa');
-        const SKY_EVENING = new THREE.Color('#f97316');
-        const SKY_NIGHT = new THREE.Color('#0f172a');
-        const skyColor = new THREE.Color('#87ceeb');
-        scene.background = skyColor;
         let nightFactor = 0;          // 0 = daylight, 1 = full night (drives the lamps)
         let lastServerTime = -1;      // last clock value received from the server
         let localTime = 8;            // smoothly advanced between the server's 1-second ticks
 
         const applyTimeOfDay = (t: number) => {
-            // Progress from 8.0 to 20.0 (0.0 to 1.0)
-            const progress = Math.max(0, Math.min(1, (t - 8) / 12));
-
-            // Sun trajectory (East to West arc)
-            const sunHeight = Math.sin(progress * Math.PI) * 400 + 10;
-            const sunX = Math.cos(progress * Math.PI) * 500;
-            dirLight.position.set(sunX, sunHeight, -100);
-
-            // Fade Sun and Ambient Light as evening approaches (progress > 0.7)
-            const fade = progress > 0.7 ? 1 - ((progress - 0.7) / 0.3) : 1; // 1.0 until 0.7, 0.0 at 1.0
-            dirLight.intensity = 2.5 * fade;
-            ambientLight.intensity = progress > 0.7 ? 0.7 * fade + 0.1 : 0.7; // Never fully pitch black
-            nightFactor = 1 - fade; // street lamps fade in as the sun goes down
-
-            // Fade up skyscraper window emissive glow at night
+            atmosphere.setTime(t);
+            nightFactor = atmosphere.nightFactor; // street lamps and lit windows fade in as the sun goes down
             const glowIntensity = 0.15 + 1.25 * nightFactor;
             emissiveFacadeMaterials.forEach(m => m.emissiveIntensity = glowIntensity);
-
-            // Sky color lerping (Morning -> Noon -> Evening -> Night)
-            if (progress < 0.3) skyColor.lerpColors(SKY_MORNING, SKY_NOON, progress / 0.3);
-            else if (progress < 0.7) skyColor.lerpColors(SKY_NOON, SKY_EVENING, (progress - 0.3) / 0.4);
-            else skyColor.lerpColors(SKY_EVENING, SKY_NIGHT, (progress - 0.7) / 0.3);
-            if (scene.fog) (scene.fog as THREE.Fog).color.copy(skyColor);
         };
 
         // Buildings you can walk up to and use. Defined once (the old code rebuilt
@@ -1315,6 +1281,8 @@ export function VanillaThreeScene() {
             // Move the small pool of real lights to the lamps nearest the player
             const focusObj = (localDrivingCarId && carMeshes[localDrivingCarId]) || avatar;
             lightPool.update(focusObj.position, nightFactor, delta);
+            atmosphere.followShadow(focusObj.position);
+            atmosphere.updateEnvironment(quality === 'high');
 
             // On Low, while the phone menu covers the world and nothing moves the
             // camera, draw ~10x a second instead of every frame (the game itself
@@ -1381,7 +1349,7 @@ export function VanillaThreeScene() {
             
             avatarGeo.dispose();
             avatarMat.dispose();
-            envTexture.dispose();
+            atmosphere.dispose();
 
             // Last: renderer.dispose() forgets which GPU textures belong to which
             // texture objects, so textures disposed after it would never be freed.
