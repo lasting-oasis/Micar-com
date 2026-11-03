@@ -1,11 +1,12 @@
 // Site-wide navigation. Two audiences, two doors: owners and buyers value a car;
 // dealers print window sheets. The car page (opened from a QR code) shows both doors
-// too, so a buyer who scanned a sheet can go value their own car.
+// too, so a buyer who scanned a sheet can go value their own car. On the home page
+// neither door is lit; the page itself explains them.
 import { Calculator, QrCode, Tag } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { calculatorUrl, stickerPageUrl } from './car/record';
+import { calculatorUrl, homeUrl, stickerPageUrl } from './car/record';
 
-export type Section = 'value' | 'sheet' | 'car';
+export type Section = 'home' | 'value' | 'sheet' | 'car';
 
 const TABS: { id: Section; href: () => string; icon: ReactNode; title: string; who: string; whoShort: string }[] = [
   { id: 'value', href: calculatorUrl, icon: <Calculator size={17} />, title: 'Value a car', who: 'Owners & buyers · what a used car is worth', whoShort: 'Owners & buyers' },
@@ -15,7 +16,7 @@ const TABS: { id: Section; href: () => string; icon: ReactNode; title: string; w
 export function Nav({ active }: { active: Section }) {
   return (
     <nav aria-label="Site" className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between" style={{ color: 'var(--glass-ink)' }}>
-      <a href={calculatorUrl()} className="font-cond text-lg font-semibold tracking-tight hover:underline" style={{ color: 'var(--glass-ink)' }}>
+      <a href={homeUrl()} className="font-cond text-lg font-semibold tracking-tight hover:underline" style={{ color: 'var(--glass-ink)' }} aria-current={active === 'home' ? 'page' : undefined}>
         Nexus Valuation
         {active === 'car' && <span className="ml-2 inline-flex items-center gap-1 rounded-full px-2 py-0.5 align-middle text-xs font-medium" style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--glass-muted)' }}><QrCode size={12} /> Car page from a window sheet</span>}
       </a>

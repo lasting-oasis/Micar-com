@@ -161,9 +161,10 @@ export function decodeRecord(code: string): CarRecord | null {
 function siteRoot(): string {
   try { return `${window.location.origin}${window.location.pathname}`; } catch { return ''; }
 }
+export const homeUrl = () => siteRoot();
 export const carPageUrl = (code: string) => `${siteRoot()}#/car/${code}`;
 export const stickerPageUrl = (code?: string) => `${siteRoot()}#/sticker${code ? `/${code}` : ''}`;
-export const calculatorUrl = () => siteRoot();
+export const calculatorUrl = () => `${siteRoot()}#/value`;
 
 // ---- Engine inputs ----------------------------------------------------------------------
 

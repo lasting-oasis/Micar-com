@@ -61,7 +61,7 @@ export function shareUrl(state: FormState): string {
   const q = new URLSearchParams();
   const d = defaults();
   for (const k of KEYS) if (state[k] !== d[k] || k === 'make' || k === 'model' || k === 'msrp' || k === 'year' || k === 'mileage') q.set(k, state[k]);
-  try { return `${window.location.origin}${window.location.pathname}?${q}`; } catch { return `?${q}`; }
+  try { return `${window.location.origin}${window.location.pathname}?${q}#/value`; } catch { return `?${q}#/value`; }
 }
 
 export function writeUrl(state: FormState) {

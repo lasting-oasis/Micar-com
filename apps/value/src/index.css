@@ -112,3 +112,38 @@ select.field { appearance: none; padding-right: 2rem; background-image: linear-g
   .print-root { display: block !important; }
   .sheet { break-inside: avoid; }
 }
+
+/* Home page (src/Landing.tsx). The headline is painted on the glass like a windshield
+   price; it paints on once when the page loads. */
+.painted {
+  font-family: var(--font-cond);
+  font-weight: 800;
+  font-size: clamp(3.4rem, 7.2vw, 5.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #ffd23f;
+  transform: rotate(-2deg);
+  transform-origin: left bottom;
+  text-shadow: 0 1px 0 #e0b22a, 0 3px 0 rgba(0, 0, 0, 0.35), 0 12px 30px rgba(255, 210, 63, 0.18);
+  animation: paint-on 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes paint-on {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+.sticker-tape { position: relative; animation: settle 0.7s 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.sticker-tape::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: 50%;
+  width: 118px; height: 26px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+@keyframes settle {
+  from { opacity: 0; transform: translateY(10px) rotate(0.6deg); }
+  to { opacity: 1; transform: none; }
+}

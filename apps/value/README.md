@@ -14,6 +14,17 @@ A used-car value estimator. Enter a vehicle's make, body style, original sticker
 - **Live comps button** (optional): one click pulls dealer asking prices within 25–100 miles of a ZIP through a tiny Cloudflare Worker that holds a free MarketCheck key
 - **Shareable links**: every input is kept in the URL
 
+## Pages
+
+The site is one static page with hash routes (`src/main.tsx`):
+
+| Route | Page |
+|---|---|
+| `/` | Home (`src/Landing.tsx`): a painted "What's it really worth?" headline, a live window sticker that cycles through sample cars with real engine output, two doors (value a car, print a window sheet) with three-step how-tos, where the numbers come from (counts read from the shipped data), and a plain note on accuracy. Links shared before the home page existed (`/?make=...`) still open the calculator. |
+| `#/value` | The calculator (`src/App.tsx`) |
+| `#/sticker[/<code>]` | Dealer window-sheet builder |
+| `#/car/<code>` | The page a sheet's QR code opens |
+
 ## How the market layer works
 
 A pure depreciation formula knows what a car *should* be worth from its sticker price and age, but not whether anyone wants it. The engine handles that in four layers:
@@ -186,7 +197,10 @@ worker/index.js             Cloudflare Worker: live MarketCheck lookup (optional
 scripts/fetch-market.mjs    Weekly BLS fetch (run by .github/workflows/market.yml)
 src/engine/valuation.test.ts
 src/urlState.ts             Form state, validation and shareable URLs
-src/App.tsx                 UI
+src/Landing.tsx             Home page
+src/Nav.tsx                 Site navigation (two doors)
+src/App.tsx                 Calculator UI
+src/car/                    Window sheet builder, car page, record codec (see Dealer window sheet)
 ```
 
 The engine has no UI dependencies, so it can be reused elsewhere, for example to price inventory in the car dealer simulator.

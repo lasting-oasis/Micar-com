@@ -19,7 +19,7 @@ const usd = (n: number) => new Intl.NumberFormat('en-US', { style: 'currency', c
 const usdK = (n: number) => `$${(n / 1000).toFixed(n >= 100_000 ? 0 : 1)}k`;
 const signed = (n: number) => (n >= 0 ? '+' : '−') + usd(Math.abs(n));
 
-function useTween(target: number, ms = 450) {
+export function useTween(target: number, ms = 450) {
   const [v, setV] = useState(target);
   const from = useRef(target);
   useEffect(() => {
