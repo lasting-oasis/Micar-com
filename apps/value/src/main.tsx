@@ -10,7 +10,7 @@ import Landing from './Landing.tsx'
 //   (none)              home page, unless the URL carries calculator fields (links shared before #/value existed)
 //   #/value             the calculator
 //   #/sticker[/<code>]  dealer's window-sheet builder (optionally loaded with a car)
-//   #/car/<code>        the page a sheet's QR code opens
+//   #/c/<code>          the page a sheet's QR code opens (#/car/<code> on sheets printed before Nov 2026)
 function legacyCalculatorLink(): boolean {
   try { return /[?&](make|model|msrp|year)=/.test(window.location.search) } catch { return false }
 }
@@ -22,8 +22,8 @@ function Router() {
     window.addEventListener('hashchange', onChange)
     return () => window.removeEventListener('hashchange', onChange)
   }, [])
-  const m = hash.match(/^#\/(car|sticker|value)(?:\/([^?&]*))?/)
-  if (m?.[1] === 'car') return <CarPage code={m[2] ?? ''} />
+  const m = hash.match(/^#\/(c|car|sticker|value)(?:\/([^?&]*))?/)
+  if (m?.[1] === 'c' || m?.[1] === 'car') return <CarPage code={m[2] ?? ''} />
   if (m?.[1] === 'sticker') return <StickerBuilder code={m[2] || undefined} />
   if (m?.[1] === 'value' || legacyCalculatorLink()) return <App />
   return <Landing />

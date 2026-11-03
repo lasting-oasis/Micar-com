@@ -2,7 +2,7 @@
 // Always light-on-white so it prints the same in dark mode. Fixed pixel size at 96 dpi;
 // the builder scales it to fit the screen, print CSS shows it at true size.
 import { FEATURES, carName, displayModel, type CarRecord } from './record';
-import { miles, monthYear, usd, type Snapshot } from './value';
+import { miles, monthYear, retention, usd, type Retention, type Snapshot } from './value';
 
 export const SHEET_W = 739; // 7.7in
 export const SHEET_H = 979; // 10.2in
@@ -20,7 +20,7 @@ export function Sticker({ r, snap, qr, now, url }: { r: CarRecord; snap: Snapsho
   ];
   if (snap?.msrp.msrp && !r.showValue) details.push(['Original MSRP (new)', `${usd(snap.msrp.msrp)}${snap.msrp.source === 'typical' ? ' est.' : ''}`]);
   const host = url.replace(/^https?:\/\//, '').split('#')[0];
-  const in3 = snap?.curve[3]?.value;
+  const hold = r.showForecast ? retention(r) : null;
 
   return (
     <article className="sheet" aria-label={`Window sheet for ${carName(r)}`} style={{ width: SHEET_W, height: SHEET_H, background: paper, color: ink, fontFamily: 'var(--font-sans)', display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
@@ -89,33 +89,48 @@ export function Sticker({ r, snap, qr, now, url }: { r: CarRecord; snap: Snapsho
         </div>
       </section>
 
-      {/* Value snapshot */}
+      {/* Value: today's value first, then where the asking price sits, then how the model holds value */}
       {r.showValue && snap && (
         <section style={{ flexShrink: 0, margin: '4px 28px 0', border: `1px solid ${rule}`, borderRadius: 6, overflow: 'hidden' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '8px 14px', background: paper2, borderBottom: `1px solid ${rule}` }}>
-            <SheetHeading>Value snapshot</SheetHeading>
-            <p style={{ fontSize: 10, color: ink3 }}>Independent estimate · {monthYear(now)} · national market</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '7px 14px', background: paper2, borderBottom: `1px solid ${rule}` }}>
+            <SheetHeading>Value check</SheetHeading>
+            <p style={{ fontSize: 10, color: ink3 }}>Independent estimate · {monthYear(now)} · national market · not an appraisal</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: r.showForecast ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)' }}>
-            <Cell label="Original MSRP when new" value={snap.msrp.msrp ? usd(snap.msrp.msrp) : '—'} note={snap.msrp.source === 'typical' ? 'Estimated for this model and year' : `${r.year} ${r.trim || 'base'} sticker, before destination`} />
-            <Cell label="Typical dealer retail today" value={usd(snap.val.dealerRetail)} note={`Private sale: ${usd(snap.val.range.low)}–${usd(snap.val.range.high)}`} border />
-            {r.showForecast && in3 !== undefined && <Cell label="Projected value in 3 years" value={`about ${usd(in3)}`} note="at 12,000 miles a year, same condition" border />}
+          <div style={{ display: 'grid', gridTemplateColumns: hold ? '1.15fr 1.15fr 1fr' : '1fr 1fr' }}>
+            <div style={{ padding: '10px 14px 9px' }}>
+              <CellLabel>Estimated value today</CellLabel>
+              <p className="font-cond num" style={{ fontSize: 34, fontWeight: 700, lineHeight: 1, marginTop: 3 }}>{usd(snap.val.dealerRetail)}</p>
+              <p style={{ fontSize: 10, color: ink2, marginTop: 4, lineHeight: 1.35 }}>Typical dealer retail for this car in {r.condition.toLowerCase()} condition with {r.mileage ? miles(r.mileage) : 'these miles'}.</p>
+              <p style={{ fontSize: 10, color: ink3, marginTop: 2, lineHeight: 1.35 }}>Private sale {usd(snap.val.range.low)}–{usd(snap.val.range.high)} · Trade-in {usd(snap.val.tradeIn)}</p>
+            </div>
+            <div style={{ padding: '10px 14px 9px', borderLeft: `1px solid ${rule}` }}>
+              {r.price > 0 ? <PriceCell snap={snap} price={r.price} /> : (
+                <>
+                  <CellLabel>Original sticker price</CellLabel>
+                  <p className="font-cond num" style={{ fontSize: 34, fontWeight: 700, lineHeight: 1, marginTop: 3 }}>{snap.msrp.msrp ? usd(snap.msrp.msrp) : '—'}</p>
+                  <p style={{ fontSize: 10, color: ink2, marginTop: 4, lineHeight: 1.35 }}>{snap.msrp.source === 'typical' ? 'Estimated for this model and year.' : `${r.year} ${r.trim || 'base'} sticker, before destination.`}</p>
+                </>
+              )}
+            </div>
+            {hold && <HoldCell hold={hold} />}
           </div>
           {r.price > 0 && <PriceBar snap={snap} price={r.price} />}
         </section>
       )}
 
       {/* Footer */}
-      <footer style={{ flexShrink: 0, marginTop: 'auto', padding: '12px 28px 16px', display: 'flex', gap: 22, alignItems: 'flex-end', borderTop: `1px solid ${rule}` }}>
-        <div style={{ flex: 1, fontSize: 9.5, lineHeight: 1.45, color: ink3 }}>
-          {r.notes && <p style={{ fontSize: 12.5, lineHeight: 1.45, color: ink, marginBottom: 10 }}><span style={{ color: ink3, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', fontSize: 10, marginRight: 8 }}>From the dealer</span>{r.notes}</p>}
+      <footer style={{ flexShrink: 0, marginTop: 'auto', padding: '12px 28px 14px', display: 'flex', gap: 22, alignItems: 'flex-end', borderTop: `1px solid ${rule}` }}>
+        <div style={{ flex: 1, minWidth: 0, alignSelf: 'stretch', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: 9.5, lineHeight: 1.45, color: ink3 }}>
+          {r.notes ? <p style={{ fontSize: 12.5, lineHeight: 1.45, color: ink, marginBottom: 10 }}><span style={{ color: ink3, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', fontSize: 10, marginRight: 8 }}>From the dealer</span>{r.notes}</p> : <span />}
+          <div>
           <p>{r.warranty}</p>
-          <p style={{ marginTop: 4 }}>This information sheet was prepared by the dealer and is not the manufacturer's window label. Values marked as estimates come from public price data for a {r.condition.toLowerCase()}-condition car with a {r.title.toLowerCase()} title; they are a starting point, not an appraisal. Confirm mileage, history and equipment before you buy.</p>
+          <p style={{ marginTop: 4 }}>This information sheet was prepared by the dealer and is not the manufacturer's window label. Values marked as estimates come from public price data for a {r.condition.toLowerCase()}-condition car with a {r.title.toLowerCase()} title{snap?.msrp.msrp ? `, starting from an original sticker price of ${usd(snap.msrp.msrp)}${snap.msrp.source === 'typical' ? ' (estimated)' : ''}` : ''}; they are a starting point, not an appraisal. Confirm mileage, history and equipment before you buy.</p>
+          </div>
         </div>
-        <div style={{ flexShrink: 0, textAlign: 'center', width: 150 }}>
-          <div aria-label="QR code to this car's web page" style={{ width: 118, height: 118, margin: '0 auto', padding: 5, background: paper, border: `1px solid ${rule}`, borderRadius: 6 }} dangerouslySetInnerHTML={{ __html: qr }} />
-          <p className="font-cond" style={{ fontSize: 13, fontWeight: 600, marginTop: 6, lineHeight: 1.15 }}>Scan for the full story</p>
-          <p style={{ fontSize: 9.5, color: ink3, marginTop: 2, lineHeight: 1.3 }}>How the value was worked out, a 5-year forecast and every detail on this car.</p>
+        <div style={{ flexShrink: 0, textAlign: 'center', width: 190 }}>
+          <div aria-label="QR code to this car's web page" style={{ width: 176, height: 176, margin: '0 auto', padding: 8, background: '#fff', border: `1px solid ${rule}`, borderRadius: 6, boxSizing: 'content-box' }} dangerouslySetInnerHTML={{ __html: qr }} />
+          <p className="font-cond" style={{ fontSize: 14, fontWeight: 600, marginTop: 6, lineHeight: 1.15 }}>Scan for the full story</p>
+          <p style={{ fontSize: 9.5, color: ink3, marginTop: 2, lineHeight: 1.3 }}>How the value was worked out, line by line, and every detail on this car.</p>
           <p style={{ fontSize: 8.5, color: ink3, marginTop: 3, wordBreak: 'break-all' }}>{host}</p>
         </div>
       </footer>
@@ -127,12 +142,48 @@ function SheetHeading({ children }: { children: string }) {
   return <h2 className="font-cond" style={{ fontSize: 15, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: ink }}>{children}</h2>;
 }
 
-function Cell({ label, value, note, border }: { label: string; value: string; note: string; border?: boolean }) {
+function CellLabel({ children }: { children: string }) {
+  return <p style={{ fontSize: 9.5, letterSpacing: '0.1em', textTransform: 'uppercase', color: ink3 }}>{children}</p>;
+}
+
+/** The asking price against today's value, said plainly: the number a buyer is looking for. */
+function PriceCell({ snap, price }: { snap: Snapshot; price: number }) {
+  const { verdict } = snap;
+  const diff = Math.abs(verdict.diff);
+  const head = verdict.kind === 'below' ? `${usd(diff)} below` : verdict.kind === 'above' ? `${usd(diff)} above` : 'Fairly priced';
+  const color = verdict.kind === 'below' ? gain : ink;
   return (
-    <div style={{ padding: '10px 14px', borderLeft: border ? `1px solid ${rule}` : 'none' }}>
-      <p style={{ fontSize: 9.5, letterSpacing: '0.1em', textTransform: 'uppercase', color: ink3 }}>{label}</p>
-      <p className="font-cond num" style={{ fontSize: 24, fontWeight: 700, lineHeight: 1.05, marginTop: 3 }}>{value}</p>
-      <p style={{ fontSize: 10, color: ink3, marginTop: 3 }}>{note}</p>
+    <>
+      <CellLabel>This price vs. today's value</CellLabel>
+      <p className="font-cond num" style={{ fontSize: 34, fontWeight: 700, lineHeight: 1, marginTop: 3, color }}>{head}</p>
+      <p style={{ fontSize: 10, color: ink2, marginTop: 4, lineHeight: 1.35 }}>
+        {verdict.kind === 'below' ? `Asking ${usd(price)} against a typical dealer retail of ${usd(snap.val.dealerRetail)}.`
+          : verdict.kind === 'above' ? `Asking ${usd(price)}; typical dealer retail is ${usd(snap.val.dealerRetail)}. Ask what's included.`
+            : `Asking ${usd(price)}, within 3% of the typical dealer retail of ${usd(snap.val.dealerRetail)}.`}
+      </p>
+    </>
+  );
+}
+
+/** Depreciation next to the rest of the body style: two bars, the model's and the typical one's. */
+function HoldCell({ hold }: { hold: Retention }) {
+  const pct = (x: number) => `${Math.round(x * 100)}%`;
+  const verdict = hold.kind === 'better' ? `Holds value better than most ${hold.bodyWord}s` : hold.kind === 'worse' ? `Loses value faster than most ${hold.bodyWord}s` : hold.kind === 'average' ? `Holds value like a typical ${hold.bodyWord}` : `What a typical ${hold.bodyWord} keeps`;
+  const rows: [string, number, string][] = hold.own !== undefined ? [['This model', hold.own, hold.kind === 'worse' ? loss : hold.kind === 'better' ? gain : ink2], [`Typical ${hold.bodyWord}`, hold.typical, ink3]] : [[`Typical ${hold.bodyWord}`, hold.typical, ink3]];
+  return (
+    <div style={{ padding: '10px 14px 9px', borderLeft: `1px solid ${rule}` }}>
+      <CellLabel>Value kept after 5 years</CellLabel>
+      <p className="font-cond" style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.1, marginTop: 4 }}>{verdict}</p>
+      <div style={{ marginTop: 6, display: 'grid', rowGap: 4 }}>
+        {rows.map(([label, x, color]) => (
+          <div key={label} style={{ display: 'grid', gridTemplateColumns: '64px 1fr 30px', alignItems: 'center', columnGap: 6, fontSize: 9.5, color: ink2 }}>
+            <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{label}</span>
+            <div style={{ height: 7, borderRadius: 4, background: paper2, boxShadow: `inset 0 0 0 1px ${rule}` }}><div style={{ width: pct(Math.min(1, x)), height: '100%', borderRadius: 4, background: color }} /></div>
+            <span className="num" style={{ fontWeight: 700, color: ink, textAlign: 'right' }}>{pct(x)}</span>
+          </div>
+        ))}
+      </div>
+      <p style={{ fontSize: 9, color: ink3, marginTop: 4, lineHeight: 1.3 }}>Share of a new one's price at 5 years old{hold.calibrated ? ', measured on real listings' : ''}.</p>
     </div>
   );
 }
@@ -142,12 +193,12 @@ function PriceBar({ snap, price }: { snap: Snapshot; price: number }) {
   const { val, verdict } = snap;
   const lo = val.tradeIn * 0.95, hi = Math.max(val.dealerRetail * 1.12, price * 1.02);
   const pct = (n: number) => `${Math.min(100, Math.max(0, ((n - lo) / (hi - lo)) * 100))}%`;
-  const color = verdict.kind === 'above' ? loss : verdict.kind === 'below' ? gain : blue;
+  const color = verdict.kind === 'below' ? gain : verdict.kind === 'above' ? ink : blue;
   return (
     <div style={{ padding: '8px 14px 12px', borderTop: `1px solid ${rule}` }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10.5, marginBottom: 6 }}>
         <span style={{ color: ink2 }}>Where this price sits</span>
-        <span style={{ fontWeight: 700, color }}>{verdict.text}</span>
+        <span style={{ fontWeight: 700, color }}>Asking {usd(price)}</span>
       </div>
       <div style={{ position: 'relative', height: 10, borderRadius: 5, background: paper2, boxShadow: `inset 0 0 0 1px ${rule}` }}>
         <div style={{ position: 'absolute', top: 0, bottom: 0, left: pct(val.range.low), width: `calc(${pct(val.range.high)} - ${pct(val.range.low)})`, background: blueSoft, borderRadius: 5 }} />

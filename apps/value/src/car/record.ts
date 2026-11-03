@@ -1,7 +1,9 @@
 // A car on the lot, as a dealer describes it for a window sticker. The whole record
-// travels inside the QR code's URL (no server), so keys are short and the feature
-// list is stored as numbers into FEATURES. Append to FEATURES; never reorder it.
-import { BODY_STYLES, REGIONS, type Region } from '../engine/data';
+// travels inside the QR code's URL (no server), so it is packed as bytes and written
+// in the QR alphanumeric character set, which a QR code stores in 5.5 bits per
+// character instead of 8. Features are stored as a bitmask over FEATURES, and the
+// option lists below by position: append to them; never reorder.
+import { ACCIDENTS, BODY_STYLES, CONDITIONS, REGIONS, TITLES, type Region } from '../engine/data';
 import { findModel } from '../engine/models';
 import { prefillMsrp } from '../engine/prefill';
 import { stickerFor } from '../engine/stickers';
@@ -100,41 +102,145 @@ const num = (v: unknown, lo: number, hi: number, fallback: number) => {
   return Number.isFinite(n) && n >= lo && n <= hi ? Math.round(n) : fallback;
 };
 
-function toBase64Url(bytes: Uint8Array): string {
-  let bin = '';
-  for (const b of bytes) bin += String.fromCharCode(b);
-  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-}
 function fromBase64Url(s: string): Uint8Array {
   const b64 = s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - (s.length % 4)) % 4);
   const bin = atob(b64);
   return Uint8Array.from(bin, (c) => c.charCodeAt(0));
 }
 
-/** Compact, URL-safe text that holds the whole record (typically 300-500 characters). */
-export function encodeRecord(r: CarRecord): string {
-  const w: Wire = { v: 1, y: r.year, mk: r.make, md: r.model, t: r.trim, b: r.body, mi: r.mileage, p: r.price };
-  if (!r.model && r.modelText) w.mt = r.modelText;
-  if (r.msrp) w.ms = r.msrp;
-  for (const [k, v] of [['xc', r.exterior], ['ic', r.interior], ['vin', r.vin], ['st', r.stock], ['n', r.notes], ['z', r.zip]] as const) if (v) w[k] = v;
-  if (r.condition !== 'Good') w.cn = r.condition;
-  if (r.title !== 'Clean') w.tt = r.title;
-  if (r.accident !== 'None') w.ac = r.accident;
-  if (r.region !== 'Southeast') w.r = r.region;
-  if (r.features.length) w.f = [...r.features].sort((a, b) => a - b);
-  if (r.warranty !== DEFAULT_WARRANTY) w.w = r.warranty;
-  const d: Wire = {};
-  for (const [k, v] of [['n', r.dealer.name], ['ph', r.dealer.phone], ['a', r.dealer.address], ['u', r.dealer.web]] as const) if (v) d[k] = v;
-  if (Object.keys(d).length) w.d = d;
-  if (!r.showValue) w.hv = 1;
-  if (!r.showForecast) w.hf = 1;
-  return toBase64Url(new TextEncoder().encode(JSON.stringify(w)));
+// Version 2 (current): bytes, written with the 43 QR-alphanumeric characters that are safe in
+// a URL fragment (no space, no %). Three characters hold two bytes.
+const B43 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$*+-./:';
+const B43_RE = /^[0-9A-Z$*+\-./:]+$/;
+
+function toBase43(bytes: Uint8Array): string {
+  let out = '';
+  for (let i = 0; i < bytes.length; i += 2) {
+    if (i + 1 < bytes.length) {
+      let n = bytes[i] * 256 + bytes[i + 1];
+      out += B43[n % 43]; n = Math.floor(n / 43); out += B43[n % 43]; out += B43[Math.floor(n / 43)];
+    } else {
+      const n = bytes[i];
+      out += B43[n % 43] + B43[Math.floor(n / 43)];
+    }
+  }
+  return out;
+}
+function fromBase43(s: string): Uint8Array | null {
+  const vals = [...s].map((c) => B43.indexOf(c));
+  if (vals.some((v) => v < 0) || s.length % 3 === 1) return null;
+  const out: number[] = [];
+  for (let i = 0; i < vals.length; i += 3) {
+    if (i + 2 < vals.length) {
+      const n = vals[i] + vals[i + 1] * 43 + vals[i + 2] * 43 * 43;
+      if (n > 0xffff) return null;
+      out.push(n >> 8, n & 0xff);
+    } else {
+      const n = vals[i] + vals[i + 1] * 43;
+      if (n > 0xff) return null;
+      out.push(n);
+    }
+  }
+  return Uint8Array.from(out);
 }
 
-/** Rebuild a record from the URL text; every field is checked and clipped. Returns null if unreadable. */
-export function decodeRecord(code: string): CarRecord | null {
+const F_HIDE_VALUE = 1, F_HIDE_FORECAST = 2, F_MSRP = 4, F_MODEL_TEXT = 8, F_WARRANTY = 16, F_ZIP = 32;
+const idx = (names: readonly string[], v: string) => Math.max(0, names.indexOf(v));
+const BODY_NAMES = BODY_STYLES.map((b) => b.name), COND_NAMES = CONDITIONS.map((c) => c.name), TITLE_NAMES = TITLES.map((t) => t.name), ACC_NAMES = ACCIDENTS.map((a) => a.name);
+
+class Writer {
+  bytes: number[] = [];
+  u8(n: number) { this.bytes.push(n & 0xff); }
+  u24(n: number) { const v = Math.max(0, Math.min(0xffffff, Math.round(n))); this.bytes.push(v >> 16, (v >> 8) & 0xff, v & 0xff); }
+  str(s: string) {
+    const b = new TextEncoder().encode(s);
+    if (b.length < 128) this.u8(b.length); else { this.u8(0x80 | (b.length & 0x7f)); this.u8(b.length >> 7); }
+    this.bytes.push(...b);
+  }
+}
+class Reader {
+  i = 0;
+  b: Uint8Array;
+  constructor(b: Uint8Array) { this.b = b; }
+  get done() { return this.i >= this.b.length; }
+  u8() { if (this.i >= this.b.length) throw new Error('short'); return this.b[this.i++]; }
+  u24() { return (this.u8() << 16) | (this.u8() << 8) | this.u8(); }
+  str() {
+    let n = this.u8();
+    if (n & 0x80) n = (n & 0x7f) | (this.u8() << 7);
+    if (this.i + n > this.b.length) throw new Error('short');
+    const s = new TextDecoder().decode(this.b.subarray(this.i, this.i + n));
+    this.i += n;
+    return s;
+  }
+}
+
+/** Compact, URL-safe text that holds the whole record (typically 200-400 characters). */
+export function encodeRecord(r: CarRecord): string {
+  const w = new Writer();
+  const msrp = r.msrp && r.msrp > 0 ? r.msrp : 0;
+  const modelText = !r.model && r.modelText ? r.modelText : '';
+  const warranty = r.warranty !== DEFAULT_WARRANTY ? r.warranty : '';
+  const zip = /^\d{5}$/.test(r.zip) ? r.zip : '';
+  w.u8(2);
+  w.u8((r.showValue ? 0 : F_HIDE_VALUE) | (r.showForecast ? 0 : F_HIDE_FORECAST) | (msrp ? F_MSRP : 0) | (modelText ? F_MODEL_TEXT : 0) | (warranty ? F_WARRANTY : 0) | (zip ? F_ZIP : 0));
+  w.u8(Math.max(0, Math.min(255, r.year - 1990)));
+  w.u8(idx(BODY_NAMES, r.body) | (idx(COND_NAMES, r.condition) << 4));
+  w.u8(idx(TITLE_NAMES, r.title) | (idx(ACC_NAMES, r.accident) << 2) | (idx(REGIONS, r.region) << 4));
+  w.u24(r.mileage); w.u24(r.price);
+  if (msrp) w.u24(msrp);
+  const ids = r.features.filter((id) => id >= 0 && id < 2040);
+  const nBytes = ids.length ? Math.ceil((Math.max(...ids) + 1) / 8) : 0;
+  const mask = new Array<number>(nBytes).fill(0);
+  for (const id of ids) mask[id >> 3] |= 1 << (id & 7);
+  w.u8(nBytes); for (const m of mask) w.u8(m);
+  for (const s of [r.make, r.model, r.trim, r.exterior, r.interior, r.vin, r.stock, r.notes.slice(0, 400), r.dealer.name, r.dealer.phone, r.dealer.address, r.dealer.web]) w.str(s);
+  if (modelText) w.str(modelText);
+  if (warranty) w.str(warranty.slice(0, 200));
+  if (zip) w.u24(Number(zip));
+  return toBase43(Uint8Array.from(w.bytes));
+}
+
+function decodeV2(bytes: Uint8Array): CarRecord | null {
+  try {
+    const rd = new Reader(bytes);
+    if (rd.u8() !== 2) return null;
+    const flags = rd.u8();
+    const year = 1990 + rd.u8();
+    const bc = rd.u8(), tar = rd.u8();
+    const mileage = rd.u24(), price = rd.u24();
+    const msrp = flags & F_MSRP ? rd.u24() : 0;
+    const nBytes = rd.u8();
+    const features: number[] = [];
+    for (let i = 0; i < nBytes; i++) { const m = rd.u8(); for (let b = 0; b < 8; b++) if (m & (1 << b)) features.push(i * 8 + b); }
+    const [make, model, trim, exterior, interior, vin, stock, notes, dName, dPhone, dAddress, dWeb] = Array.from({ length: 12 }, () => rd.str());
+    const modelText = flags & F_MODEL_TEXT ? rd.str() : '';
+    const warranty = flags & F_WARRANTY ? rd.str() : '';
+    const zip = flags & F_ZIP ? String(rd.u24()).padStart(5, '0') : '';
+    if (!make) return null;
+    const base = emptyRecord();
+    return {
+      year: num(year, 1990, new Date().getFullYear() + 1, base.year),
+      make: clip(make, 40), model: clip(model, 60), modelText: clip(modelText, 60), trim: clip(trim, 80),
+      body: BODY_NAMES[bc & 15] ?? 'Sedan',
+      mileage: num(mileage, 0, 600_000, 0), price: num(price, 0, 2_000_000, 0),
+      msrp: msrp ? num(msrp, 3000, 1_000_000, 0) || null : null,
+      exterior: clip(exterior, 40), interior: clip(interior, 40), vin: clip(vin, 17).toUpperCase(), stock: clip(stock, 20),
+      condition: COND_NAMES[bc >> 4] ?? 'Good', title: TITLE_NAMES[tar & 3] ?? 'Clean', accident: ACC_NAMES[(tar >> 2) & 3] ?? 'None',
+      features: features.filter((id) => FEATURES.some((f) => f.id === id)),
+      notes: clip(notes, 400), warranty: warranty ? clip(warranty, 200) : DEFAULT_WARRANTY,
+      dealer: { name: clip(dName, 60), phone: clip(dPhone, 30), address: clip(dAddress, 120), web: clip(dWeb, 80) },
+      region: (REGIONS[tar >> 4] as Region | undefined) ?? 'Southeast',
+      zip: /^\d{5}$/.test(zip) ? zip : '',
+      showValue: !(flags & F_HIDE_VALUE), showForecast: !(flags & F_HIDE_FORECAST),
+    };
+  } catch { return null; }
+}
+
+/** Version 1 (sheets printed before Nov 2026): base64url JSON with short keys. Kept so those QR codes still open. */
+function decodeV1(code: string): CarRecord | null {
   let w: Wire;
-  try { w = JSON.parse(new TextDecoder().decode(fromBase64Url(code.trim()))); } catch { return null; }
+  try { w = JSON.parse(new TextDecoder().decode(fromBase64Url(code))); } catch { return null; }
   if (!w || typeof w !== 'object' || !w.mk) return null;
   const base = emptyRecord();
   const d = (w.d ?? {}) as Wire;
@@ -156,13 +262,23 @@ export function decodeRecord(code: string): CarRecord | null {
   };
 }
 
+/** Rebuild a record from the URL text; every field is checked and clipped. Returns null if unreadable. */
+export function decodeRecord(code: string): CarRecord | null {
+  const c = code.trim();
+  if (!c) return null;
+  // A scanner app may hand back the fragment percent-encoded or the base43 text lower-cased.
+  const up = (() => { try { return decodeURIComponent(c); } catch { return c; } })().toUpperCase();
+  if (B43_RE.test(up)) { const bytes = fromBase43(up); const r = bytes && decodeV2(bytes); if (r) return r; }
+  return decodeV1(c);
+}
+
 // ---- Routes -----------------------------------------------------------------------------
 
 function siteRoot(): string {
   try { return `${window.location.origin}${window.location.pathname}`; } catch { return ''; }
 }
 export const homeUrl = () => siteRoot();
-export const carPageUrl = (code: string) => `${siteRoot()}#/car/${code}`;
+export const carPageUrl = (code: string) => `${siteRoot()}#/c/${code}`;
 export const stickerPageUrl = (code?: string) => `${siteRoot()}#/sticker${code ? `/${code}` : ''}`;
 export const calculatorUrl = () => `${siteRoot()}#/value`;
 

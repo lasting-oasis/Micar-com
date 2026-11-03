@@ -180,8 +180,8 @@ export default function StickerBuilder({ code }: { code?: string }) {
                 </label>
                 <Text label="Warranty line" value={r.warranty} onChange={(v) => set('warranty', v)} max={200} hint="The FTC Buyers Guide on the window is still required for used cars; this line should match it." />
                 <div className="flex flex-wrap gap-5 text-sm">
-                  <label className="flex items-center gap-2"><input type="checkbox" checked={r.showValue} onChange={(e) => set('showValue', e.target.checked)} /> Show the value snapshot on the sheet</label>
-                  <label className="flex items-center gap-2"><input type="checkbox" checked={r.showForecast} onChange={(e) => set('showForecast', e.target.checked)} disabled={!r.showValue} /> Include the 3-year projection</label>
+                  <label className="flex items-center gap-2"><input type="checkbox" checked={r.showValue} onChange={(e) => set('showValue', e.target.checked)} /> Show the value check on the sheet</label>
+                  <label className="flex items-center gap-2"><input type="checkbox" checked={r.showForecast} onChange={(e) => set('showForecast', e.target.checked)} disabled={!r.showValue} /> Include how it holds value next to similar cars</label>
                 </div>
               </Group>
             </section>

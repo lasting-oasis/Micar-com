@@ -13,10 +13,27 @@ const car: CarRecord = {
 describe('car record', () => {
   it('round-trips through the URL code and stays short enough for a QR code', () => {
     const code = encodeRecord(car);
-    expect(code).toMatch(/^[A-Za-z0-9_-]+$/);
-    expect(code.length).toBeLessThan(600);
+    expect(code).toMatch(/^[0-9A-Z$*+\-./:]+$/); // QR alphanumeric set, minus space and %
+    expect(code.length).toBeLessThan(330);
     const back = decodeRecord(code)!;
     expect(back).toEqual({ ...car, features: [0, 8, 14, 22] });
+    // scanner apps may lower-case or percent-encode the fragment
+    expect(decodeRecord(code.toLowerCase())).toEqual(back);
+    expect(decodeRecord(encodeURIComponent(code))).toEqual(back);
+  });
+
+  it('keeps every field through the code, including the optional ones', () => {
+    const full: CarRecord = { ...car, model: '', modelText: 'Crosstour', msrp: 27755, warranty: 'Limited 3-month powertrain warranty', zip: '28202',
+      condition: 'Fair', title: 'Rebuilt', accident: 'Minor', region: 'West', showValue: false, showForecast: false, features: [0, 39], notes: 'Ñ unicode works, too.' };
+    expect(decodeRecord(encodeRecord(full))).toEqual(full);
+  });
+
+  it('still reads the codes on sheets printed before the packed format', () => {
+    const v1 = 'eyJ2IjoxLCJ5IjoyMDE5LCJtayI6IkhvbmRhIiwibWQiOiJDaXZpYyIsInQiOiJFWCIsImIiOiJTZWRhbiIsIm1pIjo0ODIxMCwicCI6MTk5OTUsInhjIjoiQWVnZWFuIEJsdWUiLCJpYyI6IkJsYWNrIGNsb3RoIiwidmluIjoiMkhHRkMyRjdYS0gxMjM0NTYiLCJzdCI6IlAxMjM0IiwibiI6Ik9uZSBvd25lciwgc2VydmljZWQgaGVyZSBzaW5jZSBuZXcuIFNlY29uZCBrZXkgYW5kIGFsbC13ZWF0aGVyIG1hdHMgaW5jbHVkZWQuIiwiZiI6WzAsMSwzLDQsOCwxMCwxNCwxOSwyMiwyMywzMiwzMywzNCwzNl0sImQiOnsibiI6IlF1ZWVuIENpdHkgTW90b3JzIiwicGgiOiIoNzA0KSA1NTUtMDEwMCIsImEiOiIxMjMgTWFpbiBTdCwgQ2hhcmxvdHRlLCBOQyAyODIwMiIsInUiOiJxdWVlbmNpdHltb3RvcnMuZXhhbXBsZSJ9fQ';
+    const r = decodeRecord(v1)!;
+    expect(r).toMatchObject({ year: 2019, make: 'Honda', model: 'Civic', trim: 'EX', mileage: 48210, price: 19995, vin: '2HGFC2F7XKH123456', stock: 'P1234' });
+    expect(r.features).toEqual([0, 1, 3, 4, 8, 10, 14, 19, 22, 23, 32, 33, 34, 36]);
+    expect(r.dealer.name).toBe('Queen City Motors');
   });
 
   it('rejects junk and clips oversized fields', () => {

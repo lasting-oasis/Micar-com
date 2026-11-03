@@ -1,4 +1,5 @@
 // Everything the sticker and the car page show about value, computed once from a record.
+import { MODELS, findModel } from '../engine/models';
 import { forecast, valuate, type Inputs, type Valuation } from '../engine/valuation';
 import { recordInputs, recordMsrp, type CarRecord } from './record';
 
@@ -32,3 +33,35 @@ export function snapshot(r: CarRecord, now = new Date(), milesPerYear = 12000): 
 export const usd = (n: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 export const miles = (n: number) => `${new Intl.NumberFormat('en-US').format(n)} mi`;
 export const monthYear = (d: Date) => d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+/** How this model holds value next to others of its body style: the share of a new one's price
+ *  a 5-year-old keeps, against the median for curated models with the same body. */
+export type Retention = {
+  /** This model's 5-year share, when it is a model we have data for. */
+  own?: number;
+  /** Median 5-year share for this body style. */
+  typical: number;
+  /** 'sedan', 'SUV', 'pickup'... for a sentence. */
+  bodyWord: string;
+  kind: 'better' | 'average' | 'worse' | 'unknown';
+  calibrated: boolean;
+};
+
+const BODY_WORDS: Record<string, string> = { 'Sedan': 'sedan', 'SUV / Crossover': 'SUV', 'Pickup Truck': 'pickup', 'Coupe / Sports': 'coupe', 'Hatchback / Wagon': 'hatchback or wagon', 'Minivan': 'minivan' };
+const typicalByBody = new Map<string, number>();
+
+export function retention(r: CarRecord): Retention {
+  const info = r.model ? findModel(r.make, r.model) : undefined;
+  const body = info?.body ?? r.body;
+  let typical = typicalByBody.get(body);
+  if (typical === undefined) {
+    const xs = MODELS.filter((m) => m.body === body && !m.source).map((m) => m.residual5).sort((a, b) => a - b);
+    typical = xs.length ? xs[Math.floor(xs.length / 2)] : 0.5;
+    typicalByBody.set(body, typical);
+  }
+  const bodyWord = BODY_WORDS[body] ?? 'car';
+  // EPA-only models carry a make-and-body average rather than their own figure.
+  if (!info || info.source === 'epa') return { typical, bodyWord, kind: 'unknown', calibrated: false };
+  const d = info.residual5 - typical;
+  return { own: info.residual5, typical, bodyWord, kind: d >= 0.04 ? 'better' : d <= -0.04 ? 'worse' : 'average', calibrated: !!info.calibrated };
+}
