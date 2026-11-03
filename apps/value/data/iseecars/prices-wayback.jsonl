@@ -13656,3 +13656,192 @@
 {"year": 2011, "make": "Lotus", "slug": "2011-lotus-exige", "style": "S 240 2dr Coupe", "invoice": 0, "msrp": 65690, "destination": 1125, "source": "wayback", "snapshot": "20250321193906"}
 {"year": 2010, "make": "Lotus", "slug": "2010-lotus-exige", "style": "S 260 2dr Coupe", "invoice": 0, "msrp": 74995, "destination": 1125, "source": "wayback", "snapshot": "20250426014916"}
 {"year": 2010, "make": "Lotus", "slug": "2010-lotus-exige", "style": "S 240 2dr Coupe", "invoice": 0, "msrp": 65690, "destination": 1125, "source": "wayback", "snapshot": "20250426014916"}
+{"year": 2022, "make": "BMW", "slug": "2022-bmw-m8", "style": "M8 Competition Coupe", "invoice": 121400, "msrp": 130000, "destination": null, "source": "wayback", "snapshot": "20210729211541"}
+{"year": 2022, "make": "BMW", "slug": "2022-bmw-m8", "style": "M8 Competition Convertible", "invoice": 130235, "msrp": 139500, "destination": null, "source": "wayback", "snapshot": "20210729211541"}
+{"year": 2022, "make": "BMW", "slug": "2022-bmw-m8", "style": "M8 Competition Gran Coupe", "invoice": 121400, "msrp": 130000, "destination": null, "source": "wayback", "snapshot": "20210729211541"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Carrera Coupe", "invoice": 0, "msrp": 101200, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Carrera S Coupe", "invoice": 0, "msrp": 117100, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "GT3 Coupe", "invoice": 0, "msrp": 161100, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Carrera 4 Coupe", "invoice": 0, "msrp": 108500, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Targa 4", "invoice": 0, "msrp": 121300, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Carrera 4S Coupe", "invoice": 0, "msrp": 124400, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Targa 4S", "invoice": 0, "msrp": 137200, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Turbo Coupe", "invoice": 0, "msrp": 174300, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Turbo S Coupe", "invoice": 0, "msrp": 207000, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Carrera Cabriolet", "invoice": 0, "msrp": 114000, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Carrera S Cabriolet", "invoice": 0, "msrp": 129900, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Carrera 4 Cabriolet", "invoice": 0, "msrp": 121300, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Carrera 4S Cabriolet", "invoice": 0, "msrp": 137200, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Turbo Cabriolet", "invoice": 0, "msrp": 187100, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Porsche", "slug": "2022-porsche-911", "style": "Turbo S Cabriolet", "invoice": 0, "msrp": 219800, "destination": null, "source": "wayback", "snapshot": "20210725002336"}
+{"year": 2022, "make": "Subaru", "slug": "2022-subaru-outback", "style": "CVT", "invoice": 25325, "msrp": 26945, "destination": null, "source": "wayback", "snapshot": "20210730015143"}
+{"year": 2022, "make": "Subaru", "slug": "2022-subaru-outback", "style": "Premium CVT", "invoice": 27410, "msrp": 29145, "destination": null, "source": "wayback", "snapshot": "20210730015143"}
+{"year": 2022, "make": "Subaru", "slug": "2022-subaru-outback", "style": "Limited CVT", "invoice": 31451, "msrp": 33595, "destination": null, "source": "wayback", "snapshot": "20210730015143"}
+{"year": 2022, "make": "Subaru", "slug": "2022-subaru-outback", "style": "Onyx Edition XT CVT", "invoice": 32875, "msrp": 35145, "destination": null, "source": "wayback", "snapshot": "20210730015143"}
+{"year": 2022, "make": "Subaru", "slug": "2022-subaru-outback", "style": "Wilderness CVT", "invoice": 34575, "msrp": 36995, "destination": null, "source": "wayback", "snapshot": "20210730015143"}
+{"year": 2022, "make": "Subaru", "slug": "2022-subaru-outback", "style": "Touring CVT", "invoice": 35034, "msrp": 37495, "destination": null, "source": "wayback", "snapshot": "20210730015143"}
+{"year": 2022, "make": "Subaru", "slug": "2022-subaru-outback", "style": "Limited XT CVT", "invoice": 35451, "msrp": 37995, "destination": null, "source": "wayback", "snapshot": "20210730015143"}
+{"year": 2022, "make": "Subaru", "slug": "2022-subaru-outback", "style": "Touring XT CVT", "invoice": 37240, "msrp": 39945, "destination": null, "source": "wayback", "snapshot": "20210730015143"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-ilx", "style": "Sedan", "invoice": 25461, "msrp": 26100, "destination": null, "source": "wayback", "snapshot": "20210920112926"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-ilx", "style": "Sedan w/Premium Package", "invoice": 27056, "msrp": 28100, "destination": null, "source": "wayback", "snapshot": "20210920112926"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-ilx", "style": "Sedan w/Technology Package", "invoice": 28882, "msrp": 30000, "destination": null, "source": "wayback", "snapshot": "20210920112926"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-ilx", "style": "Sedan w/Premium/A-Spec Package", "invoice": 28915, "msrp": 30100, "destination": null, "source": "wayback", "snapshot": "20210920112926"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-ilx", "style": "Sedan w/Technology/A-Spec Package", "invoice": 30736, "msrp": 32000, "destination": null, "source": "wayback", "snapshot": "20210920112926"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-rdx", "style": "FWD", "invoice": 36458, "msrp": 38400, "destination": null, "source": "wayback", "snapshot": "20210228092458"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-rdx", "style": "FWD w/Technology Pkg", "invoice": 39205, "msrp": 41300, "destination": null, "source": "wayback", "snapshot": "20210228092458"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-rdx", "style": "FWD w/A-Spec Pkg", "invoice": 42047, "msrp": 44300, "destination": null, "source": "wayback", "snapshot": "20210228092458"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-rdx", "style": "FWD w/Advance Pkg", "invoice": 43847, "msrp": 46200, "destination": null, "source": "wayback", "snapshot": "20210228092458"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-rdx", "style": "SH-AWD", "invoice": 38353, "msrp": 40400, "destination": null, "source": "wayback", "snapshot": "20210228092458"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-rdx", "style": "SH-AWD w/Technology Pkg", "invoice": 41100, "msrp": 43300, "destination": null, "source": "wayback", "snapshot": "20210228092458"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-rdx", "style": "SH-AWD w/A-Spec Pkg", "invoice": 43942, "msrp": 46300, "destination": null, "source": "wayback", "snapshot": "20210228092458"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-rdx", "style": "SH-AWD w/Advance Pkg", "invoice": 45742, "msrp": 48200, "destination": null, "source": "wayback", "snapshot": "20210228092458"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-rdx", "style": "SH-AWD PMC Edition", "invoice": 48394, "msrp": 51000, "destination": null, "source": "wayback", "snapshot": "20210228092458"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-tlx", "style": "FWD", "invoice": 36554, "msrp": 37500, "destination": null, "source": "wayback", "snapshot": "20210622105133"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-tlx", "style": "FWD w/Technology Package", "invoice": 39497, "msrp": 41500, "destination": null, "source": "wayback", "snapshot": "20210622105133"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-tlx", "style": "FWD w/A-Spec Package", "invoice": 42018, "msrp": 44250, "destination": null, "source": "wayback", "snapshot": "20210622105133"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-tlx", "style": "FWD w/Advance Package", "invoice": 43866, "msrp": 46300, "destination": null, "source": "wayback", "snapshot": "20210622105133"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-tlx", "style": "SH-AWD", "invoice": 38500, "msrp": 39500, "destination": null, "source": "wayback", "snapshot": "20210622105133"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-tlx", "style": "SH-AWD w/Technology Package", "invoice": 41398, "msrp": 43500, "destination": null, "source": "wayback", "snapshot": "20210622105133"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-tlx", "style": "SH-AWD w/A-Spec Package", "invoice": 43914, "msrp": 46250, "destination": null, "source": "wayback", "snapshot": "20210622105133"}
+{"year": 2021, "make": "Acura", "slug": "2021-acura-tlx", "style": "SH-AWD w/Advance Package", "invoice": 45758, "msrp": 48300, "destination": null, "source": "wayback", "snapshot": "20210622105133"}
+{"year": 2021, "make": "Alfa Romeo", "slug": "2021-alfa_romeo-giulia", "style": "RWD", "invoice": 37530, "msrp": 39450, "destination": null, "source": "wayback", "snapshot": "20210506104904"}
+{"year": 2021, "make": "Alfa Romeo", "slug": "2021-alfa_romeo-giulia", "style": "Ti RWD", "invoice": 40519, "msrp": 42700, "destination": null, "source": "wayback", "snapshot": "20210506104904"}
+{"year": 2021, "make": "Alfa Romeo", "slug": "2021-alfa_romeo-giulia", "style": "Ti Sport RWD", "invoice": 40519, "msrp": 42700, "destination": null, "source": "wayback", "snapshot": "20210506104904"}
+{"year": 2021, "make": "Alfa Romeo", "slug": "2021-alfa_romeo-giulia", "style": "Quadrifoglio RWD", "invoice": 70006, "msrp": 74750, "destination": null, "source": "wayback", "snapshot": "20210506104904"}
+{"year": 2021, "make": "Alfa Romeo", "slug": "2021-alfa_romeo-giulia", "style": "AWD", "invoice": 39370, "msrp": 41450, "destination": null, "source": "wayback", "snapshot": "20210506104904"}
+{"year": 2021, "make": "Alfa Romeo", "slug": "2021-alfa_romeo-giulia", "style": "Ti AWD", "invoice": 42359, "msrp": 44700, "destination": null, "source": "wayback", "snapshot": "20210506104904"}
+{"year": 2021, "make": "Alfa Romeo", "slug": "2021-alfa_romeo-giulia", "style": "Ti Sport AWD", "invoice": 42359, "msrp": 44700, "destination": null, "source": "wayback", "snapshot": "20210506104904"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a4", "style": "Premium 40 TFSI quattro", "invoice": 36755, "msrp": 39100, "destination": null, "source": "wayback", "snapshot": "20210917220539"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a4", "style": "Premium Plus 40 TFSI quattro", "invoice": 36755, "msrp": 39100, "destination": null, "source": "wayback", "snapshot": "20210917220539"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a4", "style": "Prestige 40 TFSI quattro", "invoice": 36755, "msrp": 39100, "destination": null, "source": "wayback", "snapshot": "20210917220539"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a4", "style": "S line Premium 45 TFSI quattro", "invoice": 38447, "msrp": 40900, "destination": null, "source": "wayback", "snapshot": "20210917220539"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a4", "style": "S line Premium Plus 45 TFSI quattro", "invoice": 38447, "msrp": 40900, "destination": null, "source": "wayback", "snapshot": "20210917220539"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a4", "style": "S line Prestige 45 TFSI quattro", "invoice": 38447, "msrp": 40900, "destination": null, "source": "wayback", "snapshot": "20210917220539"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a5_sportback", "style": "Premium 40 TFSI quattro", "invoice": 39292, "msrp": 41800, "destination": null, "source": "wayback", "snapshot": "20210414231230"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a5_sportback", "style": "Prestige 40 TFSI quattro", "invoice": 39292, "msrp": 41800, "destination": null, "source": "wayback", "snapshot": "20210414231230"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a5_sportback", "style": "Premium Plus 40 TFSI quattro", "invoice": 39292, "msrp": 41800, "destination": null, "source": "wayback", "snapshot": "20210414231230"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a5_sportback", "style": "S line Premium 45 TFSI quattro", "invoice": 41360, "msrp": 44000, "destination": null, "source": "wayback", "snapshot": "20210414231230"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a5_sportback", "style": "S line Prestige 45 TFSI quattro", "invoice": 41360, "msrp": 44000, "destination": null, "source": "wayback", "snapshot": "20210414231230"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a5_sportback", "style": "S line Premium Plus 45 TFSI quattro", "invoice": 41360, "msrp": 44000, "destination": null, "source": "wayback", "snapshot": "20210414231230"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a6_allroad", "style": "3.0 TFSI Premium Plus", "invoice": 61948, "msrp": 65900, "destination": null, "source": "wayback", "snapshot": "20210420163547"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a6_allroad", "style": "3.0 TFSI Prestige", "invoice": 61948, "msrp": 65900, "destination": null, "source": "wayback", "snapshot": "20210420163547"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a7", "style": "Premium 55 TFSI quattro", "invoice": 65048, "msrp": 69200, "destination": null, "source": "wayback", "snapshot": "20210513164006"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a7", "style": "Prestige 55 TFSI quattro", "invoice": 65048, "msrp": 69200, "destination": null, "source": "wayback", "snapshot": "20210513164006"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a7", "style": "Premium Plus 55 TFSI quattro", "invoice": 65048, "msrp": 69200, "destination": null, "source": "wayback", "snapshot": "20210513164006"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a7", "style": "Premium Plus 55 TFSI e quattro", "invoice": 70408, "msrp": 74900, "destination": null, "source": "wayback", "snapshot": "20210513164006"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a7", "style": "Prestige 55 TFSI e quattro", "invoice": 70408, "msrp": 74900, "destination": null, "source": "wayback", "snapshot": "20210513164006"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a8", "style": "55 TFSI quattro", "invoice": 0, "msrp": 86500, "destination": null, "source": "wayback", "snapshot": "20201124212612"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-a8", "style": "60 TFSI quattro", "invoice": 0, "msrp": 98900, "destination": null, "source": "wayback", "snapshot": "20201124212612"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-e__tron", "style": "Premium quattro", "invoice": 61948, "msrp": 65900, "destination": null, "source": "wayback", "snapshot": "20210419065745"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-e__tron", "style": "Premium quattro", "invoice": 64956, "msrp": 69100, "destination": null, "source": "wayback", "snapshot": "20210419065745"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-e__tron", "style": "Prestige quattro", "invoice": 64956, "msrp": 69100, "destination": null, "source": "wayback", "snapshot": "20210419065745"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-e__tron", "style": "Prestige quattro", "invoice": 61948, "msrp": 65900, "destination": null, "source": "wayback", "snapshot": "20210419065745"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-e__tron", "style": "Premium Plus quattro", "invoice": 61948, "msrp": 65900, "destination": null, "source": "wayback", "snapshot": "20210419065745"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-e__tron", "style": "Premium Plus quattro", "invoice": 64956, "msrp": 69100, "destination": null, "source": "wayback", "snapshot": "20210419065745"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-q3", "style": "Premium 40 TFSI quattro", "invoice": 31960, "msrp": 34000, "destination": null, "source": "wayback", "snapshot": "20220125192926"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-q3", "style": "Premium Plus 40 TFSI quattro", "invoice": 31960, "msrp": 34000, "destination": null, "source": "wayback", "snapshot": "20220125192926"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-q3", "style": "S line Premium 45 TFSI quattro", "invoice": 33840, "msrp": 36000, "destination": null, "source": "wayback", "snapshot": "20220125192926"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-q3", "style": "S line Premium Plus 45 TFSI quattro", "invoice": 33840, "msrp": 36000, "destination": null, "source": "wayback", "snapshot": "20220125192926"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-q8", "style": "Premium 55 TFSI quattro", "invoice": 64108, "msrp": 68200, "destination": null, "source": "wayback", "snapshot": "20210420234010"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-q8", "style": "Prestige 55 TFSI quattro", "invoice": 64108, "msrp": 68200, "destination": null, "source": "wayback", "snapshot": "20210420234010"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-q8", "style": "Premium Plus 55 TFSI quattro", "invoice": 64108, "msrp": 68200, "destination": null, "source": "wayback", "snapshot": "20210420234010"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-rs_5", "style": "2.9 TFSI quattro", "invoice": 70595, "msrp": 75100, "destination": null, "source": "wayback", "snapshot": "20210414232241"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-rs_5_sportback", "style": "2.9 TFSI quattro", "invoice": 70876, "msrp": 75400, "destination": null, "source": "wayback", "snapshot": "20210918203116"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-s5", "style": "Premium 3.0 TFSI quattro", "invoice": 56964, "msrp": 60600, "destination": null, "source": "wayback", "snapshot": "20210506044623"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-s5", "style": "Premium 3.0 TFSI quattro", "invoice": 49351, "msrp": 52500, "destination": null, "source": "wayback", "snapshot": "20210506044623"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-s5", "style": "Prestige 3.0 TFSI quattro", "invoice": 56964, "msrp": 60600, "destination": null, "source": "wayback", "snapshot": "20210506044623"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-s5", "style": "Prestige 3.0 TFSI quattro", "invoice": 49351, "msrp": 52500, "destination": null, "source": "wayback", "snapshot": "20210506044623"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-s5", "style": "Premium Plus 3.0 TFSI quattro", "invoice": 56964, "msrp": 60600, "destination": null, "source": "wayback", "snapshot": "20210506044623"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-s5", "style": "Premium Plus 3.0 TFSI quattro", "invoice": 49351, "msrp": 52500, "destination": null, "source": "wayback", "snapshot": "20210506044623"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-s7", "style": "2.9 TFSI Premium Plus", "invoice": 79336, "msrp": 84400, "destination": null, "source": "wayback", "snapshot": "20211022023438"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-s7", "style": "2.9 TFSI Prestige", "invoice": 79336, "msrp": 84400, "destination": null, "source": "wayback", "snapshot": "20211022023438"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-sq5", "style": "Premium 3.0 TFSI quattro", "invoice": 49727, "msrp": 52900, "destination": null, "source": "wayback", "snapshot": "20210924203219"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-sq5", "style": "Prestige 3.0 TFSI quattro", "invoice": 49727, "msrp": 52900, "destination": null, "source": "wayback", "snapshot": "20210924203219"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-sq5", "style": "Premium Plus 3.0 TFSI quattro", "invoice": 49727, "msrp": 52900, "destination": null, "source": "wayback", "snapshot": "20210924203219"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-sq7", "style": "Premium Plus 4.0 TFSI quattro", "invoice": 79900, "msrp": 85000, "destination": null, "source": "wayback", "snapshot": "20210415071833"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-sq7", "style": "Prestige 4.0 TFSI quattro", "invoice": 79900, "msrp": 85000, "destination": null, "source": "wayback", "snapshot": "20210415071833"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-sq8", "style": "Premium Plus 4.0 TFSI quattro", "invoice": 83848, "msrp": 89100, "destination": null, "source": "wayback", "snapshot": "20210415072304"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-sq8", "style": "Prestige 4.0 TFSI quattro", "invoice": 83848, "msrp": 89100, "destination": null, "source": "wayback", "snapshot": "20210415072304"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-tt", "style": "45 TFSI quattro", "invoice": 46812, "msrp": 49800, "destination": null, "source": "wayback", "snapshot": "20210624070343"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-tt", "style": "45 TFSI quattro", "invoice": 50667, "msrp": 53900, "destination": null, "source": "wayback", "snapshot": "20210624070343"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-tt_rs", "style": "2.5 TFSI", "invoice": 68151, "msrp": 72500, "destination": null, "source": "wayback", "snapshot": "20210420234613"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Sedan", "invoice": 38865, "msrp": 41250, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Sedan North America", "invoice": 38865, "msrp": 41250, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Plug-In Hybrid", "invoice": 41930, "msrp": 44550, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Plug-In Hybrid North America", "invoice": 41930, "msrp": 44550, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Sedan", "invoice": 51370, "msrp": 54700, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Sedan North America", "invoice": 51370, "msrp": 54700, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Sedan", "invoice": 40725, "msrp": 43250, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Sedan North America", "invoice": 40725, "msrp": 43250, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Plug-In Hybrid", "invoice": 43790, "msrp": 46550, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Plug-In Hybrid North America", "invoice": 43790, "msrp": 46550, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Sedan", "invoice": 53230, "msrp": 56700, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-3_series", "style": "Sedan North America", "invoice": 53230, "msrp": 56700, "destination": null, "source": "wayback", "snapshot": "20210920223658"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-4_series", "style": "Coupe", "invoice": 42910, "msrp": 45600, "destination": null, "source": "wayback", "snapshot": "20210115190109"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-4_series", "style": "Coupe", "invoice": 44770, "msrp": 47600, "destination": null, "source": "wayback", "snapshot": "20210115190109"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-4_series", "style": "Coupe", "invoice": 54905, "msrp": 58500, "destination": null, "source": "wayback", "snapshot": "20210115190109"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-5_series", "style": "Sedan", "invoice": 50905, "msrp": 54200, "destination": null, "source": "wayback", "snapshot": "20201201153752"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-5_series", "style": "Plug-In Hybrid", "invoice": 53695, "msrp": 57200, "destination": null, "source": "wayback", "snapshot": "20201201153752"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-5_series", "style": "Sedan", "invoice": 55790, "msrp": 59450, "destination": null, "source": "wayback", "snapshot": "20201201153752"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-5_series", "style": "Sedan", "invoice": 53045, "msrp": 56500, "destination": null, "source": "wayback", "snapshot": "20201201153752"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-5_series", "style": "Plug-In Hybrid", "invoice": 55835, "msrp": 59500, "destination": null, "source": "wayback", "snapshot": "20201201153752"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-5_series", "style": "Sedan", "invoice": 57930, "msrp": 61750, "destination": null, "source": "wayback", "snapshot": "20201201153752"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-5_series", "style": "Sedan", "invoice": 71925, "msrp": 76800, "destination": null, "source": "wayback", "snapshot": "20201201153752"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-7_series", "style": "Sedan", "invoice": 81225, "msrp": 86800, "destination": null, "source": "wayback", "snapshot": "20210509072050"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-7_series", "style": "Sedan", "invoice": 84015, "msrp": 89800, "destination": null, "source": "wayback", "snapshot": "20210509072050"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-7_series", "style": "Plug-In Hybrid", "invoice": 89685, "msrp": 95900, "destination": null, "source": "wayback", "snapshot": "20210509072050"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-7_series", "style": "Sedan", "invoice": 96290, "msrp": 103000, "destination": null, "source": "wayback", "snapshot": "20210509072050"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-7_series", "style": "Sedan", "invoice": 133675, "msrp": 143200, "destination": null, "source": "wayback", "snapshot": "20210509072050"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-7_series", "style": "Sedan", "invoice": 147255, "msrp": 157800, "destination": null, "source": "wayback", "snapshot": "20210509072050"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-8_series", "style": "Coupe", "invoice": 82340, "msrp": 88000, "destination": null, "source": "wayback", "snapshot": "20210413002144"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-8_series", "style": "Coupe", "invoice": 85035, "msrp": 90900, "destination": null, "source": "wayback", "snapshot": "20210413002144"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-8_series", "style": "Coupe", "invoice": 104565, "msrp": 111900, "destination": null, "source": "wayback", "snapshot": "20210413002144"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-8_series", "style": "Convertible", "invoice": 91080, "msrp": 97400, "destination": null, "source": "wayback", "snapshot": "20210413002144"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-8_series", "style": "Convertible", "invoice": 93780, "msrp": 100300, "destination": null, "source": "wayback", "snapshot": "20210413002144"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-8_series", "style": "Convertible", "invoice": 113400, "msrp": 121400, "destination": null, "source": "wayback", "snapshot": "20210413002144"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-8_series", "style": "Gran Coupe", "invoice": 79550, "msrp": 85000, "destination": null, "source": "wayback", "snapshot": "20210413002144"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-8_series", "style": "Gran Coupe", "invoice": 82245, "msrp": 87900, "destination": null, "source": "wayback", "snapshot": "20210413002144"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-8_series", "style": "Gran Coupe", "invoice": 101775, "msrp": 108900, "destination": null, "source": "wayback", "snapshot": "20210413002144"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-m2", "style": "M2 Competition Coupe", "invoice": 55275, "msrp": 58900, "destination": null, "source": "wayback", "snapshot": "20210804194642"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-m3", "style": "M3 Sedan", "invoice": 65505, "msrp": 69900, "destination": null, "source": "wayback", "snapshot": "20210919011730"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-m3", "style": "M3 Competition Sedan", "invoice": 68205, "msrp": 72800, "destination": null, "source": "wayback", "snapshot": "20210919011730"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-m4", "style": "M4 Coupe", "invoice": 67275, "msrp": 71800, "destination": null, "source": "wayback", "snapshot": "20220117065910"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-m4", "style": "M4 Competition Coupe", "invoice": 69970, "msrp": 74700, "destination": null, "source": "wayback", "snapshot": "20220117065910"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x3", "style": "Sports Activity Vehicle", "invoice": 40490, "msrp": 43000, "destination": null, "source": "wayback", "snapshot": "20210117225735"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x3", "style": "Sports Activity Vehicle", "invoice": 42350, "msrp": 45000, "destination": null, "source": "wayback", "snapshot": "20210117225735"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x3", "style": "Sports Activity Vehicle", "invoice": 53140, "msrp": 56600, "destination": null, "source": "wayback", "snapshot": "20210117225735"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x3", "style": "Plug-In Hybrid", "invoice": 46630, "msrp": 49600, "destination": null, "source": "wayback", "snapshot": "20210117225735"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x4", "style": "Sports Activity Coupe", "invoice": 48490, "msrp": 51600, "destination": null, "source": "wayback", "snapshot": "20211130172613"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x4", "style": "Sports Activity Coupe", "invoice": 57880, "msrp": 61700, "destination": null, "source": "wayback", "snapshot": "20211130172613"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x5", "style": "Sports Activity Vehicle", "invoice": 55740, "msrp": 59400, "destination": null, "source": "wayback", "snapshot": "20210225081221"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x5", "style": "Sports Activity Vehicle", "invoice": 57880, "msrp": 61700, "destination": null, "source": "wayback", "snapshot": "20210225081221"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x5", "style": "Sports Activity Vehicle", "invoice": 77505, "msrp": 82800, "destination": null, "source": "wayback", "snapshot": "20210225081221"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x5", "style": "Plug-In Hybrid", "invoice": 61320, "msrp": 65400, "destination": null, "source": "wayback", "snapshot": "20210225081221"}
+{"year": 2021, "make": "BMW", "slug": "2021-bmw-x6_m", "style": "X6 M Sports Activity Coupe", "invoice": 101500, "msrp": 108600, "destination": null, "source": "wayback", "snapshot": "20210927190910"}
+{"year": 2021, "make": "Buick", "slug": "2021-buick-enclave", "style": "Preferred FWD", "invoice": 38160, "msrp": 40000, "destination": null, "source": "wayback", "snapshot": "20210423181517"}
+{"year": 2021, "make": "Buick", "slug": "2021-buick-enclave", "style": "Essence FWD", "invoice": 40068, "msrp": 42000, "destination": null, "source": "wayback", "snapshot": "20210423181517"}
+{"year": 2021, "make": "Buick", "slug": "2021-buick-enclave", "style": "Premium FWD", "invoice": 46174, "msrp": 48400, "destination": null, "source": "wayback", "snapshot": "20210423181517"}
+{"year": 2021, "make": "Buick", "slug": "2021-buick-enclave", "style": "Avenir FWD", "invoice": 51325, "msrp": 53800, "destination": null, "source": "wayback", "snapshot": "20210423181517"}
+{"year": 2021, "make": "Buick", "slug": "2021-buick-enclave", "style": "Essence AWD", "invoice": 41976, "msrp": 44000, "destination": null, "source": "wayback", "snapshot": "20210423181517"}
+{"year": 2021, "make": "Buick", "slug": "2021-buick-enclave", "style": "Premium AWD", "invoice": 48272, "msrp": 50600, "destination": null, "source": "wayback", "snapshot": "20210423181517"}
+{"year": 2021, "make": "Buick", "slug": "2021-buick-enclave", "style": "Avenir AWD", "invoice": 53424, "msrp": 56000, "destination": null, "source": "wayback", "snapshot": "20210423181517"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt5", "style": "FWD 4dr Luxury", "invoice": 41795, "msrp": 43995, "destination": null, "source": "wayback", "snapshot": "20210615003717"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt5", "style": "FWD 4dr Premium Luxury", "invoice": 46355, "msrp": 48795, "destination": null, "source": "wayback", "snapshot": "20210615003717"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt5", "style": "AWD 4dr Luxury", "invoice": 43695, "msrp": 45995, "destination": null, "source": "wayback", "snapshot": "20210615003717"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt5", "style": "AWD 4dr Premium Luxury", "invoice": 48255, "msrp": 50795, "destination": null, "source": "wayback", "snapshot": "20210615003717"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt5", "style": "AWD 4dr Sport", "invoice": 52340, "msrp": 55095, "destination": null, "source": "wayback", "snapshot": "20210615003717"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt6", "style": "FWD 4dr Luxury", "invoice": 45643, "msrp": 48045, "destination": null, "source": "wayback", "snapshot": "20211206202004"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt6", "style": "FWD 4dr Premium Luxury", "invoice": 50298, "msrp": 52945, "destination": null, "source": "wayback", "snapshot": "20211206202004"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt6", "style": "AWD 4dr Luxury", "invoice": 47543, "msrp": 50045, "destination": null, "source": "wayback", "snapshot": "20211206202004"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt6", "style": "AWD 4dr Premium Luxury", "invoice": 52198, "msrp": 54945, "destination": null, "source": "wayback", "snapshot": "20211206202004"}
+{"year": 2021, "make": "Cadillac", "slug": "2021-cadillac-xt6", "style": "AWD 4dr Sport", "invoice": 54573, "msrp": 57445, "destination": null, "source": "wayback", "snapshot": "20211206202004"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "L FWD", "invoice": 28771, "msrp": 28800, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "LT FWD", "invoice": 31100, "msrp": 32600, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "LT FWD", "invoice": 31864, "msrp": 33400, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "LT FWD", "invoice": 35870, "msrp": 37600, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "RS FWD", "invoice": 39209, "msrp": 41100, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "Premier FWD", "invoice": 40736, "msrp": 42700, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "LT AWD", "invoice": 33772, "msrp": 35400, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "LT AWD", "invoice": 37778, "msrp": 39600, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "RS AWD", "invoice": 41976, "msrp": 44000, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
+{"year": 2021, "make": "Chevrolet", "slug": "2021-chevrolet-blazer", "style": "Premier AWD", "invoice": 42835, "msrp": 44900, "destination": null, "source": "wayback", "snapshot": "20211207065550"}
