@@ -1,0 +1,30 @@
+name: Searlo gap-fill
+
+# Searches starting MSRPs for model-years iSeeCars doesn't have (data/search/gaps.json),
+# plus 40 known controls to measure accuracy. 1 Searlo credit per search. Resumable.
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/searlo-gapfill.yml, scripts/searlo_gapfill.py, data/search/gaps.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -u scripts/searlo_gapfill.py | tail -5
+        env:
+          SEARCH_API_KEY: ${{ secrets.SEARCH_API_KEY }}
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -A data/search
+          git commit -m "Searlo gap-fill $(date -u +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase -X theirs -q && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
