@@ -3,6 +3,7 @@ import type { WorldContext } from './context';
 import type { FurnitureKit } from './furniture';
 import { createBuildingSign } from '../textures';
 import { boxUVsWorld, type Face } from './architecture';
+import { buildStreetscape, STREETSCAPE_SAMPLE } from './roads';
 
 // The town: ground, roads, trees, districts, bank, auction house, library,
 // insurance office and gas stations. Returns the spots the game loop needs.
@@ -20,83 +21,54 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     const { scene, environmentDisposables, staticCollisionBoxes, cityMaterials, cityTextures, emissiveFacadeMaterials, concreteTex, makeGlass, addLightSource, arch } = ctx;
     const { makeSofa, makePlant, makePainting, makeCoffeeTable } = furniture;
 
-    // Streetlights (no shadows: a shadow-casting point light re-renders the
-    // whole scene six times per frame, even while switched off)
-    const createStreetLight = (x: number, z: number) => {
-         const poleGeo = new THREE.CylinderGeometry(0.2, 0.2, 10);
-         const poleMat = new THREE.MeshStandardMaterial({ color: '#52525b', roughness: 0.8 });
-         const pole = new THREE.Mesh(poleGeo, poleMat);
-         pole.position.set(x, 5, z);
-         scene.add(pole);
-         environmentDisposables.push(pole);
-         addLightSource(x, 9.5, z, '#fef08a', 1.5, 50, true);
-    };
-    createStreetLight(-15, 15);
-    createStreetLight(15, 15);
-    createStreetLight(-15, -15);
-    createStreetLight(15, -15);
-
-    // Grassy Floor (huge 10000x10000 open world so the giant speedway has ground under it).
+    // Grassy floor (huge 10000x10000 open world so the giant speedway has ground under it).
     // Split into 125-unit tiles: as two giant triangles, its depth values were too
     // imprecise near the camera and the grass was drawn over the lot paving, lane
-    // lines and track that sit a few centimetres above it. The polygon offset also
-    // pushes the grass slightly "behind" anything lying on it.
+    // lines and track that sit a few centimetres above it. The grass material is pushed
+    // slightly "behind" anything lying on it, and varies in colour over hundreds of metres.
     const floorGeo = new THREE.PlaneGeometry(10000, 10000, 80, 80);
     floorGeo.rotateX(-Math.PI / 2);
-    const floorMat = new THREE.MeshStandardMaterial({
-        color: '#14532d', // Emerald-900 grassy green
-        roughness: 0.95,
-        metalness: 0.1,
-        polygonOffset: true,
-        polygonOffsetFactor: 2,
-        polygonOffsetUnits: 2
-    });
-    const floor = new THREE.Mesh(floorGeo, floorMat);
+    const floor = new THREE.Mesh(floorGeo, ctx.ground.grass);
     floor.position.y = 0;
     floor.receiveShadow = true;
     scene.add(floor);
     environmentDisposables.push(floor);
 
-    // Suburbs Outbound Road Networks (Massive expansion)
-    const roadGeo = new THREE.BoxGeometry(25, 0.5, 840); // Main strip — starts north of the lot so it never runs through the dealership
-    const roadMat = new THREE.MeshStandardMaterial({ color: '#191a1d', roughness: 0.95 }); // near-black asphalt, clearly darker than the grey lot paving
+    // New streets (see roads.ts) — so far the sample from the lot's junction (z=200) up the
+    // main road past the junction at z=500. The old flat roads, sidewalks and lamps remain
+    // outside it, lowered so the road surface sits on the ground (cars no longer sink in).
+    buildStreetscape(ctx);
+    const SAMPLE = STREETSCAPE_SAMPLE;
+    // [x0, z0, x1, z1] boxes minus the sample area
+    const outsideSample = (x0: number, z0: number, x1: number, z1: number): [number, number, number, number][] => {
+        if (x1 <= SAMPLE.x0 || x0 >= SAMPLE.x1 || z1 <= SAMPLE.z0 || z0 >= SAMPLE.z1) return [[x0, z0, x1, z1]];
+        const out: [number, number, number, number][] = [];
+        if (z0 < SAMPLE.z0) out.push([x0, z0, x1, SAMPLE.z0]);
+        if (z1 > SAMPLE.z1) out.push([x0, SAMPLE.z1, x1, z1]);
+        const zz0 = Math.max(z0, SAMPLE.z0), zz1 = Math.min(z1, SAMPLE.z1);
+        if (x0 < SAMPLE.x0) out.push([x0, zz0, SAMPLE.x0, zz1]);
+        if (x1 > SAMPLE.x1) out.push([SAMPLE.x1, zz0, x1, zz1]);
+        return out;
+    };
+    const oldSlab = (mat: THREE.Material, x0: number, z0: number, x1: number, z1: number, h: number, yTop: number) => {
+        outsideSample(x0, z0, x1, z1).forEach(([a, b, c, d]) => {
+            const m = new THREE.Mesh(new THREE.BoxGeometry(c - a, h, d - b), mat);
+            m.position.set((a + c) / 2, yTop - h / 2, (b + d) / 2);
+            m.receiveShadow = true;
+            scene.add(m);
+            environmentDisposables.push(m);
+        });
+    };
 
-    const roadMain = new THREE.Mesh(roadGeo, roadMat);
-    roadMain.position.set(0, 0.02, 620);
-    roadMain.receiveShadow = true;
-    scene.add(roadMain);
-    environmentDisposables.push(roadMain);
-
-    const dividerGeo = new THREE.BoxGeometry(0.5, 0.6, 840);
+    // Old roads (outside the sample): near-black asphalt with raised yellow dividers
+    const roadMat = new THREE.MeshStandardMaterial({ color: '#191a1d', roughness: 0.95 });
     const dividerMat = new THREE.MeshStandardMaterial({ color: '#fbbf24' });
-    const dividerMain = new THREE.Mesh(dividerGeo, dividerMat);
-    dividerMain.position.set(0, 0.03, 620);
-    scene.add(dividerMain);
-    environmentDisposables.push(dividerMain);
-
-    // Cross street at Z=200
-    const roadCross1 = new THREE.Mesh(new THREE.BoxGeometry(1000, 0.5, 25), roadMat);
-    roadCross1.position.set(0, 0.02, 200);
-    roadCross1.receiveShadow = true;
-    scene.add(roadCross1);
-    environmentDisposables.push(roadCross1);
-
-    const dividerCross1 = new THREE.Mesh(new THREE.BoxGeometry(1000, 0.6, 0.5), dividerMat);
-    dividerCross1.position.set(0, 0.03, 200);
-    scene.add(dividerCross1);
-    environmentDisposables.push(dividerCross1);
-    
-    // Cross street at Z=500
-    const roadCross2 = new THREE.Mesh(new THREE.BoxGeometry(1000, 0.5, 25), roadMat);
-    roadCross2.position.set(0, 0.02, 500);
-    roadCross2.receiveShadow = true;
-    scene.add(roadCross2);
-    environmentDisposables.push(roadCross2);
-
-    const dividerCross2 = new THREE.Mesh(new THREE.BoxGeometry(1000, 0.6, 0.5), dividerMat);
-    dividerCross2.position.set(0, 0.03, 500);
-    scene.add(dividerCross2);
-    environmentDisposables.push(dividerCross2);
+    oldSlab(roadMat, -12.5, 200, 12.5, 1040, 0.06, 0.03);       // main road
+    oldSlab(dividerMat, -0.25, 200, 0.25, 1040, 0.12, 0.09);
+    [200, 500].forEach(z => {                                   // cross streets
+        oldSlab(roadMat, -500, z - 12.5, 500, z + 12.5, 0.06, 0.03);
+        oldSlab(dividerMat, -500, z - 0.25, 500, z + 0.25, 0.12, 0.09);
+    });
 
     // --- Procedural Generation 3D Assets ---
     // 1. Organic Trees
@@ -213,68 +185,15 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          return tex;
     };
 
-    // Sidewalk and Crosswalk Structures
+    // Old sidewalks (outside the sample)
     const sidewalkMat = new THREE.MeshStandardMaterial({ 
         color: '#a1a1aa', 
         roughness: 0.85, 
         map: concreteTex 
     });
     cityMaterials.push(sidewalkMat);
-
-    // Main highway sidewalks
-    // Flank the main road only (z=200..1040) so the walk never reaches the lot
-    const sidewalkLeft = new THREE.Mesh(new THREE.BoxGeometry(10, 0.2, 840), sidewalkMat);
-    sidewalkLeft.position.set(-17.5, 0.05, 620);
-    sidewalkLeft.receiveShadow = true;
-    scene.add(sidewalkLeft);
-    environmentDisposables.push(sidewalkLeft);
-
-    const sidewalkRight = new THREE.Mesh(new THREE.BoxGeometry(10, 0.2, 840), sidewalkMat);
-    sidewalkRight.position.set(17.5, 0.05, 620);
-    sidewalkRight.receiveShadow = true;
-    scene.add(sidewalkRight);
-    environmentDisposables.push(sidewalkRight);
-
-    // Sidewalks framing cross streets
-    const sidewalkC1A = new THREE.Mesh(new THREE.BoxGeometry(800, 0.2, 10), sidewalkMat);
-    sidewalkC1A.position.set(0, 0.05, 217.5);
-    sidewalkC1A.receiveShadow = true;
-    scene.add(sidewalkC1A);
-    environmentDisposables.push(sidewalkC1A);
-
-    const sidewalkC1B = new THREE.Mesh(new THREE.BoxGeometry(800, 0.2, 10), sidewalkMat);
-    sidewalkC1B.position.set(0, 0.05, 182.5);
-    sidewalkC1B.receiveShadow = true;
-    scene.add(sidewalkC1B);
-    environmentDisposables.push(sidewalkC1B);
-
-    const sidewalkC2A = new THREE.Mesh(new THREE.BoxGeometry(800, 0.2, 10), sidewalkMat);
-    sidewalkC2A.position.set(0, 0.05, 517.5);
-    sidewalkC2A.receiveShadow = true;
-    scene.add(sidewalkC2A);
-    environmentDisposables.push(sidewalkC2A);
-
-    const sidewalkC2B = new THREE.Mesh(new THREE.BoxGeometry(800, 0.2, 10), sidewalkMat);
-    sidewalkC2B.position.set(0, 0.05, 482.5);
-    sidewalkC2B.receiveShadow = true;
-    scene.add(sidewalkC2B);
-    environmentDisposables.push(sidewalkC2B);
-
-    // White crosswalk paint stripes
-    const createCrosswalk = (zPos: number) => {
-         const stripeMat = new THREE.MeshBasicMaterial({ color: '#ffffff' });
-         const stripeGeo = new THREE.BoxGeometry(1.5, 0.02, 8);
-         cityMaterials.push(stripeMat);
-         
-         for (let xOffset = -10; xOffset <= 10; xOffset += 4) {
-             const stripe = new THREE.Mesh(stripeGeo, stripeMat);
-             stripe.position.set(xOffset, 0.28, zPos); // just above the road surface (road top is y=0.27)
-             scene.add(stripe);
-             environmentDisposables.push(stripe);
-         }
-    };
-    createCrosswalk(200);
-    createCrosswalk(500);
+    [-17.5, 17.5].forEach(x => oldSlab(sidewalkMat, x - 5, 200, x + 5, 1040, 0.2, 0.15));
+    [217.5, 182.5, 517.5, 482.5].forEach(z => oldSlab(sidewalkMat, -400, z - 5, 400, z + 5, 0.2, 0.15));
 
     // Specialized Procedural Building Model Constructors
     
@@ -494,6 +413,9 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
          const side = random() > 0.5 ? (-20 - random() * 40) : (20 + random() * 40);
          // Keep the dealership plot (x -62..82, z < 115) clear of trees
          if (zOffset < 115 && side > -62 && side < 82) continue;
+         // The new streets have their own trees (still draw the numbers: the same
+         // sequence also picks the lit office windows)
+         if (Math.abs(side) < SAMPLE.mainRoadHalfWidth && zOffset > SAMPLE.z0 - 8 && zOffset < SAMPLE.z1 + 8) { random(); random(); continue; }
          placeTree(side, zOffset);
     }
 
@@ -525,30 +447,6 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     createWarehouse(65, 740, 36, 28, 14);
     createWarehouse(-60, 635, 38, 28, 14);
     createWarehouse(-65, 745, 40, 32, 15);
-
-    // Extra streetlights for the newly expanded Test Drive Road
-    [-15, 15].forEach(x => {
-        [240, 300, 360, 420, 470].forEach(z => {
-            const poleGeo = new THREE.CylinderGeometry(0.2, 0.4, 15, 8);
-            const poleMat = new THREE.MeshStandardMaterial({ color: '#27272a', metalness: 0.8, roughness: 0.2 });
-            const pole = new THREE.Mesh(poleGeo, poleMat);
-            pole.position.set(x, 7.5, z);
-            pole.castShadow = true;
-            scene.add(pole);
-            environmentDisposables.push(pole);
-
-            addLightSource(x, 14.5, z, '#fef08a', 2, 80, true);
-
-            const bulbGeo = new THREE.SphereGeometry(0.6, 12, 8); // a small unlit bulb: the 32x16 default was ~1k triangles each
-            const bulbMat = new THREE.MeshBasicMaterial({ color: '#fef08a' }); // MeshBasic is unlit — already full-bright, emissive props don't apply
-            const bulb = new THREE.Mesh(bulbGeo, bulbMat);
-            bulb.position.set(x, 15, z);
-            scene.add(bulb);
-            environmentDisposables.push(bulb);
-        });
-    });
-
-
 
     // Physical Bank Building located on the main road outside the lot
     const bankGroup = new THREE.Group();

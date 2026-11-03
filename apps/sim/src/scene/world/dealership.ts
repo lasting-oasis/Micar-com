@@ -4,13 +4,15 @@ import type { FenceKit } from './fences';
 import type { FurnitureKit } from './furniture';
 import { createBuildingSign } from '../textures';
 import type { Face } from './architecture';
+import { createGroundLayers, lotUV, paintUV, Y } from './roads';
+import { clipToRect, paintText } from './meshBuilder';
 
 // Hinged driveway gate of one dealership lot (animated by the render loop).
 export type DealershipGate = { left: THREE.Group; right: THREE.Group; ownerId: string; x: number; z: number; barrier: THREE.Box3; isOwner: boolean };
 
 /** Builds a player's whole dealership lot. `isOwnerLot` = it belongs to the local player (gets solid fences + gate barrier). */
 export function createDealership(ctx: WorldContext, fences: FenceKit, furniture: FurnitureKit, lotX: number, lotZ: number, playerId: string, isOwnerLot: boolean): DealershipGate {
-    const { scene, environmentDisposables, staticCollisionBoxes, concreteTex, asphaltTex, makeGlass, addLightSource, arch } = ctx;
+    const { scene, environmentDisposables, staticCollisionBoxes, concreteTex, makeGlass, addLightSource, arch } = ctx;
     const { buildChainLinkFence, buildGateLeaf } = fences;
     const { makeSofa, makePlant, makePainting, makeCoffeeTable } = furniture;
 
@@ -110,46 +112,22 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
     scene.add(sign);
     environmentDisposables.push(sign);
 
-    // Dynamic Street Lighting
-    const poleGeo = new THREE.CylinderGeometry(0.2, 0.4, 15, 8);
-    const poleMat = new THREE.MeshStandardMaterial({ color: '#27272a', metalness: 0.8, roughness: 0.2 });
-    const lampPositions = [{ x: lotX - 35, z: lotZ + 15 }, { x: lotX + 35, z: lotZ - 15 }, { x: lotX + 35, z: lotZ + 35 }];
-    
-    lampPositions.forEach(pos => {
-        const pole = new THREE.Mesh(poleGeo, poleMat);
-        pole.position.set(pos.x, 7.5, pos.z);
-        pole.castShadow = true;
-        scene.add(pole);
-        environmentDisposables.push(pole);
+    // Lot lights: bronze poles on concrete piers with twin shoebox heads (instanced; at night
+    // their heads glow and they throw pools of light on the paving), set between the rows.
+    ([[-30.25, 20], [-30.25, 62], [-20, 92], [35, -15], [35, 35], [31, 85], [-9.5, -37], [66, 27]] as [number, number][])
+        .forEach(([dx, dz]) => ctx.lamps.add('lot', lotX + dx, lotZ + dz, 0, 1, Y.road));
 
-        addLightSource(pos.x, 14.5, pos.z, '#fef08a', 2, 50, true);
-
-        const bulbGeo = new THREE.SphereGeometry(0.6, 12, 8); // a small unlit bulb: the 32x16 default was ~1k triangles each
-        const bulbMat = new THREE.MeshBasicMaterial({ color: '#fef08a' });
-        const bulb = new THREE.Mesh(bulbGeo, bulbMat);
-        bulb.position.set(pos.x, 15, pos.z);
-        scene.add(bulb);
-        environmentDisposables.push(bulb);
-    });
-
-    // Dealership Foundation Asphalt
-    const foundationGeo = new THREE.PlaneGeometry(130, 140);
-    const foundationMat = new THREE.MeshStandardMaterial({ color: '#48484d', roughness: 0.95, metalness: 0.0, map: asphaltTex }); // mid-grey lot paving, distinct from the near-black roads
-    const foundation = new THREE.Mesh(foundationGeo, foundationMat);
-    foundation.rotation.x = -Math.PI / 2;
-    foundation.position.set(lotX + 10, 0.015, lotZ + 30);
-    foundation.receiveShadow = true;
-    scene.add(foundation);
-    environmentDisposables.push(foundation);
-    
-    // Driveway connecting to cross street (Z=200 is street center, 25 width -> edge is 187.5)
-    const drivewayGeo = new THREE.PlaneGeometry(30, 88);
-    const driveway = new THREE.Mesh(drivewayGeo, foundationMat);
-    driveway.rotation.x = -Math.PI / 2;
-    driveway.position.set(lotX, 0.016, lotZ + 144);
-    driveway.receiveShadow = true;
-    scene.add(driveway);
-    environmentDisposables.push(driveway);
+    // Lot paving: evenly sealed asphalt, and the driveway out to the cross street's sidewalk
+    const G = createGroundLayers(ctx);
+    G.asphalt.rect(lotX - 55, lotZ - 40, lotX + 75, lotZ + 100, Y.road, lotUV);
+    G.asphalt.rect(lotX - 15, lotZ + 100, lotX + 15, lotZ + 177.5, Y.road, lotUV);
+    const white = paintUV('white'), yellow = paintUV('yellow');
+    const line = (x1: number, z1: number, x2: number, z2: number, w: number, uv = white, cap = 0) =>
+        G.paint.strip(lotX + x1, lotZ + z1, lotX + x2, lotZ + z2, w, Y.paint, uv, cap);
+    // Driveway: centre line, and a stop bar with STOP across the exit lane before the sidewalk
+    line(0, 101, 0, 171, 0.15, yellow);
+    line(-14.6, 174.2, -0.3, 174.2, 0.45);
+    paintText(G.paint, 'STOP', lotX - 7.4, lotZ + 168.5, 0, 1, 1.25, 3.0, 0.26, Y.paint, white);
 
     // Galvanized chain-link perimeter fence around the lot
     // Boundary of foundation: X: lotX-55 to lotX+75, Z: lotZ-40 to lotZ+100
@@ -204,41 +182,26 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
     // rows. Inventory is shown in perpendicular rows either side of that lane;
     // visitor parking sits by the entrance; the delivery lane stays on the far
     // left (x-40) where the server spawns newly-bought stock.
-    const stallLineMat = new THREE.MeshBasicMaterial({ color: '#eef2f6' }); // white stall paint
-    const laneLineMat = new THREE.MeshBasicMaterial({ color: '#fde047' });  // yellow drive-lane edge
-    const wheelStopMat = new THREE.MeshStandardMaterial({ color: '#9ca3af', roughness: 0.95 });
     const wheelStopGeo = new THREE.BoxGeometry(4.0, 0.3, 0.5);
 
-    const addFlat = (mesh: THREE.Mesh) => { mesh.rotation.x = -Math.PI / 2; scene.add(mesh); environmentDisposables.push(mesh); };
-
     // Central drive lane: two yellow edge lines from the gate back into the lot
-    [-8, 8].forEach(ex => {
-        const edge = new THREE.Mesh(new THREE.PlaneGeometry(0.35, 135), laneLineMat);
-        edge.position.set(lotX + ex, 0.025, lotZ + 32);
-        addFlat(edge);
-    });
+    [-8, 8].forEach(ex => line(ex, -35.5, ex, 99.5, 0.15, yellow));
 
     // Paint a block of perpendicular stalls. Cars nose toward `openX` (the drive
     // aisle); wheel stops sit at the closed/back end.
     const paintParkingRow = (openX: number, backX: number, zFrom: number, zTo: number, withStops = true) => {
-        const cx = (openX + backX) / 2;
-        const depth = Math.abs(backX - openX);
         const count = Math.max(1, Math.round((zTo - zFrom) / 6));
         for (let s = 0; s <= count; s++) {
             const z = zFrom + (s * (zTo - zFrom)) / count;
-            const divider = new THREE.Mesh(new THREE.PlaneGeometry(depth, 0.3), stallLineMat);
-            divider.position.set(lotX + cx, 0.025, lotZ + z);
-            addFlat(divider);
+            line(openX, z, backX, z, 0.15);
         }
         // Back boundary line along the stall heads
-        const back = new THREE.Mesh(new THREE.PlaneGeometry(0.3, zTo - zFrom), stallLineMat);
-        back.position.set(lotX + backX, 0.025, lotZ + (zFrom + zTo) / 2);
-        addFlat(back);
+        line(backX, zFrom, backX, zTo, 0.15, white, 0.075);
         if (withStops) {
             const stopX = backX + (openX - backX) * 0.18;
             for (let s = 0; s < count; s++) {
                 const z = zFrom + ((s + 0.5) * (zTo - zFrom)) / count;
-                const stop = new THREE.Mesh(wheelStopGeo, wheelStopMat);
+                const stop = new THREE.Mesh(wheelStopGeo, arch.trimMat);
                 stop.rotation.y = Math.PI / 2;
                 stop.position.set(lotX + stopX, 0.15, lotZ + z);
                 stop.castShadow = true; stop.receiveShadow = true;
@@ -259,21 +222,19 @@ export function createDealership(ctx: WorldContext, fences: FenceKit, furniture:
     scene.add(visitorSign);
     environmentDisposables.push(visitorSign);
 
-    // Delivery Drop-Off Zone (x: -40, z: 15)
-    const dropOffGeo = new THREE.BoxGeometry(15, 0.1, 80);
-    const dropOffMat = new THREE.MeshStandardMaterial({ color: '#111827', roughness: 0.9 });
-    const dropOffPad = new THREE.Mesh(dropOffGeo, dropOffMat);
-    dropOffPad.position.set(lotX - 40, 0.05, lotZ + 50); // Top is at y: 0.1
-    dropOffPad.receiveShadow = true;
-    scene.add(dropOffPad);
-    environmentDisposables.push(dropOffPad);
-
-    const dropOffBorderGeo = new THREE.BoxGeometry(15.5, 0.12, 80.5);
-    const dropOffBorderMat = new THREE.MeshBasicMaterial({ color: '#f87171' }); // Red outline
-    const dropOffBorder = new THREE.Mesh(dropOffBorderGeo, dropOffBorderMat);
-    dropOffBorder.position.set(lotX - 40, 0.06, lotZ + 50); // Top is at y: 0.12 (no z-fighting!)
-    scene.add(dropOffBorder);
-    environmentDisposables.push(dropOffBorder);
+    // Delivery drop-off zone (x -47.5..-32.5, z 10..90, where new stock is unloaded): a yellow
+    // outline with diagonal hatching, and DELIVERY painted at the gate end.
+    const DX0 = -47.5, DX1 = -32.5, DZ0 = 10, DZ1 = 90, HATCH_END = 79;
+    line(DX0, DZ0, DX1, DZ0, 0.25, yellow, 0.125); line(DX0, DZ1, DX1, DZ1, 0.25, yellow, 0.125);
+    line(DX0, DZ0, DX0, DZ1, 0.25, yellow, 0.125); line(DX1, DZ0, DX1, DZ1, 0.25, yellow, 0.125);
+    line(DX0, HATCH_END + 0.4, DX1, HATCH_END + 0.4, 0.25, yellow);
+    for (let k = DX0 - HATCH_END; k < DX1 - DZ0; k += 3.4) {
+        const stripe: [number, number][] = [[k + DZ0 - 20, DZ0 - 20], [k + HATCH_END + 20, HATCH_END + 20], [k + HATCH_END + 20.45, HATCH_END + 20], [k + DZ0 - 19.55, DZ0 - 20]];
+        const piece = clipToRect(stripe, DX0 + 0.2, DZ0 + 0.2, DX1 - 0.2, HATCH_END + 0.2);
+        if (piece.length >= 3) G.paint.flat(piece.map(([x, z]) => [lotX + x, lotZ + z] as [number, number]), Y.paint, yellow);
+    }
+    paintText(G.paint, 'DELIVERY', lotX - 40, lotZ + 85, 0, -1, 1.15, 2.7, 0.24, Y.paint, white);
+    G.finish();
 
     // Label the delivery lane so it reads as a transporter drop zone
     const deliverySign = createBuildingSign('DELIVERY', '#7f1d1d', '#fecaca');

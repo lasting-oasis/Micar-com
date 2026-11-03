@@ -1,6 +1,12 @@
 import * as THREE from 'three';
-import { generateAsphaltTexture, generateChainLinkTexture, generateConcreteTexture } from '../textures';
+import {
+    generateAggregateTexture, generateChainLinkTexture, generateConcreteTexture, generateGrassTexture, generateMacroTexture,
+    generatePaintPaletteTexture, generateRoadAtlasTexture, generateSlabTexture, generateVegetationTexture, ROAD_ATLAS_BASE,
+} from '../textures';
 import { createArchitectureKit, type ArchitectureKit } from './architecture';
+import { makeGroundMaterial } from './groundShader';
+import { createStreetLightKit, type StreetLightKit } from './streetLights';
+import { createVegetationKit, type VegetationKit } from './vegetation';
 
 // Everything the world builders (city, speedway, dealerships, fences) share:
 // the scene, the lists the component cleans up on unmount, collision boxes,
@@ -17,7 +23,6 @@ export type WorldContext = {
     /** Skyscraper window materials whose glow the day/night cycle changes. */
     emissiveFacadeMaterials: THREE.MeshStandardMaterial[];
     concreteTex: THREE.Texture;
-    asphaltTex: THREE.Texture;
     fencePostMat: THREE.MeshStandardMaterial;
     fenceWireMat: THREE.MeshStandardMaterial;
     /** A fence panel whose UVs tile the wire diamonds at a constant real-world size. */
@@ -28,15 +33,33 @@ export type WorldContext = {
     addLightSource: (x: number, y: number, z: number, color: string, intensity: number, distance: number, nightOnly: boolean) => void;
     /** Shared windows / doors / trim (one material per look, merged by the batcher). */
     arch: ArchitectureKit;
+    /**
+     * The ground (one material per surface for the whole world; see groundShader.ts).
+     * grass: the world floor only (kept apart so it stays one flat layer, drawn last).
+     * lawn: the same grass on raised lawns and slopes. asphalt: roads (UVs = road atlas cross-section),
+     * junctions and lots (UVs into the atlas's clean / sealed columns). concrete: sidewalks,
+     * curbs, gutters, wheel stops. paint: all road and lot markings (u picks the colour).
+     */
+    ground: { grass: THREE.MeshStandardMaterial; lawn: THREE.MeshStandardMaterial; asphalt: THREE.MeshStandardMaterial; concrete: THREE.MeshStandardMaterial; paint: THREE.MeshStandardMaterial };
+    /** Instanced trees and bushes for the whole world. */
+    plants: VegetationKit;
+    /** Instanced street and lot lights (with night glow and light pools). */
+    lamps: StreetLightKit;
+    /** 0 = day, 1 = night: lamp glow, light pools. Call whenever the time of day changes. */
+    setNight: (nightFactor: number) => void;
 };
+
+/** A linear colour from an sRGB hex, times k (for colours that a texture's average scales down). */
+const scaledColor = (hex: string, k = 1) => new THREE.Color(hex).multiplyScalar(k);
+const linear = (r: number, g: number, b: number) => new THREE.Color().setRGB(r, g, b);
 
 export function createWorldContext(scene: THREE.Scene, addLightSource: WorldContext['addLightSource']): WorldContext {
     const cityMaterials: THREE.Material[] = [];
     const cityTextures: THREE.Texture[] = [];
+    const environmentDisposables: THREE.Object3D[] = [];
 
     const concreteTex = generateConcreteTexture();
-    const asphaltTex = generateAsphaltTexture();
-    cityTextures.push(concreteTex, asphaltTex);
+    cityTextures.push(concreteTex);
 
     // Plain see-through glass. (MeshPhysicalMaterial "transmission" glass makes
     // the renderer draw the whole scene an extra time every frame it's on screen.)
@@ -82,20 +105,64 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
     const emissiveFacadeMaterials: THREE.MeshStandardMaterial[] = [];
     const arch = createArchitectureKit(cityMaterials, cityTextures, emissiveFacadeMaterials);
 
+    // --- Ground surfaces: realistic albedos (lighting is physically based) ---
+    const aggregate = generateAggregateTexture(), macro = generateMacroTexture();
+    const grassTex = generateGrassTexture(), slabTex = generateSlabTexture(), roadTex = generateRoadAtlasTexture(), paintTex = generatePaintPaletteTexture();
+    cityTextures.push(aggregate, macro, grassTex, slabTex, roadTex, paintTex);
+    // Grass: 4.5 m texture repeat, 37 m patchiness, and over hundreds of metres drifting
+    // between lush and dry grass with the odd worn, earthy stretch.
+    const grassLook = {
+        mapScale: 1 / 4.5, detail: macro, detailScale: 1 / 37, detailStrength: 0.2,
+        macro, macroScale: 1 / 310, macroLo: linear(0.8, 0.93, 0.8), macroHi: linear(1.18, 1.08, 0.8),
+        dirtColor: '#6e5f45', dirtAmount: 0.3, dirtFrom: 0.7, dirtTo: 0.95,
+    };
+    const ground = {
+        // The floor is pushed back in depth so paving and paint lying on it always win.
+        grass: makeGroundMaterial({ map: grassTex, roughness: 0.96, metalness: 0, polygonOffset: true, polygonOffsetFactor: 2, polygonOffsetUnits: 2 }, grassLook),
+        lawn: makeGroundMaterial({ map: grassTex, roughness: 0.96, metalness: 0 }, grassLook),
+        // Asphalt ~#5d5a57 (slightly warm: a neutral grey reads lavender under the blue sky
+        // light); the road atlas darkens it where it's worn.
+        asphalt: makeGroundMaterial({ color: scaledColor('#5d5a57', 1 / ROAD_ATLAS_BASE), map: roadTex, roughness: 0.9, metalness: 0, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 }, {
+            mapScale: 0, detail: aggregate, detailScale: 1 / 3.2, detailStrength: 0.75,
+            macro, macroScale: 1 / 90, macroLo: linear(0.9, 0.9, 0.9), macroHi: linear(1.08, 1.08, 1.07),
+            dirtColor: '#2e2e30', dirtAmount: 0.18, dirtFrom: 0.78, dirtTo: 0.98,
+        }),
+        // Concrete ~#9c9a94 (in the slab texture): 1.5 m slabs with joints
+        concrete: makeGroundMaterial({ map: slabTex, roughness: 0.85, metalness: 0 }, {
+            mapScale: 1 / 6, detail: aggregate, detailScale: 1 / 1.5, detailStrength: 0.22,
+            macro, macroScale: 1 / 55, macroLo: linear(0.92, 0.92, 0.91), macroHi: linear(1.04, 1.03, 1.0),
+            dirtColor: '#787267', dirtAmount: 0.18, dirtFrom: 0.72, dirtTo: 0.95,
+        }),
+        // Road paint: off-white / traffic yellow / cast iron, a little worn and dirty
+        paint: makeGroundMaterial({ map: paintTex, roughness: 0.6, metalness: 0, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }, {
+            mapScale: 0, detail: aggregate, detailScale: 1 / 3.2, detailStrength: 0.4,
+            macro, macroScale: 1 / 45, macroLo: linear(0.84, 0.84, 0.83), macroHi: linear(1.0, 1.0, 1.0),
+        }),
+    };
+    cityMaterials.push(ground.grass, ground.lawn, ground.asphalt, ground.concrete, ground.paint);
+
+    const vegTex = generateVegetationTexture();
+    cityTextures.push(vegTex);
+    const plants = createVegetationKit(scene, environmentDisposables, cityMaterials, vegTex);
+    const lamps = createStreetLightKit(scene, environmentDisposables, cityMaterials, cityTextures, addLightSource);
+
     return {
         scene,
-        environmentDisposables: [],
+        environmentDisposables,
         staticCollisionBoxes: [],
         cityMaterials,
         cityTextures,
         emissiveFacadeMaterials,
         concreteTex,
-        asphaltTex,
         fencePostMat,
         fenceWireMat,
         wirePanelGeo,
         makeGlass,
         addLightSource,
         arch,
+        ground,
+        plants,
+        lamps,
+        setNight: lamps.setNight,
     };
 }
