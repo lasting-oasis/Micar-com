@@ -24,10 +24,10 @@ const KEYS: Key[] = [
     { el: -8,  zenith: '#0c1530', horizon: '#252e4c', horizonSun: '#383452', ground: '#10131d', sun: '#8fa8d8', sunI: 0.0, glow: 0.05, stars: 0.75, exposure: 1.4 },
     { el: -3,  zenith: '#1d2c55', horizon: '#6a5f80', horizonSun: '#c56f55', ground: '#2a2833', sun: '#ff7f4f', sunI: 0.0, glow: 0.45, stars: 0.15, exposure: 1.2 },
     { el: 0,   zenith: '#33508a', horizon: '#c99a82', horizonSun: '#ff8a47', ground: '#4b4646', sun: '#ff9858', sunI: 0.8, glow: 1.1, stars: 0.0, exposure: 1.1 },
-    { el: 4,   zenith: '#3f68a8', horizon: '#dcc0a6', horizonSun: '#ffb064', ground: '#585a52', sun: '#ffbd80', sunI: 1.7, glow: 0.95, stars: 0.0, exposure: 1.05 },
-    { el: 12,  zenith: '#3a6cb2', horizon: '#bcd0e3', horizonSun: '#f2d6ae', ground: '#6b7360', sun: '#ffdcb0', sunI: 2.5, glow: 0.55, stars: 0.0, exposure: 1.0 },
-    { el: 30,  zenith: '#2f68b6', horizon: '#adc9e6', horizonSun: '#d8e2ec', ground: '#6d7763', sun: '#fff0db', sunI: 3.0, glow: 0.35, stars: 0.0, exposure: 1.0 },
-    { el: 60,  zenith: '#2a62b4', horizon: '#a6c4e4', horizonSun: '#cbdcee', ground: '#6e7864', sun: '#fff5e6', sunI: 3.2, glow: 0.25, stars: 0.0, exposure: 1.0 },
+    { el: 4,   zenith: '#3f68a8', horizon: '#dcc0a6', horizonSun: '#ffb064', ground: '#56564f', sun: '#ffbd80', sunI: 1.7, glow: 0.95, stars: 0.0, exposure: 1.05 },
+    { el: 12,  zenith: '#3a6cb2', horizon: '#bcd0e3', horizonSun: '#f2d6ae', ground: '#66675f', sun: '#ffdcb0', sunI: 2.5, glow: 0.55, stars: 0.0, exposure: 1.0 },
+    { el: 30,  zenith: '#2f68b6', horizon: '#adc9e6', horizonSun: '#d8e2ec', ground: '#6a6b63', sun: '#fff0db', sunI: 3.0, glow: 0.35, stars: 0.0, exposure: 1.0 },
+    { el: 60,  zenith: '#2a62b4', horizon: '#a6c4e4', horizonSun: '#cbdcee', ground: '#6b6c64', sun: '#fff5e6', sunI: 3.2, glow: 0.25, stars: 0.0, exposure: 1.0 },
 ];
 // The sky as a light source is boosted relative to the visible sky: open shade in a
 // game reads better a little brighter than physically exact.
