@@ -22736,3 +22736,283 @@
 {"year": 2016, "make": "Aston Martin", "slug": "2016-aston_martin-db9", "style": "2dr Coupe Auto GT", "invoice": 0, "msrp": 198250, "destination": null, "source": "wayback", "snapshot": "20210302024108"}
 {"year": 2016, "make": "Aston Martin", "slug": "2016-aston_martin-db9", "style": "2dr Coupe Auto GT Bond Edition", "invoice": 0, "msrp": 235307, "destination": null, "source": "wayback", "snapshot": "20210302024108"}
 {"year": 2016, "make": "Aston Martin", "slug": "2016-aston_martin-db9", "style": "2dr Volante Auto", "invoice": 0, "msrp": 213250, "destination": null, "source": "wayback", "snapshot": "20210302024108"}
+{"year": 2017, "make": "Mini", "slug": "2017-mini-convertible", "style": "Cooper FWD", "invoice": 24595, "msrp": 25950, "destination": null, "source": "wayback", "snapshot": "20190918050346"}
+{"year": 2017, "make": "Mini", "slug": "2017-mini-convertible", "style": "Cooper S FWD", "invoice": 27135, "msrp": 29600, "destination": null, "source": "wayback", "snapshot": "20190918050346"}
+{"year": 2017, "make": "Mini", "slug": "2017-mini-convertible", "style": "John Cooper Works FWD", "invoice": 31885, "msrp": 35600, "destination": null, "source": "wayback", "snapshot": "20190918050346"}
+{"year": 2017, "make": "Mitsubishi", "slug": "2017-mitsubishi-i__miev", "style": "ES Automatic", "invoice": 22500, "msrp": 22995, "destination": null, "source": "wayback", "snapshot": "20160630235352"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V6 S", "invoice": 26572, "msrp": 27730, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V6 SV", "invoice": 27521, "msrp": 28720, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V6 S", "invoice": 27530, "msrp": 28730, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V6 SV", "invoice": 28480, "msrp": 29720, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V8 S", "invoice": 29064, "msrp": 30330, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "High Roof V6 S", "invoice": 29592, "msrp": 30880, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V6 SL", "invoice": 29840, "msrp": 31140, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V8 SV", "invoice": 30013, "msrp": 31320, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "High Roof V6 SV", "invoice": 30540, "msrp": 31870, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "High Roof V8 S", "invoice": 31125, "msrp": 32480, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V8 SL", "invoice": 31336, "msrp": 32700, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "High Roof V6 SL", "invoice": 31901, "msrp": 33290, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "High Roof V8 SV", "invoice": 32073, "msrp": 33470, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "High Roof V8 SL", "invoice": 33395, "msrp": 34850, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V8 S", "invoice": 30694, "msrp": 32030, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof SV V8", "invoice": 31641, "msrp": 33020, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "High Roof V8 S", "invoice": 32753, "msrp": 34180, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "Standard Roof V8 SL", "invoice": 32964, "msrp": 34400, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "High Roof V8 SV", "invoice": 33703, "msrp": 35170, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_cargo", "style": "High Roof V8 SL", "invoice": 35024, "msrp": 36550, "destination": null, "source": "wayback", "snapshot": "20210305070411"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_passenger", "style": "V6 S", "invoice": 32390, "msrp": 33800, "destination": null, "source": "wayback", "snapshot": "20170426202131"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_passenger", "style": "V8 S", "invoice": 33923, "msrp": 35400, "destination": null, "source": "wayback", "snapshot": "20170426202131"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_passenger", "style": "V6 SV", "invoice": 34497, "msrp": 36000, "destination": null, "source": "wayback", "snapshot": "20170426202131"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_passenger", "style": "V8 SV", "invoice": 36030, "msrp": 37600, "destination": null, "source": "wayback", "snapshot": "20170426202131"}
+{"year": 2017, "make": "Nissan", "slug": "2017-nissan-nv_passenger", "style": "V8 SL", "invoice": 39480, "msrp": 41200, "destination": null, "source": "wayback", "snapshot": "20170426202131"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i 5-door Manual", "invoice": 18031, "msrp": 18895, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i 5-door CVT", "invoice": 18948, "msrp": 19895, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i Premium 5-door CVT", "invoice": 20613, "msrp": 21695, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i Sport 5-door Manual", "invoice": 21339, "msrp": 22495, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i Sport 5-door CVT", "invoice": 22072, "msrp": 23295, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i Limited 5-door CVT", "invoice": 23295, "msrp": 24595, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i 4-door Manual", "invoice": 17567, "msrp": 18395, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i 4-door CVT", "invoice": 18484, "msrp": 19395, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i Premium 4-door CVT", "invoice": 20147, "msrp": 21195, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i Sport 4-door Manual", "invoice": 20890, "msrp": 21995, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i Sport 4-door CVT", "invoice": 21623, "msrp": 22795, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-impreza", "style": "2.0i Limited 4-door CVT", "invoice": 22829, "msrp": 24095, "destination": null, "source": "wayback", "snapshot": "20210724232601"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-wrx", "style": "Manual", "invoice": 25186, "msrp": 26695, "destination": null, "source": "wayback", "snapshot": "20211127143219"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-wrx", "style": "Premium Manual", "invoice": 27309, "msrp": 28995, "destination": null, "source": "wayback", "snapshot": "20211127143219"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-wrx", "style": "Premium CVT", "invoice": 28410, "msrp": 30195, "destination": null, "source": "wayback", "snapshot": "20211127143219"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-wrx", "style": "Limited Manual", "invoice": 29154, "msrp": 30995, "destination": null, "source": "wayback", "snapshot": "20211127143219"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-wrx", "style": "Limited CVT", "invoice": 30255, "msrp": 32195, "destination": null, "source": "wayback", "snapshot": "20211127143219"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-wrx", "style": "STI Manual", "invoice": 33286, "msrp": 35195, "destination": null, "source": "wayback", "snapshot": "20211127143219"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-wrx", "style": "STI Limited Manual w/Wing Spoiler", "invoice": 37750, "msrp": 39995, "destination": null, "source": "wayback", "snapshot": "20211127143219"}
+{"year": 2017, "make": "Subaru", "slug": "2017-subaru-wrx", "style": "STI Limited Manual w/Lip Spoiler", "invoice": 37750, "msrp": 39995, "destination": null, "source": "wayback", "snapshot": "20211127143219"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius", "style": "Two (Natl)", "invoice": 23204, "msrp": 24685, "destination": null, "source": "wayback", "snapshot": "20170623071511"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius", "style": "Two Eco (Natl)", "invoice": 23655, "msrp": 25165, "destination": null, "source": "wayback", "snapshot": "20170623071511"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius", "style": "Three (Natl)", "invoice": 24888, "msrp": 26735, "destination": null, "source": "wayback", "snapshot": "20170623071511"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius", "style": "Three Touring (Natl)", "invoice": 26173, "msrp": 28115, "destination": null, "source": "wayback", "snapshot": "20170623071511"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius", "style": "Four (Natl)", "invoice": 27122, "msrp": 29135, "destination": null, "source": "wayback", "snapshot": "20170623071511"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius", "style": "Four Touring (Natl)", "invoice": 27941, "msrp": 30015, "destination": null, "source": "wayback", "snapshot": "20170623071511"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius_c", "style": "One (Natl)", "invoice": 19143, "msrp": 20150, "destination": null, "source": "wayback", "snapshot": "20190819223235"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius_c", "style": "Two (Natl)", "invoice": 19693, "msrp": 20950, "destination": null, "source": "wayback", "snapshot": "20190819223235"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius_c", "style": "Three (Natl)", "invoice": 20830, "msrp": 22375, "destination": null, "source": "wayback", "snapshot": "20190819223235"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius_c", "style": "Four (Natl)", "invoice": 23239, "msrp": 24965, "destination": null, "source": "wayback", "snapshot": "20190819223235"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius_v", "style": "Two (Natl)", "invoice": 24833, "msrp": 26675, "destination": null, "source": "wayback", "snapshot": "20201026132906"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius_v", "style": "Three (Natl)", "invoice": 26121, "msrp": 28060, "destination": null, "source": "wayback", "snapshot": "20201026132906"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius_v", "style": "Four (Natl)", "invoice": 27643, "msrp": 29695, "destination": null, "source": "wayback", "snapshot": "20201026132906"}
+{"year": 2017, "make": "Toyota", "slug": "2017-toyota-prius_v", "style": "Five (Natl)", "invoice": 28798, "msrp": 30935, "destination": null, "source": "wayback", "snapshot": "20201026132906"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-cc", "style": "2.0T Sport DSG", "invoice": 33062, "msrp": 34475, "destination": null, "source": "wayback", "snapshot": "20210619085502"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-cc", "style": "2.0T Sport DSG PZEV", "invoice": 33062, "msrp": 34475, "destination": null, "source": "wayback", "snapshot": "20210619085502"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-cc", "style": "R-Line 2.0T Executive DSG", "invoice": 36270, "msrp": 37820, "destination": null, "source": "wayback", "snapshot": "20210619085502"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-cc", "style": "R-Line 2.0T Executive DSG PZEV", "invoice": 36270, "msrp": 37820, "destination": null, "source": "wayback", "snapshot": "20210619085502"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-cc", "style": "R-Line 2.0T Executive w/Carbon DSG", "invoice": 36270, "msrp": 37820, "destination": null, "source": "wayback", "snapshot": "20210619085502"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-cc", "style": "R-Line 2.0T Executive w/Carbon DSG PZEV", "invoice": 36270, "msrp": 37820, "destination": null, "source": "wayback", "snapshot": "20210619085502"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-e__golf", "style": "4-Door SE", "invoice": 29275, "msrp": 30495, "destination": null, "source": "wayback", "snapshot": "20201024090020"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-e__golf", "style": "4-Door Limited Edition", "invoice": 32443, "msrp": 33795, "destination": null, "source": "wayback", "snapshot": "20201024090020"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-e__golf", "style": "4-Door SEL Premium", "invoice": 35515, "msrp": 36995, "destination": null, "source": "wayback", "snapshot": "20201024090020"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-tiguan_limited", "style": "2.0T FWD", "invoice": 21115, "msrp": 21995, "destination": null, "source": "wayback", "snapshot": "20210115233915"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-tiguan_limited", "style": "2.0T 4MOTION", "invoice": 23012, "msrp": 23970, "destination": null, "source": "wayback", "snapshot": "20210115233915"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-touareg", "style": "V6 Sport w/Technology", "invoice": 47070, "msrp": 49495, "destination": null, "source": "wayback", "snapshot": "20201022211229"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-touareg", "style": "V6 Wolfsburg Edition", "invoice": 50208, "msrp": 52795, "destination": null, "source": "wayback", "snapshot": "20201022211229"}
+{"year": 2017, "make": "Volkswagen", "slug": "2017-volkswagen-touareg", "style": "V6 Executive", "invoice": 57247, "msrp": 60195, "destination": null, "source": "wayback", "snapshot": "20201022211229"}
+{"year": 2017, "make": "Volvo", "slug": "2017-volvo-s60", "style": "T5 FWD Dynamic", "invoice": 31913, "msrp": 33950, "destination": null, "source": "wayback", "snapshot": "20161029073933"}
+{"year": 2017, "make": "Volvo", "slug": "2017-volvo-s60", "style": "T5 Inscription FWD", "invoice": 34592, "msrp": 36800, "destination": null, "source": "wayback", "snapshot": "20161029073933"}
+{"year": 2017, "make": "Volvo", "slug": "2017-volvo-s60", "style": "T5 Inscription FWD Platinum", "invoice": 38352, "msrp": 40800, "destination": null, "source": "wayback", "snapshot": "20161029073933"}
+{"year": 2017, "make": "Volvo", "slug": "2017-volvo-s60", "style": "T5 AWD Dynamic", "invoice": 33793, "msrp": 35950, "destination": null, "source": "wayback", "snapshot": "20161029073933"}
+{"year": 2017, "make": "Volvo", "slug": "2017-volvo-s60", "style": "T5 Inscription AWD", "invoice": 36472, "msrp": 38800, "destination": null, "source": "wayback", "snapshot": "20161029073933"}
+{"year": 2017, "make": "Volvo", "slug": "2017-volvo-s60", "style": "T5 Inscription AWD Platinum", "invoice": 40232, "msrp": 42800, "destination": null, "source": "wayback", "snapshot": "20161029073933"}
+{"year": 2017, "make": "Volvo", "slug": "2017-volvo-s60", "style": "T6 AWD R-Design Platinum", "invoice": 44556, "msrp": 47400, "destination": null, "source": "wayback", "snapshot": "20161029073933"}
+{"year": 2017, "make": "Volvo", "slug": "2017-volvo-s60", "style": "Polestar AWD", "invoice": 56400, "msrp": 60000, "destination": null, "source": "wayback", "snapshot": "20161029073933"}
+{"year": 2017, "make": "Volvo", "slug": "2017-volvo-s60_cross_country", "style": "T5 AWD", "invoice": 41548, "msrp": 44200, "destination": null, "source": "wayback", "snapshot": "20210921230438"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "FWD 1.8T Premium", "invoice": 28738, "msrp": 30900, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "FWD 1.8T Prestige", "invoice": 28738, "msrp": 30900, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "FWD 1.8T Premium Plus", "invoice": 28738, "msrp": 30900, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "FWD 2.0 TDI Premium", "invoice": 30876, "msrp": 33200, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "FWD 2.0 TDI Prestige", "invoice": 30876, "msrp": 33200, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "FWD 2.0 TDI Premium Plus", "invoice": 30876, "msrp": 33200, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "quattro 2.0T Premium", "invoice": 31806, "msrp": 34200, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "quattro 2.0T Prestige", "invoice": 31806, "msrp": 34200, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "quattro 2.0T Premium Plus", "invoice": 31806, "msrp": 34200, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "FWD 1.8T Premium", "invoice": 34038, "msrp": 36600, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "FWD 1.8T Prestige", "invoice": 34038, "msrp": 36600, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "FWD 1.8T Premium Plus", "invoice": 34038, "msrp": 36600, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "quattro 2.0T Premium", "invoice": 36828, "msrp": 39600, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "quattro 2.0T Prestige", "invoice": 36828, "msrp": 39600, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3", "style": "quattro 2.0T Premium Plus", "invoice": 36828, "msrp": 39600, "destination": null, "source": "wayback", "snapshot": "20150919111246"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3_sportback_e__tron", "style": "4dr HB Premium", "invoice": 35248, "msrp": 37900, "destination": null, "source": "wayback", "snapshot": "20201127094132"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3_sportback_e__tron", "style": "4dr HB Prestige", "invoice": 35248, "msrp": 37900, "destination": null, "source": "wayback", "snapshot": "20201127094132"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-a3_sportback_e__tron", "style": "4dr HB Premium Plus", "invoice": 35248, "msrp": 37900, "destination": null, "source": "wayback", "snapshot": "20201127094132"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-allroad", "style": "4dr Wagon Premium", "invoice": 39712, "msrp": 42700, "destination": null, "source": "wayback", "snapshot": "20190824200031"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-allroad", "style": "4dr Wagon Premium Plus", "invoice": 39712, "msrp": 42700, "destination": null, "source": "wayback", "snapshot": "20190824200031"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q3", "style": "FrontTrak 4dr Premium Plus", "invoice": 31342, "msrp": 33700, "destination": null, "source": "wayback", "snapshot": "20160702031309"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q3", "style": "FrontTrak 4dr Prestige", "invoice": 31342, "msrp": 33700, "destination": null, "source": "wayback", "snapshot": "20160702031309"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q3", "style": "quattro 4dr Premium Plus", "invoice": 33294, "msrp": 35800, "destination": null, "source": "wayback", "snapshot": "20160702031309"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q3", "style": "quattro 4dr Prestige", "invoice": 33294, "msrp": 35800, "destination": null, "source": "wayback", "snapshot": "20160702031309"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q5", "style": "quattro 4dr 2.0T Premium", "invoice": 38038, "msrp": 40900, "destination": null, "source": "wayback", "snapshot": "20160430153351"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q5", "style": "quattro 4dr 2.0T Premium Plus", "invoice": 38038, "msrp": 40900, "destination": null, "source": "wayback", "snapshot": "20160430153351"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q5", "style": "quattro 4dr 3.0T Premium Plus", "invoice": 42780, "msrp": 46000, "destination": null, "source": "wayback", "snapshot": "20160430153351"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q5", "style": "quattro 4dr 3.0T Prestige", "invoice": 42780, "msrp": 46000, "destination": null, "source": "wayback", "snapshot": "20160430153351"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q5", "style": "quattro 4dr 3.0L TDI Premium Plus", "invoice": 44734, "msrp": 48100, "destination": null, "source": "wayback", "snapshot": "20160430153351"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q5", "style": "quattro 4dr 3.0L TDI Prestige", "invoice": 44734, "msrp": 48100, "destination": null, "source": "wayback", "snapshot": "20160430153351"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-q5", "style": "quattro 4dr 2.0T Prestige", "invoice": 48826, "msrp": 52500, "destination": null, "source": "wayback", "snapshot": "20160430153351"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-rs_7", "style": "4dr HB Prestige", "invoice": 101278, "msrp": 108900, "destination": null, "source": "wayback", "snapshot": "20151225151036"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-rs_7", "style": "4dr HB performance Prestige", "invoice": 119970, "msrp": 129000, "destination": null, "source": "wayback", "snapshot": "20151225151036"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s3", "style": "4dr Sedan quattro Premium Plus", "invoice": 39526, "msrp": 42500, "destination": null, "source": "wayback", "snapshot": "20190826075924"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s3", "style": "4dr Sedan quattro Prestige", "invoice": 39526, "msrp": 42500, "destination": null, "source": "wayback", "snapshot": "20190826075924"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s4", "style": "4dr Sedan Man Premium Plus", "invoice": 45756, "msrp": 49200, "destination": null, "source": "wayback", "snapshot": "20190718085834"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s4", "style": "4dr Sedan Man Prestige", "invoice": 45756, "msrp": 49200, "destination": null, "source": "wayback", "snapshot": "20190718085834"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s4", "style": "4dr Sedan S Tronic Premium Plus", "invoice": 46686, "msrp": 50200, "destination": null, "source": "wayback", "snapshot": "20190718085834"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s4", "style": "4dr Sedan S Tronic Prestige", "invoice": 46686, "msrp": 50200, "destination": null, "source": "wayback", "snapshot": "20190718085834"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s5", "style": "Manual Premium Plus", "invoice": 49384, "msrp": 53100, "destination": null, "source": "wayback", "snapshot": "20211209144439"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s5", "style": "Manual Prestige", "invoice": 49384, "msrp": 53100, "destination": null, "source": "wayback", "snapshot": "20211209144439"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s5", "style": "Auto Premium Plus", "invoice": 50314, "msrp": 54100, "destination": null, "source": "wayback", "snapshot": "20211209144439"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s5", "style": "Auto Prestige", "invoice": 50314, "msrp": 54100, "destination": null, "source": "wayback", "snapshot": "20211209144439"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s5", "style": "Premium Plus", "invoice": 56824, "msrp": 61100, "destination": null, "source": "wayback", "snapshot": "20211209144439"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s5", "style": "Prestige", "invoice": 56824, "msrp": 61100, "destination": null, "source": "wayback", "snapshot": "20211209144439"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s7", "style": "4dr HB", "invoice": 77098, "msrp": 82900, "destination": null, "source": "wayback", "snapshot": "20151225024600"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s8", "style": "4dr Sedan", "invoice": 106858, "msrp": 114900, "destination": null, "source": "wayback", "snapshot": "20210420165819"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-s8", "style": "4dr Sedan Plus", "invoice": 106858, "msrp": 114900, "destination": null, "source": "wayback", "snapshot": "20210420165819"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-tt", "style": "S tronic quattro", "invoice": 43152, "msrp": 46400, "destination": null, "source": "wayback", "snapshot": "20211209143748"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-tt", "style": "S tronic quattro", "invoice": 39898, "msrp": 42900, "destination": null, "source": "wayback", "snapshot": "20211209143748"}
+{"year": 2016, "make": "Audi", "slug": "2016-audi-tts", "style": "S tronic quattro", "invoice": 48268, "msrp": 51900, "destination": null, "source": "wayback", "snapshot": "20150919111927"}
+{"year": 2016, "make": "Bentley", "slug": "2016-bentley-flying_spur", "style": "4dr Sedan V8", "invoice": 0, "msrp": 201000, "destination": null, "source": "wayback", "snapshot": "20201024090834"}
+{"year": 2016, "make": "Bentley", "slug": "2016-bentley-flying_spur", "style": "4dr Sedan W12", "invoice": 0, "msrp": 222300, "destination": null, "source": "wayback", "snapshot": "20201024090834"}
+{"year": 2016, "make": "Bentley", "slug": "2016-bentley-mulsanne", "style": "4dr Sedan", "invoice": 0, "msrp": 303700, "destination": null, "source": "wayback", "snapshot": "20210727043519"}
+{"year": 2016, "make": "Bentley", "slug": "2016-bentley-mulsanne", "style": "4dr Sedan Speed", "invoice": 0, "msrp": 335600, "destination": null, "source": "wayback", "snapshot": "20210727043519"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Wagon SULEV", "invoice": 40060, "msrp": 43000, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan", "invoice": 31000, "msrp": 33150, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan South Africa", "invoice": 31000, "msrp": 33150, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Wagon", "invoice": 45765, "msrp": 49200, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan", "invoice": 35780, "msrp": 38350, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan SULEV", "invoice": 35780, "msrp": 38350, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan SULEV South Africa", "invoice": 35780, "msrp": 38350, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan", "invoice": 37160, "msrp": 39850, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan", "invoice": 40705, "msrp": 43700, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan", "invoice": 42635, "msrp": 45800, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan South Africa", "invoice": 42635, "msrp": 45800, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan", "invoice": 32840, "msrp": 35150, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan South Africa", "invoice": 32840, "msrp": 35150, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan SULEV", "invoice": 37620, "msrp": 40350, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan SULEV South Africa", "invoice": 37620, "msrp": 40350, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan", "invoice": 39000, "msrp": 41850, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan", "invoice": 44475, "msrp": 47800, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sedan South Africa", "invoice": 44475, "msrp": 47800, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sports Wagon", "invoice": 39740, "msrp": 42650, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-3_series", "style": "Sports Wagon", "invoice": 41120, "msrp": 44150, "destination": null, "source": "wayback", "snapshot": "20160620012931"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Coupe", "invoice": 39000, "msrp": 41850, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Coupe SULEV", "invoice": 39000, "msrp": 41850, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Coupe", "invoice": 44800, "msrp": 48150, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Coupe SULEV", "invoice": 40840, "msrp": 43850, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Coupe", "invoice": 46640, "msrp": 50150, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Convertible SULEV", "invoice": 46500, "msrp": 50000, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Convertible", "invoice": 52895, "msrp": 56950, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Convertible SULEV", "invoice": 48340, "msrp": 52000, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Convertible", "invoice": 54735, "msrp": 58950, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Sedan SULEV", "invoice": 38820, "msrp": 41650, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Sedan", "invoice": 44615, "msrp": 47950, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Sedan SULEV", "invoice": 40660, "msrp": 43650, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-4_series", "style": "Sedan", "invoice": 46455, "msrp": 49950, "destination": null, "source": "wayback", "snapshot": "20150919112109"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Wagon", "invoice": 56530, "msrp": 60900, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Sedan", "invoice": 46685, "msrp": 50200, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Sedan", "invoice": 51880, "msrp": 55850, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Wagon", "invoice": 58645, "msrp": 63200, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Wagon", "invoice": 67200, "msrp": 72500, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Sedan", "invoice": 53260, "msrp": 57350, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Sedan", "invoice": 57630, "msrp": 62100, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Sedan", "invoice": 61495, "msrp": 66300, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Sedan", "invoice": 48800, "msrp": 52500, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Sedan", "invoice": 54000, "msrp": 58150, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Sedan", "invoice": 55380, "msrp": 59650, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-5_series", "style": "Sedan", "invoice": 63610, "msrp": 68600, "destination": null, "source": "wayback", "snapshot": "20210512145432"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Coupe", "invoice": 70970, "msrp": 76600, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Coupe", "invoice": 81370, "msrp": 87900, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Coupe", "invoice": 73730, "msrp": 79600, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Coupe", "invoice": 84130, "msrp": 90900, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Convertible", "invoice": 77870, "msrp": 84100, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Convertible", "invoice": 88270, "msrp": 95400, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Convertible", "invoice": 80630, "msrp": 87100, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Convertible", "invoice": 91030, "msrp": 98400, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Sedan", "invoice": 72995, "msrp": 78800, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Sedan", "invoice": 83390, "msrp": 90100, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Sedan", "invoice": 75755, "msrp": 81800, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Sedan", "invoice": 86150, "msrp": 93100, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-6_series", "style": "Sedan", "invoice": 112005, "msrp": 121200, "destination": null, "source": "wayback", "snapshot": "20150919120816"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-7_series", "style": "Sedan", "invoice": 75295, "msrp": 81300, "destination": null, "source": "wayback", "snapshot": "20160806033327"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-7_series", "style": "Sedan", "invoice": 87350, "msrp": 94400, "destination": null, "source": "wayback", "snapshot": "20160806033327"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-7_series", "style": "Sedan", "invoice": 90110, "msrp": 97400, "destination": null, "source": "wayback", "snapshot": "20160806033327"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-i3", "style": "4dr HB", "invoice": 39510, "msrp": 42400, "destination": null, "source": "wayback", "snapshot": "20201204055156"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-i3", "style": "4dr HB w/Range Extender", "invoice": 43050, "msrp": 46250, "destination": null, "source": "wayback", "snapshot": "20201204055156"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-i8", "style": "2dr Coupe", "invoice": 129945, "msrp": 140700, "destination": null, "source": "wayback", "snapshot": "20211203163637"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-m2", "style": "M2 Coupe", "invoice": 48065, "msrp": 51700, "destination": null, "source": "wayback", "snapshot": "20190917165647"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-x1", "style": "AWD 4dr SAV", "invoice": 32515, "msrp": 34800, "destination": null, "source": "wayback", "snapshot": "20210516193141"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-x1", "style": "AWD 4dr SAV Brazil", "invoice": 32515, "msrp": 34800, "destination": null, "source": "wayback", "snapshot": "20210516193141"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-x5_m", "style": "X5 AWD 4dr SAV", "invoice": 91395, "msrp": 98800, "destination": null, "source": "wayback", "snapshot": "20190920125233"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-x6", "style": "RWD 4dr Sports Activity Coupe", "invoice": 56250, "msrp": 60600, "destination": null, "source": "wayback", "snapshot": "20210306054652"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-x6", "style": "AWD 4dr Sports Activity Coupe", "invoice": 58370, "msrp": 62900, "destination": null, "source": "wayback", "snapshot": "20210306054652"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-x6", "style": "AWD 4dr Sports Activity Coupe", "invoice": 69775, "msrp": 75300, "destination": null, "source": "wayback", "snapshot": "20210306054652"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-x6_m", "style": "X6 AWD 4dr Sports Activity Coupe", "invoice": 94525, "msrp": 102200, "destination": null, "source": "wayback", "snapshot": "20191209073038"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-z4", "style": "Roadster", "invoice": 46225, "msrp": 49700, "destination": null, "source": "wayback", "snapshot": "20210124032124"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-z4", "style": "Roadster", "invoice": 53400, "msrp": 57500, "destination": null, "source": "wayback", "snapshot": "20210124032124"}
+{"year": 2016, "make": "BMW", "slug": "2016-bmw-z4", "style": "Roadster", "invoice": 61540, "msrp": 66350, "destination": null, "source": "wayback", "snapshot": "20210124032124"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-lacrosse", "style": "FWD", "invoice": 30910, "msrp": 31065, "destination": null, "source": "wayback", "snapshot": "20211206171701"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-lacrosse", "style": "FWD Base", "invoice": 32458, "msrp": 33810, "destination": null, "source": "wayback", "snapshot": "20211206171701"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-lacrosse", "style": "FWD Sport Touring", "invoice": 32702, "msrp": 34065, "destination": null, "source": "wayback", "snapshot": "20211206171701"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-lacrosse", "style": "FWD Leather", "invoice": 34464, "msrp": 35900, "destination": null, "source": "wayback", "snapshot": "20211206171701"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-lacrosse", "style": "FWD Premium I", "invoice": 36672, "msrp": 38200, "destination": null, "source": "wayback", "snapshot": "20211206171701"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-lacrosse", "style": "FWD Premium II", "invoice": 38539, "msrp": 40145, "destination": null, "source": "wayback", "snapshot": "20211206171701"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-lacrosse", "style": "AWD Leather", "invoice": 37349, "msrp": 38905, "destination": null, "source": "wayback", "snapshot": "20211206171701"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-lacrosse", "style": "AWD Premium I", "invoice": 39048, "msrp": 40675, "destination": null, "source": "wayback", "snapshot": "20211206171701"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-regal", "style": "FWD", "invoice": 26930, "msrp": 27065, "destination": null, "source": "wayback", "snapshot": "20210928014959"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-regal", "style": "Sport Touring FWD", "invoice": 27422, "msrp": 28565, "destination": null, "source": "wayback", "snapshot": "20210928014959"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-regal", "style": "FWD", "invoice": 27830, "msrp": 28990, "destination": null, "source": "wayback", "snapshot": "20210928014959"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-regal", "style": "Premium II FWD", "invoice": 30302, "msrp": 31565, "destination": null, "source": "wayback", "snapshot": "20210928014959"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-regal", "style": "GS FWD", "invoice": 32702, "msrp": 34065, "destination": null, "source": "wayback", "snapshot": "20210928014959"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-regal", "style": "AWD", "invoice": 30158, "msrp": 31415, "destination": null, "source": "wayback", "snapshot": "20210928014959"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-regal", "style": "Premium II AWD", "invoice": 32630, "msrp": 33990, "destination": null, "source": "wayback", "snapshot": "20210928014959"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-regal", "style": "GS AWD", "invoice": 35030, "msrp": 36490, "destination": null, "source": "wayback", "snapshot": "20210928014959"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-verano", "style": "4dr Sedan w/1SV", "invoice": 20960, "msrp": 21065, "destination": null, "source": "wayback", "snapshot": "20191121051506"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-verano", "style": "4dr Sedan w/1SD", "invoice": 22541, "msrp": 23480, "destination": null, "source": "wayback", "snapshot": "20191121051506"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-verano", "style": "4dr Sedan Sport Touring", "invoice": 23102, "msrp": 24065, "destination": null, "source": "wayback", "snapshot": "20191121051506"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-verano", "style": "4dr Sedan Leather Group", "invoice": 25445, "msrp": 26505, "destination": null, "source": "wayback", "snapshot": "20191121051506"}
+{"year": 2016, "make": "Buick", "slug": "2016-buick-verano", "style": "4dr Sedan Premium Turbo Group", "invoice": 27523, "msrp": 28670, "destination": null, "source": "wayback", "snapshot": "20191121051506"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 RWD", "invoice": 35905, "msrp": 37995, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.5L I4 RWD", "invoice": 31388, "msrp": 33215, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.5L I4 RWD Luxury Collection", "invoice": 35100, "msrp": 37340, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 AWD", "invoice": 38221, "msrp": 40445, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 RWD Luxury Collection", "invoice": 39405, "msrp": 41920, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 RWD", "invoice": 33307, "msrp": 35245, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 AWD Luxury Collection", "invoice": 41849, "msrp": 44520, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 AWD", "invoice": 35197, "msrp": 37245, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 RWD Performance Collection", "invoice": 42491, "msrp": 45445, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 RWD Luxury Collection", "invoice": 36980, "msrp": 39340, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 AWD Luxury Collection", "invoice": 38860, "msrp": 41340, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 AWD Performance Collection", "invoice": 44361, "msrp": 47445, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 RWD Performance Collection", "invoice": 40350, "msrp": 43155, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 RWD Premium Collection", "invoice": 44511, "msrp": 47605, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 AWD Performance Collection", "invoice": 42220, "msrp": 45155, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 AWD Premium Collection", "invoice": 45549, "msrp": 48715, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 RWD Luxury Collection", "invoice": 42441, "msrp": 45150, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 RWD Premium Collection", "invoice": 43113, "msrp": 46110, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 AWD Luxury Collection", "invoice": 44885, "msrp": 47750, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "2.0L I4 AWD Premium Collection", "invoice": 44141, "msrp": 47210, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 RWD Luxury Collection", "invoice": 38860, "msrp": 41340, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 RWD Performance Collection", "invoice": 45511, "msrp": 48675, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 AWD Performance Collection", "invoice": 47381, "msrp": 50675, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 AWD Luxury Collection", "invoice": 40740, "msrp": 43340, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 RWD Performance Collection", "invoice": 42220, "msrp": 45155, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 RWD Premium Collection", "invoice": 47531, "msrp": 50835, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 AWD Premium Collection", "invoice": 48569, "msrp": 51945, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 AWD Performance Collection", "invoice": 44090, "msrp": 47155, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 RWD Premium Collection", "invoice": 44983, "msrp": 48110, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats", "style": "3.6L V6 AWD Premium Collection", "invoice": 46011, "msrp": 49210, "destination": null, "source": "wayback", "snapshot": "20151225094352"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats__v", "style": "ATS-V Coupe", "invoice": 58592, "msrp": 62665, "destination": null, "source": "wayback", "snapshot": "20151225190253"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ats__v", "style": "ATS-V Sedan", "invoice": 56535, "msrp": 60465, "destination": null, "source": "wayback", "snapshot": "20151225190253"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ct6", "style": "4dr Sedan 2.0L Turbo RWD", "invoice": 50553, "msrp": 53495, "destination": null, "source": "wayback", "snapshot": "20190716020717"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ct6", "style": "4dr Sedan 2.0L Turbo Luxury RWD", "invoice": 54891, "msrp": 58395, "destination": null, "source": "wayback", "snapshot": "20190716020717"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ct6", "style": "4dr Sedan 3.6L AWD", "invoice": 52443, "msrp": 55495, "destination": null, "source": "wayback", "snapshot": "20190716020717"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ct6", "style": "4dr Sedan 3.6L Luxury AWD", "invoice": 56771, "msrp": 60395, "destination": null, "source": "wayback", "snapshot": "20190716020717"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ct6", "style": "4dr Sedan 3.6L Premium Luxury AWD", "invoice": 59438, "msrp": 63570, "destination": null, "source": "wayback", "snapshot": "20190716020717"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ct6", "style": "4dr Sedan 3.6L Platinum AWD", "invoice": 78040, "msrp": 83465, "destination": null, "source": "wayback", "snapshot": "20190716020717"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ct6", "style": "4dr Sedan 3.0L Turbo Luxury AWD", "invoice": 60531, "msrp": 64395, "destination": null, "source": "wayback", "snapshot": "20190716020717"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ct6", "style": "4dr Sedan 3.0L Turbo Premium Luxury AWD", "invoice": 63178, "msrp": 67570, "destination": null, "source": "wayback", "snapshot": "20190716020717"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-ct6", "style": "4dr Sedan 3.0L Turbo Platinum AWD", "invoice": 81780, "msrp": 87465, "destination": null, "source": "wayback", "snapshot": "20190716020717"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-cts__v", "style": "CTS-V", "invoice": 78535, "msrp": 83995, "destination": null, "source": "wayback", "snapshot": "20201030013233"}
+{"year": 2016, "make": "Cadillac", "slug": "2016-cadillac-elr", "style": "2dr Coupe", "invoice": 62075, "msrp": 65000, "destination": null, "source": "wayback", "snapshot": "20150919120443"}
