@@ -20281,3 +20281,95 @@
 {"year": 2018, "make": "Subaru", "slug": "2018-subaru-brz", "style": "Limited Manual", "invoice": 26995, "msrp": 28445, "destination": null, "source": "wayback", "snapshot": "20191213111536"}
 {"year": 2018, "make": "Subaru", "slug": "2018-subaru-brz", "style": "Limited Auto", "invoice": 27900, "msrp": 29545, "destination": null, "source": "wayback", "snapshot": "20191213111536"}
 {"year": 2018, "make": "Subaru", "slug": "2018-subaru-brz", "style": "tS Manual", "invoice": 31690, "msrp": 33495, "destination": null, "source": "wayback", "snapshot": "20191213111536"}
+{"year": 2018, "make": "Chevrolet", "slug": "2018-chevrolet-tahoe", "style": "2WD LS", "invoice": 44650, "msrp": 47500, "destination": null, "source": "wayback", "snapshot": "20210126030649"}
+{"year": 2018, "make": "Chevrolet", "slug": "2018-chevrolet-tahoe", "style": "2WD LT", "invoice": 49444, "msrp": 52600, "destination": null, "source": "wayback", "snapshot": "20210126030649"}
+{"year": 2018, "make": "Chevrolet", "slug": "2018-chevrolet-tahoe", "style": "2WD Premier", "invoice": 58468, "msrp": 62200, "destination": null, "source": "wayback", "snapshot": "20210126030649"}
+{"year": 2018, "make": "Chevrolet", "slug": "2018-chevrolet-tahoe", "style": "4WD LS", "invoice": 47470, "msrp": 50500, "destination": null, "source": "wayback", "snapshot": "20210126030649"}
+{"year": 2018, "make": "Chevrolet", "slug": "2018-chevrolet-tahoe", "style": "4WD LT", "invoice": 52264, "msrp": 55600, "destination": null, "source": "wayback", "snapshot": "20210126030649"}
+{"year": 2018, "make": "Chevrolet", "slug": "2018-chevrolet-tahoe", "style": "4WD Premier", "invoice": 61288, "msrp": 65200, "destination": null, "source": "wayback", "snapshot": "20210126030649"}
+{"year": 2018, "make": "Fiat", "slug": "2018-fiat-500l", "style": "Pop Hatch", "invoice": 20576, "msrp": 20995, "destination": null, "source": "wayback", "snapshot": "20211129142923"}
+{"year": 2018, "make": "Fiat", "slug": "2018-fiat-500l", "style": "Trekking Hatch", "invoice": 22754, "msrp": 23325, "destination": null, "source": "wayback", "snapshot": "20211129142923"}
+{"year": 2018, "make": "Fiat", "slug": "2018-fiat-500l", "style": "Lounge Hatch", "invoice": 23287, "msrp": 23895, "destination": null, "source": "wayback", "snapshot": "20211129142923"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-ecosport", "style": "S FWD", "invoice": 19495, "msrp": 19995, "destination": null, "source": "wayback", "snapshot": "20211028090513"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-ecosport", "style": "SE FWD", "invoice": 22425, "msrp": 23000, "destination": null, "source": "wayback", "snapshot": "20211028090513"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-ecosport", "style": "Titanium FWD", "invoice": 25233, "msrp": 25880, "destination": null, "source": "wayback", "snapshot": "20211028090513"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-ecosport", "style": "S 4WD", "invoice": 21051, "msrp": 21590, "destination": null, "source": "wayback", "snapshot": "20211028090513"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-ecosport", "style": "SE 4WD", "invoice": 23888, "msrp": 24500, "destination": null, "source": "wayback", "snapshot": "20211028090513"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-ecosport", "style": "SES 4WD", "invoice": 26208, "msrp": 26880, "destination": null, "source": "wayback", "snapshot": "20211028090513"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-ecosport", "style": "Titanium 4WD", "invoice": 26647, "msrp": 27330, "destination": null, "source": "wayback", "snapshot": "20211028090513"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-expedition_max", "style": "XLT 4x2", "invoice": 52024, "msrp": 54475, "destination": null, "source": "wayback", "snapshot": "20210421231305"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-expedition_max", "style": "Limited 4x2", "invoice": 62424, "msrp": 65365, "destination": null, "source": "wayback", "snapshot": "20210421231305"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-expedition_max", "style": "Platinum 4x2", "invoice": 72313, "msrp": 75720, "destination": null, "source": "wayback", "snapshot": "20210421231305"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-expedition_max", "style": "XLT 4x4", "invoice": 54899, "msrp": 57485, "destination": null, "source": "wayback", "snapshot": "20210421231305"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-expedition_max", "style": "Limited 4x4", "invoice": 65408, "msrp": 68490, "destination": null, "source": "wayback", "snapshot": "20210421231305"}
+{"year": 2018, "make": "Ford", "slug": "2018-ford-expedition_max", "style": "Platinum 4x4", "invoice": 75316, "msrp": 78865, "destination": null, "source": "wayback", "snapshot": "20210421231305"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "5 Door SE", "invoice": 39292, "msrp": 41800, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "5 Door SE Premium", "invoice": 43146, "msrp": 45900, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "5 Door Landmark Edition", "invoice": 45496, "msrp": 48400, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "5 Door HSE", "invoice": 48034, "msrp": 51100, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "5 Door HSE Dynamic", "invoice": 51042, "msrp": 54300, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "5 Door 286hp HSE Dynamic", "invoice": 53862, "msrp": 57300, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "5 Door Autobiography", "invoice": 58844, "msrp": 62600, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "5 Door 286hp Autobiography", "invoice": 61664, "msrp": 65600, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "Convertible SE Dynamic", "invoice": 48974, "msrp": 52100, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Land Rover", "slug": "2018-land_rover-range_rover_evoque", "style": "Convertible HSE Dynamic", "invoice": 54332, "msrp": 57800, "destination": null, "source": "wayback", "snapshot": "20211203170812"}
+{"year": 2018, "make": "Lincoln", "slug": "2018-lincoln-navigator_l", "style": "4x2 Select", "invoice": 75369, "msrp": 79755, "destination": null, "source": "wayback", "snapshot": "20210116204402"}
+{"year": 2018, "make": "Lincoln", "slug": "2018-lincoln-navigator_l", "style": "4x4 Select", "invoice": 77877, "msrp": 82410, "destination": null, "source": "wayback", "snapshot": "20210116204402"}
+{"year": 2018, "make": "Lincoln", "slug": "2018-lincoln-navigator_l", "style": "4x4 Reserve", "invoice": 79811, "msrp": 84905, "destination": null, "source": "wayback", "snapshot": "20210116204402"}
+{"year": 2018, "make": "Lincoln", "slug": "2018-lincoln-navigator_l", "style": "4x4 Black Label", "invoice": 91025, "msrp": 97405, "destination": null, "source": "wayback", "snapshot": "20210116204402"}
+{"year": 2018, "make": "Maserati", "slug": "2018-maserati-granturismo", "style": "Sport 4.7L", "invoice": 0, "msrp": 148850, "destination": null, "source": "wayback", "snapshot": "20210616012409"}
+{"year": 2018, "make": "Maserati", "slug": "2018-maserati-granturismo", "style": "Sport 4.7L", "invoice": 0, "msrp": 132975, "destination": null, "source": "wayback", "snapshot": "20210616012409"}
+{"year": 2018, "make": "Maserati", "slug": "2018-maserati-granturismo", "style": "MC 4.7L", "invoice": 0, "msrp": 161220, "destination": null, "source": "wayback", "snapshot": "20210616012409"}
+{"year": 2018, "make": "Maserati", "slug": "2018-maserati-granturismo", "style": "MC 4.7L", "invoice": 0, "msrp": 150220, "destination": null, "source": "wayback", "snapshot": "20210616012409"}
+{"year": 2018, "make": "Mini", "slug": "2018-mini-countryman", "style": "Cooper FWD", "invoice": 24670, "msrp": 26600, "destination": null, "source": "wayback", "snapshot": "20211207213555"}
+{"year": 2018, "make": "Mini", "slug": "2018-mini-countryman", "style": "Cooper S FWD", "invoice": 28905, "msrp": 31200, "destination": null, "source": "wayback", "snapshot": "20211207213555"}
+{"year": 2018, "make": "Mini", "slug": "2018-mini-countryman", "style": "Cooper ALL4", "invoice": 26510, "msrp": 28600, "destination": null, "source": "wayback", "snapshot": "20211207213555"}
+{"year": 2018, "make": "Mini", "slug": "2018-mini-countryman", "style": "Cooper S ALL4", "invoice": 29365, "msrp": 31700, "destination": null, "source": "wayback", "snapshot": "20211207213555"}
+{"year": 2018, "make": "Mini", "slug": "2018-mini-countryman", "style": "John Cooper Works ALL4", "invoice": 34975, "msrp": 37800, "destination": null, "source": "wayback", "snapshot": "20211207213555"}
+{"year": 2018, "make": "Mini", "slug": "2018-mini-countryman", "style": "Cooper S E ALL4", "invoice": 34055, "msrp": 36800, "destination": null, "source": "wayback", "snapshot": "20211207213555"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Manual", "invoice": 28632, "msrp": 29990, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Auto", "invoice": 39470, "msrp": 41820, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Auto", "invoice": 29966, "msrp": 31390, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Touring Auto", "invoice": 43946, "msrp": 46570, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Touring Sport Manual", "invoice": 45389, "msrp": 48100, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Sport Manual", "invoice": 32043, "msrp": 33570, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Sport Auto", "invoice": 33378, "msrp": 34970, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Touring Sport Auto", "invoice": 46614, "msrp": 49400, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Sport Tech Manual", "invoice": 35379, "msrp": 37070, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Touring Manual", "invoice": 36047, "msrp": 38190, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Sport Tech Auto", "invoice": 36714, "msrp": 38470, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "Touring Auto", "invoice": 37367, "msrp": 39590, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "NISMO Manual", "invoice": 43594, "msrp": 45690, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-370z", "style": "NISMO Auto", "invoice": 44928, "msrp": 47090, "destination": null, "source": "wayback", "snapshot": "20211207045645"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-armada", "style": "4x2 SV", "invoice": 42771, "msrp": 46090, "destination": null, "source": "wayback", "snapshot": "20191210045811"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-armada", "style": "4x2 SL", "invoice": 47184, "msrp": 50850, "destination": null, "source": "wayback", "snapshot": "20191210045811"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-armada", "style": "4x2 Platinum", "invoice": 54915, "msrp": 59190, "destination": null, "source": "wayback", "snapshot": "20191210045811"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-armada", "style": "4x4 SV", "invoice": 45460, "msrp": 48990, "destination": null, "source": "wayback", "snapshot": "20191210045811"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-armada", "style": "4x4 SL", "invoice": 49871, "msrp": 53750, "destination": null, "source": "wayback", "snapshot": "20191210045811"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-armada", "style": "4x4 Platinum", "invoice": 57602, "msrp": 62090, "destination": null, "source": "wayback", "snapshot": "20191210045811"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "King Cab 4x2 S Manual", "invoice": 18347, "msrp": 18990, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "King Cab 4x2 S Auto", "invoice": 21883, "msrp": 22660, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "King Cab 4x2 SV Manual", "invoice": 22653, "msrp": 23460, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "King Cab 4x2 SV Auto", "invoice": 23665, "msrp": 24510, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "King Cab 4x2 SV V6 Auto", "invoice": 24350, "msrp": 25220, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "King Cab 4x2 Desert Runner Auto", "invoice": 25004, "msrp": 25900, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x2 S Manual", "invoice": 23704, "msrp": 24550, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x2 S Auto", "invoice": 24715, "msrp": 25600, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x2 SV V6 Auto", "invoice": 25438, "msrp": 26350, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x2 Desert Runner Auto", "invoice": 26382, "msrp": 27330, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x2 SL Auto", "invoice": 32034, "msrp": 33560, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x2 SV V6 Auto Long Bed", "invoice": 27953, "msrp": 28960, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "King Cab 4x4 SV V6 Auto", "invoice": 26840, "msrp": 28110, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "King Cab 4x4 PRO-4X Auto", "invoice": 31184, "msrp": 33030, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x4 S Auto", "invoice": 27774, "msrp": 29090, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x4 SV V6 Auto", "invoice": 28202, "msrp": 29540, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x4 SV V6 Manual", "invoice": 30910, "msrp": 32380, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x4 PRO-4X Manual", "invoice": 30910, "msrp": 32740, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x4 PRO-4X Auto", "invoice": 31900, "msrp": 33790, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x4 SL Auto", "invoice": 34360, "msrp": 36400, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x4 SV V6 Auto Long Bed", "invoice": 28604, "msrp": 29960, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-frontier", "style": "Crew Cab 4x4 SL Auto Long Bed", "invoice": 34739, "msrp": 36800, "destination": null, "source": "wayback", "snapshot": "20191113203720"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-gt__r", "style": "Pure AWD", "invoice": 95867, "msrp": 99990, "destination": null, "source": "wayback", "snapshot": "20191213090945"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-gt__r", "style": "Premium AWD", "invoice": 105929, "msrp": 110490, "destination": null, "source": "wayback", "snapshot": "20191213090945"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-gt__r", "style": "Track Edition AWD", "invoice": 123177, "msrp": 128490, "destination": null, "source": "wayback", "snapshot": "20191213090945"}
+{"year": 2018, "make": "Nissan", "slug": "2018-nissan-gt__r", "style": "NISMO AWD", "invoice": 168216, "msrp": 175490, "destination": null, "source": "wayback", "snapshot": "20191213090945"}
