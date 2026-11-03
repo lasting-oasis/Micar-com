@@ -1,12 +1,13 @@
 // Dealer side: describe a car on the lot, see the window sheet update live, print it.
 // The QR code on the sheet opens the car page with the same record (nothing is stored on a server).
-import { ArrowLeft, Check, Download, ExternalLink, Link2, Printer } from 'lucide-react';
+import { Check, Download, ExternalLink, Link2, Printer } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from '../engine/data';
 import { findModel, modelsForMake, yearRanges } from '../engine/models';
 import { stickerFor, trimChoices } from '../engine/stickers';
 import { qrSvg } from './qr';
-import { FEATURES, FEATURE_GROUPS, calculatorUrl, carPageUrl, decodeRecord, emptyRecord, encodeRecord, recordMsrp, soldYears, type CarRecord, type Dealer } from './record';
+import { Nav } from '../Nav';
+import { FEATURES, FEATURE_GROUPS, carPageUrl, decodeRecord, emptyRecord, encodeRecord, recordMsrp, soldYears, type CarRecord, type Dealer } from './record';
 import { SHEET_H, SHEET_W, Sticker } from './Sticker';
 import { snapshot, usd } from './value';
 
@@ -78,10 +79,10 @@ export default function StickerBuilder({ code }: { code?: string }) {
     <>
       <div className="no-print min-h-screen py-6 sm:px-4 sm:py-10">
         <div className="mx-auto max-w-7xl">
+          <Nav active="sheet" />
           <header className="mb-6 flex flex-wrap items-end justify-between gap-4" style={{ color: 'var(--glass-ink)' }}>
             <div>
-              <a href={calculatorUrl()} className="inline-flex items-center gap-1 text-sm hover:underline" style={{ color: 'var(--glass-muted)' }}><ArrowLeft size={14} /> Value calculator</a>
-              <h1 className="font-cond mt-1 text-3xl font-semibold leading-none tracking-tight sm:text-4xl">Window sheet builder</h1>
+              <h1 className="font-cond text-3xl font-semibold leading-none tracking-tight sm:text-4xl">Print a window sheet for a car you're selling</h1>
               <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>Describe the car once. The sheet updates as you type; the QR code opens a page with every detail and an independent value check.</p>
             </div>
             <div className="flex flex-wrap gap-2">

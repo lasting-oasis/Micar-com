@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Area, CartesianGrid, ComposedChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { Check, Link2, RotateCcw, Search, Tag } from 'lucide-react';
+import { Check, Link2, RotateCcw, Search } from 'lucide-react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
 import { describe as describeListings, parseListingsPage, type ParsedListing } from './engine/listings';
 import { MARKET, periodLabel, snapshotAgeDays } from './engine/market';
@@ -8,6 +8,7 @@ import { findModel, modelsForMake, yearRanges } from './engine/models';
 import { prefillMsrp } from './engine/prefill';
 import { stickerFor, trimChoices } from './engine/stickers';
 import { expectedMilesFor, forecast, mileageAdjustedPrice, valuate, type Inputs, type Valuation } from './engine/valuation';
+import { Nav } from './Nav';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse, readUrl, shareUrl, urlHasMsrp, writeUrl, type Errors, type FormState } from './urlState';
 
 const COMPS_URL: string | undefined = import.meta.env.VITE_COMPS_URL || undefined;
@@ -151,15 +152,15 @@ export default function App() {
   return (
     <div className="min-h-screen py-6 sm:px-4 sm:py-10">
       <div className="mx-auto max-w-6xl">
+        <Nav active="value" />
         <header className="mb-6 flex flex-wrap items-end justify-between gap-4" style={{ color: 'var(--glass-ink)' }}>
           <div>
-            <h1 className="font-cond text-3xl font-semibold leading-none tracking-tight sm:text-4xl">Nexus Valuation</h1>
-            <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>What a used car is worth today, and what it will be worth later.</p>
+            <h1 className="font-cond text-3xl font-semibold leading-none tracking-tight sm:text-4xl">What's this car worth?</h1>
+            <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>Today's value and where it's heading, for owners, buyers and sellers.</p>
           </div>
           <div className="flex gap-2">
             <GlassButton onClick={() => { setForm(defaults()); setMsrpAuto(true); setLive(null); setLiveState({ status: 'idle' }); }} icon={<RotateCcw size={15} />}>Start over</GlassButton>
             {canShare && <GlassButton onClick={copyLink} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? 'Link copied' : 'Copy link to this estimate'}</GlassButton>}
-            <GlassButton onClick={() => { window.location.hash = '#/sticker'; }} icon={<Tag size={15} />}>Dealers: window sheet</GlassButton>
           </div>
         </header>
 

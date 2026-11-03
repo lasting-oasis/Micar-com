@@ -1,16 +1,17 @@
 // Buyer side: what the QR code opens. Every detail from the sheet, then the independent
 // value check: how the asking price compares, how the value was built, and the 5-year forecast.
-import { Check, Link2, MapPin, Pencil, Phone, Search } from 'lucide-react';
+import { Check, Link2, MapPin, Pencil, Phone } from 'lucide-react';
 import { useMemo, useState, type ReactNode } from 'react';
 import { Confidence, Drivers, Forecast, Ledger, Prices } from '../App';
 import { forecast } from '../engine/valuation';
+import { Nav } from '../Nav';
 import { FEATURES, FEATURE_GROUPS, calculatorUrl, carName, decodeRecord, displayModel, stickerPageUrl, type CarRecord } from './record';
 import { miles, monthYear, snapshot, usd } from './value';
 
 export default function CarPage({ code }: { code: string }) {
   const now = useMemo(() => new Date(), []);
   const r = useMemo(() => decodeRecord(code), [code]);
-  if (!r) return <Shell><Notice>This link doesn't point to a car. It may have been cut short when copied. Ask the dealer for the sheet, or <a className="underline" href={calculatorUrl()}>value a car yourself</a>.</Notice></Shell>;
+  if (!r) return <Shell><Nav active="car" /><Notice>This link doesn't point to a car. It may have been cut short when copied. Ask the dealer for the sheet, or <a className="underline" href={calculatorUrl()}>value a car yourself</a>.</Notice></Shell>;
   return <Shell><Car r={r} code={code} now={now} /></Shell>;
 }
 
@@ -27,15 +28,13 @@ function Car({ r, code, now }: { r: CarRecord; code: string; now: Date }) {
 
   return (
     <>
+      <Nav active="car" />
       <header className="mb-5 flex flex-wrap items-end justify-between gap-3" style={{ color: 'var(--glass-ink)' }}>
         <div>
-          <p className="text-xs uppercase tracking-widest" style={{ color: 'var(--glass-muted)' }}>Nexus Valuation · car page</p>
-          <h1 className="font-cond mt-1 text-3xl font-semibold leading-none tracking-tight sm:text-4xl">{carName(r)}</h1>
+          <h1 className="font-cond text-3xl font-semibold leading-none tracking-tight sm:text-4xl">{carName(r)}</h1>
+          <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>Details from the dealer's window sheet, with an independent value check.</p>
         </div>
-        <div className="flex flex-wrap gap-2">
-          <Glass onClick={copy} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? 'Link copied' : 'Share'}</Glass>
-          <Glass onClick={() => { window.location.href = calculatorUrl(); }} icon={<Search size={15} />}>Value another car</Glass>
-        </div>
+        <Glass onClick={copy} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? 'Link copied' : 'Share this page'}</Glass>
       </header>
 
       <main className="overflow-hidden rounded-md shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)]" style={{ background: 'var(--sticker)' }}>
