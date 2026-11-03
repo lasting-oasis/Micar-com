@@ -14756,3 +14756,219 @@
 {"year": 2021, "make": "Subaru", "slug": "2021-subaru-outback", "style": "Touring CVT", "invoice": 35034, "msrp": 37495, "destination": null, "source": "wayback", "snapshot": "20220125194408"}
 {"year": 2021, "make": "Subaru", "slug": "2021-subaru-outback", "style": "Limited XT CVT", "invoice": 35451, "msrp": 37995, "destination": null, "source": "wayback", "snapshot": "20220125194408"}
 {"year": 2021, "make": "Subaru", "slug": "2021-subaru-outback", "style": "Touring XT CVT", "invoice": 37240, "msrp": 39945, "destination": null, "source": "wayback", "snapshot": "20220125194408"}
+{"year": 2021, "make": "Audi", "slug": "2021-audi-tts", "style": "2.0 TFSI quattro", "invoice": 55931, "msrp": 59500, "destination": null, "source": "wayback", "snapshot": "20210924221248"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "LX FWD", "invoice": 28362, "msrp": 29390, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "S FWD", "invoice": 30773, "msrp": 31890, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "EX FWD", "invoice": 33766, "msrp": 34990, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "SX FWD", "invoice": 36281, "msrp": 37990, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "SX Prestige FWD", "invoice": 38764, "msrp": 40590, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "LX AWD", "invoice": 30099, "msrp": 31190, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "S AWD", "invoice": 32510, "msrp": 33690, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "EX AWD", "invoice": 35503, "msrp": 36790, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "SX AWD", "invoice": 38000, "msrp": 39790, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-sorento", "style": "SX Prestige X-Line AWD", "invoice": 40674, "msrp": 42590, "destination": null, "source": "wayback", "snapshot": "20210617225843"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-soul", "style": "LX Manual", "invoice": 17151, "msrp": 17590, "destination": null, "source": "wayback", "snapshot": "20210928022113"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-soul", "style": "LX IVT", "invoice": 18421, "msrp": 19090, "destination": null, "source": "wayback", "snapshot": "20210928022113"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-soul", "style": "S IVT", "invoice": 19965, "msrp": 20690, "destination": null, "source": "wayback", "snapshot": "20210928022113"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-soul", "style": "X-Line IVT", "invoice": 21028, "msrp": 21790, "destination": null, "source": "wayback", "snapshot": "20210928022113"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-soul", "style": "GT-Line IVT", "invoice": 20810, "msrp": 21790, "destination": null, "source": "wayback", "snapshot": "20210928022113"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-soul", "style": "EX IVT", "invoice": 22300, "msrp": 23350, "destination": null, "source": "wayback", "snapshot": "20210928022113"}
+{"year": 2021, "make": "Kia", "slug": "2021-kia-soul", "style": "Turbo DCT", "invoice": 26406, "msrp": 27650, "destination": null, "source": "wayback", "snapshot": "20210928022113"}
+{"year": 2021, "make": "Lexus", "slug": "2021-lexus-rx_450h", "style": "AWD", "invoice": 44949, "msrp": 47820, "destination": null, "source": "wayback", "snapshot": "20210623082340"}
+{"year": 2021, "make": "Lexus", "slug": "2021-lexus-rx_450h", "style": "F SPORT Appearance AWD", "invoice": 48222, "msrp": 51300, "destination": null, "source": "wayback", "snapshot": "20210623082340"}
+{"year": 2021, "make": "Lexus", "slug": "2021-lexus-rx_450h", "style": "F SPORT Handling AWD", "invoice": 50402, "msrp": 53620, "destination": null, "source": "wayback", "snapshot": "20210623082340"}
+{"year": 2021, "make": "Lexus", "slug": "2021-lexus-ux_250h", "style": "AWD", "invoice": 33405, "msrp": 35200, "destination": null, "source": "wayback", "snapshot": "20210623181035"}
+{"year": 2021, "make": "Lexus", "slug": "2021-lexus-ux_250h", "style": "F SPORT AWD", "invoice": 35303, "msrp": 37200, "destination": null, "source": "wayback", "snapshot": "20210623181035"}
+{"year": 2021, "make": "Lexus", "slug": "2021-lexus-ux_250h", "style": "Luxury AWD", "invoice": 37865, "msrp": 39900, "destination": null, "source": "wayback", "snapshot": "20210623181035"}
+{"year": 2021, "make": "Mitsubishi", "slug": "2021-mitsubishi-outlander_phev", "style": "SEL S-AWC", "invoice": 35087, "msrp": 36295, "destination": null, "source": "wayback", "snapshot": "20211208085102"}
+{"year": 2021, "make": "Mitsubishi", "slug": "2021-mitsubishi-outlander_phev", "style": "LE S-AWC", "invoice": 36730, "msrp": 37995, "destination": null, "source": "wayback", "snapshot": "20211208085102"}
+{"year": 2021, "make": "Mitsubishi", "slug": "2021-mitsubishi-outlander_phev", "style": "GT S-AWC", "invoice": 40597, "msrp": 41995, "destination": null, "source": "wayback", "snapshot": "20211208085102"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-gt__r", "style": "Premium AWD", "invoice": 108851, "msrp": 113540, "destination": null, "source": "wayback", "snapshot": "20210423102550"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-gt__r", "style": "Track Edition AWD", "invoice": 139516, "msrp": 145540, "destination": null, "source": "wayback", "snapshot": "20210423102550"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-gt__r", "style": "NISMO AWD", "invoice": 201995, "msrp": 210740, "destination": null, "source": "wayback", "snapshot": "20210423102550"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-rogue", "style": "FWD S", "invoice": 24282, "msrp": 25650, "destination": null, "source": "wayback", "snapshot": "20210517044749"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-rogue", "style": "FWD SV", "invoice": 25877, "msrp": 27340, "destination": null, "source": "wayback", "snapshot": "20210517044749"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-rogue", "style": "FWD SL", "invoice": 30280, "msrp": 32000, "destination": null, "source": "wayback", "snapshot": "20210517044749"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-rogue", "style": "FWD Platinum", "invoice": 33520, "msrp": 35430, "destination": null, "source": "wayback", "snapshot": "20210517044749"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-rogue", "style": "AWD S", "invoice": 25604, "msrp": 27050, "destination": null, "source": "wayback", "snapshot": "20210517044749"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-rogue", "style": "AWD SV", "invoice": 27200, "msrp": 28740, "destination": null, "source": "wayback", "snapshot": "20210517044749"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-rogue", "style": "AWD SL", "invoice": 31603, "msrp": 33400, "destination": null, "source": "wayback", "snapshot": "20210517044749"}
+{"year": 2021, "make": "Nissan", "slug": "2021-nissan-rogue", "style": "AWD Platinum", "invoice": 34842, "msrp": 36830, "destination": null, "source": "wayback", "snapshot": "20210517044749"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "SR5 2WD (Natl)", "invoice": 33823, "msrp": 36765, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "Trail Special Edition 2WD (Natl)", "invoice": 35639, "msrp": 38740, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "SR5 Premium 2WD (Natl)", "invoice": 36638, "msrp": 39825, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "Limited 2WD (Natl)", "invoice": 42014, "msrp": 45670, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "Nightshade 2WD (Natl)", "invoice": 43316, "msrp": 47085, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "SR5 4WD (Natl)", "invoice": 35548, "msrp": 38640, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "Trail Special Edition 4WD (Natl)", "invoice": 37363, "msrp": 40615, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "TRD Off Road 4WD (Natl)", "invoice": 37471, "msrp": 40730, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "SR5 Premium 4WD (Natl)", "invoice": 38364, "msrp": 41700, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "TRD Off Road Premium 4WD (Natl)", "invoice": 39858, "msrp": 43325, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "Venture 4WD (Natl)", "invoice": 41302, "msrp": 44895, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "Limited 4WD (Natl)", "invoice": 43888, "msrp": 47705, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "Nightshade 4WD (Natl)", "invoice": 45189, "msrp": 49120, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-4runner", "style": "TRD Pro 4WD (Natl)", "invoice": 46684, "msrp": 50745, "destination": null, "source": "wayback", "snapshot": "20210801201659"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-c__hr", "style": "LE FWD (Natl)", "invoice": 20144, "msrp": 21545, "destination": null, "source": "wayback", "snapshot": "20210304032310"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-c__hr", "style": "XLE FWD (Natl)", "invoice": 22048, "msrp": 23580, "destination": null, "source": "wayback", "snapshot": "20210304032310"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-c__hr", "style": "Nightshade FWD (Natl)", "invoice": 22762, "msrp": 24345, "destination": null, "source": "wayback", "snapshot": "20210304032310"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-c__hr", "style": "Limited FWD (Natl)", "invoice": 24871, "msrp": 26600, "destination": null, "source": "wayback", "snapshot": "20210304032310"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "LE Auto (Natl)", "invoice": 22916, "msrp": 25045, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "SE Auto (Natl)", "invoice": 24170, "msrp": 26560, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "SE Nightshade Auto (Natl)", "invoice": 24807, "msrp": 27260, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "Hybrid LE CVT (Natl)", "invoice": 25088, "msrp": 27270, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "Hybrid SE CVT (Natl)", "invoice": 26483, "msrp": 28785, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "XLE Auto (Natl)", "invoice": 27250, "msrp": 29945, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "XSE Auto (Natl)", "invoice": 27750, "msrp": 30495, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "Hybrid XLE CVT (Natl)", "invoice": 29597, "msrp": 32170, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "TRD V6 Auto (Natl)", "invoice": 29357, "msrp": 32260, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "Hybrid XSE CVT (Natl)", "invoice": 30102, "msrp": 32720, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "XLE V6 Auto (Natl)", "invoice": 31913, "msrp": 35070, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "XSE V6 Auto (Natl)", "invoice": 32413, "msrp": 35620, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "LE Auto AWD (Natl)", "invoice": 24197, "msrp": 26445, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "SE Auto AWD (Natl)", "invoice": 25444, "msrp": 27960, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "SE Nightshade Auto AWD (Natl)", "invoice": 26081, "msrp": 28660, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "XLE Auto AWD (Natl)", "invoice": 28524, "msrp": 31345, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-camry", "style": "XSE Auto AWD (Natl)", "invoice": 29024, "msrp": 31895, "destination": null, "source": "wayback", "snapshot": "20211021184123"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "L CVT (Natl)", "invoice": 18923, "msrp": 20025, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "LE CVT (Natl)", "invoice": 18958, "msrp": 20475, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "SE CVT (Natl)", "invoice": 20810, "msrp": 22475, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "SE Manual (Natl)", "invoice": 21459, "msrp": 23175, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "Nightshade CVT (Natl)", "invoice": 21459, "msrp": 23175, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "Hybrid LE CVT (Natl)", "invoice": 21851, "msrp": 23600, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "XLE CVT (Natl)", "invoice": 22615, "msrp": 24425, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "APEX SE CVT (Natl)", "invoice": 23306, "msrp": 25170, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "APEX SE Manual (Natl)", "invoice": 23667, "msrp": 25560, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "XSE CVT (Natl)", "invoice": 24005, "msrp": 25925, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-corolla", "style": "APEX XSE CVT (Natl)", "invoice": 26214, "msrp": 28310, "destination": null, "source": "wayback", "snapshot": "20210918012448"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-land_cruiser", "style": "4WD (Natl)", "invoice": 76670, "msrp": 85665, "destination": null, "source": "wayback", "snapshot": "20210619102402"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-land_cruiser", "style": "Heritage Edition 4WD (Natl)", "invoice": 78756, "msrp": 87995, "destination": null, "source": "wayback", "snapshot": "20210619102402"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-rav4_prime", "style": "SE (Natl)", "invoice": 35815, "msrp": 38100, "destination": null, "source": "wayback", "snapshot": "20210302024514"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-rav4_prime", "style": "XSE (Natl)", "invoice": 38939, "msrp": 41425, "destination": null, "source": "wayback", "snapshot": "20210302024514"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "SR5 RWD (Natl)", "invoice": 45682, "msrp": 50200, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "TRD Sport RWD (Natl)", "invoice": 48153, "msrp": 52915, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "Limited RWD (Natl)", "invoice": 53889, "msrp": 59220, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "Nightshade RWD (Natl)", "invoice": 54799, "msrp": 60220, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "Platinum RWD (Natl)", "invoice": 60288, "msrp": 66250, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "SR5 4WD (Natl)", "invoice": 48617, "msrp": 53425, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "TRD Sport 4WD (Natl)", "invoice": 51088, "msrp": 56140, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "Limited 4WD (Natl)", "invoice": 56825, "msrp": 62445, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "Nightshade 4WD (Natl)", "invoice": 57735, "msrp": 63445, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "TRD Pro 4WD (Natl)", "invoice": 58537, "msrp": 64325, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-sequoia", "style": "Platinum 4WD (Natl)", "invoice": 63223, "msrp": 69475, "destination": null, "source": "wayback", "snapshot": "20210118045117"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD SR Double Cab 6.5' Bed 5.7L (Natl)", "invoice": 34110, "msrp": 36875, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "2WD SR Double Cab 6.5' Bed 5.7L (Natl)", "invoice": 31288, "msrp": 33825, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD SR5 Double Cab 6.5' Bed 5.7L (Natl)", "invoice": 35673, "msrp": 38565, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "2WD SR5 Double Cab 6.5' Bed 5.7L (Natl)", "invoice": 32852, "msrp": 35515, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD SR5 CrewMax 5.5' Bed 5.7L (Natl)", "invoice": 38083, "msrp": 41170, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "2WD SR5 CrewMax 5.5' Bed 5.7L (Natl)", "invoice": 35261, "msrp": 38120, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "2WD Limited Double Cab 6.5' Bed 5.7L (Natl)", "invoice": 39350, "msrp": 42540, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD Limited Double Cab 6.5' Bed 5.7L (Natl)", "invoice": 42171, "msrp": 45590, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "2WD Limited CrewMax 5.5' Bed 5.7L (Natl)", "invoice": 41074, "msrp": 44405, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD Limited CrewMax 5.5' Bed 5.7L (Natl)", "invoice": 43896, "msrp": 47455, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "2WD Platinum CrewMax 5.5' Bed 5.7L (Natl)", "invoice": 45366, "msrp": 49045, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD TRD Pro Double Cab 6.5' Bed 5.7L (Natl)", "invoice": 45256, "msrp": 48925, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "2WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)", "invoice": 45366, "msrp": 49045, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD Platinum CrewMax 5.5' Bed 5.7L (Natl)", "invoice": 48187, "msrp": 52095, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "2WD SR Double Cab 8.1' Bed 5.7L (Natl)", "invoice": 31594, "msrp": 34155, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD 1794 Edition CrewMax 5.5' Bed 5.7L (Natl)", "invoice": 48187, "msrp": 52095, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD TRD Pro CrewMax 5.5' Bed 5.7L (Natl)", "invoice": 49210, "msrp": 53200, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "2WD SR5 Double Cab 8.1' Bed 5.7L (Natl)", "invoice": 33157, "msrp": 35845, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD SR Double Cab 8.1' Bed 5.7L (Natl)", "invoice": 34414, "msrp": 37205, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-tundra", "style": "4WD SR5 Double Cab 8.1' Bed 5.7L (Natl)", "invoice": 35977, "msrp": 38895, "destination": null, "source": "wayback", "snapshot": "20210124213219"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-venza", "style": "LE AWD (Natl)", "invoice": 30616, "msrp": 32570, "destination": null, "source": "wayback", "snapshot": "20210726121959"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-venza", "style": "XLE AWD (Natl)", "invoice": 33935, "msrp": 36100, "destination": null, "source": "wayback", "snapshot": "20210726121959"}
+{"year": 2021, "make": "Toyota", "slug": "2021-toyota-venza", "style": "Limited AWD (Natl)", "invoice": 37507, "msrp": 39900, "destination": null, "source": "wayback", "snapshot": "20210726121959"}
+{"year": 2021, "make": "Volkswagen", "slug": "2021-volkswagen-golf", "style": "1.4T TSI Manual", "invoice": 22267, "msrp": 23195, "destination": null, "source": "wayback", "snapshot": "20210413010047"}
+{"year": 2021, "make": "Volkswagen", "slug": "2021-volkswagen-golf", "style": "1.4T TSI Auto", "invoice": 23035, "msrp": 23995, "destination": null, "source": "wayback", "snapshot": "20210413010047"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "T5 FWD Momentum", "invoice": 39198, "msrp": 41700, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "T5 FWD R-Design", "invoice": 44979, "msrp": 47850, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "T5 FWD Inscription", "invoice": 46248, "msrp": 49200, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "T5 AWD Momentum", "invoice": 41360, "msrp": 44000, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "T6 AWD Momentum", "invoice": 44650, "msrp": 47500, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "T5 AWD R-Design", "invoice": 47141, "msrp": 50150, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "T5 AWD Inscription", "invoice": 48410, "msrp": 51500, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "T6 AWD R-Design", "invoice": 50431, "msrp": 53650, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "T6 AWD Inscription", "invoice": 51700, "msrp": 55000, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "Recharge T8 eAWD PHEV Inscription Expression", "invoice": 50290, "msrp": 53500, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "Recharge T8 eAWD PHEV R-Design", "invoice": 56071, "msrp": 59650, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "Recharge T8 eAWD PHEV Inscription", "invoice": 57340, "msrp": 61000, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc60", "style": "Recharge T8 eAWD PHEV Polestar", "invoice": 65330, "msrp": 69500, "destination": null, "source": "wayback", "snapshot": "20210306053301"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "T5 FWD Momentum 7P", "invoice": 46060, "msrp": 49000, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "T5 FWD R-Design 7P", "invoice": 52264, "msrp": 55600, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "T5 AWD Momentum 7P", "invoice": 48410, "msrp": 51500, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "T6 AWD Momentum 7P", "invoice": 53533, "msrp": 56950, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "T6 AWD Momentum 6P", "invoice": 54003, "msrp": 57450, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "T5 AWD R-Design 7P", "invoice": 54614, "msrp": 58100, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "T6 AWD R-Design 7P", "invoice": 58891, "msrp": 62650, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "T6 AWD Inscription 7P", "invoice": 59455, "msrp": 63250, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "T6 AWD Inscription 6P", "invoice": 59925, "msrp": 63750, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "Recharge T8 eAWD PHEV Inscription Expression 7P", "invoice": 59643, "msrp": 63450, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "Recharge T8 eAWD PHEV Inscription Expression 6P", "invoice": 60113, "msrp": 63950, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "Recharge T8 eAWD PHEV R-Design 7P", "invoice": 65001, "msrp": 69150, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "Recharge T8 eAWD PHEV Inscription 7P", "invoice": 65565, "msrp": 69750, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2021, "make": "Volvo", "slug": "2021-volvo-xc90", "style": "Recharge T8 eAWD PHEV Inscription 6P", "invoice": 66035, "msrp": 70250, "destination": null, "source": "wayback", "snapshot": "20210518132810"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "FWD 7-Passenger", "invoice": 41774, "msrp": 44500, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "FWD 7-Passenger w/Technology Pkg", "invoice": 46459, "msrp": 49500, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "FWD 6-Passenger w/Advance Pkg", "invoice": 52783, "msrp": 56250, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "SH-AWD 7-Passenger", "invoice": 43648, "msrp": 46500, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "SH-AWD 7-Passenger w/Technology Pkg", "invoice": 48332, "msrp": 51500, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "SH-AWD 6-Passenger w/Technology/Entertainment Pkg", "invoice": 50206, "msrp": 53500, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "SH-AWD 7-Passenger w/Technology/A-Spec Pkg", "invoice": 51612, "msrp": 55000, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "SH-AWD 6-Passenger w/Advance Pkg", "invoice": 54656, "msrp": 58250, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "SH-AWD 7-Passenger w/Advance/Entertainment Pkg", "invoice": 56530, "msrp": 60250, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "SH-AWD 6-Passenger PMC Edition", "invoice": 57936, "msrp": 61750, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "SH-AWD 7-Passenger Sport Hybrid w/Technology Pkg", "invoice": 49738, "msrp": 53000, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-mdx", "style": "SH-AWD 6-Passenger Sport Hybrid w/Advance Pkg", "invoice": 56062, "msrp": 59750, "destination": null, "source": "wayback", "snapshot": "20210122232531"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-nsx", "style": "Coupe", "invoice": 146251, "msrp": 157500, "destination": null, "source": "wayback", "snapshot": "20210116185836"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-rdx", "style": "FWD", "invoice": 35700, "msrp": 37600, "destination": null, "source": "wayback", "snapshot": "20191020141449"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-rdx", "style": "FWD w/Technology Pkg", "invoice": 38732, "msrp": 40800, "destination": null, "source": "wayback", "snapshot": "20191020141449"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-rdx", "style": "FWD w/A-Spec Pkg", "invoice": 41574, "msrp": 43800, "destination": null, "source": "wayback", "snapshot": "20191020141449"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-rdx", "style": "FWD w/Advance Pkg", "invoice": 43357, "msrp": 45700, "destination": null, "source": "wayback", "snapshot": "20191020141449"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-rdx", "style": "AWD", "invoice": 37595, "msrp": 39600, "destination": null, "source": "wayback", "snapshot": "20191020141449"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-rdx", "style": "AWD w/Technology Pkg", "invoice": 40626, "msrp": 42800, "destination": null, "source": "wayback", "snapshot": "20191020141449"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-rdx", "style": "AWD w/A-Spec Pkg", "invoice": 43468, "msrp": 45800, "destination": null, "source": "wayback", "snapshot": "20191020141449"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-rdx", "style": "AWD w/Advance Pkg", "invoice": 45268, "msrp": 47700, "destination": null, "source": "wayback", "snapshot": "20191020141449"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "2.4L FWD", "invoice": 31343, "msrp": 33000, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L FWD", "invoice": 34374, "msrp": 36200, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "2.4L FWD w/Technology Pkg", "invoice": 34848, "msrp": 36700, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "2.4L FWD w/A-Spec Pkg", "invoice": 37406, "msrp": 39400, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "2.4L FWD w/A-Spec Pkg Red Leather", "invoice": 37406, "msrp": 39400, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L FWD w/Technology Pkg", "invoice": 38069, "msrp": 40100, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L FWD w/A-Spec Pkg", "invoice": 40626, "msrp": 42800, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L FWD w/A-Spec Pkg Red Leather", "invoice": 40626, "msrp": 42800, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L SH-AWD", "invoice": 36269, "msrp": 38200, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L SH-AWD w/Technology Pkg", "invoice": 39963, "msrp": 42100, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L SH-AWD w/A-Spec Pkg", "invoice": 42521, "msrp": 44800, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L SH-AWD w/A-Spec Pkg Red Leather", "invoice": 42521, "msrp": 44800, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L SH-AWD w/Advance Pkg", "invoice": 43610, "msrp": 45950, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Acura", "slug": "2020-acura-tlx", "style": "3.5L SH-AWD PMC Edition", "invoice": 46452, "msrp": 48950, "destination": null, "source": "wayback", "snapshot": "20210917082430"}
+{"year": 2020, "make": "Aston Martin", "slug": "2020-aston_martin-vantage", "style": "Coupe", "invoice": 0, "msrp": 152995, "destination": null, "source": "wayback", "snapshot": "20211026205512"}
+{"year": 2020, "make": "Aston Martin", "slug": "2020-aston_martin-vantage", "style": "AMR Hero Coupe", "invoice": 0, "msrp": 179995, "destination": null, "source": "wayback", "snapshot": "20211026205512"}
+{"year": 2020, "make": "Aston Martin", "slug": "2020-aston_martin-vantage", "style": "AMR 59 Edition Coupe", "invoice": 0, "msrp": 204995, "destination": null, "source": "wayback", "snapshot": "20211026205512"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a3", "style": "Premium 40 TFSI", "invoice": 31304, "msrp": 33300, "destination": null, "source": "wayback", "snapshot": "20210506032523"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a3", "style": "Premium Plus 40 TFSI", "invoice": 31304, "msrp": 33300, "destination": null, "source": "wayback", "snapshot": "20210506032523"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a3", "style": "S line Premium 45 TFSI quattro", "invoice": 34312, "msrp": 36500, "destination": null, "source": "wayback", "snapshot": "20210506032523"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a3", "style": "S line Premium Plus 45 TFSI quattro", "invoice": 34312, "msrp": 36500, "destination": null, "source": "wayback", "snapshot": "20210506032523"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a4", "style": "Premium 40 TFSI", "invoice": 35156, "msrp": 37400, "destination": null, "source": "wayback", "snapshot": "20210120110904"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a4", "style": "Prestige 40 TFSI", "invoice": 35156, "msrp": 37400, "destination": null, "source": "wayback", "snapshot": "20210120110904"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a4", "style": "Premium Plus 40 TFSI", "invoice": 35156, "msrp": 37400, "destination": null, "source": "wayback", "snapshot": "20210120110904"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a4", "style": "Premium 45 TFSI quattro", "invoice": 38447, "msrp": 40900, "destination": null, "source": "wayback", "snapshot": "20210120110904"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a4", "style": "Premium Plus 45 TFSI quattro", "invoice": 38447, "msrp": 40900, "destination": null, "source": "wayback", "snapshot": "20210120110904"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a4", "style": "Prestige 45 TFSI quattro", "invoice": 38447, "msrp": 40900, "destination": null, "source": "wayback", "snapshot": "20210120110904"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a5", "style": "Premium 2.0 TFSI quattro", "invoice": 46907, "msrp": 49900, "destination": null, "source": "wayback", "snapshot": "20211021084207"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a5", "style": "Premium 2.0 TFSI quattro", "invoice": 40327, "msrp": 42900, "destination": null, "source": "wayback", "snapshot": "20211021084207"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a5", "style": "Prestige 2.0 TFSI quattro", "invoice": 46907, "msrp": 49900, "destination": null, "source": "wayback", "snapshot": "20211021084207"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a5", "style": "Prestige 2.0 TFSI quattro", "invoice": 40327, "msrp": 42900, "destination": null, "source": "wayback", "snapshot": "20211021084207"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a5", "style": "Premium Plus 2.0 TFSI quattro", "invoice": 46907, "msrp": 49900, "destination": null, "source": "wayback", "snapshot": "20211021084207"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a5", "style": "Premium Plus 2.0 TFSI quattro", "invoice": 40327, "msrp": 42900, "destination": null, "source": "wayback", "snapshot": "20211021084207"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a5_sportback", "style": "Premium 2.0 TFSI quattro", "invoice": 40327, "msrp": 42900, "destination": null, "source": "wayback", "snapshot": "20211028070519"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a5_sportback", "style": "Prestige 2.0 TFSI quattro", "invoice": 40327, "msrp": 42900, "destination": null, "source": "wayback", "snapshot": "20211028070519"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a5_sportback", "style": "Premium Plus 2.0 TFSI quattro", "invoice": 40327, "msrp": 42900, "destination": null, "source": "wayback", "snapshot": "20211028070519"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a6", "style": "Premium 45 TFSI quattro", "invoice": 0, "msrp": 54900, "destination": null, "source": "wayback", "snapshot": "20191114200057"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a6", "style": "Prestige 45 TFSI quattro", "invoice": 0, "msrp": 54900, "destination": null, "source": "wayback", "snapshot": "20191114200057"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a6", "style": "Premium Plus 45 TFSI quattro", "invoice": 0, "msrp": 54900, "destination": null, "source": "wayback", "snapshot": "20191114200057"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a6", "style": "Premium 55 TFSI quattro", "invoice": 0, "msrp": 59800, "destination": null, "source": "wayback", "snapshot": "20191114200057"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a6", "style": "Premium Plus 55 TFSI quattro", "invoice": 0, "msrp": 59800, "destination": null, "source": "wayback", "snapshot": "20191114200057"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a6", "style": "Prestige 55 TFSI quattro", "invoice": 0, "msrp": 59800, "destination": null, "source": "wayback", "snapshot": "20191114200057"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a6_allroad", "style": "3.0 TFSI Premium Plus", "invoice": 61948, "msrp": 65900, "destination": null, "source": "wayback", "snapshot": "20211023122515"}
+{"year": 2020, "make": "Audi", "slug": "2020-audi-a6_allroad", "style": "3.0 TFSI Prestige", "invoice": 61948, "msrp": 65900, "destination": null, "source": "wayback", "snapshot": "20211023122515"}
