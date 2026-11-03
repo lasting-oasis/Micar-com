@@ -6,6 +6,7 @@ import { batchStatic } from './scene/staticBatcher';
 import { damp, disposeObject, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
 import { applyCarPaint, buildCarModel, carColorHex, deriveStyle } from './scene/carModel';
+import { Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
 import { createFenceKit } from './scene/world/fences';
@@ -187,8 +188,39 @@ export function VanillaThreeScene() {
             return t;
         };
         
-        type BotState = { mesh: THREE.Group, targetPos: THREE.Vector3, status: 'walking_in' | 'waiting' | 'walking_out' | 'test_driving' };
+        // A walk-in customer: `mesh` places and turns them, `person` is their body (scene/characterModel.ts)
+        type BotState = { mesh: THREE.Group, person: Character, targetPos: THREE.Vector3, status: 'walking_in' | 'waiting' | 'walking_out' | 'test_driving' };
         const aiBots: Record<string, BotState> = {}; // Mapped by target car ID
+        const CUSTOMER_WALK_SPEED = 8; // world units per second
+        // Turn a person (they face −Z) toward the direction (dx, dz), at most 9 rad/s. Returns the turn rate.
+        const faceToward = (obj: THREE.Object3D, dx: number, dz: number, delta: number) => {
+            if (dx * dx + dz * dz < 1e-6 || delta <= 0) return 0;
+            const off = Math.atan2(-dx, -dz) - obj.rotation.y;
+            const diff = Math.atan2(Math.sin(off), Math.cos(off)); // shortest way round
+            const turn = Math.max(-9 * delta, Math.min(9 * delta, diff));
+            obj.rotation.y += turn;
+            return turn / delta;
+        };
+        // Walk a customer toward `target`, facing where they go; true once they're there.
+        const walkCustomer = (bot: BotState, target: THREE.Vector3, delta: number) => {
+            const p = bot.mesh.position;
+            const dx = target.x - p.x, dz = target.z - p.z, d = Math.hypot(dx, dz);
+            if (d < 0.3 || delta <= 0) { bot.person.update(delta, 0); return d < 0.3; }
+            const step = Math.min(d, CUSTOMER_WALK_SPEED * delta);
+            p.x += dx / d * step; p.z += dz / d * step;
+            faceToward(bot.mesh, dx, dz, delta);
+            bot.person.update(delta, step / delta);
+            return false;
+        };
+        // Where a customer stands to look at a car: beside it, on the side they come from.
+        const tmpSide = new THREE.Vector3();
+        const customerSpot = (car: THREE.Object3D, from: THREE.Vector3) => {
+            const side = tmpSide.set(1, 0, 0).applyQuaternion(car.quaternion);
+            const s = (from.x - car.position.x) * side.x + (from.z - car.position.z) * side.z >= 0 ? 1 : -1;
+            return car.position.clone().addScaledVector(side, s * 3.6).setY(0);
+        };
+        // Customers leave toward the middle of the lot they came from
+        const customerExit = (lot?: { x: number; z: number }) => new THREE.Vector3((lot?.x || 0) + Math.random() * 20 - 10, 0, (lot?.z || 0) + 45);
         // Customer test drives in progress, by car ID: a list of waypoints the car
         // drives through (out the gate, down the road, back, and into its spot).
         const aiDriveSequence: Record<string, { waypoints: THREE.Vector3[]; index: number; startRotY: number }> = {};
@@ -196,19 +228,11 @@ export function VanillaThreeScene() {
         
         const otherPlayerMeshes: Record<string, THREE.Group> = {}; // Mapped by player ID
 
+        // The player: a car dealer in shirt and tie (scene/characterModel.ts), facing −Z
+        // like the game's forward. Posed every frame by the walking code below.
         const avatar = new THREE.Group();
-        const avatarGeo = new THREE.CapsuleGeometry(0.5, 1, 4, 8);
-        const avatarMat = new THREE.MeshStandardMaterial({ color: '#3b82f6' });
-        const avatarBody = new THREE.Mesh(avatarGeo, avatarMat);
-        avatarBody.position.y = 1;
-        avatarBody.castShadow = true;
-        avatar.add(avatarBody);
-
-        const visorGeo = new THREE.BoxGeometry(0.8, 0.3, 0.6);
-        const visorMat = new THREE.MeshStandardMaterial({ color: '#0ea5e9', emissive: '#0ea5e9', emissiveIntensity: 0.5 });
-        const visor = new THREE.Mesh(visorGeo, visorMat);
-        visor.position.set(0, 1.4, 0.3);
-        avatar.add(visor);
+        const avatarPerson = new Character(dealerLook(), 'player');
+        avatar.add(avatarPerson.root);
 
         
         const initialMe = stateRef.current.gameState?.players[stateRef.current.playerId || ''];
@@ -646,30 +670,20 @@ export function VanillaThreeScene() {
                     }
                     // AI Pathing Spawn Subroutine
                     if (car.hasOffer && !aiBots[car.id]) {
-                        const botGeo = new THREE.CapsuleGeometry(0.5, 1, 4, 8);
-                        const botMat = new THREE.MeshStandardMaterial({ color: '#10b981' });
-                        const bMesh = new THREE.Mesh(botGeo, botMat);
-                        bMesh.position.set(0, 1, 0); // centred in its group, which holds the spawn point
-                        bMesh.castShadow = true;
-                        
-                        const visorGeo = new THREE.BoxGeometry(0.8, 0.3, 0.6);
-                        const visorMat = new THREE.MeshStandardMaterial({ color: '#fbbf24', emissive: '#fbbf24', emissiveIntensity: 0.5 });
-                        const visor = new THREE.Mesh(visorGeo, visorMat);
-                        visor.position.set(0, 0.4, 0.3);
-                        bMesh.add(visor);
-
+                        // A customer walks up to the car (seeded by the car, so the same car brings the same person)
+                        const person = new Character(customerLook(car.id), car.id);
                         const group = new THREE.Group();
-                        group.add(bMesh);
+                        group.add(person.root);
                         const lotX = me?.lotPosition?.x || 0;
                         const lotZ = me?.lotPosition?.z || 0;
-                        group.position.set(lotX + (Math.random() * 20 - 10), 1, lotZ + 40); // Distributed slightly relative to lot
+                        group.position.set(lotX + (Math.random() * 20 - 10), 0, lotZ + 40); // Distributed slightly relative to lot
                         scene.add(group);
 
-                        aiBots[car.id] = { mesh: group, targetPos: carMeshes[car.id].position.clone(), status: 'walking_in' };
+                        aiBots[car.id] = { mesh: group, person, targetPos: customerSpot(carMeshes[car.id], group.position), status: 'walking_in' };
                     } else if (!car.hasOffer && aiBots[car.id] && aiBots[car.id].status !== 'walking_out') {
                         // Offer accepted or declined, customer leaves!
                         aiBots[car.id].status = 'walking_out';
-                        aiBots[car.id].targetPos = new THREE.Vector3(Math.random() * 20 - 10, 1, 45);
+                        aiBots[car.id].targetPos = customerExit(me.lotPosition);
                         // If they were out on a test drive, park the car straight back in its spot
                         const seq = aiDriveSequence[car.id];
                         if (seq) {
@@ -686,7 +700,7 @@ export function VanillaThreeScene() {
                     const carExists = me.inventory.some(c => c.id === key);
                     if (!carExists && aiBots[key].status !== 'walking_out') {
                         aiBots[key].status = 'walking_out';
-                        aiBots[key].targetPos = new THREE.Vector3(Math.random() * 20 - 10, 1, 45);
+                        aiBots[key].targetPos = customerExit(me.lotPosition);
                     }
                 });
 
@@ -779,25 +793,18 @@ export function VanillaThreeScene() {
                  });
             }
              // AI Customer Pathing & Autonomous Test Drive Physics
-             const cpuSpeed = 8 * delta;
              // ~12% chance per second that a waiting customer takes the car out
              const testDriveChance = 1 - Math.pow(1 - 0.002, delta * 60);
              
              Object.entries(aiBots).forEach(([key, bot]) => {
-                  const d = bot.mesh.position.distanceTo(bot.targetPos);
                   if (bot.status === 'walking_in') {
-                      if (d > 4.0) {
-                          const dir = bot.targetPos.clone().sub(bot.mesh.position).normalize();
-                          bot.mesh.position.add(dir.multiplyScalar(cpuSpeed));
-                          bot.mesh.children[0].position.y = 1 + Math.abs(Math.sin(Date.now() * 0.01)) * 0.2; // bobbing
-                          bot.mesh.lookAt(bot.targetPos);
-                      } else {
-                          bot.status = 'waiting';
-                          bot.mesh.children[0].position.y = 1; // reset bob
-                      }
+                      // Walk up beside the car
+                      if (walkCustomer(bot, bot.targetPos, delta)) bot.status = 'waiting';
                   } else if (bot.status === 'waiting') {
-                      bot.mesh.children[0].position.y = 1 + Math.sin(Date.now() * 0.005) * 0.1; // gentle breathing
-                      bot.mesh.lookAt(bot.targetPos);
+                      // Stand by the car looking at it: breathing, shifting weight, glancing around
+                      const viewed = carMeshes[key];
+                      const turning = viewed ? faceToward(bot.mesh, viewed.position.x - bot.mesh.position.x, viewed.position.z - bot.mesh.position.z, delta) : 0;
+                      bot.person.update(delta, 0, turning);
                       
                       // Now and then a customer takes the car out for a spin on the road
                       const car = carMeshes[key];
@@ -846,14 +853,10 @@ export function VanillaThreeScene() {
                       }
                   } else if (bot.status === 'walking_out') {
                       bot.mesh.visible = true; // In case they left from a test drive
-                      if (bot.mesh.position.z < 42) {
-                          const dir = bot.targetPos.clone().sub(bot.mesh.position).normalize();
-                          bot.mesh.position.add(dir.multiplyScalar(cpuSpeed));
-                          bot.mesh.children[0].position.y = 1 + Math.abs(Math.sin(Date.now() * 0.01)) * 0.2;
-                          bot.mesh.lookAt(bot.targetPos);
-                      } else {
-                          // Destroy mesh memory on exit
-                          disposeObject(bot.mesh);
+                      if (walkCustomer(bot, bot.targetPos, delta)) {
+                          // Gone: free their colours and skeleton (the body shape and material are shared)
+                          bot.person.dispose();
+                          bot.mesh.removeFromParent();
                           delete aiBots[key];
                       }
                   }
@@ -1185,23 +1188,31 @@ export function VanillaThreeScene() {
                             || Math.hypot(x - (cP.x + fwd.x), z - (cP.z + fwd.z)) < 2.2
                             || Math.hypot(x - (cP.x - fwd.x), z - (cP.z - fwd.z)) < 2.2) return true;
                     }
-                    // Avatar box (0.6 x 2 x 0.6) — kept small so it doesn't snag on corners
+                    // Avatar box (0.6 x 3.4 x 0.6: as tall as the dealer) — kept narrow so it doesn't snag on corners
                     tmpAvatarBox.min.set(x - 0.3, avatar.position.y, z - 0.3);
-                    tmpAvatarBox.max.set(x + 0.3, avatar.position.y + 2, z + 0.3);
+                    tmpAvatarBox.max.set(x + 0.3, avatar.position.y + 3.4, z + 0.3);
                     for (let i = 0; i < staticCollisionBoxes.length; i++) if (tmpAvatarBox.intersectsBox(staticCollisionBoxes[i])) return true;
                     return false;
                 };
 
                 // Try each axis separately so the avatar slides along walls
+                const fromX = avatar.position.x, fromZ = avatar.position.z;
                 if (Math.abs(moveVec.x) > 0.001 && !blockedAt(avatar.position.x + moveVec.x, avatar.position.z)) avatar.position.x += moveVec.x;
                 if (Math.abs(moveVec.z) > 0.001 && !blockedAt(avatar.position.x, avatar.position.z + moveVec.z)) avatar.position.z += moveVec.z;
-                
+
+                // Animate the dealer by how far they really moved along their facing (so they stop
+                // stepping against a wall, and step backward when backing up)
+                tmpFwd.set(0, 0, -1).applyQuaternion(avatar.quaternion);
+                const forwardSpeed = delta > 0 ? ((avatar.position.x - fromX) * tmpFwd.x + (avatar.position.z - fromZ) * tmpFwd.z) / delta : 0;
+                avatarPerson.update(delta, forwardSpeed, (keys.a ? 3 : 0) - (keys.d ? 3 : 0));
+
                 if (keys.a) avatar.rotateY(walkRotSpeed);
                 if (keys.d) avatar.rotateY(-walkRotSpeed);
 
-                tmpCam.set(0, 4, 10).applyQuaternion(avatar.quaternion).add(avatar.position);
+                // Behind and above the 3.5-unit-tall dealer, looking at their upper body
+                tmpCam.set(0, 5.2, 11.5).applyQuaternion(avatar.quaternion).add(avatar.position);
                 camera.position.lerp(tmpCam, damp(0.15, delta));
-                tmpLook.set(avatar.position.x, avatar.position.y + 1.5, avatar.position.z);
+                tmpLook.set(avatar.position.x, avatar.position.y + 2.6, avatar.position.z);
                 camera.lookAt(tmpLook);
             }
 
@@ -1312,7 +1323,7 @@ export function VanillaThreeScene() {
             [bananaGeo, shellGeo, itemBoxGeo].forEach(g => g.dispose());
             [bananaMat, shellMat].forEach(m => m.dispose());
             qTex.dispose(); uiTex.dispose();
-            Object.values(aiBots).forEach(b => disposeObject(b.mesh));
+            Object.values(aiBots).forEach(b => { b.mesh.removeFromParent(); b.person.dispose(); });
             Object.values(otherPlayerMeshes).forEach(disposeObject);
 
             // Dispose procedural city materials & textures
@@ -1347,8 +1358,8 @@ export function VanillaThreeScene() {
                 }
             });
             
-            avatarGeo.dispose();
-            avatarMat.dispose();
+            avatarPerson.dispose();
+            disposeCharacterAssets(); // shared material and body shapes, after every person is gone
             atmosphere.dispose();
 
             // Last: renderer.dispose() forgets which GPU textures belong to which
