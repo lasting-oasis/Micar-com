@@ -573,6 +573,7 @@ export function VanillaThreeScene() {
             nightFactor = atmosphere.nightFactor; // street lamps and lit windows fade in as the sun goes down
             const glowIntensity = 0.15 + 1.25 * nightFactor;
             emissiveFacadeMaterials.forEach(m => m.emissiveIntensity = glowIntensity);
+            world.setNight(nightFactor);
         };
 
         // Buildings you can walk up to and use. Defined once (the old code rebuilt
