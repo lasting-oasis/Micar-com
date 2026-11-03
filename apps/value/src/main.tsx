@@ -5,6 +5,7 @@ import App from './App.tsx'
 import CarPage from './car/CarPage.tsx'
 import StickerBuilder from './car/StickerBuilder.tsx'
 import Landing from './Landing.tsx'
+import { useLang } from './i18n.tsx'
 
 // Hash routes keep the site a single static page on GitHub Pages:
 //   (none)              home page, unless the URL carries calculator fields (links shared before #/value existed)
@@ -16,6 +17,7 @@ function legacyCalculatorLink(): boolean {
 }
 
 function Router() {
+  useLang() // the whole page re-renders when the language changes
   const [hash, setHash] = useState(() => window.location.hash)
   useEffect(() => {
     const onChange = () => { setHash(window.location.hash); window.scrollTo(0, 0) }

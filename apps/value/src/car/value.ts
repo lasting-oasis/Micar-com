@@ -1,5 +1,6 @@
 // Everything the sticker and the car page show about value, computed once from a record.
 import { MODELS, findModel } from '../engine/models';
+import { t } from '../i18n';
 import { forecast, valuate, type Inputs, type Valuation } from '../engine/valuation';
 import { recordInputs, recordMsrp, type CarRecord } from './record';
 
@@ -35,23 +36,35 @@ export function snapshot(r: CarRecord, now = new Date(), milesPerYear = 12000): 
 
 export const usd = (n: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 export const miles = (n: number) => `${new Intl.NumberFormat('en-US').format(n)} mi`;
-export const monthYear = (d: Date) => d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+export { monthYear } from '../i18n';
+
+/** The deal rating's name, in the page's language. */
+export function dealLabel(tier: Snapshot['verdict']['tier']): string {
+  return tier === 'great' ? t('Great deal') : tier === 'good' ? t('Good deal') : tier === 'fair' ? t('Fair price') : tier === 'above' ? t('Above market') : tier === 'high' ? t('High price') : '';
+}
+
+/** "$1,082 under market value" / "at market value" / "$500 over market value", in the page's language. */
+export function dealGap(v: Snapshot['verdict']): string {
+  const gap = usd(Math.abs(v.diff));
+  return v.kind === 'below' ? t('{gap} under market value', { gap }) : v.kind === 'within' ? t('at market value') : t('{gap} over market value', { gap });
+}
 
 /** How this model holds value next to others of its body style: the share of a new one's price
- *  a 5-year-old keeps, against the median for curated models with the same body. */
+ *  a 5-year-old keeps, against the median for models with the same body. */
 export type Retention = {
   /** The 5-year share for this model, or for the make's cars of this body when the model has no data of its own. */
   own: number;
-  /** What `own` describes: the model's name, or e.g. "Honda SUVs". */
-  ownLabel: string;
+  /** Median 5-year share for this body style. */
+  typical: number;
+  /** Canonical body style ('SUV / Crossover'...), for the words around the numbers. */
+  body: string;
+  make: string;
+  /** "2019 Civic" when the figure is the model's own. */
+  modelLabel: string;
   /** True when `own` is the make-and-body average rather than this model's own figure. */
   makeLevel: boolean;
   /** False when the car isn't in our lists at all; then only `typical` means anything. */
   rated: boolean;
-  /** Median 5-year share for this body style. */
-  typical: number;
-  /** 'sedan', 'SUV', 'pickup'... for a sentence. */
-  bodyWord: string;
   /** Share of models with this body style that keep less value than this one (0-1). */
   percentile: number;
   /** 1-5, from the percentile. */
@@ -60,7 +73,6 @@ export type Retention = {
   calibrated: boolean;
 };
 
-const BODY_WORDS: Record<string, string> = { 'Sedan': 'sedan', 'SUV / Crossover': 'SUV', 'Pickup Truck': 'pickup', 'Coupe / Sports': 'coupe', 'Hatchback / Wagon': 'hatchback or wagon', 'Minivan': 'minivan' };
 const peersByBody = new Map<string, number[]>();
 
 /** 5-year shares of the models we have figures for, by body style (ascending); bodies with few models borrow the whole list. */
@@ -80,14 +92,15 @@ export function retention(r: CarRecord): Retention {
   const body = info?.body ?? r.body;
   const xs = peers(body);
   const typical = xs[Math.floor(xs.length / 2)];
-  const bodyWord = BODY_WORDS[body] ?? 'car';
   const makeLevel = !info || info.source === 'epa';
   // A model the EPA lists but we have no figure for carries its make's average for the body style.
   const own = info?.residual5 ?? typical;
-  const ownLabel = makeLevel ? `${r.make} ${bodyWord}s` : `${r.year} ${info.model}`;
   const below = xs.filter((x) => x < own).length, ties = xs.filter((x) => x === own).length;
   const percentile = xs.length ? (below + ties / 2) / xs.length : 0.5;
   const stars = percentile >= 0.9 ? 5 : percentile >= 0.7 ? 4 : percentile >= 0.45 ? 3 : percentile >= 0.2 ? 2 : 1;
   const d = own - typical;
-  return { own, ownLabel, makeLevel, rated: !!info, typical, bodyWord, percentile, stars, kind: d >= 0.04 ? 'better' : d <= -0.04 ? 'worse' : 'average', calibrated: !!info?.calibrated };
+  return {
+    own, typical, body, make: r.make, modelLabel: info ? `${r.year} ${info.model}` : '', makeLevel, rated: !!info, percentile, stars,
+    kind: d >= 0.04 ? 'better' : d <= -0.04 ? 'worse' : 'average', calibrated: !!info?.calibrated,
+  };
 }

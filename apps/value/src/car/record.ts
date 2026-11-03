@@ -9,6 +9,7 @@ import { prefillMsrp } from '../engine/prefill';
 import { stickerFor } from '../engine/stickers';
 import { defaults, parse, type FormState } from '../urlState';
 import type { Inputs } from '../engine/valuation';
+import { t, type Lang } from '../i18n';
 
 export const FEATURES: { id: number; label: string; group: 'Safety & driver aids' | 'Comfort & convenience' | 'Tech & audio' | 'Capability' | 'Condition & history' }[] = [
   { id: 0, label: 'Backup camera', group: 'Safety & driver aids' },
@@ -75,6 +76,8 @@ export type CarRecord = {
   zip: string;
   showValue: boolean;
   showForecast: boolean;
+  /** Language the sheet was printed in; the QR opens the car page in it unless the viewer picked one. */
+  lang: Lang;
 };
 
 export const DEFAULT_WARRANTY = 'Sold as described on the Buyers Guide displayed with this vehicle.';
@@ -86,11 +89,11 @@ export function emptyRecord(now = new Date()): CarRecord {
     exterior: '', interior: '', vin: '', stock: '', condition: 'Good', title: 'Clean', accident: 'None',
     features: [0, 8, 10, 22], notes: '', warranty: DEFAULT_WARRANTY,
     dealer: { name: '', phone: '', address: '', web: '' }, region: 'Southeast', zip: '',
-    showValue: true, showForecast: true,
+    showValue: true, showForecast: true, lang: 'en',
   };
 }
 
-export const displayModel = (r: CarRecord) => r.model || r.modelText || r.body;
+export const displayModel = (r: CarRecord) => r.model || r.modelText || t(r.body);
 export const carName = (r: CarRecord) => `${r.year} ${r.make} ${displayModel(r)}${r.trim ? ` ${r.trim}` : ''}`;
 
 // ---- URL encoding -----------------------------------------------------------------------
@@ -144,7 +147,7 @@ function fromBase43(s: string): Uint8Array | null {
   return Uint8Array.from(out);
 }
 
-const F_HIDE_VALUE = 1, F_HIDE_FORECAST = 2, F_MSRP = 4, F_MODEL_TEXT = 8, F_WARRANTY = 16, F_ZIP = 32;
+const F_HIDE_VALUE = 1, F_HIDE_FORECAST = 2, F_MSRP = 4, F_MODEL_TEXT = 8, F_WARRANTY = 16, F_ZIP = 32, F_SPANISH = 64;
 const idx = (names: readonly string[], v: string) => Math.max(0, names.indexOf(v));
 const BODY_NAMES = BODY_STYLES.map((b) => b.name), COND_NAMES = CONDITIONS.map((c) => c.name), TITLE_NAMES = TITLES.map((t) => t.name), ACC_NAMES = ACCIDENTS.map((a) => a.name);
 
@@ -183,7 +186,7 @@ export function encodeRecord(r: CarRecord): string {
   const warranty = r.warranty !== DEFAULT_WARRANTY ? r.warranty : '';
   const zip = /^\d{5}$/.test(r.zip) ? r.zip : '';
   w.u8(2);
-  w.u8((r.showValue ? 0 : F_HIDE_VALUE) | (r.showForecast ? 0 : F_HIDE_FORECAST) | (msrp ? F_MSRP : 0) | (modelText ? F_MODEL_TEXT : 0) | (warranty ? F_WARRANTY : 0) | (zip ? F_ZIP : 0));
+  w.u8((r.showValue ? 0 : F_HIDE_VALUE) | (r.showForecast ? 0 : F_HIDE_FORECAST) | (msrp ? F_MSRP : 0) | (modelText ? F_MODEL_TEXT : 0) | (warranty ? F_WARRANTY : 0) | (zip ? F_ZIP : 0) | (r.lang === 'es' ? F_SPANISH : 0));
   w.u8(Math.max(0, Math.min(255, r.year - 1990)));
   w.u8(idx(BODY_NAMES, r.body) | (idx(COND_NAMES, r.condition) << 4));
   w.u8(idx(TITLE_NAMES, r.title) | (idx(ACC_NAMES, r.accident) << 2) | (idx(REGIONS, r.region) << 4));
@@ -233,6 +236,7 @@ function decodeV2(bytes: Uint8Array): CarRecord | null {
       region: (REGIONS[tar >> 4] as Region | undefined) ?? 'Southeast',
       zip: /^\d{5}$/.test(zip) ? zip : '',
       showValue: !(flags & F_HIDE_VALUE), showForecast: !(flags & F_HIDE_FORECAST),
+      lang: flags & F_SPANISH ? 'es' : 'en',
     };
   } catch { return null; }
 }
@@ -258,7 +262,7 @@ function decodeV1(code: string): CarRecord | null {
     dealer: { name: clip(d.n, 60), phone: clip(d.ph, 30), address: clip(d.a, 120), web: clip(d.u, 80) },
     region: (REGIONS as readonly string[]).includes(clip(w.r, 20)) ? (clip(w.r, 20) as Region) : 'Southeast',
     zip: /^\d{5}$/.test(clip(w.z, 5)) ? clip(w.z, 5) : '',
-    showValue: !w.hv, showForecast: !w.hf,
+    showValue: !w.hv, showForecast: !w.hf, lang: 'en',
   };
 }
 

@@ -3,17 +3,20 @@ import { Area, CartesianGrid, ComposedChart, Line, ResponsiveContainer, Tooltip,
 import { Check, Link2, RotateCcw, Search } from 'lucide-react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from './engine/data';
 import { describe as describeListings, parseListingsPage, type ParsedListing } from './engine/listings';
-import { MARKET, periodLabel, snapshotAgeDays } from './engine/market';
+import { MARKET, snapshotAgeDays } from './engine/market';
 import { findModel, modelsForMake, yearRanges } from './engine/models';
 import { prefillMsrp } from './engine/prefill';
 import { stickerFor, trimChoices } from './engine/stickers';
 import { expectedMilesFor, forecast, mileageAdjustedPrice, valuate, type Inputs, type Valuation } from './engine/valuation';
 import { Nav } from './Nav';
+import { monthYear, period, t, te, tx, useLang } from './i18n';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse, readUrl, shareUrl, urlHasMsrp, writeUrl, type Errors, type FormState } from './urlState';
 
 const COMPS_URL: string | undefined = import.meta.env.VITE_COMPS_URL || undefined;
 
 type LiveResult = { source: string; fetchedAt: string; count: number; listings: ParsedListing[]; query: { zip: string; radius: number } };
+/** Where the nearby-listings count came from: a live lookup, or a pasted page (with the site's name when known). */
+type CountFrom = { kind: 'live' | 'page'; name?: string };
 
 const usd = (n: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 const usdK = (n: number) => `$${(n / 1000).toFixed(n >= 100_000 ? 0 : 1)}k`;
@@ -61,11 +64,11 @@ export default function App() {
     const expected = expectedMilesFor(Number(form.year) || now.getFullYear(), now);
     const comps = list.map((l) => Math.round(mileageAdjustedPrice(l.price, l.miles, subjectMiles, expected)));
     // A listing count is only trustworthy from a live lookup, a stated page total, or a reasonably full page.
-    let count: number | null = null, countSource = '';
-    if (live) { count = live.count; countSource = `${live.source} live lookup`; }
-    else if (usePage && pageResult.resultCount) { count = pageResult.resultCount; countSource = pageResult.source ?? 'pasted page'; }
-    else if (usePage && pageResult.listings.length >= 5) { count = pageResult.listings.length; countSource = pageResult.source ?? 'pasted page'; }
-    return { comps, count, countSource };
+    let count: number | null = null, countFrom: CountFrom | null = null;
+    if (live) { count = live.count; countFrom = { kind: 'live', name: live.source }; }
+    else if (usePage && pageResult.resultCount) { count = pageResult.resultCount; countFrom = { kind: 'page', name: pageResult.source ?? undefined }; }
+    else if (usePage && pageResult.listings.length >= 5) { count = pageResult.listings.length; countFrom = { kind: 'page', name: pageResult.source ?? undefined }; }
+    return { comps, count, countFrom };
   }, [usePage, pageResult, live, form.mileage, form.year, now]);
   const inputs = useMemo<Inputs | null>(() => typed ? {
     ...typed,
@@ -80,7 +83,7 @@ export default function App() {
 
   const pullLive = async () => {
     if (!COMPS_URL || !typed) return;
-    if (!/^\d{5}$/.test(form.zip.trim())) { setLiveState({ status: 'error', message: 'Enter a 5-digit ZIP first.' }); return; }
+    if (!/^\d{5}$/.test(form.zip.trim())) { setLiveState({ status: 'error', message: 'Enter a 5-digit ZIP first.' }); return; } // worded at render
     setLiveState({ status: 'loading' });
     try {
       const q = new URLSearchParams({ make: typed.make, model: typed.model || typed.body, year: String(typed.year), zip: form.zip.trim(), radius: form.radius });
@@ -146,8 +149,8 @@ export default function App() {
     setCopied(true); setTimeout(() => setCopied(false), 1800);
   };
 
-  const vehicleName = [active?.year, active?.make, form.model, form.trim.trim()].filter(Boolean).join(' ');
-  const asOfLabel = now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  const vehicleName = [active?.year, active?.make === 'Other' ? t('Other') : active?.make, form.model, form.trim.trim()].filter(Boolean).join(' ');
+  const asOfLabel = monthYear(now);
 
   return (
     <div className="min-h-screen py-6 sm:px-4 sm:py-10">
@@ -155,33 +158,33 @@ export default function App() {
         <Nav active="value" />
         <header className="mb-6 flex flex-wrap items-end justify-between gap-4" style={{ color: 'var(--glass-ink)' }}>
           <div>
-            <h1 className="font-cond text-3xl font-semibold leading-none tracking-tight sm:text-4xl">What's this car worth?</h1>
-            <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>Today's value and where it's heading, for owners, buyers and sellers.</p>
+            <h1 className="font-cond text-3xl font-semibold leading-none tracking-tight sm:text-4xl">{t("What's this car worth?")}</h1>
+            <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>{t("Today's value and where it's heading, for owners, buyers and sellers.")}</p>
           </div>
           <div className="flex gap-2">
-            <GlassButton onClick={() => { setForm(defaults()); setMsrpAuto(true); setLive(null); setLiveState({ status: 'idle' }); }} icon={<RotateCcw size={15} />}>Start over</GlassButton>
-            {canShare && <GlassButton onClick={copyLink} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? 'Link copied' : 'Copy link to this estimate'}</GlassButton>}
+            <GlassButton onClick={() => { setForm(defaults()); setMsrpAuto(true); setLive(null); setLiveState({ status: 'idle' }); }} icon={<RotateCcw size={15} />}>{t('Start over')}</GlassButton>
+            {canShare && <GlassButton onClick={copyLink} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? t('Link copied') : t('Copy link to this estimate')}</GlassButton>}
           </div>
         </header>
 
         <main className="overflow-hidden rounded-md shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)]" style={{ background: 'var(--sticker)' }}>
           <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-5 py-3 sm:px-7" style={{ background: 'var(--ink)', color: 'var(--sticker)' }}>
-            <p className="font-cond text-xl font-semibold sm:text-2xl">{vehicleName || 'Your vehicle'}</p>
-            <p className="text-sm opacity-80">{form.body} · Estimate for {asOfLabel}</p>
+            <p className="font-cond text-xl font-semibold sm:text-2xl">{vehicleName || t('Your vehicle')}</p>
+            <p className="text-sm opacity-80">{t(form.body)} · {t('Estimate for {date}', { date: asOfLabel })}</p>
           </div>
 
           <div className="grid lg:grid-cols-12">
             <section aria-labelledby="vehicle-h" className="border-b p-5 sm:p-7 lg:col-span-5 lg:border-b-0 lg:border-r" style={{ borderColor: 'var(--rule)' }}>
-              <h2 id="vehicle-h" className="font-cond text-xl font-semibold">Vehicle details</h2>
-              <p className="mb-5 text-sm" style={{ color: 'var(--ink-3)' }}>Prices update as you type.</p>
+              <h2 id="vehicle-h" className="font-cond text-xl font-semibold">{t('Vehicle details')}</h2>
+              <p className="mb-5 text-sm" style={{ color: 'var(--ink-3)' }}>{t('Prices update as you type.')}</p>
               <VehicleForm form={form} set={set} errors={errors} msrpAuto={msrpAuto} />
-              <h2 id="market-h" className="mt-8 font-cond text-xl font-semibold">Local market</h2>
-              <p className="mb-5 text-sm" style={{ color: 'var(--ink-3)' }}>Optional. What you see on listing sites near you beats any formula.</p>
+              <h2 id="market-h" className="mt-8 font-cond text-xl font-semibold">{t('Local market')}</h2>
+              <p className="mb-5 text-sm" style={{ color: 'var(--ink-3)' }}>{t('Optional. What you see on listing sites near you beats any formula.')}</p>
               <MarketForm form={form} set={set} errors={errors} pageResult={pageResult} usePage={usePage} setUsePage={setUsePage} live={live} liveState={liveState} pullLive={pullLive} clearLive={() => setLive(null)} evidence={evidence} />
             </section>
 
             <section aria-labelledby="value-h" aria-live="polite" className={`p-5 sm:p-7 lg:col-span-7 transition-opacity ${stale ? 'opacity-50' : ''}`}>
-              <h2 id="value-h" className="sr-only">Estimated value</h2>
+              <h2 id="value-h" className="sr-only">{t('Estimated value')}</h2>
               {val && <Prices val={val} />}
               {val && <Ledger val={val} />}
             </section>
@@ -200,7 +203,7 @@ export default function App() {
           )}
 
           <footer className="border-t px-5 py-4 text-xs leading-relaxed sm:px-7" style={{ borderColor: 'var(--rule)', background: 'var(--sticker-2)', color: 'var(--ink-3)' }}>
-            Estimates start from the typical five-year resale value of each model, adjusted for mileage, condition, history, region, the market cycle and local supply. The model data is a rule-of-thumb snapshot, not a live feed of listings or auction sales, so the asking prices you enter under Local market carry real weight. Use the result as a starting point before you buy, sell or trade.
+            {t('Estimates start from the typical five-year resale value of each model, adjusted for mileage, condition, history, region, the market cycle and local supply. The model data is a rule-of-thumb snapshot, not a live feed of listings or auction sales, so the asking prices you enter under Local market carry real weight. Use the result as a starting point before you buy, sell or trade.')}
           </footer>
         </main>
       </div>
@@ -234,13 +237,13 @@ function Segmented({ name, legend, value, options, onChange }: { name: string; l
       <legend className="mb-1 text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>{legend}</legend>
       <div className="seg" style={{ gridTemplateColumns: `repeat(${options.length}, 1fr)` }}>
         {options.map((o) => (
-          <label key={o.name} title={o.desc}>
+          <label key={o.name} title={t(o.desc)}>
             <input type="radio" name={name} value={o.name} checked={value === o.name} onChange={() => onChange(o.name)} />
-            {o.name}
+            {t(o.name)}
           </label>
         ))}
       </div>
-      <p className="mt-1 text-xs" style={{ color: 'var(--ink-3)' }}>{current?.desc}</p>
+      <p className="mt-1 text-xs" style={{ color: 'var(--ink-3)' }}>{current ? t(current.desc) : ''}</p>
     </fieldset>
   );
 }
@@ -251,66 +254,69 @@ function VehicleForm({ form, set, errors, msrpAuto }: { form: FormState; set: (k
   const models = modelsForMake(form.make);
   const sticker = stickerFor(form.make, form.model, Number(form.year));
   const prefill = prefillMsrp(form.make, form.model, Number(form.year) || new Date().getFullYear(), form.trim);
+  // Spanish shows the sticker sentence without the English research notes that follow it.
+  const lang = useLang();
+  const msrpHint = msrpAuto && prefill ? (lang === 'es' ? te.prefill(prefill.label) : `${prefill.label}${prefill.note ? ` ${prefill.note}.` : ''}`) : undefined;
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-2 gap-3">
-        <Field id="make" label="Make">
+        <Field id="make" label={t('Make')}>
           <select id="make" className="field" value={form.make} onChange={set('make')}>
             {(Object.keys(SEGMENT_LABELS) as (keyof typeof SEGMENT_LABELS)[]).map((seg) => (
-              <optgroup key={seg} label={SEGMENT_LABELS[seg]}>
-                {MAKES.filter((m) => m.segment === seg).map((m) => <option key={m.name}>{m.name}</option>)}
+              <optgroup key={seg} label={t(SEGMENT_LABELS[seg])}>
+                {MAKES.filter((m) => m.segment === seg).map((m) => <option key={m.name} value={m.name}>{m.name === 'Other' ? t('Other') : m.name}</option>)}
               </optgroup>
             ))}
           </select>
         </Field>
-        <Field id="model" label="Model">
+        <Field id="model" label={t('Model')}>
           <select id="model" className="field" value={models.some((m) => m.model === form.model) ? form.model : ''} onChange={set('model')}>
             {models.filter((m) => !m.source).map((m) => <option key={m.model} value={m.model}>{m.model}</option>)}
             {models.some((m) => m.source) && (
-              <optgroup label={models.some((m) => !m.source) ? 'More models (estimated sticker)' : 'Models (estimated sticker)'}>
+              <optgroup label={models.some((m) => !m.source) ? t('More models (estimated sticker)') : t('Models (estimated sticker)')}>
                 {models.filter((m) => m.source).sort((a, b) => a.model.localeCompare(b.model)).map((m) => <option key={m.model} value={m.model}>{m.model}</option>)}
               </optgroup>
             )}
-            <option value="">{models.length ? 'Not listed' : 'No model data for this make'}</option>
+            <option value="">{models.length ? t('Not listed') : t('No model data for this make')}</option>
           </select>
         </Field>
       </div>
       <div className="grid grid-cols-2 gap-3">
-        <Field id="trim" label="Trim" hint={sticker ? undefined : 'Optional'}>
+        <Field id="trim" label={t('Trim')} hint={sticker ? undefined : t('Optional')}>
           {sticker ? (
             <select id="trim" className="field" value={sticker.year.trims.some((t) => t.trim === form.trim) ? form.trim : sticker.year.trims[0].trim} onChange={set('trim')}>
               {trimChoices(sticker.year).map((t) => <option key={t.trim} value={t.trim}>{t.trim} · ${t.msrp.toLocaleString()}</option>)}
             </select>
           ) : (
-            <input id="trim" className="field" placeholder="e.g. XLE" value={form.trim} onChange={set('trim')} maxLength={40} autoComplete="off" />
+            <input id="trim" className="field" placeholder={t('e.g. XLE')} value={form.trim} onChange={set('trim')} maxLength={40} autoComplete="off" />
           )}
         </Field>
-        <Field id="body" label="Body style">
+        <Field id="body" label={t('Body style')}>
           <select id="body" className="field" value={form.body} onChange={set('body')}>
-            {BODY_STYLES.map((b) => <option key={b.name}>{b.name}</option>)}
+            {BODY_STYLES.map((b) => <option key={b.name} value={b.name}>{t(b.name)}</option>)}
           </select>
         </Field>
       </div>
-      <Field id="msrp" label="Original sticker price (MSRP)" error={errors.msrp} hint={msrpAuto && prefill ? `${prefill.label}${prefill.note ? ` ${prefill.note}.` : ''}` : undefined}>
+      <Field id="msrp" label={t('Original sticker price (MSRP)')} error={errors.msrp && te.error(errors.msrp)} hint={msrpHint}>
         <div className="relative">
           <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm" style={{ color: 'var(--ink-3)' }}>$</span>
           <input id="msrp" className="field num" style={{ paddingLeft: '1.5rem' }} inputMode="numeric" value={form.msrp} onChange={set('msrp')} {...err('msrp')} />
         </div>
       </Field>
       <div className="grid grid-cols-2 gap-3">
-        <Field id="year" label="Model year" error={errors.year} hint={yearHint(form.make, form.model, Number(form.year))}>
+        <Field id="year" label={t('Model year')} error={errors.year && te.error(errors.year)} hint={yearHint(form.make, form.model, Number(form.year))}>
           <input id="year" className="field num" inputMode="numeric" value={form.year} onChange={set('year')} {...err('year')} />
         </Field>
-        <Field id="mileage" label="Odometer (miles)" error={errors.mileage}>
+        <Field id="mileage" label={t('Odometer (miles)')} error={errors.mileage && te.error(errors.mileage)}>
           <input id="mileage" className="field num" inputMode="numeric" value={form.mileage} onChange={set('mileage')} {...err('mileage')} />
         </Field>
       </div>
-      <Segmented name="condition" legend="Condition" value={form.condition} options={CONDITIONS} onChange={radio('condition')} />
-      <Segmented name="title" legend="Title" value={form.title} options={TITLES} onChange={radio('title')} />
-      <Segmented name="accident" legend="Accident history" value={form.accident} options={ACCIDENTS} onChange={radio('accident')} />
-      <Field id="region" label="Where it will be sold">
+      <Segmented name="condition" legend={t('Condition')} value={form.condition} options={CONDITIONS} onChange={radio('condition')} />
+      <Segmented name="title" legend={t('Title')} value={form.title} options={TITLES} onChange={radio('title')} />
+      <Segmented name="accident" legend={t('Accident history')} value={form.accident} options={ACCIDENTS} onChange={radio('accident')} />
+      <Field id="region" label={t('Where it will be sold')}>
         <select id="region" className="field" value={form.region} onChange={set('region')}>
-          {REGIONS.map((r) => <option key={r}>{r}</option>)}
+          {REGIONS.map((r) => <option key={r} value={r}>{t(r)}</option>)}
         </select>
       </Field>
     </div>
@@ -328,71 +334,77 @@ type MarketFormProps = {
   liveState: { status: 'idle' | 'loading' | 'error'; message?: string };
   pullLive: () => void;
   clearLive: () => void;
-  evidence: { comps: number[]; count: number | null; countSource: string };
+  evidence: { comps: number[]; count: number | null; countFrom: CountFrom | null };
 };
 
 function MarketForm({ form, set, errors, pageResult, usePage, setUsePage, live, liveState, pullLive, clearLive, evidence }: MarketFormProps) {
   const radio = (k: keyof FormState) => (v: string) => set(k)({ target: { value: v } });
   const pasted = form.page.trim().length > 0;
+  // The 'Auto' choice describes this week's national reading, written by the engine.
+  const marketOptions = MARKET_OPTIONS.map((o) => (o.value === 'auto' ? { ...o, desc: te.market(o.desc) } : o));
+  const n = evidence.count?.toLocaleString('en-US') ?? '';
+  const countHint = evidence.count === null || form.listings.trim() !== '' || !evidence.countFrom ? t('Count the same model, within a few years, on a listing site within about 50 miles. Around 10 is typical.')
+    : evidence.countFrom.kind === 'live' ? t('Using {n} from the {source} live lookup. Type a number to override.', { n, source: evidence.countFrom.name ?? '' })
+      : evidence.countFrom.name ? t('Using {n} from the listings page on {source}. Type a number to override.', { n, source: evidence.countFrom.name }) : t('Using {n} from the pasted page. Type a number to override.', { n });
   return (
     <div className="space-y-4">
-      <Segmented name="market" legend="Used-car market right now" value={form.market} options={MARKET_OPTIONS} onChange={radio('market')} />
+      <Segmented name="market" legend={t('Used-car market right now')} value={form.market} options={marketOptions} onChange={radio('market')} />
       {form.market === 'Auto' && <MarketStrip />}
 
-      <Field id="page" label="Paste a listings page" hint={pasted ? undefined : 'Search for your model near you on Facebook Marketplace, OfferUp, Craigslist, CarGurus, Autotrader or Cars.com, select the whole results page (Ctrl+A / Cmd+A), copy, and paste it here. Prices, years and mileage are read from the text; nothing is fetched from those sites.'}>
-        <textarea id="page" className="field" rows={pasted ? 2 : 3} value={form.page} onChange={set('page')} placeholder="Paste the whole search-results page here" spellCheck={false} />
+      <Field id="page" label={t('Paste a listings page')} hint={pasted ? undefined : t('Search for your model near you on Facebook Marketplace, OfferUp, Craigslist, CarGurus, Autotrader or Cars.com, select the whole results page (Ctrl+A / Cmd+A), copy, and paste it here. Prices, years and mileage are read from the text; nothing is fetched from those sites.')}>
+        <textarea id="page" className="field" rows={pasted ? 2 : 3} value={form.page} onChange={set('page')} placeholder={t('Paste the whole search-results page here')} spellCheck={false} />
       </Field>
       {pasted && (
         <div className="-mt-2 rounded px-3 py-2 text-xs" style={{ background: 'var(--sticker-2)', color: 'var(--ink-2)' }}>
-          <p>{describeListings(pageResult, form.model || undefined)}</p>
+          <p>{te.listings(describeListings(pageResult, form.model || undefined))}</p>
           {pageResult.listings.length > 0 && (
             <div className="mt-1.5 flex flex-wrap items-center gap-3">
               <label className="flex items-center gap-1.5">
                 <input type="checkbox" checked={usePage} onChange={(e) => setUsePage(e.target.checked)} />
-                Use these as comps{pageResult.listings.some((l) => l.miles) ? ', adjusted to your mileage' : ''}
+                {pageResult.listings.some((l) => l.miles) ? t('Use these as comps, adjusted to your mileage') : t('Use these as comps')}
               </label>
-              <button type="button" className="underline" onClick={() => set('page')({ target: { value: '' } })}>Clear</button>
+              <button type="button" className="underline" onClick={() => set('page')({ target: { value: '' } })}>{t('Clear')}</button>
             </div>
           )}
         </div>
       )}
 
       <div>
-        <p className="mb-1 text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>Pull live asking prices near a ZIP</p>
+        <p className="mb-1 text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>{t('Pull live asking prices near a ZIP')}</p>
         {COMPS_URL ? (
           <>
             <div className="flex flex-wrap items-stretch gap-2">
-              <input id="zip" aria-label="ZIP code" className="field num w-28" inputMode="numeric" placeholder="ZIP" value={form.zip} onChange={set('zip')} maxLength={5} aria-invalid={errors.zip ? true : undefined} />
-              <select id="radius" aria-label="Search radius" className="field w-32" value={form.radius} onChange={set('radius')}>
-                <option value="25">25 miles</option>
-                <option value="50">50 miles</option>
-                <option value="100">100 miles</option>
+              <input id="zip" aria-label={t('ZIP code')} className="field num w-28" inputMode="numeric" placeholder={t('ZIP')} value={form.zip} onChange={set('zip')} maxLength={5} aria-invalid={errors.zip ? true : undefined} />
+              <select id="radius" aria-label={t('Search radius')} className="field w-32" value={form.radius} onChange={set('radius')}>
+                <option value="25">{t('{n} miles', { n: 25 })}</option>
+                <option value="50">{t('{n} miles', { n: 50 })}</option>
+                <option value="100">{t('{n} miles', { n: 100 })}</option>
               </select>
               <button type="button" onClick={pullLive} disabled={liveState.status === 'loading'} className="inline-flex items-center gap-1.5 rounded px-3 py-2 text-sm font-semibold disabled:opacity-60" style={{ background: 'var(--ink)', color: 'var(--sticker)' }}>
-                <Search size={15} />{liveState.status === 'loading' ? 'Looking…' : 'Pull live comps'}
+                <Search size={15} />{liveState.status === 'loading' ? t('Looking…') : t('Pull live comps')}
               </button>
             </div>
-            {errors.zip && <p className="mt-1 text-xs" style={{ color: 'var(--loss)' }}>{errors.zip}</p>}
-            {liveState.status === 'error' && <p className="mt-1 text-xs" style={{ color: 'var(--loss)' }}>{liveState.message}</p>}
+            {errors.zip && <p className="mt-1 text-xs" style={{ color: 'var(--loss)' }}>{te.error(errors.zip)}</p>}
+            {liveState.status === 'error' && <p className="mt-1 text-xs" style={{ color: 'var(--loss)' }}>{t(liveState.message ?? 'Lookup failed.')}</p>}
             {live && (
               <div className="mt-2 rounded px-3 py-2 text-xs" style={{ background: 'var(--sticker-2)', color: 'var(--ink-2)' }}>
-                <p>{live.count.toLocaleString()} similar cars listed within {live.query.radius} miles of {live.query.zip} · {live.listings.length} priced · {live.source}, just now</p>
-                <button type="button" className="mt-1 underline" onClick={clearLive}>Clear</button>
+                <p>{t('{count} similar cars listed within {radius} miles of {zip} · {priced} priced · {source}, just now', { count: live.count.toLocaleString('en-US'), radius: live.query.radius, zip: live.query.zip, priced: live.listings.length, source: live.source })}</p>
+                <button type="button" className="mt-1 underline" onClick={clearLive}>{t('Clear')}</button>
               </div>
             )}
-            <p className="mt-1 text-xs" style={{ color: 'var(--ink-3)' }}>Dealer inventory only; private sales don't show up here. Each pull uses one of a small monthly budget.</p>
+            <p className="mt-1 text-xs" style={{ color: 'var(--ink-3)' }}>{t("Dealer inventory only; private sales don't show up here. Each pull uses one of a small monthly budget.")}</p>
           </>
         ) : (
-          <p className="text-xs" style={{ color: 'var(--ink-3)' }}>Not connected yet. It takes two free accounts and about ten minutes; the README has the steps. Until then, pasting a listings page does the same job.</p>
+          <p className="text-xs" style={{ color: 'var(--ink-3)' }}>{t('Not connected yet. It takes two free accounts and about ten minutes; the README has the steps. Until then, pasting a listings page does the same job.')}</p>
         )}
       </div>
 
-      <Field id="listings" label="Similar cars for sale near you" error={errors.listings} hint={evidence.count !== null && form.listings.trim() === '' ? `Using ${evidence.count.toLocaleString()} from the ${evidence.countSource}. Type a number to override.` : 'Count the same model, within a few years, on a listing site within about 50 miles. Around 10 is typical.'}>
-        <input id="listings" className="field num" inputMode="numeric" placeholder={evidence.count !== null ? String(evidence.count) : 'e.g. 12'} value={form.listings} onChange={set('listings')} aria-invalid={errors.listings ? true : undefined} aria-describedby={errors.listings ? 'listings-err' : undefined} />
+      <Field id="listings" label={t('Similar cars for sale near you')} error={errors.listings && te.error(errors.listings)} hint={countHint}>
+        <input id="listings" className="field num" inputMode="numeric" placeholder={evidence.count !== null ? String(evidence.count) : t('e.g. 12')} value={form.listings} onChange={set('listings')} aria-invalid={errors.listings ? true : undefined} aria-describedby={errors.listings ? 'listings-err' : undefined} />
       </Field>
-      <Segmented name="urgency" legend="How fast it needs to sell" value={form.urgency} options={URGENCY_OPTIONS} onChange={radio('urgency')} />
-      <Field id="comps" label="Other asking prices you've seen" hint={evidence.comps.length ? `${evidence.comps.length} price${evidence.comps.length > 1 ? 's' : ''} already come from the page or lookup above; add any others here.` : 'Up to 8 prices for similar cars nearby, separated by commas. The estimate leans on them more the more you add.'}>
-        <input id="comps" className="field num" placeholder="e.g. 21500, 22900, 20995" value={form.comps} onChange={set('comps')} maxLength={120} autoComplete="off" />
+      <Segmented name="urgency" legend={t('How fast it needs to sell')} value={form.urgency} options={URGENCY_OPTIONS} onChange={radio('urgency')} />
+      <Field id="comps" label={t("Other asking prices you've seen")} hint={evidence.comps.length === 1 ? t('1 price already comes from the page or lookup above; add any others here.') : evidence.comps.length > 1 ? t('{n} prices already come from the page or lookup above; add any others here.', { n: evidence.comps.length }) : t('Up to 8 prices for similar cars nearby, separated by commas. The estimate leans on them more the more you add.')}>
+        <input id="comps" className="field num" placeholder={t('e.g. 21500, 22900, 20995')} value={form.comps} onChange={set('comps')} maxLength={120} autoComplete="off" />
       </Field>
     </div>
   );
@@ -402,20 +414,25 @@ export function Prices({ val }: { val: Valuation }) {
   const pp = useTween(val.privateParty);
   return (
     <div>
-      <p className="text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>Private-party value</p>
+      <p className="text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>{t('Private-party value')}</p>
       <p className="font-cond num text-6xl font-bold leading-none tracking-tight sm:text-7xl">{usd(pp)}</p>
       <p className="mt-2 text-sm" style={{ color: 'var(--ink-2)' }}>
-        Most sales of a car like this land between <strong className="num">{usd(val.range.low)}</strong> and <strong className="num">{usd(val.range.high)}</strong>.
+        {tx('Most sales of a car like this land between {low} and {high}.', { low: <strong className="num">{usd(val.range.low)}</strong>, high: <strong className="num">{usd(val.range.high)}</strong> })}
       </p>
       {val.compsUsed > 0 && (
         <p className="mt-1 text-sm" style={{ color: 'var(--ink-3)' }}>
-          The model alone says <span className="num">{usd(val.modelEstimate)}</span>; your {val.compsUsed} asking price{val.compsUsed > 1 ? 's' : ''} moved it {val.privateParty >= val.modelEstimate ? 'up' : 'down'}.
+          {(() => {
+            const est = { estimate: <span className="num">{usd(val.modelEstimate)}</span>, n: val.compsUsed };
+            const up = val.privateParty >= val.modelEstimate;
+            if (val.compsUsed === 1) return up ? tx('The model alone says {estimate}; your asking price moved it up.', est) : tx('The model alone says {estimate}; your asking price moved it down.', est);
+            return up ? tx('The model alone says {estimate}; your {n} asking prices moved it up.', est) : tx('The model alone says {estimate}; your {n} asking prices moved it down.', est);
+          })()}
         </p>
       )}
       <RangeBar val={val} />
       <div className="mt-5 grid grid-cols-2 gap-px overflow-hidden rounded" style={{ background: 'var(--rule)' }}>
-        <PriceCell label="Trade-in offer" value={val.tradeIn} note="What a dealer would likely pay you. Lower because they still need to recondition and resell it." />
-        <PriceCell label="Dealer retail" value={val.dealerRetail} note="What you'd likely see on a dealer's lot, including their reconditioning and margin." />
+        <PriceCell label={t('Trade-in offer')} value={val.tradeIn} note={t('What a dealer would likely pay you. Lower because they still need to recondition and resell it.')} />
+        <PriceCell label={t('Dealer retail')} value={val.dealerRetail} note={t("What you'd likely see on a dealer's lot, including their reconditioning and margin.")} />
       </div>
     </div>
   );
@@ -433,7 +450,7 @@ function RangeBar({ val }: { val: Valuation }) {
         ))}
       </div>
       <div className="mt-1 flex justify-between text-xs" style={{ color: 'var(--ink-3)' }}>
-        <span>Trade-in</span><span>Dealer retail</span>
+        <span>{t('Trade-in')}</span><span>{t('Dealer retail')}</span>
       </div>
     </div>
   );
@@ -452,22 +469,22 @@ function PriceCell({ label, value, note }: { label: string; value: number; note:
 export function Ledger({ val }: { val: Valuation }) {
   return (
     <div className="mt-7">
-      <h3 className="font-cond text-xl font-semibold">How the price is built</h3>
+      <h3 className="font-cond text-xl font-semibold">{t('How the price is built')}</h3>
       <ol className="mt-2">
         {val.steps.map((s, i) => (
           <li key={s.label} className="py-1.5">
             <div className="flex items-end">
-              <span className="font-medium">{s.label}</span>
+              <span className="font-medium">{te.label(s.label)}</span>
               <span className="leader" />
               <span className="num font-semibold" style={{ color: i === 0 || Math.abs(s.delta) < 1 ? 'var(--ink-2)' : s.delta < 0 ? 'var(--loss)' : 'var(--gain)' }}>
-                {i === 0 ? usd(s.value) : Math.abs(s.delta) < 1 ? 'No change' : signed(s.delta)}
+                {i === 0 ? usd(s.value) : Math.abs(s.delta) < 1 ? t('No change') : signed(s.delta)}
               </span>
             </div>
-            <p className="text-xs" style={{ color: 'var(--ink-3)' }}>{s.detail}</p>
+            <p className="text-xs" style={{ color: 'var(--ink-3)' }}>{te.detail(s.detail)}</p>
           </li>
         ))}
         <li className="mt-1 flex items-end border-t-2 pt-2" style={{ borderColor: 'var(--ink)' }}>
-          <span className="font-semibold">Private-party value</span>
+          <span className="font-semibold">{t('Private-party value')}</span>
           <span className="leader" />
           <span className="num font-bold">{usd(val.privateParty)}</span>
         </li>
@@ -484,17 +501,17 @@ export function Forecast({ curve, annual, setAnnual }: { curve: ReturnType<typeo
   return (
     <div>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h3 id="fc-h" className="font-cond text-xl font-semibold">Value over the next five years</h3>
+        <h3 id="fc-h" className="font-cond text-xl font-semibold">{t('Value over the next five years')}</h3>
         <p className="text-sm" style={{ color: 'var(--ink-2)' }}>
-          Expected to lose <strong className="num" style={{ color: 'var(--loss)' }}>{usd(first - last)}</strong> by {curve[curve.length - 1]?.year}
+          {tx('Expected to lose {amount} by {year}', { amount: <strong className="num" style={{ color: 'var(--loss)' }}>{usd(first - last)}</strong>, year: curve[curve.length - 1]?.year })}
         </p>
       </div>
       <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
-        <label htmlFor="annual" style={{ color: 'var(--ink-2)' }}>Miles you drive per year</label>
+        <label htmlFor="annual" style={{ color: 'var(--ink-2)' }}>{t('Miles you drive per year')}</label>
         <input id="annual" type="range" min={3000} max={30000} step={1000} value={annual} onChange={setAnnual} className="w-40 accent-[var(--blue)]" />
-        <span className="num font-semibold">{annual.toLocaleString()}</span>
+        <span className="num font-semibold">{annual.toLocaleString('en-US')}</span>
       </div>
-      <div className="mt-3 h-60" role="img" aria-label={`Private-party value falls from ${usd(first)} to ${usd(last)} over five years.`}>
+      <div className="mt-3 h-60" role="img" aria-label={t('Private-party value falls from {from} to {to} over five years.', { from: usd(first), to: usd(last) })}>
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
             <CartesianGrid vertical={false} stroke="var(--rule)" strokeOpacity={0.6} />
@@ -506,7 +523,7 @@ export function Forecast({ curve, annual, setAnnual }: { curve: ReturnType<typeo
           </ComposedChart>
         </ResponsiveContainer>
       </div>
-      <p className="mt-1 text-xs" style={{ color: 'var(--ink-3)' }}>Line shows the private-party estimate; the shaded band is the likely range.</p>
+      <p className="mt-1 text-xs" style={{ color: 'var(--ink-3)' }}>{t('Line shows the private-party estimate; the shaded band is the likely range.')}</p>
     </div>
   );
 }
@@ -518,7 +535,7 @@ function ForecastTip({ active, payload }: { active?: boolean; payload?: { payloa
     <div className="rounded border px-3 py-2 text-sm shadow-lg" style={{ background: 'var(--sticker)', borderColor: 'var(--rule)', color: 'var(--ink)' }}>
       <p className="font-semibold">{d.year}</p>
       <p className="num">{usd(d.value)} <span style={{ color: 'var(--ink-3)' }}>({usdK(d.low)}–{usdK(d.high)})</span></p>
-      <p className="num text-xs" style={{ color: 'var(--ink-3)' }}>About {d.mileage.toLocaleString()} miles</p>
+      <p className="num text-xs" style={{ color: 'var(--ink-3)' }}>{t('About {n} miles', { n: d.mileage.toLocaleString('en-US') })}</p>
     </div>
   );
 }
@@ -528,16 +545,16 @@ export function Confidence({ val }: { val: Valuation }) {
   const filled = val.confidence === 'High' ? 3 : val.confidence === 'Medium' ? 2 : 1;
   return (
     <div>
-      <h3 id="conf-h" className="font-cond text-xl font-semibold">How sure is this estimate?</h3>
+      <h3 id="conf-h" className="font-cond text-xl font-semibold">{t('How sure is this estimate?')}</h3>
       <div className="mt-2 flex items-center gap-3">
         <div className="flex gap-1" aria-hidden="true">
           {[0, 1, 2].map((i) => <span key={i} className="h-2.5 w-6 rounded-sm" style={{ background: i < filled ? color : 'var(--rule)' }} />)}
         </div>
-        <p className="font-semibold" style={{ color }}>{val.confidence} confidence</p>
+        <p className="font-semibold" style={{ color }}>{val.confidence === 'High' ? t('High confidence') : val.confidence === 'Medium' ? t('Medium confidence') : t('Low confidence')}</p>
       </div>
-      <p className="mt-1 text-sm" style={{ color: 'var(--ink-2)' }}>The range is ±{Math.round(val.bandPct * 100)}% of the private-party value.</p>
+      <p className="mt-1 text-sm" style={{ color: 'var(--ink-2)' }}>{t('The range is ±{pct}% of the private-party value.', { pct: Math.round(val.bandPct * 100) })}</p>
       <ul className="mt-3 space-y-1.5 text-sm" style={{ color: 'var(--ink-2)' }}>
-        {val.confidenceReasons.map((r) => <li key={r} className="flex gap-2"><span aria-hidden="true" style={{ color: 'var(--ink-3)' }}>–</span>{r}</li>)}
+        {val.confidenceReasons.map((r) => <li key={r} className="flex gap-2"><span aria-hidden="true" style={{ color: 'var(--ink-3)' }}>–</span>{te.reason(r)}</li>)}
       </ul>
     </div>
   );
@@ -546,9 +563,9 @@ export function Confidence({ val }: { val: Valuation }) {
 export function Drivers({ val, modelName }: { val: Valuation; modelName: string }) {
   return (
     <div className="mt-6">
-      <h3 className="font-cond text-xl font-semibold">{val.modelKnown && modelName ? `Why the ${modelName} prices this way` : 'What drives this price'}</h3>
+      <h3 className="font-cond text-xl font-semibold">{val.modelKnown && modelName ? t('Why the {model} prices this way', { model: modelName }) : t('What drives this price')}</h3>
       <ul className="mt-2 space-y-1.5 text-sm" style={{ color: 'var(--ink-2)' }}>
-        {val.drivers.map((d) => <li key={d} className="flex gap-2"><span aria-hidden="true" style={{ color: 'var(--ink-3)' }}>–</span>{d}</li>)}
+        {val.drivers.map((d) => <li key={d} className="flex gap-2"><span aria-hidden="true" style={{ color: 'var(--ink-3)' }}>–</span>{te.driver(d)}</li>)}
       </ul>
     </div>
   );
@@ -568,13 +585,13 @@ function MarketStrip() {
   const tone = MARKET.condition === 'tight' ? 'var(--gain)' : MARKET.condition === 'soft' ? 'var(--loss)' : 'var(--blue)';
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded px-3 py-2" style={{ background: 'var(--sticker-2)' }}>
-      <svg width={w} height={ht} viewBox={`0 0 ${w} ${ht}`} className="max-w-full" role="img" aria-label={`National used-car price index, ${periodLabel(h[0].period)} to ${periodLabel(last.period)}`}>
+      <svg width={w} height={ht} viewBox={`0 0 ${w} ${ht}`} className="max-w-full" role="img" aria-label={t('National used-car price index, {from} to {to}', { from: period(h[0].period), to: period(last.period) })}>
         <path d={path} fill="none" stroke={tone} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
         <circle cx={x(h.length - 1)} cy={y(last.value)} r="3" fill={tone} />
       </svg>
       <div className="text-xs" style={{ color: 'var(--ink-3)' }}>
-        <p><span className="font-semibold" style={{ color: 'var(--ink-2)' }}>Reading: {MARKET.condition === 'normal' ? 'Normal' : MARKET.condition === 'soft' ? 'Soft' : 'Tight'}</span> · index {MARKET.latestValue.toFixed(1)} for {periodLabel(MARKET.latestPeriod)}</p>
-        <p>{periodLabel(h[0].period)} to {periodLabel(last.period)} · refreshed {MARKET.fetchedAt}{stale ? ' · this snapshot is stale; the weekly update may have failed' : ''}</p>
+        <p><span className="font-semibold" style={{ color: 'var(--ink-2)' }}>{t('Reading: {condition}', { condition: MARKET.condition === 'normal' ? t('Normal') : MARKET.condition === 'soft' ? t('Soft') : t('Tight') })}</span> · {t('index {value} for {period}', { value: MARKET.latestValue.toFixed(1), period: period(MARKET.latestPeriod) })}</p>
+        <p>{t('{from} to {to} · refreshed {date}', { from: period(h[0].period), to: period(last.period), date: MARKET.fetchedAt })}{stale ? ` · ${t('This snapshot is stale; the weekly update may have failed.')}` : ''}</p>
       </div>
     </div>
   );
@@ -584,5 +601,5 @@ function MarketStrip() {
 function yearHint(make: string, model: string, year: number): string | undefined {
   const years = findModel(make, model)?.years;
   if (!years?.length || !year || years.includes(year)) return undefined;
-  return `The EPA has no ${year} ${model}; it lists ${yearRanges(years)}.`;
+  return t('The EPA has no {year} {model}; it lists {years}.', { year, model, years: yearRanges(years) });
 }

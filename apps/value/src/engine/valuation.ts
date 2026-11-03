@@ -245,7 +245,7 @@ export function valuate(input: Inputs, asOf: Date = new Date()): Valuation {
   const baseSwing = input.marketIndex !== null ? clamp(input.marketIndex, -1, 1) * 0.07 : MARKET_SWING[input.market];
   const swing = baseSwing * el.market;
   if (Math.abs(swing) >= 0.0005) {
-    const sensitivity = `this model swings ${el.market >= 1.15 ? 'more' : el.market <= 0.85 ? 'less' : 'about as much'} than average`;
+    const sensitivity = el.market >= 1.15 ? 'this model swings more than average' : el.market <= 0.85 ? 'this model swings less than average' : 'this model swings about as much as average';
     push(
       'Market conditions',
       input.marketIndex !== null

@@ -26,6 +26,9 @@ describe('car record', () => {
     const full: CarRecord = { ...car, model: '', modelText: 'Crosstour', msrp: 27755, warranty: 'Limited 3-month powertrain warranty', zip: '28202',
       condition: 'Fair', title: 'Rebuilt', accident: 'Minor', region: 'West', showValue: false, showForecast: false, features: [0, 39], notes: 'Ñ unicode works, too.' };
     expect(decodeRecord(encodeRecord(full))).toEqual(full);
+    // a sheet printed in Spanish opens its car page in Spanish
+    expect(decodeRecord(encodeRecord({ ...car, lang: 'es' }))!.lang).toBe('es');
+    expect(decodeRecord(encodeRecord(car))!.lang).toBe('en');
   });
 
   it('still reads the codes on sheets printed before the packed format', () => {
@@ -63,13 +66,13 @@ describe('car record', () => {
 
   it('rates how the model holds value against its body style', () => {
     const civic = retention(car);
-    expect(civic).toMatchObject({ rated: true, makeLevel: false, bodyWord: 'sedan', kind: 'better', calibrated: true });
+    expect(civic).toMatchObject({ rated: true, makeLevel: false, body: 'Sedan', modelLabel: '2019 Civic', kind: 'better', calibrated: true });
     expect(civic.own).toBeGreaterThan(civic.typical);
     expect(civic.percentile).toBeGreaterThan(0.8);
     expect(civic.stars).toBeGreaterThanOrEqual(4);
     // an EPA-only model is rated at make level, and says so
     const crosstour = retention({ ...car, model: 'Crosstour', body: 'SUV / Crossover' });
-    expect(crosstour).toMatchObject({ rated: true, makeLevel: true, ownLabel: 'Honda SUVs', bodyWord: 'SUV' });
+    expect(crosstour).toMatchObject({ rated: true, makeLevel: true, make: 'Honda', body: 'SUV / Crossover' });
     // a car we don't list at all gets only the typical figure
     expect(retention({ ...car, make: 'Other', model: '', modelText: 'Kit car' })).toMatchObject({ rated: false });
     for (const r of [civic, crosstour]) { expect(r.stars).toBeGreaterThanOrEqual(1); expect(r.stars).toBeLessThanOrEqual(5); }

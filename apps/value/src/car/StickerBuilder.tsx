@@ -1,13 +1,14 @@
 // Dealer side: describe a car on the lot, see the window sheet update live, print it.
 // The QR code on the sheet opens the car page with the same record (nothing is stored on a server).
 import { Check, Download, ExternalLink, Link2, Printer } from 'lucide-react';
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ACCIDENTS, BODY_STYLES, CONDITIONS, MAKES, REGIONS, SEGMENT_LABELS, TITLES } from '../engine/data';
 import { findModel, modelsForMake, yearRanges } from '../engine/models';
 import { stickerFor, trimChoices } from '../engine/stickers';
 import { qrSvg } from './qr';
 import { Nav } from '../Nav';
-import { FEATURES, FEATURE_GROUPS, carPageUrl, decodeRecord, emptyRecord, encodeRecord, recordMsrp, soldYears, type CarRecord, type Dealer } from './record';
+import { langChosen, setLang, t, useLang } from '../i18n';
+import { DEFAULT_WARRANTY, FEATURES, FEATURE_GROUPS, carPageUrl, decodeRecord, emptyRecord, encodeRecord, recordMsrp, soldYears, type CarRecord, type Dealer } from './record';
 import { SHEET_H, SHEET_W, Sticker } from './Sticker';
 import { snapshot, usd } from './value';
 
@@ -27,8 +28,12 @@ export default function StickerBuilder({ code }: { code?: string }) {
   const [otherTrim, setOtherTrim] = useState(false);
   const [qr, setQr] = useState('');
   const [copied, setCopied] = useState(false);
+  const lang = useLang();
+  // A sheet reopened for editing comes back in the language it was printed in, unless the dealer picked one.
+  useLayoutEffect(() => { if (r.lang === 'es' && !langChosen()) setLang('es', false); }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const encoded = useMemo(() => encodeRecord(r), [r]);
+  // The sheet prints in the page's language, and its QR opens the car page in that language.
+  const encoded = useMemo(() => encodeRecord({ ...r, lang }), [r, lang]);
   const url = carPageUrl(encoded);
   const snap = useMemo(() => snapshot(r, now), [r, now]);
   const sticker = stickerFor(r.make, r.model, r.year);
@@ -70,9 +75,10 @@ export default function StickerBuilder({ code }: { code?: string }) {
   };
 
   const problems: string[] = [];
-  if (!r.price) problems.push('an asking price');
-  if (!r.mileage && r.mileage !== 0) problems.push('the odometer reading');
-  if (!snap) problems.push('an original MSRP (none on file for this car)');
+  if (!r.price) problems.push(t('an asking price'));
+  if (!r.mileage && r.mileage !== 0) problems.push(t('the odometer reading'));
+  if (!snap) problems.push(t('an original MSRP (none on file for this car)'));
+  const problemList = problems.length > 1 ? `${problems.slice(0, -1).join(', ')} ${t('and')} ${problems[problems.length - 1]}` : problems[0];
   const models = modelsForMake(r.make);
 
   return (
@@ -82,91 +88,91 @@ export default function StickerBuilder({ code }: { code?: string }) {
           <Nav active="sheet" />
           <header className="mb-6 flex flex-wrap items-end justify-between gap-4" style={{ color: 'var(--glass-ink)' }}>
             <div>
-              <h1 className="font-cond text-3xl font-semibold leading-none tracking-tight sm:text-4xl">Print a window sheet for a car you're selling</h1>
-              <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>Describe the car once. The sheet updates as you type; the QR code opens a page with every detail and an independent value check.</p>
+              <h1 className="font-cond text-3xl font-semibold leading-none tracking-tight sm:text-4xl">{t("Print a window sheet for a car you're selling")}</h1>
+              <p className="mt-1 text-sm" style={{ color: 'var(--glass-muted)' }}>{t('Describe the car once. The sheet updates as you type; the QR code opens a page with every detail and an independent value check.')}</p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <Glass onClick={() => window.print()} icon={<Printer size={15} />}>Print sheet</Glass>
-              <Glass onClick={copy} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? 'Link copied' : 'Copy car-page link'}</Glass>
-              <Glass onClick={() => window.open(url, '_blank')} icon={<ExternalLink size={15} />}>Open car page</Glass>
-              <Glass onClick={downloadQr} icon={<Download size={15} />}>QR only</Glass>
+              <Glass onClick={() => window.print()} icon={<Printer size={15} />}>{t('Print sheet')}</Glass>
+              <Glass onClick={copy} icon={copied ? <Check size={15} /> : <Link2 size={15} />}>{copied ? t('Link copied') : t('Copy car-page link')}</Glass>
+              <Glass onClick={() => window.open(url, '_blank')} icon={<ExternalLink size={15} />}>{t('Open car page')}</Glass>
+              <Glass onClick={downloadQr} icon={<Download size={15} />}>{t('QR only')}</Glass>
             </div>
           </header>
 
           <div className="grid gap-6 lg:grid-cols-12">
             <section className="rounded-md p-5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)] sm:p-6 lg:col-span-5" style={{ background: 'var(--sticker)' }}>
-              <Group title="Dealer" hint="Saved on this device, so you only type it once.">
-                <Text label="Dealership name" value={r.dealer.name} onChange={(v) => setDealer('name', v)} max={60} />
+              <Group title={t('Dealer')} hint={t('Saved on this device, so you only type it once.')}>
+                <Text label={t('Dealership name')} value={r.dealer.name} onChange={(v) => setDealer('name', v)} max={60} />
                 <div className="grid grid-cols-2 gap-3">
-                  <Text label="Phone" value={r.dealer.phone} onChange={(v) => setDealer('phone', v)} max={30} />
-                  <Text label="Website" value={r.dealer.web} onChange={(v) => setDealer('web', v)} max={80} placeholder="example.com" />
+                  <Text label={t('Phone')} value={r.dealer.phone} onChange={(v) => setDealer('phone', v)} max={30} />
+                  <Text label={t('Website')} value={r.dealer.web} onChange={(v) => setDealer('web', v)} max={80} placeholder="example.com" />
                 </div>
-                <Text label="Address" value={r.dealer.address} onChange={(v) => setDealer('address', v)} max={120} />
+                <Text label={t('Address')} value={r.dealer.address} onChange={(v) => setDealer('address', v)} max={120} />
               </Group>
 
-              <Group title="The car" hint="Pick the model and the sheet fills in the sticker price, body style and value from the engine.">
+              <Group title={t('The car')} hint={t('Pick the model and the sheet fills in the sticker price, body style and value from the engine.')}>
                 <div className="grid grid-cols-2 gap-3">
-                  <Select label="Make" value={r.make} onChange={setMake}>
+                  <Select label={t('Make')} value={r.make} onChange={setMake}>
                     {(Object.keys(SEGMENT_LABELS) as (keyof typeof SEGMENT_LABELS)[]).map((seg) => (
-                      <optgroup key={seg} label={SEGMENT_LABELS[seg]}>{MAKES.filter((m) => m.segment === seg).map((m) => <option key={m.name}>{m.name}</option>)}</optgroup>
+                      <optgroup key={seg} label={t(SEGMENT_LABELS[seg])}>{MAKES.filter((m) => m.segment === seg).map((m) => <option key={m.name} value={m.name}>{m.name === 'Other' ? t('Other') : m.name}</option>)}</optgroup>
                     ))}
                   </Select>
-                  <Select label="Model" value={models.some((m) => m.model === r.model) ? r.model : ''} onChange={setModel}>
+                  <Select label={t('Model')} value={models.some((m) => m.model === r.model) ? r.model : ''} onChange={setModel}>
                     {models.filter((m) => !m.source).map((m) => <option key={m.model} value={m.model}>{m.model}</option>)}
-                    {models.some((m) => m.source) && <optgroup label="More models">{models.filter((m) => m.source).sort((a, b) => a.model.localeCompare(b.model)).map((m) => <option key={m.model} value={m.model}>{m.model}</option>)}</optgroup>}
-                    <option value="">Not listed (type it)</option>
+                    {models.some((m) => m.source) && <optgroup label={t('More models')}>{models.filter((m) => m.source).sort((a, b) => a.model.localeCompare(b.model)).map((m) => <option key={m.model} value={m.model}>{m.model}</option>)}</optgroup>}
+                    <option value="">{t('Not listed (type it)')}</option>
                   </Select>
                 </div>
-                {!r.model && <Text label="Model name" value={r.modelText} onChange={(v) => set('modelText', v)} max={60} />}
+                {!r.model && <Text label={t('Model name')} value={r.modelText} onChange={(v) => set('modelText', v)} max={60} />}
                 <div className="grid grid-cols-2 gap-3">
-                  <Num label="Model year" value={r.year} onChange={setYear} min={1990} max={now.getFullYear() + 1} hint={years?.length && !years.includes(r.year) ? `EPA lists this model for ${yearRanges(years)}.` : undefined} />
-                  <Select label="Body style" value={r.body} onChange={(v) => set('body', v)}>{BODY_STYLES.map((b) => <option key={b.name}>{b.name}</option>)}</Select>
+                  <Num label={t('Model year')} value={r.year} onChange={setYear} min={1990} max={now.getFullYear() + 1} hint={years?.length && !years.includes(r.year) ? t('EPA lists this model for {years}.', { years: yearRanges(years) }) : undefined} />
+                  <Select label={t('Body style')} value={r.body} onChange={(v) => set('body', v)}>{BODY_STYLES.map((b) => <option key={b.name} value={b.name}>{t(b.name)}</option>)}</Select>
                 </div>
                 {trims.length && !otherTrim ? (
-                  <Select label="Trim" value={trims.some((t) => t.trim === r.trim) ? r.trim : '__other'} onChange={(v) => { if (v === '__other') { setOtherTrim(true); set('trim', ''); } else set('trim', v); }}>
-                    {trims.map((t) => <option key={t.trim} value={t.trim}>{t.trim} · {usd(t.msrp)}</option>)}
-                    <option value="__other">Other (type it)</option>
+                  <Select label={t('Trim')} value={trims.some((x) => x.trim === r.trim) ? r.trim : '__other'} onChange={(v) => { if (v === '__other') { setOtherTrim(true); set('trim', ''); } else set('trim', v); }}>
+                    {trims.map((x) => <option key={x.trim} value={x.trim}>{x.trim} · {usd(x.msrp)}</option>)}
+                    <option value="__other">{t('Other (type it)')}</option>
                   </Select>
                 ) : (
-                  <Text label="Trim" value={r.trim} onChange={(v) => set('trim', v)} max={80} placeholder="e.g. EX-L" hint={trims.length ? <button type="button" className="underline" onClick={() => { setOtherTrim(false); set('trim', trims[0].trim); }}>Back to the trim list</button> : undefined} />
+                  <Text label={t('Trim')} value={r.trim} onChange={(v) => set('trim', v)} max={80} placeholder={t('e.g. EX-L')} hint={trims.length ? <button type="button" className="underline" onClick={() => { setOtherTrim(false); set('trim', trims[0].trim); }}>{t('Back to the trim list')}</button> : undefined} />
                 )}
                 <div className="grid grid-cols-2 gap-3">
-                  <Num label="Odometer (miles)" value={r.mileage} onChange={(v) => set('mileage', v)} min={0} max={600_000} />
-                  <Num label="Asking price ($)" value={r.price} onChange={(v) => set('price', v)} min={0} max={2_000_000} />
+                  <Num label={t('Odometer (miles)')} value={r.mileage} onChange={(v) => set('mileage', v)} min={0} max={600_000} />
+                  <Num label={t('Asking price ($)')} value={r.price} onChange={(v) => set('price', v)} min={0} max={2_000_000} />
                 </div>
-                <Num label="Original MSRP ($)" value={r.msrp ?? ''} onChange={(v) => set('msrp', v || null)} min={0} max={1_000_000} placeholder={onFile.msrp ? String(onFile.msrp) : 'required: none on file'}
-                  hint={onFile.msrp ? (onFile.source === 'typical' ? `No price list for this model-year; ${usd(onFile.msrp)} is an estimate. Type the real one if you know it.` : `${usd(onFile.msrp)} is on file for this trim. Leave blank to use it.`) : 'Nothing on file for this car yet. Enter the sticker price to get a value.'} />
+                <Num label={t('Original MSRP ($)')} value={r.msrp ?? ''} onChange={(v) => set('msrp', v || null)} min={0} max={1_000_000} placeholder={onFile.msrp ? String(onFile.msrp) : t('required: none on file')}
+                  hint={onFile.msrp ? (onFile.source === 'typical' ? t('No price list for this model-year; {price} is an estimate. Type the real one if you know it.', { price: usd(onFile.msrp) }) : t('{price} is on file for this trim. Leave blank to use it.', { price: usd(onFile.msrp) })) : t('Nothing on file for this car yet. Enter the sticker price to get a value.')} />
                 <div className="grid grid-cols-2 gap-3">
-                  <Text label="Exterior color" value={r.exterior} onChange={(v) => set('exterior', v)} max={40} />
-                  <Text label="Interior" value={r.interior} onChange={(v) => set('interior', v)} max={40} placeholder="e.g. Black cloth" />
+                  <Text label={t('Exterior color')} value={r.exterior} onChange={(v) => set('exterior', v)} max={40} />
+                  <Text label={t('Interior')} value={r.interior} onChange={(v) => set('interior', v)} max={40} placeholder={t('e.g. Black cloth')} />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <Text label="VIN" value={r.vin} onChange={(v) => set('vin', v.toUpperCase().replace(/[^A-Z0-9]/g, ''))} max={17} mono />
-                  <Text label="Stock number" value={r.stock} onChange={(v) => set('stock', v)} max={20} />
+                  <Text label={t('Stock number')} value={r.stock} onChange={(v) => set('stock', v)} max={20} />
                 </div>
               </Group>
 
-              <Group title="Condition & history">
+              <Group title={t('Condition & history')}>
                 <div className="grid grid-cols-3 gap-3">
-                  <Select label="Condition" value={r.condition} onChange={(v) => set('condition', v)}>{CONDITIONS.map((c) => <option key={c.name}>{c.name}</option>)}</Select>
-                  <Select label="Title" value={r.title} onChange={(v) => set('title', v)}>{TITLES.map((c) => <option key={c.name}>{c.name}</option>)}</Select>
-                  <Select label="Accidents" value={r.accident} onChange={(v) => set('accident', v)}>{ACCIDENTS.map((c) => <option key={c.name}>{c.name}</option>)}</Select>
+                  <Select label={t('Condition')} value={r.condition} onChange={(v) => set('condition', v)}>{CONDITIONS.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</Select>
+                  <Select label={t('Title')} value={r.title} onChange={(v) => set('title', v)}>{TITLES.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</Select>
+                  <Select label={t('Accidents')} value={r.accident} onChange={(v) => set('accident', v)}>{ACCIDENTS.map((c) => <option key={c.name} value={c.name}>{t(c.name)}</option>)}</Select>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
-                  <Select label="Region (for the value)" value={r.region} onChange={(v) => set('region', v as CarRecord['region'])}>{REGIONS.map((x) => <option key={x}>{x}</option>)}</Select>
-                  <Text label="ZIP (optional)" value={r.zip} onChange={(v) => set('zip', v.replace(/\D/g, '').slice(0, 5))} max={5} />
+                  <Select label={t('Region (for the value)')} value={r.region} onChange={(v) => set('region', v as CarRecord['region'])}>{REGIONS.map((x) => <option key={x} value={x}>{t(x)}</option>)}</Select>
+                  <Text label={t('ZIP (optional)')} value={r.zip} onChange={(v) => set('zip', v.replace(/\D/g, '').slice(0, 5))} max={5} />
                 </div>
               </Group>
 
-              <Group title="Highlights" hint="Tick what the car has. The first 18 print; all of them show on the car page.">
+              <Group title={t('Highlights')} hint={t('Tick what the car has. The first 18 print; all of them show on the car page.')}>
                 {FEATURE_GROUPS.map((g) => (
                   <fieldset key={g}>
-                    <legend className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--ink-3)' }}>{g}</legend>
+                    <legend className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--ink-3)' }}>{t(g)}</legend>
                     <div className="mt-1 grid grid-cols-2 gap-x-3 gap-y-1">
                       {FEATURES.filter((f) => f.group === g).map((f) => (
                         <label key={f.id} className="flex items-center gap-2 text-sm">
                           <input type="checkbox" checked={r.features.includes(f.id)} onChange={() => toggleFeature(f.id)} />
-                          {f.label}
+                          {t(f.label)}
                         </label>
                       ))}
                     </div>
@@ -174,14 +180,14 @@ export default function StickerBuilder({ code }: { code?: string }) {
                 ))}
               </Group>
 
-              <Group title="Notes & fine print">
-                <label className="block text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>From the dealer (optional)
-                  <textarea className="field mt-1 w-full" rows={3} maxLength={400} value={r.notes} onChange={(e) => set('notes', e.target.value)} placeholder="One owner, serviced here since new. Second key and all-weather mats included." />
+              <Group title={t('Notes & fine print')}>
+                <label className="block text-sm font-semibold" style={{ color: 'var(--ink-2)' }}>{t('From the dealer (optional)')}
+                  <textarea className="field mt-1 w-full" rows={3} maxLength={400} value={r.notes} onChange={(e) => set('notes', e.target.value)} placeholder={t('One owner, serviced here since new. Second key and all-weather mats included.')} />
                 </label>
-                <Text label="Warranty line" value={r.warranty} onChange={(v) => set('warranty', v)} max={200} hint="The FTC Buyers Guide on the window is still required for used cars; this line should match it." />
+                <Text label={t('Warranty line')} value={r.warranty === DEFAULT_WARRANTY ? t(DEFAULT_WARRANTY) : r.warranty} onChange={(v) => set('warranty', v === t(DEFAULT_WARRANTY) ? DEFAULT_WARRANTY : v)} max={200} hint={t('The FTC Buyers Guide on the window is still required for used cars; this line should match it.')} />
                 <div className="flex flex-wrap gap-5 text-sm">
-                  <label className="flex items-center gap-2"><input type="checkbox" checked={r.showValue} onChange={(e) => set('showValue', e.target.checked)} /> Show the value check on the sheet</label>
-                  <label className="flex items-center gap-2"><input type="checkbox" checked={r.showForecast} onChange={(e) => set('showForecast', e.target.checked)} disabled={!r.showValue} /> Include how it holds value next to similar cars</label>
+                  <label className="flex items-center gap-2"><input type="checkbox" checked={r.showValue} onChange={(e) => set('showValue', e.target.checked)} /> {t('Show the value check on the sheet')}</label>
+                  <label className="flex items-center gap-2"><input type="checkbox" checked={r.showForecast} onChange={(e) => set('showForecast', e.target.checked)} disabled={!r.showValue} /> {t('Include how it holds value next to similar cars')}</label>
                 </div>
               </Group>
             </section>
@@ -189,14 +195,14 @@ export default function StickerBuilder({ code }: { code?: string }) {
             <section className="lg:col-span-7">
               {problems.length > 0 && (
                 <p className="mb-3 rounded px-3 py-2 text-sm" style={{ background: 'rgba(255,255,255,0.08)', color: 'var(--glass-ink)' }}>
-                  To finish the sheet, add {problems.join(', ').replace(/, ([^,]*)$/, ' and $1')}.
+                  {t('To finish the sheet, add {items}.', { items: problemList })}
                 </p>
               )}
               <ScaledSheet>
                 <Sticker r={r} snap={snap} qr={qr} now={now} url={url} />
               </ScaledSheet>
               <p className="mt-3 text-xs" style={{ color: 'var(--glass-muted)' }}>
-                Prints on letter paper. The QR link carries the whole car record ({encoded.length} characters), so the car page works without any account or database. Edit this sheet later by scanning it and tapping "Edit this sheet".
+                {t('Prints on letter paper. The QR link carries the whole car record ({n} characters), so the car page works without any account or database. To edit this sheet later, scan it and tap "{edit}".', { n: encoded.length, edit: t('Dealer: edit or reprint this sheet') })}
               </p>
             </section>
           </div>
