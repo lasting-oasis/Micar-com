@@ -22,7 +22,8 @@ export function createFenceKit(ctx: WorldContext) {
          group.add(panel);
 
          // Horizontal tension rails (top + bottom)
-         const railGeo = new THREE.CylinderGeometry(0.07, 0.07, length, 8);
+         // (open-ended tubes and pointed caps: the same outline with a fifth of the triangles)
+         const railGeo = new THREE.CylinderGeometry(0.07, 0.07, length, 8, 1, true);
          railGeo.rotateZ(Math.PI / 2);
          [height - 0.15, 0.25].forEach(y => {
              const rail = new THREE.Mesh(railGeo, fencePostMat);
@@ -34,8 +35,8 @@ export function createFenceKit(ctx: WorldContext) {
 
          // Vertical posts with rounded caps
          const numPosts = Math.max(1, Math.round(length / 6));
-         const postGeo = new THREE.CylinderGeometry(0.13, 0.13, height + 0.5, 8);
-         const capGeo = new THREE.SphereGeometry(0.16, 8, 6);
+         const postGeo = new THREE.CylinderGeometry(0.13, 0.13, height + 0.5, 8, 1, true);
+         const capGeo = new THREE.ConeGeometry(0.16, 0.16, 4, 1, true).translate(0, 0.08, 0);
          for (let i = 0; i <= numPosts; i++) {
              const t = i / numPosts;
              const px = x1 + dx * t, pz = z1 + dz * t;
@@ -44,6 +45,7 @@ export function createFenceKit(ctx: WorldContext) {
              post.castShadow = true;
              group.add(post);
              const cap = new THREE.Mesh(capGeo, fencePostMat);
+             cap.castShadow = true; // (same flags as the posts, so they merge into one draw)
              cap.position.set(px, height + 0.5, pz);
              group.add(cap);
          }
