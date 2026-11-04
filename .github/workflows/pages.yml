@@ -39,7 +39,7 @@ jobs:
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @micar/value test          # value's tests gate the whole deploy, as before
-      - run: pnpm site                                 # builds /micar/value/, copies /micar/tuner/, /micar/garage/
+      - run: pnpm site                                 # builds /Micar-com/value/, copies /Micar-com/tuner/, /Micar-com/garage/
         env:
           VITE_COMPS_URL: ${{ vars.COMPS_URL }}
       - uses: actions/configure-pages@v5
