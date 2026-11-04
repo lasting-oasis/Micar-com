@@ -40,7 +40,8 @@ Footer: Value · Garage · Lot · Sheet · Shop · Dealer Simulator · Tuner · 
 
 - **The sim opens in your garage.** The concept's garage built in three.js: door, bay, walls, your car in the bay, your slab on the wall. The door rolls up to the town. The dealer lot is your business outside the door. The "Automotive Hub" portal page goes away; the simulator's URL opens on the door.
 - **One car system.** `packages/cars` from the sim's lofted bodies. Card art is rendered headlessly from the same geometry (seed: `assets/cars/render-cards-from-sim.ts`), so the car on the card and the car in the world are the same car in the same color.
-- **The shop in the world is MiCar Shop.** The body shop and mechanic tools already in the sim, plus the Tuner's procedural parts as the parts catalog. The sprite turntable retires; the Tuner's vehicle and parts data live on inside the shop.
+- **The garage in the world is the Tuner, retrofitted.** The old sim garage is replaced by the MiCar Tuner experience (lasting-oasis.github.io/micar-tuner: the bay, the turntable, the HUD, the parts) rebuilt in the sim's live three.js on the **category car models**, all nine body styles instead of the one 4x4. The Tuner's `Vehicle` and its 86 parts across ~50 slots (bumpers, flares, grille, lights, light bar, roof rack, snorkel, steps, spare, sportbar, rims and tires per wheel, underglow, wheel neon) become part slots on every category car, applied live on the 3D car instead of composited sprites. Drag to rotate, parts snap on, the car you tune is the car on your card.
+- **The shop in the world is MiCar Shop.** The body shop and mechanic tools already in the sim. A tuning session in the garage writes a repair order; a finished order writes a trail entry to the card with a conservative value effect. One parts catalog serves the garage, the shop and the lot.
 - **One balance.** Octane is the sim's currency and the card's points.
 - **Later:** the lot inside the sim with real slabs as inventory, and racing as the drag-strip card game.
 - **Real businesses get the same code at their own routes:** `/shop/` (MiCar Shop) and `/dealers/` (sheets), identical to what runs inside the sim.
@@ -70,7 +71,7 @@ Screens are dark glass with windshield yellow (#ffd23f), Barlow and Barlow Conde
 | Garage concept (door, inspector, grade sim, Keyholder, Octane) | static page in `assets/concept` | its components become the home page, driven by real engine output |
 | Sim 3D world, lofted cars, town, night | live on Render behind a portal | opens in your garage; cars shared with the cards |
 | Sim shop tools (body, mechanic) | inside the sim | MiCar Shop, in the world and standalone |
-| Tuner | standalone sprite site | parts catalog inside the shop |
+| Tuner | standalone sprite site, one 4x4 | the sim's garage: live 3D tuning on all nine category cars, same parts, same HUD |
 | Accounts, trail, slabs, grades issued | none | phase 1 |
 
 ## Phases
