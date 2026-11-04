@@ -16,10 +16,11 @@ import * as THREE from 'three';
 // and +X to the person's right; `root` is scaled to world units (2 per metre).
 
 export const UNITS_PER_METRE = 2;
-// The road and lot paving tops are 0.03 up (scene/world/roads.ts, Y.road): people stand on them.
+// The road and lot paving tops are 0.03 up (scene/world/roads.ts, Y.road): people stand on them
+// until told the ground under them (Character.standOn: sidewalks, lawns, curbs are higher).
 const GROUND_TOP = 0.03;
-// Blob shadows just above the highest paving people walk on (the driveway crossing, 0.045).
-const BLOB_Y = 0.05;
+// Blob shadows just above the ground a person stands on (paint is 0.007 above the road).
+const BLOB_LIFT = 0.02;
 
 // ---- Looks ---------------------------------------------------------------------------
 
@@ -1166,6 +1167,18 @@ export class Character {
     get moving() { return this.move; }
     /** World units per model metre (the person's size). */
     get size() { return this.scale; }
+    /** Height of the ground the person stands on (world units, smoothed). */
+    get groundY() { return this.root.position.y; }
+
+    /**
+     * Stand on ground `top` high (world units). The height follows over about 0.1 s, so
+     * stepping up a curb or onto a sidewalk doesn't pop; a jump larger than a step snaps.
+     */
+    standOn(top: number, dt: number) {
+        const y = this.root.position.y;
+        if (Math.abs(top - y) > 0.5 || !(dt > 0)) { this.root.position.y = top; return; }
+        this.root.position.y = top + (y - top) * Math.exp(-dt * 30);
+    }
 
     /**
      * Pose for this frame. `speed`: world units per second along the person's facing
@@ -1302,7 +1315,7 @@ export class BlobShadows {
     add(x: number, z: number, person: Character) {
         if (this.count >= this.capacity) return;
         const r = person.size * (0.42 + 0.08 * person.moving);
-        tmpMatrix.makeScale(r * 2, 1, r * 1.8).setPosition(x, BLOB_Y, z);
+        tmpMatrix.makeScale(r * 2, 1, r * 1.8).setPosition(x, person.groundY + BLOB_LIFT, z);
         this.mesh.setMatrixAt(this.count++, tmpMatrix);
     }
     end() {

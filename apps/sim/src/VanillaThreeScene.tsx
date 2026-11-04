@@ -7,6 +7,7 @@ import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
 import { applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, prepareCarStyles, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
+import { createGroundHeight } from './scene/groundHeight';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
 import { createFenceKit } from './scene/world/fences';
@@ -101,6 +102,8 @@ export function VanillaThreeScene() {
         const world = createWorldContext(scene, addLightSource);
         const { environmentDisposables, staticCollisionBoxes, cityMaterials, cityTextures, emissiveFacadeMaterials } = world;
         const fences = createFenceKit(world);
+        // the ground people stand on (sidewalks, lawns, curbs are a few cm above the road)
+        const groundHeight = createGroundHeight([world.layers.concrete, world.layers.lawn]);
         const furniture = createFurnitureKit(world.makeGlass);
 
         // Everything added to the scene from here until the world is finished is
@@ -1507,6 +1510,16 @@ export function VanillaThreeScene() {
                     person.root.visible = ud.inCar <= 0;
                     if (person.root.visible) person.update(delta, Math.min(ud.netSpeed, 18) * (ud.netDir ?? 1));
                 });
+
+                // Everyone stands on the ground under them (sidewalks, lawns and curbs are higher than the road)
+                groundHeight.tick();
+                if (avatar.visible) avatarPerson.standOn(groundHeight.at(avatar.position.x, avatar.position.z), delta);
+                for (const id in aiBots) { const b = aiBots[id]; if (b.mesh.visible) b.person.standOn(groundHeight.at(b.mesh.position.x, b.mesh.position.z), delta); }
+                for (const id in walkIns) { const w = walkIns[id]; if (w.mode !== 'attached') w.person.standOn(groundHeight.at(w.mesh.position.x, w.mesh.position.z), delta); }
+                for (const id in otherPlayerMeshes) {
+                    const g = otherPlayerMeshes[id], pp = g.userData.person as Character | undefined;
+                    if (pp && pp.root.visible) pp.standOn(groundHeight.at(g.position.x, g.position.z), delta);
+                }
 
                 // Low graphics: a soft blob shadow under everyone (High has real shadows)
                 blobs.begin();
