@@ -10,6 +10,7 @@ import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAsset
 import { createGroundHeight } from './scene/groundHeight';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
+import { setGroundLowQuality } from './scene/world/groundShader';
 import { createFenceKit } from './scene/world/fences';
 import { createFurnitureKit } from './scene/world/furniture';
 import { buildCity } from './scene/world/city';
@@ -465,10 +466,16 @@ export function VanillaThreeScene() {
         // --- Graphics quality (Low/High toggle in the HUD) ---
         // Low: no shadows and 1x resolution — a big saving on phones and laptops.
         let quality = useGameStore.getState().graphicsQuality;
+        const maxAnisotropy = renderer.capabilities.getMaxAnisotropy;
         const applyGraphics = (q: 'high' | 'low', recompile: boolean) => {
              quality = q;
              lightPool.setActiveCount(poolSizeFor(q));
              world.setLampLimit(q === 'low' ? 4 : 8); // lamps lighting the scene (a uniform count: no recompile)
+             // Low: one texture read per ground pixel instead of three, and no anisotropic
+             // filtering (it takes several texture reads per pixel at a glancing angle). Three.js
+             // caps every texture's anisotropy at getMaxAnisotropy() when it uploads it.
+             setGroundLowQuality(q === 'low');
+             renderer.capabilities.getMaxAnisotropy = q === 'low' ? () => 1 : maxAnisotropy;
              // High: sky light + reflections from a map of the live sky; Low: the same sky
              // worked out in the shader (no map)
              atmosphere.updateEnvironment(q === 'high');
@@ -485,7 +492,11 @@ export function VanillaThreeScene() {
                  // Shaders are built with or without shadow code, so rebuild them once
                  scene.traverse(o => {
                      const mat = (o as THREE.Mesh).material;
-                     if (mat) (Array.isArray(mat) ? mat : [mat]).forEach(m => { m.needsUpdate = true; });
+                     if (mat) (Array.isArray(mat) ? mat : [mat]).forEach(m => {
+                         m.needsUpdate = true;
+                         // re-upload filtered textures so the new anisotropy cap applies
+                         for (const v of Object.values(m)) if ((v as THREE.Texture)?.isTexture && (v as THREE.Texture).anisotropy > 1) (v as THREE.Texture).needsUpdate = true;
+                     });
                  });
              }
         };

@@ -58,12 +58,31 @@ const fragmentMap = /* glsl */`
 	vec2 gUv = gMapScale > 0.0 ? vGroundXZ * gMapScale : vMapUv;
 	vec4 sampledDiffuseColor = texture2D( map, gUv );
 	diffuseColor.rgb *= sampledDiffuseColor.rgb;
+#ifndef GROUND_LOW
 	float gDetail = texture2D( gDetailMap, vGroundXZ * gDetailScale ).g * 2.0;
 	diffuseColor.rgb *= mix( 1.0, gDetail, gDetailStrength * sampledDiffuseColor.a );
 	vec3 gMacro = texture2D( gMacroMap, vGroundXZ * gMacroScale ).rgb;
 	diffuseColor.rgb *= mix( gMacroLo, gMacroHi, gMacro.r );
 	diffuseColor.rgb = mix( diffuseColor.rgb, gDirtColor, smoothstep( gDirtRange.x, gDirtRange.y, gMacro.b ) * gDirtAmount );
+#endif
 #endif`;
+
+// Low graphics reads only the main texture: the detail and large-scale noise reads are
+// skipped (GROUND_LOW), two of the three texture reads per ground pixel. The ground covers
+// most of the screen, so on the GPU proxy this was the largest single cost on Low.
+const groundMaterials = new Set<THREE.MeshStandardMaterial>();
+let lowQuality = false;
+/** Switch every ground material between the full look and Low's single texture read. */
+export function setGroundLowQuality(low: boolean) {
+    if (low === lowQuality) return;
+    lowQuality = low;
+    for (const m of groundMaterials) applyQuality(m);
+}
+function applyQuality(m: THREE.MeshStandardMaterial) {
+    if (lowQuality) m.defines = { ...m.defines, GROUND_LOW: '' };
+    else if (m.defines) delete m.defines.GROUND_LOW;
+    m.needsUpdate = true;
+}
 
 /** A MeshStandardMaterial with the ground look (see above). Needs a `map`. */
 export function makeGroundMaterial(params: THREE.MeshStandardMaterialParameters, look: GroundLook) {
@@ -91,6 +110,9 @@ export function makeGroundMaterial(params: THREE.MeshStandardMaterialParameters,
             .replace('#include <map_fragment>', fragmentMap);
     };
     // Same code for every ground material, so they all share one compiled program
-    material.customProgramCacheKey = () => 'cds-ground-v1';
+    material.customProgramCacheKey = () => lowQuality ? 'cds-ground-v1-low' : 'cds-ground-v1';
+    groundMaterials.add(material);
+    applyQuality(material);
+    material.addEventListener('dispose', () => groundMaterials.delete(material));
     return material;
 }
