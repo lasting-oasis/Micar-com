@@ -674,3 +674,7 @@
 .dp .console { top: 50%; }
 @media (max-width: 1100px) { .dp .inspect-hint { display: none; } }
 @media (max-width: 760px) { .dp nav .drip { display: none; } .dp nav .lang { margin-left: auto; } .dp .hero h1 { font-size: clamp(44px, 15vw, 80px); } }
+.dp .hero h1 .w { padding-top: .14em; margin-top: -.14em; }
+.dp nav ul { gap: 18px; }
+.dp nav ul li { white-space: nowrap; }
+@media (max-width: 1180px) { .dp nav ul { display: none; } }

@@ -19,7 +19,7 @@ export function Nav({ active }: { active: Section }) {
     <nav aria-label={t('Site')} className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between" style={{ color: 'var(--glass-ink)' }}>
       <div className="flex items-center justify-between gap-4 sm:justify-start">
         <a href={homeUrl()} className="font-cond text-lg font-semibold tracking-tight hover:underline" style={{ color: 'var(--glass-ink)' }} aria-current={active === 'home' ? 'page' : undefined}>
-          Nexus Valuation
+          <span style={{ color: '#ffd23f' }}>Mi</span>Car <span style={{ color: 'var(--glass-muted)', fontWeight: 500 }}>{t('Value')}</span>
           {active === 'car' && <span className="ml-2 inline-flex items-center gap-1 rounded-full px-2 py-0.5 align-middle text-xs font-medium" style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--glass-muted)' }}><QrCode size={12} /> {t('Car page from a window sheet')}</span>}
         </a>
         <LangSwitch />

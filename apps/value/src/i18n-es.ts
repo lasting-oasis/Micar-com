@@ -15,8 +15,8 @@ export const ES: Record<string, string> = {
   'Car page from a window sheet': 'Página del auto, desde una hoja de ventana',
 
   // ---- Home -------------------------------------------------------------------------------
-  "Nexus Valuation is a free tool. Values are estimates, not appraisals or offers to buy. A window sheet is a dealer's information sheet, not the manufacturer's label, and it doesn't replace the FTC Buyers Guide required on used cars.":
-    'Nexus Valuation es una herramienta gratuita. Los valores son estimaciones, no avalúos ni ofertas de compra. Una hoja de ventana es una hoja informativa del concesionario, no la etiqueta del fabricante, y no sustituye la Guía del Comprador de la FTC que se exige en los autos usados.',
+  "MiCar Value is a free tool. Values are estimates, not appraisals or offers to buy. A window sheet is a dealer's information sheet, not the manufacturer's label, and it doesn't replace the FTC Buyers Guide required on used cars.":
+    'MiCar Value es una herramienta gratuita. Los valores son estimaciones, no avalúos ni ofertas de compra. Una hoja de ventana es una hoja informativa del concesionario, no la etiqueta del fabricante, y no sustituye la Guía del Comprador de la FTC que se exige en los autos usados.',
   'Sample car page': 'Página de ejemplo',
   'Black cloth': 'Tela negra',
   "How it's built (source code)": 'Cómo está hecho (código fuente)',

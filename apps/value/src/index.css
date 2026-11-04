@@ -119,7 +119,7 @@ select.field { appearance: none; padding-right: 2rem; background-image: linear-g
   .sheet { break-inside: avoid; }
 }
 
-/* Home page (src/Landing.tsx). The headline is painted on the glass like a windshield
+/* The old home page headline style, kept for the calculator pages. Painted on the glass like a windshield
    price; it paints on once when the page loads. */
 .painted {
   font-family: var(--font-cond);
