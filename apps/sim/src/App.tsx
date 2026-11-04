@@ -2281,7 +2281,7 @@ function App() {
       <div className={`ui-container flex flex-col p-3 md:p-6 h-full pointer-events-none relative z-10 transition-opacity duration-500 ${showUI ? 'opacity-100' : 'opacity-0'}`}>
 
         {/* Navigation Tabs (Standalone / Standoff Tabs) */}
-        {/* md:pl keeps the first tab clear of the floating "← Exit to Launchpad" button (main.tsx) */}
+        {/* md:pl keeps the first tab clear of the floating MiCar home link (main.tsx) */}
         <div className={`hidden md:flex justify-start md:justify-center mb-6 shrink-0 w-full max-w-[calc(100%-100px)] md:max-w-full ml-2 md:mx-auto md:pl-[200px] overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
           <div className="flex gap-2 bg-black/50 p-2 rounded-2xl border border-white/10 backdrop-blur-md overflow-x-auto max-w-full scrollbar-none whitespace-nowrap">
             {!me.isStandaloneOperator && (
@@ -2298,7 +2298,7 @@ function App() {
                 className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-shops' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-emerald-500/5 border border-emerald-500/10'}`}
               >
                 <Wrench size={14} className={activeTab === 'standalone-shops' ? 'text-black' : 'text-emerald-400'} />
-                RepairFlow Platform
+                MiCar Shop Tracker
               </button>
             )}
             {(me.isStandaloneOperator ? (me.shopSpecialty === 'body' || me.shopSpecialty === 'dual') : true) && (
@@ -2307,7 +2307,7 @@ function App() {
                 className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-body' ? 'bg-blue-500 text-black border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-blue-500/5 border border-blue-500/10'}`}
               >
                 <Wrench size={14} className={activeTab === 'standalone-body' ? 'text-black' : 'text-blue-400'} />
-                AutoFlow Bodyshop
+                MiCar Body Shop
               </button>
             )}
             <button
@@ -3269,7 +3269,7 @@ function App() {
                       className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-shops' ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' : 'bg-emerald-500/5 border-emerald-500/20 text-emerald-300'}`}
                     >
                       <Wrench size={24} />
-                      <span className="text-xs font-bold uppercase tracking-wider text-center">RepairFlow Platform</span>
+                      <span className="text-xs font-bold uppercase tracking-wider text-center">MiCar Shop Tracker</span>
                     </button>
                   )}
                   {(me.isStandaloneOperator ? (me.shopSpecialty === 'body' || me.shopSpecialty === 'dual') : true) && (
@@ -3278,7 +3278,7 @@ function App() {
                       className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-body' ? 'bg-blue-500/20 border-blue-500 text-blue-400' : 'bg-blue-500/5 border-blue-500/20 text-blue-300'}`}
                     >
                       <Wrench size={24} />
-                      <span className="text-xs font-bold uppercase tracking-wider text-center">AutoFlow Bodyshop</span>
+                      <span className="text-xs font-bold uppercase tracking-wider text-center">MiCar Body Shop</span>
                     </button>
                   )}
                   <button

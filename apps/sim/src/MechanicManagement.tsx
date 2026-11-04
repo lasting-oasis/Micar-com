@@ -51,7 +51,7 @@ const GlossaryTerm = ({ term, children }: { term: keyof typeof GLOSSARY; childre
 
 const TUTORIAL_STEPS = [
   {
-    title: 'Welcome to MechFlow Pro! ⚙️',
+    title: 'Welcome to MiCar Shop · Mechanic ⚙️',
     desc: 'This diagnostics suite lets you audit active lift bays, scan electronic ECU modules, and manage parts spares.',
     target: 'header'
   },
@@ -262,7 +262,7 @@ export default function MechanicManagement() {
             <Gauge className="w-6 h-6 text-emerald-400" />
           </div>
           <div>
-            <h1 className="text-xl font-bold tracking-wider uppercase text-white">MechFlow Pro Diagnostics</h1>
+            <h1 className="text-xl font-bold tracking-wider uppercase text-white">MiCar Shop · Mechanic</h1>
             <p className="text-xs text-gray-400 font-mono"><GlossaryTerm term="obd">OBD-II</GlossaryTerm> & Mechanical Lift Bays</p>
           </div>
           <button

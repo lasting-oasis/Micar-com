@@ -495,7 +495,7 @@ export default function StandaloneShopPlatform() {
           </div>
           <div>
             <h1 className="text-xl font-black tracking-wider uppercase text-white flex items-center gap-2">
-              RepairFlow Platform
+              MiCar Shop Tracker
               <span className="bg-emerald-500/10 text-emerald-400 text-[8px] px-2 py-0.5 rounded border border-emerald-500/20 font-mono tracking-widest uppercase font-black animate-pulse">
                 Real-Time Sim
               </span>

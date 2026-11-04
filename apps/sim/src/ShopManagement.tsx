@@ -204,7 +204,7 @@ export default function ShopManagement() {
             <Wrench className="w-6 h-6 text-market animate-spin-slow" />
           </div>
           <div>
-            <h1 className="text-xl font-bold tracking-wider uppercase text-white">Precision Repair Logistics</h1>
+            <h1 className="text-xl font-bold tracking-wider uppercase text-white">MiCar Shop · Body Shop</h1>
             <p className="text-xs text-gray-400 font-mono"><GlossaryTerm term="recon">Recon</GlossaryTerm> Center & Diagnostics HUD</p>
           </div>
           <button
