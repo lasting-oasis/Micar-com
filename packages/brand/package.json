@@ -1,0 +1,15 @@
+{
+  "name": "@micar/brand",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MiCar's identity: tokens, the five doors, the strip's stylesheet, the favicon. No React: each app renders the strip with its own.",
+  "type": "module",
+  "exports": {
+    ".": "./src/doors.ts",
+    "./doors": "./src/doors.ts",
+    "./tokens": "./src/tokens.ts",
+    "./tokens.css": "./src/tokens.css",
+    "./strip.css": "./src/strip.css",
+    "./favicon.svg": "./src/favicon.svg"
+  }
+}

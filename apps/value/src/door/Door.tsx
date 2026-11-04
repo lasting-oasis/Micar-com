@@ -6,7 +6,7 @@ import { usd } from '../car/value';
 import { CONDITIONS, MAKES, SEGMENT_LABELS } from '../engine/data';
 import { modelsForMake } from '../engine/models';
 import { stickerFor, trimChoices } from '../engine/stickers';
-import { setLang, t, tx, useLang, type Lang } from '../i18n';
+import { t, tx, useLang } from '../i18n';
 import calibration from '../data/calibration.json';
 import stickers from '../data/stickers.json';
 import samples from '../data/listing-samples.json';
@@ -15,10 +15,11 @@ import { doorDefaults, gradeOf, makeCard, recordFrom, sampleCard, settle, type C
 import { GradeSim } from './GradeSim';
 import { Inspector } from './Inspector';
 import { Slab, useQr } from './Slab';
+import { Strip } from '../Strip';
 import '../door.css';
 
-export const WORLD_URL = 'https://micar-sim.onrender.com/';
-export const SHOP_URL = `${WORLD_URL}shop`;
+import { WORLD_URL, SHOP_URL } from '@micar/brand';
+export { WORLD_URL, SHOP_URL };
 const TUNER_URL = new URL('../tuner/', typeof location !== 'undefined' ? location.href.split('#')[0] : 'https://lasting-oasis.github.io/Micar-com/').href;
 
 const STATS = {
@@ -118,14 +119,7 @@ export default function Door() {
   return (
     <div className={rootClass}>
       <div className="grain" aria-hidden="true" />
-      <nav className="gutter"><div className="inner">
-        <a className="logo" href="#top"><Key /><span><span className="mi">Mi</span>Car</span><small>{t('Value')}</small></a>
-        <ul>
-          <li><a href="#card">{t('The card')}</a></li><li><a href="#grade">{t('The grade')}</a></li><li><a href="#world">{t('The world')}</a></li><li><a href="#keyholder">{t('Keyholder')}</a></li><li><a href={stickerPageUrl()}>{t('Dealers')}</a></li>
-        </ul>
-        <LangSwitch lang={lang} />
-        <a className="drip" href={calculatorUrl()}>{t('Value line by line')} <Arrow /></a>
-      </div></nav>
+      <Strip current="home" />
 
       <header className="hero gutter" id="top">
         <div className="inner">
@@ -191,14 +185,6 @@ export default function Door() {
         <Footer />
       </>}
       {inspecting && card && <Inspector card={card} g={g ?? undefined} onClose={() => setInspecting(false)} />}
-    </div>
-  );
-}
-
-function LangSwitch({ lang }: { lang: Lang }) {
-  return (
-    <div className="lang" role="group" aria-label="Language / Idioma">
-      {(['en', 'es'] as Lang[]).map((l) => <button key={l} type="button" lang={l} aria-pressed={lang === l} className={lang === l ? 'on' : ''} onClick={() => setLang(l)}>{l === 'en' ? 'EN' : 'ESP'}</button>)}
     </div>
   );
 }

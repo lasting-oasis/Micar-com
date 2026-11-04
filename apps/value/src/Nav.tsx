@@ -4,8 +4,9 @@
 // neither door is lit; the page itself explains them. The EN/ESP switch sits by the name.
 import { Calculator, QrCode, Tag } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { calculatorUrl, homeUrl, stickerPageUrl } from './car/record';
-import { setLang, t, useLang, type Lang } from './i18n';
+import { calculatorUrl, stickerPageUrl } from './car/record';
+import { t, useLang } from './i18n';
+import { Strip } from './Strip';
 
 export type Section = 'home' | 'value' | 'sheet' | 'car';
 
@@ -16,14 +17,10 @@ export function Nav({ active }: { active: Section }) {
     { id: 'sheet', href: stickerPageUrl(), icon: <Tag size={17} />, title: t('Window sheet'), who: t('Dealers · print a sheet with a QR code for a car on the lot'), whoShort: t('Dealers · print with QR code') },
   ];
   return (
-    <nav aria-label={t('Site')} className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between" style={{ color: 'var(--glass-ink)' }}>
-      <div className="flex items-center justify-between gap-4 sm:justify-start">
-        <a href={homeUrl()} className="font-cond text-lg font-semibold tracking-tight hover:underline" style={{ color: 'var(--glass-ink)' }} aria-current={active === 'home' ? 'page' : undefined}>
-          <span style={{ color: '#ffd23f' }}>Mi</span>Car <span style={{ color: 'var(--glass-muted)', fontWeight: 500 }}>{t('Value')}</span>
-          {active === 'car' && <span className="ml-2 inline-flex items-center gap-1 rounded-full px-2 py-0.5 align-middle text-xs font-medium" style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--glass-muted)' }}><QrCode size={12} /> {t('Car page from a window sheet')}</span>}
-        </a>
-        <LangSwitch />
-      </div>
+    <>
+    <Strip current={active === 'sheet' ? 'dealers' : 'value'} />
+    <nav aria-label={t('Site')} className="mb-6 mt-4 flex flex-col gap-3 sm:flex-row sm:items-center" style={{ color: 'var(--glass-ink)' }}>
+      {active === 'car' && <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium" style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--glass-muted)' }}><QrCode size={12} /> {t('Car page from a window sheet')}</span>}
       <div className="grid grid-cols-2 gap-2 rounded-xl p-1" style={{ background: 'rgba(255,255,255,0.06)', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.1)' }}>
         {tabs.map((tab) => {
           const on = tab.id === active;
@@ -41,25 +38,6 @@ export function Nav({ active }: { active: Section }) {
         })}
       </div>
     </nav>
-  );
-}
-
-/** EN / ESP. Each button names its language in that language, so it reads right whichever page you're on. */
-function LangSwitch() {
-  const lang = useLang();
-  const opts: [Lang, string, string][] = [['en', 'EN', 'English'], ['es', 'ESP', 'Español']];
-  return (
-    <div role="group" aria-label="Language / Idioma" className="inline-flex shrink-0 rounded-full p-0.5" style={{ background: 'rgba(255,255,255,0.06)', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.14)' }}>
-      {opts.map(([id, short, name]) => {
-        const on = lang === id;
-        return (
-          <button key={id} type="button" lang={id} title={name} aria-pressed={on} onClick={() => setLang(id)}
-            className="rounded-full px-3 py-1 text-xs font-semibold tracking-wide transition hover:brightness-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-            style={on ? { background: 'var(--sticker)', color: 'var(--ink)' } : { color: 'var(--glass-muted)' }}>
-            {short}<span className="sr-only"> {name}</span>
-          </button>
-        );
-      })}
-    </div>
+    </>
   );
 }

@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Micar Tuner — 4x4 configurator</title>
-<meta name="description" content="Local sprite-turntable car configurator (original vehicle, original art).">
+<title>MiCar Tuner</title>
+<meta name="description" content="MiCar Tuner: build the truck you want, part by part. An original vehicle and original art; the parts move into MiCar World.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=PT+Sans:wght@400;700&family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/brand.css">
 <link rel="stylesheet" href="src/styles.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23bc1d17'/%3E%3Ccircle cx='10' cy='21' r='4' fill='%23fff'/%3E%3Ccircle cx='22' cy='21' r='4' fill='%23fff'/%3E%3Cpath d='M5 18h22v-5l-4-5H11l-6 5z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="src/favicon.svg">
 </head>
 <body>
+<div class="mc-strip" role="navigation" aria-label="MiCar"><a class="mc-home" href="https://lasting-oasis.github.io/Micar-com/"><svg width="22" height="22" viewBox="0 0 26 26" aria-hidden="true" style="color:var(--mc-paint);flex:none"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M12.5 12.5 L23 23 M19 19 L22 16 M16 16 L19 13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="mc-wordmark"><span class="mc-mi">Mi</span>Car<small>Tuner</small></span></a><nav class="mc-doors"><a href="https://lasting-oasis.github.io/Micar-com/#/value">Value a car</a><a href="https://lasting-oasis.github.io/Micar-com/#card">Garage<em>soon</em></a><a href="https://micar-sim.onrender.com/">World</a><a href="https://lasting-oasis.github.io/Micar-com/#/sticker">For dealers</a><a href="https://micar-sim.onrender.com/shop">For shops</a></nav><div class="mc-right"></div></div>
 <div id="app" class="app" data-mode="finishes">
   <!-- stage -->
   <div class="stage-wrap" id="stageWrap">

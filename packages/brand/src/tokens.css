@@ -1,0 +1,21 @@
+/* MiCar: windshield-paint yellow on dark glass. Screens are a garage at night; print is paper. */
+:root {
+  --mc-night: #0e1217;      /* page ground */
+  --mc-night-2: #161b22;    /* raised panel */
+  --mc-line: #262d37;       /* hairlines */
+  --mc-ink: #e7eaee;        /* text on dark */
+  --mc-haze: #9aa3ad;       /* secondary text on dark */
+  --mc-paint: #ffd23f;      /* windshield paint: the one accent */
+  --mc-paint-2: #e0b22a;    /* paint shadow */
+  --mc-tube: #3d7bff;       /* fluorescent blue: light, never a button */
+  --mc-tube-2: #79a6ff;
+  --mc-chrome-hi: #f3f6fb;
+  --mc-chrome-lo: #5d6678;
+  --mc-paper: #fbfbf8;      /* the print layer: sheets, labels, certificates */
+  --mc-paper-ink: #18202b;
+  --mc-gain: #5fbf86;
+  --mc-loss: #e07878;
+  --mc-cond: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+  --mc-body: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+  --mc-marker: 'Permanent Marker', 'Comic Sans MS', cursive;
+}

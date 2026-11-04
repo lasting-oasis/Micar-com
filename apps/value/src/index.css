@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@micar/brand/tokens.css";
 
 /* Window-sticker palette: a printed label on tinted car glass. */
 :root {

@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import { useGameStore } from './store';
-import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Gauge } from 'lucide-react';
+import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Gauge } from 'lucide-react';
 import { RACE_TIERS, RaceDifficulty } from './types';
-import { useLang, t, LangToggle, withBrand } from './i18n';
+import { useLang, t } from './i18n';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import { loadChunk } from './loadChunk';
-import { ChunkBoundary } from './ChunkBoundary';
+import { ChunkBoundary } from './ChunkBoundary'
+import { Strip } from './Strip'
+import { SITE_URL } from '@micar/brand';
 // Heavy screens load on demand. The 3D world (three.js) starts downloading as
 // soon as the setup screen shows, so it's usually ready by the time you join.
 // loadChunk reloads the page once if a chunk is gone after a redeploy;
@@ -2083,162 +2085,90 @@ function App() {
     }
   }, [playerId, isStandaloneOp, opSpecialty]);
 
-  // Initial Connect screen
+  // The front door of MiCar World: what the place is, your name, one button. The game's options
+  // (your business, its size, the guide) are defaulted and folded under "More options".
   if (!playerId || !gameState) {
+    const businesses: { id: 'dealership' | 'mechanic' | 'body' | 'dual'; key: string; on: boolean; pick: () => void }[] = [
+      { id: 'dealership', key: 'setup.dealership', on: careerFocusInput === 'dealership', pick: () => setCareerFocusInput('dealership') },
+      { id: 'mechanic', key: 'setup.mechanicShop', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'mechanic', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('mechanic'); } },
+      { id: 'body', key: 'setup.bodyShop', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'body', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('body'); } },
+      { id: 'dual', key: 'setup.dual', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'dual', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('dual'); } },
+    ];
+    const enter = () => connect(nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScaleInput, careerFocusInput, shopSpecialtyInput);
     return (
-      <div className="flex flex-col gap-4 h-[100dvh] items-center justify-center bg-background p-4 overflow-y-auto">
-        <div className="fixed top-4 right-4 z-[9999]"><LangToggle /></div>
-
-        {/* CARD 1: Brand Identity & Name Input */}
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="panel flex flex-col items-center gap-4 p-6 max-w-sm w-full border-market/30 bg-black/90 backdrop-blur-xl shadow-2xl rounded-2xl shrink-0"
-        >
-          <div className="text-center">
-            <h1 className="text-2xl font-black tracking-tighter text-white uppercase flex items-center justify-center gap-2">
-              <Sparkles className="text-market w-5 h-5 animate-pulse" />
-              {withBrand(t(lang, 'setup.title'))}
+      <div className="min-h-[100dvh] bg-night text-ink font-sans overflow-y-auto" style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 20%, #121a2a 0%, #0e1217 70%)' }}>
+        <Strip current="world" />
+        <div className="mx-auto max-w-6xl px-4 py-10 md:py-16 grid gap-10 md:grid-cols-[1.2fr_1fr] items-start">
+          <motion.div initial={{ y: 16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }} className="flex flex-col gap-6">
+            <div className="font-marker text-market text-xl -rotate-2 origin-left">{t(lang, 'setup.eyebrow')}</div>
+            <h1 className="font-cond italic font-black uppercase leading-[0.86] tracking-tight text-[clamp(56px,9vw,120px)]">
+              <span className="text-market normal-case">Mi</span><span className="normal-case">Car</span> {t(lang, 'setup.world')}
             </h1>
-            <p className="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-1">{t(lang, 'setup.subtitle')}</p>
-          </div>
+            <p className="text-lg md:text-xl text-[#c3cad8] max-w-[44ch]">{t(lang, 'setup.subtitle')}.</p>
+            <ul className="grid gap-3 sm:grid-cols-3 mt-2">
+              {([['setup.placeGarage', 'setup.placeGarageDesc'], ['setup.placeDealership', 'setup.placeDealershipDesc'], ['setup.placeStrip', 'setup.placeStripDesc']] as const).map(([k, d]) => (
+                <li key={k} className="rounded-xl border border-line bg-night-2 p-4 flex flex-col gap-1.5">
+                  <span className="font-cond italic font-extrabold uppercase text-xl">{t(lang, k)}</span>
+                  <span className="text-sm text-haze">{t(lang, d)}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-          <div className="w-full flex flex-col gap-1.5 text-left">
-            <label className="text-[9px] font-black text-gray-500 uppercase tracking-widest">{t(lang, 'setup.nameLabel')}</label>
-            <input
-              type="text"
-              className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-market transition-all"
-              placeholder={t(lang, 'setup.namePlaceholder')}
-              value={nameInput}
-              onChange={(e) => setNameInput(e.target.value)}
-            />
-          </div>
-        </motion.div>
-
-        {/* CARD 2: Career Path & Business Specialty Settings */}
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="panel flex flex-col gap-5 p-6 max-w-sm w-full border-market/30 bg-black/90 backdrop-blur-xl shadow-2xl rounded-2xl shrink-0"
-        >
-          <div className="w-full flex flex-col gap-2">
-            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">{t(lang, 'setup.careerPath')}</span>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => setCareerFocusInput('dealership')}
-                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'dealership' ? 'bg-market text-black border-market shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
-              >
-                {t(lang, 'setup.dealership')}
-              </button>
-              <button
-                type="button"
-                onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('mechanic'); }}
-                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'mechanic' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
-              >
-                {t(lang, 'setup.mechanicShop')}
-              </button>
-              <button
-                type="button"
-                onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('body'); }}
-                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'body' ? 'bg-blue-500 text-black border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
-              >
-                {t(lang, 'setup.bodyShop')}
-              </button>
-              <button
-                type="button"
-                onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('dual'); }}
-                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'dual' ? 'bg-purple-500 text-black border-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
-              >
-                {t(lang, 'setup.dual')}
-              </button>
-            </div>
-          </div>
-
-          {careerFocusInput === 'dealership' ? (
-            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full flex flex-col gap-2">
-              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">{t(lang, 'setup.dealerTier')}</span>
-              <div className="grid grid-cols-3 gap-2">
-                <button
-                  type="button"
-                  onClick={() => setLotScaleInput('Small')}
-                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Small' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
-                >
-                  {t(lang, 'setup.small')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setLotScaleInput('Medium')}
-                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Medium' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
-                >
-                  {t(lang, 'setup.med')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setLotScaleInput('Large')}
-                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Large' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
-                >
-                  {t(lang, 'setup.large')}
-                </button>
+          <motion.form initial={{ y: 16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.1 }}
+            onSubmit={(e) => { e.preventDefault(); enter(); }}
+            className="rounded-2xl border border-white/10 bg-night-2/90 backdrop-blur-xl shadow-2xl p-6 md:p-7 flex flex-col gap-5 w-full max-w-md md:justify-self-end">
+            <label className="flex flex-col gap-2">
+              <span className="font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze">{t(lang, 'setup.nameLabel')}</span>
+              <input type="text" autoFocus className="w-full bg-[#0a0d12] border border-[#3a4458] rounded-lg px-4 py-3 font-cond text-lg tracking-wide text-ink placeholder:text-[#4a5468] focus:outline-none focus:border-market focus:ring-4 focus:ring-market/20 transition-all"
+                placeholder={t(lang, 'setup.namePlaceholder')} value={nameInput} onChange={(e) => setNameInput(e.target.value)} />
+            </label>
+            <div className="flex flex-col gap-2">
+              <span className="font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze">{t(lang, 'setup.business')}</span>
+              <div className="grid grid-cols-2 gap-2">
+                {businesses.map((b) => (
+                  <button key={b.id} type="button" onClick={b.pick} aria-pressed={b.on}
+                    className={`py-2.5 px-3 text-left font-cond font-bold uppercase tracking-wider text-[13px] rounded-lg border transition-all ${b.on ? 'bg-market text-[#0b0d12] border-market' : 'bg-transparent text-[#c3cad8] border-line hover:border-haze'}`}>
+                    {t(lang, b.key)}
+                  </button>
+                ))}
               </div>
-            </motion.div>
-          ) : (
-            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-left flex flex-col gap-2 font-mono text-[10px]">
-              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest block border-b border-white/5 pb-1">{t(lang, 'setup.shopLogistics')}</span>
-              {shopSpecialtyInput === 'mechanic' && (
-                <>
-                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.specialtyLbl')}</span> <span className="text-emerald-400 font-bold">{t(lang, 'setup.mechanicSpecialty')}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.startingCapital')}</span> <span className="text-white font-bold">{t(lang, 'setup.cash45')}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.intakeCapacity')}</span> <span className="text-white font-bold">{t(lang, 'setup.capMech')}</span></div>
-                </>
-              )}
-              {shopSpecialtyInput === 'body' && (
-                <>
-                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.specialtyLbl')}</span> <span className="text-blue-400 font-bold">{t(lang, 'setup.bodySpecialty')}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.startingCapital')}</span> <span className="text-white font-bold">{t(lang, 'setup.cash35')}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.intakeCapacity')}</span> <span className="text-white font-bold">{t(lang, 'setup.capBody')}</span></div>
-                </>
-              )}
-              {shopSpecialtyInput === 'dual' && (
-                <>
-                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.specialtyLbl')}</span> <span className="text-purple-400 font-bold">{t(lang, 'setup.dualCenter')}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.startingCapital')}</span> <span className="text-white font-bold">{t(lang, 'setup.cash95')}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.intakeCapacity')}</span> <span className="text-white font-bold">{t(lang, 'setup.capDual')}</span></div>
-                </>
-              )}
-            </motion.div>
-          )}
-
-          <div className="w-full flex flex-col gap-2 mt-1">
-            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">{t(lang, 'setup.firstTime')}</span>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => setAutoShowGuide(true)}
-                className={`py-2 text-[9.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${autoShowGuide ? 'bg-success/20 text-success border-success' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
-              >
-                {t(lang, 'setup.showGuide')}
-              </button>
-              <button
-                type="button"
-                onClick={() => setAutoShowGuide(false)}
-                className={`py-2 text-[9.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${!autoShowGuide ? 'bg-white/10 text-white border-white/30' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
-              >
-                {t(lang, 'setup.optOut')}
-              </button>
             </div>
-          </div>
-
-          <button
-            type="button"
-            className="w-full bg-gradient-to-r from-blue-500 to-market text-black font-black uppercase tracking-widest py-3 rounded-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2 mt-2 shadow-lg cursor-pointer"
-            onClick={() => connect(nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScaleInput, careerFocusInput, shopSpecialtyInput)}
-          >
-            <LogIn size={18} /> {t(lang, 'setup.establish')}
-          </button>
-        </motion.div>
+            <details className="group rounded-lg border border-line open:bg-black/20">
+              <summary className="cursor-pointer select-none px-3 py-2 font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze list-none flex justify-between items-center">
+                {t(lang, 'setup.more')} <span className="transition-transform group-open:rotate-180">⌄</span>
+              </summary>
+              <div className="px-3 pb-3 flex flex-col gap-4">
+                {careerFocusInput === 'dealership' ? (
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[11px] font-cond font-semibold uppercase tracking-[0.14em] text-haze">{t(lang, 'setup.dealerTier')}</span>
+                    <div className="grid grid-cols-3 gap-2">
+                      {(['Small', 'Medium', 'Large'] as const).map((tier) => (
+                        <button key={tier} type="button" onClick={() => setLotScaleInput(tier)} aria-pressed={lotScaleInput === tier}
+                          className={`py-2 font-cond font-bold uppercase tracking-wider text-[12px] rounded-lg border transition-all ${lotScaleInput === tier ? 'bg-market/20 text-market border-market' : 'bg-transparent text-[#c3cad8] border-line hover:border-haze'}`}>
+                          {t(lang, tier === 'Small' ? 'setup.small' : tier === 'Medium' ? 'setup.med' : 'setup.large')}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="font-cond text-sm text-[#c3cad8] flex flex-col gap-1">
+                    <div className="flex justify-between"><span className="text-haze">{t(lang, 'setup.startingCapital')}</span><b>{t(lang, shopSpecialtyInput === 'mechanic' ? 'setup.cash45' : shopSpecialtyInput === 'body' ? 'setup.cash35' : 'setup.cash95')}</b></div>
+                    <div className="flex justify-between"><span className="text-haze">{t(lang, 'setup.intakeCapacity')}</span><b>{t(lang, shopSpecialtyInput === 'mechanic' ? 'setup.capMech' : shopSpecialtyInput === 'body' ? 'setup.capBody' : 'setup.capDual')}</b></div>
+                  </div>
+                )}
+                <label className="flex items-center gap-3 font-cond text-sm text-[#c3cad8] cursor-pointer">
+                  <input type="checkbox" className="w-4 h-4 accent-[#ffd23f]" checked={autoShowGuide} onChange={(e) => setAutoShowGuide(e.target.checked)} />
+                  {t(lang, 'setup.showGuide')}
+                </label>
+              </div>
+            </details>
+            <button type="submit" className="w-full bg-market text-[#0b0d12] font-cond italic font-black uppercase tracking-wider text-lg py-3.5 rounded-lg transition-all hover:brightness-110 flex items-center justify-center gap-2 shadow-[4px_4px_0_#e0b22a]">
+              <LogIn size={18} /> {t(lang, 'setup.establish')}
+            </button>
+            <p className="font-marker text-market text-sm -rotate-1 origin-left">{t(lang, 'setup.free')}</p>
+          </motion.form>
+        </div>
       </div>
     );
   }
@@ -2255,6 +2185,10 @@ function App() {
 
   return (
     <>
+      {/* A way back to the MiCar home; short on phones so it fits beside the top-right [graphics][Menu] buttons */}
+      <a href={SITE_URL} className="absolute top-4 left-4 z-[9999] px-3 py-2 bg-black/60 border border-white/20 hover:border-market/60 rounded-xl hover:bg-black/95 font-cond italic font-black text-sm tracking-wide text-white transition-all duration-300 flex items-center gap-1 shadow-[0_4px_20px_rgba(0,0,0,0.5)] pointer-events-auto">
+        <span className="text-market">Mi</span>Car
+      </a>
       <ChunkBoundary className="absolute inset-0 z-0 grid place-items-center">
         <Suspense fallback={<div className="absolute inset-0 z-0 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(lang, 'loading.world')}</div>}>
           <VanillaThreeScene />

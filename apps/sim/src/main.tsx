@@ -14,7 +14,8 @@ const Loading = () => (
   <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(useLang(), 'loading.default')}</div>
 )
 import './index.css'
-import { useLang, t, LangToggle, getLang } from './i18n'
+import { useLang, t, getLang } from './i18n'
+import { Strip } from './Strip'
 // Global error catcher.
 // - Development: full-screen overlay with message, source and stack (as before).
 // - Production: a small dismissable notice, so a harmless error (often from a
@@ -71,7 +72,6 @@ window.addEventListener('error', (event) => {
 // customer tracker as tabs. The old ?app=game|shop|mechanic|platform links keep working.
 type View = 'world' | 'shop';
 type ShopTab = 'body' | 'mechanic' | 'tracker';
-const HOME_URL = 'https://lasting-oasis.github.io/Micar-com/';
 const TABS: { id: ShopTab; key: string }[] = [{ id: 'body', key: 'shop.tab.body' }, { id: 'mechanic', key: 'shop.tab.mechanic' }, { id: 'tracker', key: 'shop.tab.tracker' }];
 
 function routeFromLocation(): { view: View; tab: ShopTab } {
@@ -122,41 +122,35 @@ function GatewayPortal() {
   if (route.view === 'world') {
     return (
       <div className="relative w-full h-[100dvh] overflow-hidden bg-[#0c0d12]">
-        {/* A way back to the MiCar home; short on phones so it fits beside the top-right [graphics][Menu] buttons */}
-        <a href={HOME_URL} className="absolute top-4 left-4 z-[9999] px-3 py-2 bg-black/60 border border-white/20 hover:border-[#ffd23f]/60 rounded-xl hover:bg-black/95 text-xs font-black uppercase tracking-widest text-white transition-all duration-300 flex items-center gap-1.5 shadow-[0_4px_20px_rgba(0,0,0,0.5)] pointer-events-auto">
-          <span className="text-[#ffd23f] normal-case">Mi</span><span className="normal-case">Car</span>
-        </a>
         <ChunkBoundary><Suspense fallback={<Loading />}><App /></Suspense></ChunkBoundary>
       </div>
     );
   }
 
   return (
-    <div className="relative min-h-screen bg-[#0e1217] text-white flex flex-col font-sans select-none overflow-x-hidden">
-      <div className="absolute top-0 left-0 right-0 h-[380px] bg-gradient-to-b from-[#ffd23f]/10 via-[#ffd23f]/[0.02] to-transparent pointer-events-none z-0" />
+    <div className="relative min-h-screen bg-night text-ink flex flex-col font-sans select-none overflow-x-hidden">
+      <div className="absolute top-0 left-0 right-0 h-[380px] bg-gradient-to-b from-market/10 via-market/[0.02] to-transparent pointer-events-none z-0" />
+      <Strip current="shops" />
       <header className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-5 flex flex-wrap gap-4 justify-between items-center border-b border-white/5">
-        <div className="flex items-center gap-3">
-          <a href={HOME_URL} className="text-xl font-black italic uppercase tracking-tight"><span className="text-[#ffd23f] normal-case">Mi</span><span className="normal-case">Car</span> <span className="text-sm font-bold tracking-[0.2em] text-gray-400">{t(lang, 'shop.brand')}</span></a>
+        <div className="flex items-baseline gap-3">
+          <span className="font-cond italic font-black uppercase text-2xl"><span className="text-market normal-case">Mi</span><span className="normal-case">Car</span> {t(lang, 'shop.brand')}</span>
+          <span className="font-cond text-xs uppercase tracking-[0.18em] text-haze">{t(lang, 'shop.tag')}</span>
         </div>
         <nav className="flex items-center gap-1 rounded-xl bg-white/5 p-1" aria-label={t(lang, 'shop.brand')}>
           {TABS.map(tab => (
             <button key={tab.id} type="button" onClick={() => selectTab(tab.id)} aria-current={route.tab === tab.id ? 'page' : undefined}
-              className={`px-4 py-2 rounded-lg text-xs font-black uppercase tracking-widest transition-all ${route.tab === tab.id ? 'bg-[#ffd23f] text-[#0b0d12]' : 'text-gray-400 hover:text-white'}`}>
+              className={`px-4 py-2 rounded-lg font-cond text-sm font-bold uppercase tracking-widest transition-all ${route.tab === tab.id ? 'bg-market text-[#0b0d12]' : 'text-haze hover:text-white'}`}>
               {t(lang, tab.key)}
             </button>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <a href={window.location.pathname.replace(/\/shop\/?$/, '/')} className="text-[10px] font-mono tracking-widest text-gray-400 hover:text-white uppercase">{t(lang, 'shop.world')}</a>
-          <LangToggle />
-        </div>
       </header>
       <main className="relative z-10 flex-grow w-full max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-center">
         <ChunkBoundary><Suspense fallback={<Loading />}>
           {route.tab === 'body' ? <ShopManagement /> : route.tab === 'mechanic' ? <MechanicManagement /> : <StandaloneShopPlatform />}
         </Suspense></ChunkBoundary>
       </main>
-      <footer className="relative z-10 py-5 text-center border-t border-white/5 text-[9px] text-gray-500 font-mono tracking-widest uppercase">
+      <footer className="relative z-10 py-5 text-center border-t border-white/5 font-cond text-xs text-haze tracking-[0.14em] uppercase">
         {t(lang, 'shop.footer')}
       </footer>
     </div>

@@ -1,0 +1,50 @@
+/* Copied from packages/brand (tokens.css + strip.css): the tuner is static and has no bundler. Re-copy when the package changes. */
+/* MiCar: windshield-paint yellow on dark glass. Screens are a garage at night; print is paper. */
+:root {
+  --mc-night: #0e1217;      /* page ground */
+  --mc-night-2: #161b22;    /* raised panel */
+  --mc-line: #262d37;       /* hairlines */
+  --mc-ink: #e7eaee;        /* text on dark */
+  --mc-haze: #9aa3ad;       /* secondary text on dark */
+  --mc-paint: #ffd23f;      /* windshield paint: the one accent */
+  --mc-paint-2: #e0b22a;    /* paint shadow */
+  --mc-tube: #3d7bff;       /* fluorescent blue: light, never a button */
+  --mc-tube-2: #79a6ff;
+  --mc-chrome-hi: #f3f6fb;
+  --mc-chrome-lo: #5d6678;
+  --mc-paper: #fbfbf8;      /* the print layer: sheets, labels, certificates */
+  --mc-paper-ink: #18202b;
+  --mc-gain: #5fbf86;
+  --mc-loss: #e07878;
+  --mc-cond: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+  --mc-body: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+  --mc-marker: 'Permanent Marker', 'Comic Sans MS', cursive;
+}
+
+/* The strip. Dark glass, one line, the current door underlined in paint. Scrolls sideways on phones. */
+.mc-strip { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; gap: 18px; min-height: 48px; padding: 0 16px;
+  background: color-mix(in srgb, var(--mc-night, #0e1217) 88%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--mc-line, #262d37);
+  color: var(--mc-ink, #e7eaee); font-family: var(--mc-cond, 'Barlow Condensed', sans-serif); }
+.mc-strip a { color: inherit; text-decoration: none; }
+.mc-home { display: inline-flex; align-items: center; gap: 8px; flex: none; }
+.mc-wordmark { font: italic 900 22px/1 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .01em; text-transform: none; }
+.mc-wordmark .mc-mi { color: var(--mc-paint, #ffd23f); }
+.mc-wordmark small { font: 600 11px/1 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .14em; color: var(--mc-haze, #9aa3ad); margin-left: 6px; text-transform: uppercase; vertical-align: 2px; }
+.mc-doors { display: flex; align-items: center; gap: 22px; margin: 0 auto 0 8px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.mc-doors::-webkit-scrollbar { display: none; }
+.mc-doors a { position: relative; white-space: nowrap; font: 600 14px/48px var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .08em; text-transform: uppercase; color: #c9d0dd; }
+.mc-doors a:hover { color: #fff; }
+.mc-doors a[aria-current] { color: var(--mc-ink, #e7eaee); }
+.mc-doors a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 8px; height: 2px; background: var(--mc-paint, #ffd23f); transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.2,.9,.2,1); }
+.mc-doors a[aria-current]::after, .mc-doors a:hover::after { transform: scaleX(1); }
+.mc-doors em { font: 700 9px/1 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .14em; color: var(--mc-paint, #ffd23f); margin-left: 5px; vertical-align: 3px; font-style: normal; }
+.mc-right { display: flex; align-items: center; gap: 10px; flex: none; }
+.mc-lang { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--mc-night-2, #161b22); border: 1px solid var(--mc-line, #262d37); }
+.mc-lang button { border: 0; background: none; color: var(--mc-haze, #9aa3ad); font: 700 12px/1 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .12em; padding: 7px 11px; border-radius: 999px; cursor: pointer; }
+.mc-lang button[aria-pressed="true"] { background: var(--mc-paint, #ffd23f); color: #0b0d12; }
+@media (max-width: 720px) {
+  .mc-strip { gap: 12px; padding: 0 12px; }
+  .mc-doors { gap: 16px; }
+  .mc-doors a { font-size: 13px; }
+  .mc-wordmark small { display: none; }
+}

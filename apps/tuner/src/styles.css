@@ -1,19 +1,20 @@
-/* Micar Tuner — HUD layout measured from the original at 1440x900 (see recon/SPEC.md). */
+/* MiCar Tuner. HUD layout measured from the original at 1440x900 (see recon/SPEC.md); type and accent from packages/brand. */
 :root {
-  --font-ui: 'PT Sans', Arial, sans-serif;
-  --font-head: 'Montserrat', Arial, sans-serif;
-  --font-card: 'PT Sans Caption', 'PT Sans', Arial, sans-serif;
+  --font-ui: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+  --font-head: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+  --font-card: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
   --text: #808285; --text-dark: #454545; --panel-text: #656565;
-  --dock-bg: rgba(0, 0, 0, 0.8); --led-on: #00ff30; --led-off: #ff2d2d;
-  --blue: #077cbf; --orange: #df4914; --red-badge: #e21a1a;
+  --dock-bg: rgba(0, 0, 0, 0.8); --led-on: #ffd23f; --led-off: #ff2d2d;
+  --blue: #ffd23f; --orange: #e0b22a; --red-badge: #e21a1a;
   --panel-h: 120px; --dock-w: 67px; --dock-h: 40px;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html, body { margin: 0; height: 100%; overflow: hidden; background: #1b1d20; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #0e1217; }
 body { font: 13px/1.42 var(--font-ui); color: var(--text); -webkit-font-smoothing: antialiased; user-select: none; }
 button { font-family: inherit; cursor: pointer; border: 0; background: none; padding: 0; color: inherit; }
-.app { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+.app { position: relative; width: 100vw; height: calc(100vh - 48px); overflow: hidden; }
+.mc-strip { position: relative; }
 
 /* ---------- stage ---------- */
 .stage-wrap { position: absolute; inset: 0 0 var(--panel-h) 0; overflow: hidden; cursor: grab; touch-action: none; }
@@ -33,7 +34,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; pad
 
 /* ---------- right dock ---------- */
 .dock-right { position: absolute; right: 0; top: 40px; bottom: var(--panel-h); width: var(--dock-w); z-index: 5; display: flex; flex-direction: column; gap: 10px; }
-.pill { width: var(--dock-w); height: var(--dock-h); border-radius: 8px 0 0 8px; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; line-height: 11px; }
+.pill { width: var(--dock-w); height: var(--dock-h); border-radius: 8px 0 0 8px; color: #0b0d12; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 11px; line-height: 11px; }
 .pill svg { opacity: .95; }
 .pill-blue { background: var(--blue); } .pill-orange { background: var(--orange); }
 .toggle-stack { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
