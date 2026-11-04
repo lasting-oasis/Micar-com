@@ -31,17 +31,35 @@ export type GroundLook = {
 
 const vertexDecl = /* glsl */`
 #include <common>
-varying vec2 vGroundXZ;`;
+varying vec2 vGroundXZ;
+#ifdef GROUND_LOW
+uniform sampler2D gMacroMap;
+uniform float gMacroScale;
+varying vec3 vGroundMacro;
+#endif`;
 const vertexMain = /* glsl */`
 #include <project_vertex>
 #ifdef USE_INSTANCING
 	vGroundXZ = ( modelMatrix * instanceMatrix * vec4( transformed, 1.0 ) ).xz;
 #else
 	vGroundXZ = ( modelMatrix * vec4( transformed, 1.0 ) ).xz;
+#endif
+#ifdef GROUND_LOW
+	// Low: the large-scale noise is read once per vertex (from a blurred mip level)
+	// instead of once per pixel. It varies over tens to hundreds of metres, so the
+	// difference is slight.
+#if __VERSION__ >= 300
+	vGroundMacro = textureLod( gMacroMap, vGroundXZ * gMacroScale, 3.0 ).rgb;
+#else
+	vGroundMacro = texture2DLod( gMacroMap, vGroundXZ * gMacroScale, 3.0 ).rgb;
+#endif
 #endif`;
 const fragmentDecl = /* glsl */`
 #include <common>
 varying vec2 vGroundXZ;
+#ifdef GROUND_LOW
+varying vec3 vGroundMacro;
+#endif
 uniform float gMapScale;
 uniform sampler2D gDetailMap;
 uniform float gDetailScale;
@@ -61,15 +79,17 @@ const fragmentMap = /* glsl */`
 #ifndef GROUND_LOW
 	float gDetail = texture2D( gDetailMap, vGroundXZ * gDetailScale ).g * 2.0;
 	diffuseColor.rgb *= mix( 1.0, gDetail, gDetailStrength * sampledDiffuseColor.a );
-#endif
 	vec3 gMacro = texture2D( gMacroMap, vGroundXZ * gMacroScale ).rgb;
+#else
+	vec3 gMacro = vGroundMacro;
+#endif
 	diffuseColor.rgb *= mix( gMacroLo, gMacroHi, gMacro.r );
 	diffuseColor.rgb = mix( diffuseColor.rgb, gDirtColor, smoothstep( gDirtRange.x, gDirtRange.y, gMacro.b ) * gDirtAmount );
 #endif`;
 
-// Low graphics skips the fine detail texture (GROUND_LOW): one of the three texture reads
-// per ground pixel, and the one that tiles finest. The large-scale noise stays, so big
-// lawns still don't show their tiling.
+// Low graphics (GROUND_LOW) reads one texture per ground pixel instead of three: the fine
+// detail texture is skipped, and the large-scale noise is read per vertex instead (so big
+// lawns still don't show their tiling).
 const groundMaterials = new Set<THREE.MeshStandardMaterial>();
 let lowQuality = false;
 /** Switch every ground material between the full look and Low's single texture read. */
