@@ -1,0 +1,215 @@
+{
+ "make": "Jeep",
+ "model": "Wrangler",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "Sport",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/wrangler/year-2016/?trim=sport",
+   "fetched": "2026-10-28",
+   "page_total_listings": 178,
+   "page_average": null,
+   "page_average_note": "Page states no Sport average; its only average sentences are model-wide boilerplate: 'The average price for the 2016 Jeep Wrangler Sahara is $27,022' and Rubicon / Sport S 'averaging $31,071 and $25,462' (same figures on every year page).",
+   "listings": [
+    {
+     "price": 13988,
+     "miles": 103510,
+     "location": "Leesburg, VA",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; Unlimited = four-door"
+    },
+    {
+     "price": 13898,
+     "miles": 105009,
+     "location": "Pensacola, FL",
+     "trim": "Sport",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; two-door"
+    },
+    {
+     "price": 15318,
+     "miles": 81260,
+     "location": "Libertyville, IL",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "four-door"
+    },
+    {
+     "price": 16684,
+     "miles": 69618,
+     "location": "Clearwater, FL",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "four-door"
+    },
+    {
+     "price": 16698,
+     "miles": 75791,
+     "location": "Wake Forest, NC",
+     "trim": "Sport",
+     "body": "SUV / Crossover",
+     "note": "two-door"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "Sport",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/wrangler/year-2019/?trim=sport",
+   "fetched": "2026-10-28",
+   "page_total_listings": 29,
+   "page_average": null,
+   "page_average_note": "Page states no Sport average; its only average sentences are model-wide boilerplate: 'The average price for the 2019 Jeep Wrangler Sahara is $27,022' and Rubicon / Sport S 'averaging $31,071 and $25,462' (same figures on every year page).",
+   "listings": [
+    {
+     "price": 19678,
+     "miles": 69504,
+     "location": "Cary, NC",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "four-door"
+    },
+    {
+     "price": 21794,
+     "miles": 84321,
+     "location": "Daytona Beach, FL",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "four-door"
+    },
+    {
+     "price": 16625,
+     "miles": 88379,
+     "location": "Inwood, NY",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "four-door"
+    },
+    {
+     "price": 19638,
+     "miles": 79949,
+     "location": "Mansfield, OH",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "four-door"
+    },
+    {
+     "price": 20783,
+     "miles": 77172,
+     "location": "West Palm Beach, FL",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "four-door"
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "Sport",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/wrangler/year-2022/?trim=sport",
+   "fetched": "2026-10-28",
+   "page_total_listings": 72,
+   "page_average": null,
+   "page_average_note": "Page states no Sport average; its only average sentences are model-wide boilerplate: 'The average price for the 2022 Jeep Wrangler Sahara is $27,022' and Rubicon / Sport S 'averaging $31,071 and $25,462' (same figures on every year page).",
+   "listings": [
+    {
+     "price": 21485,
+     "miles": 63420,
+     "location": "Elverson, PA",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; four-door"
+    },
+    {
+     "price": 23255,
+     "miles": 57637,
+     "location": "Elmsford, NY",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "CPO; four-door"
+    },
+    {
+     "price": 25580,
+     "miles": 40238,
+     "location": "Tarpon Springs, FL",
+     "trim": "Unlimited Sport",
+     "body": "SUV / Crossover",
+     "note": "four-door"
+    },
+    {
+     "price": 23556,
+     "miles": 58160,
+     "location": "Hudson, FL",
+     "trim": "Sport",
+     "body": "SUV / Crossover",
+     "note": "two-door"
+    },
+    {
+     "price": 27371,
+     "miles": 26535,
+     "location": "Canton, NC",
+     "trim": "Sport",
+     "body": "SUV / Crossover",
+     "note": "two-door"
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "Sport",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/wrangler/year-2024/?trim=sport",
+   "fetched": "2026-10-28",
+   "page_total_listings": 86,
+   "page_average": null,
+   "page_average_note": "Page states no Sport average; its only average sentences are model-wide boilerplate: 'The average price for the 2024 Jeep Wrangler Sahara is $27,022' and Rubicon / Sport S 'averaging $31,071 and $25,462' (same figures on every year page).",
+   "listings": [
+    {
+     "price": 31482,
+     "miles": 19251,
+     "location": "Daphne, AL",
+     "trim": "Sport",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; two-door"
+    },
+    {
+     "price": 26755,
+     "miles": 7489,
+     "location": "Santa Clara, CA",
+     "trim": "Sport",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; two-door"
+    },
+    {
+     "price": 29793,
+     "miles": 8424,
+     "location": "Daphne, AL",
+     "trim": "Sport",
+     "body": "SUV / Crossover",
+     "note": "two-door"
+    },
+    {
+     "price": 28298,
+     "miles": 25984,
+     "location": "Concord, NC",
+     "trim": "Sport",
+     "body": "SUV / Crossover",
+     "note": "two-door"
+    },
+    {
+     "price": 24000,
+     "miles": 45000,
+     "location": "Dublin, GA",
+     "trim": "Unlimited Sport 3.6L",
+     "body": "SUV / Crossover",
+     "note": "four-door; round 45,000-mile figure as shown"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "Trim filter 'sport' returns both Sport (two-door) and Unlimited Sport (four-door) cards; 'Unlimited' in the trim field marks the four-door. Two-door vs four-door is taken from the card's trim name only.",
+  "The page-reading tool re-ordered its answer on the 2016 and 2024 pages after card 4-5; only cards it gave consistently were kept (2016: first 5; 2024: first 4 plus the Dublin, GA card).",
+  "page_average is null for all years: TrueCar shows no Sport average, only the model-wide Sahara/Rubicon/Sport S boilerplate."
+ ]
+}

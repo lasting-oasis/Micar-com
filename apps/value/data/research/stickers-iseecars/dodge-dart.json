@@ -1,0 +1,162 @@
+{
+"make": "Dodge",
+"model": "Dart",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (dart).",
+"years": [
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 16495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 18595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Aero 4dr Sedan",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 22995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-dodge-dart-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE",
+"msrp": 16495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT",
+"msrp": 19000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Aero",
+"msrp": 20495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan GT",
+"msrp": 21645,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited",
+"msrp": 23795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-dodge-dart-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE",
+"msrp": 16995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT Sport",
+"msrp": 18395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT Sport Blacktop",
+"msrp": 18395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT Sport Rallye",
+"msrp": 18395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Turbo",
+"msrp": 18395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT",
+"msrp": 19395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Aero",
+"msrp": 21095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan GT Sport",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan GT Sport Blacktop",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan GT",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited",
+"msrp": 24395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-dodge-dart-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

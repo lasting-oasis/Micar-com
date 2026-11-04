@@ -1,0 +1,24 @@
+{
+"make": "BMW",
+"model": "3 Series",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2026,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 49350,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2026+BMW+3+Series+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (bmwofmadison.com, bmwofriverside.com, kbb.com)."
+}
+],
+"gaps": []
+}

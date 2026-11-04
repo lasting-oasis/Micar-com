@@ -1,0 +1,111 @@
+{
+"make": "Ford",
+"model": "Crown Victoria",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (crown_victoria).",
+"years": [
+{
+"year": 2010,
+"destination": 875,
+"trims": [
+{
+"trim": "Commercial Base Fleet 4dr Sedan SWB",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor 4dr Sedan (3.27 Axle)",
+"msrp": 27260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor 4dr Sedan (3.55 Axle)",
+"msrp": 27415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor w/ Street Appearance Package 4dr Sedan (3.27 Axle)",
+"msrp": 27415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor w/ Street Appearance Package 4dr Sedan (3.55 Axle)",
+"msrp": 27580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Commercial Base Fleet 4dr Sedan LWB",
+"msrp": 29255,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan",
+"msrp": 29905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-crown_victoria-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "Commerical Fleet 4dr Sedan SWB",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor 4dr Sedan (3.27 Axle)",
+"msrp": 27440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor w/ Street Appearance Package 4dr Sedan (3.27 Axle)",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor Pursuit 4dr Sedan (3.55 Axle)",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor Pursuit w/ Street Appearance Package 4dr Sedan (3.55 Axle)",
+"msrp": 27760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Commerical Fleet 4dr Sedan LWB",
+"msrp": 29255,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan",
+"msrp": 29905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-crown_victoria-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

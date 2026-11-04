@@ -1,0 +1,627 @@
+{
+"make": "BMW",
+"model": "X5",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (x5, x5_m).",
+"years": [
+{
+"year": 2010,
+"destination": 820,
+"trims": [
+{
+"trim": "AWD xDrive30i 4dr SUV",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive48i 4dr SUV",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "M AWD 4dr SUV",
+"msrp": 85500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Premium 4dr SUV",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Sport Activity 4dr SUV",
+"msrp": 54600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 58400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Premium 4dr SUV",
+"msrp": 55200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Sport Activity 4dr SUV",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 64200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Premium 4dr SUV",
+"msrp": 55200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i Sport Activity 4dr SUV",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 64200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "sDrive35i 4dr SUV",
+"msrp": 52800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 56600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 68200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 950,
+"trims": [
+{
+"trim": "sDrive35i 4dr SUV",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 56200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 70100,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X5 AWD 4dr SAV",
+"msrp": 98700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive35i 4dr SUV",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive40e 4dr SUV",
+"msrp": 62100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 71500,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X5 AWD 4dr SAV",
+"msrp": 98800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 56600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 63200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 73650,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X5 M Sports Activity Vehicle",
+"msrp": 100700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive35i 4dr SUV",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 59500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35d 4dr SUV",
+"msrp": 61000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive40e iPerformance 4dr SUV",
+"msrp": 63750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr SUV",
+"msrp": 74050,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X5 M Sports Activity Vehicle",
+"msrp": 101700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 60700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 75750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 58900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 61200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 76150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 82150,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X5 M Sports Activity Vehicle",
+"msrp": 105100,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X5 M Competition Sports Activity Vehicle",
+"msrp": 114100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 61700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 65400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 82800,
+"config": "",
+"note": ""
+},
+{
+"trim": "M AWD 4dr Sports Activity Vehicle",
+"msrp": 105100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-x5_m-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive40i 4dr Sports Activity Vehicle",
+"msrp": 60600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 62900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive45e 4dr Sports Activity Vehicle",
+"msrp": 63700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M50i 4dr Sports Activity Vehicle",
+"msrp": 82800,
+"config": "",
+"note": ""
+},
+{
+"trim": "M AWD 4dr Sports Activity Vehicle",
+"msrp": 106100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive40i 4dr Sports Activity Vehicle",
+"msrp": 61600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 63900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive45e 4dr Sports Activity Vehicle",
+"msrp": 65700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M50i 4dr Sports Activity Vehicle",
+"msrp": 85400,
+"config": "",
+"note": ""
+},
+{
+"trim": "M AWD 4dr Sports Activity Vehicle",
+"msrp": 108900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive40i 4dr Sports Activity Vehicle",
+"msrp": 65200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 67500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50e 4dr Sports Activity Vehicle",
+"msrp": 72500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M60i 4dr Sports Activity Vehicle",
+"msrp": 89300,
+"config": "",
+"note": ""
+},
+{
+"trim": "M AWD Competition 4dr Sports Activity Vehicle",
+"msrp": 122300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "sDrive40i 4dr Sports Activity Vehicle",
+"msrp": 66300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 68600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50e 4dr Sports Activity Vehicle",
+"msrp": 73800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M60i 4dr Sports Activity Vehicle",
+"msrp": 90850,
+"config": "",
+"note": ""
+},
+{
+"trim": "M AWD Competition 4dr Sports Activity Vehicle",
+"msrp": 127200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-x5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

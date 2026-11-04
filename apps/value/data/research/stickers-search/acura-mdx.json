@@ -1,0 +1,84 @@
+{
+"make": "Acura",
+"model": "MDX",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 46900,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2022+Acura+MDX+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (acuranews.com, autonationacurahuntvalley.com, cars.com)."
+},
+{
+"year": 2023,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 49050,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2023+Acura+MDX+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (acuraofjackson.com, acuraofocean.com, carbuzz.com)."
+},
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 49850,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+Acura+MDX+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (capitolacura.com, carbuzz.com, curryacura.com)."
+},
+{
+"year": 2025,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 50900,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2025+Acura+MDX+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (autonationacuragulffreeway.com, caranddriver.com, courtesyacuralittleton.com)."
+},
+{
+"year": 2026,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 51800,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2026+Acura+MDX+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (cars.com, edmunds.com, kbb.com)."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,24 @@
+{
+"make": "Ferrari",
+"model": "599 GTO",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (599_gto).",
+"years": [
+{
+"year": 2011,
+"destination": 2000,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 385000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ferrari-599_gto-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

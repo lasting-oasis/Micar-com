@@ -1,0 +1,2355 @@
+{
+"make": "Honda",
+"model": "Civic",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (civic).",
+"years": [
+{
+"year": 2010,
+"destination": 710,
+"trims": [
+{
+"trim": "DX 2dr Coupe 5M",
+"msrp": 15455,
+"config": "",
+"note": ""
+},
+{
+"trim": "DX 4dr Sedan 5M",
+"msrp": 15655,
+"config": "",
+"note": ""
+},
+{
+"trim": "DX 2dr Coupe 5A",
+"msrp": 16255,
+"config": "",
+"note": ""
+},
+{
+"trim": "VP 4dr Sedan 5M",
+"msrp": 16405,
+"config": "",
+"note": ""
+},
+{
+"trim": "DX 4dr Sedan 5A",
+"msrp": 16455,
+"config": "",
+"note": ""
+},
+{
+"trim": "VP 4dr Sedan 5A",
+"msrp": 17205,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Coupe 5M",
+"msrp": 17405,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5M",
+"msrp": 17605,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Coupe 5A",
+"msrp": 18205,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX-S 4dr Sedan 5M",
+"msrp": 18205,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5A",
+"msrp": 18405,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX-S 4dr Sedan 5A",
+"msrp": 19005,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5M",
+"msrp": 19455,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 5M",
+"msrp": 19455,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5A",
+"msrp": 20255,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 5A",
+"msrp": 20255,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe 5M",
+"msrp": 21005,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan 5M",
+"msrp": 21005,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5M w/Navi",
+"msrp": 21455,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 5M w/Navi",
+"msrp": 21455,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe 5A",
+"msrp": 21805,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan 5A",
+"msrp": 21805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe",
+"msrp": 22055,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5A w/Navi",
+"msrp": 22255,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 5A w/Navi",
+"msrp": 22255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 22255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer Tires",
+"msrp": 22255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Summer Tires",
+"msrp": 22455,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe 5M w/Navi",
+"msrp": 23005,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan 5M w/Navi",
+"msrp": 23005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe 5A w/Navi",
+"msrp": 23805,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan 5A w/Navi",
+"msrp": 23805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Navi",
+"msrp": 24055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Navi",
+"msrp": 24255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Navi and Summer Tires",
+"msrp": 24255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Navi and Summer Tires",
+"msrp": 24455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 4dr Sedan",
+"msrp": 25340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Navi",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Navi and Leather",
+"msrp": 27000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "DX 2dr Coupe 5M",
+"msrp": 15605,
+"config": "",
+"note": ""
+},
+{
+"trim": "DX 4dr Sedan 5M",
+"msrp": 15805,
+"config": "",
+"note": ""
+},
+{
+"trim": "DX 2dr Coupe 5A",
+"msrp": 16405,
+"config": "",
+"note": ""
+},
+{
+"trim": "VP 4dr Sedan 5M",
+"msrp": 16555,
+"config": "",
+"note": ""
+},
+{
+"trim": "DX 4dr Sedan 5A",
+"msrp": 16605,
+"config": "",
+"note": ""
+},
+{
+"trim": "VP 4dr Sedan 5A",
+"msrp": 17355,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Coupe 5M",
+"msrp": 17555,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5M",
+"msrp": 17755,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Coupe 5A",
+"msrp": 18355,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX-S 4dr Sedan 5M",
+"msrp": 18355,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5A",
+"msrp": 18555,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX-S 4dr Sedan 5A",
+"msrp": 19155,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5M",
+"msrp": 19605,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 5M",
+"msrp": 19605,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5A",
+"msrp": 20405,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 5A",
+"msrp": 20405,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe 5A",
+"msrp": 21955,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan 5A",
+"msrp": 21955,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe",
+"msrp": 22205,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5A w/Navi",
+"msrp": 22405,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan 5A w/Navi",
+"msrp": 22405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 22405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer tires",
+"msrp": 22405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Summer tires",
+"msrp": 22605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe 5A w/Navi",
+"msrp": 23955,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan 5A w/Navi",
+"msrp": 23955,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Navi",
+"msrp": 24205,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Navi",
+"msrp": 24405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 4dr Sedan",
+"msrp": 25490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Navi",
+"msrp": 25950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Navi and Leather",
+"msrp": 27150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "DX 2dr Coupe 5M",
+"msrp": 15755,
+"config": "",
+"note": ""
+},
+{
+"trim": "DX 4dr Sedan 5M",
+"msrp": 15955,
+"config": "",
+"note": ""
+},
+{
+"trim": "DX 2dr Coupe 5A",
+"msrp": 16555,
+"config": "",
+"note": ""
+},
+{
+"trim": "DX 4dr Sedan 5A",
+"msrp": 16755,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Coupe 5M",
+"msrp": 17805,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5M",
+"msrp": 18005,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Coupe 5A",
+"msrp": 18605,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5A",
+"msrp": 18805,
+"config": "",
+"note": ""
+},
+{
+"trim": "HF 4dr Sedan",
+"msrp": 19605,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5M",
+"msrp": 19855,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5A",
+"msrp": 20655,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 20655,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe",
+"msrp": 22105,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan",
+"msrp": 22105,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe w/Navi",
+"msrp": 22155,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan w/Navi",
+"msrp": 22155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe",
+"msrp": 22355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 22555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer Tires",
+"msrp": 22555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Summer Tires",
+"msrp": 22755,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe w/Navi",
+"msrp": 23605,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan w/Navi",
+"msrp": 23605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Navi",
+"msrp": 23855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Navi",
+"msrp": 24055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer Tires and Navi",
+"msrp": 24055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 24200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather",
+"msrp": 25400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Navi",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Natural Gas 4dr Sedan",
+"msrp": 26305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather and Navi",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Natural Gas 4dr Sedan w/Navi",
+"msrp": 27805,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 790,
+"trims": [
+{
+"trim": "LX 2dr Coupe 5M",
+"msrp": 17965,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5M",
+"msrp": 18165,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Coupe 5A",
+"msrp": 18765,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5A",
+"msrp": 18965,
+"config": "",
+"note": ""
+},
+{
+"trim": "HF 4dr Sedan",
+"msrp": 19765,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5M",
+"msrp": 20015,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5A",
+"msrp": 20815,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 20815,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe",
+"msrp": 22265,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan",
+"msrp": 22265,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe w/Navi",
+"msrp": 22315,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan w/Navi",
+"msrp": 22315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe",
+"msrp": 22515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 22715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer Tires",
+"msrp": 22715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Summer Tires",
+"msrp": 22915,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe w/Navi",
+"msrp": 23765,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan w/Navi",
+"msrp": 23765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Navi",
+"msrp": 24015,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Navi",
+"msrp": 24215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer Tires and Navi",
+"msrp": 24215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 24360,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather",
+"msrp": 25560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Navi",
+"msrp": 25860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Natural Gas 4dr Sedan",
+"msrp": 26465,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather and Navi",
+"msrp": 27060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Natural Gas 4dr Sedan w/Navi",
+"msrp": 27965,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 790,
+"trims": [
+{
+"trim": "LX 2dr Coupe 5M",
+"msrp": 18190,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5M",
+"msrp": 18390,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Coupe CVT",
+"msrp": 18990,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan CVT",
+"msrp": 19190,
+"config": "",
+"note": ""
+},
+{
+"trim": "HF 4dr Sedan",
+"msrp": 19940,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5M",
+"msrp": 20290,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe CVT",
+"msrp": 21090,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 21090,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan w/Navi",
+"msrp": 22315,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe",
+"msrp": 22540,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan",
+"msrp": 22740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe",
+"msrp": 22790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 22990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer Tires",
+"msrp": 22990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Summer Tires",
+"msrp": 23190,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe w/Navi",
+"msrp": 24040,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan w/Navi",
+"msrp": 24240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Navi",
+"msrp": 24290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Navi",
+"msrp": 24490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer Tires and Navi",
+"msrp": 24490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 24635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather",
+"msrp": 25835,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Navi",
+"msrp": 26135,
+"config": "",
+"note": ""
+},
+{
+"trim": "Natural Gas 4dr Sedan",
+"msrp": 26640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather and Navi",
+"msrp": 27335,
+"config": "",
+"note": ""
+},
+{
+"trim": "Natural Gas 4dr Sedan w/Navi",
+"msrp": 29290,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 835,
+"trims": [
+{
+"trim": "LX 2dr Coupe 5M",
+"msrp": 18290,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan 5M",
+"msrp": 18490,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2dr Coupe CVT",
+"msrp": 19090,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Sedan CVT",
+"msrp": 19290,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 19990,
+"config": "",
+"note": ""
+},
+{
+"trim": "HF 4dr Sedan",
+"msrp": 20040,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe 5M",
+"msrp": 20390,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 21190,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2dr Coupe CVT",
+"msrp": 21190,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe",
+"msrp": 22640,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan",
+"msrp": 22840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe",
+"msrp": 22890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 23090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer Tires",
+"msrp": 23090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Summer Tires",
+"msrp": 23290,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2dr Coupe w/Navi",
+"msrp": 24140,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Sedan w/Navi",
+"msrp": 24340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Navi",
+"msrp": 24390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Navi",
+"msrp": 24590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 2dr Coupe w/Summer Tires and Navi",
+"msrp": 24590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 24735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather",
+"msrp": 25935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Navi",
+"msrp": 26235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Natural Gas 4dr Sedan",
+"msrp": 26740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan w/Leather and Navi",
+"msrp": 27435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Natural Gas 4dr Sedan w/Navi",
+"msrp": 29390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual Sedan",
+"msrp": 18640,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Sedan",
+"msrp": 19440,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Sedan with Honda Sensing",
+"msrp": 20440,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Sedan",
+"msrp": 21040,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Sedan with Honda Sensing",
+"msrp": 22040,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T CVT Sedan",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T CVT Sedan with Honda Sensing",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan with Honda Sensing",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan with Navigation",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Sedan",
+"msrp": 26500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-03-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual Sedan",
+"msrp": 18740,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX Manual Coupe",
+"msrp": 19150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Sedan",
+"msrp": 19540,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX Manual Hatchback",
+"msrp": 19700,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Coupe",
+"msrp": 19950,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Hatchback",
+"msrp": 20500,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Sedan with Honda Sensing",
+"msrp": 20540,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX-P CVT Coupe",
+"msrp": 20950,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Sedan",
+"msrp": 21140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual Hatchback",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Hatchback w/Honda Sensing",
+"msrp": 21500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T Manual Sedan",
+"msrp": 21500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T Manual Coupe",
+"msrp": 21600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Hatchback",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Sedan with Honda Sensing",
+"msrp": 22140,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T CVT Sedan",
+"msrp": 22300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T CVT Coupe",
+"msrp": 22400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Hatchback",
+"msrp": 22800,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T CVT Sedan with Honda Sensing",
+"msrp": 23300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Coupe",
+"msrp": 23525,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Hatchback w/Honda Sensing",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Coupe",
+"msrp": 23900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Sedan",
+"msrp": 23900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual HPT Coupe",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual HPT Sedan",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan with Honda Sensing",
+"msrp": 24800,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan with Navigation",
+"msrp": 24800,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Navi CVT Hatchback",
+"msrp": 25300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Coupe",
+"msrp": 26225,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Navi CVT Hatchback w/Honda Sensing",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Sedan",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring CVT Hatchback",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Manual Type R",
+"msrp": 33900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual Sedan",
+"msrp": 18940,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX Manual Coupe",
+"msrp": 19350,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Sedan",
+"msrp": 19740,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX Manual Hatchback",
+"msrp": 20150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Coupe",
+"msrp": 20150,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Sedan with Honda Sensing",
+"msrp": 20740,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Hatchback",
+"msrp": 20950,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX-P CVT Coupe",
+"msrp": 21150,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Sedan",
+"msrp": 21340,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T Manual Sedan",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual Hatchback",
+"msrp": 21750,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T Manual Coupe",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Hatchback w/Honda Sensing",
+"msrp": 21950,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Sedan with Honda Sensing",
+"msrp": 22340,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T CVT Sedan",
+"msrp": 22500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Hatchback",
+"msrp": 22550,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T CVT Coupe",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Hatchback",
+"msrp": 23250,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-T CVT Sedan with Honda Sensing",
+"msrp": 23500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Coupe",
+"msrp": 23725,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan",
+"msrp": 24000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Sedan",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Coupe",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Hatchback w/Honda Sensing",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Sedan w/High Performance Tires",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Coupe w/High Performance Tires",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan with Honda Sensing",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan with Navigation",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Navi CVT Hatchback",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Coupe",
+"msrp": 26425,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Navi CVT Hatchback w/Honda Sensing",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Sedan",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring CVT Hatchback",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Manual Type R",
+"msrp": 34700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual Sedan",
+"msrp": 19550,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Sedan",
+"msrp": 20350,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Coupe",
+"msrp": 20750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual Sedan",
+"msrp": 21250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Hatchback",
+"msrp": 21450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual Coupe",
+"msrp": 21550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Sedan",
+"msrp": 22050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual Hatchback",
+"msrp": 22250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Coupe",
+"msrp": 22350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Hatchback",
+"msrp": 23050,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Coupe",
+"msrp": 23300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Sedan",
+"msrp": 23500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Hatchback",
+"msrp": 23750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Sedan w/Summer Tires",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Coupe w/Summer Tires",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Coupe",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Sedan",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Navi CVT Hatchback",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Coupe",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Sedan",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring CVT Hatchback",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Manual Type R",
+"msrp": 36300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual Sedan",
+"msrp": 20000,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Sedan",
+"msrp": 20800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Coupe",
+"msrp": 21050,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Hatchback",
+"msrp": 21750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual Sedan",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual Coupe",
+"msrp": 21850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Sedan",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Coupe",
+"msrp": 22650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual Hatchback",
+"msrp": 22850,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Coupe",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Hatchback",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Sedan",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Hatchback",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Coupe",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Sedan",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Coupe w/Summer Tires",
+"msrp": 25400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si Manual Sedan w/Summer Tires",
+"msrp": 25400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Hatchback",
+"msrp": 25450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Coupe",
+"msrp": 27250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Sedan",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring Manual Hatchback",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring CVT Hatchback",
+"msrp": 28950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Manual Type R",
+"msrp": 36995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "LX CVT Sedan",
+"msrp": 21250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT Hatchback",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Sedan",
+"msrp": 23050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual Hatchback",
+"msrp": 23300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT Hatchback",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Sedan",
+"msrp": 24400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT Hatchback",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT Sedan",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT Sedan",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring Manual Hatchback",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring CVT Hatchback",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Manual Type R",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Edition Manual Type R",
+"msrp": 43995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 22550,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 23550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 6M",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback CVT",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Hatchback",
+"msrp": 27250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si w/Summer Tires 4dr Sedan",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback 6M",
+"msrp": 30050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback CVT",
+"msrp": 30050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-01-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 23750,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 6M",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback CVT",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan w/o BSI",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Hatchback w/o BSI",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Hatchback",
+"msrp": 28450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 30350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback 6M",
+"msrp": 31250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback CVT",
+"msrp": 31250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Type R 4dr Hatchback",
+"msrp": 43795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 6M",
+"msrp": 26350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback CVT",
+"msrp": 26350,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Hatchback",
+"msrp": 28650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 30550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback 6M",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Hatchback CVT",
+"msrp": 31450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Type R 4dr Hatchback",
+"msrp": 44795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1150,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback",
+"msrp": 27450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan",
+"msrp": 30250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Si 4dr Sedan w/Summer Tires",
+"msrp": 30550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Type R 4dr Hatchback",
+"msrp": 45895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-honda-civic-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,693 @@
+{
+"make": "Buick",
+"model": "Regal",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (regal, regal_sportback, regal_tourx).",
+"years": [
+{
+"year": 2011,
+"destination": 860,
+"trims": [
+{
+"trim": "CXL 4dr Sedan w/RL1",
+"msrp": 26360,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL1 (CAN)",
+"msrp": 26360,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL3",
+"msrp": 27205,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL3 (CAN)",
+"msrp": 27205,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL2",
+"msrp": 27360,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL2 (CAN)",
+"msrp": 27360,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL4",
+"msrp": 28205,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL4 (CAN)",
+"msrp": 28205,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO1",
+"msrp": 28860,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO1 (CAN)",
+"msrp": 28860,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL5",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL5 (CAN)",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO2",
+"msrp": 29860,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO2 (CAN)",
+"msrp": 29860,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL6",
+"msrp": 31145,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/RL6 (CAN)",
+"msrp": 31145,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO3",
+"msrp": 31305,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO3 (CAN)",
+"msrp": 31305,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO5",
+"msrp": 31555,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO5 (CAN)",
+"msrp": 31555,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO6",
+"msrp": 32555,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO6 (CAN)",
+"msrp": 32555,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO4",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO4 (CAN)",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/ TO7",
+"msrp": 34550,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Turbo 4dr Sedan w/TO7 (CAN)",
+"msrp": 34550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 860,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 26670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan",
+"msrp": 28105,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan",
+"msrp": 29515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan Turbo",
+"msrp": 29875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan Turbo",
+"msrp": 31285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 3 4dr Sedan Turbo",
+"msrp": 32535,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 4dr Sedan",
+"msrp": 34450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 29015,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan",
+"msrp": 30635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 1 4dr Sedan Turbo",
+"msrp": 30635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan",
+"msrp": 32045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2 4dr Sedan Turbo",
+"msrp": 32045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 3 4dr Sedan Turbo",
+"msrp": 33215,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 4dr Sedan",
+"msrp": 34980,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 29690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium I 4dr Sedan",
+"msrp": 31560,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Sedan",
+"msrp": 31865,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium I 4dr Sedan",
+"msrp": 33735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II 4dr Sedan",
+"msrp": 33760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium II 4dr Sedan",
+"msrp": 35935,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS 4dr Sedan",
+"msrp": 36905,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GS 4dr Sedan",
+"msrp": 39270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan FWD",
+"msrp": 27065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Turbo FWD",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium I FWD",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Turbo AWD",
+"msrp": 32415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II FWD",
+"msrp": 34100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium I AWD",
+"msrp": 34325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II AWD",
+"msrp": 36525,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS FWD",
+"msrp": 37385,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS AWD",
+"msrp": 39810,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 27065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring FWD",
+"msrp": 28565,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD",
+"msrp": 28990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 31415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II FWD",
+"msrp": 31565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II AWD",
+"msrp": 33990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS FWD",
+"msrp": 34065,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS AWD",
+"msrp": 36490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 27065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring FWD",
+"msrp": 28615,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 31465,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II FWD",
+"msrp": 31615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium II AWD",
+"msrp": 34040,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS FWD",
+"msrp": 34115,
+"config": "",
+"note": ""
+},
+{
+"trim": "GS AWD",
+"msrp": 36540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-buick-regal-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sportback FWD",
+"msrp": 24990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred FWD",
+"msrp": 27670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx AWD",
+"msrp": 29070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred II FWD",
+"msrp": 29770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence FWD",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred II AWD",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx Preferred AWD",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence AWD",
+"msrp": 33870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx Essence AWD",
+"msrp": 35070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback GS AWD",
+"msrp": 39070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-buick-regal_tourx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 925,
+"trims": [
+{
+"trim": "Sportback Base 4dr Sportback",
+"msrp": 25070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred 4dr Sportback",
+"msrp": 27670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx AWD",
+"msrp": 29070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred II 4dr Sportback",
+"msrp": 29770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD Preferred II 4dr Sportback",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence 4dr Sportback",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx Preferred AWD",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD Essence 4dr Sportback",
+"msrp": 33870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Tourx Essence AWD",
+"msrp": 35070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Avenir 4dr Sportback",
+"msrp": 35270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD GS 4dr Sportback",
+"msrp": 39070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-buick-regal_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sportback FWD",
+"msrp": 25370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Preferred FWD",
+"msrp": 27970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence FWD",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Essence AWD",
+"msrp": 33870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Avenir FWD",
+"msrp": 35770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback GS AWD",
+"msrp": 39070,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-buick-regal_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

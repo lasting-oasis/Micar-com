@@ -1,0 +1,339 @@
+{
+"make": "Lincoln",
+"model": "Aviator",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (aviator).",
+"years": [
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Standard RWD",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard AWD",
+"msrp": 53600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve RWD",
+"msrp": 56190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 58700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring AWD",
+"msrp": 68800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 77695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label Grand Touring AWD",
+"msrp": 87800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lincoln-aviator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Standard RWD",
+"msrp": 51570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard AWD",
+"msrp": 54070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve RWD",
+"msrp": 57585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 60095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring AWD",
+"msrp": 69545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 79345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label Grand Touring AWD",
+"msrp": 88985,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-lincoln-aviator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1195,
+"trims": [
+{
+"trim": "Livery 4dr SUV",
+"msrp": 50870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard 4dr SUV",
+"msrp": 51780,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Livery 4dr SUV",
+"msrp": 53365,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Standard 4dr SUV",
+"msrp": 54285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4dr SUV",
+"msrp": 57675,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Reserve 4dr SUV",
+"msrp": 60205,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Grand Touring 4dr SUV",
+"msrp": 68680,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label 4dr SUV",
+"msrp": 79675,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label Grand Touring 4dr SUV",
+"msrp": 88230,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-lincoln-aviator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "Livery 4dr SUV",
+"msrp": 51370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard 4dr SUV",
+"msrp": 53340,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Livery 4dr SUV",
+"msrp": 53870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Standard 4dr SUV",
+"msrp": 55845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4dr SUV",
+"msrp": 59005,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Reserve 4dr SUV",
+"msrp": 61535,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Grand Touring 4dr SUV",
+"msrp": 70190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label 4dr SUV",
+"msrp": 80725,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label Grand Touring 4dr SUV",
+"msrp": 90280,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lincoln-aviator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "Livery 4dr SUV",
+"msrp": 51370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premiere 4dr SUV",
+"msrp": 53340,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Livery 4dr SUV",
+"msrp": 53870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premiere 4dr SUV",
+"msrp": 55845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4dr SUV",
+"msrp": 59005,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Reserve 4dr SUV",
+"msrp": 61535,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label 4dr SUV",
+"msrp": 79225,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-lincoln-aviator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1695,
+"trims": [
+{
+"trim": "Livery 4dr SUV",
+"msrp": 57830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premiere 4dr SUV",
+"msrp": 59295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Livery 4dr SUV",
+"msrp": 60330,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premiere 4dr SUV",
+"msrp": 61795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve 4dr SUV",
+"msrp": 66520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Reserve 4dr SUV",
+"msrp": 69020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Black Label 4dr SUV",
+"msrp": 87395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-lincoln-aviator-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

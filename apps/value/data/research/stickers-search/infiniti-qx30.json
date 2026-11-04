@@ -1,0 +1,24 @@
+{
+"make": "Infiniti",
+"model": "QX30",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 30000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2019+Infiniti+QX30+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (kbb.com, truecar.com)."
+}
+],
+"gaps": []
+}

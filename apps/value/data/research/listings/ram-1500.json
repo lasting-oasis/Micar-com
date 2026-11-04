@@ -1,0 +1,60 @@
+{
+ "make": "Ram",
+ "model": "1500",
+ "samples": [
+  {
+   "year": 2022,
+   "trim_filter": "Big Horn",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ram/1500/year-2022/?trim=big-horn",
+   "fetched": "2026-10-28",
+   "page_average": 31941,
+   "page_total_listings": 796,
+   "note": "Page states 'The average price for the 2022 Ram 1500 Big Horn is $31,941' (no 'averages $X' wording). First 5 listings recorded (an ad between rows 2 and 3 skipped).",
+   "listings": [
+    {
+     "price": 23086,
+     "miles": 106612,
+     "location": "Tucson, AZ",
+     "trim": "Big Horn Crew Cab 5'7\" Box 2WD",
+     "body": "Pickup Truck",
+     "note": "Sponsored"
+    },
+    {
+     "price": 28990,
+     "miles": 42783,
+     "location": "Mobile, AL",
+     "trim": "Big Horn Quad Cab 6'4\" Box 2WD",
+     "body": "Pickup Truck",
+     "note": "Sponsored"
+    },
+    {
+     "price": 26990,
+     "miles": 57838,
+     "location": "Bradenton, FL",
+     "trim": "Big Horn Quad Cab 6'4\" Box 2WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 23761,
+     "miles": 113820,
+     "location": "Live Oak, FL",
+     "trim": "Big Horn Crew Cab 5'7\" Box 2WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 34250,
+     "miles": 17360,
+     "location": "Fayetteville, TN",
+     "trim": "Big Horn Crew Cab 5'7\" Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016, 2019, 2024: TrueCar year pages not fetched. Constructed TrueCar URLs were refused for lack of search provenance; a search for the 2019 Big Horn page returned only single-vehicle listing pages (titled 'Big Horn/Lone Star'), not a year page."
+ ]
+}

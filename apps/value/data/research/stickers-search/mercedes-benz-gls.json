@@ -1,0 +1,99 @@
+{
+"make": "Mercedes-Benz",
+"model": "GLS",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 75200,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2020+Mercedes-Benz+GLS+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (mbofhenderson.com, mercedesbenzbeaverton.com, mercedesbenzofchandler.com)."
+},
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 77285,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2022+Mercedes-Benz+GLS+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (mbbloomfield.com, mbkcsouth.com, mercedesbenzcanton.com)."
+},
+{
+"year": 2023,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 81800,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2023+Mercedes-Benz+GLS+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (mbofwilmington.com, mercedesbenzofwarwick.com)."
+},
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 87000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+Mercedes-Benz+GLS+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (kbb.com, mbkcsouth.com, mbofclearwater.com)."
+},
+{
+"year": 2025,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 89200,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2025+Mercedes-Benz+GLS+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (cars.com, edmunds.com, mbprinceton.com)."
+},
+{
+"year": 2026,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 90250,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2026+Mercedes-Benz+GLS+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (cars.com, edmunds.com, kbb.com)."
+}
+],
+"gaps": []
+}

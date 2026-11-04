@@ -1,0 +1,171 @@
+{
+"make": "Lincoln",
+"model": "MKS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (mks).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 40870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 42760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EcoBoost 4dr Sedan",
+"msrp": 47760,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lincoln-mks-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 41270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 43160,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EcoBoost 4dr Sedan",
+"msrp": 48160,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lincoln-mks-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 43390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EcoBoost 4dr Sedan",
+"msrp": 48390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lincoln-mks-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 42810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 44805,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EcoBoost 4dr Sedan",
+"msrp": 49800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lincoln-mks-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 40690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 42685,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ecoboost 4dr Sedan",
+"msrp": 47680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lincoln-mks-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan 3.7L FWD",
+"msrp": 39010,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.7L AWD",
+"msrp": 41005,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.5L AWD EcoBoost",
+"msrp": 46000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lincoln-mks-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,180 @@
+{
+  "make": "Chevrolet",
+  "model": "Equinox",
+  "body": "SUV / Crossover",
+  "note": "Compact crossover, single body style, FWD standard with AWD optional on most trims (recorded msrp is the FWD price; AWD price in the note where the source gives it). Generations: 2010-2017 (2nd gen; 2016 facelift; trims L/LS/LT/LTZ), 2018-2024 (3rd gen; L/LS/LT/Premier, RS added and L dropped with the 2022 refresh), 2025-on (4th gen; LT/RS/Activ). The gasoline Equinox only - the Equinox EV is a separate model. MSRPs exclude destination except where a year note says the charge could not be determined (2018, 2019, 2026).",
+  "years": [
+    {
+      "year": 2020,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "L",
+          "msrp": 23800,
+          "config": "FWD (1SM), 1.5L turbo",
+          "note": "FWD only."
+        },
+        {
+          "trim": "LS",
+          "msrp": 26300,
+          "config": "FWD (1LS), 1.5L turbo",
+          "note": "AWD $27,900. Fleet 1FL versions $26,500 FWD / $28,100 AWD."
+        },
+        {
+          "trim": "LT",
+          "msrp": 27500,
+          "config": "FWD (1LT), 1.5L turbo",
+          "note": "AWD $29,100. 2LT (2.0L turbo) $30,000 FWD / $31,600 AWD; fleet 2FL $27,900 FWD / $29,500 AWD."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 31400,
+          "config": "FWD (1LZ), 1.5L turbo",
+          "note": "AWD $33,000. 2LZ (2.0L turbo) $34,100 FWD / $35,700 AWD."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-equinox-2020/specs/406415",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' per configuration; the page does not state a destination charge (recorded null). The 3LT and 3LZ entries show $0 ('Ltd Avail') and are ignored."
+    },
+    {
+      "year": 2022,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 25800,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $27,400. Published $27,195 incl. destination (was $26,995 with the $1,195 charge)."
+        },
+        {
+          "trim": "LT",
+          "msrp": 26900,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $28,500."
+        },
+        {
+          "trim": "RS",
+          "msrp": 30100,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $31,700. New trim for 2022."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 31000,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $32,600."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2022/05/2022-chevy-equinox-gets-200-price-increase/",
+      "source_type": "secondary",
+      "note": "Refreshed 2022 model (L trim dropped, RS added, 2.0L turbo discontinued). Figures = published 'MSRP + DFC' minus $1,395; the May-2022 step raised only the destination charge ($1,195 to $1,395), so the base MSRPs equal the launch level. GM Authority also reports 'another price increase' for 2022 in July 2022 (not fetched; amount unknown)."
+    },
+    {
+      "year": 2023,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 26600,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $28,200 (AWD premium $1,600)."
+        },
+        {
+          "trim": "LT",
+          "msrp": 27700,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $29,300."
+        },
+        {
+          "trim": "RS",
+          "msrp": 30700,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $32,300."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 31800,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $33,400."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2022/09/2023-chevy-equinox-pricing-revealed/",
+      "source_type": "secondary",
+      "note": "Figures = published 'MSRP + DFC' minus $1,395 (LS FWD $27,995, LS AWD $29,595, LT FWD $29,095, LT AWD $30,695, RS FWD $32,095, RS AWD $33,695, Premier FWD $33,195, Premier AWD $34,795)."
+    },
+    {
+      "year": 2024,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 26600,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $28,200. Unchanged from 2023."
+        },
+        {
+          "trim": "LT",
+          "msrp": 29495,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $31,095. Up $1,795 from 2023 (published $30,890 vs $29,095)."
+        },
+        {
+          "trim": "RS",
+          "msrp": 30950,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $32,550. Up $250. thetruthaboutcars.com confirms the 2024 RS FWD 'stickered at $32,345' with AWD +$1,600."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 31800,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $33,400. Unchanged from 2023."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2023/04/2024-chevy-equinox-pricing-uncovered/",
+      "source_type": "secondary",
+      "note": "Last year of the third generation (LS/LT/RS/Premier; 2025 is the all-new fourth generation with LT/RS/Activ). Figures = published 'MSRP + DFC' minus $1,395 (LS FWD $27,995, LS AWD $29,595, LT FWD $30,890, LT AWD $32,490, RS FWD $32,345, RS AWD $33,945, Premier FWD $33,195, Premier AWD $34,795)."
+    },
+    {
+      "year": 2025,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "LT",
+          "msrp": 28600,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $30,600. Published 'starting at $29,995' incl. destination."
+        },
+        {
+          "trim": "RS",
+          "msrp": 33000,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $35,000. Published $34,395 incl. destination."
+        },
+        {
+          "trim": "Activ",
+          "msrp": 33000,
+          "config": "FWD, 1.5L turbo",
+          "note": "AWD $35,000. New trim for 2025. Published $34,395 incl. destination."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2024/04/2025-chevy-equinox-pricing-uncovered/",
+      "source_type": "secondary",
+      "note": "All-new fourth generation (first year): lineup cut to LT, RS and Activ (LS/Premier dropped). Published prices (LT FWD $29,995, LT AWD $31,995, RS/Activ FWD $34,395, RS/Activ AWD $36,395) include a $1,395 destination charge, 'the same as that for the 2024 model'; recorded MSRPs subtract it. Corroborated by thetruthaboutcars.com (Apr 30, 2024): starts at $29,995, RS and Activ $34,395, '$2,000 dearer' than the 2024 LS."
+    }
+  ],
+  "gaps": [
+    "2018, 2019, 2026: the only figures found were destination-inclusive (or of unstated basis), so they are left out of the table rather than recorded under 'MSRP excl. destination'; the engine uses its typical estimate for those years.",
+    "2016: no pricing page reached (blog.consumerguide.com 2016 facelift preview carries no prices; search budget exhausted).",
+    "2017: no pricing page reached.",
+    "2018: prices are destination-inclusive because no fetched page states the 2018 destination charge.",
+    "2019: TrueCar figures only; basis (incl./excl. destination) not stated by the page.",
+    "2020: destination charge not stated by cars.com (GM Authority's May-2022 article says the charge was $1,195 'previously', but does not tie that to 2020).",
+    "2021: no pricing page reached.",
+    "2022: a second 2022 increase (July 2022, GM Authority) was not fetched; the recorded level is after the May-2022 destination increase only. On these sources the 2022 LS/LT MSRPs ($25,800/$26,900) sit BELOW the 2020 cars.com figures ($26,300/$27,500) - looks like a repositioning with the refresh, not verified.",
+    "2024: LT rose $1,795 over 2023 while LS/Premier were unchanged - flagged as unusual, taken as printed.",
+    "2026: only the LT AWD price (destination-inclusive) was found on news.gm.com.",
+    "GM's own pricing pages (media.chevrolet.com, incl. the Jan-2024 2025 Equinox release) are robots-disallowed; gmauthority.com's 2025 options/packages article and aol.com's 2025 pricing article returned client errors."
+  ]
+}

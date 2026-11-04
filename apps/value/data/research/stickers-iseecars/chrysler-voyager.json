@@ -1,0 +1,111 @@
+{
+"make": "Chrysler",
+"model": "Voyager",
+"body": "Minivan",
+"note": "Trim-level MSRPs from iSeeCars price pages (voyager).",
+"years": [
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "L FWD",
+"msrp": 26985,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX FWD",
+"msrp": 29795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chrysler-voyager-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "L FWD",
+"msrp": 27235,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX FWD",
+"msrp": 30045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chrysler-voyager-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 34665,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chrysler-voyager-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1595,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 35495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-chrysler-voyager-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1695,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 37935,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-chrysler-voyager-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1695,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 39995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-chrysler-voyager-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

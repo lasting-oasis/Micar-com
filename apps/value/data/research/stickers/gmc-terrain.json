@@ -1,0 +1,284 @@
+{
+  "make": "GMC",
+  "model": "Terrain",
+  "body": "SUV / Crossover",
+  "note": "Compact crossover, single body style, FWD standard with AWD optional (AT4 and, from 2022, Denali AWD-only). Trim lineage: 2016-17 SL/SLE-1/SLE-2/SLT/Denali; 2018-21 SL/SLE/SLT/Denali (+diesel SLE/SLT 2018-19); 2022-24 SLE/SLT/AT4/Denali (SL per GM Authority still orderable in 2023 but unpriced); 2025-on Elevation/AT4/Denali. The SLE trim (TrueCar filter for the used sample) runs 2018-2024 (SLE-1/SLE-2 in 2016-17). All MSRPs exclude destination.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 925,
+      "trims": [
+        {
+          "trim": "SL",
+          "msrp": 23975,
+          "config": "FWD",
+          "note": "No AWD style listed."
+        },
+        {
+          "trim": "SLE-1",
+          "msrp": 27000,
+          "config": "FWD",
+          "note": "AWD $28,750."
+        },
+        {
+          "trim": "SLE-2",
+          "msrp": 28500,
+          "config": "FWD",
+          "note": "AWD $30,250."
+        },
+        {
+          "trim": "SLT",
+          "msrp": 30820,
+          "config": "FWD",
+          "note": "AWD $32,570."
+        },
+        {
+          "trim": "Denali",
+          "msrp": 34175,
+          "config": "FWD",
+          "note": "AWD $35,925."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-gmc-terrain-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price where one exists; iSeeCars labels AWD styles 'AWD' or '4x4'. 1st generation (2010-2017)."
+    },
+    {
+      "year": 2017,
+      "destination": 925,
+      "trims": [
+        {
+          "trim": "SL",
+          "msrp": 24070,
+          "config": "FWD",
+          "note": "No AWD style listed."
+        },
+        {
+          "trim": "SLE-1",
+          "msrp": 27300,
+          "config": "FWD",
+          "note": "AWD $29,050."
+        },
+        {
+          "trim": "SLE-2",
+          "msrp": 28800,
+          "config": "FWD",
+          "note": "AWD $30,550."
+        },
+        {
+          "trim": "SLT",
+          "msrp": 30920,
+          "config": "FWD",
+          "note": "AWD $32,670."
+        },
+        {
+          "trim": "Denali",
+          "msrp": 34275,
+          "config": "FWD",
+          "note": "AWD $36,025."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-gmc-terrain-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price where one exists; iSeeCars labels AWD styles 'AWD' or '4x4'. Last year of the 1st generation."
+    },
+    {
+      "year": 2018,
+      "destination": 975,
+      "trims": [
+        {
+          "trim": "SL",
+          "msrp": 24995,
+          "config": "FWD",
+          "note": "No AWD style listed."
+        },
+        {
+          "trim": "SLE",
+          "msrp": 27820,
+          "config": "FWD",
+          "note": "AWD $29,570. SLE Diesel FWD $31,590 / AWD $33,340."
+        },
+        {
+          "trim": "SLT",
+          "msrp": 31320,
+          "config": "FWD",
+          "note": "AWD $33,070. SLT Diesel FWD $34,165 / AWD $35,915."
+        },
+        {
+          "trim": "Denali",
+          "msrp": 37520,
+          "config": "FWD",
+          "note": "AWD $39,270."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-gmc-terrain-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price where one exists; iSeeCars labels AWD styles 'AWD' or '4x4'. 2nd generation (2018-2024) launch year; SLE-1/SLE-2 merged into SLE; diesel offered on SLE/SLT."
+    },
+    {
+      "year": 2019,
+      "destination": 1195,
+      "trims": [
+        {
+          "trim": "SL",
+          "msrp": 25000,
+          "config": "FWD",
+          "note": "No AWD style listed."
+        },
+        {
+          "trim": "SLE",
+          "msrp": 28100,
+          "config": "FWD",
+          "note": "AWD $29,800. SLE Diesel FWD $31,800 / AWD $33,600."
+        },
+        {
+          "trim": "SLT",
+          "msrp": 30900,
+          "config": "FWD",
+          "note": "AWD $32,600. $420 BELOW the 2018 SLT on this source. SLT Diesel FWD $33,700 / AWD $35,500."
+        },
+        {
+          "trim": "Denali",
+          "msrp": 37800,
+          "config": "FWD",
+          "note": "AWD $39,500."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2019-gmc-terrain-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price where one exists; iSeeCars labels AWD styles 'AWD' or '4x4'."
+    },
+    {
+      "year": 2022,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "SLE",
+          "msrp": 28150,
+          "config": "FWD",
+          "note": "AWD $29,750. SL not listed on this page, so SLE is the entry trim shown."
+        },
+        {
+          "trim": "SLT",
+          "msrp": 32150,
+          "config": "FWD",
+          "note": "AWD $33,750."
+        },
+        {
+          "trim": "AT4",
+          "msrp": 34250,
+          "config": "AWD",
+          "note": "New for 2022; AWD only."
+        },
+        {
+          "trim": "Denali",
+          "msrp": 36850,
+          "config": "AWD",
+          "note": "AWD only; $2,650 below the 2019 Denali AWD ($39,500) on this source."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-gmc-terrain-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price where one exists; iSeeCars labels AWD styles 'AWD' or '4x4'. Refreshed for 2022 (AT4 added; Denali AWD-only). See gaps: this level looks like an early-2022 price."
+    },
+    {
+      "year": 2023,
+      "destination": 1300,
+      "trims": [
+        {
+          "trim": "SLE",
+          "msrp": 29995,
+          "config": "FWD",
+          "note": "AWD $31,595. Published $31,295 FWD / $32,895 AWD incl. destination."
+        },
+        {
+          "trim": "SLT",
+          "msrp": 33995,
+          "config": "FWD",
+          "note": "AWD $35,595. Published $35,295 FWD / $36,895 AWD incl. destination."
+        },
+        {
+          "trim": "AT4",
+          "msrp": 36095,
+          "config": "AWD",
+          "note": "AWD only. Published $37,395 incl. destination."
+        },
+        {
+          "trim": "Denali",
+          "msrp": 38695,
+          "config": "AWD",
+          "note": "AWD only. Published $39,995 incl. destination."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2022/09/2023-gmc-terrain-pricing-revealed/",
+      "source_type": "secondary",
+      "note": "Published as '2023 MSRP + DFC' including the stated $1,300 destination; $1,300 subtracted here. Article (no publication date shown; production start Aug 22, 2022) says 2023 is '$250 price increase across the board' over 2022 and that AWD adds $1,600 on SL/SLE/SLT, but its table has no SL price. The $1,300 destination is below iSeeCars' 2022 and 2024 figure of $1,395."
+    },
+    {
+      "year": 2024,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "SLE",
+          "msrp": 28700,
+          "config": "FWD",
+          "note": "AWD $30,300."
+        },
+        {
+          "trim": "SLT",
+          "msrp": 32700,
+          "config": "FWD",
+          "note": "AWD $34,300."
+        },
+        {
+          "trim": "AT4",
+          "msrp": 35495,
+          "config": "AWD",
+          "note": "AWD only."
+        },
+        {
+          "trim": "Denali",
+          "msrp": 38600,
+          "config": "AWD",
+          "note": "AWD only."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-gmc-terrain-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price where one exists; iSeeCars labels AWD styles 'AWD' or '4x4'. Last year of the 2nd generation. These iSeeCars figures are BELOW the 2023 GM Authority figures after subtracting destination (e.g. SLE FWD $28,700 vs $29,995) - flagged, taken as printed."
+    },
+    {
+      "year": 2026,
+      "destination": 1995,
+      "trims": [
+        {
+          "trim": "Elevation",
+          "msrp": 30200,
+          "config": "FWD",
+          "note": "AWD $32,200. 3rd-gen entry trim."
+        },
+        {
+          "trim": "AT4",
+          "msrp": 39400,
+          "config": "AWD",
+          "note": "AWD only."
+        },
+        {
+          "trim": "Denali",
+          "msrp": 41900,
+          "config": "AWD",
+          "note": "AWD only."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2026-gmc-terrain-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (the page does not explicitly say MSRP excludes destination; separate-column layout matches the excl.-destination convention). Recorded msrp is the FWD price where one exists; iSeeCars labels AWD styles 'AWD' or '4x4'. 3rd generation (2025-on): Elevation/AT4/Denali; SL/SLE/SLT dropped. Destination $1,995 as printed."
+    }
+  ],
+  "gaps": [
+    "2020, 2021, 2025: no pricing page reached within the call budget (iSeeCars pages for these years did not surface in two searches and were not fetched).",
+    "2022 vs 2023 conflict: GM Authority says 2023 = 2022 + $250 across the board, which implies a late-2022 SLE FWD of ~$29,745 excl. destination; iSeeCars' 2022 SLE is $28,150, so the 2022 row is probably an early-2022 level (2022 had in-year increases). Not verified.",
+    "2024 iSeeCars figures sit below the 2023 GM Authority figures on every trim - one of the two sources reflects a different point in the year; not resolved.",
+    "All years: GM's own pricing releases (media.gmc.com / media.gm.com) are robots-disallowed, so every year is from secondary sources."
+  ]
+}

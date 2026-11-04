@@ -1,0 +1,636 @@
+{
+"make": "Chevrolet",
+"model": "Cruze",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (cruze, cruze_limited).",
+"years": [
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 16525,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan",
+"msrp": 18125,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO 4dr Sedan",
+"msrp": 18425,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 18425,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 20925,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan",
+"msrp": 22225,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 16800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan",
+"msrp": 18275,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 18555,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO 4dr Sedan",
+"msrp": 19325,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 20685,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/1LZ",
+"msrp": 23190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 810,
+"trims": [
+{
+"trim": "LS Manual 4dr Sedan w/1SA",
+"msrp": 17130,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Auto 4dr Sedan w/1SB",
+"msrp": 18225,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Manual 4dr Sedan w/1SC",
+"msrp": 18560,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan w/1FL",
+"msrp": 18810,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Auto 4dr Sedan w/1SD",
+"msrp": 19655,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO Manual 4dr Sedan w/1SE",
+"msrp": 19680,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO Auto 4dr Sedan w/1SF",
+"msrp": 20875,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Manual 4dr Sedan w/1SG",
+"msrp": 21040,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Auto 4dr Sedan w/1SH",
+"msrp": 22325,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Auto 4dr Sedan w/1SJ",
+"msrp": 23550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "LS Manual 4dr Sedan w/1SA",
+"msrp": 17520,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Auto 4dr Sedan w/1SB",
+"msrp": 18705,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Manual 4dr Sedan w/1SC",
+"msrp": 18815,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan w/1FL",
+"msrp": 19065,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT Auto 4dr Sedan w/1SD",
+"msrp": 19910,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO Manual 4dr Sedan w/1SE",
+"msrp": 19935,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO Auto 4dr Sedan w/1SF",
+"msrp": 21130,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Manual 4dr Sedan w/1SG",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT Auto 4dr Sedan w/1SH",
+"msrp": 22580,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ Auto 4dr Sedan w/1SJ",
+"msrp": 23805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Diesel 4dr Sedan",
+"msrp": 24985,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan L (Manual)",
+"msrp": 16170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS (Manual)",
+"msrp": 17745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS (Automatic)",
+"msrp": 18870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan 1LT (Manual)",
+"msrp": 19065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan 1LT (Automatic)",
+"msrp": 20095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan ECO (Manual)",
+"msrp": 20095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan ECO (Automatic)",
+"msrp": 21370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan 2LT (Automatic)",
+"msrp": 23270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LTZ",
+"msrp": 24270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Diesel",
+"msrp": 25660,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Limited Sedan L (Manual)",
+"msrp": 16120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan L",
+"msrp": 16620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan LS (Manual)",
+"msrp": 17845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS (Manual)",
+"msrp": 18120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan LS (Automatic)",
+"msrp": 18970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS (Automatic)",
+"msrp": 19120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan 1LT (Manual)",
+"msrp": 19165,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT (Manual)",
+"msrp": 19820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan 1LT (Automatic)",
+"msrp": 20195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan ECO (Manual)",
+"msrp": 20195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT (Automatic)",
+"msrp": 21120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan ECO (Automatic)",
+"msrp": 21470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier",
+"msrp": 23120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan 2LT (Automatic)",
+"msrp": 23370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Sedan LTZ",
+"msrp": 24370,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan L",
+"msrp": 16975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS (Manual)",
+"msrp": 18525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS (Automatic)",
+"msrp": 19525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT (Manual)",
+"msrp": 20150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback LT (Manual)",
+"msrp": 21240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT (Automatic)",
+"msrp": 21450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback LT (Automatic)",
+"msrp": 21920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier",
+"msrp": 23475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Diesel (Manual)",
+"msrp": 23795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback Premier",
+"msrp": 23945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Diesel (Automatic)",
+"msrp": 25395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan L",
+"msrp": 16975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS (Manual)",
+"msrp": 18525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS (Automatic)",
+"msrp": 19525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT (Manual)",
+"msrp": 20920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback LT (Manual)",
+"msrp": 21320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT (Automatic)",
+"msrp": 21520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback LT (Automatic)",
+"msrp": 21920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier",
+"msrp": 23520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Diesel (Manual)",
+"msrp": 23820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback Premier",
+"msrp": 24020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT Diesel (Automatic)",
+"msrp": 25420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback LT Diesel (Manual)",
+"msrp": 25520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback LT Diesel (Automatic)",
+"msrp": 25920,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan L",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LS",
+"msrp": 19120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback LS",
+"msrp": 19620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan LT",
+"msrp": 21720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback LT",
+"msrp": 22120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Premier",
+"msrp": 23520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback Premier",
+"msrp": 24020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan Diesel",
+"msrp": 25620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hatchback Diesel",
+"msrp": 26120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-cruze-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

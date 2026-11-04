@@ -1,0 +1,1059 @@
+{
+"make": "Hyundai",
+"model": "Elantra",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (elantra, elantra_coupe, elantra_gt, elantra_touring).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "Blue 4dr Sedan",
+"msrp": 14145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra Touring GLS 4dr Wagon",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLS 4dr Sedan",
+"msrp": 16895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 17845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra Touring SE 4dr Wagon",
+"msrp": 18995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "GLS 4dr Sedan 6M",
+"msrp": 14945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra Touring GLS 4dr Wagon",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLS 4dr Sedan 6A",
+"msrp": 17195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra Touring SE 4dr Wagon",
+"msrp": 19495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 20195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 775,
+"trims": [
+{
+"trim": "GLS 4dr Sedan 6M",
+"msrp": 15345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra Touring GLS 4dr Wagon",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLS 4dr Sedan 6A",
+"msrp": 17595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra Touring SE 4dr Wagon",
+"msrp": 19495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 20595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "GLS 4dr Sedan 6M",
+"msrp": 16965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe GS 2dr Coupe 6M",
+"msrp": 17595,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLS 4dr Sedan 6A",
+"msrp": 17965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe GS 2dr Coupe 6A",
+"msrp": 18595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe SE 2dr Coupe 6M",
+"msrp": 19895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe SE 2dr Coupe 6A",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 21115,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "SE 4dr Sedan 6M",
+"msrp": 17200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A",
+"msrp": 18200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Base 2dr Coupe",
+"msrp": 19600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 21650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6M",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan 6A",
+"msrp": 22700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Man SE (Alabama Plant)",
+"msrp": 17250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man SE (Ulsan Plant)",
+"msrp": 17250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto SE (Alabama Plant)",
+"msrp": 18250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto SE (Ulsan Plant)",
+"msrp": 18250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man Sport (Ulsan Plant)",
+"msrp": 21600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Limited (Alabama Plant)",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Limited PZEV (Alabama Plant)",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Limited (Ulsan Plant)",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Limited PZEV (Ulsan Plant)",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Sport (Ulsan Plant)",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Sport PZEV (Ulsan Plant)",
+"msrp": 22600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Man SE (Alabama Plant)",
+"msrp": 17250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man SE (Ulsan Plant)",
+"msrp": 17250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto SE (Alabama Plant)",
+"msrp": 18250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto SE (Ulsan Plant)",
+"msrp": 18250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT 5dr HB Man",
+"msrp": 18800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Value Edition (Alabama Plant)",
+"msrp": 19700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Value Edition (Ulsan Plant)",
+"msrp": 19700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT 5dr HB Auto",
+"msrp": 19800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man Sport (Ulsan Plant)",
+"msrp": 20250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Sport (Ulsan Plant)",
+"msrp": 21250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Sport PZEV (Ulsan Plant)",
+"msrp": 21250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Limited (Alabama Plant)",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Limited PZEV (Alabama Plant)",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Limited (Ulsan Plant)",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto Limited PZEV (Ulsan Plant)",
+"msrp": 21700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SE 2.0L Manual (Alabama Plant)",
+"msrp": 17150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Manual (Ulsan Plant)",
+"msrp": 17150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Automatic (Alabama Plant)",
+"msrp": 18150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Automatic PZEV (Alabama Plant)",
+"msrp": 18150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Automatic (Ulsan Plant)",
+"msrp": 18150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Automatic PZEV (Ulsan Plant)",
+"msrp": 18150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT Manual",
+"msrp": 18800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT Auto",
+"msrp": 19800,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO 1.4T DCT",
+"msrp": 20650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0L Automatic (Alabama Plant)",
+"msrp": 22350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0L Automatic PZEV (Alabama Plant)",
+"msrp": 22350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0L Automatic (Ulsan Plant)",
+"msrp": 22350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0L Automatic PZEV (Ulsan Plant)",
+"msrp": 22350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "SE 2.0L Manual (Alabama)",
+"msrp": 16950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Manual (Ulsan)",
+"msrp": 16950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Auto (Alabama)",
+"msrp": 17950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Auto SULEV (Alabama)",
+"msrp": 17950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Auto (Ulsan)",
+"msrp": 17950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2.0L Auto SULEV (Ulsan)",
+"msrp": 17950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.0L Auto (Alabama)",
+"msrp": 18850,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.0L Auto SULEV (Alabama)",
+"msrp": 18850,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.0L Auto (Ulsan)",
+"msrp": 18850,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 2.0L Auto SULEV (Ulsan)",
+"msrp": 18850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT Manual",
+"msrp": 19350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value Edition 2.0L Auto (Alabama)",
+"msrp": 19850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value Edition 2.0L Auto SULEV (Alabama)",
+"msrp": 19850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value Edition 2.0L Auto (Ulsan)",
+"msrp": 19850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value Edition 2.0L Auto SULEV (Ulsan)",
+"msrp": 19850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT Auto",
+"msrp": 20350,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO 1.4T DCT",
+"msrp": 20550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 1.6T Manual (Ulsan)",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0L Auto (Alabama)",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0L Auto (Ulsan)",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0L Auto SULEV (Ulsan)",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0L Auto SULEV (Alabama)",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 1.6T Auto (Ulsan)",
+"msrp": 22900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT Sport Manual",
+"msrp": 23250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT Sport Auto",
+"msrp": 24350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SE Manual",
+"msrp": 17200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto",
+"msrp": 18200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto SULEV",
+"msrp": 18200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto",
+"msrp": 19500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto SULEV",
+"msrp": 19500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT Auto",
+"msrp": 20450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value Edition Auto",
+"msrp": 20500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value Edition Auto SULEV",
+"msrp": 20500,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO DCT",
+"msrp": 21050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Auto",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Auto SULEV",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT N Line Manual",
+"msrp": 23300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport DCT",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elantra GT N Line Auto",
+"msrp": 24400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SE IVT",
+"msrp": 18950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE IVT SULEV",
+"msrp": 18950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL IVT",
+"msrp": 19700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL IVT SULEV",
+"msrp": 19700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value Edition IVT",
+"msrp": 20600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value Edition IVT SULEV",
+"msrp": 20600,
+"config": "",
+"note": ""
+},
+{
+"trim": "ECO DCT",
+"msrp": 21250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited IVT",
+"msrp": 22800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited IVT SULEV",
+"msrp": 22800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport DCT",
+"msrp": 23800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "SE IVT",
+"msrp": 19650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE IVT SULEV",
+"msrp": 19650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL IVT",
+"msrp": 20900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL IVT SULEV",
+"msrp": 20900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Blue DCT",
+"msrp": 23550,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line Manual",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line DCT",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited IVT",
+"msrp": 25450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited IVT SULEV",
+"msrp": 25450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited DCT",
+"msrp": 28100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 20200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan SULEV",
+"msrp": 20200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 21450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan SULEV",
+"msrp": 21450,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Sedan",
+"msrp": 24350,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Sedan DCT",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 25950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan SULEV",
+"msrp": 25950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1115,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 20950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan SULEV",
+"msrp": 20950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan SULEV",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan SULEV",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Sedan",
+"msrp": 27500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1150,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 21625,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 23575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 26915,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Sedan",
+"msrp": 28465,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1195,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 22025,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Sport 4dr Sedan",
+"msrp": 23150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Convenience 4dr Sedan",
+"msrp": 25725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 26675,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Sedan",
+"msrp": 28875,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-hyundai-elantra-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

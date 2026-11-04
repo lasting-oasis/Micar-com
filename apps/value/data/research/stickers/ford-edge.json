@@ -1,0 +1,437 @@
+{
+  "make": "Ford",
+  "model": "Edge",
+  "body": "SUV / Crossover",
+  "note": "Two-row midsize crossover. Edge ended after model year 2024; no 2025-2026 years. config = drivetrain; each trim in FWD and AWD where offered (ST-Line/Titanium AWD price in note for 2020-2021 to keep 7 rows). MSRP excludes destination. Trim names as Ford writes them (ST-Line hyphenated; cars.com wrote 'ST Line' for 2020).",
+  "years": [
+    {
+      "year": 2016,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SE",
+          "msrp": 28700,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 30695,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 31790,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 33785,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 35600,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 37595,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 40900,
+          "config": "AWD",
+          "note": "2.7L EcoBoost V6, AWD only"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-edge-2016/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2017,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SE",
+          "msrp": 28950,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 30945,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 31790,
+          "config": "FWD",
+          "note": "Same as 2016 on cars.com"
+        },
+        {
+          "trim": "SEL",
+          "msrp": 33785,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 35600,
+          "config": "FWD",
+          "note": "Same as 2016 on cars.com"
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 37595,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 40900,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-edge-2017/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2018,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SE",
+          "msrp": 29315,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 31310,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 32050,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 34045,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 36025,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 38020,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 40770,
+          "config": "AWD",
+          "note": "Last year of Sport; lower than 2017 ($40,900) on cars.com"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-edge-2018/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2019,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SE",
+          "msrp": 29995,
+          "config": "FWD",
+          "note": "2019 refresh"
+        },
+        {
+          "trim": "SE",
+          "msrp": 31990,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 33300,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 35295,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 38760,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 40755,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "ST",
+          "msrp": 42355,
+          "config": "AWD",
+          "note": "ST replaces Sport (2.7L EcoBoost V6, AWD only)"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-edge-2019/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2020,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SE",
+          "msrp": 31100,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 33095,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 34355,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 36350,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 38100,
+          "config": "FWD",
+          "note": "New trim; cars.com writes 'ST Line'. AWD $40,095"
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 38100,
+          "config": "FWD",
+          "note": "AWD $40,095"
+        },
+        {
+          "trim": "ST",
+          "msrp": 43265,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-edge-2020/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2021,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SE",
+          "msrp": 32750,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 34745,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 35190,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 37185,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 38940,
+          "config": "FWD",
+          "note": "AWD $40,935"
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 38940,
+          "config": "FWD",
+          "note": "AWD $40,935"
+        },
+        {
+          "trim": "ST",
+          "msrp": 43600,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-edge-2021/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2022,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SE",
+          "msrp": 37945,
+          "config": "AWD",
+          "note": "AWD standard from 2022; FWD dropped (SE AWD up ~$3,200 vs 2021)"
+        },
+        {
+          "trim": "SEL",
+          "msrp": 39345,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 43100,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 43100,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "ST",
+          "msrp": 46485,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-edge-2022/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2023,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SE",
+          "msrp": 37945,
+          "config": "AWD",
+          "note": "All 2023 figures identical to 2022 on cars.com"
+        },
+        {
+          "trim": "SEL",
+          "msrp": 39345,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 43100,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 43100,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "ST",
+          "msrp": 46485,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-edge-2023/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2024,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SE",
+          "msrp": 38465,
+          "config": "AWD",
+          "note": "Final model year (production ended 2024)"
+        },
+        {
+          "trim": "SEL",
+          "msrp": 39665,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 43720,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Titanium",
+          "msrp": 43820,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "ST",
+          "msrp": 47205,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-edge-2024/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    }
+  ],
+  "gaps": [
+    "2016-2024: destination charge not stated on any fetched page (null).",
+    "No manufacturer pricing releases used (media.ford.com had none last round); all years cars.com secondary.",
+    "2025-2026: model discontinued after 2024, not applicable.",
+    "2023: cars.com figures are identical to 2022; may be a carry-over on cars.com rather than true 2023 pricing."
+  ]
+}

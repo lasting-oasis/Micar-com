@@ -1,0 +1,249 @@
+{
+"make": "Honda",
+"model": "Insight",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (insight).",
+"years": [
+{
+"year": 2010,
+"destination": 670,
+"trims": [
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 19800,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback w/Navi",
+"msrp": 23100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-honda-insight-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 770,
+"trims": [
+{
+"trim": "Base 4dr Hatchback",
+"msrp": 18200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 19900,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback",
+"msrp": 21490,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback w/Navi",
+"msrp": 23265,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-honda-insight-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "Base 4dr Hatchback",
+"msrp": 18500,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 20275,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback",
+"msrp": 21965,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback w/Navi",
+"msrp": 23690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-honda-insight-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 790,
+"trims": [
+{
+"trim": "Base 4dr Hatchback",
+"msrp": 18600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 20375,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback",
+"msrp": 22065,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback w/Navi",
+"msrp": 23790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-honda-insight-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 790,
+"trims": [
+{
+"trim": "Base 4dr Hatchback",
+"msrp": 18725,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Hatchback",
+"msrp": 20500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback",
+"msrp": 22190,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Hatchback w/Navi",
+"msrp": 23915,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-honda-insight-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 930,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 22930,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 24160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 28190,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-insight-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LX CVT",
+"msrp": 22930,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT",
+"msrp": 24310,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT",
+"msrp": 28340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-insight-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "LX 4dr Sedan",
+"msrp": 23130,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Sedan",
+"msrp": 25010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Sedan",
+"msrp": 29040,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-honda-insight-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-04-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

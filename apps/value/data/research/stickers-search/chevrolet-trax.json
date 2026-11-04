@@ -1,0 +1,54 @@
+{
+"make": "Chevrolet",
+"model": "Trax",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 21000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2017+Chevrolet+Trax+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (jdpower.com, thecarconnection.com)."
+},
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 21495,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+Chevrolet+Trax+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (bennettchevy.com, bowmanchevyofclinton.com, cars.com)."
+},
+{
+"year": 2026,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 21600,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2026+Chevrolet+Trax+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (classicchevrolet.com, edmunds.com, koolchevy.com)."
+}
+],
+"gaps": []
+}

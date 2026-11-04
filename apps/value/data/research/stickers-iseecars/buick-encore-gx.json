@@ -1,0 +1,279 @@
+{
+"make": "Buick",
+"model": "Encore GX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (encore_gx).",
+"years": [
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select 4dr Crossover",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Preferred 4dr Crossover",
+"msrp": 26100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Select 4dr Crossover",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Essence 4dr Crossover",
+"msrp": 30500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-buick-encore_gx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1195,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 24200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select 4dr Crossover",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Preferred 4dr Crossover",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Select 4dr Crossover",
+"msrp": 27800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Essence 4dr Crossover",
+"msrp": 30600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-buick-encore_gx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1195,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 24400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select 4dr Crossover",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Preferred 4dr Crossover",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Select 4dr Crossover",
+"msrp": 27800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Essence 4dr Crossover",
+"msrp": 30600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-buick-encore_gx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1295,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select 4dr Crossover",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Select 4dr Crossover",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 30500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Essence 4dr Crossover",
+"msrp": 32100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-buick-encore_gx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1295,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Crossover",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport Touring 4dr Crossover",
+"msrp": 28400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Avenir 4dr Crossover",
+"msrp": 33500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-buick-encore_gx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1395,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 25940,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Crossover",
+"msrp": 27140,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Preferred 4dr Crossover",
+"msrp": 27940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport Touring 4dr Crossover",
+"msrp": 28740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Avenir 4dr Crossover",
+"msrp": 33100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-buick-encore_gx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

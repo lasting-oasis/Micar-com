@@ -1,0 +1,42 @@
+{
+"make": "Mazda",
+"model": "2",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (mazda2).",
+"years": [
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "Sport 4dr Hatchback 5M",
+"msrp": 14720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 4A",
+"msrp": 15560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Hatchback 5M",
+"msrp": 16210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Hatchback 4A",
+"msrp": 17050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-mazda-mazda2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

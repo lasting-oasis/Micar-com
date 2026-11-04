@@ -1,0 +1,318 @@
+{
+"make": "Maserati",
+"model": "Levante",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (levante).",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "3.0L",
+"msrp": 72600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 3.0L",
+"msrp": 83800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "3.0L",
+"msrp": 74050,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranLusso 3.0L",
+"msrp": 80050,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranSport 3.0L",
+"msrp": 80050,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 3.0L",
+"msrp": 85250,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 3.0L",
+"msrp": 90750,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 3.0L",
+"msrp": 90750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 75980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GranLusso 4dr SUV",
+"msrp": 81980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GranSport 4dr SUV",
+"msrp": 81980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 86980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S GranLusso 4dr SUV",
+"msrp": 91980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S GranSport 4dr SUV",
+"msrp": 91980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 119980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trofeo 4dr SUV",
+"msrp": 169980,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "3.0L",
+"msrp": 72990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranLusso 3.0L",
+"msrp": 78990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranSport 3.0L",
+"msrp": 78990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 3.0L",
+"msrp": 83990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 3.0L",
+"msrp": 88990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 3.0L",
+"msrp": 88990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS 3.8L",
+"msrp": 120980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 3.8L",
+"msrp": 149990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 74490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GranLusso 4dr SUV",
+"msrp": 80490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GranSport 4dr SUV",
+"msrp": 80490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 85490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S GranLusso 4dr SUV",
+"msrp": 90490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S GranSport 4dr SUV",
+"msrp": 90490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr SUV",
+"msrp": 122090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trofeo 4dr SUV",
+"msrp": 149990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD GT 4dr SUV",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena 4dr SUV",
+"msrp": 90400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD F Tributo 4dr SUV",
+"msrp": 106590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena S 4dr SUV",
+"msrp": 115400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trofeo 4dr SUV",
+"msrp": 153100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD GT 4dr SUV",
+"msrp": 90700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena 4dr SUV",
+"msrp": 101400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena S 4dr SUV",
+"msrp": 127600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trofeo 4dr SUV",
+"msrp": 167000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-maserati-levante-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-04-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

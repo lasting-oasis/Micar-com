@@ -1,0 +1,366 @@
+{
+"make": "BMW",
+"model": "4 Series",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (4_series).",
+"years": [
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan SULEV",
+"msrp": 41650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe SULEV",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV",
+"msrp": 43650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe SULEV",
+"msrp": 43850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 47950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 48150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 49950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible SULEV",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 50150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible SULEV",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 56950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 58950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bmw-4_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Gran Coupe SULEV",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe SULEV",
+"msrp": 42150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe SULEV",
+"msrp": 43950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe SULEV",
+"msrp": 44150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible SULEV",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible SULEV",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 57300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 59300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-4_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-03-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Gran Coupe",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 45300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 51650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 51700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 53650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 58700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 60700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-4_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Gran Coupe",
+"msrp": 44750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 44950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 46750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 46950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 51150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 51350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 53100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 53150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 53350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 60150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 62150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-4_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 58500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-4_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

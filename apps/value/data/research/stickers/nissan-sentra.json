@@ -1,0 +1,330 @@
+{
+  "make": "Nissan",
+  "model": "Sentra",
+  "body": "Sedan",
+  "note": "All MSRPs exclude destination (each Nissan release says so). 2016-2019 releases price by transmission; the manual row is used as the trim's cheapest config and the CVT (Xtronic) price is in the note. The all-new 2020 generation dropped the manual and the 1.6L turbo SR Turbo / NISMO grades and lists only S / SV / SR until the all-new 2026 model added SL. Sedan only.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 835,
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2016-sentra",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 16780,
+          "config": "6MT",
+          "note": "Xtronic CVT $17,630"
+        },
+        {
+          "trim": "FE+ S",
+          "msrp": 18030,
+          "config": "Xtronic",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 18550,
+          "config": "Xtronic",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 20410,
+          "config": "Xtronic",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 22170,
+          "config": "Xtronic",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "destination": 885,
+      "source": "https://usa.nissannews.com/en-US/releases/release-ae5158ade6124e5b862212409c320b4a-nissan-announces-u-s-pricing-for-2018-sentra",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 16990,
+          "config": "1.8L 6MT",
+          "note": "1.8L Xtronic $18,140"
+        },
+        {
+          "trim": "SV",
+          "msrp": 18960,
+          "config": "1.8L Xtronic",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 20370,
+          "config": "1.8L Xtronic",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 23440,
+          "config": "1.8L Xtronic",
+          "note": ""
+        },
+        {
+          "trim": "SR Turbo",
+          "msrp": 22200,
+          "config": "1.6L turbo 6MT",
+          "note": "1.6L Xtronic $22,490"
+        },
+        {
+          "trim": "NISMO",
+          "msrp": 25790,
+          "config": "1.6L turbo 6MT",
+          "note": "Xtronic also $25,790"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "destination": 895,
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2019-sentra",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 17790,
+          "config": "1.8L 6MT",
+          "note": "1.8L Xtronic $18,480"
+        },
+        {
+          "trim": "SV",
+          "msrp": 19090,
+          "config": "1.8L Xtronic",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 20590,
+          "config": "1.8L Xtronic",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 23020,
+          "config": "1.8L Xtronic",
+          "note": ""
+        },
+        {
+          "trim": "SR Turbo",
+          "msrp": 22570,
+          "config": "1.6L turbo Xtronic",
+          "note": "manual no longer listed"
+        },
+        {
+          "trim": "NISMO",
+          "msrp": 25840,
+          "config": "1.6L turbo 6MT",
+          "note": "Xtronic also $25,840"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "destination": 925,
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-us-pricing-for-all-new-2020-sentra",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 19090,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 20270,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 21430,
+          "config": "",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "destination": 925,
+      "source": "https://usa.nissannews.com/en-US/releases/release-b77bb77f0ccb7e1cd99859daa70e3abe",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 19410,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 20470,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 21750,
+          "config": "",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "destination": 1095,
+      "source": "https://usa.nissannews.com/en-US/releases/2022-nissan-sentra-pricing",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 19810,
+          "config": "2.0L I4 CVT",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 20870,
+          "config": "2.0L I4 CVT",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 22400,
+          "config": "2.0L I4 CVT",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "destination": 1095,
+      "source": "https://usa.nissannews.com/en-US/releases/2023-nissan-sentra-pricing-starts-at-20050",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 20050,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 21270,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 22940,
+          "config": "",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "destination": 1115,
+      "source": "https://usa.nissannews.com/en-US/releases/refreshed-2024-nissan-sentra-pricing-starts-at-20630",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 20630,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 21560,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 23720,
+          "config": "",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "destination": 1245,
+      "source": "https://usa.nissannews.com/en-US/releases/2025-nissan-sentra-pricing-starts-at-21590",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 21590,
+          "config": "2.0L CVT",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 22290,
+          "config": "2.0L CVT",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 24590,
+          "config": "2.0L CVT",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "destination": 1245,
+      "source": "https://usa.nissannews.com/en-US/releases/all-new-2026-nissan-sentra-offers-incredible-value-with-pricing-from-22600",
+      "source_type": "manufacturer",
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 22600,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SV",
+          "msrp": 23370,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 25000,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "SL",
+          "msrp": 27990,
+          "config": "",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2017: no pricing figures recorded. The fetch of the 2017 pricing release (nissan-announces-u-s-pricing-for-2017-sentra) was blocked by a permission prompt and not retried; the 2017 SR Turbo release fetched instead names trims (S, SV, SR, SR Turbo, SL, NISMO) but prints no prices.",
+    "2016: the release lists no NISMO or SR Turbo; those first appear in 2017.",
+    "2022: the page fetched is dated Jan 6, 2022 and updated Jun 7, 2022 ($19,810 S); an earlier 2022 launch release was titled 'pricing starts at $19,510', so 2022 likely had a ~$300 mid-year increase. Recorded the updated figures; launch release not fetched.",
+    "2023: page meta description says $19,950 but the release body and headline say $20,050; body figure recorded.",
+    "2020-2024 and 2026 releases do not tie engine/transmission to each grade, so config is left blank for those years.",
+    "2027 Sentra release exists (from $22,990) but is outside the 2016-2026 range."
+  ]
+}

@@ -1,0 +1,1197 @@
+{
+"make": "Chevrolet",
+"model": "Tahoe",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (tahoe, tahoe_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 950,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 36165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 37280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 40175,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 41340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 42130,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 44980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4x2 4dr SUV",
+"msrp": 50720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 50765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4x4 4dr SUV",
+"msrp": 53525,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 53615,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 950,
+"trims": [
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 33250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 36230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 36735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 37980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 40745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 42040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 42830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 45680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4x2 4dr SUV",
+"msrp": 51145,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 51465,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4x4 4dr SUV",
+"msrp": 53950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 54570,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 34025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 37105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 37510,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 38755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 41520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 42815,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 43905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 46755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4x2 4dr SUV",
+"msrp": 51970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 52970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4x4 4dr SUV",
+"msrp": 54775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 56075,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 35675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 38755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 39205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 40405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 43170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 44465,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 45555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 48405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 54620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 57725,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 37810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 39830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 41295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 44245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 47640,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 50490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 56255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 59360,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LS",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LS",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LT",
+"msrp": 51505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LT",
+"msrp": 54505,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LTZ",
+"msrp": 61085,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LTZ",
+"msrp": 64085,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LS",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LS",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LT",
+"msrp": 52030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LT",
+"msrp": 55030,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LTZ",
+"msrp": 61740,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LTZ",
+"msrp": 64740,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LS",
+"msrp": 47215,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LS",
+"msrp": 50215,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LT",
+"msrp": 52455,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LT",
+"msrp": 55455,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Premier",
+"msrp": 62140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Premier",
+"msrp": 65140,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LS",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LS",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LT",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LT",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Premier",
+"msrp": 62200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Premier",
+"msrp": 65200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1295,
+"trims": [
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 42765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 45165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police 4dr SUV",
+"msrp": 45865,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 48000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 56000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 65700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LS",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LS",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LT",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LT",
+"msrp": 56800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Premier",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Premier",
+"msrp": 65700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1695,
+"trims": [
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police 4dr SUV",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 54300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 57300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 59500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 62800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 65800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 69700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 72700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 53400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 54550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 57500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police 4dr SUV",
+"msrp": 57550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 58250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 60500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 61000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 63000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 64000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 65800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 68800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 72600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 75600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 48450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 50750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police 4dr SUV",
+"msrp": 51450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 59700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 62300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 64300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 65300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 67600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 70600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 74400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 77400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 50450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 52750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police 4dr SUV",
+"msrp": 53450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 54600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 56200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 57600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 59200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 61700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 64300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 64700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 66300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 67300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 69600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 72600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 76900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 79900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2195,
+"trims": [
+{
+"trim": "4x2 Police 4dr SUV",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Police 4dr SUV",
+"msrp": 56000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Special Service 4dr SUV",
+"msrp": 56100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 59900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 62000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 62000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 65000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 67000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 69000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 70000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 73600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 76600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 78700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 81700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-chevrolet-tahoe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

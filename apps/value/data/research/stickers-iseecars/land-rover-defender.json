@@ -1,0 +1,615 @@
+{
+"make": "Land Rover",
+"model": "Defender",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (defender).",
+"years": [
+{
+"year": 2020,
+"destination": 1350,
+"trims": [
+{
+"trim": "AWD 110 Standard 4dr SUV",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 S 4dr SUV",
+"msrp": 53350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 SE 4dr SUV",
+"msrp": 62250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 HSE 4dr SUV",
+"msrp": 68350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 First Edition 4dr SUV",
+"msrp": 68650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X 4dr SUV",
+"msrp": 80900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-landrover-defender-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1350,
+"trims": [
+{
+"trim": "AWD 90 Standard 2dr SUV",
+"msrp": 46100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 S 2dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 Standard 4dr SUV",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 S 4dr SUV",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X-Dynamic S 2dr SUV",
+"msrp": 57800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 SE 4dr SUV",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 First Edition 2dr SUV",
+"msrp": 64100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X-Dynamic SE 4dr SUV",
+"msrp": 65500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X-Dynamic HSE 4dr SUV",
+"msrp": 71600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X 2dr SUV",
+"msrp": 80500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X 4dr SUV",
+"msrp": 83000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-landrover-defender-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1350,
+"trims": [
+{
+"trim": "AWD 90 Standard 2dr SUV",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 Standard 4dr SUV",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 S 2dr SUV",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 S 4dr SUV",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X-Dynamic S 2dr SUV",
+"msrp": 60700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X-Dynamic SE 2dr SUV",
+"msrp": 66400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 SE 4dr SUV",
+"msrp": 66400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X-Dynamic SE 4dr SUV",
+"msrp": 69400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X-Dynamic HSE 2dr SUV",
+"msrp": 71000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 XS Edition 4dr SUV",
+"msrp": 73300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X-Dynamic HSE 4dr SUV",
+"msrp": 74000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X 2dr SUV",
+"msrp": 85200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X 4dr SUV",
+"msrp": 87700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 Trophy Edition 4dr SUV",
+"msrp": 90000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 V8 2dr SUV",
+"msrp": 104200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 V8 4dr SUV",
+"msrp": 107500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 Carpathian Edition 2dr SUV",
+"msrp": 111200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 Carpathian Edition 4dr SUV",
+"msrp": 114400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 V8 Bond Edition 4dr SUV",
+"msrp": 116700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-landrover-defender-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1475,
+"trims": [
+{
+"trim": "AWD 110 Standard 4dr SUV",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 S 2dr SUV",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 S 4dr SUV",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 SE 2dr SUV",
+"msrp": 66100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 S 4dr SUV",
+"msrp": 68000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X-Dynamic SE 2dr SUV",
+"msrp": 69100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 SE 4dr SUV",
+"msrp": 69300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X-Dynamic SE 4dr SUV",
+"msrp": 72300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 30th Anniversary Edition 4dr SUV",
+"msrp": 75000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 SE 4dr SUV",
+"msrp": 78300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 X-Dynamic SE 4dr SUV",
+"msrp": 81400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 First Edition 4dr SUV",
+"msrp": 84700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 X 2dr SUV",
+"msrp": 88400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 75th Anniversary Edition 2dr SUV",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 X 4dr SUV",
+"msrp": 90900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 75th Anniversary Edition 4dr SUV",
+"msrp": 93000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 X 4dr SUV",
+"msrp": 99900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 V8 2dr SUV",
+"msrp": 107900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 V8 4dr SUV",
+"msrp": 111300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 Carpathian Edition 2dr SUV",
+"msrp": 115000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 Carpathian Edition 4dr SUV",
+"msrp": 118400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-landrover-defender-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1475,
+"trims": [
+{
+"trim": "AWD 90 P300 S 2dr SUV",
+"msrp": 56400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P300 S 4dr SUV",
+"msrp": 60600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P400 S 4dr SUV",
+"msrp": 67900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 P400 X-Dynamic SE 2dr SUV",
+"msrp": 68400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P300 S 4dr SUV",
+"msrp": 69100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P400 X-Dynamic SE 4dr SUV",
+"msrp": 72000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P400 S 4dr SUV",
+"msrp": 77100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P400 X-Dynamic SE 4dr SUV",
+"msrp": 81300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P400 Outbound 4dr SUV",
+"msrp": 84500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P400 X 4dr SUV",
+"msrp": 90800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 V8 P500 SE 4dr SUV",
+"msrp": 93000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P400 X 4dr SUV",
+"msrp": 99900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 V8 2dr SUV",
+"msrp": 108200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 V8 P525 4dr SUV",
+"msrp": 111500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 V8 Carpathian Edition 2dr SUV",
+"msrp": 115300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 V8 P500 4dr SUV",
+"msrp": 116600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 V8 P525 Carpathian Edition 4dr SUV",
+"msrp": 118600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-landrover-defender-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1850,
+"trims": [
+{
+"trim": "AWD 90 P300 S 2dr SUV",
+"msrp": 56900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P300 S 4dr SUV",
+"msrp": 60800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P400 S 4dr SUV",
+"msrp": 68100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 P400 X-Dynamic SE 2dr SUV",
+"msrp": 68500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P300 S 4dr SUV",
+"msrp": 69700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P400 X-Dynamic SE 4dr SUV",
+"msrp": 72100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P400 S 4dr SUV",
+"msrp": 77700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P400 X-Dynamic SE 4dr SUV",
+"msrp": 81400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P400 Sedona Red 4dr SUV",
+"msrp": 83500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P400 Outbound 4dr SUV",
+"msrp": 85500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P400 X 4dr SUV",
+"msrp": 91800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P500 X-Dynamic SE 4dr SUV",
+"msrp": 95000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 P400 X 4dr SUV",
+"msrp": 100900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 90 V8 2dr SUV",
+"msrp": 109800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 V8 P525 4dr SUV",
+"msrp": 113500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 130 V8 P500 4dr SUV",
+"msrp": 118900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P635 OCTA 4dr SUV",
+"msrp": 152000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 110 P635 OCTA Edition One 4dr SUV",
+"msrp": 167800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-landrover-defender-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

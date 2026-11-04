@@ -1,0 +1,78 @@
+{
+"make": "Jaguar",
+"model": "F-Pace",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (f__pace).",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "20d AWD",
+"msrp": 41990,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t AWD",
+"msrp": 43390,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Premium AWD",
+"msrp": 45200,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Premium AWD",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d Prestige AWD",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t Prestige AWD",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "20d R-Sport AWD",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "35t R-Sport AWD",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "First Edition AWD",
+"msrp": 70700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jaguar-f__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

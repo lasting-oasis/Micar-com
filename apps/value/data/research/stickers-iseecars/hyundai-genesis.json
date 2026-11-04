@@ -1,0 +1,405 @@
+{
+"make": "Hyundai",
+"model": "Genesis",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (genesis, genesis_coupe).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Genesis Coupe 2.0T 2dr Coupe",
+"msrp": 22000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T R-Spec 2dr Coupe",
+"msrp": 23750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T Premium 2dr Coupe",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8L 2dr Coupe",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T Track 2dr Coupe",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8L Grand Touring 2dr Coupe",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8L Grand Touring 2dr Coupe w/Navigation",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8L Track 2dr Coupe",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8L Track 2dr Coupe w/Navigation",
+"msrp": 30500,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.8L V6 4dr Sedan",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4.6L V8 4dr Sedan",
+"msrp": 39500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-hyundai-genesis-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 850,
+"trims": [
+{
+"trim": "Genesis Coupe 2.0T 2dr Coupe",
+"msrp": 22250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T R-Spec 2dr Coupe",
+"msrp": 24500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T Premium 2dr Coupe",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8L R-Spec 2dr Coupe",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8L Grand Touring 2dr Coupe",
+"msrp": 29750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8L Track 2dr Coupe",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.8L V6 4dr Sedan",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4.6L V8 4dr Sedan",
+"msrp": 43000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-hyundai-genesis-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 850,
+"trims": [
+{
+"trim": "Genesis Coupe 2.0T 2dr Coupe",
+"msrp": 22250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T R-Spec 2dr Coupe",
+"msrp": 24500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T Premium 2dr Coupe",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8 R-Spec 2dr Coupe",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8 Grand Touring 2dr Coupe",
+"msrp": 29750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8 Track 2dr Coupe",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.8L V6 4dr Sedan",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4.6L V8 4dr Sedan",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0L 4dr Sedan",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0L R-Spec 4dr Sedan",
+"msrp": 46500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-hyundai-genesis-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "Genesis Coupe 2.0T 2dr Coupe",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T R-Spec 2dr Coupe",
+"msrp": 26500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T Premium 2dr Coupe",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8 R-Spec 2dr Coupe",
+"msrp": 28750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8 Grand Touring 2dr Coupe",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8 Track 2dr Coupe",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.8L 4dr Sedan",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0L R-Spec 4dr Sedan",
+"msrp": 46800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-hyundai-genesis-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "Genesis Coupe 2.0T 2dr Coupe 8A",
+"msrp": 26350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T R-Spec 2dr Coupe",
+"msrp": 27200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2.0T Premium 2dr Coupe",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8 R-Spec 2dr Coupe",
+"msrp": 29350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8 Grand Touring 2dr Coupe",
+"msrp": 32150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 3.8 Ultimate 2dr Coupe",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.8L 4dr Sedan",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "5.0L R-Spec 4dr Sedan",
+"msrp": 47400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-hyundai-genesis-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Genesis Coupe 2dr 3.8L Man Base w/Black Seats",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Man Base w/Gray Seats",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Auto Base w/Black Seats",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Auto Base w/Gray Seats",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Man R-Spec",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Man Ultimate w/Black Seats",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Man Ultimate w/Tan Seats",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Auto Ultimate w/Black Seats",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Genesis Coupe 2dr 3.8L Auto Ultimate w/Tan Seats",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.8L RWD",
+"msrp": 38750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V6 3.8L AWD",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan V8 5.0L RWD",
+"msrp": 53850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-hyundai-genesis-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,585 @@
+{
+  "make": "Ford",
+  "model": "Explorer",
+  "body": "SUV / Crossover",
+  "note": "MSRP excludes destination. No model-year pricing releases could be located on media.ford.com, so every year uses the cars.com research trims page ('Starting MSRP' per trim and drivetrain, reflecting the latest in-year price) as the row source; launch-time prices and destination charges come from dated secondary articles and are recorded in notes. Rows: each trim in its cheapest drivetrain (FWD/RWD where offered), the other drivetrain's price in the note; a separate XLT 4WD row is included for 2016-2020 where the trim count allowed. Trim names as Ford writes them (Base = unnamed 'Explorer' trim; Limited Hybrid rows added where a fetched source priced them). 2025 refresh replaced Base/XLT/Limited/Timberline/King Ranch with Active/ST-Line/Platinum/ST; Tremor added for 2026.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 895,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 31050,
+          "config": "FWD",
+          "note": "Autoblog (Nov 26, 2014, Ford configurator) launch price $30,700 excl. $895 destination; AutoGuide quoted $31,595 incl. destination = $30,700. 4WD $33,050"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 33400,
+          "config": "FWD",
+          "note": "Launch $33,400 (Autoblog)"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 35400,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 41300,
+          "config": "FWD",
+          "note": "Launch $41,300 (Autoblog); AWD a $2,000 option"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 43300,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 43500,
+          "config": "4WD",
+          "note": "Launch $43,300 (Autoblog); 3.5L EcoBoost, 4WD only"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 52970,
+          "config": "4WD",
+          "note": "Launch $52,600 (Autoblog); 4WD only"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2016/trims/",
+      "source_type": "secondary",
+      "source_note": "Rows are cars.com 'Starting MSRP'. Destination $895 and launch prices from https://www.autoblog.com/2014/11/26/2016-ford-explorer-pricing-configurator/ ('all prices are subject to an $895 destination charge'), corroborated by https://www.autoguide.com/auto-news/2014/11/2016-ford-explorer-priced-from-31-595.html. Base/Sport/Platinum rose $200-$370 after launch."
+    },
+    {
+      "year": 2017,
+      "destination": 945,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 31660,
+          "config": "FWD",
+          "note": "Ford Authority (July 2016) launch starting price $32,105 incl. $945 destination = $31,160 excl.; cars.com is $500 higher. 4WD $33,810"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 33775,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "XLT",
+          "msrp": 35925,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 41675,
+          "config": "FWD",
+          "note": "4WD $43,825"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 45355,
+          "config": "4WD",
+          "note": "Ford Authority: XLT Sport $46,150 (presumably incl. destination = $45,205)"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 53235,
+          "config": "4WD",
+          "note": "Ford Authority: $54,180 'with destination' = $53,235 excl., matching cars.com"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2017/trims/",
+      "source_type": "secondary",
+      "source_note": "Rows are cars.com 'Starting MSRP'. Destination $945 from https://fordauthority.com/2016/07/2017-ford-explorer-pricing-announced-will-start-at-32105/ (configurator-based, prices quoted incl. destination)."
+    },
+    {
+      "year": 2018,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 32140,
+          "config": "FWD",
+          "note": "4WD $34,290"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 34175,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "XLT",
+          "msrp": 36325,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 42090,
+          "config": "FWD",
+          "note": "4WD $44,240"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 45950,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 53940,
+          "config": "4WD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2018/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP'; destination not stated (Autoblog /buy/ pricing page for the 2018 XLT 4x4 redirected to a section index)."
+    },
+    {
+      "year": 2019,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 32365,
+          "config": "FWD",
+          "note": "4WD $34,515"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 34400,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "XLT",
+          "msrp": 36550,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 42765,
+          "config": "FWD",
+          "note": "4WD $44,915"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 46625,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 54165,
+          "config": "4WD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2019/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP'; destination not stated. (Autoblog's 2020 article says the 2020 base price of $33,860 incl. $1,095 destination was '$400 more than 2019', which is consistent with $32,365 + $1,095, but no 2019 destination figure was stated.)"
+    },
+    {
+      "year": 2020,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 32765,
+          "config": "RWD",
+          "note": "Autoblog launch (Feb 15, 2019, Ford-supplied breakdown) $33,860 incl. $1,095 destination = $32,765 excl. 4WD $34,765"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 36925,
+          "config": "RWD",
+          "note": "Autoblog launch $37,700 incl. destination = $36,605 excl. (+$320 later)"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 38925,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 48380,
+          "config": "RWD",
+          "note": "2.3L gas Limited (cars.com mislabels the engine as hybrid; Ford Authority lists Limited RWD $48,380). Autoblog launch $49,225 incl. destination = $48,130 excl. 4WD $50,380"
+        },
+        {
+          "trim": "Limited Hybrid",
+          "msrp": 52530,
+          "config": "RWD",
+          "note": "Ford Authority (Aug 2020) 2020 Limited Hybrid RWD $52,530, AWD $54,725; Autoblog launch $52,780 incl. destination = $51,685 excl. Not broken out on cars.com"
+        },
+        {
+          "trim": "ST",
+          "msrp": 54740,
+          "config": "4WD",
+          "note": "Autoblog launch $55,835 incl. destination = $54,740 excl. (matches)"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 58250,
+          "config": "4WD",
+          "note": "Autoblog launch $59,345 incl. destination = $58,250 excl. (matches)"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2020/trims/",
+      "source_type": "secondary",
+      "source_note": "Rows are cars.com 'Starting MSRP' except Limited Hybrid (https://fordauthority.com/2020/08/2021-ford-explorer-pricing-revealed-all-trim-levels-get-cheaper, 2020 column). Destination $1,095 from https://www.autoblog.com/2019/02/15/2020-ford-explorer-pricing-announced/ (Ford-supplied launch breakdown); Ford Authority's Aug 2020 comparison lists destination as $1,245 for 2020, so the charge rose during the model year."
+    },
+    {
+      "year": 2021,
+      "destination": 1245,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 32925,
+          "config": "RWD",
+          "note": "Ford Authority launch (Aug 2020) $32,225 RWD / $34,225 AWD. cars.com 4WD $34,925"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 35075,
+          "config": "RWD",
+          "note": "Launch $34,000 RWD / $36,000 AWD. cars.com 4WD $37,075"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 45255,
+          "config": "RWD",
+          "note": "Launch $44,710 RWD / $46,710 AWD. cars.com 4WD $47,255"
+        },
+        {
+          "trim": "Limited Hybrid",
+          "msrp": 49855,
+          "config": "RWD",
+          "note": "Ford Authority launch price; AWD $51,855. Not broken out on cars.com"
+        },
+        {
+          "trim": "Timberline",
+          "msrp": 46015,
+          "config": "4WD",
+          "note": "New for 2021; 4WD only"
+        },
+        {
+          "trim": "ST",
+          "msrp": 49000,
+          "config": "4WD",
+          "note": "Launch $52,605 (Ford Authority); cars.com reflects the later repackaged ST at $49,000"
+        },
+        {
+          "trim": "King Ranch",
+          "msrp": 52600,
+          "config": "RWD",
+          "note": "New for 2021; 4WD $54,600"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 52730,
+          "config": "RWD",
+          "note": "Launch $54,480 (Ford Authority). cars.com 'Platinum 4WD' $53,335 carries a hybrid engine label and matches KBB's 2021 Platinum Hybrid 4WD ($54,115 - $780)"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2021/trims/",
+      "source_type": "secondary",
+      "source_note": "Rows are cars.com 'Starting MSRP' except Limited Hybrid (Ford Authority). Destination $1,245 from https://fordauthority.com/2020/08/2021-ford-explorer-pricing-revealed-all-trim-levels-get-cheaper (listed as a separate line item); KBB's Jan 2022 article says the 2022 charge of $1,295 was $50 higher than 2021, consistent. cars.com 2021 figures match the 2021 prices implied by KBB's 2022 year-over-year table for every trim."
+    },
+    {
+      "year": 2022,
+      "destination": 1295,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 35510,
+          "config": "RWD",
+          "note": "KBB (Jan 14, 2022) $33,245 RWD / $35,245 4WD; Ford Authority/Yahoo $34,540 incl. $1,295 destination = $33,245. cars.com 4WD $37,510"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 38570,
+          "config": "RWD",
+          "note": "KBB Jan 2022 $36,145 RWD / $38,145 4WD. cars.com 4WD $40,570"
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 45760,
+          "config": "RWD",
+          "note": "New for 2022. KBB Jan 2022 $44,745 RWD / $46,745 4WD. cars.com 4WD $47,760"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 47070,
+          "config": "RWD",
+          "note": "KBB Jan 2022 $45,495 RWD / $47,495 4WD; Limited Hybrid $50,280 RWD / $52,280 4WD (KBB; Yahoo confirms $50,280 'before destination'). cars.com 4WD $49,070"
+        },
+        {
+          "trim": "Timberline",
+          "msrp": 48320,
+          "config": "4WD",
+          "note": "KBB Jan 2022 $46,245"
+        },
+        {
+          "trim": "ST",
+          "msrp": 49260,
+          "config": "RWD",
+          "note": "ST RWD new for 2022. KBB Jan 2022 $47,245 RWD / $49,245 4WD. cars.com 4WD $51,260"
+        },
+        {
+          "trim": "King Ranch",
+          "msrp": 53630,
+          "config": "RWD",
+          "note": "KBB Jan 2022 $53,610 RWD / $55,610 4WD. cars.com 4WD $55,630"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 52375,
+          "config": "RWD",
+          "note": "cars.com labels the engine hybrid; KBB Jan 2022 Platinum $53,740 RWD / $55,740 4WD and Platinum Hybrid $52,115 RWD / $54,115 4WD. cars.com 4WD $54,375"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2022/trims/",
+      "source_type": "secondary",
+      "source_note": "Rows are cars.com 'Starting MSRP' (latest in-year; $1,000-$2,400 above the January 2022 prices for most trims after repeated 2022 increases). Destination $1,295 from https://www.kbb.com/car-news/2022-ford-explorer-gets-price-increase-up-to-1k/ and https://autos.yahoo.com/2022-ford-explorer-costs-little-212500985.html (the latter's Base $34,540 incl. destination equals KBB's $33,245 + $1,295, so KBB's prices exclude destination)."
+    },
+    {
+      "year": 2023,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 36760,
+          "config": "RWD",
+          "note": "4WD $38,760"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 38570,
+          "config": "RWD",
+          "note": "4WD $40,570"
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 46355,
+          "config": "RWD",
+          "note": "4WD $48,355"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 47420,
+          "config": "RWD",
+          "note": "cars.com lists the 3.3L hybrid engine for Limited; 4WD $49,420"
+        },
+        {
+          "trim": "Timberline",
+          "msrp": 49330,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "ST",
+          "msrp": 50005,
+          "config": "RWD",
+          "note": "4WD $52,005"
+        },
+        {
+          "trim": "King Ranch",
+          "msrp": 54525,
+          "config": "RWD",
+          "note": "4WD $56,525"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 54270,
+          "config": "RWD",
+          "note": "cars.com lists the 3.3L hybrid engine for Platinum; 4WD $56,270"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2023/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP'; destination not stated."
+    },
+    {
+      "year": 2024,
+      "destination": 1595,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 36860,
+          "config": "RWD",
+          "note": "Ford Authority (Feb 2024) also $36,860. 4WD $38,860"
+        },
+        {
+          "trim": "XLT",
+          "msrp": 38670,
+          "config": "RWD",
+          "note": "Ford Authority also $38,670. 4WD $40,670"
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 46455,
+          "config": "RWD",
+          "note": "Ford Authority also $46,455. 4WD $48,455"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 47520,
+          "config": "RWD",
+          "note": "2.3L gas (hybrid dropped); Ford Authority also $47,520. 4WD $49,520"
+        },
+        {
+          "trim": "Timberline",
+          "msrp": 49430,
+          "config": "4WD",
+          "note": "Ford Authority also $49,430"
+        },
+        {
+          "trim": "ST",
+          "msrp": 50105,
+          "config": "RWD",
+          "note": "Ford Authority also $50,105. 4WD $52,105"
+        },
+        {
+          "trim": "King Ranch",
+          "msrp": 54625,
+          "config": "RWD",
+          "note": "Ford Authority also $54,625. 4WD $56,625"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 54770,
+          "config": "RWD",
+          "note": "3.0L EcoBoost; Ford Authority also $54,770. 4WD $56,770"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2024/trims/",
+      "source_type": "secondary",
+      "source_note": "Rows are cars.com 'Starting MSRP'. Destination $1,595 from https://fordauthority.com/2024/02/2025-ford-explorer-cheaper-than-outgoing-model-in-some-cases/ (Feb 2024 comparison table listing 'Destination and Delivery' $1,595 for both 2024 and 2025 as a separate line); that table's 2024 trim prices match cars.com exactly."
+    },
+    {
+      "year": 2025,
+      "destination": 1595,
+      "trims": [
+        {
+          "trim": "Active",
+          "msrp": 40050,
+          "config": "RWD",
+          "note": "Refreshed 2025 lineup (Active replaces Base/XLT). Ford Authority prices: $39,625 at reveal (Feb 2024) and May 2024 -> $39,755 (Feb 2025 dealer bulletin)"
+        },
+        {
+          "trim": "Active",
+          "msrp": 42050,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 45020,
+          "config": "RWD",
+          "note": "Ford Authority: $44,385 (Feb/May 2024) -> $44,615 (Feb 2025)"
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 47020,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 52525,
+          "config": "RWD",
+          "note": "2.3L now standard, 3.0L optional. Ford Authority: $51,525 (Feb/May 2024) -> $52,250 (Feb 2025)"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 54525,
+          "config": "4WD",
+          "note": ""
+        },
+        {
+          "trim": "ST",
+          "msrp": 54770,
+          "config": "RWD",
+          "note": "Ford Authority: $55,205 at reveal (Feb 2024), $55,505 (May 2024) -> $54,260 (Feb 2025)"
+        },
+        {
+          "trim": "ST",
+          "msrp": 56770,
+          "config": "4WD",
+          "note": "Ford Authority: ST AWD $59,200 (May 2024) -> $56,260 (Feb 2025)"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2025/trims/",
+      "source_type": "secondary",
+      "source_note": "Rows are cars.com 'Starting MSRP'. Destination $1,595 from https://fordauthority.com/2025/02/2025-ford-explorer-lineup-gets-mid-year-price-adjustments (dealer bulletin via CarsDirect) and https://fordauthority.com/2024/02/2025-ford-explorer-cheaper-than-outgoing-model-in-some-cases/ (reveal pricing), both listing destination as a separate line item, so their prices are taken as excl. destination. cars.com is $295-$510 above the Feb 2025 figures, i.e. a further increase. Tremor not on the 2025 page."
+    },
+    {
+      "year": 2026,
+      "destination": 1695,
+      "trims": [
+        {
+          "trim": "Active",
+          "msrp": 38465,
+          "config": "RWD, 100A package",
+          "note": "cars.com lists Active 'w/100A Pkg' and 'w/200A Pkg' separately. Ford Authority: Active 100A $38,330 (June 2025) -> $38,465 (Sept 2025). 100A 4WD $40,465"
+        },
+        {
+          "trim": "Active",
+          "msrp": 40585,
+          "config": "RWD, 200A package",
+          "note": "Ford Authority Sept 2025 'Active' $40,585. 200A 4WD $42,585"
+        },
+        {
+          "trim": "ST-Line",
+          "msrp": 45155,
+          "config": "RWD",
+          "note": "Ford Authority: $45,020 (June 2025) -> $45,155 (Sept 2025). 4WD $47,155"
+        },
+        {
+          "trim": "Tremor",
+          "msrp": 48965,
+          "config": "4WD",
+          "note": "New for 2026; 4WD only. Ford Authority gives $48,330 (June 2025) -> $48,465 (Sept 2025), $500 below the cars.com figure (unresolved)"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 50965,
+          "config": "RWD",
+          "note": "2.3L EcoBoost standard. Ford Authority: $50,830 (June 2025) -> $50,965 (Sept 2025). 4WD $52,965"
+        },
+        {
+          "trim": "ST",
+          "msrp": 54905,
+          "config": "RWD",
+          "note": "Ford Authority: ST RWD $54,770 -> $54,905; ST AWD $56,770 -> $56,905 (June -> Sept 2025). 4WD $56,905"
+        }
+      ],
+      "source": "https://www.cars.com/research/ford-explorer-2026/trims/",
+      "source_type": "secondary",
+      "source_note": "Rows are cars.com 'Starting MSRP', fetched Oct 2026. Destination $1,695 from https://fordauthority.com/2025/09/2026-ford-explorer-lineup-gets-slightly-more-expensive/ ('Destination and Delivery' raised from $1,595 to $1,695 for all models in Sept 2025, alongside a $135 increase on every trim); that article's Sept 2025 prices match cars.com for every trim except Tremor. Early-build 2026 Explorers (June-Aug 2025) carried $1,595 destination."
+    }
+  ],
+  "gaps": [
+    "No manufacturer (media.ford.com) pricing source for any year 2016-2026; all 11 years are secondary (cars.com rows, with Autoblog/AutoGuide/Ford Authority/KBB/Yahoo-syndicated articles for destination and launch prices).",
+    "Destination charge not stated by any fetched source for 2018, 2019 and 2023 (null). 2016 ($895), 2017 ($945), 2020 ($1,095 at launch; $1,245 by Aug 2020), 2021 ($1,245), 2022 ($1,295), 2024 ($1,595), 2025 ($1,595) and 2026 ($1,695; $1,595 before Sept 2025) are from secondary articles (Autoblog, Ford Authority, KBB).",
+    "2026: Ford Authority's Sept 2025 Tremor price ($48,465) is $500 below cars.com ($48,965); every other 2026 trim matches. Unresolved.",
+    "2016, 2017, 2020-2022, 2025: cars.com figures are $130-$2,425 above the dated launch/announcement prices (mid-year increases); both recorded.",
+    "2020-2023: cars.com attaches the 3.3L hybrid engine label to Limited and Platinum rows whose prices match the gas trims (2020, 2021 Limited) or sit between gas and hybrid figures (2022 Platinum); engine labels on those rows are unreliable. Limited Hybrid is priced only for 2020-2022 (Ford Authority/KBB) and Platinum Hybrid only in notes (2021-2022).",
+    "2021: the ST launched at $52,605 and cars.com shows $49,000 (repackaged ST later in the model year); KBB's 2022 table confirms $49,000 as the late-2021 price.",
+    "2025: Tremor not listed on the 2025 cars.com page (not priced); Ford Authority's table gives no drivetrain for Active/ST-Line/Platinum.",
+    "Autoblog /buy/ pricing pages (2018 XLT 4x4) redirected to a section index; Edmunds was not available."
+  ]
+}

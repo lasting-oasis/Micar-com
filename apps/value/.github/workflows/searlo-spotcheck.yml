@@ -1,0 +1,30 @@
+name: Searlo spot-check of iSeeCars prices
+
+# One-off: 100 searches (1 Searlo credit each) comparing iSeeCars prices with Google results.
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/searlo-spotcheck.yml, scripts/searlo_spotcheck.py]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/searlo_spotcheck.py
+        env:
+          SEARCH_API_KEY: ${{ secrets.SEARCH_API_KEY }}
+          N: '100'
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/search/spotcheck.jsonl
+          git commit -m "Searlo spot-check $(date -u +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done

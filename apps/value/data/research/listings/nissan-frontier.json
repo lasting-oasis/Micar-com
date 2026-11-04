@@ -1,0 +1,207 @@
+{
+  "make": "Nissan",
+  "model": "Frontier",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/frontier/year-2016/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 27194,
+      "listings": [
+        {
+          "price": 13393,
+          "miles": 66500,
+          "location": "Clearwater, FL",
+          "trim": "SV Crew Cab 2WD Auto SWB",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 20995,
+          "miles": 41269,
+          "location": "Milford, CT",
+          "trim": "SV Crew Cab 4WD Auto SWB",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 14758,
+          "miles": 138374,
+          "location": "Bourbonnais, IL",
+          "trim": "SV Crew Cab 4WD Auto LWB",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 10995,
+          "miles": 144233,
+          "location": "Milford, CT",
+          "trim": "SV King Cab 4WD Auto",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 18894,
+          "miles": 93447,
+          "location": "Casper, WY",
+          "trim": "SV Crew Cab 4WD Auto LWB",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/frontier/year-2019/",
+      "fetched": "2026-10-28",
+      "page_average": 27080,
+      "listings": [
+        {
+          "price": 20297,
+          "miles": 70349,
+          "location": "Cary, NC",
+          "trim": "SL Crew Cab 2WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 18571,
+          "miles": 112435,
+          "location": "Renton, WA",
+          "trim": "SL Crew Cab 4WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 23186,
+          "miles": 64851,
+          "location": "Fuquay-Varina, NC",
+          "trim": "SV Crew Cab 4WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 20950,
+          "miles": 127554,
+          "location": "Clarksville, TN",
+          "trim": "SL Crew Cab 4WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 16379,
+          "miles": 83692,
+          "location": "Shiloh, IL",
+          "trim": "SV Crew Cab 2WD Automatic",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/frontier/year-2022/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 27194,
+      "listings": [
+        {
+          "price": 19797,
+          "miles": 89461,
+          "location": "Colorado Springs, CO",
+          "trim": "SV Crew Cab 2WD",
+          "body": "Pickup Truck",
+          "note": "Sponsored"
+        },
+        {
+          "price": 29117,
+          "miles": 29178,
+          "location": "Thousand Oaks, CA",
+          "trim": "SV Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": "Sponsored"
+        },
+        {
+          "price": 26819,
+          "miles": 54418,
+          "location": "East Providence, RI",
+          "trim": "SV Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 33125,
+          "miles": 18328,
+          "location": "Enterprise, AL",
+          "trim": "SV Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": "CPO"
+        },
+        {
+          "price": 27083,
+          "miles": 63618,
+          "location": "Glendale Heights, IL",
+          "trim": "SV Crew Cab Short Bed 4WD",
+          "body": "Pickup Truck",
+          "note": "CPO"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/frontier/year-2024/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 27194,
+      "listings": [
+        {
+          "price": 26115,
+          "miles": 64611,
+          "location": "Carrollton, GA",
+          "trim": "SV Crew Cab Long Bed 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 28200,
+          "miles": 12980,
+          "location": "McDonald, TN",
+          "trim": "SV Crew Cab 2WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 30192,
+          "miles": 38838,
+          "location": "Merrillville, IN",
+          "trim": "SV Crew Cab 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        },
+        {
+          "price": 30989,
+          "miles": 27178,
+          "location": "Middletown, CT",
+          "trim": "SV Crew Cab 4WD",
+          "body": "Pickup Truck",
+          "note": "CPO"
+        },
+        {
+          "price": 32183,
+          "miles": 25191,
+          "location": "Albuquerque, NM",
+          "trim": "SV Crew Cab 4WD",
+          "body": "Pickup Truck",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2019: the ?trim=sv page showed only 4 cards (all CarMax, labelled just '2019 Nissan Frontier' with no trim), so the unfiltered 2019 page was fetched instead per the brief; it returned a mix of SV and SL Crew Cabs, trim recorded per row, trim_filter left blank. Its stated SV average ($27,080) is recorded as page_average.",
+    "TrueCar's 'average price for the <year> Frontier SV is $27,194' (with PRO-4X $34,406 and S $23,067) is identical on the 2016, 2022 and 2024 pages, so it is model-wide boilerplate; recorded as printed, do not rely on it.",
+    "First 5 cards with mileage recorded per page; no pagination. TrueCar labels drive 2WD/4WD where Nissan's releases say 4x2/4x4."
+  ]
+}

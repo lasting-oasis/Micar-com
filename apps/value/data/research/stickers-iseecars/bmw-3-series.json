@@ -1,0 +1,1455 @@
+{
+"make": "BMW",
+"model": "3 Series",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (3_series).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "328i 4dr Sedan",
+"msrp": 32850,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 32850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan SULEV",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Wagon",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe",
+"msrp": 35750,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe SULEV",
+"msrp": 35750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Wagon",
+"msrp": 37400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe SULEV",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Coupe",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 4dr Sedan",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "335d 4dr Sedan",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 2dr Coupe",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible SULEV",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Convertible",
+"msrp": 50700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "328i 4dr Sedan",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan SULEV",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Wagon",
+"msrp": 37150,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe SULEV",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Wagon",
+"msrp": 39150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe",
+"msrp": 39550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe SULEV",
+"msrp": 39550,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 42050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 4dr Sedan",
+"msrp": 44050,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Coupe",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "335d 4dr Sedan",
+"msrp": 44150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 2dr Coupe",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible",
+"msrp": 46450,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible SULEV",
+"msrp": 46450,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Coupe",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Convertible",
+"msrp": 52650,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Convertible",
+"msrp": 59650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "328i 4dr Sedan",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Wagon",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe SULEV",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Wagon",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe SULEV",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Coupe",
+"msrp": 45100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 2dr Coupe",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible SULEV",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Coupe",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Convertible",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Convertible",
+"msrp": 60800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "320i 4dr Sedan",
+"msrp": 32550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 320i xDrive 4dr Sedan",
+"msrp": 34550,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 36850,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan",
+"msrp": 36850,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe SULEV",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Coupe",
+"msrp": 38700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan",
+"msrp": 38850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan SULEV",
+"msrp": 38850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 2dr Coupe SULEV",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 43150,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Coupe",
+"msrp": 45100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 4dr Sedan",
+"msrp": 45150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 2dr Coupe",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 2dr Convertible SULEV",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "ActiveHybrid 3 4dr Sedan",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Coupe",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 2dr Convertible",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "335is 2dr Convertible",
+"msrp": 60800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "320i 4dr Sedan",
+"msrp": 32750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 320i xDrive 4dr Sedan",
+"msrp": 34750,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "328i 4dr Sedan SULEV",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "328d 4dr Sedan",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Sedan SULEV",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328d xDrive 4dr Sedan",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive 4dr Wagon",
+"msrp": 41450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 41450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 328d xDrive 4dr Wagon",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "335i 4dr Sedan",
+"msrp": 43400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive 4dr Sedan",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 335i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 46850,
+"config": "",
+"note": ""
+},
+{
+"trim": "ActiveHybrid 3 4dr Sedan",
+"msrp": 49700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 32950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 32950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV South Africa",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 39000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV South Africa",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon SULEV",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon",
+"msrp": 47250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 50150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 35150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 35150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV South Africa",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 39850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV",
+"msrp": 40350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan SULEV South Africa",
+"msrp": 40350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon SULEV",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 44150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wagon",
+"msrp": 49200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 33450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 33450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 38750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 38750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 44450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 47900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 47900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 50550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 41750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 44650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 45050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Wagon",
+"msrp": 46150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 48950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 48950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Turismo",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 50950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan South Africa",
+"msrp": 50950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "330i 4dr Sedan",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Sedan",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Wagon",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 340i xDrive Gran Turismo 4dr Hatchback",
+"msrp": 51250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 40750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 42750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 42750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 56000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 43250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 43250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid North America",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 46550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid North America",
+"msrp": 46550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan North America",
+"msrp": 56700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "330i 4dr Sedan",
+"msrp": 41450,
+"config": "",
+"note": ""
+},
+{
+"trim": "330e 4dr Sedan",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Sedan",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330e xDrive 4dr Sedan",
+"msrp": 44950,
+"config": "",
+"note": ""
+},
+{
+"trim": "M340i 4dr Sedan",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M340i xDrive 4dr Sedan",
+"msrp": 56700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "330i 4dr Sedan",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "330e 4dr Sedan",
+"msrp": 44900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Sedan",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330e xDrive 4dr Sedan",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M340i 4dr Sedan",
+"msrp": 56400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M340i xDrive 4dr Sedan",
+"msrp": 58400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-02-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "330i 4dr Sedan",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "330e 4dr Sedan",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Sedan",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330e xDrive 4dr Sedan",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "M340i 4dr Sedan",
+"msrp": 57600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M340i xDrive 4dr Sedan",
+"msrp": 59600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "330i 4dr Sedan",
+"msrp": 45950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 330i xDrive 4dr Sedan",
+"msrp": 47950,
+"config": "",
+"note": ""
+},
+{
+"trim": "M340i 4dr Sedan",
+"msrp": 60200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M340i xDrive 4dr Sedan",
+"msrp": 62200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-3_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

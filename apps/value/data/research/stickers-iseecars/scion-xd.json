@@ -1,0 +1,150 @@
+{
+"make": "Scion",
+"model": "xD",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (xd).",
+"years": [
+{
+"year": 2010,
+"destination": 670,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 14900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 4A",
+"msrp": 15700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-scion-xd-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 720,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 15045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 4A",
+"msrp": 15845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 3.0 4dr Hatchback 5M",
+"msrp": 16905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 3.0 4dr Hatchback 4A",
+"msrp": 17705,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-scion-xd-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 730,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 15345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 4A",
+"msrp": 16145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 4.0 4dr Hatchback 5M",
+"msrp": 16250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 4.0 4dr Hatchback 4A",
+"msrp": 17050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-scion-xd-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 755,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 15745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 4A",
+"msrp": 16545,
+"config": "",
+"note": ""
+},
+{
+"trim": "10 Series 4dr Hatchback 5M",
+"msrp": 18155,
+"config": "",
+"note": ""
+},
+{
+"trim": "10 Series 4dr Hatchback 4A",
+"msrp": 18955,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-scion-xd-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 755,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 15920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 4A",
+"msrp": 16720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-scion-xd-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

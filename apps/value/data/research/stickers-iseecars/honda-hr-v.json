@@ -1,0 +1,243 @@
+{
+"make": "Honda",
+"model": "HR-V",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (hr__v).",
+"years": [
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LX Manual",
+"msrp": 19115,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LX CVT",
+"msrp": 19915,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX Manual",
+"msrp": 21165,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LX CVT",
+"msrp": 21165,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX CVT",
+"msrp": 21965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX CVT",
+"msrp": 23215,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD EX-L CVT with Navigation",
+"msrp": 24590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L CVT with Navigation",
+"msrp": 25840,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-honda-hr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD Manual",
+"msrp": 19465,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2WD CVT",
+"msrp": 20265,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD Manual",
+"msrp": 21515,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD CVT",
+"msrp": 21565,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD CVT",
+"msrp": 22315,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD CVT",
+"msrp": 23615,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Navi 2WD CVT",
+"msrp": 24940,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Navi AWD CVT",
+"msrp": 26240,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-honda-hr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD Manual",
+"msrp": 19670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 2WD CVT",
+"msrp": 20470,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD Manual",
+"msrp": 21720,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD CVT",
+"msrp": 21870,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD CVT",
+"msrp": 22520,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD CVT",
+"msrp": 23920,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Navi 2WD CVT",
+"msrp": 25140,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L Navi AWD CVT",
+"msrp": 26540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-honda-hr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LX 2WD CVT",
+"msrp": 20920,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX AWD CVT",
+"msrp": 22420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2WD CVT",
+"msrp": 22620,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 2WD CVT",
+"msrp": 24070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD CVT",
+"msrp": 24120,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX AWD CVT",
+"msrp": 25570,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 2WD CVT",
+"msrp": 25670,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L AWD CVT",
+"msrp": 27170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD CVT",
+"msrp": 28990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-hr__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

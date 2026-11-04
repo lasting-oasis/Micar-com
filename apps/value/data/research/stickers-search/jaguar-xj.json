@@ -1,0 +1,24 @@
+{
+"make": "Jaguar",
+"model": "XJ",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 74200,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2015+Jaguar+XJ+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, jdpower.com)."
+}
+],
+"gaps": []
+}

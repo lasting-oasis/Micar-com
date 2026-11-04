@@ -1,0 +1,387 @@
+{
+"make": "Honda",
+"model": "Ridgeline",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (ridgeline).",
+"years": [
+{
+"year": 2010,
+"destination": 710,
+"trims": [
+{
+"trim": "4x4 RT 4dr Crew Cab",
+"msrp": 28450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTS 4dr Crew Cab",
+"msrp": 31555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab",
+"msrp": 34430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab w/Navi",
+"msrp": 36780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "4x4 RT 4dr Crew Cab",
+"msrp": 29150,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTS 4dr Crew Cab",
+"msrp": 31855,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab",
+"msrp": 34730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab w/Navi",
+"msrp": 37080,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 830,
+"trims": [
+{
+"trim": "4x4 RT 4dr Crew Cab",
+"msrp": 29350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crew Cab",
+"msrp": 30095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTS 4dr Crew Cab",
+"msrp": 32055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab",
+"msrp": 34930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab w/Navi",
+"msrp": 37280,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 830,
+"trims": [
+{
+"trim": "4x4 RT 4dr Crew Cab",
+"msrp": 29450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crew Cab",
+"msrp": 30195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTS 4dr Crew Cab",
+"msrp": 32155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab",
+"msrp": 35030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab w/Navi",
+"msrp": 37380,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 830,
+"trims": [
+{
+"trim": "4x4 RT 4dr Crew Cab",
+"msrp": 29575,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crew Cab",
+"msrp": 30720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTS 4dr Crew Cab",
+"msrp": 32380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab",
+"msrp": 35155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RTL 4dr Crew Cab w/Navi",
+"msrp": 37505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE 4dr Crew Cab",
+"msrp": 37505,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "RT 4x2 Crew Cab 5.3' Bed",
+"msrp": 29475,
+"config": "",
+"note": ""
+},
+{
+"trim": "RT 4x4 Crew Cab 5.3' Bed",
+"msrp": 31375,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTS 4x2 Crew Cab 5.3' Bed",
+"msrp": 31515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x2 Crew Cab 5.3' Bed",
+"msrp": 33015,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTS 4x4 Crew Cab 5.3' Bed",
+"msrp": 33415,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL 4x2 Crew Cab 5.3' Bed",
+"msrp": 33780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4 Crew Cab 5.3' Bed",
+"msrp": 34915,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL 4x4 Crew Cab 5.3' Bed",
+"msrp": 35680,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL-T 4x2 Crew Cab 5.3' Bed",
+"msrp": 35930,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL-T 4x4 Crew Cab 5.3' Bed",
+"msrp": 37830,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL-E 4x4 Crew Cab 5.3' Bed",
+"msrp": 41470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Edition 4x4 Crew Cab 5.3' Bed",
+"msrp": 42970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "RT 2WD",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 2WD",
+"msrp": 33390,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL 2WD",
+"msrp": 34870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 35290,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL AWD",
+"msrp": 36770,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL-T 2WD",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL-T AWD",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL-E AWD",
+"msrp": 41920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Edition AWD",
+"msrp": 43420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sport 2WD",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 36140,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL 2WD",
+"msrp": 36670,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL AWD",
+"msrp": 38820,
+"config": "",
+"note": ""
+},
+{
+"trim": "RTL-E AWD",
+"msrp": 42020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Edition AWD",
+"msrp": 43520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-ridgeline-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

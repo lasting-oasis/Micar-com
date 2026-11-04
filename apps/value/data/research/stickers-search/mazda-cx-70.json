@@ -1,0 +1,39 @@
+{
+"make": "Mazda",
+"model": "CX-70",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2025,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 40445,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2025+Mazda+CX-70+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (autonationmazdacarlsbad.com, edmunds.com, jclewismazda.com)."
+},
+{
+"year": 2026,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 42250,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2026+Mazda+CX-70+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (bouchermazda.com, edmunds.com, jclewismazda.com)."
+}
+],
+"gaps": []
+}

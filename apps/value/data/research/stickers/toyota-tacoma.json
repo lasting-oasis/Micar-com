@@ -1,0 +1,672 @@
+{
+  "make": "Toyota",
+  "model": "Tacoma",
+  "body": "Pickup Truck",
+  "note": "Mid-size pickup; all model years are pickups (Access Cab / Double Cab through 2023, XtraCab / Double Cab from 2024). MSRP = price excluding destination; where a source quoted prices including destination the stated fee was subtracted and the note says so. config records cab, drivetrain, bed and powertrain the price applies to. Rows per year: each grade's cheapest listed configuration plus the SR5 (and, where room allowed, SR / TRD Off-Road) Double Cab 4x4; other Double Cab 4x4 prices are in notes.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 900,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 23300,
+          "config": "Access Cab 4x2 long bed 2.7L I4 AT",
+          "note": "model 7162. cars.com later shows $23,660 (+$360 in-year)"
+        },
+        {
+          "trim": "SR",
+          "msrp": 28915,
+          "config": "Double Cab 4x4 short bed 3.5L V6 AT",
+          "note": "model 7594. cars.com later $29,275"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 25385,
+          "config": "Access Cab 4x2 long bed 2.7L I4 AT",
+          "note": "model 7122. cars.com later $25,745"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 31060,
+          "config": "Double Cab 4x4 short bed 3.5L V6 AT",
+          "note": "model 7540; long-bed version (7570) $31,560. cars.com later $31,420"
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 29665,
+          "config": "Access Cab 4x2 long bed 3.5L V6 AT",
+          "note": "model 7128. Double Cab 4x4 V6: 6MT (7543) $32,100, AT (7542) $33,730. cars.com later $30,025"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 30765,
+          "config": "Double Cab 4x2 short bed 3.5L V6 AT",
+          "note": "model 7150; Double Cab 4x4 6MT (7545) $32,100. cars.com later $31,125"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 33730,
+          "config": "Double Cab 4x4 short bed 3.5L V6 AT",
+          "note": "model 7544; long-bed AT (7568) $34,340"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 34745,
+          "config": "Double Cab 4x2 short bed 3.5L V6 AT",
+          "note": "model 7182; Double Cab 4x4 V6 AT (7582) $37,820. cars.com later $35,105 / $38,180"
+        }
+      ],
+      "source": "https://www.tfltruck.com/wp-content/uploads/2015/08/2016-toyota-Tacoma-pricing-release.pdf",
+      "source_type": "secondary",
+      "note": "Figures are Toyota's Aug 17, 2015 launch-pricing release (29 model codes, $900 DPH), but read from a copy of the PDF hosted on tfltruck.com because pressroom.toyota.com copies failed, so recorded as secondary. Toyota's launch pricing release 'The All-New 2016 Toyota Tacoma Mid-Size Pickup is Ready to Rock on ... and Off-Road' (embargoed Aug 17, 2015), read as the release PDF hosted by tfltruck.com because the pressroom.toyota.com copy returned client errors on both attempts (and the PDF export ?generate_pdf=22006 served the 2026 GR Corolla release). The PDF carries Toyota's 29-model-code table; 'MSRP does not include the delivery, processing, and handling (DPH) fee of $900' (Southeast/Gulf States may vary). Treat as manufacturer figures via a third-party host; downgrade to secondary if the host matters. Release marks long bed 'LB'; unmarked Double Cabs taken as short bed. cars.com's later figures are a uniform +$360 on every configuration, i.e. an in-year price increase. No TRD Pro for 2016.",
+      "sources_extra": [
+        "https://www.cars.com/research/toyota-tacoma-2016/trims/"
+      ]
+    },
+    {
+      "year": 2017,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 24575,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": "'SR Access Cab 6' Bed I4 4x2 AT (SE)', tied with GS/Natl versions"
+        },
+        {
+          "trim": "SR",
+          "msrp": 30190,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 26660,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 33220,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 30940,
+          "config": "Access Cab 4x2 6-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 6-speed manual $33,530"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 32195,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 6-speed manual $33,530 (cheapest 4x4 listed)"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 36175,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 AT $39,250"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 41215,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "new grade for 2017; 4x4 only; manual is the cheapest listed"
+        }
+      ],
+      "source": "https://www.cars.com/research/toyota-tacoma-2017/trims/",
+      "source_type": "secondary",
+      "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. cars.com spells the grade 'TRD Off Road'; the manufacturer's 'TRD Off-Road' is used here. cars.com page text was truncated at 100,000 characters but all six grades were read."
+    },
+    {
+      "year": 2018,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 25400,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": ""
+        },
+        {
+          "trim": "SR",
+          "msrp": 31665,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 27175,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 34540,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 33350,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 34685,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "cheapest 4x4 Double Cab listed is the 6-speed manual"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 37340,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 AT $40,415"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 41720,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.cars.com/research/toyota-tacoma-2018/trims/",
+      "source_type": "secondary",
+      "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. cars.com spells the grade 'TRD Off Road'; the manufacturer's 'TRD Off-Road' is used here. TRD Sport is missing: the cars.com page text was truncated at 100,000 characters before that grade. Toyota's 2018 Tacoma release (pressroom.toyota.com/2018-tacoma-ready-adventure-toyota-safety-sense-p-across-lineup/) returned a client error."
+    },
+    {
+      "year": 2019,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 25850,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": "cheapest 4x4 Double Cab listed: 'SR Double Cab 5' Bed V6 MT (Natl) *Ltd Avail*' $31,665"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 27625,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 34990,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 32545,
+          "config": "Access Cab 4x2 6-ft bed V6 AT",
+          "note": "cars.com extraction gave 'TRD Sport Double Cab 5' Bed V6 AT (SE)' 4WD at $33,800, but flagged its drivetrain reading as unverified (same figure as the 4x2 TRD Off-Road Double Cab), so no 4x4 row is recorded"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 33800,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 35135,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "cheapest 4x4 Double Cab listed is the 6-speed manual"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 37790,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 AT $40,865"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 42960,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.cars.com/research/toyota-tacoma-2019/trims/",
+      "source_type": "secondary",
+      "sources_extra": [
+        "https://pressroom.toyota.com/2019-toyota-tacoma-adds-style-capability-with-new-sx-package-and-trd-pro/"
+      ],
+      "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. cars.com spells the grade 'TRD Off Road'; the manufacturer's 'TRD Off-Road' is used here. Toyota's 2019 Tacoma release (SX Package / TRD Pro) was fetched but contains no prices; it confirms the Access Cab bed is 73.7 in and Double Cab beds are 60.5 in or 73.7 in, all cabs in 4x2 or 4x4."
+    },
+    {
+      "year": 2020,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 26050,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": "Double Cab 4x4 5-ft V6 AT $32,315"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 27825,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 35190,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 32745,
+          "config": "Access Cab 4x2 6-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 6-speed manual $35,335"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 34000,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 35335,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "cheapest 4x4 Double Cab listed is the 6-speed manual"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 38790,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 AT $41,865"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 43960,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.cars.com/research/toyota-tacoma-2020/trims/",
+      "source_type": "secondary",
+      "sources_extra": [
+        "https://pressroom.toyota.com/?generate_pdf=10195"
+      ],
+      "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. cars.com spells the grade 'TRD Off Road'; the manufacturer's 'TRD Off-Road' is used here. The cars.com extraction warned that 4x2/4x4 assignments were inferred from column alignment. Toyota's Feb 7, 2019 Chicago-show release (read via PDF export 10195) has no prices; the Aug 2019 pricing release 'Leader of the Pack' returned a client error."
+    },
+    {
+      "year": 2021,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 26400,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": "Double Cab 4x4 5-ft V6 AT $32,665"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 28190,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 35555,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 33310,
+          "config": "Access Cab 4x2 6-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 6-speed manual $35,700"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 34565,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 35700,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "cheapest 4x4 Double Cab listed is the 6-speed manual"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 39155,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 AT $42,230"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 44325,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.cars.com/research/toyota-tacoma-2021/trims/",
+      "source_type": "secondary",
+      "sources_extra": [
+        "https://pressroom.toyota.com/tacoma-rolls-out-pricing-and-special-editions-for-2021-model-year/"
+      ],
+      "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. cars.com spells the grade 'TRD Off Road'; the manufacturer's 'TRD Off-Road' is used here. Toyota's Aug 20, 2020 release 'Tacoma Rolls out Pricing and Special Editions for 2021 Model Year' was fetched, but its pricing table is an image (Tacoma-Pricing.png) with no readable figures and no DPH stated. Trail Special Edition (SR5-based) and Nightshade Edition (Limited-based) not listed on cars.com; not captured."
+    },
+    {
+      "year": 2022,
+      "destination": 1335,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 27150,
+          "config": "Access Cab 4x2 6.1-ft bed I4 AT",
+          "note": "iSeeCars style '4x2 SR 4dr Access Cab 6.1 ft LB'; matches cars.com"
+        },
+        {
+          "trim": "SR",
+          "msrp": 33415,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": "'4x4 SR V6 4dr Double Cab 5.0 ft SB'; matches cars.com"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 28940,
+          "config": "Access Cab 4x2 6.1-ft bed I4 AT",
+          "note": "matches cars.com"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 36305,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": "matches cars.com; 6.1-ft long bed $36,805"
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 34060,
+          "config": "Access Cab 4x2 6.1-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft: 6MT $36,450, 6AT $38,280"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 35340,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft: 6MT $36,475 (matches cars.com), 6AT $38,305"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 39905,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft $42,980; 4x4 6.1-ft $43,480"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 46585,
+          "config": "Double Cab 4x4 5-ft bed V6 6MT",
+          "note": "6-speed automatic $49,290"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-toyota-tacoma-price",
+      "source_type": "secondary",
+      "note": "iSeeCars '2022 Toyota Tacoma Price' page: column labeled 'MSRP' with a separate 'Destination Charge' column of 1335 on every row; the page does not say whether MSRP includes it, but its figures equal cars.com's 'Starting MSRP' (which excludes destination) for every configuration both sources list, so they are taken as ex-destination. The cars.com page was truncated before TRD Sport / TRD Pro. Trail Edition and Nightshade not listed on either page; not captured. Destination $1,335 is iSeeCars' stated figure, not confirmed by Toyota.",
+      "sources_extra": [
+        "https://www.cars.com/research/toyota-tacoma-2022/trims/"
+      ]
+    },
+    {
+      "year": 2023,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 28600,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": "Double Cab 4x4 5-ft V6 AT $34,865"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 30390,
+          "config": "Access Cab 4x2 6-ft bed I4 AT",
+          "note": ""
+        },
+        {
+          "trim": "SR5",
+          "msrp": 38055,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": ""
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 35510,
+          "config": "Access Cab 6-ft bed V6 AT",
+          "note": "drivetrain of this cheapest row flagged as uncertain by the extraction (Access Cab V6 is normally 4x2); Double Cab 4x4 5-ft V6 6-speed manual $37,900"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 36790,
+          "config": "Double Cab 5-ft bed V6 AT",
+          "note": "drivetrain flagged as uncertain by the extraction; Double Cab 4x4 5-ft V6 6-speed manual $37,925"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 41355,
+          "config": "Double Cab 4x2 5-ft bed V6 AT",
+          "note": "Double Cab 4x4 5-ft V6 AT $44,430"
+        },
+        {
+          "trim": "Trail Edition",
+          "msrp": 41820,
+          "config": "Double Cab 4x4 5-ft bed V6 AT",
+          "note": "special edition; only configuration listed"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 48035,
+          "config": "Double Cab 4x4 5-ft bed V6 MT",
+          "note": "4x4 only"
+        }
+      ],
+      "source": "https://www.cars.com/research/toyota-tacoma-2023/trims/",
+      "source_type": "secondary",
+      "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. cars.com spells the grade 'TRD Off Road'; the manufacturer's 'TRD Off-Road' is used here. Last year of the 3rd generation."
+    },
+    {
+      "year": 2024,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 31500,
+          "config": "XtraCab 4x2 6-ft bed 2.4L turbo (228 hp) 8AT",
+          "note": "Motor1 (Nov 28, 2023): $32,995 incl. $1,495 destination = $31,500. Double Cab 4x4 5-ft $36,900 (cars.com)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 36200,
+          "config": "XtraCab 4x2 6-ft bed 2.4L turbo (278 hp) 8AT",
+          "note": "Motor1 $37,695 incl. destination = $36,200. TRD PreRunner XtraCab 4x2 6-ft $38,100 ($39,595 incl.)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 40400,
+          "config": "Double Cab 4x4 5-ft bed 2.4L turbo 8AT",
+          "note": "cars.com"
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 39400,
+          "config": "Double Cab 4x2 5-ft bed 2.4L turbo 8AT",
+          "note": "Motor1 $40,895 incl. = $39,400. Double Cab 4x4 5-ft 6MT $41,800 (cars.com). i-FORCE MAX hybrid 4x4: $46,300 (Toyota release Apr 23, 2024, PDF export 93076, 'excluding delivery processing and handling'; Motor1 $47,795 incl.)"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 41800,
+          "config": "Double Cab 4x4 5-ft bed 2.4L turbo (270 hp) 6MT",
+          "note": "Motor1 $43,295 incl. = $41,800 (4x4 standard). i-FORCE MAX hybrid $46,590 ($48,085 incl.)"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 52100,
+          "config": "Double Cab 4x4 5-ft bed 2.4L turbo 8AT",
+          "note": "Motor1 $53,595 incl. = $52,100. i-FORCE MAX hybrid $55,800 ($57,295 incl.)"
+        },
+        {
+          "trim": "Trailhunter",
+          "msrp": 62900,
+          "config": "Double Cab 4x4 i-FORCE MAX hybrid 8AT",
+          "note": "Motor1 (Apr 23, 2024) $64,395 incl. $1,495 destination = $62,900; bed not stated"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 63900,
+          "config": "Double Cab 4x4 i-FORCE MAX hybrid 8AT",
+          "note": "Motor1 (Apr 23, 2024) $65,395 incl. $1,495 destination = $63,900"
+        }
+      ],
+      "source": "https://www.cars.com/research/toyota-tacoma-2024/trims/",
+      "source_type": "secondary",
+      "note": "cars.com research 'trims' page; figure labeled 'Starting MSRP'; page states nothing about destination. cars.com shows the latest MSRP for the model year, which can reflect mid-year price adjustments rather than launch pricing. cars.com spells the grade 'TRD Off Road'; the manufacturer's 'TRD Off-Road' is used here. All-new 4th generation (XtraCab replaces Access Cab). cars.com's gas-grade figures equal Motor1's launch prices (Nov 28, 2023) minus the $1,495 destination Motor1 states, so no in-year change is evident. Hybrid, Trailhunter and TRD Pro rows come from Motor1's Apr 23, 2024 story ('all the prices include the $1,495 destination fee'), subtracted here; Toyota's own Apr 23, 2024 release (PDF export 93076) confirms the TRD Sport i-FORCE MAX at $46,300. Toyota's Nov 2023 pricing release returned a client error.",
+      "sources_extra": [
+        "https://www.motor1.com/news/698186/2024-toyota-tacoma-price/",
+        "https://www.motor1.com/news/717026/2024-toyota-tacoma-trd-pro-price/",
+        "https://pressroom.toyota.com/?generate_pdf=93076"
+      ]
+    },
+    {
+      "year": 2025,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 31590,
+          "config": "XtraCab 4x2 6-ft bed 2.4L turbo (228 hp) 8AT",
+          "note": "KBB $33,085 incl. $1,495 = $31,590; equals Toyota's Dec 17, 2024 release 'starts at $31,590, excluding DPH' and cars.com. Double Cab 4x4 5-ft $36,990 ($38,485 incl.)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 36220,
+          "config": "XtraCab 4x2 6-ft bed 2.4L turbo (278 hp) 8AT",
+          "note": "KBB $37,715 incl. = $36,220 (= cars.com). TRD PreRunner XtraCab 4x2 $38,120 at launch ($39,615 incl.); cars.com later $38,520"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 40490,
+          "config": "Double Cab 4x4 5-ft bed 2.4L turbo 8AT",
+          "note": "KBB $41,985 incl. = $40,490 (= cars.com)"
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 39400,
+          "config": "Double Cab 4x2 5-ft bed 2.4L turbo 8AT",
+          "note": "KBB $40,895 incl. = $39,400; cars.com later $39,800 (+$400). Double Cab 4x4 5-ft: 6MT $41,800, 8AT $42,600. i-FORCE MAX 4x4 $46,320 ($47,815 incl.)"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 41800,
+          "config": "Double Cab 4x4 5-ft bed 2.4L turbo (270 hp) 6MT",
+          "note": "KBB $43,295 incl. = $41,800; 8AT $42,900; cars.com later $42,200 (+$400). i-FORCE MAX $46,620 ($48,115 incl.)"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 52555,
+          "config": "Double Cab 4x4 5-ft bed 2.4L turbo 8AT",
+          "note": "KBB $54,050 incl. = $52,555; cars.com later $52,955 (+$400). i-FORCE MAX $55,880 ($57,375 incl.)"
+        },
+        {
+          "trim": "Trailhunter",
+          "msrp": 62735,
+          "config": "Double Cab 4x4 i-FORCE MAX hybrid 8AT",
+          "note": "KBB $64,230 incl. = $62,735; 6-ft bed $63,235 ($64,730 incl.)"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 63735,
+          "config": "Double Cab 4x4 i-FORCE MAX hybrid 8AT",
+          "note": "KBB $65,230 incl. = $63,735"
+        }
+      ],
+      "source": "https://www.kbb.com/car-news/2025-toyota-tacoma-starts-at-33085",
+      "source_type": "secondary",
+      "sources_extra": [
+        "https://www.cars.com/research/toyota-tacoma-2025/trims/",
+        "https://pressroom.toyota.com/?generate_pdf=97924"
+      ],
+      "note": "Kelley Blue Book, Sean Tucker, Dec 17, 2024: full launch price table, 'all prices include a mandatory $1,495 delivery fee'; $1,495 subtracted for every figure here. Toyota's same-day release (PDF export 97924) states only the $31,590 starting MSRP excluding DPH, which matches. cars.com's later figures are $400 higher on TRD PreRunner, TRD Sport, TRD Off-Road and Limited (SR/SR5 unchanged), i.e. an in-year increase on upper grades; cars.com lists no Trailhunter/TRD Pro/hybrid."
+    },
+    {
+      "year": 2026,
+      "destination": 1595,
+      "trims": [
+        {
+          "trim": "SR",
+          "msrp": 32145,
+          "config": "XtraCab 4x2 long bed 2.4L turbo 8AT",
+          "note": "Carscoops: 'begins at $32,145 before a $1,595 destination fee' (+$555 vs 2025, tow hitch now standard). Double Cab 4x4 short bed $37,005. cars.com later $32,545 / $37,405 (+$400)"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 36235,
+          "config": "XtraCab 4x2 long bed 2.4L turbo 8AT",
+          "note": "+$15 vs 2025. TRD PreRunner XtraCab 4x2 $38,735. cars.com later $36,635 / $39,135"
+        },
+        {
+          "trim": "SR5",
+          "msrp": 40505,
+          "config": "Double Cab 4x4 short bed 2.4L turbo 8AT",
+          "note": "long bed 4x4 $41,005. cars.com later $40,905"
+        },
+        {
+          "trim": "TRD Sport",
+          "msrp": 40015,
+          "config": "Double Cab 4x2 short bed 2.4L turbo 8AT",
+          "note": "Double Cab 4x4 short bed: 6MT $42,415, 8AT $43,215. i-FORCE MAX 4x4 $46,935. cars.com later $40,415"
+        },
+        {
+          "trim": "TRD Off-Road",
+          "msrp": 42415,
+          "config": "Double Cab 4x4 short bed 2.4L turbo 6MT",
+          "note": "8AT $43,515; long bed $44,015. i-FORCE MAX $47,235. cars.com later $42,815"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 53170,
+          "config": "Double Cab 4x4 short bed 2.4L turbo 8AT",
+          "note": "i-FORCE MAX $56,495. cars.com later $53,570"
+        },
+        {
+          "trim": "Trailhunter",
+          "msrp": 63350,
+          "config": "Double Cab 4x4 5-ft bed i-FORCE MAX hybrid 8AT",
+          "note": "6-ft bed $63,850; +$215 vs 2025"
+        },
+        {
+          "trim": "TRD Pro",
+          "msrp": 64350,
+          "config": "Double Cab 4x4 i-FORCE MAX hybrid 8AT",
+          "note": "+$215 vs 2025"
+        }
+      ],
+      "source": "https://www.carscoops.com/2025/11/americas-best-selling-mid-size-truck-just-got-more-expensive/",
+      "source_type": "secondary",
+      "note": "Carscoops, Michael Gauthier, Nov 13, 2025: full 2026 price table; the article states explicitly only that the SR figure excludes the $1,595 destination fee, but its SR5 figure equals the 2025 ex-destination SR5 price plus the $15 increase it cites, so the whole table is taken as ex-destination. cars.com's figures (read Oct 2026) are a uniform $400 higher on every grade, i.e. a later in-year increase. Toyota's release 'The 2026 Toyota Tacoma: Adventure Awaits' returned a client error.",
+      "sources_extra": [
+        "https://www.cars.com/research/toyota-tacoma-2026/trims/"
+      ]
+    }
+  ],
+  "gaps": [
+    "Manufacturer-sourced year: 2016 only, and that via Toyota's launch release PDF mirrored on tfltruck.com (pressroom.toyota.com copies failed). 2017-2026 are secondary (cars.com 2017-2021 and 2023; iSeeCars 2022; cars.com+Motor1 2024; KBB 2025; Carscoops 2026). Toyota's own text confirmed only the 2025 start price ($31,590) and the 2024 TRD Sport i-FORCE MAX ($46,300).",
+    "Toyota USA Newsroom: 2016, 2018, 2020 ('Leader of the Pack'), 2024 and 2026 pricing releases and the 2017 TRD Pro pricing release returned client errors; the 2021 release loaded but its pricing table is an image; 2019 (SX/TRD Pro) and 2020 (Chicago show, PDF 10195) releases carry no prices; PDF export 22006 (claimed 2016 Tacoma) served the 2026 GR Corolla release.",
+    "Destination recorded only where a fetched source stated it: 2016 $900 (Toyota), 2022 $1,335 (iSeeCars column), 2024 $1,495 (Motor1), 2025 $1,495 (KBB), 2026 $1,595 (Carscoops). 2017-2021 and 2023 null.",
+    "2018: TRD Sport missing (cars.com page truncated before it). 2021: Trail Special Edition and Nightshade not listed. 2022: Trail Edition / Nightshade not listed. 2023: TRD Sport and TRD Off-Road cheapest-row drivetrains flagged uncertain by the cars.com extraction. 2019/2020: cars.com drivetrain assignments were inferred from column alignment (flagged in notes).",
+    "In-year price changes seen: 2016 +$360 on every configuration (launch release vs cars.com); 2025 +$400 on TRD PreRunner/TRD Sport/TRD Off-Road/Limited (KBB launch vs cars.com); 2026 +$400 on every grade (Carscoops launch vs cars.com). For those years msrp is the launch price and the later figure is in the note. 2024 shows no change (cars.com = Motor1 launch).",
+    "cars.com 'Starting MSRP' is the latest MSRP for the model year, not launch pricing; for 2017-2021 and 2023 no launch source was readable, so those figures may include in-year increases.",
+    "2024-2026 TRD PreRunner (XtraCab 4x2 only) is noted on the SR5 row rather than given its own row to stay within ~8 rows; i-FORCE MAX hybrid prices for TRD Sport / TRD Off-Road / Limited are in notes. 4x4 Double Cab 'cheapest' rows for TRD Sport / TRD Off-Road are usually the 6-speed manual; automatic 4x4 prices are in notes where a source listed them.",
+    "2016 cab/bed: Toyota's table marks long beds 'LB'; unmarked Double Cab rows are assumed short bed (the release gives no other bed marker). Three 2016 model codes (7545, 7560, 7568) omit engine or drivetrain in the PDF text."
+  ]
+}

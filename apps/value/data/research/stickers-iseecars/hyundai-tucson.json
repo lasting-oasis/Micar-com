@@ -1,0 +1,1173 @@
+{
+"make": "Hyundai",
+"model": "Tucson",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (tucson, tucson_hybrid, tucson_plug__in_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 795,
+"trims": [
+{
+"trim": "GLS 4dr SUV 6M",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLS 4dr SUV 6A",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GLS 4dr SUV",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 24345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 25845,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "GL 4dr SUV",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLS 4dr SUV",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GLS 4dr SUV",
+"msrp": 23645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 24845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 26345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "GL 4dr SUV",
+"msrp": 19145,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLS 4dr SUV",
+"msrp": 22295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GLS 4dr SUV",
+"msrp": 23945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 26495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 845,
+"trims": [
+{
+"trim": "GL 4dr SUV",
+"msrp": 19595,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLS 4dr SUV",
+"msrp": 22945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GLS 4dr SUV",
+"msrp": 24445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 27095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 875,
+"trims": [
+{
+"trim": "GLS 4dr SUV",
+"msrp": 21450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GLS 4dr SUV",
+"msrp": 22950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 23500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD The Walking Dead Edition 4dr SUV",
+"msrp": 28900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr GLS",
+"msrp": 21650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr GLS",
+"msrp": 23150,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE PZEV",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 26450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited PZEV",
+"msrp": 27950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr SE",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE w/Beige Int",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE w/Beige Int",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Eco",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Eco w/Beige Int",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Eco",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Eco w/Beige Int",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Sport",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Sport w/Beige Int",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sport",
+"msrp": 27550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sport w/Beige Int",
+"msrp": 27550,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited",
+"msrp": 31300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 950,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Eco 4dr SUV",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Eco 4dr SUV",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value 4dr SUV",
+"msrp": 26550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Plus 4dr SUV",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Night 4dr SUV",
+"msrp": 27800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Value 4dr SUV",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Plus 4dr SUV",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Night 4dr SUV",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 29775,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 31175,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 980,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 22550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 25200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value 4dr SUV",
+"msrp": 26550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 26550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Plus 4dr SUV",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Value 4dr SUV",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Plus 4dr SUV",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 29425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 30825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 23350,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 24750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value FWD",
+"msrp": 24800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD ULEV",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value AWD",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 27150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport FWD",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 29050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 29250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 30450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Night FWD",
+"msrp": 30800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate FWD",
+"msrp": 31700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Night AWD",
+"msrp": 32200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Night AWD ULEV",
+"msrp": 32200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate AWD",
+"msrp": 33100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1140,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 23550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value 4dr SUV",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 25950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Value 4dr SUV",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 29250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 30650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr SUV",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ultimate 4dr SUV",
+"msrp": 33300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1185,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 25100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Value 4dr SUV",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 26100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Value 4dr SUV",
+"msrp": 26550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 28250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 30800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr SUV",
+"msrp": 32050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ultimate 4dr SUV",
+"msrp": 33450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV (midyear release)",
+"msrp": 25800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 27100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV (midyear release)",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Blue 4dr SUV",
+"msrp": 29350,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr SUV",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRT 4dr SUV",
+"msrp": 31550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD SEL Convenience 4dr SUV",
+"msrp": 31950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD N Line 4dr SUV",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr SUV",
+"msrp": 33050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid AWD SEL 4dr SUV",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 35300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid AWD Limited 4dr SUV",
+"msrp": 42700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1335,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 28400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 30000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRT 4dr SUV",
+"msrp": 33725,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr SUV",
+"msrp": 33775,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr SUV",
+"msrp": 35225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD N Line 4dr SUV",
+"msrp": 35275,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 36160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid AWD SEL 4dr SUV",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 37660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid AWD Limited 4dr SUV",
+"msrp": 44760,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-08-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1375,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV (midyear release)",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV (midyear release)",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Fleet 4dr SUV",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV (midyear release)",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 31150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Fleet 4dr SUV",
+"msrp": 31150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV (midyear release)",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRT 4dr SUV",
+"msrp": 34235,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr SUV",
+"msrp": 35825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 36760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 38260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid AWD SEL 4dr SUV",
+"msrp": 38725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid AWD Limited 4dr SUV",
+"msrp": 45450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 28705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 30205,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 30565,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 32065,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Convenience 4dr SUV",
+"msrp": 33015,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRT 4dr SUV",
+"msrp": 33015,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Convenience 4dr SUV",
+"msrp": 34515,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr SUV",
+"msrp": 34515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 38645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 40145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-hyundai-tucson-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

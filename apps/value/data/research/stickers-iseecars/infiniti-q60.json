@@ -1,0 +1,231 @@
+{
+"make": "Infiniti",
+"model": "Q60",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (q60, q60_coupe).",
+"years": [
+{
+"year": 2014,
+"destination": 905,
+"trims": [
+{
+"trim": "Coupe Journey 2dr Coupe",
+"msrp": 40950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe AWD 2dr Coupe",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe Sport 2dr Coupe",
+"msrp": 46050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe IPL 2dr Coupe 6M",
+"msrp": 51750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe IPL 2dr Coupe 7A",
+"msrp": 53650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-infiniti-q60_coupe-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0t RWD",
+"msrp": 38950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t AWD",
+"msrp": 40950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t Premium RWD",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t Premium AWD",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Premium RWD",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t Premium AWD",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport RWD",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Red Sport 400 RWD",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Red Sport 400 AWD",
+"msrp": 53300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-infiniti-q60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0t PURE RWD",
+"msrp": 39950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t PURE AWD",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t LUXE RWD",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0t LUXE AWD",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE RWD",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE AWD",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SPORT RWD",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SPORT AWD",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 RWD",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 AWD",
+"msrp": 54000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-infiniti-q60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "3.0t PURE RWD",
+"msrp": 40850,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t PURE AWD",
+"msrp": 42850,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE RWD",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0t LUXE AWD",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 RWD",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RED SPORT 400 AWD",
+"msrp": 57000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-infiniti-q60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

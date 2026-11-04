@@ -1,0 +1,393 @@
+{
+ "make": "Ford",
+ "model": "Ranger",
+ "body": "Pickup Truck",
+ "note": "MSRP excludes destination. Ranger returned to the US for model year 2019 (no 2016-2018 US model). media.ford.com had no pricing releases (round 1), so all years are secondary: cars.com research trims pages (2019-2021, 2024) and iSeeCars price tables (2022, 2023, 2025, 2026). Rows: each trim in its cheapest regular configuration (SuperCab 4x2 for 2019-2023, SuperCrew 4x2 from 2024) plus a SuperCrew 4x4 row; the remaining configurations are priced in source_note.",
+ "years": [
+  {
+   "year": 2019,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 24300,
+     "config": "SuperCab 4x2 6' box",
+     "note": "Cheapest listed XL is the 2WD SuperCab Pickup Box Delete at $24,000; 6' box row used"
+    },
+    {
+     "trim": "XL",
+     "msrp": 30860,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 28120,
+     "config": "SuperCab 4x2 6' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 34295,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 32390,
+     "config": "SuperCab 4x2 6' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 38565,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-ranger-2019/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' per configuration (excludes destination; latest in-year price). Destination not stated on the page. Other prices: XL SuperCrew 4x2 $26,700, XL SuperCab 4x4 $28,460; XLT SuperCrew 4x2 $30,295, SuperCab 4x4 $32,120; Lariat SuperCrew 4x2 $34,565, SuperCab 4x4 $36,390. Ranger returned to the US for 2019."
+  },
+  {
+   "year": 2020,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 24410,
+     "config": "SuperCab 4x2 6' box",
+     "note": "Cheapest listed XL is the 2WD SuperCab Pickup Box Delete at $24,110; 6' box row used"
+    },
+    {
+     "trim": "XL",
+     "msrp": 30970,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 28460,
+     "config": "SuperCab 4x2 6' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 34635,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 32500,
+     "config": "SuperCab 4x2 6' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 38675,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-ranger-2020/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' per configuration (excludes destination; latest in-year price). Destination not stated on the page. Other prices: XL SuperCrew 4x2 $26,810, SuperCab 4x4 $28,570; XLT SuperCrew 4x2 $30,635, SuperCab 4x4 $32,460; Lariat SuperCrew 4x2 $34,675, SuperCab 4x4 $36,500."
+  },
+  {
+   "year": 2021,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 25070,
+     "config": "SuperCab 4x2 6' box",
+     "note": "Cheapest listed XL is the 2WD SuperCab Pickup Box Delete at $24,820; 6' box row used"
+    },
+    {
+     "trim": "XL",
+     "msrp": 31325,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 29120,
+     "config": "SuperCab 4x2 6' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 34995,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 33160,
+     "config": "SuperCab 4x2 6' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 39035,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-ranger-2021/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' per configuration (excludes destination; latest in-year price). Destination not stated on the page. Box Delete marked 'Ltd Avail'. Other prices: XL SuperCrew 4x2 $27,470, SuperCab 4x4 $28,925; XLT SuperCrew 4x2 $31,295, SuperCab 4x4 $32,820; Lariat SuperCrew 4x2 $35,335, SuperCab 4x4 $36,860."
+  },
+  {
+   "year": 2022,
+   "destination": 1495,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 25980,
+     "config": "SuperCab 4x2 6.1' box",
+     "note": ""
+    },
+    {
+     "trim": "XL",
+     "msrp": 32020,
+     "config": "SuperCrew 4x4 5.1' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 30030,
+     "config": "SuperCab 4x2 6.1' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 35690,
+     "config": "SuperCrew 4x4 5.1' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 34070,
+     "config": "SuperCab 4x2 6.1' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 39730,
+     "config": "SuperCrew 4x4 5.1' box",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-ford-ranger-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table: MSRP and a separate Destination Charge column (same on every style). iSeeCars writes beds as 6.1 ft. (SuperCab) and 5.1 ft. (SuperCrew). Other prices: XL SuperCrew 4x2 $28,165, SuperCab 4x4 $29,835; XLT SuperCrew 4x2 $31,990, SuperCab 4x4 $33,730; Lariat SuperCrew 4x2 $36,030, SuperCab 4x4 $37,770. No box-delete style listed."
+  },
+  {
+   "year": 2023,
+   "destination": 1495,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 27400,
+     "config": "SuperCab 4x2 6.1' box",
+     "note": ""
+    },
+    {
+     "trim": "XL",
+     "msrp": 33230,
+     "config": "SuperCrew 4x4 5.1' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 31460,
+     "config": "SuperCab 4x2 6.1' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 36905,
+     "config": "SuperCrew 4x4 5.1' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 35500,
+     "config": "SuperCab 4x2 6.1' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 40945,
+     "config": "SuperCrew 4x4 5.1' box",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-ford-ranger-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table: MSRP and a separate Destination Charge column (same on every style). Other prices: XL SuperCrew 4x2 $29,585, SuperCab 4x4 $31,045; XLT SuperCrew 4x2 $33,410, SuperCab 4x4 $34,945; Lariat SuperCrew 4x2 $37,460, SuperCab 4x4 $38,985."
+  },
+  {
+   "year": 2024,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 32820,
+     "config": "SuperCrew 4x2 5' box",
+     "note": ""
+    },
+    {
+     "trim": "XL",
+     "msrp": 36465,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 36260,
+     "config": "SuperCrew 4x2 5' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 39745,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 43780,
+     "config": "SuperCrew 4x2 5' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 47265,
+     "config": "SuperCrew 4x4 5' box",
+     "note": ""
+    },
+    {
+     "trim": "Raptor",
+     "msrp": 55720,
+     "config": "SuperCrew 4x4 5' box",
+     "note": "4x4 only"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-ranger-2024/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' per configuration (excludes destination; latest in-year price). Destination not stated on the page. Redesigned 2024 model: SuperCrew only (SuperCab dropped), Raptor added."
+  },
+  {
+   "year": 2025,
+   "destination": 1895,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 33350,
+     "config": "SuperCrew 4x2 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "XL",
+     "msrp": 36850,
+     "config": "SuperCrew 4x4 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 35875,
+     "config": "SuperCrew 4x2 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 39375,
+     "config": "SuperCrew 4x4 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 43755,
+     "config": "SuperCrew 4x2 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 47255,
+     "config": "SuperCrew 4x4 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "Raptor",
+     "msrp": 56070,
+     "config": "SuperCrew 4x4 5.0' box",
+     "note": "4x4 only"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-ford-ranger-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table: MSRP and a separate Destination Charge column (same on every style)."
+  },
+  {
+   "year": 2026,
+   "destination": 1895,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 33550,
+     "config": "SuperCrew 4x2 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "XL",
+     "msrp": 37050,
+     "config": "SuperCrew 4x4 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 36075,
+     "config": "SuperCrew 4x2 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 39575,
+     "config": "SuperCrew 4x4 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 43955,
+     "config": "SuperCrew 4x2 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "Lariat",
+     "msrp": 47455,
+     "config": "SuperCrew 4x4 5.0' box",
+     "note": ""
+    },
+    {
+     "trim": "Raptor",
+     "msrp": 57270,
+     "config": "SuperCrew 4x4 5.0' box",
+     "note": "4x4 only"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/ford-ranger-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table: MSRP and a separate Destination Charge column (same on every style). Page is iSeeCars' current-year price page, titled 2026 Ford Ranger Price."
+  }
+ ],
+ "gaps": [
+  "2016-2018: Ranger not sold in the US; no stickers.",
+  "No manufacturer source for any year; all 8 years are secondary.",
+  "Destination charge stated only for 2022-2023 ($1,495) and 2025-2026 ($1,895), from iSeeCars; null for 2019-2021 and 2024 (cars.com pages do not state it).",
+  "2019-2021: the cheapest listed XL is a 2WD SuperCab Pickup Box Delete (fleet-type style); the 6' box SuperCab row is recorded instead and the box-delete price is in the row note.",
+  "2024 (cars.com, latest in-year) vs 2025 (iSeeCars): XLT 4x2 shows $36,260 for 2024 but $35,875 for 2025, and Lariat 4x2 $43,780 vs $43,755. Different sources and price dates; not resolved."
+ ]
+}

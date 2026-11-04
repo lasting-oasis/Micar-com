@@ -1,0 +1,1101 @@
+{
+"make": "Volvo",
+"model": "XC90",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (xc90, xc90_recharge).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "3.2 4dr SUV",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.2 R- Design 4dr SUV",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 4dr SUV",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 R- Design 4dr SUV",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V8 4dr SUV",
+"msrp": 47500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "3.2 4dr SUV",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.2 R-Design 4dr SUV",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 4dr SUV",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 R-Design 4dr SUV",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V8 4dr SUV",
+"msrp": 48000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 915,
+"trims": [
+{
+"trim": "3.2 4dr SUV",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.2 Premier Plus 4dr SUV",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 4dr SUV",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.2 R-Design 4dr SUV",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 Premier Plus 4dr SUV",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.2 Platinum 4dr SUV",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 R-Design 4dr SUV",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.2 R-Design Platinum 4dr SUV",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 Platinum 4dr SUV",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 R-Design Platinum 4dr SUV",
+"msrp": 47400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD 5-Passenger Momentum",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 5-Passenger Momentum",
+"msrp": 47950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD 5-Passenger R-Design",
+"msrp": 51150,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger Momentum",
+"msrp": 52250,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 5-Passenger R-Design",
+"msrp": 53350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger R-Design",
+"msrp": 56250,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger Inscription",
+"msrp": 57350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger R-Design",
+"msrp": 67800,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger Inscription",
+"msrp": 68900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Excellence",
+"msrp": 104900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD 5-Passenger Momentum",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD 7-Passenger Momentum",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 5-Passenger Momentum",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 7-Passenger Momentum",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD 7-Passenger R-Design",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD 5-Passenger R-Design",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 7-Passenger R-Design",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger Momentum",
+"msrp": 54350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD 5-Passenger R-Design",
+"msrp": 54500,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger R-Design",
+"msrp": 57950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD 7-Passenger Inscription",
+"msrp": 59450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger Momentum",
+"msrp": 64950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger R-Design",
+"msrp": 68550,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid 7-Passenger Inscription",
+"msrp": 70050,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Excellence",
+"msrp": 104900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design",
+"msrp": 54950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design",
+"msrp": 57450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 61250,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 62350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Momentum",
+"msrp": 67000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid R-Design",
+"msrp": 71950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription",
+"msrp": 73050,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Excellence",
+"msrp": 104900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum 7 Passenger",
+"msrp": 48350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum 7 Passenger",
+"msrp": 50850,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design 7 Passenger",
+"msrp": 56100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum 7 Passenger",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum 6 Passenger",
+"msrp": 56800,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design 7 Passenger",
+"msrp": 58600,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design 7 Passenger",
+"msrp": 62000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription 7 Passenger",
+"msrp": 62600,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription 6 Passenger",
+"msrp": 63100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Momentum 7 Passenger",
+"msrp": 67000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Momentum 6 Passenger",
+"msrp": 67500,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid R-Design 7 Passenger",
+"msrp": 72700,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription 7 Passenger",
+"msrp": 73300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription 6 Passenger",
+"msrp": 73800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "T5 FWD Momentum 7P",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum 7P",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design 7P",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum 7P",
+"msrp": 56950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum 6P",
+"msrp": 57450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design 7P",
+"msrp": 58100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design 7P",
+"msrp": 62650,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription 7P",
+"msrp": 63250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription Expression 7-Passenger 4dr SUV",
+"msrp": 63450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Inscription Expression 7P",
+"msrp": 63450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription 6P",
+"msrp": 63750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription Expression 6-Passenger 4dr SUV",
+"msrp": 63950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Inscription Expression 6P",
+"msrp": 63950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 R-Design 4dr SUV",
+"msrp": 69150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV R-Design 7P",
+"msrp": 69150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription 7-Passenger 4dr SUV",
+"msrp": 69750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Inscription 7P",
+"msrp": 69750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription 6-Passenger 4dr SUV",
+"msrp": 70250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Inscription 6P",
+"msrp": 70250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volvo-xc90_recharge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "T5 Momentum 4dr SUV",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Momentum 4dr SUV",
+"msrp": 53400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Momentum 7-Passenger 4dr SUV",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Momentum 6-Passenger 4dr SUV",
+"msrp": 58800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Inscription 7-Passenger 4dr SUV",
+"msrp": 64600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription Expression 7-Passenger 4dr SUV",
+"msrp": 64800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription Expression 7-Passenger 4dr SUV",
+"msrp": 64800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Inscription 6-Passenger 4dr SUV",
+"msrp": 65100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription Expression 6-Passenger 4dr SUV",
+"msrp": 65300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription Expression 6-Passenger 4dr SUV",
+"msrp": 65300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription Expression 7-Passenger Extended Range 4dr SUV",
+"msrp": 65800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription Expression 7-Passenger Extended Range 4dr SUV",
+"msrp": 65800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription Expression 6-Passenger Extended Range 4dr SUV",
+"msrp": 66300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription Expression 6-Passenger Extended Range 4dr SUV",
+"msrp": 66300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD R-Design 4dr SUV",
+"msrp": 70500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 R-Design 4dr SUV",
+"msrp": 70500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription 7-Passenger 4dr SUV",
+"msrp": 71100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription 7-Passenger 4dr SUV",
+"msrp": 71100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD R-Design Extended Range 4dr SUV",
+"msrp": 71500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 R-Design Extended Range 4dr SUV",
+"msrp": 71500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription 6-Passenger 4dr SUV",
+"msrp": 71600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription 6-Passenger 4dr SUV",
+"msrp": 71600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription 7-Passenger Extended Range 4dr SUV",
+"msrp": 72100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription 7-Passenger Extended Range 4dr SUV",
+"msrp": 72100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription 6-Passenger Extended Range 4dr SUV",
+"msrp": 72600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Inscription 6-Passenger Extended Range 4dr SUV",
+"msrp": 72600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD B5 Core 4dr SUV",
+"msrp": 56000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Bright Theme 4dr SUV",
+"msrp": 59900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Core 4dr SUV",
+"msrp": 60900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Plus Bright Theme 7-Passenger 4dr SUV",
+"msrp": 63400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Plus Bright Theme 6-Passenger 4dr SUV",
+"msrp": 63900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultimate Bright Theme 7-Passenger 4dr SUV",
+"msrp": 69200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultimate Bright Theme 6-Passenger 4dr SUV",
+"msrp": 69700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Core Bright Theme 4dr SUV",
+"msrp": 71900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Plus Bright Theme 7-Passenger 4dr SUV",
+"msrp": 73600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Plus Dark Theme 4dr SUV",
+"msrp": 73600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Plus Bright Theme 6-Passenger 4dr SUV",
+"msrp": 74100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Ultimate Bright Theme 7-Passenger 4dr SUV",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Ultimate Dark Theme 4dr SUV",
+"msrp": 79400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge eAWD T8 Ultimate Bright Theme 6-Passenger 4dr SUV",
+"msrp": 79900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-volvo-xc90_recharge-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-04-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD B5 Core Bright Theme 4dr SUV",
+"msrp": 56600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Bright Theme 4dr SUV",
+"msrp": 60500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Core Bright Theme 4dr SUV",
+"msrp": 61500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Plus Bright Theme 7-Passenger 4dr SUV",
+"msrp": 64100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Plus Bright Theme 6-Passenger 4dr SUV",
+"msrp": 64600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultimate Bright Theme 7-Passenger 4dr SUV",
+"msrp": 70100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultimate Bright Theme 6-Passenger 4dr SUV",
+"msrp": 70600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD B5 Core Bright Theme 4dr SUV",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Core Bright Theme 4dr SUV (midyear release)",
+"msrp": 58450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Bright Theme 4dr SUV",
+"msrp": 60700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Core Bright Theme 4dr SUV",
+"msrp": 62300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Bright Theme 7-Passenger 4dr SUV (midyear release)",
+"msrp": 62550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Bright Theme 6-Passenger 4dr SUV (midyear release)",
+"msrp": 63050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Core Bright Theme 4dr SUV (midyear release)",
+"msrp": 63350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Plus Bright Theme 7-Passenger 4dr SUV",
+"msrp": 64300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Plus Bright Theme 6-Passenger 4dr SUV",
+"msrp": 64800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Plus Bright Theme 7-Passenger 4dr SUV (midyear release)",
+"msrp": 66150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultra Bright Theme 4dr SUV",
+"msrp": 66300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Plus Bright Theme 6-Passenger 4dr SUV (midyear release)",
+"msrp": 66650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultra Bright Theme 7-Passenger 4dr SUV (midyear release)",
+"msrp": 66950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultra Bright Theme 6-Passenger 4dr SUV (midyear release)",
+"msrp": 67450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultra Bright Theme 7-Passenger 4dr SUV",
+"msrp": 70100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultra Bright Theme 7-Passenger 4dr SUV (midyear release)",
+"msrp": 70550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultra Bright Theme 6-Passenger 4dr SUV",
+"msrp": 70600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B6 Ultra Bright Theme 6-Passenger 4dr SUV (midyear release)",
+"msrp": 71050,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Core Bright Theme 4dr SUV",
+"msrp": 71900,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Core Bright Theme 4dr SUV (midyear release)",
+"msrp": 73000,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Plus Bright Theme 7-Passenger 4dr SUV",
+"msrp": 73800,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Plus Bright Theme 6-Passenger 4dr SUV",
+"msrp": 74300,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Plus Bright Theme 7-Passenger 4dr SUV (midyear release)",
+"msrp": 75800,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Plus Bright Theme 6-Passenger 4dr SUV (midyear release)",
+"msrp": 76300,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Ultra Bright Theme 7-Passenger 4dr SUV",
+"msrp": 79600,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Ultra Bright Theme 6-Passenger 4dr SUV",
+"msrp": 80100,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Ultra Bright Theme 7-Passenger 4dr SUV (midyear release)",
+"msrp": 80200,
+"config": "",
+"note": ""
+},
+{
+"trim": "eAWD T8 Ultra Bright Theme 6-Passenger 4dr SUV (midyear release)",
+"msrp": 80700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-volvo-xc90-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

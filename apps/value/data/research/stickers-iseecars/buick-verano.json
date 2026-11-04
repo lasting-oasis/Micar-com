@@ -1,0 +1,180 @@
+{
+"make": "Buick",
+"model": "Verano",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (verano).",
+"years": [
+{
+"year": 2012,
+"destination": 885,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 22585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convenience Group 4dr Sedan",
+"msrp": 23785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather Group 4dr Sedan",
+"msrp": 25965,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-buick-verano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 23080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convenience Group 4dr Sedan",
+"msrp": 24375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather Group 4dr Sedan",
+"msrp": 26755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Group 4dr Sedan",
+"msrp": 29105,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-buick-verano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convenience Group 4dr Sedan",
+"msrp": 24870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather Group 4dr Sedan",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Group 4dr Sedan",
+"msrp": 29065,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-buick-verano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan w/1SV",
+"msrp": 21065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/1SD",
+"msrp": 23380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Convenience Group",
+"msrp": 25020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Leather Group",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Premium Turbo Group",
+"msrp": 29215,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-buick-verano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan w/1SV",
+"msrp": 21065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/1SD",
+"msrp": 23480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Sport Touring",
+"msrp": 24065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Leather Group",
+"msrp": 26505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Premium Turbo Group",
+"msrp": 28670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-buick-verano-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

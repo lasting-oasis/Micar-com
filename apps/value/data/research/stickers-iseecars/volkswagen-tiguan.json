@@ -1,0 +1,981 @@
+{
+"make": "Volkswagen",
+"model": "Tiguan",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (tiguan, tiguan_limited).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "S 4dr SUV 6M",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A",
+"msrp": 24300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV 6A",
+"msrp": 26250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV 6A",
+"msrp": 27405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wolfsburg Edition 4dr SUV 6A",
+"msrp": 27750,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV 6A w/Leather",
+"msrp": 28765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV 6A",
+"msrp": 29355,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wolfsburg Edition 4Motion 4dr SUV 6A",
+"msrp": 29700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV 6A w/Leather",
+"msrp": 30715,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV 6A",
+"msrp": 31550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV 6A",
+"msrp": 33500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 820,
+"trims": [
+{
+"trim": "S 4dr SUV 6M",
+"msrp": 23720,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A",
+"msrp": 24820,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 26775,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 28215,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 30170,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/ Sunroof and Navigation",
+"msrp": 30425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/ Sunroof and Navigation",
+"msrp": 32380,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 33135,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV w/ Premium Navigation",
+"msrp": 34290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 35090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV w/ Premium Navigation and Dynaudio",
+"msrp": 37390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "S 4dr SUV 6M",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6M (ends 1/13)",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A",
+"msrp": 25010,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A (ends 1/13)",
+"msrp": 25010,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A w/Sunroof",
+"msrp": 26810,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A w/Sunroof (ends 1/13)",
+"msrp": 26810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 26965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV (ends 1/13)",
+"msrp": 26965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV w/Sunroof",
+"msrp": 28765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV w/Sunroof (ends 1/13)",
+"msrp": 28765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 29470,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV (ends 1/13)",
+"msrp": 29470,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Sunroof and Navigation",
+"msrp": 31410,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Sunroof and Navigation (ends 1/13)",
+"msrp": 31410,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 31425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV (ends 1/13)",
+"msrp": 31425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Sunroof and Navigation",
+"msrp": 33365,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Sunroof and Navigation (ends 1/13)",
+"msrp": 33365,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 35175,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV (ends 1/13)",
+"msrp": 35175,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 37310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV (ends 1/13)",
+"msrp": 37310,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 875,
+"trims": [
+{
+"trim": "S 4dr SUV 6M",
+"msrp": 23305,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV 6A",
+"msrp": 25330,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 27285,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 27340,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Appearance",
+"msrp": 29965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Appearance",
+"msrp": 31920,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line 4dr SUV",
+"msrp": 36880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R-Line 4Motion 4dr SUV",
+"msrp": 38835,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr Auto S",
+"msrp": 24890,
+"config": "",
+"note": ""
+},
+{
+"trim": "4MOTION 4dr Auto S",
+"msrp": 26865,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Auto R-Line",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4MOTION 4dr Auto R-Line",
+"msrp": 30675,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Auto SE",
+"msrp": 31390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4MOTION 4dr Auto SE",
+"msrp": 33365,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Auto SEL",
+"msrp": 34445,
+"config": "",
+"note": ""
+},
+{
+"trim": "4MOTION 4dr Auto SEL",
+"msrp": 36420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Limited 2.0T FWD",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2.0T 4MOTION",
+"msrp": 23970,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T S FWD",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T S 4MOTION",
+"msrp": 26970,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Wolfsburg Edition FWD",
+"msrp": 30095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Wolfsburg Edition 4MOTION",
+"msrp": 32070,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Sport FWD",
+"msrp": 32605,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL FWD",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Sport 4MOTION",
+"msrp": 34580,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL 4MOTION",
+"msrp": 36475,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0T S FWD",
+"msrp": 24595,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T S 4MOTION",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE FWD",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE 4MOTION",
+"msrp": 28050,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL FWD",
+"msrp": 31090,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL 4MOTION",
+"msrp": 32390,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL Premium FWD",
+"msrp": 36250,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL Premium 4MOTION",
+"msrp": 37550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 26695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 33095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line 4dr SUV",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL R-Line Jet-Black 4dr SUV",
+"msrp": 33695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 34945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line Jet-Black 4Motion 4dr SUV",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium 4Motion 4dr SUV",
+"msrp": 37195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 38895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1020,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 24945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 26245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 30295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 31595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 32245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 33545,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 38795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1195,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 25245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 26545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 28695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 30595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 31895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 32545,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 33845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 39095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 26490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 27990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 30120,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 31620,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 32950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 34450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 37320,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1295,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 28450,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 30580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 32080,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 33310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 34810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 37680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1425,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 28880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wolfsburg Edition 4dr SUV",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 31580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wolfsburg Edition 4Motion 4dr SUV",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 33080,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 34580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 36080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 38880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1425,
+"trims": [
+{
+"trim": "S 4dr SUV",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 31745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 33045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 34545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE R-Line Black 4dr SUV",
+"msrp": 36205,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE R-Line Black 4Motion 4dr SUV",
+"msrp": 37705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 40505,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-volkswagen-tiguan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

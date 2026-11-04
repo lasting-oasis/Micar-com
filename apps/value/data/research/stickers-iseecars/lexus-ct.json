@@ -1,0 +1,111 @@
+{
+"make": "Lexus",
+"model": "CT",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ct_200h).",
+"years": [
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "CT 200H 4dr Hatchback",
+"msrp": 29120,
+"config": "",
+"note": ""
+},
+{
+"trim": "CT 200H Premium 4dr Hatchback",
+"msrp": 30900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lexus-ct_200h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "CT 200H 4dr Hatchback",
+"msrp": 29120,
+"config": "",
+"note": ""
+},
+{
+"trim": "CT 200H Premium 4dr Hatchback",
+"msrp": 31750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lexus-ct_200h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 910,
+"trims": [
+{
+"trim": "CT 200H 4dr Hatchback",
+"msrp": 32050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lexus-ct_200h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 910,
+"trims": [
+{
+"trim": "CT 200H 4dr Hatchback",
+"msrp": 32050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lexus-ct_200h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "CT 200H 5dr Sedan Hybrid",
+"msrp": 31250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lexus-ct_200h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "CT 200H FWD",
+"msrp": 31250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lexus-ct_200h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

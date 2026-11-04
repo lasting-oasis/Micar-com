@@ -1,0 +1,789 @@
+{
+"make": "Audi",
+"model": "Q5",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (q5, q5_hybrid, q5_sportback).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 3.2 quattro Premium 4dr SUV",
+"msrp": 37350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Premium Plus 4dr SUV",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Prestige 4dr SUV",
+"msrp": 48850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Premium Plus 4dr SUV",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Prestige 4dr SUV",
+"msrp": 49700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Premium Plus 4dr SUV",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Prestige 4dr SUV",
+"msrp": 50100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "Hybrid AWD 2.0T quattro Prestige Hybrid 4dr SUV",
+"msrp": 50900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-audi-q5_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr SUV",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI Premium Plus 4dr SUV",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD 2.0T quattro Prestige 4dr SUV",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr SUV",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI Prestige 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "quattro 4dr 2.0T Premium",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 2.0T Premium Plus",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 3.0T Premium Plus",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 3.0T Prestige",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 3.0L TDI Premium Plus",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 3.0L TDI Prestige",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 2.0T Prestige",
+"msrp": 51900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "quattro 4dr 2.0T Premium",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 2.0T Premium Plus",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 3.0T Premium Plus",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 3.0T Prestige",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 3.0L TDI Premium Plus",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 3.0L TDI Prestige",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "quattro 4dr 2.0T Prestige",
+"msrp": 52500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI Premium",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 TFSI Premium Plus",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 TFSI Prestige",
+"msrp": 46400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 975,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 4dr SUV w/Summer of Audi selection",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr SUV w/Summer of Audi selection",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr SUV",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr SUV w/Summer of Audi selection",
+"msrp": 50800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 45 TFSI quattro",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 45 TFSI quattro",
+"msrp": 42950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 45 TFSI quattro",
+"msrp": 42950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD quattro Premium 45 TFSI 4dr SUV",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Titanium Premium 45 TFSI 4dr SUV",
+"msrp": 45750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 4dr SUV",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Titanium Premium Plus 45 TFSI 4dr SUV",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 45 TFSI 4dr SUV",
+"msrp": 51450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Premium 55 TFSI 4dr SUV",
+"msrp": 52900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Titanium Prestige 45 TFSI 4dr SUV",
+"msrp": 53550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Premium Plus 55 TFSI 4dr SUV",
+"msrp": 56600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Prestige 55 TFSI 4dr SUV",
+"msrp": 60350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 45 TFSI 4dr SUV",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium 45 TFSI 4dr Sportback",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 4dr SUV",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Premium 55 TFSI 4dr SUV",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 45 TFSI 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Premium Plus 55 TFSI 4dr SUV",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Prestige 45 TFSI 4dr Sportback",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Prestige 55 TFSI 4dr SUV",
+"msrp": 61700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1195,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 40 TFSI 4dr SUV",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium S line 45 TFSI 4dr SUV",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 40 TFSI 4dr SUV",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium 45 TFSI 4dr Sportback",
+"msrp": 50100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus S line 45 TFSI 4dr SUV",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 40 TFSI 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T e quattro Premium S line 4dr SUV",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige S line 45 TFSI 4dr SUV",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Prestige 45 TFSI 4dr Sportback",
+"msrp": 58800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T e quattro Premium Plus S line 4dr SUV",
+"msrp": 59500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T e quattro Prestige S line 4dr SUV",
+"msrp": 64800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1195,
+"trims": [
+{
+"trim": "AWD quattro Premium 40 TFSI 4dr SUV",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium 45 TFSI 4dr SUV",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 40 TFSI 4dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium 45 TFSI 4dr Sportback",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium Plus 45 TFSI 4dr SUV",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 54600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 40 TFSI 4dr SUV",
+"msrp": 54900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Prestige 45 TFSI 4dr SUV",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro S line Premium 55 TFSI 4dr SUV",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Prestige 45 TFSI 4dr Sportback",
+"msrp": 59700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro S line Premium Plus 55 TFSI 4dr SUV",
+"msrp": 61700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro S line Prestige 55 TFSI 4dr SUV",
+"msrp": 67000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1195,
+"trims": [
+{
+"trim": "AWD quattro Premium 40 TFSI 4dr SUV",
+"msrp": 45300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium 45 TFSI 4dr SUV",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 40 TFSI 4dr SUV",
+"msrp": 50100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium 45 TFSI 4dr Sportback",
+"msrp": 52200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium Plus 45 TFSI 4dr SUV",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 53400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 40 TFSI 4dr SUV",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Prestige 45 TFSI 4dr SUV",
+"msrp": 58100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro S line Premium 55 TFSI 4dr SUV",
+"msrp": 58500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Prestige 45 TFSI 4dr Sportback",
+"msrp": 60400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro S line Premium Plus 55 TFSI 4dr SUV",
+"msrp": 62400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro S line Prestige 55 TFSI 4dr SUV",
+"msrp": 67700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-q5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "Sportback AWD quattro S line Premium 45 TFSI 4dr Sportback",
+"msrp": 52200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium TFSI 4dr Sportback (midyear release)",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Premium Plus 45 TFSI 4dr Sportback",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Premium Plus TFSI 4dr Sportback (midyear release)",
+"msrp": 58800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro S line Prestige 45 TFSI 4dr Sportback",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback AWD quattro Prestige TFSI 4dr Sportback (midyear release)",
+"msrp": 62700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-audi-q5_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-07-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

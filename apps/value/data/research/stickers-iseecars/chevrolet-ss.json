@@ -1,0 +1,93 @@
+{
+"make": "Chevrolet",
+"model": "SS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ss).",
+"years": [
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 43475,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-ss-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 10990,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-Passenger Sedan",
+"msrp": 10990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gasoline Sedan",
+"msrp": 10990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Chevrolet Sedan",
+"msrp": 13735,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Sedan",
+"msrp": 25495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-ss-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-03-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 46575,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-ss-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 46625,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-ss-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

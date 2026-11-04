@@ -1,0 +1,150 @@
+{
+"make": "Subaru",
+"model": "WRX",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (wrx).",
+"years": [
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Man",
+"msrp": 26595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man Premium",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Premium",
+"msrp": 30095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man Limited",
+"msrp": 30395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Limited",
+"msrp": 31595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-subaru-wrx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Manual",
+"msrp": 26695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Manual",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 30195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Manual",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "STI Manual",
+"msrp": 35195,
+"config": "",
+"note": ""
+},
+{
+"trim": "STI Limited Manual w/Wing Spoiler",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "STI Limited Manual w/Lip Spoiler",
+"msrp": 39995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-subaru-wrx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1170,
+"trims": [
+{
+"trim": "AWD Premium 4dr Sedan 6M",
+"msrp": 37750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Sedan SPT",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan 6M",
+"msrp": 42130,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan SPT",
+"msrp": 43680,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr Sedan",
+"msrp": 47705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD tS 4dr Sedan",
+"msrp": 47705,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-subaru-wrx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,552 @@
+{
+"make": "Lexus",
+"model": "IS",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (is_200t, is_250, is_250c, is_300, is_350, is_350c, is_f).",
+"years": [
+{
+"year": 2010,
+"destination": 875,
+"trims": [
+{
+"trim": "IS 250 4dr Sedan 6M",
+"msrp": 32145,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 4dr Sedan 6A",
+"msrp": 33315,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 AWD 4dr Sedan",
+"msrp": 35775,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 4dr Sedan",
+"msrp": 37595,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS F 4dr Sedan",
+"msrp": 58460,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lexus-is_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "IS 250 4dr Sedan 6M",
+"msrp": 33295,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 4dr Sedan 6A",
+"msrp": 34465,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 AWD 4dr Sedan",
+"msrp": 36925,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 4dr Sedan",
+"msrp": 39720,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 AWD 4dr Sedan",
+"msrp": 42180,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS F 4dr Sedan",
+"msrp": 60660,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lexus-is_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "IS 250 4dr Sedan 6M",
+"msrp": 33795,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 4dr Sedan 6A",
+"msrp": 34965,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 AWD 4dr Sedan",
+"msrp": 37425,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 4dr Sedan",
+"msrp": 40020,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 AWD 4dr Sedan",
+"msrp": 42680,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350C 2dr Convertible",
+"msrp": 46640,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS F 4dr Sedan",
+"msrp": 61300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lexus-is_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "IS 250 4dr Sedan",
+"msrp": 35065,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 AWD 4dr Sedan",
+"msrp": 37525,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 4dr Sedan",
+"msrp": 40320,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 AWD 4dr Sedan",
+"msrp": 42780,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350C 2dr Convertible",
+"msrp": 46790,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS F 4dr Sedan",
+"msrp": 61600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lexus-is_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "IS 250 4dr Sedan",
+"msrp": 36100,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 AWD 4dr Sedan",
+"msrp": 38635,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 4dr Sedan",
+"msrp": 39615,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 AWD 4dr Sedan",
+"msrp": 41850,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350C 2dr Convertible",
+"msrp": 47140,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS F 4dr Sedan",
+"msrp": 63600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lexus-is_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "IS 250 4dr Sport Sedan RWD",
+"msrp": 36550,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 4dr Sport Sedan AWD",
+"msrp": 39085,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 4dr Sport Sedan Crafted Line RWD",
+"msrp": 41440,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250C 2dr Conv",
+"msrp": 43360,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 250 4dr Sport Sedan Crafted Line AWD",
+"msrp": 43690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-lexus-is_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "IS 200T 4dr Sedan",
+"msrp": 37325,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 4dr Sedan AWD",
+"msrp": 39700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lexus-is_200t-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-08-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 995,
+"trims": [
+{
+"trim": "IS 300 AWD",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 4dr Sedan",
+"msrp": 41370,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 AWD 4dr Sedan",
+"msrp": 43535,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lexus-is_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "IS 300 RWD",
+"msrp": 38210,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 AWD",
+"msrp": 40660,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lexus-is_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "IS 300 RWD",
+"msrp": 38560,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 F SPORT RWD",
+"msrp": 38560,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 AWD",
+"msrp": 41010,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 F SPORT AWD",
+"msrp": 41010,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 RWD",
+"msrp": 42180,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 F SPORT RWD",
+"msrp": 42180,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 AWD",
+"msrp": 44345,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 F SPORT AWD",
+"msrp": 44345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lexus-is_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1025,
+"trims": [
+{
+"trim": "IS 300 4dr Sedan",
+"msrp": 38560,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 AWD 4dr Sedan",
+"msrp": 41010,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 RWD",
+"msrp": 42180,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 F SPORT RWD",
+"msrp": 42180,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 AWD",
+"msrp": 44345,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 350 F SPORT AWD",
+"msrp": 44345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lexus-is_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "IS 300 RWD",
+"msrp": 39050,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 AWD",
+"msrp": 41050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-lexus-is_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1075,
+"trims": [
+{
+"trim": "IS 300 4dr Sedan",
+"msrp": 39125,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 AWD 4dr Sedan",
+"msrp": 41125,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-lexus-is_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1150,
+"trims": [
+{
+"trim": "IS 300 4dr Sedan",
+"msrp": 40085,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 AWD 4dr Sedan",
+"msrp": 42085,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lexus-is_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1150,
+"trims": [
+{
+"trim": "IS 300 4dr Sedan",
+"msrp": 40085,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 F SPORT Design 4dr Sedan",
+"msrp": 41905,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 AWD 4dr Sedan",
+"msrp": 42085,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 F SPORT 4dr Sedan",
+"msrp": 43155,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 AWD F SPORT Design 4dr Sedan",
+"msrp": 43945,
+"config": "",
+"note": ""
+},
+{
+"trim": "IS 300 AWD F SPORT 4dr Sedan",
+"msrp": 45195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-lexus-is_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

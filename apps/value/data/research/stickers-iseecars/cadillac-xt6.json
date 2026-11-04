@@ -1,0 +1,75 @@
+{
+"make": "Cadillac",
+"model": "XT6",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (xt6).",
+"years": [
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Premium Luxury",
+"msrp": 52695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Premium Luxury",
+"msrp": 54695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sport",
+"msrp": 57095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-cadillac-xt6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Luxury",
+"msrp": 48045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Luxury",
+"msrp": 50045,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Premium Luxury",
+"msrp": 52945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Premium Luxury",
+"msrp": 54945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sport",
+"msrp": 57445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-cadillac-xt6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

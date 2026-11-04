@@ -1,0 +1,240 @@
+{
+"make": "Nissan",
+"model": "GT-R",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (gt__r).",
+"years": [
+{
+"year": 2010,
+"destination": 1000,
+"trims": [
+{
+"trim": "AWD Base 2dr Coupe",
+"msrp": 80790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 2dr Coupe",
+"msrp": 83040,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-gt__r-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": null,
+"trims": [
+{
+"trim": "Premium",
+"msrp": 84060,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-gt__r-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2011-05-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe Premium",
+"msrp": 101770,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe Black Edition",
+"msrp": 111510,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe NISMO",
+"msrp": 149990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-nissan-gt__r-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Premium AWD",
+"msrp": 109990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Track Edition AWD",
+"msrp": 127990,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO AWD",
+"msrp": 174990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-nissan-gt__r-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Pure AWD",
+"msrp": 99990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 110490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Track Edition AWD",
+"msrp": 128490,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO AWD",
+"msrp": 175490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-nissan-gt__r-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Pure AWD",
+"msrp": 99990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 110540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Track Edition AWD",
+"msrp": 128540,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO AWD",
+"msrp": 175540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-nissan-gt__r-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Premium AWD",
+"msrp": 113540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Track Edition AWD",
+"msrp": 145540,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO AWD",
+"msrp": 210740,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-nissan-gt__r-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Premium AWD",
+"msrp": 113540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Track Edition AWD",
+"msrp": 145540,
+"config": "",
+"note": ""
+},
+{
+"trim": "NISMO AWD",
+"msrp": 210740,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-nissan-gt__r-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "AWD Premium 2dr Coupe",
+"msrp": 116040,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD NISMO 2dr Coupe",
+"msrp": 215740,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-nissan-gt__r-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

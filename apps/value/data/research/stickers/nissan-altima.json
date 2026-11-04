@@ -1,0 +1,488 @@
+{
+  "make": "Nissan",
+  "model": "Altima",
+  "body": "Sedan",
+  "note": "All MSRPs exclude destination (every Nissan release states so). 2016-2018 trim names carry the engine prefix as Nissan wrote them ('2.5 SV', '3.5 SL'). From the all-new 2019 model Nissan prints the grade alone with engine/drive in separate columns; 'config' carries engine and drivetrain and AWD prices are given in row notes (AWD became available in 2019). Sedan only in this period.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 825,
+      "trims": [
+        {
+          "trim": "2.5",
+          "msrp": 22500,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 S",
+          "msrp": 22900,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 SR",
+          "msrp": 24470,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 SV",
+          "msrp": 25460,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 SL",
+          "msrp": 28570,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.5 SR",
+          "msrp": 27390,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.5 SL",
+          "msrp": 32090,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2016-altima",
+      "source_type": "manufacturer",
+      "release_date": "2015-10-27"
+    },
+    {
+      "year": 2017,
+      "destination": 835,
+      "trims": [
+        {
+          "trim": "2.5",
+          "msrp": 22500,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 S",
+          "msrp": 22900,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 SR",
+          "msrp": 24470,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 SV",
+          "msrp": 25460,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 SL",
+          "msrp": 28570,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.5 SR",
+          "msrp": 27990,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.5 SL",
+          "msrp": 32690,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2017-altima",
+      "source_type": "manufacturer",
+      "release_date": "2016-09-19",
+      "note": "A separate '2017.5 Nissan Altima' press kit exists on the newsroom (mid-year update); its pricing was not fetched."
+    },
+    {
+      "year": 2018,
+      "destination": 885,
+      "trims": [
+        {
+          "trim": "2.5 S",
+          "msrp": 23140,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 SR",
+          "msrp": 24200,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 SV",
+          "msrp": 25785,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "2.5 SL",
+          "msrp": 28995,
+          "config": "",
+          "note": ""
+        },
+        {
+          "trim": "3.5 SL",
+          "msrp": 33510,
+          "config": "",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-2018-altima",
+      "source_type": "manufacturer",
+      "release_date": "2017-09-25",
+      "note": "Release states the base '2.5' and the '3.5 SR' are no longer available for 2018."
+    },
+    {
+      "year": 2019,
+      "destination": 895,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 23750,
+          "config": "2.5L FWD",
+          "note": "AWD $25,100"
+        },
+        {
+          "trim": "SR",
+          "msrp": 25100,
+          "config": "2.5L FWD",
+          "note": "AWD $26,450"
+        },
+        {
+          "trim": "SV",
+          "msrp": 27930,
+          "config": "2.5L FWD",
+          "note": "AWD $29,280"
+        },
+        {
+          "trim": "SL",
+          "msrp": 29840,
+          "config": "2.5L FWD",
+          "note": "AWD $31,190"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 31780,
+          "config": "2.5L FWD",
+          "note": "AWD $33,130"
+        },
+        {
+          "trim": "SR",
+          "msrp": 29150,
+          "config": "2.0L VC-Turbo FWD",
+          "note": "Release prints the trim as 'SR' with engine '2.0-liter VC-Turbo' (often written '2.0 SR')."
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 34780,
+          "config": "2.0L VC-Turbo FWD",
+          "note": "Often written '2.0 Platinum'. Launch-only Edition ONE (VC-Turbo FWD) listed at $35,750."
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-u-s-pricing-for-all-new-2019-altima-features-expressive-design-two-new-engines-available-all-wheel-drive-and-nissan-safety-shield-360",
+      "source_type": "manufacturer",
+      "release_date": "2018-09-28",
+      "note": "All-new generation. From 2019 the release drops the '2.5'/'3.5' prefixes and lists engine and drive in separate columns; 'config' carries them here. AWD prices for each 2.5L trim are in the row notes."
+    },
+    {
+      "year": 2020,
+      "destination": 895,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24100,
+          "config": "2.5L FWD",
+          "note": "AWD $25,450"
+        },
+        {
+          "trim": "SR",
+          "msrp": 25700,
+          "config": "2.5L FWD",
+          "note": "AWD $27,050"
+        },
+        {
+          "trim": "SV",
+          "msrp": 27880,
+          "config": "2.5L FWD",
+          "note": "AWD $29,230"
+        },
+        {
+          "trim": "SL",
+          "msrp": 30240,
+          "config": "2.5L FWD",
+          "note": "AWD $31,590"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 32180,
+          "config": "2.5L FWD",
+          "note": "AWD $33,530"
+        },
+        {
+          "trim": "SR",
+          "msrp": 29750,
+          "config": "2.0L VC-Turbo FWD",
+          "note": ""
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 35180,
+          "config": "2.0L VC-Turbo FWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/nissan-announces-us-pricing-for-2020-altima-with-expanded-availability-of-nissan-safety-shield-360-across-the-entire-lineup",
+      "source_type": "manufacturer",
+      "release_date": "2019-06-21"
+    },
+    {
+      "year": 2021,
+      "destination": 925,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24300,
+          "config": "2.5L FWD",
+          "note": "FWD only"
+        },
+        {
+          "trim": "SV",
+          "msrp": 25400,
+          "config": "2.5L FWD",
+          "note": "AWD $26,800"
+        },
+        {
+          "trim": "SR",
+          "msrp": 26200,
+          "config": "2.5L FWD",
+          "note": "AWD $27,600"
+        },
+        {
+          "trim": "SL",
+          "msrp": 29990,
+          "config": "2.5L FWD",
+          "note": "AWD $31,390"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 34100,
+          "config": "2.5L AWD",
+          "note": "AWD only for 2021"
+        },
+        {
+          "trim": "SR",
+          "msrp": 30650,
+          "config": "2.0L VC-Turbo FWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2021-nissan-altima-us-msrp-starts-at-24300",
+      "source_type": "manufacturer",
+      "release_date": "2020-10-13",
+      "note": "Lineup reshuffled: SV now sits below SR; Platinum becomes AWD-only; 2.0 VC-Turbo Platinum dropped."
+    },
+    {
+      "year": 2022,
+      "destination": 1025,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24550,
+          "config": "2.5L FWD",
+          "note": "FWD only"
+        },
+        {
+          "trim": "SV",
+          "msrp": 25550,
+          "config": "2.5L FWD",
+          "note": "AWD $26,950"
+        },
+        {
+          "trim": "SR",
+          "msrp": 26550,
+          "config": "2.5L FWD",
+          "note": "AWD $27,950"
+        },
+        {
+          "trim": "SL",
+          "msrp": 29990,
+          "config": "2.5L FWD",
+          "note": "AWD $31,390"
+        },
+        {
+          "trim": "Platinum",
+          "msrp": 34250,
+          "config": "2.5L AWD",
+          "note": "AWD only"
+        },
+        {
+          "trim": "SR",
+          "msrp": 30900,
+          "config": "2.0L VC-Turbo FWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2022-nissan-altima-pricing-starts-at-24550",
+      "source_type": "manufacturer",
+      "release_date": "2021-11-19",
+      "note": "Page shows 'Updated January 6, 2022'; figures recorded as the page stands."
+    },
+    {
+      "year": 2023,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 25490,
+          "config": "2.5L FWD",
+          "note": "FWD only"
+        },
+        {
+          "trim": "SV",
+          "msrp": 26290,
+          "config": "2.5L FWD",
+          "note": "AWD $27,790"
+        },
+        {
+          "trim": "SR",
+          "msrp": 27690,
+          "config": "2.5L FWD",
+          "note": "AWD $29,190"
+        },
+        {
+          "trim": "SL",
+          "msrp": 32190,
+          "config": "2.5L FWD",
+          "note": "AWD $33,690"
+        },
+        {
+          "trim": "SR VC-Turbo",
+          "msrp": 35190,
+          "config": "2.0L VC-Turbo FWD",
+          "note": "Printed as 'SR VC-Turbo FWD' from 2023 on."
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/new-2023-nissan-altima-pricing-starts-at-25490",
+      "source_type": "manufacturer",
+      "release_date": "2022-09-21",
+      "note": "Refreshed model. The newsroom page (metadata modified 2023-03-03) is titled 'starts at $25,490', but the same release as syndicated on BusinessWire on 2022-09-21 was titled 'starts at $25,290', so the recorded figures likely include a mid-year increase of about $200. Platinum grade dropped."
+    },
+    {
+      "year": 2024,
+      "destination": 1115,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 25730,
+          "config": "2.5L FWD",
+          "note": "FWD only"
+        },
+        {
+          "trim": "SV",
+          "msrp": 26530,
+          "config": "2.5L FWD",
+          "note": "AWD $28,030"
+        },
+        {
+          "trim": "SR",
+          "msrp": 27930,
+          "config": "2.5L FWD",
+          "note": "AWD $29,430"
+        },
+        {
+          "trim": "SL",
+          "msrp": 32430,
+          "config": "2.5L FWD",
+          "note": "AWD $33,930"
+        },
+        {
+          "trim": "SR VC-Turbo",
+          "msrp": 35430,
+          "config": "2.0L VC-Turbo FWD",
+          "note": ""
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2024-nissan-altima-pricing-starts-at-25730",
+      "source_type": "manufacturer",
+      "release_date": "2023-08-16"
+    },
+    {
+      "year": 2025,
+      "destination": 1245,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 27000,
+          "config": "2.5L FWD",
+          "note": "FWD only"
+        },
+        {
+          "trim": "SV",
+          "msrp": 27430,
+          "config": "2.5L FWD",
+          "note": "AWD $28,930. SV Special Edition is a package, no separate MSRP on the Nissan page (cars.com: +$1,090)."
+        },
+        {
+          "trim": "SR",
+          "msrp": 28830,
+          "config": "2.5L FWD",
+          "note": "AWD $30,330"
+        },
+        {
+          "trim": "SL",
+          "msrp": 33330,
+          "config": "2.5L FWD",
+          "note": "AWD $34,830"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2025-nissan-altima-adds-a-new-sv-special-edition-package",
+      "source_type": "manufacturer",
+      "release_date": "2024-08-16",
+      "note": "VC-Turbo and Platinum no longer listed. Page metadata shows a 2026-01-26 modification. MSRPs match the launch figures reported by cars.com on 2024-12-13 ($28,140/$28,570/$29,970/$34,470 incl. destination), but cars.com quoted a $1,140 destination at that time versus $1,245 on the Nissan page now, so destination appears to have risen mid-cycle."
+    },
+    {
+      "year": 2026,
+      "destination": 1275,
+      "trims": [
+        {
+          "trim": "SV",
+          "msrp": 27580,
+          "config": "2.5L FWD",
+          "note": "AWD $28,980"
+        },
+        {
+          "trim": "SR",
+          "msrp": 29080,
+          "config": "2.5L FWD",
+          "note": "AWD $30,480"
+        }
+      ],
+      "source": "https://usa.nissannews.com/en-US/releases/2026-nissan-altima-priced-from-27580",
+      "source_type": "manufacturer",
+      "release_date": "2025-12-15",
+      "note": "Only SV and SR grades for 2026 (S and SL dropped). SV Special Edition, SV Premium, SR Premium and SR Midnight Edition are packages with no separate MSRP given."
+    }
+  ],
+  "gaps": [
+    "All 11 model years (2016-2026) sourced from usa.nissannews.com pricing releases; no secondary fallback needed.",
+    "2017: a 2017.5 mid-year press kit exists; its pricing was not fetched.",
+    "2023: newsroom page likely reflects a ~$200 mid-year increase (BusinessWire syndication of the same release was titled 'starts at $25,290', page now says $25,490).",
+    "2025: Nissan page destination ($1,245) differs from the $1,140 cars.com reported at launch; MSRPs themselves match. 2025 release lists no Platinum or VC-Turbo.",
+    "2019: AWD rows for each 2.5L trim folded into notes to keep the table to ~7 rows; Edition ONE launch edition noted but not given its own row."
+  ]
+}

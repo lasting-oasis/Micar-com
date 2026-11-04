@@ -1,0 +1,39 @@
+{
+"make": "Mercedes-Benz",
+"model": "EQB",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 54500,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2022+Mercedes-Benz+EQB+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (mbofsantarosa.com, mercedesbenzofchantilly.com, mercedesbenzofwarwick.com)."
+},
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 52750,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+Mercedes-Benz+EQB+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (kbb.com, mbbeaumont.com, mbofaugusta.com)."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,108 @@
+{
+"make": "Fiat",
+"model": "124 Spider",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (124_spider).",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Classica Convertible",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lusso Convertible",
+"msrp": 27495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Elaborazione Abarth Convertible",
+"msrp": 28195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-fiat-124_spider-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 1295,
+"trims": [
+{
+"trim": "Classica 2dr Convertible",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lusso 2dr Convertible",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Abarth 2dr Convertible",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Red Top Edition 2dr Convertible",
+"msrp": 31440,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-fiat-124_spider-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-06-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1495,
+"trims": [
+{
+"trim": "Classica 2dr Convertible",
+"msrp": 25440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Urbana Edition 2dr Convertible",
+"msrp": 26435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lusso 2dr Convertible",
+"msrp": 28045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Abarth 2dr Convertible",
+"msrp": 29540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Red Top Edition 2dr Convertible",
+"msrp": 31440,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-fiat-124_spider-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-06-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

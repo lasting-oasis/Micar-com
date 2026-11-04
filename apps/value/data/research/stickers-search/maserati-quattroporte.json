@@ -1,0 +1,24 @@
+{
+"make": "Maserati",
+"model": "Quattroporte",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 108400,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+Maserati+Quattroporte+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (bostonmotorsportsmaserati.com, carbuzz.com, caredge.com)."
+}
+],
+"gaps": []
+}

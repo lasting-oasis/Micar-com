@@ -1,0 +1,39 @@
+{
+"make": "Mini",
+"model": "John Cooper Works",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 45750,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2021+Mini+John+Cooper+Works+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, cars.com, motorauthority.com)."
+},
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 35400,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+Mini+John+Cooper+Works+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (cincinnatimini.com, miniofsterling.com, truecar.com)."
+}
+],
+"gaps": []
+}

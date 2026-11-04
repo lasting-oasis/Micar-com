@@ -1,0 +1,54 @@
+{
+"make": "Rolls-Royce",
+"model": "Spectre",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 422750,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+Rolls-Royce+Spectre+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (hagerty.com, rollsroycepasadena.com)."
+},
+{
+"year": 2025,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 395000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2025+Rolls-Royce+Spectre+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (carbuzz.com, kbb.com, motortrend.com)."
+},
+{
+"year": 2026,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 397750,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2026+Rolls-Royce+Spectre+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (caranddriver.com, holmanmotorcars.com, youtube.com)."
+}
+],
+"gaps": []
+}

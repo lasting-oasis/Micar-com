@@ -1,0 +1,210 @@
+{
+  "make": "Toyota",
+  "model": "Highlander",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": null,
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/year-2016/",
+      "fetched": "2026-10-28",
+      "page_average": 29841,
+      "page_average_note": "Page sentence: 'average price for the 2016 Toyota Highlander XLE is $29,841' (Limited $27,229, LE $30,079). Same ~$29.8k-$30.4k XLE figure appears on every year page: model-wide boilerplate, do not use.",
+      "listings": [
+        {
+          "price": 15392,
+          "miles": 175381,
+          "location": "Winter Park, FL",
+          "trim": "Limited Platinum V6 AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 14796,
+          "miles": 151772,
+          "location": "Tempe, AZ",
+          "trim": "XLE V6 AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 15997,
+          "miles": 176774,
+          "location": "Raleigh, NC",
+          "trim": "Limited Platinum V6 AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 21602,
+          "miles": 73872,
+          "location": "Burlington, NJ",
+          "trim": "XLE V6 AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16215,
+          "miles": 145897,
+          "location": "Fort Myers, FL",
+          "trim": "XLE V6 FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": null,
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/year-2019/",
+      "fetched": "2026-10-28",
+      "page_average": 29997,
+      "page_average_note": "Page sentence: 'average price for the 2019 Toyota Highlander XLE is $29,997' (Limited $27,665, LE $29,856). Boilerplate.",
+      "listings": [
+        {
+          "price": 15347,
+          "miles": 150328,
+          "location": "Metairie, LA",
+          "trim": "Limited V6 FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 33882,
+          "miles": 56217,
+          "location": "Mesa, AZ",
+          "trim": "Hybrid Limited V6 AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; Highlander Hybrid"
+        },
+        {
+          "price": 33980,
+          "miles": 16502,
+          "location": "Lynnwood, WA",
+          "trim": "Limited Platinum V6 AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 24927,
+          "miles": 78501,
+          "location": "Flemington, NJ",
+          "trim": "XLE V6 AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 23485,
+          "miles": 98078,
+          "location": "Jersey City, NJ",
+          "trim": "SE V6 AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": null,
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/year-2022/",
+      "fetched": "2026-10-28",
+      "page_average": 30388,
+      "page_average_note": "Page sentence: 'average price for the 2022 Toyota Highlander XLE is $30,388' (Limited $27,623, LE $29,987). Boilerplate.",
+      "listings": [
+        {
+          "price": 22914,
+          "miles": 98158,
+          "location": "North Richland Hills, TX",
+          "trim": "L FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 28870,
+          "miles": 59677,
+          "location": "Modesto, CA",
+          "trim": "XLE FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored; CPO"
+        },
+        {
+          "price": 32651,
+          "miles": 53099,
+          "location": "Flemington, NJ",
+          "trim": "XLE AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 25927,
+          "miles": 93616,
+          "location": "Miami, FL",
+          "trim": "XLE FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 31096,
+          "miles": 54292,
+          "location": "Pembroke Pines, FL",
+          "trim": "XLE FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": null,
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/highlander/year-2024/",
+      "fetched": "2026-10-28",
+      "page_average": 29858,
+      "page_average_note": "Page sentence: 'average price for the 2024 Toyota Highlander XLE is $29,858' (Limited $27,640, LE $30,007). Boilerplate; below the 2024 XLE listings shown.",
+      "listings": [
+        {
+          "price": 39115,
+          "miles": 33023,
+          "location": "Chehalis, WA",
+          "trim": "XLE AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 47582,
+          "miles": 8700,
+          "location": "Mesa, AZ",
+          "trim": "Platinum FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 32992,
+          "miles": 24987,
+          "location": "Clearwater, FL",
+          "trim": "LE FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 31713,
+          "miles": 28896,
+          "location": "Troutdale, OR",
+          "trim": "LE AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 32049,
+          "miles": 13920,
+          "location": "Pembroke Pines, FL",
+          "trim": "LE FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "All four years use the unfiltered year page (trim_filter null), not ?trim=xle: the trim-filtered URLs were not available to fetch this session (only the 2019 one surfaced, after the unfiltered page had already been fetched). Each row's trim is recorded; first 5 listings in page order.",
+    "TrueCar 'average price' sentences are model-wide boilerplate (XLE ~$29.8k-$30.4k for every year 2016-2024) and should be ignored."
+  ]
+}

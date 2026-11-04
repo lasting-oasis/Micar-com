@@ -1,0 +1,39 @@
+{
+"make": "Mercedes-Benz",
+"model": "Metris Passenger",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 27180,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2020+Mercedes-Benz+Metris+Passenger+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (asburyauto.com, mbstl.com, mercedesbenzdesmoines.com)."
+},
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 38300,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2022+Mercedes-Benz+Metris+Passenger+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (arrowheadmb.com, kbb.com, mercedesbenzoffairfield.com)."
+}
+],
+"gaps": []
+}

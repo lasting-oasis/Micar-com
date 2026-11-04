@@ -1,0 +1,164 @@
+{
+ "make": "Jeep",
+ "model": "Cherokee",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "Latitude",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/cherokee/year-2016/?trim=latitude",
+   "fetched": "2026-10-28",
+   "page_total_listings": 65,
+   "page_average": 12471,
+   "page_average_note": "Quoted sentence: '...the 2016 Jeep Cherokee Latitude and 2016 Jeep Cherokee Trailhawk averaging $12,471 and $17,608 respectively.' Identical on the 2016, 2019 and 2022 pages, so it is model-wide boilerplate, not year-specific.",
+   "listings": [
+    {
+     "price": 10710,
+     "miles": 82675,
+     "location": "Hawthorne, CA",
+     "trim": "Latitude FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 11490,
+     "miles": 74355,
+     "location": "Lakewood, NJ",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 8020,
+     "miles": 120621,
+     "location": "Sarasota, FL",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 10077,
+     "miles": 83787,
+     "location": "Southern Pines, NC",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 9483,
+     "miles": 89986,
+     "location": "Henderson, NV",
+     "trim": "Latitude FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "Latitude",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/cherokee/year-2019/?trim=latitude",
+   "fetched": "2026-10-28",
+   "page_total_listings": 136,
+   "page_average": 12471,
+   "page_average_note": "Quoted sentence: '...the 2019 Jeep Cherokee Latitude and 2019 Jeep Cherokee Trailhawk averaging $12,471 and $17,608 respectively.' Identical on the 2016, 2019 and 2022 pages, so it is model-wide boilerplate, not year-specific. Page count is inconsistent (136 in the headline sentence vs 502 Latitude in the FAQ).",
+   "listings": [
+    {
+     "price": 13903,
+     "miles": 65892,
+     "location": "Somersworth, NH",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": "sponsored cards at top of page were skipped by the reader; these are the first 5 non-sponsored"
+    },
+    {
+     "price": 14383,
+     "miles": 78974,
+     "location": "Wake Forest, NC",
+     "trim": "Latitude FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 14674,
+     "miles": 57341,
+     "location": "Oswego, NY",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 17987,
+     "miles": 50021,
+     "location": "Avondale, AZ",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 14952,
+     "miles": 58228,
+     "location": "Oswego, NY",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/cherokee/year-2022/",
+   "fetched": "2026-10-28",
+   "page_total_listings": 247,
+   "page_average": 12471,
+   "page_average_note": "Quoted sentence: '...the 2022 Jeep Cherokee Latitude and 2022 Jeep Cherokee Trailhawk averaging $12,471 and $17,608 respectively.' Identical on the 2016, 2019 and 2022 pages, so it is model-wide boilerplate, not year-specific.",
+   "note": "Latitude filter (?trim=latitude) returned 'No exact matches' (2022 had no plain Latitude; the lineup was Latitude Lux, Altitude, X, Trailhawk, Limited), so the unfiltered year page was used.",
+   "listings": [
+    {
+     "price": 16466,
+     "miles": 107233,
+     "location": "Shreveport, LA",
+     "trim": "Latitude Lux FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 20093,
+     "miles": 39526,
+     "location": "Orchard Park, NY",
+     "trim": "Trailhawk 4WD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 14254,
+     "miles": 127308,
+     "location": "Gurnee, IL",
+     "trim": "Latitude Lux 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 19489,
+     "miles": 46552,
+     "location": "Davie, FL",
+     "trim": "Limited 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 21388,
+     "miles": 39102,
+     "location": "Henderson, NC",
+     "trim": "X 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2024: skipped. No 2024 or 2025 model-year Cherokee (per assignment; not independently verified). Note the Cherokee returned as an all-new 2026 hybrid model (see stickers file), so a 2026 listings year exists if wanted later.",
+  "2022 trim filter 'latitude' had no exact matches; unfiltered page used."
+ ]
+}

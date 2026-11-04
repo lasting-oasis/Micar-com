@@ -1,0 +1,1017 @@
+{
+"make": "GMC",
+"model": "Acadia",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (acadia, acadia_limited).",
+"years": [
+{
+"year": 2010,
+"destination": 775,
+"trims": [
+{
+"trim": "SL 4dr SUV",
+"msrp": 31740,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 33740,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE 4dr SUV",
+"msrp": 34315,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE 4dr SUV",
+"msrp": 36315,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 38585,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 40185,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 40585,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 42185,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 775,
+"trims": [
+{
+"trim": "SL 4dr SUV",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE 4dr SUV",
+"msrp": 34625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE 4dr SUV",
+"msrp": 36625,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 38345,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 40345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 43220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 45220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "SL 4dr SUV",
+"msrp": 32835,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SL 4dr SUV",
+"msrp": 34835,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE 4dr SUV",
+"msrp": 35310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE 4dr SUV",
+"msrp": 37310,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 39060,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 39965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 41060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 41965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 44810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 46810,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 34050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 35940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 36050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 37940,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 39780,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 41780,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 45945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 47945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 34485,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 36375,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1 4dr SUV",
+"msrp": 36485,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2 4dr SUV",
+"msrp": 38375,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 40540,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 41635,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1 4dr SUV",
+"msrp": 42540,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2 4dr SUV",
+"msrp": 43635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 46825,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali 4dr SUV",
+"msrp": 48825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD SLE-1",
+"msrp": 33975,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1",
+"msrp": 35975,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLE-2",
+"msrp": 36555,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2",
+"msrp": 38555,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT-1",
+"msrp": 40820,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT-2",
+"msrp": 42095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1",
+"msrp": 42820,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2",
+"msrp": 44095,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Denali",
+"msrp": 47690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali",
+"msrp": 49690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD SL",
+"msrp": 30975,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLE-1",
+"msrp": 34175,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1",
+"msrp": 36175,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLE-2",
+"msrp": 36755,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2",
+"msrp": 38755,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT-1",
+"msrp": 41020,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT-2",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2",
+"msrp": 44295,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Denali",
+"msrp": 47890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali",
+"msrp": 49890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "FWD SL",
+"msrp": 29070,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLE-1",
+"msrp": 32450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1",
+"msrp": 34450,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLE-2",
+"msrp": 35070,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2",
+"msrp": 37070,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT-1",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1",
+"msrp": 41450,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT-2",
+"msrp": 41750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2",
+"msrp": 43750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD Limited",
+"msrp": 43850,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Denali",
+"msrp": 44920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD Limited",
+"msrp": 45850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali",
+"msrp": 46920,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "SL 4dr SUV",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-1 4dr SUV",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-1 4dr SUV",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLE-2 4dr SUV",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE-2 4dr SUV",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-1 4dr SUV",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT-1 4dr SUV",
+"msrp": 41600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT-2 4dr SUV",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT-2 4dr SUV",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 45100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 47100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FWD SL",
+"msrp": 29000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLE-1",
+"msrp": 32800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-1",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLE-2",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE-2",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT-1",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-1",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT-2",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT-2",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Denali",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali",
+"msrp": 47500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "FWD SL",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLE",
+"msrp": 33800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD AT4",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Denali",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali",
+"msrp": 48300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "FWD SL",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLE",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLE",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD SLT",
+"msrp": 38800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SLT",
+"msrp": 40800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD AT4",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Denali",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Denali",
+"msrp": 48300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "SLE 4dr SUV",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr SUV",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT 4dr SUV",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr SUV",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 48600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "SLE 4dr SUV",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLE 4dr SUV",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SLT 4dr SUV",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SLT 4dr SUV",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 43400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 50600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "Elevation 4dr SUV",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr SUV",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 54300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 56300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "Elevation 4dr SUV",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Elevation 4dr SUV",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 AT4 4dr SUV",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Denali 4dr SUV",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Denali 4dr SUV",
+"msrp": 56100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-gmc-acadia-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,96 @@
+{
+"make": "Chevrolet",
+"model": "Cobalt",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (cobalt).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "XFE 2dr Coupe",
+"msrp": 14990,
+"config": "",
+"note": ""
+},
+{
+"trim": "XFE 4dr Sedan",
+"msrp": 14990,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 2dr Coupe",
+"msrp": 15670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan",
+"msrp": 15670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS XFE 2dr Coupe",
+"msrp": 15670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS XFE 4dr Sedan",
+"msrp": 15670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe",
+"msrp": 16470,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan",
+"msrp": 16470,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT XFE 2dr Coupe",
+"msrp": 16470,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT XFE 4dr Sedan",
+"msrp": 16470,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/2LT",
+"msrp": 17840,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 17840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe",
+"msrp": 24535,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-cobalt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

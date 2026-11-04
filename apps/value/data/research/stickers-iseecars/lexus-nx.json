@@ -1,0 +1,324 @@
+{
+"make": "Lexus",
+"model": "NX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (nx_200t, nx_250, nx_300, nx_300h, nx_350h).",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "NX 300H FWD 4dr",
+"msrp": 39720,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300H AWD 4dr",
+"msrp": 41310,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-lexus-nx_300h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "NX 300H FWD 4dr",
+"msrp": 39720,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300H AWD 4dr",
+"msrp": 41310,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lexus-nx_300h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "NX 200T FWD",
+"msrp": 35285,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 200T AWD",
+"msrp": 36685,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 200T FWD",
+"msrp": 37385,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 200T AWD",
+"msrp": 38785,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lexus-nx_200t-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 1025,
+"trims": [
+{
+"trim": "NX 300 4dr Crossover",
+"msrp": 35985,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300 AWD 4dr Crossover",
+"msrp": 37385,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300H AWD 4dr Crossover",
+"msrp": 38335,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300 F SPORT 4dr Crossover",
+"msrp": 38375,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300 AWD F SPORT 4dr Crossover",
+"msrp": 39775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lexus-nx_300-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "NX 300 FWD",
+"msrp": 36485,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300 AWD",
+"msrp": 37885,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300 F SPORT FWD",
+"msrp": 38725,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300H AWD",
+"msrp": 38835,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300 F SPORT AWD",
+"msrp": 40125,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lexus-nx_300h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "NX 300H AWD",
+"msrp": 39420,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 300H Luxury AWD",
+"msrp": 46510,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lexus-nx_300h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1075,
+"trims": [
+{
+"trim": "NX 250 4dr Crossover",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 250 AWD 4dr Crossover",
+"msrp": 39950,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 250 Premium 4dr Crossover",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 350H AWD 4dr Crossover",
+"msrp": 41550,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 250 AWD Premium 4dr Crossover",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 250 Luxury 4dr Crossover",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 350H AWD Premium 4dr Crossover",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 250 AWD Luxury 4dr Crossover",
+"msrp": 46100,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 350H AWD Luxury 4dr Crossover",
+"msrp": 49000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-lexus-nx_250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1150,
+"trims": [
+{
+"trim": "NX 350H AWD 4dr Crossover",
+"msrp": 42655,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 350H AWD Premium 4dr Crossover",
+"msrp": 45705,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 350H AWD Luxury 4dr Crossover",
+"msrp": 50105,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lexus-nx_350h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1150,
+"trims": [
+{
+"trim": "NX 250 4dr Crossover",
+"msrp": 39455,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 250 AWD 4dr Crossover",
+"msrp": 41055,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 250 Premium 4dr Crossover",
+"msrp": 42505,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 350H AWD 4dr Crossover",
+"msrp": 43465,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 250 AWD Premium 4dr Crossover",
+"msrp": 44105,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 350H AWD Premium 4dr Crossover",
+"msrp": 46515,
+"config": "",
+"note": ""
+},
+{
+"trim": "NX 350H AWD Luxury 4dr Crossover",
+"msrp": 49605,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-lexus-nx_350h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

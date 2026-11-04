@@ -1,0 +1,207 @@
+{
+ "make": "Hyundai",
+ "model": "Sonata",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/sonata/year-2016/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "listings": [
+    {
+     "price": 9567,
+     "miles": 93573,
+     "location": "El Cerrito, CA",
+     "trim": "SE 2.4L",
+     "body": "Sedan",
+     "note": "Sponsored"
+    },
+    {
+     "price": 7549,
+     "miles": 111352,
+     "location": "Lawrenceville, GA",
+     "trim": "Sport 2.4L (PZEV)",
+     "body": "Sedan",
+     "note": "Sponsored"
+    },
+    {
+     "price": 10298,
+     "miles": 90185,
+     "location": "Fargo, ND",
+     "trim": "Sport 2.4L",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 9593,
+     "miles": 124879,
+     "location": "Southern Pines, NC",
+     "trim": "Sport 2.4L (PZEV)",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 12373,
+     "miles": 84413,
+     "location": "Burlington, NJ",
+     "trim": "Limited 2.4L (PZEV)",
+     "body": "Sedan",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "SEL",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/sonata/year-2019/?trim=sel",
+   "fetched": "2026-10-28",
+   "page_average": 20471,
+   "listings": [
+    {
+     "price": 13840,
+     "miles": 68886,
+     "location": "St. Petersburg, FL",
+     "trim": "SEL 2.4L",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 11393,
+     "miles": 102225,
+     "location": "St. Augustine, FL",
+     "trim": "SEL 2.4L",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 10427,
+     "miles": 92224,
+     "location": "Plantation, FL",
+     "trim": "SEL 2.4L",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 12800,
+     "miles": 96760,
+     "location": "Fallston, MD",
+     "trim": "SEL 2.4L",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 15295,
+     "miles": 83653,
+     "location": "Macon, GA",
+     "trim": "SEL 2.4L",
+     "body": "Sedan",
+     "note": "carries a '99% finance approval rate' banner (possible promoted placement)"
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "SEL",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/sonata/year-2022/?trim=sel",
+   "fetched": "2026-10-28",
+   "page_average": 20471,
+   "listings": [
+    {
+     "price": 13366,
+     "miles": 92196,
+     "location": "Carmel, NY",
+     "trim": "SEL",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 19594,
+     "miles": 20036,
+     "location": "East Swanzey, NH",
+     "trim": "SEL",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 19008,
+     "miles": 26637,
+     "location": "Flemington, NJ",
+     "trim": "SEL",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 17495,
+     "miles": 66638,
+     "location": "Orlando, FL",
+     "trim": "SEL",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 17270,
+     "miles": 60826,
+     "location": "Scotia, NY",
+     "trim": "SEL",
+     "body": "Sedan",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "SEL",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/sonata/year-2024/?trim=sel",
+   "fetched": "2026-10-28",
+   "page_average": 20471,
+   "listings": [
+    {
+     "price": 19463,
+     "miles": 50216,
+     "location": "Mobile, AL",
+     "trim": "SEL FWD",
+     "body": "Sedan",
+     "note": "Sponsored"
+    },
+    {
+     "price": 18973,
+     "miles": 63631,
+     "location": "Huntsville, AL",
+     "trim": "SEL FWD",
+     "body": "Sedan",
+     "note": "Sponsored"
+    },
+    {
+     "price": 18689,
+     "miles": 50370,
+     "location": "Somersworth, NH",
+     "trim": "SEL FWD",
+     "body": "Sedan",
+     "note": "CPO"
+    },
+    {
+     "price": 23548,
+     "miles": 13266,
+     "location": "Sarasota, FL",
+     "trim": "SEL FWD",
+     "body": "Sedan",
+     "note": ""
+    },
+    {
+     "price": 18941,
+     "miles": 46570,
+     "location": "Englewood Cliffs, NJ",
+     "trim": "SEL FWD",
+     "body": "Sedan",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016: no SEL trim in 2016 (SEL arrived for 2018 per the sticker data), so the unfiltered 2016 page was fetched; only 5 listings with mileage were returned by the page extractor (an ad was skipped).",
+  "page_average: the FAQ sentence 'The average price for the <year> Hyundai Sonata SEL is $20,471' is identical on the 2019, 2022 and 2024 pages (boilerplate, not year-specific); the 2016 page said $20,821 for a non-existent 2016 SEL, so 2016 is null.",
+  "Hybrid Sonatas not sampled."
+ ]
+}

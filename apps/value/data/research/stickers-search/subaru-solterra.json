@@ -1,0 +1,54 @@
+{
+"make": "Subaru",
+"model": "Solterra",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2023,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 44995,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2023+Subaru+Solterra+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (brooklynparksubaru.com, media.subaru.com, serrasubaruoftraversecity.com)."
+},
+{
+"year": 2025,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 38495,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2025+Subaru+Solterra+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (beyersubaru.com, edmunds.com, ewingsubaruofplano.com)."
+},
+{
+"year": 2026,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 38495,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2026+Subaru+Solterra+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (edmunds.com, greencars.com, kbb.com)."
+}
+],
+"gaps": []
+}

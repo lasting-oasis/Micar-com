@@ -1,0 +1,640 @@
+{
+ "make": "Kia",
+ "model": "Sportage",
+ "body": "SUV / Crossover",
+ "note": "Gas Sportage only. Sportage Hybrid (HEV, 2023+) and Plug-in Hybrid (PHEV, 2023+) have separate kiamedia pricing pages and are not priced here. Every row lists the trim in FWD and AWD where both exist; config holds engine and drivetrain. MSRP excludes destination.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 22150,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 23650,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 25350,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 26850,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 29990,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 31490,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/kia-sportage-2016/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com research trims page, 'Starting MSRP' (excludes destination; latest in-year price). Page gives no destination charge, so destination is null. 2016 is the last year of the 3rd-generation (SL) Sportage; SX is the 260-hp 2.0L turbo. The kiamedia 2016 pricing page was blocked on first fetch and not retried."
+  },
+  {
+   "year": 2017,
+   "destination": 895,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 23200,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 24700,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 25700,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 27200,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 32700,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 34200,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2017/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2018,
+   "destination": 990,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 23600,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 25100,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 26400,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 27900,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 32900,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 34400,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2018/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2019,
+   "destination": 1045,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 23750,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 25250,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 26600,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 28100,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 33100,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 34600,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2019/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2020,
+   "destination": 1120,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 23990,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 25490,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 26140,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 27840,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 27290,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 28790,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 33590,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 35090,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2020/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2021,
+   "destination": 1175,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 24090,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 25590,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 26590,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "S",
+     "msrp": 28290,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 27390,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 28890,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 33750,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 35250,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2021/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2022,
+   "destination": 1215,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 24090,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 25590,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "Nightfall Edition",
+     "msrp": 28090,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "Nightfall Edition",
+     "msrp": 29790,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 28390,
+     "config": "2.4L I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 29890,
+     "config": "2.4L I4, 6-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 33750,
+     "config": "2.0L turbo I4, 6-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX Turbo",
+     "msrp": 35250,
+     "config": "2.0L turbo I4, 6-speed auto, AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2022/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing. 2022 is the last year of the previous-generation (QL) Sportage; the S trim is replaced by Nightfall Edition."
+  },
+  {
+   "year": 2023,
+   "destination": 1325,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 26290,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 28090,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 28290,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 30090,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line",
+     "msrp": 31090,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "SX",
+     "msrp": 31790,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX",
+     "msrp": 33590,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Pro",
+     "msrp": 35290,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "SX-Prestige",
+     "msrp": 33790,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Prestige",
+     "msrp": 35590,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Pro Prestige",
+     "msrp": 37090,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2023/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing. 2023 is the first year of the new-generation (NQ5) Sportage: 2.5L replaces 2.4L/2.0T, SX Turbo dropped."
+  },
+  {
+   "year": 2024,
+   "destination": 1375,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 27190,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 28990,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 29190,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 30990,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line",
+     "msrp": 31990,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "SX",
+     "msrp": 32690,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": "FWD only on this page (no SX AWD row in 2024)"
+    },
+    {
+     "trim": "X-Pro",
+     "msrp": 36190,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "SX-Prestige",
+     "msrp": 34690,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Prestige",
+     "msrp": 36490,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Pro Prestige",
+     "msrp": 37990,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2024/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2025,
+   "destination": 1395,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 27390,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 29190,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 29490,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 31290,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line",
+     "msrp": 32290,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "SX",
+     "msrp": 32990,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": "FWD only on this page"
+    },
+    {
+     "trim": "X-Pro",
+     "msrp": 36490,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "SX-Prestige",
+     "msrp": 34990,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Prestige",
+     "msrp": 36790,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Pro Prestige",
+     "msrp": 38290,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2025/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing."
+  },
+  {
+   "year": 2026,
+   "destination": 1495,
+   "trims": [
+    {
+     "trim": "LX",
+     "msrp": 28790,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "LX",
+     "msrp": 30590,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 30590,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "EX",
+     "msrp": 32390,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Line",
+     "msrp": 33090,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only"
+    },
+    {
+     "trim": "SX",
+     "msrp": 34390,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": "FWD only on this page"
+    },
+    {
+     "trim": "SX-Prestige",
+     "msrp": 36390,
+     "config": "2.5L GDI I4, 8-speed auto, FWD",
+     "note": ""
+    },
+    {
+     "trim": "SX-Prestige",
+     "msrp": 38190,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": ""
+    },
+    {
+     "trim": "X-Pro Prestige",
+     "msrp": 39690,
+     "config": "2.5L GDI I4, 8-speed auto, AWD",
+     "note": "AWD only; plain X-Pro not listed for 2026"
+    }
+   ],
+   "source": "https://www.kiamedia.com/us/en/models/sportage/2026/pricing",
+   "source_type": "manufacturer",
+   "source_note": "kiamedia.com model pricing page (official Kia US newsroom). Page lists MSRP per trim/drivetrain and a separate destination charge; footnote says prices are F.O.B. Port of Entry and freight is additional, so MSRP excludes destination. Page shows one price per row with no date, so it may be the final in-year price rather than launch pricing. Kia also issued a press release (kiamedia.com pressreleases/23189) for 2026 Sportage pricing; not fetched."
+  }
+ ],
+ "gaps": [
+  "2016: kiamedia 2016 Sportage pricing page (https://www.kiamedia.com/us/en/models/sportage/2016/pricing) was blocked on first fetch (permission request not answered) and not retried; 2016 uses cars.com research (secondary), destination unknown.",
+  "All 2017-2026 figures come from kiamedia model pricing pages that carry no date; they may be end-of-year prices that include mid-year increases rather than launch prices.",
+  "Sportage HEV and PHEV pricing not collected."
+ ]
+}

@@ -1,0 +1,78 @@
+{
+"make": "BMW",
+"model": "i7",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (i7).",
+"years": [
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive60 4dr Sedan",
+"msrp": 119300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-i7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "eDrive50 4dr Sedan",
+"msrp": 105700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive60 4dr Sedan",
+"msrp": 124200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M70 4dr Sedan",
+"msrp": 168500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-i7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "eDrive50 4dr Sedan",
+"msrp": 105700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive60 4dr Sedan",
+"msrp": 124200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M70 4dr Sedan",
+"msrp": 168500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-i7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

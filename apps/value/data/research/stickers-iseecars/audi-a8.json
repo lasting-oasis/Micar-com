@@ -1,0 +1,372 @@
+{
+"make": "Audi",
+"model": "A8",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (a8).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 74550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 78400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 78050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 84000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 78750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro 4dr Sedan",
+"msrp": 84700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD W12 quattro 4dr Sedan",
+"msrp": 133500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 3.0T quattro 4dr Sedan",
+"msrp": 75100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro 4dr Sedan",
+"msrp": 78800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI 4dr Sedan",
+"msrp": 82500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.0T quattro 4dr Sedan",
+"msrp": 83900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.0T quattro 4dr Sedan",
+"msrp": 87600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD W12 quattro 4dr Sedan",
+"msrp": 135900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan 3.0T",
+"msrp": 77400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0T",
+"msrp": 81400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L TDI",
+"msrp": 85100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 4.0T",
+"msrp": 86400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 4.0T",
+"msrp": 90400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan",
+"msrp": 137900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 925,
+"trims": [
+{
+"trim": "AWD 3.0T quattro 4dr Sedan",
+"msrp": 81500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI 4dr Sedan",
+"msrp": 85200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.0T quattro Sport 4dr Sedan",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD W12 quattro 4dr Sedan",
+"msrp": 137900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "3.0 TFSI",
+"msrp": 82500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4.0 TFSI Sport",
+"msrp": 91500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "3.0 TFSI",
+"msrp": 82500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4.0 TFSI Sport",
+"msrp": 92000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD 3.0T quattro 4dr Sedan",
+"msrp": 83800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.0T quattro 4dr Sedan",
+"msrp": 96800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "55 TFSI quattro",
+"msrp": 85200,
+"config": "",
+"note": ""
+},
+{
+"trim": "60 TFSI e quattro",
+"msrp": 94000,
+"config": "",
+"note": ""
+},
+{
+"trim": "60 TFSI quattro",
+"msrp": 96800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "55 TFSI quattro",
+"msrp": 86500,
+"config": "",
+"note": ""
+},
+{
+"trim": "60 TFSI quattro",
+"msrp": 98900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro 55 TFSI 4dr Sedan",
+"msrp": 86500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro 55 TFSI 4dr Sedan",
+"msrp": 87800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro 55 TFSI 4dr Sedan",
+"msrp": 90900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD quattro 55 TFSI 4dr Sedan",
+"msrp": 92000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-audi-a8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,553 @@
+{
+  "make": "Chevrolet",
+  "model": "Colorado",
+  "body": "Pickup Truck",
+  "note": "Mid-size pickup. 2016-2022 (2nd gen, launched 2015): Extended Cab and Crew Cab, 4x2/4x4, 5'2\" short or 6'2\" long box; trims Base (Ext Cab 4x2 only, through 2020), WT, LT, Z71, ZR2 (from 2017). 2023-on (3rd gen): Crew Cab short box only; trims WT, LT, Trail Boss, Z71, ZR2. Rows give each trim's cheapest listed configuration plus a Crew Cab 4x4 short-box row (the common used configuration); other configurations are in row notes. Chevrolet writes the base work trim as 'WT'; recorded here as 'Work Truck' (as iSeeCars and the Silverado file write it). All MSRPs exclude destination.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 895,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 20100,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Base offered only as Extended Cab 4x2."
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 22435,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $24,990; Crew Cab 4x4 6 ft. $30,665."
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 30365,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 25980,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $27,920; Extended Cab 4x4 $30,030."
+        },
+        {
+          "trim": "LT",
+          "msrp": 32895,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $33,195."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 28515,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $30,435."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 35000,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $35,300."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box."
+    },
+    {
+      "year": 2017,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 20000,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Base only as Extended Cab 4x2. $100 below the 2016 Base."
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 23230,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $25,785; Crew Cab 4x4 5 ft. $30,970."
+        },
+        {
+          "trim": "LT",
+          "msrp": 26775,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $28,715; Extended Cab 4x4 $30,660."
+        },
+        {
+          "trim": "LT",
+          "msrp": 33675,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $33,975."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 29310,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $31,230."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 35780,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $36,080."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 40000,
+          "config": "Extended Cab 4x4 6 ft. long box",
+          "note": "ZR2 new for 2017; 4x4 only."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 41625,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box."
+    },
+    {
+      "year": 2018,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 20200,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Base only as Extended Cab 4x2."
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 23700,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $26,300; Crew Cab 4x4 5 ft. $31,500."
+        },
+        {
+          "trim": "LT",
+          "msrp": 27100,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $29,100; Extended Cab 4x4 $31,000."
+        },
+        {
+          "trim": "LT",
+          "msrp": 34000,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $34,300."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 29700,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $31,600."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 36200,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $36,500."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 40400,
+          "config": "Extended Cab 4x4 6 ft. long box",
+          "note": "4x4 only."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 42000,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box."
+    },
+    {
+      "year": 2020,
+      "destination": 1195,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 21300,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Base only as Extended Cab 4x2; last year listed for Base."
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 24800,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $26,700; Crew Cab 4x4 5 ft. $31,700."
+        },
+        {
+          "trim": "LT",
+          "msrp": 27700,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $29,700; Extended Cab 4x4 $31,400."
+        },
+        {
+          "trim": "LT",
+          "msrp": 34400,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $35,300."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 33900,
+          "config": "Crew Cab 4x2 5 ft. short box (no 4x2 Extended Cab Z71 listed this year)",
+          "note": "Extended Cab 4x4 $35,600."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 37100,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $37,700."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 41400,
+          "config": "Extended Cab 4x4 6 ft. long box",
+          "note": "4x4 only."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 43000,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box."
+    },
+    {
+      "year": 2021,
+      "destination": 1195,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 25200,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $27,100. Base trim no longer listed, so WT is the entry trim."
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 32100,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $33,000."
+        },
+        {
+          "trim": "LT",
+          "msrp": 27700,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Same as 2020. Crew Cab 4x2 5 ft. $29,700; Extended Cab 4x4 $31,400."
+        },
+        {
+          "trim": "LT",
+          "msrp": 34400,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Same as 2020. Crew Cab 4x4 6 ft. $35,300."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 34800,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": "Extended Cab 4x4 $36,500."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 38000,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $38,600."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 42600,
+          "config": "Extended Cab 4x4 6 ft. long box",
+          "note": "4x4 only."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 44200,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2021-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box. LT prices identical to 2020 on this source while WT/Z71/ZR2 rose."
+    },
+    {
+      "year": 2022,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 25900,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $27,800."
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 32900,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $33,700."
+        },
+        {
+          "trim": "LT",
+          "msrp": 28700,
+          "config": "Extended Cab 4x2 6 ft. long box",
+          "note": "Crew Cab 4x2 5 ft. $30,700; Extended Cab 4x4 $32,400."
+        },
+        {
+          "trim": "LT",
+          "msrp": 35400,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $36,300."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 35800,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": "Extended Cab 4x4 $37,500."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 39000,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Crew Cab 4x4 6 ft. $39,600."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 43600,
+          "config": "Extended Cab 4x4 6 ft. long box",
+          "note": "4x4 only."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 45200,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box. Last year of the 2nd generation."
+    },
+    {
+      "year": 2023,
+      "destination": 1495,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 29200,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": "Crew Cab only from 2023."
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 32500,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 31600,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 34900,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "Trail Boss",
+          "msrp": 37000,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "New trim for 2023; 4x4 only."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 39900,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "4x4 only from 2023."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 46800,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "4x4 only."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box. 3rd generation (2023-on): Crew Cab 5 ft. short box only, 2.7L turbo I4. First year of the 3rd generation."
+    },
+    {
+      "year": 2024,
+      "destination": 1595,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 29500,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 32800,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 31900,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 35200,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "Trail Boss",
+          "msrp": 37300,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "Z71",
+          "msrp": 40200,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 46800,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": "Unchanged from 2023 on this source."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box. 3rd generation (2023-on): Crew Cab 5 ft. short box only, 2.7L turbo I4."
+    },
+    {
+      "year": 2025,
+      "destination": 1695,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 31900,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": "+$2,400 vs 2024."
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 35200,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 35800,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": "+$3,900 vs 2024."
+        },
+        {
+          "trim": "LT",
+          "msrp": 39100,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "Trail Boss",
+          "msrp": 39900,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "Z71",
+          "msrp": 43900,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 49600,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box. 3rd generation (2023-on): Crew Cab 5 ft. short box only, 2.7L turbo I4. Large step-up over 2024 on every trim ($2,400-$3,900); reason not stated on the page."
+    },
+    {
+      "year": 2026,
+      "destination": 2095,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 32400,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "Work Truck",
+          "msrp": 35700,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 36000,
+          "config": "Crew Cab 4x2 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 39300,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "Trail Boss",
+          "msrp": 40500,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "Z71",
+          "msrp": 44600,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 50700,
+          "config": "Crew Cab 4x4 5 ft. short box",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2026-chevrolet-colorado-price",
+      "source_type": "secondary",
+      "note": "iSeeCars style table: MSRP and destination in separate columns (page does not say explicitly that MSRP excludes destination; separate-column layout matches the excl.-destination convention). No engine listed per style. '5 ft. SB' / '6 ft. LB' are iSeeCars' labels for the 5'2\" short box and 6'2\" long box. 3rd generation (2023-on): Crew Cab 5 ft. short box only, 2.7L turbo I4. Destination $2,095 is a $400 jump over 2025, as printed."
+    }
+  ],
+  "gaps": [
+    "2019: iSeeCars 2019 page (https://www.iseecars.com/car/2019-chevrolet-colorado-price) was blocked on first fetch (permission request timed out; tool said do not retry), so 2019 is missing. The URL later surfaced in a search but was not retried; no other 2019 source fetched (call budget).",
+    "All years: GM's own pricing releases (media.chevrolet.com / media.gm.com) are robots-disallowed, so every recorded year is from iSeeCars (secondary).",
+    "iSeeCars gives one price level per year (typically the latest in-year price); mid-year increases are not visible."
+  ]
+}

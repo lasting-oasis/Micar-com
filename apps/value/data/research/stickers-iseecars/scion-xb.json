@@ -1,0 +1,168 @@
+{
+"make": "Scion",
+"model": "xB",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (xb).",
+"years": [
+{
+"year": 2010,
+"destination": 670,
+"trims": [
+{
+"trim": "Base 4dr Wagon 5M",
+"msrp": 15850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Wagon 4A",
+"msrp": 16800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 7.0 4dr Wagon 5M",
+"msrp": 18320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 7.0 4dr Wagon 4A",
+"msrp": 19270,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-scion-xb-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 720,
+"trims": [
+{
+"trim": "Base 4dr Wagon 5M",
+"msrp": 16000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Wagon 4A",
+"msrp": 16950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 8.0 4dr Wagon 5M",
+"msrp": 18405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 8.0 4dr Wagon 4A",
+"msrp": 19355,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-scion-xb-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 730,
+"trims": [
+{
+"trim": "Base 4dr Wagon 5M",
+"msrp": 16300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Wagon 4A",
+"msrp": 17250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 9.0 4dr Wagon 5M",
+"msrp": 18110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 9.0 4dr Wagon 4A",
+"msrp": 19060,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-scion-xb-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 755,
+"trims": [
+{
+"trim": "Base 4dr Wagon 5M",
+"msrp": 16970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Wagon 4A",
+"msrp": 17920,
+"config": "",
+"note": ""
+},
+{
+"trim": "10 Series 4dr Wagon 5M",
+"msrp": 19210,
+"config": "",
+"note": ""
+},
+{
+"trim": "10 Series 4dr Wagon 4A",
+"msrp": 20160,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-scion-xb-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 755,
+"trims": [
+{
+"trim": "Base 4dr Wagon 5M",
+"msrp": 16970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Wagon 4A",
+"msrp": 17920,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 10.0 4dr Wagon",
+"msrp": 20420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-scion-xb-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,1602 @@
+{
+"make": "Volkswagen",
+"model": "Jetta",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (jetta).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "S 4dr Sedan 5M",
+"msrp": 17735,
+"config": "",
+"note": ""
+},
+{
+"trim": "S PZEV 4dr Sedan 5M",
+"msrp": 17735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Edition 4dr Sedan 5M",
+"msrp": 18295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Edition PZEV 4dr Sedan 5M",
+"msrp": 18295,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 6A",
+"msrp": 18835,
+"config": "",
+"note": ""
+},
+{
+"trim": "S PZEV 4dr Sedan 6A",
+"msrp": 18835,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Edition 4dr Sedan 6A",
+"msrp": 19395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Edition PZEV 4dr Sedan 6A",
+"msrp": 19395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S 4dr Wagon 5M",
+"msrp": 19510,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S PZEV 4dr Wagon 5M",
+"msrp": 19510,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 5M",
+"msrp": 20550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 5M",
+"msrp": 20550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S 4dr Wagon 6A",
+"msrp": 20610,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S PZEV 4dr Wagon 6A",
+"msrp": 20610,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A",
+"msrp": 21650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A",
+"msrp": 21650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wolfsburg Edition 4dr Sedan 6M",
+"msrp": 22165,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wolfsburg Edition PZEV 4dr Sedan 6M",
+"msrp": 22165,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6M",
+"msrp": 22830,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen SE 4dr Wagon",
+"msrp": 23240,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen SE PZEV 4dr Wagon",
+"msrp": 23240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wolfsburg Edition 4dr Sedan 6A",
+"msrp": 23265,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wolfsburg Edition PZEV 4dr Sedan 6A",
+"msrp": 23265,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan 6A",
+"msrp": 23455,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan 6A",
+"msrp": 23455,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6A",
+"msrp": 23930,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6M",
+"msrp": 24615,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI Cup Edition 4dr Sedan 6M",
+"msrp": 24990,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6A",
+"msrp": 25715,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI Cup Edition 4dr Sedan 6A",
+"msrp": 26090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 770,
+"trims": [
+{
+"trim": "Base 4dr Sedan 5M",
+"msrp": 14995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 5M",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 6A",
+"msrp": 16095,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 6A",
+"msrp": 17095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 5M",
+"msrp": 18195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 5M",
+"msrp": 18195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A",
+"msrp": 19295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A",
+"msrp": 19295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 5M w/ Convenience",
+"msrp": 19545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 5M w/ Convenience",
+"msrp": 19545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S 4dr Wagon 5M",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S PZEV 4dr Wagon 5M",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A w/ Convenience",
+"msrp": 20645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A w/ Convenience",
+"msrp": 20645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 5M w/ Conv. and Sunroof",
+"msrp": 20795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 5M w/ Conv. and Sunroof",
+"msrp": 20795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S 4dr Wagon 6A",
+"msrp": 21095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S PZEV 4dr Wagon 6A",
+"msrp": 21095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan 5M",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan 5M",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A w/ Conv. and Sunroof",
+"msrp": 21895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A w/ Conv. and Sunroof",
+"msrp": 21895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan 5M w/ Sunroof",
+"msrp": 22295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan 5M w/ Sunroof",
+"msrp": 22295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan 6A",
+"msrp": 22495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan 6A",
+"msrp": 22495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan 5M w/ Sport Package",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan 5M w/ Sport Package",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6M",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan 6A w/ Sunroof",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan 6A w/ Sunroof",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen SE 4dr Wagon",
+"msrp": 23745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen SE PZEV 4dr Wagon",
+"msrp": 23745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan 6A w/ Sport Package",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan 6A w/ Sport Package",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6A",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6M w/ Navigation",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6M",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6A w/ Navigation",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6A",
+"msrp": 26095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 820,
+"trims": [
+{
+"trim": "Base 4dr Sedan 5M",
+"msrp": 15695,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 5M",
+"msrp": 16895,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 6A",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 5M",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 5M",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 5M w/Connectivity",
+"msrp": 20715,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 5M w/Connectivity",
+"msrp": 20715,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S 4dr Wagon 5M",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S PZEV 4dr Wagon 5M",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI Value Edition 4dr Sedan 6M",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A w/Connectivity",
+"msrp": 21815,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A w/Connectivity",
+"msrp": 21815,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S 4dr Wagon 6A",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen S PZEV 4dr Wagon 6A",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 5M w/Connectivity and Sunroof",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 5M w/Connectivity and Sunroof",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI Value Edition 4dr Sedan 6A",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A w/Connectivity and Sunroof",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A w/Connectivity and Sunroof",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6M",
+"msrp": 23625,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI 4dr Sedan 6M",
+"msrp": 24535,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI PZEV 4dr Sedan 6M",
+"msrp": 24535,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6A",
+"msrp": 24725,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen SE 4dr Wagon",
+"msrp": 24885,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen SE PZEV 4dr Wagon",
+"msrp": 24885,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6M w/Premium",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 25560,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI 4dr Sedan 6A",
+"msrp": 25635,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI PZEV 4dr Sedan 6A",
+"msrp": 25635,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 25925,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan",
+"msrp": 25925,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6A w/Premium",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6M",
+"msrp": 26565,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen SE 4dr Wagon w/Sunroof",
+"msrp": 26685,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen SE PZEV 4dr Wagon w/Sunroof",
+"msrp": 26685,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6M w/Premium and Navigation",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Autobahn 4dr Sedan 6M",
+"msrp": 26825,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Autobahn PZEV 4dr Sedan 6M",
+"msrp": 26825,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Edition 30 4dr Sedan 6M",
+"msrp": 27455,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Edition 30 PZEV 4dr Sedan 6M",
+"msrp": 27455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE 4dr Sedan",
+"msrp": 27645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6A",
+"msrp": 27665,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI 4dr Sedan 6A w/Premium and Navigation",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Autobahn 4dr Sedan 6A",
+"msrp": 27925,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Autobahn PZEV 4dr Sedan 6A",
+"msrp": 27925,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6M w/Sunroof",
+"msrp": 28365,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Edition 30 4dr Sedan 6A",
+"msrp": 28555,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Edition 30 PZEV 4dr Sedan 6A",
+"msrp": 28555,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Autobahn 4dr Sedan 6M w/Navigation",
+"msrp": 28855,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Autobahn PZEV 4dr Sedan 6M w/Navigation",
+"msrp": 28855,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6M w/Sunroof and Navigation",
+"msrp": 29165,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6A w/Sunroof",
+"msrp": 29465,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Edition 30 4dr Sedan 6M w/Navigation",
+"msrp": 29775,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Edition 30 PZEV 4dr Sedan 6M w/Navigation",
+"msrp": 29775,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Autobahn 4dr Sedan 6A w/Navigation",
+"msrp": 29955,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Autobahn PZEV 4dr Sedan 6A w/Navigation",
+"msrp": 29955,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SEL 4dr Sedan",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SportWagen TDI 4dr Wagon 6A w/Sunroof and Navigation",
+"msrp": 30265,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Edition 30 4dr Sedan 6A w/Navigation",
+"msrp": 30875,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Edition 30 PZEV 4dr Sedan 6A w/Navigation",
+"msrp": 30875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SEL Premium 4dr Sedan",
+"msrp": 31895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 820,
+"trims": [
+{
+"trim": "4dr Sedan 5M",
+"msrp": 16215,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 5M",
+"msrp": 17325,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 5M w/Technology",
+"msrp": 18320,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 6A",
+"msrp": 18425,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 5M",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 5M",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 6A w/Technology",
+"msrp": 19420,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A",
+"msrp": 20095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A",
+"msrp": 20095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 5M",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI S 4dr Sedan 6M",
+"msrp": 21640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport PZEV 4dr Sedan 6A",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A w/Connectivity",
+"msrp": 22325,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A w/Connectivity",
+"msrp": 22325,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI S 4dr Sedan 6A",
+"msrp": 22740,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6A w/Connectivity and Navigation",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE PZEV 4dr Sedan 6A w/Connectivity and Navigation",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI SE 4dr Sedan 6M w/Connectivity",
+"msrp": 24075,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI SE 4dr Sedan 6A w/Connectivity",
+"msrp": 25175,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan 6A",
+"msrp": 25380,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL PZEV 4dr Sedan 6A",
+"msrp": 25380,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI SEL 4dr Sedan 6M",
+"msrp": 26410,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SE 4dr Sedan 6M",
+"msrp": 26920,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SE PZEV 4dr Sedan 6M",
+"msrp": 26920,
+"config": "",
+"note": ""
+},
+{
+"trim": "TDI SEL 4dr Sedan 6A",
+"msrp": 27510,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SE 4dr Sedan 6A",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SE PZEV 4dr Sedan 6A",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SEL 4dr Sedan 6M",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SEL PZEV 4dr Sedan 6M",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SEL 4dr Sedan 6A",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI SEL PZEV 4dr Sedan 6A",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SEL Premium 4dr Sedan",
+"msrp": 31120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Manual 1.4T S Sedan",
+"msrp": 17680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 1.4T S with Technology Sedan",
+"msrp": 18675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.4T S Sedan",
+"msrp": 18780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 1.4T SE Sedan",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.4T S with Technology Sedan",
+"msrp": 19775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.4T SE Sedan",
+"msrp": 20095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 1.8T Sport PZEV Sedan",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T Sport PZEV Sedan",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.4T SE with Connectivity Sedan",
+"msrp": 22325,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T SEL Sedan",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T SEL PZEV Sedan",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T SEL Premium Sedan",
+"msrp": 25380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 1.8T SEL Premium PZEV Sedan",
+"msrp": 25380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 2.0T GLI SE Sedan",
+"msrp": 26920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 2.0T GLI SE PZEV Sedan",
+"msrp": 26920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 2.0T GLI SE Sedan",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 2.0T GLI SE PZEV Sedan",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 2.0T GLI SEL Sedan",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Manual 2.0T GLI SEL PZEV Sedan",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 2.0T GLI SEL Sedan",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Auto 2.0T GLI SEL PZEV Sedan",
+"msrp": 30380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr DSG Hybrid SEL Premium Sedan",
+"msrp": 31120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "1.4T S Manual",
+"msrp": 17895,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T S Auto",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE Manual",
+"msrp": 20895,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE Auto",
+"msrp": 21995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T Sport Auto",
+"msrp": 22175,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SEL Auto",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SEL Premium Auto",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Manual",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "GLI Auto",
+"msrp": 28995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "1.4T S Manual",
+"msrp": 18645,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T S Auto",
+"msrp": 19645,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T Wolfsburg Edition Manual",
+"msrp": 20345,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE Manual",
+"msrp": 21245,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T Wolfsburg Edition Auto",
+"msrp": 21345,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.4T SE Auto",
+"msrp": 22245,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SE Sport Auto",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8T SEL Auto",
+"msrp": 26245,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T GLI DSG",
+"msrp": 29545,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual w/SULEV",
+"msrp": 18745,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto w/SULEV",
+"msrp": 19545,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto w/ULEV",
+"msrp": 19545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto w/SULEV",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto w/ULEV",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto w/SULEV",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto w/ULEV",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto w/SULEV",
+"msrp": 24695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto w/ULEV",
+"msrp": 24695,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Manual",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S DSG",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "35th Anniversary Edition Manual",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/SULEV",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/ULEV",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/CWP/SULEV",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/CWP/ULEV",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "35th Anniversary Edition DSG",
+"msrp": 27795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Autobahn Manual",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Autobahn DSG",
+"msrp": 29995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual w/SULEV",
+"msrp": 18895,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto w/ULEV",
+"msrp": 19695,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto w/SULEV",
+"msrp": 19695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto w/ULEV",
+"msrp": 22645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto w/SULEV",
+"msrp": 22645,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Manual w/SULEV",
+"msrp": 22695,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto w/ULEV",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto w/SULEV",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto w/ULEV",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto w/SULEV",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/ULEV",
+"msrp": 27945,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto w/SULEV",
+"msrp": 27945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "S Manual",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Auto",
+"msrp": 19795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Manual",
+"msrp": 22795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto",
+"msrp": 22895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R-Line Auto",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto",
+"msrp": 25745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium Auto",
+"msrp": 28045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "1.5T S 4dr Sedan 6M",
+"msrp": 20365,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T S 4dr Sedan 8A",
+"msrp": 21165,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T Sport 4dr Sedan 6M",
+"msrp": 21265,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T Sport 4dr Sedan 8A",
+"msrp": 22065,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T SE 4dr Sedan",
+"msrp": 24095,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5T SEL 4dr Sedan",
+"msrp": 28095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volkswagen-jetta-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

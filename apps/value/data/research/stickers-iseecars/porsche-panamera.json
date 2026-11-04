@@ -1,0 +1,1347 @@
+{
+"make": "Porsche",
+"model": "Panamera",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (panamera).",
+"years": [
+{
+"year": 2010,
+"destination": 860,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 89800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 93800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 132600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 975,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 74400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 78900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 89800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 94700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 135300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 975,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 75200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 79800,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 90300,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Hybrid 4dr Sedan",
+"msrp": 95000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 95200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 136700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr Sedan",
+"msrp": 173200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 975,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 75850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 80450,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 91350,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Hybrid 4dr Sedan",
+"msrp": 96150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 96350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 111000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 138650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr Sedan",
+"msrp": 175300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 975,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 78100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 82800,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 93200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 98300,
+"config": "",
+"note": ""
+},
+{
+"trim": "S E-Hybrid 4dr Sedan",
+"msrp": 99000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 113400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Executive 4dr Sedan",
+"msrp": 125600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 141300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Executive 4dr Sedan",
+"msrp": 161100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 78100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 82800,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 93200,
+"config": "",
+"note": ""
+},
+{
+"trim": "S E-Hybrid 4dr Sedan",
+"msrp": 96100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 98300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 113400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Executive 4dr Sedan",
+"msrp": 125600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 141300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Executive 4dr Sedan",
+"msrp": 161100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr Sedan",
+"msrp": 180300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S Executive 4dr Sedan",
+"msrp": 200500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr HB",
+"msrp": 78100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB Edition",
+"msrp": 80000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB 4",
+"msrp": 82800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB 4 Edition",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB S",
+"msrp": 93200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB S E-Hybrid",
+"msrp": 93200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB 4S",
+"msrp": 98300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB GTS",
+"msrp": 113400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB 4S Executive",
+"msrp": 125600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB Turbo",
+"msrp": 141300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB Turbo Executive",
+"msrp": 161100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB Turbo S",
+"msrp": 180300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB Turbo S Executive",
+"msrp": 200500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB Exclusive Series",
+"msrp": 263900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 1050,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 85000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 89600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Executive 4dr Sedan",
+"msrp": 96300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid 4dr Sedan",
+"msrp": 99600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 99900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Executive 4dr Sedan",
+"msrp": 104100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Executive 4dr Sedan",
+"msrp": 113900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 146900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Executive 4dr Sedan",
+"msrp": 160000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "RWD",
+"msrp": 85000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 AWD",
+"msrp": 89600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 Sport Turismo AWD",
+"msrp": 96200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 Executive AWD",
+"msrp": 96300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 E-Hybrid AWD",
+"msrp": 99600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S AWD",
+"msrp": 103000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 E-Hybrid Sport Turismo AWD",
+"msrp": 104000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 E-Hybrid Executive AWD",
+"msrp": 104100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S Sport Turismo AWD",
+"msrp": 109200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S Executive AWD",
+"msrp": 113900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 150000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Sport Turismo AWD",
+"msrp": 154000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Executive AWD",
+"msrp": 160000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid AWD",
+"msrp": 184400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid Sport Turismo AWD",
+"msrp": 188400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid Executive AWD",
+"msrp": 194800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "RWD",
+"msrp": 86300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 AWD",
+"msrp": 90900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 Sport Turismo AWD",
+"msrp": 97100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 Executive AWD",
+"msrp": 97600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 E-Hybrid AWD",
+"msrp": 102900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S AWD",
+"msrp": 104000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 E-Hybrid Sport Turismo AWD",
+"msrp": 106900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 E-Hybrid Executive AWD",
+"msrp": 107400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S Sport Turismo AWD",
+"msrp": 110200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S Executive AWD",
+"msrp": 115300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS AWD",
+"msrp": 128300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS Sport Turismo AWD",
+"msrp": 134500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 151500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Sport Turismo AWD",
+"msrp": 155500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Executive AWD",
+"msrp": 161900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid AWD",
+"msrp": 186200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid Sport Turismo AWD",
+"msrp": 190200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid Executive AWD",
+"msrp": 196600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1350,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 87200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 91800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Sport Turismo 4dr Wagon",
+"msrp": 98000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Executive 4dr Sedan",
+"msrp": 98500,
+"config": "",
+"note": ""
+},
+{
+"trim": "10 Year Edition 4dr Sedan",
+"msrp": 103300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid 4dr Sedan",
+"msrp": 103800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 105000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 10 Year Edition 4dr Sedan",
+"msrp": 107500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 107800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Executive 4dr Sedan",
+"msrp": 108300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Sport Turismo 4dr Wagon",
+"msrp": 111200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Executive 4dr Sedan",
+"msrp": 116300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid 10 Year Edition 4dr Sedan",
+"msrp": 116900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 129300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Sport Turismo 4dr Wagon",
+"msrp": 135500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 153000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Sport Turismo 4dr Wagon",
+"msrp": 157000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Executive 4dr Sedan",
+"msrp": 163400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid 4dr Sedan",
+"msrp": 187700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 191700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Executive 4dr Sedan",
+"msrp": 198100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "RWD",
+"msrp": 87200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 AWD",
+"msrp": 91800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 Sport Turismo AWD",
+"msrp": 98000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 Executive AWD",
+"msrp": 98500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 E-Hybrid AWD",
+"msrp": 103800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S AWD",
+"msrp": 105000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 E-Hybrid Sport Turismo AWD",
+"msrp": 107800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 E-Hybrid Executive AWD",
+"msrp": 108300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S Sport Turismo AWD",
+"msrp": 111200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S E-Hybrid AWD",
+"msrp": 113300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S Executive AWD",
+"msrp": 116300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S E-Hybrid Sport Turismo AWD",
+"msrp": 117300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S E-Hybrid Executive AWD",
+"msrp": 124600,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS AWD",
+"msrp": 129300,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS Sport Turismo AWD",
+"msrp": 135500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S AWD",
+"msrp": 177700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S Sport Turismo AWD",
+"msrp": 181700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid AWD",
+"msrp": 187700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S Executive AWD",
+"msrp": 188100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid Sport Turismo AWD",
+"msrp": 191700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S E-Hybrid Executive AWD",
+"msrp": 198100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1350,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 88400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 93000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Sport Turismo 4dr Wagon",
+"msrp": 99200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Executive 4dr Sedan",
+"msrp": 99700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Edition 4dr Sedan",
+"msrp": 101900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid 4dr Sedan",
+"msrp": 105000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Platinum Edition 4dr Sedan",
+"msrp": 106000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 106400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 109000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Executive 4dr Sedan",
+"msrp": 109500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Sport Turismo 4dr Wagon",
+"msrp": 112600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S E-Hybrid 4dr Sedan",
+"msrp": 114700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Platinum Edition 4dr Sedan",
+"msrp": 115200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Executive 4dr Sedan",
+"msrp": 117700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 118700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S E-Hybrid Executive 4dr Sedan",
+"msrp": 126000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 130700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Sport Turismo 4dr Wagon",
+"msrp": 136900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr Sedan",
+"msrp": 179800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S Sport Turismo 4dr Wagon",
+"msrp": 183800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid 4dr Sedan",
+"msrp": 189800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S Executive 4dr Sedan",
+"msrp": 190200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 193800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Executive 4dr Sedan",
+"msrp": 200200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1450,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 92400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 97000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Sport Turismo 4dr Wagon",
+"msrp": 103200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Executive 4dr Sedan",
+"msrp": 103700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Edition 4dr Sedan",
+"msrp": 106300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid 4dr Sedan",
+"msrp": 109000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Platinum Edition 4dr Sedan",
+"msrp": 110500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 110900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 113000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Executive 4dr Sedan",
+"msrp": 113500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Sport Turismo 4dr Wagon",
+"msrp": 117100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S E-Hybrid 4dr Sedan",
+"msrp": 119200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid Platinum Edition 4dr Sedan",
+"msrp": 120000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Executive 4dr Sedan",
+"msrp": 122000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 123200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S E-Hybrid Executive 4dr Sedan",
+"msrp": 130500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 135200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Sport Turismo 4dr Wagon",
+"msrp": 141400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr Sedan",
+"msrp": 186400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S Sport Turismo 4dr Wagon",
+"msrp": 190400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid 4dr Sedan",
+"msrp": 196400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S Executive 4dr Sedan",
+"msrp": 196800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Sport Turismo 4dr Wagon",
+"msrp": 200400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid Executive 4dr Sedan",
+"msrp": 206800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-05-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1650,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 99900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 106900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1995,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 102800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 109800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 E-Hybrid 4dr Sedan",
+"msrp": 115500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S E-Hybrid 4dr Sedan",
+"msrp": 126800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 154200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo E-Hybrid 4dr Sedan",
+"msrp": 191000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S E-Hybrid 4dr Sedan",
+"msrp": 226500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-porsche-panamera-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

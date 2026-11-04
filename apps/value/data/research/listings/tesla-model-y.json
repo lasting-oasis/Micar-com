@@ -1,0 +1,29 @@
+{
+  "make": "Tesla",
+  "model": "Model Y",
+  "samples": [
+    {
+      "year": 2022,
+      "trim_filter": null,
+      "source": "https://truecar.com/used-cars-for-sale/listings/tesla/model-y/year-2022",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Page returned summary text only, no listing cards and no 'average price' sentence. Stated: 2022 row 'Price From' $19,541, 835 available; price range $19,541-$39,500; mileage 3,040-102,312.",
+      "listings": []
+    },
+    {
+      "year": 2024,
+      "trim_filter": null,
+      "source": "https://truecar.com/used-cars-for-sale/listings/tesla/model-y/year-2024",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Page returned summary text only, no listing cards. Stated: 'The average price for the 2024 Tesla Model Y Long Range is $35,605'; Performance and Standard Range 'averaging $39,461 and $34,214 respectively'; 2024 row 'Price From' $28,994, 308 available.",
+      "listings": []
+    }
+  ],
+  "gaps": [
+    "2016 and 2019: Model Y not sold (first model year 2020); skipped. 2020 substitute not fetched (budget; the other TrueCar Tesla pages this round mostly rendered without listing cards).",
+    "2022 and 2024: the fetched TrueCar unfiltered year pages rendered summary text only, with no individual listing cards; no listings captured, not refetched (one page per year rule). Summary figures kept in page_average_note.",
+    "page_average left null: unfiltered pages quote per-trim averages (model-wide boilerplate), not one figure."
+  ]
+}

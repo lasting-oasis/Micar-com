@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /image-search.do
+Disallow: /print.do
+Disallow: /text-search.do
+Disallow: /download.do
+Disallow: /multifiledownload.do
+
+User-agent: MJ12bot
+Crawl-delay: 5
+Disallow: /image-search.do
+Disallow: /print.do
+Disallow: /text-search.do
+Disallow: /download.do
+Disallow: /multifiledownload.do

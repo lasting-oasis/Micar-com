@@ -1,0 +1,435 @@
+{
+"make": "BMW",
+"model": "X3",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (x3, x3_m).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD xDrive30i 4dr SUV",
+"msrp": 38750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD xDrive28i 4dr SUV",
+"msrp": 36750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 41050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD xDrive28i 4dr SUV",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 42700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD xDrive28i 4dr SUV",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 43600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "AWD xDrive28i 4dr SUV",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 44900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 950,
+"trims": [
+{
+"trim": "sDrive28i 4dr SUV",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive28i 4dr SUV",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive28d 4dr SUV",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 45500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive28i 4dr SUV",
+"msrp": 38950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive28i 4dr SUV",
+"msrp": 40950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive28d 4dr SUV",
+"msrp": 42450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive35i 4dr SUV",
+"msrp": 46800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 40050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 42050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 42750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 48950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 54500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 54650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 43950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 48550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X3 M Sports Activity Vehicle",
+"msrp": 69900,
+"config": "",
+"note": ""
+},
+{
+"trim": "M X3 M Competition Sports Activity Vehicle",
+"msrp": 76900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sports Activity Vehicle",
+"msrp": 56600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive30i 4dr Sports Activity Vehicle",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive30i 4dr Sports Activity Vehicle",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M40i 4dr Sports Activity Vehicle",
+"msrp": 57800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive30i 4dr Sports Activity Vehicle",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive30i 4dr Sports Activity Vehicle",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M40i 4dr Sports Activity Vehicle",
+"msrp": 61000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "sDrive30i 4dr Sports Activity Vehicle",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive30i 4dr Sports Activity Vehicle",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M40i 4dr Sports Activity Vehicle",
+"msrp": 61900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "AWD 30 xDrive 4dr Sports Activity Vehicle",
+"msrp": 49950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M50 xDrive 4dr Sports Activity Vehicle",
+"msrp": 64700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-x3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

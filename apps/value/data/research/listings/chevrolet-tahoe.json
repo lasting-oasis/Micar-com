@@ -1,0 +1,211 @@
+{
+  "make": "Chevrolet",
+  "model": "Tahoe",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/tahoe/year-2016/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 34817,
+      "page_total_listings": 67,
+      "note": "First 5 in page order. page_average is TrueCar's '$34,817' sentence, identical on all four year pages (boilerplate).",
+      "listings": [
+        {
+          "price": 19884,
+          "miles": 119571,
+          "location": "Kernersville, NC",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9724,
+          "miles": 143898,
+          "location": "Lubbock, TX",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16373,
+          "miles": 161915,
+          "location": "Newport News, VA",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19786,
+          "miles": 116239,
+          "location": "High Point, NC",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17448,
+          "miles": 167674,
+          "location": "Jefferson City, TN",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/tahoe/year-2019/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 34817,
+      "page_total_listings": 130,
+      "note": "First 5 in page order. page_average is TrueCar's '$34,817' sentence, identical on all four year pages (boilerplate).",
+      "listings": [
+        {
+          "price": 15321,
+          "miles": 152431,
+          "location": "Mobile, AL",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 24790,
+          "miles": 92168,
+          "location": "Troy, AL",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 25683,
+          "miles": 87761,
+          "location": "Brockton, MA",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 13644,
+          "miles": 183521,
+          "location": "Maysville, KY",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14995,
+          "miles": 162071,
+          "location": "Katy, TX",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/tahoe/year-2022/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 34817,
+      "page_total_listings": 167,
+      "note": "First 5 in page order. page_average is TrueCar's '$34,817' sentence, identical on all four year pages (boilerplate).",
+      "listings": [
+        {
+          "price": 30546,
+          "miles": 122090,
+          "location": "Mobile, AL",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 32998,
+          "miles": 87153,
+          "location": "Memphis, TN",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 38595,
+          "miles": 62540,
+          "location": "Hazard, KY",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 36243,
+          "miles": 84211,
+          "location": "Nokomis, FL",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 37394,
+          "miles": 82886,
+          "location": "Vero Beach, FL",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/tahoe/year-2024/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 34817,
+      "page_total_listings": 173,
+      "note": "First 5 in page order. page_average is TrueCar's '$34,817' sentence, identical on all four year pages (boilerplate).",
+      "listings": [
+        {
+          "price": 40351,
+          "miles": 70445,
+          "location": "Rexburg, ID",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 40261,
+          "miles": 75023,
+          "location": "Chesterton, IN",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 39299,
+          "miles": 83639,
+          "location": "Hazard, KY",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 41683,
+          "miles": 60745,
+          "location": "Mount Airy, NC",
+          "trim": "LT 4WD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 52694,
+          "miles": 23658,
+          "location": "Mount Dora, FL",
+          "trim": "LT RWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": []
+}

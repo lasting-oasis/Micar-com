@@ -1,0 +1,214 @@
+{
+  "make": "Volkswagen",
+  "model": "Tiguan",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "SE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/volkswagen/tiguan/year-2016/?trim=se",
+      "fetched": "2026-10-28",
+      "page_average": 22219,
+      "page_average_note": "'The average price for the 2016 Volkswagen Tiguan SE is $22,219' - the same $22,219 appears on all four year pages; boilerplate.",
+      "page_total_listings": 13,
+      "listings": [
+        {
+          "price": 10289,
+          "miles": 106969,
+          "location": "Middletown, NJ",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 9390,
+          "miles": 79715,
+          "location": "Chantilly, VA",
+          "trim": "SE FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 7281,
+          "miles": 121224,
+          "location": "Orlando, FL",
+          "trim": "SE FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 11183,
+          "miles": 93096,
+          "location": "Malden, MA",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": "TrueCar label 'High price'"
+        },
+        {
+          "price": 14599,
+          "miles": 61574,
+          "location": "San Jose, CA",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "SE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/volkswagen/tiguan/year-2019/?trim=se",
+      "fetched": "2026-10-28",
+      "page_average": 22219,
+      "page_average_note": "'The average price for the 2019 Volkswagen Tiguan SE is $22,219' - the same $22,219 appears on all four year pages; boilerplate.",
+      "page_total_listings": 136,
+      "listings": [
+        {
+          "price": 12798,
+          "miles": 95419,
+          "location": "Burgaw, NC",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 9491,
+          "miles": 131575,
+          "location": "Austin, TX",
+          "trim": "SE FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 13984,
+          "miles": 79447,
+          "location": "Clermont, FL",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12345,
+          "miles": 110705,
+          "location": "Glen Cove, NY",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15856,
+          "miles": 85348,
+          "location": "Twin Falls, ID",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/volkswagen/tiguan/year-2022/?trim=se",
+      "fetched": "2026-10-28",
+      "page_average": 22219,
+      "page_average_note": "'The average price for the 2022 Volkswagen Tiguan SE is $22,219' - the same $22,219 appears on all four year pages; boilerplate.",
+      "page_total_listings": 303,
+      "listings": [
+        {
+          "price": 14492,
+          "miles": 101554,
+          "location": "Orlando, FL",
+          "trim": "SE FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 16562,
+          "miles": 68759,
+          "location": "Coconut Creek, FL",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 16299,
+          "miles": 67928,
+          "location": "Pikeville, KY",
+          "trim": "SE FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 19853,
+          "miles": 53918,
+          "location": "Albany, NY",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 20298,
+          "miles": 43166,
+          "location": "Elgin, IL",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/volkswagen/tiguan/year-2024/?trim=se",
+      "fetched": "2026-10-28",
+      "page_average": 22219,
+      "page_average_note": "'The average price for the 2024 Volkswagen Tiguan SE is $22,219' - the same $22,219 appears on all four year pages; boilerplate.",
+      "page_total_listings": 396,
+      "listings": [
+        {
+          "price": 20307,
+          "miles": 52040,
+          "location": "Columbia, SC",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 21814,
+          "miles": 26159,
+          "location": "Tampa, FL",
+          "trim": "SE FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 21429,
+          "miles": 35319,
+          "location": "Albany, GA",
+          "trim": "SE FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17113,
+          "miles": 81608,
+          "location": "Longwood, FL",
+          "trim": "SE FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 21978,
+          "miles": 20963,
+          "location": "Staten Island, NY",
+          "trim": "SE 4MOTION",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2016 is the first-generation Tiguan (different, smaller model than 2019+); its SE filter page had only 13 listings nationwide.",
+    "TrueCar 'average price' sentence ($22,219) is identical on every year page; do not use as a year signal."
+  ]
+}

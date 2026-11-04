@@ -1,0 +1,401 @@
+{
+  "make": "Subaru",
+  "model": "Crosstrek",
+  "body": "SUV / Crossover",
+  "note": "Subcompact AWD crossover (lifted Impreza hatchback). Trims carried a 2.0i prefix through 2019; 2016 Hybrid is a mild hybrid, 2019-2023 Hybrid is a plug-in. Manual (5MT to 2017, 6MT 2018-2023) is the cheapest config on Base/Premium where offered: recorded msrp = manual, CVT price in note. All MSRPs exclude Destination & Delivery.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 850,
+      "trims": [
+        {
+          "trim": "2.0i",
+          "msrp": 21595,
+          "config": "5MT",
+          "note": ""
+        },
+        {
+          "trim": "2.0i Premium",
+          "msrp": 22395,
+          "config": "5MT",
+          "note": "CVT $23,395"
+        },
+        {
+          "trim": "2.0i Limited",
+          "msrp": 25095,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Hybrid",
+          "msrp": 26395,
+          "config": "CVT",
+          "note": "mild hybrid"
+        },
+        {
+          "trim": "Hybrid Touring",
+          "msrp": 29995,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/801/1/subaru-announces-pricing-2016-crosstrek-impreza-models",
+      "source_type": "manufacturer",
+      "note": "Release dated September 10, 2015 (combined Crosstrek/Impreza release). D&D $850 ($1,000 Alaska)."
+    },
+    {
+      "year": 2017,
+      "destination": 875,
+      "trims": [
+        {
+          "trim": "2.0i",
+          "msrp": 21695,
+          "config": "5MT",
+          "note": "PZEV; CVT price not listed"
+        },
+        {
+          "trim": "2.0i Premium",
+          "msrp": 22495,
+          "config": "5MT",
+          "note": "CVT $23,495; PZEV"
+        },
+        {
+          "trim": "2.0i Limited",
+          "msrp": 25195,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.0i Premium Special Edition",
+          "msrp": 25795,
+          "config": "CVT",
+          "note": "listed outside the main table"
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1023/1/subaru-announces-pricing-2017-crosstrek-models",
+      "source_type": "manufacturer",
+      "note": "Release dated September 22, 2016. No Hybrid for 2017. D&D $875 ($1,025 Alaska)."
+    },
+    {
+      "year": 2018,
+      "destination": 915,
+      "trims": [
+        {
+          "trim": "2.0i",
+          "msrp": 21795,
+          "config": "6MT",
+          "note": "CVT $22,795"
+        },
+        {
+          "trim": "2.0i Premium",
+          "msrp": 22595,
+          "config": "6MT",
+          "note": "CVT $23,595"
+        },
+        {
+          "trim": "2.0i Limited",
+          "msrp": 26295,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1135/1/subaru-america-announces-pricing-all-new-2018-crosstrek",
+      "source_type": "manufacturer",
+      "note": "All-new 2nd generation, release dated June 15, 2017. Manual moves from 5MT to 6MT. D&D $915 ($1,065 Alaska)."
+    },
+    {
+      "year": 2019,
+      "destination": 975,
+      "trims": [
+        {
+          "trim": "2.0i",
+          "msrp": 21895,
+          "config": "6MT",
+          "note": "CVT $22,895"
+        },
+        {
+          "trim": "2.0i Premium",
+          "msrp": 22895,
+          "config": "6MT",
+          "note": "CVT $23,895"
+        },
+        {
+          "trim": "2.0i Limited",
+          "msrp": 27195,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1416/subaru-america-announces-pricing-2019-crosstrek-model",
+      "source_type": "manufacturer",
+      "note": "Release dated June 21, 2018. Covers gas trims only; the plug-in Crosstrek Hybrid (launched later in MY2019) is not in this release. D&D $975 ($1,125 Alaska)."
+    },
+    {
+      "year": 2020,
+      "destination": 1010,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 22145,
+          "config": "6MT",
+          "note": "CVT $23,495"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 23195,
+          "config": "6MT",
+          "note": "CVT $24,545"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 27395,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Hybrid",
+          "msrp": 35145,
+          "config": "CVT",
+          "note": "plug-in hybrid"
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1498/1/subaru-america-announces-pricing-2020-crosstrek-crosstrek-hybrid",
+      "source_type": "manufacturer",
+      "note": "Release dated October 17, 2019. Trim names drop the 2.0i prefix. D&D $1,010 ($1,160 Alaska)."
+    },
+    {
+      "year": 2021,
+      "destination": 1050,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 22245,
+          "config": "AWD 6M",
+          "note": "CVT $23,595"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 23295,
+          "config": "AWD 6M",
+          "note": "CVT $24,645"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 26495,
+          "config": "AWD CVT",
+          "note": "new trim, 2.5L engine"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 27995,
+          "config": "AWD CVT",
+          "note": "2.5L engine"
+        },
+        {
+          "trim": "Hybrid",
+          "msrp": 36395,
+          "config": "AWD",
+          "note": "plug-in hybrid"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2021-subaru-crosstrek-price",
+      "source_type": "secondary",
+      "note": "Not in the media.subaru.com search results; iSeeCars lists MSRP and a separate $1,050 destination per style."
+    },
+    {
+      "year": 2022,
+      "destination": 1125,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 22445,
+          "config": "6MT",
+          "note": "CVT $23,795"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 23595,
+          "config": "6MT",
+          "note": "CVT $24,945; CVT with options $26,940"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 26795,
+          "config": "CVT",
+          "note": "with options $28,395"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 28295,
+          "config": "CVT",
+          "note": "with options $29,295 / $30,690"
+        },
+        {
+          "trim": "Hybrid",
+          "msrp": 35645,
+          "config": "CVT",
+          "note": "plug-in hybrid; with options $38,145"
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1824/134/subaru-announces-pricing-2022-crosstrek-crosstrek-hybrid",
+      "source_type": "manufacturer",
+      "note": "Release dated November 12, 2021. Release table lists option-package rows; cheapest row per trim recorded. D&D $1,125 ($1,275 Alaska)."
+    },
+    {
+      "year": 2023,
+      "destination": 1225,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 23645,
+          "config": "AWD 6M",
+          "note": "CVT $24,995"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 24795,
+          "config": "AWD 6M",
+          "note": "CVT $26,145"
+        },
+        {
+          "trim": "Special Edition",
+          "msrp": 26745,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 27995,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 29495,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Hybrid",
+          "msrp": 36845,
+          "config": "AWD",
+          "note": "plug-in hybrid, final year"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-subaru-crosstrek-price",
+      "source_type": "secondary",
+      "note": "The media.subaru.com 2023 Crosstrek release (newsrelease.do?id=1917) returned the 2024 pricing table when fetched, so iSeeCars was used; it lists MSRP and a separate $1,225 destination per style."
+    },
+    {
+      "year": 2024,
+      "destination": 1295,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 24995,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Premium",
+          "msrp": 26145,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 28995,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 30895,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/newsrelease.do?id=2048&mid=182&allImage=1",
+      "source_type": "manufacturer",
+      "note": "All-new 3rd generation, release dated February 9, 2023. CVT only (manual and Hybrid dropped). Wilderness trim was added later in the model year and is not in this release. D&D $1,295 ($1,445 Alaska)."
+    },
+    {
+      "year": 2025,
+      "destination": 1420,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 25695,
+          "config": "CVT",
+          "note": "listed as 'Crosstrek'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 26945,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 29495,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 31395,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 32495,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/2241/1/2025-subaru-crosstrek-press-kit&searchresult",
+      "source_type": "manufacturer",
+      "note": "Release page shows no date. D&D $1,420 ($1,570 Alaska)."
+    },
+    {
+      "year": 2026,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "Premium",
+          "msrp": 27995,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 30625,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 32995,
+          "config": "AWD",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 33795,
+          "config": "AWD",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/subaru-crosstrek-2026/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' excludes destination and is the latest in-year price; no destination figure shown. Page meta says prices start at $26,995 across 5 configurations but only 4 trims are listed (the base trim is missing). The 2026 Crosstrek Hybrid is a separate cars.com model and was not fetched."
+    }
+  ],
+  "gaps": [
+    "2019: Crosstrek Hybrid (PHEV) price not in the fetched release.",
+    "2021, 2023: secondary (iSeeCars); the 2023 media.subaru.com URL returned 2024 content.",
+    "2024: Wilderness (added mid-year) not recorded.",
+    "2026: secondary (cars.com), no destination, base trim and Hybrid missing."
+  ]
+}

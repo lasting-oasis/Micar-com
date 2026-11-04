@@ -1,0 +1,48 @@
+{
+"make": "Hummer",
+"model": "H3T",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (h3t).",
+"years": [
+{
+"year": 2010,
+"destination": 780,
+"trims": [
+{
+"trim": "4x4 Base 4dr Crew Cab",
+"msrp": 30915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Adventure 4dr Crew Cab",
+"msrp": 33485,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Alpha 4dr Crew Cab",
+"msrp": 35680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr Crew Cab",
+"msrp": 36355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Alpha Leather 4dr Crew Cab",
+"msrp": 39205,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-hummer-h3t-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

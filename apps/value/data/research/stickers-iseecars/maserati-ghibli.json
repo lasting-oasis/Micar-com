@@ -1,0 +1,441 @@
+{
+"make": "Maserati",
+"model": "Ghibli",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ghibli).",
+"years": [
+{
+"year": 2014,
+"destination": 1250,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 65600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Q4 4dr Sedan",
+"msrp": 75700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 69800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S Q4",
+"msrp": 77900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 70600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S",
+"msrp": 76050,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan S Q4",
+"msrp": 78550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "3.0L",
+"msrp": 71600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 3.0L",
+"msrp": 77200,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 3.0L",
+"msrp": 79700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 1250,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 73780,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 79540,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranLusso 4dr Sedan",
+"msrp": 79840,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranSport 4dr Sedan",
+"msrp": 79840,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SQ4 4dr Sedan",
+"msrp": 82060,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 4dr Sedan",
+"msrp": 85090,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 4dr Sedan",
+"msrp": 85090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SQ4 GranLusso 4dr Sedan",
+"msrp": 87620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SQ4 GranSport 4dr Sedan",
+"msrp": 87620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "3.0L",
+"msrp": 74980,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 3.0L",
+"msrp": 79980,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranLusso 3.0L",
+"msrp": 80980,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranSport 3.0L",
+"msrp": 80980,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 3.0L",
+"msrp": 82480,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 3.0L",
+"msrp": 85280,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 3.0L",
+"msrp": 85280,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 GranLusso 3.0L",
+"msrp": 87780,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Q4 GranSport 3.0L",
+"msrp": 87780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1495,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 69490,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 74490,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranLusso 4dr Sedan",
+"msrp": 76990,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranSport 4dr Sedan",
+"msrp": 76990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SQ4 4dr Sedan",
+"msrp": 76990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 4dr Sedan",
+"msrp": 81290,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 4dr Sedan",
+"msrp": 81290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SQ4 GranLusso 4dr Sedan",
+"msrp": 83790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SQ4 GranSport 4dr Sedan",
+"msrp": 83790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 72190,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 77190,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranLusso 4dr Sedan",
+"msrp": 79690,
+"config": "",
+"note": ""
+},
+{
+"trim": "GranSport 4dr Sedan",
+"msrp": 79690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SQ4 4dr Sedan",
+"msrp": 79690,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranLusso 4dr Sedan",
+"msrp": 83990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S GranSport 4dr Sedan",
+"msrp": 83990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SQ4 GranLusso 4dr Sedan",
+"msrp": 86490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SQ4 GranSport 4dr Sedan",
+"msrp": 86490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 4dr Sedan",
+"msrp": 109890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "GT 4dr Sedan",
+"msrp": 76200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Modena 4dr Sedan",
+"msrp": 80900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena Q4 4dr Sedan",
+"msrp": 83500,
+"config": "",
+"note": ""
+},
+{
+"trim": "F Tributo 4dr Sedan",
+"msrp": 98890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD F Tributo Q4 4dr Sedan",
+"msrp": 101390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 4dr Sedan",
+"msrp": 110600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1495,
+"trims": [
+{
+"trim": "GT 4dr Sedan",
+"msrp": 85300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Modena 4dr Sedan",
+"msrp": 92100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Modena Q4 4dr Sedan",
+"msrp": 94900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trofeo 4dr Sedan",
+"msrp": 118500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-maserati-ghibli-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

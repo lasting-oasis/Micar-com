@@ -1,0 +1,211 @@
+{
+ "make": "Mazda",
+ "model": "Mazda3",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/mazda/mazda3/year-2016/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_note": "Unfiltered page per assignment. No year-wide average; page states 'The average price for the 2016 Mazda Mazda3 Select Sport is $21,925' (boilerplate; trim not offered in 2016). 99 listings nationwide (table says 98). Cards say '5-Door' = hatchback.",
+   "listings": [
+    {
+     "price": 14998,
+     "miles": 105001,
+     "location": "Oceanside, CA",
+     "trim": "s Grand Touring",
+     "body": "Hatchback",
+     "note": "Sponsored; 5-Door Automatic"
+    },
+    {
+     "price": 14376,
+     "miles": 76664,
+     "location": "St. Petersburg, FL",
+     "trim": "i Touring",
+     "body": "Hatchback",
+     "note": "5-Door Automatic"
+    },
+    {
+     "price": 19199,
+     "miles": 37105,
+     "location": "Tacoma, WA",
+     "trim": "s Grand Touring",
+     "body": "Hatchback",
+     "note": "5-Door Automatic"
+    },
+    {
+     "price": 11481,
+     "miles": 108669,
+     "location": "Clearwater, FL",
+     "trim": "i Touring",
+     "body": "Hatchback",
+     "note": "5-Door Automatic"
+    },
+    {
+     "price": 16200,
+     "miles": 86424,
+     "location": "Norman, OK",
+     "trim": "s Grand Touring",
+     "body": "Hatchback",
+     "note": "5-Door Automatic"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/mazda/mazda3/year-2019/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_note": "No year-wide average; page states 'The average price for the 2019 Mazda Mazda3 Select Sport is $21,778' (trim-specific boilerplate). 79 listings nationwide (table says 77). Cards say '4-Door' (sedan) or '5-Door' (hatchback).",
+   "listings": [
+    {
+     "price": 19699,
+     "miles": 76429,
+     "location": "Shrewsbury, NJ",
+     "trim": "Premium",
+     "body": "Hatchback",
+     "note": "5-Door AWD Automatic"
+    },
+    {
+     "price": 21373,
+     "miles": 25370,
+     "location": "Ann Arbor, MI",
+     "trim": "Preferred",
+     "body": "Sedan",
+     "note": "4-Door AWD Automatic"
+    },
+    {
+     "price": 16933,
+     "miles": 77677,
+     "location": "San Diego, CA",
+     "trim": "Preferred",
+     "body": "Hatchback",
+     "note": "5-Door FWD Automatic"
+    },
+    {
+     "price": 18963,
+     "miles": 42798,
+     "location": "Kent, OH",
+     "trim": "Preferred",
+     "body": "Sedan",
+     "note": "4-Door FWD Automatic"
+    },
+    {
+     "price": 14669,
+     "miles": 95753,
+     "location": "Fort Myers, FL",
+     "trim": "Preferred",
+     "body": "Hatchback",
+     "note": "5-Door FWD Automatic"
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/mazda/mazda3/year-2022/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_note": "No year-wide average; page states 'The average price for the 2022 Mazda Mazda3 Select Sport is $22,028' (trim-specific boilerplate). 84 listings nationwide (table says 86).",
+   "listings": [
+    {
+     "price": 20230,
+     "miles": 15877,
+     "location": "Harriman, NY",
+     "trim": "Select",
+     "body": "Sedan",
+     "note": "Automatic FWD"
+    },
+    {
+     "price": 20989,
+     "miles": 24401,
+     "location": "Puyallup, WA",
+     "trim": "Preferred",
+     "body": "Sedan",
+     "note": "Automatic FWD"
+    },
+    {
+     "price": 20650,
+     "miles": 27039,
+     "location": "Miami, FL",
+     "trim": "Preferred",
+     "body": "Sedan",
+     "note": "Automatic FWD"
+    },
+    {
+     "price": 17798,
+     "miles": 85188,
+     "location": "Greensboro, NC",
+     "trim": "Select",
+     "body": "Sedan",
+     "note": "Automatic FWD"
+    },
+    {
+     "price": 21745,
+     "miles": 38913,
+     "location": "Ocala, FL",
+     "trim": "Preferred",
+     "body": "Sedan",
+     "note": "Automatic AWD"
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/mazda/mazda3/year-2024/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_note": "No average stated; page gives a range 'Prices for a used 2024 Mazda Mazda3 currently range from $17,445 to $39,860'. 301 listings nationwide. Cards showed dealer names but no city/state, so location is null and the dealer name is in the note.",
+   "listings": [
+    {
+     "price": 30650,
+     "miles": 5633,
+     "location": null,
+     "trim": "2.5 Turbo Premium Plus",
+     "body": "Hatchback",
+     "note": "Sponsored; Automatic AWD; dealer: Heritage Mazda Subaru VW Catonsville"
+    },
+    {
+     "price": 29500,
+     "miles": 7285,
+     "location": null,
+     "trim": "2.5 Turbo Premium Plus",
+     "body": "Hatchback",
+     "note": "Sponsored; Automatic AWD; dealer: Clay Cooley Volkswagen Richardson"
+    },
+    {
+     "price": 24995,
+     "miles": 10863,
+     "location": null,
+     "trim": "Carbon Edition",
+     "body": "Sedan",
+     "note": "Sponsored; Automatic AWD; dealer: AutoNation Buick Henderson"
+    },
+    {
+     "price": 27988,
+     "miles": 16488,
+     "location": null,
+     "trim": "2.5 Turbo Premium Plus",
+     "body": "Hatchback",
+     "note": "Automatic AWD; dealer: Mossy Toyota"
+    },
+    {
+     "price": 28302,
+     "miles": 3157,
+     "location": null,
+     "trim": "2.5 Turbo Premium Plus",
+     "body": "Sedan",
+     "note": "CPO; Automatic AWD; dealer: Hello Mazda of San Diego"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016 sample is all hatchbacks (first five rows on the unfiltered page were 5-Door).",
+  "2024 cards gave no city/state; location null.",
+  "TrueCar average sentences are trim-specific boilerplate (Select Sport) or absent; page_average null for all years."
+ ]
+}

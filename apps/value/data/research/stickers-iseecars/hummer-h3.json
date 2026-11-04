@@ -1,0 +1,42 @@
+{
+"make": "Hummer",
+"model": "H3",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (h3).",
+"years": [
+{
+"year": 2010,
+"destination": 780,
+"trims": [
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 33390,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Adventure 4dr SUV",
+"msrp": 35960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 38365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Alpha 4dr SUV",
+"msrp": 41705,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-hummer-h3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

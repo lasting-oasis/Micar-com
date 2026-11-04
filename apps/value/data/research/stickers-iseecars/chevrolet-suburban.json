@@ -1,0 +1,1539 @@
+{
+"make": "Chevrolet",
+"model": "Suburban",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (suburban, suburban_shield).",
+"years": [
+{
+"year": 2010,
+"destination": 950,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 39520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 39520,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 40635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
+"msrp": 40635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 2500 4dr SUV",
+"msrp": 41080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 2500 4dr SUV",
+"msrp": 41080,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 2500 4dr SUV",
+"msrp": 42245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 2500 4dr SUV",
+"msrp": 42245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 42315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 4dr SUV",
+"msrp": 42315,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 43480,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
+"msrp": 43480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 2500 4dr SUV",
+"msrp": 43720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 2500 4dr SUV",
+"msrp": 43720,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 44145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 4dr SUV",
+"msrp": 44145,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 2500 4dr SUV",
+"msrp": 44885,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 2500 4dr SUV",
+"msrp": 44885,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 2500 4dr SUV",
+"msrp": 45735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 2500 4dr SUV",
+"msrp": 45735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 46990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 4dr SUV",
+"msrp": 46990,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 2500 4dr SUV",
+"msrp": 48580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 2500 4dr SUV",
+"msrp": 48580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 52880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 52880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 55625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
+"msrp": 55625,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 950,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 41335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 41335,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 41335,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
+"msrp": 41335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 2500 4dr SUV",
+"msrp": 42945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 2500 4dr SUV",
+"msrp": 42945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 2500 4dr SUV",
+"msrp": 42945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 2500 4dr SUV",
+"msrp": 42945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 44180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 44180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 4dr SUV",
+"msrp": 44180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
+"msrp": 44180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 44845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 4dr SUV",
+"msrp": 44845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 2500 4dr SUV",
+"msrp": 45785,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 2500 4dr SUV",
+"msrp": 45785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 2500 4dr SUV",
+"msrp": 45785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 2500 4dr SUV",
+"msrp": 45785,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 2500 4dr SUV",
+"msrp": 46435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 2500 4dr SUV",
+"msrp": 46435,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 47690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 4dr SUV",
+"msrp": 47690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 2500 4dr SUV",
+"msrp": 49280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 2500 4dr SUV",
+"msrp": 49280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 53580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 53580,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 56580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
+"msrp": 56580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 40975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 40975,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 42220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
+"msrp": 42220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 2500 4dr SUV",
+"msrp": 42535,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 2500 4dr SUV",
+"msrp": 42535,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 43770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 4dr SUV",
+"msrp": 43770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 2500 4dr SUV",
+"msrp": 43830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 2500 4dr SUV",
+"msrp": 43830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 45065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
+"msrp": 45065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 2500 4dr SUV",
+"msrp": 45375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 2500 4dr SUV",
+"msrp": 45375,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 45980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 4dr SUV",
+"msrp": 45980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 2500 4dr SUV",
+"msrp": 46670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 2500 4dr SUV",
+"msrp": 46670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 2500 4dr SUV",
+"msrp": 47570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 2500 4dr SUV",
+"msrp": 47570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 48825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 4dr SUV",
+"msrp": 48825,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 2500 4dr SUV",
+"msrp": 50415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 2500 4dr SUV",
+"msrp": 50415,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 55115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 55115,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 58115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
+"msrp": 58115,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 42625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 42625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 43870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
+"msrp": 43870,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Fleet 2500 4dr SUV",
+"msrp": 44185,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 2500 4dr SUV",
+"msrp": 44185,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 45420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 4dr SUV",
+"msrp": 45420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 2500 4dr SUV",
+"msrp": 45480,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 2500 4dr SUV",
+"msrp": 45480,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 46715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
+"msrp": 46715,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 2500 4dr SUV",
+"msrp": 47025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 2500 4dr SUV",
+"msrp": 47025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 47630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 4dr SUV",
+"msrp": 47630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 2500 4dr SUV",
+"msrp": 48320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 2500 4dr SUV",
+"msrp": 48320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 2500 4dr SUV",
+"msrp": 49220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 2500 4dr SUV",
+"msrp": 49220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 50475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 4dr SUV",
+"msrp": 50475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 2500 4dr SUV",
+"msrp": 52065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 2500 4dr SUV",
+"msrp": 52065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 56765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 56765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 59765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
+"msrp": 59765,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 Fleet 4dr SUV",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LS 4dr SUV",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 46945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 Fleet 4dr SUV",
+"msrp": 46945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LS 4dr SUV",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 49715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LT 4dr SUV",
+"msrp": 49715,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 52560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LT 4dr SUV",
+"msrp": 52560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr SUV",
+"msrp": 58400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x2 LTZ 4dr SUV",
+"msrp": 58400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr SUV",
+"msrp": 61400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Shield 4x4 LTZ 4dr SUV",
+"msrp": 61400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD LS",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LS",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LT",
+"msrp": 54205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LT",
+"msrp": 57205,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD LTZ",
+"msrp": 63785,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD LTZ",
+"msrp": 66785,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 1500 LS",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LS",
+"msrp": 52700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LT",
+"msrp": 54730,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LT",
+"msrp": 57730,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LTZ",
+"msrp": 64440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LTZ",
+"msrp": 67440,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 1500 LS",
+"msrp": 49915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LS",
+"msrp": 52915,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LT",
+"msrp": 55155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LT",
+"msrp": 58155,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 Premier",
+"msrp": 64840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 Premier",
+"msrp": 67840,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 1500 LS",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LS",
+"msrp": 53200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LT",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LT",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 Premier",
+"msrp": 64900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 Premier",
+"msrp": 67900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1295,
+"trims": [
+{
+"trim": "4x2 Fleet 1500 4dr SUV",
+"msrp": 49500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 1500 4dr SUV",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 1500 4dr SUV",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 1500 4dr SUV",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 1500 4dr SUV",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 1500 4dr SUV",
+"msrp": 58800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 1500 4dr SUV",
+"msrp": 65500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 1500 4dr SUV",
+"msrp": 68500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS Fleet 3500HD 4dr SUV",
+"msrp": 80600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Fleet 3500HD 4dr SUV",
+"msrp": 85700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 1500 LS",
+"msrp": 51700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LS",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 LT",
+"msrp": 56500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 LT",
+"msrp": 59500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 1500 Premier",
+"msrp": 65500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 1500 Premier",
+"msrp": 68500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1695,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 60000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 60100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 62200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 63100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 65500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 68500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 72400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 75400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 53100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 56100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 60200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 63200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 63700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 65700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 66700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 68500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 71500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 75300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 78300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 58600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 60200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 65300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 65700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 67300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 68300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 70600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 73600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 77400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 80400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "4x2 Fleet 4dr SUV",
+"msrp": 57600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 59200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Fleet 4dr SUV",
+"msrp": 60600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 62200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 64700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 67300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 67700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 69300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 70300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 72600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 75600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 79900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 82900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2195,
+"trims": [
+{
+"trim": "4x2 LS 4dr SUV",
+"msrp": 62000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr SUV",
+"msrp": 65000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LS 4dr SUV",
+"msrp": 65000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr SUV",
+"msrp": 68000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr SUV",
+"msrp": 70000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Z71 4dr SUV",
+"msrp": 72000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr SUV",
+"msrp": 73000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Premier 4dr SUV",
+"msrp": 76600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premier 4dr SUV",
+"msrp": 79600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr SUV",
+"msrp": 81700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr SUV",
+"msrp": 84700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-chevrolet-suburban-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

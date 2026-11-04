@@ -1,0 +1,168 @@
+{
+"make": "Suzuki",
+"model": "Grand Vitara",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (grand_vitara).",
+"years": [
+{
+"year": 2010,
+"destination": 795,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 19099,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr SUV",
+"msrp": 20749,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr SUV",
+"msrp": 22199,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSport 4dr SUV",
+"msrp": 22649,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Special Edition 4dr SUV",
+"msrp": 23199,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 24149,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV (V6)",
+"msrp": 25549,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSport 4dr SUV (V6)",
+"msrp": 25699,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 25799,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV (V6)",
+"msrp": 27199,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-suzuki-grand_vitara-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 19199,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr SUV",
+"msrp": 20999,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr SUV",
+"msrp": 22449,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 23199,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 24849,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-suzuki-grand_vitara-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 815,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 19499,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr SUV",
+"msrp": 21399,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate Adventure 4dr SUV",
+"msrp": 22299,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr SUV",
+"msrp": 22849,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 23749,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ultimate Adventure 4dr SUV",
+"msrp": 23949,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 25249,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-suzuki-grand_vitara-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

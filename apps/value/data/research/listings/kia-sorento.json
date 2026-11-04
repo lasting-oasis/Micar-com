@@ -1,0 +1,211 @@
+{
+ "make": "Kia",
+ "model": "Sorento",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/year-2016/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 17684,
+   "page_note": "Page says 61 used 2016 Sorento LX nationwide. Average sits at about $17.7k on all four year pages (2016 $17,684, 2019 $17,764, 2022 $17,892, 2024 $17,762), so it is boilerplate, not year-specific.",
+   "listings": [
+    {
+     "price": 7499,
+     "miles": 112884,
+     "location": "Mesa, AZ",
+     "trim": "LX I4 FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 17027,
+     "miles": 19256,
+     "location": "Bremerton, WA",
+     "trim": "LX I4 AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 12191,
+     "miles": 117131,
+     "location": "Vancouver, WA",
+     "trim": "LX I4 AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 11064,
+     "miles": 66499,
+     "location": "Honolulu, HI",
+     "trim": "LX I4 FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 9403,
+     "miles": 116474,
+     "location": "Layton, UT",
+     "trim": "LX I4 AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/year-2019/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 17764,
+   "page_note": "Page says 88 used 2019 Sorento LX nationwide (FAQ gives a conflicting 734). Average sits at about $17.7k on all four year pages (2016 $17,684, 2019 $17,764, 2022 $17,892, 2024 $17,762), so it is boilerplate, not year-specific.",
+   "listings": [
+    {
+     "price": 10276,
+     "miles": 129095,
+     "location": "Somersworth, NH",
+     "trim": "LX I4 AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 15224,
+     "miles": 53601,
+     "location": "Palmdale, CA",
+     "trim": "LX I4 FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 11900,
+     "miles": 74930,
+     "location": "Palmetto Bay, FL",
+     "trim": "LX I4 AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 12581,
+     "miles": 114588,
+     "location": "Lexington, KY",
+     "trim": "LX I4 AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 15693,
+     "miles": 72460,
+     "location": "Saint Cloud, FL",
+     "trim": "LX I4 FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/year-2022/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 17892,
+   "page_note": "Page says 67 used 2022 Sorento LX nationwide. Average sits at about $17.7k on all four year pages (2016 $17,684, 2019 $17,764, 2022 $17,892, 2024 $17,762), so it is boilerplate, not year-specific.",
+   "listings": [
+    {
+     "price": 14875,
+     "miles": 121527,
+     "location": "Dallas, TX",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 14798,
+     "miles": 93575,
+     "location": "Tempe, AZ",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 19636,
+     "miles": 57793,
+     "location": "Wentzville, MO",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 17332,
+     "miles": 102715,
+     "location": "Wentzville, MO",
+     "trim": "LX AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 19283,
+     "miles": 43152,
+     "location": "Fort Myers, FL",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "LX",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/sorento/year-2024/?trim=lx",
+   "fetched": "2026-10-28",
+   "page_average": 17762,
+   "page_note": "Page says 41 used 2024 Sorento LX nationwide (other counts on the page conflict). Average sits at about $17.7k on all four year pages (2016 $17,684, 2019 $17,764, 2022 $17,892, 2024 $17,762), so it is boilerplate, not year-specific.",
+   "listings": [
+    {
+     "price": 25196,
+     "miles": 36034,
+     "location": "Columbia, KY",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 26689,
+     "miles": 32580,
+     "location": "Evans, GA",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 23776,
+     "miles": 26360,
+     "location": "Athens, GA",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 23970,
+     "miles": 26912,
+     "location": "Dublin, CA",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 26632,
+     "miles": 30930,
+     "location": "Boardman, OH",
+     "trim": "LX FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "page_average is model-wide boilerplate (~$17.7k on every year page); do not use.",
+  "2016 and 2019 LX rows are the 2.4L I4 versions (TrueCar labels them 'LX I4'); the LX V6 was a separate trim not captured by the lx filter.",
+  "2024 LX rows are all FWD; kiamedia's 2024 page lists LX in FWD only."
+ ]
+}

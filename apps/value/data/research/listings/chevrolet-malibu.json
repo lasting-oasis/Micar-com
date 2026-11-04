@@ -1,0 +1,213 @@
+{
+  "make": "Chevrolet",
+  "model": "Malibu",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/malibu/year-2016/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 16920,
+      "page_total_listings": 59,
+      "note": "First 5 of page order recorded. page_average is TrueCar's '$16,920' sentence, identical on all four year pages (model-wide boilerplate).",
+      "listings": [
+        {
+          "price": 14199,
+          "miles": 52461,
+          "location": "Tacoma, WA",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15686,
+          "miles": 24924,
+          "location": "Avon, IN",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 8921,
+          "miles": 123438,
+          "location": "Jackson, GA",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 11292,
+          "miles": 88536,
+          "location": "Sanford, FL",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 8721,
+          "miles": 133104,
+          "location": "Jacksonville, FL",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/malibu/year-2019/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 16920,
+      "page_total_listings": 76,
+      "note": "First 5 of page order recorded. page_average is TrueCar's '$16,920' sentence, identical on all four year pages (model-wide boilerplate).",
+      "listings": [
+        {
+          "price": 13435,
+          "miles": 90130,
+          "location": "Randolph, NJ",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15258,
+          "miles": 67234,
+          "location": "Angola, IN",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 11000,
+          "miles": 85379,
+          "location": "Palmetto Bay, FL",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 12224,
+          "miles": 78001,
+          "location": "Manvel, TX",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17085,
+          "miles": 51495,
+          "location": "Indianapolis, IN",
+          "trim": "LT with 1LT",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/malibu/year-2022/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 16920,
+      "page_total_listings": 186,
+      "note": "First 5 of page order recorded. page_average is TrueCar's '$16,920' sentence, identical on all four year pages (model-wide boilerplate).",
+      "listings": [
+        {
+          "price": 14167,
+          "miles": 62436,
+          "location": "Colma, CA",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 12448,
+          "miles": 106000,
+          "location": "Timonium, MD",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 13491,
+          "miles": 97045,
+          "location": "Jacksonville, FL",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 14772,
+          "miles": 80099,
+          "location": "Surprise, AZ",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 10695,
+          "miles": 138829,
+          "location": "La Follette, TN",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/malibu/year-2024/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 16920,
+      "page_total_listings": 808,
+      "note": "First 5 of page order recorded. page_average is TrueCar's '$16,920' sentence, identical on all four year pages (model-wide boilerplate).",
+      "listings": [
+        {
+          "price": 17830,
+          "miles": 43412,
+          "location": "Tempe, AZ",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 16495,
+          "miles": 70718,
+          "location": "Henderson, NV",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 14995,
+          "miles": 50660,
+          "location": "Calumet City, IL",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 14995,
+          "miles": 55131,
+          "location": "Calumet City, IL",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 18011,
+          "miles": 58019,
+          "location": "Charleston, IL",
+          "trim": "LT",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "TrueCar trim pages do not split 1LT/2LT for 2022/2024 (trim shown as 'LT')."
+  ]
+}

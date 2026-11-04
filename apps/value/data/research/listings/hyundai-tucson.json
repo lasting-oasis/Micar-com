@@ -1,0 +1,206 @@
+{
+ "make": "Hyundai",
+ "model": "Tucson",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/tucson/year-2016/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "listings": [
+    {
+     "price": 8497,
+     "miles": 138286,
+     "location": "Sterling, VA",
+     "trim": "SE AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 8549,
+     "miles": 104369,
+     "location": "Lawrenceville, GA",
+     "trim": "SE AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; 'with Beige Interior'"
+    },
+    {
+     "price": 12626,
+     "miles": 106023,
+     "location": "Lexington, KY",
+     "trim": "Limited FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 13294,
+     "miles": 64327,
+     "location": "Schererville, IN",
+     "trim": "Sport FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 13311,
+     "miles": 67848,
+     "location": "Vancouver, WA",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "SEL",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/tucson/year-2019/?trim=sel",
+   "fetched": "2026-10-28",
+   "page_average": 22912,
+   "listings": [
+    {
+     "price": 17791,
+     "miles": 33318,
+     "location": "Pompano Beach, FL",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 15997,
+     "miles": 49650,
+     "location": "Columbia, MD",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 14072,
+     "miles": 80079,
+     "location": "Roseville, CA",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 17082,
+     "miles": 51952,
+     "location": "Langhorne, PA",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 14799,
+     "miles": 99907,
+     "location": "Hamden, CT",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "SEL",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/tucson/year-2022/?trim=sel",
+   "fetched": "2026-10-28",
+   "page_average": 23290,
+   "listings": [
+    {
+     "price": 17333,
+     "miles": 73521,
+     "location": "National City, CA",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 16661,
+     "miles": 90602,
+     "location": "Irvine, CA",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 21166,
+     "miles": 40789,
+     "location": "Fort Myers, FL",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 16067,
+     "miles": 83476,
+     "location": "Hazard, KY",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 19002,
+     "miles": 74746,
+     "location": "Twin Falls, ID",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": "page extractor gave this row's location inconsistently (Twin Falls, ID vs Lynnwood, WA); price/miles consistent"
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "SEL",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/tucson/year-2024/?trim=sel",
+   "fetched": "2026-10-28",
+   "page_average": 22912,
+   "listings": [
+    {
+     "price": 22522,
+     "miles": 43501,
+     "location": "Columbia, SC",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 24360,
+     "miles": 43803,
+     "location": "Daphne, AL",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 18500,
+     "miles": 54169,
+     "location": "Commerce, GA",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 19308,
+     "miles": 71602,
+     "location": "Fort Myers, FL",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 20288,
+     "miles": 52839,
+     "location": "Zebulon, NC",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016: no SEL trim existed (2016 sheet: SE, Eco, Sport, Limited), so the unfiltered 2016 page was fetched and each row's trim recorded.",
+  "page_average: TrueCar shows only an FAQ sentence 'The average price for the <year> Hyundai Tucson SEL is $X'; the same figures repeat across years ($22,912 on the 2019 and 2024 pages, $23,290 on the 2016 and 2022 pages), so they are boilerplate, not year-specific. 2016 set to null because the sentence refers to a non-existent 2016 SEL."
+ ]
+}

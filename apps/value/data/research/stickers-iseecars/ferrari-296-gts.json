@@ -1,0 +1,54 @@
+{
+"make": "Ferrari",
+"model": "296 GTS",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (296_gts).",
+"years": [
+{
+"year": 2023,
+"destination": 5000,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 362189,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ferrari-296_gts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 5000,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 366139,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ferrari-296_gts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 5000,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 368134,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-ferrari-296_gts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

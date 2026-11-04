@@ -1,0 +1,201 @@
+{
+"make": "Audi",
+"model": "S6",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (s6).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 5.2 quattro Prestige 4dr Sedan",
+"msrp": 76100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 5.2 quattro Prestige 4dr Sedan",
+"msrp": 76100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 4.0T quattro Prestige 4dr Sedan",
+"msrp": 71900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 4.0T quattro 4dr Sedan",
+"msrp": 73400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 75500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 925,
+"trims": [
+{
+"trim": "AWD 4.0T quattro Premium Plus 4dr Sedan",
+"msrp": 70900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4.0T quattro Prestige 4dr Sedan",
+"msrp": 75300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "4.0 TFSI Premium Plus",
+"msrp": 71900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4.0 TFSI Prestige",
+"msrp": 71900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2.9 TFSI Premium Plus",
+"msrp": 73900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.9 TFSI Prestige",
+"msrp": 73900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD 2.9T quattro Premium 4dr Sedan",
+"msrp": 73700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.9T quattro Premium Plus 4dr Sedan",
+"msrp": 78400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.9T quattro Prestige 4dr Sedan",
+"msrp": 82500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-07-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD 2.9T quattro Premium 4dr Sedan",
+"msrp": 75500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.9T quattro Premium Plus 4dr Sedan",
+"msrp": 79800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.9T quattro Prestige 4dr Sedan",
+"msrp": 83700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-s6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

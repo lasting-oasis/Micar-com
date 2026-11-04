@@ -1,0 +1,24 @@
+{
+"make": "Saab",
+"model": "9-3",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (9__3x).",
+"years": [
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "9-3 3X AWD SportCombi 4dr Wagon",
+"msrp": 36975,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-saab-9__3x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

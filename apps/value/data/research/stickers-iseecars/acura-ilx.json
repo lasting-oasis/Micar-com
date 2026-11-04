@@ -1,0 +1,390 @@
+{
+"make": "Acura",
+"model": "ILX",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ilx).",
+"years": [
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "2.0L 4dr Sedan",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5L Hybrid 4dr Sedan",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L 4dr Sedan w/Premium Package",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L 4dr Sedan w/Premium Package",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L 4dr Sedan w/Technology Package",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5L Hybrid 4dr Sedan w/Technology Package",
+"msrp": 34400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "2.0L 4dr Sedan",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5L Hybrid 4dr Sedan",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L 4dr Sedan w/Premium Package",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L 4dr Sedan w/Premium Package",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L 4dr Sedan w/Technology Package",
+"msrp": 31600,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.5L Hybrid 4dr Sedan w/Technology Package",
+"msrp": 34600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2.0L Automatic",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L Automatic with Premium Package",
+"msrp": 29350,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.4L Manual with Premium Package",
+"msrp": 29350,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0L Automatic with Technology Package",
+"msrp": 31750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "ILX",
+"msrp": 27900,
+"config": "",
+"note": ""
+},
+{
+"trim": "ILX with AcuraWatch Plus",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "ILX with Premium Package",
+"msrp": 29900,
+"config": "",
+"note": ""
+},
+{
+"trim": "ILX with Premium and A-SPEC Package",
+"msrp": 31890,
+"config": "",
+"note": ""
+},
+{
+"trim": "ILX with Technology Plus Package",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "ILX with Technology Plus and A-SPEC Package",
+"msrp": 34890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 27990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/AcuraWatch Plus",
+"msrp": 29290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Premium Pkg",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Premium/A-SPEC Pkg",
+"msrp": 31980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Technology Plus Pkg",
+"msrp": 32990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Technology Plus/A-SPEC Pkg",
+"msrp": 34980,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Special Edition Sedan",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/AcuraWatch Plus",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Premium Pkg",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Premium/A-SPEC Pkg",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Technology Plus Pkg",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Technology Plus/A-SPEC Pkg",
+"msrp": 35100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Premium Pkg",
+"msrp": 27650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Technology Pkg",
+"msrp": 29550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Premium/A-Spec Pkg",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Technology/A-Spec Pkg",
+"msrp": 31550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1025,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Premium Package",
+"msrp": 27880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology Package",
+"msrp": 29780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Premium and A-SPEC Package",
+"msrp": 29880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan w/Technology and A-SPEC Package",
+"msrp": 31780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 26100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Premium Package",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Technology Package",
+"msrp": 30000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Premium/A-Spec Package",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan w/Technology/A-Spec Package",
+"msrp": 32000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-acura-ilx-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

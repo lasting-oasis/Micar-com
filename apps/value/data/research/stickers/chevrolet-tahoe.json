@@ -1,0 +1,321 @@
+{
+  "make": "Chevrolet",
+  "model": "Tahoe",
+  "body": "SUV / Crossover",
+  "note": "Full-size body-on-frame SUV, 2WD (RWD) standard with 4WD optional (recorded msrp is the 2WD price; 4WD in the note). Generations: 2015-2020 (LS/LT/LTZ; Premier replaced LTZ for 2017), 2021-on (LS/LT/RST/Z71/Premier/High Country; refreshed 2025). Long-wheelbase sibling is the Suburban (separate model). Tahoe PPV/SSV police/special-service versions not recorded.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 47000,
+          "config": "2WD",
+          "note": "4WD $50,000."
+        },
+        {
+          "trim": "LT",
+          "msrp": 52030,
+          "config": "2WD",
+          "note": "4WD $55,030."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 61740,
+          "config": "2WD",
+          "note": "4WD $64,740."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-tahoe-2016/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. GMTK2UC generation (2015-2020)."
+    },
+    {
+      "year": 2019,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 48000,
+          "config": "2WD",
+          "note": "4WD $51,000."
+        },
+        {
+          "trim": "LT",
+          "msrp": 53000,
+          "config": "2WD",
+          "note": "4WD $56,000."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 62700,
+          "config": "2WD",
+          "note": "4WD $65,700."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-tahoe-2019/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. Premier replaced LTZ (2017). RST is an LT/Premier package in this generation, not a separate trim on this page."
+    },
+    {
+      "year": 2020,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 49000,
+          "config": "2WD",
+          "note": "4WD $52,000."
+        },
+        {
+          "trim": "LT",
+          "msrp": 53800,
+          "config": "2WD",
+          "note": "4WD $56,800."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 62700,
+          "config": "2WD",
+          "note": "4WD $65,700."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-tahoe-2020/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. Last year of the generation."
+    },
+    {
+      "year": 2021,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 49600,
+          "config": "2WD",
+          "note": "4WD $52,600."
+        },
+        {
+          "trim": "LT",
+          "msrp": 54300,
+          "config": "2WD",
+          "note": "4WD $57,300."
+        },
+        {
+          "trim": "RST",
+          "msrp": 57400,
+          "config": "2WD",
+          "note": "4WD $60,400."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 59500,
+          "config": "4WD",
+          "note": "4WD only."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 62800,
+          "config": "2WD",
+          "note": "4WD $65,800."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 69700,
+          "config": "2WD",
+          "note": "4WD $72,700."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-tahoe-2021/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. All-new fifth generation (first year); RST, Z71, High Country become trims."
+    },
+    {
+      "year": 2022,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 52000,
+          "config": "2WD",
+          "note": "4WD $55,000."
+        },
+        {
+          "trim": "LT",
+          "msrp": 57500,
+          "config": "2WD",
+          "note": "4WD $60,500."
+        },
+        {
+          "trim": "RST",
+          "msrp": 61000,
+          "config": "2WD",
+          "note": "4WD $64,000."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 63000,
+          "config": "4WD",
+          "note": "4WD only."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 65800,
+          "config": "2WD",
+          "note": "4WD $68,800."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 72600,
+          "config": "2WD",
+          "note": "4WD $75,600."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-tahoe-2022/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge."
+    },
+    {
+      "year": 2023,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 54200,
+          "config": "2WD",
+          "note": "4WD $57,200."
+        },
+        {
+          "trim": "LT",
+          "msrp": 59700,
+          "config": "2WD",
+          "note": "4WD $62,700."
+        },
+        {
+          "trim": "RST",
+          "msrp": 62300,
+          "config": "2WD",
+          "note": "4WD $65,300."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 64300,
+          "config": "4WD",
+          "note": "4WD only."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 67600,
+          "config": "2WD",
+          "note": "4WD $70,600."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 74400,
+          "config": "2WD",
+          "note": "4WD $77,400."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-tahoe-2023/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge."
+    },
+    {
+      "year": 2024,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 56200,
+          "config": "2WD",
+          "note": "4WD $59,200."
+        },
+        {
+          "trim": "LT",
+          "msrp": 61700,
+          "config": "2WD",
+          "note": "4WD $64,700."
+        },
+        {
+          "trim": "RST",
+          "msrp": 64300,
+          "config": "2WD",
+          "note": "4WD $67,300."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 66300,
+          "config": "4WD",
+          "note": "4WD only."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 69600,
+          "config": "2WD",
+          "note": "4WD $72,600."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 76900,
+          "config": "2WD",
+          "note": "4WD $79,900."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-tahoe-2024/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge."
+    },
+    {
+      "year": 2025,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "LS",
+          "msrp": 59500,
+          "config": "2WD",
+          "note": "4WD $62,500."
+        },
+        {
+          "trim": "LT",
+          "msrp": 62500,
+          "config": "2WD",
+          "note": "4WD $65,500."
+        },
+        {
+          "trim": "RST",
+          "msrp": 67500,
+          "config": "2WD",
+          "note": "4WD $70,500."
+        },
+        {
+          "trim": "Z71",
+          "msrp": 69500,
+          "config": "4WD",
+          "note": "4WD only."
+        },
+        {
+          "trim": "Premier",
+          "msrp": 74100,
+          "config": "2WD",
+          "note": "4WD $77,100."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 79200,
+          "config": "2WD",
+          "note": "4WD $82,200."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-tahoe-2025/trims/",
+      "source_type": "secondary",
+      "note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price); page shows no destination charge. 2025 refresh. LS +$3,300 vs 2024 while LT +$800 - LS-to-LT gap narrows to $3,000; taken as printed."
+    }
+  ],
+  "gaps": [
+    "2026: only destination-inclusive figures with an unstated charge were found, so left out of the table.",
+    "2017 and 2018: not fetched (budget).",
+    "2016-2025: cars.com shows no destination amount; destination left null.",
+    "2026: only LS 4WD, destination-inclusive ($63,495) - only ~$1,000 above the 2025 cars.com LS 4WD ex-destination figure ($62,500), so either 2026 pricing fell or the 2025 figure is a late-year level; not resolved.",
+    "No manufacturer source for 2016-2025: GM media pages are robots-disallowed."
+  ]
+}

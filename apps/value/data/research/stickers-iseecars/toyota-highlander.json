@@ -1,0 +1,1686 @@
+{
+"make": "Toyota",
+"model": "Highlander",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (highlander, highlander_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "Base 4dr SUV (2.7L l4)",
+"msrp": 25855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV",
+"msrp": 27750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 30200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 31650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 32480,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 33220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 33930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 34670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Base 4dr SUV",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 41220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "Base 4dr SUV (2.7L l4)",
+"msrp": 28090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV",
+"msrp": 29245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV (2.7L I4)",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 33850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 35300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 35595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 37045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Base 4dr SUV",
+"msrp": 38140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 43795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 810,
+"trims": [
+{
+"trim": "Base 4dr SUV (2.7L l4)",
+"msrp": 28240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 30845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV (2.7L l4)",
+"msrp": 32845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 35450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 35745,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 37195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Base 4dr SUV",
+"msrp": 38715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 44370,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 845,
+"trims": [
+{
+"trim": "Base 4dr SUV (2.7L l4)",
+"msrp": 29020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV",
+"msrp": 30395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plus 4dr SUV (2.7L l4)",
+"msrp": 30475,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 31845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plus 4dr SUV",
+"msrp": 31850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Plus 4dr SUV",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 34560,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 36010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 37950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Base 4dr SUV",
+"msrp": 40170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 46370,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 860,
+"trims": [
+{
+"trim": "LE 4dr SUV (2.7L I4)",
+"msrp": 29245,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr SUV (3.5L V6)",
+"msrp": 30520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 31980,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Plus 4dr SUV",
+"msrp": 32740,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE Plus 4dr SUV",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 36040,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 39640,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Platinum 4dr SUV",
+"msrp": 42130,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited Platinum 4dr SUV",
+"msrp": 43590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 47300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited Platinum 4dr SUV",
+"msrp": 49790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr I4 LE (Natl)",
+"msrp": 30490,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr V6 LE (Natl)",
+"msrp": 32015,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr V6 LE (Natl)",
+"msrp": 33475,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr V6 LE Plus (Natl)",
+"msrp": 34395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr V6 LE Plus (Natl)",
+"msrp": 35855,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr V6 XLE (Natl)",
+"msrp": 37315,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr V6 XLE (Natl)",
+"msrp": 38775,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr V6 Limited (Natl)",
+"msrp": 40915,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr V6 Limited (Natl)",
+"msrp": 42375,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr V6 Limited Platinum (Natl)",
+"msrp": 43530,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr V6 Limited Platinum (Natl)",
+"msrp": 44990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4WD 4dr Limited (Natl)",
+"msrp": 47870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4WD 4dr Limited Platinum (Natl)",
+"msrp": 50485,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 995,
+"trims": [
+{
+"trim": "LE I4 FWD (Natl)",
+"msrp": 30630,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE V6 FWD (Natl)",
+"msrp": 32680,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE V6 AWD (Natl)",
+"msrp": 34140,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Plus V6 FWD (Natl)",
+"msrp": 35060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 36270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE V6 AWD (Natl)",
+"msrp": 36270,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Plus V6 AWD (Natl)",
+"msrp": 36520,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 FWD (Natl)",
+"msrp": 38520,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 FWD (Natl)",
+"msrp": 39690,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE V6 AWD (Natl)",
+"msrp": 39980,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 AWD (Natl)",
+"msrp": 41150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 41330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE V6 AWD (Natl)",
+"msrp": 41330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited V6 FWD (Natl)",
+"msrp": 41680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited V6 AWD (Natl)",
+"msrp": 43140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 44760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited V6 AWD (Natl)",
+"msrp": 44760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Platinum V6 FWD (Natl)",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Platinum V6 AWD (Natl)",
+"msrp": 46260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited Platinum 4dr SUV",
+"msrp": 47880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited Platinum V6 AWD (Natl)",
+"msrp": 47880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-highlander_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-01-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 1095,
+"trims": [
+{
+"trim": "LE 4dr SUV (2.7L I4)",
+"msrp": 31230,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr SUV (3.5L V6)",
+"msrp": 33280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 34740,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Plus 4dr SUV",
+"msrp": 35660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 36870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE Plus 4dr SUV",
+"msrp": 37120,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 39120,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 40290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 40580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 41750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 41930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 42280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 43740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 45360,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Platinum 4dr SUV",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited Platinum 4dr SUV",
+"msrp": 46860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited Platinum 4dr SUV",
+"msrp": 48480,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1120,
+"trims": [
+{
+"trim": "LE 4dr SUV (2.7L I4)",
+"msrp": 31830,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr SUV (3.5L V6)",
+"msrp": 33880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 35340,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Plus 4dr SUV",
+"msrp": 36760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 37520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE Plus 4dr SUV",
+"msrp": 38220,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 39720,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 40940,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 41180,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 42580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 42930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 44390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Platinum 4dr SUV",
+"msrp": 46050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 46060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited Platinum 4dr SUV",
+"msrp": 47510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited Platinum 4dr SUV",
+"msrp": 49180,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1175,
+"trims": [
+{
+"trim": "L FWD (Natl)",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "L AWD (Natl)",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE FWD (Natl)",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr SUV",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE FWD (Natl)",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD (Natl)",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE AWD (Natl)",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr SUV",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE FWD (Natl)",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD (Natl)",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 43650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr SUV",
+"msrp": 45050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited FWD (Natl)",
+"msrp": 45050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD (Natl)",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum FWD (Natl)",
+"msrp": 46850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum 4dr SUV",
+"msrp": 48250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum FWD (Natl)",
+"msrp": 48250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum AWD (Natl)",
+"msrp": 48800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum 4dr SUV",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum AWD (Natl)",
+"msrp": 50200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-highlander_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1215,
+"trims": [
+{
+"trim": "L FWD (Natl)",
+"msrp": 34910,
+"config": "",
+"note": ""
+},
+{
+"trim": "L AWD (Natl)",
+"msrp": 36510,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE FWD (Natl)",
+"msrp": 37110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE FWD (Natl)",
+"msrp": 38510,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD (Natl)",
+"msrp": 38710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr SUV",
+"msrp": 38735,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 39910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE AWD (Natl)",
+"msrp": 40110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 40335,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE FWD (Natl)",
+"msrp": 41310,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE FWD (Natl)",
+"msrp": 41505,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD (Natl)",
+"msrp": 41510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr SUV",
+"msrp": 41535,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 42910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 43135,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE AWD (Natl)",
+"msrp": 43455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 43865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited FWD (Natl)",
+"msrp": 45265,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr SUV",
+"msrp": 45490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD (Natl)",
+"msrp": 45815,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum FWD (Natl)",
+"msrp": 47065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 47215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 47440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum FWD (Natl)",
+"msrp": 48465,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum 4dr SUV",
+"msrp": 48690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum AWD (Natl)",
+"msrp": 49015,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum AWD (Natl)",
+"msrp": 50415,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum 4dr SUV",
+"msrp": 50640,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-highlander_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1335,
+"trims": [
+{
+"trim": "L 4dr SUV",
+"msrp": 35855,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD L 4dr SUV",
+"msrp": 37455,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr SUV",
+"msrp": 38055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr SUV",
+"msrp": 39555,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 39655,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 41055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 41155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr SUV",
+"msrp": 42555,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr SUV",
+"msrp": 42650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 42655,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 44155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Bronze Edition 4dr SUV",
+"msrp": 44580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 4dr SUV",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 45010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Bronze Edition 4dr SUV",
+"msrp": 46180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr SUV",
+"msrp": 46510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 46960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 48010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 48460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum 4dr SUV",
+"msrp": 49510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 49960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum 4dr SUV",
+"msrp": 51460,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "L 4dr SUV",
+"msrp": 36620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD L 4dr SUV",
+"msrp": 38220,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr SUV",
+"msrp": 39020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 40620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr SUV",
+"msrp": 40620,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 42020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 42220,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr SUV",
+"msrp": 43615,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 43620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr SUV",
+"msrp": 43620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 45220,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 4dr SUV",
+"msrp": 45565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 46275,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Bronze Edition 4dr SUV",
+"msrp": 46380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr SUV",
+"msrp": 47875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Bronze Edition 4dr SUV",
+"msrp": 47980,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 48225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 49475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 49825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum 4dr SUV",
+"msrp": 51075,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 51425,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum 4dr SUV",
+"msrp": 53025,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1450,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 39270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 40870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr SUV",
+"msrp": 40970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE Nightshade 4dr SUV",
+"msrp": 41970,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 42420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 42570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE Nightshade 4dr SUV",
+"msrp": 43570,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr SUV",
+"msrp": 44015,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 44020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE 4dr SUV",
+"msrp": 44120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE Nightshade 4dr SUV",
+"msrp": 45120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 45720,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 4dr SUV",
+"msrp": 45965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 46525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE Nightshade 4dr SUV",
+"msrp": 46720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited 4dr SUV",
+"msrp": 48225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 48475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 49725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 50175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum 4dr SUV",
+"msrp": 51425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 51675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum 4dr SUV",
+"msrp": 53375,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 40320,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 41920,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 43470,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 45070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 46820,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XSE 4dr SUV",
+"msrp": 47140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 47575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE Nightshade 4dr SUV",
+"msrp": 47820,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 51275,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 52725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 25th Edition 4dr SUV",
+"msrp": 53480,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum 4dr SUV",
+"msrp": 54475,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-highlander-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

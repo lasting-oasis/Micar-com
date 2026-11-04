@@ -1,0 +1,93 @@
+{
+"make": "Hyundai",
+"model": "Nexo",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (nexo).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Blue FWD",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 61800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-hyundai-nexo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1175,
+"trims": [
+{
+"trim": "Blue 4dr SUV",
+"msrp": 58735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 62185,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-nexo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1185,
+"trims": [
+{
+"trim": "Blue 4dr SUV",
+"msrp": 58935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 62385,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-hyundai-nexo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "Blue 4dr SUV",
+"msrp": 59435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 62885,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-hyundai-nexo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,1959 @@
+{
+"make": "Cadillac",
+"model": "Escalade",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (escalade, escalade__v, escalade_esv, escalade_ext, escalade_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 950,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 62495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 65045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4dr SUV",
+"msrp": 65100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD 4dr SUV",
+"msrp": 67600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 68610,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr SUV",
+"msrp": 71000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr SUV",
+"msrp": 71160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 71215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr SUV",
+"msrp": 73425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr SUV",
+"msrp": 73550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Luxury 4dr SUV",
+"msrp": 73715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium 4dr SUV",
+"msrp": 74205,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD 4dr SUV",
+"msrp": 75975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Premium 4dr SUV",
+"msrp": 76705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Edition 4dr SUV",
+"msrp": 81625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum Edition 4dr SUV",
+"msrp": 84125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Platinum Edition 4dr SUV",
+"msrp": 84180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum Edition 4dr SUV",
+"msrp": 85225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Platinum Edition 4dr SUV",
+"msrp": 86680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum Edition 4dr SUV",
+"msrp": 87725,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 950,
+"trims": [
+{
+"trim": "EXT AWD 4dr Pickup",
+"msrp": 62160,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV",
+"msrp": 63455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 66005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4dr SUV",
+"msrp": 66080,
+"config": "",
+"note": ""
+},
+{
+"trim": "EXT AWD Luxury 4dr Pickup",
+"msrp": 67350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD 4dr SUV",
+"msrp": 68580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 69570,
+"config": "",
+"note": ""
+},
+{
+"trim": "EXT AWD Premium 4dr Pickup",
+"msrp": 69740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr SUV",
+"msrp": 71960,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr SUV",
+"msrp": 72120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 72195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr SUV",
+"msrp": 74135,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr SUV",
+"msrp": 74510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Luxury 4dr SUV",
+"msrp": 74695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium 4dr SUV",
+"msrp": 75185,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD 4dr SUV",
+"msrp": 76685,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Premium 4dr SUV",
+"msrp": 77685,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Edition 4dr SUV",
+"msrp": 82585,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum Edition 4dr SUV",
+"msrp": 85085,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Platinum Edition 4dr SUV",
+"msrp": 85160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum Hybrid 4dr SUV",
+"msrp": 85935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Platinum Edition 4dr SUV",
+"msrp": 87660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum Hybrid 4dr SUV",
+"msrp": 88435,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "EXT AWD 4dr Pickup",
+"msrp": 63060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SUV",
+"msrp": 63170,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 65720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4dr SUV",
+"msrp": 65770,
+"config": "",
+"note": ""
+},
+{
+"trim": "EXT AWD Luxury 4dr Pickup",
+"msrp": 67250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 67395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD 4dr SUV",
+"msrp": 68320,
+"config": "",
+"note": ""
+},
+{
+"trim": "EXT AWD Premium 4dr Pickup",
+"msrp": 69640,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr SUV",
+"msrp": 69945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 69995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr SUV",
+"msrp": 71675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Luxury 4dr SUV",
+"msrp": 72545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr SUV",
+"msrp": 73850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr SUV",
+"msrp": 74225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium 4dr SUV",
+"msrp": 74875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD 4dr SUV",
+"msrp": 76400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Premium 4dr SUV",
+"msrp": 77425,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Edition 4dr SUV",
+"msrp": 79945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum Edition 4dr SUV",
+"msrp": 82495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Platinum Edition 4dr SUV",
+"msrp": 82545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum Hybrid 4dr SUV",
+"msrp": 83295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Platinum Edition 4dr SUV",
+"msrp": 85095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum Hybrid 4dr SUV",
+"msrp": 85845,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 63745,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 66295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4dr SUV",
+"msrp": 66345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 67970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD 4dr SUV",
+"msrp": 68895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr SUV",
+"msrp": 70520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 70570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr SUV",
+"msrp": 72250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Luxury 4dr SUV",
+"msrp": 73120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr SUV",
+"msrp": 74425,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr SUV",
+"msrp": 74800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium 4dr SUV",
+"msrp": 75450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD 4dr SUV",
+"msrp": 76975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Premium 4dr SUV",
+"msrp": 78000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum Edition 4dr SUV",
+"msrp": 80520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum Edition 4dr SUV",
+"msrp": 83070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Platinum Edition 4dr SUV",
+"msrp": 83120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Platinum Hybrid 4dr SUV",
+"msrp": 83870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Platinum Edition 4dr SUV",
+"msrp": 85670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Platinum Hybrid 4dr SUV",
+"msrp": 86420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr SUV",
+"msrp": 63745,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SUV",
+"msrp": 66295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4dr SUV",
+"msrp": 66345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 67970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD 4dr SUV",
+"msrp": 68895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr SUV",
+"msrp": 70520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 70570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr SUV",
+"msrp": 72250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Luxury 4dr SUV",
+"msrp": 73120,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr SUV",
+"msrp": 74800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium 4dr SUV",
+"msrp": 75450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Premium 4dr SUV",
+"msrp": 78000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 80520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 83070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Platinum 4dr SUV",
+"msrp": 83120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV AWD Platinum 4dr SUV",
+"msrp": 85670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "RWD Standard",
+"msrp": 72970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Standard",
+"msrp": 75570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Standard",
+"msrp": 75970,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Luxury",
+"msrp": 76970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Standard",
+"msrp": 78570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Luxury",
+"msrp": 79570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Luxury",
+"msrp": 79970,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Premium",
+"msrp": 81470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Luxury",
+"msrp": 82570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Premium",
+"msrp": 84070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Premium",
+"msrp": 84470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Premium",
+"msrp": 87070,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Platinum",
+"msrp": 89275,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum",
+"msrp": 91875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Platinum",
+"msrp": 92275,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Platinum",
+"msrp": 94875,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "RWD Standard",
+"msrp": 72970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Standard",
+"msrp": 75570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Standard",
+"msrp": 75970,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Luxury Collection",
+"msrp": 77045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Standard",
+"msrp": 78570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Luxury Collection",
+"msrp": 79645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Luxury Collection",
+"msrp": 80045,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Premium Collection",
+"msrp": 81545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Luxury Collection",
+"msrp": 82645,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Premium Collection",
+"msrp": 84145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Premium Collection",
+"msrp": 84545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Premium Collection",
+"msrp": 87145,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Platinum",
+"msrp": 89350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum",
+"msrp": 91950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Platinum",
+"msrp": 92350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Platinum",
+"msrp": 94950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "RWD",
+"msrp": 73395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD",
+"msrp": 76395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD",
+"msrp": 76395,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Luxury",
+"msrp": 78395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD",
+"msrp": 79395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Luxury",
+"msrp": 81395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Luxury",
+"msrp": 81395,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Premium Luxury",
+"msrp": 82895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Luxury",
+"msrp": 84395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Premium Luxury",
+"msrp": 85895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Premium Luxury",
+"msrp": 85895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Premium Luxury",
+"msrp": 88895,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Platinum",
+"msrp": 92195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum",
+"msrp": 95195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Platinum",
+"msrp": 95195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Platinum",
+"msrp": 98195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 1295,
+"trims": [
+{
+"trim": "RWD",
+"msrp": 74695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Standard 4dr SUV",
+"msrp": 77695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD",
+"msrp": 77695,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Luxury",
+"msrp": 80295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Standard 4dr SUV",
+"msrp": 80695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 83295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Luxury",
+"msrp": 83295,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Premium Luxury",
+"msrp": 84695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Luxury 4dr SUV",
+"msrp": 86295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury 4dr SUV",
+"msrp": 87695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Premium Luxury",
+"msrp": 87695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury 4dr SUV",
+"msrp": 90695,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Platinum",
+"msrp": 93795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Platinum 4dr SUV",
+"msrp": 96795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Platinum",
+"msrp": 96795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Platinum 4dr SUV",
+"msrp": 99795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-cadillac-escalade_esv-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1295,
+"trims": [
+{
+"trim": "Standard 4dr SUV",
+"msrp": 75195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Standard 4dr SUV",
+"msrp": 78195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD",
+"msrp": 78195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 80795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD",
+"msrp": 81195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 83795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Luxury",
+"msrp": 83795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr SUV",
+"msrp": 85195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Luxury",
+"msrp": 86795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr SUV",
+"msrp": 88195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Premium Luxury",
+"msrp": 88195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Premium Luxury",
+"msrp": 91195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 94295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 97295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Platinum",
+"msrp": 97295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Platinum",
+"msrp": 100295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1295,
+"trims": [
+{
+"trim": "Standard 4dr SUV",
+"msrp": 75195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Standard 4dr SUV",
+"msrp": 78195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Standard 4dr SUV",
+"msrp": 78195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 80795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Standard 4dr SUV",
+"msrp": 81195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 83795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 83795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr SUV",
+"msrp": 85195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Luxury 4dr SUV",
+"msrp": 86795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr SUV",
+"msrp": 88195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury 4dr SUV",
+"msrp": 88195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury 4dr SUV",
+"msrp": 91195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 92295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 95295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Platinum 4dr SUV",
+"msrp": 95295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Platinum 4dr SUV",
+"msrp": 98295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "RWD Luxury",
+"msrp": 76195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Luxury",
+"msrp": 79195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Luxury",
+"msrp": 79195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Luxury",
+"msrp": 82195,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Premium Luxury",
+"msrp": 83195,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Sport",
+"msrp": 85895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Premium Luxury",
+"msrp": 85995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Premium Luxury",
+"msrp": 86195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Sport",
+"msrp": 88595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Sport",
+"msrp": 88895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Premium Luxury",
+"msrp": 88995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Sport",
+"msrp": 91595,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Premium Luxury Platinum",
+"msrp": 100595,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD Sport Platinum",
+"msrp": 100595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Premium Luxury Platinum",
+"msrp": 102995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV RWD Sport Platinum",
+"msrp": 102995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Premium Luxury Platinum",
+"msrp": 103595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Sport Platinum",
+"msrp": 103595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Premium Luxury Platinum",
+"msrp": 105995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4WD Sport Platinum",
+"msrp": 105995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-cadillac-escalade_esv-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 77795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 80795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 80795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Luxury 4dr SUV",
+"msrp": 83795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr SUV",
+"msrp": 86595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 89595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr SUV",
+"msrp": 89595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury 4dr SUV",
+"msrp": 89595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 92595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Sport 4dr SUV",
+"msrp": 92595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury 4dr SUV",
+"msrp": 92595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Sport 4dr SUV",
+"msrp": 95595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury Platinum 4dr SUV",
+"msrp": 104095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Platinum 4dr SUV",
+"msrp": 104095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury Platinum 4dr SUV",
+"msrp": 107095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport Platinum 4dr SUV",
+"msrp": 107095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury Platinum 4dr SUV",
+"msrp": 107095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Sport Platinum 4dr SUV",
+"msrp": 107095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury Platinum 4dr SUV",
+"msrp": 110095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Sport Platinum 4dr SUV",
+"msrp": 110095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 79295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 82295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 82295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Luxury 4dr SUV",
+"msrp": 85295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr SUV",
+"msrp": 88095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 91095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr SUV",
+"msrp": 91095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury 4dr SUV",
+"msrp": 91095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 94095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Sport 4dr SUV",
+"msrp": 94095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury 4dr SUV",
+"msrp": 94095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Sport 4dr SUV",
+"msrp": 97095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury Platinum 4dr SUV",
+"msrp": 105595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Platinum 4dr SUV",
+"msrp": 105595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury Platinum 4dr SUV",
+"msrp": 108595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport Platinum 4dr SUV",
+"msrp": 108595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury Platinum 4dr SUV",
+"msrp": 108595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Sport Platinum 4dr SUV",
+"msrp": 108595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury Platinum 4dr SUV",
+"msrp": 111595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Sport Platinum 4dr SUV",
+"msrp": 111595,
+"config": "",
+"note": ""
+},
+{
+"trim": "V 4x4 4dr SUV",
+"msrp": 149195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 81895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 84895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 84895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Luxury 4dr SUV",
+"msrp": 87895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr SUV",
+"msrp": 93195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 96195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr SUV",
+"msrp": 96195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury 4dr SUV",
+"msrp": 96195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 99195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Sport 4dr SUV",
+"msrp": 99195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury 4dr SUV",
+"msrp": 99195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Sport 4dr SUV",
+"msrp": 102195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury Platinum 4dr SUV",
+"msrp": 110695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Platinum 4dr SUV",
+"msrp": 110695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury Platinum 4dr SUV",
+"msrp": 113695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport Platinum 4dr SUV",
+"msrp": 113695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury Platinum 4dr SUV",
+"msrp": 113695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Sport Platinum 4dr SUV",
+"msrp": 113695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury Platinum 4dr SUV",
+"msrp": 116695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Sport Platinum 4dr SUV",
+"msrp": 116695,
+"config": "",
+"note": ""
+},
+{
+"trim": "V AWD 4dr SUV",
+"msrp": 152295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2195,
+"trims": [
+{
+"trim": "Luxury 4dr SUV",
+"msrp": 88100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr SUV",
+"msrp": 91100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Luxury 4dr SUV",
+"msrp": 91100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Luxury 4dr SUV",
+"msrp": 94100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr SUV",
+"msrp": 97300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 97900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr SUV",
+"msrp": 100300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury 4dr SUV",
+"msrp": 100300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 100900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Sport 4dr SUV",
+"msrp": 100900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury 4dr SUV",
+"msrp": 103300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Sport 4dr SUV",
+"msrp": 103900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury Platinum 4dr SUV",
+"msrp": 116900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Platinum 4dr SUV",
+"msrp": 117400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury Platinum 4dr SUV",
+"msrp": 119900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Premium Luxury Platinum 4dr SUV",
+"msrp": 119900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport Platinum 4dr SUV",
+"msrp": 120400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV Sport Platinum 4dr SUV",
+"msrp": 120400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Premium Luxury Platinum 4dr SUV",
+"msrp": 122900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Escalade ESV 4x4 Sport Platinum 4dr SUV",
+"msrp": 123400,
+"config": "",
+"note": ""
+},
+{
+"trim": "V AWD 4dr SUV",
+"msrp": 162500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-cadillac-escalade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,129 @@
+{
+"make": "Lexus",
+"model": "TX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (tx_350, tx_500h).",
+"years": [
+{
+"year": 2024,
+"destination": 1350,
+"trims": [
+{
+"trim": "TX 350 4dr SUV",
+"msrp": 53700,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 AWD 4dr SUV",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 Premium 4dr SUV",
+"msrp": 57100,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 AWD Premium 4dr SUV",
+"msrp": 58700,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 Luxury 4dr SUV",
+"msrp": 59600,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 AWD Luxury 4dr SUV",
+"msrp": 61200,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 500H AWD F SPORT Performance Premium 4dr SUV",
+"msrp": 68000,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 500H AWD F SPORT Performance Luxury 4dr SUV",
+"msrp": 71300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-lexus-tx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1350,
+"trims": [
+{
+"trim": "TX 350 4dr SUV",
+"msrp": 55140,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 AWD 4dr SUV",
+"msrp": 56740,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 Premium 4dr SUV",
+"msrp": 57940,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 AWD Premium 4dr SUV",
+"msrp": 59540,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 Luxury 4dr SUV",
+"msrp": 60290,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 AWD Luxury 4dr SUV",
+"msrp": 61890,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 64410,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 500H AWD F SPORT Performance Premium 4dr SUV",
+"msrp": 68660,
+"config": "",
+"note": ""
+},
+{
+"trim": "TX 500H AWD F SPORT Performance Luxury 4dr SUV",
+"msrp": 71810,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-lexus-tx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

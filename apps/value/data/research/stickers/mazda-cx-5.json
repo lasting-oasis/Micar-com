@@ -1,0 +1,575 @@
+{
+ "make": "Mazda",
+ "model": "CX-5",
+ "body": "SUV / Crossover",
+ "note": "Compact crossover, single body style. 2016 is the first generation; 2017 (spring 2017 launch) through 2025 the second generation; 2026 page lists only 2.5 S trims (likely the new generation, not confirmed on the page). From 2022 the lineup switches to '2.5 S ...' / '2.5 Turbo ...' names and AWD is standard. MSRP excludes destination; destination per year in `destination`. AWD rows included for Touring (the assigned trim) and where FWD was not offered.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 21795,
+     "config": "FWD, 6-speed manual",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 23195,
+     "config": "FWD, automatic",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 24445,
+     "config": "AWD, automatic",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 25215,
+     "config": "FWD, automatic",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 26465,
+     "config": "AWD, automatic",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 28220,
+     "config": "FWD, automatic",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 29470,
+     "config": "AWD, automatic",
+     "note": "Release labels this row 'Mazda CX-5 Grand Touring AT' without 'AWD'; it sits in the AWD list"
+    }
+   ],
+   "source": "https://news.mazdausa.com/2015-02-09-2016-Mazda-CX-5-Pricing-Announced",
+   "source_type": "manufacturer",
+   "source_note": "Mazda USA newsroom release, Feb 9, 2015. Destination left null: body text says 'MSRP does not include $820 destination charge (Alaska $865)' but footnote 1 says '$920 destination charge (Alaska $965)'; the release does not resolve the conflict."
+  },
+  {
+   "year": 2017,
+   "destination": 940,
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 24045,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 25345,
+     "config": "i-ACTIV AWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 25915,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 27215,
+     "config": "i-ACTIV AWD",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 29395,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 30695,
+     "config": "i-ACTIV AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://news.mazdausa.com/2017-03-08-2017-mazda-cx-5-pricing",
+   "source_type": "manufacturer",
+   "source_note": "Mazda USA newsroom release, Mar 8, 2017 (second-generation launch). Footnote: 'MSRP does not include $940 destination charge ($985 in Alaska)'. Packages: Touring Preferred Equipment $780, Touring i-ACTIVSENSE $625, Grand Touring Premium $1,830."
+  },
+  {
+   "year": 2018,
+   "destination": 975,
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 24150,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 25450,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 26215,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 27515,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 29645,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 30945,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2018-mazda-cx__5-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style)."
+  },
+  {
+   "year": 2019,
+   "destination": 1045,
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 24350,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 26615,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 28015,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 30045,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring Reserve",
+     "msrp": 34870,
+     "config": "AWD, 2.5T",
+     "note": ""
+    },
+    {
+     "trim": "Signature",
+     "msrp": 36890,
+     "config": "AWD, 2.5T",
+     "note": ""
+    },
+    {
+     "trim": "Signature Diesel",
+     "msrp": 41000,
+     "config": "AWD, 2.2L diesel",
+     "note": "Listed as 'AWD Diesel Signature'; low-volume, 2019 only"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-mazda-cx__5-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style). Also listed: AWD Sport $25,750, AWD Grand Touring $31,445. Grand Touring Reserve and Signature are new for 2019 (turbo)."
+  },
+  {
+   "year": 2020,
+   "destination": 1100,
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 25190,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 26590,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 26830,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 28230,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 30310,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring Reserve",
+     "msrp": 35135,
+     "config": "AWD, 2.5T",
+     "note": ""
+    },
+    {
+     "trim": "Signature",
+     "msrp": 37155,
+     "config": "AWD, 2.5T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2020-mazda-cx__5-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style). Also listed: AWD Grand Touring $31,710."
+  },
+  {
+   "year": 2021,
+   "destination": 1225,
+   "trims": [
+    {
+     "trim": "Sport",
+     "msrp": 25370,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 27110,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Touring",
+     "msrp": 28510,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "Carbon Edition",
+     "msrp": 28955,
+     "config": "FWD",
+     "note": "New for 2021"
+    },
+    {
+     "trim": "Grand Touring",
+     "msrp": 30560,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Grand Touring Reserve",
+     "msrp": 35385,
+     "config": "AWD, 2.5T",
+     "note": ""
+    },
+    {
+     "trim": "Signature",
+     "msrp": 37505,
+     "config": "AWD, 2.5T",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2021-mazda-cx__5-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style). Also listed: AWD Sport $26,770; AWD Carbon Edition $30,355; Carbon Edition Turbo $30,760 and AWD Carbon Edition Turbo $32,160 (both shown with $1,175 destination, other styles $1,225); AWD Grand Touring $31,960."
+  },
+  {
+   "year": 2022,
+   "destination": 1225,
+   "trims": [
+    {
+     "trim": "2.5 S",
+     "msrp": 25900,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Select",
+     "msrp": 27900,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Preferred",
+     "msrp": 29600,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Carbon Edition",
+     "msrp": 30720,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Premium",
+     "msrp": 32310,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Premium Plus",
+     "msrp": 33950,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo",
+     "msrp": 36400,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo Signature",
+     "msrp": 38650,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-mazda-cx__5-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style). Refresh: AWD standard; Sport/Touring/Grand Touring names replaced by 2.5 S package names."
+  },
+  {
+   "year": 2023,
+   "destination": 1375,
+   "trims": [
+    {
+     "trim": "2.5 S",
+     "msrp": 26700,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Select",
+     "msrp": 28500,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Preferred",
+     "msrp": 30190,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Carbon Edition",
+     "msrp": 31100,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Premium",
+     "msrp": 33000,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Premium Plus",
+     "msrp": 35500,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo",
+     "msrp": 36850,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo Signature",
+     "msrp": 39650,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-mazda-cx__5-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style)."
+  },
+  {
+   "year": 2024,
+   "destination": 1420,
+   "trims": [
+    {
+     "trim": "2.5 S Select",
+     "msrp": 29300,
+     "config": "AWD",
+     "note": "Lowest style listed; no plain 2.5 S on the page"
+    },
+    {
+     "trim": "2.5 S Preferred",
+     "msrp": 30650,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Carbon Edition",
+     "msrp": 31950,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Premium",
+     "msrp": 33900,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Premium Plus",
+     "msrp": 36500,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Carbon Turbo",
+     "msrp": 37000,
+     "config": "AWD",
+     "note": "Replaces plain 2.5 Turbo"
+    },
+    {
+     "trim": "2.5 Turbo Premium",
+     "msrp": 37800,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo Signature",
+     "msrp": 40600,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-mazda-cx__5-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style)."
+  },
+  {
+   "year": 2025,
+   "destination": 1495,
+   "trims": [
+    {
+     "trim": "2.5 S",
+     "msrp": 29050,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Select",
+     "msrp": 30380,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Preferred",
+     "msrp": 31730,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Carbon Edition",
+     "msrp": 32630,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Premium Plus",
+     "msrp": 35680,
+     "config": "AWD",
+     "note": "No plain 2.5 S Premium listed this year"
+    },
+    {
+     "trim": "2.5 Carbon Turbo",
+     "msrp": 37200,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo Premium",
+     "msrp": 38280,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 Turbo Signature",
+     "msrp": 41080,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-mazda-cx__5-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style)."
+  },
+  {
+   "year": 2026,
+   "destination": 1595,
+   "trims": [
+    {
+     "trim": "2.5 S",
+     "msrp": 29990,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Select",
+     "msrp": 31990,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Preferred",
+     "msrp": 34250,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Premium",
+     "msrp": 36900,
+     "config": "AWD",
+     "note": ""
+    },
+    {
+     "trim": "2.5 S Premium Plus",
+     "msrp": 38990,
+     "config": "AWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2026-mazda-cx__5-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table (MSRP with a separate destination column per style). Only five 2.5 S styles listed; no Carbon or Turbo styles. Page does not confirm generation."
+  }
+ ],
+ "gaps": [
+  "2016: destination conflicting in the official release ($820 in body text vs $920 in footnote); left null.",
+  "2018-2026: news.mazdausa.com pricing releases not located within budget; used iSeeCars (secondary). iSeeCars figures are typically the latest in-year price.",
+  "2026: generation change not confirmed from a fetched page.",
+  "2016.5 mid-year refresh (seen in TrueCar listings as 2016.5 Touring) not separately priced; 2016 rows are the Feb 2015 release for the original 2016 model."
+ ]
+}

@@ -1,0 +1,432 @@
+{
+"make": "BMW",
+"model": "8 Series",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (8_series).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe",
+"msrp": 111900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 121400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-8_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Gran Coupe",
+"msrp": 84900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 87800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 87900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 90800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 97400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 100300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 108900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 111900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 121400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-8_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Gran Coupe",
+"msrp": 85000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 87900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 88000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 90900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 97400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 100300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 108900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 111900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 121400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-8_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "840i 2dr Coupe",
+"msrp": 85000,
+"config": "",
+"note": ""
+},
+{
+"trim": "840i Gran Coupe 4dr Sedan",
+"msrp": 85000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive 2dr Coupe",
+"msrp": 87900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive Gran Coupe 4dr Sedan",
+"msrp": 87900,
+"config": "",
+"note": ""
+},
+{
+"trim": "840i 2dr Convertible",
+"msrp": 94400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive 2dr Convertible",
+"msrp": 97300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive 2dr Coupe",
+"msrp": 99900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive Gran Coupe 4dr Sedan",
+"msrp": 99900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive 2dr Convertible",
+"msrp": 109400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA B8 Gran Coupe 4dr Sedan",
+"msrp": 139900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-8_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "840i 2dr Coupe",
+"msrp": 87500,
+"config": "",
+"note": ""
+},
+{
+"trim": "840i Gran Coupe 4dr Sedan",
+"msrp": 87500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive 2dr Coupe",
+"msrp": 90400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive Gran Coupe 4dr Sedan",
+"msrp": 90400,
+"config": "",
+"note": ""
+},
+{
+"trim": "840i 2dr Convertible",
+"msrp": 97100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive 2dr Convertible",
+"msrp": 100000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive 2dr Coupe",
+"msrp": 102500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive Gran Coupe 4dr Sedan",
+"msrp": 102500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive 2dr Convertible",
+"msrp": 112100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA B8 Gran Coupe 4dr Sedan",
+"msrp": 144900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-8_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "840i 2dr Coupe",
+"msrp": 90800,
+"config": "",
+"note": ""
+},
+{
+"trim": "840i Gran Coupe 4dr Sedan",
+"msrp": 90800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive 2dr Coupe",
+"msrp": 93800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive Gran Coupe 4dr Sedan",
+"msrp": 93800,
+"config": "",
+"note": ""
+},
+{
+"trim": "840i 2dr Convertible",
+"msrp": 100500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive 2dr Convertible",
+"msrp": 103500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive 2dr Coupe",
+"msrp": 106300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive Gran Coupe 4dr Sedan",
+"msrp": 106300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive 2dr Convertible",
+"msrp": 116000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA B8 Gran Coupe 4dr Sedan",
+"msrp": 149300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-8_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "840i 2dr Coupe",
+"msrp": 91700,
+"config": "",
+"note": ""
+},
+{
+"trim": "840i Gran Coupe 4dr Sedan",
+"msrp": 91700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive 2dr Coupe",
+"msrp": 94700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive Gran Coupe 4dr Sedan",
+"msrp": 94700,
+"config": "",
+"note": ""
+},
+{
+"trim": "840i 2dr Convertible",
+"msrp": 101400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 840i xDrive 2dr Convertible",
+"msrp": 104400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive 2dr Coupe",
+"msrp": 107300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive Gran Coupe 4dr Sedan",
+"msrp": 107300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M850i xDrive 2dr Convertible",
+"msrp": 117000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA B8 Gran Coupe 4dr Sedan",
+"msrp": 151500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-8_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

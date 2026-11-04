@@ -1,0 +1,192 @@
+{
+"make": "Chevrolet",
+"model": "Volt",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (volt).",
+"years": [
+{
+"year": 2011,
+"destination": 720,
+"trims": [
+{
+"trim": "Base 4dr Hatchback",
+"msrp": 40280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback",
+"msrp": 41675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 850,
+"trims": [
+{
+"trim": "4dr Hatchback",
+"msrp": 39145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback",
+"msrp": 40540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 850,
+"trims": [
+{
+"trim": "4dr Hatchback",
+"msrp": 39145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback",
+"msrp": 40540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "4dr Hatchback",
+"msrp": 34185,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Hatchback",
+"msrp": 35580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "5dr HB",
+"msrp": 34345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "5dr HB LT",
+"msrp": 33170,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Premier",
+"msrp": 37520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "5dr HB LT",
+"msrp": 33220,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Premier",
+"msrp": 37570,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "5dr HB LT",
+"msrp": 33220,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Premier",
+"msrp": 37570,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "5dr HB LT",
+"msrp": 33520,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Premier",
+"msrp": 38120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-volt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

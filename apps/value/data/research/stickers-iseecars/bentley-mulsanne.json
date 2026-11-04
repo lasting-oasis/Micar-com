@@ -1,0 +1,138 @@
+{
+"make": "Bentley",
+"model": "Mulsanne",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (mulsanne).",
+"years": [
+{
+"year": 2011,
+"destination": 2595,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 285000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-bentley-mulsanne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 2595,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 290000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bentley-mulsanne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 2725,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 296000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bentley-mulsanne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 2725,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 298900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bentley-mulsanne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 303700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Speed",
+"msrp": 335600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bentley-mulsanne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 304670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Speed Sedan",
+"msrp": 335600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Extended Wheelbase Sedan",
+"msrp": 361500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bentley-mulsanne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 304670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Speed Sedan",
+"msrp": 335600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bentley-mulsanne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

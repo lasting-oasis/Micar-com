@@ -1,0 +1,96 @@
+{
+"make": "Aston Martin",
+"model": "Rapide",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (rapide, rapide_s).",
+"years": [
+{
+"year": 2010,
+"destination": 1350,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 197850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-astonmartin-rapide-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 1615,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 207895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxe 4dr Sedan",
+"msrp": 226850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-astonmartin-rapide-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 1615,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 207895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxe 4dr Sedan",
+"msrp": 226850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-astonmartin-rapide-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 2825,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 198250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-astonmartin-rapide_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "S 4dr Sedan Auto",
+"msrp": 203295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-astonmartin-rapide_s-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

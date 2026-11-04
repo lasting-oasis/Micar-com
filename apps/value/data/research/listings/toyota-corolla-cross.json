@@ -1,0 +1,111 @@
+{
+ "make": "Toyota",
+ "model": "Corolla Cross",
+ "samples": [
+  {
+   "year": 2022,
+   "trim_filter": "LE",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla-cross/year-2022/?trim=le",
+   "fetched": "2026-10-28",
+   "page_average": 26815,
+   "page_note": "Page states 'TrueCar has 88 used 2022 Toyota Corolla Cross LE models for sale nationwide'; average sentence '...2022 Toyota Corolla Cross LE and 2022 Toyota Corolla Cross L averaging $26,815 and $25,853 respectively' - identical figures on the 2024 page and above every 2022 asking price shown, so boilerplate; do not rely on it. First 5 cards recorded.",
+   "listings": [
+    {
+     "price": 22387,
+     "miles": 37119,
+     "location": "Davie, FL",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE FWD; CPO; Great price"
+    },
+    {
+     "price": 23320,
+     "miles": 59966,
+     "location": "Oakdale, NY",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE AWD; CPO; Excellent price"
+    },
+    {
+     "price": 23396,
+     "miles": 32648,
+     "location": "Little Falls, NJ",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE AWD; CPO; Excellent price"
+    },
+    {
+     "price": 21369,
+     "miles": 67757,
+     "location": "Ocala, FL",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE FWD; Great price"
+    },
+    {
+     "price": 24721,
+     "miles": 39092,
+     "location": "Gladstone, OR",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE AWD; Great price"
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "LE",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/corolla-cross/year-2024/?trim=le",
+   "fetched": "2026-10-28",
+   "page_average": 26815,
+   "page_note": "Page states 'TrueCar has 156 used 2024 Toyota Corolla Cross LE models for sale nationwide'; average sentence '...LE and ... L averaging $26,815 and $25,853' - same as 2022 page, boilerplate; do not rely on it. First 5 cards recorded.",
+   "listings": [
+    {
+     "price": 23216,
+     "miles": 21489,
+     "location": "Houston, TX",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE FWD; Sponsored; Excellent price"
+    },
+    {
+     "price": 25694,
+     "miles": 22876,
+     "location": "Miami, FL",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE FWD; Excellent price"
+    },
+    {
+     "price": 24705,
+     "miles": 26519,
+     "location": "Orlando, FL",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE FWD; Excellent price"
+    },
+    {
+     "price": 25492,
+     "miles": 40323,
+     "location": "Fort Myers, FL",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE FWD; CPO; Great price"
+    },
+    {
+     "price": 26165,
+     "miles": 48328,
+     "location": "Commack, NY",
+     "trim": "LE",
+     "body": "SUV / Crossover",
+     "note": "LE FWD; Great price"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016 and 2019: model not sold (first model year 2022); per assignment only 2022 and 2024 sampled.",
+  "TrueCar 'averaging $X' figures are identical on the 2022 and 2024 pages (boilerplate); recorded as page_average per BRIEF2 but unreliable.",
+  "2022 LE asking prices ($21,369-$24,721) sit below the 2022 LE FWD sticker ($24,795) as expected; 2024 LE FWD asks ($23,216-$26,165) are close to the $26,190 sticker."
+ ]
+}

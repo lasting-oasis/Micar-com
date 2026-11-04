@@ -1,0 +1,369 @@
+{
+"make": "Audi",
+"model": "A7",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (a7).",
+"years": [
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium 4dr Sportback",
+"msrp": 59250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr Sportback",
+"msrp": 62870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 65580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr Sportback",
+"msrp": 64500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI Premium Plus 4dr Sportback",
+"msrp": 66900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 67400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0 quattro TDI Prestige 4dr Sportback",
+"msrp": 69800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr HB quattro 3.0 Premium Plus",
+"msrp": 65900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB quattro 3.0 Prestige",
+"msrp": 65900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB quattro 3.0 TDI Premium Plus",
+"msrp": 68300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB quattro 3.0 TDI Prestige",
+"msrp": 68300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr HB quattro 3.0 Premium Plus",
+"msrp": 68300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB quattro 3.0 Prestige",
+"msrp": 68300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB quattro 3.0 TDI Premium Plus",
+"msrp": 70400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB quattro 3.0 TDI Prestige",
+"msrp": 70400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 950,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr Sportback",
+"msrp": 68800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr Sportback",
+"msrp": 71350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro competition Prestige 4dr Sportback",
+"msrp": 76550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "3.0 TFSI Premium Plus",
+"msrp": 69700,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.0 TFSI Prestige",
+"msrp": 69700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 55 TFSI quattro",
+"msrp": 68000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 55 TFSI quattro",
+"msrp": 68000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 55 TFSI quattro",
+"msrp": 68000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 55 TFSI quattro",
+"msrp": 69000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 55 TFSI quattro",
+"msrp": 69000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 55 TFSI quattro",
+"msrp": 69000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 55 TFSI quattro",
+"msrp": 69200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 55 TFSI quattro",
+"msrp": 69200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 55 TFSI quattro",
+"msrp": 69200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 55 TFSI e quattro",
+"msrp": 74900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 55 TFSI e quattro",
+"msrp": 74900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sportback",
+"msrp": 69200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sportback",
+"msrp": 74350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Premium Plus 55 TFSI 4dr Sportback",
+"msrp": 75900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sportback",
+"msrp": 78350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD e quattro Prestige 55 TFSI 4dr Sportback",
+"msrp": 81250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sportback",
+"msrp": 70200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sportback",
+"msrp": 75350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sportback",
+"msrp": 79350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr Sportback",
+"msrp": 72000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr Sportback",
+"msrp": 76750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr Sportback",
+"msrp": 80550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-a7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

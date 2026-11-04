@@ -1,0 +1,747 @@
+{
+"make": "Buick",
+"model": "Enclave",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (enclave).",
+"years": [
+{
+"year": 2010,
+"destination": 775,
+"trims": [
+{
+"trim": "CX 4dr Crossover w/ 1CX",
+"msrp": 35465,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CX 4dr Crossover w/1CX",
+"msrp": 37465,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Crossover w/1XL",
+"msrp": 38630,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL 4dr Crossover w/1XL",
+"msrp": 40630,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Crossover w/2XL",
+"msrp": 41995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL 4dr Crossover w/2XL",
+"msrp": 43995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "CX 4dr Crossover w/ 1CX",
+"msrp": 35615,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CX 4dr Crossover w/ 1CX",
+"msrp": 37615,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL-1 4dr Crossover w/1XL",
+"msrp": 38730,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL-1 4dr Crossover w/1XL",
+"msrp": 40730,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL-2 4dr Crossover w/2XL",
+"msrp": 42095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD CXL-2 4dr Crossover w/2XL",
+"msrp": 44095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "Base 4dr Crossover",
+"msrp": 36350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convenience 4dr Crossover",
+"msrp": 37270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 38350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Convenience 4dr Crossover",
+"msrp": 39270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Crossover",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 43615,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 45615,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "Convenience 4dr Crossover",
+"msrp": 38445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Convenience 4dr Crossover",
+"msrp": 40445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Crossover",
+"msrp": 42460,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 44460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 45625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 47625,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "Convenience 4dr Crossover",
+"msrp": 38890,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Convenience 4dr Crossover",
+"msrp": 40890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Crossover",
+"msrp": 42905,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 44905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 46465,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 48465,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 925,
+"trims": [
+{
+"trim": "Convenience 4dr Crossover",
+"msrp": 39050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Crossover",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 45450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 47305,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 49305,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Convenience FWD",
+"msrp": 39065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather FWD",
+"msrp": 43660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather AWD",
+"msrp": 45660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium FWD",
+"msrp": 47515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 49515,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-08-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 925,
+"trims": [
+{
+"trim": "Convenience 4dr Crossover",
+"msrp": 39065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Leather 4dr Crossover",
+"msrp": 43765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Leather 4dr Crossover",
+"msrp": 45765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 47625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 49625,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "FWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence FWD",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence AWD",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium FWD",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir FWD",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir AWD",
+"msrp": 55800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Preferred FWD",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence FWD",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence AWD",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium FWD",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir FWD",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir AWD",
+"msrp": 55800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Preferred FWD",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence FWD",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence AWD",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium FWD",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 50700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir FWD",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir AWD",
+"msrp": 56100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Preferred FWD",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence FWD",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essence AWD",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium FWD",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium AWD",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir FWD",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir AWD",
+"msrp": 56000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Essence 4dr Crossover",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium 4dr Crossover",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Avenir 4dr Crossover",
+"msrp": 57100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Essence 4dr Crossover",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 52035,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium 4dr Crossover",
+"msrp": 54035,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 57470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Avenir 4dr Crossover",
+"msrp": 59470,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "Essence 4dr Crossover",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Essence 4dr Crossover",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 4dr Crossover",
+"msrp": 51200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium 4dr Crossover",
+"msrp": 53200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 57500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Avenir 4dr Crossover",
+"msrp": 59500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 45100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Preferred 4dr Crossover",
+"msrp": 47100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Crossover",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport Touring 4dr Crossover",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 58200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Avenir 4dr Crossover",
+"msrp": 60200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-buick-enclave-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

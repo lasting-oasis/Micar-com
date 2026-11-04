@@ -1,0 +1,360 @@
+{
+"make": "Porsche",
+"model": "Taycan",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (taycan).",
+"years": [
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "RWD",
+"msrp": 79900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4 Cross Turismo AWD",
+"msrp": 90900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S AWD",
+"msrp": 103800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4S Cross Turismo AWD",
+"msrp": 110300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 150900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Cross Turismo AWD",
+"msrp": 153500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S AWD",
+"msrp": 185000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo S Cross Turismo AWD",
+"msrp": 187600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-porsche-taycan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1350,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 82700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Cross Turismo 4dr Wagon",
+"msrp": 93700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 103800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Cross Turismo 4dr Wagon",
+"msrp": 110300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 131400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Sport Turismo 4dr Wagon",
+"msrp": 133300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 150900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Cross Turismo 4dr Wagon",
+"msrp": 153500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr Sedan",
+"msrp": 185000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S Cross Turismo 4dr Wagon",
+"msrp": 187600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-porsche-taycan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1450,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 86700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Cross Turismo 4dr Wagon",
+"msrp": 97700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 106500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Cross Turismo 4dr Wagon",
+"msrp": 113000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 134100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Sport Turismo 4dr Wagon",
+"msrp": 136000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 153300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Cross Turismo 4dr Wagon",
+"msrp": 155900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr Sedan",
+"msrp": 187400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S Cross Turismo 4dr Wagon",
+"msrp": 190000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-porsche-taycan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1650,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 90900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Cross Turismo 4dr Wagon",
+"msrp": 101900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 111700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Cross Turismo 4dr Wagon",
+"msrp": 118200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 139300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Sport Turismo 4dr Wagon",
+"msrp": 141200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 160800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Cross Turismo 4dr Wagon",
+"msrp": 163400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr Sedan",
+"msrp": 194900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S Cross Turismo 4dr Wagon",
+"msrp": 197500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-porsche-taycan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1995,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 99400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 4dr Sedan",
+"msrp": 103300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4 Cross Turismo 4dr Wagon",
+"msrp": 111100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S 4dr Sedan",
+"msrp": 118500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4S Cross Turismo 4dr Wagon",
+"msrp": 125200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS 4dr Sedan",
+"msrp": 147900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GTS Sport Turismo 4dr Wagon",
+"msrp": 149800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo 4dr Sedan",
+"msrp": 173600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo Cross Turismo 4dr Wagon",
+"msrp": 176300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S 4dr Sedan",
+"msrp": 209000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo S Cross Turismo 4dr Wagon",
+"msrp": 211700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo GT 4dr Sedan",
+"msrp": 230000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Turbo GT w/ Weissach Package 4dr Sedan",
+"msrp": 230000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-porsche-taycan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

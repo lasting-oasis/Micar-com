@@ -1,0 +1,399 @@
+{
+"make": "Hyundai",
+"model": "Palisade",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (palisade).",
+"years": [
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 33675,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 33925,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 35625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 45125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 46825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-palisade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 32675,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 34375,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 35325,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 37025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 45275,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy FWD",
+"msrp": 46200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 46975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy AWD",
+"msrp": 47900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-hyundai-palisade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 35300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 35950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 37650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 45840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy 4dr SUV",
+"msrp": 47290,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 47540,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr SUV",
+"msrp": 48990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-hyundai-palisade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1335,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 40800,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRT 4dr SUV",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr SUV",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 47450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy 4dr SUV",
+"msrp": 49850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr SUV",
+"msrp": 51750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-hyundai-palisade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 36650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 38650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRT 4dr SUV",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr SUV",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 47950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy 4dr SUV",
+"msrp": 50350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr SUV",
+"msrp": 52350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy Night Edition 4dr SUV",
+"msrp": 53850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-hyundai-palisade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr SUV",
+"msrp": 39950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr SUV",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRT 4dr SUV",
+"msrp": 43050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Premium 4dr SUV",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XRT 4dr SUV",
+"msrp": 45050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium 4dr SUV",
+"msrp": 46550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Calligraphy 4dr SUV",
+"msrp": 51000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy 4dr SUV",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Calligraphy Night Edition 4dr SUV",
+"msrp": 54500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-hyundai-palisade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

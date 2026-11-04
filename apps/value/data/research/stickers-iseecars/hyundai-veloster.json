@@ -1,0 +1,342 @@
+{
+"make": "Hyundai",
+"model": "Veloster",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (veloster, veloster_n).",
+"years": [
+{
+"year": 2012,
+"destination": 760,
+"trims": [
+{
+"trim": "3dr Coupe 6M",
+"msrp": 17300,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe DCT",
+"msrp": 18550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "3dr Coupe 6M",
+"msrp": 17600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe DCT",
+"msrp": 18700,
+"config": "",
+"note": ""
+},
+{
+"trim": "RE MIX 3dr Coupe",
+"msrp": 20050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 3dr Coupe 6M",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 3dr Coupe 6A",
+"msrp": 22950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "3dr Coupe 6M",
+"msrp": 17800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe DCT",
+"msrp": 19050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo R-Spec 3dr Coupe 6M w/Red Seats",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "RE:Flex 3dr Coupe",
+"msrp": 21650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 3dr Coupe 6M",
+"msrp": 22300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo 3dr Coupe 6A",
+"msrp": 23300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "3dr Coupe Man",
+"msrp": 18000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe Man w/Yellow Accent",
+"msrp": 18000,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe Auto",
+"msrp": 19100,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe Auto w/Yellow Accent",
+"msrp": 19100,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe Man Turbo R-Spec",
+"msrp": 21600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe Man Turbo",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe Man Turbo w/Orange Accent",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe Auto Turbo",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe Auto Turbo w/Orange Accent",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Coupe Man Turbo Rally Edition",
+"msrp": 23950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 Manual",
+"msrp": 18500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 Auto",
+"msrp": 19500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 Premium Auto",
+"msrp": 22750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo R-Spec Manual",
+"msrp": 22900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo DCT",
+"msrp": 25400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Ultimate Manual",
+"msrp": 26650,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Manual",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Ultimate DCT",
+"msrp": 28150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 Manual",
+"msrp": 18800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 Auto",
+"msrp": 19800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 Premium Auto",
+"msrp": 23000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo R-Spec Manual",
+"msrp": 23350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo DCT",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Ultimate DCT",
+"msrp": 28350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 Manual",
+"msrp": 18900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 Auto",
+"msrp": 19900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 Premium Auto",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo R-Spec Manual",
+"msrp": 23450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo DCT",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo Ultimate DCT",
+"msrp": 28450,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Manual",
+"msrp": 32250,
+"config": "",
+"note": ""
+},
+{
+"trim": "N DCT",
+"msrp": 33750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-hyundai-veloster-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,984 @@
+{
+"make": "Audi",
+"model": "A5",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (a5, a5_sportback).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 6M",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 6A",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 6M",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 6A",
+"msrp": 40700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium 2dr Convertible",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Premium Plus 2dr Coupe",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Convertible",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 6M",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 2dr Convertible",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 6A",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.2 quattro Prestige 2dr Coupe",
+"msrp": 48800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Prestige 2dr Convertible",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 52400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 6M",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 8A",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 6M",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 8A",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium 2dr Convertible",
+"msrp": 42450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Convertible",
+"msrp": 44650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 6M",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 2dr Convertible",
+"msrp": 46150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 8A",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 48350,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Prestige 2dr Convertible",
+"msrp": 51150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 53350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 6M",
+"msrp": 37100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 8A",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 6M",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 8A",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium 2dr Convertible",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Convertible",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 6M",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 2dr Convertible",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 8A",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Prestige 2dr Convertible",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 53900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 6M",
+"msrp": 37850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 8A",
+"msrp": 39050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 6M",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 8A",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium 2dr Convertible",
+"msrp": 43350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Convertible",
+"msrp": 45450,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 2dr Convertible",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 6M",
+"msrp": 47300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 8A",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Prestige 2dr Convertible",
+"msrp": 52800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 54900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 6M",
+"msrp": 39000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 8A",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 6M",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 8A",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium 2dr Convertible",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Convertible",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Premium Plus 2dr Convertible",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 6M",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe 8A",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T Prestige 2dr Convertible",
+"msrp": 53700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 55800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Manual quattro 2.0T Premium",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Manual quattro 2.0T Premium Plus",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Manual quattro 2.0T Prestige",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto quattro 2.0T Premium",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto quattro 2.0T Prestige",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto quattro 2.0T Premium Plus",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto quattro 2.0T Premium",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto quattro 2.0T Prestige",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Auto quattro 2.0T Premium Plus",
+"msrp": 47600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 925,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 6M",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe 8A",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 6M",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe 8A",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Convertible",
+"msrp": 47900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 50200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI Sport Manual",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Sport Tiptronic",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Sport",
+"msrp": 48600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sportback 2.0 TFSI Prestige",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback 2.0 TFSI Premium Plus",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback 2.0 TFSI Premium",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige S tronic",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus S tronic",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium S tronic",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige Manual",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus Manual",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Manual",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium Plus",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Premium",
+"msrp": 49600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 45 TFSI quattro",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 45 TFSI quattro",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 45 TFSI quattro",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Premium 45 TFSI quattro",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Prestige 45 TFSI quattro",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Premium Plus 45 TFSI quattro",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 45 TFSI quattro",
+"msrp": 51200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 45 TFSI quattro",
+"msrp": 51200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 45 TFSI quattro",
+"msrp": 51200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 2.0 TFSI quattro",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 2.0 TFSI quattro",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 2.0 TFSI quattro",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Premium 2.0 TFSI quattro",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Prestige 2.0 TFSI quattro",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Premium Plus 2.0 TFSI quattro",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2.0 TFSI quattro",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 2.0 TFSI quattro",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 2.0 TFSI quattro",
+"msrp": 49900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Sportback Premium 40 TFSI quattro",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Prestige 40 TFSI quattro",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback Premium Plus 40 TFSI quattro",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback S line Premium 45 TFSI quattro",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback S line Prestige 45 TFSI quattro",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sportback S line Premium Plus 45 TFSI quattro",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Premium 45 TFSI quattro",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Prestige 45 TFSI quattro",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Premium Plus 45 TFSI quattro",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 45 TFSI quattro",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 45 TFSI quattro",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 45 TFSI quattro",
+"msrp": 50400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-a5_sportback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium S line 2dr Coupe",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus S line 2dr Coupe",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Convertible",
+"msrp": 52200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige S line 2dr Coupe",
+"msrp": 55450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 57100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 62950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro S line Premium 45 TFSI 2dr Coupe",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium Plus 45 TFSI 2dr Coupe",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 45 TFSI 2dr Convertible",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Prestige 45 TFSI 2dr Coupe",
+"msrp": 55950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 2dr Convertible",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 45 TFSI 2dr Convertible",
+"msrp": 64000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD quattro S line Premium 45 TFSI 2dr Coupe",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Premium Plus 45 TFSI 2dr Coupe",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium 45 TFSI 2dr Convertible",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro S line Prestige 45 TFSI 2dr Coupe",
+"msrp": 56650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 45 TFSI 2dr Convertible",
+"msrp": 59700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 45 TFSI 2dr Convertible",
+"msrp": 64700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-a5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

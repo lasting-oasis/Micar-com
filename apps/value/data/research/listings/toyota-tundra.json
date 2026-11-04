@@ -1,0 +1,203 @@
+{
+  "make": "Toyota",
+  "model": "Tundra",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tundra/year-2016/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 37585,
+      "page_result_count": 84,
+      "listings": [
+        {
+          "price": 19707,
+          "miles": 200856,
+          "location": "Flagstaff, AZ",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed Flex Fuel 5.7L V8 4WD"
+        },
+        {
+          "price": 28190,
+          "miles": 72952,
+          "location": "Brattleboro, VT",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 6.5' bed 5.7L V8 4WD"
+        },
+        {
+          "price": 30742,
+          "miles": 67081,
+          "location": "Batavia, NY",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 6.5' bed 5.7L V8 4WD"
+        },
+        {
+          "price": 33289,
+          "miles": 79473,
+          "location": "Clanton, AL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed Flex Fuel 5.7L V8 4WD"
+        },
+        {
+          "price": 29629,
+          "miles": 115162,
+          "location": "Cheyenne, WY",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed Flex Fuel 5.7L V8 4WD"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tundra/year-2019/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 37603,
+      "page_result_count": 121,
+      "listings": [
+        {
+          "price": 39175,
+          "miles": 51398,
+          "location": "Batavia, NY",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 5.7L 4WD; same truck shows 51,353 mi on the multi-year SR5 page"
+        },
+        {
+          "price": 34293,
+          "miles": 92498,
+          "location": "Schererville, IN",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 5.7L 4WD"
+        },
+        {
+          "price": 36387,
+          "miles": 61239,
+          "location": "Tampa, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 5.7L 2WD"
+        },
+        {
+          "price": 36099,
+          "miles": 94963,
+          "location": "Hazard, KY",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 5.7L FFV 4WD"
+        },
+        {
+          "price": 37584,
+          "miles": 100920,
+          "location": "Scottsdale, AZ",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 5.7L 4WD"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tundra/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 37743,
+      "listings": [
+        {
+          "price": 34149,
+          "miles": 86188,
+          "location": "Tampa, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed (drivetrain not shown)"
+        },
+        {
+          "price": 44141,
+          "miles": 12464,
+          "location": "Bradenton, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed (drivetrain not shown)"
+        },
+        {
+          "price": 40347,
+          "miles": 27183,
+          "location": "Newport News, VA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed (drivetrain not shown)"
+        },
+        {
+          "price": 40465,
+          "miles": 45042,
+          "location": "Bronx, NY",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed (drivetrain not shown)"
+        }
+      ],
+      "note": "Taken from the multi-year SR5 page (all 2022 rows among its 31 listings); the year-2022 page was not fetched. page_average is the multi-year SR5 figure."
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tundra/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 37743,
+      "listings": [
+        {
+          "price": 41945,
+          "miles": 17885,
+          "location": "Bakersfield, CA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 4WD; Sponsored"
+        },
+        {
+          "price": 41995,
+          "miles": 19701,
+          "location": "Albany, OR",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 4WD"
+        },
+        {
+          "price": 44594,
+          "miles": 29316,
+          "location": "Daytona Beach, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 4WD"
+        },
+        {
+          "price": 43720,
+          "miles": 29398,
+          "location": "Oakdale, NY",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 4WD"
+        },
+        {
+          "price": 46594,
+          "miles": 25539,
+          "location": "Daytona Beach, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "CrewMax 5.5' bed 4WD"
+        }
+      ],
+      "note": "First five 2024 rows on the multi-year SR5 page (it showed 10 2024 rows); the year-2024 page was not fetched. page_average is the multi-year SR5 figure."
+    }
+  ],
+  "gaps": [
+    "2022 and 2024 come from the multi-year SR5 page (https://www.truecar.com/used-cars-for-sale/listings/toyota/tundra/?trim=sr5), not a year page, to stay near the call budget; the year pages (year-2022/?trim=sr5, year-2024/?trim=sr5) are unfetched. 2022 has only 4 rows.",
+    "TrueCar 'average price' sentences ($37,585 / $37,603 / $37,743) are boilerplate, not year figures; ignore.",
+    "Multi-year page's 2022 rows show no drivetrain."
+  ]
+}

@@ -1,0 +1,843 @@
+{
+"make": "Subaru",
+"model": "Outback",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (outback).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Wagon",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Premium 4dr Wagon",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 30995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 725,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 23195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Wagon",
+"msrp": 28195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Premium 4dr Wagon",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 31495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 775,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 23295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 24295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Wagon",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon CVT",
+"msrp": 28695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Premium 4dr Wagon",
+"msrp": 29495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 31695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R 4dr Wagon",
+"msrp": 28495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 32095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon 6M",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i 4dr Wagon CVT",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon 6M",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon CVT",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 29095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 32095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 850,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon",
+"msrp": 24895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 32995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2.5i",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i PZEV",
+"msrp": 25295,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Premium PZEV",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited",
+"msrp": 30395,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.5i Limited PZEV",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6R Limited",
+"msrp": 33395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon",
+"msrp": 25645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 32390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Touring 4dr Wagon",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Touring 4dr Wagon",
+"msrp": 38195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 915,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Wagon",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Wagon",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Wagon",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Wagon",
+"msrp": 35395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Touring 4dr Wagon",
+"msrp": 36490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Touring 4dr Wagon",
+"msrp": 38690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 975,
+"trims": [
+{
+"trim": "AWD 2.5i 4dr Crossover",
+"msrp": 26345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Premium 4dr Crossover",
+"msrp": 28445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Limited 4dr Crossover",
+"msrp": 32845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Limited 4dr Crossover",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5i Touring 4dr Crossover",
+"msrp": 36795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.6R Touring 4dr Crossover",
+"msrp": 38995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "CVT",
+"msrp": 26645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 33445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Onyx Edition XT CVT",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT",
+"msrp": 37345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited XT CVT",
+"msrp": 37745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring XT CVT",
+"msrp": 39695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "CVT",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 29045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Onyx Edition XT CVT",
+"msrp": 35145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited XT CVT",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring XT CVT",
+"msrp": 39945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "CVT",
+"msrp": 26945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium CVT",
+"msrp": 29145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited CVT",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Onyx Edition XT CVT",
+"msrp": 35145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Wilderness CVT",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring CVT",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited XT CVT",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring XT CVT",
+"msrp": 39945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1225,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition 4dr Crossover",
+"msrp": 33495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 35295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 38445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition XT 4dr Crossover",
+"msrp": 38595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited XT 4dr Crossover",
+"msrp": 39695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 39845,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring XT 4dr Crossover",
+"msrp": 42295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1345,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 28895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 35795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition 4dr Crossover",
+"msrp": 36105,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition XT 4dr Crossover",
+"msrp": 39360,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 39960,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited XT 4dr Crossover",
+"msrp": 40195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 40345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring XT 4dr Crossover",
+"msrp": 42795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1420,
+"trims": [
+{
+"trim": "AWD Base 4dr Crossover",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium 4dr Crossover",
+"msrp": 33060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition 4dr Crossover",
+"msrp": 37970,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 39720,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Onyx Edition XT 4dr Crossover",
+"msrp": 41225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Wilderness 4dr Crossover",
+"msrp": 41710,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited XT 4dr Crossover",
+"msrp": 42060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring 4dr Crossover",
+"msrp": 42280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Touring XT 4dr Crossover",
+"msrp": 44730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-subaru-outback-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

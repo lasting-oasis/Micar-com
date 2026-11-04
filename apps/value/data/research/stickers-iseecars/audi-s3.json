@@ -1,0 +1,228 @@
+{
+"make": "Audi",
+"model": "S3",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (s3).",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan quattro 2.0T Premium Plus",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan quattro 2.0T Prestige",
+"msrp": 41100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-s3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan quattro Premium Plus",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan quattro Prestige",
+"msrp": 42500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-s3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI Premium Plus",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige",
+"msrp": 42900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-s3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI Premium Plus",
+"msrp": 43650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Prestige",
+"msrp": 43650,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Premium Plus",
+"msrp": 45550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI Tech Prestige",
+"msrp": 45550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-s3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr Sedan",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr Sedan",
+"msrp": 49800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-s3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "S line Premium 2.0 TFSI quattro",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "S line Premium Plus 2.0 TFSI quattro",
+"msrp": 43000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-s3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr Sedan",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr Sedan",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr Sedan",
+"msrp": 52400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-s3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr Sedan",
+"msrp": 47400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr Sedan",
+"msrp": 50300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr Sedan",
+"msrp": 54300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-s3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 4dr Sedan",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 4dr Sedan",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 4dr Sedan",
+"msrp": 54900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-audi-s3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

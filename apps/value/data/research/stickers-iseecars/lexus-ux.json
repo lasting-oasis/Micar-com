@@ -1,0 +1,228 @@
+{
+"make": "Lexus",
+"model": "UX",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ux_200, ux_250h).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "UX 200 FWD",
+"msrp": 32150,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 200 F SPORT FWD",
+"msrp": 34150,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H AWD",
+"msrp": 34150,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H F SPORT AWD",
+"msrp": 36150,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 200 Luxury FWD",
+"msrp": 37350,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H Luxury AWD",
+"msrp": 39350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lexus-ux_200-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1025,
+"trims": [
+{
+"trim": "UX 200 4dr Crossover",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 200 F SPORT 4dr Crossover",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H AWD",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H F SPORT AWD",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 200 Luxury 4dr Crossover",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H Luxury AWD",
+"msrp": 39700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lexus-ux_200-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1025,
+"trims": [
+{
+"trim": "UX 200 4dr Crossover",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 200 F SPORT 4dr Crossover",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H AWD",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H F SPORT AWD",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 200 Luxury 4dr Crossover",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H Luxury AWD",
+"msrp": 39900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-lexus-ux_200-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1075,
+"trims": [
+{
+"trim": "UX 250H AWD 4dr Crossover",
+"msrp": 35750,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H AWD F SPORT 4dr Crossover",
+"msrp": 38090,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H AWD Luxury 4dr Crossover",
+"msrp": 40790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-lexus-ux_250h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1075,
+"trims": [
+{
+"trim": "UX 250H 4dr Crossover",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H AWD 4dr Crossover",
+"msrp": 36740,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H F SPORT Design 4dr Crossover",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H Premium 4dr Crossover",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H AWD F SPORT Design 4dr Crossover",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H AWD Premium 4dr Crossover",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H F SPORT Handling 4dr Crossover",
+"msrp": 42770,
+"config": "",
+"note": ""
+},
+{
+"trim": "UX 250H AWD F SPORT Handling 4dr Crossover",
+"msrp": 44170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lexus-ux_250h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

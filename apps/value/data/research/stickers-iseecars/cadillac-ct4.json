@@ -1,0 +1,204 @@
+{
+"make": "Cadillac",
+"model": "CT4",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ct4, ct4__v).",
+"years": [
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 38595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 39495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 40595,
+"config": "",
+"note": ""
+},
+{
+"trim": "V 4dr Sedan",
+"msrp": 44495,
+"config": "",
+"note": ""
+},
+{
+"trim": "V AWD 4dr Sedan",
+"msrp": 44995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-cadillac-ct4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-05-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1195,
+"trims": [
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 33395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 35395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 37595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 38695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 40695,
+"config": "",
+"note": ""
+},
+{
+"trim": "V 4dr Sedan",
+"msrp": 44895,
+"config": "",
+"note": ""
+},
+{
+"trim": "V AWD 4dr Sedan",
+"msrp": 45395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-cadillac-ct4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "V 4dr Sedan",
+"msrp": 46595,
+"config": "",
+"note": ""
+},
+{
+"trim": "V AWD 4dr Sedan",
+"msrp": 47095,
+"config": "",
+"note": ""
+},
+{
+"trim": "V Blackwing 4dr Sedan",
+"msrp": 60995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-cadillac-ct4__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "V 4dr Sedan",
+"msrp": 47095,
+"config": "",
+"note": ""
+},
+{
+"trim": "V AWD 4dr Sedan",
+"msrp": 47595,
+"config": "",
+"note": ""
+},
+{
+"trim": "V Blackwing 4dr Sedan",
+"msrp": 61495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-cadillac-ct4__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "V 4dr Sedan",
+"msrp": 47295,
+"config": "",
+"note": ""
+},
+{
+"trim": "V AWD 4dr Sedan",
+"msrp": 47795,
+"config": "",
+"note": ""
+},
+{
+"trim": "V Blackwing 4dr Sedan",
+"msrp": 62195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-cadillac-ct4__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

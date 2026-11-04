@@ -1,0 +1,641 @@
+{
+ "make": "Toyota",
+ "model": "Camry",
+ "body": "Sedan",
+ "note": "Sedan only. MSRP excludes destination throughout. AWD prices (2020-2026) are carried in the FWD row's note. Hybrid grades listed as rows for 2016-2018; 2025-2026 are hybrid-only generations.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": 885,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 23070,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 23840,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Special Edition",
+     "msrp": 25715,
+     "config": "",
+     "note": "SE-based Special Edition"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 26310,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "XSE",
+     "msrp": 26310,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "XLE V6",
+     "msrp": 31370,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "XSE V6",
+     "msrp": 31370,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 26790,
+     "config": "",
+     "note": "read from the prior-year column of Toyota's 2017 Camry pricing release ($0 change for 2017)"
+    },
+    {
+     "trim": "Hybrid SE",
+     "msrp": 27995,
+     "config": "",
+     "note": "read from the prior-year column of Toyota's 2017 Camry pricing release ($0 change for 2017)"
+    },
+    {
+     "trim": "Hybrid XLE",
+     "msrp": 30140,
+     "config": "",
+     "note": "read from the prior-year column of Toyota's 2017 Camry pricing release ($0 change for 2017)"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2016-toyota-camry-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://pressroom.toyota.com/2017-toyota-camry-pricing/"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Corroborated by Toyota's 2017 Camry pricing release (June 8, 2016), whose prior-year column shows identical figures ($0, 0.0% change) for LE/SE/XLE/XSE/V6 and the three hybrid grades. Destination 885 is iSeeCars' value. Toyota's 2016 Camry Special Edition release (pressroom.toyota.com/2016-toyota-camry-special-edition-debut/) returned a client error on both attempts."
+  },
+  {
+   "year": 2017,
+   "destination": 835,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 23070,
+     "config": "",
+     "note": "L4"
+    },
+    {
+     "trim": "SE",
+     "msrp": 23840,
+     "config": "",
+     "note": "L4"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 26310,
+     "config": "",
+     "note": "L4"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 26310,
+     "config": "",
+     "note": "L4"
+    },
+    {
+     "trim": "XLE V6",
+     "msrp": 31370,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "XSE V6",
+     "msrp": 31370,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 26790,
+     "config": "",
+     "note": "release lists it as 'HV LE'"
+    },
+    {
+     "trim": "Hybrid SE",
+     "msrp": 27995,
+     "config": "",
+     "note": "release lists it as 'HV SE'"
+    },
+    {
+     "trim": "Hybrid XLE",
+     "msrp": 30140,
+     "config": "",
+     "note": "release lists it as 'HV XLE'"
+    }
+   ],
+   "source": "https://pressroom.toyota.com/2017-toyota-camry-pricing/",
+   "source_type": "manufacturer",
+   "sources_extra": [
+    "https://www.iseecars.com/car/2017-toyota-camry-price"
+   ],
+   "note": "Toyota pricing release dated June 8, 2016. MSRP excludes the $835 delivery, processing and handling (DPH) fee (SET/GST regions may vary). Release shows $0 / 0.0% change vs the prior year for every grade. iSeeCars' 2017 page shows the same MSRPs but lists destination 895."
+  },
+  {
+   "year": 2018,
+   "destination": 885,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 23495,
+     "config": "",
+     "note": "article price $24,380 incl. $885 DPH"
+    },
+    {
+     "trim": "LE",
+     "msrp": 24000,
+     "config": "",
+     "note": "article price $24,885 incl. $885 DPH"
+    },
+    {
+     "trim": "SE",
+     "msrp": 25200,
+     "config": "",
+     "note": "article price $26,085 incl. $885 DPH"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 28450,
+     "config": "",
+     "note": "article price $29,335 incl. $885 DPH"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 29000,
+     "config": "",
+     "note": "article price $29,885 incl. $885 DPH"
+    },
+    {
+     "trim": "XLE V6",
+     "msrp": 34400,
+     "config": "",
+     "note": "article price $35,285 incl. $885 DPH"
+    },
+    {
+     "trim": "Hybrid LE",
+     "msrp": 27800,
+     "config": "",
+     "note": "article price $28,685 incl. $885 DPH"
+    },
+    {
+     "trim": "Hybrid SE",
+     "msrp": 29500,
+     "config": "",
+     "note": "article price $30,385 incl. $885 DPH"
+    },
+    {
+     "trim": "Hybrid XLE",
+     "msrp": 32250,
+     "config": "",
+     "note": "article price $33,135 incl. $885 DPH"
+    }
+   ],
+   "source": "https://thetruthaboutcars.com/2017/06/2018-toyota-camry-prices-fuel-economy-ratings-money-power-mpgs/",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.carscoops.com/2017/06/2018-toyota-camry-detailed-ahead-of/"
+   ],
+   "note": "All-new 8th-generation Camry. The Truth About Cars table (June 21, 2017) states its prices include the $885 delivery, processing and handling fee; $885 subtracted from every row. XSE V6 NOT recorded: the table shows $25,835 (evident typo); the article says the V6 is a $5,950 option on the XSE, which would imply $34,950 ex-DPH. Cross-check: Carscoops (June 21, 2017) gives L $23,495, V6 from $34,400 and Hybrid from $27,800, matching the ex-DPH figures. Toyota's launch release (pressroom.toyota.com/all-new-2018-toyota-camry-launch/) returned client errors on three attempts."
+  },
+  {
+   "year": 2019,
+   "destination": 955,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 24095,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 24600,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "SE",
+     "msrp": 25800,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "XLE",
+     "msrp": 29175,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "XSE",
+     "msrp": 29725,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "XLE V6",
+     "msrp": 34300,
+     "config": "",
+     "note": ""
+    },
+    {
+     "trim": "XSE V6",
+     "msrp": 34850,
+     "config": "",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-toyota-camry-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.cars.com/research/toyota-camry-2019/"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. cars.com's 2019 review text gives the L at $25,050 including destination (= 24,095 + 955), consistent. Camry Hybrid grades not on this page (not captured). Toyota's 2019 release returned client errors on both attempts."
+  },
+  {
+   "year": 2020,
+   "destination": 995,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 24425,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 24970,
+     "config": "FWD",
+     "note": "AWD $26,370"
+    },
+    {
+     "trim": "SE",
+     "msrp": 26170,
+     "config": "FWD",
+     "note": "AWD $27,570"
+    },
+    {
+     "trim": "SE Nightshade",
+     "msrp": 26870,
+     "config": "FWD",
+     "note": "AWD $28,270"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 29455,
+     "config": "FWD",
+     "note": "AWD $30,855"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 30005,
+     "config": "FWD",
+     "note": "AWD $31,405"
+    },
+    {
+     "trim": "TRD",
+     "msrp": 31170,
+     "config": "FWD",
+     "note": "V6; first-ever Camry TRD"
+    },
+    {
+     "trim": "XLE V6",
+     "msrp": 34580,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "XSE V6",
+     "msrp": 35130,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2020-toyota-camry-price",
+   "source_type": "secondary",
+   "sources_extra": [
+    "https://www.motorauthority.com/news/1124685_2020-toyota-camry-trd-priced-from-31-995"
+   ],
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. MID-YEAR INCREASE VISIBLE: Motor Authority (Aug 22, 2019) reported launch pricing of TRD $31,995, SE $26,995 and XLE V6 $35,405 including a $955 destination charge, i.e. $31,040 / $26,040 / $34,450 ex-destination - exactly $130 below the iSeeCars MSRPs, and destination $955 at launch vs $995 here. AWD (new for 2020, 4-cyl only) in trim notes. Hybrid grades not captured. Toyota's 2020 TRD/pricing release returned client errors on both attempts."
+  },
+  {
+   "year": 2021,
+   "destination": 1025,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 25045,
+     "config": "FWD",
+     "note": "AWD $26,445"
+    },
+    {
+     "trim": "SE",
+     "msrp": 26560,
+     "config": "FWD",
+     "note": "AWD $27,960"
+    },
+    {
+     "trim": "SE Nightshade",
+     "msrp": 27260,
+     "config": "FWD",
+     "note": "AWD $28,660"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 29945,
+     "config": "FWD",
+     "note": "AWD $31,345"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 30495,
+     "config": "FWD",
+     "note": "AWD $31,895"
+    },
+    {
+     "trim": "TRD",
+     "msrp": 32260,
+     "config": "FWD",
+     "note": "V6"
+    },
+    {
+     "trim": "XLE V6",
+     "msrp": 35070,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "XSE V6",
+     "msrp": 35620,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2021-toyota-camry-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Refreshed 2021 Camry. No L row on the page. Hybrid grades not captured. Toyota's 2021 release returned client errors on both attempts."
+  },
+  {
+   "year": 2022,
+   "destination": 1095,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 25845,
+     "config": "FWD",
+     "note": "AWD $27,245"
+    },
+    {
+     "trim": "SE",
+     "msrp": 27385,
+     "config": "FWD",
+     "note": "AWD $28,785"
+    },
+    {
+     "trim": "SE Nightshade",
+     "msrp": 28085,
+     "config": "FWD",
+     "note": "AWD $29,485"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 30595,
+     "config": "FWD",
+     "note": "AWD $31,995"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 31145,
+     "config": "FWD",
+     "note": "AWD $32,545"
+    },
+    {
+     "trim": "TRD",
+     "msrp": 32910,
+     "config": "FWD",
+     "note": "V6"
+    },
+    {
+     "trim": "XLE V6",
+     "msrp": 35720,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "XSE V6",
+     "msrp": 36270,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2022-toyota-camry-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. No L row on the page. Hybrid grades (incl. new Hybrid Nightshade) not captured. Toyota's 2022 release was found in search but not fetched (site was returning client errors)."
+  },
+  {
+   "year": 2023,
+   "destination": 1095,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 26320,
+     "config": "FWD",
+     "note": "AWD $27,720"
+    },
+    {
+     "trim": "SE",
+     "msrp": 27860,
+     "config": "FWD",
+     "note": "AWD $29,260"
+    },
+    {
+     "trim": "SE Nightshade",
+     "msrp": 28860,
+     "config": "FWD",
+     "note": "AWD $30,260"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 31070,
+     "config": "FWD",
+     "note": "AWD $32,470"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 31620,
+     "config": "FWD",
+     "note": "AWD $33,020"
+    },
+    {
+     "trim": "TRD",
+     "msrp": 33385,
+     "config": "FWD",
+     "note": "V6"
+    },
+    {
+     "trim": "XLE V6",
+     "msrp": 36195,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "XSE V6",
+     "msrp": 36745,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-toyota-camry-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. No L row on the page. Hybrid grades not captured. Toyota's 2023 Nightshade release exists only as a PDF export in search results; not fetched."
+  },
+  {
+   "year": 2024,
+   "destination": 1135,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 26420,
+     "config": "FWD",
+     "note": "AWD $27,820"
+    },
+    {
+     "trim": "SE",
+     "msrp": 27960,
+     "config": "FWD",
+     "note": "AWD $29,360"
+    },
+    {
+     "trim": "SE Nightshade",
+     "msrp": 28960,
+     "config": "FWD",
+     "note": "AWD $30,360"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 31170,
+     "config": "FWD",
+     "note": "AWD $32,570"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 31720,
+     "config": "FWD",
+     "note": "AWD $33,120"
+    },
+    {
+     "trim": "TRD",
+     "msrp": 33485,
+     "config": "FWD",
+     "note": "V6"
+    },
+    {
+     "trim": "XLE V6",
+     "msrp": 36295,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "XSE V6",
+     "msrp": 36845,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-toyota-camry-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Final year of the 8th generation / V6. No L row on the page. Hybrid grades not captured. Toyota's 2024 Camry release was found in search but not fetched (site was returning client errors)."
+  },
+  {
+   "year": 2025,
+   "destination": 1195,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 28700,
+     "config": "FWD",
+     "note": "hybrid; AWD $30,225"
+    },
+    {
+     "trim": "SE",
+     "msrp": 31000,
+     "config": "FWD",
+     "note": "hybrid; AWD $32,525"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 33700,
+     "config": "FWD",
+     "note": "hybrid; AWD $35,225"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 34900,
+     "config": "FWD",
+     "note": "hybrid; AWD $36,425"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-toyota-camry-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. All-new 9th-generation Camry is hybrid-only (every row is a hybrid; iSeeCars does not label them). Toyota's 2025 pricing release (pressroom.toyota.com/toyota-camry-goes-exclusively-hybrid-plus-a-new-look-and-more-technology/) returned a client error."
+  },
+  {
+   "year": 2026,
+   "destination": 1295,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 29600,
+     "config": "FWD",
+     "note": "hybrid; AWD $31,125"
+    },
+    {
+     "trim": "SE",
+     "msrp": 32100,
+     "config": "FWD",
+     "note": "hybrid; AWD $33,625"
+    },
+    {
+     "trim": "Nightshade",
+     "msrp": 33100,
+     "config": "FWD",
+     "note": "hybrid; AWD $34,625; listed as 'Nightshade' (Toyota: Nightshade Edition)"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 34800,
+     "config": "FWD",
+     "note": "hybrid; AWD $36,325"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 36000,
+     "config": "FWD",
+     "note": "hybrid; AWD $37,525"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2026-toyota-camry-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination; 'Destination Charge' listed per style). iSeeCars appears to show the latest MSRP for the model year, so mid-year increases may be baked in. Hybrid-only. Toyota's 2026 Nightshade release was found in search but not fetched (site was returning client errors)."
+  }
+ ],
+ "gaps": [
+  "Manufacturer source only for 2017 (Toyota pricing release). pressroom.toyota.com returned client errors on every other Camry release tried (2016 Special Edition, 2018 launch, 2019, 2020 TRD, 2021 refresh, 2025 all-hybrid, and the Full-Line Pricing page); 2022-2024 and 2026 releases were found in search but not fetched.",
+  "2018 XSE V6 not recorded: The Truth About Cars table shows $25,835 (typo); the article's stated $5,950 V6 upcharge on XSE would imply $34,950 ex-DPH.",
+  "Camry Hybrid grades captured only for 2016 (via the 2017 release's prior-year column), 2017 and 2018. 2019-2024 hybrid MSRPs not captured (iSeeCars Camry pages list gas styles only; Camry Hybrid pages not fetched).",
+  "2021-2024: no L trim on the iSeeCars pages (not captured, may not have been offered).",
+  "iSeeCars MSRPs appear to be the latest MSRP for the model year: 2020 is $130 above the August 2019 launch prices (Motor Authority), so 2019-2026 figures may include mid-year increases.",
+  "Destination: official DPH only for 2017 ($835). Other years use iSeeCars' listed Destination Charge; for 2017 iSeeCars shows $895 vs the official $835, so treat iSeeCars destination values as approximate.",
+  "2018 destination ($885) is the DPH stated by The Truth About Cars, not by Toyota."
+ ]
+}

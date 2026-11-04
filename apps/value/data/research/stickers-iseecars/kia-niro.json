@@ -1,0 +1,327 @@
+{
+"make": "Kia",
+"model": "Niro",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (niro, niro_ev, niro_plug__in_hybrid).",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "FE FWD",
+"msrp": 22890,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX FWD",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX FWD",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Launch Edition FWD",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 29650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-kia-niro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "FE FWD",
+"msrp": 23340,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX FWD",
+"msrp": 23650,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX FWD",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 32000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-kia-niro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Plug-In Hybrid LX FWD",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX FWD",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX Premium FWD",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV EX FWD",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV EX Premium FWD",
+"msrp": 44000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-kia-niro_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1175,
+"trims": [
+{
+"trim": "LX FWD",
+"msrp": 24590,
+"config": "",
+"note": ""
+},
+{
+"trim": "LXS FWD",
+"msrp": 25990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 28290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid LXS 4dr Crossover",
+"msrp": 29490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring SE FWD",
+"msrp": 30790,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Premium FWD",
+"msrp": 32790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX 4dr Crossover",
+"msrp": 33290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX Premium 4dr Crossover",
+"msrp": 36390,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV EX FWD",
+"msrp": 39090,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV EX Premium FWD",
+"msrp": 44590,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-kia-niro_plug__in_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1175,
+"trims": [
+{
+"trim": "Plug-In Hybrid LXS 4dr Crossover",
+"msrp": 29590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX 4dr Crossover",
+"msrp": 33390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX Premium 4dr Crossover",
+"msrp": 36550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-kia-niro_plug__in_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "LX 4dr Crossover",
+"msrp": 24690,
+"config": "",
+"note": ""
+},
+{
+"trim": "LXS 4dr Crossover",
+"msrp": 26090,
+"config": "",
+"note": ""
+},
+{
+"trim": "LXS Special Edition 4dr Crossover",
+"msrp": 27590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Special Edition 4dr Crossover",
+"msrp": 29890,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Premium 4dr Crossover",
+"msrp": 31990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-kia-niro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1325,
+"trims": [
+{
+"trim": "LX 4dr Crossover",
+"msrp": 26590,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX 4dr Crossover",
+"msrp": 29190,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Touring 4dr Crossover",
+"msrp": 31490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX 4dr Crossover",
+"msrp": 32590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid EX 4dr Crossover",
+"msrp": 33840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SX Touring 4dr Crossover",
+"msrp": 34890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid SX Touring 4dr Crossover",
+"msrp": 39590,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-kia-niro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1445,
+"trims": [
+{
+"trim": "Plug-In Hybrid EX 4dr Crossover",
+"msrp": 34490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Plug-In Hybrid SX Touring 4dr Crossover",
+"msrp": 40790,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-kia-niro_plug__in_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,99 @@
+// Real sticker prices (MSRP, excluding destination) by model year and trim,
+// from the manufacturers' own pricing announcements, merged from
+// data/research/stickers/*.json by scripts/build-data.ts. When a sticker
+// exists for the chosen make, model and year, the page offers the trims and
+// prefills the exact MSRP instead of the rough typicalMsrp estimate.
+
+import raw from '../data/stickers.json';
+
+export type StickerTrim = { trim: string; msrp: number; config: string; note: string };
+export type StickerYear = {
+  year: number;
+  destination: number | null;
+  /** Base trim first (its cheapest configuration). */
+  trims: StickerTrim[];
+  source: string;
+  sourceType: 'manufacturer' | 'secondary';
+  note: string;
+};
+export type StickerSet = { make: string; model: string; body: string; note: string; gaps: string[]; years: StickerYear[] };
+
+export const STICKERS: StickerSet[] = raw as StickerSet[];
+
+export function stickerFor(make: string, model: string, year: number): { set: StickerSet; year: StickerYear } | undefined {
+  const set = STICKERS.find((s) => s.make === make && s.model === model);
+  const y = set?.years.find((s) => s.year === year);
+  return set && y ? { set, year: y } : undefined;
+}
+
+/** Trim rows de-duplicated by trim name (first = cheapest configuration), for pickers. */
+export function trimChoices(y: StickerYear): StickerTrim[] {
+  const seen = new Set<string>();
+  return y.trims.filter((t) => { const k = t.trim.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });
+}
+
+/** The row for a trim name (case-insensitive, hyphen/space-insensitive); falls back to the base trim. */
+export function stickerTrim(y: StickerYear, trim: string): StickerTrim {
+  const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+  const want = norm(trim);
+  return (want && y.trims.find((t) => norm(t.trim) === want)) || y.trims.find((t) => want && norm(t.trim).startsWith(want)) || y.trims[0];
+}
+
+/** Pick the sticker row for a used listing: the listing's own trim if it is on
+ * file, else the search filter's trim, else the base trim. For pickups, prefer
+ * the crew-cab 4x4 configuration of that trim, which is what most used trucks are. */
+export function resolveStickerTrim(y: StickerYear, candidates: (string | null | undefined)[], body?: string): StickerTrim {
+  const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+  const words = (s: string) => ` ${s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()} `;
+  const pick = (rows: StickerTrim[]) => {
+    if (body === 'Pickup Truck') {
+      // Researched files put the cab/drive in config; iSeeCars puts it in the style name.
+      const desc = (t: StickerTrim) => `${t.config} ${t.trim}`;
+      const crew4x4 = rows.find((t) => /(supercrew|crew\s*cab|double\s*cab|crewmax|quad\s*cab)/i.test(desc(t)) && /(4x4|4wd|awd)/i.test(desc(t)));
+      if (crew4x4) return crew4x4;
+    }
+    return rows[0];
+  };
+  const list = candidates.filter((c): c is string => typeof c === 'string' && !!norm(c));
+  // 1. Exact trim name.
+  for (const c of list) {
+    const rows = y.trims.filter((t) => norm(t.trim) === norm(c));
+    if (rows.length) return pick(rows);
+  }
+  // 2. A sticker trim named as whole words inside the listing's trim
+  //    ("2.5i Premium" -> Premium, "EX-L 7 Passenger" -> EX-L); longest name wins.
+  for (const c of list) {
+    const hay = words(c);
+    const hits = y.trims.filter((t) => norm(t.trim).length >= 2 && hay.includes(words(t.trim)));
+    if (hits.length) {
+      const longest = Math.max(...hits.map((t) => norm(t.trim).length));
+      return pick(hits.filter((t) => norm(t.trim).length === longest));
+    }
+  }
+  // 3. The listing's trim named as whole words inside an iSeeCars style name
+  //    ("SLT" -> "4x4 SLT 4dr Crew Cab 5.8 ft. SB"); cheapest such style, crew 4x4 for pickups.
+  for (const c of list) {
+    const needle = words(c);
+    if (norm(c).length < 2) continue;
+    const hits = y.trims.filter((t) => words(t.trim).includes(needle));
+    if (hits.length) return pick(hits);
+  }
+  return y.trims[0];
+}
+
+export function stickerMsrp(y: StickerYear, trim: string): number {
+  return stickerTrim(y, trim).msrp;
+}
+
+/** Base-trim MSRP for the year (used to split a trim's premium from the base car). */
+export function baseMsrp(y: StickerYear): number {
+  return Math.min(...y.trims.map((t) => t.msrp));
+}
+
+/** Where the sticker came from, for the UI. */
+export function stickerSourceLabel(set: StickerSet, y: StickerYear): string {
+  try {
+    const host = new URL(y.source).hostname.replace(/^www\./, '');
+    return y.sourceType === 'manufacturer' ? `${set.make}'s pricing release (${host})` : host;
+  } catch { return y.sourceType === 'manufacturer' ? `${set.make}'s pricing release` : 'a published price list'; }
+}

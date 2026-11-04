@@ -1,0 +1,549 @@
+{
+"make": "BMW",
+"model": "6 Series",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (6_series).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "650i 2dr Coupe",
+"msrp": 78450,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Convertible",
+"msrp": 85550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "640i 2dr Coupe",
+"msrp": 73600,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i 2dr Convertible",
+"msrp": 81100,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Coupe",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Coupe",
+"msrp": 86000,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Convertible",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Convertible",
+"msrp": 93500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "640i 2dr Coupe",
+"msrp": 74400,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i Gran Coupe 4dr Sedan",
+"msrp": 76000,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i 2dr Convertible",
+"msrp": 81900,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Coupe",
+"msrp": 85500,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i Gran Coupe 4dr Sedan",
+"msrp": 86500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Coupe",
+"msrp": 88500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive Gran Coupe 4dr Sedan",
+"msrp": 89500,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Convertible",
+"msrp": 93000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Convertible",
+"msrp": 96000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 925,
+"trims": [
+{
+"trim": "640i 2dr Coupe",
+"msrp": 75400,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i Gran Coupe 4dr Sedan",
+"msrp": 77600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 640i xDrive 2dr Coupe",
+"msrp": 78400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 640i xDrive Gran Coupe 4dr Sedan",
+"msrp": 80600,
+"config": "",
+"note": ""
+},
+{
+"trim": "640i 2dr Convertible",
+"msrp": 82900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 640i xDrive 2dr Convertible",
+"msrp": 85900,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Coupe",
+"msrp": 86700,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i Gran Coupe 4dr Sedan",
+"msrp": 88900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Coupe",
+"msrp": 89700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive Gran Coupe 4dr Sedan",
+"msrp": 91900,
+"config": "",
+"note": ""
+},
+{
+"trim": "650i 2dr Convertible",
+"msrp": 94200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 650i xDrive 2dr Convertible",
+"msrp": 97200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe",
+"msrp": 76100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 78300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 79100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 81300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 83600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 86600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 87400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 89600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 90400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 92600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 94900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 97900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 117300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe",
+"msrp": 76600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 78800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 79600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 81800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 84100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 87100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 87900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 90100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 90900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 93100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 95400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 98400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sedan",
+"msrp": 121200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Coupe",
+"msrp": 77600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 79800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 80600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 82800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 85100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 88100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 89000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 91200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe",
+"msrp": 92000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 94200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 96500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 99500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 122500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Gran Turismo",
+"msrp": 70200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 81400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 84400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 86700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 89700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 93000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 96000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 98300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Convertible",
+"msrp": 101300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Gran Coupe",
+"msrp": 124300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-bmw-6_series-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,159 @@
+{
+  "make": "Tesla",
+  "model": "Model Y",
+  "body": "SUV / Crossover",
+  "note": "Tesla publishes no pricing releases and changes prices many times a year; every figure is one point in a moving year. First model year 2020, so 2016-2019 omitted.",
+  "years": [
+    {
+      "year": 2020,
+      "destination": 1200,
+      "trims": [
+        {
+          "trim": "Long Range AWD",
+          "msrp": 52990,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Crossover'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 60990,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Crossover'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-tesla-model_y-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated."
+    },
+    {
+      "year": 2021,
+      "destination": 1200,
+      "trims": [
+        {
+          "trim": "Standard Range",
+          "msrp": 41990,
+          "config": "",
+          "note": "iSeeCars 'Standard Range 4dr Crossover' (RWD)."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 49990,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Crossover'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 59990,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Crossover'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2021-tesla-model_y-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated."
+    },
+    {
+      "year": 2022,
+      "destination": 1200,
+      "trims": [
+        {
+          "trim": "Long Range AWD",
+          "msrp": 65990,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Crossover'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 69990,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Crossover'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2022-tesla-model_y-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated. These are high figures for the year (2022 saw repeated increases); treat as a late-2022 point."
+    },
+    {
+      "year": 2025,
+      "destination": 1390,
+      "trims": [
+        {
+          "trim": "Long Range RWD",
+          "msrp": 44990,
+          "config": "",
+          "note": "iSeeCars 'Long Range 4dr Crossover'."
+        },
+        {
+          "trim": "Long Range AWD",
+          "msrp": 47990,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range 4dr Crossover'."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 51490,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Crossover'."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-tesla-model_y-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated. No base RWD style listed for 2025."
+    },
+    {
+      "year": 2026,
+      "destination": 1390,
+      "trims": [
+        {
+          "trim": "Standard RWD",
+          "msrp": 39990,
+          "config": "",
+          "note": "iSeeCars '4dr SUV'."
+        },
+        {
+          "trim": "Standard AWD",
+          "msrp": 41990,
+          "config": "",
+          "note": "iSeeCars 'AWD 4dr SUV'."
+        },
+        {
+          "trim": "Premium RWD",
+          "msrp": 44990,
+          "config": "",
+          "note": "iSeeCars 'Premium 4dr SUV'; the page also lists 'Long Range 4dr Crossover' at the same 44990."
+        },
+        {
+          "trim": "Premium AWD",
+          "msrp": 48990,
+          "config": "",
+          "note": "iSeeCars 'AWD Premium 4dr SUV'; the page also lists 'AWD Long Range 4dr Crossover' at the same 48990."
+        },
+        {
+          "trim": "Performance AWD",
+          "msrp": 57490,
+          "config": "",
+          "note": "iSeeCars 'AWD Performance 4dr Crossover'."
+        },
+        {
+          "trim": "Long Range AWD Launch Series",
+          "msrp": 59990,
+          "config": "",
+          "note": "iSeeCars 'AWD Long Range Launch Series 4dr Crossover'; limited launch edition, not a regular production trim."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2026-tesla-model_y-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price table (style / MSRP / Destination Charge); page shows no 'as of' date, so this is one undated point in a year in which Tesla changed prices several times. Destination as stated by iSeeCars (Tesla calls it the 'destination and documentation fee'). Price date: undated. Page mixes old 'Long Range' names with the new 'Standard'/'Premium' names; duplicate-priced Long Range rows folded into Premium."
+    }
+  ],
+  "gaps": [
+    "2023: only destination-inclusive figures with an unstated charge were found, so left out of the table.",
+    "2016-2019: Model Y not sold (first model year 2020); omitted.",
+    "No manufacturer source for any year (Tesla publishes no pricing releases). All years secondary.",
+    "2024: no source page surfaced within budget (iSeeCars 2023/2024 pages did not appear in search); year missing.",
+    "2023: from TrueCar overview; destination not stated and the figures may include it (each is $1,390 above a round x,990 number). Flagged rather than adjusted.",
+    "2020-2022, 2025-2026: iSeeCars pages carry no price date, so no dated figure could be recorded.",
+    "2025: no base RWD style on the iSeeCars page.",
+    "2026: iSeeCars lists a Launch Series (limited edition) and duplicate Long Range rows; kept the Launch Series row with a note."
+  ]
+}

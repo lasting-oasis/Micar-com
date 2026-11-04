@@ -1,0 +1,54 @@
+{
+"make": "Kia",
+"model": "Seltos",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (seltos).",
+"years": [
+{
+"year": 2021,
+"destination": 1175,
+"trims": [
+{
+"trim": "AWD LX 4dr SUV",
+"msrp": 21990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 21990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4dr SUV",
+"msrp": 23590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX 4dr SUV",
+"msrp": 25390,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S Turbo 4dr SUV",
+"msrp": 25590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SX Turbo 4dr SUV",
+"msrp": 27990,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-kia-seltos-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

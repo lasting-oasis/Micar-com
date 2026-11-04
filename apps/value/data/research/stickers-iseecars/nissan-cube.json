@@ -1,0 +1,174 @@
+{
+"make": "Nissan",
+"model": "Cube",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (cube).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "1.8 4dr Wagon",
+"msrp": 13990,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Wagon 6M",
+"msrp": 15030,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Wagon CVT",
+"msrp": 16030,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Wagon",
+"msrp": 17130,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S Krom Edition 4dr Wagon",
+"msrp": 20120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-nissan-cube-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "1.8 4dr Wagon",
+"msrp": 14740,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Wagon 6M",
+"msrp": 16100,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Wagon CVT",
+"msrp": 17100,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Wagon",
+"msrp": 18200,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S Krom Edition 4dr Wagon",
+"msrp": 21640,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-nissan-cube-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "1.8 4dr Wagon",
+"msrp": 14980,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Wagon 6M",
+"msrp": 16580,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Wagon CVT",
+"msrp": 17580,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Wagon",
+"msrp": 18680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-nissan-cube-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 810,
+"trims": [
+{
+"trim": "1.8 S 4dr Wagon 6M",
+"msrp": 16760,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Wagon CVT",
+"msrp": 17760,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Wagon",
+"msrp": 18860,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-nissan-cube-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "1.8 S 4dr Wagon 6M",
+"msrp": 16900,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 S 4dr Wagon CVT",
+"msrp": 17900,
+"config": "",
+"note": ""
+},
+{
+"trim": "1.8 SL 4dr Wagon",
+"msrp": 19000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-nissan-cube-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

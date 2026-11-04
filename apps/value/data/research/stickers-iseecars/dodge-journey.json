@@ -1,0 +1,657 @@
+{
+"make": "Dodge",
+"model": "Journey",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (journey).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "SE 4dr SUV",
+"msrp": 20845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr SUV",
+"msrp": 23990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr SUV",
+"msrp": 26480,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr SUV",
+"msrp": 27020,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV (midyear release)",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV",
+"msrp": 28545,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crew 4dr SUV",
+"msrp": 28770,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV (midyear release)",
+"msrp": 29745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "Express 4dr SUV",
+"msrp": 22245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Mainstreet 4dr SUV",
+"msrp": 24445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Mainstreet 4dr SUV",
+"msrp": 26145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr SUV",
+"msrp": 28445,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV",
+"msrp": 28445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crew 4dr SUV",
+"msrp": 30145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV",
+"msrp": 30145,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux 4dr SUV",
+"msrp": 31945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Lux 4dr SUV",
+"msrp": 33645,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "American Value Package 4dr SUV",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr SUV",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr SUV",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr SUV",
+"msrp": 28195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crew 4dr SUV",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux 4dr SUV",
+"msrp": 32370,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Lux 4dr SUV",
+"msrp": 34105,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "American Value Package 4dr SUV",
+"msrp": 18995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr SUV",
+"msrp": 23295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr SUV",
+"msrp": 26395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew 4dr SUV",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crew 4dr SUV",
+"msrp": 29795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV",
+"msrp": 30795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "American Value Package 4dr SUV",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr SUV",
+"msrp": 23295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crossroad 4dr SUV",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr SUV",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crossroad 4dr SUV",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 28595,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr SUV",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr SUV",
+"msrp": 30895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr American Value Pkg",
+"msrp": 20695,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE",
+"msrp": 20695,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SXT",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Crossroad",
+"msrp": 26595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SXT",
+"msrp": 28695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Crossroad",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 31395,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr R/T",
+"msrp": 31395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited",
+"msrp": 33295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr R/T",
+"msrp": 33295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr SE",
+"msrp": 20995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SXT",
+"msrp": 24895,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Crossroad",
+"msrp": 26295,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Crossroad Plus",
+"msrp": 26295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE",
+"msrp": 26595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SXT",
+"msrp": 28395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Crossroad",
+"msrp": 29795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Crossroad Plus",
+"msrp": 29795,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr R/T",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr R/T",
+"msrp": 33695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 21195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT FWD",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 26795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crossroad FWD",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crossroad Plus FWD",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crossroad AWD",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crossroad Plus AWD",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT FWD",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 33895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT FWD",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crossroad FWD",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crossroad AWD",
+"msrp": 31495,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT FWD",
+"msrp": 33095,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 34995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1495,
+"trims": [
+{
+"trim": "SE Value Package 4dr SUV",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crossroad 4dr SUV",
+"msrp": 28345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Crossroad 4dr SUV",
+"msrp": 31845,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr SUV",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr SUV",
+"msrp": 35545,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-dodge-journey-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

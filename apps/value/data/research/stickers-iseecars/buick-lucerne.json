@@ -1,0 +1,111 @@
+{
+"make": "Buick",
+"model": "Lucerne",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (lucerne).",
+"years": [
+{
+"year": 2010,
+"destination": 765,
+"trims": [
+{
+"trim": "CX 4dr Sedan w/1CX",
+"msrp": 29230,
+"config": "",
+"note": ""
+},
+{
+"trim": "CX 4dr Sedan w/2CX",
+"msrp": 30930,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/1XL",
+"msrp": 32730,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Special Edition 4dr Sedan",
+"msrp": 33230,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/3XL",
+"msrp": 34830,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Premium 4dr Sedan",
+"msrp": 35625,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/4XL",
+"msrp": 35730,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan w/5XL",
+"msrp": 36230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Super 4dr Sedan",
+"msrp": 39230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Super 4dr Sedan w/1XS",
+"msrp": 42515,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-buick-lucerne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 765,
+"trims": [
+{
+"trim": "CX 4dr Sedan",
+"msrp": 29730,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL 4dr Sedan",
+"msrp": 33130,
+"config": "",
+"note": ""
+},
+{
+"trim": "CXL Premium 4dr Sedan",
+"msrp": 35675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Super 4dr Sedan",
+"msrp": 44460,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-buick-lucerne-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

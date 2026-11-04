@@ -1,0 +1,46 @@
+{
+  "voice": 3,
+  "speed": 1.0,
+  "scenes": [
+    {
+      "id": "intro",
+      "text": "Nexus Valuation is a free tool for one question: what is a used car really worth? Not a black box. A number you can check, line by line."
+    },
+    {
+      "id": "doors",
+      "text": "Owners, buyers and sellers use the calculator. Dealers print a window sheet with a Q R code. Here is how each one works."
+    },
+    {
+      "id": "pick",
+      "text": "Pick the make, model, year and trim. The original sticker price fills in from our records: five hundred seventy eight models, and more than twenty six thousand trim prices, from twenty ten on. Then add the miles and the condition."
+    },
+    {
+      "id": "ledger",
+      "text": "Now the engine shows its work. It starts from what the car cost new, and brings that up to what a new one costs today. It takes off what age and this model's resale history cost. Then it adjusts for mileage, condition, history, and the state of the market. Every line is on the page, and you can change any input and watch the number move."
+    },
+    {
+      "id": "prices",
+      "text": "You get three numbers: what a dealer would likely pay you, what a private buyer would pay, and what you would see on a dealer's lot. Around them, the range most sales land in."
+    },
+    {
+      "id": "market",
+      "text": "Paste in a listings page from near you, and real asking prices pull the estimate toward your market. A five year forecast shows where the value is heading, at the miles you drive."
+    },
+    {
+      "id": "sheet",
+      "text": "Selling a car? Describe it once, and print a window sheet. It shows the value today, the deal rating, in the words shoppers already know, and how the model holds its value next to others like it. Then it adds a Q R code."
+    },
+    {
+      "id": "phone",
+      "text": "Scan the code, and you get every detail, plus an independent value check, right on your phone. No account, no database: the whole car record travels inside the code."
+    },
+    {
+      "id": "spanish",
+      "text": "Everything, including the printed sheet, is available in Spanish with one tap."
+    },
+    {
+      "id": "sources",
+      "text": "The numbers come from published sticker prices, nearly two thousand real listings, and a national market index refreshed every week. Free. No sign up. No ads. Nexus Valuation."
+    }
+  ]
+}

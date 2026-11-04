@@ -1,0 +1,563 @@
+{
+  "make": "Volkswagen",
+  "model": "Tiguan",
+  "body": "SUV / Crossover",
+  "note": "Compact crossover. Generations: 2016-2017 first-gen (short wheelbase), 2018-2024 second-gen (long wheelbase, optional third row on FWD), 2025+ third-gen. The first-gen continued in 2018 as 'Tiguan Limited', not covered here. config = drivetrain (VW's 4MOTION = AWD); each trim's cheapest drivetrain, with the 4MOTION price in the note when a row was not spent on it, to stay near 7 rows. MSRP excludes destination. Trim names as VW writes them.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24890,
+          "config": "FWD",
+          "note": "First-generation Tiguan (2.0T)"
+        },
+        {
+          "trim": "S",
+          "msrp": 26865,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "R-Line",
+          "msrp": 28700,
+          "config": "FWD",
+          "note": "4MOTION $30,675"
+        },
+        {
+          "trim": "SE",
+          "msrp": 31390,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 33365,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 34445,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 36420,
+          "config": "4MOTION",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2016/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2017,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24995,
+          "config": "FWD",
+          "note": "Last first-gen year; cars.com prefixes styles '2.0T'"
+        },
+        {
+          "trim": "S",
+          "msrp": 26970,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "Wolfsburg Edition",
+          "msrp": 30095,
+          "config": "FWD",
+          "note": "4MOTION $32,070"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 32605,
+          "config": "FWD",
+          "note": "4MOTION $34,580"
+        },
+        {
+          "trim": "SEL",
+          "msrp": 34500,
+          "config": "FWD",
+          "note": "4MOTION $36,475"
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2017/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2018,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24595,
+          "config": "FWD",
+          "note": "Second-generation (long-wheelbase) Tiguan launches; the old model continued as 'Tiguan Limited' (not on this page)"
+        },
+        {
+          "trim": "S",
+          "msrp": 25895,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 26750,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 28050,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 31090,
+          "config": "FWD",
+          "note": "4MOTION $32,390"
+        },
+        {
+          "trim": "SEL Premium",
+          "msrp": 36250,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SEL Premium",
+          "msrp": 37550,
+          "config": "4MOTION",
+          "note": ""
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2018/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2019,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24295,
+          "config": "FWD",
+          "note": "Lower than 2018 S on cars.com"
+        },
+        {
+          "trim": "S",
+          "msrp": 25595,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 26695,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 27995,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SEL",
+          "msrp": 31795,
+          "config": "FWD",
+          "note": "4MOTION $33,095"
+        },
+        {
+          "trim": "SEL R-Line",
+          "msrp": 33645,
+          "config": "FWD",
+          "note": "4MOTION $34,945; SEL R-Line Black FWD $33,695 / 4MOTION $34,995"
+        },
+        {
+          "trim": "SEL Premium",
+          "msrp": 37195,
+          "config": "4MOTION",
+          "note": "4MOTION only; SEL Premium R-Line 4MOTION $38,895"
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2019/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2020,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 24945,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 26245,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 27095,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 28395,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 30295,
+          "config": "FWD",
+          "note": "4MOTION $31,595"
+        },
+        {
+          "trim": "SEL",
+          "msrp": 32245,
+          "config": "FWD",
+          "note": "4MOTION $33,545"
+        },
+        {
+          "trim": "SEL Premium R-Line",
+          "msrp": 38795,
+          "config": "4MOTION",
+          "note": "4MOTION only"
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2020/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2021,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 25245,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 26545,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 27395,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 28695,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 30595,
+          "config": "FWD",
+          "note": "4MOTION $31,895"
+        },
+        {
+          "trim": "SEL",
+          "msrp": 32545,
+          "config": "FWD",
+          "note": "4MOTION $33,845"
+        },
+        {
+          "trim": "SEL Premium R-Line",
+          "msrp": 39095,
+          "config": "4MOTION",
+          "note": "4MOTION only"
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2021/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2022,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 26490,
+          "config": "FWD",
+          "note": "2022 refresh; SEL and SEL Premium R-Line replaced by SEL R-Line"
+        },
+        {
+          "trim": "S",
+          "msrp": 27990,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 30120,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 31620,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 32950,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 34450,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SEL R-Line",
+          "msrp": 37320,
+          "config": "4MOTION",
+          "note": "4MOTION only"
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2022/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2023,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 26950,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 28450,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 30580,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 32080,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 33310,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 34810,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SEL R-Line",
+          "msrp": 37680,
+          "config": "4MOTION",
+          "note": "4MOTION only"
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2023/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2024,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 28880,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 30380,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "Wolfsburg Edition",
+          "msrp": 30995,
+          "config": "FWD",
+          "note": "4MOTION $32,495; Wolfsburg Edition returns for 2024"
+        },
+        {
+          "trim": "SE",
+          "msrp": 31580,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 33080,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 34580,
+          "config": "FWD",
+          "note": "4MOTION $36,080"
+        },
+        {
+          "trim": "SEL R-Line",
+          "msrp": 38880,
+          "config": "4MOTION",
+          "note": "4MOTION only; last year of second generation"
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2024/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    },
+    {
+      "year": 2025,
+      "destination": 1425,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 30245,
+          "config": "FWD",
+          "note": "Third-generation Tiguan (MY2025). Launch $29,495 ($30,920 incl. $1,425 dest., Motor1); cars.com is $750 higher"
+        },
+        {
+          "trim": "S",
+          "msrp": 31745,
+          "config": "4MOTION",
+          "note": "Motor1 $32,420 (-$1,425 = $30,995)"
+        },
+        {
+          "trim": "SE",
+          "msrp": 33045,
+          "config": "FWD",
+          "note": "Motor1 $34,420 (-$1,425 = $32,995); does not fit the +$750 pattern"
+        },
+        {
+          "trim": "SE",
+          "msrp": 34545,
+          "config": "4MOTION",
+          "note": "Motor1 $35,400 (-$1,425 = $33,975)"
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 36205,
+          "config": "FWD",
+          "note": "Motor1 $36,880 (-$1,425 = $35,455)"
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 37705,
+          "config": "4MOTION",
+          "note": "Motor1 $38,380 (-$1,425 = $36,955)"
+        },
+        {
+          "trim": "SEL R-Line",
+          "msrp": 40505,
+          "config": "4MOTION",
+          "note": "4MOTION only. Motor1 $41,180 (-$1,425 = $39,755)"
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2025/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price). Destination $1,425 and launch prices from https://www.motor1.com/news/754032/2025-volkswagen-tiguan-price/ ('starts at $30,920 in front-wheel drive S trim, including VW's $1,425 destination charge'); Motor1 only states destination-inclusion for the S figure, so the other launch prices in notes assume the same $1,425."
+    },
+    {
+      "year": 2026,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "S",
+          "msrp": 30805,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "S",
+          "msrp": 32305,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 33605,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE",
+          "msrp": 35105,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 37245,
+          "config": "FWD",
+          "note": ""
+        },
+        {
+          "trim": "SE R-Line Black",
+          "msrp": 38745,
+          "config": "4MOTION",
+          "note": ""
+        },
+        {
+          "trim": "SEL R-Line Turbo",
+          "msrp": 43085,
+          "config": "4MOTION",
+          "note": "Top trim renamed 'SEL R-Line Turbo' (was SEL R-Line); up $2,580 vs 2025"
+        }
+      ],
+      "source": "https://www.cars.com/research/volkswagen-tiguan-2026/trims/",
+      "source_type": "secondary",
+      "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price, not necessarily launch price)."
+    }
+  ],
+  "gaps": [
+    "2016-2024, 2026: destination charge not stated on any fetched page (null). 2025: $1,425 (Motor1).",
+    "No manufacturer source: one search for media.vw.com Tiguan pricing returned no newsroom result; all years cars.com secondary.",
+    "2017: cars.com shows no SE or R-Line style (S, Wolfsburg Edition, Sport, SEL only); Sport is priced below SEL but above Wolfsburg.",
+    "2018: Tiguan Limited (carry-over first gen) not captured."
+  ]
+}

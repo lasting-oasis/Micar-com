@@ -1,0 +1,42 @@
+{
+"make": "Infiniti",
+"model": "EX37",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (ex37).",
+"years": [
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Crossover",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Crossover",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Journey 4dr Crossover",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Journey 4dr Crossover",
+"msrp": 40650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-infiniti-ex37-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

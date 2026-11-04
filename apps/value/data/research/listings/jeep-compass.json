@@ -1,0 +1,198 @@
+{
+ "make": "Jeep",
+ "model": "Compass",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": "Latitude",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/compass/year-2016/?trim=latitude",
+   "fetched": "2026-10-28",
+   "page_total_listings": 12,
+   "page_average": 18358,
+   "page_average_note": "Quoted: '...the 2016 Jeep Compass Latitude and 2016 Jeep Compass Trailhawk averaging $18,358 and $20,492 respectively.' Same figures on all four year pages, so model-wide boilerplate. Count sentence says 12 while the FAQ cites 1,648 Latitude listings.",
+   "listings": [
+    {
+     "price": 9793,
+     "miles": 72316,
+     "location": "Fort Pierce, FL",
+     "trim": "Latitude FWD",
+     "body": "SUV / Crossover",
+     "note": "previous-generation (MK) Compass"
+    },
+    {
+     "price": 7536,
+     "miles": 98062,
+     "location": "La Habra, CA",
+     "trim": "Latitude FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 5500,
+     "miles": 125000,
+     "location": "Marietta, GA",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": "round mileage as shown"
+    },
+    {
+     "price": 5900,
+     "miles": 112000,
+     "location": "Marietta, GA",
+     "trim": "Latitude FWD",
+     "body": "SUV / Crossover",
+     "note": "round mileage as shown; same dealer as previous"
+    },
+    {
+     "price": 15998,
+     "miles": 29811,
+     "location": "Vancouver, WA",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": "CarMax; low miles"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "Latitude",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/compass/year-2019/?trim=latitude",
+   "fetched": "2026-10-28",
+   "page_total_listings": 136,
+   "page_average": 18358,
+   "page_average_note": "Quoted: '...the 2019 Jeep Compass Latitude and 2019 Jeep Compass Trailhawk averaging $18,358 and $20,492 respectively.' Same figures on all four year pages, so model-wide boilerplate. Page also says 'The average price for the 2019 Jeep Compass Limited is $21,188'.",
+   "listings": [
+    {
+     "price": 9438,
+     "miles": 123378,
+     "location": "Miamisburg, OH",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; one owner"
+    },
+    {
+     "price": 9362,
+     "miles": 121615,
+     "location": "Troy, NY",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 12246,
+     "miles": 83995,
+     "location": "Hialeah, FL",
+     "trim": "Latitude FWD",
+     "body": "SUV / Crossover",
+     "note": "one owner"
+    },
+    {
+     "price": 10898,
+     "miles": 101368,
+     "location": "Maysville, KY",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "Latitude",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/compass/year-2022/?trim=latitude",
+   "fetched": "2026-10-28",
+   "page_total_listings": 228,
+   "page_average": 18358,
+   "page_average_note": "Quoted: '...the 2022 Jeep Compass Latitude and 2022 Jeep Compass Trailhawk averaging $18,358 and $20,492 respectively.' Same figures on all four year pages, so model-wide boilerplate.",
+   "listings": [
+    {
+     "price": 17870,
+     "miles": 56549,
+     "location": "Timonium, MD",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 17004,
+     "miles": 67285,
+     "location": "Pensacola, FL",
+     "trim": "Latitude FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; CPO"
+    },
+    {
+     "price": 14680,
+     "miles": 99627,
+     "location": "North Dartmouth, MA",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 18754,
+     "miles": 27962,
+     "location": "Glendale Heights, IL",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 18303,
+     "miles": 39755,
+     "location": "Hamden, CT",
+     "trim": "Latitude 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "Latitude",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/jeep/compass/year-2024/?trim=latitude",
+   "fetched": "2026-10-28",
+   "page_total_listings": 473,
+   "page_average": 18358,
+   "page_average_note": "Quoted: '...the 2024 Jeep Compass Latitude and 2024 Jeep Compass Trailhawk averaging $18,358 and $20,492 respectively.' Same figures on all four year pages, so model-wide boilerplate.",
+   "listings": [
+    {
+     "price": 18388,
+     "miles": 68147,
+     "location": "Dunn, NC",
+     "trim": "Latitude",
+     "body": "SUV / Crossover",
+     "note": "Sponsored; drivetrain not shown (4x4 is standard from 2023 per iSeeCars/cars.com)"
+    },
+    {
+     "price": 19089,
+     "miles": 58334,
+     "location": "Springfield, IL",
+     "trim": "Latitude",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 14995,
+     "miles": 65749,
+     "location": "Commerce, GA",
+     "trim": "Latitude",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 14895,
+     "miles": 74046,
+     "location": "Commerce, GA",
+     "trim": "Latitude",
+     "body": "SUV / Crossover",
+     "note": "same dealer as previous"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2019 and 2024: the page reader returned only 4 cards (pages have 136 and 473 listings); no second fetch per the one-page rule.",
+  "2024 used listings show high mileage for 2-year-old cars (58k-74k), likely ex-rental/fleet; 2024 asking prices are below some 2022 asks."
+ ]
+}

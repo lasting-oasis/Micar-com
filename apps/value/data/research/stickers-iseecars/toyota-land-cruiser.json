@@ -1,0 +1,240 @@
+{
+"make": "Toyota",
+"model": "Land Cruiser",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (land_cruiser).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 65970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 68920,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 985,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 78555,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 985,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 79605,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr 4WD (Natl)",
+"msrp": 83825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "4WD (Natl)",
+"msrp": 84775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "4WD (Natl)",
+"msrp": 84565,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1395,
+"trims": [
+{
+"trim": "AWD 4dr SUV",
+"msrp": 85165,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "4WD (Natl)",
+"msrp": 85315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Heritage Edition 4WD (Natl)",
+"msrp": 87645,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "4WD (Natl)",
+"msrp": 85665,
+"config": "",
+"note": ""
+},
+{
+"trim": "Heritage Edition 4WD (Natl)",
+"msrp": 87995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1450,
+"trims": [
+{
+"trim": "4x4 1958 4dr SUV",
+"msrp": 55950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 4dr SUV",
+"msrp": 61950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 First Edition 4dr SUV",
+"msrp": 74950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x4 1958 4dr SUV",
+"msrp": 56700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 4dr SUV",
+"msrp": 61470,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2026,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x4 1958 4dr SUV",
+"msrp": 57600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 4dr SUV",
+"msrp": 62445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2026-toyota-land_cruiser-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-05-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

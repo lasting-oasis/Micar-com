@@ -1,0 +1,171 @@
+{
+"make": "Hyundai",
+"model": "Ioniq",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ioniq_electric, ioniq_hybrid, ioniq_plug__in_hybrid).",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Ioniq Electric Hatchback",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Electric Limited Hatchback",
+"msrp": 32500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-hyundai-ioniq_electric-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Ioniq Hybrid Blue Hatchback",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Hybrid SEL Hatchback",
+"msrp": 24000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Hybrid Limited Hatchback",
+"msrp": 27550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Electric Hatchback",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Electric Limited Hatchback",
+"msrp": 36000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-hyundai-ioniq_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Ioniq Hybrid Blue Hatchback",
+"msrp": 22400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Hybrid SEL Hatchback",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Hybrid Limited Hatchback",
+"msrp": 28550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Electric Hatchback",
+"msrp": 30315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Electric Limited Hatchback",
+"msrp": 36815,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-hyundai-ioniq_electric-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Ioniq Hybrid Blue Hatchback",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Hybrid SE Hatchback",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Plug-In Hybrid SE Hatchback",
+"msrp": 26500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Hybrid SEL Hatchback",
+"msrp": 28400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Plug-In Hybrid SEL Hatchback",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Hybrid Limited Hatchback",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Plug-In Hybrid Limited Hatchback",
+"msrp": 32950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Electric SE Hatchback",
+"msrp": 33045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ioniq Electric Limited Hatchback",
+"msrp": 38615,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-ioniq_electric-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,777 @@
+{
+"make": "Chevrolet",
+"model": "Camaro",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (camaro).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "LS 2dr Coupe",
+"msrp": 22680,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/1LT",
+"msrp": 23880,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/2LT",
+"msrp": 26875,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/1SS",
+"msrp": 30745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/2SS",
+"msrp": 33745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 850,
+"trims": [
+{
+"trim": "LS 2dr Coupe",
+"msrp": 22805,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 2dr Coupe w/2LS",
+"msrp": 23975,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/1LT",
+"msrp": 24005,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/2LT",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Convertible w/1LT",
+"msrp": 29275,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/1SS",
+"msrp": 31070,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Convertible w/2LT",
+"msrp": 32775,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/2SS",
+"msrp": 34420,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Convertible w/1SS",
+"msrp": 36775,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Convertible w/2SS",
+"msrp": 39775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 900,
+"trims": [
+{
+"trim": "LS 2dr Coupe w/1LS",
+"msrp": 23280,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 2dr Coupe w/2LS",
+"msrp": 24480,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/1LT",
+"msrp": 25280,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/2LT",
+"msrp": 28430,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Convertible w/1LT",
+"msrp": 30180,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/1SS",
+"msrp": 32280,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Convertible w/2LT",
+"msrp": 34180,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/2SS",
+"msrp": 35530,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Convertible w/1SS",
+"msrp": 38330,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Convertible w/2SS",
+"msrp": 41030,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZL1 2dr Coupe",
+"msrp": 54095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 900,
+"trims": [
+{
+"trim": "LS 2dr Coupe w/1LS",
+"msrp": 23345,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 2dr Coupe w/2LS",
+"msrp": 24545,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/1LT",
+"msrp": 25760,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/2LT",
+"msrp": 28685,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Convertible w/1LT",
+"msrp": 30660,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/1SS",
+"msrp": 32635,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Convertible w/2LT",
+"msrp": 34435,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/2SS",
+"msrp": 36135,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Convertible w/1SS",
+"msrp": 38685,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Convertible w/2SS",
+"msrp": 41285,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZL1 2dr Coupe",
+"msrp": 54350,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZL1 2dr Convertible",
+"msrp": 59545,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "LS 2dr Coupe w/1LS",
+"msrp": 23555,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 2dr Coupe w/2LS",
+"msrp": 24755,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/1LT",
+"msrp": 25855,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Coupe w/2LT",
+"msrp": 29055,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Convertible w/1LT",
+"msrp": 31055,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/1SS",
+"msrp": 33355,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 2dr Convertible w/2LT",
+"msrp": 35155,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Coupe w/2SS",
+"msrp": 37155,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Convertible w/1SS",
+"msrp": 39355,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 2dr Convertible w/2SS",
+"msrp": 42255,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZL1 2dr Coupe",
+"msrp": 55355,
+"config": "",
+"note": ""
+},
+{
+"trim": "ZL1 2dr Convertible",
+"msrp": 60555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Z28 2dr Coupe",
+"msrp": 72305,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe 1LT",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2LT",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1LT",
+"msrp": 32700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 1SS",
+"msrp": 36300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2LT",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2SS",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1SS",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2SS",
+"msrp": 48300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe 1LS",
+"msrp": 25905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 1LT",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2LT",
+"msrp": 30405,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1LS",
+"msrp": 31905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1LT",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2LT",
+"msrp": 35605,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 1SS",
+"msrp": 36905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2SS",
+"msrp": 41905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1SS",
+"msrp": 42905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2SS",
+"msrp": 47905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe ZL1",
+"msrp": 61140,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible ZL1",
+"msrp": 67140,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe 1LS",
+"msrp": 25905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 1LT",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2LT",
+"msrp": 30500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1LS",
+"msrp": 31905,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1LT",
+"msrp": 32700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2LT",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 1SS",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2SS",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1SS",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2SS",
+"msrp": 48000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe ZL1",
+"msrp": 61500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible ZL1",
+"msrp": 67500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe 1LS",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 1LT",
+"msrp": 25500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2LT",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 3LT",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1LT",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2LT",
+"msrp": 33500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe LT1",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 1SS",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 3LT",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible LT1",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2SS",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1SS",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2SS",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe ZL1",
+"msrp": 63000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible ZL1",
+"msrp": 69000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe 1LS",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 1LT",
+"msrp": 25500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2LT",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 3LT",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1LT",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2LT",
+"msrp": 33500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe LT1",
+"msrp": 34000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 1SS",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 3LT",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible LT1",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 2SS",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 1SS",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible 2SS",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe ZL1",
+"msrp": 63000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible ZL1",
+"msrp": 69000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-camaro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

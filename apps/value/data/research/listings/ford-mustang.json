@@ -1,0 +1,215 @@
+{
+  "make": "Ford",
+  "model": "Mustang",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "none (unfiltered year page)",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/mustang/year-2016/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "No average sentence; page says 'Prices for a used 2016 Ford Mustang currently range from $7,999 to $90,500.'",
+      "page_total_listings": 278,
+      "listings": [
+        {
+          "price": 12800,
+          "miles": 85501,
+          "location": "Union City, GA",
+          "trim": "V6 Convertible",
+          "body": "Coupe / Sports",
+          "note": "Sponsored"
+        },
+        {
+          "price": 38595,
+          "miles": 32317,
+          "location": "North Brunswick Township, NJ",
+          "trim": "Shelby GT350 Fastback",
+          "body": "Coupe / Sports",
+          "note": "Sponsored; Shelby, not a mainstream trim"
+        },
+        {
+          "price": 13798,
+          "miles": 68272,
+          "location": "St Paul, MN",
+          "trim": "V6 Convertible",
+          "body": "Coupe / Sports",
+          "note": "Sponsored"
+        },
+        {
+          "price": 11995,
+          "miles": 83992,
+          "location": "Tampa, FL",
+          "trim": "EcoBoost Fastback",
+          "body": "Coupe / Sports",
+          "note": ""
+        },
+        {
+          "price": 11985,
+          "miles": 115228,
+          "location": "San Antonio, TX",
+          "trim": "EcoBoost Fastback",
+          "body": "Coupe / Sports",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "none (unfiltered year page)",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/mustang/year-2019/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Only a trim-level sentence: 'The average price for the 2019 Ford Mustang GT Premium is $38,164' (above the visible GT Premium asks of $32,898-$36,946; looks like boilerplate).",
+      "page_total_listings": 293,
+      "listings": [
+        {
+          "price": 17187,
+          "miles": 79629,
+          "location": "Miami, FL",
+          "trim": "EcoBoost Premium Fastback",
+          "body": "Coupe / Sports",
+          "note": "Sponsored; CPO"
+        },
+        {
+          "price": 19584,
+          "miles": 30845,
+          "location": "Montclair, CA",
+          "trim": "EcoBoost Fastback",
+          "body": "Coupe / Sports",
+          "note": "Sponsored"
+        },
+        {
+          "price": 17944,
+          "miles": 53165,
+          "location": "Glenview, IL",
+          "trim": "EcoBoost Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": ""
+        },
+        {
+          "price": 19782,
+          "miles": 42512,
+          "location": "Lake Havasu City, AZ",
+          "trim": "EcoBoost Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": ""
+        },
+        {
+          "price": 34996,
+          "miles": 31819,
+          "location": "Knoxville, TN",
+          "trim": "GT Premium Fastback",
+          "body": "Coupe / Sports",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "none (unfiltered year page)",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/mustang/year-2022/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Only a trim-level sentence: 'The average price for the 2022 Ford Mustang GT Premium is $38,293'.",
+      "page_total_listings": 363,
+      "listings": [
+        {
+          "price": 36790,
+          "miles": 30668,
+          "location": "Clearwater, FL",
+          "trim": "GT Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": "Sponsored"
+        },
+        {
+          "price": 34420,
+          "miles": 81820,
+          "location": "Jackson, MS",
+          "trim": "GT Premium Fastback",
+          "body": "Coupe / Sports",
+          "note": "Sponsored"
+        },
+        {
+          "price": 19157,
+          "miles": 78391,
+          "location": "Sterling, IL",
+          "trim": "EcoBoost Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": ""
+        },
+        {
+          "price": 24064,
+          "miles": 61226,
+          "location": "Homestead, FL",
+          "trim": "EcoBoost Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": ""
+        },
+        {
+          "price": 24199,
+          "miles": 18838,
+          "location": "Daytona Beach, FL",
+          "trim": "EcoBoost Fastback",
+          "body": "Coupe / Sports",
+          "note": "CPO"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "none (unfiltered year page)",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/mustang/year-2024/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Trim-level sentences only: GT Premium $37,957; EcoBoost Premium $24,294; EcoBoost $23,694.",
+      "page_total_listings": 657,
+      "listings": [
+        {
+          "price": 26384,
+          "miles": 48618,
+          "location": "Venice, FL",
+          "trim": "EcoBoost Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": "Sponsored"
+        },
+        {
+          "price": 24000,
+          "miles": 53915,
+          "location": "Leander, TX",
+          "trim": "EcoBoost Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": "Sponsored"
+        },
+        {
+          "price": 26626,
+          "miles": 55073,
+          "location": "Bradenton, FL",
+          "trim": "EcoBoost Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": ""
+        },
+        {
+          "price": 25887,
+          "miles": 58915,
+          "location": "Bradenton, FL",
+          "trim": "EcoBoost Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": ""
+        },
+        {
+          "price": 25996,
+          "miles": 53132,
+          "location": "Starke, FL",
+          "trim": "EcoBoost Premium Convertible",
+          "body": "Coupe / Sports",
+          "note": "CPO"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "Assignment trim filter = none, so every year used the unfiltered year page; first 5 listings with mileage recorded.",
+    "2024 sample is all EcoBoost Premium (7 of the first 8 rows are convertibles, mostly 45k-59k mi, likely ex-rental); not representative of GT/Dark Horse.",
+    "No page stated a year-wide 'averages $X'; page_average left null, trim-level averages quoted in page_average_note."
+  ]
+}

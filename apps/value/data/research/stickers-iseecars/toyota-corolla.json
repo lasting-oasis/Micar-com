@@ -1,0 +1,858 @@
+{
+"make": "Toyota",
+"model": "Corolla",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (corolla, corolla_hybrid, corolla_im).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Base 4dr Sedan 5M",
+"msrp": 15450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 4A",
+"msrp": 16250,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 5M",
+"msrp": 16520,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan 4A",
+"msrp": 16850,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 4A",
+"msrp": 17350,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan 4A",
+"msrp": 17750,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRS 4dr Sedan 5M",
+"msrp": 18960,
+"config": "",
+"note": ""
+},
+{
+"trim": "XRS 4dr Sedan 5A",
+"msrp": 20150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "Base 4dr Sedan 5M",
+"msrp": 15900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 4A",
+"msrp": 16700,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan 4A",
+"msrp": 17600,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 5M",
+"msrp": 17770,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 4A",
+"msrp": 18600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 760,
+"trims": [
+{
+"trim": "L 4dr Sedan 5M",
+"msrp": 16130,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr Sedan 4A",
+"msrp": 16960,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan 4A",
+"msrp": 17910,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 5M",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 4A",
+"msrp": 18820,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 760,
+"trims": [
+{
+"trim": "L 4dr Sedan 5M",
+"msrp": 16230,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr Sedan 4A",
+"msrp": 17060,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan 4A",
+"msrp": 18180,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 5M",
+"msrp": 18230,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan 4A",
+"msrp": 19060,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Special Edition 4dr Sedan",
+"msrp": 20550,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Special Edition 4dr Sedan",
+"msrp": 20550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "L 4dr Sedan 6M",
+"msrp": 16800,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr Sedan 4A",
+"msrp": 17400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan",
+"msrp": 18300,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco 4dr Sedan",
+"msrp": 18700,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Plus 4dr Sedan",
+"msrp": 18700,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Sedan",
+"msrp": 19000,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco Plus 4dr Sedan",
+"msrp": 19400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Premium 4dr Sedan",
+"msrp": 19400,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Plus 4dr Sedan CVT",
+"msrp": 19700,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco Premium 4dr Sedan",
+"msrp": 20100,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Premium 4dr Sedan",
+"msrp": 20400,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Plus 4dr Sedan 6M",
+"msrp": 21300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Man L (Natl)",
+"msrp": 17300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Auto L (Natl)",
+"msrp": 17900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE (Natl)",
+"msrp": 18735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE ECO (Natl)",
+"msrp": 19135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE Plus (Natl)",
+"msrp": 19135,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto S (Natl)",
+"msrp": 19365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE ECO Plus (Natl)",
+"msrp": 19835,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto S Plus (Natl)",
+"msrp": 20065,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto S w/Special Edition Pkg (Natl)",
+"msrp": 20635,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Man S Plus (Natl)",
+"msrp": 21665,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE Premium (Natl)",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto LE ECO Premium (Natl)",
+"msrp": 22895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan CVT Auto S Premium (Natl)",
+"msrp": 23125,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 895,
+"trims": [
+{
+"trim": "L 4dr Sedan",
+"msrp": 18500,
+"config": "",
+"note": ""
+},
+{
+"trim": "IM Manual (Natl)",
+"msrp": 18750,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan",
+"msrp": 18935,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco 4dr Sedan",
+"msrp": 19335,
+"config": "",
+"note": ""
+},
+{
+"trim": "IM CVT (Natl)",
+"msrp": 19490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan CVT",
+"msrp": 20445,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco 4dr Sedan w/Premium Package",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6M",
+"msrp": 21665,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 21825,
+"config": "",
+"note": ""
+},
+{
+"trim": "50th Anniversary Special Edition 4dr Sedan",
+"msrp": 21900,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 22680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 930,
+"trims": [
+{
+"trim": "L 4dr Sedan",
+"msrp": 18600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan",
+"msrp": 19035,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco 4dr Sedan",
+"msrp": 19435,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan CVT",
+"msrp": 20545,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco 4dr Sedan w/Premium Package",
+"msrp": 21400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6M",
+"msrp": 21765,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 22035,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 22780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "L CVT (Natl)",
+"msrp": 18700,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE CVT (Natl)",
+"msrp": 19135,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco CVT (Natl)",
+"msrp": 19535,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Eco w/Premium Package CVT (Natl)",
+"msrp": 19535,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE CVT (Natl)",
+"msrp": 20645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Manual (Natl)",
+"msrp": 21865,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE CVT (Natl)",
+"msrp": 22135,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE CVT (Natl)",
+"msrp": 22880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "L CVT (Natl)",
+"msrp": 19600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE CVT (Natl)",
+"msrp": 20050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE CVT (Natl)",
+"msrp": 22050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Manual (Natl)",
+"msrp": 22750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade CVT (Natl)",
+"msrp": 22750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr Sedan",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE CVT (Natl)",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE CVT (Natl)",
+"msrp": 24050,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE CVT (Natl)",
+"msrp": 25550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-corolla_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1025,
+"trims": [
+{
+"trim": "L CVT (Natl)",
+"msrp": 20025,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE CVT (Natl)",
+"msrp": 20475,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE CVT (Natl)",
+"msrp": 22475,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Manual (Natl)",
+"msrp": 23175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade CVT (Natl)",
+"msrp": 23175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE 4dr Sedan",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE CVT (Natl)",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE CVT (Natl)",
+"msrp": 24425,
+"config": "",
+"note": ""
+},
+{
+"trim": "APEX SE CVT (Natl)",
+"msrp": 25170,
+"config": "",
+"note": ""
+},
+{
+"trim": "APEX SE Manual (Natl)",
+"msrp": 25560,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE CVT (Natl)",
+"msrp": 25925,
+"config": "",
+"note": ""
+},
+{
+"trim": "APEX XSE CVT (Natl)",
+"msrp": 28310,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-corolla_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "L 4dr Sedan",
+"msrp": 20425,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan",
+"msrp": 20875,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan CVT",
+"msrp": 22875,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan 6M",
+"msrp": 23575,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Nightshade Edition 4dr Sedan",
+"msrp": 23575,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Sedan",
+"msrp": 24825,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Apex 4dr Sedan CVT",
+"msrp": 25570,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Apex 4dr Sedan 6M",
+"msrp": 25960,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 26325,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE Apex 4dr Sedan",
+"msrp": 28710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "LE 4dr Sedan",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 24140,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 26850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1135,
+"trims": [
+{
+"trim": "LE 4dr Sedan",
+"msrp": 22050,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 24490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Nightshade 4dr Sedan",
+"msrp": 25490,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 27150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1195,
+"trims": [
+{
+"trim": "LE 4dr Sedan",
+"msrp": 22325,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 24765,
+"config": "",
+"note": ""
+},
+{
+"trim": "FX 4dr Sedan",
+"msrp": 26650,
+"config": "",
+"note": ""
+},
+{
+"trim": "XSE 4dr Sedan",
+"msrp": 28040,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-corolla-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

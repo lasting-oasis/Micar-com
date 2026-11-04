@@ -1,0 +1,36 @@
+{
+"make": "Rolls-Royce",
+"model": "Phantom",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (phantom, phantom_coupe).",
+"years": [
+{
+"year": 2010,
+"destination": 2000,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 380000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Coupe 2dr Coupe",
+"msrp": 408000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EWB 4dr Sedan",
+"msrp": 450000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-rolls__royce-phantom-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

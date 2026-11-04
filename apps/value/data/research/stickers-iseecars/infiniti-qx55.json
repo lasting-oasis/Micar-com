@@ -1,0 +1,90 @@
+{
+"make": "Infiniti",
+"model": "QX55",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (qx55).",
+"years": [
+{
+"year": 2022,
+"destination": 1025,
+"trims": [
+{
+"trim": "AWD Luxe 4dr Crossover",
+"msrp": 46500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Essential 4dr Crossover",
+"msrp": 51600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sensory 4dr Crossover",
+"msrp": 57050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-infiniti-qx55-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1125,
+"trims": [
+{
+"trim": "AWD Luxe 4dr Crossover",
+"msrp": 49150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Essential 4dr Crossover",
+"msrp": 54250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sensory 4dr Crossover",
+"msrp": 57800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-infiniti-qx55-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1350,
+"trims": [
+{
+"trim": "AWD Luxe 4dr Crossover",
+"msrp": 50150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Essential 4dr Crossover",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sensory 4dr Crossover",
+"msrp": 58650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-infiniti-qx55-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

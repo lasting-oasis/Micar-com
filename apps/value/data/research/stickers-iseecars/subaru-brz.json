@@ -1,0 +1,333 @@
+{
+"make": "Subaru",
+"model": "BRZ",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (brz).",
+"years": [
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "Premium 2dr Coupe",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6M",
+"msrp": 27595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6A",
+"msrp": 28695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Premium Manual",
+"msrp": 25395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Manual",
+"msrp": 27395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Series.HyperBlue Manual",
+"msrp": 27690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Automatic",
+"msrp": 28495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Premium Manual",
+"msrp": 25495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Manual",
+"msrp": 27645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Auto",
+"msrp": 28745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Series.Yellow Manual",
+"msrp": 29695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Premium Manual",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Manual",
+"msrp": 28445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Auto",
+"msrp": 29545,
+"config": "",
+"note": ""
+},
+{
+"trim": "tS Manual",
+"msrp": 33495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Premium Manual",
+"msrp": 25795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Manual",
+"msrp": 28645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Auto",
+"msrp": 29745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Series.Gray Manual",
+"msrp": 30140,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Limited Manual",
+"msrp": 28845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Auto",
+"msrp": 29945,
+"config": "",
+"note": ""
+},
+{
+"trim": "tS Manual",
+"msrp": 31495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "Premium 2dr Coupe 6M",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2dr Coupe 6A",
+"msrp": 29595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6M",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6A",
+"msrp": 32295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1020,
+"trims": [
+{
+"trim": "Premium 2dr Coupe 6M",
+"msrp": 28595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium 2dr Coupe 6A",
+"msrp": 30095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6M",
+"msrp": 31095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6A",
+"msrp": 32795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1120,
+"trims": [
+{
+"trim": "Premium 2dr Coupe",
+"msrp": 30195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6M",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6A",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "tS 2dr Coupe",
+"msrp": 35345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1170,
+"trims": [
+{
+"trim": "Premium 2dr Coupe",
+"msrp": 33210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6M",
+"msrp": 35860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 2dr Coupe 6A",
+"msrp": 36710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Series.Purple 2dr Coupe",
+"msrp": 37560,
+"config": "",
+"note": ""
+},
+{
+"trim": "tS 2dr Coupe",
+"msrp": 38360,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-subaru-brz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-03-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,282 @@
+{
+"make": "Chrysler",
+"model": "Town and Country",
+"body": "Minivan",
+"note": "Trim-level MSRPs from iSeeCars price pages (town_and_country).",
+"years": [
+{
+"year": 2010,
+"destination": 835,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 25175,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX 4dr Mini-Van w/25B",
+"msrp": 26025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 28625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Plus 4dr Mini-Van",
+"msrp": 32660,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 35060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van w/28Y",
+"msrp": 35875,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chrysler-town_and_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 835,
+"trims": [
+{
+"trim": "LX 4dr Mini-Van",
+"msrp": 26935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 30160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring-L 4dr Mini-Van",
+"msrp": 32160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 38660,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chrysler-town_and_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 935,
+"trims": [
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring-L 4dr Mini-Van",
+"msrp": 32795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 39300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chrysler-town_and_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 30530,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Mini-Van",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring-L 4dr Mini-Van",
+"msrp": 33530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 40745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chrysler-town_and_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "Touring 4dr Mini-Van",
+"msrp": 30765,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr Mini-Van",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring-L 4dr Mini-Van",
+"msrp": 34465,
+"config": "",
+"note": ""
+},
+{
+"trim": "30th Anniversary 4dr Mini-Van",
+"msrp": 36665,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Mini-Van",
+"msrp": 41995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chrysler-town_and_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Wagon LX",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Touring",
+"msrp": 31465,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon S",
+"msrp": 33695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Touring-L",
+"msrp": 35315,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Limited",
+"msrp": 37945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Limited Platinum",
+"msrp": 40295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chrysler-town_and_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Wagon LX",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Touring",
+"msrp": 31875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon S",
+"msrp": 34145,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Touring-L",
+"msrp": 35845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Touring-L Anniversary Edition",
+"msrp": 35845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Limited",
+"msrp": 38445,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Limited Platinum",
+"msrp": 40645,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chrysler-town_and_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

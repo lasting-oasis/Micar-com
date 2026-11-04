@@ -1,0 +1,234 @@
+{
+"make": "Volvo",
+"model": "V90",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (v90, v90_cross_country).",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Cross Country T6 AWD",
+"msrp": 55300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volvo-v90_cross_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "T5 FWD R-Design",
+"msrp": 49950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 51950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country AWD T5 4dr Wagon",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 55950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country AWD T6 4dr Wagon",
+"msrp": 56100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 57950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country AWD T6 Volvo Ocean Race 4dr Wagon",
+"msrp": 60500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volvo-v90_cross_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "T5 FWD R-Design",
+"msrp": 51450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country AWD T5 4dr Wagon",
+"msrp": 52550,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 53450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country AWD T6 4dr Wagon",
+"msrp": 56350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 57450,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 59450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country AWD T6 Volvo Ocean Race 4dr Wagon",
+"msrp": 60500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volvo-v90_cross_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Cross Country T6 AWD",
+"msrp": 54550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volvo-v90_cross_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "Cross Country AWD T6 4dr Wagon",
+"msrp": 54900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volvo-v90_cross_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "Cross Country AWD B6 4dr Wagon",
+"msrp": 56200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volvo-v90_cross_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "Cross Country AWD B6 Plus 4dr Wagon",
+"msrp": 58450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country AWD B6 Ultimate 4dr Wagon",
+"msrp": 64050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-volvo-v90_cross_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1195,
+"trims": [
+{
+"trim": "Cross Country AWD B6 Plus 4dr Wagon",
+"msrp": 59800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country AWD B6 Ultimate 4dr Wagon",
+"msrp": 65400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-volvo-v90_cross_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1195,
+"trims": [
+{
+"trim": "Cross Country AWD B6 Plus 4dr Wagon",
+"msrp": 59800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country AWD B6 Ultra 4dr Wagon",
+"msrp": 64800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-volvo-v90_cross_country-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

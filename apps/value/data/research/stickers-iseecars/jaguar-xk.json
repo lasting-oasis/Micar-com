@@ -1,0 +1,246 @@
+{
+"make": "Jaguar",
+"model": "XK",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (xk).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 82150,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible",
+"msrp": 88150,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Coupe",
+"msrp": 95150,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Convertible",
+"msrp": 101150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-jaguar-xk-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible",
+"msrp": 89000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Coupe",
+"msrp": 96125,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Convertible",
+"msrp": 102125,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR175 2dr Coupe 75th Anniversary",
+"msrp": 103650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-jaguar-xk-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 84500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Coupe",
+"msrp": 97500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Convertible",
+"msrp": 103500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR-S 2dr Coupe",
+"msrp": 132000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR-S 2dr Convertible",
+"msrp": 138000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-jaguar-xk-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "Touring 2dr Coupe",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe",
+"msrp": 84500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible",
+"msrp": 85000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Coupe",
+"msrp": 97500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Convertible",
+"msrp": 103500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR-S 2dr Coupe",
+"msrp": 132000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR-S 2dr Convertible",
+"msrp": 138000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-jaguar-xk-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "Touring 2dr Coupe",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe",
+"msrp": 84500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring 2dr Convertible",
+"msrp": 85000,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible",
+"msrp": 90500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Coupe",
+"msrp": 97500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR 2dr Convertible",
+"msrp": 103500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR-S 2dr Coupe",
+"msrp": 132000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR-S 2dr Convertible",
+"msrp": 138000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XKR-S GT 2dr Coupe",
+"msrp": 174000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-jaguar-xk-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

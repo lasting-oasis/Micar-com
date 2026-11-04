@@ -1,0 +1,1113 @@
+{
+"make": "Ford",
+"model": "Explorer",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (explorer, explorer_sport_trac).",
+"years": [
+{
+"year": 2010,
+"destination": 815,
+"trims": [
+{
+"trim": "Sport Trac 4x2 XLT 4dr Crew Cab",
+"msrp": 27810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 28880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Trac 4x4 XLT 4dr Crew Cab",
+"msrp": 30335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Trac 4x2 Limited 4dr Crew Cab",
+"msrp": 32665,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Eddie Bauer 4dr SUV",
+"msrp": 32880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Trac 4x4 Limited 4dr Crew Cab",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Trac AWD Limited 4dr Crew Cab",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Eddie Bauer 4dr SUV",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 35880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 38200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 805,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 28190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 30190,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 31350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 33350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 37365,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 39365,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 28280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 30280,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 32095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 37855,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 39855,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "Police Interceptor Utility 4dr SUV",
+"msrp": 28580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 29705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 32680,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 34680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 40780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 30015,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 30185,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 32015,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 41675,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Base",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Base",
+"msrp": 32700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr XLT",
+"msrp": 33000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr XLT",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 43100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Base",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Base",
+"msrp": 32700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr XLT",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr XLT",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Platinum",
+"msrp": 52600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Base FWD",
+"msrp": 31660,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT FWD",
+"msrp": 33775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4WD",
+"msrp": 33810,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 41675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD",
+"msrp": 43825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4WD",
+"msrp": 45355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD",
+"msrp": 53235,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Base FWD",
+"msrp": 32140,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT FWD",
+"msrp": 34175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4WD",
+"msrp": 34290,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD",
+"msrp": 36325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 42090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD",
+"msrp": 44240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4WD",
+"msrp": 45950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD",
+"msrp": 53940,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1095,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 32365,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 33655,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 34515,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 36550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 42765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 44915,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr SUV",
+"msrp": 46625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 54165,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Base RWD",
+"msrp": 32765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4WD",
+"msrp": 34765,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT RWD",
+"msrp": 36925,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD",
+"msrp": 38925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited RWD",
+"msrp": 48380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD",
+"msrp": 50380,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4WD",
+"msrp": 54740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD",
+"msrp": 58250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1245,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 32925,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 34925,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 35075,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 37075,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 37315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 45255,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Timberline 4dr SUV",
+"msrp": 46015,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 47255,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr SUV",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4dr SUV",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 52730,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD King Ranch 4dr SUV",
+"msrp": 54600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 54730,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1495,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 35510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 37510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 37740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 38570,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 40570,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST-Line 4dr SUV",
+"msrp": 45760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 47070,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr SUV",
+"msrp": 47760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Timberline 4dr SUV",
+"msrp": 48320,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49070,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr SUV",
+"msrp": 49260,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr SUV",
+"msrp": 51260,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4dr SUV",
+"msrp": 53630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 53775,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD King Ranch 4dr SUV",
+"msrp": 55630,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 55775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1595,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 36760,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 38570,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 38760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 40570,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 44335,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST-Line 4dr SUV",
+"msrp": 46355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 47420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr SUV",
+"msrp": 48355,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Timberline 4dr SUV",
+"msrp": 49330,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49420,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr SUV",
+"msrp": 50005,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr SUV",
+"msrp": 52005,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4dr SUV",
+"msrp": 54525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 54670,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD King Ranch 4dr SUV",
+"msrp": 56525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 56670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1595,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 36860,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4dr SUV",
+"msrp": 38670,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Base 4dr SUV",
+"msrp": 38860,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLT 4dr SUV",
+"msrp": 40670,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 44335,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST-Line 4dr SUV",
+"msrp": 46455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 47520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr SUV",
+"msrp": 48455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Timberline 4dr SUV",
+"msrp": 49430,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 49520,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr SUV",
+"msrp": 50105,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr SUV",
+"msrp": 52105,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4dr SUV",
+"msrp": 54625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 54770,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD King Ranch 4dr SUV",
+"msrp": 56625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 56770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1695,
+"trims": [
+{
+"trim": "Active 4dr SUV",
+"msrp": 40050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Active 4dr SUV",
+"msrp": 42050,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST-Line 4dr SUV",
+"msrp": 45020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST-Line 4dr SUV",
+"msrp": 47020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor Utility 4dr SUV",
+"msrp": 47185,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 52525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 54525,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr SUV",
+"msrp": 54770,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ST 4dr SUV",
+"msrp": 56770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-ford-explorer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

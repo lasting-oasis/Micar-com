@@ -1,0 +1,279 @@
+{
+"make": "Cadillac",
+"model": "XT4",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (xt4).",
+"years": [
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "Luxury 4dr Crossover",
+"msrp": 34795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr Crossover",
+"msrp": 37295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Crossover",
+"msrp": 39295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 39295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr Crossover",
+"msrp": 41795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crossover",
+"msrp": 41795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-cadillac-xt4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "Luxury 4dr Crossover",
+"msrp": 35695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr Crossover",
+"msrp": 38195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Crossover",
+"msrp": 39795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 39795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr Crossover",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crossover",
+"msrp": 42295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-cadillac-xt4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1195,
+"trims": [
+{
+"trim": "Luxury 4dr Crossover",
+"msrp": 35795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr Crossover",
+"msrp": 38295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Crossover",
+"msrp": 39795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr Crossover",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crossover",
+"msrp": 42495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-cadillac-xt4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1195,
+"trims": [
+{
+"trim": "Luxury 4dr Crossover",
+"msrp": 35795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr Crossover",
+"msrp": 38295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 39395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Crossover",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crossover",
+"msrp": 41895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr Crossover",
+"msrp": 42095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-cadillac-xt4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1195,
+"trims": [
+{
+"trim": "Luxury 4dr Crossover",
+"msrp": 36295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr Crossover",
+"msrp": 38795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Crossover",
+"msrp": 40195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 40795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr Crossover",
+"msrp": 42695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crossover",
+"msrp": 43295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-cadillac-xt4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1195,
+"trims": [
+{
+"trim": "Luxury 4dr Crossover",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Luxury 4dr Crossover",
+"msrp": 40395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Crossover",
+"msrp": 41495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 41995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Premium Luxury 4dr Crossover",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr Crossover",
+"msrp": 44495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-cadillac-xt4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

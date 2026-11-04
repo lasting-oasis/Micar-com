@@ -1,0 +1,591 @@
+{
+"make": "Jeep",
+"model": "Renegade",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (renegade).",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 21295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 23295,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Trailhawk",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 26795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-09-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Sport",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Sport",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Latitude",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr 75th Anniversary",
+"msrp": 21395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Latitude",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Justice",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr 75th Anniversary",
+"msrp": 23395,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited",
+"msrp": 24995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Trailhawk",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 26995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 1095,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 17995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4dr SUV",
+"msrp": 21495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4dr SUV",
+"msrp": 22190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 23495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Altitude 4dr SUV",
+"msrp": 24190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhawk 4dr SUV",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Deserthawk 4dr SUV",
+"msrp": 28390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 18750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4",
+"msrp": 20250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland Edition 4x4",
+"msrp": 20250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude FWD",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 22095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 23595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 25945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 27445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 22275,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4",
+"msrp": 23775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Upland 4x4",
+"msrp": 23775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude FWD",
+"msrp": 24125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude FWD",
+"msrp": 24125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4x4",
+"msrp": 25625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4x4",
+"msrp": 25625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 26645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trailhawk 4x4",
+"msrp": 27795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 28145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1495,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 22375,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 23875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Jeepster 4dr SUV",
+"msrp": 24270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4dr SUV",
+"msrp": 24395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Upland 4dr SUV",
+"msrp": 25270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Altitude 4dr SUV",
+"msrp": 25390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Orange Edition 4dr SUV",
+"msrp": 25690,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Jeepster 4dr SUV",
+"msrp": 25770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 25895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 North Edition 4dr SUV",
+"msrp": 26670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Altitude 4dr SUV",
+"msrp": 26890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 27000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Orange Edition 4dr SUV",
+"msrp": 27190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhawk 4dr SUV",
+"msrp": 27970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "High Altitude 4dr SUV",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Altitude 4dr SUV",
+"msrp": 30495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 22850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Jeepster 4dr SUV",
+"msrp": 24725,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 24965,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Upland 4dr SUV",
+"msrp": 25745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Latitude 4dr SUV",
+"msrp": 25915,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Freedom 4dr SUV",
+"msrp": 26365,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Jeepster 4dr SUV",
+"msrp": 26860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 27375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Islander 4dr SUV",
+"msrp": 27430,
+"config": "",
+"note": ""
+},
+{
+"trim": "80th Anniversary Edition 4dr SUV",
+"msrp": 27510,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Islander 4dr SUV",
+"msrp": 28930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 80th Anniversary Edition 4dr SUV",
+"msrp": 28970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhawk 4dr SUV",
+"msrp": 30025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 30025,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "Sport 4dr SUV",
+"msrp": 24695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Latitude 4dr SUV",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Altitude 4dr SUV",
+"msrp": 30140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 (Red) Edition 4dr SUV",
+"msrp": 30540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Trailhawk 4dr SUV",
+"msrp": 30945,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 31145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-jeep-renegade-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,93 @@
+{
+ "msrp": 23400,
+ "steps": [
+  {
+   "label": "Original MSRP",
+   "detail": "2019 Honda Civic",
+   "value": 23400,
+   "delta": 0
+  },
+  {
+   "label": "New-car prices since then",
+   "detail": "a comparable new one costs ~23% more today",
+   "value": 28779,
+   "delta": 5379
+  },
+  {
+   "label": "Age and model resale",
+   "detail": "7.4 yrs old · this model typically sells for ~69% of a new one's price after 5 yrs · trim content above the base car keeps 50% of that",
+   "value": 15638,
+   "delta": -13142
+  },
+  {
+   "label": "Mileage",
+   "detail": "40,290 mi below the 88,500 expected",
+   "value": 17514,
+   "delta": 1877
+  },
+  {
+   "label": "Condition",
+   "detail": "Good",
+   "value": 17514,
+   "delta": 0
+  },
+  {
+   "label": "Market conditions",
+   "detail": "Used-car prices nationally −1.5% vs a year ago, +1.4% over 3 months (BLS, Sep 2026) · this model swings less than average",
+   "value": 17657,
+   "delta": 143
+  }
+ ],
+ "privateParty": 17657,
+ "tradeIn": 14058,
+ "dealerRetail": 20116,
+ "range": {
+  "low": 15639,
+  "high": 19674
+ },
+ "confidence": "Medium",
+ "bandPct": 0.11425,
+ "miles75k": 16616,
+ "withComps": {
+  "privateParty": 17669,
+  "compsUsed": 6
+ },
+ "forecast": [
+  {
+   "year": "2026",
+   "value": 17657,
+   "low": 15639,
+   "high": 19674
+  },
+  {
+   "year": "2027",
+   "value": 16714,
+   "low": 14805,
+   "high": 18624
+  },
+  {
+   "year": "2028",
+   "value": 15683,
+   "low": 13891,
+   "high": 17474
+  },
+  {
+   "year": "2029",
+   "value": 14571,
+   "low": 12906,
+   "high": 16235
+  },
+  {
+   "year": "2030",
+   "value": 13391,
+   "low": 11861,
+   "high": 14921
+  },
+  {
+   "year": "2031",
+   "value": 12158,
+   "low": 10769,
+   "high": 13547
+  }
+ ]
+}

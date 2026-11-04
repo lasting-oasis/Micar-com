@@ -1,0 +1,246 @@
+{
+"make": "Lamborghini",
+"model": "Gallardo",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (gallardo).",
+"years": [
+{
+"year": 2010,
+"destination": 2995,
+"trims": [
+{
+"trim": "AWD LP 560-4 2dr Coupe",
+"msrp": 198000,
+"config": "",
+"note": ""
+},
+{
+"trim": "LP 550-2 Valentino Balboni 2dr Coupe",
+"msrp": 219800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 560-4 Spyder 2dr Convertible",
+"msrp": 221000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Superleggera 2dr Coupe",
+"msrp": 237600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lamborghini-gallardo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 2995,
+"trims": [
+{
+"trim": "LP 550-2 2dr Coupe",
+"msrp": 187900,
+"config": "",
+"note": ""
+},
+{
+"trim": "LP 550-2 Bicolore 2dr Coupe",
+"msrp": 196995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 560-4 2dr Coupe",
+"msrp": 202000,
+"config": "",
+"note": ""
+},
+{
+"trim": "LP 550-2 Valentino Balboni 2dr Coupe",
+"msrp": 219800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 560-4 Spyder 2dr Convertible",
+"msrp": 225400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Superleggera 2dr Coupe",
+"msrp": 237600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Spyder Performante 2dr Convertible",
+"msrp": 248000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lamborghini-gallardo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 2995,
+"trims": [
+{
+"trim": "LP 550-2 2dr Coupe",
+"msrp": 181900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 560-4 Coupe 2dr Coupe",
+"msrp": 202000,
+"config": "",
+"note": ""
+},
+{
+"trim": "LP 550-2 Spyder 2dr Convertible",
+"msrp": 211995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 560-4 Spyder 2dr Convertible",
+"msrp": 225400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Superleggera 2dr Coupe",
+"msrp": 237600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Spyder Performante 2dr Convertible",
+"msrp": 248000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lamborghini-gallardo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 2995,
+"trims": [
+{
+"trim": "LP 550-2 2dr Coupe",
+"msrp": 181900,
+"config": "",
+"note": ""
+},
+{
+"trim": "LP 560-2 50th Anniversario 2dr Coupe",
+"msrp": 198900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 560-4 Coupe 2dr Coupe",
+"msrp": 202000,
+"config": "",
+"note": ""
+},
+{
+"trim": "LP 550-2 Spyder 2dr Convertible",
+"msrp": 209500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 560-4 Spyder 2dr Convertible",
+"msrp": 225400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Superleggera 2dr Coupe",
+"msrp": 238400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Syder Performante 2dr Convertible",
+"msrp": 248800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lamborghini-gallardo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 2995,
+"trims": [
+{
+"trim": "LP 550-2 2dr Coupe",
+"msrp": 191900,
+"config": "",
+"note": ""
+},
+{
+"trim": "LP 560-2 50th Anniversario 2dr Coupe",
+"msrp": 198900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 560-4 2dr Coupe",
+"msrp": 202000,
+"config": "",
+"note": ""
+},
+{
+"trim": "LP 550-2 Spyder 2dr Convertible",
+"msrp": 209500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 560-4 Spyder 2dr Convertible",
+"msrp": 225400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Superleggera 2dr Coupe",
+"msrp": 241200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Spyder Performante 2dr Convertible",
+"msrp": 251600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LP 570-4 Squadra Corse 2dr Coupe",
+"msrp": 259100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lamborghini-gallardo-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

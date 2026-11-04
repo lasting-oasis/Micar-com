@@ -1,0 +1,39 @@
+{
+"make": "Toyota",
+"model": "Mirai",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (mirai).",
+"years": [
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 58365,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-mirai-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sedan",
+"msrp": 58500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-mirai-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

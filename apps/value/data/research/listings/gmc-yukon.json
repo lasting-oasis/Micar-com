@@ -1,0 +1,61 @@
+{
+ "make": "GMC",
+ "model": "Yukon",
+ "samples": [
+  {
+   "year": 2019,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/gmc/yukon/year-2019/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "page_total_listings": 298,
+   "note": "Unfiltered year page (no SLT-filtered 2019 URL was available to fetch). No 'averages $X' sentence; page says 'the 2019 GMC Yukon SLT and 2019 GMC Yukon AT4 averaging $35,856 and $56,365 respectively' (iSeeCars' 2019 table lists no AT4, so this boilerplate is unreliable). TrueCar mixed Yukon XL rows into this page; the 3 XL rows among the first 8 were skipped. Page count 298 vs 290 in its own summary table.",
+   "listings": [
+    {
+     "price": 26995,
+     "miles": 100681,
+     "location": "Platte City, MO",
+     "trim": "Denali 4WD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 25693,
+     "miles": 73625,
+     "location": "Ft. Lauderdale, FL",
+     "trim": "SLT 2WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 31557,
+     "miles": 82106,
+     "location": "Schaumburg, IL",
+     "trim": "Denali 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 25569,
+     "miles": 101595,
+     "location": "Columbia City, IN",
+     "trim": "SLT 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 32990,
+     "miles": 82371,
+     "location": "Chehalis, WA",
+     "trim": "Denali 4WD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016, 2022, 2024: TrueCar year pages not fetched. Constructed TrueCar URLs were refused for lack of search provenance, so each year page needed its own search first; budget went to stickers.",
+  "2019: SLT-filtered page not found by search; unfiltered page used (2 SLT, 3 Denali rows)."
+ ]
+}

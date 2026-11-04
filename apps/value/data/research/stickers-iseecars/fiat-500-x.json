@@ -1,0 +1,348 @@
+{
+"make": "Fiat",
+"model": "500 X",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (500x).",
+"years": [
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Pop",
+"msrp": 20000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Easy",
+"msrp": 22735,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Trekking",
+"msrp": 23335,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Easy",
+"msrp": 24635,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Lounge",
+"msrp": 25135,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Trekking",
+"msrp": 25235,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Lounge",
+"msrp": 27035,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Trekking Plus",
+"msrp": 27335,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Trekking Plus",
+"msrp": 29235,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-fiat-500x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 995,
+"trims": [
+{
+"trim": "Pop 4dr Crossover",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking 4dr Crossover",
+"msrp": 23350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Pop 4dr Crossover",
+"msrp": 23890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Urbana Edition 4dr Crossover",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge 4dr Crossover",
+"msrp": 25150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trekking 4dr Crossover",
+"msrp": 25250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Urbana Edition 4dr Crossover",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Lounge 4dr Crossover",
+"msrp": 27050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-fiat-500x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Pop FWD",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Blue Sky Edition FWD",
+"msrp": 19995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking FWD",
+"msrp": 23685,
+"config": "",
+"note": ""
+},
+{
+"trim": "Urbana Edition FWD",
+"msrp": 23685,
+"config": "",
+"note": ""
+},
+{
+"trim": "Pop AWD",
+"msrp": 23890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Blue Sky Edition AWD",
+"msrp": 23890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge FWD",
+"msrp": 25515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking AWD",
+"msrp": 25585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Urbana Edition AWD",
+"msrp": 25585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lounge AWD",
+"msrp": 27415,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-fiat-500x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Pop AWD",
+"msrp": 24740,
+"config": "",
+"note": ""
+},
+{
+"trim": "120th Anniversary Edition AWD",
+"msrp": 24740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Blue Sky Edition AWD",
+"msrp": 24740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking AWD",
+"msrp": 26245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Urbana Edition AWD",
+"msrp": 26245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking Plus AWD",
+"msrp": 29445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-fiat-500x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Pop AWD",
+"msrp": 24590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking AWD",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Trekking Plus AWD",
+"msrp": 29495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-fiat-500x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD Pop 4dr Crossover",
+"msrp": 26215,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trekking 4dr Crossover",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 28205,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trekking Plus 4dr Crossover",
+"msrp": 31455,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-fiat-500x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-10-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "AWD Pop 4dr Crossover",
+"msrp": 27965,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trekking 4dr Crossover",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 29955,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Trekking Plus 4dr Crossover",
+"msrp": 33145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Yachting 4dr Crossover",
+"msrp": 33945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-fiat-500x-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,51 @@
+{
+"make": "Volvo",
+"model": "C30",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (c30).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "T5 2dr Hatchback",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 R-Design 2dr Hatchback",
+"msrp": 26300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volvo-c30-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "T5 2dr Hatchback",
+"msrp": 24600,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 R-Design 2dr Hatchback",
+"msrp": 26950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volvo-c30-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,126 @@
+{
+"make": "Mazda",
+"model": "6",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (mazda6).",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sport Manual",
+"msrp": 21945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Auto",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Manual",
+"msrp": 24195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 25245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Auto",
+"msrp": 30695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-mazda-mazda6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-03-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Sport Auto",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Auto",
+"msrp": 29500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Reserve Auto",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature Auto",
+"msrp": 35100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mazda-mazda6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sport Auto",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring Auto",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Auto",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring Reserve Auto",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Signature Auto",
+"msrp": 35400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-mazda-mazda6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

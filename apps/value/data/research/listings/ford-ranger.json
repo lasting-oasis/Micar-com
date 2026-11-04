@@ -1,0 +1,160 @@
+{
+ "make": "Ford",
+ "model": "Ranger",
+ "samples": [
+  {
+   "year": 2019,
+   "trim_filter": "XLT",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/ranger/year-2019/?trim=xlt",
+   "fetched": "2026-10-28",
+   "page_average": 28757,
+   "listings": [
+    {
+     "price": 23895,
+     "miles": 60333,
+     "location": "Houston, TX",
+     "trim": "XLT SuperCrew 5' Box 2WD",
+     "body": "Pickup Truck",
+     "note": "Sponsored"
+    },
+    {
+     "price": 22141,
+     "miles": 45539,
+     "location": "Creve Coeur, MO",
+     "trim": "XLT SuperCrew 5' Box 2WD",
+     "body": "Pickup Truck",
+     "note": "Sponsored"
+    },
+    {
+     "price": 20618,
+     "miles": 95566,
+     "location": "Ottawa, IL",
+     "trim": "XLT SuperCrew 5' Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 19575,
+     "miles": 95455,
+     "location": "Gainesville, FL",
+     "trim": "XLT SuperCrew 5' Box 2WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 27085,
+     "miles": 45792,
+     "location": "Palm Harbor, FL",
+     "trim": "XLT SuperCrew 5' Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    }
+   ],
+   "page_note": "'The average price for the 2019 Ford Ranger XLT is $28,757' (FAQ); 115 listings nationwide. Same figure on 2022 and 2024 pages (boilerplate)."
+  },
+  {
+   "year": 2022,
+   "trim_filter": "XLT",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/ranger/year-2022/?trim=xlt",
+   "fetched": "2026-10-28",
+   "page_average": 28757,
+   "listings": [
+    {
+     "price": 29261,
+     "miles": 24012,
+     "location": "Charleston, IL",
+     "trim": "XLT SuperCrew 5' Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 29260,
+     "miles": 31166,
+     "location": "Seymour, IN",
+     "trim": "XLT SuperCrew 5' Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 21496,
+     "miles": 99578,
+     "location": "Danvers, MA",
+     "trim": "XLT SuperCab 6' Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 25520,
+     "miles": 82374,
+     "location": "Fayetteville, GA",
+     "trim": "XLT SuperCrew 5' Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 26512,
+     "miles": 41103,
+     "location": "Hardeeville, SC",
+     "trim": "XLT SuperCrew 5' Box 2WD",
+     "body": "Pickup Truck",
+     "note": ""
+    }
+   ],
+   "page_note": "Page says 72 XLT listings nationwide but also cites 863 XLT listings (FAQ) and 154 total 2022 Ranger listings; counts inconsistent."
+  },
+  {
+   "year": 2024,
+   "trim_filter": "XLT",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/ford/ranger/year-2024/?trim=xlt",
+   "fetched": "2026-10-28",
+   "page_average": 28757,
+   "listings": [
+    {
+     "price": 35053,
+     "miles": 8084,
+     "location": "Lillington, NC",
+     "trim": "XLT SuperCrew 5' Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 34150,
+     "miles": 15848,
+     "location": "Newberg, OR",
+     "trim": "XLT SuperCrew 5' Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 31598,
+     "miles": 20816,
+     "location": "Mobile, AL",
+     "trim": "XLT SuperCrew 5' Box RWD",
+     "body": "Pickup Truck",
+     "note": ""
+    },
+    {
+     "price": 33590,
+     "miles": 22009,
+     "location": "Louisville, KY",
+     "trim": "XLT SuperCrew 5' Box RWD",
+     "body": "Pickup Truck",
+     "note": "CPO"
+    },
+    {
+     "price": 35797,
+     "miles": 10553,
+     "location": "Charlotte, NC",
+     "trim": "XLT SuperCrew 5' Box 4WD",
+     "body": "Pickup Truck",
+     "note": ""
+    }
+   ],
+   "page_note": "120 listings nationwide."
+  }
+ ],
+ "gaps": [
+  "2016: no US Ranger that model year (it returned for 2019); year skipped.",
+  "page_average $28,757 is identical on all three pages (model-wide boilerplate)."
+ ]
+}

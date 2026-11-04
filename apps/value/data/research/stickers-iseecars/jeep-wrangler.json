@@ -1,0 +1,1731 @@
+{
+"make": "Jeep",
+"model": "Wrangler",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (wrangler, wrangler_jk, wrangler_unlimited).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 21165,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 26255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 28775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 22045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 27245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 70th Anniversary 2dr SUV",
+"msrp": 28670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport Mojave 2dr SUV",
+"msrp": 29195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 29245,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 900,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 22045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 27970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Arctic 2dr SUV",
+"msrp": 31869,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Call of Duty MW3 2dr SUV",
+"msrp": 36495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Freedom Edition 2dr SUV",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Moab 2dr SUV",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 10th Anniversary 2dr SUV",
+"msrp": 36095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 22395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys Wheeler Edition 2dr SUV",
+"msrp": 26195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Freedom Edition 2dr SUV",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 2dr SUV",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Altitude Edition 2dr SUV",
+"msrp": 31895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Polar Edition 2dr SUV",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon X 2dr SUV",
+"msrp": 35495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4WD 2dr Sport",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Willys Wheeler",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Freedom Edition",
+"msrp": 22995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Sport",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Willys Wheeler",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Freedom Edition",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Sahara",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Wrangler X",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Altitude",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Sport RHD",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Rubicon",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Rubicon Hard Rock",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Sahara",
+"msrp": 32295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Rubicon",
+"msrp": 35395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Rubicon Hard Rock",
+"msrp": 35395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-05-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4WD 2dr Sport",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Black Bear",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Willys Wheeler",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Freedom",
+"msrp": 23895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Sport",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Black Bear",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Willys Wheeler",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Freedom",
+"msrp": 27695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Sahara",
+"msrp": 29895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr 75th Anniversary",
+"msrp": 29895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Backcountry",
+"msrp": 29895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Sport RHD",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Rubicon",
+"msrp": 33095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 2dr Rubicon Hard Rock",
+"msrp": 33095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Sahara",
+"msrp": 33795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr 75th Anniversary",
+"msrp": 33795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Backcountry",
+"msrp": 33795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Rubicon",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4WD 4dr Rubicon Hard Rock",
+"msrp": 36995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-01-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Sport 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Freedom 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Big Bear 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Willys Wheeler 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport 4x4",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Big Bear 4x4",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Willys Wheeler 4x4",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Freedom 4x4",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sahara 4x4",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Smoky Mountain 4x4",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Winter 4x4",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "75th Anniversary 4x4",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Chief Edition 4x4",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport RHD 4x4",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rubicon 4x4",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rubicon Recon 4x4",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rubicon Hard Rock 4x4",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sahara 4x4",
+"msrp": 34245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Smoky Mountain 4x4",
+"msrp": 34245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Winter 4x4",
+"msrp": 34245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 75th Anniversary 4x4",
+"msrp": 34245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Chief Edition 4x4",
+"msrp": 34245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Rubicon 4x4",
+"msrp": 37445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Rubicon Recon 4x4",
+"msrp": 37445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Rubicon Hard Rock 4x4",
+"msrp": 37445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "JK Sport 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "JK Golden Eagle 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "JK Willys Wheeler W 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "JK Sport S 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "JK Willys Wheeler 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "JK Freedom Edition 4x4",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4x4",
+"msrp": 27945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport S 4x4",
+"msrp": 27945,
+"config": "",
+"note": ""
+},
+{
+"trim": "JK Sahara 4x4",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "JK Altitude 4x4",
+"msrp": 30445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport 4x4",
+"msrp": 31445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport S 4x4",
+"msrp": 31445,
+"config": "",
+"note": ""
+},
+{
+"trim": "JK Rubicon 4x4",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "JK Rubicon Recon 4x4",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rubicon 4x4",
+"msrp": 37945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sahara 4x4",
+"msrp": 38295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Moab 4x4",
+"msrp": 38295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Rubicon 4x4",
+"msrp": 41445,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1495,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 28045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 2dr SUV",
+"msrp": 31245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport 4x4",
+"msrp": 31545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport Altitude 4x4",
+"msrp": 31545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport S 4x4",
+"msrp": 31545,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 38045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sahara 4x4",
+"msrp": 38395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Moab 4x4",
+"msrp": 38395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sahara Altitude 4x4",
+"msrp": 38395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Rubicon 4x4",
+"msrp": 41545,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sport 4x4",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Willys Sport 4x4",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Freedom 4x4",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Willys 4x4",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black and Tan 4x4",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport S 4x4",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport 4x4",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Willys Sport 4x4",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Freedom 4x4",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Willys 4x4",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport Altitude 4x4",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sport S 4x4",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Black and Tan 4x4",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sahara 4x4",
+"msrp": 38645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sahara High Altitude 4x4",
+"msrp": 38645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited North Edition 4x4",
+"msrp": 38645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Sahara Altitude 4x4",
+"msrp": 38645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rubicon 4x4",
+"msrp": 38695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recon 4x4",
+"msrp": 38695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Rubicon 4x4",
+"msrp": 42195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited Recon 4x4",
+"msrp": 42195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1495,
+"trims": [
+{
+"trim": "Sport 4x4",
+"msrp": 28475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Islander 4x4",
+"msrp": 28475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Willys Sport 4x4",
+"msrp": 28475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Freedom 4x4",
+"msrp": 28475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Willys 4x4",
+"msrp": 28475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport S 4x4",
+"msrp": 28475,
+"config": "",
+"note": ""
+},
+{
+"trim": "80th Anniversary 4x4",
+"msrp": 28475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Unlimited 4x4",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Islander Unlimited 4x4",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "80th Anniversary Unlimited 4x4",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Willys Sport Unlimited 4x4",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Freedom Unlimited 4x4",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Willys Unlimited 4x4",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Altitude Unlimited 4x4",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport S Unlimited 4x4",
+"msrp": 31975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sport 4dr SUV",
+"msrp": 32570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Willys Sport 4dr SUV",
+"msrp": 34630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sport S 4dr SUV",
+"msrp": 35770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Islander 4dr SUV",
+"msrp": 37295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sport Altitude 4dr SUV",
+"msrp": 37765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Unlimited 4x4 RHD",
+"msrp": 38500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Willys 4dr SUV",
+"msrp": 38625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Freedom 4dr SUV",
+"msrp": 38795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sahara Unlimited 4x4",
+"msrp": 38825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sahara High Altitude Unlimited 4x4",
+"msrp": 38825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sahara Altitude Unlimited 4x4",
+"msrp": 38825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rubicon 4x4",
+"msrp": 38875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sport RHD 4dr SUV",
+"msrp": 39235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sahara 4dr SUV",
+"msrp": 39470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 80th Anniversary Edition 4dr SUV",
+"msrp": 40095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rubicon Unlimited 4x4",
+"msrp": 42375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Rubicon 4dr SUV",
+"msrp": 43020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sahara Altitude 4dr SUV",
+"msrp": 43065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sahara Unlimited 4xe",
+"msrp": 47995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sahara High Altitude Unlimited 4xe",
+"msrp": 47995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 High Altitude 4dr SUV",
+"msrp": 50875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sahara 4xe 4dr SUV",
+"msrp": 51225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rubicon Unlimited 4xe",
+"msrp": 51695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Rubicon 4xe 4dr SUV",
+"msrp": 54925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 High Altitude 4xe 4dr SUV",
+"msrp": 56800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Rubicon 392 4dr SUV",
+"msrp": 74395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-jeep-wrangler_unlimited-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys Sport 2dr SUV",
+"msrp": 32055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 2dr SUV",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sport 4dr SUV",
+"msrp": 34045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 2dr SUV",
+"msrp": 36050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Willys Sport 4dr SUV",
+"msrp": 36105,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sport S 4dr SUV",
+"msrp": 37245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sport Altitude 4dr SUV",
+"msrp": 39240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Willys 4dr SUV",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sahara 4dr SUV",
+"msrp": 42150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sport RHD 4dr SUV",
+"msrp": 45345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sahara Altitude 4dr SUV",
+"msrp": 45745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Rubicon 4dr SUV",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 High Tide 4dr SUV",
+"msrp": 49940,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 High Altitude 4dr SUV",
+"msrp": 52875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Sahara 4xe 4dr SUV",
+"msrp": 54595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Rubicon 4xe 4dr SUV",
+"msrp": 58395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 High Altitude 4xe 4dr SUV",
+"msrp": 60170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unlimited 4x4 Rubicon 392 4dr SUV",
+"msrp": 79595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 31195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys Sport 2dr SUV",
+"msrp": 34190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 2dr SUV",
+"msrp": 34695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 35195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Freedom 2dr SUV",
+"msrp": 37440,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 2dr SUV",
+"msrp": 38190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys Sport 4dr SUV",
+"msrp": 38190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 4dr SUV",
+"msrp": 38695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Freedom 4dr SUV",
+"msrp": 41360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport Altitude 4dr SUV",
+"msrp": 41490,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 4dr SUV",
+"msrp": 42190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 43295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 4dr SUV",
+"msrp": 45925,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport RHD 4dr SUV",
+"msrp": 46795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 4dr SUV",
+"msrp": 47495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara Altitude 4dr SUV",
+"msrp": 51020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Tide 4dr SUV",
+"msrp": 51540,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 4xe 4dr SUV",
+"msrp": 54735,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Altitude 4dr SUV",
+"msrp": 55020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 4xe 4dr SUV",
+"msrp": 56845,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 4xe 4dr SUV",
+"msrp": 60585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon FarOut 4dr SUV",
+"msrp": 61950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Altitude 4xe 4dr SUV",
+"msrp": 62620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 4xe 20th Anniversary 4dr SUV",
+"msrp": 69585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 392 4dr SUV",
+"msrp": 82495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 392 20th Anniversary 4dr SUV",
+"msrp": 90895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 2dr SUV",
+"msrp": 35595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 36595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 2dr SUV",
+"msrp": 39495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 4dr SUV",
+"msrp": 40095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 4dr SUV",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 46795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport RHD 4dr SUV",
+"msrp": 48095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 4dr SUV",
+"msrp": 49195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 4xe 4dr SUV",
+"msrp": 50695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 4dr SUV",
+"msrp": 51295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 4xe 4dr SUV",
+"msrp": 55435,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon X 2dr SUV",
+"msrp": 56745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 4xe 4dr SUV",
+"msrp": 57695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Jeep Beach 4xe 4dr SUV",
+"msrp": 60395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon X 4dr SUV",
+"msrp": 61245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 4xe 4dr SUV",
+"msrp": 61395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Altitude 4xe 4dr SUV",
+"msrp": 67795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon X 4xe 4dr SUV",
+"msrp": 70395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 392 4dr SUV",
+"msrp": 91545,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 392 Final Edition 4dr SUV",
+"msrp": 99995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x4 Sport 2dr SUV",
+"msrp": 32095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 2dr SUV",
+"msrp": 35695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 36695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 2dr SUV",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 4dr SUV",
+"msrp": 40295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 4dr SUV",
+"msrp": 44195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 2dr SUV",
+"msrp": 46955,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport RHD 4dr SUV",
+"msrp": 48445,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 4dr SUV",
+"msrp": 49370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport S 4xe 4dr SUV",
+"msrp": 50695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 4dr SUV",
+"msrp": 53955,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys 4xe 4dr SUV",
+"msrp": 55435,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon X 2dr SUV",
+"msrp": 56905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sahara 4xe 4dr SUV",
+"msrp": 57695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Willys '41 4xe 4dr SUV",
+"msrp": 59930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 4xe 4dr SUV",
+"msrp": 61395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Backcountry 4xe 4dr SUV",
+"msrp": 64290,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon X 4dr SUV",
+"msrp": 66905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon X 4xe 4dr SUV",
+"msrp": 70345,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Rubicon 392 Final Edition 4dr SUV",
+"msrp": 99995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-jeep-wrangler-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

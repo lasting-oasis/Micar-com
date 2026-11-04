@@ -1,0 +1,492 @@
+{
+"make": "Ford",
+"model": "Focus",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (focus).",
+"years": [
+{
+"year": 2010,
+"destination": 695,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 16290,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 2dr Coupe",
+"msrp": 17170,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 17170,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 18780,
+"config": "",
+"note": ""
+},
+{
+"trim": "SES 2dr Coupe",
+"msrp": 18780,
+"config": "",
+"note": ""
+},
+{
+"trim": "SES 4dr Sedan",
+"msrp": 18780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-focus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 725,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 16640,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 17270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SES 4dr Sedan",
+"msrp": 18870,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 19670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-focus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 795,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 16500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 17500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 18300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 20500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Hatchback",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Sedan",
+"msrp": 22200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Hatchback",
+"msrp": 22700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric 4dr Hatchback",
+"msrp": 39200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-focus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 16200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 18200,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 19200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Sedan",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr Hatchback",
+"msrp": 23700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Hatchback",
+"msrp": 24200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric 4dr Hatchback",
+"msrp": 39200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-focus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 16810,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 18615,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 19115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Sedan",
+"msrp": 23565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Hatchback",
+"msrp": 24065,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr Hatchback",
+"msrp": 24115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric 4dr Hatchback",
+"msrp": 35170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-focus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan S",
+"msrp": 17170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE",
+"msrp": 18460,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB SE",
+"msrp": 18960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium",
+"msrp": 23170,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Titanium",
+"msrp": 23670,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB ST",
+"msrp": 24370,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB",
+"msrp": 29170,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-focus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan S",
+"msrp": 17225,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE",
+"msrp": 18515,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB SE",
+"msrp": 19015,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Titanium",
+"msrp": 23225,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Titanium",
+"msrp": 23725,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB ST",
+"msrp": 24425,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB",
+"msrp": 29170,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB RS",
+"msrp": 35900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-focus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 875,
+"trims": [
+{
+"trim": "S 4dr Sedan",
+"msrp": 16775,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Sedan",
+"msrp": 18175,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback",
+"msrp": 19765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 21175,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Hatchback",
+"msrp": 21675,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Sedan",
+"msrp": 23575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Hatchback",
+"msrp": 24075,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST 4dr Hatchback",
+"msrp": 24775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric 4dr Hatchback",
+"msrp": 29120,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD RS 4dr Hatchback",
+"msrp": 36120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-focus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "S Sedan",
+"msrp": 17950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Sedan",
+"msrp": 19245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Hatch",
+"msrp": 20540,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Sedan",
+"msrp": 21870,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Hatch",
+"msrp": 22070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium Sedan",
+"msrp": 24270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium Hatch",
+"msrp": 24470,
+"config": "",
+"note": ""
+},
+{
+"trim": "ST Hatch",
+"msrp": 25170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Electric Hatch",
+"msrp": 29120,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS Hatch",
+"msrp": 41120,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-focus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-31). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

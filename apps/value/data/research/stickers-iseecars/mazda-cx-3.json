@@ -1,0 +1,54 @@
+{
+"make": "Mazda",
+"model": "CX-3",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (cx__3).",
+"years": [
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Sport FWD",
+"msrp": 20110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD",
+"msrp": 21360,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring FWD",
+"msrp": 22195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Touring AWD",
+"msrp": 23445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring FWD",
+"msrp": 25165,
+"config": "",
+"note": ""
+},
+{
+"trim": "Grand Touring AWD",
+"msrp": 26415,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-mazda-cx__3-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

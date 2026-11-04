@@ -1,0 +1,63 @@
+{
+"make": "Buick",
+"model": "Envista",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (envista).",
+"years": [
+{
+"year": 2024,
+"destination": 1095,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 22400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Crossover",
+"msrp": 24100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 28600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-buick-envista-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "Preferred 4dr Crossover",
+"msrp": 23800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Touring 4dr Crossover",
+"msrp": 25300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Avenir 4dr Crossover",
+"msrp": 28600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-buick-envista-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

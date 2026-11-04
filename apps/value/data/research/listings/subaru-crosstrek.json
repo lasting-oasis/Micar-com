@@ -1,0 +1,209 @@
+{
+  "make": "Subaru",
+  "model": "Crosstrek",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "Premium",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/subaru/crosstrek/year-2016/",
+      "fetched": "2026-10-28",
+      "page_average": 23527,
+      "note": "Unfiltered year page used directly (TrueCar labels these trims '2.0i Premium'). 134 listings stated. TrueCar's 'average price' sentence is model-wide boilerplate ($23,527 'Premium' on most year pages); recorded but not reliable.",
+      "listings": [
+        {
+          "price": 13953,
+          "miles": 92508,
+          "location": "Carlsbad, CA",
+          "trim": "2.0i Limited",
+          "body": "SUV / Crossover",
+          "note": "CVT; Sponsored"
+        },
+        {
+          "price": 10694,
+          "miles": 136253,
+          "location": "Cockeysville, MD",
+          "trim": "2.0i Premium",
+          "body": "SUV / Crossover",
+          "note": "CVT; Sponsored"
+        },
+        {
+          "price": 10146,
+          "miles": 168048,
+          "location": "Bremerton, WA",
+          "trim": "2.0i Limited",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        },
+        {
+          "price": 13404,
+          "miles": 85001,
+          "location": "Countryside, IL",
+          "trim": "2.0i Premium",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        },
+        {
+          "price": 11171,
+          "miles": 124364,
+          "location": "Gilroy, CA",
+          "trim": "2.0i Premium",
+          "body": "SUV / Crossover",
+          "note": "Manual"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "Premium",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/subaru/crosstrek/year-2019/",
+      "fetched": "2026-10-28",
+      "page_average": 23627,
+      "note": "Unfiltered year page used directly. 287 listings stated. A first Sponsored row (2.0i Limited, $13,995, Tampa) was skipped as no mileage was read. TrueCar's 'average price' sentence is model-wide boilerplate ($23,527 'Premium' on most year pages); recorded but not reliable.",
+      "listings": [
+        {
+          "price": 21262,
+          "miles": 33175,
+          "location": "Elmhurst, IL",
+          "trim": "2.0i Limited",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        },
+        {
+          "price": 13123,
+          "miles": 137289,
+          "location": "Lafayette, LA",
+          "trim": "2.0i Premium",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        },
+        {
+          "price": 17725,
+          "miles": 65282,
+          "location": "Turlock, CA",
+          "trim": "2.0i Premium",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        },
+        {
+          "price": 20498,
+          "miles": 47836,
+          "location": "Richmond, VA",
+          "trim": "2.0i Premium",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        },
+        {
+          "price": 19481,
+          "miles": 72320,
+          "location": "Portland, OR",
+          "trim": "2.0i Limited",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "Premium",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/subaru/crosstrek/year-2022/",
+      "fetched": "2026-10-28",
+      "page_average": 23527,
+      "note": "Unfiltered year page used directly. 169 listings stated. TrueCar's 'average price' sentence is model-wide boilerplate ($23,527 'Premium' on most year pages); recorded but not reliable.",
+      "listings": [
+        {
+          "price": 19254,
+          "miles": 84170,
+          "location": "Folsom, CA",
+          "trim": "2.5i Limited",
+          "body": "SUV / Crossover",
+          "note": "CVT; Sponsored"
+        },
+        {
+          "price": 20622,
+          "miles": 35215,
+          "location": "Fort Myers, FL",
+          "trim": "2.0i",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        },
+        {
+          "price": 23994,
+          "miles": 45127,
+          "location": "Daytona Beach, FL",
+          "trim": "2.5i Limited",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        },
+        {
+          "price": 19663,
+          "miles": 67548,
+          "location": "Long Island City, NY",
+          "trim": "2.0i Premium",
+          "body": "SUV / Crossover",
+          "note": "CVT"
+        },
+        {
+          "price": 21386,
+          "miles": 63873,
+          "location": "Pembroke Pines, FL",
+          "trim": "2.5i Limited",
+          "body": "SUV / Crossover",
+          "note": "CVT; CPO"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "Premium",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/subaru/crosstrek/year-2024/?trim=premium",
+      "fetched": "2026-10-28",
+      "page_average": 23527,
+      "note": "Filter worked: 781 used 2024 Crosstrek Premium stated. Two Sponsored rows were skipped by the page read. TrueCar's 'average price' sentence is model-wide boilerplate ($23,527 'Premium' on most year pages); recorded but not reliable.",
+      "listings": [
+        {
+          "price": 21634,
+          "miles": 40875,
+          "location": "Elgin, IL",
+          "trim": "Premium",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 23958,
+          "miles": 23001,
+          "location": "Renton, WA",
+          "trim": "Premium",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 24499,
+          "miles": 26012,
+          "location": "Hardeeville, SC",
+          "trim": "Premium",
+          "body": "SUV / Crossover",
+          "note": "CPO"
+        },
+        {
+          "price": 24410,
+          "miles": 21876,
+          "location": "Randolph, NJ",
+          "trim": "Premium",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 21290,
+          "miles": 64629,
+          "location": "Elgin, IL",
+          "trim": "Premium",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2016, 2019, 2022: unfiltered year pages used (trim filter skipped to save budget); rows mix trims."
+  ]
+}

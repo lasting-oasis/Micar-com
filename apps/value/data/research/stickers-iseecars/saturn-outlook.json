@@ -1,0 +1,66 @@
+{
+"make": "Saturn",
+"model": "Outlook",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (outlook).",
+"years": [
+{
+"year": 2010,
+"destination": 775,
+"trims": [
+{
+"trim": "XE 4dr SUV",
+"msrp": 31130,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XE 4dr SUV",
+"msrp": 33130,
+"config": "",
+"note": ""
+},
+{
+"trim": "XE Premium 4dr SUV",
+"msrp": 33525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XE Premium 4dr SUV",
+"msrp": 35525,
+"config": "",
+"note": ""
+},
+{
+"trim": "XR-L 4dr SUV",
+"msrp": 36930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XR-L 4dr SUV",
+"msrp": 38930,
+"config": "",
+"note": ""
+},
+{
+"trim": "XR-L Premium 4dr SUV",
+"msrp": 41160,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XR-L Premium 4dr SUV",
+"msrp": 43160,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-saturn-outlook-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

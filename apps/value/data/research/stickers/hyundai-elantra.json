@@ -1,0 +1,196 @@
+{
+  "make": "Hyundai",
+  "model": "Elantra",
+  "body": "Sedan",
+  "note": "All rows are the Elantra sedan. The Elantra GT hatchback (2016-2020, separate releases on hyundainews.com) is not priced here. Elantra N (performance model) rows are included for 2025-2026 only because they appear on the same official series price sheet. MSRP excludes freight/destination; freight recorded per year in `destination`. Where a year has an official price sheet, SULEV duplicate rows (same price) were dropped.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 825,
+      "trims": [
+        { "trim": "SE", "msrp": 17250, "config": "1.8L, 6-speed manual (base)", "note": "Manufacturer figure: hyundainews.com release 1992 PDF (May 15, 2015) states 'starting MSRP of $17,250, excluding $825 freight'; release does not name the transmission. SE automatic price not found." },
+        { "trim": "Value Edition", "msrp": 19700, "config": "1.8L, 6-speed automatic", "note": "Autoblog: 'rings up for $19,700, plus $825 destination'" },
+        { "trim": "Sport", "msrp": 20250, "config": "2.0L GDI, 6-speed manual", "note": "Autoblog" },
+        { "trim": "Sport", "msrp": 21250, "config": "2.0L GDI, 6-speed automatic", "note": "Autoblog" },
+        { "trim": "Limited", "msrp": 21700, "config": "1.8L, 6-speed automatic", "note": "Autoblog: 'the $21,700 price is the same as last year'" }
+      ],
+      "source": "https://www.autoblog.com/2015/05/17/2016-hyundai-elantra-value-edition-price/",
+      "source_type": "secondary",
+      "source_note": "Autoblog article (May 17, 2015) quoting Hyundai's May 2015 release. Official release https://www.hyundainews.com/assets/documents/original/23930-2016ELANTRAADDSNEWTRIMLEVELANDMOREVALUE.pdf was fetched and confirms only the $17,250 starting MSRP and $825 freight."
+    },
+    {
+      "year": 2017,
+      "destination": 835,
+      "trims": [
+        { "trim": "SE", "msrp": 17150, "config": "2.0L, 6-speed manual", "note": "" },
+        { "trim": "SE", "msrp": 18150, "config": "2.0L, 6-speed automatic", "note": "" },
+        { "trim": "SE Value Edition", "msrp": 20250, "config": "2.0L, 6-speed automatic", "note": "Listed as 'Elantra SE Value Edition' on the price sheet; Dec 12, 2016 release calls it Value Edition at $20,250" },
+        { "trim": "Eco", "msrp": 20650, "config": "1.4T, 7-speed DCT", "note": "" },
+        { "trim": "Sport", "msrp": 21650, "config": "1.6T, 6-speed manual", "note": "" },
+        { "trim": "Sport", "msrp": 22750, "config": "1.6T, 7-speed DCT", "note": "" },
+        { "trim": "Limited", "msrp": 22350, "config": "2.0L, 6-speed automatic", "note": "" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/31158-2017MYElantraPriceSheet31Oct2016.pdf",
+      "source_type": "manufacturer",
+      "source_note": "2017 price sheet effective Oct 31, 2016. Launch release (May 11, 2016, https://www.hyundainews.com/assets/documents/original/24832-...pdf) shows identical SE/Eco/Limited prices and $835 freight, so no mid-year change through Oct 2016."
+    },
+    {
+      "year": 2018,
+      "destination": 885,
+      "trims": [
+        { "trim": "SE", "msrp": 16950, "config": "2.0L, 6-speed manual", "note": "Price sheet row labeled 'Elantra M/T'" },
+        { "trim": "SE", "msrp": 17950, "config": "2.0L, 6-speed automatic", "note": "" },
+        { "trim": "SEL", "msrp": 18850, "config": "2.0L, 6-speed automatic", "note": "SEL trim new for 2018" },
+        { "trim": "Value Edition", "msrp": 19850, "config": "2.0L, 6-speed automatic", "note": "" },
+        { "trim": "Eco", "msrp": 20550, "config": "1.4T, 7-speed DCT", "note": "" },
+        { "trim": "Sport", "msrp": 21800, "config": "1.6T, 6-speed manual", "note": "" },
+        { "trim": "Sport", "msrp": 22900, "config": "1.6T, 7-speed DCT", "note": "" },
+        { "trim": "Limited", "msrp": 22100, "config": "2.0L, 6-speed automatic", "note": "" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/33049-2018MYElantraPriceSheet06June2018.pdf",
+      "source_type": "manufacturer",
+      "source_note": "Price sheet effective June 6, 2018, i.e. late in the 2018 model year; an earlier launch sheet was not found, so these may include a mid-year adjustment."
+    },
+    {
+      "year": 2019,
+      "destination": 885,
+      "trims": [
+        { "trim": "SE", "msrp": 17100, "config": "2.0L, 6-speed manual", "note": "" },
+        { "trim": "SE", "msrp": 18100, "config": "2.0L, 6-speed automatic", "note": "" },
+        { "trim": "SEL", "msrp": 19400, "config": "2.0L, 6-speed automatic", "note": "" },
+        { "trim": "Value Edition", "msrp": 20400, "config": "2.0L, 6-speed automatic", "note": "" },
+        { "trim": "Eco", "msrp": 20950, "config": "1.4T, 7-speed DCT", "note": "" },
+        { "trim": "Sport", "msrp": 22400, "config": "1.6T, 6-speed manual", "note": "" },
+        { "trim": "Sport", "msrp": 23500, "config": "1.6T, 7-speed DCT", "note": "" },
+        { "trim": "Limited", "msrp": 22600, "config": "2.0L, 6-speed automatic", "note": "" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/34194-2019MYElantraPriceSheet29Aug2018.pdf",
+      "source_type": "manufacturer",
+      "source_note": "Price sheet effective Aug 29, 2018 (refreshed 2019 model)."
+    },
+    {
+      "year": 2020,
+      "destination": 920,
+      "trims": [
+        { "trim": "SE", "msrp": 18950, "config": "2.0L Atkinson, IVT", "note": "Manual transmission no longer in the pricing table" },
+        { "trim": "SEL", "msrp": 19700, "config": "2.0L Atkinson, IVT", "note": "" },
+        { "trim": "Value Edition", "msrp": 20600, "config": "2.0L Atkinson, IVT", "note": "Labeled 'Value' in the release table" },
+        { "trim": "Eco", "msrp": 21250, "config": "1.4T, 7-speed DCT", "note": "" },
+        { "trim": "Limited", "msrp": 22800, "config": "2.0L Atkinson, IVT", "note": "" },
+        { "trim": "Sport", "msrp": 23800, "config": "1.6T, 7-speed DCT", "note": "Release table lists Sport with 7-speed DCT only" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/36341-2020ElantraOverviewPressReleasefinal5142019docx.pdf",
+      "source_type": "manufacturer",
+      "source_note": "2020 Elantra overview press release dated May 14, 2019, which includes the MSRP chart; release says 'Freight charges for the 2020MY Elantra are $920 and are not included'. No separate 2020 price sheet was found."
+    },
+    {
+      "year": 2021,
+      "destination": 995,
+      "trims": [
+        { "trim": "SE", "msrp": 19650, "config": "2.0L, IVT", "note": "" },
+        { "trim": "SEL", "msrp": 20900, "config": "2.0L, IVT", "note": "" },
+        { "trim": "N Line", "msrp": 24100, "config": "1.6T, 6-speed manual", "note": "" },
+        { "trim": "N Line", "msrp": 25200, "config": "1.6T, 7-speed DCT", "note": "" },
+        { "trim": "Limited", "msrp": 25450, "config": "2.0L, IVT", "note": "" },
+        { "trim": "Blue HEV", "msrp": 23550, "config": "1.6L hybrid, 6-speed DCT", "note": "Model code 49422FBS. The Oct 2020 sheet extraction labeled this row 'SEL HEV'; the Jan 8, 2021 sheet prints the same code as 'Elantra Blue HEV', so Blue HEV is used here." },
+        { "trim": "Limited HEV", "msrp": 28100, "config": "1.6L hybrid, 6-speed DCT", "note": "" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/43529-2021MYElantraPriceSheet21Oct2020.pdf",
+      "source_type": "manufacturer",
+      "source_note": "All-new 7th-generation Elantra. Price sheet effective Oct 21, 2020 (freight $995). The Jan 8, 2021 sheet (https://www.hyundainews.com/assets/documents/original/44683-2021MYElantraPriceSheet08Jan2021.pdf) shows freight raised to $1,005; its MSRP column was not legible in the fetch."
+    },
+    {
+      "year": 2022,
+      "destination": 1005,
+      "trims": [
+        { "trim": "SE", "msrp": 19850, "config": "2.0L, IVT", "note": "" },
+        { "trim": "SEL", "msrp": 21100, "config": "2.0L, IVT", "note": "" },
+        { "trim": "N Line", "msrp": 24250, "config": "1.6T, 6-speed manual", "note": "" },
+        { "trim": "N Line", "msrp": 25350, "config": "1.6T, 7-speed DCT", "note": "" },
+        { "trim": "Limited", "msrp": 25600, "config": "2.0L, IVT", "note": "" },
+        { "trim": "Blue HEV", "msrp": 23750, "config": "1.6L hybrid, 6-speed DCT", "note": "" },
+        { "trim": "Limited HEV", "msrp": 28250, "config": "1.6L hybrid, 6-speed DCT", "note": "" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/46905-2022MYElantraDealerPriceSheet16Jun20212.pdf",
+      "source_type": "manufacturer",
+      "source_note": "Suggested-retail price sheet effective June 16, 2021 (file name says 'Dealer' but the sheet is the suggested-retail version). Elantra N (separate model) not on this sheet."
+    },
+    {
+      "year": 2023,
+      "destination": 1115,
+      "trims": [
+        { "trim": "SE", "msrp": 20650, "config": "2.0L, IVT", "note": "" },
+        { "trim": "SEL", "msrp": 21900, "config": "2.0L, IVT", "note": "" },
+        { "trim": "N Line", "msrp": 27200, "config": "1.6T, 7-speed DCT", "note": "Manual N Line no longer listed" },
+        { "trim": "Limited", "msrp": 26500, "config": "2.0L, IVT", "note": "" },
+        { "trim": "Blue HEV", "msrp": 24550, "config": "1.6L hybrid, 6-speed DCT", "note": "" },
+        { "trim": "Limited HEV", "msrp": 29150, "config": "1.6L hybrid, 6-speed DCT", "note": "" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/53437-2023MYElantraPriceSheet04Jan2023.pdf",
+      "source_type": "manufacturer",
+      "source_note": "Mid-year sheet (2023C, effective Jan 4, 2023); the launch (2023A) sheet was not found, so launch prices may have been slightly lower."
+    },
+    {
+      "year": 2024,
+      "destination": 1115,
+      "trims": [
+        { "trim": "SE", "msrp": 21475, "config": "2.0L, IVT", "note": "" },
+        { "trim": "SEL", "msrp": 23425, "config": "2.0L, IVT", "note": "" },
+        { "trim": "N Line", "msrp": 28315, "config": "1.6T, 7-speed DCT", "note": "" },
+        { "trim": "Limited", "msrp": 26915, "config": "2.0L, IVT", "note": "" },
+        { "trim": "HEV Blue", "msrp": 26250, "config": "1.6L hybrid, 6-speed DCT", "note": "From the separate 2024 Elantra HEV price sheet effective Jan 3, 2024 (freight on that sheet: $1,150)" },
+        { "trim": "HEV Limited", "msrp": 29450, "config": "1.6L hybrid, 6-speed DCT", "note": "From the 2024 Elantra HEV price sheet effective Jan 3, 2024" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/57261-2024MYElantraPriceSheet12Sep2023.pdf",
+      "source_type": "manufacturer",
+      "source_note": "Refreshed 2024 model. Gas trims from the sheet effective Sep 12, 2023 (freight $1,115). Hybrid trims from https://www.hyundainews.com/assets/documents/original/58164-2024MYElantraHEVPriceSheetJan032024.pdf (freight $1,150, i.e. a mid-year freight increase)."
+    },
+    {
+      "year": 2025,
+      "destination": 1150,
+      "trims": [
+        { "trim": "SE", "msrp": 21875, "config": "2.0L, IVT", "note": "" },
+        { "trim": "SEL Sport", "msrp": 23000, "config": "2.0L, IVT", "note": "SEL renamed/split into SEL Sport and SEL Convenience for 2025" },
+        { "trim": "SEL Convenience", "msrp": 25575, "config": "2.0L, IVT", "note": "" },
+        { "trim": "Limited", "msrp": 26525, "config": "2.0L, IVT", "note": "" },
+        { "trim": "N Line", "msrp": 28725, "config": "1.6T, 7-speed DCT", "note": "" },
+        { "trim": "HEV Blue", "msrp": 25100, "config": "1.6L hybrid, 6-speed DCT", "note": "Release also quotes $26,250 'including destination' (= 25,100 + 1,150); note this is lower than the 2024 HEV Blue MSRP of $26,250" },
+        { "trim": "HEV SEL Sport", "msrp": 27075, "config": "1.6L hybrid, 6-speed DCT", "note": "New hybrid trim for 2025" },
+        { "trim": "HEV Limited", "msrp": 29450, "config": "1.6L hybrid, 6-speed DCT", "note": "Trim label was garbled in the fetched release text; this is the third/top hybrid row at $29,450 (2024 HEV Limited was also $29,450; 2026 HEV Limited is $29,800). Verify." },
+        { "trim": "N", "msrp": 33950, "config": "2.0T, 6-speed manual", "note": "Elantra N performance model" },
+        { "trim": "N", "msrp": 35450, "config": "2.0T, 8-speed wet DCT", "note": "Elantra N performance model" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/63135-Hyundai2025ElantraPricing82624FINAL.pdf",
+      "source_type": "manufacturer",
+      "source_note": "2025 Elantra pricing press release dated Aug 27, 2024 ('prices ... do not include a $1,150 delivery charge'). Gas-trim prices cross-checked against the 2025A price sheet effective Aug 22, 2024 (https://www.hyundainews.com/assets/documents/original/63141-2025MYElantraPriceSheet22Aug2024.pdf): identical."
+    },
+    {
+      "year": 2026,
+      "destination": 1245,
+      "trims": [
+        { "trim": "SE", "msrp": 22625, "config": "2.0L, IVT", "note": "" },
+        { "trim": "SEL Sport", "msrp": 23750, "config": "2.0L, IVT", "note": "" },
+        { "trim": "SEL Sport Premium", "msrp": 25075, "config": "2.0L, IVT", "note": "Replaces 2025 SEL Convenience in the lineup" },
+        { "trim": "Limited", "msrp": 27175, "config": "2.0L, IVT", "note": "" },
+        { "trim": "N Line", "msrp": 29400, "config": "1.6T, 7-speed DCT", "note": "" },
+        { "trim": "HEV Blue", "msrp": 25450, "config": "1.6L hybrid, 6-speed DCT", "note": "" },
+        { "trim": "HEV SEL Sport", "msrp": 27425, "config": "1.6L hybrid, 6-speed DCT", "note": "" },
+        { "trim": "HEV Limited", "msrp": 29800, "config": "1.6L hybrid, 6-speed DCT", "note": "" },
+        { "trim": "N", "msrp": 35100, "config": "2.0T, 6-speed manual", "note": "Elantra N performance model" },
+        { "trim": "N", "msrp": 36600, "config": "2.0T, 8-speed wet DCT", "note": "Elantra N performance model" }
+      ],
+      "source": "https://www.hyundainews.com/assets/documents/original/68430-26MYElantraSeriesPricing09Oct2025.pdf",
+      "source_type": "manufacturer",
+      "source_note": "2026A series price sheet effective Oct 9, 2025. Later sheets exist (Dec 19, 2025 and Apr 15, 2026) but were not fetched; the Elantra N TCR Edition (2026) is not included."
+    }
+  ],
+  "gaps": [
+    "2016: no official full pricing table found on hyundainews.com after 3 searches (release 1992 gives only the $17,250 starting MSRP and $825 freight). cars.com research and Edmunds pages for 2016 show used-market values rather than MSRP and caranddriver.com was blocked, so Autoblog's May 17, 2015 article (quoting Hyundai's release) was used as the secondary. 2016 SE automatic MSRP not captured.",
+    "2018: only the June 6, 2018 price sheet was found; launch (fall 2017) prices may differ slightly.",
+    "2021: Jan 8, 2021 sheet confirms a freight increase to $1,005 but its MSRP column did not extract; prices recorded are from the Oct 21, 2020 launch sheet.",
+    "2023: only the Jan 4, 2023 (2023C) sheet was found, not the launch sheet.",
+    "2024: freight differs between the gas sheet (Sep 2023, $1,115) and the HEV sheet (Jan 2024, $1,150); `destination` records the gas-sheet figure.",
+    "2025: the top hybrid trim's label ($29,450) was not legible in the fetched release; recorded as HEV Limited with a note.",
+    "hyundainews.com HTML release pages (e.g. /releases/2114, /releases/1992) render client-side and returned no text via WebFetch; PDF assets were used instead."
+  ]
+}

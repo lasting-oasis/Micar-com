@@ -1,0 +1,216 @@
+{
+"make": "Lexus",
+"model": "GX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (gx_460).",
+"years": [
+{
+"year": 2010,
+"destination": 875,
+"trims": [
+{
+"trim": "GX 460 AWD 4dr SUV",
+"msrp": 51970,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 AWD Premium 4dr SUV",
+"msrp": 56765,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lexus-gx_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "GX 460 AWD 4dr SUV",
+"msrp": 53045,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 AWD Premium 4dr SUV",
+"msrp": 57840,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lexus-gx_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "GX 460 AWD 4dr SUV",
+"msrp": 53245,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 AWD Premium 4dr SUV",
+"msrp": 58040,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lexus-gx_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "GX 460 AWD 4dr SUV",
+"msrp": 53795,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 AWD Premium 4dr SUV",
+"msrp": 58590,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lexus-gx_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 910,
+"trims": [
+{
+"trim": "GX 460 AWD 4dr SUV",
+"msrp": 49085,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 AWD Luxury 4dr SUV",
+"msrp": 60715,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lexus-gx_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "GX 460 4WD 4dr",
+"msrp": 50780,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 4WD 4dr Luxury",
+"msrp": 62155,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lexus-gx_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-02-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "GX 460 4WD",
+"msrp": 51680,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 Premium 4WD",
+"msrp": 51680,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 Luxury 4WD",
+"msrp": 63380,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lexus-gx_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "GX 460 4WD",
+"msrp": 52355,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 Premium 4WD",
+"msrp": 52355,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 Luxury 4WD",
+"msrp": 63755,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lexus-gx_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "GX 460 4WD",
+"msrp": 53450,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 Premium 4WD",
+"msrp": 53450,
+"config": "",
+"note": ""
+},
+{
+"trim": "GX 460 Luxury 4WD",
+"msrp": 64715,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-lexus-gx_460-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

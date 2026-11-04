@@ -1,0 +1,960 @@
+{
+"make": "Dodge",
+"model": "Challenger",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (challenger).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "SE 2dr Coupe",
+"msrp": 23245,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 30860,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 34190,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 2dr Coupe",
+"msrp": 41230,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 2dr Coupe",
+"msrp": 24895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye 2dr Coupe",
+"msrp": 26895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 29895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 2dr Coupe",
+"msrp": 31395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 33195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 392 2dr Coupe",
+"msrp": 42780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "SXT 2dr Coupe",
+"msrp": 25195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 2dr Coupe",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye Redline Appearance Group 2dr Coupe",
+"msrp": 28945,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 2dr Coupe",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 392 2dr Coupe",
+"msrp": 44125,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Yellow Jacket 2dr Coupe",
+"msrp": 45620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "SXT 2dr Coupe",
+"msrp": 25995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 2dr Coupe",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye Redline Appearance Group 2dr Coupe",
+"msrp": 29895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 2dr Coupe",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Core 2dr Coupe",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 392 2dr Coupe",
+"msrp": 44195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "SXT 2dr Coupe",
+"msrp": 26495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 2dr Coupe",
+"msrp": 28295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye Redline 2dr Coupe",
+"msrp": 30295,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 100th Anniversary Appearance Group 2dr Coupe",
+"msrp": 30795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 2dr Coupe",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Classic 2dr Coupe",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 100th Anniversary Appearance Group 2dr Coupe",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Shaker Package 2dr Coupe",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Core 2dr Coupe",
+"msrp": 39485,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 2dr Coupe",
+"msrp": 44685,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe SXT",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T Shaker",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe SXT Plus",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T Plus Shaker",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T Plus",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T Scat Pack",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T Scat Pack Shaker",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe SRT 392",
+"msrp": 45695,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe SRT Hellcat",
+"msrp": 58295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr Coupe SXT",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe SXT Plus",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T Shaker",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T Plus Shaker",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T Plus",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe R/T Scat Pack",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 392 Hemi Scat Pack Shaker",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe SRT 392",
+"msrp": 49195,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe SRT Hellcat",
+"msrp": 62495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SXT Coupe",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus Coupe",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Coupe",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Shaker Coupe",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus Shaker Coupe",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "T/A Plus Coupe",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "T/A Coupe",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus Coupe",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT Coupe",
+"msrp": 33395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack Coupe",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "T/A 392 Coupe",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "392 Hemi Scat Pack Shaker Coupe",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT 392 Coupe",
+"msrp": 49195,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Coupe",
+"msrp": 62495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus RWD",
+"msrp": 27295,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Shaker RWD",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus Shaker RWD",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "T/A Plus RWD",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "T/A RWD",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus RWD",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack RWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "T/A 392 RWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "392 Hemi Scat Pack Shaker RWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT 392 RWD",
+"msrp": 49495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 64295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Widebody RWD",
+"msrp": 64295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Demon RWD",
+"msrp": 83295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 30645,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 31145,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 33695,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 34545,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack RWD",
+"msrp": 39245,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack Widebody RWD",
+"msrp": 39245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 59245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Widebody RWD",
+"msrp": 59245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye RWD",
+"msrp": 59245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Widebody RWD",
+"msrp": 59245,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 28095,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 31095,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 50th Ann. RWD",
+"msrp": 31095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 31095,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 50th Ann. RWD",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack RWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack Widebody RWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack 50th Ann. Widebody RWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack 50th Ann. RWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 58995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Super Stock RWD",
+"msrp": 58995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Widebody RWD",
+"msrp": 58995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye RWD",
+"msrp": 58995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Widebody RWD",
+"msrp": 58995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 29065,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 32065,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 32065,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 35065,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 35765,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack RWD",
+"msrp": 40840,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack Widebody RWD",
+"msrp": 40840,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 59765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Super Stock RWD",
+"msrp": 59765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Widebody RWD",
+"msrp": 59765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye RWD",
+"msrp": 59765,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Widebody RWD",
+"msrp": 59765,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "SXT 2dr Coupe",
+"msrp": 30430,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 2dr Coupe",
+"msrp": 33430,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 2dr Coupe",
+"msrp": 33705,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 2dr Coupe",
+"msrp": 36705,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 2dr Coupe",
+"msrp": 37980,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack 2dr Coupe",
+"msrp": 44155,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack Widebody 2dr Coupe",
+"msrp": 50150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat 2dr Coupe",
+"msrp": 63530,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Widebody 2dr Coupe",
+"msrp": 69530,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye 2dr Coupe",
+"msrp": 75130,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Widebody 2dr Coupe",
+"msrp": 81130,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Widebody Jailbreak 2dr Coupe",
+"msrp": 82125,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Super Stock 2dr Coupe",
+"msrp": 84130,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-dodge-challenger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

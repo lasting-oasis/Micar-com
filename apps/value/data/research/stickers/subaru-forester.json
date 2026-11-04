@@ -1,0 +1,468 @@
+{
+  "make": "Subaru",
+  "model": "Forester",
+  "body": "SUV / Crossover",
+  "note": "Single body style, AWD standard. 2016-2018 trims carry 2.5i / 2.0XT (turbo) prefixes with a 6MT base on 2.5i and 2.5i Premium (recorded msrp = 6MT, CVT price in note). 2019+ CVT-only, no turbo. Hybrid trims added for 2025. All MSRPs exclude Destination & Delivery.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 850,
+      "trims": [
+        {
+          "trim": "2.5i",
+          "msrp": 22395,
+          "config": "6MT",
+          "note": "CVT $23,395"
+        },
+        {
+          "trim": "2.5i Premium",
+          "msrp": 25295,
+          "config": "6MT",
+          "note": "CVT $25,795"
+        },
+        {
+          "trim": "2.5i Limited",
+          "msrp": 28795,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.0XT Premium",
+          "msrp": 29195,
+          "config": "2.0L turbo CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Touring",
+          "msrp": 30795,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.0XT Touring",
+          "msrp": 33795,
+          "config": "2.0L turbo CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/newsrelease.do?id=778&mid=1",
+      "source_type": "manufacturer",
+      "note": "Release dated June 14, 2015. D&D $850 ($1,000 Alaska)."
+    },
+    {
+      "year": 2017,
+      "destination": 875,
+      "trims": [
+        {
+          "trim": "2.5i",
+          "msrp": 22595,
+          "config": "6MT",
+          "note": "CVT $23,595; PZEV"
+        },
+        {
+          "trim": "2.5i Premium",
+          "msrp": 25495,
+          "config": "6MT",
+          "note": "CVT $25,995; PZEV"
+        },
+        {
+          "trim": "2.5i Limited",
+          "msrp": 29195,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.0XT Premium",
+          "msrp": 29295,
+          "config": "2.0L turbo CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Touring",
+          "msrp": 31295,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.0XT Touring",
+          "msrp": 34295,
+          "config": "2.0L turbo CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/newsrelease.do?id=950&mid=128&teaser=subaru-announces-pricing-2017-forester-models",
+      "source_type": "manufacturer",
+      "note": "Release dated May 19, 2016. D&D $875 ($1,025 Alaska)."
+    },
+    {
+      "year": 2018,
+      "destination": 915,
+      "trims": [
+        {
+          "trim": "2.5i",
+          "msrp": 22795,
+          "config": "6MT",
+          "note": "CVT $23,795"
+        },
+        {
+          "trim": "2.5i Premium",
+          "msrp": 25695,
+          "config": "6MT",
+          "note": "CVT $26,195"
+        },
+        {
+          "trim": "2.5i Limited",
+          "msrp": 29395,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.0XT Premium",
+          "msrp": 29495,
+          "config": "2.0L turbo CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.5i Touring",
+          "msrp": 33090,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "2.0XT Touring",
+          "msrp": 36090,
+          "config": "2.0L turbo CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1122/subaru-america-announces-pricing-2018-forester-models-debuts",
+      "source_type": "manufacturer",
+      "note": "Release dated May 18, 2017 (also debuts Black Edition package). D&D $915 ($1,065 Alaska). Touring trims jump ~$1,800 vs 2017."
+    },
+    {
+      "year": 2019,
+      "destination": 975,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 24295,
+          "config": "CVT",
+          "note": "option codes 01/02"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 26695,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 28795,
+          "config": "CVT",
+          "note": "new trim"
+        },
+        {
+          "trim": "Limited",
+          "msrp": 30795,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 34295,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1329/1/subaru-america-announces-pricing-all-new-2019-forester",
+      "source_type": "manufacturer",
+      "note": "All-new 5th generation, release dated August 16, 2018. Manual transmission and 2.0XT turbo dropped; CVT only. D&D $975 ($1,125 Alaska)."
+    },
+    {
+      "year": 2020,
+      "destination": 1010,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 24495,
+          "config": "CVT",
+          "note": "listed as 'Forester'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 27395,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 28995,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 31095,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 34595,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/newsrelease.do?id=1471&mid=1",
+      "source_type": "manufacturer",
+      "note": "Release dated August 29, 2019. D&D $1,010 ($1,160 Alaska)."
+    },
+    {
+      "year": 2021,
+      "destination": 1050,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 24795,
+          "config": "CVT",
+          "note": "listed as 'Forester'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 27795,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 29395,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 31395,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 34895,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1625/subaru-america-announces-pricing-2021-forester-suv",
+      "source_type": "manufacturer",
+      "note": "Release dated August 19, 2020. D&D $1,050."
+    },
+    {
+      "year": 2022,
+      "destination": 1125,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 25195,
+          "config": "CVT",
+          "note": "listed as 'Forester'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 28195,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 29765,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 31875,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 32820,
+          "config": "CVT",
+          "note": "new trim for refreshed 2022"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 35295,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/newsrelease.do?id=1789&mid=183&allImage=1",
+      "source_type": "manufacturer",
+      "note": "Refreshed 2022 model, release dated September 2, 2021. D&D $1,125."
+    },
+    {
+      "year": 2023,
+      "destination": 1225,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 26495,
+          "config": "CVT",
+          "note": "listed as 'Forester'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 29695,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 31265,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 33375,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 34320,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 36795,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/1956/1/subaru-announces-pricing-popular-2023-forester-suv",
+      "source_type": "manufacturer",
+      "note": "Release dated September 30, 2022. D&D $1,225."
+    },
+    {
+      "year": 2024,
+      "destination": 1295,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 26895,
+          "config": "CVT",
+          "note": "listed as 'Forester'"
+        },
+        {
+          "trim": "Premium",
+          "msrp": 30095,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 31665,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 33775,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 34720,
+          "config": "CVT",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 37195,
+          "config": "CVT",
+          "note": ""
+        }
+      ],
+      "source": "https://media.subaru.com/pressrelease/2085/subaru-announces-pricing-2024-forester",
+      "source_type": "manufacturer",
+      "note": "Release dated August 10, 2023. D&D $1,295 ($1,445 Alaska)."
+    },
+    {
+      "year": 2025,
+      "destination": 1420,
+      "trims": [
+        {
+          "trim": "Base",
+          "msrp": 29995,
+          "config": "AWD 4dr Crossover",
+          "note": ""
+        },
+        {
+          "trim": "Premium",
+          "msrp": 33385,
+          "config": "AWD 4dr Crossover",
+          "note": ""
+        },
+        {
+          "trim": "Sport",
+          "msrp": 36105,
+          "config": "AWD 4dr Crossover",
+          "note": ""
+        },
+        {
+          "trim": "Wilderness",
+          "msrp": 36285,
+          "config": "AWD 4dr Crossover",
+          "note": ""
+        },
+        {
+          "trim": "Limited",
+          "msrp": 37695,
+          "config": "AWD 4dr Crossover",
+          "note": ""
+        },
+        {
+          "trim": "Touring",
+          "msrp": 41595,
+          "config": "AWD 4dr Crossover",
+          "note": ""
+        },
+        {
+          "trim": "Premium Hybrid",
+          "msrp": 36595,
+          "config": "AWD 4dr Crossover",
+          "note": "Forester Hybrid arrived spring 2025"
+        },
+        {
+          "trim": "Sport Hybrid",
+          "msrp": 39595,
+          "config": "AWD 4dr Crossover",
+          "note": ""
+        },
+        {
+          "trim": "Limited Hybrid",
+          "msrp": 41010,
+          "config": "AWD 4dr Crossover",
+          "note": ""
+        },
+        {
+          "trim": "Touring Hybrid",
+          "msrp": 43295,
+          "config": "AWD 4dr Crossover",
+          "note": ""
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-subaru-forester-price",
+      "source_type": "secondary",
+      "note": "All-new 6th generation. iSeeCars lists MSRP with a separate $1,420 destination per style. Subaru media release for 2025 not searched (budget). 10 styles kept (6 gas + 4 hybrid)."
+    }
+  ],
+  "gaps": [
+    "2026: iSeeCars 2026 page failed (client_error) and no other source fetched within budget; no 2026 sticker recorded.",
+    "2025: Subaru media release not searched; iSeeCars secondary used."
+  ]
+}

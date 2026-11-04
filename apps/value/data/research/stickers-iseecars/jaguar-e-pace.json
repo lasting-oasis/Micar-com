@@ -1,0 +1,219 @@
+{
+"make": "Jaguar",
+"model": "E-Pace",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (e__pace).",
+"years": [
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD P250 4dr SUV",
+"msrp": 38600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P250 S 4dr SUV",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P250 SE 4dr SUV",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 R-Dynamic S 4dr SUV",
+"msrp": 47250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 R-Dynamic SE 4dr SUV",
+"msrp": 50050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 R-Dynamic HSE 4dr SUV",
+"msrp": 53100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P250 First Edition 4dr SUV",
+"msrp": 53550,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jaguar-e__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "P250 AWD",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "P250 AWD S",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "P250 AWD SE",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 AWD R-Dynamic S",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 AWD R-Dynamic SE",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 AWD R-Dynamic HSE",
+"msrp": 53200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jaguar-e__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1050,
+"trims": [
+{
+"trim": "AWD P250 4dr SUV",
+"msrp": 39950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P250 SE 4dr SUV",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P250 Checkered Flag Edition 4dr SUV",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 R-Dynamic S 4dr SUV",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 R-Dynamic SE 4dr SUV",
+"msrp": 49200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 R-Dynamic HSE 4dr SUV",
+"msrp": 52950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-jaguar-e__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1050,
+"trims": [
+{
+"trim": "AWD P250 4dr SUV",
+"msrp": 40995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P250 SE 4dr SUV",
+"msrp": 46095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 300 Sport 4dr SUV",
+"msrp": 49995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-jaguar-e__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1050,
+"trims": [
+{
+"trim": "AWD P250 4dr SUV",
+"msrp": 40995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P250 SE 4dr SUV",
+"msrp": 45995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 300 Sport 4dr SUV",
+"msrp": 49995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-jaguar-e__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1175,
+"trims": [
+{
+"trim": "AWD P250 SE 4dr SUV",
+"msrp": 48000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-jaguar-e__pace-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

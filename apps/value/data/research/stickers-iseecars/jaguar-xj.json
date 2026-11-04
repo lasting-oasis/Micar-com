@@ -1,0 +1,390 @@
+{
+"make": "Jaguar",
+"model": "XJ",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (xj).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "4dr Sedan SWB",
+"msrp": 71650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supercharged 4dr Sedan SWB",
+"msrp": 86650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supercharged 4dr Sedan LWB",
+"msrp": 89650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-jaguar-xj-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 72700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supercharged 4dr Sedan",
+"msrp": 87700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supersport 4dr Sedan",
+"msrp": 110200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-jaguar-xj-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 73700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supercharged 4dr Sedan",
+"msrp": 88600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supersport 4dr Sedan",
+"msrp": 111200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-jaguar-xj-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 73200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 76700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supercharged 4dr Sedan",
+"msrp": 89600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supersport 4dr Sedan",
+"msrp": 112600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-jaguar-xj-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 74200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 77700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Supercharged 4dr Sedan",
+"msrp": 90600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-jaguar-xj-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan R-Sport RWD",
+"msrp": 74400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan R-Sport AWD",
+"msrp": 77900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan XJL Portfolio RWD",
+"msrp": 83200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan XJL Portfolio AWD",
+"msrp": 86700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Supercharged RWD",
+"msrp": 92000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan XJL Supercharged RWD",
+"msrp": 95000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan XJR RWD",
+"msrp": 118000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan XJR LWB RWD",
+"msrp": 121000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-jaguar-xj-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "XJ R-Sport RWD",
+"msrp": 74400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ R-Sport AWD",
+"msrp": 77900,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJL Portfolio RWD",
+"msrp": 83200,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJL Portfolio AWD",
+"msrp": 86700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ Supercharged RWD",
+"msrp": 92000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJL Supercharged RWD",
+"msrp": 95000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJR RWD",
+"msrp": 118000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJR LWB RWD",
+"msrp": 121000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-jaguar-xj-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "XJ R-Sport RWD",
+"msrp": 75400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ R-Sport AWD",
+"msrp": 78300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJL Portfolio RWD",
+"msrp": 84500,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJL Portfolio AWD",
+"msrp": 87400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ Supercharged RWD",
+"msrp": 93000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJL Supercharged RWD",
+"msrp": 96300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJR575 RWD",
+"msrp": 122400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-jaguar-xj-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "XJ R-Sport RWD",
+"msrp": 75700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ R-Sport AWD",
+"msrp": 78600,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJL Portfolio RWD",
+"msrp": 84800,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ Collection RWD",
+"msrp": 85000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJL Portfolio AWD",
+"msrp": 87700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ50 V6 RWD",
+"msrp": 87800,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ50 V6 AWD",
+"msrp": 90700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ Supercharged RWD",
+"msrp": 93300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJL Supercharged RWD",
+"msrp": 96600,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJ50 V8 RWD",
+"msrp": 99600,
+"config": "",
+"note": ""
+},
+{
+"trim": "XJR575 RWD",
+"msrp": 122700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-jaguar-xj-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

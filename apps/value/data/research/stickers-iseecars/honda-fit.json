@@ -1,0 +1,465 @@
+{
+"make": "Honda",
+"model": "Fit",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (fit, fit_ev).",
+"years": [
+{
+"year": 2010,
+"destination": 710,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 14900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5A",
+"msrp": 15700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5M",
+"msrp": 16410,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5A",
+"msrp": 17260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5M w/Navi",
+"msrp": 18260,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5A w/Navi",
+"msrp": 19110,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 770,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 15100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5A",
+"msrp": 15900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5M",
+"msrp": 16860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5A",
+"msrp": 17710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback w/Navi",
+"msrp": 19240,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 790,
+"trims": [
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 15325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5A",
+"msrp": 16125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5M",
+"msrp": 17060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback 5A",
+"msrp": 17910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Hatchback w/Navi",
+"msrp": 19690,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 790,
+"trims": [
+{
+"trim": "EV Base 4dr Hatchback",
+"msrp": 36625,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-honda-fit_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual",
+"msrp": 15650,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT",
+"msrp": 16450,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Manual",
+"msrp": 17560,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT",
+"msrp": 18360,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT",
+"msrp": 19925,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT with Navigation",
+"msrp": 20925,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual",
+"msrp": 15890,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT",
+"msrp": 16690,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Manual",
+"msrp": 17800,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT",
+"msrp": 18600,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT",
+"msrp": 20165,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT with Navigation",
+"msrp": 21165,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual",
+"msrp": 16090,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT",
+"msrp": 16890,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Manual",
+"msrp": 18000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT",
+"msrp": 18800,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT",
+"msrp": 20365,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT w/Navi",
+"msrp": 21365,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual",
+"msrp": 16190,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT",
+"msrp": 16990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual",
+"msrp": 17500,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT w/Honda Sensing",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Manual",
+"msrp": 18160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT",
+"msrp": 18300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT",
+"msrp": 18960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT w/Honda Sensing",
+"msrp": 19300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT",
+"msrp": 20520,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT w/Navi",
+"msrp": 21520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual",
+"msrp": 16190,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT",
+"msrp": 16990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual",
+"msrp": 17500,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX w/Honda Sensing CVT",
+"msrp": 17990,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX Manual",
+"msrp": 18160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT",
+"msrp": 18300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT",
+"msrp": 18960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport w/Honda Sensing CVT",
+"msrp": 19300,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT",
+"msrp": 20520,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L w/Navi CVT",
+"msrp": 21520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LX Manual",
+"msrp": 16190,
+"config": "",
+"note": ""
+},
+{
+"trim": "LX CVT",
+"msrp": 16990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Manual",
+"msrp": 17600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport CVT",
+"msrp": 18400,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX CVT",
+"msrp": 19060,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L CVT",
+"msrp": 20620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-honda-fit-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,123 @@
+{
+"make": "Volkswagen",
+"model": "Eos",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (eos).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Komfort 2dr Convertible 6M",
+"msrp": 32390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Komfort 2dr Convertible 6A",
+"msrp": 33490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux 2dr Convertible",
+"msrp": 35950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-volkswagen-eos-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 770,
+"trims": [
+{
+"trim": "Komfort SULEV 2dr Convertible 6M",
+"msrp": 32940,
+"config": "",
+"note": ""
+},
+{
+"trim": "Komfort SULEV 2dr Convertible 6A",
+"msrp": 34040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux SULEV 2dr Convertible",
+"msrp": 36100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volkswagen-eos-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "Komfort SULEV 2dr Convertible",
+"msrp": 34650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SULEV 2dr Convertible",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lux SULEV 2dr Convertible",
+"msrp": 39595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Executive SULEV 2dr Convertible",
+"msrp": 41450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-volkswagen-eos-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "Komfort SULEV 2dr Convertible",
+"msrp": 35595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SULEV 2dr Convertible",
+"msrp": 38325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Executive SULEV 2dr Convertible",
+"msrp": 42095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volkswagen-eos-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

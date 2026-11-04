@@ -1,0 +1,99 @@
+{
+"make": "Mercedes-Benz",
+"model": "GLE",
+"body": "SUV / Crossover",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 52000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2018+Mercedes-Benz+GLE+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (fjimports.com, jdpower.com, thecarconnection.com)."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 54750,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2021+Mercedes-Benz+GLE+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (fjmercedes.com, mbbloomfield.com, mbofnewton.com)."
+},
+{
+"year": 2022,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 56150,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2022+Mercedes-Benz+GLE+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (mbkcsouth.com, mercedesbenzofcharleston.com, rusnakarcadia.com)."
+},
+{
+"year": 2023,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 57700,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2023+Mercedes-Benz+GLE+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (kbb.com, mbbloomfield.com, mbkcsouth.com)."
+},
+{
+"year": 2024,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 62650,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2024+Mercedes-Benz+GLE+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (fjimports.com, fjmercedes.com, kbb.com)."
+},
+{
+"year": 2025,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 61850,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2025+Mercedes-Benz+GLE+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (edmunds.com, mbofaugusta.com, mercedesbenzofcharleston.com)."
+}
+],
+"gaps": []
+}

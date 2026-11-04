@@ -1,0 +1,93 @@
+{
+"make": "Chevrolet",
+"model": "HHR",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (hhr).",
+"years": [
+{
+"year": 2010,
+"destination": 720,
+"trims": [
+{
+"trim": "LS 4dr Wagon",
+"msrp": 18720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Panel LS 4dr Wagon",
+"msrp": 19030,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Wagon w/1LT",
+"msrp": 19720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Panel LT 4dr Wagon w/1LT",
+"msrp": 20030,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Wagon w/2LT",
+"msrp": 20420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Panel LT 4dr Wagon w/2LT",
+"msrp": 20730,
+"config": "",
+"note": ""
+},
+{
+"trim": "SS 4dr Wagon",
+"msrp": 26255,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-hhr-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 720,
+"trims": [
+{
+"trim": "LS 4dr Wagon",
+"msrp": 18720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Panel LS 4dr Wagon",
+"msrp": 19030,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Wagon w/1LT",
+"msrp": 19720,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Wagon w/2LT",
+"msrp": 21420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-hhr-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,425 @@
+{
+ "make": "Toyota",
+ "model": "Prius",
+ "body": "Hatchback / Wagon",
+ "note": "Liftback hatchback. Rows are each trim's cheapest (FWD) price; AWD-e/AWD in row notes. Trim names changed for 2019 (Two/Three/Four -> L Eco/LE/XLE/Limited).",
+ "years": [
+  {
+   "year": 2016,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "Two",
+     "msrp": 24200,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Two Eco",
+     "msrp": 24700,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Three",
+     "msrp": 26250,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Three Touring",
+     "msrp": 28100,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Four",
+     "msrp": 28650,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Four Touring",
+     "msrp": 30000,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-prius-2016/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Regional (Natl/GS/SE) rows show identical prices. First year of the 4th generation; no 'One' trim listed for 2016."
+  },
+  {
+   "year": 2017,
+   "destination": 895,
+   "trims": [
+    {
+     "trim": "One",
+     "msrp": 23475,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Two",
+     "msrp": 24685,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Two Eco",
+     "msrp": 25165,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Three",
+     "msrp": 26735,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Three Touring",
+     "msrp": 28115,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Four",
+     "msrp": 29135,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Four Touring",
+     "msrp": 30015,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2017-toyota-prius-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year."
+  },
+  {
+   "year": 2018,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "One",
+     "msrp": 23475,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Two",
+     "msrp": 24685,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Two Eco",
+     "msrp": 25165,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Three",
+     "msrp": 26735,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Three Touring",
+     "msrp": 28115,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Four",
+     "msrp": 29685,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "Four Touring",
+     "msrp": 30565,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-prius-2018/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Regional (Natl/GS/SE) rows show identical prices. One/Two/Two Eco/Three/Three Touring prices identical to the 2017 iSeeCars figures; Four and Four Touring $550 higher."
+  },
+  {
+   "year": 2019,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "L Eco",
+     "msrp": 23770,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 24980,
+     "config": "FWD",
+     "note": "LE AWD-e $26,380"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 27820,
+     "config": "FWD",
+     "note": "XLE AWD-e $28,820"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 32200,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-prius-2019/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Regional (Natl/GS/SE) rows show identical prices. 2019 refresh: trims renamed from One/Two/Three/Four (+Eco/Touring) to L Eco/LE/XLE/Limited, and AWD-e added on LE and XLE."
+  },
+  {
+   "year": 2020,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "L Eco",
+     "msrp": 24325,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 25535,
+     "config": "FWD",
+     "note": "LE AWD-e $26,935"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 28375,
+     "config": "FWD",
+     "note": "XLE AWD-e $29,375"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 32500,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-prius-2020/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Regional (Natl/GS/SE) rows show identical prices. No 2020 Edition special trim listed on the page."
+  },
+  {
+   "year": 2021,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "L Eco",
+     "msrp": 24525,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 25735,
+     "config": "FWD",
+     "note": "LE AWD-e $27,135"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 28575,
+     "config": "FWD",
+     "note": "XLE AWD-e $29,575"
+    },
+    {
+     "trim": "20th Anniversary Edition",
+     "msrp": 29875,
+     "config": "FWD",
+     "note": "2021-only special edition"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 32650,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-prius-2021/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Regional (Natl/GS/SE) rows show identical prices."
+  },
+  {
+   "year": 2022,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "L Eco",
+     "msrp": 25075,
+     "config": "FWD",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 26285,
+     "config": "FWD",
+     "note": "LE AWD-e $27,685"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 29295,
+     "config": "FWD",
+     "note": "XLE AWD-e $30,125 (only $830 over FWD, as listed)"
+    },
+    {
+     "trim": "Nightshade",
+     "msrp": 29545,
+     "config": "FWD",
+     "note": "Nightshade AWD-e $30,675"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 33370,
+     "config": "FWD",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-prius-2022/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Regional (Natl/GS/SE) rows show identical prices."
+  },
+  {
+   "year": 2023,
+   "destination": 1095,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 27450,
+     "config": "FWD",
+     "note": "AWD LE $28,850"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 30895,
+     "config": "FWD",
+     "note": "AWD XLE $32,295"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 34465,
+     "config": "FWD",
+     "note": "AWD Limited $35,865"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-toyota-prius-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year. 2023 is the redesigned 5th generation; L Eco dropped."
+  },
+  {
+   "year": 2024,
+   "destination": 1135,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 27950,
+     "config": "FWD",
+     "note": "AWD LE $29,350"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 31395,
+     "config": "FWD",
+     "note": "AWD XLE $32,795"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 34965,
+     "config": "FWD",
+     "note": "AWD Limited $36,365"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-toyota-prius-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year."
+  },
+  {
+   "year": 2025,
+   "destination": 1195,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 28350,
+     "config": "FWD",
+     "note": "AWD LE $29,750"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 31795,
+     "config": "FWD",
+     "note": "AWD XLE $33,195"
+    },
+    {
+     "trim": "Nightshade",
+     "msrp": 32495,
+     "config": "FWD",
+     "note": "AWD Nightshade $33,895"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 35365,
+     "config": "FWD",
+     "note": "AWD Limited $36,765"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-toyota-prius-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year."
+  },
+  {
+   "year": 2026,
+   "destination": 1295,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 28550,
+     "config": "FWD",
+     "note": "AWD LE $29,950"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 31995,
+     "config": "FWD",
+     "note": "AWD XLE $33,395"
+    },
+    {
+     "trim": "Nightshade",
+     "msrp": 32800,
+     "config": "FWD",
+     "note": "AWD Nightshade $34,200"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 35565,
+     "config": "FWD",
+     "note": "AWD Limited $36,965"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2026-toyota-prius-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year."
+  }
+ ],
+ "gaps": [
+  "No manufacturer source for any Prius year: pressroom.toyota.com not tried (round-1 notes: client errors, tables are images); all years secondary (cars.com 2016, 2018-2022; iSeeCars 2017, 2023-2026).",
+  "Destination null for cars.com years (2016, 2018-2022): pages state none. iSeeCars destination: 2017 $895, 2023 $1,095, 2024 $1,135, 2025 $1,195, 2026 $1,295.",
+  "iSeeCars' undated Prius price page (https://www.iseecars.com/car/toyota-prius-price) now covers the 2027 model (LE $28,755, dest $1,295); not recorded since 2027 is out of scope.",
+  "Prius c, Prius v and Prius Prime / Prius Plug-in Hybrid are separate models and are not included."
+ ]
+}

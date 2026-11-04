@@ -1,0 +1,348 @@
+{
+  "make": "Honda",
+  "model": "HR-V",
+  "body": "SUV / Crossover",
+  "note": "Single body style (subcompact 5-door crossover). Recorded msrp is the cheapest listed configuration (2WD; 6-speed manual for LX/EX in 2016-2018); CVT and AWD prices are in each trim note. All MSRPs exclude destination.",
+  "years": [
+    {
+      "year": 2016,
+      "destination": 900,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 19215,
+          "config": "2WD 6MT",
+          "note": "2WD CVT $20,015; AWD (CVT) $21,315"
+        },
+        {
+          "trim": "EX",
+          "msrp": 21265,
+          "config": "2WD 6MT",
+          "note": "2WD CVT $22,065; AWD (CVT) $23,365"
+        },
+        {
+          "trim": "EX-L w/Navi",
+          "msrp": 24690,
+          "config": "2WD CVT",
+          "note": "AWD $25,990"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2016-honda-hr__v-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (page does not state the relationship explicitly; treated as MSRP excluding destination, consistent with round-1 use). Styles listed as LX/EX 6M, CVT and AWD; EX-L w/Navi CVT only."
+    },
+    {
+      "year": 2017,
+      "destination": 940,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 19465,
+          "config": "2WD 6MT",
+          "note": "2WD CVT $20,265; AWD (CVT) $21,565"
+        },
+        {
+          "trim": "EX",
+          "msrp": 21515,
+          "config": "2WD 6MT",
+          "note": "2WD CVT $22,215; AWD (CVT) $23,615"
+        },
+        {
+          "trim": "EX-L w/Navi",
+          "msrp": 24940,
+          "config": "2WD CVT",
+          "note": "AWD $26,240"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2017-honda-hr__v-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (page does not state the relationship explicitly; treated as MSRP excluding destination, consistent with round-1 use). Styles listed as LX/EX 6M, CVT and AWD; EX-L w/Navi CVT only."
+    },
+    {
+      "year": 2018,
+      "destination": 995,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 19670,
+          "config": "2WD 6MT",
+          "note": "2WD CVT $20,470; AWD (CVT) $21,870"
+        },
+        {
+          "trim": "EX",
+          "msrp": 21720,
+          "config": "2WD 6MT",
+          "note": "2WD CVT $22,520; AWD (CVT) $23,920"
+        },
+        {
+          "trim": "EX-L w/Navi",
+          "msrp": 25140,
+          "config": "2WD CVT",
+          "note": "AWD $26,540"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-honda-hr__v-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (page does not state the relationship explicitly; treated as MSRP excluding destination, consistent with round-1 use). Styles listed as LX/EX 6M, CVT and AWD; EX-L w/Navi CVT only."
+    },
+    {
+      "year": 2019,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 20620,
+          "config": "2WD",
+          "note": "AWD $22,020"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 22320,
+          "config": "2WD",
+          "note": "AWD $23,720"
+        },
+        {
+          "trim": "EX",
+          "msrp": 23820,
+          "config": "2WD",
+          "note": "AWD $25,220"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 25420,
+          "config": "2WD",
+          "note": "AWD $26,820"
+        },
+        {
+          "trim": "Touring",
+          "msrp": 28640,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2019-honda-hr__v-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (page does not state the relationship explicitly; treated as MSRP excluding destination, consistent with round-1 use). Mid-cycle refresh year: Sport and Touring added, manual transmission dropped (no 6M styles listed)."
+    },
+    {
+      "year": 2020,
+      "destination": 1095,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 20820,
+          "config": "2WD",
+          "note": "AWD $22,320"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 22520,
+          "config": "2WD",
+          "note": "AWD $24,020"
+        },
+        {
+          "trim": "EX",
+          "msrp": 23970,
+          "config": "2WD",
+          "note": "AWD $25,470"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 25570,
+          "config": "2WD",
+          "note": "AWD $27,070"
+        },
+        {
+          "trim": "Touring w/Navi",
+          "msrp": 28890,
+          "config": "AWD",
+          "note": "AWD only"
+        }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-4bcffe247385bb9e3ca33255170011b4-2020-honda-hr-v-arriving-in-showrooms-with-available-honda-sensing-class-leading-cargo-space",
+      "source_type": "manufacturer",
+      "note": "Release dated Nov 14, 2019; MSRP column excludes $1,095 destination."
+    },
+    {
+      "year": 2021,
+      "destination": 1120,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 21020,
+          "config": "2WD",
+          "note": "AWD $22,520"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 22970,
+          "config": "2WD",
+          "note": "AWD $24,470"
+        },
+        {
+          "trim": "EX",
+          "msrp": 24220,
+          "config": "2WD",
+          "note": "AWD $25,720"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 25820,
+          "config": "2WD",
+          "note": "AWD $27,320"
+        }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-4f88c507e72a4e7630685979cb00b082-2021-honda-hr-v-on-sale-now",
+      "source_type": "manufacturer",
+      "note": "Release dated Oct 8, 2020; footnote: MSRP excludes $1,120 destination. Touring no longer listed for 2021. Unlabeled rows read as 2WD."
+    },
+    {
+      "year": 2022,
+      "destination": 1225,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 21420,
+          "config": "2WD",
+          "note": "AWD $22,920"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 23370,
+          "config": "2WD",
+          "note": "AWD $24,870"
+        },
+        {
+          "trim": "EX",
+          "msrp": 24620,
+          "config": "2WD",
+          "note": "AWD $25,920 as read (only +$1,300 over 2WD; other trims +$1,500/+$1,600; incl.-destination column $27,145 is consistent)"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 26120,
+          "config": "2WD",
+          "note": "AWD $27,720 as read (+$1,600)"
+        }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/release-f8bfb43dd94cc82c09a8314c0b0c5edf-2022-honda-hr-v-on-sale-now",
+      "source_type": "manufacturer",
+      "note": "Release dated Jul 19, 2021; footnote: MSRP excludes $1,225 destination. Last year of 1st-gen HR-V."
+    },
+    {
+      "year": 2023,
+      "destination": 1245,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 23800,
+          "config": "2WD",
+          "note": "AWD $25,300"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 25900,
+          "config": "2WD",
+          "note": "AWD $27,400"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 27900,
+          "config": "2WD",
+          "note": "AWD $29,400"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2023-honda-hr__v-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (page does not state the relationship explicitly; treated as MSRP excluding destination, consistent with round-1 use). All-new 2nd-gen HR-V; trim lineup LX / Sport / EX-L."
+    },
+    {
+      "year": 2024,
+      "destination": 1295,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 24100,
+          "config": "2WD",
+          "note": "AWD $25,600"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 26200,
+          "config": "2WD",
+          "note": "AWD $27,700"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 28200,
+          "config": "2WD",
+          "note": "AWD $29,700"
+        }
+      ],
+      "source": "https://hondanews.com/en-US/honda-automobiles/releases/honda-hr-v-is-americas-1-suv-with-first-time-and-gen-z-buyers-fun-to-drive-2024-hr-v-on-sale-now",
+      "source_type": "manufacturer",
+      "note": "Release dated Apr 28, 2023; MSRP excludes $1,295 destination."
+    },
+    {
+      "year": 2025,
+      "destination": 1450,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 25400,
+          "config": "2WD",
+          "note": "AWD $26,900"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 27500,
+          "config": "2WD",
+          "note": "AWD $29,000"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 29500,
+          "config": "2WD",
+          "note": "AWD $31,000"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2025-honda-hr__v-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (page does not state the relationship explicitly; treated as MSRP excluding destination, consistent with round-1 use)."
+    },
+    {
+      "year": 2026,
+      "destination": 1450,
+      "trims": [
+        {
+          "trim": "LX",
+          "msrp": 26500,
+          "config": "2WD",
+          "note": "AWD $28,000"
+        },
+        {
+          "trim": "Sport",
+          "msrp": 28300,
+          "config": "2WD",
+          "note": "AWD $29,800"
+        },
+        {
+          "trim": "EX-L",
+          "msrp": 30350,
+          "config": "2WD",
+          "note": "AWD $31,850"
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2026-honda-hr__v-price",
+      "source_type": "secondary",
+      "note": "iSeeCars price page: MSRP and destination listed in separate columns (page does not state the relationship explicitly; treated as MSRP excluding destination, consistent with round-1 use)."
+    }
+  ],
+  "gaps": [
+    "Manufacturer (hondanews.com) sources for 2020, 2021, 2022, 2024; the HR-V channel page did not list pricing releases for 2016-2019, 2023, 2025 or 2026, so those years use iSeeCars (secondary).",
+    "iSeeCars pages do not state explicitly that MSRP excludes destination; destination is a separate column and figures were treated as excluding it.",
+    "iSeeCars figures may reflect a later in-year price revision rather than launch pricing; launch vs revised pricing not verified for secondary years.",
+    "2022: EX AWD ($25,920) and EX-L AWD ($27,720) AWD premiums are irregular as read on the release (+$1,300 / +$1,600 vs +$1,500 elsewhere); recorded as read.",
+    "2025 destination jumps to $1,450 (from $1,295 in 2024 per manufacturer); 2024 mid-year destination revision, if any, not checked."
+  ]
+}

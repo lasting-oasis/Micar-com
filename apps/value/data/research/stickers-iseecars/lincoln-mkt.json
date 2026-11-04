@@ -1,0 +1,348 @@
+{
+"make": "Lincoln",
+"model": "MKT",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (mkt, mkt_town_car).",
+"years": [
+{
+"year": 2010,
+"destination": 795,
+"trims": [
+{
+"trim": "4dr Crossover",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Crossover",
+"msrp": 46195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EcoBoost 4dr Crossover",
+"msrp": 49200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lincoln-mkt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Crossover",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Crossover",
+"msrp": 46295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EcoBoost 4dr Crossover",
+"msrp": 49300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lincoln-mkt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "Base 4dr Crossover",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EcoBoost 4dr Crossover",
+"msrp": 46295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Hearse Package 4dr Crossover",
+"msrp": 46295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lincoln-mkt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Crossover",
+"msrp": 45285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Hearse Fleet 4dr Crossover",
+"msrp": 46520,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EcoBoost 4dr Crossover",
+"msrp": 47280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Limousine Fleet 4dr Crossover",
+"msrp": 48450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR Livery Fleet 4dr Crossover",
+"msrp": 48970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Livery Fleet 4dr Crossover",
+"msrp": 49940,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lincoln-mkt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Crossover",
+"msrp": 43050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Hearse Fleet 4dr Crossover",
+"msrp": 44285,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ecoboost 4dr Crossover",
+"msrp": 45045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Limousine Fleet 4dr Crossover",
+"msrp": 46215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR Livery Fleet 4dr Crossover",
+"msrp": 46735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Livery Fleet 4dr Crossover",
+"msrp": 47835,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lincoln-mkt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-01-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Wagon 3.7L FWD",
+"msrp": 43210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Hearse Fleet 4dr Crossover",
+"msrp": 44445,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon 3.5L AWD EcoBoost",
+"msrp": 45205,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Limousine Fleet 4dr Crossover",
+"msrp": 46375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR Livery Fleet 4dr Crossover",
+"msrp": 46895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Livery Fleet 4dr Crossover",
+"msrp": 47995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-lincoln-mkt_town_car-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 925,
+"trims": [
+{
+"trim": "4dr Wagon 3.7L FWD",
+"msrp": 43370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Hearse Fleet 4dr Crossover",
+"msrp": 44605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon 3.5L AWD EcoBoost",
+"msrp": 45365,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Limousine Fleet 4dr Crossover",
+"msrp": 46535,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR Livery Fleet 4dr Crossover",
+"msrp": 47055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Livery Fleet 4dr Crossover",
+"msrp": 48155,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lincoln-mkt_town_car-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 925,
+"trims": [
+{
+"trim": "3.7L FWD",
+"msrp": 43530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Hearse Fleet 4dr Crossover",
+"msrp": 45870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Limousine Fleet 4dr Crossover",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Livery Fleet 4dr Crossover",
+"msrp": 48315,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L AWD Elite",
+"msrp": 49025,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lincoln-mkt_town_car-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 925,
+"trims": [
+{
+"trim": "3.7L FWD Premiere",
+"msrp": 43530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Hearse Fleet 4dr Crossover",
+"msrp": 45870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Limousine Fleet 4dr Crossover",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Town CAR AWD Livery Fleet 4dr Crossover",
+"msrp": 48315,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L AWD Reserve",
+"msrp": 49025,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lincoln-mkt_town_car-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

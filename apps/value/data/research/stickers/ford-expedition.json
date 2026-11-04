@@ -1,0 +1,510 @@
+{
+ "make": "Ford",
+ "model": "Expedition",
+ "body": "SUV / Crossover",
+ "note": "MSRP excludes destination. media.ford.com had no pricing releases (round 1), so all years are secondary. Rows: each trim in its cheapest drivetrain (4x2 where offered) plus an XLT 4x4 row (the XLT is the assignment's listings trim); other 4x4 prices in row notes. Long-wheelbase Expedition EL/MAX not included.",
+ "years": [
+  {
+   "year": 2016,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 41135,
+     "config": "4x2",
+     "note": "4x4 $44,055"
+    },
+    {
+     "trim": "XLT",
+     "msrp": 45435,
+     "config": "4x2",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 48360,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 55145,
+     "config": "4x2",
+     "note": "4x4 $58,185"
+    },
+    {
+     "trim": "King Ranch",
+     "msrp": 59375,
+     "config": "4x2",
+     "note": "4x4 $62,295"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 60335,
+     "config": "4x2",
+     "note": "4x4 $63,375"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-expedition-2016/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated; page does not say regular vs MAX, so rows are taken as the regular-length Expedition (Expedition EL/MAX has its own cars.com pages)."
+  },
+  {
+   "year": 2017,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 42600,
+     "config": "4x2",
+     "note": "4x4 $45,520"
+    },
+    {
+     "trim": "XLT",
+     "msrp": 47125,
+     "config": "4x2",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 50050,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 56045,
+     "config": "4x2",
+     "note": "4x4 $59,085"
+    },
+    {
+     "trim": "King Ranch",
+     "msrp": 60615,
+     "config": "4x2",
+     "note": "4x4 $63,535"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 64205,
+     "config": "4x2",
+     "note": "4x4 $67,250"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-expedition-2017/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated; page does not say regular vs MAX, so rows are taken as the regular-length Expedition (Expedition EL/MAX has its own cars.com pages)."
+  },
+  {
+   "year": 2018,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 48190,
+     "config": "4x2",
+     "note": "4x4 $51,195"
+    },
+    {
+     "trim": "XLT",
+     "msrp": 51790,
+     "config": "4x2",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 54800,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 62675,
+     "config": "4x2",
+     "note": "4x4 $65,800"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 73030,
+     "config": "4x2",
+     "note": "4x4 $76,175"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-expedition-2018/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated; page does not say regular vs MAX, so rows are taken as the regular-length Expedition (Expedition EL/MAX has its own cars.com pages). Redesigned 2018 model (aluminum body, 3.5L EcoBoost). No King Ranch listed on this page."
+  },
+  {
+   "year": 2019,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 48530,
+     "config": "4x2",
+     "note": "4x4 $51,530"
+    },
+    {
+     "trim": "XLT",
+     "msrp": 52130,
+     "config": "4x2",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 55140,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 63015,
+     "config": "4x2",
+     "note": "4x4 $66,140"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 73365,
+     "config": "4x2",
+     "note": "4x4 $76,515"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-expedition-2019/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated; page does not say regular vs MAX, so rows are taken as the regular-length Expedition (Expedition EL/MAX has its own cars.com pages). No King Ranch listed on this page."
+  },
+  {
+   "year": 2020,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 48990,
+     "config": "4x2",
+     "note": "4x4 $51,990"
+    },
+    {
+     "trim": "XLT",
+     "msrp": 52810,
+     "config": "4x2",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 55820,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 63345,
+     "config": "4x2",
+     "note": "4x4 $66,470"
+    },
+    {
+     "trim": "King Ranch",
+     "msrp": 72895,
+     "config": "4x2",
+     "note": "4x4 $76,025"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 73935,
+     "config": "4x2",
+     "note": "4x4 $77,085"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-expedition-2020/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated; page does not say regular vs MAX, so rows are taken as the regular-length Expedition (Expedition EL/MAX has its own cars.com pages)."
+  },
+  {
+   "year": 2021,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 49625,
+     "config": "4x2",
+     "note": "4x4 $52,675"
+    },
+    {
+     "trim": "XLT",
+     "msrp": 53410,
+     "config": "4x2",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 56460,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 62175,
+     "config": "4x2",
+     "note": "4x4 $65,225"
+    },
+    {
+     "trim": "King Ranch",
+     "msrp": 73335,
+     "config": "4x2",
+     "note": "4x4 $76,385"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 74375,
+     "config": "4x2",
+     "note": "4x4 $77,425"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-expedition-2021/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated; page does not say regular vs MAX, so rows are taken as the regular-length Expedition (Expedition EL/MAX has its own cars.com pages). Limited 4x2 ($62,175) is below the 2020 figure ($63,345)."
+  },
+  {
+   "year": 2022,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 52405,
+     "config": "4x2",
+     "note": "4x4 $55,455"
+    },
+    {
+     "trim": "XLT",
+     "msrp": 57440,
+     "config": "4x2",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 60490,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 67055,
+     "config": "4x2",
+     "note": "4x4 $70,105"
+    },
+    {
+     "trim": "Timberline",
+     "msrp": 70450,
+     "config": "4x4",
+     "note": "4x4 only; new for 2022"
+    },
+    {
+     "trim": "King Ranch",
+     "msrp": 77110,
+     "config": "4x2",
+     "note": "4x4 $80,160"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 79560,
+     "config": "4x2",
+     "note": "4x4 $82,610"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-expedition-2022/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated. Regular-length Expedition (MAX has its own page). XL STX not listed on this page."
+  },
+  {
+   "year": 2023,
+   "destination": 1895,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 54755,
+     "config": "4x2",
+     "note": "4x4 $57,805"
+    },
+    {
+     "trim": "XL STX",
+     "msrp": 55725,
+     "config": "4x2",
+     "note": "4x4 $58,775"
+    },
+    {
+     "trim": "XLT",
+     "msrp": 59790,
+     "config": "4x2",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 62840,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 68660,
+     "config": "4x2",
+     "note": "4x4 $71,710"
+    },
+    {
+     "trim": "Timberline",
+     "msrp": 72000,
+     "config": "4x4",
+     "note": "4x4 only"
+    },
+    {
+     "trim": "King Ranch",
+     "msrp": 78715,
+     "config": "4x2",
+     "note": "4x4 $81,765"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 82815,
+     "config": "4x2",
+     "note": "4x4 $85,865"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2023-ford-expedition-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table: MSRP and a separate Destination Charge column (same on every style). Table lists regular-length styles only (Expedition MAX is a separate model there). 2022 refresh added XL STX and Timberline."
+  },
+  {
+   "year": 2024,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 54660,
+     "config": "4x2",
+     "note": "4x4 $57,660"
+    },
+    {
+     "trim": "XLT",
+     "msrp": 59695,
+     "config": "4x2",
+     "note": ""
+    },
+    {
+     "trim": "XLT",
+     "msrp": 62695,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 68515,
+     "config": "4x2",
+     "note": "4x4 $71,515"
+    },
+    {
+     "trim": "Timberline",
+     "msrp": 71805,
+     "config": "4x4",
+     "note": "4x4 only"
+    },
+    {
+     "trim": "King Ranch",
+     "msrp": 78570,
+     "config": "4x2",
+     "note": "4x4 $81,570"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 80800,
+     "config": "4x2",
+     "note": "4x4 $83,800"
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-expedition-2024/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated. Regular-length Expedition. XL STX not listed on this page."
+  },
+  {
+   "year": 2025,
+   "destination": 2595,
+   "trims": [
+    {
+     "trim": "XL SSV",
+     "msrp": 57400,
+     "config": "4x4",
+     "note": "Special Service Vehicle (fleet)"
+    },
+    {
+     "trim": "Active",
+     "msrp": 62400,
+     "config": "4x2",
+     "note": "4x4 $65,400"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 74850,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "Tremor",
+     "msrp": 81350,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "King Ranch",
+     "msrp": 84000,
+     "config": "4x4",
+     "note": ""
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-ford-expedition-price",
+   "source_type": "secondary",
+   "source_note": "iSeeCars price table: MSRP and a separate Destination Charge column (same on every style). Table lists regular-length styles only (Expedition MAX is a separate model there). Redesigned 2025 model; trims Active/Tremor/Platinum/King Ranch (XLT and Limited not in the table)."
+  },
+  {
+   "year": 2026,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "XL",
+     "msrp": 57700,
+     "config": "4x4",
+     "note": "cars.com writes 'XL'; iSeeCars called the 2025 equivalent 'XL SSV' (fleet)"
+    },
+    {
+     "trim": "Active",
+     "msrp": 62700,
+     "config": "4x2",
+     "note": "4x4 $65,700"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 74250,
+     "config": "4x4",
+     "note": "Below iSeeCars' 2025 Platinum figure ($74,850); different sources"
+    },
+    {
+     "trim": "Tremor",
+     "msrp": 81700,
+     "config": "4x4",
+     "note": ""
+    },
+    {
+     "trim": "King Ranch",
+     "msrp": 84360,
+     "config": "4x4",
+     "note": ""
+    }
+   ],
+   "source": "https://www.cars.com/research/ford-expedition-2026/trims/",
+   "source_type": "secondary",
+   "source_note": "cars.com 'Starting MSRP' (excludes destination; latest in-year price). Destination not stated. Regular-length Expedition; no XLT or Limited listed."
+  }
+ ],
+ "gaps": [
+  "No manufacturer source for any year; all 11 years are secondary (cars.com research trims pages 2016-2022, 2024, 2026; iSeeCars price tables 2023 and 2025).",
+  "Destination charge stated only on iSeeCars pages (2023 $1,895; 2025 $2,595); null where cars.com is the source.",
+  "2018-2019: cars.com lists no King Ranch configuration. 2022 and 2024: cars.com lists no XL STX (iSeeCars lists it for 2023).",
+  "iSeeCars' undated price page (ford-expedition-price) is now the 2027 model year, outside the 2016-2026 window; not used.",
+  "Regular-length Expedition only; Expedition EL (2016-2017) and Expedition MAX (2018+) are not recorded."
+ ]
+}

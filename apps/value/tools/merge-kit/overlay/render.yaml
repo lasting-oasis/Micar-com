@@ -1,0 +1,19 @@
+# Render Blueprint for the MiCar Dealer Simulator, built from the monorepo root.
+# No rootDir: files outside a service's root directory are unavailable at build time, and the
+# pnpm workspace (lockfile, packages/) lives at the root. Build filters are repo-relative.
+services:
+  - type: web
+    name: micar-sim
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @micar/sim build
+    startCommand: pnpm --filter @micar/sim start
+    buildFilter:
+      paths:
+        - apps/sim/**
+        - packages/**
+        - pnpm-lock.yaml
+        - render.yaml
+    envVars:
+      - key: NODE_ENV
+        value: production

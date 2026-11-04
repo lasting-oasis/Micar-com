@@ -1,0 +1,1716 @@
+{
+"make": "Ford",
+"model": "Expedition",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (expedition, expedition_el, expedition_max).",
+"years": [
+{
+"year": 2010,
+"destination": 925,
+"trims": [
+{
+"trim": "4x2 SSV Fleet 4dr SUV",
+"msrp": 33355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 35085,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x2 SSV Fleet 4dr SUV",
+"msrp": 36005,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SSV Fleet 4dr SUV",
+"msrp": 36255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 37985,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x2 XLT 4dr SUV",
+"msrp": 38610,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x4 SSV Fleet 4dr SUV",
+"msrp": 38905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Eddie Bauer 4dr SUV",
+"msrp": 40890,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x4 XLT 4dr SUV",
+"msrp": 41510,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 42660,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x2 Eddie Bauer 4dr SUV",
+"msrp": 43075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Eddie Bauer 4dr SUV",
+"msrp": 43790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 45190,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x2 Limited 4dr SUV",
+"msrp": 45310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 45560,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x4 Eddie Bauer 4dr SUV",
+"msrp": 45970,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x2 King Ranch 4dr SUV",
+"msrp": 47840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 48090,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x4 Limited 4dr SUV",
+"msrp": 48210,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x4 King Ranch 4dr SUV",
+"msrp": 50740,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 925,
+"trims": [
+{
+"trim": "4x2 XL 4dr SUV",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 38610,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SUV",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 41510,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 45280,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 46550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 48180,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 49450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 XL 4dr SUV",
+"msrp": 36530,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 39140,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SUV",
+"msrp": 39430,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 42040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 45270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 46780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 48170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 49680,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 XL Fleet 4dr SUV",
+"msrp": 36930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL Fleet 4dr SUV",
+"msrp": 39830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 40030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 42930,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 46305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 47880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 49205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 50780,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 XL Fleet 4dr SUV",
+"msrp": 38535,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL Fleet 4dr SUV",
+"msrp": 41435,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 41635,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x2 XL Fleet 4dr SUV",
+"msrp": 42060,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x2 XLT 4dr SUV",
+"msrp": 44345,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 44535,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x4 XL Fleet 4dr SUV",
+"msrp": 44960,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x4 XLT 4dr SUV",
+"msrp": 47245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 47910,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x2 Limited 4dr SUV",
+"msrp": 50560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 50810,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 52170,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x4 Limited 4dr SUV",
+"msrp": 53460,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x2 King Ranch 4dr SUV",
+"msrp": 54820,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 55070,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4x4 King Ranch 4dr SUV",
+"msrp": 57720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr XLT",
+"msrp": 44585,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 2WD 4dr XLT",
+"msrp": 47295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr XLT",
+"msrp": 47510,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4WD 4dr XLT",
+"msrp": 50220,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Limited",
+"msrp": 54180,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 2WD 4dr Limited",
+"msrp": 56830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 57220,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr King Ranch",
+"msrp": 58410,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Platinum",
+"msrp": 59370,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4WD 4dr Limited",
+"msrp": 59870,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 2WD 4dr King Ranch",
+"msrp": 61060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr King Ranch",
+"msrp": 61330,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 2WD 4dr Platinum",
+"msrp": 62020,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Platinum",
+"msrp": 62410,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4WD 4dr King Ranch",
+"msrp": 63980,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4WD 4dr Platinum",
+"msrp": 65060,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-expedition_el-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD 4dr XLT",
+"msrp": 45435,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 2WD 4dr XLT",
+"msrp": 48145,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr XLT",
+"msrp": 48360,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4WD 4dr XLT",
+"msrp": 51070,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Limited",
+"msrp": 55145,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 2WD 4dr Limited",
+"msrp": 57795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Limited",
+"msrp": 58185,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr King Ranch",
+"msrp": 59375,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD 4dr Platinum",
+"msrp": 60335,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4WD 4dr Limited",
+"msrp": 60835,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 2WD 4dr King Ranch",
+"msrp": 62025,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr King Ranch",
+"msrp": 62295,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 2WD 4dr Platinum",
+"msrp": 62985,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr Platinum",
+"msrp": 63375,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4WD 4dr King Ranch",
+"msrp": 64945,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL 4WD 4dr Platinum",
+"msrp": 66025,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-expedition_el-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "XLT 4x2",
+"msrp": 47125,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL XLT 4x2",
+"msrp": 49835,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4x4",
+"msrp": 50050,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL XLT 4x4",
+"msrp": 52760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x2",
+"msrp": 56045,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL Limited 4x2",
+"msrp": 58695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 59085,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4x2",
+"msrp": 60615,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL Limited 4x4",
+"msrp": 61735,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL King Ranch 4x2",
+"msrp": 63265,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4x4",
+"msrp": 63535,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x2",
+"msrp": 64205,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL King Ranch 4x4",
+"msrp": 66185,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL Platinum 4x2",
+"msrp": 66860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x4",
+"msrp": 67250,
+"config": "",
+"note": ""
+},
+{
+"trim": "EL Platinum 4x4",
+"msrp": 69895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "XLT 4x2",
+"msrp": 51790,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX XLT 4x2",
+"msrp": 54475,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4x4",
+"msrp": 54800,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX XLT 4x4",
+"msrp": 57485,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x2",
+"msrp": 62675,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Limited 4x2",
+"msrp": 65365,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 65800,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Limited 4x4",
+"msrp": 68490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x2",
+"msrp": 73030,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Platinum 4x2",
+"msrp": 75720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x4",
+"msrp": 76175,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Platinum 4x4",
+"msrp": 78865,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1395,
+"trims": [
+{
+"trim": "XLT 4x2",
+"msrp": 52130,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 XL Fleet 4dr SUV",
+"msrp": 52225,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 XLT 4dr SUV",
+"msrp": 54815,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4x4",
+"msrp": 55140,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XL Fleet 4dr SUV",
+"msrp": 55235,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XLT 4dr SUV",
+"msrp": 57825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x2",
+"msrp": 63015,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Limited 4dr SUV",
+"msrp": 65705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 66140,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Limited 4dr SUV",
+"msrp": 68825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x2",
+"msrp": 73365,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Platinum 4dr SUV",
+"msrp": 76060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x4",
+"msrp": 76515,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Platinum 4dr SUV",
+"msrp": 79200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-ford-expedition_max-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "XLT 4x2",
+"msrp": 52810,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4x4",
+"msrp": 55820,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX XLT 4x2",
+"msrp": 55835,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX XLT 4x4",
+"msrp": 58845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x2",
+"msrp": 63345,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Limited 4x2",
+"msrp": 66375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 66470,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Limited 4x4",
+"msrp": 69495,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4x2",
+"msrp": 72895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x2",
+"msrp": 73935,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX King Ranch 4x2",
+"msrp": 75590,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4x4",
+"msrp": 76025,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Platinum 4x2",
+"msrp": 76965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x4",
+"msrp": 77085,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX King Ranch 4x4",
+"msrp": 78715,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Platinum 4x4",
+"msrp": 80110,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "XL 4x2",
+"msrp": 49025,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4x4",
+"msrp": 52075,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4x2",
+"msrp": 52810,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX XLT 4x2",
+"msrp": 54810,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4x4",
+"msrp": 55860,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX XLT 4x4",
+"msrp": 57860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x2",
+"msrp": 61575,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Limited 4x2",
+"msrp": 63575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4x4",
+"msrp": 64625,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Limited 4x4",
+"msrp": 66625,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4x2",
+"msrp": 72735,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x2",
+"msrp": 73775,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX King Ranch 4x2",
+"msrp": 74735,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Platinum 4x2",
+"msrp": 75775,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4x4",
+"msrp": 75785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4x4",
+"msrp": 76825,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX King Ranch 4x4",
+"msrp": 77785,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX Platinum 4x4",
+"msrp": 78825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x2 XL 4dr SUV",
+"msrp": 52405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL STX 4dr SUV",
+"msrp": 53375,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 XL 4dr SUV",
+"msrp": 55075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SUV",
+"msrp": 55455,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL STX 4dr SUV",
+"msrp": 56425,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 57440,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XL 4dr SUV",
+"msrp": 58125,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 XLT 4dr SUV",
+"msrp": 59110,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 60490,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XLT 4dr SUV",
+"msrp": 62160,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 67055,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Limited 4dr SUV",
+"msrp": 68260,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 70105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Timberline 4dr SUV",
+"msrp": 70450,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Limited 4dr SUV",
+"msrp": 71310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 77110,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 King Ranch 4dr SUV",
+"msrp": 78780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 79560,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 80160,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Platinum 4dr SUV",
+"msrp": 81230,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 King Ranch 4dr SUV",
+"msrp": 81830,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 82610,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Platinum 4dr SUV",
+"msrp": 84280,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x2 XL 4dr SUV",
+"msrp": 54755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL STX 4dr SUV",
+"msrp": 55725,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SUV",
+"msrp": 57805,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 XL 4dr SUV",
+"msrp": 58755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL STX 4dr SUV",
+"msrp": 58775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 59790,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XL 4dr SUV",
+"msrp": 61805,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 XLT 4dr SUV",
+"msrp": 62790,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 62840,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XLT 4dr SUV",
+"msrp": 65840,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 68660,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Limited 4dr SUV",
+"msrp": 71660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 71710,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Timberline 4dr SUV",
+"msrp": 72000,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Limited 4dr SUV",
+"msrp": 74710,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 78715,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 King Ranch 4dr SUV",
+"msrp": 81715,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 81765,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 82815,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 King Ranch 4dr SUV",
+"msrp": 84765,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Platinum 4dr SUV",
+"msrp": 85815,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 85865,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Platinum 4dr SUV",
+"msrp": 88865,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "4x2 XL 4dr SUV",
+"msrp": 54660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL STX 4dr SUV",
+"msrp": 55630,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SUV",
+"msrp": 57660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL STX 4dr SUV",
+"msrp": 58630,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 XL 4dr SUV",
+"msrp": 58660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SUV",
+"msrp": 59695,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XL 4dr SUV",
+"msrp": 61660,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SUV",
+"msrp": 62695,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 XLT 4dr SUV",
+"msrp": 62695,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XLT 4dr SUV",
+"msrp": 65695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Limited 4dr SUV",
+"msrp": 68515,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 71515,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Limited 4dr SUV",
+"msrp": 71515,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Timberline 4dr SUV",
+"msrp": 71805,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Limited 4dr SUV",
+"msrp": 74515,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr SUV",
+"msrp": 78570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Platinum 4dr SUV",
+"msrp": 80800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 81570,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 King Ranch 4dr SUV",
+"msrp": 81570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 83800,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Platinum 4dr SUV",
+"msrp": 83800,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 King Ranch 4dr SUV",
+"msrp": 84570,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Platinum 4dr SUV",
+"msrp": 86800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2195,
+"trims": [
+{
+"trim": "4x4 XL SSV 4dr SUV",
+"msrp": 57345,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XL SSV 4dr SUV",
+"msrp": 61525,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Active 4dr SUV",
+"msrp": 62320,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Active 4dr SUV",
+"msrp": 65320,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Active 4dr SUV",
+"msrp": 65400,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Active 4dr SUV",
+"msrp": 68400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 74750,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Platinum 4dr SUV",
+"msrp": 77850,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Tremor 4dr SUV",
+"msrp": 81350,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 83975,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 King Ranch 4dr SUV",
+"msrp": 87000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2026,
+"destination": 2795,
+"trims": [
+{
+"trim": "4x4 XL SSV 4dr SUV",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 XL SSV 4dr SUV",
+"msrp": 61825,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Active 4dr SUV",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Active 4dr SUV",
+"msrp": 65700,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x2 Active 4dr SUV",
+"msrp": 65700,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Active 4dr SUV",
+"msrp": 68700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr SUV",
+"msrp": 74250,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 Platinum 4dr SUV",
+"msrp": 77250,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Tremor 4dr SUV",
+"msrp": 81700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr SUV",
+"msrp": 84360,
+"config": "",
+"note": ""
+},
+{
+"trim": "MAX 4x4 King Ranch 4dr SUV",
+"msrp": 87360,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2026-ford-expedition-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-06-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

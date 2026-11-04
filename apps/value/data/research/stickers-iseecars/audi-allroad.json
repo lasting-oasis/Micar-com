@@ -1,0 +1,57 @@
+{
+"make": "Audi",
+"model": "Allroad",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (allroad).",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Wagon Premium",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Premium Plus",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Prestige",
+"msrp": 42400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-allroad-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Wagon Premium",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Wagon Premium Plus",
+"msrp": 42700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-allroad-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

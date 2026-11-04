@@ -1,0 +1,9 @@
+# Optional: deploy from the command line with `npx wrangler deploy` inside worker/.
+# The dashboard route (paste index.js) works just as well; see the comment at the top of index.js.
+name = "queen-city-comps"
+main = "index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://lasting-oasis.github.io"
+# Set the key as a secret, never here:  npx wrangler secret put MARKETCHECK_KEY

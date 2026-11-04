@@ -1,0 +1,792 @@
+{
+"make": "Volvo",
+"model": "S60",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (s60, s60_cross_country).",
+"years": [
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD T6 4dr Sedan",
+"msrp": 37700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 915,
+"trims": [
+{
+"trim": "T5 4dr Sedan",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 4dr Sedan",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Premier 4dr Sedan",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Premier Plus 4dr Sedan",
+"msrp": 35550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Premier 4dr Sedan",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Premier Plus 4dr Sedan",
+"msrp": 37550,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Platinum 4dr Sedan",
+"msrp": 38250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 4dr Sedan",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Premier Plus 4dr Sedan",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T5 Platinum 4dr Sedan",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Platinum 4dr Sedan",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 R-Design 4dr Sedan",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 R-Design Platinum 4dr Sedan",
+"msrp": 45700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan T5 AWD",
+"msrp": 35650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T5 Premier AWD",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T5 Drive-E Premier FWD",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T5 Premier AWD",
+"msrp": 40400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T5 Drive-E Platinum FWD",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T5 Platinum AWD",
+"msrp": 43400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country 4dr Sedan T5 Platinum",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T6 R-Design AWD",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T6 Drive-E R-Design AWD",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T6 R-Design Platinum AWD",
+"msrp": 47700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T6 Drive-E R-Design Platinum AWD",
+"msrp": 47900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan T6 Polestar AWD",
+"msrp": 59300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Dynamic",
+"msrp": 33950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Dynamic",
+"msrp": 35950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Inscription FWD",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Inscription AWD",
+"msrp": 38800,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Inscription FWD Platinum",
+"msrp": 40800,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Inscription AWD Platinum",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country T5 AWD",
+"msrp": 44200,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design Platinum",
+"msrp": 47400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Polestar AWD",
+"msrp": 60000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-10-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Dynamic",
+"msrp": 34100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Dynamic",
+"msrp": 36100,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 36950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Inscription",
+"msrp": 38950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription Platinum",
+"msrp": 41150,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Inscription Platinum",
+"msrp": 43150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Country T5 AWD",
+"msrp": 44350,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design Platinum",
+"msrp": 47550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Polestar AWD",
+"msrp": 60000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "T5 Momentum 4dr Sedan",
+"msrp": 35800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Momentum 4dr Sedan",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 R-Design 4dr Sedan",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 Inscription 4dr Sedan",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 R-Design 4dr Sedan",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T6 Inscription 4dr Sedan",
+"msrp": 47400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD R-Design 4dr Sedan",
+"msrp": 54400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD Inscription 4dr Sedan",
+"msrp": 55400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum",
+"msrp": 36050,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum",
+"msrp": 40550,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 47400,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 47400,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid R-Design",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Inscription",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "T8 eAWD Plug-In Hybrid Polestar",
+"msrp": 64800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "T5 FWD Momentum",
+"msrp": 38950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Momentum",
+"msrp": 41250,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD R-Design",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 FWD Inscription",
+"msrp": 41950,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Momentum",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD R-Design",
+"msrp": 44250,
+"config": "",
+"note": ""
+},
+{
+"trim": "T5 AWD Inscription",
+"msrp": 44250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV R-Design Expression",
+"msrp": 47650,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD R-Design",
+"msrp": 48000,
+"config": "",
+"note": ""
+},
+{
+"trim": "T6 AWD Inscription",
+"msrp": 48000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV R-Design",
+"msrp": 50650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Inscription",
+"msrp": 50650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Recharge T8 eAWD PHEV Polestar",
+"msrp": 64800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1045,
+"trims": [
+{
+"trim": "B5 Momentum 4dr Sedan",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Momentum Black Edition 4dr Sedan",
+"msrp": 40645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Momentum 4dr Sedan",
+"msrp": 41550,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Inscription 4dr Sedan",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 R-Design 4dr Sedan",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Momentum Black Edition 4dr Sedan",
+"msrp": 43595,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 R-Design Black Edition 4dr Sedan",
+"msrp": 44295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Inscription 4dr Sedan",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 R-Design 4dr Sedan",
+"msrp": 44550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 R-Design Black Edition 4dr Sedan",
+"msrp": 46595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD R-Design Expression 4dr Sedan",
+"msrp": 47650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD R-Design Expression Extended Range 4dr Sedan",
+"msrp": 47650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription 4dr Sedan",
+"msrp": 50650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD R-Design 4dr Sedan",
+"msrp": 50650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD Inscription Extended Range 4dr Sedan",
+"msrp": 50650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD R-Design Extended Range 4dr Sedan",
+"msrp": 50650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Recharge eAWD R-Design Black Edition 4dr Sedan",
+"msrp": 52695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD Polestar Engineered 4dr Sedan",
+"msrp": 64800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD T8 eAWD Polestar Engineered Extended Range 4dr Sedan",
+"msrp": 64800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1095,
+"trims": [
+{
+"trim": "B5 Core Dark Theme 4dr Sedan",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Core Dark Theme 4dr Sedan",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Core Black Edition 4dr Sedan",
+"msrp": 43645,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Plus Dark Theme 4dr Sedan",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Core Black Edition 4dr Sedan",
+"msrp": 45945,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Dark Theme 4dr Sedan",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Plus Black Edition 4dr Sedan",
+"msrp": 46345,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Ultimate Bright Theme 4dr Sedan",
+"msrp": 46750,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Ultimate Dark Theme 4dr Sedan",
+"msrp": 46750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Black Edition 4dr Sedan",
+"msrp": 48645,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Ultimate Black Edition 4dr Sedan",
+"msrp": 48695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultimate Bright Theme 4dr Sedan",
+"msrp": 49050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultimate Dark Theme 4dr Sedan",
+"msrp": 49050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultimate Black Edition 4dr Sedan",
+"msrp": 50995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-07-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1195,
+"trims": [
+{
+"trim": "B5 Core Dark Theme 4dr Sedan",
+"msrp": 42450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Core Dark Theme 4dr Sedan",
+"msrp": 44750,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Plus Dark Theme 4dr Sedan",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "B5 Plus Black Edition 4dr Sedan",
+"msrp": 47100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Dark Theme 4dr Sedan",
+"msrp": 47750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Plus Black Edition 4dr Sedan",
+"msrp": 49500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD B5 Ultimate Dark Theme 4dr Sedan",
+"msrp": 50300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-volvo-s60-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

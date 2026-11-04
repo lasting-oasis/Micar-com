@@ -1,0 +1,1233 @@
+{
+"make": "Volkswagen",
+"model": "Atlas",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (atlas, atlas_cross_sport).",
+"years": [
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0T S FWD",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 S FWD",
+"msrp": 32150,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 Launch Edition FWD",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE FWD",
+"msrp": 33840,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 S 4MOTION",
+"msrp": 33950,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE FWD",
+"msrp": 35240,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 Launch Edition 4MOTION",
+"msrp": 35550,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE w/Technology FWD",
+"msrp": 35940,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE 4MOTION",
+"msrp": 37040,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology FWD",
+"msrp": 37340,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology 4MOTION",
+"msrp": 39140,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL FWD",
+"msrp": 39410,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL FWD",
+"msrp": 41140,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL 4MOTION",
+"msrp": 42940,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL Premium 4MOTION",
+"msrp": 48740,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-volkswagen-atlas-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "2.0T S FWD",
+"msrp": 30895,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE FWD",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 S 4MOTION",
+"msrp": 34095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE FWD",
+"msrp": 35495,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE w/Technology FWD",
+"msrp": 35895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology FWD",
+"msrp": 37295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE 4MOTION",
+"msrp": 37295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology 4MOTION",
+"msrp": 39095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology R-Line FWD",
+"msrp": 39245,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology R-Line 4MOTION",
+"msrp": 41045,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL FWD",
+"msrp": 41395,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL 4MOTION",
+"msrp": 43195,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL R-Line FWD",
+"msrp": 43345,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL R-Line 4MOTION",
+"msrp": 45145,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL Premium 4MOTION",
+"msrp": 48395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-volkswagen-atlas-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1020,
+"trims": [
+{
+"trim": "Cross Sport S 4dr SUV",
+"msrp": 30545,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T S FWD",
+"msrp": 31545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD S 4Motion 4dr SUV",
+"msrp": 32445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport SE 4dr SUV",
+"msrp": 33945,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE FWD",
+"msrp": 34695,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 S 4MOTION",
+"msrp": 34745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV",
+"msrp": 35845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport SE 4dr SUV w/Technology",
+"msrp": 35945,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE FWD",
+"msrp": 36095,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SE w/Technology FWD",
+"msrp": 37045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SE 4dr SUV w/Technology",
+"msrp": 37345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 37845,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE 4MOTION",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology FWD",
+"msrp": 38445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SE R-Line 4dr SUV w/Technology",
+"msrp": 38745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SE 4Motion 4dr SUV w/Technology",
+"msrp": 39245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport SEL 4dr SUV",
+"msrp": 39545,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology 4MOTION",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SE R-Line 4Motion 4dr SUV w/Technology",
+"msrp": 40645,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology R-Line FWD",
+"msrp": 40645,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0T SEL FWD",
+"msrp": 40795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SEL 4dr SUV",
+"msrp": 41345,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL 4Motion 4dr SUV",
+"msrp": 41445,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SE w/Technology R-Line 4MOTION",
+"msrp": 42445,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL FWD",
+"msrp": 42595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SEL R-Line 4dr SUV",
+"msrp": 43045,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL 4Motion 4dr SUV",
+"msrp": 43245,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL R-Line FWD",
+"msrp": 44295,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL 4MOTION",
+"msrp": 44395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL R-Line 4Motion 4dr SUV",
+"msrp": 44945,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL R-Line 4MOTION",
+"msrp": 46095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL Premium 4Motion 4dr SUV",
+"msrp": 48095,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.6L V6 SEL Premium 4MOTION",
+"msrp": 49195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 49795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-volkswagen-atlas_cross_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1195,
+"trims": [
+{
+"trim": "Cross Sport S 4dr SUV",
+"msrp": 30855,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV",
+"msrp": 31545,
+"config": "",
+"note": ""
+},
+{
+"trim": "S 4dr SUV (midyear release)",
+"msrp": 31555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD S 4Motion 4dr SUV",
+"msrp": 32755,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV",
+"msrp": 33445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD S 4Motion 4dr SUV (midyear release)",
+"msrp": 33455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport SE 4dr SUV",
+"msrp": 34205,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV (midyear release)",
+"msrp": 34905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV",
+"msrp": 36105,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport SE 4dr SUV w/Technology",
+"msrp": 36245,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 36795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV (midyear release)",
+"msrp": 36805,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Technology",
+"msrp": 36895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Technology (midyear release)",
+"msrp": 36945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SE 4dr SUV w/Technology",
+"msrp": 37645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 38145,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE 4dr SUV w/Technology",
+"msrp": 38295,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE 4dr SUV w/Technology (midyear release)",
+"msrp": 38345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 38795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Technology (midyear release)",
+"msrp": 38845,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SE R-Line 4dr SUV w/Technology",
+"msrp": 39045,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE R-Line 4dr SUV w/Technology",
+"msrp": 39695,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE R-Line 4dr SUV w/Technology (midyear release)",
+"msrp": 39745,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SE 4Motion 4dr SUV w/Technology",
+"msrp": 40095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE 4Motion 4dr SUV w/Technology",
+"msrp": 40195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE 4Motion 4dr SUV w/Technology (midyear release)",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SE R-Line 4Motion 4dr SUV w/Technology",
+"msrp": 41495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE R-Line 4Motion 4dr SUV w/Technology",
+"msrp": 41595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SEL 4dr SUV",
+"msrp": 41625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE R-Line 4Motion 4dr SUV w/Technology (midyear release)",
+"msrp": 41645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL 4Motion 4dr SUV",
+"msrp": 41725,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL 4dr SUV",
+"msrp": 42295,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL 4dr SUV (midyear release)",
+"msrp": 42325,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 42395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV (midyear release)",
+"msrp": 42425,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SEL R-Line 4dr SUV",
+"msrp": 43325,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL 4Motion 4dr SUV",
+"msrp": 43525,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL R-Line 4dr SUV",
+"msrp": 43995,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SEL R-Line 4dr SUV (midyear release)",
+"msrp": 44025,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL 4Motion 4dr SUV",
+"msrp": 44195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL 4Motion 4dr SUV (midyear release)",
+"msrp": 44225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL R-Line 4Motion 4dr SUV",
+"msrp": 45225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL R-Line 4Motion 4dr SUV",
+"msrp": 45895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL R-Line 4Motion 4dr SUV (midyear release)",
+"msrp": 45925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL Premium 4Motion 4dr SUV",
+"msrp": 46525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium 4Motion 4dr SUV",
+"msrp": 47195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium 4Motion 4dr SUV (midyear release)",
+"msrp": 47225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL Premium 4Motion 4dr SUV",
+"msrp": 48325,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium 4Motion 4dr SUV",
+"msrp": 48995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium 4Motion 4dr SUV (midyear release)",
+"msrp": 49025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 50025,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 50695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium R-Line 4Motion 4dr SUV (midyear release)",
+"msrp": 50725,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-volkswagen-atlas-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "Cross Sport SE 4dr SUV",
+"msrp": 33635,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 34335,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV",
+"msrp": 35535,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 36235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport SE 4dr SUV w/Technology",
+"msrp": 37805,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Technology",
+"msrp": 38505,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SE 4dr SUV w/Technology",
+"msrp": 39555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 39705,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE 4dr SUV w/Technology",
+"msrp": 40255,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 40405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SE 4Motion 4dr SUV w/Technology",
+"msrp": 41455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE 4Motion 4dr SUV w/Technology",
+"msrp": 42155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL 4Motion 4dr SUV",
+"msrp": 43405,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 44105,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 44805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL 4Motion 4dr SUV",
+"msrp": 45155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL R-Line Black 4Motion 4dr SUV",
+"msrp": 45355,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL 4Motion 4dr SUV",
+"msrp": 45855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL R-Line 4Motion 4dr SUV",
+"msrp": 46555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL R-Line Black 4Motion 4dr SUV",
+"msrp": 47105,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL R-Line 4Motion 4dr SUV",
+"msrp": 47255,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL R-Line Black 4Motion 4dr SUV",
+"msrp": 47805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 50805,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 51505,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-volkswagen-atlas-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1295,
+"trims": [
+{
+"trim": "Cross Sport SE 4dr SUV",
+"msrp": 34460,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 35150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV",
+"msrp": 36360,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 37050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport SE 4dr SUV w/Technology",
+"msrp": 38630,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Technology",
+"msrp": 39320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport V6 SE 4dr SUV w/Technology",
+"msrp": 40380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 40530,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 SE 4dr SUV w/Technology",
+"msrp": 41070,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 41220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SE 4Motion 4dr SUV w/Technology",
+"msrp": 42280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SE 4Motion 4dr SUV w/Technology",
+"msrp": 42970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL 4Motion 4dr SUV",
+"msrp": 44230,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 44940,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL 4Motion 4dr SUV",
+"msrp": 45980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL R-Line Black 4Motion 4dr SUV",
+"msrp": 46180,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL 4Motion 4dr SUV",
+"msrp": 46690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL R-Line Black 4Motion 4dr SUV",
+"msrp": 47930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL R-Line Black 4Motion 4dr SUV",
+"msrp": 48640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD V6 SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 51625,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 52340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-volkswagen-atlas-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1425,
+"trims": [
+{
+"trim": "Cross Sport SE 4dr SUV",
+"msrp": 36985,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV",
+"msrp": 38885,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 39895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport SE 4dr SUV w/Technology",
+"msrp": 41090,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Technology",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 42990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Peak Edition SE 4Motion 4dr SUV w/Technology",
+"msrp": 46990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL 4Motion 4dr SUV",
+"msrp": 47870,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 48880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL R-Line 4Motion 4dr SUV",
+"msrp": 49320,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Peak Edition SEL 4Motion 4dr SUV",
+"msrp": 50870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 51880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 52890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-volkswagen-atlas_cross_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1425,
+"trims": [
+{
+"trim": "Cross Sport SE 4dr SUV",
+"msrp": 37190,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV",
+"msrp": 39090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport SE 4dr SUV w/Technology",
+"msrp": 41295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV w/Technology",
+"msrp": 42305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 43195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4Motion 4dr SUV w/Technology",
+"msrp": 44205,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Peak Edition 4Motion 4dr SUV",
+"msrp": 46655,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL 4Motion 4dr SUV",
+"msrp": 47190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4Motion 4dr SUV",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL R-Line Black 4Motion 4dr SUV",
+"msrp": 49140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cross Sport AWD SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 52195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Premium R-Line 4Motion 4dr SUV",
+"msrp": 53205,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-volkswagen-atlas-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-10-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

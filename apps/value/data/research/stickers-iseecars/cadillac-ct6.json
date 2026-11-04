@@ -1,0 +1,267 @@
+{
+"make": "Cadillac",
+"model": "CT6",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ct6, ct6__v).",
+"years": [
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan 2.0L Turbo RWD",
+"msrp": 53495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L AWD",
+"msrp": 55495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 2.0L Turbo Luxury RWD",
+"msrp": 58395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Luxury AWD",
+"msrp": 60395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Premium Luxury AWD",
+"msrp": 63570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Luxury AWD",
+"msrp": 64395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Premium Luxury AWD",
+"msrp": 67570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Platinum AWD",
+"msrp": 83465,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Platinum AWD",
+"msrp": 87465,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-cadillac-ct6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-07-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan 2.0L Turbo RWD",
+"msrp": 53795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L AWD",
+"msrp": 55795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 2.0L Turbo Luxury RWD",
+"msrp": 58695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Luxury AWD",
+"msrp": 60695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Premium Luxury AWD",
+"msrp": 63895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Luxury AWD",
+"msrp": 64695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Premium Luxury AWD",
+"msrp": 67895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 2.0L PLUG-IN RWD",
+"msrp": 75095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Platinum AWD",
+"msrp": 83795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Platinum AWD",
+"msrp": 87795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-cadillac-ct6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan 2.0L Turbo RWD",
+"msrp": 54095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L AWD",
+"msrp": 56095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 2.0L Turbo Luxury RWD",
+"msrp": 59195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Luxury AWD",
+"msrp": 61195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Luxury AWD",
+"msrp": 65195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Premium Luxury AWD",
+"msrp": 65295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Premium Luxury AWD",
+"msrp": 69295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 2.0L PLUG-IN RWD",
+"msrp": 75095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Platinum AWD",
+"msrp": 84295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Platinum AWD",
+"msrp": 88295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-cadillac-ct6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan 2.0L Turbo Luxury RWD",
+"msrp": 50495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Luxury AWD",
+"msrp": 55495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 2.0L Turbo Premium Luxury RWD",
+"msrp": 58095,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.6L Premium Luxury AWD",
+"msrp": 62595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Sport AWD",
+"msrp": 66595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 3.0L Turbo Platinum AWD",
+"msrp": 86795,
+"config": "",
+"note": ""
+},
+{
+"trim": "V CT6-V",
+"msrp": 91795,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan 4.2L Turbo Platinum AWD",
+"msrp": 95795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-cadillac-ct6-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

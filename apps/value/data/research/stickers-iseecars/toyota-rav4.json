@@ -1,0 +1,1128 @@
+{
+"make": "Toyota",
+"model": "RAV4",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (rav4, rav4_ev, rav4_hybrid, rav4_prime).",
+"years": [
+{
+"year": 2010,
+"destination": 800,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 21675,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 23075,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 23375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV V6",
+"msrp": 23710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 24665,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 24775,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV V6",
+"msrp": 25110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV V6",
+"msrp": 25305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 26055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV V6",
+"msrp": 26585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV V6",
+"msrp": 26705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV V6",
+"msrp": 27985,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "Base 4dr SUV",
+"msrp": 22475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV",
+"msrp": 23875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV",
+"msrp": 24175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr SUV V6",
+"msrp": 24510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 25465,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV",
+"msrp": 25575,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Base 4dr SUV V6",
+"msrp": 25910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr SUV V6",
+"msrp": 26105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV",
+"msrp": 26855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV V6",
+"msrp": 27385,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Sport 4dr SUV V6",
+"msrp": 27505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Limited 4dr SUV V6",
+"msrp": 28785,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 845,
+"trims": [
+{
+"trim": "EV Base 4dr SUV",
+"msrp": 49800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-rav4_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 860,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 23550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 24950,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 25000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 26400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 28320,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 29720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 885,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 23680,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 25080,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 25240,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 26640,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 28450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 29850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr LE (Natl)",
+"msrp": 24350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr LE (Natl)",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr XLE (Natl)",
+"msrp": 26270,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr XLE (Natl)",
+"msrp": 27670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD 4dr XLE (Natl)",
+"msrp": 28370,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr SE (Natl)",
+"msrp": 29265,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr SE (Natl)",
+"msrp": 30665,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Limited (Natl)",
+"msrp": 31510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Limited (Natl)",
+"msrp": 32910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD 4dr Limited (Natl)",
+"msrp": 33610,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 995,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 24410,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 25500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 25810,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr SUV",
+"msrp": 28790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 29030,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 30190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 30905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE AWD (Natl)",
+"msrp": 32185,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 32305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 34030,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4dr SUV",
+"msrp": 34750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Platinum 4dr SUV",
+"msrp": 36150,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "LE FWD (Natl)",
+"msrp": 24660,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD (Natl)",
+"msrp": 26060,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD (Natl)",
+"msrp": 27150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE AWD (Natl)",
+"msrp": 27385,
+"config": "",
+"note": ""
+},
+{
+"trim": "Adventure FWD (Natl)",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Adventure AWD (Natl)",
+"msrp": 28650,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE FWD (Natl)",
+"msrp": 29040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 29280,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD (Natl)",
+"msrp": 30440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 31155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid SE AWD (Natl)",
+"msrp": 32435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD (Natl)",
+"msrp": 32555,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 34280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum FWD (Natl)",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum AWD (Natl)",
+"msrp": 36400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "LE FWD (Natl)",
+"msrp": 25650,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD (Natl)",
+"msrp": 27050,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 27450,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE AWD (Natl)",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD (Natl)",
+"msrp": 28850,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium FWD (Natl)",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium AWD (Natl)",
+"msrp": 31050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Adventure AWD (Natl)",
+"msrp": 33050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 33650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XSE AWD (Natl)",
+"msrp": 33850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD (Natl)",
+"msrp": 35050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 35850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "LE FWD (Natl)",
+"msrp": 25950,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE FWD (Natl)",
+"msrp": 27245,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE AWD (Natl)",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid LE AWD (Natl)",
+"msrp": 28350,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE AWD (Natl)",
+"msrp": 28645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XLE AWD (Natl)",
+"msrp": 29645,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium FWD (Natl)",
+"msrp": 29950,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium AWD (Natl)",
+"msrp": 31350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Adventure AWD (Natl)",
+"msrp": 33055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid XSE AWD (Natl)",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD (Natl)",
+"msrp": 34480,
+"config": "",
+"note": ""
+},
+{
+"trim": "TRD Off Road AWD (Natl)",
+"msrp": 35280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD (Natl)",
+"msrp": 35880,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Limited AWD (Natl)",
+"msrp": 36880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1215,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 26350,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 27645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 27750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 29045,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium 4dr SUV",
+"msrp": 30350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE Premium 4dr SUV",
+"msrp": 31750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Adventure 4dr SUV",
+"msrp": 33455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 34880,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TRD Off-Road 4dr SUV",
+"msrp": 36080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 36280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime SE (Natl)",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime XSE (Natl)",
+"msrp": 41425,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1335,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 26975,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 28375,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 28445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium 4dr SUV",
+"msrp": 31335,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE Premium 4dr SUV",
+"msrp": 32735,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Adventure 4dr SUV",
+"msrp": 33230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 35475,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 36875,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TRD Off-Road 4dr SUV",
+"msrp": 36915,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime AWD SE 4dr SUV",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime AWD XSE 4dr SUV",
+"msrp": 43625,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1350,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 28275,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 29675,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 29785,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 31185,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium 4dr SUV",
+"msrp": 32675,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE Premium 4dr SUV",
+"msrp": 34075,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Adventure 4dr SUV",
+"msrp": 34470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 36580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TRD Off-Road 4dr SUV",
+"msrp": 37895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 37980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime AWD SE 4dr SUV",
+"msrp": 43090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prime AWD XSE 4dr SUV",
+"msrp": 46960,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 28675,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 30075,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 30185,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 31585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD LE 4dr SUV",
+"msrp": 31725,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium 4dr SUV",
+"msrp": 33075,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE 4dr SUV",
+"msrp": 33235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD SE 4dr SUV",
+"msrp": 34420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE Premium 4dr SUV",
+"msrp": 34475,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Adventure 4dr SUV",
+"msrp": 34870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Woodland Edition 4dr SUV",
+"msrp": 34945,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XLE Premium 4dr SUV",
+"msrp": 36125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 36980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD XSE 4dr SUV",
+"msrp": 37385,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD TRD Off-Road 4dr SUV",
+"msrp": 38295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 38380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid AWD Limited 4dr SUV",
+"msrp": 40030,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1450,
+"trims": [
+{
+"trim": "LE 4dr SUV",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr SUV",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr SUV",
+"msrp": 31310,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr SUV",
+"msrp": 32710,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Premium 4dr SUV",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE Premium 4dr SUV",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr SUV",
+"msrp": 38105,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr SUV",
+"msrp": 39505,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-toyota-rav4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-02-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

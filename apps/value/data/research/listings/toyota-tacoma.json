@@ -1,0 +1,688 @@
+{
+  "make": "Toyota",
+  "model": "Tacoma",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tacoma/year-2016/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 33489,
+      "listings": [
+        {
+          "price": 21925,
+          "miles": 110005,
+          "location": "Olympia, WA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab 6.1' / V6 4WD"
+        },
+        {
+          "price": 21485,
+          "miles": 97355,
+          "location": "Starke, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 6.1' / V6 RWD"
+        },
+        {
+          "price": 22523,
+          "miles": 111990,
+          "location": "Avondale, AZ",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab 6.1' / V6 4WD"
+        },
+        {
+          "price": 25240,
+          "miles": 106054,
+          "location": "Wilmington, NC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / V6 4WD"
+        },
+        {
+          "price": 20199,
+          "miles": 139321,
+          "location": "Somersworth, NH",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / V6 4WD"
+        },
+        {
+          "price": 22489,
+          "miles": 159730,
+          "location": "Lenoir, NC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / V6 4WD"
+        },
+        {
+          "price": 25594,
+          "miles": 15183,
+          "location": "Flemington, NJ",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab 6.1' / I4 RWD"
+        },
+        {
+          "price": 15995,
+          "miles": 200961,
+          "location": "Tustin, CA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / I4 RWD"
+        },
+        {
+          "price": 20912,
+          "miles": 123084,
+          "location": "Prince George, VA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / I4 RWD"
+        },
+        {
+          "price": 26766,
+          "miles": 79034,
+          "location": "Fort Myers, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / V6 RWD"
+        },
+        {
+          "price": 23950,
+          "miles": 107191,
+          "location": "Estero, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / V6 4WD"
+        },
+        {
+          "price": 18594,
+          "miles": 70516,
+          "location": "Cliffwood, NJ",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab 6.1' / I4 RWD"
+        },
+        {
+          "price": 24133,
+          "miles": 55034,
+          "location": "Citrus Heights, CA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / I4 RWD"
+        },
+        {
+          "price": 20995,
+          "miles": 81476,
+          "location": "Dade City, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / I4 RWD"
+        },
+        {
+          "price": 25994,
+          "miles": 45830,
+          "location": "Norfolk, VA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / V6 RWD"
+        },
+        {
+          "price": 21967,
+          "miles": 128331,
+          "location": "East Stroudsburg, PA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 5' / V6 4WD"
+        },
+        {
+          "price": 22298,
+          "miles": 164373,
+          "location": "Longmont, CO",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 6.1' / V6 4WD"
+        },
+        {
+          "price": 16690,
+          "miles": 202136,
+          "location": "Kingwood, TX",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab 6.1' / V6 4WD"
+        },
+        {
+          "price": 22923,
+          "miles": 126360,
+          "location": "Blaine, WA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab 6.1' / V6 4WD"
+        },
+        {
+          "price": 23165,
+          "miles": 72597,
+          "location": "East Rochester, NY",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab 6.1' / V6 4WD"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tacoma/year-2019/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 33767,
+      "listings": [
+        {
+          "price": 19896,
+          "miles": 149875,
+          "location": "Memphis, TN",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD; Sponsored"
+        },
+        {
+          "price": 29490,
+          "miles": 37053,
+          "location": "Fort Collins, CO",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD; Sponsored"
+        },
+        {
+          "price": 28788,
+          "miles": 44785,
+          "location": "Leesburg, VA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD; Sponsored"
+        },
+        {
+          "price": 28675,
+          "miles": 13048,
+          "location": "Tampa, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD"
+        },
+        {
+          "price": 30595,
+          "miles": 85380,
+          "location": "Wake Forest, NC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 4WD"
+        },
+        {
+          "price": 26715,
+          "miles": 89850,
+          "location": "Morrow, GA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD"
+        },
+        {
+          "price": 31830,
+          "miles": 52832,
+          "location": "Edmonds, WA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 4WD"
+        },
+        {
+          "price": 27378,
+          "miles": 76486,
+          "location": "Henderson, NV",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD"
+        },
+        {
+          "price": 31594,
+          "miles": 48734,
+          "location": "East Swanzey, NH",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab / 4WD"
+        },
+        {
+          "price": 27506,
+          "miles": 88995,
+          "location": "Poway, CA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD"
+        },
+        {
+          "price": 28442,
+          "miles": 125795,
+          "location": "Cumming, GA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD"
+        },
+        {
+          "price": 24622,
+          "miles": 116260,
+          "location": "Union City, GA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD"
+        },
+        {
+          "price": 31284,
+          "miles": 79331,
+          "location": "Billings, MT",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 4WD"
+        },
+        {
+          "price": 30683,
+          "miles": 87336,
+          "location": "Blufton, SC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 4WD"
+        },
+        {
+          "price": 28742,
+          "miles": 106199,
+          "location": "Fairfield, OH",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 4WD"
+        },
+        {
+          "price": 27564,
+          "miles": 84807,
+          "location": "Frisco, TX",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD"
+        },
+        {
+          "price": 30178,
+          "miles": 97103,
+          "location": "Albuquerque, NM",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab (6' bed) / 4WD"
+        },
+        {
+          "price": 31731,
+          "miles": 71424,
+          "location": "Bloomington, IL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 4WD"
+        },
+        {
+          "price": 29084,
+          "miles": 122965,
+          "location": "Salinas, CA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab (6' bed) / 4WD"
+        },
+        {
+          "price": 18944,
+          "miles": 206158,
+          "location": "Houston, TX",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 2WD"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tacoma/year-2022/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 33489,
+      "listings": [
+        {
+          "price": 25261,
+          "miles": 56761,
+          "location": "Miami, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab / 6' Bed / 2WD; Sponsored"
+        },
+        {
+          "price": 29744,
+          "miles": 63682,
+          "location": "Harlingen, TX",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD; Sponsored"
+        },
+        {
+          "price": 32900,
+          "miles": 55017,
+          "location": "Hillsboro, OR",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab / 6' Bed / 4WD; CPO"
+        },
+        {
+          "price": 29403,
+          "miles": 74139,
+          "location": "Ivel, KY",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD"
+        },
+        {
+          "price": 28259,
+          "miles": 94145,
+          "location": "Buford, GA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD; CPO"
+        },
+        {
+          "price": 30568,
+          "miles": 56340,
+          "location": "La Follette, TN",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 6' Bed / 2WD"
+        },
+        {
+          "price": 30320,
+          "miles": 60437,
+          "location": "Albertville, AL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 27998,
+          "miles": 95827,
+          "location": "Wake Forest, NC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 30983,
+          "miles": 54947,
+          "location": "Mobile, AL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 32351,
+          "miles": 43917,
+          "location": "Newnan, GA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 34320,
+          "miles": 41080,
+          "location": "Swansea, MA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD"
+        },
+        {
+          "price": 30000,
+          "miles": 55566,
+          "location": "Lugoff, SC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 29367,
+          "miles": 46303,
+          "location": "Doral, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 29139,
+          "miles": 81583,
+          "location": "Chamblee, GA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 30598,
+          "miles": 46640,
+          "location": "Burgaw, NC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 6' Bed / 2WD"
+        },
+        {
+          "price": 31560,
+          "miles": 123188,
+          "location": "Irmo, SC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 6' Bed / 4WD"
+        },
+        {
+          "price": 27502,
+          "miles": 87895,
+          "location": "McKenna, WA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab / 6' Bed / I4 4WD"
+        },
+        {
+          "price": 30599,
+          "miles": 52673,
+          "location": "Tarpon Springs, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 30548,
+          "miles": 45966,
+          "location": "Jacksonville, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 6' Bed / 2WD"
+        },
+        {
+          "price": 25990,
+          "miles": 66890,
+          "location": "Savannah, GA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Access Cab / 6' Bed / 2WD"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SR5",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/tacoma/year-2024/?trim=sr5",
+      "fetched": "2026-10-28",
+      "page_average": 34244,
+      "listings": [
+        {
+          "price": 35881,
+          "miles": 11439,
+          "location": "Huntsville, AL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD; Sponsored"
+        },
+        {
+          "price": 31753,
+          "miles": 47972,
+          "location": "Houston, TX",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD; Sponsored"
+        },
+        {
+          "price": 31616,
+          "miles": 45064,
+          "location": "Houston, TX",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD; Sponsored"
+        },
+        {
+          "price": 36865,
+          "miles": 10980,
+          "location": "Ocala, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD"
+        },
+        {
+          "price": 30882,
+          "miles": 33100,
+          "location": "Redwood City, CA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD; CPO"
+        },
+        {
+          "price": 31968,
+          "miles": 35304,
+          "location": "McDonough, GA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 39086,
+          "miles": 22628,
+          "location": "Cornelius, NC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed AT (SE) / drivetrain not shown"
+        },
+        {
+          "price": 33686,
+          "miles": 29038,
+          "location": "Miami Lakes, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 31886,
+          "miles": 43705,
+          "location": "El Cajon, CA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD; CPO"
+        },
+        {
+          "price": 34500,
+          "miles": 27304,
+          "location": "Hillsboro, OR",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD; CPO"
+        },
+        {
+          "price": 33395,
+          "miles": 35635,
+          "location": "Spring, TX",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD"
+        },
+        {
+          "price": 34882,
+          "miles": 34574,
+          "location": "Sarasota, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD"
+        },
+        {
+          "price": 37343,
+          "miles": 28584,
+          "location": "Port Angeles, WA",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 6' Bed / 4WD"
+        },
+        {
+          "price": 36299,
+          "miles": 40532,
+          "location": "Wilmington, NC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD"
+        },
+        {
+          "price": 34799,
+          "miles": 20346,
+          "location": "Henderson, NV",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD"
+        },
+        {
+          "price": 31040,
+          "miles": 36781,
+          "location": "Arlington, TX",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 6' Bed / 2WD"
+        },
+        {
+          "price": 35676,
+          "miles": 11901,
+          "location": "Miami Lakes, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 2WD"
+        },
+        {
+          "price": 38100,
+          "miles": 29129,
+          "location": "Salisbury, NC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD"
+        },
+        {
+          "price": 37388,
+          "miles": 27211,
+          "location": "Zebulon, NC",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed / 4WD"
+        },
+        {
+          "price": 33791,
+          "miles": 4671,
+          "location": "Fort Lauderdale, FL",
+          "trim": "SR5",
+          "body": "Pickup Truck",
+          "note": "Double Cab / 5' Bed AT (SE) / drivetrain not shown"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "All four pages were the SR5-filtered year pages (29-31 listings shown each), so unfiltered pages were not needed; first 20 listings per page recorded in page order.",
+    "page_average is TrueCar's stated average sentence. The 2022 page quotes $33,489, identical to the 2016 page's figure (and the 2016 figure sits above every 2016 asking price on the page); the pages' FAQ sections also cite ~2,485-2,503 SR5 listings versus the 78-420 year totals, so these averages look like all-year boilerplate rather than per-year figures.",
+    "note records cab / bed / engine / drivetrain as shown (2016 page shows bed as 6.1'/5'; 2024 page shows two listings as '5' Bed AT (SE)' with no drivetrain shown) plus any Sponsored/CPO badge. The 2016 page states all prices include dealer fees/add-ons; the 2022 page says the same.",
+    "Every listing on the 2024 SR5 page is a Double Cab (4th-generation Tacoma); 2016-2022 pages mix Access Cab and Double Cab."
+  ]
+}

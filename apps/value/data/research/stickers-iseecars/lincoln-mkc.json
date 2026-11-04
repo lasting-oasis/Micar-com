@@ -1,0 +1,237 @@
+{
+"make": "Lincoln",
+"model": "MKC",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (mkc).",
+"years": [
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 4dr Premier",
+"msrp": 33260,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Premier",
+"msrp": 35755,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Select",
+"msrp": 37090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Select",
+"msrp": 39585,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Reserve",
+"msrp": 40460,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Reserve",
+"msrp": 42955,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 4dr Black Label",
+"msrp": 46455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Black Label",
+"msrp": 48950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lincoln-mkc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Premiere FWD",
+"msrp": 32720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premiere AWD",
+"msrp": 35130,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select FWD",
+"msrp": 35720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select AWD",
+"msrp": 38125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve FWD",
+"msrp": 39485,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 41895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label FWD",
+"msrp": 45475,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 47880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lincoln-mkc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Premiere FWD",
+"msrp": 33355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premiere AWD",
+"msrp": 35765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select FWD",
+"msrp": 36110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select AWD",
+"msrp": 38520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve FWD",
+"msrp": 39985,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 42395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label FWD",
+"msrp": 45975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 48380,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lincoln-mkc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Standard FWD",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard AWD",
+"msrp": 36405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select FWD",
+"msrp": 36750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select AWD",
+"msrp": 39160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve FWD",
+"msrp": 40625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 43035,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label FWD",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 49610,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lincoln-mkc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

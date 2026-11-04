@@ -1,0 +1,1761 @@
+{
+"make": "Ford",
+"model": "F-250 Super Duty",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (super_duty_f__250).",
+"years": [
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "4x2 XL 2dr Regular Cab 8 ft. LB Pickup",
+"msrp": 29875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 32070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 32270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 2dr Regular Cab 8 ft. LB Pickup",
+"msrp": 32670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 33470,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XL 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 33670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 2dr Regular Cab 8 ft. LB Pickup",
+"msrp": 33905,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 34870,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 35075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 36270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 36405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XL 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 36475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 36605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 2dr Regular Cab 8 ft. LB Pickup",
+"msrp": 36705,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 38310,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 XLT 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 38505,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 39210,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 39410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 41105,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 XLT 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 41305,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 41570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 41770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 43970,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Lariat 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 44170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCab 6.8 ft. SB Pickup",
+"msrp": 44755,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr SuperCab 8 ft. LB Pickup",
+"msrp": 44960,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 47155,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Lariat 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 47360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 49355,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 King Ranch 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 49555,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 52550,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 King Ranch 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 52750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr Crew Cab 6.8 ft. SB Pickup",
+"msrp": 53240,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Platinum 4dr Crew Cab 8 ft. LB Pickup",
+"msrp": 53440,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-super_duty_f__250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-06-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "2WD Regular Cab 8 Ft Box XL",
+"msrp": 31810,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 6-3/4 Ft Box XL",
+"msrp": 34005,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 8 Ft Box XL",
+"msrp": 34205,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Regular Cab 8 Ft Box XL",
+"msrp": 34605,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 6-3/4 Ft Box XL",
+"msrp": 35405,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Regular Cab 8 Ft Box XLT",
+"msrp": 35570,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 8 Ft Box XL",
+"msrp": 35605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 6-3/4 Ft Box XL",
+"msrp": 36805,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 8 Ft Box XL",
+"msrp": 37010,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 6-3/4 Ft Box XLT",
+"msrp": 38070,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box XL",
+"msrp": 38205,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 8 Ft Box XLT",
+"msrp": 38270,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Regular Cab 8 Ft Box XLT",
+"msrp": 38370,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box XL",
+"msrp": 38410,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 6-3/4 Ft Box XLT",
+"msrp": 39975,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 8 Ft Box XLT",
+"msrp": 40170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 6-3/4 Ft Box XLT",
+"msrp": 40875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 8 Ft Box XLT",
+"msrp": 41075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box XLT",
+"msrp": 42770,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box XLT",
+"msrp": 42970,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 6-3/4 Ft Box Lariat",
+"msrp": 43875,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 8 Ft Box Lariat",
+"msrp": 44075,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 6-3/4 Ft Box Lariat",
+"msrp": 46275,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 8 Ft Box Lariat",
+"msrp": 46475,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 6-3/4 Ft Box Lariat",
+"msrp": 47060,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 8 Ft Box Lariat",
+"msrp": 47265,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box Lariat",
+"msrp": 49460,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box Lariat",
+"msrp": 49665,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 6-3/4 Ft Box King Ranch",
+"msrp": 51835,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 8 Ft Box King Ranch",
+"msrp": 52035,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box King Ranch",
+"msrp": 55030,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box King Ranch",
+"msrp": 55230,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box Platinum",
+"msrp": 55545,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box Platinum",
+"msrp": 55745,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-super_duty_f__250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2WD Regular Cab 8 Ft Box XL",
+"msrp": 32385,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 6-3/4 Ft Box XL",
+"msrp": 34580,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 8 Ft Box XL",
+"msrp": 34780,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Regular Cab 8 Ft Box XL",
+"msrp": 35180,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 6-3/4 Ft Box XL",
+"msrp": 35980,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 8 Ft Box XL",
+"msrp": 36180,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Regular Cab 8 Ft Box XLT",
+"msrp": 36375,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 6-3/4 Ft Box XL",
+"msrp": 37380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 8 Ft Box XL",
+"msrp": 37585,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box XL",
+"msrp": 38780,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 6-3/4 Ft Box XLT",
+"msrp": 38875,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box XL",
+"msrp": 38985,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 8 Ft Box XLT",
+"msrp": 39075,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Regular Cab 8 Ft Box XLT",
+"msrp": 39175,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 6-3/4 Ft Box XLT",
+"msrp": 40780,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 8 Ft Box XLT",
+"msrp": 40975,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 6-3/4 Ft Box XLT",
+"msrp": 41680,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 8 Ft Box XLT",
+"msrp": 41880,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box XLT",
+"msrp": 43575,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box XLT",
+"msrp": 43775,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 6-3/4 Ft Box Lariat",
+"msrp": 44795,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD SuperCab 8 Ft Box Lariat",
+"msrp": 44995,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 6-3/4 Ft Box Lariat",
+"msrp": 47195,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 8 Ft Box Lariat",
+"msrp": 47395,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 6-3/4 Ft Box Lariat",
+"msrp": 47980,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD SuperCab 8 Ft Box Lariat",
+"msrp": 48185,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box Lariat",
+"msrp": 50380,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box Lariat",
+"msrp": 50585,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 6-3/4 Ft Box King Ranch",
+"msrp": 52930,
+"config": "",
+"note": ""
+},
+{
+"trim": "2WD Crew Cab 8 Ft Box King Ranch",
+"msrp": 53130,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box King Ranch",
+"msrp": 56125,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box King Ranch",
+"msrp": 56325,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 6-3/4 Ft Box Platinum",
+"msrp": 57040,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD Crew Cab 8 Ft Box Platinum",
+"msrp": 57240,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-super_duty_f__250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-05-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "XL 2WD Reg Cab 8' Box",
+"msrp": 32535,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 6.75' Box",
+"msrp": 34870,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 8' Box",
+"msrp": 35070,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Reg Cab 8' Box",
+"msrp": 35330,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 6.75' Box",
+"msrp": 36130,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 8' Box",
+"msrp": 36330,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Reg Cab 8' Box",
+"msrp": 36740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 6.75' Box",
+"msrp": 37670,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 8' Box",
+"msrp": 37875,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 6.75' Box",
+"msrp": 38930,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 8' Box",
+"msrp": 39135,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 6.75' Box",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Reg Cab 8' Box",
+"msrp": 39540,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 8' Box",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 6.75' Box",
+"msrp": 41235,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 8' Box",
+"msrp": 41430,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 6.75' Box",
+"msrp": 42205,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 8' Box",
+"msrp": 42405,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 6.75' Box",
+"msrp": 44030,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 8' Box",
+"msrp": 44230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat 2WD SuperCab 6.75' Box",
+"msrp": 45305,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat 2WD SuperCab 8' Box",
+"msrp": 45505,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat 2WD Crew Cab 6.75' Box",
+"msrp": 47635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat 2WD Crew Cab 8' Box",
+"msrp": 47835,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat 4WD SuperCab 6.75' Box",
+"msrp": 48490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat 4WD SuperCab 8' Box",
+"msrp": 48695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat 4WD Crew Cab 6.75' Box",
+"msrp": 50820,
+"config": "",
+"note": ""
+},
+{
+"trim": "Lariat 4WD Crew Cab 8' Box",
+"msrp": 51025,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 6.75' Box",
+"msrp": 54460,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 8' Box",
+"msrp": 54660,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 6.75' Box",
+"msrp": 57655,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 8' Box",
+"msrp": 57855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 6.75' Box",
+"msrp": 62310,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 8' Box",
+"msrp": 62510,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-super_duty_f__250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "XL 2WD Reg Cab 8' Box",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 6.75' Box",
+"msrp": 35485,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 8' Box",
+"msrp": 35685,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Reg Cab 8' Box",
+"msrp": 35945,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 6.75' Box",
+"msrp": 36745,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 8' Box",
+"msrp": 36945,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Reg Cab 8' Box",
+"msrp": 37310,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 6.75' Box",
+"msrp": 38280,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 8' Box",
+"msrp": 38490,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 6.75' Box",
+"msrp": 39545,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 8' Box",
+"msrp": 39750,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 6.75' Box",
+"msrp": 39970,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Reg Cab 8' Box",
+"msrp": 40110,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 8' Box",
+"msrp": 40170,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 6.75' Box",
+"msrp": 41805,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 8' Box",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 6.75' Box",
+"msrp": 42775,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 8' Box",
+"msrp": 42975,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 6.75' Box",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 8' Box",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 6.75' Box",
+"msrp": 45920,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 8' Box",
+"msrp": 46120,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD Crew Cab 6.75' Box",
+"msrp": 48250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD Crew Cab 8' Box",
+"msrp": 48450,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 6.75' Box",
+"msrp": 49105,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 8' Box",
+"msrp": 49310,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD Crew Cab 6.75' Box",
+"msrp": 51435,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD Crew Cab 8' Box",
+"msrp": 51640,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 6.75' Box",
+"msrp": 55190,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 8' Box",
+"msrp": 55390,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 6.75' Box",
+"msrp": 58385,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 8' Box",
+"msrp": 58585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 6.75' Box",
+"msrp": 63115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 8' Box",
+"msrp": 63315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD Crew Cab 6.75' Box",
+"msrp": 80020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD Crew Cab 8' Box",
+"msrp": 80220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-super_duty_f__250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "XL 2WD Reg Cab 8' Box",
+"msrp": 33150,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 6.75' Box",
+"msrp": 35485,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 8' Box",
+"msrp": 35685,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Reg Cab 8' Box",
+"msrp": 35945,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 6.75' Box",
+"msrp": 36745,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 8' Box",
+"msrp": 36945,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Reg Cab 8' Box",
+"msrp": 37365,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 6.75' Box",
+"msrp": 38280,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 8' Box",
+"msrp": 38490,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 6.75' Box",
+"msrp": 39545,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 8' Box",
+"msrp": 39750,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 6.75' Box",
+"msrp": 40030,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Reg Cab 8' Box",
+"msrp": 40165,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 8' Box",
+"msrp": 40230,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 6.75' Box",
+"msrp": 41860,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 8' Box",
+"msrp": 42060,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 6.75' Box",
+"msrp": 42835,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 8' Box",
+"msrp": 43035,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 6.75' Box",
+"msrp": 44655,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 8' Box",
+"msrp": 44860,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 6.75' Box",
+"msrp": 46140,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 8' Box",
+"msrp": 46340,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD Crew Cab 6.75' Box",
+"msrp": 48470,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD Crew Cab 8' Box",
+"msrp": 48670,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 6.75' Box",
+"msrp": 49325,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 8' Box",
+"msrp": 49530,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD Crew Cab 6.75' Box",
+"msrp": 51655,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD Crew Cab 8' Box",
+"msrp": 51860,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 6.75' Box",
+"msrp": 55410,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 8' Box",
+"msrp": 55610,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 6.75' Box",
+"msrp": 58605,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 8' Box",
+"msrp": 58805,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 6.75' Box",
+"msrp": 63335,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 8' Box",
+"msrp": 63535,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD Crew Cab 6.75' Box",
+"msrp": 80240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD Crew Cab 8' Box",
+"msrp": 80440,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-ford-super_duty_f__250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "XL 2WD Reg Cab 8' Box",
+"msrp": 34035,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 6.75' Box",
+"msrp": 36370,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 8' Box",
+"msrp": 36570,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Reg Cab 8' Box",
+"msrp": 36825,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 6.75' Box",
+"msrp": 37625,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 8' Box",
+"msrp": 37825,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Reg Cab 8' Box",
+"msrp": 38815,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 6.75' Box",
+"msrp": 39160,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 8' Box",
+"msrp": 39370,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 6.75' Box",
+"msrp": 40425,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 8' Box",
+"msrp": 40635,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 6.75' Box",
+"msrp": 41480,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Reg Cab 8' Box",
+"msrp": 41615,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 8' Box",
+"msrp": 41680,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 6.75' Box",
+"msrp": 43310,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 8' Box",
+"msrp": 43510,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 6.75' Box",
+"msrp": 44285,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 8' Box",
+"msrp": 44485,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 6.75' Box",
+"msrp": 46105,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 8' Box",
+"msrp": 46310,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 6.75' Box",
+"msrp": 46930,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 8' Box",
+"msrp": 47130,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD Crew Cab 6.75' Box",
+"msrp": 49260,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD Crew Cab 8' Box",
+"msrp": 49460,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 6.75' Box",
+"msrp": 50115,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 8' Box",
+"msrp": 50320,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD Crew Cab 6.75' Box",
+"msrp": 52445,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD Crew Cab 8' Box",
+"msrp": 52650,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 6.75' Box",
+"msrp": 57835,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 8' Box",
+"msrp": 58030,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 6.75' Box",
+"msrp": 61025,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 8' Box",
+"msrp": 61225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 6.75' Box",
+"msrp": 66225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 8' Box",
+"msrp": 66425,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD Crew Cab 6.75' Box",
+"msrp": 83930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD Crew Cab 8' Box",
+"msrp": 84130,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-ford-super_duty_f__250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "XL 2WD Reg Cab 8' Box",
+"msrp": 34230,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 6.75' Box",
+"msrp": 36565,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD SuperCab 8' Box",
+"msrp": 36765,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Reg Cab 8' Box",
+"msrp": 37020,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 6.75' Box",
+"msrp": 37820,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 2WD Crew Cab 8' Box",
+"msrp": 38020,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Reg Cab 8' Box",
+"msrp": 39095,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 6.75' Box",
+"msrp": 39355,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD SuperCab 8' Box",
+"msrp": 39565,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 6.75' Box",
+"msrp": 40620,
+"config": "",
+"note": ""
+},
+{
+"trim": "XL 4WD Crew Cab 8' Box",
+"msrp": 40830,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 6.75' Box",
+"msrp": 41740,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Reg Cab 8' Box",
+"msrp": 41895,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD SuperCab 8' Box",
+"msrp": 41940,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 6.75' Box",
+"msrp": 43505,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 2WD Crew Cab 8' Box",
+"msrp": 43705,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 6.75' Box",
+"msrp": 44545,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD SuperCab 8' Box",
+"msrp": 44745,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 6.75' Box",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLT 4WD Crew Cab 8' Box",
+"msrp": 46505,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 6.75' Box",
+"msrp": 47210,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD SuperCab 8' Box",
+"msrp": 47410,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD Crew Cab 6.75' Box",
+"msrp": 49540,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 2WD Crew Cab 8' Box",
+"msrp": 49740,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 6.75' Box",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD SuperCab 8' Box",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD Crew Cab 6.75' Box",
+"msrp": 52730,
+"config": "",
+"note": ""
+},
+{
+"trim": "LARIAT 4WD Crew Cab 8' Box",
+"msrp": 52930,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 6.75' Box",
+"msrp": 58095,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 2WD Crew Cab 8' Box",
+"msrp": 58290,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 6.75' Box",
+"msrp": 61285,
+"config": "",
+"note": ""
+},
+{
+"trim": "King Ranch 4WD Crew Cab 8' Box",
+"msrp": 61485,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 6.75' Box",
+"msrp": 65515,
+"config": "",
+"note": ""
+},
+{
+"trim": "Platinum 4WD Crew Cab 8' Box",
+"msrp": 65715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD Crew Cab 6.75' Box",
+"msrp": 84190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4WD Crew Cab 8' Box",
+"msrp": 84390,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ford-super_duty_f__250-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

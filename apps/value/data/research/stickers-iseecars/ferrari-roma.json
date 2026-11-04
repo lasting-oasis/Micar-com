@@ -1,0 +1,75 @@
+{
+"make": "Ferrari",
+"model": "Roma",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (roma).",
+"years": [
+{
+"year": 2021,
+"destination": 3950,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 218670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ferrari-roma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 3950,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 218670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ferrari-roma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 5000,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 238360,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ferrari-roma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 5000,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 238360,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Convertible",
+"msrp": 272970,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-ferrari-roma-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

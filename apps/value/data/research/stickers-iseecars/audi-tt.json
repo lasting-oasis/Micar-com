@@ -1,0 +1,342 @@
+{
+"make": "Audi",
+"model": "TT",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (tt).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium 2dr Coupe",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium 2dr Convertible",
+"msrp": 40800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe",
+"msrp": 42580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 45580,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 47400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 47400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe",
+"msrp": 38650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 41650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Coupe",
+"msrp": 44750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Prestige 2dr Convertible",
+"msrp": 47750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Coupe",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro Premium Plus 2dr Convertible",
+"msrp": 42900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 895,
+"trims": [
+{
+"trim": "AWD 2.0T quattro 2dr Coupe",
+"msrp": 40350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro 2dr Convertible",
+"msrp": 43350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "S tronic quattro",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S tronic quattro",
+"msrp": 46400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI",
+"msrp": 47000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "2.0 TFSI",
+"msrp": 43950,
+"config": "",
+"note": ""
+},
+{
+"trim": "2.0 TFSI",
+"msrp": 47450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "45 TFSI quattro",
+"msrp": 44900,
+"config": "",
+"note": ""
+},
+{
+"trim": "45 TFSI quattro",
+"msrp": 48400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD 2.0T quattro 2dr Coupe",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro 2dr Convertible",
+"msrp": 49000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "45 TFSI quattro",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "45 TFSI quattro",
+"msrp": 53900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1095,
+"trims": [
+{
+"trim": "AWD 2.0T quattro 2dr Coupe",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.0T quattro 2dr Convertible",
+"msrp": 54600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-tt-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

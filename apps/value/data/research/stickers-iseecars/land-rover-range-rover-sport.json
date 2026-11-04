@@ -1,0 +1,768 @@
+{
+"make": "Land Rover",
+"model": "Range Rover Sport",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (range_rover_sport).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 59645,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 73345,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 60495,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 75395,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 60045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE LUX 4dr SUV",
+"msrp": 64745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE Limited Edition 4dr SUV",
+"msrp": 67625,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE GT Limited Edition 4dr SUV",
+"msrp": 70100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 75245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Autobiography 4dr SUV",
+"msrp": 85945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 850,
+"trims": [
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 60045,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE LUX 4dr SUV",
+"msrp": 64322,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE GT Limited Edition 4dr SUV",
+"msrp": 70650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Autobiography 4dr SUV",
+"msrp": 70745,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 76195,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged Limited Edition 4dr SUV",
+"msrp": 79695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4x4 SE 4dr SUV",
+"msrp": 62600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 HSE 4dr SUV",
+"msrp": 67600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Supercharged 4dr SUV",
+"msrp": 79100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Autobiography 4dr SUV",
+"msrp": 92400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4WD 4dr V6 SE",
+"msrp": 64950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V6 Diesel SE",
+"msrp": 66450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V6 HSE",
+"msrp": 69950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V6 Diesel HSE",
+"msrp": 71450,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V8",
+"msrp": 79950,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V8 Dynamic",
+"msrp": 82695,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V8 Autobiography",
+"msrp": 93295,
+"config": "",
+"note": ""
+},
+{
+"trim": "4WD 4dr V8 SVR",
+"msrp": 111350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-03-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "V6 Supercharged SE",
+"msrp": 65650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel SE",
+"msrp": 67650,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Supercharged HSE",
+"msrp": 70650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel HSE",
+"msrp": 72650,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Supercharged HSE Dynamic",
+"msrp": 80150,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged",
+"msrp": 80650,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged Dynamic",
+"msrp": 83730,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged Autobiography",
+"msrp": 94450,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged SVR",
+"msrp": 111350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 66750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Td6 4dr SUV",
+"msrp": 68750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE 4dr SUV",
+"msrp": 72350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE Td6 4dr SUV",
+"msrp": 74350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Supercharged 4dr SUV",
+"msrp": 82050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE Dynamic 4dr SUV",
+"msrp": 82150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Supercharged Dynamic 4dr SUV",
+"msrp": 85550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Autobiography Dynamic 4dr SUV",
+"msrp": 96650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SVR 4dr SUV",
+"msrp": 113600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "V6 Supercharged SE",
+"msrp": 67500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo i6 MHEV SE",
+"msrp": 68500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel SE",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Supercharged HSE",
+"msrp": 72990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo i6 MHEV HSE",
+"msrp": 73990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel HSE",
+"msrp": 75000,
+"config": "",
+"note": ""
+},
+{
+"trim": "PHEV HSE",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 Supercharged HSE Dynamic",
+"msrp": 82950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo i6 MHEV HST",
+"msrp": 82950,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged Dynamic",
+"msrp": 86500,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged Autobiography",
+"msrp": 97500,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged SVR",
+"msrp": 114500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Turbo i6 MHEV SE",
+"msrp": 68650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel SE",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo i6 MHEV HSE",
+"msrp": 74250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel HSE",
+"msrp": 75000,
+"config": "",
+"note": ""
+},
+{
+"trim": "PHEV HSE",
+"msrp": 79000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo i6 MHEV HST",
+"msrp": 82950,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged HSE Dynamic",
+"msrp": 86500,
+"config": "",
+"note": ""
+},
+{
+"trim": "PHEV Autobiography",
+"msrp": 88990,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged Autobiography",
+"msrp": 97500,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged SVR",
+"msrp": 114500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Turbo i6 MHEV SE",
+"msrp": 69500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo i6 MHEV HSE Silver Edition",
+"msrp": 78500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Td6 Diesel HSE Silver Edition",
+"msrp": 79500,
+"config": "",
+"note": ""
+},
+{
+"trim": "PHEV HSE Silver Edition",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo i6 MHEV HST",
+"msrp": 84000,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged HSE Dynamic",
+"msrp": 87500,
+"config": "",
+"note": ""
+},
+{
+"trim": "PHEV Autobiography",
+"msrp": 90000,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged Autobiography",
+"msrp": 98500,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged SVR",
+"msrp": 115500,
+"config": "",
+"note": ""
+},
+{
+"trim": "V8 Supercharged SVR Carbon Edition",
+"msrp": 130000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1350,
+"trims": [
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 70900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE Silver Edition 4dr SUV",
+"msrp": 80100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HST 4dr SUV",
+"msrp": 85700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P525 HSE Dynamic 4dr SUV",
+"msrp": 89300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P525 Autobiography 4dr SUV",
+"msrp": 100500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SVR 4dr SUV",
+"msrp": 117800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SVR Carbon Edition 4dr SUV",
+"msrp": 132600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1475,
+"trims": [
+{
+"trim": "AWD P360 SE 4dr SUV",
+"msrp": 83000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P400 Dynamic SE 4dr SUV",
+"msrp": 90000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P440e Autobiography 4dr SUV",
+"msrp": 104200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 First Edition 4dr SUV",
+"msrp": 121500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Deer Valley Edition 4dr SUV",
+"msrp": 165000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1475,
+"trims": [
+{
+"trim": "AWD P360 SE 4dr SUV",
+"msrp": 83600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P400 Dynamic SE 4dr SUV",
+"msrp": 90700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P550e Autobiography 4dr SUV",
+"msrp": 118200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV Edition One Carbon Bronze 4dr SUV",
+"msrp": 180300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV Edition One Obsidian Black 4dr SUV",
+"msrp": 180300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SV Edition One Flux Silver 4dr SUV",
+"msrp": 180300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1625,
+"trims": [
+{
+"trim": "AWD P360 S 4dr SUV",
+"msrp": 79700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 SE 4dr SUV",
+"msrp": 83700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P400 Dynamic SE 4dr SUV",
+"msrp": 90800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P460e Dynamic SE 4dr SUV",
+"msrp": 95100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Dynamic SE 4dr SUV",
+"msrp": 109700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P550e Autobiography 4dr SUV",
+"msrp": 118700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P530 Autobiography 4dr SUV",
+"msrp": 123400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P635 SV Edition Two 4dr SUV",
+"msrp": 180700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-landrover-range_rover_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-09). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

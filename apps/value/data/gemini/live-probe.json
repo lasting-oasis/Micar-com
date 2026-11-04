@@ -1,0 +1,87 @@
+{
+ "live_models": [
+  "models/gemini-3.5-transcribe-live",
+  "models/gemini-2.5-flash-native-audio-latest",
+  "models/gemini-2.5-flash-native-audio-preview-09-2025",
+  "models/gemini-2.5-flash-native-audio-preview-12-2025",
+  "models/gemini-3.1-flash-live-preview",
+  "models/gemini-3.8-live",
+  "models/gemini-3.8-live-extended-thinking",
+  "models/gemini-robotics-er-2-streaming-preview",
+  "models/gemini-3.5-live-translate-preview"
+ ],
+ "tests": [
+  {
+   "model": "models/gemini-3.5-transcribe-live",
+   "car": "2012 Toyota Camry L",
+   "modality": "TEXT",
+   "text": "",
+   "transcript": "",
+   "sources": [],
+   "error": "closed 1011: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: h"
+  },
+  {
+   "model": "models/gemini-3.5-transcribe-live",
+   "car": "2012 Toyota Camry L",
+   "modality": "AUDIO",
+   "text": "",
+   "transcript": "",
+   "sources": [],
+   "error": "closed 1011: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: h"
+  },
+  {
+   "model": "models/gemini-3.1-flash-live-preview",
+   "car": "2012 Toyota Camry L",
+   "modality": "TEXT",
+   "text": "",
+   "transcript": "",
+   "sources": [],
+   "error": "closed 1011: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: h"
+  },
+  {
+   "model": "models/gemini-3.1-flash-live-preview",
+   "car": "2012 Toyota Camry L",
+   "modality": "AUDIO",
+   "text": "",
+   "transcript": "",
+   "sources": [],
+   "error": "closed 1011: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: h"
+  },
+  {
+   "model": "models/gemini-3.8-live",
+   "car": "2012 Toyota Camry L",
+   "modality": "TEXT",
+   "text": "",
+   "transcript": "",
+   "sources": [],
+   "error": "closed 1011: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: h"
+  },
+  {
+   "model": "models/gemini-3.8-live",
+   "car": "2012 Toyota Camry L",
+   "modality": "AUDIO",
+   "text": "",
+   "transcript": "",
+   "sources": [],
+   "error": "closed 1011: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: h"
+  },
+  {
+   "model": "models/gemini-3.8-live-extended-thinking",
+   "car": "2012 Toyota Camry L",
+   "modality": "TEXT",
+   "text": "",
+   "transcript": "",
+   "sources": [],
+   "error": "closed 1011: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: h"
+  },
+  {
+   "model": "models/gemini-3.8-live-extended-thinking",
+   "car": "2012 Toyota Camry L",
+   "modality": "AUDIO",
+   "text": "",
+   "transcript": "",
+   "sources": [],
+   "error": "closed 1011: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: h"
+  }
+ ]
+}

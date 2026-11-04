@@ -1,0 +1,99 @@
+{
+"make": "Cadillac",
+"model": "CTS-V",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (cts__v).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 60720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-cadillac-cts__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-03-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "CTS-V Coupe",
+"msrp": 69900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-cadillac-cts__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-10-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "CTS-V",
+"msrp": 83995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-cadillac-cts__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 85995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-cadillac-cts__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "CTS-V",
+"msrp": 86495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-cadillac-cts__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "CTS-V",
+"msrp": 86995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-cadillac-cts__v-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

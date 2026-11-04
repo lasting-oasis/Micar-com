@@ -1,0 +1,51 @@
+{
+"make": "Infiniti",
+"model": "QX70",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (qx70).",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "RWD 4dr",
+"msrp": 45850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr",
+"msrp": 47300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-infiniti-qx70-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "RWD 4dr",
+"msrp": 45850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr",
+"msrp": 47300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-infiniti-qx70-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

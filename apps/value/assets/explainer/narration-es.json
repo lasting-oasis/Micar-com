@@ -1,0 +1,46 @@
+{
+  "voice": 29,
+  "speed": 1.0,
+  "scenes": [
+    {
+      "id": "intro",
+      "text": "Nexus Valuation es una herramienta gratuita para una sola pregunta: ¿cuánto vale de verdad un auto usado? Sin cajas negras. Un número que usted puede revisar, línea por línea."
+    },
+    {
+      "id": "doors",
+      "text": "Dueños, compradores y vendedores usan la calculadora. Los concesionarios imprimen una hoja de ventana con un código QR. Así funciona cada una."
+    },
+    {
+      "id": "pick",
+      "text": "Elija la marca, el modelo, el año y la versión. El precio de etiqueta original se llena con nuestros registros: quinientos setenta y ocho modelos, y más de veintiséis mil precios por versión, desde el dos mil diez. Luego agregue el millaje y el estado."
+    },
+    {
+      "id": "ledger",
+      "text": "Ahora el motor muestra su trabajo. Parte de lo que costó el auto nuevo, y lo lleva a lo que cuesta uno nuevo hoy. Resta lo que cuestan la edad y el historial de reventa de este modelo. Después ajusta por millaje, estado, historial y la situación del mercado. Cada línea está en la página, y usted puede cambiar cualquier dato y ver cómo se mueve el número."
+    },
+    {
+      "id": "prices",
+      "text": "Obtiene tres números: lo que probablemente le pagaría un concesionario, lo que pagaría un comprador particular, y lo que vería en el lote de un concesionario. Alrededor de ellos, el rango en el que caen la mayoría de las ventas."
+    },
+    {
+      "id": "market",
+      "text": "Pegue una página de anuncios de su zona, y los precios reales acercan la estimación a su mercado. Un pronóstico a cinco años muestra hacia dónde va el valor, con las millas que usted maneja."
+    },
+    {
+      "id": "sheet",
+      "text": "¿Vende un auto? Descríbalo una sola vez, e imprima una hoja de ventana. Muestra el valor de hoy, la calificación de la oferta, en las palabras que los compradores ya conocen, y cómo conserva su valor el modelo frente a otros parecidos. Y le añade un código QR."
+    },
+    {
+      "id": "phone",
+      "text": "Escanee el código para ver cada detalle, más un análisis de valor independiente, en su teléfono. Sin crear una cuenta, y sin base de datos: todos los datos del auto viajan dentro del código."
+    },
+    {
+      "id": "spanish",
+      "text": "Todo, incluida la hoja impresa, está disponible en español y en inglés, con un solo toque."
+    },
+    {
+      "id": "sources",
+      "text": "Los números vienen de precios de etiqueta publicados, de casi dos mil anuncios reales, y de un índice nacional del mercado que se actualiza cada semana. Gratis. Sin registro. Sin publicidad. Nexus Valuation."
+    }
+  ]
+}

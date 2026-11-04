@@ -1,0 +1,541 @@
+{
+  "make": "Chevrolet",
+  "model": "Silverado 1500",
+  "body": "Pickup Truck",
+  "note": "Light-duty full-size pickup (Regular, Double and Crew Cab; 2WD/4WD; short, standard and long boxes). Rows give each trim in its cheapest listed configuration plus a second row for LT and LTZ in Crew Cab 4WD short box (the common used configuration); other trims' Crew Cab 4WD prices are in the row notes. All MSRPs exclude destination; where a source published 'MSRP + destination' the stated destination was subtracted (noted per year). Chevrolet writes the base trim as 'Work Truck' (WT). Trim lineage: 2016-18 WT/LS/Custom(2018)/LT/LTZ/High Country; 2019-21 WT/Custom/Custom Trail Boss/LT/RST/LT Trail Boss/LTZ/High Country; 2022-26 adds ZR2.",
+  "years": [
+    {
+      "year": 2018,
+      "destination": 1395,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 28300,
+          "config": "Regular Cab 2WD 6.5' standard box",
+          "note": "8' long box $28,700; Double Cab 2WD $32,400; Crew Cab 4WD 5.8' short box $38,000. Car and Driver (Jul 2018) quotes the 2018 WT regular cab/standard box at $29,795 (basis unstated; = $28,300 + $1,495)."
+        },
+        {
+          "trim": "LS",
+          "msrp": 30400,
+          "config": "Regular Cab 2WD 6.5' standard box",
+          "note": "Double Cab 2WD $34,100; Crew Cab 4WD 5.8' $39,800."
+        },
+        {
+          "trim": "Custom",
+          "msrp": 34200,
+          "config": "Double Cab 2WD 6.5' standard box",
+          "note": "Crew Cab 4WD 5.8' short box $39,900."
+        },
+        {
+          "trim": "LT",
+          "msrp": 34600,
+          "config": "Regular Cab 2WD 6.5' standard box (cheapest LT listed)",
+          "note": "Double Cab 2WD $37,200; Crew Cab 2WD 5.8' $39,700."
+        },
+        {
+          "trim": "LT",
+          "msrp": 43300,
+          "config": "Crew Cab 4WD 5.8' short box",
+          "note": "LT Z71 Crew Cab 4WD 5.8' $45,200."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 42300,
+          "config": "Double Cab 2WD 6.5' standard box",
+          "note": "Crew Cab 2WD 5.8' $44,700."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 47900,
+          "config": "Crew Cab 4WD 5.8' short box",
+          "note": "LTZ Z71 Crew Cab 4WD 5.8' $49,400."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 52000,
+          "config": "Crew Cab 2WD 5.8' short box - Crew Cab only",
+          "note": "Crew Cab 4WD 5.8' $55,300."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2018-chevrolet-silverado_1500-price",
+      "source_type": "secondary",
+      "note": "Last year of the K2XX generation (2014-2018); lineup WT, LS, Custom, LT, LT Z71, LTZ, LTZ Z71, High Country (no RST/Trail Boss yet). iSeeCars lists MSRP and a separate $1,395 destination charge per configuration (engines not shown); the page does not say in words that MSRP excludes destination, but the separate column implies it."
+    },
+    {
+      "year": 2019,
+      "destination": null,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 28300,
+          "config": "Regular Cab 2WD long box (140\" WB), 4.3L V6",
+          "note": "Announced price $29,795 (Car and Driver/Work Truck Online, Jun-Jul 2018) is exactly $1,495 higher, i.e. those figures include a $1,495 destination charge not stated by either source. Double Cab 2WD $32,200; Crew Cab 4WD short box $37,900."
+        },
+        {
+          "trim": "Custom",
+          "msrp": 34600,
+          "config": "Double Cab 2WD standard box (147\" WB)",
+          "note": "Announced $36,095. Crew Cab 4WD short box $40,300."
+        },
+        {
+          "trim": "LT",
+          "msrp": 36900,
+          "config": "Double Cab 2WD standard box (147\" WB), 2.7L turbo I4",
+          "note": "Announced $38,395."
+        },
+        {
+          "trim": "LT",
+          "msrp": 42600,
+          "config": "Crew Cab 4WD short box (147\" WB)",
+          "note": "Crew Cab 2WD short box $39,300."
+        },
+        {
+          "trim": "RST",
+          "msrp": 38800,
+          "config": "Double Cab 2WD standard box (147\" WB), 2.7L turbo I4",
+          "note": "Announced $40,295. Crew Cab 4WD short box $44,500."
+        },
+        {
+          "trim": "LT Trail Boss",
+          "msrp": 45900,
+          "config": "Double Cab 4WD standard box (147\" WB) - 4WD only; cars.com marks this cab 'Ltd Avail'",
+          "note": "Announced $47,395. Crew Cab 4WD short box $48,300."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 43000,
+          "config": "Double Cab 2WD standard box (147\" WB), 5.3L V8",
+          "note": "Announced $44,495."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 48700,
+          "config": "Crew Cab 4WD short box (147\" WB)",
+          "note": "Crew Cab 2WD short box $45,400."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 53000,
+          "config": "Crew Cab 2WD short box (147\" WB) - Crew Cab only",
+          "note": "Announced $54,495. Crew Cab 4WD short box $56,300."
+        }
+      ],
+      "source": "https://www.cars.com/research/chevrolet-silverado_1500-2019/specs/399758/",
+      "source_type": "secondary",
+      "note": "First year of the T1 generation; RST, Custom Trail Boss and LT Trail Boss introduced, LS dropped. Custom Trail Boss (not in the requested trim list): Double Cab 4WD $39,500, Crew Cab 4WD short box $41,900. Chevrolet's announcement (via Car and Driver, Jul 2, 2018 and worktruckonline.com, Jun 29, 2018): WT $29,795 / $33,695 / $36,095 (Reg LB / Double SB / Crew SB), Custom $36,095 / $38,495, Custom Trail Boss $40,995 / $43,395, LT $38,395 / $40,795, RST $40,295 / $42,695, LT Trail Boss $47,395 / $49,795, LTZ $44,495 / $46,895, High Country $54,495 - none of these sources says whether destination is included; the cars.com MSRPs sit exactly $1,495 lower. TrueCar's overview page quotes trim starting prices $100 higher than the announcement (WT $29,895 ... High Country $54,595), consistent with a later destination increase (iSeeCars shows $1,595 for 2020). Destination recorded as null because no fetched page states it for 2019."
+    },
+    {
+      "year": 2020,
+      "destination": 1595,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 28500,
+          "config": "Regular Cab 2WD 8' long box",
+          "note": "Double Cab 2WD $32,400; Crew Cab 4WD 5.8' short box $38,100."
+        },
+        {
+          "trim": "Custom",
+          "msrp": 34600,
+          "config": "Double Cab 2WD 6.6' standard box",
+          "note": "Crew Cab 4WD 5.8' short box $40,300."
+        },
+        {
+          "trim": "LT",
+          "msrp": 37200,
+          "config": "Double Cab 2WD 6.6' standard box",
+          "note": "Crew Cab 2WD 5.8' $39,600."
+        },
+        {
+          "trim": "LT",
+          "msrp": 42900,
+          "config": "Crew Cab 4WD 5.8' short box",
+          "note": ""
+        },
+        {
+          "trim": "RST",
+          "msrp": 39100,
+          "config": "Double Cab 2WD 6.6' standard box",
+          "note": "Crew Cab 4WD 5.8' short box $44,800."
+        },
+        {
+          "trim": "LT Trail Boss",
+          "msrp": 46400,
+          "config": "Double Cab 4WD 6.6' standard box - 4WD only",
+          "note": "Crew Cab 4WD 5.8' short box $48,800 (= $50,395 incl. destination, the 2020 figure GM Authority cites in its 2026 article)."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 43300,
+          "config": "Double Cab 2WD 6.6' standard box",
+          "note": "Crew Cab 2WD 5.8' $45,700."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 49000,
+          "config": "Crew Cab 4WD 5.8' short box",
+          "note": ""
+        },
+        {
+          "trim": "High Country",
+          "msrp": 53300,
+          "config": "Crew Cab 2WD 5.8' short box - Crew Cab only",
+          "note": "Crew Cab 4WD 5.8' $56,800."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2020-chevrolet-silverado_1500-price",
+      "source_type": "secondary",
+      "note": "iSeeCars lists MSRP and a separate $1,595 destination charge per configuration (engines not shown). Custom Trail Boss: Double Cab 4WD $39,700, Crew Cab 4WD 5.8' $42,100."
+    },
+    {
+      "year": 2022,
+      "destination": 1795,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 34600,
+          "config": "Regular Cab 2WD standard box, 2.7L turbo I4",
+          "note": "Introductory MSRP (Dec 2021) $31,500 excl. $1,695 destination. Crew Cab 4WD short box 2.7L $43,600."
+        },
+        {
+          "trim": "Custom",
+          "msrp": 41600,
+          "config": "Double Cab 2WD, 2.7L turbo I4",
+          "note": "Introductory $38,500. Crew Cab 4WD short box $47,300."
+        },
+        {
+          "trim": "LT",
+          "msrp": 45700,
+          "config": "Double Cab 2WD, 2.7L turbo I4",
+          "note": "Introductory $42,600."
+        },
+        {
+          "trim": "LT",
+          "msrp": 51400,
+          "config": "Crew Cab 4WD short box, 2.7L turbo I4",
+          "note": ""
+        },
+        {
+          "trim": "RST",
+          "msrp": 49900,
+          "config": "Double Cab 4WD, 2.7L turbo I4 (cheapest RST listed)",
+          "note": "Introductory $46,900. Crew Cab 4WD short box 5.3L V8 $53,900 (no 2.7L listed for that configuration)."
+        },
+        {
+          "trim": "LT Trail Boss",
+          "msrp": 55300,
+          "config": "Crew Cab 4WD short box, 2.7L turbo I4 - 4WD only",
+          "note": "Introductory $52,000."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 54700,
+          "config": "Crew Cab 2WD short box, 5.3L V8",
+          "note": "Introductory $51,800."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 58000,
+          "config": "Crew Cab 4WD short box, 5.3L V8",
+          "note": ""
+        },
+        {
+          "trim": "High Country",
+          "msrp": 59800,
+          "config": "Crew Cab 2WD short box, 5.3L V8",
+          "note": "Introductory $56,800. Crew Cab 4WD short box 5.3L $63,300."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 68400,
+          "config": "Crew Cab 4WD short box, 6.2L V8 (only configuration) - new trim for 2022",
+          "note": "Introductory $65,100."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2022/05/2022-chevy-silverado-1500-gets-third-price-increase-this-year/",
+      "source_type": "secondary",
+      "note": "Refreshed 2022 Silverado 1500 only (the carryover 2022 'Silverado LTD' is not covered; tfltruck.com quotes its WT at $30,400 before a $1,695 destination charge). Recorded prices are the level after the third increase of the model year (May 2022): increases of $800-$1,200 by trim in early March, +$1,300 across the board later in March, then +$800 plus +$100 destination in May. Introductory MSRPs (excl. $1,695 destination, per tfltruck.com Dec 2021 and the GM Authority 'Introductory MSRP + DFC' column): WT $31,500, Custom $38,500, Custom Trail Boss $46,200, LT $42,600, RST $46,900, LTZ $51,800, LT Trail Boss $52,000, High Country $56,800, ZR2 $65,100. Custom Trail Boss (Crew Cab 4WD short box 2.7L) at the May level: $49,500. All figures here = published 'MSRP + DFC' minus $1,795."
+    },
+    {
+      "year": 2023,
+      "destination": 1795,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 35600,
+          "config": "Regular Cab 2WD standard box, 2.7L turbo I4",
+          "note": "Crew Cab 4WD short box 2.7L $44,600. Later-2023 increase took the WT to $38,195 incl. $1,895 destination (autos.yahoo.com/Autoblog)."
+        },
+        {
+          "trim": "Custom",
+          "msrp": 42600,
+          "config": "Double Cab 2WD, 2.7L turbo I4",
+          "note": "Crew Cab 4WD short box $48,300."
+        },
+        {
+          "trim": "LT",
+          "msrp": 46700,
+          "config": "Double Cab 2WD, 2.7L turbo I4",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 52400,
+          "config": "Crew Cab 4WD short box, 2.7L turbo I4",
+          "note": ""
+        },
+        {
+          "trim": "RST",
+          "msrp": 50900,
+          "config": "Double Cab 4WD, 2.7L turbo I4 (cheapest RST listed)",
+          "note": "Crew Cab 4WD short box 5.3L V8 $54,900."
+        },
+        {
+          "trim": "LT Trail Boss",
+          "msrp": 56300,
+          "config": "Crew Cab 4WD short box, 2.7L turbo I4 - 4WD only",
+          "note": ""
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 55700,
+          "config": "Crew Cab 2WD short box, 5.3L V8",
+          "note": ""
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 59000,
+          "config": "Crew Cab 4WD short box, 5.3L V8",
+          "note": ""
+        },
+        {
+          "trim": "High Country",
+          "msrp": 60800,
+          "config": "Crew Cab 2WD short box, 5.3L V8",
+          "note": "Crew Cab 4WD short box 5.3L $64,300."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 69800,
+          "config": "Crew Cab 4WD short box, 6.2L V8",
+          "note": "ZR2 Bison $76,695."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2022/08/2023-chevy-silverado-1500-pricing-revealed/",
+      "source_type": "secondary",
+      "note": "Launch pricing (Aug 2022). The source says prices include the destination freight charge but does not state the amount; $1,795 is used because it is the 2022 charge and the autos.yahoo.com/Autoblog report of the later-2023 increase says the charge 'rose another $100 to $1,895' at that time. If the launch charge was already $1,895, every MSRP here is $100 high. Custom Trail Boss (Crew Cab 4WD short box 2.7L): $50,500. Later-2023 price level (incl. $1,895 destination, no configurations stated): WT $38,195, Custom $45,595, Custom Trail Boss $53,695, LT $48,895 (sic; likely $49,895), RST $54,195, LT Trail Boss $59,895, LTZ $59,095, High Country $63,995, ZR2 $73,395."
+    },
+    {
+      "year": 2024,
+      "destination": 1995,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 36800,
+          "config": "Regular Cab 2WD 6.6' standard box",
+          "note": "8' long box $37,000; Double Cab 2WD $40,100; Crew Cab 4WD 5.8' short box $45,800. motor1.com's 2024 WT 2WD figure $38,795 = $36,800 + $1,995; GM Authority's 2024 model page says the truck launched at $38,695 (incl. destination), i.e. $100 lower."
+        },
+        {
+          "trim": "Custom",
+          "msrp": 43600,
+          "config": "Double Cab 2WD 6.6' standard box",
+          "note": "Crew Cab 4WD 5.8' short box $49,300. motor1.com: $45,595 incl. destination."
+        },
+        {
+          "trim": "LT",
+          "msrp": 48000,
+          "config": "Double Cab 2WD 6.6' standard box",
+          "note": "Crew Cab 2WD 5.8' $50,400. motor1.com: $49,995 incl. destination."
+        },
+        {
+          "trim": "LT",
+          "msrp": 53700,
+          "config": "Crew Cab 4WD 5.8' short box (w/1LT)",
+          "note": "Fleet-only 2FL version $52,500."
+        },
+        {
+          "trim": "RST",
+          "msrp": 51400,
+          "config": "Crew Cab 2WD 5.8' short box (cheapest RST listed; Double Cab is 4WD-only at $52,300)",
+          "note": "Crew Cab 4WD 5.8' short box $54,700. motor1.com's 2024 RST $54,295 = Double Cab 4WD $52,300 + $1,995."
+        },
+        {
+          "trim": "LT Trail Boss",
+          "msrp": 58000,
+          "config": "Crew Cab 4WD 5.8' short box - 4WD only",
+          "note": "6.6' box $58,300. motor1.com: $59,995 incl. destination."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 57200,
+          "config": "Crew Cab 2WD 5.8' short box",
+          "note": "motor1.com: $59,195 incl. destination."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 60500,
+          "config": "Crew Cab 4WD 5.8' short box",
+          "note": ""
+        },
+        {
+          "trim": "High Country",
+          "msrp": 62700,
+          "config": "Crew Cab 2WD 5.8' short box",
+          "note": "Crew Cab 4WD 5.8' $66,200. motor1.com lists the 2024 High Country at $65,490 incl. destination (= $63,495), which does not match this page."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 69900,
+          "config": "Crew Cab 4WD 5.8' short box",
+          "note": "motor1.com: $71,895 incl. destination."
+        }
+      ],
+      "source": "https://www.iseecars.com/car/2024-chevrolet-silverado_1500-price",
+      "source_type": "secondary",
+      "note": "iSeeCars lists MSRP and a separate $1,995 destination charge per configuration (engines not shown). Every trim except the High Country reconciles exactly with motor1.com's (Sep 2024) 2024 starting prices once the $1,995 destination is added. Custom Trail Boss: Crew Cab 4WD 5.8' $51,800 (motor1.com $53,795 incl.)."
+    },
+    {
+      "year": 2025,
+      "destination": 1995,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 37000,
+          "config": "Regular Cab 2WD standard box, 2.7L turbo I4",
+          "note": "Crew Cab 4WD short box 2.7L $46,000."
+        },
+        {
+          "trim": "Custom",
+          "msrp": 43600,
+          "config": "Double Cab 2WD, 2.7L turbo I4",
+          "note": "Crew Cab 4WD short box $49,300."
+        },
+        {
+          "trim": "LT",
+          "msrp": 48100,
+          "config": "Double Cab 2WD, 2.7L turbo I4",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 53800,
+          "config": "Crew Cab 4WD short box, 2.7L turbo I4",
+          "note": ""
+        },
+        {
+          "trim": "RST",
+          "msrp": 51500,
+          "config": "Crew Cab 2WD short box, 2.7L turbo I4 (cheapest RST listed; Double Cab is 4WD-only at $52,400)",
+          "note": "Crew Cab 4WD short box 2.7L $54,800."
+        },
+        {
+          "trim": "LT Trail Boss",
+          "msrp": 58800,
+          "config": "Crew Cab 4WD short box, 2.7L turbo I4 - 4WD only",
+          "note": ""
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 57700,
+          "config": "Crew Cab 2WD short box, 5.3L V8",
+          "note": ""
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 61000,
+          "config": "Crew Cab 4WD short box, 5.3L V8",
+          "note": ""
+        },
+        {
+          "trim": "High Country",
+          "msrp": 62700,
+          "config": "Crew Cab 2WD short box, 5.3L V8",
+          "note": "Crew Cab 4WD short box 5.3L $66,200."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 70000,
+          "config": "Crew Cab 4WD short box, 3.0L Duramax diesel",
+          "note": "6.2L V8 $71,695. ZR2 Bison from $78,440."
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2024/08/2025-chevy-silverado-1500-pricing-uncovered",
+      "source_type": "secondary",
+      "note": "Launch pricing (Aug/Sep 2024); all figures = published 'MSRP + DFC' minus $1,995. Corroborated by motor1.com (Sep 27, 2024) and autoguide.com (Sep 3, 2024) trim starting prices incl. destination (WT $38,995, Custom $45,595, LT $50,095, LTZ $59,695, LT Trail Boss $60,795, High Country $64,695, ZR2 $71,995; Autoguide lists RST at $54,395 = Double Cab 4WD). Custom Trail Boss (Crew Cab 4WD short box 2.7L): $51,800. Destination rose to $2,195 in April 2025 (GM Authority)."
+    },
+    {
+      "year": 2026,
+      "destination": 2795,
+      "trims": [
+        {
+          "trim": "Work Truck",
+          "msrp": 36900,
+          "config": "Regular Cab 2WD standard box, 2.7L turbo I4",
+          "note": "Crew Cab 4WD short box 2.7L $46,000."
+        },
+        {
+          "trim": "Custom",
+          "msrp": 42400,
+          "config": "Double Cab 2WD standard box, 2.7L turbo I4",
+          "note": "Crew Cab 4WD short box $48,200."
+        },
+        {
+          "trim": "LT",
+          "msrp": 47900,
+          "config": "Double Cab 2WD standard box, 2.7L turbo I4",
+          "note": ""
+        },
+        {
+          "trim": "LT",
+          "msrp": 53700,
+          "config": "Crew Cab 4WD short box, 2.7L turbo I4",
+          "note": ""
+        },
+        {
+          "trim": "RST",
+          "msrp": 51400,
+          "config": "Crew Cab 2WD short box, 2.7L turbo I4",
+          "note": "Crew Cab 4WD short box 2.7L $54,700."
+        },
+        {
+          "trim": "LT Trail Boss",
+          "msrp": 59700,
+          "config": "Crew Cab 4WD short box, 2.7L turbo I4 - 4WD only",
+          "note": "The article's text puts the LT Trail Boss at $62,195 incl. destination vs $62,495 in its table."
+        },
+        {
+          "trim": "LTZ",
+          "msrp": 58100,
+          "config": "Crew Cab 2WD short box, 5.3L V8",
+          "note": "4WD price not extracted (no 2.7L row for LTZ)."
+        },
+        {
+          "trim": "High Country",
+          "msrp": 63000,
+          "config": "Crew Cab 2WD short box, 5.3L V8",
+          "note": "4WD price not extracted."
+        },
+        {
+          "trim": "ZR2",
+          "msrp": 71800,
+          "config": "Crew Cab 4WD short box, 3.0L Duramax diesel",
+          "note": ""
+        }
+      ],
+      "source": "https://gmauthority.com/blog/2025/12/2026-chevy-silverado-1500-gets-price-increase/",
+      "source_type": "secondary",
+      "note": "Price level after the Dec-2025 increase: destination rose $200 ($2,595 to $2,795) and base MSRP rose $100 on Crew Cab configurations only (net +$200 Regular/Double Cab, +$300 Crew Cab). Figures here = published 'MSRP + DFC' minus $2,795, so the pre-increase base MSRPs were identical for Regular/Double Cabs and $100 lower for Crew Cabs. Because the destination charge jumped from $1,995 (2025 launch) to $2,595/$2,795, the excluding-destination MSRPs are slightly BELOW 2025 for several trims. Custom Trail Boss (Crew Cab 4WD short box 2.7L): $52,900. Last year of this generation (an all-new 2027 Silverado was introduced in June 2026)."
+    }
+  ],
+  "gaps": [
+    "2016: no pricing page reached (web-search budget was exhausted when the previous agent reached these years; the 12-call recovery budget went to 2018/2020/2024/2026). iSeeCars has an equivalent page at https://www.iseecars.com/car/2016-chevrolet-silverado_1500-price (not fetched).",
+    "2017: no pricing page reached; iSeeCars equivalent at https://www.iseecars.com/car/2017-chevrolet-silverado_1500-price (not fetched).",
+    "2019: destination charge not stated by any fetched page (announcement prices exceed cars.com MSRPs by exactly $1,495 on every trim). GM's own release is on media.chevrolet.com, which is robots-disallowed; edmunds.com fetch was blocked (provenance).",
+    "2021: no configuration table reached. GM Authority (Dec 2020) reports a mid-year increase: WT 4.3L V6 2WD from $30,595 to $30,995 incl. destination; WT and LTZ +$400, LT/RST/High Country +$500, Custom Trail Boss/LT Trail Boss +$600 (Custom not stated). iSeeCars equivalent at https://www.iseecars.com/car/2021-chevrolet-silverado_1500-price (not fetched).",
+    "2022: three mid-year increases; the May-2022 level is recorded, introductory prices are in the year note.",
+    "2023: destination charge at launch ($1,795 vs $1,895) is inferred, see year note.",
+    "2024: the iSeeCars level appears to be $100 above GM Authority's launch figure for the WT; the High Country figure differs from motor1.com's.",
+    "2026: recorded at the post-Dec-2025 increase level; LTZ/High Country Crew Cab 4WD prices not extracted. news.gm.com (Sep 16, 2026) lists a '2026 Chevrolet Silverado LT AWD - $42,945' incl. destination, which cannot be reconciled with any 1500 configuration and is ignored.",
+    "All years: GM's pricing releases (media.chevrolet.com / media.gm.com PDFs) are robots-disallowed, so every recorded year is from a secondary source."
+  ]
+}

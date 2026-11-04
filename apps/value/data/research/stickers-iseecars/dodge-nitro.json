@@ -1,0 +1,147 @@
+{
+"make": "Dodge",
+"model": "Nitro",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (nitro).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "4x2 Heat 4dr SUV",
+"msrp": 21590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SE 4dr SUV",
+"msrp": 21590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SXT 4dr SUV",
+"msrp": 23235,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heat 4dr SUV",
+"msrp": 23340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE 4dr SUV",
+"msrp": 23340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SXT 4dr SUV",
+"msrp": 24985,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Detonator 4dr SUV",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Shock 4dr SUV",
+"msrp": 26750,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Detonator 4dr SUV",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Shock 4dr SUV",
+"msrp": 28500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-dodge-nitro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 750,
+"trims": [
+{
+"trim": "4x2 SE 4dr SUV",
+"msrp": 21590,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Heat 4dr SUV",
+"msrp": 22245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 SXT 4dr SUV",
+"msrp": 23235,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SE 4dr SUV",
+"msrp": 23340,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Heat 4dr SUV",
+"msrp": 23995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 SXT 4dr SUV",
+"msrp": 24985,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Detonator 4dr SUV",
+"msrp": 26245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Shock 4dr SUV",
+"msrp": 27245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Detonator 4dr SUV",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Shock 4dr SUV",
+"msrp": 28995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-dodge-nitro-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

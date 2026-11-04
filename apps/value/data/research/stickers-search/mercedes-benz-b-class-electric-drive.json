@@ -1,0 +1,54 @@
+{
+"make": "Mercedes-Benz",
+"model": "B-Class Electric Drive",
+"body": "Sedan",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2014,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 42375,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2014+Mercedes-Benz+B-Class+Electric+Drive+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (blog.consumerguide.com, caranddriver.com)."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 42000,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2015+Mercedes-Benz+B-Class+Electric+Drive+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (jdpower.com, kbb.com)."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 41450,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2016+Mercedes-Benz+B-Class+Electric+Drive+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (jdpower.com, syvnews.com)."
+}
+],
+"gaps": []
+}

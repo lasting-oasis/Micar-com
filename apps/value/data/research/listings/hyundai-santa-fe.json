@@ -1,0 +1,207 @@
+{
+ "make": "Hyundai",
+ "model": "Santa Fe",
+ "samples": [
+  {
+   "year": 2016,
+   "trim_filter": null,
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/santa-fe/year-2016/",
+   "fetched": "2026-10-28",
+   "page_average": null,
+   "listings": [
+    {
+     "price": 9390,
+     "miles": 115224,
+     "location": "Mesa, AZ",
+     "trim": "Limited AWD",
+     "body": "SUV / Crossover",
+     "note": "3-row LWB Santa Fe (not Santa Fe Sport)"
+    },
+    {
+     "price": 12347,
+     "miles": 120190,
+     "location": "Bloomington, MN",
+     "trim": "Limited AWD",
+     "body": "SUV / Crossover",
+     "note": "3-row LWB"
+    },
+    {
+     "price": 10797,
+     "miles": 75534,
+     "location": "Mesa, AZ",
+     "trim": "SE AWD",
+     "body": "SUV / Crossover",
+     "note": "3-row LWB"
+    },
+    {
+     "price": 8848,
+     "miles": 131763,
+     "location": "Suffolk, VA",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": "3-row LWB"
+    },
+    {
+     "price": 16998,
+     "miles": 51170,
+     "location": "El Paso, TX",
+     "trim": "SE FWD",
+     "body": "SUV / Crossover",
+     "note": "3-row LWB; high for the year"
+    }
+   ]
+  },
+  {
+   "year": 2019,
+   "trim_filter": "SEL",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/santa-fe/year-2019/?trim=sel",
+   "fetched": "2026-10-28",
+   "page_average": 25071,
+   "listings": [
+    {
+     "price": 16262,
+     "miles": 64961,
+     "location": "Fox Lake, IL",
+     "trim": "SEL 2.4L AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 17388,
+     "miles": 55825,
+     "location": "Pensacola, FL",
+     "trim": "SEL 2.4L FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 11900,
+     "miles": 129440,
+     "location": "Knoxville, TN",
+     "trim": "SEL 2.4L AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 15590,
+     "miles": 93037,
+     "location": "Orlando, FL",
+     "trim": "SEL 2.4L AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 15992,
+     "miles": 77121,
+     "location": "Oklahoma City, OK",
+     "trim": "SEL 2.4L FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "SEL",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/santa-fe/year-2022/?trim=sel",
+   "fetched": "2026-10-28",
+   "page_average": 25071,
+   "listings": [
+    {
+     "price": 17076,
+     "miles": 77353,
+     "location": "Port Charlotte, FL",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 21240,
+     "miles": 46478,
+     "location": "Columbus, GA",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 16680,
+     "miles": 113784,
+     "location": "Wood River, IL",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 19146,
+     "miles": 49176,
+     "location": "Hialeah, FL",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 21893,
+     "miles": 56183,
+     "location": "Brunswick, GA",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "SEL",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/hyundai/santa-fe/year-2024/?trim=sel",
+   "fetched": "2026-10-28",
+   "page_average": 25071,
+   "listings": [
+    {
+     "price": 26819,
+     "miles": 21981,
+     "location": "Fort Myers, FL",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": "page's first two (Sponsored) listings were not captured"
+    },
+    {
+     "price": 24095,
+     "miles": 62268,
+     "location": "Lugoff, SC",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 26287,
+     "miles": 20892,
+     "location": "Miami, FL",
+     "trim": "SEL FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 27252,
+     "miles": 40840,
+     "location": "Countryside, IL",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 29630,
+     "miles": 26977,
+     "location": "Marlton, NJ",
+     "trim": "SEL AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016: no SEL trim for the 2016 'Santa Fe' (3-row LWB: SE, Limited), so the unfiltered 2016 page was fetched; it showed only 16 nationwide listings and they are the 3-row model, not the 2-row Santa Fe Sport. A 2016 Santa Fe Sport sample was not fetched.",
+  "page_average: the FAQ sentence 'The average price for the <year> Hyundai Santa Fe SEL is $25,071' is identical on the 2019, 2022 and 2024 pages (boilerplate, not year-specific); the 2016 page said $25,517 for a non-existent 2016 SEL, so 2016 is null.",
+  "2024: the page extractor skipped the first two Sponsored listings, so the five recorded are the next five."
+ ]
+}

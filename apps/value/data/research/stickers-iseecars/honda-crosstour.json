@@ -1,0 +1,258 @@
+{
+"make": "Honda",
+"model": "Crosstour",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (accord_crosstour, crosstour).",
+"years": [
+{
+"year": 2010,
+"destination": 710,
+"trims": [
+{
+"trim": "Accord Crosstour EX 4dr Crossover",
+"msrp": 29670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Accord Crosstour EX-L 4dr Crossover",
+"msrp": 32570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Accord Crosstour AWD EX-L 4dr Crossover",
+"msrp": 34020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Accord Crosstour EX-L 4dr Crossover w/Navi",
+"msrp": 34770,
+"config": "",
+"note": ""
+},
+{
+"trim": "Accord Crosstour AWD EX-L 4dr Crossover w/Navi",
+"msrp": 36220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-honda-accord_crosstour-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 810,
+"trims": [
+{
+"trim": "Accord Crosstour EX 4dr Crossover",
+"msrp": 29990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Accord Crosstour EX-L 4dr Crossover",
+"msrp": 32890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Accord Crosstour AWD EX-L 4dr Crossover",
+"msrp": 34340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Accord Crosstour EX-L 4dr Crossover w/Navi",
+"msrp": 35090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Accord Crosstour AWD EX-L 4dr Crossover w/Navi",
+"msrp": 36540,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-honda-accord_crosstour-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 830,
+"trims": [
+{
+"trim": "EX 4dr Crossover",
+"msrp": 27755,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX V6 4dr Crossover",
+"msrp": 30440,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Crossover",
+"msrp": 30805,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Crossover w/Navi",
+"msrp": 32905,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L V6 4dr Crossover",
+"msrp": 33090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L V6 4dr Crossover",
+"msrp": 34540,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L V6 4dr Crossover w/Navi",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L V6 4dr Crossover w/Navi",
+"msrp": 36640,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-honda-crosstour-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 830,
+"trims": [
+{
+"trim": "EX 4dr Crossover",
+"msrp": 27230,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX V6 4dr Crossover",
+"msrp": 30890,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Crossover",
+"msrp": 30915,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Crossover w/Navi",
+"msrp": 33015,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L V6 4dr Crossover",
+"msrp": 33540,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L V6 4dr Crossover",
+"msrp": 34990,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L V6 4dr Crossover w/Navi",
+"msrp": 35640,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L V6 4dr Crossover w/Navi",
+"msrp": 37090,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-honda-crosstour-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 830,
+"trims": [
+{
+"trim": "EX 4dr Crossover",
+"msrp": 27380,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX V6 4dr Crossover",
+"msrp": 31040,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Crossover",
+"msrp": 31065,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L 4dr Crossover w/Navi",
+"msrp": 33165,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L V6 4dr Crossover",
+"msrp": 33690,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L V6 4dr Crossover",
+"msrp": 35140,
+"config": "",
+"note": ""
+},
+{
+"trim": "EX-L V6 4dr Crossover w/Navi",
+"msrp": 35790,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD EX-L V6 4dr Crossover w/Navi",
+"msrp": 37240,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-honda-crosstour-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

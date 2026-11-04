@@ -1,0 +1,214 @@
+{
+  "make": "Buick",
+  "model": "Enclave",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "(none - unfiltered)",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/buick/enclave/year-2016/",
+      "fetched": "2026-10-28",
+      "page_average": 24797,
+      "page_total_listings": 48,
+      "note": "Essence did not exist for 2016 (trims were Convenience/Leather/Premium), so the unfiltered year page was fetched directly; each row's trim recorded. The page still quotes an 'Essence' average, which cannot refer to a 2016 trim. Page states 'The average price for the <year> Buick Enclave Essence is $24,797' - identical on all four pages, so it is boilerplate.",
+      "listings": [
+        {
+          "price": 9349,
+          "miles": 121444,
+          "location": "St. Louis, MO",
+          "trim": "Leather FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 13225,
+          "miles": 103509,
+          "location": "Longview, TX",
+          "trim": "Premium FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 11399,
+          "miles": 107832,
+          "location": "Platte City, MO",
+          "trim": "Premium AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 10917,
+          "miles": 107637,
+          "location": "Sanford, FL",
+          "trim": "Premium FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14300,
+          "miles": 85276,
+          "location": "Sarasota, FL",
+          "trim": "Premium FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "Essence",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/buick/enclave/year-2019/?trim=essence",
+      "fetched": "2026-10-28",
+      "page_average": 24797,
+      "page_total_listings": 66,
+      "note": "First 5 in page order; no labels. Page counts inconsistent (intro 66; trim list 530). Page states 'The average price for the <year> Buick Enclave Essence is $24,797' - identical on all four pages, so it is boilerplate.",
+      "listings": [
+        {
+          "price": 14997,
+          "miles": 97606,
+          "location": "Layton, UT",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 22728,
+          "miles": 25431,
+          "location": "Fort Lauderdale, FL",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16763,
+          "miles": 95536,
+          "location": "Daphne, AL",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 17987,
+          "miles": 67361,
+          "location": "Manhattan, KS",
+          "trim": "Essence AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14219,
+          "miles": 104261,
+          "location": "San Antonio, TX",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "Essence",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/buick/enclave/year-2022/?trim=essence",
+      "fetched": "2026-10-28",
+      "page_average": 24797,
+      "page_total_listings": 29,
+      "note": "First 5 in page order; rows carry an 'Advertised price' tag, no Sponsored/CPO. Page counts inconsistent (intro 29; FAQ 530; year table 106 all trims). Page states 'The average price for the <year> Buick Enclave Essence is $24,797' - identical on all four pages, so it is boilerplate.",
+      "listings": [
+        {
+          "price": 25099,
+          "miles": 55618,
+          "location": "Alcoa, TN",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 25296,
+          "miles": 36614,
+          "location": "Sunrise, FL",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 22659,
+          "miles": 65299,
+          "location": "Shreveport, LA",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 22383,
+          "miles": 62548,
+          "location": "Plano, TX",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 16060,
+          "miles": 93444,
+          "location": "Pasadena, CA",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "Essence",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/buick/enclave/year-2024/?trim=essence",
+      "fetched": "2026-10-28",
+      "page_average": 24797,
+      "page_total_listings": 102,
+      "note": "First 5 in page order. Page states 'The average price for the <year> Buick Enclave Essence is $24,797' - identical on all four pages, so it is boilerplate.",
+      "listings": [
+        {
+          "price": 28205,
+          "miles": 34865,
+          "location": "Peoria, AZ",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 26795,
+          "miles": 49663,
+          "location": "Robbinsville, NJ",
+          "trim": "Essence AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 30927,
+          "miles": 24195,
+          "location": "Doral, FL",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 28114,
+          "miles": 43298,
+          "location": "Cornelius, NC",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 32778,
+          "miles": 20350,
+          "location": "Concord, NC",
+          "trim": "Essence FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2016: Essence trim did not exist (2016 trims Convenience/Leather/Premium); unfiltered year page used instead.",
+    "page_average is the same $24,797 on all four pages (boilerplate); do not use it."
+  ]
+}

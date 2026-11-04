@@ -1,0 +1,1173 @@
+{
+"make": "Dodge",
+"model": "Charger",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (charger).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 24590,
+"config": "",
+"note": ""
+},
+{
+"trim": "3.5L 4dr Sedan",
+"msrp": 25445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 26150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Fleet 4dr Sedan",
+"msrp": 26290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye 4dr Sedan",
+"msrp": 26645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.5L 4dr Sedan",
+"msrp": 28045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Fleet 4dr Sedan",
+"msrp": 28725,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr Sedan",
+"msrp": 29490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 29620,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 31370,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Rallye 4dr Sedan",
+"msrp": 32005,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 4dr Sedan",
+"msrp": 32345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr Sedan",
+"msrp": 33470,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T Plus 4dr Sedan",
+"msrp": 34445,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 4dr Sedan",
+"msrp": 38180,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 25395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye 4dr Sedan",
+"msrp": 27645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 29170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Rallye Plus 4dr Sedan",
+"msrp": 29395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 30395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 4dr Sedan",
+"msrp": 32395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr Sedan",
+"msrp": 32545,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Road and Track 4dr Sedan",
+"msrp": 33395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T Plus 4dr Sedan",
+"msrp": 34545,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Max 4dr Sedan",
+"msrp": 35395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T Max 4dr Sedan",
+"msrp": 37545,
+"config": "",
+"note": ""
+},
+{
+"trim": "MOPAR 11 4dr Sedan",
+"msrp": 38750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 995,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 25595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 29770,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr Sedan",
+"msrp": 30845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 30945,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 4dr Sedan",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr Sedan",
+"msrp": 32345,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT Plus 4dr Sedan",
+"msrp": 32845,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 4dr Sedan",
+"msrp": 32945,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Road and Track 4dr Sedan",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T Plus 4dr Sedan",
+"msrp": 34345,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Max 4dr Sedan",
+"msrp": 36195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T Max 4dr Sedan",
+"msrp": 38545,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Super Bee 4dr Sedan",
+"msrp": 41625,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 4dr Sedan",
+"msrp": 45925,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 995,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 26295,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 29295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Sedan",
+"msrp": 29595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 29970,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 4dr Sedan",
+"msrp": 31295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr Sedan",
+"msrp": 31795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 4dr Sedan",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr Sedan",
+"msrp": 32495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT Plus 4dr Sedan",
+"msrp": 33795,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Road and Track 4dr Sedan",
+"msrp": 33995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T Plus 4dr Sedan",
+"msrp": 34495,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Max 4dr Sedan",
+"msrp": 36495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T Max 4dr Sedan",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Super Bee 4dr Sedan",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 4dr Sedan",
+"msrp": 45250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 26995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 29695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 4dr Sedan",
+"msrp": 30095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 30470,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 30695,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 4dr Sedan",
+"msrp": 31695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr Sedan",
+"msrp": 32195,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Plus 4dr Sedan",
+"msrp": 32695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police 4dr Sedan",
+"msrp": 32970,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T 4dr Sedan",
+"msrp": 33395,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT 100th Anniversary Appearance Group 4dr Sedan",
+"msrp": 33495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT Plus 4dr Sedan",
+"msrp": 34195,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 100th Anniversary 4dr Sedan",
+"msrp": 34695,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Road and Track 4dr Sedan",
+"msrp": 34695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T Plus 4dr Sedan",
+"msrp": 35395,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Max 4dr Sedan",
+"msrp": 37195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD R/T Max 4dr Sedan",
+"msrp": 39895,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 Super Bee 4dr Sedan",
+"msrp": 43385,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT8 4dr Sedan",
+"msrp": 46385,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE RWD",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE AWD",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT AWD",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan RT RWD",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Road/Track RWD",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan RT Scat Pack RWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SRT 392 RWD",
+"msrp": 47995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SRT Hellcat RWD",
+"msrp": 62295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE RWD",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SE AWD",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SXT AWD",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan R/T RWD",
+"msrp": 33895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Road/Track RWD",
+"msrp": 33895,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan R/T Scat Pack RWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SRT 392 RWD",
+"msrp": 50995,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SRT Hellcat RWD",
+"msrp": 65945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SE RWD",
+"msrp": 27995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE AWD",
+"msrp": 30245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Daytona 340 RWD",
+"msrp": 34895,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack RWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Daytona 392 RWD",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT 392 RWD",
+"msrp": 51145,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 65945,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 1395,
+"trims": [
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 28995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 4dr Sedan w/Cloth",
+"msrp": 30495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 32020,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr Sedan",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT Plus 4dr Sedan w/Leather",
+"msrp": 33695,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 35495,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT Plus 4dr Sedan",
+"msrp": 36195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police 4dr Sedan",
+"msrp": 36750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Daytona 4dr Sedan",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T Scat Pack 4dr Sedan",
+"msrp": 39995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Daytona 392 4dr Sedan",
+"msrp": 44995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT 392 4dr Sedan",
+"msrp": 51145,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat 4dr Sedan",
+"msrp": 66295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 29470,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 31745,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 33570,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 36245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack RWD",
+"msrp": 40245,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 65795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 36495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack RWD",
+"msrp": 40495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack Widebody RWD",
+"msrp": 40495,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat RWD",
+"msrp": 69995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "SXT RWD",
+"msrp": 29995,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT RWD",
+"msrp": 31995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SXT AWD",
+"msrp": 33595,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT AWD",
+"msrp": 34995,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T RWD",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack RWD",
+"msrp": 41095,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack Widebody RWD",
+"msrp": 41095,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Widebody RWD",
+"msrp": 69995,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Widebody RWD",
+"msrp": 69995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1595,
+"trims": [
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 32500,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan",
+"msrp": 35275,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr Sedan",
+"msrp": 36100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 36355,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr Sedan",
+"msrp": 38275,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police 4dr Sedan",
+"msrp": 38655,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack 4dr Sedan",
+"msrp": 46225,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack 4dr Widebody Sedan",
+"msrp": 52220,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat 4dr Widebody Sedan",
+"msrp": 74900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye 4dr Widebody Sedan",
+"msrp": 83500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Jailbreak 4dr Widebody Sedan",
+"msrp": 84495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1595,
+"trims": [
+{
+"trim": "SXT 4dr Sedan",
+"msrp": 34230,
+"config": "",
+"note": ""
+},
+{
+"trim": "GT 4dr Sedan",
+"msrp": 36930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SXT 4dr Sedan",
+"msrp": 37830,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD GT 4dr Sedan",
+"msrp": 39930,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police 4dr Sedan",
+"msrp": 42635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan",
+"msrp": 43085,
+"config": "",
+"note": ""
+},
+{
+"trim": "R/T 4dr Sedan",
+"msrp": 43970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack 4dr Sedan",
+"msrp": 50330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Scat Pack 4dr Widebody Sedan",
+"msrp": 56325,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat 4dr Widebody Sedan",
+"msrp": 77345,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Jailbreak 4dr Widebody Sedan",
+"msrp": 79555,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye Jailbreak 4dr Widebody Sedan",
+"msrp": 86940,
+"config": "",
+"note": ""
+},
+{
+"trim": "SRT Hellcat Redeye 4dr Widebody Sedan",
+"msrp": 88155,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-11). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "AWD Daytona R/T 2dr Coupe",
+"msrp": 59595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Daytona Scat Pack 2dr Coupe",
+"msrp": 68195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1995,
+"trims": [
+{
+"trim": "AWD Daytona R/T 2dr Coupe",
+"msrp": 59595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Daytona Scat Pack 2dr Coupe",
+"msrp": 68195,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-dodge-charger-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,69 @@
+{
+"make": "Ferrari",
+"model": "FF",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ff).",
+"years": [
+{
+"year": 2012,
+"destination": 3750,
+"trims": [
+{
+"trim": "AWD 2dr Hatchback",
+"msrp": 295000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ferrari-ff-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 3750,
+"trims": [
+{
+"trim": "AWD 2dr Hatchback",
+"msrp": 295000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ferrari-ff-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 3750,
+"trims": [
+{
+"trim": "AWD 2dr Hatchback",
+"msrp": 295000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ferrari-ff-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr HB",
+"msrp": 300000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ferrari-ff-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

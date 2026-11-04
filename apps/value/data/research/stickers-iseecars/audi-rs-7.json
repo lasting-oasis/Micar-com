@@ -1,0 +1,87 @@
+{
+"make": "Audi",
+"model": "RS 7",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (rs_7).",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr HB Prestige",
+"msrp": 106500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-audi-rs_7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr HB Prestige",
+"msrp": 108900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr HB performance Prestige",
+"msrp": 129000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-audi-rs_7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "4.0 TFSI Prestige",
+"msrp": 110700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4.0 TFSI performance Prestige",
+"msrp": 129500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-audi-rs_7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "4.0 TFSI",
+"msrp": 113900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4.0 TFSI performance",
+"msrp": 130700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-audi-rs_7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

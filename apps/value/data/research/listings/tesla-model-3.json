@@ -1,0 +1,80 @@
+{
+  "make": "Tesla",
+  "model": "Model 3",
+  "samples": [
+    {
+      "year": 2019,
+      "trim_filter": null,
+      "source": "https://truecar.com/used-cars-for-sale/listings/tesla/model-3/year-2019",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Unfiltered page; TrueCar states per-trim averages: 'The average price for the 2019 Tesla Model 3 Long Range is $28,065'; also $28,882 for the trim labelled 'Model 3' and $22,163 for Standard Range Plus.",
+      "listings": [
+        {
+          "price": 24560,
+          "miles": 36089,
+          "location": "Pittsburg, CA",
+          "trim": "Performance Dual Motor",
+          "body": "Sedan",
+          "note": "Sponsored; 'Excellent price'"
+        },
+        {
+          "price": 22000,
+          "miles": 79808,
+          "location": "White Marsh, MD",
+          "trim": "Long Range Dual Motor",
+          "body": "Sedan",
+          "note": "Sponsored; 'Excellent price'"
+        },
+        {
+          "price": 22622,
+          "miles": 90005,
+          "location": "South Jordan, UT",
+          "trim": "Performance Dual Motor",
+          "body": "Sedan",
+          "note": "'Excellent price'"
+        },
+        {
+          "price": 21600,
+          "miles": 55310,
+          "location": "Seattle, WA",
+          "trim": "Long Range RWD",
+          "body": "Sedan",
+          "note": "'Excellent price'"
+        },
+        {
+          "price": 21498,
+          "miles": 79603,
+          "location": "Wake Forest, NC",
+          "trim": "Long Range RWD",
+          "body": "Sedan",
+          "note": "'Excellent price'"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": null,
+      "source": "https://truecar.com/used-cars-for-sale/listings/tesla/model-3/year-2022",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Page returned summary text only, no listing cards. Stated: 'The average price for the 2022 Tesla Model 3 Long Range is $24,730', Standard Range Plus and Performance 'averaging $21,601 and $27,421 respectively'; asking prices range $12,999-$34,988, mileage 2,205-143,725.",
+      "listings": []
+    },
+    {
+      "year": 2024,
+      "trim_filter": null,
+      "source": "https://Truecar.Com/used-cars-for-sale/listings/tesla/model-3/year-2024/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_average_note": "Page returned summary text only, no listing cards. Stated: 'The average price for the 2024 Tesla Model 3 Long Range is $35,766', Standard and Performance 'averaging $32,656 and $44,933 respectively'; 133 used 2024 Model 3s nationwide, prices $28,000-$47,999, mileage 208-44,899.",
+      "listings": []
+    }
+  ],
+  "gaps": [
+    "2016: Model 3 not sold (deliveries began MY2017); skipped.",
+    "No trim filter assigned; unfiltered year pages fetched, trim recorded per row. page_average left null because the unfiltered pages quote per-trim averages, not one figure; those sentences are in page_average_note (model-wide boilerplate, use with caution).",
+    "2022 and 2024: the fetched TrueCar pages rendered only summary text with no listing cards, so no individual listings were captured; not refetched (one page per year rule).",
+    "2019: page showed 7 listings (plus one non-vehicle ad); first 5 recorded."
+  ]
+}

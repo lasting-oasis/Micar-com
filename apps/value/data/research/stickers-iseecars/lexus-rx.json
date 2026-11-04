@@ -1,0 +1,885 @@
+{
+"make": "Lexus",
+"model": "RX",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (rx_350, rx_350h, rx_350l, rx_450h, rx_450hl).",
+"years": [
+{
+"year": 2010,
+"destination": 875,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 37625,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 39025,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 42685,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 44275,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 39075,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 40475,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 44735,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 46325,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 39075,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 40475,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 45235,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 46825,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 875,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 39660,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 41060,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 46310,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT 4dr SUV",
+"msrp": 47350,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 47710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 910,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 39760,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 41160,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H 4dr SUV",
+"msrp": 46410,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT 4dr SUV",
+"msrp": 47450,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 47810,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "RX 350 FWD 4dr",
+"msrp": 40970,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr",
+"msrp": 42370,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr F Sport",
+"msrp": 48710,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr Crafted Line F Sport",
+"msrp": 50220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-05-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "RX 350 FWD 4dr",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr F Sport",
+"msrp": 49125,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H FWD 4dr",
+"msrp": 52235,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr",
+"msrp": 53635,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr F Sport",
+"msrp": 57045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-01-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 995,
+"trims": [
+{
+"trim": "RX 350 FWD",
+"msrp": 43220,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD",
+"msrp": 44620,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 FWD",
+"msrp": 49120,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD",
+"msrp": 50520,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 53035,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD F SPORT 4dr SUV",
+"msrp": 56495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lexus-rx_450h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-12-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 1025,
+"trims": [
+{
+"trim": "RX 350 FWD",
+"msrp": 43470,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD",
+"msrp": 44870,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 45895,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 FWD",
+"msrp": 49120,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD",
+"msrp": 50520,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD F SPORT 4dr SUV",
+"msrp": 51255,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lexus-rx_450h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-01-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1025,
+"trims": [
+{
+"trim": "RX 350 FWD",
+"msrp": 43820,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD",
+"msrp": 45220,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 46245,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT FWD",
+"msrp": 49470,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT AWD",
+"msrp": 50870,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450HL Premium AWD",
+"msrp": 50970,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD F SPORT 4dr SUV",
+"msrp": 51605,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450HL Luxury AWD",
+"msrp": 54905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lexus-rx_450h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1025,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 44150,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 45550,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD 4dr SUV",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350L FWD",
+"msrp": 47300,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT 4dr SUV",
+"msrp": 47950,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350L AWD",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT 4dr SUV",
+"msrp": 49350,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT Performance 4dr SUV",
+"msrp": 50350,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD F SPORT 4dr SUV",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Performance 4dr SUV",
+"msrp": 51750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD F SPORT Performance 4dr SUV",
+"msrp": 52920,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350L Luxury FWD",
+"msrp": 53300,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350L Luxury AWD",
+"msrp": 54700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1025,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 45220,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 46620,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H AWD",
+"msrp": 47820,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT 4dr SUV",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT 4dr SUV",
+"msrp": 50100,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT Handling 4dr SUV",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H F SPORT Appearance AWD",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 450H F SPORT Handling AWD",
+"msrp": 53620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1075,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 45920,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 47320,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT 4dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT 4dr SUV",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT Handling 4dr SUV",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 53200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1150,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD 4dr SUV",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium 4dr SUV",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium 4dr SUV",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium 4dr SUV",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium+ 4dr SUV",
+"msrp": 52400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium+ 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium+ 4dr SUV",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Luxury 4dr SUV",
+"msrp": 55800,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 57000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Luxury 4dr SUV",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Luxury 4dr SUV",
+"msrp": 57400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1195,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium 4dr SUV",
+"msrp": 50750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD 4dr SUV",
+"msrp": 50750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium 4dr SUV",
+"msrp": 52350,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium+ 4dr SUV",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium 4dr SUV",
+"msrp": 52900,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium+ 4dr SUV",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium+ 4dr SUV",
+"msrp": 54750,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Luxury 4dr SUV",
+"msrp": 57730,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Luxury 4dr SUV",
+"msrp": 59330,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Luxury 4dr SUV",
+"msrp": 59880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-lexus-rx_350-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1150,
+"trims": [
+{
+"trim": "RX 350 4dr SUV",
+"msrp": 48975,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD 4dr SUV",
+"msrp": 50575,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD 4dr SUV",
+"msrp": 51125,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium 4dr SUV",
+"msrp": 51225,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium 4dr SUV",
+"msrp": 52825,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium 4dr SUV",
+"msrp": 53375,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 F SPORT Design 4dr SUV",
+"msrp": 53555,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Premium+ 4dr SUV",
+"msrp": 54715,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Design 4dr SUV",
+"msrp": 55155,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD F SPORT Design 4dr SUV",
+"msrp": 55705,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Premium+ 4dr SUV",
+"msrp": 56315,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Premium+ 4dr SUV",
+"msrp": 56865,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD F SPORT Handling 4dr SUV",
+"msrp": 57825,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 Luxury 4dr SUV",
+"msrp": 59770,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350 AWD Luxury 4dr SUV",
+"msrp": 61370,
+"config": "",
+"note": ""
+},
+{
+"trim": "RX 350H AWD Luxury 4dr SUV",
+"msrp": 61920,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-lexus-rx_350h-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

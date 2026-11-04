@@ -1,0 +1,267 @@
+{
+"make": "Cadillac",
+"model": "CT5",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (ct5).",
+"years": [
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 36895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 38895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 40695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 41695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 42695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 43695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-cadillac-ct5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1195,
+"trims": [
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 36995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 40795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 41795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 42795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 43795,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-cadillac-ct5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 37295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 39295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 41795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 42995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 43795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 44995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-cadillac-ct5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 38195,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 40195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 42695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 43895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 44695,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 45895,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-cadillac-ct5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "Luxury 4dr Sedan",
+"msrp": 38395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxury 4dr Sedan",
+"msrp": 40395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 42895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 44095,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 44895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 46095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-cadillac-ct5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "Premium Luxury 4dr Sedan",
+"msrp": 47595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Sedan",
+"msrp": 48595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premium Luxury 4dr Sedan",
+"msrp": 49595,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Sedan",
+"msrp": 50595,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-cadillac-ct5-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

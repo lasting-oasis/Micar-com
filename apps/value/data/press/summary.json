@@ -1,0 +1,62 @@
+{
+ "honda": {
+  "robots": 404,
+  "sitemaps_read": 1,
+  "pricing_urls": 0,
+  "allowed": 0
+ },
+ "nissan": {
+  "robots": 200,
+  "sitemaps_read": 1,
+  "pricing_urls": 0,
+  "allowed": 0
+ },
+ "kia": {
+  "robots": 403,
+  "sitemaps_read": 1,
+  "pricing_urls": 0,
+  "allowed": 0
+ },
+ "subaru": {
+  "robots": 200,
+  "sitemaps_read": 1,
+  "pricing_urls": 0,
+  "allowed": 0
+ },
+ "hyundai": {
+  "robots": 200,
+  "sitemaps_read": 1,
+  "pricing_urls": 0,
+  "allowed": 0
+ },
+ "stellantis": {
+  "robots": 200,
+  "sitemaps_read": 1,
+  "pricing_urls": 0,
+  "allowed": 0
+ },
+ "mazda": {
+  "robots": 404,
+  "sitemaps_read": 1,
+  "pricing_urls": 0,
+  "allowed": 0
+ },
+ "toyota": {
+  "robots": 200,
+  "sitemaps_read": 64,
+  "pricing_urls": 98,
+  "allowed": 98
+ },
+ "ford": {
+  "robots": 503,
+  "sitemaps_read": 1,
+  "pricing_urls": 0,
+  "allowed": 0
+ },
+ "gm": {
+  "robots": 200,
+  "sitemaps_read": 1,
+  "pricing_urls": 1,
+  "allowed": 1
+ }
+}

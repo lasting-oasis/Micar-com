@@ -1,0 +1,63 @@
+{
+"make": "Infiniti",
+"model": "G25",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (g25).",
+"years": [
+{
+"year": 2011,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 32000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Journey 4dr Sedan",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD x 4dr Sedan",
+"msrp": 35000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-infiniti-g25-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Journey 4dr Sedan",
+"msrp": 34500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD x 4dr Sedan",
+"msrp": 36100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-infiniti-g25-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

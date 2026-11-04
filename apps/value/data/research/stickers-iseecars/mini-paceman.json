@@ -1,0 +1,75 @@
+{
+"make": "Mini",
+"model": "Paceman",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (paceman).",
+"years": [
+{
+"year": 2013,
+"destination": 700,
+"trims": [
+{
+"trim": "Cooper 2dr Hatchback",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S 2dr Hatchback",
+"msrp": 26800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Cooper S ALL4 2dr Hatchback",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD John Cooper Works ALL4 2dr Hatchback",
+"msrp": 35500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-mini-paceman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "Cooper 2dr Hatchback",
+"msrp": 23300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S 2dr Hatchback",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Cooper S ALL4 2dr Hatchback",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD John Cooper Works ALL4 2dr Hatchback",
+"msrp": 35600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-mini-paceman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

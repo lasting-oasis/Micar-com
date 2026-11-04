@@ -1,0 +1,813 @@
+{
+"make": "Chevrolet",
+"model": "Traverse",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (traverse).",
+"years": [
+{
+"year": 2010,
+"destination": 775,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 29224,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 31224,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 31745,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/1LT",
+"msrp": 33745,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 34325,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 36325,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 37985,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 39985,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 775,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 29370,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 31370,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 32010,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/1LT",
+"msrp": 33865,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 34590,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 36590,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 38250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 40250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 29660,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 31660,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/ 1LT",
+"msrp": 32760,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/ 1LT",
+"msrp": 34760,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/ 2LT",
+"msrp": 35905,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/ 2LT",
+"msrp": 37905,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 39035,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 41035,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 860,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 30510,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 32510,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 33725,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/1LT",
+"msrp": 35725,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 36580,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 38580,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 40575,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 42575,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 875,
+"trims": [
+{
+"trim": "LS 4dr SUV",
+"msrp": 30795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS 4dr SUV",
+"msrp": 32795,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 34010,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/1LT",
+"msrp": 36010,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 36865,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 38865,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr SUV",
+"msrp": 41255,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ 4dr SUV",
+"msrp": 43255,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "FWD LS",
+"msrp": 30995,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 32995,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT w/1LT",
+"msrp": 33795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT w/1LT",
+"msrp": 35795,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT w/2LT",
+"msrp": 36295,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT w/2LT",
+"msrp": 38295,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LTZ",
+"msrp": 41935,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ",
+"msrp": 43935,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "FWD LS w/1SM",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LS w/1LS",
+"msrp": 31205,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS w/1LS",
+"msrp": 33205,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT w/1LT",
+"msrp": 34005,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT w/1LT",
+"msrp": 36005,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LT w/2LT",
+"msrp": 36505,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT w/2LT",
+"msrp": 38505,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LTZ",
+"msrp": 42145,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LTZ",
+"msrp": 44145,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-06-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 1SM",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD LS",
+"msrp": 31300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LS",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LT",
+"msrp": 34100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LT",
+"msrp": 36100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2LT",
+"msrp": 36650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2LT",
+"msrp": 38650,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 42045,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 44045,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 1L0",
+"msrp": 29930,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LS",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LS",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LT",
+"msrp": 35100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LT",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 3LT",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2LT",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3LT",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LZ",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LZ",
+"msrp": 47900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2LZ",
+"msrp": 52600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 1L0",
+"msrp": 29930,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LS",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LS",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LT",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 3LT",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LT",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3LT",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2LT",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LZ",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2LT",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LZ",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2LZ",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2LZ",
+"msrp": 53200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-03-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 1L0",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LS",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LS",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LT",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 3LT",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LT",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3LT",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2LT",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2LT",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LZ",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LZ",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2LZ",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2LZ",
+"msrp": 53200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "FWD 1L0",
+"msrp": 29800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LS",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LS",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LT",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 3LT",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LT",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3LT",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2LT",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 1LZ",
+"msrp": 46100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2LT",
+"msrp": 46100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 1LZ",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD 2LZ",
+"msrp": 51200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2LZ",
+"msrp": 53400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-traverse-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

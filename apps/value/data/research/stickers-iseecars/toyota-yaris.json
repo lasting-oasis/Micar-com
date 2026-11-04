@@ -1,0 +1,435 @@
+{
+"make": "Toyota",
+"model": "Yaris",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (yaris, yaris_ia).",
+"years": [
+{
+"year": 2010,
+"destination": 750,
+"trims": [
+{
+"trim": "Base 2dr Hatchback 5M",
+"msrp": 12605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 12905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 5M",
+"msrp": 13365,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Hatchback 4A",
+"msrp": 13405,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 4A",
+"msrp": 13705,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 4A",
+"msrp": 14165,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 760,
+"trims": [
+{
+"trim": "Base 2dr Hatchback 5M",
+"msrp": 13155,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 5M",
+"msrp": 13455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 5M",
+"msrp": 13715,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Hatchback 4A",
+"msrp": 13955,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Hatchback 4A",
+"msrp": 14255,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 4dr Sedan 4A",
+"msrp": 14515,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "L 2dr Hatchback 5M",
+"msrp": 14370,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 2dr Hatchback 4A",
+"msrp": 15095,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr Hatchback",
+"msrp": 15395,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 2dr Hatchback",
+"msrp": 15955,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 16430,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 5M",
+"msrp": 16480,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 4A",
+"msrp": 17280,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-08-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "L 2dr Hatchback 5M",
+"msrp": 14430,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Fleet 2dr Hatchback 5M",
+"msrp": 14430,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 2dr Hatchback 4A",
+"msrp": 15155,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Fleet 2dr Hatchback 4A",
+"msrp": 15155,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr Hatchback",
+"msrp": 15455,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Fleet 4dr Hatchback",
+"msrp": 15455,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 2dr Hatchback",
+"msrp": 16015,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Fleet 2dr Hatchback",
+"msrp": 16015,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 16490,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Fleet 4dr Hatchback",
+"msrp": 16490,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 5M",
+"msrp": 16540,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 4A",
+"msrp": 17340,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "3dr Liftback Man L (Natl)",
+"msrp": 14895,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Liftback Auto L (Natl)",
+"msrp": 15620,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Liftback Auto L (Natl)",
+"msrp": 15995,
+"config": "",
+"note": ""
+},
+{
+"trim": "3dr Liftback Auto LE (Natl)",
+"msrp": 16555,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Liftback Man SE (Natl)",
+"msrp": 16870,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Liftback Auto LE (Natl)",
+"msrp": 16930,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Liftback Auto SE (Natl)",
+"msrp": 17670,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "3-Door L Manual (Natl)",
+"msrp": 15250,
+"config": "",
+"note": ""
+},
+{
+"trim": "IA Manual (Natl)",
+"msrp": 15950,
+"config": "",
+"note": ""
+},
+{
+"trim": "3-Door L Auto (Natl)",
+"msrp": 16000,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-Door L Auto (Natl)",
+"msrp": 16375,
+"config": "",
+"note": ""
+},
+{
+"trim": "3-Door LE Auto (Natl)",
+"msrp": 16910,
+"config": "",
+"note": ""
+},
+{
+"trim": "IA Auto (Natl)",
+"msrp": 17050,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-Door SE Manual (Natl)",
+"msrp": 17200,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-Door LE Auto (Natl)",
+"msrp": 17285,
+"config": "",
+"note": ""
+},
+{
+"trim": "5-Door SE Auto (Natl)",
+"msrp": 18000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 930,
+"trims": [
+{
+"trim": "L 2dr Hatchback 5M",
+"msrp": 15635,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 2dr Hatchback 4A",
+"msrp": 16385,
+"config": "",
+"note": ""
+},
+{
+"trim": "L 4dr Hatchback",
+"msrp": 16760,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 2dr Hatchback",
+"msrp": 17285,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Hatchback",
+"msrp": 17660,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 5M",
+"msrp": 18260,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE 4dr Hatchback 4A",
+"msrp": 19060,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "L Manual (Natl)",
+"msrp": 15600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Manual (Natl)",
+"msrp": 16600,
+"config": "",
+"note": ""
+},
+{
+"trim": "L Auto (Natl)",
+"msrp": 16700,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Auto (Natl)",
+"msrp": 17700,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE Auto (Natl)",
+"msrp": 18700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-toyota-yaris-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,206 @@
+{
+  "make": "Nissan",
+  "model": "Sentra",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/sentra/year-2016/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 18153,
+      "listings": [
+        {
+          "price": 6716,
+          "miles": 153748,
+          "location": "South Jordan, UT",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 10854,
+          "miles": 89400,
+          "location": "Huntsville, AL",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 8584,
+          "miles": 89378,
+          "location": "Phoenix, AZ",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 12847,
+          "miles": 104949,
+          "location": "Honolulu, HI",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 6900,
+          "miles": 93000,
+          "location": "Marietta, GA",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/sentra/year-2019/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 18153,
+      "listings": [
+        {
+          "price": 6979,
+          "miles": 144806,
+          "location": "Naperville, IL",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 8961,
+          "miles": 128660,
+          "location": "Charleston, IL",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 11978,
+          "miles": 79811,
+          "location": "Clearwater, FL",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 12775,
+          "miles": 74748,
+          "location": "Raleigh, NC",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 14715,
+          "miles": 10355,
+          "location": "Miami, FL",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/sentra/year-2022/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 18153,
+      "listings": [
+        {
+          "price": 15545,
+          "miles": 54135,
+          "location": "Manassas, VA",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 19998,
+          "miles": 10596,
+          "location": "Houston, TX",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 16320,
+          "miles": 29088,
+          "location": "Glen Cove, NY",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15146,
+          "miles": 55373,
+          "location": "Hialeah, FL",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 15913,
+          "miles": 21418,
+          "location": "Inwood, NY",
+          "trim": "SV CVT",
+          "body": "Sedan",
+          "note": "CPO"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "SV",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/nissan/sentra/year-2024/?trim=sv",
+      "fetched": "2026-10-28",
+      "page_average": 18158,
+      "listings": [
+        {
+          "price": 16444,
+          "miles": 61620,
+          "location": "Sanford, FL",
+          "trim": "SV",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 15576,
+          "miles": 57487,
+          "location": "Naperville, IL",
+          "trim": "SV",
+          "body": "Sedan",
+          "note": "Sponsored"
+        },
+        {
+          "price": 17120,
+          "miles": 56607,
+          "location": "Carrollton, GA",
+          "trim": "SV",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17326,
+          "miles": 59307,
+          "location": "Miami, FL",
+          "trim": "SV",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 17523,
+          "miles": 57569,
+          "location": "Miami, FL",
+          "trim": "SV",
+          "body": "Sedan",
+          "note": ""
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "TrueCar's 'average price for the <year> Sentra SV' is $18,153 on the 2016, 2019 and 2022 pages alike (2024 page: $18,158), with identical SR/S figures, so it is model-wide boilerplate, not year-specific; recorded as printed, do not rely on it.",
+    "The ?trim=sv filter worked for all four years (36 / 133 / 216 / 1,072 SV listings); first 5 cards with mileage recorded per page, no pagination."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+"make": "Suzuki",
+"model": "SX4",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (sx4, sx4_sport).",
+"years": [
+{
+"year": 2010,
+"destination": 735,
+"trims": [
+{
+"trim": "4dr Sedan 6MT",
+"msrp": 13359,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan 6MT",
+"msrp": 14999,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport S 4dr Sedan 6M",
+"msrp": 16199,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan w/Popular Package CVT",
+"msrp": 16549,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport S 4dr Sedan CVT",
+"msrp": 17299,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SE 4dr Sedan CVT",
+"msrp": 17749,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport GTS 4dr Sedan CVT",
+"msrp": 18899,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-suzuki-sx4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 745,
+"trims": [
+{
+"trim": "Base 4dr Sedan",
+"msrp": 13499,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Sedan",
+"msrp": 15194,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE Anniversary Edition 4dr Sedan",
+"msrp": 16999,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-suzuki-sx4-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,691 @@
+{
+  "make": "Toyota",
+  "model": "Camry",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "LE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/camry/year-2016/?trim=le",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_note": "Page states 'TrueCar has 61 used 2016 Toyota Camry LE models for sale nationwide'; 29 cards on page 1, first 20 recorded. No 'averages $X' figure given for the LE (page only quotes averages for SE $21,673, Hybrid SE $30,232, Hybrid LE $26,961). All cards titled '2016 Toyota Camry LE I4 Automatic'. No CPO or Sponsored badges shown.",
+      "listings": [
+        {
+          "price": 17496,
+          "miles": 70377,
+          "location": "Mount Laurel, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 13992,
+          "miles": 96246,
+          "location": "Jacksonville, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 12958,
+          "miles": 114181,
+          "location": "Cleveland Heights, OH",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 12060,
+          "miles": 110904,
+          "location": "Cedar Falls, IA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 16222,
+          "miles": 96727,
+          "location": "Dixon, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 12498,
+          "miles": 119348,
+          "location": "Dumfries, VA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 12380,
+          "miles": 133489,
+          "location": "Waipahu, HI",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 15998,
+          "miles": 93593,
+          "location": "Palm Desert, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; CarMax"
+        },
+        {
+          "price": 15998,
+          "miles": 97275,
+          "location": "Tampa, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; CarMax"
+        },
+        {
+          "price": 10073,
+          "miles": 167034,
+          "location": "Sacramento, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 15353,
+          "miles": 79432,
+          "location": "Elgin, IL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18847,
+          "miles": 98500,
+          "location": "Honolulu, HI",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; one owner"
+        },
+        {
+          "price": 16998,
+          "miles": 99270,
+          "location": "Tolleson, AZ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; CarMax"
+        },
+        {
+          "price": 12149,
+          "miles": 149036,
+          "location": "Wilmington, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 21998,
+          "miles": 15283,
+          "location": "Rochester, NY",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; CarMax; one owner; very low miles"
+        },
+        {
+          "price": 12694,
+          "miles": 110682,
+          "location": "Cliffwood, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price; one owner"
+        },
+        {
+          "price": 10578,
+          "miles": 133231,
+          "location": "Alpharetta, GA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 18295,
+          "miles": 46651,
+          "location": "Vienna, VA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 12294,
+          "miles": 143139,
+          "location": "Stafford, VA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price; one owner"
+        },
+        {
+          "price": 17797,
+          "miles": 57572,
+          "location": "Cincinnati, OH",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "LE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/camry/year-2019/?trim=le",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_note": "Page states 'TrueCar has 111 used 2019 Toyota Camry LE models for sale nationwide' (388 for all 2019 Camry trims). First 20 cards recorded. No 'averages $X' figure for the LE; page only gives a range ('$2,995 to $778,002', clearly polluted by a bad listing) and averages for other trims (SE $21,845, Hybrid SE $30,306, Hybrid LE $27,160). All cards titled '2019 Toyota Camry LE Automatic'. An Autonomy subscription ad between cards was excluded.",
+      "listings": [
+        {
+          "price": 17489,
+          "miles": 59729,
+          "location": "Davie, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; Excellent price; one owner"
+        },
+        {
+          "price": 10574,
+          "miles": 184712,
+          "location": "Troy, MI",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; Excellent price"
+        },
+        {
+          "price": 19387,
+          "miles": 68872,
+          "location": "Lynnwood, WA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 19897,
+          "miles": 90715,
+          "location": "Mobile, AL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 19810,
+          "miles": 62988,
+          "location": "Stuart, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 12419,
+          "miles": 160689,
+          "location": "Arlington, TX",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 12680,
+          "miles": 161900,
+          "location": "Norco, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 19598,
+          "miles": 81607,
+          "location": "Raleigh, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 18489,
+          "miles": 103886,
+          "location": "Phoenix, AZ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 14223,
+          "miles": 143599,
+          "location": "Houston, TX",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 19949,
+          "miles": 78550,
+          "location": "Burnsville, MN",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; one owner"
+        },
+        {
+          "price": 19000,
+          "miles": 75987,
+          "location": "Danbury, CT",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; one owner"
+        },
+        {
+          "price": 18584,
+          "miles": 91804,
+          "location": "Poway, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 19841,
+          "miles": 64968,
+          "location": "Westminster, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price; one owner"
+        },
+        {
+          "price": 15299,
+          "miles": 135492,
+          "location": "Silver Spring, MD",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price; one owner"
+        },
+        {
+          "price": 18750,
+          "miles": 80375,
+          "location": "Hillsboro, OR",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 19668,
+          "miles": 69574,
+          "location": "Streamwood, IL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 18995,
+          "miles": 79263,
+          "location": "Hamburg, PA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 15457,
+          "miles": 115123,
+          "location": "Corona, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 21795,
+          "miles": 42642,
+          "location": "Baltimore, MD",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "LE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/camry/year-2022/?trim=le",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_note": "Page states 'TrueCar has 108 used 2022 Toyota Camry LE models for sale nationwide' (599 for all 2022 Camry trims). First 20 vehicle cards recorded (an Autonomy subscription ad card was skipped). No 'averages $X' figure for the LE; page gives only a range ('$3,021 to $53,970') and an SE average of $21,673. All cards titled '2022 Toyota Camry LE Automatic FWD'.",
+      "listings": [
+        {
+          "price": 21879,
+          "miles": 22705,
+          "location": "Los Angeles, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; Excellent price; one owner"
+        },
+        {
+          "price": 17073,
+          "miles": 73992,
+          "location": "Sacramento, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; Excellent price"
+        },
+        {
+          "price": 18093,
+          "miles": 114698,
+          "location": "Winter Park, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 23483,
+          "miles": 44812,
+          "location": "Henderson, NV",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 19995,
+          "miles": 86726,
+          "location": "Tempe, AZ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; one owner"
+        },
+        {
+          "price": 18597,
+          "miles": 69274,
+          "location": "Bellingham, WA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 21998,
+          "miles": 69150,
+          "location": "Murray, UT",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; one owner"
+        },
+        {
+          "price": 23297,
+          "miles": 54054,
+          "location": "Macon, GA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Fair price"
+        },
+        {
+          "price": 21595,
+          "miles": 47815,
+          "location": "Jacksonville, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; one owner"
+        },
+        {
+          "price": 23877,
+          "miles": 30861,
+          "location": "North Dartmouth, MA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; one owner"
+        },
+        {
+          "price": 21767,
+          "miles": 52117,
+          "location": "Fort Myers, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price; one owner"
+        },
+        {
+          "price": 18500,
+          "miles": 78423,
+          "location": "Rockville, MD",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": ""
+        },
+        {
+          "price": 19095,
+          "miles": 93154,
+          "location": "Albuquerque, NM",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; DriveTime"
+        },
+        {
+          "price": 22027,
+          "miles": 56844,
+          "location": "Henderson, NV",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price"
+        },
+        {
+          "price": 21314,
+          "miles": 64272,
+          "location": "Dublin, OH",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price; one owner"
+        },
+        {
+          "price": 22693,
+          "miles": 60842,
+          "location": "Ocala, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 19859,
+          "miles": 97945,
+          "location": "Bakersfield, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 24501,
+          "miles": 16726,
+          "location": "Creve Coeur, MO",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 22119,
+          "miles": 51342,
+          "location": "League City, TX",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; one owner"
+        },
+        {
+          "price": 20485,
+          "miles": 74341,
+          "location": "Hayward, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price; one owner"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "LE",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/toyota/camry/year-2024/?trim=le",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_note": "Page states 'TrueCar has 291 used 2024 Toyota Camry LE models for sale nationwide'. First 20 vehicle cards recorded (Autonomy ad skipped). No 'averages $X' figure for the LE; page quotes only an SE average of $21,845 and a boilerplate range. Cards titled '2024 Toyota Camry LE Automatic FWD' unless noted; three cards carried an extra 'SE' label after the drivetrain, noted per row. Two cards are AWD.",
+      "listings": [
+        {
+          "price": 19995,
+          "miles": 95077,
+          "location": "Hayward, CA",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; Excellent price"
+        },
+        {
+          "price": 21994,
+          "miles": 62167,
+          "location": "Greenville, SC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Sponsored; CPO; Excellent price"
+        },
+        {
+          "price": 18875,
+          "miles": 58297,
+          "location": "Little Falls, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Excellent price"
+        },
+        {
+          "price": 19627,
+          "miles": 125994,
+          "location": "Miami, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; card title read 'LE Automatic FWD SE' (trim label ambiguous)"
+        },
+        {
+          "price": 24317,
+          "miles": 19896,
+          "location": "Miami, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        },
+        {
+          "price": 25494,
+          "miles": 40110,
+          "location": "Daytona Beach, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price"
+        },
+        {
+          "price": 24990,
+          "miles": 29578,
+          "location": "Winter Park, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price"
+        },
+        {
+          "price": 22993,
+          "miles": 64000,
+          "location": "Hudson, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 22837,
+          "miles": 46030,
+          "location": "Doral, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 24687,
+          "miles": 38059,
+          "location": "Raleigh, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price; card title read 'LE Automatic FWD SE' (trim label ambiguous)"
+        },
+        {
+          "price": 22549,
+          "miles": 61996,
+          "location": "Orlando, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 23995,
+          "miles": 28983,
+          "location": "Davie, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price"
+        },
+        {
+          "price": 26995,
+          "miles": 13913,
+          "location": "Greenville, SC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 26294,
+          "miles": 36134,
+          "location": "Daytona Beach, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 26402,
+          "miles": 31761,
+          "location": "Winston-Salem, NC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price"
+        },
+        {
+          "price": 27487,
+          "miles": 5903,
+          "location": "Fairlawn, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price"
+        },
+        {
+          "price": 27798,
+          "miles": 29851,
+          "location": "Chattanooga, TN",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Great price"
+        },
+        {
+          "price": 27603,
+          "miles": 21350,
+          "location": "Irmo, SC",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "CPO; Great price; card title read 'LE Automatic FWD SE' (trim label ambiguous)"
+        },
+        {
+          "price": 27756,
+          "miles": 35120,
+          "location": "Burlington, NJ",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price; AWD"
+        },
+        {
+          "price": 21726,
+          "miles": 35915,
+          "location": "Miami, FL",
+          "trim": "LE",
+          "body": "Sedan",
+          "note": "Excellent price"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "No year/trim 'averages $X' figure was present on any of the four Camry LE pages (TrueCar only quoted averages for other trims, e.g. SE), so page_average is null for all four years.",
+    "2024: three LE-filtered cards carried an extra 'SE' label in the card title; recorded as LE per the filter but flagged in note.",
+    "Listings are the first 20 cards of page 1 only (no pagination), nationwide, as of 2026-10-28."
+  ]
+}

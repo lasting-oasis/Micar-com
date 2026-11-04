@@ -1,0 +1,444 @@
+{
+"make": "Chevrolet",
+"model": "Blazer",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (blazer).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "FWD L",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD",
+"msrp": 33300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 36000,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD RS",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "FWD Premier",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD RS",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier",
+"msrp": 45600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-blazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1195,
+"trims": [
+{
+"trim": "L 4dr SUV",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/1LT",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 32800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/3LT",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/3LT",
+"msrp": 39000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr SUV",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD RS 4dr SUV",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier 4dr SUV",
+"msrp": 45600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-blazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "L FWD",
+"msrp": 28800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT FWD",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT FWD",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT AWD",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT FWD",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT AWD",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS FWD",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier FWD",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS AWD",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier AWD",
+"msrp": 44900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-blazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1395,
+"trims": [
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 33400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 36100,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/3LT",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/3LT",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr SUV",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD RS 4dr SUV",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier 4dr SUV",
+"msrp": 44000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chevrolet-blazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1395,
+"trims": [
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 35100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/3LT",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/3LT",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr SUV",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD RS 4dr SUV",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier 4dr SUV",
+"msrp": 45700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-chevrolet-blazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 35400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/3LT",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/3LT",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr SUV",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD RS 4dr SUV",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier 4dr SUV",
+"msrp": 45700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-chevrolet-blazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-02-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "LT 4dr SUV w/2LT",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/2LT",
+"msrp": 38300,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr SUV w/3LT",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LT 4dr SUV w/3LT",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr SUV",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "RS 4dr SUV",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Premier 4dr SUV",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD RS 4dr SUV",
+"msrp": 45900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-chevrolet-blazer-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-12-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

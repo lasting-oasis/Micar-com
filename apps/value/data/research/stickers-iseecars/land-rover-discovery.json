@@ -1,0 +1,636 @@
+{
+"make": "Land Rover",
+"model": "Discovery",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (discovery, discovery_sport).",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Sport AWD 4dr SE",
+"msrp": 37070,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 4dr HSE",
+"msrp": 41570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 4dr HSE LUX",
+"msrp": 45570,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-landrover-discovery_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Sport AWD 4dr SE",
+"msrp": 37455,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 4dr HSE",
+"msrp": 41955,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD 4dr HSE LUX",
+"msrp": 45955,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-landrover-discovery_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-07-02). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 995,
+"trims": [
+{
+"trim": "Sport AWD SE 4dr SUV",
+"msrp": 37695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD HSE 4dr SUV",
+"msrp": 42195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD HSE Luxury 4dr SUV",
+"msrp": 46595,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 Supercharged",
+"msrp": 49990,
+"config": "",
+"note": ""
+},
+{
+"trim": "HSE V6 Supercharged",
+"msrp": 56950,
+"config": "",
+"note": ""
+},
+{
+"trim": "HSE Td6 Diesel",
+"msrp": 58950,
+"config": "",
+"note": ""
+},
+{
+"trim": "HSE Luxury V6 Supercharged",
+"msrp": 63950,
+"config": "",
+"note": ""
+},
+{
+"trim": "HSE Luxury Td6 Diesel",
+"msrp": 65950,
+"config": "",
+"note": ""
+},
+{
+"trim": "First Edition V6 Supercharged",
+"msrp": 73950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-landrover-discovery_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 995,
+"trims": [
+{
+"trim": "Sport AWD SE 4dr SUV",
+"msrp": 37795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD HSE 4dr SUV (237HP)",
+"msrp": 42395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD HSE Luxury 4dr SUV (237HP)",
+"msrp": 46795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD HSE 4dr SUV (286HP)",
+"msrp": 49395,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 52090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD HSE Luxury 4dr SUV (286HP)",
+"msrp": 52895,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Td6 4dr SUV",
+"msrp": 54090,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE 4dr SUV",
+"msrp": 58490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE Td6 4dr SUV",
+"msrp": 60490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE Luxury 4dr SUV",
+"msrp": 65490,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE Luxury Td6 4dr SUV",
+"msrp": 67490,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-landrover-discovery-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1025,
+"trims": [
+{
+"trim": "Sport SE 4WD",
+"msrp": 37990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport HSE 4WD",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Landmark 4WD",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport HSE Luxury 4WD",
+"msrp": 46990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport HSE 286hp 4WD",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr SUV",
+"msrp": 52950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport HSE Luxury 286hp 4WD",
+"msrp": 53200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE Td6 4dr SUV",
+"msrp": 54950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE 4dr SUV",
+"msrp": 59700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE Td6 4dr SUV",
+"msrp": 61700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE Luxury 4dr SUV",
+"msrp": 67200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD HSE Luxury Td6 4dr SUV",
+"msrp": 69200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-landrover-discovery-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Sport Standard 4WD",
+"msrp": 37800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport S 4WD",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport S R-Dynamic 4WD",
+"msrp": 43100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SE 4WD",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SE R-Dynamic 4WD",
+"msrp": 46150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE V6 Supercharged",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport HSE R-Dynamic 4WD",
+"msrp": 52800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Td6 Diesel",
+"msrp": 54300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Landmark Edition V6 Supercharged",
+"msrp": 58500,
+"config": "",
+"note": ""
+},
+{
+"trim": "HSE V6 Supercharged",
+"msrp": 59700,
+"config": "",
+"note": ""
+},
+{
+"trim": "HSE Td6 Diesel",
+"msrp": 61700,
+"config": "",
+"note": ""
+},
+{
+"trim": "HSE Luxury V6 Supercharged",
+"msrp": 67200,
+"config": "",
+"note": ""
+},
+{
+"trim": "HSE Luxury Td6 Diesel",
+"msrp": 69200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-landrover-discovery-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Sport S 4WD",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport S R-Dynamic 4WD",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SE 4WD",
+"msrp": 45350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport SE R-Dynamic 4WD",
+"msrp": 46950,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 S",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "P300 S R-Dynamic",
+"msrp": 56400,
+"config": "",
+"note": ""
+},
+{
+"trim": "P360 S R-Dynamic",
+"msrp": 61900,
+"config": "",
+"note": ""
+},
+{
+"trim": "P360 HSE R-Dynamic",
+"msrp": 68900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-landrover-discovery-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1350,
+"trims": [
+{
+"trim": "Sport AWD P250 S 4dr SUV",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD P250 S R-Dynamic 4dr SUV",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD P250 SE 4dr SUV",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD P250 SE R-Dynamic 4dr SUV",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 S 4dr SUV",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 S R-Dynamic 4dr SUV",
+"msrp": 57500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 S R-Dynamic 4dr SUV",
+"msrp": 63100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 HSE R-Dynamic 4dr SUV",
+"msrp": 70300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-landrover-discovery-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-02-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1475,
+"trims": [
+{
+"trim": "Sport AWD P250 S 4dr SUV",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD P250 S R-Dynamic 4dr SUV",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD P250 SE 4dr SUV",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD P250 SE R-Dynamic 4dr SUV",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 S 4dr SUV",
+"msrp": 58400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 S R-Dynamic 4dr SUV",
+"msrp": 61600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 S R-Dynamic 4dr SUV",
+"msrp": 67400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 HSE R-Dynamic 4dr SUV",
+"msrp": 73700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 Metropolitan Edition 4dr SUV",
+"msrp": 77800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-landrover-discovery-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1350,
+"trims": [
+{
+"trim": "Sport AWD P250 S 4dr SUV",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD P250 SE-Dynamic 4dr SUV",
+"msrp": 53100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 S 4dr SUV",
+"msrp": 59900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 Dynamic SE 4dr SUV",
+"msrp": 64100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 Dynamic SE 4dr SUV",
+"msrp": 69900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 Metropolitan 4dr SUV",
+"msrp": 79300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-landrover-discovery-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-10-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1625,
+"trims": [
+{
+"trim": "Sport AWD P250 S 4dr SUV",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport AWD P250 Dynamic SE 4dr SUV",
+"msrp": 53100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 S 4dr SUV",
+"msrp": 60200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P300 Dynamic SE 4dr SUV",
+"msrp": 64200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 Dynamic SE 4dr SUV",
+"msrp": 70000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD P360 Metropolitan 4dr SUV",
+"msrp": 79800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-landrover-discovery_sport-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

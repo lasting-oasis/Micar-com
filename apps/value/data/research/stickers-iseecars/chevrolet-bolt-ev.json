@@ -1,0 +1,135 @@
+{
+"make": "Chevrolet",
+"model": "Bolt EV",
+"body": "Hatchback / Wagon",
+"note": "Trim-level MSRPs from iSeeCars price pages (bolt_ev).",
+"years": [
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "5dr HB LT",
+"msrp": 36620,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Premier",
+"msrp": 40905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-bolt_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-03). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "5dr HB LT",
+"msrp": 36620,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr HB Premier",
+"msrp": 40905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-bolt_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "5dr Wagon LT",
+"msrp": 36620,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon Premier",
+"msrp": 41020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-bolt_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "5dr Wagon LT",
+"msrp": 36620,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon Premier",
+"msrp": 41020,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-bolt_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "5dr Wagon LT",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "5dr Wagon Premier",
+"msrp": 41700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-bolt_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "1LT 4dr Hatchback",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT 4dr Hatchback",
+"msrp": 34700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chevrolet-bolt_ev-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

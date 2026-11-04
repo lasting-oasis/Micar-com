@@ -1,0 +1,450 @@
+{
+"make": "Ford",
+"model": "Taurus",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (taurus).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 25170,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 27370,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 29200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 31770,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 33620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SHO 4dr Sedan",
+"msrp": 37770,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 795,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 25555,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 27755,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 29605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 32155,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 34005,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SHO 4dr Sedan",
+"msrp": 38155,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 795,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 25555,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 27755,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 29605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 32155,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 34005,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SHO 4dr Sedan",
+"msrp": 38155,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 795,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 26700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor 4dr Sedan",
+"msrp": 27210,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor 4dr Sedan",
+"msrp": 28360,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 30750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 34950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SHO 4dr Sedan",
+"msrp": 39300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 26780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor 4dr Sedan",
+"msrp": 27455,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor 4dr Sedan",
+"msrp": 28605,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 29080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 30930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 34280,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 36130,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SHO 4dr Sedan",
+"msrp": 39980,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 27055,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SEL FWD",
+"msrp": 29485,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SEL AWD",
+"msrp": 31335,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited FWD",
+"msrp": 34405,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited AWD",
+"msrp": 36255,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SHO AWD",
+"msrp": 40220,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-07-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan SE FWD",
+"msrp": 27220,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SEL FWD",
+"msrp": 29650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SEL AWD",
+"msrp": 31500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited FWD",
+"msrp": 34570,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Limited AWD",
+"msrp": 36420,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan SHO AWD",
+"msrp": 40385,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-07-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 27345,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 29775,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 31625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 36855,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 38705,
+"config": "",
+"note": ""
+},
+{
+"trim": "SHO AWD",
+"msrp": 42520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 875,
+"trims": [
+{
+"trim": "SE 4dr Sedan",
+"msrp": 27690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police Interceptor 4dr Sedan",
+"msrp": 28250,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Police Interceptor 4dr Sedan",
+"msrp": 29400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Sedan",
+"msrp": 30120,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Sedan",
+"msrp": 31970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Sedan",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Sedan",
+"msrp": 39050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SHO 4dr Sedan",
+"msrp": 42865,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-ford-taurus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-09-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

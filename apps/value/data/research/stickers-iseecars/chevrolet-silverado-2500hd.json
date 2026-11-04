@@ -1,0 +1,648 @@
+{
+"make": "Chevrolet",
+"model": "Silverado 2500HD",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (silverado_2500hd).",
+"years": [
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive Work Truck",
+"msrp": 32955,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive Work Truck",
+"msrp": 35135,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive Work Truck",
+"msrp": 35330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive Work Truck",
+"msrp": 35910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Work Truck",
+"msrp": 36740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive Work Truck",
+"msrp": 36935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LT",
+"msrp": 37320,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Work Truck",
+"msrp": 38090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive Work Truck",
+"msrp": 38285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Work Truck",
+"msrp": 39695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Work Truck",
+"msrp": 39890,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LT",
+"msrp": 39895,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive LT",
+"msrp": 40090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT",
+"msrp": 40445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LT",
+"msrp": 42075,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 42270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT",
+"msrp": 43240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive LT",
+"msrp": 43435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 45290,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT",
+"msrp": 45370,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive LTZ",
+"msrp": 45485,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 45565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 47870,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LTZ",
+"msrp": 48065,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 48440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive LTZ",
+"msrp": 48635,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 51020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LTZ",
+"msrp": 51215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive High Country",
+"msrp": 53590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive High Country",
+"msrp": 53785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive High Country",
+"msrp": 56740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive High Country",
+"msrp": 56935,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-silverado_2500hd-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2017-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive Work Truck",
+"msrp": 34400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive Work Truck",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive Work Truck",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive Work Truck",
+"msrp": 37400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Work Truck",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive Work Truck",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LT",
+"msrp": 38800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Work Truck",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive Work Truck",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Work Truck",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LT",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Work Truck",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive LT",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LT",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 43700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive LT",
+"msrp": 44900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT",
+"msrp": 46800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive LTZ",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 47000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LTZ",
+"msrp": 49500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive LTZ",
+"msrp": 50100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LTZ",
+"msrp": 52700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive High Country",
+"msrp": 55700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive High Country",
+"msrp": 55900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive High Country",
+"msrp": 58800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive High Country",
+"msrp": 59000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-silverado_2500hd-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive Work Truck",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive Work Truck",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive Work Truck",
+"msrp": 37500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive Work Truck",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LT",
+"msrp": 39000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Work Truck",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive Work Truck",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive Custom",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive Custom",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Work Truck",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive Work Truck",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LT",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive LT",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Custom",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive Custom",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Work Truck",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Work Truck",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Custom",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive Custom",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LT",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LT",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT",
+"msrp": 43800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive LT",
+"msrp": 44000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Custom",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive Custom",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LT",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 2-Wheel Drive LTZ",
+"msrp": 49500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 51100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 2-Wheel Drive LTZ",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Long Box 4-Wheel Drive LTZ",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive LTZ",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive High Country",
+"msrp": 62400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Long Box 4-Wheel Drive High Country",
+"msrp": 62600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-silverado_2500hd-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,30 @@
+name: Gemini MSRP test
+
+# One-off: asks Gemini (Google Search grounding, key in GEMINI_API_KEY) for the base
+# MSRP of 50 cars whose real prices we already have, and saves the comparison.
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/gemini-test.yml, data/gemini/test-cars.json, scripts/gemini_msrp.py, scripts/gemini_probe.py, scripts/gemini_live_probe.py]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q websockets && python3 scripts/gemini_live_probe.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/gemini
+          git commit -m "Gemini MSRP test $(date -u +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done

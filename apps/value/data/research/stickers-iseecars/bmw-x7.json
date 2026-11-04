@@ -1,0 +1,192 @@
+{
+"make": "BMW",
+"model": "X7",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (x7).",
+"years": [
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 73900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr Sports Activity Vehicle",
+"msrp": 92600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-bmw-x7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 73900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD xDrive50i 4dr Sports Activity Vehicle",
+"msrp": 92600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M50i 4dr Sports Activity Vehicle",
+"msrp": 99600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-bmw-x7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-07-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 74900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M50i 4dr Sports Activity Vehicle",
+"msrp": 99800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA XB7 4dr Sports Activity Vehicle",
+"msrp": 141300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-bmw-x7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-05-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 74900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M50i 4dr Sports Activity Vehicle",
+"msrp": 99800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA XB7 4dr Sports Activity Vehicle",
+"msrp": 141300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-bmw-x7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 77850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M60i 4dr Sports Activity Vehicle",
+"msrp": 103100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA XB7 4dr Sports Activity Vehicle",
+"msrp": 145000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-bmw-x7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 81900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M60i 4dr Sports Activity Vehicle",
+"msrp": 108700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA XB7 4dr Sports Activity Vehicle",
+"msrp": 149400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-bmw-x7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1175,
+"trims": [
+{
+"trim": "AWD xDrive40i 4dr Sports Activity Vehicle",
+"msrp": 84300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD M60i 4dr Sports Activity Vehicle",
+"msrp": 111900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD ALPINA XB7 4dr Sports Activity Vehicle",
+"msrp": 152400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-bmw-x7-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

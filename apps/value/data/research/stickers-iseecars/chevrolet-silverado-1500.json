@@ -1,0 +1,3225 @@
+{
+"make": "Chevrolet",
+"model": "Silverado 1500",
+"body": "Pickup Truck",
+"note": "Trim-level MSRPs from iSeeCars price pages (silverado_1500).",
+"years": [
+{
+"year": 2011,
+"destination": null,
+"trims": [
+{
+"trim": "Work Truck",
+"msrp": 20850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Work Truck",
+"msrp": 21240,
+"config": "",
+"note": ""
+},
+{
+"trim": "Work Truck",
+"msrp": 24090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Work Truck",
+"msrp": 24390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Work Truck",
+"msrp": 25395,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 26810,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 26935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Work Truck",
+"msrp": 27435,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS",
+"msrp": 28140,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 29125,
+"config": "",
+"note": ""
+},
+{
+"trim": "Work Truck",
+"msrp": 29375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Work Truck",
+"msrp": 29475,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 29785,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 30085,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 30235,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS",
+"msrp": 30360,
+"config": "",
+"note": ""
+},
+{
+"trim": "Work Truck",
+"msrp": 30585,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS",
+"msrp": 31290,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 31465,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 32275,
+"config": "",
+"note": ""
+},
+{
+"trim": "Work Truck",
+"msrp": 32525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Xtra Fuel Economy",
+"msrp": 33225,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 33380,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS",
+"msrp": 33510,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 34615,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ",
+"msrp": 35280,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ",
+"msrp": 35580,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ",
+"msrp": 38430,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ",
+"msrp": 38625,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ",
+"msrp": 38730,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ",
+"msrp": 41775,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2011-09-10). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive WT",
+"msrp": 26520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive WT",
+"msrp": 26910,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive LS",
+"msrp": 28570,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LS",
+"msrp": 28960,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive WT",
+"msrp": 30460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive WT",
+"msrp": 30545,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive WT",
+"msrp": 30760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LS",
+"msrp": 32005,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive LT",
+"msrp": 32365,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LT",
+"msrp": 32490,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LS",
+"msrp": 32510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LS",
+"msrp": 32810,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive LT Z71",
+"msrp": 33955,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LT Z71",
+"msrp": 34080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive WT",
+"msrp": 34525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 34970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LT",
+"msrp": 35020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive WT",
+"msrp": 35270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LT",
+"msrp": 35875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LS",
+"msrp": 35985,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT",
+"msrp": 36175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LT Z71",
+"msrp": 36610,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LS",
+"msrp": 36830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LS",
+"msrp": 37130,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 37485,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 37565,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LT",
+"msrp": 37785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT Z71",
+"msrp": 37865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 38120,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive WT",
+"msrp": 38420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT",
+"msrp": 38470,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT Z71",
+"msrp": 39075,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LT Z71",
+"msrp": 39375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LS",
+"msrp": 39980,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 40160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LS",
+"msrp": 40280,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LTZ Z71",
+"msrp": 40840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 41060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT",
+"msrp": 41360,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LTZ",
+"msrp": 42710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT Z71",
+"msrp": 42750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 43010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 43050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LTZ Z71",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LTZ Z71",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ Z71",
+"msrp": 44190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LTZ",
+"msrp": 45860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 46160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LTZ Z71",
+"msrp": 46550,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ Z71",
+"msrp": 46850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive High Country",
+"msrp": 48315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive High Country",
+"msrp": 48615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive High Country",
+"msrp": 51590,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive High Country",
+"msrp": 51890,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive WT",
+"msrp": 27195,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive WT",
+"msrp": 27585,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive LS",
+"msrp": 29220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LS",
+"msrp": 29610,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive WT",
+"msrp": 31135,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive WT",
+"msrp": 31220,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive WT",
+"msrp": 31435,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LS",
+"msrp": 32970,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive Custom",
+"msrp": 33055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LS",
+"msrp": 33160,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive LT",
+"msrp": 33270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LT",
+"msrp": 33395,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LS",
+"msrp": 33460,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive WT",
+"msrp": 35200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 35645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LT",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LT",
+"msrp": 36780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LS",
+"msrp": 36950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Custom",
+"msrp": 37035,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive WT",
+"msrp": 37040,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT",
+"msrp": 37080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Custom",
+"msrp": 37230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LS",
+"msrp": 37445,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 38390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Custom",
+"msrp": 38625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 38690,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 38795,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LS",
+"msrp": 38840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT Z71",
+"msrp": 38990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT",
+"msrp": 39375,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LT",
+"msrp": 39785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive WT",
+"msrp": 40190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Custom",
+"msrp": 40380,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LS",
+"msrp": 40595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 41285,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 41350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Custom",
+"msrp": 41775,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 41965,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LS",
+"msrp": 41990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT",
+"msrp": 43360,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LTZ",
+"msrp": 43810,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT Z71",
+"msrp": 43875,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 44110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 44575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 45270,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ Z71",
+"msrp": 45740,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LTZ",
+"msrp": 46935,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 47235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LTZ Z71",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ Z71",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive High Country",
+"msrp": 49840,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive High Country",
+"msrp": 50140,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive High Country",
+"msrp": 53115,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive High Country",
+"msrp": 53415,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive WT",
+"msrp": 27785,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive WT",
+"msrp": 28175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive LS",
+"msrp": 29810,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LS",
+"msrp": 30200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive WT",
+"msrp": 31725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive WT",
+"msrp": 31810,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive WT",
+"msrp": 32025,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LS",
+"msrp": 33560,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive Custom",
+"msrp": 33645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LS",
+"msrp": 33750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LS",
+"msrp": 34050,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive LT",
+"msrp": 34210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LT",
+"msrp": 34335,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive WT",
+"msrp": 35790,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 36235,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LT",
+"msrp": 36865,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LS",
+"msrp": 37540,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Custom",
+"msrp": 37625,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive WT",
+"msrp": 37630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LT",
+"msrp": 37720,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT",
+"msrp": 38020,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LS",
+"msrp": 38035,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 39330,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 39385,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LS",
+"msrp": 39430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 39630,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT Z71",
+"msrp": 39930,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT",
+"msrp": 40315,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LT",
+"msrp": 40725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive WT",
+"msrp": 40780,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LS",
+"msrp": 41185,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 41940,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 42425,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LS",
+"msrp": 42580,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 42905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LTZ",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT Z71",
+"msrp": 44815,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 45165,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 46210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ Z71",
+"msrp": 46530,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LTZ",
+"msrp": 47525,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 47825,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LTZ Z71",
+"msrp": 49090,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ Z71",
+"msrp": 49390,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive High Country",
+"msrp": 51700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive High Country",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive High Country",
+"msrp": 54975,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive High Country",
+"msrp": 55275,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive WT",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive WT",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive LS",
+"msrp": 30400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LS",
+"msrp": 30700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive WT",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive WT",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive WT",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LS",
+"msrp": 34100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive Custom",
+"msrp": 34200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LS",
+"msrp": 34300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 2-Wheel Drive LT",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LS",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive LT",
+"msrp": 34700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive WT",
+"msrp": 36200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive WT",
+"msrp": 36300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LS",
+"msrp": 36600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Custom",
+"msrp": 36700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LT",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LS",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 38000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Custom",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LT",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LS",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Custom",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive WT",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LS",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Custom",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 40000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive LT Z71",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT",
+"msrp": 40700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LT",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LS",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Custom",
+"msrp": 41300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LTZ",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 45000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT Z71",
+"msrp": 45200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 45500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT Z71",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ Z71",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LTZ",
+"msrp": 47900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 48200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LTZ Z71",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ Z71",
+"msrp": 49700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive High Country",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive High Country",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive High Country",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive High Country",
+"msrp": 55600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Regular Cab Long Box 2-Wheel Drive WT",
+"msrp": 28300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive WT",
+"msrp": 32200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Regular Cab Long Box 4-Wheel Drive WT",
+"msrp": 32900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive Custom",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive WT",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive WT",
+"msrp": 34900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive WT",
+"msrp": 35500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LT",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive Custom",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive Custom",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Custom",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive WT",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive WT",
+"msrp": 38200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive RST",
+"msrp": 38800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LT",
+"msrp": 39300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive Custom Trail Boss",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LT",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT",
+"msrp": 40200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Custom",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Custom",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive RST",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive RST",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive Custom Trail Boss",
+"msrp": 41900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive RST",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive Custom Trail Boss",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT",
+"msrp": 42600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive RST",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive RST",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive LTZ",
+"msrp": 45400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive LTZ",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LT Trail Boss",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Double Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LT Trail Boss",
+"msrp": 48300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LT Trail Boss",
+"msrp": 48600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive LTZ",
+"msrp": 48700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive LTZ",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 2-Wheel Drive High Country",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 2-Wheel Drive High Country",
+"msrp": 53300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Short Box 4-Wheel Drive High Country",
+"msrp": 56300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Crew Cab Standard Box 4-Wheel Drive High Country",
+"msrp": 56600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 1595,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 28500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 32400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 33100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 35100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 35700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 37300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 38100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 38400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 39100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Double Cab 6.6 ft. SB",
+"msrp": 39700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 39900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 40500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 42400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 43200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Double Cab 6.6 ft. SB",
+"msrp": 43300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 44800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 45100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Double Cab 6.6 ft. SB",
+"msrp": 46400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Double Cab 6.6 ft. SB",
+"msrp": 46600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 48800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 49100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 53300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 53600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 56800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 57100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1695,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 29300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 33200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 35600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 35900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 38900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 39800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Double Cab 6.6 ft. SB",
+"msrp": 41700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/2FL",
+"msrp": 42100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/1LT",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 44400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/2FL",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 44600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/1LT",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 47200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Double Cab 6.6 ft. SB",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 52700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 53000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 57400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 57700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1795,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 6.6 ft. SB",
+"msrp": 34600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 34800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 37900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 6.6 ft. SB",
+"msrp": 39200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 39400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 40600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 41200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 41600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 43900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 44900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 45700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 47300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 47600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/2FL",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/1LT",
+"msrp": 49000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 49800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/2FL",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 50600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/1LT",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 51700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 53900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 55300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 55600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 58000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 59800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 63300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 63600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ZR2 4dr Crew Cab 5.8 ft. SB",
+"msrp": 68400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1895,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 6.6 ft. SB",
+"msrp": 36300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 36500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 39600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 6.6 ft. SB",
+"msrp": 40900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 41100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 42900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 45300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 48000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/2FL",
+"msrp": 50100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 50700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/1LT",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/2FL",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/1LT",
+"msrp": 53700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 58000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 60500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 60800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 62100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 65600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 65900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ZR2 4dr Crew Cab 5.8 ft. SB",
+"msrp": 71500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1995,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 6.6 ft. SB",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 40100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 6.6 ft. SB",
+"msrp": 41400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 41600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 42800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 43400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 45800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 46100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 48000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/2FL",
+"msrp": 50100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 50400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 50700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/1LT",
+"msrp": 51300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 52300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/2FL",
+"msrp": 52500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/1LT",
+"msrp": 53700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 54000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 55000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 57200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 58000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 58300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 60500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 60800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 66200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 66500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ZR2 4dr Crew Cab 5.8 ft. SB",
+"msrp": 69900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 2195,
+"trims": [
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 6.6 ft. SB",
+"msrp": 37000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 6.6 ft. SB",
+"msrp": 41600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 2dr Regular Cab 8 ft. LB",
+"msrp": 41800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 42700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Double Cab 6.6 ft. SB",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 5.8 ft. SB",
+"msrp": 46000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Work Truck 4dr Crew Cab 6.6 ft. SB",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Double Cab 6.6 ft. SB",
+"msrp": 46900,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Double Cab 6.6 ft. SB",
+"msrp": 48100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 5.8 ft. SB",
+"msrp": 49300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom 4dr Crew Cab 6.6 ft. SB",
+"msrp": 49600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/2FL",
+"msrp": 50200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 5.8 ft. SB",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 50800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Double Cab 6.6 ft. SB w/1LT",
+"msrp": 51400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 51800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 Custom Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Double Cab 6.6 ft. SB",
+"msrp": 52400,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/2FL",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 5.8 ft. SB w/1LT",
+"msrp": 53800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT 4dr Crew Cab 6.6 ft. SB",
+"msrp": 54100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 5.8 ft. SB",
+"msrp": 54800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 RST 4dr Crew Cab 6.6 ft. SB",
+"msrp": 55100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 57700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 5.8 ft. SB",
+"msrp": 58800,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LT Trail Boss 4dr Crew Cab 6.6 ft. SB",
+"msrp": 59100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 5.8 ft. SB",
+"msrp": 61000,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 LTZ 4dr Crew Cab 6.6 ft. SB",
+"msrp": 61300,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x2 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 62700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 5.8 ft. SB",
+"msrp": 66200,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 High Country 4dr Crew Cab 6.6 ft. SB",
+"msrp": 66500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4x4 ZR2 4dr Crew Cab 5.8 ft. SB",
+"msrp": 70000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-chevrolet-silverado_1500-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

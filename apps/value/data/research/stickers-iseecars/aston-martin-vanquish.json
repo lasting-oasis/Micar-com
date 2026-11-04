@@ -1,0 +1,156 @@
+{
+"make": "Aston Martin",
+"model": "Vanquish",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (vanquish).",
+"years": [
+{
+"year": 2013,
+"destination": 2115,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 278295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-astonmartin-vanquish-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 2825,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 283295,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible",
+"msrp": 301295,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-astonmartin-vanquish-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 2825,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 287650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carbon Edition 2dr Coupe",
+"msrp": 302695,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible",
+"msrp": 305650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Carbon Edition Volante 2dr Convertible",
+"msrp": 320695,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-astonmartin-vanquish-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-12-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 2825,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 287650,
+"config": "",
+"note": ""
+},
+{
+"trim": "Volante 2dr Convertible",
+"msrp": 305650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-astonmartin-vanquish-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-05-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "S Coupe",
+"msrp": 294950,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Volante",
+"msrp": 312950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-astonmartin-vanquish-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-18). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "S Coupe",
+"msrp": 293650,
+"config": "",
+"note": ""
+},
+{
+"trim": "S Volante",
+"msrp": 311650,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-astonmartin-vanquish-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 5000,
+"trims": [
+{
+"trim": "2dr Coupe",
+"msrp": 427700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-astonmartin-vanquish-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-06-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

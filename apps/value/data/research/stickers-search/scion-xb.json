@@ -1,0 +1,24 @@
+{
+"make": "Scion",
+"model": "xB",
+"body": "Hatchback / Wagon",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 17120,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2015+Scion+xB+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (autoweek.com, carbuzz.com, pressroom.toyota.com)."
+}
+],
+"gaps": []
+}

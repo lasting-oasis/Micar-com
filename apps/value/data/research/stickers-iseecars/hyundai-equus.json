@@ -1,0 +1,135 @@
+{
+"make": "Hyundai",
+"model": "Equus",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (equus).",
+"years": [
+{
+"year": 2011,
+"destination": 900,
+"trims": [
+{
+"trim": "Signature 4dr Sedan",
+"msrp": 58000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr Sedan",
+"msrp": 64500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-hyundai-equus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 900,
+"trims": [
+{
+"trim": "Signature 4dr Sedan",
+"msrp": 59000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr Sedan",
+"msrp": 66000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-hyundai-equus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 920,
+"trims": [
+{
+"trim": "Signature 4dr Sedan",
+"msrp": 59250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr Sedan",
+"msrp": 66250,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-hyundai-equus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 920,
+"trims": [
+{
+"trim": "Signature 4dr Sedan",
+"msrp": 61000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr Sedan",
+"msrp": 68000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-hyundai-equus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Signature",
+"msrp": 61500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Ultimate",
+"msrp": 68750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-hyundai-equus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-10-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan Signature",
+"msrp": 61500,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Ultimate",
+"msrp": 68750,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-hyundai-equus-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

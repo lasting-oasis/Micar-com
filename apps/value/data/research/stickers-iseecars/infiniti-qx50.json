@@ -1,0 +1,489 @@
+{
+"make": "Infiniti",
+"model": "QX50",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (qx50).",
+"years": [
+{
+"year": 2014,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Crossover",
+"msrp": 34850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Crossover",
+"msrp": 36250,
+"config": "",
+"note": ""
+},
+{
+"trim": "Journey 4dr Crossover",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Journey 4dr Crossover",
+"msrp": 38600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "RWD 4dr",
+"msrp": 35000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr",
+"msrp": 36400,
+"config": "",
+"note": ""
+},
+{
+"trim": "RWD 4dr Journey",
+"msrp": 37200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Journey",
+"msrp": 38600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 995,
+"trims": [
+{
+"trim": "4dr Crossover",
+"msrp": 34450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Crossover",
+"msrp": 35850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "RWD",
+"msrp": 34650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD",
+"msrp": 36450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-13). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "PURE FWD",
+"msrp": 36650,
+"config": "",
+"note": ""
+},
+{
+"trim": "PURE AWD",
+"msrp": 38650,
+"config": "",
+"note": ""
+},
+{
+"trim": "LUXE FWD",
+"msrp": 39500,
+"config": "",
+"note": ""
+},
+{
+"trim": "LUXE AWD",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "ESSENTIAL FWD",
+"msrp": 43450,
+"config": "",
+"note": ""
+},
+{
+"trim": "ESSENTIAL AWD",
+"msrp": 45450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-11-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "PURE FWD",
+"msrp": 37250,
+"config": "",
+"note": ""
+},
+{
+"trim": "PURE AWD",
+"msrp": 39250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LUXE FWD",
+"msrp": 40250,
+"config": "",
+"note": ""
+},
+{
+"trim": "LUXE AWD",
+"msrp": 42250,
+"config": "",
+"note": ""
+},
+{
+"trim": "ESSENTIAL FWD",
+"msrp": 44100,
+"config": "",
+"note": ""
+},
+{
+"trim": "ESSENTIAL AWD",
+"msrp": 46100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SENSORY FWD",
+"msrp": 48900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SENSORY AWD",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AUTOGRAPH FWD",
+"msrp": 53850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AUTOGRAPH AWD",
+"msrp": 55850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-10-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "PURE FWD",
+"msrp": 37950,
+"config": "",
+"note": ""
+},
+{
+"trim": "PURE AWD",
+"msrp": 39950,
+"config": "",
+"note": ""
+},
+{
+"trim": "LUXE FWD",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "LUXE AWD",
+"msrp": 43500,
+"config": "",
+"note": ""
+},
+{
+"trim": "ESSENTIAL FWD",
+"msrp": 44700,
+"config": "",
+"note": ""
+},
+{
+"trim": "ESSENTIAL AWD",
+"msrp": 46700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SENSORY FWD",
+"msrp": 50000,
+"config": "",
+"note": ""
+},
+{
+"trim": "SENSORY AWD",
+"msrp": 52000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AUTOGRAPH FWD",
+"msrp": 54200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AUTOGRAPH AWD",
+"msrp": 56850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1025,
+"trims": [
+{
+"trim": "Pure 4dr Crossover",
+"msrp": 39150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Pure 4dr Crossover",
+"msrp": 41150,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxe 4dr Crossover",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxe 4dr Crossover",
+"msrp": 44500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Essential 4dr Crossover",
+"msrp": 46950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Essential 4dr Crossover",
+"msrp": 48950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sensory 4dr Crossover",
+"msrp": 51650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sensory 4dr Crossover",
+"msrp": 53650,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Autograph 4dr Crossover",
+"msrp": 57100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1195,
+"trims": [
+{
+"trim": "Pure 4dr Crossover",
+"msrp": 40300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Pure 4dr Crossover",
+"msrp": 42300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxe 4dr Crossover",
+"msrp": 43600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxe 4dr Crossover",
+"msrp": 45600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 48500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 50500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sensory 4dr Crossover",
+"msrp": 52800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sensory 4dr Crossover",
+"msrp": 54800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Autograph 4dr Crossover",
+"msrp": 57350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1350,
+"trims": [
+{
+"trim": "Pure 4dr Crossover",
+"msrp": 41000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Pure 4dr Crossover",
+"msrp": 43000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Luxe 4dr Crossover",
+"msrp": 44300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Luxe 4dr Crossover",
+"msrp": 46300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport 4dr Crossover",
+"msrp": 49200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sport 4dr Crossover",
+"msrp": 51200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sensory 4dr Crossover",
+"msrp": 53500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Sensory 4dr Crossover",
+"msrp": 55500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Autograph 4dr Crossover",
+"msrp": 58050,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-infiniti-qx50-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-03-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

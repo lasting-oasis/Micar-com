@@ -1,0 +1,570 @@
+{
+ "make": "Toyota",
+ "model": "Sienna",
+ "body": "Minivan",
+ "note": "Rows are each trim's cheapest listed configuration; AWD and seating variants in row notes. Mobility, Auto Access Seat, Cargo and Autono-MaaS variants kept in year notes. 2021+ is hybrid-only (4th generation).",
+ "years": [
+  {
+   "year": 2016,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 28850,
+     "config": "FWD 7-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 31640,
+     "config": "FWD 8-Passenger",
+     "note": "LE AWD 7-Passenger $34,180"
+    },
+    {
+     "trim": "SE",
+     "msrp": 35210,
+     "config": "FWD 8-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "XLE",
+     "msrp": 35410,
+     "config": "FWD 8-Passenger",
+     "note": "XLE AWD 7-Passenger $37,620"
+    },
+    {
+     "trim": "XLE Premium",
+     "msrp": 38605,
+     "config": "FWD 8-Passenger",
+     "note": "XLE Premium AWD 7-Passenger $40,815"
+    },
+    {
+     "trim": "SE Premium",
+     "msrp": 39930,
+     "config": "FWD 8-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 41900,
+     "config": "FWD 7-Passenger",
+     "note": "listed as 'Ltd'; Ltd AWD $43,040"
+    },
+    {
+     "trim": "Limited Premium",
+     "msrp": 45270,
+     "config": "FWD 7-Passenger",
+     "note": "listed as 'Ltd Premium'; AWD $46,410"
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-sienna-2016/specs/",
+   "source_type": "secondary",
+   "note": "cars.com research specs page (no 2016 trims page surfaced in search); prices are labelled 'MSRP' with no destination statement, assumed same ex-destination basis as cars.com 'Starting MSRP'. Destination left null. Also listed: LE FWD Mobility $31,840, LE AAS (Auto Access Seat) FWD $37,655, XLE AAS FWD $41,245."
+  },
+  {
+   "year": 2017,
+   "destination": 960,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 29750,
+     "config": "FWD 7-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 32540,
+     "config": "FWD 8-Passenger",
+     "note": "AWD LE 7-Passenger $35,080"
+    },
+    {
+     "trim": "SE",
+     "msrp": 36110,
+     "config": "FWD 8-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "XLE",
+     "msrp": 36310,
+     "config": "FWD 8-Passenger",
+     "note": "AWD XLE 7-Passenger $38,520"
+    },
+    {
+     "trim": "XLE Premium",
+     "msrp": 39505,
+     "config": "FWD 8-Passenger",
+     "note": "AWD XLE Premium 7-Passenger $41,715"
+    },
+    {
+     "trim": "SE Premium",
+     "msrp": 40830,
+     "config": "FWD 8-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 42800,
+     "config": "FWD 7-Passenger",
+     "note": "AWD Limited $43,940"
+    },
+    {
+     "trim": "Limited Premium",
+     "msrp": 46170,
+     "config": "FWD 7-Passenger",
+     "note": "AWD Limited Premium $47,310"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2017-toyota-sienna-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year. Also listed: CE 4dr Cargo Mini-Van $27,645 (cargo/fleet), LE Mobility $32,740, LE Auto Access Seat $38,555, XLE Auto Access Seat $42,145."
+  },
+  {
+   "year": 2018,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 30850,
+     "config": "FWD 7-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 33760,
+     "config": "FWD 8-Passenger",
+     "note": "LE AWD 7-Passenger $36,300"
+    },
+    {
+     "trim": "SE",
+     "msrp": 37090,
+     "config": "FWD 8-Passenger",
+     "note": "no SE AWD listed"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 37090,
+     "config": "FWD 8-Passenger",
+     "note": "XLE AWD 7-Passenger $39,520"
+    },
+    {
+     "trim": "XLE Premium",
+     "msrp": 40780,
+     "config": "FWD 8-Passenger",
+     "note": "XLE Premium AWD 7-Passenger $43,210"
+    },
+    {
+     "trim": "SE Premium",
+     "msrp": 42305,
+     "config": "FWD 8-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "Limited",
+     "msrp": 43835,
+     "config": "FWD 7-Passenger",
+     "note": "Limited AWD $45,195"
+    },
+    {
+     "trim": "Limited Premium",
+     "msrp": 47355,
+     "config": "FWD 7-Passenger",
+     "note": "Limited Premium AWD $48,715"
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-sienna-2018/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; reflects the latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Each price is listed identically under (Natl), (GS) and (SE) regional versions. Also listed: LE Mobility FWD $33,770, LE Auto Access Seat FWD $39,685, XLE Auto Access Seat FWD $43,225."
+  },
+  {
+   "year": 2019,
+   "destination": 1120,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 31315,
+     "config": "FWD 7-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 34135,
+     "config": "FWD 8-Passenger",
+     "note": "AWD LE 7-Passenger $36,675"
+    },
+    {
+     "trim": "SE",
+     "msrp": 37465,
+     "config": "FWD 8-Passenger",
+     "note": "AWD SE 7-Passenger $38,970"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 37465,
+     "config": "FWD 8-Passenger",
+     "note": "AWD XLE 7-Passenger $39,895"
+    },
+    {
+     "trim": "XLE Premium",
+     "msrp": 41155,
+     "config": "FWD 8-Passenger",
+     "note": "AWD XLE Premium 7-Passenger $43,585"
+    },
+    {
+     "trim": "SE Premium",
+     "msrp": 43560,
+     "config": "FWD 8-Passenger",
+     "note": "AWD SE Premium 7-Passenger $45,065"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 44210,
+     "config": "FWD 7-Passenger",
+     "note": "AWD Limited $45,570"
+    },
+    {
+     "trim": "Limited Premium",
+     "msrp": 47730,
+     "config": "FWD 7-Passenger",
+     "note": "AWD Limited Premium $49,090"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2019-toyota-sienna-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year. Also listed: CE 4dr Cargo Mini-Van $29,390, LE Mobility $34,145, LE Auto Access Seat $40,060, XLE Auto Access Seat $43,600."
+  },
+  {
+   "year": 2020,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "L",
+     "msrp": 31640,
+     "config": "FWD 7-Passenger",
+     "note": ""
+    },
+    {
+     "trim": "LE",
+     "msrp": 34460,
+     "config": "FWD 8-Passenger",
+     "note": "LE AWD 7-Passenger $37,000"
+    },
+    {
+     "trim": "SE",
+     "msrp": 37790,
+     "config": "FWD 8-Passenger",
+     "note": "SE AWD 7-Passenger $39,295"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 37790,
+     "config": "FWD 8-Passenger",
+     "note": "XLE AWD 7-Passenger $40,220"
+    },
+    {
+     "trim": "XLE Premium",
+     "msrp": 41480,
+     "config": "FWD 8-Passenger",
+     "note": "XLE Premium AWD 7-Passenger $43,910"
+    },
+    {
+     "trim": "SE Premium",
+     "msrp": 43885,
+     "config": "FWD 8-Passenger",
+     "note": "SE Premium AWD 7-Passenger $45,390"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 44535,
+     "config": "FWD 7-Passenger",
+     "note": "Limited AWD $45,895"
+    },
+    {
+     "trim": "Limited Premium",
+     "msrp": 48055,
+     "config": "FWD 7-Passenger",
+     "note": "Limited Premium AWD $49,415"
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-sienna-2020/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; reflects the latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Each price is listed identically under (Natl), (GS) and (SE) regional versions. Also listed: LE Mobility FWD $34,470, LE Auto Access Seat FWD $40,385, XLE Auto Access Seat FWD $43,925."
+  },
+  {
+   "year": 2021,
+   "destination": 1215,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 34460,
+     "config": "FWD 8-Passenger Hybrid",
+     "note": "AWD LE 8-Passenger $36,460"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 39750,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "XLE 8-Passenger same price; AWD XLE 7-Passenger $41,750"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 42000,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "AWD XSE $42,760"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 46700,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "AWD Limited $48,500"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 49900,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "AWD Platinum $50,460"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2021-toyota-sienna-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year. 2021 is the redesigned 4th generation: hybrid-only powertrain; L, SE and the Premium packages dropped, XSE and Platinum added."
+  },
+  {
+   "year": 2022,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 35285,
+     "config": "FWD 8-Passenger Hybrid",
+     "note": "LE AWD 8-Passenger $37,285"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 40575,
+     "config": "FWD 7- or 8-Passenger Hybrid",
+     "note": "XLE AWD 7-Passenger $42,575"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 42825,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "XSE AWD $43,585"
+    },
+    {
+     "trim": "XLE Woodland Edition",
+     "msrp": 45500,
+     "config": "AWD Hybrid",
+     "note": "AWD only; trim name as listed on cars.com for 2022"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 47525,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "Limited AWD $49,525"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 50725,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "Platinum AWD $51,485"
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-sienna-2022/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; reflects the latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Each price is listed identically under (Natl), (GS) and (SE) regional versions."
+  },
+  {
+   "year": 2023,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 36885,
+     "config": "FWD 8-Passenger Hybrid",
+     "note": "LE AWD 8-Passenger $38,885"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 42195,
+     "config": "FWD 7- or 8-Passenger Hybrid",
+     "note": "XLE AWD 7-Passenger $44,195"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 44445,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "XSE AWD $45,205"
+    },
+    {
+     "trim": "Woodland Edition",
+     "msrp": 47695,
+     "config": "AWD 7-Passenger Hybrid",
+     "note": "AWD only"
+    },
+    {
+     "trim": "XSE 25th Anniversary",
+     "msrp": 48170,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "AWD $48,930; 2023-only special edition"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 49145,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "Limited AWD $51,145"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 53105,
+     "config": "AWD 7-Passenger Hybrid",
+     "note": "only an AWD Platinum style listed for 2023"
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-sienna-2023/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; reflects the latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Each price is listed identically under (Natl), (GS) and (SE) regional versions."
+  },
+  {
+   "year": 2024,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 37685,
+     "config": "FWD 8-Passenger Hybrid",
+     "note": "LE AWD 8-Passenger $39,685"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 42995,
+     "config": "FWD 7- or 8-Passenger Hybrid",
+     "note": "XLE AWD 7-Passenger $44,995"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 45245,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "XSE AWD $46,135"
+    },
+    {
+     "trim": "Woodland Edition",
+     "msrp": 48625,
+     "config": "AWD 7-Passenger Hybrid",
+     "note": "AWD only"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 49945,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "Limited AWD $51,945"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 53145,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "Platinum AWD $53,905"
+    }
+   ],
+   "source": "https://www.cars.com/research/toyota-sienna-2024/trims/",
+   "source_type": "secondary",
+   "note": "cars.com research trims page 'Starting MSRP' (excludes destination; reflects the latest in-year price, so mid-year increases may be included). Page states no destination charge, so destination left null. Each price is listed identically under (Natl), (GS) and (SE) regional versions. Also listed: XLE Autono-MaaS FWD 7-Passenger $41,285 (fleet/autonomy-platform variant, not a retail trim; kept out of rows)."
+  },
+  {
+   "year": 2025,
+   "destination": 1495,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 39485,
+     "config": "FWD 8-Passenger Hybrid",
+     "note": "AWD LE 8-Passenger $41,485"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 44295,
+     "config": "FWD 7- or 8-Passenger Hybrid",
+     "note": "AWD XLE 7-Passenger $46,295"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 46940,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "AWD XSE $47,830"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 50500,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "AWD Limited $52,500"
+    },
+    {
+     "trim": "Woodland Edition",
+     "msrp": 50725,
+     "config": "AWD 7-Passenger Hybrid",
+     "note": "AWD only; priced above FWD Limited"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 56445,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "AWD Platinum $57,205"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-toyota-sienna-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year."
+  },
+  {
+   "year": 2026,
+   "destination": 1595,
+   "trims": [
+    {
+     "trim": "LE",
+     "msrp": 41320,
+     "config": "FWD 8-Passenger Hybrid",
+     "note": "AWD LE 8-Passenger $43,320"
+    },
+    {
+     "trim": "XLE",
+     "msrp": 46020,
+     "config": "FWD 7- or 8-Passenger Hybrid",
+     "note": "AWD XLE 7-Passenger $48,020"
+    },
+    {
+     "trim": "XSE",
+     "msrp": 49245,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "AWD XSE $50,135"
+    },
+    {
+     "trim": "Limited",
+     "msrp": 52005,
+     "config": "FWD 7-Passenger Hybrid",
+     "note": "AWD Limited $54,005"
+    },
+    {
+     "trim": "Woodland Edition",
+     "msrp": 52100,
+     "config": "AWD 7-Passenger Hybrid",
+     "note": "AWD only"
+    },
+    {
+     "trim": "Platinum",
+     "msrp": 58710,
+     "config": "AWD 7-Passenger Hybrid",
+     "note": "only an AWD Platinum style listed for 2026"
+    }
+   ],
+   "source": "https://www.iseecars.com/car/toyota-sienna-price",
+   "source_type": "secondary",
+   "note": "iSeeCars Price table, MSRP column (ex-destination); destination is the page's per-style 'Destination Charge' column (same for every style). iSeeCars appears to show the latest MSRP for the model year. Page is iSeeCars' current-model page, titled 2026 Toyota Sienna Price ('2026 Toyota Sienna base price starts at $41,320 to $58,710')."
+  }
+ ],
+ "gaps": [
+  "No manufacturer source for any Sienna year: per round-1 notes pressroom.toyota.com returned client errors and its tables are images, so it was not tried; all years are secondary (iSeeCars or cars.com).",
+  "Direct WebFetch of iSeeCars 2016, 2017 and 2018 Sienna price URLs (typed from the pattern) was blocked because a permission prompt went unanswered; 2017 was later fetched after it appeared in search results. 2016 and 2018 use cars.com instead.",
+  "Destination charge is null for the cars.com years (2016, 2018, 2020, 2022, 2023, 2024) because those pages state none. iSeeCars destination values: 2017 $960, 2019 $1,120, 2021 $1,215, 2025 $1,495, 2026 $1,595.",
+  "Mixed sources: iSeeCars and cars.com both appear to show the latest in-year MSRP, so launch prices may be lower by a mid-year increase.",
+  "2016 comes from the cars.com specs page (labelled 'MSRP'), not a trims page."
+ ]
+}

@@ -1,0 +1,10 @@
+2012 Toyota Camry L base MSRP excluding destination
+2013 Lexus IS 350 sedan RWD base MSRP excluding destination
+2011 Honda Civic DX sedan manual base MSRP excluding destination
+2010 Dodge Charger SE base MSRP excluding destination
+2013 Toyota Corolla L base MSRP excluding destination
+2013 Nissan Altima 2.5 sedan base MSRP excluding destination
+2016 Honda Accord LX sedan base MSRP excluding destination
+2018 Ford F-150 XL regular cab base MSRP excluding destination
+2015 BMW 320i sedan base MSRP excluding destination
+2012 Kia Optima LX base MSRP excluding destination

@@ -1,0 +1,195 @@
+{
+"make": "Porsche",
+"model": "Macan",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (macan).",
+"years": [
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "AWD 4dr S",
+"msrp": 52600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Turbo",
+"msrp": 73900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-porsche-macan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-07-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "AWD",
+"msrp": 47500,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 54400,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS AWD",
+"msrp": 67200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 76000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-porsche-macan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-08-01). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "AWD",
+"msrp": 47800,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 55400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Sport Edition AWD",
+"msrp": 61100,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS AWD",
+"msrp": 68900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 77200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD w/Performance Pkg",
+"msrp": 87700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-porsche-macan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-29). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "AWD",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 58600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-porsche-macan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-02-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "AWD",
+"msrp": 50900,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 59400,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS AWD",
+"msrp": 71300,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 83600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-porsche-macan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-09-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "AWD",
+"msrp": 52100,
+"config": "",
+"note": ""
+},
+{
+"trim": "S AWD",
+"msrp": 60200,
+"config": "",
+"note": ""
+},
+{
+"trim": "GTS AWD",
+"msrp": 72100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Turbo AWD",
+"msrp": 84600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-porsche-macan-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-22). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,160 @@
+{
+ "make": "Kia",
+ "model": "Telluride",
+ "samples": [
+  {
+   "year": 2020,
+   "trim_filter": "S",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/telluride/year-2020/?trim=s",
+   "fetched": "2026-10-28",
+   "page_average": 28885,
+   "page_note": "Used in place of 2019 (first Telluride model year is 2020). Page says 99 used 2020 Telluride S nationwide. Sponsored/ad slots were skipped by the page reader, so these are the first non-sponsored rows.",
+   "listings": [
+    {
+     "price": 16812,
+     "miles": 121298,
+     "location": "Graniteville, SC",
+     "trim": "S FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 18354,
+     "miles": 94603,
+     "location": "Schererville, IN",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 19656,
+     "miles": 102062,
+     "location": "Phoenix, AZ",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 20287,
+     "miles": 89245,
+     "location": "Seekonk, MA",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 15590,
+     "miles": 139310,
+     "location": "Peoria, AZ",
+     "trim": "S FWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2022,
+   "trim_filter": "S",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/telluride/year-2022/?trim=s",
+   "fetched": "2026-10-28",
+   "page_average": 30082,
+   "page_note": "Page says 128 used 2022 Telluride S nationwide (another section says 1,238).",
+   "listings": [
+    {
+     "price": 25753,
+     "miles": 69080,
+     "location": "Clarksville, IN",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 30126,
+     "miles": 26945,
+     "location": "Oak Lawn, IL",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 28794,
+     "miles": 35301,
+     "location": "Bel Air, MD",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    },
+    {
+     "price": 27798,
+     "miles": 47580,
+     "location": "High Point, NC",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": "CPO"
+    },
+    {
+     "price": 28889,
+     "miles": 52565,
+     "location": "Swansea, MA",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "year": 2024,
+   "trim_filter": "S",
+   "source": "https://www.truecar.com/used-cars-for-sale/listings/kia/telluride/year-2024/?trim=s",
+   "fetched": "2026-10-28",
+   "page_average": 29036,
+   "page_note": "Page says 285 used 2024 Telluride S nationwide.",
+   "listings": [
+    {
+     "price": 29567,
+     "miles": 38232,
+     "location": "Columbus, GA",
+     "trim": "S FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 32886,
+     "miles": 28855,
+     "location": "Columbus, GA",
+     "trim": "S FWD",
+     "body": "SUV / Crossover",
+     "note": "Sponsored"
+    },
+    {
+     "price": 32038,
+     "miles": 29781,
+     "location": "Englewood, NJ",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": "CPO"
+    },
+    {
+     "price": 30003,
+     "miles": 28067,
+     "location": "Venice, FL",
+     "trim": "S FWD",
+     "body": "SUV / Crossover",
+     "note": "CPO"
+    },
+    {
+     "price": 30506,
+     "miles": 29104,
+     "location": "Louisville, KY",
+     "trim": "S AWD",
+     "body": "SUV / Crossover",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  "2016 and 2019: Telluride not sold (first model year 2020); 2020 sampled instead of 2019 and labelled 2020.",
+  "page_average figures differ by year here ($28,885 / $30,082 / $29,036) but are not monotonic with age; treat as unreliable boilerplate per brief."
+ ]
+}

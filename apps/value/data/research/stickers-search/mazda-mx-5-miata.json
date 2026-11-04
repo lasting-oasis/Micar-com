@@ -1,0 +1,39 @@
+{
+"make": "Mazda",
+"model": "MX-5 Miata",
+"body": "Coupe / Sports",
+"note": "Starting prices from search, used where no trim-level price list was found.",
+"years": [
+{
+"year": 2025,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 29330,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2025+Mazda+MX-5+Miata+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (bouchermazda.com, edmunds.com, mclartymazda.com)."
+},
+{
+"year": 2026,
+"destination": null,
+"trims": [
+{
+"trim": "Base (starting price)",
+"msrp": 30430,
+"config": "",
+"note": "Starting price from Google results; trim breakdown not on file."
+}
+],
+"source": "https://www.google.com/search?q=2026+Mazda+MX-5+Miata+MSRP",
+"source_type": "secondary",
+"note": "Starting MSRP found by search; two independent sites agreed within 1.5% (berkshiremazda.com, edmunds.com, mazdausa.com)."
+}
+],
+"gaps": []
+}

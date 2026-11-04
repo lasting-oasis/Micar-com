@@ -1,0 +1,99 @@
+{
+"make": "Polestar",
+"model": "2",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (2).",
+"years": [
+{
+"year": 2021,
+"destination": 1300,
+"trims": [
+{
+"trim": "AWD Launch Edition 4dr Fastback",
+"msrp": 59900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-polestar-2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1300,
+"trims": [
+{
+"trim": "Long Range Single Motor 4dr Fastback",
+"msrp": 45900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Long Range Dual Motor 4dr Fastback",
+"msrp": 49900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-polestar-2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1400,
+"trims": [
+{
+"trim": "Long Range Single Motor 4dr Fastback",
+"msrp": 48400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Long Range Dual Motor 4dr Fastback",
+"msrp": 51900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD BST Edition 270 4dr Fastback",
+"msrp": 75500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD BST Edition 230 4dr Fastback",
+"msrp": 79500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-polestar-2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1400,
+"trims": [
+{
+"trim": "Long Range Single Motor 4dr Fastback",
+"msrp": 49900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Long Range Dual Motor 4dr Fastback",
+"msrp": 55300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-polestar-2-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-04-30). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,214 @@
+{
+  "make": "Chevrolet",
+  "model": "Traverse",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/year-2016/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 31198,
+      "page_total_listings": 53,
+      "note": "First 5 in page order. page_average ($31,198 'average price for the ... LT') is identical on the 2016 and 2024 pages - boilerplate.",
+      "listings": [
+        {
+          "price": 10168,
+          "miles": 106932,
+          "location": "Joliet, IL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 8699,
+          "miles": 131852,
+          "location": "Alcoa, TN",
+          "trim": "LT with 2LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 7395,
+          "miles": 161765,
+          "location": "Reno, NV",
+          "trim": "LT with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 12997,
+          "miles": 69346,
+          "location": "Ellicott City, MD",
+          "trim": "LT with 2LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 8428,
+          "miles": 169165,
+          "location": "Lee's Summit, MO",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": null,
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/year-2019/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_total_listings": 332,
+      "note": "?trim=lt returned no exact matches (2018-2023 trims are 'LT Cloth'/'LT Leather'), so the unfiltered year page was used. Page gives per-trim averages only (LT Cloth $23,914).",
+      "listings": [
+        {
+          "price": 17515,
+          "miles": 95251,
+          "location": "San Antonio, TX",
+          "trim": "LT Leather with 3LT FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 18997,
+          "miles": 106342,
+          "location": "Virginia Beach, VA",
+          "trim": "Premier with 1LZ FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 25577,
+          "miles": 50768,
+          "location": "Colorado Springs, CO",
+          "trim": "Premier with 1LZ AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 19290,
+          "miles": 96667,
+          "location": "New Haven, CT",
+          "trim": "Premier with 1LZ AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 14145,
+          "miles": 106449,
+          "location": "Fall River, MA",
+          "trim": "LT Cloth with 1LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": null,
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/year-2022/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_total_listings": 245,
+      "note": "?trim=lt returned no exact matches, so the unfiltered year page was used. Page gives per-trim averages only (LT Cloth $24,273).",
+      "listings": [
+        {
+          "price": 14201,
+          "miles": 151293,
+          "location": "Cape Girardeau, MO",
+          "trim": "LS with 1FL FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 30422,
+          "miles": 52507,
+          "location": "Corpus Christi, TX",
+          "trim": "High Country FWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 20579,
+          "miles": 102140,
+          "location": "Bakersfield, CA",
+          "trim": "LT Leather AWD",
+          "body": "SUV / Crossover",
+          "note": "Sponsored"
+        },
+        {
+          "price": 20520,
+          "miles": 90757,
+          "location": "Boerne, TX",
+          "trim": "Premier AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 15598,
+          "miles": 130789,
+          "location": "Greenville, AL",
+          "trim": "LS with 1FL AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": "LT",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/chevrolet/traverse/year-2024/?trim=lt",
+      "fetched": "2026-10-28",
+      "page_average": 31198,
+      "page_total_listings": 147,
+      "note": "First 5 in page order. page_average is boilerplate (same as 2016 page).",
+      "listings": [
+        {
+          "price": 26713,
+          "miles": 99325,
+          "location": "Columbus, GA",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 31394,
+          "miles": 52259,
+          "location": "Lake Wales, FL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 33388,
+          "miles": 39684,
+          "location": "Dunn, NC",
+          "trim": "LT with 2LT AWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 30810,
+          "miles": 35448,
+          "location": "Spencerport, NY",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": ""
+        },
+        {
+          "price": 30991,
+          "miles": 32943,
+          "location": "Pembroke Pines, FL",
+          "trim": "LT with 1LT FWD",
+          "body": "SUV / Crossover",
+          "note": "CPO"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "2019 and 2022: trim filter 'lt' matched nothing (LT Cloth/LT Leather naming); mixed-trim samples from the unfiltered pages, so these years include Premier/LS/High Country rows.",
+    "Discarded failed filtered pages showed 'similar vehicles' (2015/2023/2025 units) - not recorded."
+  ]
+}

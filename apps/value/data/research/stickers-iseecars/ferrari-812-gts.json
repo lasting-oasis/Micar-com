@@ -1,0 +1,60 @@
+{
+"make": "Ferrari",
+"model": "812 GTS",
+"body": "Coupe / Sports",
+"note": "Trim-level MSRPs from iSeeCars price pages (812_gts).",
+"years": [
+{
+"year": 2021,
+"destination": 3950,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 397544,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-ferrari-812_gts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 5000,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 408203,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-ferrari-812_gts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 5000,
+"trims": [
+{
+"trim": "2dr Convertible",
+"msrp": 424817,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe",
+"msrp": 672000,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-ferrari-812_gts-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-11-05). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

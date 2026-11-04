@@ -1,0 +1,222 @@
+{
+"make": "Mini",
+"model": "Countryman",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (countryman).",
+"years": [
+{
+"year": 2013,
+"destination": 700,
+"trims": [
+{
+"trim": "Cooper 4dr Crossover",
+"msrp": 22000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S 4dr Crossover",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Cooper S ALL4 4dr Crossover",
+"msrp": 27300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD John Cooper Works ALL4 4dr Crossover",
+"msrp": 34850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-mini-countryman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 795,
+"trims": [
+{
+"trim": "Cooper 4dr Crossover",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S 4dr Crossover",
+"msrp": 25700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Cooper S ALL4 4dr Crossover",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD John Cooper Works ALL4 4dr Crossover",
+"msrp": 34950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-mini-countryman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": null,
+"trims": [
+{
+"trim": "Cooper FWD",
+"msrp": 26600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper ALL4",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S FWD",
+"msrp": 31200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S ALL4",
+"msrp": 31700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S E ALL4",
+"msrp": 36800,
+"config": "",
+"note": ""
+},
+{
+"trim": "John Cooper Works ALL4",
+"msrp": 37800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-mini-countryman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-07). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Cooper FWD",
+"msrp": 26900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper ALL4",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S FWD",
+"msrp": 30900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S ALL4",
+"msrp": 31400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S E ALL4",
+"msrp": 36900,
+"config": "",
+"note": ""
+},
+{
+"trim": "John Cooper Works ALL4",
+"msrp": 37900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-mini-countryman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Cooper FWD",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Oxford Edition FWD",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper ALL4",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Oxford Edition ALL4",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S FWD",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper S ALL4",
+"msrp": 33900,
+"config": "",
+"note": ""
+},
+{
+"trim": "John Cooper Works ALL4",
+"msrp": 41500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Cooper SE ALL4",
+"msrp": 41500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-mini-countryman-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

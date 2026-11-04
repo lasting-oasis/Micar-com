@@ -1,0 +1,417 @@
+{
+"make": "Ford",
+"model": "Flex",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (flex).",
+"years": [
+{
+"year": 2010,
+"destination": 775,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 28950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 31750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 33600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover w/EcoBoost",
+"msrp": 36595,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 37620,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 39470,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover w/EcoBoost",
+"msrp": 42465,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-ford-flex-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 29355,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 32210,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 34060,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover w/EcoBoost",
+"msrp": 37055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 38180,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 40030,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Crossover",
+"msrp": 40675,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Crossover",
+"msrp": 42525,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover w/EcoBoost",
+"msrp": 43025,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Crossover w/EcoBoost",
+"msrp": 45520,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-ford-flex-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 29465,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 33950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 35765,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 37615,
+"config": "",
+"note": ""
+},
+{
+"trim": "Titanium 4dr Crossover",
+"msrp": 38260,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Crossover",
+"msrp": 40110,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover w/EcoBoost",
+"msrp": 40610,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Titanium 4dr Crossover w/EcoBoost",
+"msrp": 43105,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-ford-flex-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 30885,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 33225,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 35175,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 39230,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 41180,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover w/EcoBoost",
+"msrp": 43850,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-ford-flex-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 29015,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 31900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 33850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 37600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 39550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover w/EcoBoost",
+"msrp": 42375,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-ford-flex-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "4dr SE FWD",
+"msrp": 29100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SEL FWD",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SEL AWD",
+"msrp": 34050,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Limited FWD",
+"msrp": 37700,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Limited AWD",
+"msrp": 39650,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Limited AWD w/EcoBoost",
+"msrp": 42400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-ford-flex-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "4dr SE FWD",
+"msrp": 29710,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SEL FWD",
+"msrp": 32410,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr SEL AWD",
+"msrp": 34360,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Limited FWD",
+"msrp": 37910,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Limited AWD",
+"msrp": 39860,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Limited AWD w/EcoBoost",
+"msrp": 42710,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-ford-flex-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-24). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "SE FWD",
+"msrp": 30025,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL FWD",
+"msrp": 32730,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL AWD",
+"msrp": 34680,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited FWD",
+"msrp": 38230,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited AWD",
+"msrp": 40180,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited EcoBoost AWD",
+"msrp": 43030,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-ford-flex-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2020-11-23). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,50 @@
+name: iSeeCars 2010-2014 stickers
+
+# Reads iSeeCars price pages for 2010-2014 models, one every 5 seconds, and saves
+# the trim prices to data/iseecars/prices.jsonl. Resumable: if it stops at the time
+# budget, change data/iseecars/RUN (or run it by hand) to continue.
+on:
+  push:
+    branches: [main]
+    paths: [data/iseecars/RUN, .github/workflows/iseecars.yml]
+  schedule:
+    - cron: '23 */2 * * *'   # keeps resuming every 2 hours until every page is tried
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: iseecars
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 140
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch pages
+        run: python3 -u scripts/iseecars_fetch.py | tee fetch.log
+        env:
+          DELAY: '5'
+          BUDGET_MIN: '100'
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          cp fetch.log data/iseecars/last-run.log 2>/dev/null || true
+          git add -A data/iseecars
+          git commit -m "iSeeCars 2010-2014 prices $(date -u +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase -X theirs -q && git push && break; git rebase --abort 2>/dev/null; sleep 5; done
+      - name: Start the next run if pages are left
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Out of time: resume in 5 minutes. Site refusing: give it 20 minutes first.
+          if grep -q "time budget reached" fetch.log 2>/dev/null; then sleep 300; gh workflow run iseecars.yml --ref main
+          elif grep -q "site keeps refusing" fetch.log 2>/dev/null; then sleep 1200; gh workflow run iseecars.yml --ref main
+          fi

@@ -1,0 +1,219 @@
+{
+"make": "Scion",
+"model": "tC",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (tc).",
+"years": [
+{
+"year": 2010,
+"destination": 670,
+"trims": [
+{
+"trim": "Base 2dr Coupe 5M",
+"msrp": 17100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Coupe 4A",
+"msrp": 17900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 6.0 2dr Coupe 5M",
+"msrp": 18620,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 6.0 2dr Coupe 4A",
+"msrp": 19420,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-scion-tc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 720,
+"trims": [
+{
+"trim": "Base 2dr Coupe 6M",
+"msrp": 18275,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Coupe 6A",
+"msrp": 19275,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-scion-tc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 730,
+"trims": [
+{
+"trim": "Base 2dr Coupe 6M",
+"msrp": 18575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Base 2dr Coupe 6A",
+"msrp": 19575,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 7.0 2dr Coupe 6M",
+"msrp": 20905,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 7.0 2dr Coupe 6A",
+"msrp": 21905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-scion-tc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 755,
+"trims": [
+{
+"trim": "2dr Coupe 6M",
+"msrp": 18725,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 6A",
+"msrp": 19725,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 8.0 2dr Coupe 6M",
+"msrp": 21815,
+"config": "",
+"note": ""
+},
+{
+"trim": "Release Series 8.0 2dr Coupe 6A",
+"msrp": 22865,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-scion-tc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 755,
+"trims": [
+{
+"trim": "2dr Coupe 6M",
+"msrp": 19210,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr Coupe 6A",
+"msrp": 20210,
+"config": "",
+"note": ""
+},
+{
+"trim": "Monogram 2dr Coupe 6M",
+"msrp": 21400,
+"config": "",
+"note": ""
+},
+{
+"trim": "10 Series 2dr Coupe 6M",
+"msrp": 21440,
+"config": "",
+"note": ""
+},
+{
+"trim": "Monogram 2dr Coupe 6A",
+"msrp": 22400,
+"config": "",
+"note": ""
+},
+{
+"trim": "10 Series 2dr Coupe 6A",
+"msrp": 22440,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-scion-tc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "2dr HB Man (SE)",
+"msrp": 19385,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Man (GS)",
+"msrp": 19385,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Man (Natl)",
+"msrp": 19385,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Auto (GS)",
+"msrp": 20535,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Auto (Natl)",
+"msrp": 20535,
+"config": "",
+"note": ""
+},
+{
+"trim": "2dr HB Auto (SE)",
+"msrp": 20535,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-scion-tc-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-12-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

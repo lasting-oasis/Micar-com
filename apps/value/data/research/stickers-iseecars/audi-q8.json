@@ -1,0 +1,198 @@
+{
+"make": "Audi",
+"model": "Q8",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (q8).",
+"years": [
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 55 TFSI quattro",
+"msrp": 67400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 55 TFSI quattro",
+"msrp": 67400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 55 TFSI quattro",
+"msrp": 67400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-audi-q8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-06-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": 995,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium 4dr SUV",
+"msrp": 68200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr SUV",
+"msrp": 72200,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr SUV",
+"msrp": 77700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-audi-q8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": null,
+"trims": [
+{
+"trim": "Premium 55 TFSI quattro",
+"msrp": 68200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Prestige 55 TFSI quattro",
+"msrp": 68200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premium Plus 55 TFSI quattro",
+"msrp": 68200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-audi-q8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1195,
+"trims": [
+{
+"trim": "AWD 3.0T quattro Premium 4dr SUV",
+"msrp": 70800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Premium Plus 4dr SUV",
+"msrp": 74700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.0T quattro Prestige 4dr SUV",
+"msrp": 80900,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-audi-q8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2022-11-26). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1195,
+"trims": [
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr SUV",
+"msrp": 72800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr SUV",
+"msrp": 77300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr SUV",
+"msrp": 83100,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-audi-q8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1195,
+"trims": [
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr SUV",
+"msrp": 73700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr SUV",
+"msrp": 77800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr SUV",
+"msrp": 81800,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-audi-q8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1295,
+"trims": [
+{
+"trim": "AWD quattro Premium 55 TFSI 4dr SUV",
+"msrp": 74400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Premium Plus 55 TFSI 4dr SUV",
+"msrp": 78500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD quattro Prestige 55 TFSI 4dr SUV",
+"msrp": 82500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-audi-q8-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-11-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

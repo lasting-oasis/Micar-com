@@ -1,0 +1,216 @@
+{
+  "make": "Honda",
+  "model": "Pilot",
+  "samples": [
+    {
+      "year": 2016,
+      "trim_filter": "EX-L",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/year-2016/?trim=ex-l",
+      "fetched": "2026-10-28",
+      "page_average": 24362,
+      "page_listing_count_stated": 159,
+      "page_average_note": "Page sentence 'The average price for the 2016 Honda Pilot EX-L is $24,362'; likely model-wide boilerplate like other TrueCar pages.",
+      "listings": [
+        {
+          "price": 12798,
+          "miles": 150140,
+          "location": "Des Plaines, IL",
+          "trim": "EX-L with Honda Sensing",
+          "body": "SUV / Crossover",
+          "note": "AWD; Sponsored"
+        },
+        {
+          "price": 8500,
+          "miles": 194474,
+          "location": "Sarasota, FL",
+          "trim": "EX-L with Honda Sensing",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 16583,
+          "miles": 102944,
+          "location": "Phoenix, AZ",
+          "trim": "EX-L with Honda Sensing",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 19633,
+          "miles": 93118,
+          "location": "Missoula, MT",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        },
+        {
+          "price": 18630,
+          "miles": 78715,
+          "location": "Libertyville, IL",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "trim_filter": "EX-L",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/year-2019/?trim=ex-l",
+      "fetched": "2026-10-28",
+      "page_average": 24784,
+      "page_listing_count_stated": 153,
+      "page_average_note": "Same $24,784 EX-L figure appears on the 2019, 2022 and 2024 pages: model-wide boilerplate.",
+      "listings": [
+        {
+          "price": 24366,
+          "miles": 41852,
+          "location": "Roseville, CA",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "AWD; Sponsored"
+        },
+        {
+          "price": 13897,
+          "miles": 140444,
+          "location": "Buford, GA",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "AWD; Sponsored"
+        },
+        {
+          "price": 18256,
+          "miles": 104957,
+          "location": "Chesterton, IN",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        },
+        {
+          "price": 14798,
+          "miles": 143934,
+          "location": "Tilton, NH",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        },
+        {
+          "price": 17012,
+          "miles": 127427,
+          "location": "Highland Park, IL",
+          "trim": "EX-L with Navigation/Rear Entertainment System",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "trim_filter": "EX-L",
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/year-2022/?trim=ex-l",
+      "fetched": "2026-10-28",
+      "page_average": 24784,
+      "page_listing_count_stated": 73,
+      "page_average_note": "Model-wide boilerplate (identical on 2019/2024 pages).",
+      "listings": [
+        {
+          "price": 25792,
+          "miles": 62393,
+          "location": "Saint Petersburg, FL",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 26004,
+          "miles": 73347,
+          "location": "Scottsdale, AZ",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        },
+        {
+          "price": 29043,
+          "miles": 48642,
+          "location": "Chicago, IL",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        },
+        {
+          "price": 28286,
+          "miles": 49218,
+          "location": "Winter Haven, FL",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 22295,
+          "miles": 89019,
+          "location": "Robbinsville, NJ",
+          "trim": "EX-L",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "trim_filter": null,
+      "source": "https://www.truecar.com/used-cars-for-sale/listings/honda/pilot/year-2024/",
+      "fetched": "2026-10-28",
+      "page_average": null,
+      "page_listing_count_stated": 703,
+      "page_average_note": "No year-level average stated; FAQ repeats the boilerplate 'average price for the 2024 Honda Pilot EX-L is $24,784'.",
+      "filter_note": "?trim=ex-l returned 'No exact matches' for 2024 (TrueCar names 2024 trims 'EX-L 7 Passenger' / 'EX-L 8 Passenger'), so the unfiltered year page was used per BRIEF2.",
+      "listings": [
+        {
+          "price": 27360,
+          "miles": 86441,
+          "location": "Miami, FL",
+          "trim": "EX-L 8 Passenger",
+          "body": "SUV / Crossover",
+          "note": "FWD; Sponsored"
+        },
+        {
+          "price": 27056,
+          "miles": 89870,
+          "location": "Miami Lakes, FL",
+          "trim": "EX-L 7 Passenger",
+          "body": "SUV / Crossover",
+          "note": "FWD; Sponsored"
+        },
+        {
+          "price": 37466,
+          "miles": 17281,
+          "location": "St. Petersburg, FL",
+          "trim": "Touring",
+          "body": "SUV / Crossover",
+          "note": "FWD"
+        },
+        {
+          "price": 34889,
+          "miles": 20444,
+          "location": "Pembroke Pines, FL",
+          "trim": "EX-L 8 Passenger",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        },
+        {
+          "price": 35484,
+          "miles": 93079,
+          "location": "Roswell, NM",
+          "trim": "Elite",
+          "body": "SUV / Crossover",
+          "note": "AWD"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "Up to 5 listings per year recorded (round-2 rule); first five vehicle listings in page order, ads excluded.",
+    "2024: EX-L trim filter found no exact matches; unfiltered 2024 page used (two pages fetched for that year as BRIEF2 allows). 3 of 5 rows are EX-L.",
+    "page_average values are model-wide boilerplate ($24,784 repeated on 2019/2022/2024 pages); stated listing counts conflict with FAQ counts (1,411 EX-L listings)."
+  ]
+}

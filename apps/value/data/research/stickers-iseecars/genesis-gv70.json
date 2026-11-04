@@ -1,0 +1,54 @@
+{
+"make": "Genesis",
+"model": "GV70",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (gv70).",
+"years": [
+{
+"year": 2026,
+"destination": 1495,
+"trims": [
+{
+"trim": "AWD 2.5T Standard 4dr SUV",
+"msrp": 48985,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5T Select 4dr SUV",
+"msrp": 51885,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5T Advanced 4dr SUV",
+"msrp": 56435,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 2.5T Sport Prestige 4dr SUV",
+"msrp": 59795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.5T Sport Advanced 4dr SUV",
+"msrp": 64415,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 3.5T Sport Prestige 4dr SUV",
+"msrp": 71095,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2026-genesis-gv70-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2026-10-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

@@ -1,0 +1,94 @@
+{
+ "msrp": 23400,
+ "steps": [
+  {
+   "label": "Original MSRP",
+   "detail": "2019 Honda Civic",
+   "value": 23400,
+   "delta": 0
+  },
+  {
+   "label": "New-car prices since then",
+   "detail": "a comparable new one costs ~23% more today",
+   "value": 28779,
+   "delta": 5379
+  },
+  {
+   "label": "Age and model resale",
+   "detail": "7.4 yrs old \u00b7 this model typically sells for ~69% of a new one's price after 5 yrs \u00b7 trim content above the base car keeps 50% of that",
+   "value": 15638,
+   "delta": -13142
+  },
+  {
+   "label": "Mileage",
+   "detail": "40,290 mi below the 88,500 expected",
+   "value": 17514,
+   "delta": 1877
+  },
+  {
+   "label": "Condition",
+   "detail": "Good",
+   "value": 17514,
+   "delta": 0
+  },
+  {
+   "label": "Market conditions",
+   "detail": "Used-car prices nationally \u22121.5% vs a year ago, +1.4% over 3 months (BLS, Sep 2026) \u00b7 this model swings less than average",
+   "value": 17657,
+   "delta": 143
+  }
+ ],
+ "privateParty": 17657,
+ "tradeIn": 14058,
+ "dealerRetail": 20116,
+ "range": {
+  "low": 15639,
+  "high": 19674
+ },
+ "confidence": "Medium",
+ "bandPct": 0.11425,
+ "miles75k": 16616,
+ "withComps": {
+  "privateParty": 17669,
+  "compsUsed": 6
+ },
+ "forecast": [
+  {
+   "year": "2026",
+   "value": 17657,
+   "low": 15639,
+   "high": 19674
+  },
+  {
+   "year": "2027",
+   "value": 16714,
+   "low": 14805,
+   "high": 18624
+  },
+  {
+   "year": "2028",
+   "value": 15683,
+   "low": 13891,
+   "high": 17474
+  },
+  {
+   "year": "2029",
+   "value": 14571,
+   "low": 12906,
+   "high": 16235
+  },
+  {
+   "year": "2030",
+   "value": 13391,
+   "low": 11861,
+   "high": 14921
+  },
+  {
+   "year": "2031",
+   "value": 12158,
+   "low": 10769,
+   "high": 13547
+  }
+ ],
+ "carLink": "https://lasting-oasis.github.io/queen_city_mycarvalue/#/c/-B0114B9273QT108V8ZX39F2283A1A9CFQIDEE9/GGJUD$P90O1U1EO1ERAFJ89-AG1O1A0F+WDZK4O0F15GGG2D0ADV9D/6LS78IA+Y6$37YF7RV0+Y6$37BUAACF4L41NG/1EU460:FJ$FIPER1E.K4/1E20E4:F8CF20EACFNLGJK4Q1EHIF4*DG*E5XG2LD4*D0LD1:EZMG8LDMJEJYF86FC5G/K48CFU0FU+DI*D4H2-AG*1E3K4ZPE5XG0VA85GG$FC/1OR7N97WJ4XF71B6$Y6MS6+Y6G37TUATPEJK4R3G3K4IJE9$FNIF/4GU46.ZATJ4OX7.S6OA3-AG*1E$WDI5GM6F85GG$F9I6TSGN6FE0F"
+}

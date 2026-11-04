@@ -1,0 +1,54 @@
+{
+"make": "Toyota",
+"model": "Corolla Cross",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (corolla_cross).",
+"years": [
+{
+"year": 2022,
+"destination": 1335,
+"trims": [
+{
+"trim": "L 4dr Crossover",
+"msrp": 22445,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD L 4dr Crossover",
+"msrp": 23745,
+"config": "",
+"note": ""
+},
+{
+"trim": "LE 4dr Crossover",
+"msrp": 24795,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD LE 4dr Crossover",
+"msrp": 26095,
+"config": "",
+"note": ""
+},
+{
+"trim": "XLE 4dr Crossover",
+"msrp": 26575,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD XLE 4dr Crossover",
+"msrp": 27875,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-toyota-corolla_cross-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2023-06-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

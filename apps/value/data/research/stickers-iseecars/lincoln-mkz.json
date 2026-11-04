@@ -1,0 +1,558 @@
+{
+"make": "Lincoln",
+"model": "MKZ",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (mkz, mkz_hybrid).",
+"years": [
+{
+"year": 2010,
+"destination": 850,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 34115,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 36005,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 34645,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 34645,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 36535,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 875,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 34755,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 34755,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 36645,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 4dr Sedan",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 35925,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 37815,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 4dr Sedan",
+"msrp": 37815,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 895,
+"trims": [
+{
+"trim": "4dr Sedan",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 36190,
+"config": "",
+"note": ""
+},
+{
+"trim": "V6 4dr Sedan",
+"msrp": 36420,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD 4dr Sedan",
+"msrp": 37080,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD V6 4dr Sedan",
+"msrp": 38310,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": 895,
+"trims": [
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan FWD",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Hybrid FWD",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan AWD",
+"msrp": 37080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Black Label 4dr Sedan",
+"msrp": 45605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Black Label FWD",
+"msrp": 45605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Hybrid Black Label FWD",
+"msrp": 45605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Black Label AWD",
+"msrp": 47495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-lincoln-mkz_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-10-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": 925,
+"trims": [
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan FWD",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Hybrid FWD",
+"msrp": 35190,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan AWD",
+"msrp": 37080,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Black Label 4dr Sedan",
+"msrp": 45605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Black Label FWD",
+"msrp": 45605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Hybrid Black Label FWD",
+"msrp": 45605,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Black Label AWD",
+"msrp": 47495,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-lincoln-mkz_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": 925,
+"trims": [
+{
+"trim": "4dr Sedan Hybrid Premiere FWD",
+"msrp": 35010,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Premiere 4dr Sedan",
+"msrp": 35170,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Hybrid Select FWD",
+"msrp": 36760,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Select 4dr Sedan",
+"msrp": 36920,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Hybrid Reserve FWD",
+"msrp": 39510,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve 4dr Sedan",
+"msrp": 39670,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Hybrid Black Label FWD",
+"msrp": 47670,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Black Label 4dr Sedan",
+"msrp": 47830,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-lincoln-mkz_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2016-04-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 925,
+"trims": [
+{
+"trim": "Hybrid Premiere 4dr Sedan",
+"msrp": 35605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premiere FWD",
+"msrp": 35605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Premiere FWD",
+"msrp": 35605,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Select 4dr Sedan",
+"msrp": 37355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select FWD",
+"msrp": 37355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Select FWD",
+"msrp": 37355,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premiere AWD",
+"msrp": 37495,
+"config": "",
+"note": ""
+},
+{
+"trim": "Select AWD",
+"msrp": 39245,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve 4dr Sedan",
+"msrp": 40170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve FWD",
+"msrp": 40170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve FWD",
+"msrp": 40170,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 42060,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Black Label 4dr Sedan",
+"msrp": 47990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label FWD",
+"msrp": 47990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Black Label FWD",
+"msrp": 47990,
+"config": "",
+"note": ""
+},
+{
+"trim": "Black Label AWD",
+"msrp": 49880,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-lincoln-mkz_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-04-20). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 995,
+"trims": [
+{
+"trim": "Hybrid 4dr Sedan",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard FWD",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Standard FWD",
+"msrp": 35995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard AWD",
+"msrp": 37995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve I 4dr Sedan",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve I FWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve I FWD",
+"msrp": 38995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve I AWD",
+"msrp": 40995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve II 4dr Sedan",
+"msrp": 44995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve II FWD",
+"msrp": 44995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve II FWD",
+"msrp": 44995,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve II AWD",
+"msrp": 46995,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-lincoln-mkz_hybrid-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-08-19). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "Standard FWD",
+"msrp": 36750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Standard AWD",
+"msrp": 38750,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve FWD",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Hybrid Reserve FWD",
+"msrp": 42500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Reserve AWD",
+"msrp": 44500,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-lincoln-mkz-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-01-16). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

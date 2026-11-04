@@ -1,0 +1,407 @@
+{
+ "make": "Ram",
+ "model": "1500",
+ "body": "Pickup Truck",
+ "note": "Light-duty full-size pickup (Regular Cab through 2018; Quad and Crew Cab; 4x2/4x4). Rows give each trim in its cheapest listed configuration plus a Crew Cab 4x4 5'7\" row for Big Horn (the common used configuration); other trims' Crew Cab 4x4 prices are in the row notes. All MSRPs exclude destination. Lone Star is the Texas-market name for Big Horn (same prices). 2019-2024 the previous generation was also sold as 'Ram 1500 Classic'; it is excluded here. Ram writes the Longhorn trim as 'Laramie Longhorn' (DS) and 'Limited Longhorn' (DT); cars.com shows just 'Longhorn'.",
+ "years": [
+  {
+   "year": 2017,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "Tradesman",
+     "msrp": 26495,
+     "config": "Regular Cab 4x2 6'4\" box",
+     "note": "Regular Cab 4x2 8' box same price; Crew Cab 4x4 5'7\" $36,695."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 31195,
+     "config": "Regular Cab 4x2 6'4\" box",
+     "note": "Lone Star (Texas name) and SLT listed at identical prices."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 41195,
+     "config": "Crew Cab 4x4 5'7\" box",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 36595,
+     "config": "Regular Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $44,095. Night listed at identical prices."
+    },
+    {
+     "trim": "Rebel",
+     "msrp": 45095,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "Crew Cab only; 4x4 $47,195."
+    },
+    {
+     "trim": "Laramie",
+     "msrp": 39995,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $45,595."
+    },
+    {
+     "trim": "Laramie Longhorn",
+     "msrp": 49675,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "cars.com lists it as 'Longhorn'. Crew Cab 4x4 $53,175."
+    },
+    {
+     "trim": "Limited",
+     "msrp": 49675,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "Crew Cab 4x4 $53,175."
+    }
+   ],
+   "source": "https://www.cars.com/research/ram-1500-2017/trims/",
+   "source_type": "secondary",
+   "note": "DS-generation truck (2009-2018). Also listed: Express $26,495 (Reg Cab 4x2; CC 4x4 $36,695), HFE $37,895 (Quad Cab 4x2 only), Lone Star Silver $37,595 (CC 4x2). cars.com 'Starting MSRP' excludes destination and is the latest in-year price; the page states no destination charge."
+  },
+  {
+   "year": 2018,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "Tradesman",
+     "msrp": 27295,
+     "config": "Regular Cab 4x2 6'4\" box",
+     "note": "Regular Cab 4x2 8' box same price; Crew Cab 4x4 5'7\" $37,195."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 31395,
+     "config": "Regular Cab 4x2 6'4\" box",
+     "note": "Lone Star and SLT listed at identical prices."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 41395,
+     "config": "Crew Cab 4x4 5'7\" box",
+     "note": ""
+    },
+    {
+     "trim": "Sport",
+     "msrp": 37095,
+     "config": "Regular Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $44,595 (Ltd Avail). Night listed at identical prices (Ltd Avail)."
+    },
+    {
+     "trim": "Rebel",
+     "msrp": 45495,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "Crew Cab only; 4x4 $47,595."
+    },
+    {
+     "trim": "Laramie",
+     "msrp": 40345,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $45,845."
+    },
+    {
+     "trim": "Laramie Longhorn",
+     "msrp": 50095,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "cars.com lists it as 'Longhorn' (Ltd Avail). Crew Cab 4x4 $53,595."
+    },
+    {
+     "trim": "Limited",
+     "msrp": 50095,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "Ltd Avail. Crew Cab 4x4 $53,595."
+    }
+   ],
+   "source": "https://www.cars.com/research/ram-1500-2018/trims/",
+   "source_type": "secondary",
+   "note": "Last DS-generation year. Also listed: Express $27,295, HFE $37,895 (Quad Cab 4x2 only), Harvest $35,145 (Quad Cab 4x2, Ltd Avail), Lone Star Silver $37,795. cars.com 'Starting MSRP' excludes destination and is the latest in-year price; the page states no destination charge."
+  },
+  {
+   "year": 2019,
+   "destination": 1645,
+   "trims": [
+    {
+     "trim": "Tradesman",
+     "msrp": 32045,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $38,345. Ram's launch release (Mar 5, 2018) gives Tradesman Quad Cab 4x2 at $31,695 plus $1,645 destination."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 36290,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "cars.com groups Big Horn/Lone Star together."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 42490,
+     "config": "Crew Cab 4x4 5'7\" box",
+     "note": ""
+    },
+    {
+     "trim": "Rebel",
+     "msrp": 44490,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "4x4 $47,990."
+    },
+    {
+     "trim": "Laramie",
+     "msrp": 40190,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $46,390."
+    },
+    {
+     "trim": "Limited Longhorn",
+     "msrp": 50890,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "cars.com lists it as 'Longhorn'. 4x4 $54,390."
+    },
+    {
+     "trim": "Limited",
+     "msrp": 52995,
+     "config": "Crew Cab 4x2 6'4\" box",
+     "note": "Ltd Avail. Crew Cab 4x4 5'7\" $56,990. Ram's launch release quotes Limited Crew Cab 4x4 V-8 at $57,390 plus destination."
+    }
+   ],
+   "source": "https://www.cars.com/research/ram-1500-2019/trims/",
+   "source_type": "secondary",
+   "manufacturer_source": "https://media.stellantisnorthamerica.com/newsrelease.do?id=18914&mid=",
+   "note": "First year of the DT generation. Trim MSRPs are cars.com's latest in-year figures; destination ($1,645) and two launch prices come from Ram's own release (Mar 5, 2018), which has no full table. cars.com Tradesman is $350 above the launch price. HFE $34,245 (Quad Cab 4x2). Previous-generation trucks sold alongside as 'Ram 1500 Classic' are excluded."
+  },
+  {
+   "year": 2021,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "Tradesman",
+     "msrp": 32795,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $39,145."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 37290,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Lone Star identical."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 43465,
+     "config": "Crew Cab 4x4 5'7\" box",
+     "note": ""
+    },
+    {
+     "trim": "Rebel",
+     "msrp": 46120,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "4x4 $49,620."
+    },
+    {
+     "trim": "Laramie",
+     "msrp": 41980,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $48,505."
+    },
+    {
+     "trim": "Limited Longhorn",
+     "msrp": 52280,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "cars.com lists it as 'Longhorn'. 4x4 $55,780."
+    },
+    {
+     "trim": "Limited",
+     "msrp": 56950,
+     "config": "Crew Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $60,650."
+    },
+    {
+     "trim": "TRX",
+     "msrp": 70325,
+     "config": "Crew Cab 4x4 5'7\" box",
+     "note": "Single configuration; new for 2021."
+    }
+   ],
+   "source": "https://www.cars.com/research/ram-1500-2021/trims/",
+   "source_type": "secondary",
+   "note": "HFE $34,645 (Quad Cab 4x2). The cars.com page was read to 100,000 of 105,621 characters (last part not read). cars.com 'Starting MSRP' excludes destination and is the latest in-year price; the page states no destination charge."
+  },
+  {
+   "year": 2022,
+   "destination": null,
+   "trims": [
+    {
+     "trim": "Tradesman",
+     "msrp": 37090,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Crew Cab 4x4 5'7\" $43,590."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 42305,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Lone Star identical."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 48805,
+     "config": "Crew Cab 4x4 5'7\" box",
+     "note": ""
+    },
+    {
+     "trim": "Rebel",
+     "msrp": 48140,
+     "config": "Quad Cab 4x4 6'4\" box",
+     "note": "Ltd Avail. Crew Cab 4x4 5'7\" $55,775."
+    },
+    {
+     "trim": "Laramie",
+     "msrp": 43345,
+     "config": "Quad Cab 4x2 6'4\" box",
+     "note": "Ltd Avail. Crew Cab 4x4 5'7\" $54,430."
+    },
+    {
+     "trim": "Limited Longhorn",
+     "msrp": 58060,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "cars.com lists it as 'Longhorn'. 4x4 $61,860."
+    },
+    {
+     "trim": "Limited",
+     "msrp": 63075,
+     "config": "Crew Cab 4x2 5'7\" box",
+     "note": "4x4 $66,875."
+    },
+    {
+     "trim": "TRX",
+     "msrp": 83790,
+     "config": "Crew Cab 4x4 5'7\" box",
+     "note": "Single configuration."
+    }
+   ],
+   "source": "https://www.cars.com/research/ram-1500-2022/trims/",
+   "source_type": "secondary",
+   "note": "Large rise over 2021 on cars.com (Tradesman +$4,295, TRX +$13,465), consistent with 2022's repeated in-year increases; these are the latest in-year figures. HFE $38,727. cars.com 'Starting MSRP' excludes destination and is the latest in-year price; the page states no destination charge."
+  },
+  {
+   "year": 2024,
+   "destination": 1995,
+   "trims": [
+    {
+     "trim": "Tradesman",
+     "msrp": 39420,
+     "config": "Quad Cab 4x2 6.4' box",
+     "note": "Crew Cab 4x4 5.6' $46,020."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 44585,
+     "config": "Quad Cab 4x2 6.4' box",
+     "note": "Lone Star identical."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 51185,
+     "config": "Crew Cab 4x4 5.6' box",
+     "note": ""
+    },
+    {
+     "trim": "Rebel",
+     "msrp": 55450,
+     "config": "Crew Cab 4x2 5.6' box",
+     "note": "4x4 $59,300."
+    },
+    {
+     "trim": "Laramie",
+     "msrp": 54635,
+     "config": "Crew Cab 4x2 5.6' box",
+     "note": "Crew Cab only listed; 4x4 $58,485."
+    },
+    {
+     "trim": "Limited Longhorn",
+     "msrp": 61395,
+     "config": "Crew Cab 4x2 5.6' box",
+     "note": "4x4 $65,245 (listed below Limited this year)."
+    },
+    {
+     "trim": "Limited",
+     "msrp": 65810,
+     "config": "Crew Cab 4x2 5.6' box",
+     "note": "4x4 $69,660."
+    },
+    {
+     "trim": "TRX",
+     "msrp": 96340,
+     "config": "Crew Cab AWD 5.6' box",
+     "note": "Single configuration."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2024-ram-ram_pickup_1500-price",
+   "source_type": "secondary",
+   "note": "Last year of the original DT lineup (HEMI V8, TRX). HFE $41,060 (Quad Cab 4x2). Ram 1500 Classic excluded. iSeeCars lists MSRP and a separate destination charge per configuration; the page does not say in words that MSRP excludes destination, but the separate column implies it."
+  },
+  {
+   "year": 2025,
+   "destination": 2095,
+   "trims": [
+    {
+     "trim": "Tradesman",
+     "msrp": 40275,
+     "config": "Quad Cab 4x2 6.4' box",
+     "note": "Crew Cab 4x4 5.6' $46,875."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 44935,
+     "config": "Quad Cab 4x2 6.4' box",
+     "note": "Lone Star identical."
+    },
+    {
+     "trim": "Big Horn",
+     "msrp": 51535,
+     "config": "Crew Cab 4x4 5.6' box",
+     "note": ""
+    },
+    {
+     "trim": "Laramie",
+     "msrp": 60030,
+     "config": "Crew Cab 4x2 5.6' box",
+     "note": "4x4 $63,880."
+    },
+    {
+     "trim": "Rebel",
+     "msrp": 64195,
+     "config": "Crew Cab 4x4 5.6' box",
+     "note": "4x4 only."
+    },
+    {
+     "trim": "Limited",
+     "msrp": 75155,
+     "config": "Crew Cab 4x4 5.6' box",
+     "note": "Limited Longhorn Crew Cab 4x4 $75,650."
+    },
+    {
+     "trim": "RHO",
+     "msrp": 69995,
+     "config": "Crew Cab AWD 5.6' box",
+     "note": "New performance trim (replaces TRX)."
+    },
+    {
+     "trim": "Tungsten",
+     "msrp": 87075,
+     "config": "Crew Cab 4x4 5.6' box",
+     "note": "New top trim."
+    }
+   ],
+   "source": "https://www.iseecars.com/car/2025-ram-ram_pickup_1500-price",
+   "source_type": "secondary",
+   "note": "Refreshed 2025 lineup: TRX dropped, RHO and Tungsten added, Express ($42,400 Quad Cab 4x2) and Warlock ($54,260 Crew Cab 4x4) listed, HFE $41,060. Laramie +$5,395 and Limited 4x4 +$5,495 over 2024. iSeeCars lists MSRP and a separate destination charge per configuration; the page does not say in words that MSRP excludes destination, but the separate column implies it."
+  }
+ ],
+ "gaps": [
+  "2016, 2020, 2023, 2026: no pricing page fetched within budget.",
+  "2019: Ram's launch release (media.stellantisnorthamerica.com id=18914) has no full price table, only the Tradesman Quad Cab 4x2 base, the Limited Crew Cab 4x4 and the $1,645 destination; trims come from cars.com.",
+  "2017, 2018, 2021, 2022: destination charge not stated by the cars.com pages used."
+ ]
+}

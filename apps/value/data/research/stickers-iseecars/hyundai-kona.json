@@ -1,0 +1,597 @@
+{
+"make": "Hyundai",
+"model": "Kona",
+"body": "SUV / Crossover",
+"note": "Trim-level MSRPs from iSeeCars price pages (kona, kona_ev, kona_n).",
+"years": [
+{
+"year": 2018,
+"destination": 980,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 19500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 20800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 21150,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover w/Contrast Roof",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 22450,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover w/Contrast Roof",
+"msrp": 22600,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover w/Lime Accent",
+"msrp": 24700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 26000,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover w/Lime Accent",
+"msrp": 26000,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr Crossover",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr Crossover w/Lime Accent",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ultimate 4dr Crossover",
+"msrp": 28700,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ultimate 4dr Crossover w/Lime Accent",
+"msrp": 28700,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-hyundai-kona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-12). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": 1095,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 19990,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 21390,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 21800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 23200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 26950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr Crossover",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ultimate 4dr Crossover",
+"msrp": 28900,
+"config": "",
+"note": ""
+},
+{
+"trim": "Iron Man 4dr Crossover",
+"msrp": 30550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Iron Man 4dr Crossover",
+"msrp": 31950,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-hyundai-kona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-07-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "SE Auto FWD",
+"msrp": 20300,
+"config": "",
+"note": ""
+},
+{
+"trim": "SE Auto AWD",
+"msrp": 21700,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto FWD",
+"msrp": 22100,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Auto AWD",
+"msrp": 23500,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Plus Auto FWD",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Plus Auto AWD",
+"msrp": 25350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited DCT FWD",
+"msrp": 26100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited DCT AWD",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate DCT FWD",
+"msrp": 27950,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate DCT AWD",
+"msrp": 29350,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-hyundai-kona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-11-27). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2021,
+"destination": 1185,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 20500,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 21900,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 22300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 23600,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Plus 4dr Crossover",
+"msrp": 24150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Plus 4dr Crossover",
+"msrp": 25550,
+"config": "",
+"note": ""
+},
+{
+"trim": "NIGHT 4dr SUV",
+"msrp": 26200,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 26300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD NIGHT 4dr SUV",
+"msrp": 27600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 27700,
+"config": "",
+"note": ""
+},
+{
+"trim": "Ultimate 4dr Crossover",
+"msrp": 28150,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Ultimate 4dr Crossover",
+"msrp": 29550,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV SEL FWD",
+"msrp": 37390,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV Limited FWD",
+"msrp": 42000,
+"config": "",
+"note": ""
+},
+{
+"trim": "EV Ultimate FWD",
+"msrp": 45600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2021-hyundai-kona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-28). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2022,
+"destination": 1295,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 21300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 22800,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 23100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 24600,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Crossover",
+"msrp": 25850,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD N Line 4dr Crossover",
+"msrp": 27350,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 28600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 30100,
+"config": "",
+"note": ""
+},
+{
+"trim": "N 4dr Crossover",
+"msrp": 34200,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2022-hyundai-kona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2024-09-14). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2023,
+"destination": 1335,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 22140,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 23640,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 23950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 25450,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Crossover",
+"msrp": 27850,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 28950,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD N Line 4dr Crossover",
+"msrp": 29350,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 30450,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2023-hyundai-kona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2024,
+"destination": 1395,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 24250,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 25600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 25750,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 27100,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Crossover",
+"msrp": 30800,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 31800,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD N Line 4dr Crossover",
+"msrp": 32300,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 33300,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2024-hyundai-kona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-08-06). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2025,
+"destination": 1495,
+"trims": [
+{
+"trim": "SE 4dr Crossover",
+"msrp": 24550,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL 4dr Crossover",
+"msrp": 25900,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SE 4dr Crossover",
+"msrp": 26050,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL 4dr Crossover",
+"msrp": 27400,
+"config": "",
+"note": ""
+},
+{
+"trim": "SEL Convenience 4dr Crossover",
+"msrp": 28100,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line S 4dr Crossover",
+"msrp": 29550,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD SEL Convenience 4dr Crossover",
+"msrp": 29600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD N Line S 4dr Crossover",
+"msrp": 31050,
+"config": "",
+"note": ""
+},
+{
+"trim": "N Line 4dr Crossover",
+"msrp": 31100,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited 4dr Crossover",
+"msrp": 32100,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD N Line 4dr Crossover",
+"msrp": 32600,
+"config": "",
+"note": ""
+},
+{
+"trim": "AWD Limited 4dr Crossover",
+"msrp": 33600,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2025-hyundai-kona-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-09-08). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}

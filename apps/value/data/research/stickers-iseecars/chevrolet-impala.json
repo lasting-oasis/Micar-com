@@ -1,0 +1,504 @@
+{
+"make": "Chevrolet",
+"model": "Impala",
+"body": "Sedan",
+"note": "Trim-level MSRPs from iSeeCars price pages (impala, impala_limited).",
+"years": [
+{
+"year": 2010,
+"destination": 825,
+"trims": [
+{
+"trim": "LS 4dr Sedan",
+"msrp": 24290,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan",
+"msrp": 25055,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan w/1LS",
+"msrp": 25710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unmarked Police 4dr Sedan w/1LS",
+"msrp": 25710,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan",
+"msrp": 29630,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2010-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2011,
+"destination": 825,
+"trims": [
+{
+"trim": "LS Fleet 4dr Sedan w/1FL",
+"msrp": 24010,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan",
+"msrp": 24495,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan w/2FL",
+"msrp": 25175,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan",
+"msrp": 25710,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan w/3FL",
+"msrp": 25940,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unmarked Police 4dr Sedan w/3FL",
+"msrp": 25940,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan",
+"msrp": 30035,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2011-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2012,
+"destination": 825,
+"trims": [
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 25065,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan",
+"msrp": 25645,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan",
+"msrp": 26215,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan w/3FL",
+"msrp": 27105,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unmarked Police 4dr Sedan w/3FL",
+"msrp": 27105,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan",
+"msrp": 27170,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan",
+"msrp": 30185,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2012-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2013,
+"destination": 825,
+"trims": [
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 25280,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan",
+"msrp": 25860,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT Fleet 4dr Sedan",
+"msrp": 26430,
+"config": "",
+"note": ""
+},
+{
+"trim": "Police 4dr Sedan w/3FL",
+"msrp": 27205,
+"config": "",
+"note": ""
+},
+{
+"trim": "Unmarked Police 4dr Sedan w/3FL",
+"msrp": 27205,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan",
+"msrp": 27385,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan",
+"msrp": 30400,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2013-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2014,
+"destination": 810,
+"trims": [
+{
+"trim": "Limited LS Fleet 4dr Sedan",
+"msrp": 25830,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited LT Fleet 4dr Sedan",
+"msrp": 26840,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan",
+"msrp": 26860,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 26860,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Police 4dr Sedan",
+"msrp": 27340,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited Unmarked Police 4dr Sedan",
+"msrp": 27340,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/1LT",
+"msrp": 29110,
+"config": "",
+"note": ""
+},
+{
+"trim": "Eco 4dr Sedan w/1SA",
+"msrp": 29135,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan w/2LT",
+"msrp": 30085,
+"config": "",
+"note": ""
+},
+{
+"trim": "Limited LTZ Fleet 4dr Sedan",
+"msrp": 30535,
+"config": "",
+"note": ""
+},
+{
+"trim": "Eco 4dr Sedan w/2SA",
+"msrp": 31110,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/1LZ",
+"msrp": 33880,
+"config": "",
+"note": ""
+},
+{
+"trim": "LTZ 4dr Sedan w/2LZ",
+"msrp": 35905,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2014-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, read from iseecars.com. MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2015,
+"destination": null,
+"trims": [
+{
+"trim": "LS",
+"msrp": 27060,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT",
+"msrp": 29310,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT",
+"msrp": 30285,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LTZ",
+"msrp": 34465,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LTZ",
+"msrp": 35440,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS CNG",
+"msrp": 37535,
+"config": "",
+"note": ""
+},
+{
+"trim": "3LT CNG",
+"msrp": 40660,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2015-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2015-03-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2016,
+"destination": null,
+"trims": [
+{
+"trim": "LS",
+"msrp": 27095,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT",
+"msrp": 29460,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LT",
+"msrp": 30435,
+"config": "",
+"note": ""
+},
+{
+"trim": "2LTZ",
+"msrp": 35540,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS CNG",
+"msrp": 37570,
+"config": "",
+"note": ""
+},
+{
+"trim": "3LT CNG",
+"msrp": 40810,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2016-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-12-04). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2017,
+"destination": null,
+"trims": [
+{
+"trim": "LS",
+"msrp": 27500,
+"config": "",
+"note": ""
+},
+{
+"trim": "1LT",
+"msrp": 29765,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier",
+"msrp": 35845,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS CNG",
+"msrp": 37675,
+"config": "",
+"note": ""
+},
+{
+"trim": "3LT CNG",
+"msrp": 40915,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2017-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-07-25). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2018,
+"destination": 875,
+"trims": [
+{
+"trim": "LS Fleet 4dr Sedan",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "LS 4dr Sedan",
+"msrp": 27895,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT 4dr Sedan",
+"msrp": 30420,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier 4dr Sedan",
+"msrp": 36620,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2018-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2025-01-21). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2019,
+"destination": null,
+"trims": [
+{
+"trim": "LS",
+"msrp": 28020,
+"config": "",
+"note": ""
+},
+{
+"trim": "LT",
+"msrp": 30520,
+"config": "",
+"note": ""
+},
+{
+"trim": "Premier",
+"msrp": 36720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2019-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2019-09-15). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+},
+{
+"year": 2020,
+"destination": null,
+"trims": [
+{
+"trim": "4dr Sedan LT w/1LT",
+"msrp": 31620,
+"config": "",
+"note": ""
+},
+{
+"trim": "4dr Sedan Premier w/2LZ",
+"msrp": 36720,
+"config": "",
+"note": ""
+}
+],
+"source": "https://www.iseecars.com/car/2020-chevrolet-impala-price",
+"source_type": "secondary",
+"note": "iSeeCars price table, archived copy (Wayback Machine snapshot 2021-05-17). MSRP and destination are separate columns, so MSRP excludes destination. Styles are listed cheapest first."
+}
+],
+"gaps": []
+}
