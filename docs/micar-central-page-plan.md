@@ -115,6 +115,8 @@ Phase 0 is built and deployed from `main`:
 - Inner Value pages say MiCar Value; the old landing page is deleted; yellow key favicon.
 - Not done in phase 0: the Value calculator and sheet pages keep their blue accent (the print layer); accounts, parking, trail entries, slabs (phase 1); everything in the world beyond routing (phase 2).
 
+Unification (Nov 4, later): `packages/brand` (tokens, the five doors, the strip's stylesheet, the favicon; no React, each app renders the strip with its own). The strip sits on every surface in the same order: Value a car · Garage (soon) · World · For dealers · For shops, wordmark goes home, EN/ESP. The sim's Tailwind palette is remapped to the brand (`market` → windshield yellow, `blue` → steel, `cyan` → tube, Barlow), which restyled the whole HUD and the shop tabs without touching the JSX. The world opens on a front door: what the place is (three places, one line each), a name, your business (Dealership default), "More options" for size and the guide, Enter. The tuner carries the type, the yellow and the strip. Root `README.md` reads as the product; `og.jpg` is the share image. Open question for the owner: a custom domain (micar.com?) would put the door and the world under one roof.
+
 ## Phases
 
 0. **The door** (1 week). The home page built as above on the Value engine and the concept's components; the four surfaces on one identity; the sim's portal removed: `/` opens the world, `/shop` opens MiCar Shop. Deploys to Pages and Render.
