@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import CarPage from './car/CarPage.tsx'
 import StickerBuilder from './car/StickerBuilder.tsx'
-import Landing from './Landing.tsx'
+import Door from './door/Door.tsx'
 import { useLang } from './i18n.tsx'
 
 // Hash routes keep the site a single static page on GitHub Pages:
@@ -28,7 +28,7 @@ function Router() {
   if (m?.[1] === 'c' || m?.[1] === 'car') return <CarPage code={m[2] ?? ''} />
   if (m?.[1] === 'sticker') return <StickerBuilder code={m[2] || undefined} />
   if (m?.[1] === 'value' || legacyCalculatorLink()) return <App />
-  return <Landing />
+  return <Door />
 }
 
 createRoot(document.getElementById('root')!).render(
