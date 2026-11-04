@@ -57,3 +57,5 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000   # 30 min: the first deploy of ~5,500 files can sit in updating_pages for a while
