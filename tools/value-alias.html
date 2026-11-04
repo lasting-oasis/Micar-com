@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>MiCar Value</title>
+<meta name="robots" content="noindex">
+<script>
+// /value/ is an alias of the site root: printed window sheets and the old repo's redirect point here with the car
+// packed in the hash (#/c/...) or the calculator's fields in the query. Forward both, without a history entry.
+(function () {
+  var base = location.pathname.replace(/value\/?[^/]*$/, '');
+  location.replace(location.origin + base + location.search + location.hash);
+})();
+</script>
+<p>MiCar Value lives at <a href="../">the MiCar home</a>.</p>
