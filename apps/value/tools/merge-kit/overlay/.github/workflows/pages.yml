@@ -1,0 +1,59 @@
+name: Pages (value, tuner, garage)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps/value/src/**
+      - apps/value/public/**
+      - apps/value/index.html
+      - apps/value/package.json
+      - apps/value/vite.config.ts
+      - apps/tuner/index.html
+      - apps/tuner/src/**
+      - apps/tuner/assets/**
+      - apps/garage/**
+      - packages/**
+      - tools/**
+      - pnpm-lock.yaml
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @micar/value test          # value's tests gate the whole deploy, as before
+      - run: pnpm site                                 # builds /micar/value/, copies /micar/tuner/, /micar/garage/
+        env:
+          VITE_COMPS_URL: ${{ vars.COMPS_URL }}
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

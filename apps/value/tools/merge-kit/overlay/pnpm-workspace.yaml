@@ -1,0 +1,4 @@
+packages:
+  - apps/*
+  - '!apps/explainer'   # the Remotion video project installs on demand, not in CI
+  - packages/*

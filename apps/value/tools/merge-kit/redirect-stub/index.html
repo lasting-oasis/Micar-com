@@ -1,0 +1,12 @@
+<!doctype html><meta charset="utf-8"><title>MiCar Value has moved</title>
+<meta name="robots" content="noindex">
+<script>
+// Printed window sheets carry QR codes to this origin with the car packed in the hash (#/c/...).
+// Forward everything (path after the old base, query, and hash) to the new home, without a history entry.
+(function () {
+  var OLD = '/queen_city_mycarvalue/', NEW = 'https://lasting-oasis.github.io/micar/value/';
+  var rest = location.pathname.indexOf(OLD) === 0 ? location.pathname.slice(OLD.length) : '';
+  location.replace(NEW + rest + location.search + location.hash);
+})();
+</script>
+<p>MiCar Value has moved to <a href="https://lasting-oasis.github.io/micar/value/">lasting-oasis.github.io/micar/value/</a>.</p>
