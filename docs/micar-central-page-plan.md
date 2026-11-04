@@ -103,6 +103,15 @@ Screens are dark glass with windshield yellow (#ffd23f), Barlow and Barlow Conde
 | Tuner | standalone sprite site, one 4x4 | the sim's garage: live 3D tuning on all nine category cars, same parts, same HUD |
 | Accounts, trail, slabs, grades issued | none | phase 1 |
 
+## Status (Nov 4, 2026, evening)
+
+Phase 0 is built and deployed from `main`:
+- The door is the site root (`apps/value/src/door/`): `Door.tsx` (page and sequence), `Bay.tsx` (the 3D bay and door physics), `Slab.tsx` (the card, front and back), `Inspector.tsx`, `GradeSim.tsx`, `card.ts` (grade math, record → card). Styles in `apps/value/src/door.css`, the concept's stylesheet scoped to `.dp`. Category car art in `apps/value/public/cars/*.webp`, rendered from the sim's lofted geometry (`/home/claude/cars/preview/card-value.ts` was the harness; re-render when `packages/cars` exists).
+- `/value/` is an alias that forwards to the root with the hash, so printed QR codes and the old repo's redirect still land (verified with a real `#/c/` code).
+- The sim's portal is gone: `/` opens the world (setup screen titled MiCar World), `/shop` or the old `?app=` links open MiCar Shop with Body shop / Mechanic / Customer tracker tabs. Old product names retired.
+- Inner Value pages say MiCar Value; the old landing page is deleted; yellow key favicon.
+- Not done in phase 0: the Value calculator and sheet pages keep their blue accent (the print layer); accounts, parking, trail entries, slabs (phase 1); everything in the world beyond routing (phase 2).
+
 ## Phases
 
 0. **The door** (1 week). The home page built as above on the Value engine and the concept's components; the four surfaces on one identity; the sim's portal removed: `/` opens the world, `/shop` opens MiCar Shop. Deploys to Pages and Render.
