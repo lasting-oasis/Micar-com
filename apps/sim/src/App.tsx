@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import { useGameStore } from './store';
 import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Gauge } from 'lucide-react';
 import { RACE_TIERS, RaceDifficulty } from './types';
-import { useLang, t, LangToggle } from './i18n';
+import { useLang, t, LangToggle, withBrand } from './i18n';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import { loadChunk } from './loadChunk';
@@ -1212,7 +1212,7 @@ const DealerGuideModal = ({ isOpen, onClose, step, setStep }: { isOpen: boolean;
                     🏁 Step 1: The Core Dealership Loop
                   </h3>
                   <p className="text-xs text-gray-400 mt-1">
-                    Your goal is to build a high-performance, premium Used Car Empire. Here is the operational loop that drives all profits:
+                    In MiCar Dealer Simulator, your goal is to build a high-performance, premium used-car dealership. Here is the operational loop that drives all profits:
                   </p>
                 </div>
 
@@ -1452,7 +1452,7 @@ const DealerGuideModal = ({ isOpen, onClose, step, setStep }: { isOpen: boolean;
                     onClick={onClose}
                     className="bg-market text-black font-black uppercase text-[10px] tracking-widest px-4 py-2 rounded-lg hover:bg-blue-400 transition-colors shrink-0"
                   >
-                    Start Empire!
+                    Start Your Dealership!
                   </button>
                 </div>
               </motion.div>
@@ -2099,7 +2099,7 @@ function App() {
           <div className="text-center">
             <h1 className="text-2xl font-black tracking-tighter text-white uppercase flex items-center justify-center gap-2">
               <Sparkles className="text-market w-5 h-5 animate-pulse" />
-              {t(lang, 'setup.title')}
+              {withBrand(t(lang, 'setup.title'))}
             </h1>
             <p className="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-1">{t(lang, 'setup.subtitle')}</p>
           </div>

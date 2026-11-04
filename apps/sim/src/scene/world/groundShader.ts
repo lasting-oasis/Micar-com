@@ -152,7 +152,7 @@ export function makeGroundMaterial(params: THREE.MeshStandardMaterialParameters,
             .replace('#include <lights_physical_pars_fragment>', lowLighting);
     };
     // Same code for every ground material, so they all share one compiled program
-    material.customProgramCacheKey = () => lowQuality ? 'cds-ground-v1-low' : 'cds-ground-v1';
+    material.customProgramCacheKey = () => lowQuality ? 'micar-ground-v1-low' : 'micar-ground-v1';
     groundMaterials.add(material);
     applyQuality(material);
     material.addEventListener('dispose', () => groundMaterials.delete(material));

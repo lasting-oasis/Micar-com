@@ -1,5 +1,6 @@
 {
-  "name": "car-dealer-sim",
+  "name": "micar-dealer-sim",
+  "description": "MiCar Dealer Simulator, the MiCar car dealer simulator and training tool",
   "type": "module",
   "scripts": {
     "dev": "vite",

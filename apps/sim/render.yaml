@@ -1,4 +1,4 @@
-# Render Blueprint for car-dealer-sim
+# Render Blueprint for the MiCar Dealer Simulator
 # Docs: https://render.com/docs/blueprint-spec
 #
 # Build installs dev dependencies explicitly (Vite lives in devDependencies but is
@@ -6,7 +6,7 @@
 # makes server.ts serve the prebuilt files from dist/ instead of booting Vite.
 services:
   - type: web
-    name: car-dealer-sim
+    name: car-dealer-sim # kept: the service name sets the live URL (car-dealer-sim.onrender.com)
     runtime: node
     plan: free
     buildCommand: npm install --include=dev && npm run build

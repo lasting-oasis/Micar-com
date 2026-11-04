@@ -17,7 +17,7 @@ import './index.css'
 import { useGameStore } from './store'
 import { Wrench, Gamepad2, ArrowRight, ShieldCheck, CheckCircle, Gauge, Activity } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useLang, t, LangToggle, getLang } from './i18n'
+import { useLang, t, LangToggle, getLang, withBrand } from './i18n'
 // Global error catcher.
 // - Development: full-screen overlay with message, source and stack (as before).
 // - Production: a small dismissable notice, so a harmless error (often from a
@@ -335,7 +335,7 @@ function GatewayPortal() {
               {/* Title & Desc */}
               <div className="space-y-3 text-left">
                 <h3 className="text-xl font-bold uppercase tracking-wider group-hover:text-cyan-400 transition-colors">
-                  {t(lang, 'card.game.title')}
+                  {withBrand(t(lang, 'card.game.title'))}
                 </h3>
                 <p className="text-xs text-gray-400 leading-relaxed font-sans">
                   {t(lang, 'card.game.desc')}
