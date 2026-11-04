@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#222 url(/assets/bg/garage.jpg) center/1440px 900px no-repeat;width:1440px;height:900px;overflow:hidden}canvas{display:block}</style></head>
+<body><canvas id="c"></canvas>
+<script type="module">
+import { Engine } from '/src/engine.js';
+const m = await (await fetch('/assets/sprites/manifest.json')).json();
+const e = new Engine(document.getElementById('c'), m, '/assets/sprites/');
+const q = new URLSearchParams(location.search);
+e.state.frame = +(q.get('frame') || 0);
+if (q.get('config')) Object.assign(e.state.config, JSON.parse(q.get('config')));
+if (q.get('color')) e.state.paint.exterior.color = q.get('color');
+if (q.get('finish')) e.state.paint.exterior.finish = q.get('finish');
+if (q.get('lights')) e.state.lights = true;
+if (q.get('neon')) { e.state.underglow.on = true; e.state.wheelNeon.on = true; }
+if (q.get('lift')) e.state.suspension = +q.get('lift');
+if (q.get('tint')) e.state.tint = +q.get('tint');
+await e.preloadFrame(e.state.frame);
+const missing = e.render();
+window.__done = { missing, parts: e.activeParts().length, order: e.orderFor(e.state.frame, e.activeParts()).map(p => p.id) };
+</script></body></html>

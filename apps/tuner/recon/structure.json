@@ -1,0 +1,168 @@
+{
+  "title": "Tuning Of Jeep Wrangler Unlimited JK Rubicon Recon 4 Door SUV 2017 - 3DTuning",
+  "meta": {
+    "description": "3D Realistic Tuning & Styling of Jeep Wrangler Unlimited JK Rubicon Recon 4 Door SUV 2017",
+    "apple-itunes-app": "app-id=898369939",
+    "google-play-app": "air.com.A3dtuning.Tuning3D"
+  },
+  "viewport": "fixed full-viewport app (no page scroll); native stage 1440x900; mobile UA redirects to mobile.3dtuning.com (app landing page)",
+  "regions_1440x900": {
+    "home": [
+      0,
+      45,
+      65,
+      40
+    ],
+    "adBanner": [
+      203,
+      10,
+      728,
+      90
+    ],
+    "rightDock": {
+      "partsUsed": [
+        1373,
+        40,
+        67,
+        40
+      ],
+      "topRanked": [
+        1373,
+        90,
+        67,
+        40
+      ],
+      "filters": [
+        1373,
+        440,
+        67,
+        40
+      ],
+      "beforeAfter": [
+        1373,
+        490,
+        67,
+        40
+      ],
+      "sounds": [
+        1373,
+        540,
+        67,
+        40
+      ],
+      "engine": [
+        1373,
+        590,
+        67,
+        40
+      ],
+      "fastMode": [
+        1373,
+        640,
+        67,
+        40
+      ],
+      "transform": [
+        1373,
+        690,
+        67,
+        40
+      ],
+      "saveTools": [
+        1373,
+        740,
+        67,
+        40
+      ],
+      "ledIndicator": [
+        1398,
+        445,
+        18,
+        5
+      ],
+      "newBadge": [
+        1359,
+        424,
+        41,
+        30
+      ],
+      "helpDot": [
+        1348,
+        653,
+        15,
+        15
+      ]
+    },
+    "leftDock": {
+      "settings": [
+        0,
+        640,
+        67,
+        40
+      ],
+      "colors": [
+        0,
+        690,
+        67,
+        40
+      ],
+      "parts": [
+        0,
+        740,
+        67,
+        40
+      ]
+    },
+    "bottomPanel": [
+      0,
+      780,
+      1440,
+      120
+    ],
+    "stage": {
+      "container": "#container.stage-container-body 1440x900, transform: scale(z) translate(x,y), margin-top:120px",
+      "frameWrapper": "div#frame-N 1440x900 absolutely centred, class fade-in | hidden fade-out",
+      "layers": "~33-45 <canvas> per frame at style left/top from the layer filename",
+      "background": ".tuning-background-block full viewport, background-position 50% 50%"
+    }
+  },
+  "panels": {
+    "finishes": [
+      "Paintable Zone [Exterior|Interior]",
+      "Selected Part dropdown (All Components)",
+      "Colors | #hex: manipulate-color, custom picker, factory swatches carousel (6 visible)",
+      "Colors | Glossy: materials carousel (7 of 16: glossy white mate redblack gold silver chameleon chrome camo camo2 carbon carbon2 digital digital2 snow snow2)"
+    ],
+    "parts": [
+      "category carousel (Swiper): TRIMS & KITS, FRONT WHEEL, REAR WHEEL, TIRES, FRONT BUMPER, REAR BUMPER, F. FENDER FLARES, R. FENDER FLARES, STEP BARS, HEADLIGHTS, ROOF LIGHT BAR, TAILLIGHTS, REAR LIGHT COVER, HOOD, GRILLES, INTERIOR, TOPS, HOOD STRIPS, DOORS, TURN LIGHTS, SPARE WHEEL HOLDER, GRILLE GUARDS, COWL, EYEBROW, ANTENNAS, BULL BAR, DOOR ACCESSORIES, DOOR HANDLE, FOG LIGHTS, FUEL DOOR, HITCHES, HOOD ACCESSORIES, INTERIOR STORAGE RACKS, SKID PLATES, THIRD BRAKE LIGHT, NUMBER PLATE FRAME, TURN SIGNAL & PARKING LIGHTS, MIRRORS, SNORKEL, ROOF RACK, LED LIGHT BAR, TIRE COVERS, WIND DEFLECTORS, WINDSHIELD PROTECTION",
+      "level 2: component-types-tiny (231px, prev/next) + component-item cards 470x110 (image, name, 'STARTING AT: N/A'); clicking a category rotates the car to the best viewing frame"
+    ],
+    "settings": [
+      "sliders: Window Tint, Suspension, Zoom Level (jQuery UI, -/+ buttons)",
+      "round checks: Wheel Neon, Car Neon, Lights On, Rock Lights, Auto Rotate"
+    ],
+    "footer/menu": [
+      "English, Settings, B2B, About, Contact us, Terms of use, Privacy, Cookie Settings, Copyright 3DTuning LLC"
+    ]
+  },
+  "interactive": {
+    "canvases": 1034,
+    "iframes": 2,
+    "angularScope": [
+      "carData",
+      "selectedComponentTypes",
+      "factoryColors",
+      "factoryMaterials",
+      "colorsCarousel",
+      "materialsCarousel",
+      "viewSettings",
+      "autoRotate",
+      "interior",
+      "color",
+      "stageBackground",
+      "beforeAfterActive",
+      "challengeData",
+      "isTimeTrial"
+    ]
+  }
+}

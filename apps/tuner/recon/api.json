@@ -1,0 +1,87 @@
+[
+  {
+    "method": "GET",
+    "url": "https://api.3dtuning.com/api/v1/accounts/my",
+    "status": 200,
+    "note": "auth/user session"
+  },
+  {
+    "method": "GET",
+    "url": "https://assets2.3dtuning.com/api/v1/regions/langs",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "https://assets2.3dtuning.com/api/v1/update-texts?lang=en-US",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "https://assets2.3dtuning.com/api/v1/translations/{lang}?tags=site",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "https://assets2.3dtuning.com/api/v1/translations/languages?lang=def&tags=site",
+    "status": 200
+  },
+  {
+    "method": "GET",
+    "url": "https://assets2.3dtuning.com/api/v1/manufacturers",
+    "status": 200,
+    "shape": "[{_id,name,logo,sort,sortKey,created,updated}] x300"
+  },
+  {
+    "method": "GET",
+    "url": "https://assets2.3dtuning.com/api/v1/carsApi/getCarByName?full_states=true&make=jeep&model=...&type=4.door.suv&year=2017",
+    "status": 200,
+    "shape": "car record: size{1440x900}, frameCount 48, stepOfFrameIndexUp 12, camera2Frames{0:4,12:20,24:28,36:44}, layersPositions[50][~70 part slugs] (per-frame z-order), settings[68 componentType slots: position, layerNumber, isMandatory, hideFromMenu, image], components[44 defaults: component id, material, color], componentsData[44: files.default[a0000_x_y.png...], folderName, type, name, materials], factoryColors[17 {name,value}], suspension/min/max (-35..25), suspensionForComponentsStructure, defaultBkgSite, haveSound, engineType"
+  },
+  {
+    "method": "GET",
+    "url": "https://assets2.3dtuning.com/api/v1/templates?web=true&classicType=Truck,Crew%20Cab&classicTypeApp=TRUCK",
+    "status": 200,
+    "shape": "[{_id,name,background{imagePath,...},settings[{pan{x,y},frame,layer,scale}],forTypes[],image,platforms{web,app}}] x12"
+  },
+  {
+    "method": "GET",
+    "url": "https://api.3dtuning.com/api/v1/backgrounds?carType=pickup+hd&isWeb=true&withOld=true",
+    "status": 200,
+    "shape": "[{_id,forCarType,name,imagePath,imagePath_high_res,imagePathSecondCam,thumbnailPath,forTypes[]}] x210"
+  },
+  {
+    "method": "GET",
+    "url": "https://assets2.3dtuning.com/api/v1/componentsInfo",
+    "status": 200,
+    "shape": "{}"
+  },
+  {
+    "method": "GET",
+    "url": "https://assets-challenge.3dtuning.com/api/v1/challengeNewSystem/levels",
+    "status": 200,
+    "note": "community challenge feature"
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn{1..30}.3dtuning.com/cars/{Car Folder Name}/{part_slug}/{variant}/{material}/a{frame:04d}_{x}_{y}.png",
+    "status": 200,
+    "note": "part layer sprites; material in {glossy, metal, mask, nesteds/logo/metal}; frames load coarse-first (0,4,8,...)"
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn1.3dtuning.com/assets/sounds/{Car}/start.mp3|gas.mp3|down.mp3",
+    "status": 200,
+    "note": "engine sounds"
+  },
+  {
+    "method": "GET",
+    "url": "https://data.3dtuning.com/bkg/HD_2/3dscene/work_shop_v3_1_1_web.jpg",
+    "status": 200,
+    "note": "stage background photo"
+  },
+  {
+    "method": "WS",
+    "url": "wss://www.3dtuning.com/socket.io/",
+    "note": "presence / challenge realtime"
+  }
+]
