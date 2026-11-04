@@ -378,6 +378,36 @@ export const generateVegetationTexture = () => {
     return t;
 };
 
+/**
+ * A texture to use straight away, filled in later: a flat placeholder with the same size,
+ * kind and settings as `make()`'s result (so three.js allocates it once and compiles no
+ * shader twice); `fill()` runs the generator and copies its pixels in. Joining the game
+ * then doesn't wait for the ground textures: they appear a moment after the first frame.
+ */
+export const lazyTexture = (make: () => THREE.Texture, spec: { size: number; canvas: boolean; srgb: boolean; rgba: [number, number, number, number] }) => {
+    const { size: N, rgba } = spec;
+    let tex: THREE.Texture;
+    if (spec.canvas) {
+        const { c, g } = canvas2d(N);
+        g.fillStyle = `rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3] / 255})`; g.fillRect(0, 0, N, N);
+        tex = new THREE.CanvasTexture(c);
+        tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+        tex.colorSpace = spec.srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+    } else {
+        const data = new Uint8Array(N * N * 4);
+        for (let i = 0; i < data.length; i += 4) data.set(rgba, i);
+        tex = dataTexture(data, N, N, spec.srgb);
+    }
+    const fill = () => {
+        const real = make();
+        tex.image = real.image;
+        tex.wrapS = real.wrapS; tex.wrapT = real.wrapT; tex.anisotropy = real.anisotropy;
+        tex.needsUpdate = true;
+        real.dispose();
+    };
+    return { tex, fill };
+};
+
 /** Soft round glow (white, falloff in alpha) for the light pools and lamp glare. */
 export const generateGlowTexture = (hardness = 1) => {
     const N = 64, rand = seededRandom(7703);

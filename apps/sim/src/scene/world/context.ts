@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {
     generateAggregateTexture, generateChainLinkTexture, generateConcreteTexture, generateGrassTexture, generateMacroTexture,
-    generatePaintPaletteTexture, generateRoadAtlasTexture, generateSlabTexture, generateVegetationTexture, ROAD_ATLAS_BASE, SLAB_REPEAT,
+    generatePaintPaletteTexture, generateRoadAtlasTexture, generateSlabTexture, generateVegetationTexture, lazyTexture, ROAD_ATLAS_BASE, SLAB_REPEAT,
 } from '../textures';
 import { createArchitectureKit, type ArchitectureKit } from './architecture';
 import { CullingDriver, PackedMesh } from './cells';
@@ -115,9 +115,21 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
     const arch = createArchitectureKit(cityMaterials, cityTextures, emissiveFacadeMaterials);
 
     // --- Ground surfaces: realistic albedos (lighting is physically based) ---
-    const aggregate = generateAggregateTexture(), macro = generateMacroTexture();
-    const grassTex = generateGrassTexture(), slabTex = generateSlabTexture(), roadTex = generateRoadAtlasTexture(), paintTex = generatePaintPaletteTexture();
-    cityTextures.push(aggregate, macro, grassTex, slabTex, roadTex, paintTex);
+    // (generated just after the first frame, one per task: see lazyTexture)
+    const lazy = [
+        lazyTexture(generateAggregateTexture, { size: 256, canvas: false, srgb: false, rgba: [128, 128, 128, 255] }),
+        lazyTexture(generateMacroTexture, { size: 128, canvas: false, srgb: false, rgba: [128, 128, 128, 255] }),
+        lazyTexture(generateGrassTexture, { size: 256, canvas: true, srgb: true, rgba: [70, 96, 40, 255] }),
+        lazyTexture(generateSlabTexture, { size: 256, canvas: false, srgb: true, rgba: [150, 148, 142, 255] }),
+        lazyTexture(generateRoadAtlasTexture, { size: 256, canvas: false, srgb: true, rgba: [170, 170, 170, 200] }),
+        lazyTexture(generateVegetationTexture, { size: 256, canvas: true, srgb: true, rgba: [56, 80, 36, 255] }),
+    ];
+    const [aggregate, macro, grassTex, slabTex, roadTex, vegTex] = lazy.map(l => l.tex);
+    lazy[4].tex.wrapS = THREE.ClampToEdgeWrapping; // (the road atlas: columns side by side)
+    lazy[2].tex.anisotropy = 4; lazy[5].tex.anisotropy = 2;
+    const paintTex = generatePaintPaletteTexture();
+    cityTextures.push(aggregate, macro, grassTex, slabTex, roadTex, paintTex, vegTex);
+
     // Grass: 4.5 m texture repeat, 37 m patchiness, and over hundreds of metres drifting
     // between lush and dry grass with the odd worn, earthy stretch.
     const grassLook = {
@@ -151,6 +163,13 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
     cityMaterials.push(ground.grass, ground.lawn, ground.asphalt, ground.concrete, ground.paint);
 
     const culling = new CullingDriver(scene);
+    // Fill in the ground textures once the game is up and drawing (from the 15th frame,
+    // one per task)
+    {
+        let frames = 0, i = 0;
+        const next = () => { if (i < lazy.length) { lazy[i++].fill(); setTimeout(next, 60); } };
+        culling.perFrame.push({ frame: () => { if (++frames === 15) setTimeout(next, 0); } });
+    }
     const packed = (name: string, material: THREE.Material, castShadow = false) => {
         const p = new PackedMesh(material, { castShadow, receiveShadow: true, flatGround: true });
         p.mesh.name = `ground:${name}`;
@@ -161,8 +180,6 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
     // (The paving hardly rises above the ground: none of it casts a shadow.)
     const layers = { asphalt: packed('asphalt', ground.asphalt), concrete: packed('concrete', ground.concrete), paint: packed('paint', ground.paint), lawn: packed('lawn', ground.lawn) };
 
-    const vegTex = generateVegetationTexture();
-    cityTextures.push(vegTex);
     const plants = createVegetationKit(scene, culling, environmentDisposables, cityMaterials, vegTex);
     const props = createPropsKit(scene, culling, environmentDisposables, cityMaterials, cityTextures, addLightSource);
 
