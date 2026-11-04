@@ -5,7 +5,7 @@ import { LightPool } from './scene/lightPool';
 import { batchStatic } from './scene/staticBatcher';
 import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
-import { applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCars, disposeCarModel, disposeSharedCarAssets, prepareCarStyles, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
+import { applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, prepareCarStyles, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
@@ -174,7 +174,7 @@ export function VanillaThreeScene() {
         const carWheels: Record<string, THREE.Object3D[]> = {};   // wheel nodes: rotateX rolls them (then syncCarWheels)
         const carSteering: Record<string, THREE.Object3D[]> = {}; // front steering pivots: rotation.y
         attachCarShadows(scene); // a soft shadow under every car (one draw for all of them)
-        let carShadersReady = false; // car shader programs are compiled once, before the first frame is drawn
+        let carPrecompileAt = 0, carPrecompileFrames = 0; // car shader programs are prepared in the background after joining
         const vehiclePhysics: Record<string, { v: number, yaw: number }> = {};
         // Per-car handling from real specs (src/carSpecs.ts), recomputed only when the car's
         // model or mechanical condition changes.
@@ -1529,7 +1529,9 @@ export function VanillaThreeScene() {
             atmosphere.updateEnvironment(quality === 'high');
             // distant cars as their far versions, contact shadows under moved cars, headlight beam
             updateCars(camera.position, quality === 'high', (localDrivingCarId && carMeshes[localDrivingCarId]) || null);
-            if (!carShadersReady) { carShadersReady = true; precompileCars(renderer, scene, camera); }
+            // (from 1.5 s and 30 frames after the first frame, so joining itself is not slowed down)
+            if (!carPrecompileAt) carPrecompileAt = now + 1500;
+            else if (now >= carPrecompileAt && ++carPrecompileFrames > 30) precompileCarsTick(renderer, scene, camera);
 
             // On Low, while the phone menu covers the world and nothing moves the
             // camera, draw ~10x a second instead of every frame (the game itself

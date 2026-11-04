@@ -506,36 +506,40 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
     if (changed) sm.instanceMatrix.needsUpdate = true;
 };
 /**
- * Compile every car shader program now (call once, just before the first frame is drawn,
- * after the scene's lights and sky are set up), so the first car of each kind that comes
- * into view does not stall the game while its shaders compile. Builds one hidden car with
- * every variant shown (body, trim, both glasses, wheels, far version, glow, smoke, beam,
- * contact shadows) and compiles it against the scene; it is removed again afterwards.
+ * Get every car shader program ready ahead of time, a little per frame, without holding
+ * up joining: call once per frame from a second or two after the first frame. Builds the
+ * shared atlas and the sedan in steps, then one hidden car with every variant shown (body,
+ * trim, both glasses, wheels, far version, glow, smoke, beam, contact shadows), compiles
+ * the scene with compileAsync (off the main thread where the GPU driver supports it), and
+ * in a later frame draws it once into a single pixel: some drivers, and software
+ * rendering, only finish a shader (and upload textures) on its first draw.
  */
+type Precompile = { state: 'build' | 'compiling' | 'draw' | 'done'; probe?: THREE.Group; broken?: THREE.Mesh; idleFrames: number };
+const pre: Precompile = { state: 'build', idleFrames: 0 };
 let keptPaint: THREE.Material | null = null;
-export const precompileCars = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
-    const probe = buildCarModel('sedan', '#808080', 100, 20);
-    const g = probe.group, c = partsOf(g)!, S = shared!;
-    g.position.set(0, -500, 0);
-    const broken = new THREE.Mesh(c.glass.geometry, S.glassBroken);
-    const b = getBeam();
-    c.farBody.visible = c.farTrim.visible = c.halos.visible = c.smoke.visible = true;
-    g.add(broken, b); b.visible = true;
-    scene.add(g);
-    ensureShadowMesh(1);
-    const shadowWasVisible = shadowMesh?.visible;
-    // Take the probe away again, but keep its paint material: disposing it would release the
-    // shared paint program (and its shadow variant) that the next car would then compile again.
-    const done = () => {
-        b.removeFromParent(); b.visible = false; broken.removeFromParent(); g.removeFromParent();
-        const i = cars.indexOf(g); if (i >= 0) { cars.splice(i, 1); shadowsDirtyFrom = Math.min(shadowsDirtyFrom, i); }
-        keptPaint?.dispose(); keptPaint = c.body.material as THREE.Material;
-        c.smoke.geometry.dispose(); c.halos.geometry.dispose(); c.wheelMesh.dispose();
-    };
-    renderer.compile(scene, camera);
-    // Some drivers (and software rendering) only finish a shader, and upload textures, when it
-    // is first drawn: draw the scene once with the probe in front of the camera, limited to
-    // a single pixel (same output as normal frames, so the same shader programs).
+const FAR_AWAY = 1e5; // the probe waits out of sight (and its contact shadow with it)
+export const precompileCarsTick = (renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) => {
+    if (pre.state === 'done' || pre.state === 'compiling') return;
+    if (pre.state === 'build') {
+        if (!carStyleReady('sedan')) return;
+        const g = buildCarModel('sedan', '#808080', 100, 20).group, c = partsOf(g)!;
+        g.position.set(FAR_AWAY, -500, FAR_AWAY);
+        const broken = new THREE.Mesh(c.glass.geometry, shared!.glassBroken);
+        const b = getBeam();
+        c.farBody.visible = c.farTrim.visible = c.halos.visible = c.smoke.visible = true;
+        g.add(broken, b); b.visible = true;
+        scene.add(g);
+        ensureShadowMesh(1);
+        pre.probe = g as THREE.Group; pre.broken = broken; pre.state = 'compiling';
+        const r = renderer as THREE.WebGLRenderer & { compileAsync?: (o: THREE.Object3D, c: THREE.Camera, t?: THREE.Scene) => Promise<unknown> };
+        const next = () => { if (pre.probe === g) { pre.state = 'draw'; pre.idleFrames = 0; } }; // (unless the world closed meanwhile)
+        if (r.compileAsync) r.compileAsync(scene, camera).then(next, next);
+        else { renderer.compile(scene, camera); next(); }
+        return;
+    }
+    // 'draw': wait for a quiet frame (no car building this frame), then draw the probe once
+    if (stepsThisFrame > 0 && ++pre.idleFrames < 30) return;
+    const g = pre.probe!, c = partsOf(g)!, b = getBeam();
     camera.updateMatrixWorld();
     g.position.copy(camera.position).add(tmpV.set(0, 0, -12).applyQuaternion(camera.quaternion));
     g.position.y = 0;
@@ -545,8 +549,13 @@ export const precompileCars = (renderer: THREE.WebGLRenderer, scene: THREE.Scene
     renderer.render(scene, camera);
     if (renderer.shadowMap.enabled) renderer.shadowMap.needsUpdate = true; // and redraw the real shadows without the probe
     renderer.setScissor(box); renderer.setScissorTest(sc);
-    done();
-    if (shadowMesh) shadowMesh.visible = shadowWasVisible ?? true;
+    // Take the probe away again, but keep its paint material: disposing it would release the
+    // shared paint program (and its shadow variant), which the next car would compile again.
+    b.removeFromParent(); b.visible = false; pre.broken!.removeFromParent(); g.removeFromParent();
+    const i = cars.indexOf(g); if (i >= 0) { cars.splice(i, 1); shadowsDirtyFrom = Math.min(shadowsDirtyFrom, i); }
+    keptPaint?.dispose(); keptPaint = c.body.material as THREE.Material;
+    c.smoke.geometry.dispose(); c.halos.geometry.dispose(); c.wheelMesh.dispose();
+    pre.state = 'done'; pre.probe = pre.broken = undefined;
 };
 
 /** Remove a car and free what belongs to it alone (shared geometry/materials stay). */
@@ -576,6 +585,7 @@ export const disposeSharedCarAssets = () => {
     }
     disposeCarAtlas();
     keptPaint?.dispose(); keptPaint = null;
+    pre.state = 'build'; pre.probe = pre.broken = undefined;
     cars.length = 0;
     nightOn = false; frameNo = 0; stepsThisFrame = 0;
 };
