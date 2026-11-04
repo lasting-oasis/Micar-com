@@ -1,0 +1,435 @@
+import * as THREE from 'three';
+import type { WorldContext } from './context';
+import type { FenceKit } from './fences';
+import type { FurnitureKit } from './furniture';
+import { createBuildingSign, seededRandom } from '../textures';
+import type { Face } from './architecture';
+import { createGroundLayers, lotUV, paintUV, Y } from './roads';
+import { clipToRect, GeoBuilder, paintText } from './meshBuilder';
+import { useGameStore } from '../../store';
+
+// Hinged driveway gate of one dealership lot (animated by the render loop).
+export type DealershipGate = { left: THREE.Group; right: THREE.Group; ownerId: string; x: number; z: number; barrier: THREE.Box3; isOwner: boolean };
+
+/** Builds a player's whole dealership lot. `isOwnerLot` = it belongs to the local player (gets solid fences + gate barrier). */
+export function createDealership(ctx: WorldContext, fences: FenceKit, furniture: FurnitureKit, lotX: number, lotZ: number, playerId: string, isOwnerLot: boolean): DealershipGate {
+    const { scene, environmentDisposables, staticCollisionBoxes, concreteTex, makeGlass, addLightSource, arch } = ctx;
+    const { buildChainLinkFence, buildGateLeaf } = fences;
+    const { makeSofa, makePlant, makePainting, makeCoffeeTable } = furniture;
+
+    // --- 1. Main Office Building ---
+    const officeGroup = new THREE.Group();
+    officeGroup.position.set(lotX - 25, 0, lotZ - 25);
+
+    const officeMat = new THREE.MeshStandardMaterial({ color: '#1e293b', roughness: 0.8 }); // Slate-800
+    const glassMat = makeGlass('#38bdf8', 0.35);
+    const floorMat = new THREE.MeshStandardMaterial({ color: '#334155', roughness: 0.7, map: concreteTex });
+    
+    const oRoof = new THREE.Mesh(new THREE.BoxGeometry(20, 0.5, 15), officeMat);
+    oRoof.position.set(0, 8, 0); oRoof.castShadow = true; officeGroup.add(oRoof);
+    
+    const oFloor = new THREE.Mesh(new THREE.PlaneGeometry(19, 14), floorMat);
+    oFloor.rotation.x = -Math.PI / 2; oFloor.position.set(0, 0.05, 0); oFloor.receiveShadow = true; officeGroup.add(oFloor);
+
+    const oWallB = new THREE.Mesh(new THREE.BoxGeometry(20, 8, 0.5), officeMat);
+    oWallB.position.set(0, 4, -7.25); oWallB.userData.solid = true; oWallB.castShadow = true; oWallB.receiveShadow = true; officeGroup.add(oWallB);
+
+    const oWallL = new THREE.Mesh(new THREE.BoxGeometry(0.5, 8, 14.5), officeMat);
+    oWallL.position.set(-9.75, 4, 0); oWallL.userData.solid = true; oWallL.castShadow = true; oWallL.receiveShadow = true; officeGroup.add(oWallL);
+
+    const oWallR = new THREE.Mesh(new THREE.BoxGeometry(0.5, 8, 14.5), officeMat);
+    oWallR.position.set(9.75, 4, 0); oWallR.userData.solid = true; oWallR.castShadow = true; oWallR.receiveShadow = true; officeGroup.add(oWallR);
+
+    // Front Wall Pieces - Modern glass structure
+    const oWallFL = new THREE.Mesh(new THREE.BoxGeometry(7.5, 8, 0.5), glassMat);
+    oWallFL.position.set(-6.25, 4, 7.25); oWallFL.userData.solid = true; officeGroup.add(oWallFL);
+
+    const oWallFR = new THREE.Mesh(new THREE.BoxGeometry(7.5, 8, 0.5), glassMat);
+    oWallFR.position.set(6.25, 4, 7.25); oWallFR.userData.solid = true; officeGroup.add(oWallFR);
+    
+    // Storefront details: mullions and transoms over the glass, a door head with
+    // transom glass, automatic sliding doors standing open behind the side lites
+    // (the doorway stays clear), a canopy and an entry slab; a fascia band, side
+    // windows and high back windows.
+    {
+        const { box, trimMat, frameMat, paneGeo, plane } = arch;
+        [-1, 1].forEach(sx => {
+            [2.5, 5, 7.5, 10].forEach(px => box(officeGroup, frameMat, 0.15, 8, 0.6, sx * px, 4, 7.25));   // mullions
+            box(officeGroup, frameMat, 7.5, 0.15, 0.6, sx * 6.25, 3.4, 7.25);                            // transoms
+            box(officeGroup, frameMat, 7.5, 0.3, 0.6, sx * 6.25, 0.15, 7.25);                            // bottom rails
+            const leaf = arch.openLeaf(2.5, 3.3, 0, glassMat); leaf.position.set(sx < 0 ? -5 : 2.5, 0, 6.85); officeGroup.add(leaf);
+        });
+        box(officeGroup, frameMat, 5, 0.2, 0.6, 0, 3.4, 7.25);                                           // door head
+        box(officeGroup, glassMat, 5, 4.3, 0.4, 0, 5.6, 7.25);                                           // transom glass
+        box(officeGroup, frameMat, 10.4, 0.3, 0.3, 0, 3.5, 6.85);                                        // sliding-door track
+        box(officeGroup, frameMat, 8, 0.3, 2.6, 0, 3.95, 8.8);                                           // canopy
+        box(officeGroup, trimMat, 6, 0.1, 2.4, 0, 0.05, 8.7).receiveShadow = true;                       // entry slab
+        box(officeGroup, trimMat, 20.4, 0.8, 15.4, 0, 7.95, 0).receiveShadow = true;                     // fascia
+        const wo = { cols: 2, rows: 1, lit: 0.8 };
+        ([['+x', 10], ['-x', -10]] as [Face, number][]).forEach(([f, sx]) => {
+            arch.windowRow(officeGroup, f, 2, 7, 0, 3.6, sx, 2.6, 2.4, wo);
+            [-3.5, 3.5].forEach(pz => { const p = plane(officeGroup, arch.glassMat, paneGeo(2.6, 2.4, 2, 1), sx - Math.sign(sx) * 0.56, 3.6, pz); p.rotation.y = -Math.sign(sx) * Math.PI / 2; });
+        });
+        arch.windowRow(officeGroup, '-z', 2, 10, 0, 6.4, -7.5, 4, 1.0, { cols: 3, rows: 1, lit: 0.8 });
+        [-5, 5].forEach(px => plane(officeGroup, arch.glassMat, paneGeo(4, 1.0, 3, 1), px, 6.4, -6.94));
+    }
+
+    // Interior Sales Desk
+    const deskGeo = new THREE.BoxGeometry(4, 1.2, 2);
+    const deskMat = new THREE.MeshStandardMaterial({ color: '#475569' });
+    const desk = new THREE.Mesh(deskGeo, deskMat);
+    desk.position.set(0, 0.6, -3); officeGroup.add(desk);
+    
+    // Computer Monitor on Desk
+    const monitorGeo = new THREE.BoxGeometry(1.5, 1, 0.1);
+    const monitorMat = new THREE.MeshStandardMaterial({ color: '#111827', emissive: '#111827' });
+    const monitor = new THREE.Mesh(monitorGeo, monitorMat);
+    monitor.position.set(0, 1.7, -3); officeGroup.add(monitor);
+
+    // --- Showroom lounge & decor (makes the office look lived-in) ---
+    // A waiting lounge: two sofas facing each other across a glass coffee table.
+    const sofaA = makeSofa('#3f5b7a'); sofaA.position.set(-6.2, 0, 3.5); sofaA.rotation.y = Math.PI / 2; officeGroup.add(sofaA);
+    const sofaB = makeSofa('#3f5b7a'); sofaB.position.set(-2.2, 0, 3.5); sofaB.rotation.y = -Math.PI / 2; officeGroup.add(sofaB);
+    const table = makeCoffeeTable(); table.position.set(-4.2, 0, 3.5); officeGroup.add(table);
+    // Potted plants in the corners
+    const p1 = makePlant(); p1.position.set(8.5, 0, 6); officeGroup.add(p1);
+    const p2 = makePlant(); p2.position.set(8.5, 0, -6); officeGroup.add(p2);
+    const p3 = makePlant(); p3.position.set(-8.7, 0, -6); officeGroup.add(p3);
+    // Framed art on the walls
+    const art1 = makePainting(2.4, 1.5, '#0e7490', '#f59e0b'); art1.position.set(4.5, 4.6, -6.95); officeGroup.add(art1);
+    const art2 = makePainting(1.8, 1.8, '#7c3aed', '#22d3ee'); art2.position.set(7.6, 4.6, -6.95); officeGroup.add(art2);
+    const art3 = makePainting(2.2, 1.4, '#b91c1c', '#fde68a'); art3.position.set(-9.55, 4.6, 0); art3.rotation.y = Math.PI / 2; officeGroup.add(art3);
+    // Soft warm interior light so the furnishings are visible from outside.
+    addLightSource(lotX - 25, 6, lotZ - 24, '#fff3da', 0.9, 34, false);
+
+    scene.add(officeGroup);
+    environmentDisposables.push(officeGroup);
+
+    // Dealership Neon Roof Sign
+    const signGeo = new THREE.BoxGeometry(18, 2, 1);
+    const signMat = new THREE.MeshStandardMaterial({ color: '#ef4444', roughness: 0.3, emissive: '#dc2626', emissiveIntensity: 2.0 });
+    const sign = new THREE.Mesh(signGeo, signMat);
+    sign.position.set(lotX - 25, 9, lotZ - 24.5);
+    scene.add(sign);
+    environmentDisposables.push(sign);
+
+    // Lot dressing, all in one merged mesh of the shared props material (see streetProps.ts):
+    // lot lights (bronze poles on concrete piers with twin shoebox heads; at night their
+    // heads glow and they throw pools of light on the paving), set between the rows; flags
+    // and a pylon sign out front; strings of pennants between the lights.
+    const dress = new GeoBuilder();
+    const LIGHTS: [number, number][] = [[-30.25, 20], [-30.25, 62], [-20, 92], [35, -15], [35, 35], [31, 85], [-9.5, -37], [66, 27]];
+    LIGHTS.forEach(([dx, dz]) => ctx.props.lot(dress, lotX + dx, lotZ + dz, 0, Y.road));
+    const pennant = (a: number, b: number) => {
+        const [ax, az] = LIGHTS[a], [bx, bz] = LIGHTS[b];
+        ctx.props.furniture.pennants(dress, new THREE.Vector3(lotX + ax, 16.6, lotZ + az), new THREE.Vector3(lotX + bx, 16.6, lotZ + bz), 2.2, ['red', 'white', 'blue', 'yellow']);
+    };
+    pennant(0, 1); pennant(3, 4); pennant(4, 5); pennant(2, 5);
+    ([[-36, ['blue', 'white', 'red']], [-40, ['red', 'white', 'red']], [-44, ['green', 'white', 'yellow']]] as [number, ('blue' | 'white' | 'red' | 'green' | 'yellow')[]][])
+        .forEach(([dx, cols]) => ctx.props.furniture.flag(dress, lotX + dx, lotZ + 106, -Math.PI / 2, cols));
+    const pylon = ctx.props.furniture.signCabinet(dress, lotX - 26, lotZ + 108, 0, 1);
+    const dressMesh = new THREE.Mesh(dress.build(), ctx.props.material);
+    dressMesh.castShadow = true; dressMesh.receiveShadow = true;
+    scene.add(dressMesh); environmentDisposables.push(dressMesh);
+
+    // The pylon's lit faces: the owner's name (one small texture per lot, made once)
+    {
+        const owner = useGameStore.getState().gameState?.players?.[playerId]?.name || 'Pre-Owned';
+        const c = document.createElement('canvas'); c.width = 256; c.height = 128;
+        const g = c.getContext('2d');
+        if (g) {
+            const grad = g.createLinearGradient(0, 0, 0, 128);
+            grad.addColorStop(0, '#16233b'); grad.addColorStop(1, '#0b1322');
+            g.fillStyle = grad; g.fillRect(0, 0, 256, 128);
+            g.fillStyle = '#c8a24a'; g.fillRect(0, 0, 256, 6); g.fillRect(0, 122, 256, 6);
+            g.textAlign = 'center'; g.textBaseline = 'middle';
+            const name = owner.toUpperCase().slice(0, 24);
+            let size = 44;
+            g.font = `bold ${size}px sans-serif`;
+            while (g.measureText(name).width > 236 && size > 16) { size -= 2; g.font = `bold ${size}px sans-serif`; }
+            g.fillStyle = '#ffffff'; g.fillText(name, 128, 50);
+            g.font = 'bold 20px sans-serif'; g.fillStyle = '#e8c766'; g.fillText('QUALITY  USED  CARS', 128, 96);
+        }
+        const tex = new THREE.CanvasTexture(c);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.anisotropy = 4;
+        const faceMat = new THREE.MeshStandardMaterial({ map: tex, emissiveMap: tex, emissive: '#ffffff', emissiveIntensity: 0.15, roughness: 0.4, metalness: 0 });
+        ctx.cityTextures.push(tex); ctx.cityMaterials.push(faceMat);
+        ctx.emissiveFacadeMaterials.push(faceMat); // glows at night with the lit windows
+        for (const side of [1, -1]) {
+            const face = new THREE.Mesh(new THREE.PlaneGeometry(7.8, 3.4), faceMat);
+            face.position.set(lotX - 26, pylon.y, lotZ + 108 + side * 0.36);
+            face.rotation.y = side > 0 ? 0 : Math.PI;
+            scene.add(face); environmentDisposables.push(face);
+        }
+    }
+
+    // Lot paving: evenly sealed, warm charcoal asphalt with a strip of grass inside the fence
+    // (left, right and front) behind a low curb, and the driveway out to the street.
+    const G = createGroundLayers(ctx);
+    const PX0 = lotX - 52.5, PX1 = lotX + 72.5, PZ1 = lotZ + 97.5;
+    G.asphalt.rect(PX0, lotZ - 40, PX1, PZ1, Y.road, lotUV);
+    G.asphalt.rect(lotX - 15, PZ1, lotX + 15, lotZ + 177.5, Y.road, lotUV);
+    const curb = (x0: number, z0: number, x1: number, z1: number) => {
+        const c = new THREE.Mesh(new THREE.BoxGeometry(Math.abs(x1 - x0) || 0.3, 0.13, Math.abs(z1 - z0) || 0.3), arch.trimMat);
+        c.position.set((x0 + x1) / 2, 0.065, (z0 + z1) / 2);
+        c.receiveShadow = true;
+        scene.add(c); environmentDisposables.push(c);
+    };
+    curb(PX0 - 0.15, lotZ - 40, PX0 - 0.15, PZ1 + 0.3); curb(PX1 + 0.15, lotZ - 40, PX1 + 0.15, PZ1 + 0.3);
+    curb(PX0 - 0.3, PZ1 + 0.15, lotX - 15, PZ1 + 0.15); curb(lotX + 15, PZ1 + 0.15, PX1 + 0.3, PZ1 + 0.15);
+    // a clipped hedge along the front strip, either side of the gate
+    const hedgeRand = seededRandom(Math.round(lotX * 7 + lotZ * 13) + 991);
+    for (const [x0, x1] of [[PX0 + 0.6, lotX - 17], [lotX + 17, PX1 - 0.6]]) {
+        const n = Math.floor((x1 - x0) / 4.2);
+        for (let i = 0; i < n; i++) ctx.plants.add('hedge', x0 + 2.1 + i * 4.2, lotZ + 98.8, hedgeRand, 1, 0);
+    }
+    const white = paintUV('white'), yellow = paintUV('yellow');
+    const line = (x1: number, z1: number, x2: number, z2: number, w: number, uv = white, cap = 0) =>
+        G.paint.strip(lotX + x1, lotZ + z1, lotX + x2, lotZ + z2, w, Y.paint, uv, cap);
+    // Driveway: centre line, and a stop bar with STOP across the exit lane before the sidewalk
+    line(0, 101, 0, 171, 0.15, yellow);
+    line(-14.6, 174.2, -0.3, 174.2, 0.45);
+    paintText(G.paint, 'STOP', lotX - 7.4, lotZ + 168.5, 0, 1, 1.25, 3.0, 0.26, Y.paint, white);
+
+    // Galvanized chain-link perimeter fence around the lot
+    // Boundary of foundation: X: lotX-55 to lotX+75, Z: lotZ-40 to lotZ+100
+    const fL = lotX - 55;
+    const fR = lotX + 75;
+    const fB = lotZ - 40;
+    const fT = lotZ + 100;
+
+    // Perimeter fence — back / left / right plus two front runs that leave a
+    // gate opening for the driveway (lotX-15 to lotX+15)
+    const fenceSegs = [
+        buildChainLinkFence(fL, fB, fR, fB),
+        buildChainLinkFence(fL, fB, fL, fT),
+        buildChainLinkFence(fR, fB, fR, fT),
+        buildChainLinkFence(fL, fT, lotX - 15, fT),
+        buildChainLinkFence(lotX + 15, fT, fR, fT)
+    ];
+    // Enclose the owner's own lot so the gate is the only way in or out
+    if (isOwnerLot) {
+        fenceSegs.forEach(g => {
+            g.updateMatrixWorld(true);
+            staticCollisionBoxes.push(new THREE.Box3().setFromObject(g).expandByScalar(0.2));
+        });
+    }
+
+    // Secured automatic driveway gate (two leaves). Starts closed; the render
+    // loop opens it from the inside automatically and from the outside only
+    // after the owner enters their code, and physically blocks the driveway
+    // (gateBarrier) whenever it is closed.
+    const gateLeft = buildGateLeaf(lotX - 15, fT, 1);
+    const gateRight = buildGateLeaf(lotX + 15, fT, -1);
+    gateLeft.rotation.y = 0;
+    gateRight.rotation.y = 0;
+    const gateBarrier = new THREE.Box3();
+    gateBarrier.makeEmpty();
+    if (isOwnerLot) staticCollisionBoxes.push(gateBarrier);
+    const gate: DealershipGate = { left: gateLeft, right: gateRight, ownerId: playerId, x: lotX, z: fT, barrier: gateBarrier, isOwner: isOwnerLot };
+
+    // Physical keypad terminal just outside the gate (driver's-side) so the code
+    // entry has a visible machine to walk/drive up to.
+    const term = new THREE.Group(); term.position.set(lotX + 20, 0, fT + 4);
+    const tPost = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 3, 8), new THREE.MeshStandardMaterial({ color: '#3f3f46', metalness: 0.6, roughness: 0.4 })); tPost.position.y = 1.5; tPost.castShadow = true; term.add(tPost);
+    const tHead = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.8, 0.6), new THREE.MeshStandardMaterial({ color: '#18181b' })); tHead.position.set(0, 3, 0); tHead.castShadow = true; term.add(tHead);
+    const tScreen = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.8, 0.05), new THREE.MeshStandardMaterial({ color: '#10b981', emissive: '#10b981', emissiveIntensity: 0.8 })); tScreen.position.set(0, 3.35, 0.32); term.add(tScreen);
+    const tPad = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.6, 0.05), new THREE.MeshStandardMaterial({ color: '#27272a' })); tPad.position.set(0, 2.6, 0.32); term.add(tPad);
+    const tSign = createBuildingSign('GATE CODE', '#064e3b', '#6ee7b7'); tSign.position.set(0, 4.3, 0); tSign.scale.setScalar(0.6); term.add(tSign);
+    scene.add(term); environmentDisposables.push(term, tSign);
+
+    // --- Parking & traffic layout -----------------------------------------
+    // A clear central drive lane runs from the front gate to the back of the
+    // lot, so customer and service traffic never weaves through the display
+    // rows. Inventory is shown in perpendicular rows either side of that lane;
+    // visitor parking sits by the entrance; the delivery lane stays on the far
+    // left (x-40) where the server spawns newly-bought stock.
+    const wheelStopGeo = new THREE.BoxGeometry(4.0, 0.3, 0.5);
+
+    // Central drive lane: two yellow edge lines from the gate back into the lot
+    [-8, 8].forEach(ex => line(ex, -35.5, ex, 97, 0.2, yellow));
+
+    // Paint a block of perpendicular stalls. Cars nose toward `openX` (the drive
+    // aisle); wheel stops sit at the closed/back end.
+    const paintParkingRow = (openX: number, backX: number, zFrom: number, zTo: number, withStops = true) => {
+        const count = Math.max(1, Math.round((zTo - zFrom) / 6));
+        for (let s = 0; s <= count; s++) {
+            const z = zFrom + (s * (zTo - zFrom)) / count;
+            line(openX, z, backX, z, 0.2);
+        }
+        // Back boundary line along the stall heads
+        line(backX, zFrom, backX, zTo, 0.2, white, 0.1);
+        if (withStops) {
+            const stopX = backX + (openX - backX) * 0.18;
+            for (let s = 0; s < count; s++) {
+                const z = zFrom + ((s + 0.5) * (zTo - zFrom)) / count;
+                const stop = new THREE.Mesh(wheelStopGeo, arch.trimMat);
+                stop.rotation.y = Math.PI / 2;
+                stop.position.set(lotX + stopX, 0.15, lotZ + z);
+                stop.castShadow = true; stop.receiveShadow = true;
+                scene.add(stop); environmentDisposables.push(stop);
+            }
+        }
+    };
+
+    // Display rows flanking the central drive lane (set back from the gate)
+    paintParkingRow(10, 28, -30, 78);    // right display row, opens to the drive
+    paintParkingRow(-10, -28, 2, 78);     // left display row (north of the office)
+
+    // Visitor parking by the entrance, clearly separated from the display rows
+    paintParkingRow(34, 46, 58, 92);
+    const visitorSign = createBuildingSign('CUSTOMER PARKING', '#0f172a', '#38bdf8');
+    visitorSign.scale.set(8, 2, 1);
+    visitorSign.position.set(lotX + 40, 3, lotZ + 95);
+    scene.add(visitorSign);
+    environmentDisposables.push(visitorSign);
+
+    // Delivery drop-off zone (x -47.5..-32.5, z 10..90, where new stock is unloaded): a yellow
+    // outline with diagonal hatching, and DELIVERY painted at the gate end.
+    const DX0 = -47.5, DX1 = -32.5, DZ0 = 10, DZ1 = 90, HATCH_END = 79;
+    line(DX0, DZ0, DX1, DZ0, 0.25, yellow, 0.125); line(DX0, DZ1, DX1, DZ1, 0.25, yellow, 0.125);
+    line(DX0, DZ0, DX0, DZ1, 0.25, yellow, 0.125); line(DX1, DZ0, DX1, DZ1, 0.25, yellow, 0.125);
+    line(DX0, HATCH_END + 0.4, DX1, HATCH_END + 0.4, 0.25, yellow);
+    for (let k = DX0 - HATCH_END; k < DX1 - DZ0; k += 3.4) {
+        const stripe: [number, number][] = [[k + DZ0 - 20, DZ0 - 20], [k + HATCH_END + 20, HATCH_END + 20], [k + HATCH_END + 20.45, HATCH_END + 20], [k + DZ0 - 19.55, DZ0 - 20]];
+        const piece = clipToRect(stripe, DX0 + 0.2, DZ0 + 0.2, DX1 - 0.2, HATCH_END + 0.2);
+        if (piece.length >= 3) G.paint.flat(piece.map(([x, z]) => [lotX + x, lotZ + z] as [number, number]), Y.paint, yellow);
+    }
+    paintText(G.paint, 'DELIVERY', lotX - 40, lotZ + 85, 0, -1, 1.15, 2.7, 0.24, Y.paint, white);
+    G.finish();
+
+    // Label the delivery lane so it reads as a transporter drop zone
+    const deliverySign = createBuildingSign('DELIVERY', '#7f1d1d', '#fecaca');
+    deliverySign.scale.set(6, 1.6, 1);
+    deliverySign.position.set(lotX - 40, 3, lotZ + 92);
+    scene.add(deliverySign);
+    environmentDisposables.push(deliverySign);
+    // Wash Bay (Open air drive-thru)
+    const washGroup = new THREE.Group();
+    washGroup.position.set(lotX + 55, 0, lotZ - 40);
+    
+    const washGlass = makeGlass('#0ea5e9', 0.3, THREE.DoubleSide);
+    const washConc = new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: 0.9, map: concreteTex });
+    
+    // Roof
+    const wRoof = new THREE.Mesh(new THREE.BoxGeometry(10, 0.5, 12), washConc);
+    wRoof.position.y = 6;
+    washGroup.add(wRoof);
+    
+    // 4 Pillars
+    [-4.5, 4.5].forEach(x => {
+        [-5.5, 5.5].forEach(z => {
+            const wPillar = new THREE.Mesh(new THREE.BoxGeometry(0.5, 6, 0.5), washConc);
+            wPillar.position.set(x, 3, z);
+            wPillar.castShadow = true;
+            wPillar.receiveShadow = true;
+            wPillar.userData.solid = true;
+            washGroup.add(wPillar);
+        });
+    });
+    
+    // Left and Right Glass Walls (Leave front and back open for vehicles)
+    const wWallGeo = new THREE.BoxGeometry(0.2, 5.5, 11);
+    const wWallL = new THREE.Mesh(wWallGeo, washGlass); wWallL.position.set(-4.5, 3.25, 0); washGroup.add(wWallL);
+    const wWallR = new THREE.Mesh(wWallGeo, washGlass); wWallR.position.set(4.5, 3.25, 0); washGroup.add(wWallR);
+    
+    const washSign = createBuildingSign('CAR WASH', '#0ea5e9', '#ffffff');
+    washSign.position.set(0, 8, 0); // Hovering above
+    washGroup.add(washSign);
+
+    scene.add(washGroup);
+    environmentDisposables.push(washGroup, washSign);
+
+    // Mechanic Bay Garage
+    const mechGroup = new THREE.Group();
+    mechGroup.position.set(lotX + 55, 0, lotZ + 5);
+    
+    const darkConc = new THREE.MeshStandardMaterial({ color: '#888888', roughness: 1.0, map: concreteTex });
+    const industrialFloor = new THREE.MeshStandardMaterial({ color: '#111111', roughness: 0.6 });
+    const cautionMat = new THREE.MeshStandardMaterial({ color: '#eab308' }); // Yellow trim
+    
+    // Solid Back Wall and Side Walls
+    const mWallLRGeo = new THREE.BoxGeometry(0.5, 6, 15);
+    const mWallL = new THREE.Mesh(mWallLRGeo, darkConc); mWallL.position.set(-5.75, 3, 0); mWallL.castShadow = true; mWallL.receiveShadow = true; mWallL.userData.solid = true; mechGroup.add(mWallL);
+    const mWallR = new THREE.Mesh(mWallLRGeo, darkConc); mWallR.position.set(5.75, 3, 0); mWallR.castShadow = true; mWallR.receiveShadow = true; mWallR.userData.solid = true; mechGroup.add(mWallR);
+    
+    const mWallBack = new THREE.Mesh(new THREE.BoxGeometry(11.5, 6, 0.5), darkConc);
+    mWallBack.position.set(0, 3, 7.25);
+    mWallBack.castShadow = true; mWallBack.receiveShadow = true; mWallBack.userData.solid = true;
+    mechGroup.add(mWallBack);
+    
+    // Front Frame (Wide Open Garage Door)
+    const mGarageTrimL = new THREE.Mesh(new THREE.BoxGeometry(1.5, 6, 0.5), cautionMat); mGarageTrimL.position.set(-5, 3, -7.25); mechGroup.add(mGarageTrimL);
+    const mGarageTrimR = new THREE.Mesh(new THREE.BoxGeometry(1.5, 6, 0.5), cautionMat); mGarageTrimR.position.set(5, 3, -7.25); mechGroup.add(mGarageTrimR);
+    const mGarageTop = new THREE.Mesh(new THREE.BoxGeometry(10, 1.5, 0.5), cautionMat); mGarageTop.position.set(0, 5.25, -7.25); mechGroup.add(mGarageTop);
+
+    // Floor and Roof
+    const mRoof = new THREE.Mesh(new THREE.BoxGeometry(12, 0.5, 15), darkConc); mRoof.position.set(0, 6.25, 0); mRoof.castShadow = true; mechGroup.add(mRoof);
+    const mFloor = new THREE.Mesh(new THREE.PlaneGeometry(11, 14), industrialFloor); mFloor.rotation.x = -Math.PI / 2; mFloor.position.set(0, 0.05, 0); mFloor.receiveShadow = true; mechGroup.add(mFloor);
+    
+    const mechSign = createBuildingSign('MECHANIC', '#eab308', '#000000');
+    mechSign.position.set(0, 9, -7.3); // Hovering above entrance
+    mechGroup.add(mechSign);
+
+    scene.add(mechGroup);
+    environmentDisposables.push(mechGroup, mechSign);
+
+    // Body Shop Garage
+    const bodyGroup = new THREE.Group();
+    bodyGroup.position.set(lotX + 55, 0, lotZ + 50);
+    
+    const bodyTrimMat = new THREE.MeshStandardMaterial({ color: '#3b82f6' }); // Blue trim for Body Shop
+    
+    // Solid Back Wall and Side Walls
+    const bWallL = new THREE.Mesh(mWallLRGeo, darkConc); bWallL.position.set(-5.75, 3, 0); bWallL.castShadow = true; bWallL.receiveShadow = true; bWallL.userData.solid = true; bodyGroup.add(bWallL);
+    const bWallR = new THREE.Mesh(mWallLRGeo, darkConc); bWallR.position.set(5.75, 3, 0); bWallR.castShadow = true; bWallR.receiveShadow = true; bWallR.userData.solid = true; bodyGroup.add(bWallR);
+    
+    const bWallBack = new THREE.Mesh(new THREE.BoxGeometry(11.5, 6, 0.5), darkConc);
+    bWallBack.position.set(0, 3, 7.25);
+    bWallBack.castShadow = true; bWallBack.receiveShadow = true; bWallBack.userData.solid = true;
+    bodyGroup.add(bWallBack);
+    
+    // Front Frame (Wide Open Garage Door)
+    const bGarageTrimL = new THREE.Mesh(new THREE.BoxGeometry(1.5, 6, 0.5), bodyTrimMat); bGarageTrimL.position.set(-5, 3, -7.25); bodyGroup.add(bGarageTrimL);
+    const bGarageTrimR = new THREE.Mesh(new THREE.BoxGeometry(1.5, 6, 0.5), bodyTrimMat); bGarageTrimR.position.set(5, 3, -7.25); bodyGroup.add(bGarageTrimR);
+    const bGarageTop = new THREE.Mesh(new THREE.BoxGeometry(10, 1.5, 0.5), bodyTrimMat); bGarageTop.position.set(0, 5.25, -7.25); bodyGroup.add(bGarageTop);
+
+    // Floor and Roof
+    const bRoof = new THREE.Mesh(new THREE.BoxGeometry(12, 0.5, 15), darkConc); bRoof.position.set(0, 6.25, 0); bRoof.castShadow = true; bodyGroup.add(bRoof);
+    const bFloor = new THREE.Mesh(new THREE.PlaneGeometry(11, 14), industrialFloor); bFloor.rotation.x = -Math.PI / 2; bFloor.position.set(0, 0.05, 0); bFloor.receiveShadow = true; bodyGroup.add(bFloor);
+    
+    const bodySign = createBuildingSign('BODY SHOP', '#3b82f6', '#ffffff');
+    bodySign.position.set(0, 9, -7.3); // Hovering above entrance
+    bodyGroup.add(bodySign);
+
+    scene.add(bodyGroup);
+    environmentDisposables.push(bodyGroup, bodySign);
+
+    // Garage details (mechanic + body shop): the roll-up door rolled up into its
+    // coil housing over the open bay, windows on the sides and back, and a
+    // personnel door on the side facing the lot.
+    [mechGroup, bodyGroup].forEach(g => {
+        const { box, frameMat, paneGeo, plane, glassMat } = arch;
+        box(g, frameMat, 8.8, 0.6, 0.6, 0, 4.2, -6.7);                                    // coil housing
+        box(g, frameMat, 8.4, 0.15, 0.12, 0, 3.85, -6.85);                                // door bottom bar
+        [-1, 1].forEach(sx => box(g, frameMat, 0.15, 4.5, 0.2, sx * 4.2, 2.25, -6.85));   // guide rails
+        const wo = { cols: 2, rows: 1, lit: 0.7 };
+        arch.place(g, arch.windowUnit(2.4, 1.4, wo), '-x', -6, 3.7, -3);
+        arch.place(g, arch.steelDoor(), '-x', -6, 0, 3.5);
+        arch.windowRow(g, '+x', 2, 7, 0, 3.7, 6, 2.4, 1.4, wo);
+        arch.windowRow(g, '+z', 2, 5, 0, 4.3, 7.5, 2.0, 1.0, wo);
+        // Inner faces of the windows (the bay is open, so the inside is on show)
+        ([[-5.44, -3], [5.44, -3.5], [5.44, 3.5]] as [number, number][]).forEach(([px, pz]) => { const p = plane(g, glassMat, paneGeo(2.4, 1.4, 2, 1), px, 3.7, pz); p.rotation.y = px < 0 ? Math.PI / 2 : -Math.PI / 2; });
+        [-2.5, 2.5].forEach(px => { const p = plane(g, glassMat, paneGeo(2.0, 1.0, 2, 1), px, 4.3, 6.94); p.rotation.y = Math.PI; });
+    });
+
+    [washGroup, mechGroup, bodyGroup, officeGroup].forEach(g => {
+        g.updateMatrixWorld(true);
+        g.children.forEach(c => {
+            if (c.userData.solid) staticCollisionBoxes.push(new THREE.Box3().setFromObject(c));
+        });
+    });
+
+    return gate;
+}

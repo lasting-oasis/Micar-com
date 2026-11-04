@@ -1,0 +1,3486 @@
+import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
+import { useGameStore } from './store';
+import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Sparkles, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Gauge } from 'lucide-react';
+import { RACE_TIERS, RaceDifficulty } from './types';
+import { useLang, t, LangToggle, withBrand } from './i18n';
+import { MECHANIC_LIB, BODY_LIB } from './constants';
+import { motion, AnimatePresence } from 'framer-motion';
+import { loadChunk } from './loadChunk';
+import { ChunkBoundary } from './ChunkBoundary';
+// Heavy screens load on demand. The 3D world (three.js) starts downloading as
+// soon as the setup screen shows, so it's usually ready by the time you join.
+// loadChunk reloads the page once if a chunk is gone after a redeploy;
+// ChunkBoundary shows a Reload button if a screen still can't load.
+const loadScene = () => loadChunk(import('./VanillaThreeScene'));
+const VanillaThreeScene = lazy(() => loadScene().then(m => ({ default: m.VanillaThreeScene })));
+const StandaloneShopPlatform = lazy(() => loadChunk(import('./StandaloneShopPlatform')));
+const ShopManagement = lazy(() => loadChunk(import('./ShopManagement')));
+const TabLoading = () => (
+  <div className="w-full py-24 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(useLang(), 'loading.default')}</div>
+);
+import { LIBRARY_BOOKS } from './libraryData';
+import { getCarSpec, specLine } from './carSpecs';
+
+
+// Fixed points of interest in the world (x, z world coords) shown on the map.
+const MAP_LOCATIONS = [
+  { name: 'Your Dealership', x: 5, z: 25, color: '#22c55e' },
+  { name: 'Service Bays', x: 55, z: 5, color: '#eab308' },
+  { name: 'Bank — Financing', x: 45, z: 140, color: '#38bdf8' },
+  { name: 'Auto Auction', x: -60, z: 240, color: '#f97316' },
+  { name: 'Downtown Towers', x: 0, z: 310, color: '#94a3b8' },
+  { name: 'City Parks', x: -30, z: 450, color: '#4ade80' },
+  { name: 'Warehouse District', x: 0, z: 680, color: '#f43f5e' },
+  { name: 'Speedway', x: 0, z: 1750, color: '#818cf8' },
+  { name: 'Gas Station', x: 135, z: 80, color: '#ef4444' },
+  { name: 'Gas Station', x: 45, z: 1700, color: '#ef4444' },
+];
+
+// Low/High 3D graphics. Low turns off shadows and renders at 1x resolution —
+// a big frame-rate win on phones, tablets and older laptops. Saved per device.
+const GraphicsToggle = ({ compact }: { compact?: boolean }) => {
+  const quality = useGameStore(s => s.graphicsQuality);
+  const setQuality = useGameStore(s => s.setGraphicsQuality);
+  const lang = useLang();
+  const next = quality === 'high' ? 'low' : 'high';
+  return (
+    <button
+      type="button"
+      onClick={() => setQuality(next)}
+      title={t(lang, quality === 'high' ? 'graphics.toLow' : 'graphics.toHigh')}
+      aria-label={t(lang, quality === 'high' ? 'graphics.highAria' : 'graphics.lowAria')}
+      className={`flex items-center gap-1.5 rounded-xl border backdrop-blur-md font-black uppercase tracking-widest transition-all active:scale-95 ${compact ? 'px-3 py-3 text-[10px]' : 'px-3 py-1.5 text-[10px]'} bg-black/60 border-white/20 text-white/70 hover:text-white hover:border-white/40`}
+    >
+      <Gauge size={12} className={quality === 'high' ? 'text-emerald-400' : 'text-amber-400'} />
+      {compact ? t(lang, quality === 'high' ? 'graphics.highShort' : 'graphics.lowShort') : t(lang, quality === 'high' ? 'graphics.high' : 'graphics.low')}
+    </button>
+  );
+};
+
+const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: string, isMobile?: boolean }) => {
+  const [expanded, setExpanded] = useState(false);
+  const size = isMobile ? 64 : 100;
+  const mapScale = isMobile ? 0.16 : 0.25; // 400x400 map world mapping
+  const mapCenter = isMobile ? 32 : 50;
+
+  // Toggle the expanded map with the M key (Esc closes). Ignore while typing.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (document.activeElement?.tagName || '').toLowerCase();
+      if (tag === 'input' || tag === 'textarea') return;
+      if (e.key.toLowerCase() === 'm') { e.preventDefault(); setExpanded(v => !v); }
+      else if (e.key === 'Escape') setExpanded(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  // GPS follows the player: everything is drawn relative to the player's world
+  // position, so the player stays pinned at the centre and the map scrolls under them.
+  const me = gameState.players?.[playerId];
+  const myWorldPos = useGameStore(s => s.myWorldPos);
+  // Other players' live positions (relayed ~10x/sec); fall back to the last full update.
+  const livePositions = useGameStore(s => s.playerPositions);
+  const posOf = (p: any) => livePositions[p.id] || p.worldPosition;
+  const pw = myWorldPos || me?.worldPosition || { x: 0, z: 0 };
+  const toMiniX = (w: number) => Math.max(3, Math.min(size - 3, mapCenter + (w - pw.x) * mapScale));
+  const toMiniZ = (w: number) => Math.max(3, Math.min(size - 3, mapCenter + (w - pw.z) * mapScale));
+
+  // Expanded-map dimensions and world→pixel mapping (north/+z runs downward).
+  // Range widened to cover the whole world incl. the west speedway and east lots.
+  const EX_W = isMobile ? 260 : 360;
+  const EX_H = isMobile ? 300 : 440;
+  const exX = (wx: number) => Math.max(8, Math.min(EX_W - 8, ((wx + 1600) / 3200) * EX_W));
+  const exZ = (wz: number) => Math.max(8, Math.min(EX_H - 8, ((wz + 1300) / 3200) * EX_H));
+
+  // Road segments (matching the 3D world): main N-S strip, two cross streets, lot driveway.
+  const ROAD_W = isMobile ? 6 : 8;
+  const vRoad = (x: number, z1: number, z2: number, w = ROAD_W, c = '#3f3f46') => ({ position: 'absolute' as const, left: exX(x) - w / 2, top: exZ(z1), width: w, height: exZ(z2) - exZ(z1), background: c, borderRadius: 2 });
+  const hRoad = (z: number, x1: number, x2: number, w = ROAD_W, c = '#3f3f46') => ({ position: 'absolute' as const, left: exX(x1), top: exZ(z) - w / 2, width: exX(x2) - exX(x1), height: w, background: c, borderRadius: 2 });
+
+  return (
+    <>
+      {/* Minimap / GPS — tap/click anywhere to expand */}
+      <div onClick={() => setExpanded(true)} title="Expand map" className={`fixed rounded-xl border border-white/20 bg-black/60 backdrop-blur-md overflow-hidden z-[999] pointer-events-auto cursor-pointer active:scale-95 transition-all duration-200 ${isMobile ? 'bottom-28 right-6 w-[64px] h-[64px]' : 'bottom-6 right-8 w-[100px] h-[100px]'}`}>
+         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: isMobile ? '5px 5px' : '10px 10px' }}></div>
+         {MAP_LOCATIONS.map(loc => (
+            <div key={loc.name} className="absolute w-1.5 h-1.5 rounded-full -translate-x-1/2 -translate-y-1/2" style={{ left: `${toMiniX(loc.x)}px`, top: `${toMiniZ(loc.z)}px`, background: loc.color, boxShadow: `0 0 4px ${loc.color}` }} />
+         ))}
+         {/* You — always pinned to the centre (live GPS that follows instantly) */}
+         <div className="absolute -translate-x-1/2 -translate-y-1/2 z-10" style={{ left: `${mapCenter}px`, top: `${mapCenter}px` }}>
+            <div className={`rounded-full bg-blue-400 ring-1 ring-white shadow-[0_0_10px_rgba(96,165,250,0.9)] ${isMobile ? 'w-1.5 h-1.5' : 'w-2.5 h-2.5'}`}></div>
+         </div>
+         {/* Other dealers, positioned relative to you */}
+         {Object.values(gameState.players).map((p: any) => {
+            const wp = posOf(p);
+            if (p.id === playerId || !wp) return null;
+            const x = toMiniX(wp.x);
+            const z = toMiniZ(wp.z);
+            return (
+               <div key={p.id} className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-200" style={{ left: `${x}px`, top: `${z}px` }}>
+                  <div className={`rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)] ${isMobile ? 'w-1 h-1' : 'w-2 h-2'}`}></div>
+               </div>
+            )
+         })}
+         {!isMobile && <div className="absolute bottom-0.5 left-1.5 text-[7px] text-white/50 font-black uppercase">GPS</div>}
+         {!isMobile && <div className="absolute bottom-0.5 right-1 text-[7px] text-white/60 font-bold">[M]</div>}
+         <button onClick={() => setExpanded(true)} title="Expand map (M)" className="absolute top-0.5 right-0.5 pointer-events-auto bg-white/10 hover:bg-white/25 rounded p-0.5 text-white/80">
+            <MapIcon size={isMobile ? 9 : 12} />
+         </button>
+      </div>
+
+      {/* Expanded map + legend */}
+      <AnimatePresence>
+        {expanded && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+             className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+             onClick={() => setExpanded(false)}>
+            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }}
+               className="bg-zinc-900/95 border border-white/15 rounded-2xl p-4 shadow-2xl flex flex-col gap-3 max-h-[92vh] overflow-auto"
+               onClick={(e) => e.stopPropagation()}>
+              <div className="flex items-center justify-between gap-8">
+                 <div className="flex items-center gap-2 text-white font-black uppercase tracking-widest text-sm">
+                    <MapIcon size={16} className="text-blue-400" /> City Map
+                 </div>
+                 <button onClick={() => setExpanded(false)} className="text-white/60 hover:text-white flex items-center gap-1 text-xs font-bold">
+                    <X size={14} /> Close [M]
+                 </button>
+              </div>
+              <div className={`flex gap-4 ${isMobile ? 'flex-col items-center' : 'flex-row'}`}>
+                 <div className="relative rounded-xl border border-white/15 bg-gradient-to-b from-emerald-950 to-zinc-950 overflow-hidden shrink-0" style={{ width: EX_W, height: EX_H }}>
+                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+                    {/* Road network */}
+                    <div style={hRoad(200, -500, 500)} />
+                    <div style={hRoad(500, -500, 500)} />
+                    <div style={vRoad(0, 200, 1750)} />
+                    <div style={vRoad(0, 100, 200, isMobile ? 4 : 5, '#52525b')} />
+                    {MAP_LOCATIONS.map(loc => (
+                       <div key={loc.name} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: exX(loc.x), top: exZ(loc.z) }}>
+                          <div className="w-3 h-3 rounded-full border border-white/60" style={{ background: loc.color, boxShadow: `0 0 8px ${loc.color}` }} />
+                          <span className="text-[8px] text-white font-bold mt-0.5 whitespace-nowrap drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">{loc.name}</span>
+                       </div>
+                    ))}
+                    {Object.values(gameState.players).map((p: any) => {
+                       const isMe = p.id === playerId;
+                       const wpos = isMe ? (myWorldPos || p.worldPosition) : posOf(p);
+                       if (!wpos) return null;
+                       return (
+                          <div key={p.id} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ left: exX(wpos.x), top: exZ(wpos.z) }}>
+                             <div className={`w-2.5 h-2.5 rounded-full ${isMe ? 'bg-blue-400 ring-2 ring-white' : 'bg-orange-500 ring-1 ring-white/60'}`} style={{ boxShadow: '0 0 8px rgba(255,255,255,0.8)' }} />
+                             <span className="text-[8px] text-white/90 font-bold mt-0.5 whitespace-nowrap">{isMe ? 'You' : (p.name || 'Dealer').substring(0,6)}</span>
+                          </div>
+                       )
+                    })}
+                    <div className="absolute bottom-1 right-2 text-[8px] text-white/40 font-bold uppercase">Downtown ↓</div>
+                 </div>
+                 <div className="flex flex-col gap-1.5 min-w-[160px]">
+                    <div className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-1">Legend</div>
+                    {MAP_LOCATIONS.map(loc => (
+                       <div key={loc.name} className="flex items-center gap-2">
+                          <span className="w-3 h-3 rounded-full border border-white/40 shrink-0" style={{ background: loc.color }} />
+                          <span className="text-[11px] text-white/90 font-semibold">{loc.name}</span>
+                       </div>
+                    ))}
+                    <div className="h-px bg-white/10 my-1" />
+                    <div className="flex items-center gap-2">
+                       <span className="w-3 h-3 rounded-full bg-blue-400 ring-2 ring-white shrink-0" />
+                       <span className="text-[11px] text-white/90 font-semibold">You</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                       <span className="w-3 h-3 rounded-full bg-orange-500 shrink-0" />
+                       <span className="text-[11px] text-white/90 font-semibold">Other dealers</span>
+                    </div>
+                    <div className="text-[9px] text-white/40 mt-2 leading-snug">Press <span className="text-white/70 font-bold">M</span> or click outside to close.</div>
+                 </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+// Owner gate-code badge + the keypad shown when standing outside the locked gate.
+const GateControl = ({ isMobile }: { isMobile?: boolean }) => {
+  const gatePrompt = useGameStore(s => s.gatePrompt);
+  const setGatePrompt = useGameStore(s => s.setGatePrompt);
+  const myCode = useGameStore(s => (s.playerId ? s.gameState?.players?.[s.playerId]?.gateCode : undefined));
+  const [entry, setEntry] = useState('');
+  const [error, setError] = useState(false);
+  const [granted, setGranted] = useState(false);
+
+  useEffect(() => { if (!gatePrompt) { setEntry(''); setError(false); } }, [gatePrompt]);
+
+  // Auto-check once four digits are entered
+  useEffect(() => {
+    if (entry.length < 4) return;
+    if (entry === myCode) {
+      (window as any).__authorizeGate?.();
+      setGranted(true);
+      setGatePrompt(false);
+      setEntry('');
+      const t = setTimeout(() => setGranted(false), 2500);
+      return () => clearTimeout(t);
+    }
+    setError(true);
+    setEntry('');
+  }, [entry, myCode, setGatePrompt]);
+
+  if (!myCode) return null;
+  const press = (d: string) => { setError(false); setEntry(prev => (prev.length >= 4 ? prev : prev + d)); };
+
+  return (
+    <>
+      {/* Persistent owner code badge — desktop only (mobile shows it in the menu) */}
+      {!isMobile && (
+        <div className="fixed top-20 left-6 z-[1000] pointer-events-none select-none">
+          <div className="flex items-center gap-2.5 bg-black/75 backdrop-blur-md border border-emerald-500/50 rounded-xl px-4 py-2 shadow-xl">
+            <span className="text-lg">🔒</span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-[9px] uppercase tracking-widest text-white/50 font-black">Your Gate Code</span>
+              <span className="text-xl font-mono font-bold text-emerald-400 tracking-[0.35em]">{myCode}</span>
+            </div>
+          </div>
+          {granted && <div className="mt-1 text-[11px] font-bold text-emerald-400 uppercase tracking-widest">✓ Gate unlocked</div>}
+        </div>
+      )}
+
+      {/* Keypad — appears when outside the locked gate (proximity-driven) */}
+      <AnimatePresence>
+        {gatePrompt && (
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }}
+             className={`fixed left-1/2 -translate-x-1/2 z-[1001] ${isMobile ? 'bottom-44' : 'bottom-24'}`}>
+            <div className="bg-zinc-900/95 border border-white/15 rounded-2xl p-4 shadow-2xl flex flex-col items-center gap-2 w-[240px]">
+              <div className="text-white font-black uppercase tracking-widest text-xs">🔒 Gate Locked</div>
+              <div className="text-[11px] text-white/50 text-center -mt-1">Enter your code to open from outside</div>
+              <div className="text-[11px] text-emerald-400 font-mono">Your code: <span className="font-bold tracking-[0.25em]">{myCode}</span></div>
+              <div className={`text-2xl font-mono tracking-[0.4em] h-9 ${error ? 'text-red-500' : 'text-white'}`}>{entry.padEnd(4, '•')}</div>
+              {error && <div className="text-[11px] text-red-500 font-bold uppercase -mt-2">Wrong code</div>}
+              <div className="grid grid-cols-3 gap-2">
+                {['1','2','3','4','5','6','7','8','9'].map(d => (
+                  <button key={d} onClick={() => press(d)} className="w-14 h-11 rounded-lg bg-white/10 hover:bg-white/25 active:bg-white/30 text-white text-lg font-bold">{d}</button>
+                ))}
+                <button onClick={() => setEntry('')} className="w-14 h-11 rounded-lg bg-white/5 hover:bg-white/15 text-white/60 text-xs font-bold uppercase">Clr</button>
+                <button onClick={() => press('0')} className="w-14 h-11 rounded-lg bg-white/10 hover:bg-white/25 text-white text-lg font-bold">0</button>
+                <button onClick={() => setEntry(e => e.slice(0, -1))} className="w-14 h-11 rounded-lg bg-white/5 hover:bg-white/15 text-white/60 text-lg font-bold">⌫</button>
+              </div>
+              <div className="text-[10px] text-white/35 mt-1">Walk away to dismiss</div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+// --- MyCar Fractional shares: market, cards, portfolio ---------------------
+const Sparkline = ({ data }: { data: number[] }) => {
+  if (!data || data.length < 2) return null;
+  const w = 120, h = 34;
+  const min = Math.min(...data), max = Math.max(...data);
+  const range = (max - min) || 1;
+  const pts = data.map((v, i) => `${((i / (data.length - 1)) * w).toFixed(1)},${(h - ((v - min) / range) * h).toFixed(1)}`).join(' ');
+  const up = data[data.length - 1] >= data[0];
+  const stroke = up ? '#22c55e' : '#ef4444';
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" className="w-full h-9">
+      <polyline points={pts} fill="none" stroke={stroke} strokeWidth={1.5} vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+};
+
+const fmt = (n: number) => '$' + Math.round(n).toLocaleString();
+const fmt2 = (n: number) => '$' + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+const ShareVehicleCard = ({ v, holding, money, playerId, actions }: { v: any, holding: any, money: number, playerId: string | null, actions: any }) => {
+  const [qty, setQty] = useState(10);
+  const [listPx, setListPx] = useState('');
+  const fundamental = v.underlyingValue / v.totalShares;
+  const mmBid = fundamental * 0.97;
+  const mmAsk = fundamental * 1.03;
+  const myAsks = (v.asks || []).filter((a: any) => a.sellerId === playerId);
+  const otherAsks = (v.asks || []).filter((a: any) => a.sellerId !== playerId);
+  const bestOtherAsk = otherAsks.length ? Math.min(...otherAsks.map((a: any) => a.price)) : Infinity;
+  const buyPx = Math.min(mmAsk, bestOtherAsk);
+  const owned = holding?.shares || 0;
+  const invested = holding?.invested || 0;
+  const mark = v.lastPrice || fundamental;
+  const value = owned * mark;
+  const pl = value - invested;
+  const yieldPerShare = v.dailyYield / v.totalShares;
+  const prev = v.priceHistory?.length > 1 ? v.priceHistory[v.priceHistory.length - 2] : mark;
+  const changePct = prev ? ((mark - prev) / prev) * 100 : 0;
+  const condColor = v.condition === 'excellent' ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30'
+    : v.condition === 'good' ? 'text-blue-400 bg-blue-500/10 border-blue-500/30'
+    : v.condition === 'fair' ? 'text-amber-400 bg-amber-500/10 border-amber-500/30' : 'text-gray-400 bg-white/5 border-white/10';
+  const isIssuer = v.issuerId === playerId;
+  const q = Math.max(1, Math.floor(Number(qty) || 1));
+  const buyCost = q * buyPx;
+
+  return (
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col gap-3">
+      <div className="flex items-start justify-between gap-2">
+        <div>
+          <div className="font-black text-white text-sm">{v.year} {v.make} {v.model}</div>
+          <div className="text-[9px] text-gray-500 font-mono">{v.vin}</div>
+        </div>
+        <div className="flex flex-col items-end gap-1">
+          {v.condition && <span className={`text-[9px] uppercase font-black px-2 py-0.5 rounded-full border ${condColor}`}>{v.condition}</span>}
+          <span className="text-[8px] uppercase font-black px-2 py-0.5 rounded-full border border-white/10 text-gray-400">{v.issuerId === 'platform' ? 'Platform' : isIssuer ? 'Issued by you' : 'Player-issued'}</span>
+        </div>
+      </div>
+
+      <div className="flex items-end justify-between">
+        <div>
+          <div className="text-lg font-black text-white">{fmt2(mark)}<span className="text-[10px] text-gray-500 font-bold"> /share</span></div>
+          <div className={`text-[11px] font-bold ${changePct >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+            {changePct >= 0 ? '▲' : '▼'} {Math.abs(changePct).toFixed(2)}% · car {fmt(v.underlyingValue)}
+          </div>
+        </div>
+        <div className="w-28"><Sparkline data={v.priceHistory} /></div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2 text-center text-[10px]">
+        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Buy</div><div className="text-emerald-400 font-bold">{fmt2(buyPx)}</div></div>
+        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Sell</div><div className="text-red-400 font-bold">{fmt2(mmBid)}</div></div>
+        <div className="bg-black/30 rounded-lg py-1"><div className="text-gray-500 uppercase">Yield/day</div><div className="text-white font-bold">{fmt2(yieldPerShare)}</div></div>
+      </div>
+
+      {owned > 0 && (
+        <div className="flex items-center justify-between text-[11px] bg-blue-500/5 border border-blue-500/15 rounded-lg px-3 py-1.5">
+          <span className="text-gray-300">{owned.toLocaleString()} sh · {fmt(value)} · +{fmt2(owned * yieldPerShare)}/day</span>
+          <span className={`font-bold ${pl >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>{pl >= 0 ? '+' : ''}{fmt(pl)}</span>
+        </div>
+      )}
+
+      <div className="flex items-center gap-2">
+        <input type="number" min={1} value={qty} onChange={(e) => setQty(parseInt(e.target.value) || 1)}
+          className="w-14 bg-black/40 border border-white/10 rounded-lg px-2 py-1.5 text-white text-sm text-center" />
+        <button onClick={() => actions.buyShares(v.id, q)} disabled={buyCost > money}
+          className="flex-1 bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 disabled:text-gray-500 text-white text-xs font-black uppercase rounded-lg py-2">
+          Buy · {fmt(buyCost)}
+        </button>
+        <button onClick={() => actions.sellShares(v.id, q)} disabled={owned < q}
+          className="flex-1 bg-red-600/90 hover:bg-red-500 disabled:bg-gray-700 disabled:text-gray-500 text-white text-xs font-black uppercase rounded-lg py-2">
+          Sell · {fmt(q * mmBid)}
+        </button>
+      </div>
+
+      {owned > 0 && (
+        <div className="flex items-center gap-2">
+          <input type="number" placeholder="$/share" value={listPx} onChange={(e) => setListPx(e.target.value)}
+            className="w-20 bg-black/40 border border-white/10 rounded-lg px-2 py-1.5 text-white text-xs text-center" />
+          <button onClick={() => { const px = Number(listPx); if (px > 0 && owned >= q) { actions.listShares(v.id, q, px); setListPx(''); } }}
+            disabled={owned < q || !(Number(listPx) > 0)}
+            className="flex-1 bg-white/10 hover:bg-white/20 disabled:opacity-30 text-white text-[11px] font-bold uppercase rounded-lg py-1.5">
+            List {q} @ your price
+          </button>
+        </div>
+      )}
+
+      {myAsks.length > 0 && (
+        <div className="flex flex-col gap-1">
+          {myAsks.map((a: any) => (
+            <div key={a.id} className="flex items-center justify-between text-[10px] bg-black/30 rounded px-2 py-1">
+              <span className="text-gray-300">Listed {a.qty} @ {fmt2(a.price)}</span>
+              <button onClick={() => actions.cancelListing(v.id, a.id)} className="text-red-400 font-bold uppercase">Cancel</button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {isIssuer && (
+        <button onClick={() => actions.liquidateVehicle(v.id)}
+          className="bg-amber-600/80 hover:bg-amber-500 text-black text-[11px] font-black uppercase rounded-lg py-1.5">
+          Liquidate SPV · pay out {fmt(v.underlyingValue)}
+        </button>
+      )}
+    </div>
+  );
+};
+
+const SharesMarket = () => {
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  const buyShares = useGameStore(s => s.buyShares);
+  const sellShares = useGameStore(s => s.sellShares);
+  const listShares = useGameStore(s => s.listShares);
+  const cancelListing = useGameStore(s => s.cancelListing);
+  const fractionalizeCar = useGameStore(s => s.fractionalizeCar);
+  const liquidateVehicle = useGameStore(s => s.liquidateVehicle);
+  const actions = { buyShares, sellShares, listShares, cancelListing, liquidateVehicle };
+  const me = playerId ? gameState?.players?.[playerId] : null;
+  const market = gameState?.fractionalMarket || [];
+  const holdings = me?.shareHoldings || {};
+  const [showFrac, setShowFrac] = useState(false);
+
+  let invested = 0, value = 0, dividends = 0;
+  market.forEach((v: any) => {
+    const h = holdings[v.id];
+    if (h) {
+      invested += h.invested;
+      value += h.shares * (v.lastPrice || v.underlyingValue / v.totalShares);
+      dividends += (h.shares / v.totalShares) * v.dailyYield;
+    }
+  });
+  const pl = value - invested;
+  const fracCandidates = me?.inventory || [];
+
+  return (
+    <div className="flex flex-col gap-4 h-full">
+      <div className="grid grid-cols-3 gap-3 shrink-0">
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
+          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Portfolio</div>
+          <div className="text-xl font-black text-white">{fmt(value)}</div>
+        </div>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
+          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Return</div>
+          <div className={`text-xl font-black ${pl >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>{pl >= 0 ? '+' : ''}{fmt(pl)}</div>
+        </div>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-3">
+          <div className="text-[10px] uppercase tracking-widest text-gray-500 font-black">Yield/day</div>
+          <div className="text-xl font-black text-emerald-400">+{fmt2(dividends)}</div>
+        </div>
+      </div>
+
+      <div className="shrink-0">
+        <button onClick={() => setShowFrac(s => !s)} className="text-[11px] font-black uppercase tracking-widest text-amber-400 hover:text-amber-300">
+          {showFrac ? '▾' : '▸'} Fractionalize a car you own ({fracCandidates.length})
+        </button>
+        {showFrac && (
+          <div className="flex flex-col gap-2 mt-2 bg-amber-500/5 border border-amber-500/20 rounded-xl p-2">
+            <p className="text-[10px] text-gray-400">Turn a lot vehicle into an SPV and sell shares to raise cash. You hold the unsold treasury shares and earn proceeds as they sell; liquidate later to pay everyone out.</p>
+            {fracCandidates.length === 0 && <span className="text-[11px] text-gray-500 italic">No vehicles in inventory.</span>}
+            {fracCandidates.map((c: any) => (
+              <div key={c.id} className="flex items-center justify-between bg-black/30 rounded-lg px-3 py-2">
+                <div className="text-[11px] text-white font-bold">{c.year} {c.make} {c.model} <span className="text-gray-500">· {fmt(c.estimatedMMR || c.buyPrice)}</span></div>
+                <button onClick={() => fractionalizeCar(c.id, 1000)} className="bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-black uppercase rounded px-3 py-1 shrink-0">Issue 1,000 shares</button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-y-auto flex-grow pe-1 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+        {market.map((v: any) => (
+          <ShareVehicleCard key={v.id} v={v} holding={holdings[v.id]} money={me?.money || 0} playerId={playerId} actions={actions} />
+        ))}
+        {market.length === 0 && <div className="text-center text-gray-500 py-8 text-sm italic col-span-full">Loading share market…</div>}
+      </div>
+    </div>
+  );
+};
+
+// --- DMV: realistic NC inspection / title pipeline per vehicle --------------
+const NC_SAFETY_FEE = 13.60;
+const NC_EMISSIONS_FEE = 30;
+
+const DmvStep = ({ n, done, title, sub, children }: { n: number, done: boolean, title: string, sub?: string, children: React.ReactNode }) => (
+  <div className="flex items-start gap-3">
+    <div className={`w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-[11px] font-black ${done ? 'bg-emerald-500 text-black' : 'bg-white/10 text-gray-400 border border-white/15'}`}>{done ? '✓' : n}</div>
+    <div className="flex-1 min-w-0">
+      <div className="text-sm font-bold text-white">{title}</div>
+      {sub && <div className="text-[10px] text-gray-500 leading-snug">{sub}</div>}
+      <div className="mt-1.5">{children}</div>
+    </div>
+  </div>
+);
+
+const DmvVehicleCard = ({ car, money }: { car: any, money: number }) => {
+  const preInspect = useGameStore(s => s.preInspect);
+  const finalInspect = useGameStore(s => s.finalInspect);
+  const requestInspection = useGameStore(s => s.requestInspection);
+  const registerVehicle = useGameStore(s => s.registerVehicle);
+
+  const curYear = new Date().getFullYear();
+  const emissionsExempt = (curYear - car.year) <= 2 && car.mileage < 70000;
+  const inspectionFee = NC_SAFETY_FEE + (emissionsExempt ? 0 : NC_EMISSIONS_FEE);
+  const safetyWouldPass = car.mechanicCondition >= 70 && car.bodyCondition >= 50;
+  const isSalvage = car.titleStatus === 'Salvage';
+  const rebuiltDone = car.inspectionStatus === 'Passed' || car.titleStatus === 'Rebuilt';
+  const lastStepNum = isSalvage ? 4 : 3;
+
+  return (
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col gap-3">
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="font-black text-white text-sm">{car.year} {car.make} {car.model}</div>
+          <div className="text-[9px] text-gray-500 font-mono">VIN {car.vin}</div>
+        </div>
+        <span className={`text-[9px] uppercase font-black px-2 py-0.5 rounded-full border ${isSalvage ? 'bg-red-500/15 text-red-400 border-red-500/40' : car.titleStatus === 'Rebuilt' ? 'bg-orange-500/15 text-orange-400 border-orange-500/40' : 'bg-blue-500/15 text-blue-400 border-blue-500/40'}`}>{car.titleStatus} Title</span>
+      </div>
+
+      <div className="flex flex-col gap-3 border-t border-white/5 pt-3">
+        <DmvStep n={1} done={!!car.preInspected} title="Safety Pre-Inspection" sub="Dealer punch-list check — free">
+          {!car.preInspected ? (
+            <button onClick={() => preInspect(car.id)} className="bg-market/20 hover:bg-market text-market hover:text-black border border-market/50 px-3 py-1 rounded-lg text-[11px] font-black uppercase">Run Pre-Inspection</button>
+          ) : (
+            <span className={`text-[11px] font-bold ${safetyWouldPass ? 'text-emerald-400' : 'text-amber-400'}`}>{safetyWouldPass ? 'Punch list clear — ready for the state inspection' : `Would FAIL — recondition first (Mech ${Math.floor(car.mechanicCondition)}%, Body ${Math.floor(car.bodyCondition)}%; need 70 / 50)`}</span>
+          )}
+        </DmvStep>
+
+        <DmvStep n={2} done={!!car.safetyPassed} title="NC Safety + Emissions Inspection" sub={emissionsExempt ? 'Emissions exempt (≤3 model years & <70k mi) — safety only' : 'Mecklenburg County — emissions required'}>
+          {car.safetyPassed ? (
+            <span className="text-[11px] font-bold text-emerald-400">Passed · certificate issued</span>
+          ) : (
+            <button onClick={() => finalInspect(car.id)} disabled={!car.preInspected || money < inspectionFee}
+              className="bg-orange-500/20 hover:bg-orange-500 text-orange-400 hover:text-black border border-orange-500/40 px-3 py-1 rounded-lg text-[11px] font-black uppercase disabled:opacity-30 disabled:cursor-not-allowed">
+              Inspect · ${inspectionFee.toFixed(2)}{!emissionsExempt && ' (safety $13.60 + emissions $30)'}
+            </button>
+          )}
+        </DmvStep>
+
+        {isSalvage && (
+          <DmvStep n={3} done={rebuiltDone} title="Rebuilt Title — Anti-Theft Inspection" sub={(curYear - car.year) <= 6 ? 'License & Theft Bureau anti-theft inspection (≤6 yrs)' : 'License & Theft Bureau title verification'}>
+            {rebuiltDone ? (
+              <span className="text-[11px] font-bold text-emerald-400">Rebuilt title issued</span>
+            ) : car.inspectionStatus === 'Pending' ? (
+              <span className="text-[11px] font-bold text-orange-400">Inspection pending (2 days)…</span>
+            ) : (
+              <button onClick={() => requestInspection(car.id)} disabled={!car.safetyPassed || car.bodyCondition < 95 || car.mechanicCondition < 95 || money < 250}
+                className="bg-orange-500/20 hover:bg-orange-500 text-orange-400 hover:text-black border border-orange-500/40 px-3 py-1 rounded-lg text-[11px] font-black uppercase disabled:opacity-30 disabled:cursor-not-allowed">
+                Submit Rebuilt App · $250{(car.bodyCondition < 95 || car.mechanicCondition < 95) ? ' (needs 95% repairs)' : ''}
+              </button>
+            )}
+          </DmvStep>
+        )}
+
+        <DmvStep n={lastStepNum} done={!!car.isRegistered} title="Title & Registration" sub="Register under your dealer license">
+          {car.isRegistered ? (
+            <span className="text-[11px] font-bold text-blue-400">Registered</span>
+          ) : (
+            <button onClick={() => registerVehicle(car.id)} disabled={money < 150}
+              className="bg-blue-500/20 hover:bg-blue-500 text-blue-400 hover:text-black border border-blue-500/40 px-3 py-1 rounded-lg text-[11px] font-black uppercase disabled:opacity-30 disabled:cursor-not-allowed">
+              Register · $150
+            </button>
+          )}
+        </DmvStep>
+      </div>
+
+      {car.safetyPassed && car.isRegistered && !isSalvage && (
+        <div className="text-[11px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-lg py-1.5 text-center">✓ Cleared for retail sale</div>
+      )}
+    </div>
+  );
+};
+
+// --- Dealer Library: cornerstone reference reading -------------------------
+const Library = () => {
+  const [openId, setOpenId] = useState<string | null>(null);
+  const book = LIBRARY_BOOKS.find(b => b.id === openId);
+
+  if (book) {
+    return (
+      <div className="flex flex-col gap-3 h-full">
+        <button onClick={() => setOpenId(null)} className="self-start text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1">← Back to shelf</button>
+        <div className="overflow-y-auto pr-2 flex-grow scrollbar-thin scrollbar-thumb-white/10">
+          <div className="mb-4">
+            <div className="text-[10px] uppercase tracking-widest text-amber-400 font-black">{book.category}</div>
+            <h2 className="text-xl font-black text-white leading-tight">{book.title}</h2>
+            {book.author && <div className="text-[11px] text-gray-500 italic mt-0.5">{book.author}</div>}
+          </div>
+          <div className="flex flex-col gap-5">
+            {book.sections.map((s, i) => (
+              <div key={i}>
+                <h3 className="text-sm font-black uppercase tracking-wider text-white/90 border-b border-white/10 pb-1 mb-2">{s.heading}</h3>
+                <p className="text-[13px] text-gray-300 leading-relaxed whitespace-pre-line">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-3 overflow-y-auto pr-2 flex-grow scrollbar-thin scrollbar-thumb-white/10">
+      <p className="text-[11px] text-gray-400">Cornerstone reading for running the lot. Tap a title to read.</p>
+      {LIBRARY_BOOKS.map(b => (
+        <button key={b.id} onClick={() => setOpenId(b.id)}
+          className="text-left bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-500/40 rounded-2xl p-4 flex gap-3 items-start transition-all">
+          <div className="w-9 h-12 rounded bg-gradient-to-b from-amber-500/40 to-amber-700/30 border border-amber-500/40 shrink-0 flex items-center justify-center">
+            <BookOpen size={16} className="text-amber-300" />
+          </div>
+          <div className="min-w-0">
+            <div className="text-[9px] uppercase tracking-widest text-amber-400 font-black">{b.category}</div>
+            <div className="font-black text-white text-sm leading-tight">{b.title}</div>
+            <div className="text-[11px] text-gray-400 mt-1 leading-snug">{b.summary}</div>
+          </div>
+        </button>
+      ))}
+    </div>
+  );
+};
+
+const ConditionDisplay = ({ car, expandedCarId, setExpandedCarId, buyPsi, money }: { car: any, expandedCarId: string | null, setExpandedCarId: (id: string | null) => void, buyPsi?: (id: string) => void, money?: number }) => {
+  const isExpanded = expandedCarId === car.id;
+  const getProgressColor = (val: number) => val > 75 ? 'bg-green-500' : val > 40 ? 'bg-yellow-500' : 'bg-red-500';
+
+  const getBodyDiagnostics = (val: number) => {
+    if (val > 80) return "Exterior is clean. No noticeable dents or scratches.";
+    if (val > 50) return "Minor cosmetic issues. Some scratches and a door ding.";
+    if (val > 30) return "Paint fading. Deep scratches and visible rust forming.";
+    return "Severe frame damage. Major dents on multiple panels.";
+  };
+
+  const getMechDiagnostics = (val: number) => {
+    if (val > 80) return "Engine idles smoothly. Transmission shifts perfectly.";
+    if (val > 50) return "Idles rough. Delayed response on acceleration.";
+    if (val > 30) return "Check engine light is on. Clunking noises from suspension.";
+    return "Engine misfires heavily. Transmission slipping dangerously.";
+  };
+
+  // Only mask the display if this is the auction block (buyPsi is passed) AND they haven't paid for it.
+  if (!car.psiRevealed && buyPsi) {
+    return (
+      <div className="flex flex-col gap-1 w-full my-1 relative">
+        <div className="flex items-center gap-2 p-1 rounded relative border border-red-500/10">
+          <span className="text-[10px] uppercase font-bold text-red-500 w-8 shrink-0 animate-pulse">???</span>
+          <div className="flex-grow bg-red-900/30 rounded-full h-2 relative overflow-hidden border border-red-500/50">
+            <div className="h-full rounded-full transition-all duration-1000 bg-red-600 w-full animate-pulse" />
+          </div>
+          <span className="text-[10px] font-bold text-red-500 w-8 text-right animate-pulse">???</span>
+        </div>
+        {isExpanded ? (
+          <div className="flex flex-col gap-2 overflow-hidden px-1 pb-2 border-l-2 border-red-500/50 ml-1 mt-1 pl-2 mb-2 bg-red-500/5 rounded -ml-1">
+            <span className="text-[9px] text-red-400 font-bold uppercase text-center block mt-1 tracking-widest">
+              Diagnostics Locked
+            </span>
+            <span className="text-[8px] text-red-300 text-center leading-tight">
+              Vehicle may suffer from catastrophic mechanical failure or structural frame damage. Bidding without inspection is highly risky!
+            </span>
+            <button
+              onClick={(e) => { e.stopPropagation(); buyPsi && buyPsi(car.id); }}
+              disabled={(money || 0) < 250}
+              className="mt-1 w-full bg-red-500/80 text-white border border-red-500 text-[10px] font-bold rounded flex justify-center items-center py-1.5 uppercase hover:bg-red-500 hover:scale-[1.02] transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+            >
+              Order PSI Report ($250)
+            </button>
+            <div className="flex justify-center -mt-1"><span onClick={(e) => { e.stopPropagation(); setExpandedCarId(null); }} className="text-[8px] text-red-400/50 hover:text-red-400 cursor-pointer pt-1 uppercase">Close</span></div>
+          </div>
+        ) : (
+          <div className="flex justify-center mt-1">
+            <span
+              onClick={(e) => { e.stopPropagation(); setExpandedCarId(car.id); }}
+              className="text-[8px] text-red-400/80 hover:text-red-300 cursor-pointer uppercase tracking-widest bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20"
+            >
+              Click For Warning
+            </span>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-1 w-full my-1 relative">
+      <div
+        className="flex items-center gap-2 cursor-pointer group hover:bg-market/10 p-1 rounded transition-colors relative"
+        onClick={() => setExpandedCarId(isExpanded ? null : car.id)}
+      >
+        <span className="text-[10px] uppercase font-bold text-gray-400 group-hover:text-market transition-colors w-8 shrink-0">COND</span>
+        <div className="flex-grow bg-black/50 rounded-full h-2 relative overflow-hidden border border-white/10 group-hover:border-market/30 transition-colors">
+          <div className={`h-full rounded-full transition-all duration-1000 ${getProgressColor(car.condition)}`} style={{ width: `${car.condition}%` }} />
+        </div>
+        <span className="text-[10px] font-bold text-white w-8 text-right">{Math.floor(car.condition)}%</span>
+        {!isExpanded && <div className="absolute left-1/2 -top-3 -translate-x-1/2 text-[7px] bg-market text-black px-1.5 rounded-full font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Click to Inspect</div>}
+      </div>
+
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="flex flex-col gap-2 overflow-hidden px-1 pb-2 border-l-2 border-market/50 ml-1 mt-1 pl-2 mb-2"
+          >
+            <div className="flex justify-between items-end mb-1 mt-1">
+              <span className="text-[10px] uppercase font-black text-market tracking-widest">Diagnostic Report</span>
+              <span className="text-[8px] text-market/50 uppercase break-all">SCAN-{car.id.slice(0, 8)}</span>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2">
+                <span className="text-[9px] uppercase font-bold text-gray-500 w-8 shrink-0">BODY</span>
+                <div className="flex-grow bg-black/30 rounded-full h-1.5 relative overflow-hidden border border-white/5">
+                  <div className={`h-full rounded-full transition-all duration-1000 bg-blue-400`} style={{ width: `${car.bodyCondition}%` }} />
+                </div>
+                <span className="text-[9px] font-bold text-gray-400 w-8 text-right">{Math.floor(car.bodyCondition)}%</span>
+              </div>
+              <div className="text-[9px] text-blue-300/80 italic leading-tight">"{getBodyDiagnostics(car.bodyCondition)}"</div>
+            </div>
+
+            <div className="flex flex-col gap-1 mt-1">
+              <div className="flex items-center gap-2">
+                <span className="text-[9px] uppercase font-bold text-gray-500 w-8 shrink-0">MECH</span>
+                <div className="flex-grow bg-black/30 rounded-full h-1.5 relative overflow-hidden border border-white/5">
+                  <div className={`h-full rounded-full transition-all duration-1000 bg-purple-400`} style={{ width: `${car.mechanicCondition}%` }} />
+                </div>
+                <span className="text-[9px] font-bold text-gray-400 w-8 text-right">{Math.floor(car.mechanicCondition)}%</span>
+              </div>
+              <div className="text-[9px] text-purple-300/80 italic leading-tight">"{getMechDiagnostics(car.mechanicCondition)}"</div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const AuctionCarCard = ({ car, me, buyCar, buyPsi, expandedCarId, setExpandedCarId, isAuctionOpen }: any) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  // Randomly generate some detailed info based on the car's intrinsic attributes
+  const prevOwners = Math.max(1, Math.floor((100 - car.condition) / 20));
+  const accidents = car.bodyCondition < 40 ? '2 Major' : car.bodyCondition < 70 ? '1 Minor' : 'None Reported';
+  const serviceRecords = Math.floor(car.mechanicCondition / 10);
+  const marketDemand = car.buyPrice > 4000 ? 'High' : car.buyPrice > 2000 ? 'Moderate' : 'Low';
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: 'auto' }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      className="relative [perspective:1000px] w-full shrink-0 h-auto min-h-[160px]"
+    >
+      <div
+        className={`w-full h-full transition-all duration-700 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
+      >
+        {/* FRONT */}
+        <div
+          onClick={() => setIsFlipped(true)}
+          className={`bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col gap-3 group hover:border-market/50 transition-colors cursor-pointer [backface-visibility:hidden] ${isFlipped ? 'opacity-0 pointer-events-none absolute inset-0' : ''}`}
+        >
+          <div className="absolute top-2 right-2 text-gray-500 hover:text-white z-10 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+          </div>
+          <div className="flex justify-between items-start">
+            <div>
+              <div className="font-bold text-white group-hover:text-market transition-colors">
+                <div className="flex items-center gap-2">
+                  {car.year} {car.make} {car.model}
+                  {car.titleStatus !== 'Clean' && (
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded uppercase font-black ${car.titleStatus === 'Salvage' ? 'bg-red-500/20 text-red-400 border border-red-500/50' : 'bg-orange-500/20 text-orange-400 border border-orange-500/50'}`}>
+                      {car.titleStatus}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="text-[10px] text-gray-500 font-mono mt-1 mb-1 tracking-widest">{car.vin} | {car.mileage.toLocaleString()} mi</div>
+              <div className="text-[10px] text-gray-400 mb-1">{specLine(getCarSpec(car))} · {getCarSpec(car).topSpeedMph} mph top</div>
+              <ConditionDisplay car={car} expandedCarId={expandedCarId} setExpandedCarId={setExpandedCarId} buyPsi={buyPsi} money={me?.money} />
+            </div>
+            <div className="text-success font-bold mt-1 mr-5">${car.buyPrice.toLocaleString()}</div>
+          </div>
+          <div className="grid grid-cols-2 gap-2 mt-2">
+            <button
+              onClick={(e) => { e.stopPropagation(); if (!isFlipped) buyCar(car.id, false); }}
+              disabled={!isAuctionOpen || me.money < (car.buyPrice + 300) || me.inventory.length >= (me.lotScale === 'Small' ? 10 : me.lotScale === 'Medium' ? 25 : 50)}
+              className="bg-success text-black text-[10px] font-bold rounded py-1.5 uppercase hover:bg-green-400 disabled:opacity-30 disabled:cursor-not-allowed flex flex-col items-center leading-tight"
+            >
+              <span>{isAuctionOpen ? "Pay Cash" : "Closed"}</span>
+              {isAuctionOpen && <span className="text-[8px] opacity-75">+ $300 Transport</span>}
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); if (!isFlipped) buyCar(car.id, true); }}
+              disabled={!isAuctionOpen || me.money < 300 || me.inventory.length >= (me.lotScale === 'Small' ? 10 : me.lotScale === 'Medium' ? 25 : 50)}
+              className="bg-transparent border border-market text-market text-[10px] font-bold rounded py-1.5 uppercase hover:bg-market hover:text-black disabled:opacity-30 disabled:cursor-not-allowed flex flex-col items-center leading-tight"
+            >
+              <span>{isAuctionOpen ? "Floor Plan" : "Closed"}</span>
+              {isAuctionOpen && <span className="text-[8px] opacity-75">+ $300 Transport</span>}
+            </button>
+          </div>
+        </div>
+
+        {/* BACK */}
+        <div
+          onClick={() => setIsFlipped(false)}
+          className={`absolute inset-0 bg-black/95 border border-market rounded-xl p-4 overflow-y-auto text-[10px] text-gray-300 [transform:rotateY(180deg)] [backface-visibility:hidden] cursor-pointer scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent flex flex-col gap-2 ${!isFlipped ? 'opacity-0 pointer-events-none' : ''}`}
+        >
+          <h4 className="font-bold text-market text-[10px] uppercase tracking-widest sticky top-0 bg-black/95 pb-2 z-10 flex justify-between items-center">
+            Valuation Metrics
+            <span className="text-white hover:text-red-500 text-xs">✕</span>
+          </h4>
+
+          <div className="bg-white/10 p-2 rounded border border-white/10 grid grid-cols-2 gap-2 mb-2">
+            <div className="col-span-2"><span className="text-gray-500">Source / Seller:</span> <span className="text-white font-bold">{car.auctionSeller || 'Private Seller'}</span></div>
+            <div><span className="text-gray-500">Prev Owners:</span> <span className="text-white font-bold">{prevOwners}</span></div>
+            <div><span className="text-gray-500">Accidents:</span> <span className="text-white font-bold">{accidents}</span></div>
+            <div><span className="text-gray-500">Service Recs:</span> <span className="text-white font-bold">{serviceRecords}</span></div>
+            <div><span className="text-gray-500">Market Demand:</span> <span className="text-white font-bold">{marketDemand}</span></div>
+          </div>
+
+          <div className="bg-market/10 border border-market/50 p-2 rounded mb-2">
+            <div className="flex justify-between items-center mb-1">
+              <span className="text-[10px] text-market/80 tracking-widest uppercase font-bold">Estimated MMR</span>
+              <span className="text-xs text-market font-black h-font">${car.estimatedMMR?.toLocaleString() || '---'}</span>
+            </div>
+            <p className="text-[8px] text-market/70 leading-tight">Deterministic wholesale value calculated using aggregate depreciation curves and 3-stage rebuild base (35% Salvage / 65% Rebuilt / 120% OEM MSRP).</p>
+          </div>
+
+          <div className="hidden md:block space-y-2 pb-2">
+            <p>Car value is primarily determined by mileage, overall condition (mechanical and cosmetic), year/make/model, and market demand, with vehicle history (accidents/maintenance) and location playing significant roles. High-demand vehicles like SUVs hold value better, while higher mileage and lower-tier trims decrease it.</p>
+            <p className="font-bold text-white uppercase mt-2">Ray Catena of Freehold +4</p>
+            <p><strong className="text-market">Mileage & Age:</strong> Generally, the higher the mileage, the lower the value, as it correlates with wear and tear. Cars lose value rapidly in the first few years, making age a major factor.</p>
+            <p><strong className="text-market">Vehicle Condition:</strong> Includes both mechanical reliability and cosmetic shape (interior rips, exterior dents/rust). A well-maintained vehicle with service records commands a higher price.</p>
+            <p><strong className="text-market">Market Demand & Location:</strong> Local demand affects prices; for example, AWD vehicles may hold higher value in northern climates. Seasonal trends also affect prices for certain vehicles.</p>
+            <p><strong className="text-market">Make, Model, and Reputation:</strong> Brands known for durability (e.g., Toyota, Honda) typically have higher resale values.</p>
+            <p><strong className="text-market">Accident History:</strong> Vehicles with a clean Carfax or similar report are worth more than those with documented structural damage or major accidents.</p>
+            <p><strong className="text-market">Trim Level & Features:</strong> Higher trims, special packages, and premium features (e.g., leather seats, advanced safety, entertainment systems) increase value.</p>
+            <p><strong className="text-market">Color and Personalization:</strong> Common, popular colors (black, white, silver) are usually easier to sell, while personalized modifications (aftermarket performance parts) can often reduce, rather than increase, the market value.</p>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const InspectionModal = () => {
+  // Individual selectors: only re-render when these values change (a bare
+  // useGameStore() re-rendered on every fuel/HUD/GPS tick while driving).
+  const activeInspectionCarId = useGameStore(s => s.activeInspectionCarId);
+  const activeInspectionShopType = useGameStore(s => s.activeInspectionShopType);
+  const closeInspectionModal = useGameStore(s => s.closeInspectionModal);
+  const performSpecificRepair = useGameStore(s => s.performSpecificRepair);
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  if (!activeInspectionCarId || !gameState || !playerId) return null;
+
+  const me = gameState.players[playerId];
+  if (!me) return null;
+
+  const car = me.inventory.find(c => c.id === activeInspectionCarId);
+  if (!car) return null;
+
+  const isMech = activeInspectionShopType === 'mechanic';
+  const relevantRepairs = (car.activeRepairs || []).filter((r: any) => r.type === activeInspectionShopType);
+  const hasMechanic = !!me.employees?.mechanic;
+  const condition = Math.floor(isMech ? car.mechanicCondition : car.bodyCondition);
+  const accentText = isMech ? 'text-purple-400' : 'text-blue-400';
+  const accentBar = isMech ? 'bg-purple-500' : 'bg-blue-500';
+  const accentBorder = isMech ? 'border-purple-500/50' : 'border-blue-500/50';
+
+  // A fault is free if you own the matching part; the Master Mechanic cuts cash cost 20%.
+  const ownsPart = (r: any) => (me.partsInventory?.[r.partName] || 0) > 0;
+  const faultCost = (r: any) => ownsPart(r) ? 0 : Math.floor(hasMechanic ? r.cost * 0.8 : r.cost);
+  const totalCost = relevantRepairs.reduce((s: number, r: any) => s + faultCost(r), 0);
+  const canAffordAll = me.money >= totalCost;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        onClick={closeInspectionModal}
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 pointer-events-auto"
+      >
+        <motion.div
+          initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }}
+          onClick={(e) => e.stopPropagation()}
+          className={`bg-[#0a0a0a] border ${accentBorder} p-5 rounded-2xl max-w-lg w-full flex flex-col gap-4 shadow-2xl relative max-h-[90vh]`}
+        >
+          <button onClick={closeInspectionModal} className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">✕</button>
+
+          <div className="flex items-center gap-3">
+            <Wrench className={accentText} size={24} />
+            <div>
+              <h2 className={`text-xl font-black uppercase tracking-widest ${accentText}`}>{isMech ? 'Mechanic' : 'Body'} Service Bay</h2>
+              <p className="text-[11px] text-gray-400 font-mono mt-0.5">{car.year} {car.make} {car.model} · diagnostic &amp; repair</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1.5">{isMech ? 'Mechanical' : 'Body'} Condition</div>
+              <div className="flex items-center gap-2">
+                <div className="flex-1 bg-black/50 rounded-full h-2 overflow-hidden border border-white/10"><div className={`h-full ${accentBar} transition-all duration-700`} style={{ width: `${condition}%` }} /></div>
+                <span className="text-sm font-bold text-white">{condition}%</span>
+              </div>
+            </div>
+            <div className="bg-white/5 p-3 rounded-xl border border-white/10">
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1.5">Your Cash</div>
+              <div className="text-sm font-bold text-success">${me.money.toLocaleString()}</div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-white/10" style={{ maxHeight: '38vh' }}>
+            <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest border-b border-white/10 pb-1">Diagnostic Faults ({relevantRepairs.length})</h3>
+            {relevantRepairs.length === 0 ? (
+              <div className="text-center italic text-gray-500 py-6">No faults in this subsystem — clean bill of health!</div>
+            ) : (
+              relevantRepairs.map((r: any) => {
+                const part = ownsPart(r);
+                const cost = faultCost(r);
+                return (
+                  <div key={r.id} className="flex justify-between items-center bg-black/40 p-3 rounded-lg border border-white/5">
+                    <div className="flex flex-col">
+                      <span className="font-bold text-white text-sm">{r.name}</span>
+                      <span className="text-[10px] text-green-400 font-bold uppercase tracking-wider">+{r.conditionImpact}% recovered{part ? ' · owned part' : ''}</span>
+                    </div>
+                    <button
+                      onClick={() => performSpecificRepair(car.id, r.id)}
+                      disabled={!part && me.money < cost}
+                      className="bg-market/20 hover:bg-market text-market hover:text-black border border-market/50 transition-colors px-4 py-2 rounded-lg font-bold text-xs disabled:opacity-30 disabled:cursor-not-allowed uppercase shrink-0"
+                    >
+                      {part ? 'Use Part · $0' : `Fix · $${cost.toLocaleString()}`}
+                    </button>
+                  </div>
+                );
+              })
+            )}
+          </div>
+
+          {relevantRepairs.length > 0 && (
+            <div className="border-t border-white/10 pt-3 flex flex-col gap-2">
+              <div className="flex justify-between text-sm"><span className="text-gray-400">Total to fix all</span><span className="font-bold text-white">${totalCost.toLocaleString()}</span></div>
+              {hasMechanic ? (
+                <button
+                  onClick={() => relevantRepairs.forEach((r: any) => performSpecificRepair(car.id, r.id))}
+                  disabled={!canAffordAll}
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 disabled:bg-gray-700 disabled:text-gray-500 text-white font-black uppercase tracking-wider text-xs rounded-lg py-2.5"
+                >
+                  Master Mechanic · Fix All for ${totalCost.toLocaleString()}
+                </button>
+              ) : (
+                <div className="text-[11px] text-gray-500 bg-white/5 rounded-lg px-3 py-2 leading-snug">
+                  Each fix is billed to your dealership and has a <span className="text-amber-400 font-bold">15% chance to fail</span>. Hire a <span className="text-emerald-400 font-bold">Master Mechanic</span> (Staff tab, daily wage) to cut costs 20%, remove failures, and fix everything in one click.
+                </div>
+              )}
+            </div>
+          )}
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+const BankDashboard = () => {
+  const isBankModalOpen = useGameStore(s => s.isBankModalOpen);
+  const closeBankModal = useGameStore(s => s.closeBankModal);
+  const payFloorPlan = useGameStore(s => s.payFloorPlan);
+  const takeTitleLoan = useGameStore(s => s.takeTitleLoan);
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  const me = gameState?.players[playerId || ''];
+  const [activeTab, setActiveTab] = useState<'account' | 'collateral'>('account');
+  const [selectedCarId, setSelectedCarId] = useState<string | null>(null);
+
+  if (!isBankModalOpen || !me) return null;
+
+  const computeCarLoan = (car: any) => {
+    const mechanicImpact = car.mechanicCondition / 100;
+    const bodyImpact = car.bodyCondition / 100;
+    const accidentPenalty = car.accidents > 0 ? 0.70 : 1.0;
+    const mileagePenalty = Math.max(0.3, 1.0 - (car.mileage / 300000));
+    let marketVal = (car.basePrice || car.buyPrice) * mechanicImpact * bodyImpact * accidentPenalty * mileagePenalty;
+    let maxAdvance = marketVal * 0.8;
+
+    const offers = [];
+    // Same rule as the server's take_title_loan: no accident history on record counts as clean.
+    if (car.accidents === 0 || car.accidents === undefined) { maxAdvance += 2000; offers.push({ title: 'Clean Title Advance', val: 2000 }); }
+    if (car.mileage < 50000) { maxAdvance += 500; offers.push({ title: 'Low Mileage Premium', val: 500 }); }
+    if (car.bodyCondition > 90 && car.mechanicCondition > 90) { maxAdvance += 1500; offers.push({ title: 'Mint Condition Credit', val: 1500 }); }
+    if (car.titleStatus === 'Salvage') { maxAdvance -= 5000; offers.push({ title: 'Subprime / Salvage Penalty', val: -5000 }); }
+
+    maxAdvance = Math.floor(Math.max(100, maxAdvance));
+
+    return { maxAdvance, offers };
+  };
+
+  const selectedCar = selectedCarId ? me.inventory.find((c: any) => c.id === selectedCarId) : null;
+  const loanData = selectedCar ? computeCarLoan(selectedCar) : null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-[#f5f5f5]/90 backdrop-blur-md z-[200] flex items-center justify-center p-4 pointer-events-auto"
+      >
+        <motion.div
+          initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }}
+          className="bg-white border border-gray-300 p-6 rounded-xl max-w-2xl w-full flex flex-col gap-6 shadow-2xl relative text-slate-800 font-sans"
+        >
+          <button onClick={closeBankModal} className="absolute top-4 right-4 text-gray-400 hover:text-blue-600 transition-colors text-xl">✕</button>
+
+          <div className="flex flex-col gap-1 border-b border-gray-200 pb-4">
+            <h2 className="text-3xl font-black tracking-tight text-[#005ea2]">Capital Bank</h2>
+            <p className="text-sm text-gray-500 font-medium">Commercial Dealer Services</p>
+          </div>
+
+          <div className="flex gap-4 border-b border-gray-200 pb-2">
+            <button onClick={() => setActiveTab('account')} className={`px-4 py-2 font-bold text-sm tracking-widest uppercase transition-colors rounded-t-lg ${activeTab === 'account' ? 'border-b-4 border-[#005ea2] text-[#005ea2]' : 'text-gray-400 hover:text-gray-600'}`}>Corporate Account</button>
+            <button onClick={() => { setActiveTab('collateral'); setSelectedCarId(null); }} className={`px-4 py-2 font-bold text-sm tracking-widest uppercase transition-colors rounded-t-lg ${activeTab === 'collateral' ? 'border-b-4 border-[#005ea2] text-[#005ea2]' : 'text-gray-400 hover:text-gray-600'}`}>Collateral Lines</button>
+          </div>
+
+          {activeTab === 'account' && (
+            <div className="flex flex-col gap-6 animate-in fade-in">
+              <div className="flex flex-col gap-4">
+                <div className="flex justify-between items-center bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm">
+                  <span className="text-sm text-gray-500 font-bold uppercase tracking-widest">Liquid Cash</span>
+                  <span className="text-3xl font-black text-green-700">${Math.floor(me.money).toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between items-center bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm">
+                  <div className="flex flex-col items-start gap-1">
+                    <span className="text-sm text-gray-500 font-bold uppercase tracking-widest">Floor Plan Debt</span>
+                    <span className="text-xs text-gray-500 bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">Standard 0.5% Daily Interest</span>
+                  </div>
+                  <span className="text-3xl font-black text-red-600">${Math.floor(me.floorPlanDebt).toLocaleString()}</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center bg-[#f0f9ff] p-4 rounded-lg border border-blue-100">
+                <p className="text-sm text-[#005ea2] font-medium mb-4 text-center leading-relaxed">
+                  Manage your Floor Plan line of credit to reduce daily interest expenditures and free up leveraging power for future inventory acquisitions.
+                </p>
+                <div className="flex gap-2 w-full">
+                  <button onClick={() => payFloorPlan(Math.min(10000, me.floorPlanDebt))} disabled={me.money < Math.min(10000, me.floorPlanDebt) || me.floorPlanDebt <= 0} className="flex-1 bg-white hover:bg-gray-50 text-[#005ea2] border-2 border-[#bbd4e7] hover:border-[#005ea2] transition-colors py-3 rounded-lg font-black tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed uppercase">Pay $10k</button>
+                  <button onClick={() => payFloorPlan(Math.min(50000, me.floorPlanDebt))} disabled={me.money < Math.min(50000, me.floorPlanDebt) || me.floorPlanDebt <= 0} className="flex-1 bg-white hover:bg-gray-50 text-[#005ea2] border-2 border-[#bbd4e7] hover:border-[#005ea2] transition-colors py-3 rounded-lg font-black tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed uppercase">Pay $50k</button>
+                  <button onClick={() => payFloorPlan(me.floorPlanDebt)} disabled={me.money < me.floorPlanDebt || me.floorPlanDebt <= 0} className="flex-1 bg-[#005ea2] hover:bg-[#004b82] text-white transition-colors py-3 rounded-lg font-black tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed uppercase border-2 border-transparent">Pay Full Bal.</button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'collateral' && !selectedCarId && (
+            <div className="flex flex-col gap-3 max-h-[45vh] overflow-y-auto pr-2 animate-in fade-in">
+              <p className="text-sm text-gray-500 font-medium mb-2">Select a vehicle from your inventory to estimate available Title Loan advances.</p>
+              {me.inventory.filter((c: any) => !c.isProcessed).map((car: any) => (
+                <div key={car.id} onClick={() => setSelectedCarId(car.id)} className={`p-4 rounded-lg border-2 cursor-pointer transition-all flex justify-between items-center ${car.isLienActive ? 'border-red-200 bg-red-50 opacity-50 pointer-events-none' : 'border-gray-200 hover:border-[#005ea2] bg-white hover:shadow-md'}`}>
+                  <div className="flex flex-col gap-1">
+                    <span className="font-black text-lg text-slate-800">{car.year} {car.make} {car.model}</span>
+                    <span className="text-xs text-gray-500 uppercase font-bold tracking-wider">{car.mileage.toLocaleString()} mi | {car.titleStatus} Title</span>
+                  </div>
+                  {car.isLienActive ? (
+                    <span className="text-xs font-bold text-red-600 bg-red-100 px-3 py-1 rounded-full uppercase tracking-widest">Lien Active</span>
+                  ) : (
+                    <span className="text-xs font-bold text-[#005ea2] bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded uppercase tracking-widest">Select</span>
+                  )}
+                </div>
+              ))}
+              {me.inventory.filter((c: any) => !c.isProcessed).length === 0 && (
+                <div className="text-center p-8 bg-gray-50 rounded-lg border border-dashed border-gray-300 text-gray-500 font-medium">No available inventory for collateral.</div>
+              )}
+            </div>
+          )}
+
+          {activeTab === 'collateral' && selectedCarId && selectedCar && loanData && (
+            <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-4">
+              <button onClick={() => setSelectedCarId(null)} className="text-[10px] font-bold text-[#005ea2] uppercase tracking-widest self-start hover:underline mb-2 flex items-center gap-1">← Back to Inventory</button>
+
+              <div className="flex justify-between items-baseline border-b-2 border-[#005ea2] pb-2">
+                <h3 className="font-bold text-gray-600 text-lg">Estimated Final Advance</h3>
+                <div className="text-right">
+                  <div className="text-3xl font-black text-[#005ea2]">${loanData.maxAdvance.toLocaleString()}</div>
+                </div>
+              </div>
+
+              <div className="flex rounded-t-lg overflow-hidden border-b border-gray-300 pt-2">
+                <div className="flex-1 bg-[#005ea2] text-white text-center py-2 text-[10px] font-bold uppercase tracking-widest relative after:content-[''] after:absolute after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2 after:border-l-[6px] after:border-r-[6px] after:border-t-[6px] after:border-l-transparent after:border-r-transparent after:border-t-[#005ea2]">
+                  FLOOR PLAN ADVANCE
+                </div>
+                <div className="flex-1 bg-white text-gray-600 border-l border-t border-r border-gray-300 text-center py-2 text-[10px] font-bold uppercase tracking-widest shadow-inner relative">
+                  TITLE LOAN
+                  <div className="absolute inset-0 bg-gray-100 opacity-50 mix-blend-multiply pointer-events-none"></div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-4 gap-4 py-4 text-center border-b border-gray-200">
+                <div className="flex flex-col">
+                  <span className="text-xl font-black text-slate-800">0.5%</span>
+                  <span className="text-[9px] uppercase font-bold text-gray-500 tracking-widest">Daily Interest</span>
+                </div>
+                <div className="flex flex-col border-l border-gray-200">
+                  <span className="text-xl font-black text-slate-800">Revolving</span>
+                  <span className="text-[9px] uppercase font-bold text-gray-500 tracking-widest">Duration</span>
+                </div>
+                <div className="flex flex-col border-l border-gray-200">
+                  <span className="text-xl font-black text-slate-800">{Math.floor((selectedCar.bodyCondition + selectedCar.mechanicCondition) / 2)}%</span>
+                  <span className="text-[9px] uppercase font-bold text-gray-500 tracking-widest">Asset Cond.</span>
+                </div>
+                <div className="flex flex-col border-l border-gray-200">
+                  <span className="text-xl font-black text-slate-800">5%</span>
+                  <span className="text-[9px] uppercase font-bold text-gray-500 tracking-widest">Origination Fee</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3 py-2 max-h-[25vh] overflow-y-auto pr-2">
+                <h4 className="text-lg font-black text-slate-800 flex items-center gap-2 mb-1">
+                  Special Program Offers
+                  <span className="bg-blue-100 text-blue-800 w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">?</span>
+                </h4>
+                {loanData.offers.length === 0 ? (
+                  <div className="text-gray-500 italic p-4 bg-gray-50 rounded border border-gray-200 text-sm">No special programs applicable to this asset.</div>
+                ) : (
+                  loanData.offers.map((offer, i) => (
+                    <div key={i} className={`px-5 py-4 border-2 rounded text-left flex justify-between items-center shadow-sm ${offer.val > 0 ? 'border-blue-200 bg-white' : 'border-red-200 bg-red-50'}`}>
+                      <div className="flex flex-col -space-y-1">
+                        <span className="font-bold text-slate-700">{offer.title}</span>
+                        <span className={`text-base font-black ${offer.val > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                          {offer.val > 0 ? '+' : ''}${Math.abs(offer.val).toLocaleString()}
+                        </span>
+                      </div>
+                      <button disabled className="px-4 py-1.5 rounded-full border border-gray-300 text-[9px] font-bold text-gray-500 bg-gray-50 uppercase tracking-widest">Details</button>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              <div className="flex flex-col gap-2 mt-2">
+                <p className="text-[10px] text-gray-400 flex gap-2 pt-2 border-t border-gray-200 leading-tight">
+                  <span className="text-[#005ea2]">v</span> Offers are subject to eligibility restrictions and collateral verification. A 5% origination fee will be instantly added to your Floor Plan Debt upon signing.
+                </p>
+                <button
+                  onClick={() => {
+                    takeTitleLoan(selectedCar.id);
+                    setSelectedCarId(null);
+                    setActiveTab('account');
+                  }}
+                  className="mt-2 bg-white text-[#005ea2] border-none hover:bg-transparent transition-all py-2 font-black tracking-widest text-[11px] hover:underline uppercase self-end flex items-center gap-1"
+                >
+                  APPLY FOR FINANCING <span className="text-2xl font-normal leading-none font-sans relative -top-0.5">›</span>
+                </button>
+              </div>
+            </div>
+          )}
+
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+const DealerGuideModal = ({ isOpen, onClose, step, setStep }: { isOpen: boolean; onClose: () => void; step: number; setStep: (s: number | ((prev: number) => number)) => void }) => {
+  if (!isOpen) return null;
+
+  const totalSteps = 5;
+
+  const handleNext = () => {
+    if (step < totalSteps - 1) {
+      setStep(step + 1);
+    } else {
+      onClose();
+    }
+  };
+
+  const handlePrev = () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  };
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/85 backdrop-blur-md z-[300] flex items-center justify-center p-4 pointer-events-auto"
+      >
+        <motion.div
+          initial={{ scale: 0.95, y: 25 }}
+          animate={{ scale: 1, y: 0 }}
+          exit={{ scale: 0.95, y: 25 }}
+          transition={{ type: 'spring', duration: 0.5 }}
+          className="bg-[#0b0c10]/95 border border-market/40 rounded-2xl max-w-2xl w-full flex flex-col h-[85vh] max-h-[620px] shadow-2xl relative text-white overflow-hidden"
+        >
+          {/* Header */}
+          <div className="flex justify-between items-center bg-gradient-to-r from-market/20 to-transparent p-5 border-b border-white/10 shrink-0">
+            <div className="flex items-center gap-2">
+              <BookOpen className="text-market animate-pulse" size={22} />
+              <h2 className="text-xl font-black uppercase tracking-wider text-market">
+                Dealership Quick Start Guide
+              </h2>
+            </div>
+            <button
+              onClick={onClose}
+              className="text-gray-400 hover:text-white transition-colors p-1 rounded-full hover:bg-white/5"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Body Content Slider */}
+          <div className="flex-grow overflow-y-auto p-6 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            {step === 0 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    🏁 Step 1: The Core Dealership Loop
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    In MiCar Dealer Simulator, your goal is to build a high-performance, premium used-car dealership. Here is the operational loop that drives all profits:
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-5 gap-2 items-center text-center mt-2">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">🛒</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">1. Acquire</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Buy cheap at Stand-off Auction</span>
+                  </div>
+                  <div className="text-gray-500 font-bold">➔</div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">📋</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">2. Comply</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Register at DMV / inspect</span>
+                  </div>
+                  <div className="text-gray-500 font-bold">➔</div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">🔧</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">3. Recon</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Repair Body & Mechanic parts</span>
+                  </div>
+                </div>
+
+                <div className="flex justify-center items-center gap-6 my-1">
+                  <div className="text-gray-500 font-bold rotate-90">➔</div>
+                  <div className="text-gray-500 font-bold -rotate-90">➔</div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-4 items-center text-center max-w-sm mx-auto">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">🧼</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">4. Detail</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Wash dirty cars and display on show pad</span>
+                  </div>
+                  <div className="text-gray-500 font-bold">➔</div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col items-center gap-1.5 hover:border-market/40 transition-colors">
+                    <span className="text-lg">🤝</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-market">5. Monetize</span>
+                    <span className="text-[8px] text-gray-400 leading-tight">Negotiate, match budget & cash out</span>
+                  </div>
+                </div>
+
+                <div className="bg-market/10 border border-market/30 rounded-xl p-4 mt-2 text-left">
+                  <span className="text-xs font-bold text-market uppercase tracking-widest block mb-1">💡 Quick Pro-Tip</span>
+                  <p className="text-[11px] text-gray-300 leading-relaxed">
+                    Vehicles sitting on the display pad won't sell unless they are fully **Registered** at the DMV, **Washed** (drive to detailing bay), and **State Inspected** (if salvage title). Check your inventory list alerts to see what your cars need!
+                  </p>
+                </div>
+              </motion.div>
+            )}
+
+            {step === 1 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    🛒 Step 2: Global Auction & MMR
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Acquiring premium vehicles at wholesale price is the start of your profit funnel.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 text-left">
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-market">
+                      <TrendingUp size={16} />
+                      <span className="text-xs font-bold uppercase tracking-widest">MMR Valuations</span>
+                    </div>
+                    <p className="text-[10px] text-gray-400 leading-relaxed">
+                      Every car has an estimated **MMR (Manheim Market Report)** base wholesale value. Buying well below MMR leaves room for reconditioning expenses. Watch out: salvage titles depreciate base wholesale but offer massive rebuilding upside!
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-warning">
+                      <Activity size={16} />
+                      <span className="text-xs font-bold uppercase tracking-widest">Locked Diagnostics & PSI</span>
+                    </div>
+                    <p className="text-[10px] text-gray-400 leading-relaxed">
+                      Auction cars are sold with locked diagnostic scores (`???`). Bidding blind is highly risky. Order a **PSI (Post-Sale Inspection) report for $250** to reveal hidden cosmetic and mechanical faults before bidding!
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 p-4 rounded-xl text-left">
+                  <span className="text-xs font-bold text-white uppercase tracking-widest block mb-2">Cash Buying vs Floor Planning</span>
+                  <div className="grid grid-cols-2 gap-4 text-[10px]">
+                    <div className="border-r border-white/10 pr-2">
+                      <strong className="text-success uppercase">💰 Pay Cash:</strong>
+                      <p className="text-gray-400 mt-1">Pay the full wholesale vehicle price immediately plus a $300 transport transport fee. Keeps your daily interest at zero.</p>
+                    </div>
+                    <div className="pl-2">
+                      <strong className="text-warning uppercase">📈 Floor Plan line:</strong>
+                      <p className="text-gray-400 mt-1">Borrow the cost from the bank with minimal upfront cash. Warning: incurs a **0.5% daily interest charge** on total borrowed balance. Pay off debt at the Accounting tab!</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {step === 2 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    📋 Step 3: DMV & Title Operations
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Compliance is law. Ensure titles are completely legally cleared before putting cars on the pad.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-3 text-left">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex gap-4 items-start">
+                    <span className="text-2xl bg-market/10 text-market p-2 rounded-xl shrink-0">🚗</span>
+                    <div>
+                      <h4 className="text-xs font-bold text-white uppercase tracking-wider">Registration Obligation ($150)</h4>
+                      <p className="text-[10px] text-gray-400 mt-1 leading-relaxed">
+                        Every single vehicle you acquire must be registered under your dealer license before you are allowed to advertise it to the public. Head to the **DMV Services** tab to register stock for $150.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex gap-4 items-start">
+                    <span className="text-2xl bg-warning/10 text-warning p-2 rounded-xl shrink-0">⚠️</span>
+                    <div>
+                      <h4 className="text-xs font-bold text-white uppercase tracking-wider">Salvage State Inspections ($250)</h4>
+                      <p className="text-[10px] text-gray-400 mt-1 leading-relaxed">
+                        Salvage title cars are completely blocked from sale. You must physically drive salvage vehicles to the body and mechanic shops, repair BOTH mechanical and cosmetic systems to **95% or higher condition**, and then submit for state inspection for $250.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-success/15 border border-success/30 rounded-xl p-3 text-center">
+                    <span className="text-[10px] uppercase font-black tracking-widest text-success block mb-0.5">🚀 Ultimate Rebuilt Upgrade</span>
+                    <p className="text-[10px] text-success/90">
+                      Once a salvage vehicle passes DMV inspection, its title brands as a premium **Rebuilt Title**, boosting its resale value drastically!
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {step === 3 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    🔧 Step 4: Reconditioning & Mechanic Shops
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Buy parts in bulk, optimize logistics, and get under the hood to maximize margins.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 text-left">
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-1.5">
+                    <strong className="text-xs text-purple-400 uppercase tracking-wider">🔧 Mechanic Shop</strong>
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-sans">
+                      Drive the car down the road to the purple Mechanic Shop to perform diagnostics. Buy mechanic parts in bulk at the **Parts Store** tab to bypass high single-repair retail cost!
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-1.5">
+                    <strong className="text-xs text-blue-400 uppercase tracking-wider">🎨 Body Shop</strong>
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-sans">
+                      Cosmetic dings, dents, scratches, and fade dramatically depress buyer budgets. Drive to the blue Body Shop down the road to inspect panels and perform body panel/paint repairs.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex gap-4 items-center text-left">
+                  <span className="text-2xl bg-white/5 p-2 rounded-xl shrink-0">👥</span>
+                  <div>
+                    <h4 className="text-xs font-bold text-white uppercase tracking-wider">Employee Leverage: Master Mechanic</h4>
+                    <p className="text-[10px] text-gray-400 mt-1 leading-relaxed">
+                      Hire a **Master Mechanic ($500/day)** at the **Staff** tab. They automatically slash all your repair expenses by **20%** and guarantee that complex mechanical and structural repairs **never fail**!
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {step === 4 && (
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                className="flex flex-col gap-4 animate-in fade-in"
+              >
+                <div className="text-center mb-2">
+                  <h3 className="text-lg font-bold text-success uppercase tracking-widest">
+                    🤝 Step 5: Sales, Marketing & Contracts
+                  </h3>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Negotiate premium margins and manage dealer financing to build generational wealth.
+                  </p>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col gap-2 text-left">
+                  <span className="text-xs font-bold text-white uppercase tracking-widest">Walk-In Traffic & Lead Generation</span>
+                  <p className="text-[10px] text-gray-400 leading-relaxed">
+                    Choose a **Marketing Tier** in your lot panel. Craigslist is free ($0/day), Meta Ads ($100/day) boosts volume, and Autotrader ($300/day) generates a constant flood of eager retail walk-ins!
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 text-left">
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-1.5">
+                    <strong className="text-xs text-success uppercase tracking-widest">💳 In-House Financing (BHPH)</strong>
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-sans">
+                      Accepting Buy-Here-Pay-Here financing generates massive long-term passive daily revenue yield. But beware: high-risk buyers might **default** and go delinquent!
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex flex-col gap-1.5">
+                    <strong className="text-xs text-warning uppercase tracking-widest">🚨 Delinquency & Repossessions</strong>
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-sans">
+                      If a customer goes delinquent, hire a **Repo Agent for $400** in the accounting menu. They will track down, seize, and return the vehicle directly to your lot!
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-market/10 border border-market/30 rounded-xl p-3 flex justify-between items-center gap-4 text-left">
+                  <p className="text-[9.5px] text-gray-300 leading-normal">
+                    💡 **Hire F&I Managers & Salespeople** at the Staff tab to boost dealer sales margin by **10%** and slash financing default rates!
+                  </p>
+                  <button
+                    onClick={onClose}
+                    className="bg-market text-black font-black uppercase text-[10px] tracking-widest px-4 py-2 rounded-lg hover:bg-blue-400 transition-colors shrink-0"
+                  >
+                    Start Your Dealership!
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </div>
+
+          {/* Footer Controls */}
+          <div className="flex justify-between items-center p-5 border-t border-white/10 bg-[#08090d] shrink-0">
+            <button
+              onClick={handlePrev}
+              disabled={step === 0}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg border border-white/10 text-xs font-bold uppercase transition-all hover:bg-white/5 disabled:opacity-20 disabled:pointer-events-none cursor-pointer"
+            >
+              <ChevronLeft size={16} /> Back
+            </button>
+
+            {/* Progress Dots */}
+            <div className="flex gap-2">
+              {Array.from({ length: totalSteps }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setStep(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${step === i ? 'bg-market scale-125 shadow-[0_0_8px_#3b82f6]' : 'bg-white/20 hover:bg-white/40'}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={handleNext}
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-market text-black text-xs font-black uppercase tracking-wider transition-all hover:bg-blue-400 cursor-pointer shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+            >
+              {step === totalSteps - 1 ? 'Start Playing' : 'Next'} <ChevronRight size={16} />
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+const NegotiationModal = ({ agentId, setAgentId, carId, setCarId }: any) => {
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  const proposeDeal = useGameStore(s => s.proposeDeal);
+  const counterOffer = useGameStore(s => s.counterOffer);
+  const rejectDeal = useGameStore(s => s.rejectDeal);
+  const finalizeDeal = useGameStore(s => s.finalizeDeal);
+  const [counterInput, setCounterInput] = useState('');
+  
+  if (!gameState || !playerId || !agentId) return null;
+  const me = gameState.players[playerId];
+  if (!me) return null;
+  const agents = gameState.activeWalkIns[playerId] || [];
+  const agent = agents.find(a => a.id === agentId);
+  if (!agent) {
+      // Avoid infinite loop by not updating state in render, handled by useEffect in real app, but safe enough here
+      return null;
+  }
+
+  const proposal = agent.activeProposal;
+  // Closing the popup clears the picked car, so a reopened negotiation takes it from the proposal.
+  const dealCarId = proposal?.carId || carId;
+  const car = dealCarId ? me.inventory.find((c: any) => c.id === dealCarId) : null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 pointer-events-auto"
+      >
+        <motion.div
+          initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }}
+          className="bg-[#0a0a0a] border border-blue-500/50 p-6 rounded-xl max-w-lg w-full flex flex-col gap-4 shadow-2xl relative"
+        >
+          <button onClick={() => { setAgentId(null); setCarId(null); }} className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">✕</button>
+          
+          <h2 className="text-2xl font-black uppercase tracking-widest text-blue-400">
+            {agent.state === 'browsing' ? 'Select Vehicle for Agent' : 'Negotiate Deal'}
+          </h2>
+          
+          <div className="flex gap-4 p-3 bg-white/5 rounded border border-white/10">
+            <div className="flex flex-col flex-1">
+              <span className="text-sm font-bold text-white uppercase">{agent.name}</span>
+              <span className="text-xs text-gray-400">Budget: <span className="text-green-400">${agent.budget.toLocaleString()}</span></span>
+              <span className="text-xs text-gray-400">Credit: <span className="text-yellow-400">{agent.creditScore}</span></span>
+            </div>
+            <div className="flex flex-col flex-1 border-l border-white/10 pl-4">
+               <span className="text-xs text-gray-400">Needs Max: <span className="text-white">{agent.needs.maxMileage.toLocaleString()} mi</span></span>
+               <span className="text-xs text-gray-400">Needs Min Cond: <span className="text-white">{agent.needs.minCondition}%</span></span>
+            </div>
+          </div>
+
+          {agent.state === 'browsing' ? (
+            <div className="flex flex-col gap-2 max-h-[40vh] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/10">
+               <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest border-b border-white/10 pb-1 mb-1">Available Inventory</h3>
+               {me.inventory.filter((c:any) => c.isProcessed && c.isRegistered && c.safetyPassed && c.titleStatus !== 'Salvage').map((c:any) => (
+                   <div key={c.id} onClick={() => setCarId(c.id)} className={`p-3 rounded border cursor-pointer flex justify-between items-center transition-colors ${carId === c.id ? 'bg-blue-500/20 border-blue-500' : 'bg-black/40 border-white/5 hover:border-white/20'}`}>
+                       <div className="flex flex-col">
+                           <span className="text-sm font-bold text-white">{c.year} {c.make} {c.model}</span>
+                           <span className="text-xs text-gray-400">{c.mileage.toLocaleString()} mi | {Math.floor(c.condition)}% Cond</span>
+                       </div>
+                       <div className="text-right flex flex-col">
+                           <span className="text-xs text-success font-bold">${c.buyPrice.toLocaleString()} Cost</span>
+                           {carId === c.id && <span className="text-[10px] text-blue-400 uppercase tracking-widest mt-1 animate-pulse">Selected</span>}
+                       </div>
+                   </div>
+               ))}
+               {me.inventory.filter((c:any) => c.isProcessed && c.isRegistered && c.safetyPassed && c.titleStatus !== 'Salvage').length === 0 && (
+                   <div className="text-gray-500 italic text-sm text-center p-4">No eligible cars on the lot. Ensure cars pass the DMV safety inspection, are washed, registered, and parked on the display pad.</div>
+               )}
+               
+               <button 
+                  onClick={() => proposeDeal(agent.id, carId)}
+                  disabled={!carId}
+                  className="mt-4 bg-blue-500 hover:bg-blue-400 text-black font-bold uppercase py-3 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+               >
+                  Generate Proposal
+               </button>
+            </div>
+          ) : proposal ? (
+             <div className="flex flex-col gap-4">
+                 <div className="bg-blue-500/10 border border-blue-500/30 p-4 rounded text-center">
+                    <span className="text-xs uppercase tracking-widest text-blue-400 block mb-1">Agent's Initial Offer</span>
+                    <span className="text-3xl font-black text-white">${proposal.totalValue.toLocaleString()}</span>
+                    <div className="text-xs text-gray-400 mt-2 uppercase flex justify-center gap-4">
+                        <span>Deal Type: <strong className="text-white">{proposal.dealType.toUpperCase()}</strong></span>
+                        {proposal.dealType !== 'cash' && <span>Down: <strong className="text-white">${proposal.downPayment.toLocaleString()}</strong></span>}
+                    </div>
+                 </div>
+
+                 <div className="flex flex-col gap-2 p-3 bg-white/5 rounded border border-white/10">
+                     <span className="text-xs uppercase tracking-widest text-gray-400">Counter Offer</span>
+                     <div className="flex gap-2">
+                         <input 
+                            type="number" 
+                            className="flex-1 bg-black/50 border border-white/20 rounded px-3 py-2 text-white outline-none focus:border-blue-500 transition-colors"
+                            placeholder="Enter amount..."
+                            value={counterInput}
+                            onChange={e => setCounterInput(e.target.value)}
+                         />
+                         <button 
+                            onClick={() => { counterOffer(agent.id, Number(counterInput)); setCounterInput(''); }}
+                            disabled={!(Number(counterInput) > 0)}
+                            className="bg-market/20 text-market hover:bg-market hover:text-black border border-market/50 px-4 rounded font-bold uppercase text-xs transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                         >
+                             Counter
+                         </button>
+                     </div>
+                 </div>
+                 
+                 <div className="grid grid-cols-2 gap-3 mt-2">
+                     <button onClick={() => { if (car) { finalizeDeal(car.id, agent.id); setAgentId(null); setCarId(null); } }} className="bg-success text-black py-3 rounded font-black uppercase text-sm hover:bg-green-400 transition-colors">
+                         Accept Deal
+                     </button>
+                     <button onClick={() => { rejectDeal(agent.id); setAgentId(null); setCarId(null); }} className="bg-red-500/20 text-red-500 border border-red-500/50 py-3 rounded font-black uppercase text-sm hover:bg-red-500 hover:text-white transition-colors">
+                         Reject Walk-Away
+                     </button>
+                 </div>
+             </div>
+          ) : null}
+
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+const ClockDisplay = () => {
+  const timeOfDay = useGameStore(s => s.timeOfDay);
+  const day = useGameStore(s => s.gameState?.day || 1);
+  const isAuctionOpen = useGameStore(s => s.timeOfDay >= 8.0 && s.timeOfDay < 17.0);
+  // Round to the minute: the server adds 1/30 h a tick, so the clock is often a
+  // hair under a whole minute (8.0333332) and truncating showed 8:01 for 8:02.
+  const totalMinutes = Math.round(timeOfDay * 60);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  const ampm = hours >= 12 && hours < 24 ? 'PM' : 'AM';
+  const displayHours = hours % 12 || 12;
+  const timeString = `${displayHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+
+  return (
+    <div className="flex gap-4 items-center mt-2 lg:mt-0">
+      <div className="flex items-center gap-2 text-white/50 border border-white/10 rounded px-2 py-1 text-[10px] uppercase font-bold tracking-widest bg-black/50">
+        <Clock size={16} /> Day {day} | {timeString}
+      </div>
+      <div className={`flex items-center gap-2 border rounded px-2 py-1 text-[10px] uppercase font-bold tracking-widest ${isAuctionOpen ? 'text-green-500 border-green-500/30 bg-green-500/10' : 'text-red-500 border-red-500/30 bg-red-500/10'}`}>
+        {isAuctionOpen ? 'Auction Open' : 'Auction Closed'}
+      </div>
+    </div>
+  );
+};
+
+const InsuranceModal = () => {
+  const isInsuranceModalOpen = useGameStore(s => s.isInsuranceModalOpen);
+  const closeInsuranceModal = useGameStore(s => s.closeInsuranceModal);
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  const buyInsurance = useGameStore(s => s.buyInsurance);
+  const cancelInsurance = useGameStore(s => s.cancelInsurance);
+  const me = gameState?.players[playerId || ''];
+  if (!isInsuranceModalOpen || !me) return null;
+  const policies = [
+    { key: 'liability', name: 'Garage Liability', desc: 'Covers customer & legal liability claims — your protection against the catastrophic uninsured lawsuit.', price: '$40 / day' },
+    { key: 'inventory', name: 'Inventory / Physical Damage', desc: 'Theft, weather, fire, and vandalism on your lot stock (deductible $500). Effectively required when leveraged.', price: '≈ 0.06% of stock / day' },
+    { key: 'gap', name: 'GAP — F&I Product', desc: 'Sell GAP on buy-here-pay-here deals for a $300 fee and protect your note if a financed car is totaled.', price: 'earns on BHPH deals' },
+  ];
+  return (
+    <AnimatePresence>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+        onClick={closeInsuranceModal}
+        className="fixed inset-0 bg-black/70 backdrop-blur-md z-[200] flex items-center justify-center p-4 pointer-events-auto">
+        <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }}
+          onClick={(e) => e.stopPropagation()}
+          className="bg-white border border-gray-300 p-6 rounded-xl max-w-2xl w-full flex flex-col gap-5 shadow-2xl relative text-slate-800 font-sans max-h-[90vh]">
+          <button onClick={closeInsuranceModal} className="absolute top-4 right-4 text-gray-400 hover:text-teal-600 transition-colors text-xl">✕</button>
+          <div className="flex flex-col gap-1 border-b border-gray-200 pb-4">
+            <h2 className="text-3xl font-black tracking-tight text-teal-700">Apex Mutual Insurance</h2>
+            <p className="text-sm text-gray-500 font-medium">Garage Liability · Inventory · F&amp;I Coverage</p>
+          </div>
+          <div className="flex flex-col gap-4 overflow-y-auto pr-1">
+            {me.floorPlanDebt > 0 && !me.insurance?.inventory && (
+              <div className="bg-amber-50 border border-amber-300 rounded-lg p-3 text-[13px] text-amber-800 leading-snug">
+                ⚠️ You carry <b>floor-plan debt</b> — a lien on your inventory. Lenders require the collateral to be insured, so while you're uninsured we <b>force-place</b> coverage at roughly <b>3× the rate</b>. Activate your own Inventory policy below to save.
+              </div>
+            )}
+            {policies.map((pol) => {
+              const on = (me.insurance as any)?.[pol.key];
+              return (
+                <div key={pol.key} className={`p-4 rounded-lg border-2 flex justify-between items-center gap-3 ${on ? 'border-green-300 bg-green-50' : 'border-gray-200 bg-white'}`}>
+                  <div className="flex flex-col">
+                    <span className="font-black text-slate-800">{pol.name}</span>
+                    <span className="text-[12px] text-gray-500 leading-snug">{pol.desc}</span>
+                    <span className="text-[11px] text-teal-700 font-bold uppercase tracking-wider mt-0.5">{pol.price}</span>
+                  </div>
+                  {on ? (
+                    <button onClick={() => cancelInsurance(pol.key as any)} className="bg-white border-2 border-red-300 text-red-600 hover:bg-red-50 px-4 py-2 rounded-lg font-black text-xs uppercase shrink-0">Cancel</button>
+                  ) : (
+                    <button onClick={() => buyInsurance(pol.key as any)} className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-black text-xs uppercase shrink-0">Activate</button>
+                  )}
+                </div>
+              );
+            })}
+            <div>
+              <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-200 pb-1 mb-2">Recent Claims &amp; Events</h3>
+              {(!me.insuranceLog || me.insuranceLog.length === 0) ? (
+                <p className="text-[12px] text-gray-400 italic">No incidents on record — events are rare, that's the point.</p>
+              ) : (
+                <div className="flex flex-col gap-1">
+                  {me.insuranceLog.map((m: string, i: number) => (
+                    <div key={i} className="text-[12px] text-slate-700 bg-gray-50 border border-gray-200 rounded px-2 py-1.5">{m}</div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+// Multiplayer game chat — a collapsible bubble in the bottom-left HUD corner
+// (the minimap owns the bottom-right). Messages flow over a lightweight `chat`
+// socket event, separate from the heavy state broadcast.
+const GameChat = ({ isMobile }: { isMobile?: boolean }) => {
+  const messages = useGameStore(s => s.chatMessages);
+  const unread = useGameStore(s => s.unreadChat);
+  const playerId = useGameStore(s => s.playerId);
+  const sendChat = useGameStore(s => s.sendChat);
+  const markChatRead = useGameStore(s => s.markChatRead);
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState('');
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Keep the latest message in view while open.
+  useEffect(() => {
+    if (open && scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [messages, open]);
+
+  // Clear the unread badge whenever the panel is open and new lines arrive.
+  useEffect(() => { if (open) markChatRead(); }, [open, messages, markChatRead]);
+
+  const submit = (e?: React.FormEvent) => {
+    e?.preventDefault();
+    const t = text.trim();
+    if (!t) return;
+    sendChat(t);
+    setText('');
+  };
+
+  if (open) {
+    return (
+      <div className={`fixed z-[940] pointer-events-auto ${isMobile ? 'left-3 bottom-20 right-3' : 'left-4 bottom-4 w-80'}`}>
+        <div className="flex flex-col bg-[#0c0d12]/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden h-80">
+          <div className="flex items-center justify-between px-3 py-2 border-b border-white/10 bg-white/5 shrink-0">
+            <span className="text-xs font-black uppercase tracking-widest text-white/80 flex items-center gap-2"><MessageSquare size={14} className="text-emerald-400" /> Lot Chat</span>
+            <button onClick={() => setOpen(false)} className="text-white/50 hover:text-white transition-colors"><X size={16} /></button>
+          </div>
+          <div ref={scrollRef} className="flex-grow overflow-y-auto px-3 py-2 space-y-1.5 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+            {messages.length === 0 && <div className="text-[11px] text-white/30 text-center mt-6">No messages yet. Say hi to the lot 👋</div>}
+            {messages.map(m => m.system ? (
+              <div key={m.id} className="text-[10px] text-white/35 italic text-center py-0.5">{m.text}</div>
+            ) : (
+              <div key={m.id} className={`flex flex-col ${m.playerId === playerId ? 'items-end' : 'items-start'}`}>
+                <span className="text-[9px] uppercase tracking-wide text-white/40 font-bold px-1">{m.playerId === playerId ? 'You' : m.name}</span>
+                <span className={`text-[12px] leading-snug px-2.5 py-1 rounded-2xl max-w-[85%] break-words ${m.playerId === playerId ? 'bg-emerald-500/80 text-white rounded-br-sm' : 'bg-white/10 text-white/90 rounded-bl-sm'}`}>{m.text}</span>
+              </div>
+            ))}
+          </div>
+          <form onSubmit={submit} className="flex items-center gap-2 p-2 border-t border-white/10 bg-white/5 shrink-0">
+            <input
+              value={text}
+              onChange={e => setText(e.target.value)}
+              maxLength={200}
+              placeholder="Message the lot…"
+              className="flex-grow bg-black/40 border border-white/10 rounded-full px-3 py-1.5 text-[12px] text-white placeholder-white/30 focus:outline-none focus:border-emerald-400/60"
+            />
+            <button type="submit" disabled={!text.trim()} className="shrink-0 bg-emerald-500 hover:bg-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed text-white rounded-full p-2 transition-colors"><Send size={14} /></button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <button
+      onClick={() => setOpen(true)}
+      title="Open chat"
+      className={`fixed z-[940] pointer-events-auto bg-[#0c0d12]/90 hover:bg-[#15161d] backdrop-blur-xl border border-white/10 rounded-full shadow-2xl flex items-center justify-center text-white/80 hover:text-white transition-colors ${isMobile ? 'left-3 bottom-20 w-12 h-12' : 'left-4 bottom-4 w-14 h-14'}`}
+    >
+      <MessageSquare size={isMobile ? 20 : 22} />
+      {unread > 0 && (
+        <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 bg-emerald-500 text-white text-[10px] font-black rounded-full flex items-center justify-center border-2 border-[#0c0d12]">{unread > 9 ? '9+' : unread}</span>
+      )}
+    </button>
+  );
+};
+
+// Racing + fuel HUD: gas gauge while driving, the speedway entry panel, the live
+// race readout (countdown / lap / time), payout results, and error toasts.
+const RacingHud = (_props: { isMobile?: boolean }) => {
+  const drivingCarId = useGameStore(s => s.drivingCarId);
+  const drivingFuel = useGameStore(s => s.drivingFuel);
+  const drivingSpeed = useGameStore(s => s.drivingSpeed);
+  // The driven car as a primitive key, so state broadcasts don't re-render the HUD
+  const drivingKey = useGameStore(s => {
+    const c = s.drivingCarId && s.playerId ? s.gameState?.players?.[s.playerId]?.inventory.find(x => x.id === s.drivingCarId) : null;
+    return c ? `${c.year}|${c.make}|${c.model}|${c.bodyStyle || ''}` : '';
+  });
+  const raceTrackPrompt = useGameStore(s => s.raceTrackPrompt);
+  const activeRace = useGameStore(s => s.activeRace);
+  const raceHud = useGameStore(s => s.raceHud);
+  const raceResult = useGameStore(s => s.raceResult);
+  const raceDenied = useGameStore(s => s.raceDenied);
+  const heldItem = useGameStore(s => s.heldItem);
+  const heldCount = useGameStore(s => s.heldCount);
+  const itemPickupTs = useGameStore(s => s.itemPickupTs);
+  const money = useGameStore(s => (s.playerId ? (s.gameState?.players?.[s.playerId]?.money ?? 0) : 0));
+  const { enterRace, refuel, clearRaceResult } = useGameStore.getState();
+
+  const ITEM_INFO: Record<string, { icon: string; label: string }> = {
+    mushroom: { icon: '🍄', label: 'Mushroom — boost' },
+    triple_mushroom: { icon: '🍄', label: 'Triple Mushroom' },
+    banana: { icon: '🍌', label: 'Banana — drop it behind you' },
+    green_shell: { icon: '🐢', label: 'Green Shell — fire it' },
+    star: { icon: '⭐', label: 'Star — boost + invincible' },
+  };
+  const [pickupToast, setPickupToast] = useState<{ icon: string; label: string } | null>(null);
+  useEffect(() => {
+    if (itemPickupTs && heldItem && ITEM_INFO[heldItem]) { setPickupToast(ITEM_INFO[heldItem]); const t = setTimeout(() => setPickupToast(null), 1800); return () => clearTimeout(t); }
+  }, [itemPickupTs]);
+
+  useEffect(() => { if (raceDenied) { const t = setTimeout(() => clearRaceResult(), 3200); return () => clearTimeout(t); } }, [raceDenied, clearRaceResult]);
+
+  const fmtMs = (ms: number) => { const total = ms / 1000; const m = Math.floor(total / 60); const s = total % 60; return `${m}:${s.toFixed(2).padStart(5, '0')}`; };
+  const fuel = drivingFuel ?? 100;
+  const drivingCar = drivingKey ? (() => { const [year, make, model, bodyStyle] = drivingKey.split('|'); return { year, make, model, bodyStyle }; })() : null;
+  const drivingSpec = drivingCar ? getCarSpec(drivingCar) : null;
+  const fuelColor = fuel > 50 ? '#22c55e' : fuel > 20 ? '#eab308' : '#ef4444';
+  const stranded = drivingCarId && fuel <= 2;
+
+  return (
+    <>
+      {/* Fuel gauge while driving */}
+      {drivingCarId && drivingFuel !== null && !activeRace && (
+        <div className="fixed left-1/2 -translate-x-1/2 top-[76px] md:top-auto md:bottom-8 z-[930] pointer-events-none">
+          <div className="bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl w-64">
+            {drivingCar && (
+              <div className="flex items-end justify-between gap-2 mb-1.5">
+                <div className="min-w-0">
+                  <div className="text-[11px] font-bold text-white truncate">{drivingCar.year} {drivingCar.make} {drivingCar.model}</div>
+                  <div className="text-[9px] text-gray-400 truncate">{specLine(drivingSpec!)}</div>
+                </div>
+                <div className="text-right shrink-0 leading-none">
+                  <span className="text-xl font-black font-mono tabular-nums text-white">{drivingSpeed}</span>
+                  <span className="text-[9px] text-gray-400 font-bold ml-0.5">MPH</span>
+                </div>
+              </div>
+            )}
+            <div className="flex items-center gap-3">
+              <Fuel size={18} style={{ color: fuelColor }} />
+              <div className="flex-grow">
+                <div className="h-2.5 bg-white/10 rounded-full overflow-hidden"><div className="h-full rounded-full transition-all" style={{ width: `${Math.max(0, Math.min(100, fuel))}%`, background: fuelColor }} /></div>
+              </div>
+              <span className="text-xs font-mono font-bold tabular-nums" style={{ color: fuelColor }}>{Math.round(fuel)}%</span>
+            </div>
+          </div>
+          {fuel <= 20 && fuel > 2 && <div className="text-center text-[10px] text-amber-400 font-bold uppercase tracking-widest mt-1">Low fuel — find a gas station</div>}
+          {stranded && (
+            <div className="mt-1 flex flex-col items-center gap-1 pointer-events-auto">
+              <div className="text-[10px] text-red-400 font-black uppercase tracking-widest">⛽ Out of gas</div>
+              <button onClick={() => refuel(drivingCarId!, true)} className="bg-red-500 hover:bg-red-400 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow">Roadside Fuel Delivery (~$1,200)</button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Speedway entry panel */}
+      {raceTrackPrompt && !activeRace && (
+        <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[960] pointer-events-auto w-[300px]">
+          <div className="bg-[#0c0d12]/95 backdrop-blur-2xl border border-indigo-500/40 rounded-2xl p-4 shadow-2xl">
+            <div className="flex items-center gap-2 mb-1 text-indigo-300"><Flag size={16} /><span className="font-black uppercase tracking-widest text-sm">Speedway</span></div>
+            <div className="text-[11px] text-white/50 mb-3">Pay the purse, run the laps, finish to win. Tank must have gas to race.</div>
+            <div className="flex flex-col gap-2">
+              {(Object.keys(RACE_TIERS) as RaceDifficulty[]).map(d => {
+                const t = RACE_TIERS[d];
+                const afford = money >= t.entryFee;
+                return (
+                  <button key={d} disabled={!afford} onClick={() => enterRace(d)}
+                    className={`flex items-center justify-between px-3 py-2 rounded-xl border transition-all ${afford ? 'bg-white/5 hover:bg-indigo-500/20 border-white/10 hover:border-indigo-400/50' : 'bg-white/[0.02] border-white/5 opacity-50 cursor-not-allowed'}`}>
+                    <div className="text-left">
+                      <div className="text-sm font-black text-white">{t.label}</div>
+                      <div className="text-[10px] text-white/45">{t.laps} laps · win ${t.reward.toLocaleString()}</div>
+                    </div>
+                    <div className="text-right"><div className="text-[9px] uppercase tracking-widest text-white/40">Entry</div><div className="text-sm font-bold text-amber-400">${t.entryFee.toLocaleString()}</div></div>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="text-center text-[10px] text-white/30 mt-2">Drive away to cancel</div>
+          </div>
+        </div>
+      )}
+
+      {/* Big countdown */}
+      {activeRace && raceHud?.state === 'countdown' && (
+        <div className="fixed inset-0 z-[940] flex items-center justify-center pointer-events-none">
+          <div className="text-[140px] font-black text-white drop-shadow-[0_0_30px_rgba(99,102,241,0.9)] animate-pulse">{raceHud.place > 0 ? raceHud.place : 'GO!'}</div>
+        </div>
+      )}
+
+      {/* Live race readout */}
+      {activeRace && raceHud?.state === 'go' && (
+        <div className="fixed top-16 left-1/2 -translate-x-1/2 z-[935] pointer-events-none">
+          <div className="bg-black/80 backdrop-blur-md border border-indigo-500/40 rounded-xl px-5 py-2 shadow-xl flex items-center gap-5">
+            <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Pos</div><div className={`text-xl font-black tabular-nums ${raceHud.place <= 1 ? 'text-emerald-400' : raceHud.place >= raceHud.total ? 'text-red-400' : 'text-amber-300'}`}>{raceHud.place}<span className="text-xs text-white/40">/{raceHud.total}</span></div></div>
+            <div className="w-px h-8 bg-white/15" />
+            <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Lap</div><div className="text-xl font-black text-white tabular-nums">{raceHud.lap}/{raceHud.totalLaps}</div></div>
+            <div className="w-px h-8 bg-white/15" />
+            <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Time</div><div className="text-xl font-mono font-bold text-indigo-300 tabular-nums">{fmtMs(raceHud.ms)}</div></div>
+          </div>
+        </div>
+      )}
+
+      {/* Result modal */}
+      {raceResult && (
+        <div className="fixed inset-0 z-[970] flex items-center justify-center bg-black/60 backdrop-blur-sm pointer-events-auto p-4">
+          <div className="bg-[#0c0d12] border border-indigo-500/40 rounded-2xl p-6 shadow-2xl w-[300px] text-center">
+            <div className="text-5xl mb-1">{raceResult.place === 1 ? '🥇' : raceResult.place === 2 ? '🥈' : raceResult.place === 3 ? '🥉' : '🏁'}</div>
+            <div className="text-lg font-black uppercase tracking-widest text-white">{raceResult.place <= 1 ? 'You Won!' : `${raceResult.place === 2 ? '2nd' : raceResult.place === 3 ? '3rd' : raceResult.place + 'th'} Place`}</div>
+            <div className="text-[11px] text-white/45 mb-3">{RACE_TIERS[(raceResult.difficulty as RaceDifficulty)]?.label} · Pos {raceResult.place}/4 · {fmtMs(raceResult.totalMs)}</div>
+            {raceResult.reward > 0
+              ? <div className="text-3xl font-black text-emerald-400 mb-1">+${raceResult.reward.toLocaleString()}</div>
+              : <div className="text-xl font-black text-white/60 mb-1">No payout</div>}
+            <button onClick={() => clearRaceResult()} className="mt-3 w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-2 rounded-xl">Continue</button>
+          </div>
+        </div>
+      )}
+
+      {/* Held item slot (during a race) */}
+      {activeRace && heldItem && (
+        <div className="fixed top-16 right-4 z-[945] pointer-events-auto flex flex-col items-center gap-1.5">
+          <div className="bg-black/70 backdrop-blur-md border-2 border-cyan-400/50 rounded-2xl w-20 h-20 flex items-center justify-center text-4xl shadow-[0_0_20px_rgba(34,211,238,0.45)] relative">
+            <span>{ITEM_INFO[heldItem]?.icon || '❓'}</span>
+            {heldCount > 1 && <span className="absolute -bottom-1.5 -right-1.5 bg-cyan-500 text-white text-xs font-black rounded-full w-6 h-6 flex items-center justify-center border-2 border-black/60">×{heldCount}</span>}
+          </div>
+          <button onClick={() => { (window as any).mobileUseItem = true; }} className="bg-cyan-500 hover:bg-cyan-400 active:scale-95 text-white text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg shadow transition-all">Use [Space]</button>
+        </div>
+      )}
+
+      {/* Item pickup toast */}
+      {pickupToast && (
+        <div className="fixed top-32 left-1/2 -translate-x-1/2 z-[975] pointer-events-none">
+          <div className="bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-base font-black px-5 py-2.5 rounded-2xl shadow-[0_8px_30px_rgba(34,211,238,0.6)] border border-cyan-300/50 animate-bounce flex items-center gap-2">
+            <span className="text-2xl">{pickupToast.icon}</span> Got: {pickupToast.label}!
+          </div>
+        </div>
+      )}
+
+      {/* Denied toast */}
+      {raceDenied && (
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[980] pointer-events-none">
+          <div className="bg-red-600/95 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-2xl">{raceDenied}</div>
+        </div>
+      )}
+    </>
+  );
+};
+
+function App() {
+  // Subscribe ONLY to the reactive state this view needs. The action functions
+  // are stable, so we read them once via getState() — this stops the entire UI
+  // from re-rendering on every per-second clock tick (a major source of lag).
+  const gameState = useGameStore(s => s.gameState);
+  const playerId = useGameStore(s => s.playerId);
+  const activeInteraction = useGameStore(s => s.activeInteraction);
+  const drivingCarIdForPrompt = useGameStore(s => s.drivingCarId); // hide the walk-up prompt while driving
+  const { connect, buyCar, buyPsi, buyPart, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal, rentRaceCar } = useGameStore.getState();
+  // The live clock (time_update every second), like the HUD badge and the sky:
+  // gameState.timeOfDay only changes on full updates, so it can be hours stale.
+  // Selecting the boolean re-renders only when the auction opens or closes.
+  const isAuctionOpen = useGameStore(s => s.timeOfDay >= 8.0 && s.timeOfDay < 17.0);
+
+  const [nameInput, setNameInput] = useState('');
+  const [lotScaleInput, setLotScaleInput] = useState<'Small' | 'Medium' | 'Large'>('Small');
+  const [careerFocusInput, setCareerFocusInput] = useState<'dealership' | 'standalone'>('dealership');
+  const [shopSpecialtyInput, setShopSpecialtyInput] = useState<'mechanic' | 'body' | 'dual'>('mechanic');
+  const [activeTab, setActiveTab] = useState<'lot' | 'auction' | 'accounting' | 'crm' | 'dmv' | 'parts' | 'staff' | 'standalone-shops' | 'standalone-body' | 'shares' | 'library'>('lot');
+  const [expandedCarId, setExpandedCarId] = useState<string | null>(null);
+  const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
+  const [selectedCarForAgent, setSelectedCarForAgent] = useState<string | null>(null);
+  const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const lang = useLang();
+  const [mobileLotSubTab, setMobileLotSubTab] = useState<'finance' | 'inventory'>('finance');
+  const [mobilePartsSubTab, setMobilePartsSubTab] = useState<'mechanic' | 'body'>('mechanic');
+
+  // Guide state
+  const [autoShowGuide, setAutoShowGuide] = useState(true);
+  const [showGuide, setShowGuide] = useState(false);
+  const [guideStep, setGuideStep] = useState(0);
+  const [hasShownInitialGuide, setHasShownInitialGuide] = useState(false);
+
+  // UI Toggle State
+  const [showUI, setShowUI] = useState(true);
+  useEffect(() => { loadScene(); }, []); // prefetch the 3D world while on the setup screen
+  // The on-screen D-pad unmounts when the menu opens; release any held direction
+  // so its missing touch-end can't leave the car driving on its own.
+  useEffect(() => {
+    if (showUI) ['w', 'a', 's', 'd'].forEach(k => (window as any).setMobileKey?.(k, false));
+  }, [showUI]);
+  // The bank, insurance and repair popups live inside the UI layer, which is
+  // invisible while exploring; bring the UI back when one opens from the world.
+  const isBankModalOpen = useGameStore(s => s.isBankModalOpen);
+  const isInsuranceModalOpen = useGameStore(s => s.isInsuranceModalOpen);
+  const activeInspectionCarId = useGameStore(s => s.activeInspectionCarId);
+  useEffect(() => {
+    if (isBankModalOpen || isInsuranceModalOpen || activeInspectionCarId) setShowUI(true);
+  }, [isBankModalOpen, isInsuranceModalOpen, activeInspectionCarId]);
+
+  // Mobile detection
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobileCheck = window.innerWidth <= 1024 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+      setIsMobile(mobileCheck);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // On phones the open menu covers the 3D view; on Low the world is then drawn less often.
+  useEffect(() => {
+    useGameStore.getState().setMenuCoversWorld(isMobile && showUI);
+  }, [isMobile, showUI]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Tab') {
+        // Let Tab move between fields while typing (chat, gate code, offers)
+        const el = document.activeElement as HTMLElement | null;
+        const tag = (el?.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || tag === 'select' || el?.isContentEditable) return;
+        e.preventDefault();
+        setShowUI(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const handleOpenAuction = () => {
+      setActiveTab('auction');
+      setShowUI(true);
+    };
+    const handleOpenLibrary = () => {
+      setActiveTab('library');
+      setShowUI(true);
+    };
+    window.addEventListener('open_auction', handleOpenAuction);
+    window.addEventListener('open_library', handleOpenLibrary);
+    return () => {
+      window.removeEventListener('open_auction', handleOpenAuction);
+      window.removeEventListener('open_library', handleOpenLibrary);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (playerId && gameState && autoShowGuide && !hasShownInitialGuide) {
+      setShowGuide(true);
+      setHasShownInitialGuide(true);
+    }
+  }, [playerId, gameState, autoShowGuide, hasShownInitialGuide]);
+
+  // Standalone operators start on their shop's tool. Runs when they join, not on
+  // every server update (that kept snapping the menu back from any other tab).
+  const activePlayer = gameState?.players[playerId || ''] as any;
+  const isStandaloneOp = !!activePlayer?.isStandaloneOperator;
+  const opSpecialty = activePlayer?.shopSpecialty;
+  useEffect(() => {
+    if (isStandaloneOp) {
+      if (opSpecialty === 'body') {
+        setActiveTab('standalone-body');
+      } else {
+        setActiveTab('standalone-shops');
+      }
+    }
+  }, [playerId, isStandaloneOp, opSpecialty]);
+
+  // Initial Connect screen
+  if (!playerId || !gameState) {
+    return (
+      <div className="flex flex-col gap-4 h-[100dvh] items-center justify-center bg-background p-4 overflow-y-auto">
+        <div className="fixed top-4 right-4 z-[9999]"><LangToggle /></div>
+
+        {/* CARD 1: Brand Identity & Name Input */}
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="panel flex flex-col items-center gap-4 p-6 max-w-sm w-full border-market/30 bg-black/90 backdrop-blur-xl shadow-2xl rounded-2xl shrink-0"
+        >
+          <div className="text-center">
+            <h1 className="text-2xl font-black tracking-tighter text-white uppercase flex items-center justify-center gap-2">
+              <Sparkles className="text-market w-5 h-5 animate-pulse" />
+              {withBrand(t(lang, 'setup.title'))}
+            </h1>
+            <p className="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-1">{t(lang, 'setup.subtitle')}</p>
+          </div>
+
+          <div className="w-full flex flex-col gap-1.5 text-left">
+            <label className="text-[9px] font-black text-gray-500 uppercase tracking-widest">{t(lang, 'setup.nameLabel')}</label>
+            <input
+              type="text"
+              className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-market transition-all"
+              placeholder={t(lang, 'setup.namePlaceholder')}
+              value={nameInput}
+              onChange={(e) => setNameInput(e.target.value)}
+            />
+          </div>
+        </motion.div>
+
+        {/* CARD 2: Career Path & Business Specialty Settings */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="panel flex flex-col gap-5 p-6 max-w-sm w-full border-market/30 bg-black/90 backdrop-blur-xl shadow-2xl rounded-2xl shrink-0"
+        >
+          <div className="w-full flex flex-col gap-2">
+            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">{t(lang, 'setup.careerPath')}</span>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => setCareerFocusInput('dealership')}
+                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'dealership' ? 'bg-market text-black border-market shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
+              >
+                {t(lang, 'setup.dealership')}
+              </button>
+              <button
+                type="button"
+                onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('mechanic'); }}
+                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'mechanic' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
+              >
+                {t(lang, 'setup.mechanicShop')}
+              </button>
+              <button
+                type="button"
+                onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('body'); }}
+                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'body' ? 'bg-blue-500 text-black border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
+              >
+                {t(lang, 'setup.bodyShop')}
+              </button>
+              <button
+                type="button"
+                onClick={() => { setCareerFocusInput('standalone'); setShopSpecialtyInput('dual'); }}
+                className={`py-2.5 text-[9px] font-black uppercase tracking-wider rounded-xl border transition-all ${careerFocusInput === 'standalone' && shopSpecialtyInput === 'dual' ? 'bg-purple-500 text-black border-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.3)]' : 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20'}`}
+              >
+                {t(lang, 'setup.dual')}
+              </button>
+            </div>
+          </div>
+
+          {careerFocusInput === 'dealership' ? (
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full flex flex-col gap-2">
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">{t(lang, 'setup.dealerTier')}</span>
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setLotScaleInput('Small')}
+                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Small' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
+                >
+                  {t(lang, 'setup.small')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLotScaleInput('Medium')}
+                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Medium' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
+                >
+                  {t(lang, 'setup.med')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLotScaleInput('Large')}
+                  className={`py-2 text-[8.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${lotScaleInput === 'Large' ? 'bg-market/25 text-market border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/20'}`}
+                >
+                  {t(lang, 'setup.large')}
+                </button>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-left flex flex-col gap-2 font-mono text-[10px]">
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest block border-b border-white/5 pb-1">{t(lang, 'setup.shopLogistics')}</span>
+              {shopSpecialtyInput === 'mechanic' && (
+                <>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.specialtyLbl')}</span> <span className="text-emerald-400 font-bold">{t(lang, 'setup.mechanicSpecialty')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.startingCapital')}</span> <span className="text-white font-bold">{t(lang, 'setup.cash45')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.intakeCapacity')}</span> <span className="text-white font-bold">{t(lang, 'setup.capMech')}</span></div>
+                </>
+              )}
+              {shopSpecialtyInput === 'body' && (
+                <>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.specialtyLbl')}</span> <span className="text-blue-400 font-bold">{t(lang, 'setup.bodySpecialty')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.startingCapital')}</span> <span className="text-white font-bold">{t(lang, 'setup.cash35')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.intakeCapacity')}</span> <span className="text-white font-bold">{t(lang, 'setup.capBody')}</span></div>
+                </>
+              )}
+              {shopSpecialtyInput === 'dual' && (
+                <>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.specialtyLbl')}</span> <span className="text-purple-400 font-bold">{t(lang, 'setup.dualCenter')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.startingCapital')}</span> <span className="text-white font-bold">{t(lang, 'setup.cash95')}</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">{t(lang, 'setup.intakeCapacity')}</span> <span className="text-white font-bold">{t(lang, 'setup.capDual')}</span></div>
+                </>
+              )}
+            </motion.div>
+          )}
+
+          <div className="w-full flex flex-col gap-2 mt-1">
+            <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest text-left">{t(lang, 'setup.firstTime')}</span>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => setAutoShowGuide(true)}
+                className={`py-2 text-[9.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${autoShowGuide ? 'bg-success/20 text-success border-success' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
+              >
+                {t(lang, 'setup.showGuide')}
+              </button>
+              <button
+                type="button"
+                onClick={() => setAutoShowGuide(false)}
+                className={`py-2 text-[9.5px] font-black uppercase tracking-wider rounded-lg border transition-all ${!autoShowGuide ? 'bg-white/10 text-white border-white/30' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}
+              >
+                {t(lang, 'setup.optOut')}
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className="w-full bg-gradient-to-r from-blue-500 to-market text-black font-black uppercase tracking-widest py-3 rounded-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-2 mt-2 shadow-lg cursor-pointer"
+            onClick={() => connect(nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScaleInput, careerFocusInput, shopSpecialtyInput)}
+          >
+            <LogIn size={18} /> {t(lang, 'setup.establish')}
+          </button>
+        </motion.div>
+      </div>
+    );
+  }
+
+  const me = gameState.players[playerId];
+  if (!me) return null;
+
+
+  const inventoryValue = me.inventory.reduce((sum, car) => sum + car.buyPrice, 0);
+  const receivableContracts = me.contracts.reduce((sum, c) => sum + (c.dailyPayment * c.daysRemaining), 0);
+  const totalAssets = me.money + inventoryValue + receivableContracts;
+  const netWorth = totalAssets - me.floorPlanDebt;
+  const isProfitable = me.balanceSheet.totalIncome >= me.balanceSheet.totalExpenses;
+
+  return (
+    <>
+      <ChunkBoundary className="absolute inset-0 z-0 grid place-items-center">
+        <Suspense fallback={<div className="absolute inset-0 z-0 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(lang, 'loading.world')}</div>}>
+          <VanillaThreeScene />
+        </Suspense>
+      </ChunkBoundary>
+      <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />
+      <GateControl isMobile={isMobile} />
+      <GameChat isMobile={isMobile} />
+      <RacingHud isMobile={isMobile} />
+
+      {/* Permanent UI Toggle Hint */}
+      {!isMobile && (
+        <div className="fixed top-6 right-8 text-white/40 text-xs font-black tracking-widest uppercase z-[999] pointer-events-none">
+          Press [TAB] to {showUI ? 'Hide' : 'Show'} UI / Menu
+        </div>
+      )}
+      {!isMobile && (
+        // Above the minimap: the top edge belongs to the tab bar (and the race item slot)
+        <div className="fixed bottom-[136px] right-8 z-[999] pointer-events-auto">
+          <GraphicsToggle />
+        </div>
+      )}
+
+      <div className={`ui-container flex flex-col p-3 md:p-6 h-full pointer-events-none relative z-10 transition-opacity duration-500 ${showUI ? 'opacity-100' : 'opacity-0'}`}>
+
+        {/* Navigation Tabs (Standalone / Standoff Tabs) */}
+        {/* md:pl keeps the first tab clear of the floating "← Exit to Launchpad" button (main.tsx) */}
+        <div className={`hidden md:flex justify-start md:justify-center mb-6 shrink-0 w-full max-w-[calc(100%-100px)] md:max-w-full ml-2 md:mx-auto md:pl-[200px] overflow-hidden ${showUI ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+          <div className="flex gap-2 bg-black/50 p-2 rounded-2xl border border-white/10 backdrop-blur-md overflow-x-auto max-w-full scrollbar-none whitespace-nowrap">
+            {!me.isStandaloneOperator && (
+              <button
+                onClick={() => setActiveTab('lot')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 ${activeTab === 'lot' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              >
+                My Dealership
+              </button>
+            )}
+            {(me.isStandaloneOperator ? (me.shopSpecialty === 'mechanic' || me.shopSpecialty === 'dual') : true) && (
+              <button
+                onClick={() => setActiveTab('standalone-shops')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-shops' ? 'bg-emerald-500 text-black border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-emerald-500/5 border border-emerald-500/10'}`}
+              >
+                <Wrench size={14} className={activeTab === 'standalone-shops' ? 'text-black' : 'text-emerald-400'} />
+                RepairFlow Platform
+              </button>
+            )}
+            {(me.isStandaloneOperator ? (me.shopSpecialty === 'body' || me.shopSpecialty === 'dual') : true) && (
+              <button
+                onClick={() => setActiveTab('standalone-body')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'standalone-body' ? 'bg-blue-500 text-black border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-blue-500/5 border border-blue-500/10'}`}
+              >
+                <Wrench size={14} className={activeTab === 'standalone-body' ? 'text-black' : 'text-blue-400'} />
+                AutoFlow Bodyshop
+              </button>
+            )}
+            <button
+              onClick={() => setActiveTab('auction')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'auction' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+            >
+              <Activity size={14} className={activeTab === 'auction' ? 'text-black' : 'text-market'} />
+              Global Auction
+            </button>
+            <button
+              onClick={() => setActiveTab('shares')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'shares' ? 'bg-emerald-500 text-black shadow-[0_0_15px_rgba(16,185,129,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-emerald-500/5 border border-emerald-500/10'}`}
+            >
+              <LineChart size={14} className={activeTab === 'shares' ? 'text-black' : 'text-emerald-400'} />
+              Shares Market
+            </button>
+            <button
+              onClick={() => setActiveTab('library')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'library' ? 'bg-amber-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5 bg-amber-500/5 border border-amber-500/10'}`}
+            >
+              <BookOpen size={14} className={activeTab === 'library' ? 'text-black' : 'text-amber-400'} />
+              Library
+            </button>
+            <button
+              onClick={() => openBankModal()}
+              className="px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 text-gray-400 hover:text-white hover:bg-white/5 bg-sky-500/5 border border-sky-500/10"
+            >
+              <Wallet size={14} className="text-sky-400" />
+              Bank
+            </button>
+            <button
+              onClick={() => openInsuranceModal()}
+              className="px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 text-gray-400 hover:text-white hover:bg-white/5 bg-teal-500/5 border border-teal-500/10"
+            >
+              <ShieldCheck size={14} className="text-teal-400" />
+              Insurance
+            </button>
+            <button
+              onClick={() => setActiveTab('accounting')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'accounting' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+            >
+              <TrendingUp size={14} className={activeTab === 'accounting' ? 'text-black' : 'text-market'} />
+              Accounting
+            </button>
+            {!me.isStandaloneOperator && (
+              <button
+                onClick={() => setActiveTab('crm')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'crm' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              >
+                <Users size={14} className={activeTab === 'crm' ? 'text-black' : 'text-market'} />
+                Customers
+              </button>
+            )}
+            {!me.isStandaloneOperator && (
+              <button
+                onClick={() => setActiveTab('dmv')}
+                className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'dmv' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+              >
+                <FileText size={14} className={activeTab === 'dmv' ? 'text-black' : 'text-market'} />
+                DMV Services
+              </button>
+            )}
+            <button
+              onClick={() => setActiveTab('parts')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'parts' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+            >
+              <Wrench size={14} className={activeTab === 'parts' ? 'text-black' : 'text-market'} />
+              Parts Store
+            </button>
+            <button
+              onClick={() => setActiveTab('staff')}
+              className={`px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 ${activeTab === 'staff' ? 'bg-market text-black shadow-[0_0_15px_rgba(59,130,246,0.5)] scale-105' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+            >
+              <Users size={14} className={activeTab === 'staff' ? 'text-black' : 'text-market'} />
+              Staff
+            </button>
+            {!me.isStandaloneOperator && (
+              <button
+                onClick={() => { setShowGuide(true); setGuideStep(0); }}
+                className="px-3 py-2 md:px-6 md:py-3 uppercase font-black tracking-widest text-[10px] md:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 text-warning hover:text-white hover:bg-white/5 bg-warning/10 border border-warning/20 shrink-0"
+              >
+                <HelpCircle size={14} className="text-warning" />
+                Dealer Guide
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="flex justify-between flex-grow overflow-hidden">
+          {/* LEFT HUD: Financial & Inventory Management */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'lot' && (
+              <motion.div
+                key="lot-tab"
+                initial={{ x: -40, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -20, opacity: 0 }}
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="flex flex-col gap-4 max-w-full md:max-w-md w-full h-full overflow-y-auto md:overflow-y-visible pb-24 md:pb-0 pointer-events-auto scrollbar-none"
+              >
+                {isMobile && (
+                  <div className="flex gap-2 p-1 bg-black/50 border border-white/10 rounded-xl shrink-0 pointer-events-auto w-full">
+                    <button
+                      onClick={() => setMobileLotSubTab('finance')}
+                      className={`flex-1 py-2 text-[10px] font-black uppercase tracking-wider rounded-lg transition-all ${mobileLotSubTab === 'finance' ? 'bg-market text-black shadow-md' : 'text-gray-400'}`}
+                    >
+                      Finances & Marketing
+                    </button>
+                    <button
+                      onClick={() => setMobileLotSubTab('inventory')}
+                      className={`flex-1 py-2 text-[10px] font-black uppercase tracking-wider rounded-lg transition-all ${mobileLotSubTab === 'inventory' ? 'bg-market text-black shadow-md' : 'text-gray-400'}`}
+                    >
+                      Lot & Inventory
+                    </button>
+                  </div>
+                )}
+
+                {(!isMobile || mobileLotSubTab === 'finance') && (
+                  <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel break-words w-full shrink-0">
+                    <div className="flex flex-wrap justify-between items-center gap-2 mb-4">
+                      <h2 className="text-lg md:text-xl font-black uppercase tracking-widest text-white/90">{me.name}'s {me.lotScale} Lot</h2>
+                      <div className="flex items-center flex-wrap gap-2">
+                        <ClockDisplay />
+                        {me.lotScale === 'Small' && me.money >= 50000 && (
+                          <button onClick={() => upgradeLot()} className="bg-warning/20 text-warning hover:bg-warning hover:text-black border border-warning/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.3)]">
+                            + Medium ($50K)
+                          </button>
+                        )}
+                        {me.lotScale === 'Medium' && me.money >= 150000 && (
+                          <button onClick={() => upgradeLot()} className="bg-warning/20 text-warning hover:bg-warning hover:text-black border border-warning/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(234,179,8,0.3)]">
+                            + Large ($150K)
+                          </button>
+                        )}
+                        <button
+                          onClick={() => endDay()}
+                          className="bg-market/20 hover:bg-market text-market hover:text-black border border-market/50 px-3 py-1 rounded text-xs font-bold transition-colors uppercase tracking-widest shadow-[0_0_10px_rgba(59,130,246,0.3)]"
+                        >
+                          End Day
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest">Liquid Cash</span>
+                        <div className="flex items-center gap-2 text-success">
+                          <Wallet size={16} />
+                          <span className="text-2xl font-bold">${me.money.toLocaleString()}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest">Floor Plan Debt</span>
+                        <div className="flex items-center gap-2 text-warning">
+                          <DollarSign size={16} />
+                          <span className="text-xl font-bold">-${me.floorPlanDebt.toLocaleString()}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest">Daily Revenue</span>
+                        <div className="flex items-center gap-2 text-success">
+                          <TrendingUp size={16} />
+                          <span className="text-lg font-bold">+${me.balanceSheet.lastTickIncome.toLocaleString()}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-400 uppercase tracking-widest">Daily Exp/Int</span>
+                        <div className="flex items-center gap-2 text-warning">
+                          <TrendingDown size={16} />
+                          <span className="text-lg font-bold">-${me.balanceSheet.lastTickExpense.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2">
+                      <span className="text-xs text-gray-400 uppercase tracking-widest font-bold">Marketing & Lead Gen Budget</span>
+                      <div className="flex gap-2">
+                        <button onClick={() => setMarketingTier('Craigslist')} className={`flex-1 py-1.5 text-xs font-bold uppercase rounded border transition-all ${me.marketingTier === 'Craigslist' ? 'bg-market text-black border-market' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}>
+                          Craigslist ($0)
+                        </button>
+                        <button onClick={() => setMarketingTier('MetaAds')} className={`flex-1 py-1.5 text-xs font-bold uppercase rounded border transition-all ${me.marketingTier === 'MetaAds' ? 'bg-blue-500 text-white border-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}>
+                          Meta Ads ($100)
+                        </button>
+                        <button onClick={() => setMarketingTier('Autotrader')} className={`flex-1 py-1.5 text-xs font-bold uppercase rounded border transition-all ${me.marketingTier === 'Autotrader' ? 'bg-orange-500 text-white border-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.3)]' : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30'}`}>
+                          Autotrader ($300)
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {(!isMobile || mobileLotSubTab === 'inventory') && (
+                  <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="panel w-full flex-grow overflow-y-visible md:overflow-y-auto shrink-0">
+                    <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/10">
+                      <h3 className="text-sm font-bold uppercase tracking-wider text-white">Active Walk-Ins</h3>
+                    </div>
+                    
+                    <div className="flex flex-col gap-3 mb-6">
+                        {(gameState.activeWalkIns[playerId] || []).map((agent: any) => (
+                            <div key={agent.id} className="bg-blue-500/10 border border-blue-500/30 p-3 rounded flex justify-between items-center group hover:bg-blue-500/20 transition-colors">
+                                <div className="flex flex-col">
+                                    <span className="font-bold text-white text-sm flex items-center gap-2">
+                                        <Users size={14} className="text-blue-400" />
+                                        {agent.name}
+                                    </span>
+                                    <span className="text-[10px] text-gray-400 uppercase tracking-widest">{agent.state === 'browsing' ? 'Browsing Lot...' : 'Negotiating Deal'}</span>
+                                </div>
+                                <button 
+                                    onClick={() => setSelectedAgentId(agent.id)}
+                                    className="bg-blue-500 text-black px-3 py-1.5 rounded text-xs font-bold uppercase hover:bg-blue-400 transition-colors shadow-[0_0_10px_rgba(59,130,246,0.3)]"
+                                >
+                                    Interact
+                                </button>
+                            </div>
+                        ))}
+                        {(!gameState.activeWalkIns[playerId] || gameState.activeWalkIns[playerId].length === 0) && (
+                            <span className="text-sm italic text-gray-500">No active walk-ins. Wait for customers or increase marketing.</span>
+                        )}
+                    </div>
+
+                    <div className="flex items-center justify-between mb-4 pb-2 border-b border-white/10">
+                      <h3 className="text-sm font-bold uppercase tracking-wider text-white">Your Inventory</h3>
+                      <span className="text-xs text-gray-400">{me.inventory.length} / {me.lotScale === 'Small' ? 10 : me.lotScale === 'Medium' ? 25 : 50} Slots</span>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                      {me.inventory.length === 0 && <span className="text-sm italic text-gray-500">Your lot is empty. Head to the auction.</span>}
+                      {me.inventory.map(car => (
+                        <div key={car.id} className="bg-white/5 border border-white/10 rounded p-3 text-sm">
+                          <div className="font-bold flex items-center justify-between">
+                            <div className="flex flex-col">
+                              <span>{car.year} {car.make} {car.model}</span>
+                              <span className="text-[10px] text-gray-400 font-normal mt-0.5">{specLine(getCarSpec(car))}</span>
+                              <span className="text-[9px] text-gray-500 font-mono tracking-widest uppercase mt-0.5">{car.vin}</span>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                              {car.isRegistered && <span className="text-[9px] px-1.5 py-0.5 rounded uppercase font-black bg-blue-500/20 text-blue-400 border border-blue-500/50">Registered</span>}
+                              {car.titleStatus !== 'Clean' && (
+                                <span className={`text-[10px] px-1.5 py-0.5 rounded uppercase font-black ${car.titleStatus === 'Salvage' ? 'bg-red-500/20 text-red-400 border border-red-500/50' : 'bg-orange-500/20 text-orange-400 border border-orange-500/50'}`}>
+                                  {car.titleStatus}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          <div className="text-xs text-gray-400 mt-1 mb-1 flex justify-between">
+                            <span>Cost: ${car.buyPrice.toLocaleString()}</span>
+                            <span>{car.daysOnLot} Days on Lot</span>
+                          </div>
+                          <ConditionDisplay car={car} expandedCarId={expandedCarId} setExpandedCarId={setExpandedCarId} />
+                          {!car.preInspected ? (
+                            <div className="text-center bg-purple-500/20 border border-purple-500/50 rounded py-1.5 mt-2">
+                              <span className="text-[10px] uppercase text-purple-300 font-bold tracking-widest w-full inline-block">Needs Safety Pre-Inspection (DMV)</span>
+                            </div>
+                          ) : !car.safetyPassed ? (
+                            <div className="text-center bg-orange-500/20 border border-orange-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(249,115,22,0.2)]">
+                              <span className="text-[10px] uppercase text-orange-400 font-bold tracking-widest w-full inline-block">Needs NC Safety + Emissions (DMV)</span>
+                            </div>
+                          ) : car.titleStatus === 'Salvage' ? (
+                            <div className="text-center bg-red-500/20 border border-red-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(239,68,68,0.2)]">
+                              <span className="text-[10px] uppercase text-red-400 font-bold tracking-widest w-full inline-block">Salvage — Needs Rebuilt Title (DMV)</span>
+                            </div>
+                          ) : !car.isRegistered ? (
+                            <div className="text-center bg-blue-500/20 border border-blue-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                              <span className="text-[10px] uppercase text-blue-300 font-bold tracking-widest w-full inline-block">Requires Title &amp; Registration (DMV)</span>
+                            </div>
+                          ) : car.isDirty ? (
+                            <div className="text-center bg-blue-500/20 border border-blue-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(59,130,246,0.2)]">
+                              <span className="text-[10px] uppercase text-blue-400 font-bold tracking-widest w-full inline-block">Requires Wash (Drive to Bay)</span>
+                            </div>
+                          ) : !car.isProcessed ? (
+                            <div className="text-center bg-yellow-500/20 border border-yellow-500/50 rounded py-1.5 mt-2 shadow-[0_0_10px_rgba(234,179,8,0.2)]">
+                              <span className="text-[10px] uppercase text-yellow-400 font-bold tracking-widest animate-pulse w-full inline-block">Park in Show Lot to Sell</span>
+                            </div>
+                          ) : (
+                            <div className="text-center bg-white/5 border border-white/10 rounded py-1.5 mt-2">
+                              <span className="text-[10px] uppercase text-gray-500 font-bold tracking-widest animate-pulse w-full inline-block">Waiting for Walk-Ins...</span>
+                            </div>
+                          )}
+                          <div className="grid grid-cols-2 gap-2 mt-2">
+                            <button onClick={() => useGameStore.getState().openInspectionModal(car.id, 'body')} disabled={car.bodyCondition >= 100} className={`${car.bodyCondition < 50 ? 'bg-blue-500/50 border border-blue-400 text-white animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]' : 'bg-blue-500/10 text-blue-400/50'} hover:bg-blue-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
+                              🔧 Body: {Math.floor(car.bodyCondition)}%
+                            </button>
+                            <button onClick={() => useGameStore.getState().openInspectionModal(car.id, 'mechanic')} disabled={car.mechanicCondition >= 100} className={`${car.mechanicCondition < 50 ? 'bg-purple-500/50 border border-purple-400 text-white animate-pulse shadow-[0_0_10px_rgba(168,85,247,0.5)]' : 'bg-purple-500/10 text-purple-400/50'} hover:bg-purple-500 hover:text-black transition-all rounded py-1 font-bold text-[10px] uppercase tracking-wider disabled:opacity-20 disabled:cursor-not-allowed`}>
+                              🔧 Mech: {Math.floor(car.mechanicCondition)}%
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* RIGHT HUD: Auction */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'auction' && (
+              <motion.div
+                key="auction-tab"
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 20, opacity: 0 }}
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel border-market/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-lg mx-auto h-full flex flex-col pointer-events-auto"
+              >
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10 flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <Activity className="text-market animate-pulse" size={28} />
+                    <div className="flex flex-col">
+                      <h3 className="text-xl font-bold uppercase tracking-wider text-market">Standoff Auction</h3>
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <Wallet size={12} className="text-success" />
+                        <span className="text-xs font-bold text-success">${me.money.toLocaleString()} Liquid</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Global Network</span>
+                </div>
+
+                {!isAuctionOpen && (
+                  <div className="bg-orange-500/10 border border-orange-500/50 p-3 rounded mb-4 text-center shrink-0">
+                    <span className="text-orange-400 font-bold uppercase tracking-widest text-xs">Bidding Closed</span>
+                    <p className="text-gray-400 text-xs mt-1">The Global Exchange is exclusively open from 8:00 AM to 5:00 PM.</p>
+                  </div>
+                )}
+
+                <div className="flex flex-col gap-4 overflow-y-auto flex-grow pe-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                  <AnimatePresence>
+                    {gameState.market.map((car) => (
+                      <AuctionCarCard key={car.id} car={car} me={me} buyCar={buyCar} buyPsi={buyPsi} expandedCarId={expandedCarId} setExpandedCarId={setExpandedCarId} isAuctionOpen={isAuctionOpen} />
+                    ))}
+                  </AnimatePresence>
+                  {gameState.market.length === 0 && (
+                    <div className="text-center text-gray-500 py-8 text-sm italic">
+                      Waiting for next shipment...
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* CENTER HUD: MyCar Fractional Shares Market */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'shares' && (
+              <motion.div
+                key="shares-tab"
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 20, opacity: 0 }}
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel border-emerald-500/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-3xl mx-auto h-full flex flex-col pointer-events-auto"
+              >
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/10 flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <LineChart className="text-emerald-400" size={28} />
+                    <div className="flex flex-col">
+                      <h3 className="text-xl font-bold uppercase tracking-wider text-emerald-400">MyCar Fractional</h3>
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <Wallet size={12} className="text-success" />
+                        <span className="text-xs font-bold text-success">${me.money.toLocaleString()} Liquid</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Buy &amp; trade vehicle shares</span>
+                </div>
+                <SharesMarket />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* CENTER HUD: Dealer Library */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'library' && (
+              <motion.div
+                key="library-tab"
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 20, opacity: 0 }}
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel border-amber-500/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-2xl mx-auto h-full flex flex-col pointer-events-auto"
+              >
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/10 flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <BookOpen className="text-amber-400" size={28} />
+                    <h3 className="text-xl font-bold uppercase tracking-wider text-amber-400">Dealer Library</h3>
+                  </div>
+                  <span className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">{LIBRARY_BOOKS.length} volumes</span>
+                </div>
+                <Library />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* CENTER HUD: Accounting & Ledger */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'accounting' && (
+              <motion.div
+                key="accounting-tab"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 20, opacity: 0 }}
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel border-market/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-4xl mx-auto h-full flex flex-col pointer-events-auto"
+              >
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10 flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <TrendingUp className="text-market" size={28} />
+                    <h3 className="text-xl font-bold uppercase tracking-wider text-market">Corporate Accounting</h3>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 overflow-y-auto flex-grow pe-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent pb-24 md:pb-0">
+                  {/* Federal Reserve / Economy */}
+                  <div className="md:col-span-2 bg-gradient-to-br from-emerald-500/5 to-transparent border border-emerald-500/20 rounded-xl p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-sm font-black uppercase tracking-widest text-emerald-400 flex items-center gap-2"><Activity size={16} /> Federal Reserve &amp; Economy</h4>
+                      {(gameState.economy as any).rateHistory?.length > 1 && <div className="w-28"><Sparkline data={(gameState.economy as any).rateHistory} /></div>}
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+                      <div className="bg-black/30 rounded-lg py-2"><div className="text-[9px] uppercase tracking-widest text-gray-500 font-black">Fed Funds Rate</div><div className="text-lg font-black text-white">{(gameState.economy.federalInterestRate * 100).toFixed(2)}%</div></div>
+                      <div className="bg-black/30 rounded-lg py-2"><div className="text-[9px] uppercase tracking-widest text-gray-500 font-black">Prime Rate</div><div className="text-lg font-black text-white">{((((gameState.economy as any).primeRate ?? (gameState.economy.federalInterestRate + 0.03))) * 100).toFixed(2)}%</div></div>
+                      <div className="bg-black/30 rounded-lg py-2"><div className="text-[9px] uppercase tracking-widest text-gray-500 font-black">Inflation</div><div className={`text-lg font-black ${(((gameState.economy as any).inflation ?? 0.02)) > 0.04 ? 'text-red-400' : 'text-white'}`}>{(((gameState.economy as any).inflation ?? 0.02) * 100).toFixed(1)}%</div></div>
+                      <div className="bg-black/30 rounded-lg py-2"><div className="text-[9px] uppercase tracking-widest text-gray-500 font-black">Used-Car Demand</div><div className={`text-lg font-black ${gameState.economy.usedCarDemand >= 1.05 ? 'text-emerald-400' : gameState.economy.usedCarDemand <= 0.92 ? 'text-red-400' : 'text-white'}`}>{gameState.economy.usedCarDemand >= 1.08 ? 'Hot' : gameState.economy.usedCarDemand <= 0.92 ? 'Cool' : 'Steady'}</div></div>
+                    </div>
+                    <div className="mt-3 text-[11px] text-gray-400 leading-snug bg-black/20 rounded-lg p-2">
+                      Your floor-plan carry is <span className="text-white font-bold">{((me.floorPlanRate || 0) * 100).toFixed(2)}%/day</span> — it tracks the Fed (SOFR + spread). When the Fed hikes to fight inflation, your carrying cost and BHPH rates rise and buyer traffic cools; when it cuts, money gets cheap and demand picks up.
+                    </div>
+                  </div>
+
+                  {/* Balance Sheet */}
+                  <div className="flex flex-col gap-4">
+                    <h4 className="text-sm font-bold uppercase tracking-widest text-white/50 border-b border-white/10 pb-2">Balance Sheet</h4>
+
+                    <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                      <h5 className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Assets</h5>
+                      <div className="flex justify-between text-sm mb-1">
+                        <span>Liquid Cash</span>
+                        <span className="font-bold text-white">${me.money.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm mb-1">
+                        <span>Inventory Value ({me.inventory.length} units)</span>
+                        <span className="font-bold text-white">${inventoryValue.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm mb-2 pb-2 border-b border-white/5">
+                        <span>Accounts Receivable (F&I)</span>
+                        <span className="font-bold text-white">${receivableContracts.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm font-bold text-market">
+                        <span>Total Assets</span>
+                        <span>${totalAssets.toLocaleString()}</span>
+                      </div>
+                    </div>
+
+                    <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                      <h5 className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Liabilities</h5>
+                      <div className="flex justify-between text-sm mb-2 pb-2 border-b border-white/5">
+                        <span>Floor Plan Debt</span>
+                        <span className="font-bold text-warning">${me.floorPlanDebt.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm font-bold text-warning">
+                        <span>Total Liabilities</span>
+                        <span>${me.floorPlanDebt.toLocaleString()}</span>
+                      </div>
+                    </div>
+
+                    <div className="bg-white/10 p-4 rounded-xl border border-market/30 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+                      <div className="flex justify-between text-lg font-bold">
+                        <span className="text-white">Shareholder Equity</span>
+                        <span className={netWorth >= 0 ? "text-success" : "text-red-500"}>${netWorth.toLocaleString()}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Income Statement & Ledgers */}
+                  <div className="flex flex-col gap-4">
+                    <h4 className="text-sm font-bold uppercase tracking-widest text-white/50 border-b border-white/10 pb-2">Income Statement (YTD)</h4>
+
+                    <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="text-gray-400">Total Gross Revenue</span>
+                        <span className="font-bold text-success">+${me.balanceSheet.totalIncome.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm mb-2 pb-2 border-b border-white/5">
+                        <span className="text-gray-400">Total Expenses & Interest</span>
+                        <span className="font-bold text-red-500">-${me.balanceSheet.totalExpenses.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm font-bold">
+                        <span className="text-white">Net Income</span>
+                        <span className={isProfitable ? "text-success" : "text-red-500"}>
+                          {isProfitable ? '+' : '-'}${Math.abs(me.balanceSheet.totalIncome - me.balanceSheet.totalExpenses).toLocaleString()}
+                        </span>
+                      </div>
+                    </div>
+
+                    <h4 className="text-sm font-bold uppercase tracking-widest text-white/50 border-b border-white/10 pb-2 mt-4">Accounts Receivable (F&I)</h4>
+
+                    <div className="flex flex-col gap-2">
+                      {me.contracts.length === 0 && <span className="text-sm italic text-gray-500">No active finance contracts.</span>}
+                      {me.contracts.map(contract => {
+                        const customer = me.customers?.find(c => c.id === contract.customerId);
+                        const paidSoFar = (contract.totalDays - contract.daysRemaining) * contract.dailyPayment;
+                        const bal = contract.daysRemaining * contract.dailyPayment;
+
+                        return (
+                          <div key={contract.id} className={`bg-white/5 p-3 rounded-lg border flex flex-col gap-1 group hover:bg-white/10 transition-colors ${contract.isDelinquent ? 'border-red-500/50 shadow-[0_0_10px_rgba(239,68,68,0.2)]' : 'border-white/5'}`}>
+                            <div className="flex justify-between items-center border-b border-white/5 pb-1 mb-1 text-xs">
+                              <div className="font-bold text-market">
+                                {customer ? customer.name : `Contract #${contract.id.slice(-6)}`}
+                              </div>
+                              <div className="text-gray-400">{contract.daysRemaining} days left @ {contract.interestRate * 100}%</div>
+                            </div>
+                            {contract.isDelinquent && (
+                              <div className="text-[10px] uppercase font-black tracking-widest text-red-500 bg-red-500/10 p-1 text-center rounded border border-red-500/20 mb-1">
+                                DELINQUENT - NO PAYMENTS
+                              </div>
+                            )}
+                            <div className="flex justify-between text-gray-300 text-xs">
+                              <span>Principal</span>
+                              <span className="font-bold">${contract.principal.toLocaleString()}</span>
+                            </div>
+                            <div className="flex justify-between text-gray-300 text-xs">
+                              <span>Total Yield (w/ Int)</span>
+                              <span className="font-bold">${contract.totalYield.toLocaleString()}</span>
+                            </div>
+                            <div className="flex justify-between text-gray-300 text-xs">
+                              <span>Paid to Date</span>
+                              <span className="font-bold text-success">${paidSoFar.toLocaleString()}</span>
+                            </div>
+                            <div className="flex justify-between font-bold text-market mt-1 pt-1 border-t border-white/5 text-xs">
+                              <span>Remaining Balance</span>
+                              <span>${bal.toLocaleString()}</span>
+                            </div>
+                            {contract.isDelinquent && contract.repoStatus !== 'Pending' && (
+                              <button
+                                onClick={() => orderRepo(contract.id)}
+                                disabled={me.money < 400}
+                                className="mt-2 w-full bg-red-500/20 hover:bg-red-500 text-red-500 hover:text-black transition-colors rounded py-1.5 font-bold text-xs border border-red-500/50"
+                              >
+                                Hire Repo Agent ($400)
+                              </button>
+                            )}
+                            {contract.repoStatus === 'Pending' && (
+                              <button disabled className="mt-2 w-full bg-orange-500/20 text-orange-400 border border-orange-500/20 rounded py-1.5 font-bold text-xs uppercase tracking-widest">
+                                Repo Out for Recovery...
+                              </button>
+                            )}
+                          </div>
+                        )
+                      })}
+                    </div>
+
+                    <h4 className="text-sm font-bold uppercase tracking-widest text-white/50 border-b border-white/10 pb-2 mt-4">Unit Sales Economics</h4>
+
+                    <div className="flex flex-col gap-2">
+                      {(!me.customers || me.customers.length === 0) && <span className="text-sm italic text-gray-500">No vehicles sold yet.</span>}
+                      {me.customers?.map(cust => {
+                        const gp = cust.purchasePrice - cust.originalCost;
+                        return (
+                          <div key={cust.id} className="bg-white/5 p-3 rounded-lg border border-white/5 text-xs flex flex-col gap-1 group hover:bg-white/10 transition-colors">
+                            <div className="flex justify-between items-center border-b border-white/5 pb-1 mb-1">
+                              <div className="font-bold text-white">
+                                {cust.carInfo.year} {cust.carInfo.make} {cust.carInfo.model}
+                              </div>
+                              <div className="text-gray-400">{cust.name}</div>
+                            </div>
+                            <div className="flex justify-between text-gray-300">
+                              <span>Purchase Cost</span>
+                              <span className="font-bold text-warning">${cust.originalCost.toLocaleString()}</span>
+                            </div>
+                            <div className="flex justify-between text-gray-300">
+                              <span>Sale Price</span>
+                              <span className="font-bold text-success">${cust.purchasePrice.toLocaleString()}</span>
+                            </div>
+                            <div className="flex justify-between font-bold text-market mt-1 pt-1 border-t border-white/5">
+                              <span>Gross Profit</span>
+                              <span className={gp >= 0 ? 'text-success' : 'text-red-500'}>{gp >= 0 ? '+' : '-'}${Math.abs(gp).toLocaleString()}</span>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* CUSTOMERS CRM HUD */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'crm' && (
+              <motion.div
+                key="crm-tab"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 20, opacity: 0 }}
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel border-market/30 bg-[#0a0a0a]/90 backdrop-blur-xl w-full max-w-full md:max-w-4xl mx-auto h-full flex flex-col pointer-events-auto"
+              >
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10 flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <Users className="text-market" size={28} />
+                    <h3 className="text-xl font-bold uppercase tracking-wider text-market">Customer Database</h3>
+                  </div>
+                  <span className="text-xs text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">{me.customers?.length || 0} Records</span>
+                </div>
+
+                <div className="flex flex-col gap-3 overflow-y-auto flex-grow pe-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                  {(!me.customers || me.customers.length === 0) && (
+                    <div className="text-center text-gray-500 py-8 text-sm italic">
+                      No customers in the database. Sell some cars!
+                    </div>
+                  )}
+                  {me.customers?.map(cust => (
+                    <div key={cust.id} className="bg-white/5 p-4 rounded-xl border border-white/10 flex flex-col gap-2 hover:border-market/30 transition-colors">
+                      <div className="flex justify-between items-start border-b border-white/10 pb-2 mb-1">
+                        <div>
+                          <h4 className="font-black text-white text-lg">{cust.name}</h4>
+                          <span className="text-xs text-market/80">{cust.phone}</span>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">Purchased Day {cust.purchaseDay}</div>
+                          <div className={`text-xs font-bold px-2 py-0.5 rounded inline-block uppercase tracking-wider ${cust.dealType === 'cash' ? 'bg-success/20 text-success' : 'bg-market/20 text-market'}`}>
+                            {cust.dealType} Deal
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex justify-between items-center bg-black/30 p-2 rounded border border-white/5">
+                        <div className="flex gap-4">
+                          <div className="flex flex-col">
+                            <span className="text-[10px] text-gray-500 uppercase tracking-widest">Vehicle</span>
+                            <span className="text-sm font-bold text-white">{cust.carInfo.year} {cust.carInfo.make} {cust.carInfo.model}</span>
+                          </div>
+                          <div className="flex flex-col">
+                            <span className="text-[10px] text-gray-500 uppercase tracking-widest">VIN Number</span>
+                            <span className="text-[10px] text-gray-400 font-mono mt-0.5">{cust.carInfo.vin.toUpperCase()}</span>
+                          </div>
+                        </div>
+                        <div className="flex flex-col text-right">
+                          <span className="text-[10px] text-gray-500 uppercase tracking-widest">Sale Price</span>
+                          <span className="text-sm font-bold text-success">${cust.purchasePrice.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+              </motion.div>
+            )}
+
+            {activeTab === 'dmv' && (
+              <motion.div
+                key="dmv-tab"
+                initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 20, opacity: 0 }} transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel flex flex-col gap-4 max-w-full md:max-w-2xl w-full h-full pointer-events-auto"
+              >
+                <div className="flex justify-between items-center mb-2 pb-2 border-b border-white/10 shrink-0">
+                  <div className="flex items-center gap-3 text-white">
+                    <FileText className="text-market" size={28} />
+                    <h2 className="text-xl font-black uppercase tracking-widest text-white/90">Department of Motor Vehicles</h2>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-4 overflow-y-auto pr-2 pb-4 scrollbar-thin scrollbar-thumb-white/10 h-full">
+
+                  <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-xl p-3 text-[11px] text-gray-300 leading-snug">
+                    <span className="font-black text-emerald-400 uppercase tracking-widest text-[10px]">NC Dealer Compliance</span> — under NC law a used vehicle must pass a <strong>Safety + Emissions inspection</strong> before it can be retailed, and salvage cars need a rebuilt/anti-theft inspection too. Work each vehicle through the steps below, then register it.
+                  </div>
+
+                  <div className="flex flex-col gap-3">
+                    {me.inventory.length === 0 && <span className="text-sm italic text-gray-500">No vehicles in inventory. Buy one at the auction.</span>}
+                    {me.inventory.map(car => (
+                      <DmvVehicleCard key={car.id} car={car} money={me.money} />
+                    ))}
+                  </div>
+
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'parts' && (
+              <motion.div
+                key="parts-tab"
+                initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 20, opacity: 0 }} transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel flex flex-col gap-4 max-w-full md:max-w-2xl w-full h-full pointer-events-auto"
+              >
+                <div className="flex justify-between items-center bg-black/40 p-4 rounded border border-white/10">
+                  <div>
+                    <h3 className="text-xl font-bold uppercase tracking-widest text-white/90">Body Shop & Mechanic Supplies</h3>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider mt-1">Purchase parts in bulk to save money on vehicle repairs</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-400 uppercase tracking-widest">Available Cash</div>
+                    <div className="text-2xl font-black text-market tracking-tighter">${me.money.toLocaleString()}</div>
+                  </div>
+                </div>
+
+                {isMobile && (
+                  <div className="flex gap-2 p-1 bg-black/50 border border-white/10 rounded-xl shrink-0 pointer-events-auto w-full mb-2">
+                    <button
+                      onClick={() => setMobilePartsSubTab('mechanic')}
+                      className={`flex-1 py-2 text-[10px] font-black uppercase tracking-wider rounded-lg transition-all ${mobilePartsSubTab === 'mechanic' ? 'bg-market text-black shadow-md' : 'text-gray-400'}`}
+                    >
+                      Mechanic Parts
+                    </button>
+                    <button
+                      onClick={() => setMobilePartsSubTab('body')}
+                      className={`flex-1 py-2 text-[10px] font-black uppercase tracking-wider rounded-lg transition-all ${mobilePartsSubTab === 'body' ? 'bg-market text-black shadow-md' : 'text-gray-400'}`}
+                    >
+                      Body & Paint Panels
+                    </button>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-y-auto pr-2 pb-24 md:pb-20">
+                  {(!isMobile || mobilePartsSubTab === 'mechanic') && (
+                    <div className="space-y-4">
+                      <h4 className="font-bold text-market uppercase tracking-widest text-sm border-b border-white/10 pb-2">Mechanic Parts</h4>
+                      {MECHANIC_LIB.map((p, idx) => (
+                        <div key={`m-${idx}`} className="bg-black/40 p-4 rounded border border-white/5 flex flex-col gap-2 relative overflow-hidden group">
+                          <div className="absolute top-0 right-0 w-16 h-16 bg-market/5 rounded-bl-full -z-10 group-hover:bg-market/10 transition-colors"></div>
+                          <div className="flex justify-between items-start">
+                            <h5 className="font-bold text-white/90">{p.name}</h5>
+                            <span className="text-sm font-bold text-green-400">${Math.floor(p.cost * 0.75).toLocaleString()}</span>
+                          </div>
+                          <div className="flex justify-between items-end mt-2">
+                            <div className="text-xs text-gray-400 uppercase tracking-widest">
+                              Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.name] || 0}</span>
+                            </div>
+                            <button 
+                              onClick={() => buyPart(p.name, Math.floor(p.cost * 0.75))}
+                              disabled={me.money < Math.floor(p.cost * 0.75)}
+                              className="bg-market/20 hover:bg-market hover:text-black text-market px-3 py-1 rounded text-xs font-bold transition-colors disabled:opacity-30 uppercase tracking-widest"
+                            >
+                              Buy Stock
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {(!isMobile || mobilePartsSubTab === 'body') && (
+                    <div className="space-y-4">
+                      <h4 className="font-bold text-market uppercase tracking-widest text-sm border-b border-white/10 pb-2">Body Panels & Paint</h4>
+                      {BODY_LIB.map((p, idx) => (
+                        <div key={`b-${idx}`} className="bg-black/40 p-4 rounded border border-white/5 flex flex-col gap-2 relative overflow-hidden group">
+                          <div className="absolute top-0 right-0 w-16 h-16 bg-blue-500/5 rounded-bl-full -z-10 group-hover:bg-blue-500/10 transition-colors"></div>
+                          <div className="flex justify-between items-start">
+                            <h5 className="font-bold text-white/90">{p.name}</h5>
+                            <span className="text-sm font-bold text-green-400">${Math.floor(p.cost * 0.75).toLocaleString()}</span>
+                          </div>
+                          <div className="flex justify-between items-end mt-2">
+                            <div className="text-xs text-gray-400 uppercase tracking-widest">
+                              Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.name] || 0}</span>
+                            </div>
+                            <button 
+                              onClick={() => buyPart(p.name, Math.floor(p.cost * 0.75))}
+                              disabled={me.money < Math.floor(p.cost * 0.75)}
+                              className="bg-market/20 hover:bg-market hover:text-black text-market px-3 py-1 rounded text-xs font-bold transition-colors disabled:opacity-30 uppercase tracking-widest"
+                            >
+                              Buy Stock
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'staff' && (
+              <motion.div
+                key="staff-tab"
+                initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 20, opacity: 0 }} transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                className="panel flex flex-col gap-4 max-w-full md:max-w-2xl w-full h-full pointer-events-auto"
+              >
+                <div className="flex justify-between items-center bg-black/40 p-4 rounded border border-white/10">
+                  <div>
+                    <h3 className="text-xl font-bold uppercase tracking-widest text-white/90">Human Resources</h3>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider mt-1">Hire staff to optimize and scale your dealership</p>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-400 uppercase tracking-widest">Daily Payroll</div>
+                    <div className="text-2xl font-black text-red-400 tracking-tighter">
+                      ${((me.employees?.mechanic ? 500 : 0) + (me.employees?.salesperson ? 400 : 0) + (me.employees?.financeManager ? 800 : 0)).toLocaleString()}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 overflow-y-auto pr-2 pb-20">
+                  
+                  {/* Master Mechanic */}
+                  <div className={`p-4 rounded border flex flex-col gap-2 relative overflow-hidden transition-colors ${me.employees?.mechanic ? 'bg-market/10 border-market/50' : 'bg-black/40 border-white/5'}`}>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h4 className="font-bold text-white/90 text-lg uppercase tracking-widest">Master Mechanic</h4>
+                        <div className="text-xs text-gray-400 mt-1 uppercase tracking-widest">Salary: <span className="text-red-400">$500 / Day</span></div>
+                      </div>
+                      <button 
+                        onClick={() => useGameStore.getState().toggleEmployee('mechanic')}
+                        className={`px-4 py-2 font-bold uppercase tracking-widest text-xs rounded transition-colors ${me.employees?.mechanic ? 'bg-red-500/20 text-red-500 hover:bg-red-500 hover:text-white' : 'bg-market/20 text-market hover:bg-market hover:text-black'}`}
+                      >
+                        {me.employees?.mechanic ? 'Fire' : 'Hire'}
+                      </button>
+                    </div>
+                    <p className="text-sm text-gray-300 mt-2 leading-relaxed">
+                      Automatically reduces all repair costs by 20% and ensures that complex mechanical and body repairs <span className="text-market font-bold">never fail</span>. 
+                      Essential for running a high-volume salvage operation.
+                    </p>
+                  </div>
+
+                  {/* Floor Salesperson */}
+                  <div className={`p-4 rounded border flex flex-col gap-2 relative overflow-hidden transition-colors ${me.employees?.salesperson ? 'bg-market/10 border-market/50' : 'bg-black/40 border-white/5'}`}>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h4 className="font-bold text-white/90 text-lg uppercase tracking-widest">Floor Salesperson</h4>
+                        <div className="text-xs text-gray-400 mt-1 uppercase tracking-widest">Salary: <span className="text-red-400">$400 / Day</span></div>
+                      </div>
+                      <button 
+                        onClick={() => useGameStore.getState().toggleEmployee('salesperson')}
+                        className={`px-4 py-2 font-bold uppercase tracking-widest text-xs rounded transition-colors ${me.employees?.salesperson ? 'bg-red-500/20 text-red-500 hover:bg-red-500 hover:text-white' : 'bg-market/20 text-market hover:bg-market hover:text-black'}`}
+                      >
+                        {me.employees?.salesperson ? 'Fire' : 'Hire'}
+                      </button>
+                    </div>
+                    <p className="text-sm text-gray-300 mt-2 leading-relaxed">
+                      Increases foot traffic and the probability of a customer making an offer. They also negotiate harder, increasing the baseline Cash and Bank offers by <span className="text-market font-bold">10%</span>.
+                    </p>
+                  </div>
+
+                  {/* F&I Manager */}
+                  <div className={`p-4 rounded border flex flex-col gap-2 relative overflow-hidden transition-colors ${me.employees?.financeManager ? 'bg-market/10 border-market/50' : 'bg-black/40 border-white/5'}`}>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h4 className="font-bold text-white/90 text-lg uppercase tracking-widest">F&I Manager</h4>
+                        <div className="text-xs text-gray-400 mt-1 uppercase tracking-widest">Salary: <span className="text-red-400">$800 / Day</span></div>
+                      </div>
+                      <button 
+                        onClick={() => useGameStore.getState().toggleEmployee('financeManager')}
+                        className={`px-4 py-2 font-bold uppercase tracking-widest text-xs rounded transition-colors ${me.employees?.financeManager ? 'bg-red-500/20 text-red-500 hover:bg-red-500 hover:text-white' : 'bg-market/20 text-market hover:bg-market hover:text-black'}`}
+                      >
+                        {me.employees?.financeManager ? 'Fire' : 'Hire'}
+                      </button>
+                    </div>
+                    <p className="text-sm text-gray-300 mt-2 leading-relaxed">
+                      Finance and Insurance Manager. Thoroughly checks customer credit and income. Drastically reduces the default and repossession rate on high-risk In-House (BHPH) subprime loans.
+                    </p>
+                  </div>
+
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === 'standalone-shops' && (
+              <ChunkBoundary><Suspense fallback={<TabLoading />}><StandaloneShopPlatform /></Suspense></ChunkBoundary>
+            )}
+
+            {activeTab === 'standalone-body' && (
+              <ChunkBoundary><Suspense fallback={<TabLoading />}><ShopManagement /></Suspense></ChunkBoundary>
+            )}
+
+          </AnimatePresence>
+        </div>
+
+        <InspectionModal />
+        <BankDashboard />
+        <InsuranceModal />
+        <DealerGuideModal isOpen={showGuide} onClose={() => setShowGuide(false)} step={guideStep} setStep={setGuideStep} />
+
+        {selectedAgentId && (
+            <NegotiationModal 
+               agentId={selectedAgentId} 
+               setAgentId={setSelectedAgentId} 
+               carId={selectedCarForAgent}
+               setCarId={setSelectedCarForAgent}
+            />
+        )}
+
+        {isMobile && showUI && (
+          <div className="fixed bottom-0 left-0 right-0 bg-[#0f0f13]/95 border-t border-white/10 backdrop-blur-xl px-4 py-3 z-[9999] flex justify-around items-center pointer-events-auto shadow-2xl rounded-t-2xl">
+            <button
+              onClick={() => { setActiveTab('lot'); setShowMoreMenu(false); }}
+              className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'lot' && !showMoreMenu ? 'text-market' : 'text-gray-400'}`}
+            >
+              <Car size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">My Lot</span>
+            </button>
+            <button
+              onClick={() => { setActiveTab('auction'); setShowMoreMenu(false); }}
+              className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'auction' && !showMoreMenu ? 'text-market' : 'text-gray-400'}`}
+            >
+              <Activity size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">Auction</span>
+            </button>
+            <button
+              onClick={() => { setActiveTab('dmv'); setShowMoreMenu(false); }}
+              className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'dmv' && !showMoreMenu ? 'text-market' : 'text-gray-400'}`}
+            >
+              <FileText size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">DMV</span>
+            </button>
+            <button
+              onClick={() => { setActiveTab('parts'); setShowMoreMenu(false); }}
+              className={`flex flex-col items-center gap-1 transition-all ${activeTab === 'parts' && !showMoreMenu ? 'text-market' : 'text-gray-400'}`}
+            >
+              <Wrench size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">Parts</span>
+            </button>
+            <button
+              onClick={() => { setShowUI(false); setShowMoreMenu(false); }}
+              className="flex flex-col items-center gap-1 transition-all text-gray-400 hover:text-white"
+            >
+              <Gamepad2 size={20} className="text-emerald-400 animate-pulse" />
+              <span className="text-[9px] font-black uppercase tracking-wider text-emerald-400">Explore</span>
+            </button>
+            <button
+              onClick={() => setShowMoreMenu(prev => !prev)}
+              className={`flex flex-col items-center gap-1 transition-all ${showMoreMenu ? 'text-warning font-black scale-105' : 'text-gray-400'}`}
+            >
+              <Menu size={20} />
+              <span className="text-[9px] font-black uppercase tracking-wider">More</span>
+            </button>
+          </div>
+        )}
+
+        <AnimatePresence>
+          {isMobile && showUI && showMoreMenu && (
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setShowMoreMenu(false)}
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9990] pointer-events-auto"
+              />
+              <motion.div
+                initial={{ y: '100%' }}
+                animate={{ y: 0 }}
+                exit={{ y: '100%' }}
+                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                className="fixed bottom-16 left-0 right-0 bg-[#0c0d12]/95 backdrop-blur-2xl border-t border-white/10 rounded-t-3xl p-6 z-[9995] flex flex-col gap-5 pointer-events-auto shadow-2xl max-h-[60vh] overflow-y-auto"
+              >
+                <div className="flex justify-between items-center border-b border-white/10 pb-3">
+                  <h3 className="text-sm font-black uppercase tracking-widest text-warning">More Operations</h3>
+                  <button onClick={() => setShowMoreMenu(false)} className="text-gray-400 hover:text-white transition-colors">✕</button>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-3 pb-8">
+                  {(me.isStandaloneOperator ? (me.shopSpecialty === 'mechanic' || me.shopSpecialty === 'dual') : true) && (
+                    <button
+                      onClick={() => { setActiveTab('standalone-shops'); setShowMoreMenu(false); }}
+                      className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-shops' ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' : 'bg-emerald-500/5 border-emerald-500/20 text-emerald-300'}`}
+                    >
+                      <Wrench size={24} />
+                      <span className="text-xs font-bold uppercase tracking-wider text-center">RepairFlow Platform</span>
+                    </button>
+                  )}
+                  {(me.isStandaloneOperator ? (me.shopSpecialty === 'body' || me.shopSpecialty === 'dual') : true) && (
+                    <button
+                      onClick={() => { setActiveTab('standalone-body'); setShowMoreMenu(false); }}
+                      className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'standalone-body' ? 'bg-blue-500/20 border-blue-500 text-blue-400' : 'bg-blue-500/5 border-blue-500/20 text-blue-300'}`}
+                    >
+                      <Wrench size={24} />
+                      <span className="text-xs font-bold uppercase tracking-wider text-center">AutoFlow Bodyshop</span>
+                    </button>
+                  )}
+                  <button
+                    onClick={() => { setActiveTab('accounting'); setShowMoreMenu(false); }}
+                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'accounting' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
+                  >
+                    <TrendingUp size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Accounting</span>
+                  </button>
+                  {!me.isStandaloneOperator && (
+                    <button
+                      onClick={() => { setActiveTab('crm'); setShowMoreMenu(false); }}
+                      className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'crm' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
+                    >
+                      <Users size={24} />
+                      <span className="text-xs font-bold uppercase tracking-wider">Customers</span>
+                    </button>
+                  )}
+                  <button
+                    onClick={() => { setActiveTab('staff'); setShowMoreMenu(false); }}
+                    className={`p-4 rounded-2xl border transition-all flex flex-col items-center justify-center gap-2 hover:bg-white/5 ${activeTab === 'staff' ? 'bg-market/10 border-market text-market' : 'bg-white/5 border-white/5 text-gray-300'}`}
+                  >
+                    <Users size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Staff List</span>
+                  </button>
+                  <button
+                    onClick={() => { setActiveTab('library'); setShowMoreMenu(false); }}
+                    className="p-4 rounded-2xl border bg-amber-500/10 border-amber-500/30 text-amber-400 hover:bg-amber-500 hover:text-black transition-all flex flex-col items-center justify-center gap-2"
+                  >
+                    <BookOpen size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Library</span>
+                  </button>
+                  <button
+                    onClick={() => { openBankModal(); setShowMoreMenu(false); }}
+                    className="p-4 rounded-2xl border bg-sky-500/10 border-sky-500/30 text-sky-400 hover:bg-sky-500 hover:text-black transition-all flex flex-col items-center justify-center gap-2"
+                  >
+                    <Wallet size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Bank</span>
+                  </button>
+                  <button
+                    onClick={() => { openInsuranceModal(); setShowMoreMenu(false); }}
+                    className="p-4 rounded-2xl border bg-teal-500/10 border-teal-500/30 text-teal-400 hover:bg-teal-500 hover:text-black transition-all flex flex-col items-center justify-center gap-2"
+                  >
+                    <ShieldCheck size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Insurance</span>
+                  </button>
+                  {(me as any).gateCode && (
+                    <div className="p-4 rounded-2xl border bg-emerald-500/10 border-emerald-500/30 text-emerald-400 flex flex-col items-center justify-center gap-1">
+                      <span className="text-lg">🔒</span>
+                      <span className="text-[9px] font-black uppercase tracking-wider text-white/50">Gate Code</span>
+                      <span className="text-lg font-mono font-bold tracking-[0.3em] text-emerald-400">{(me as any).gateCode}</span>
+                    </div>
+                  )}
+                  {!me.isStandaloneOperator && (
+                    <button
+                      onClick={() => { setShowGuide(true); setGuideStep(0); setShowMoreMenu(false); }}
+                      className="p-4 rounded-2xl border bg-warning/10 border-warning/30 text-warning hover:bg-warning hover:text-black transition-all flex flex-col items-center justify-center gap-2"
+                    >
+                      <HelpCircle size={24} />
+                      <span className="text-xs font-bold uppercase tracking-wider">Dealer Guide</span>
+                    </button>
+                  )}
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+
+      </div>
+
+      {/* Dynamic Action Interaction Overlay (Clickable/Tappable for both PC & Mobile). Outside the menu
+          container so it stays visible with the menu hidden; on phones it sits under the top buttons,
+          clear of the D-pad (it used to be an invisible tap target over the up arrow). */}
+      {activeInteraction && !drivingCarIdForPrompt && !(isMobile && showUI) && (
+        <div className={`fixed ${isMobile ? 'top-[76px]' : 'bottom-28'} left-1/2 -translate-x-1/2 z-[1000] pointer-events-auto`}>
+          <button
+            onClick={() => {
+              if (activeInteraction.type === 'bank') {
+                openBankModal();
+              } else if (activeInteraction.type === 'auction') {
+                window.dispatchEvent(new CustomEvent('open_auction'));
+              } else if (activeInteraction.type === 'library') {
+                window.dispatchEvent(new CustomEvent('open_library'));
+              } else if (activeInteraction.type === 'insurance') {
+                openInsuranceModal();
+              } else if (activeInteraction.type === 'rental') {
+                rentRaceCar();
+              } else if (activeInteraction.type === 'car' && activeInteraction.carId) {
+                // Enter/exit driving state
+                if ((window as any).setMobileTap) {
+                  (window as any).setMobileTap('e');
+                } else {
+                  (window as any).setMobileKey?.('e', true);
+                  setTimeout(() => (window as any).setMobileKey?.('e', false), 100);
+                }
+              }
+            }}
+            className="px-4 py-2 bg-gradient-to-r from-emerald-500/90 to-teal-600/90 hover:from-emerald-600 hover:to-teal-700 border border-emerald-400/40 text-white font-bold rounded-xl shadow-lg active:scale-95 transition-all text-[11px] uppercase tracking-widest flex items-center gap-2 backdrop-blur-md cursor-pointer select-none"
+          >
+            <span className="flex h-3 w-3 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+            </span>
+            <span>{activeInteraction.label}</span>
+            <span className="text-emerald-200 text-xs font-medium ml-1">
+              {activeInteraction.type === 'car' ? '[E]' : '[R]'}
+            </span>
+          </button>
+        </div>
+      )}
+
+      {/* On-Screen Mobile Touch Controls */}
+      {isMobile && playerId && gameState && (
+        <div className="fixed inset-0 pointer-events-none z-[999] flex flex-col justify-end p-6 select-none">
+          {/* Top Right Floating Menu Toggle (Always visible, responsive alignment) */}
+          <div className="absolute top-6 right-6 pointer-events-auto z-[9999] flex gap-2">
+            {/* Only while exploring: with the menu open it would cover the menu's top row (e.g. the Lot & Inventory tab) */}
+            {!showUI && <GraphicsToggle compact />}
+            <button
+              onClick={() => setShowUI(prev => !prev)}
+              className={`border rounded-xl px-4 py-3 text-xs font-black uppercase tracking-widest active:scale-95 transition-all backdrop-blur-md shadow-lg ${showUI ? 'bg-red-500/20 text-red-500 border-red-500/30 hover:bg-red-500 hover:text-black' : 'bg-black/60 border-white/20 text-white shadow-black/40'}`}
+            >
+              {showUI ? '✕ Close' : '💼 Menu'}
+            </button>
+          </div>
+
+          {!showUI && (
+            <div className="flex justify-between items-end w-full">
+              {/* Virtual D-Pad (Left Side). Only the buttons take touches: the chat
+                  bubble sits in the empty corner beside ▲ and must stay tappable. */}
+              <div className="flex flex-col gap-2 items-center pointer-events-none [&_button]:pointer-events-auto">
+                <button
+                  onTouchStart={() => (window as any).setMobileKey?.('w', true)}
+                  onTouchEnd={() => (window as any).setMobileKey?.('w', false)}
+                  onTouchCancel={() => (window as any).setMobileKey?.('w', false)}
+                  className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                >
+                  ▲
+                </button>
+                <div className="flex gap-2">
+                  <button
+                    onTouchStart={() => (window as any).setMobileKey?.('a', true)}
+                    onTouchEnd={() => (window as any).setMobileKey?.('a', false)}
+                    onTouchCancel={() => (window as any).setMobileKey?.('a', false)}
+                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                  >
+                    ◀
+                  </button>
+                  <button
+                    onTouchStart={() => (window as any).setMobileKey?.('s', true)}
+                    onTouchEnd={() => (window as any).setMobileKey?.('s', false)}
+                    onTouchCancel={() => (window as any).setMobileKey?.('s', false)}
+                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                  >
+                    ▼
+                  </button>
+                  <button
+                    onTouchStart={() => (window as any).setMobileKey?.('d', true)}
+                    onTouchEnd={() => (window as any).setMobileKey?.('d', false)}
+                    onTouchCancel={() => (window as any).setMobileKey?.('d', false)}
+                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+                  >
+                    ▶
+                  </button>
+                </div>
+              </div>
+
+              {/* Virtual Action Buttons (Right Side) */}
+              <div className="flex gap-3 pointer-events-auto">
+                <button
+                  onTouchStart={() => {
+                    if ((window as any).setMobileTap) {
+                      (window as any).setMobileTap('e');
+                    } else {
+                      (window as any).setMobileKey?.('e', true);
+                      setTimeout(() => (window as any).setMobileKey?.('e', false), 100);
+                    }
+                  }}
+                  className="w-16 h-16 bg-blue-500/80 border-2 border-blue-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-blue-600 transition-all select-none touch-none"
+                >
+                  DRIVE
+                </button>
+                <button
+                  onTouchStart={() => {
+                    if ((window as any).setMobileTap) {
+                      (window as any).setMobileTap('r');
+                    } else {
+                      (window as any).setMobileKey?.('r', true);
+                      setTimeout(() => (window as any).setMobileKey?.('r', false), 100);
+                    }
+                  }}
+                  className="w-16 h-16 bg-green-500/80 border-2 border-green-400/50 text-white font-black rounded-full flex items-center justify-center text-xs shadow-lg active:scale-90 active:bg-green-600 transition-all select-none touch-none"
+                >
+                  ACTION
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </>
+  );
+}
+
+export default App;
