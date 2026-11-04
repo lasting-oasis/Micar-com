@@ -56,6 +56,18 @@ The 3D world is not "the dealer simulator" anymore, and it is not a menu of game
 
 Entry and emphasis: the world opens in the Garage. Deep links (`#dealership`, `#strip`) drop people at a place when they arrive with intent from the home page or a share. On the home page, Act 4 stays one picture of the garage with its two doors and one line each for dealer training and racing; the home page is about the card. If dealer training needs its own pitch for dealer groups, it gets a page under `/dealers/`, not more weight on the home.
 
+## The engine: condition, repair, driving
+
+Decisions of Nov 4: the category cars are the sim's lofted set, with wagon and convertible added to its profiles (the Blender set is retired); the container is MiCar World; the Dealership's line is "learn the car business without paying for your mistakes."
+
+One engine serves the real site and the world. `packages/engine` = the valuation that already runs MiCar Value (it already prices Clean / Rebuilt / Salvage titles at 1.0 / 0.75 / 0.55, four condition bands with reconditioning costs, and accident history) + a condition model + a driving model.
+
+- **Condition has three states that change how a car drives, not just what it's worth.** Not running (can't leave the garage; towed or trailered), drivable but needs repairs (slower, stalls, overheats, pulls, brakes fade; events fire while driving), great (full specs). The sim's existing body and mechanical scores (0–100, with rust, cracked glass, smoke already drawn below 50) are the inputs; the three states are bands on them.
+- **Driving specs per car:** acceleration, top speed, handling, braking, reliability. Base values come from the trim data the engine already holds plus the EPA data already fetched (displacement, cylinders, drivetrain, weight class by body style); modifiers come from condition state, from Tuner parts, and from load. The same numbers drive the car in the world, the race on the Strip, and the appraisal in the Dealership.
+- **Salvage is the center of the career.** Buy a salvage title at auction, not running, cheap. Repair it in the garage (every repair is a Tuner part slot: engine, transmission, brakes, suspension, tires, panels, glass, paint), each job costing Octane and time. Drive it when it's drivable; sell it when it's great, with the Rebuilt multiplier. Mistakes cost Octane, not money. That is the training.
+- **The garage replaces the old mechanic and body shop panels in the world.** Modifying and repairing a car is the Tuner experience on the category cars; the two old panels retire from the world. The standalone **MiCar Shop** for real shops stays at `/shop/`, on the same job and parts catalog, so a real repair order and an in-world one are the same record.
+- **Rule: in the world, condition is earned, not declared.** Cars bought in the world come with a game-set condition. A real card's car enters the world at the trim's baseline, or at its **verified** condition when a Keyholder's receipts and inspection back it, which gives verification a visible in-world payoff. Self-reported trail entries never change how a car drives, and wins never change the grade, so nothing in the world ever gives anyone a reason to lie on the trail. The number stays the company.
+
 ## Retail and commercial are different doors
 
 The Automotive Hub portal goes away. Someone who wants the world never sees shop software; a shop owner never sees a game.
