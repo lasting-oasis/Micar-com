@@ -84,6 +84,26 @@ function applyQuality(m: THREE.MeshStandardMaterial) {
     m.needsUpdate = true;
 }
 
+// Low also lights the ground with diffuse light only: no sun highlight and no sky
+// reflection (the GGX and environment terms of the physical model). The ground is rough
+// (roughness 0.6-0.96), so those terms are faint on it, and they were a large part of
+// its cost. The sky's diffuse light and the street lamps still light it.
+const lowLighting = /* glsl */`
+#include <lights_physical_pars_fragment>
+#ifdef GROUND_LOW
+void RE_Direct_GroundLow( const in IncidentLight directLight, const in vec3 geometryPosition, const in vec3 geometryNormal, const in vec3 geometryViewDir, const in vec3 geometryClearcoatNormal, const in PhysicalMaterial material, inout ReflectedLight reflectedLight ) {
+	float dotNL = saturate( dot( geometryNormal, directLight.direction ) );
+	reflectedLight.directDiffuse += dotNL * directLight.color * BRDF_Lambert( material.diffuseColor );
+}
+void RE_IndirectSpecular_GroundLow( const in vec3 radiance, const in vec3 irradiance, const in vec3 clearcoatRadiance, const in vec3 geometryPosition, const in vec3 geometryNormal, const in vec3 geometryViewDir, const in vec3 geometryClearcoatNormal, const in PhysicalMaterial material, inout ReflectedLight reflectedLight ) {
+	reflectedLight.indirectDiffuse += material.diffuseColor * irradiance * RECIPROCAL_PI;
+}
+#undef RE_Direct
+#define RE_Direct RE_Direct_GroundLow
+#undef RE_IndirectSpecular
+#define RE_IndirectSpecular RE_IndirectSpecular_GroundLow
+#endif`;
+
 /** A MeshStandardMaterial with the ground look (see above). Needs a `map`. */
 export function makeGroundMaterial(params: THREE.MeshStandardMaterialParameters, look: GroundLook) {
     const material = new THREE.MeshStandardMaterial(params);
@@ -107,7 +127,8 @@ export function makeGroundMaterial(params: THREE.MeshStandardMaterialParameters,
             .replace('#include <project_vertex>', vertexMain);
         shader.fragmentShader = shader.fragmentShader
             .replace('#include <common>', fragmentDecl)
-            .replace('#include <map_fragment>', fragmentMap);
+            .replace('#include <map_fragment>', fragmentMap)
+            .replace('#include <lights_physical_pars_fragment>', lowLighting);
     };
     // Same code for every ground material, so they all share one compiled program
     material.customProgramCacheKey = () => lowQuality ? 'cds-ground-v1-low' : 'cds-ground-v1';
