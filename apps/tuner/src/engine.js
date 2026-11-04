@@ -69,10 +69,15 @@ export class Engine {
     const key = this.imgKey(id, layer, frame); const cached = this.images.get(key);
     if (cached && cached.complete) return cached;
     if (!cached) {
-      const img = new Image(); img.decoding = 'async';
-      img.src = `${this.base}${id}/${layer}/f${String(frame).padStart(2, '0')}_${info[0]}_${info[1]}.webp`;
-      img.onload = () => { this.dirty = true; };
-      this.images.set(key, img);
+      const src = `${this.base}${id}/${layer}/f${String(frame).padStart(2, '0')}_${info[0]}_${info[1]}.webp`;
+      const load = (attempt) => {
+        const img = new Image(); img.decoding = 'async';
+        img.onload = () => { this.dirty = true; };
+        // transient network failures (e.g. thousands of parallel requests on a cold CDN): retry with backoff
+        img.onerror = () => { if (attempt < 3) setTimeout(() => load(attempt + 1), 800 * attempt); else img.dataset.failed = '1'; };
+        img.src = src; this.images.set(key, img);
+      };
+      load(1);
     }
     return null;
   }
@@ -83,7 +88,7 @@ export class Engine {
       const info = this.layerInfo(p.id, layer, frame); if (!info) continue;
       const key = this.imgKey(p.id, layer, frame); let img = this.images.get(key);
       if (!img) { this.getImage(p.id, layer, frame); img = this.images.get(key); }
-      if (img && !img.complete) waits.push(new Promise(r => { img.addEventListener('load', r, { once: true }); img.addEventListener('error', r, { once: true }); }));
+      if (img && !(img.complete && img.naturalWidth)) waits.push(new Promise(r => { const poll = () => { const cur = this.images.get(key); if (cur && cur.complete && (cur.naturalWidth || cur.dataset.failed)) r(); else setTimeout(poll, 120); }; poll(); }));
     }
     return Promise.all(waits);
   }
