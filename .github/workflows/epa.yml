@@ -16,6 +16,9 @@ permissions:
 
 jobs:
   fetch:
+    defaults:
+      run:
+        working-directory: apps/value
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

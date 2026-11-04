@@ -6,7 +6,7 @@ name: iSeeCars 2010-2014 stickers
 on:
   push:
     branches: [main]
-    paths: [data/iseecars/RUN, .github/workflows/iseecars.yml]
+    paths: [apps/value/data/iseecars/RUN, .github/workflows/iseecars.yml]
   schedule:
     - cron: '23 */2 * * *'   # keeps resuming every 2 hours until every page is tried
   workflow_dispatch:
@@ -21,6 +21,9 @@ concurrency:
 
 jobs:
   fetch:
+    defaults:
+      run:
+        working-directory: apps/value
     runs-on: ubuntu-latest
     timeout-minutes: 140
     steps:

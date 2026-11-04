@@ -1,5 +1,5 @@
 {
-  "name": "micar-tuner",
+  "name": "@micar/tuner",
   "version": "0.1.0",
   "description": "Local sprite-turntable 4x4 configurator (REA rebuild of a 3DTuning-style page with an original vehicle)",
   "scripts": {
@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "three": "^0.170.0",
+    "three": "0.170.0",
     "playwright": "^1.47.0"
   },
   "type": "commonjs"

@@ -1,5 +1,5 @@
 {
-  "name": "queen_city_mycarvalue",
+  "name": "@micar/value",
   "private": true,
   "version": "7.0.0",
   "type": "module",
@@ -16,26 +16,26 @@
     "build:epa": "tsx scripts/build-epa.ts"
   },
   "dependencies": {
-    "@types/qrcode": "^1.5.6",
-    "lucide-react": "^1.63.0",
-    "qrcode": "^1.5.4",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "recharts": "^3.10.1"
+    "@types/qrcode": "1.5.6",
+    "lucide-react": "1.63.0",
+    "qrcode": "1.5.4",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "recharts": "3.10.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^24.19.2",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.2",
-    "oxlint": "^1.89.0",
-    "tailwindcss": "^4.3.3",
-    "tsx": "^4.23.15",
-    "typescript": "~7.0.2",
-    "vite": "^8.3.5",
-    "vite-plugin-singlefile": "^2.3.4",
-    "vitest": "^5.0.5"
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "oxlint": "1.90.0",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.5",
+    "vite-plugin-singlefile": "2.3.4",
+    "vitest": "5.0.5"
   },
   "description": "Used-car value estimator"
 }

@@ -5,7 +5,7 @@ name: Gemini MSRP test
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/gemini-test.yml, data/gemini/test-cars.json, scripts/gemini_msrp.py, scripts/gemini_probe.py, scripts/gemini_live_probe.py]
+    paths: [.github/workflows/gemini-test.yml, apps/value/data/gemini/test-cars.json, apps/value/scripts/gemini_msrp.py, apps/value/scripts/gemini_probe.py, apps/value/scripts/gemini_live_probe.py]
   workflow_dispatch:
 
 permissions:
@@ -13,6 +13,9 @@ permissions:
 
 jobs:
   test:
+    defaults:
+      run:
+        working-directory: apps/value
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:

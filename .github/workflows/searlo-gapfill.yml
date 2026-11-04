@@ -5,7 +5,7 @@ name: Searlo gap-fill
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/searlo-gapfill.yml, scripts/searlo_gapfill.py, data/search/gaps.json]
+    paths: [.github/workflows/searlo-gapfill.yml, apps/value/scripts/searlo_gapfill.py, apps/value/data/search/gaps.json]
   workflow_dispatch:
 
 permissions:
@@ -13,6 +13,9 @@ permissions:
 
 jobs:
   fill:
+    defaults:
+      run:
+        working-directory: apps/value
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
