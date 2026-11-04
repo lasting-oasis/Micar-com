@@ -465,6 +465,7 @@ export function VanillaThreeScene() {
         const applyGraphics = (q: 'high' | 'low', recompile: boolean) => {
              quality = q;
              lightPool.setActiveCount(poolSizeFor(q));
+             world.setLampLimit(q === 'low' ? 4 : 8); // lamps lighting the scene (a uniform count: no recompile)
              // High: sky light + reflections from a map of the live sky; Low: the same sky
              // worked out in the shader (no map)
              atmosphere.updateEnvironment(q === 'high');

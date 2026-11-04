@@ -52,6 +52,7 @@ export class LampLighting implements Culled, PerFrame {
     private night = 0;
     private picked: { lamp: Lamp; fade: number }[] = [];
     private written: Lamp[] = [];
+    private limit = MAX_LAMPS;
     private readonly v = new THREE.Vector3();
 
     constructor() { installLampLighting(); }
@@ -63,12 +64,16 @@ export class LampLighting implements Culled, PerFrame {
 
     setNight(f: number) { this.night = f; this.write(); }
 
+    /** How many lamps light the scene (Low 4, High 8). Only the uniform data changes: no recompile. */
+    setLimit(n: number) { this.limit = Math.max(0, Math.min(MAX_LAMPS, n)); this.write(); }
+
     cull(view: CullView) {
         const cam = view.camPos;
         const byDist = this.lamps.map(l => ({ l, d: l.pos.distanceToSquared(cam) })).sort((a, b) => a.d - b.d);
         // fade the furthest picks out toward the next lamp's distance, so swapping one in or out doesn't pop
-        const edge = byDist.length > MAX_LAMPS ? Math.sqrt(byDist[MAX_LAMPS].d) : Infinity;
-        this.picked = byDist.slice(0, MAX_LAMPS).map(({ l, d }) => {
+        const n = this.limit;
+        const edge = byDist.length > n ? Math.sqrt(byDist[n].d) : Infinity;
+        this.picked = byDist.slice(0, n).map(({ l, d }) => {
             const dist = Math.sqrt(d);
             return { lamp: l, fade: edge === Infinity ? 1 : 1 - THREE.MathUtils.smoothstep(dist, edge * 0.8, edge) };
         });

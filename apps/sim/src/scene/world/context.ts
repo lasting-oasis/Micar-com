@@ -56,13 +56,24 @@ export type WorldContext = {
     props: PropsKit;
     /** 0 = day, 1 = night: lamp glow, light pools. Call whenever the time of day changes. */
     setNight: (nightFactor: number) => void;
+    /** How many lamps light the scene in the shader: Low 4, High 8 (no recompile). */
+    setLampLimit: (n: number) => void;
 };
 
 /** A linear colour from an sRGB hex, times k (for colours that a texture's average scales down). */
 const scaledColor = (hex: string, k = 1) => new THREE.Color(hex).multiplyScalar(k);
 const linear = (r: number, g: number, b: number) => new THREE.Color().setRGB(r, g, b);
 
-export function createWorldContext(scene: THREE.Scene, addLightSource: WorldContext['addLightSource']): WorldContext {
+export function createWorldContext(scene: THREE.Scene, addPoolLight: WorldContext['addLightSource']): WorldContext {
+    // Lights: the pool of real lights (kept for its API), and the interior lights of
+    // buildings also as warm shader lamps, picked by distance like the street lamps.
+    let interior: ((x: number, y: number, z: number, color: string, intensity: number, distance: number) => void) | null = null;
+    const pendingInterior: [number, number, number, string, number, number][] = [];
+    const addLightSource: WorldContext['addLightSource'] = (x, y, z, color, intensity, distance, nightOnly) => {
+        addPoolLight(x, y, z, color, intensity, distance, nightOnly);
+        if (nightOnly) return; // (street and lot lamps add their own shader lamps)
+        if (interior) interior(x, y, z, color, intensity, distance); else pendingInterior.push([x, y, z, color, intensity, distance]);
+    };
     const cityMaterials: THREE.Material[] = [];
     const cityTextures: THREE.Texture[] = [];
     const environmentDisposables: THREE.Object3D[] = [];
@@ -182,6 +193,8 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
 
     const plants = createVegetationKit(scene, culling, environmentDisposables, cityMaterials, vegTex);
     const props = createPropsKit(scene, culling, environmentDisposables, cityMaterials, cityTextures, addLightSource);
+    interior = (x, y, z, _color, intensity, distance) => props.lamps.add(x, y, z, '#ffd6a0', intensity * 2.6, distance * 0.7); // (all warm)
+    pendingInterior.forEach(l => interior!(...l));
 
     return {
         scene,
@@ -203,5 +216,6 @@ export function createWorldContext(scene: THREE.Scene, addLightSource: WorldCont
         plants,
         props,
         setNight: props.setNight,
+        setLampLimit: (n: number) => props.lamps.setLimit(n),
     };
 }

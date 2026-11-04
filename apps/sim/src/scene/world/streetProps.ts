@@ -262,7 +262,7 @@ export function createPropsKit(
         lamps.setNight(f);
     };
 
-    return { material, city, street, lot, furniture, setNight };
+    return { material, city, street, lot, furniture, setNight, lamps };
 }
 
 export type PropsKit = ReturnType<typeof createPropsKit>;
