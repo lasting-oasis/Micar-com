@@ -1,0 +1,13 @@
+{
+  "pixel_mismatch_pct": 55.67,
+  "layout_mismatch_pct": 71.47,
+  "original_size": [
+    800,
+    499
+  ],
+  "replica_size": [
+    800,
+    499
+  ],
+  "pass": false
+}

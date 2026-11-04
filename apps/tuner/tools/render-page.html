@@ -1,0 +1,222 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>sprite pipeline host</title>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<style>html,body{margin:0;background:#202020}canvas{display:block}</style>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { Vehicle, DEFAULT_CONFIG, DIM } from './vehicle.js';
+
+const W = 1440, H = 900, FRAMES = 48, STEP = 360 / FRAMES, THETA0 = -35;
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true, premultipliedAlpha: false });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x000000, 0);
+renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+document.body.appendChild(renderer.domElement);
+
+// ---------- camera (fixed; the car rotates on a turntable) ----------
+const camera = new THREE.PerspectiveCamera(24, W / H, 0.5, 80);
+const T = new THREE.Vector3(0, 0.95, 0), DIST = 9.4, EL = THREE.MathUtils.degToRad(11);
+camera.position.set(T.x + DIST * Math.cos(EL), T.y + DIST * Math.sin(EL), 0); camera.lookAt(T); camera.updateMatrixWorld(true);
+
+// ---------- scene / lighting ----------
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.add(new THREE.HemisphereLight(0xdfe6ee, 0x3a3630, 0.35));
+const key = new THREE.DirectionalLight(0xfff2e0, 2.4); key.position.set(6, 9, -3); scene.add(key);
+const fill = new THREE.DirectionalLight(0xcfe0ff, 0.45); fill.position.set(-5, 4, 6); scene.add(fill);
+const rim = new THREE.DirectionalLight(0xffffff, 0.8); rim.position.set(-8, 6, -6); scene.add(rim);
+
+const vehicle = new Vehicle();
+const car = new THREE.Group(); car.add(vehicle.group); scene.add(car);
+const allMeshes = []; vehicle.parts.forEach(p => p.meshes.forEach(m => m.traverse(o => { if (o.isMesh) { o.userData.part = p; o.userData.mat = o.material; allMeshes.push(o); } })));
+
+// pass materials
+const depthOnly = new THREE.MeshBasicMaterial({ colorWrite: false });
+const diffuseMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9, metalness: 0.0, envMapIntensity: 0.45 });
+const specMat = new THREE.MeshPhysicalMaterial({ color: 0x000000, roughness: 0.35, metalness: 0.0, clearcoat: 1.0, clearcoatRoughness: 0.08, envMapIntensity: 0.4 });
+const maskMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+const glowMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+const paintMats = new Set([vehicle.M.paint, vehicle.M.seat, vehicle.M.rim]);
+
+function setConfigVisibility(config) {
+  for (const p of vehicle.parts) p.node.visible = partActive(p, config);
+}
+function partActive(p, config) {
+  if (config[p.configKey || p.category] !== p.variant) return false;
+  if (p.requires) for (const [k, v] of Object.entries(p.requires)) if (config[k] !== v) return false;
+  return true;
+}
+const isGlassMesh = m => m.userData.part && m.userData.part.isGlass;
+const isGlowPart = p => p.layers.includes('glow');
+
+// Render one layer of one part; returns {x,y,w,h,data} or null
+const scratch = document.createElement('canvas'); const sctx = scratch.getContext('2d', { willReadFrequently: false });
+function projectBox(meshes) {
+  const box = new THREE.Box3(); const tmp = new THREE.Box3();
+  for (const m of meshes) { tmp.setFromObject(m, true); box.union(tmp); }
+  if (box.isEmpty()) return null;
+  const v = new THREE.Vector3(); let minx = Infinity, miny = Infinity, maxx = -Infinity, maxy = -Infinity;
+  for (let i = 0; i < 8; i++) {
+    v.set(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z).project(camera);
+    const px = (v.x + 1) / 2 * W, py = (1 - v.y) / 2 * H;
+    minx = Math.min(minx, px); maxx = Math.max(maxx, px); miny = Math.min(miny, py); maxy = Math.max(maxy, py);
+  }
+  const pad = 4;
+  const x0 = Math.max(0, Math.floor(minx) - pad), y0 = Math.max(0, Math.floor(miny) - pad);
+  const x1 = Math.min(W, Math.ceil(maxx) + pad), y1 = Math.min(H, Math.ceil(maxy) + pad);
+  if (x1 <= x0 || y1 <= y0) return null;
+  return { x: x0, y: y0, w: x1 - x0, h: y1 - y0, center: box.getCenter(new THREE.Vector3()) };
+}
+function meshesOf(p, layer) {
+  const out = []; p.meshes.forEach(m => m.traverse(o => { if (!o.isMesh) return;
+    const paint = paintMats.has(o.userData.mat);
+    if (layer === 'diffuse' || layer === 'spec') { if (paint) out.push(o); }
+    else if (layer === 'lit') { if (!paint) out.push(o); }
+    else out.push(o); }));
+  return out;
+}
+async function encode(canvas, type, q) {
+  const blob = await new Promise(r => canvas.toBlob(r, type, q));
+  const buf = await blob.arrayBuffer(); let s = ''; const b = new Uint8Array(buf);
+  for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+  return btoa(s);
+}
+// Set up visibility + materials for a pass. occluders: Set of parts rendered depth-only.
+function preparePass(p, layer, config) {
+  const occl = new Set();
+  if (p.occlude !== 'none') {
+    const extra = Array.isArray(p.occlude) ? p.occlude.slice(1) : [];
+    for (const q of vehicle.parts) {
+      if (q === p) continue;
+      if (q.isGlass || isGlowPart(q) || q.category === 'shadow') continue;
+      if (q.group === 'core' && partActive(q, config)) occl.add(q);
+      if (extra.includes(q.id)) occl.add(q);
+    }
+  }
+  const target = new Set(meshesOf(p, layer));
+  const occlMeshes = [], targetMeshes = [];
+  for (const m of allMeshes) {
+    const q = m.userData.part; m.visible = false;
+    if (target.has(m)) { m.material = layer === 'diffuse' ? diffuseMat : layer === 'spec' ? specMat : layer === 'glassMask' ? maskMat : (layer === 'glow' && !m.userData.keepMat) ? glowMat : m.userData.mat; targetMeshes.push(m); }
+    else if (occl.has(q)) { m.material = depthOnly; occlMeshes.push(m); }
+  }
+  for (const q of vehicle.parts) q.node.visible = true;
+  return { occlMeshes, targetMeshes };
+}
+// Two-pass render: occluders first (depth only), then the target part on top of that depth buffer.
+function renderPass(passes) {
+  renderer.autoClear = false; renderer.clear();
+  if (passes.occlMeshes.length) { passes.occlMeshes.forEach(m => m.visible = true); renderer.render(scene, camera); passes.occlMeshes.forEach(m => m.visible = false); }
+  passes.targetMeshes.forEach(m => m.visible = true); renderer.render(scene, camera);
+  renderer.autoClear = true;
+}
+function restore() { for (const m of allMeshes) { m.material = m.userData.mat; m.visible = true; } }
+
+function setFrame(k) { car.rotation.y = THREE.MathUtils.degToRad(THETA0 - k * STEP); car.updateMatrixWorld(true); }
+
+async function renderLayer(p, layer, config) {
+  const meshes = meshesOf(p, layer); if (!meshes.length) return null;
+  const passes = preparePass(p, layer, config);
+  const bb = projectBox(meshes); if (!bb) { restore(); return null; }
+  renderPass(passes);
+  scratch.width = bb.w; scratch.height = bb.h; sctx.clearRect(0, 0, bb.w, bb.h);
+  sctx.drawImage(renderer.domElement, bb.x, bb.y, bb.w, bb.h, 0, 0, bb.w, bb.h);
+  // tighten the box using the alpha channel (cheap on the crop)
+  const id = sctx.getImageData(0, 0, bb.w, bb.h).data; let minx = bb.w, miny = bb.h, maxx = -1, maxy = -1;
+  for (let y = 0; y < bb.h; y++) for (let x = 0; x < bb.w; x++) { if (id[(y * bb.w + x) * 4 + 3] > 2) { if (x < minx) minx = x; if (x > maxx) maxx = x; if (y < miny) miny = y; if (y > maxy) maxy = y; } }
+  if (maxx < 0) { restore(); return null; }
+  const pad = 2; minx = Math.max(0, minx - pad); miny = Math.max(0, miny - pad); maxx = Math.min(bb.w - 1, maxx + pad); maxy = Math.min(bb.h - 1, maxy + pad);
+  const cw = maxx - minx + 1, ch = maxy - miny + 1;
+  const crop = document.createElement('canvas'); crop.width = cw; crop.height = ch;
+  crop.getContext('2d').drawImage(scratch, minx, miny, cw, ch, 0, 0, cw, ch);
+  const data = await encode(crop, window.__FORMAT || 'image/webp', window.__QUALITY || 0.9);
+  restore();
+  return { x: bb.x + minx, y: bb.y + miny, w: cw, h: ch, data };
+}
+
+// Full composite preview of a config (for QA screenshots)
+function renderPreview(config, k = 0) {
+  setFrame(k); restore(); setConfigVisibility(config);
+  for (const m of allMeshes) { const p = m.userData.part; if (isGlowPart(p)) m.visible = false; }
+  renderer.setClearColor(0x3a3d42, 1); renderer.render(scene, camera); renderer.setClearColor(0x000000, 0);
+  return renderer.domElement.toDataURL('image/png');
+}
+
+window.__pipeline = {
+  async init() { return { frames: FRAMES, parts: vehicle.parts.map(p => ({ id: p.id, category: p.category, configKey: p.configKey || p.category, side: p.side || null, variant: p.variant, name: p.name, group: p.group, layers: p.layers, paintable: !!p.paintable, zone: p.zone || null, hidden: !!p.hidden, price: p.price ?? null, requires: p.requires || null, softGlow: !!p.softGlow, glowColor: p.glowColor || null, zBias: p.zBias || 0 })), defaultConfig: DEFAULT_CONFIG, dim: DIM }; },
+  preview(config, k) { return renderPreview({ ...DEFAULT_CONFIG, ...(config || {}) }, k || 0); },
+  async renderFrame(k, onlyParts) {
+    setFrame(k); const config = DEFAULT_CONFIG; const out = [];
+    const cfgIds = new Set(); // parts whose variants are not the default still get rendered (all variants) — occluders are always the default core
+    for (const p of vehicle.parts) {
+      if (onlyParts && !onlyParts.includes(p.id)) continue;
+      if (!p.meshes.length) continue;
+      const layers = p.layers.slice(); if (p.paintable && meshesOf(p, 'lit').length) layers.push('lit');
+      const entry = { id: p.id, layers: {} };
+      // depth of the part's bbox centre in camera space (more negative = farther)
+      const bb = projectBox(p.meshes);
+      if (bb) { const c = bb.center.clone().applyMatrix4(camera.matrixWorldInverse); entry.depth = c.z + (p.zBias || 0); }
+      for (const layer of layers) { const r = await renderLayer(p, layer, config); if (r) entry.layers[layer] = r; }
+      out.push(entry);
+    }
+    restore();
+    // wheel hub screen positions for this frame (neon rings / debug)
+    const hubs = {}; const v = new THREE.Vector3();
+    for (const [pos, [ax, s]] of Object.entries({ fl: [DIM.frontAxleX, -1], fr: [DIM.frontAxleX, 1], rl: [DIM.rearAxleX, -1], rr: [DIM.rearAxleX, 1] })) {
+      v.set(ax, DIM.tireR.at, s * DIM.track / 2).applyMatrix4(car.matrixWorld).project(camera); hubs[pos] = [Math.round((v.x + 1) / 2 * W), Math.round((1 - v.y) / 2 * H)];
+    }
+    const core = out.find(e => e.id === 'body/stock');
+    return { k, parts: out, hubs, coreDepth: core ? core.depth : 0 };
+  },
+  async renderBackground() {
+    // A separate, original studio-garage scene rendered with the same camera (so the floor plane matches the car).
+    const bg = new THREE.Scene(); bg.background = new THREE.Color(0x15171a); bg.fog = new THREE.Fog(0x15171a, 20, 70);
+    bg.environment = scene.environment;
+    const noiseTex = (base, amp, grid, size = 1024) => { const c = document.createElement('canvas'); c.width = c.height = size; const x = c.getContext('2d');
+      x.fillStyle = base; x.fillRect(0, 0, size, size); const img = x.getImageData(0, 0, size, size); const d = img.data; let seed = 11;
+      for (let i = 0; i < d.length; i += 4) { seed = (seed * 16807) % 2147483647; const n = (seed / 2147483647 - 0.5) * amp; d[i] += n; d[i + 1] += n; d[i + 2] += n + 1; }
+      x.putImageData(img, 0, 0);
+      if (grid) { x.strokeStyle = 'rgba(0,0,0,0.38)'; x.lineWidth = 4; for (let i = 0; i <= size; i += grid) { x.beginPath(); x.moveTo(i, 0); x.lineTo(i, size); x.moveTo(0, i); x.lineTo(size, i); x.stroke(); } }
+      const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.SRGBColorSpace; return t; };
+    const floorTex = noiseTex('#2f3236', 22, 256); floorTex.repeat.set(12, 12);
+    const floor = new THREE.Mesh(new THREE.PlaneGeometry(70, 70), new THREE.MeshStandardMaterial({ map: floorTex, roughness: 0.6, metalness: 0.15, envMapIntensity: 0.35 })); floor.rotation.x = -Math.PI / 2; bg.add(floor);
+    const wallTex = noiseTex('#2f3337', 18, 0); wallTex.repeat.set(6, 2);
+    const wallMat = new THREE.MeshStandardMaterial({ map: wallTex, roughness: 0.9 });
+    const back = new THREE.Mesh(new THREE.PlaneGeometry(60, 12), wallMat); back.position.set(-9.5, 6, 0); back.rotation.y = Math.PI / 2; bg.add(back);
+    for (const s of [-1, 1]) { const side = new THREE.Mesh(new THREE.PlaneGeometry(60, 12), wallMat); side.position.set(-10, 6, s * 10); side.rotation.y = s > 0 ? Math.PI : 0; bg.add(side); }
+    const ceil = new THREE.Mesh(new THREE.PlaneGeometry(70, 70), new THREE.MeshStandardMaterial({ color: 0x1b1d20, roughness: 1 })); ceil.position.y = 6.2; ceil.rotation.x = Math.PI / 2; bg.add(ceil);
+    // back wall: window band with bright panes + mullions, wainscot stripe, panel ribs
+    const paneMat = new THREE.MeshBasicMaterial({ color: 0xcfe3f2 }); const mullMat = new THREE.MeshStandardMaterial({ color: 0x1a1c1e, roughness: 0.8 });
+    for (let z = -8; z <= 8; z += 2.2) { const pane = new THREE.Mesh(new THREE.PlaneGeometry(1.9, 0.9), paneMat); pane.position.set(-9.45, 2.0, z); pane.rotation.y = Math.PI / 2; bg.add(pane); const m = new THREE.Mesh(new THREE.BoxGeometry(0.06, 1.0, 0.08), mullMat); m.position.set(-9.42, 2.0, z); bg.add(m); const m2 = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.08, 2.0), mullMat); m2.position.set(-9.42, 2.0, z); bg.add(m2); }
+    const sill = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.12, 60), new THREE.MeshStandardMaterial({ color: 0x8a8d90, roughness: 0.6 })); sill.position.set(-9.4, 1.5, 0); bg.add(sill);
+    const stripe = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.14, 60), new THREE.MeshStandardMaterial({ color: 0xc8362a, roughness: 0.6 })); stripe.position.set(-9.42, 1.1, 0); bg.add(stripe);
+    const ribMat = new THREE.MeshStandardMaterial({ color: 0x3a3e43, roughness: 0.85 });
+    for (let z = -9; z <= 9; z += 1.5) { const r = new THREE.Mesh(new THREE.BoxGeometry(0.1, 1.4, 0.12), ribMat); r.position.set(-9.4, 0.7, z); bg.add(r); }
+    // props: tool cabinet, workbench with shelf, tire stack, oil drums, lift post
+    const cab = new THREE.Mesh(new THREE.BoxGeometry(1.1, 1.7, 2.2), new THREE.MeshStandardMaterial({ color: 0x9a1f1f, roughness: 0.45, metalness: 0.3 })); cab.position.set(-8.6, 0.85, -5.6); bg.add(cab);
+    for (let i = 0; i < 5; i++) { const dr = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.22, 2.0), new THREE.MeshStandardMaterial({ color: 0x7a1515, roughness: 0.5 })); dr.position.set(-8.02, 0.3 + i * 0.3, -5.6); bg.add(dr); }
+    const bench = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.9, 3.2), new THREE.MeshStandardMaterial({ color: 0x44474c, roughness: 0.7, metalness: 0.3 })); bench.position.set(-8.7, 0.45, 5.0); bg.add(bench);
+    const benchTop = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.06, 3.3), new THREE.MeshStandardMaterial({ color: 0x8b6b45, roughness: 0.8 })); benchTop.position.set(-8.7, 0.93, 5.0); bg.add(benchTop);
+    const shelf = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.05, 3.0), new THREE.MeshStandardMaterial({ color: 0x55595e, roughness: 0.7 })); shelf.position.set(-9.1, 1.35, 5.0); bg.add(shelf);
+    for (let i = 0; i < 6; i++) { const box = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.3, 0.4), new THREE.MeshStandardMaterial({ color: [0xc9b27a, 0x7a8fb3, 0xb36b5a][i % 3], roughness: 0.8 })); box.position.set(-9.1, 1.53, 3.8 + i * 0.48); bg.add(box); }
+    for (let i = 0; i < 4; i++) { const t = new THREE.Mesh(new THREE.TorusGeometry(0.42, 0.15, 12, 32), new THREE.MeshStandardMaterial({ color: 0x151515, roughness: 0.95 })); t.rotation.x = Math.PI / 2; t.position.set(-7.0, 0.16 + i * 0.3, 7.6); bg.add(t); }
+    for (const [x, z, col] of [[-7.8, -7.8, 0x2c5a8a], [-7.0, -8.1, 0x6b6e73]]) { const drum = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.9, 24), new THREE.MeshStandardMaterial({ color: col, roughness: 0.6, metalness: 0.3 })); drum.position.set(x, 0.45, z); bg.add(drum); }
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.35, 3.2, 0.35), new THREE.MeshStandardMaterial({ color: 0x2a6fb5, roughness: 0.5, metalness: 0.4 })); post.position.set(-4.5, 1.6, -8.9); bg.add(post);
+    // ceiling fixtures + lights
+    for (const z of [-4.5, 0, 4.5]) for (const x of [-6, -2, 2]) { const l = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.08, 0.25), new THREE.MeshBasicMaterial({ color: 0xfff5e4 })); l.position.set(x, 6.1, z); bg.add(l); }
+    bg.add(new THREE.HemisphereLight(0xe8eef5, 0x3a3127, 0.3));
+    const k2 = new THREE.DirectionalLight(0xffe9cc, 0.9); k2.position.set(6, 9, -3); bg.add(k2);
+    const spot = new THREE.SpotLight(0xffe6c4, 80, 34, Math.PI / 4.2, 0.7, 1.5); spot.position.set(1, 6, 0); spot.target.position.set(0, 0, 0); bg.add(spot); bg.add(spot.target);
+    const win = new THREE.RectAreaLight ? null : null; // (RectAreaLight needs an extra uniforms lib; skipped)
+    const pl = new THREE.PointLight(0xdfeaf5, 60, 30, 1.6); pl.position.set(-8.3, 2.2, 0); bg.add(pl);
+    renderer.setClearColor(0x15171a, 1); renderer.render(bg, camera); renderer.setClearColor(0x000000, 0);
+    const c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d'); x.drawImage(renderer.domElement, 0, 0);
+    // vignette + warm pool under the car position
+    const v = x.createRadialGradient(W * 0.52, H * 0.55, H * 0.35, W * 0.52, H * 0.55, H * 0.95); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.72)'); x.fillStyle = v; x.fillRect(0, 0, W, H);
+    return await encode(c, 'image/jpeg', 0.86);
+  },
+};
+window.__ready = true;
+</script></body></html>

@@ -1,0 +1,5 @@
+node_modules/
+tools/preview/
+diff/*/original.png
+diff/*/replica.png
+.DS_Store
