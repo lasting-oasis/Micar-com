@@ -61,15 +61,15 @@ const fragmentMap = /* glsl */`
 #ifndef GROUND_LOW
 	float gDetail = texture2D( gDetailMap, vGroundXZ * gDetailScale ).g * 2.0;
 	diffuseColor.rgb *= mix( 1.0, gDetail, gDetailStrength * sampledDiffuseColor.a );
+#endif
 	vec3 gMacro = texture2D( gMacroMap, vGroundXZ * gMacroScale ).rgb;
 	diffuseColor.rgb *= mix( gMacroLo, gMacroHi, gMacro.r );
 	diffuseColor.rgb = mix( diffuseColor.rgb, gDirtColor, smoothstep( gDirtRange.x, gDirtRange.y, gMacro.b ) * gDirtAmount );
-#endif
 #endif`;
 
-// Low graphics reads only the main texture: the detail and large-scale noise reads are
-// skipped (GROUND_LOW), two of the three texture reads per ground pixel. The ground covers
-// most of the screen, so on the GPU proxy this was the largest single cost on Low.
+// Low graphics skips the fine detail texture (GROUND_LOW): one of the three texture reads
+// per ground pixel, and the one that tiles finest. The large-scale noise stays, so big
+// lawns still don't show their tiling.
 const groundMaterials = new Set<THREE.MeshStandardMaterial>();
 let lowQuality = false;
 /** Switch every ground material between the full look and Low's single texture read. */
@@ -84,10 +84,10 @@ function applyQuality(m: THREE.MeshStandardMaterial) {
     m.needsUpdate = true;
 }
 
-// Low also lights the ground with diffuse light only: no sun highlight and no sky
-// reflection (the GGX and environment terms of the physical model). The ground is rough
-// (roughness 0.6-0.96), so those terms are faint on it, and they were a large part of
-// its cost. The sky's diffuse light and the street lamps still light it.
+// Low also skips the sun's highlight on the ground (the GGX term) and the multiple-
+// scattering part of the sky reflection. The ground is rough (roughness 0.6-0.96), so the
+// highlight is faint on it. The sky's reflection itself stays (a cheap approximation):
+// without it dark asphalt looked clearly darker. The street lamps still light it.
 const lowLighting = /* glsl */`
 #include <lights_physical_pars_fragment>
 #ifdef GROUND_LOW
@@ -97,6 +97,7 @@ void RE_Direct_GroundLow( const in IncidentLight directLight, const in vec3 geom
 }
 void RE_IndirectSpecular_GroundLow( const in vec3 radiance, const in vec3 irradiance, const in vec3 clearcoatRadiance, const in vec3 geometryPosition, const in vec3 geometryNormal, const in vec3 geometryViewDir, const in vec3 geometryClearcoatNormal, const in PhysicalMaterial material, inout ReflectedLight reflectedLight ) {
 	reflectedLight.indirectDiffuse += material.diffuseColor * irradiance * RECIPROCAL_PI;
+	reflectedLight.indirectSpecular += radiance * EnvironmentBRDF( geometryNormal, geometryViewDir, material.specularColor, material.specularF90, material.roughness );
 }
 #undef RE_Direct
 #define RE_Direct RE_Direct_GroundLow
