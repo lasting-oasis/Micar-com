@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import * as THREE from 'three';
-import { Driver, townCollider } from './driver';
-import { ARCHETYPES, STOCK_CFG, TUNE_DEF } from './data';
+import { Driver, STEP, townCollider } from './driver';
+import { ARCHETYPES, STOCK_CFG, TUNE_DEF, specFor } from './data';
 import { NO_INPUT } from './physics';
 
 describe('Driver', () => {
@@ -34,5 +34,14 @@ describe('Driver', () => {
     const col = townCollider([empty, sign]);
     const d = new Driver(ARCHETYPES.sedan, { cfg: STOCK_CFG, tune: TUNE_DEF }, { x: 0, z: 5, h: 0 });
     expect(col(d.V)).toBe(0);
+  });
+  it('simulates at most 0.05 s for a 0.1 s frame (what the Strip and the camera run on)', () => {
+    const d = new Driver(ARCHETYPES.sedan, { cfg: STOCK_CFG, tune: TUNE_DEF }, { x: 0, z: 0, h: 0 });
+    for (let i = 0; i < 5; i++) { const r = d.stepFrame(0.1, { ...NO_INPUT, fwd: 1 }, { drift: false, fuel: () => 50, burn: () => {}, collide: () => 0 }); expect(r.steps * STEP).toBeLessThanOrEqual(0.05 + 1e-9); }
+  });
+  it('drives a car unknown to carSpecs (the body-style fallback)', () => {
+    const d = new Driver(specFor({ make: 'Zz', model: 'Qq', bodyStyle: 'weird' }), { cfg: STOCK_CFG, tune: TUNE_DEF }, { x: 0, z: 0, h: 0 });
+    for (let i = 0; i < 60; i++) d.stepFrame(1 / 60, { ...NO_INPUT, fwd: 1 }, { drift: false, fuel: () => 50, burn: () => {}, collide: () => 0 });
+    expect(d.V.u).toBeGreaterThan(0);
   });
 });

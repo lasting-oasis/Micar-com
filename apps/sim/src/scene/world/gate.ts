@@ -86,6 +86,8 @@ export function buildGate(ctx: WorldContext): { isOnGate(x: number, z: number): 
     for (const sx of [-15, 15]) { const p = new THREE.Mesh(postGeo, postMat); p.position.x = sx; p.castShadow = true; arch.add(p); const c = new THREE.Mesh(capGeo, capMat); c.position.x = sx; arch.add(c); }
     arch.position.set(GATE.x, 0, GATE.z + GATE.r + 4);
     scene.add(arch);
+    // the posts are solid
+    for (const sx of [-15, 15]) ctx.staticCollisionBoxes.push(new THREE.Box3(new THREE.Vector3(GATE.x + sx - .6, 0, arch.position.z - .6), new THREE.Vector3(GATE.x + sx + .6, 11, arch.position.z + .6)));
 
     return {
         isOnGate: (x, z) => Math.hypot(x - GATE.x, z - GATE.z) < GATE.r,

@@ -727,7 +727,7 @@ export function VanillaThreeScene() {
         // ---- getting in and out
         const beginDriving = (carId: string): boolean => {
             const car = meNow()?.inventory.find(c => c.id === carId), mesh = carMeshes[carId];
-            if (!car || !mesh || driver) return false;
+            if (!car || !mesh || driver || aiDriveSequence[carId]) return false; // not a car out on a customer's test drive
             localDrivingCarId = carId;
             localFuel = car.fuel ?? 100; refuelRequestedIn = null;
             const b = buildOf(carId);
@@ -844,11 +844,13 @@ export function VanillaThreeScene() {
 
             // ---- physics
             const inStrip = district === 'strip' && !!strip, halt = paused || (inStrip && strip!.mapOpen);
-            let impact = 0;
+            // simDt: the time the physics actually ran this frame (≤ 0.05 s, 0 when halted); the Strip's AI and
+            // events, the wheels and the camera run on it, so nothing outpaces the player on a slow frame
+            let impact = 0, simDt = 0;
             if (!halt) {
                 const opts = inStrip ? stripOpts : townOpts;
                 opts.drift = driftMode || (inStrip && strip!.runner.active?.type === 'drift');
-                impact = D.stepFrame(delta, I, opts).impact;
+                const r = D.stepFrame(delta, I, opts); impact = r.impact; simDt = r.steps * STEP;
             }
             im.clearEdges();
             if (impact > 3) { chase.shake = Math.min(1, chase.shake + impact / 14); audio.sfx('crash'); }
@@ -862,13 +864,13 @@ export function VanillaThreeScene() {
             const p = D.pose();
             mesh.position.set(p.x, 0, p.z); mesh.rotation.set(0, p.rotY, 0);
             const wheels = carWheels[id];
-            if (wheels && !halt) { const roll = -V.u * W / wheelR * delta; for (const w of wheels) w.rotateX(roll); }
+            if (wheels && !halt) { const roll = -V.u * W / wheelR * simDt; for (const w of wheels) w.rotateX(roll); }
             const pivots = carSteering[id];
             if (pivots) for (const q of pivots) q.rotation.y = V.delta;
             syncCarWheels(mesh);
             setCarLights(mesh, !V.lights ? 'off' : V.gear === -1 && V.u < -0.5 ? 'reverse' : V.brk > 0 && V.u > 0.5 ? 'brake' : 'on');
-            if (inStrip) { strip!.update(delta, !paused && !resultsShown && !strip!.mapOpen && !garageOpen); stripExit.pulse(performance.now()); }
-            chase.update(V, delta, V.nosOn);
+            if (inStrip) { strip!.update(simDt, !paused && !resultsShown && !strip!.mapOpen && !garageOpen); stripExit.pulse(performance.now()); }
+            chase.update(V, simDt, V.nosOn);
 
             // ---- HUD
             if (hud && hudCanvas) {
@@ -1488,11 +1490,13 @@ export function VanillaThreeScene() {
             if (current.playerId && useGameStore.getState().socket && (time - lastPosEmitTime > 0.1)) {
                 lastPosEmitTime = time;
                 const activeMesh = (isDriving && localDrivingCarId && carMeshes[localDrivingCarId]) ? carMeshes[localDrivingCarId] : avatar;
+                // in the Strip, the town sees us at the gate (today's server stores this as our town position)
+                const away = district === 'strip';
                 useGameStore.getState().socket?.emit('sync_player_pos', {
-                    x: activeMesh.position.x,
-                    y: activeMesh.position.y,
-                    z: activeMesh.position.z,
-                    rotation: headingOf(activeMesh), // true heading (see headingOf)
+                    x: away ? GATE_RETURN.x : activeMesh.position.x,
+                    y: away ? 0 : activeMesh.position.y,
+                    z: away ? GATE_RETURN.z : activeMesh.position.z,
+                    rotation: away ? GATE_RETURN.rotY : headingOf(activeMesh), // true heading (see headingOf)
                     district, // others draw us only in the same district (the server relays it from Task 11)
                 });
                 // Feed the GPS our live position directly so it follows instantly (the town's map: not from the Strip).
