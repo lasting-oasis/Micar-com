@@ -10,6 +10,7 @@
    and `collide` + `runner.postStep` after each sub-step) and places its car group. */
 import * as THREE from 'three';
 import { attachCarShadows, buildCarModel, carShadowScene, disposeCarModel, setCarLights, syncCarWheels } from '../../scene/carModel';
+import { getStyleGeometry } from '../../scene/car/carStyles';
 import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from '../parts';
 import { ARCHETYPES, EVENTS, EV_COL, EV_NAME, PALETTE, STOCK_CFG, STYLES, TUNE_DEF, type BodyStyle, type CarCfg, type EventDef, type VisualCfg } from '../data';
 import { carParams, makeVehicle, type Vehicle } from '../physics';
@@ -77,7 +78,7 @@ export class StripScene {
   private readonly kitted = new Set<THREE.Group>();
   private tags: THREE.Sprite[] = [];
   private tagTex: THREE.Texture | null = null;
-  private envTex: THREE.Texture | null = null;
+  private envRT: THREE.WebGLRenderTarget | null = null;
   private gpsMesh: THREE.Mesh | null = null;
   private gpsMat: THREE.MeshBasicMaterial | null = null;
   private carGroup: THREE.Group | null = null;
@@ -110,7 +111,8 @@ export class StripScene {
     const city = this.city = buildCity(this.opts.seed ?? 7);
     this.scene = city.scene;
     this.markers = city.markers.map(m => ({ ev: m.ev, x: m.x / W, z: m.z / W, ring: m.ring, beam: m.beam }));
-    if (this.opts.renderer) this.scene.environment = this.envTex = makeEnv(this.opts.renderer);
+    if (this.opts.renderer) { this.envRT = makeEnv(this.opts.renderer); this.scene.environment = this.envRT.texture; }
+    for (const st of STYLES) getStyleGeometry(st); // every body style now, so a race start never builds one
     this.gpsMat = new THREE.MeshBasicMaterial({ color: ACCENT, transparent: true, opacity: .45, blending: THREE.AdditiveBlending, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
     this.tagTex = radialTexture();
     this.spawnTraffic(STRIP_TRAFFIC);
@@ -231,7 +233,7 @@ export class StripScene {
   }
   private endOutrun(): void {
     const o = this.outrun; if (!o) return;
-    if (o.state === 'run') { o.A.vmax = 16; o.A.acc = 6; o.A.brk = 8; o.A.cool = 20; }
+    o.A.vmax = 16; o.A.acc = 6; o.A.brk = 8; o.A.cool = 20; // also during the wind-down (updateOutrun's own reset never ran)
     this.outrun = null;
   }
   /** The player's collisions for one physics sub-step (blocks, then the AI cars except in a drag race); returns the impact. */
@@ -343,7 +345,7 @@ export class StripScene {
     for (const t of this.tags) t.material.dispose(); this.tags = [];
     this.tagTex?.dispose(); this.tagTex = null;
     this.setGps(null); this.gpsMat?.dispose(); this.gpsMat = null;
-    this.envTex?.dispose(); this.envTex = null;
+    this.envRT?.dispose(); this.envRT = null;
     this.city?.dispose(); this.city = null;
     this.scene = new THREE.Scene(); this.markers = [];
     this.ready = false;
@@ -371,7 +373,7 @@ export function ribbon(path: Node[], width: number, y: number): THREE.BufferGeom
 }
 
 /** Night Tuner's makeEnv(warm) in the brand's colours: a few lit boxes turned into a reflection map. */
-function makeEnv(renderer: THREE.WebGLRenderer): THREE.Texture {
+function makeEnv(renderer: THREE.WebGLRenderer): THREE.WebGLRenderTarget {
   const s = new THREE.Scene(); s.background = new THREE.Color(0x0a0a10);
   const g = new THREE.BoxGeometry(1, 1, 1); const ms: THREE.Material[] = [];
   const P = (c: THREE.ColorRepresentation, i: number, x: number, y: number, z: number, sx: number, sy: number, sz: number) => { const mat = new THREE.MeshBasicMaterial({ color: new THREE.Color(c).multiplyScalar(i) }); ms.push(mat); const m = new THREE.Mesh(g, mat); m.position.set(x, y, z); m.scale.set(sx, sy, sz); s.add(m); };
@@ -379,7 +381,7 @@ function makeEnv(renderer: THREE.WebGLRenderer): THREE.Texture {
   P(TUBE_BLUE, 1.4, -13, 3, 0, .3, 5, 24); P(ACCENT, 1.2, 13, 3, 0, .3, 5, 24);
   P(0xffa040, .9, 0, 1.5, -15, 30, 3, .3); P(0xff9a30, .6, 0, 1.5, 15, 30, 3, .3);
   P(0x05070c, 1, 0, -4, 0, 60, .2, 60);
-  const pm = new THREE.PMREMGenerator(renderer); const t = pm.fromScene(s, .035).texture; pm.dispose();
+  const pm = new THREE.PMREMGenerator(renderer); const t = pm.fromScene(s, .035); pm.dispose();
   g.dispose(); ms.forEach(m => m.dispose());
   return t;
 }

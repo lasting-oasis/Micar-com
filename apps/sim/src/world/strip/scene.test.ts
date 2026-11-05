@@ -75,4 +75,14 @@ describe('StripScene', () => {
     expect(cars(S.scene).length).toBe(17);
     S.dispose();
   });
+
+  it('an exit during the outrun wind-down still gives the rival back its pace and a cooldown', async () => {
+    const { startOutrun } = await import('./events');
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    const R = S.ais.find(A => A.kind === 'rival')!;
+    S.outrun = startOutrun(R, 60, 5, 1); S.outrun.state = 'done'; // decided: the 2.2 s wind-down
+    S.exit();
+    expect(S.outrun).toBeNull(); expect(R.vmax).toBe(16); expect(R.acc).toBe(6); expect(R.brk).toBe(8); expect(R.cool).toBe(20);
+    S.dispose();
+  });
 });
