@@ -299,6 +299,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
     socket.on('player_positions', (positions) => set({ playerPositions: positions || {} }));
     socket.on('time_update', (timeOfDay) => set({ timeOfDay }));
     socket.on('refuel_denied', () => set({ driveNotice: 'Not enough cash to refuel.' }));
+    socket.on('strip_denied', (d: { reason?: string }) => set({ driveNotice: d?.reason || 'The Strip refused that.' }));
     // The server's answer to finish_event / finish_outrun (Task 11): what the run paid
     socket.on('event_result', (r: EventReward) => useDriveUi.setState({ reward: { cash: r?.cash ?? 0, octane: r?.octane ?? 0, rep: r?.rep ?? 0, stamps: r?.stamps ?? [] } }));
     socket.on('chat', (msg: ChatMessage) => set((s) => {

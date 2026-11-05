@@ -29,7 +29,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   const fallback = useMemo(() => ({ cfg: clone(STOCK_CFG), tune: clone(TUNE_DEF), owned: [] as string[] }), [carId]);
 
   const live = useRef({ carId, spec, fallback, cars: [] as { id: string; name: string; drive?: string }[] });
-  live.current = { carId, spec, fallback, cars: (me?.inventory ?? []).filter(c => !c.isRental).map(c => { const d = getCarSpec(c, c.bodyStyle ?? deriveStyle(c.model)).drive; return { id: c.id, name: `${c.year} ${c.make} ${c.model}`, drive: d === '4WD' ? 'AWD' : d }; }) };
+  live.current = { carId, spec, fallback, cars: (me?.inventory ?? []).map(c => { const d = getCarSpec(c, c.bodyStyle ?? deriveStyle(c.model)).drive; return { id: c.id, name: `${c.year} ${c.make} ${c.model}`, drive: d === '4WD' ? 'AWD' : d }; }) };
 
   const [, bump] = useReducer((x: number) => x + 1, 0);
   const [toast, setToast] = useState<{ text: string; bad: boolean; n: number } | null>(null);
