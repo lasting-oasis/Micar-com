@@ -20,7 +20,6 @@ import '../door.css';
 
 import { WORLD_URL, SHOP_URL } from '@micar/brand';
 export { WORLD_URL, SHOP_URL };
-const TUNER_URL = new URL('../tuner/', typeof location !== 'undefined' ? location.href.split('#')[0] : 'https://lasting-oasis.github.io/Micar-com/').href;
 
 const STATS = {
   models: stickers.length,
@@ -247,7 +246,7 @@ function World({ card }: { card: Card }) {
         <div className="doors">
           <div className="place"><small>{t('home')}</small><h3>{t('The Garage')}</h3><p>{t('Your cards as cars. The bay where you repair and modify them: every part you add is a part on the card.')}</p></div>
           <div className="place"><small>{t('work')}</small><h3>{t('The Dealership')}</h3><p>{t('Learn the car business without paying for your mistakes. Buy a salvage title at auction, fix it, flip it. Mistakes cost Octane, not money.')}</p></div>
-          <div className="place"><small>{t('play')}</small><h3>{t('The Strip')}</h3><p>{t('Race the card you built. Stats come from the trim and the parts, never from the grade, so nothing you win can change the number.')}</p></div>
+          <div className="place"><small>{t('play')}</small><h3>{t('The Strip')}</h3><p>{t('Race the car you tuned: sprint, circuit, street X, drag, drift, outrun. Prizes in dollars, Octane and stamps on the card, never the grade.')}</p></div>
         </div>
       </div>
       <p className="lotnote">{t('In the world, condition is earned, not declared. Your car enters at the baseline for its trim; a verified trail brings its real condition with it.')}</p>
@@ -353,7 +352,7 @@ function Footer() {
       <div className="foot">
         <div><h4>MiCar</h4><p className="addr">{t('Said MEE-car. One brand: the value, the card, the garage, the world. Charlotte, NC.')}</p></div>
         <div><h4>{t('Value')}</h4><a href={calculatorUrl()}>{t('Value a car')}</a><a href={stickerPageUrl()}>{t('Window sheet')}</a><a href="#grade">{t('The grade')}</a></div>
-        <div><h4>{t('World')}</h4><a href={WORLD_URL}>{t('MiCar World')}</a><a href={SHOP_URL}>{t('MiCar Shop')}</a><a href={TUNER_URL}>{t('Tuner')}</a></div>
+        <div><h4>{t('World')}</h4><a href={WORLD_URL}>{t('MiCar World')}</a><a href={SHOP_URL}>{t('MiCar Shop')}</a></div>
         <div><h4>{t('About')}</h4><a href="https://github.com/lasting-oasis/Micar-com" target="_blank" rel="noreferrer">{t("How it's built")}</a><a href="#keyholder">{t('Keyholder')}</a></div>
       </div>
       <div className="legal"><span>© 2026 MiCar</span><span>{t('Values are estimates, not appraisals or offers to buy.')}</span></div>

@@ -918,6 +918,8 @@ export function VanillaThreeScene() {
             exitStrip: () => exitStrip(),
             startEvent: (id: string) => startEventById(id),
             district: () => district,
+            /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */
+            openGarage: (carId?: string): boolean => { const c = carId ?? meNow()?.inventory?.[0]?.id; if (!c) return false; useGameStore.getState().openGarage(c); return true; },
         };
         (window as unknown as { __micar?: typeof micar }).__micar = micar;
 

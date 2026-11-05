@@ -34,7 +34,7 @@ URL: the root of the Pages site. Title: MiCar. Said MEE-car. Positioning line: t
 
 **Act 8. Charlotte Series 1.** Slab Day, First Edition for the first 1,000 Charlotte cards, collector numbers by arrival. A live counter of cards parked once there are real ones.
 
-Footer: Value · Garage · Lot · Sheet · Shop · Dealer Simulator · Tuner · EN / ESP.
+Footer: Value · Garage · Lot · Sheet · Shop · Dealer Simulator · EN / ESP (the Tuner link is gone: the Tuner is absorbed into the Garage).
 
 ## The 3D world: the garage is the hub in three dimensions
 
@@ -91,7 +91,7 @@ Screens are dark glass with windshield yellow (#ffd23f), Barlow and Barlow Conde
 | `/garage/` | your cards | phase 1 |
 | `/lot/` | verified listings, compare two cards | phase 3 |
 | `/shop/`, `/dealers/` | MiCar Shop (standalone, and the back office of a shop in the world) and Dealer Pro | routes now; real shops in the world in phase 2 |
-| `/tuner/` | the standalone tool until the shop absorbs it | now |
+| `/tuner/` | redirects to the world: the Tuner is absorbed into the Garage | now |
 | MiCar World on Render | opens in the Garage; `#dealership`, `#strip` deep links; `/shop` serves MiCar Shop | phase 0 routes, phase 2 garage |
 
 ## What exists today, and what the plan adds
@@ -114,6 +114,8 @@ Phase 0 is built and deployed from `main`:
 - The sim's portal is gone: `/` opens the world (setup screen titled MiCar World), `/shop` or the old `?app=` links open MiCar Shop with Body shop / Mechanic / Customer tracker tabs. Old product names retired.
 - Inner Value pages say MiCar Value; the old landing page is deleted; yellow key favicon.
 - Not done in phase 0: the Value calculator and sheet pages keep their blue accent (the print layer); accounts, parking, trail entries, slabs (phase 1); everything in the world beyond routing (phase 2).
+
+The Strip is live (Nov 5, 2026, on branch `night-tuner` until merged): the Night Tuner racing game is ported into MiCar World as a night-city district behind the Speedway gate, six race types (sprint, circuit, street X, drag, drift, outrun), prizes in dollars, Octane and stamps. The Tuner is absorbed into the Garage (live parts and tunes on the car); `apps/tuner` is retired, no longer shipped, and `/tuner/` forwards to the world.
 
 Unification (Nov 4, later): `packages/brand` (tokens, the five doors, the strip's stylesheet, the favicon; no React, each app renders the strip with its own). The strip sits on every surface in the same order: Value a car · Garage (soon) · World · For dealers · For shops, wordmark goes home, EN/ESP. The sim's Tailwind palette is remapped to the brand (`market` → windshield yellow, `blue` → steel, `cyan` → tube, Barlow), which restyled the whole HUD and the shop tabs without touching the JSX. The world opens on a front door: what the place is (three places, one line each), a name, your business (Dealership default), "More options" for size and the guide, Enter. The tuner carries the type, the yellow and the strip. Root `README.md` reads as the product; `og.jpg` is the share image. Open question for the owner: a custom domain (micar.com?) would put the door and the world under one roof.
 
