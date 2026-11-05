@@ -172,6 +172,7 @@ export class GarageScene {
     this.envRT.dispose();
     this.scene.clear();
     this.renderer.dispose();
+    this.renderer.forceContextLoss(); // free the WebGL context now, not at GC: repeated opens must not crowd out the world's
   }
 }
 

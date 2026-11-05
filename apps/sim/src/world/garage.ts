@@ -17,7 +17,7 @@ export type GarageCtx = {
   money: () => number;
   stage: () => number;
   car: () => { id: string; spec: VehicleSpec; state: CarStateLite };
-  cars: () => { id: string; name: string }[];
+  cars: () => { id: string; name: string; drive?: string }[];
   /** Pay `price` for part `key`=`v`, add it to the car's owned parts and fit it. */
   buy: (key: string, v: unknown, price: number) => void;
   /** Fit an owned part. */
@@ -163,7 +163,7 @@ export class GarageModel {
     }
     if (k === 'cars') {
       const me = this.ctx.car().id;
-      return this.ctx.cars().map(r => ({ id: r.id, label: r.name, status: r.id === me ? { text: 'Current', tone: 'eq' } : { text: 'Owned', tone: 'owned' } }));
+      return this.ctx.cars().map(r => ({ id: r.id, label: r.name, tag: r.drive, status: r.id === me ? { text: 'Current', tone: 'eq' } : { text: 'Owned', tone: 'owned' } }));
     }
     if (k === 'options') {
       return OPTS.map(o => { const vi = Math.max(0, o.vals.indexOf(this.opt(o.k))); return { id: o.k, label: o.n, status: { text: o.lab[vi], tone: 'muted' }, chevron: true }; });

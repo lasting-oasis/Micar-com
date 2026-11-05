@@ -285,6 +285,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
   openGarage: (carId) => set(s => ({ garageCarId: carId, strip: s.strip ?? freshStrip() })),
   closeGarage: () => set({ garageCarId: null }),
   buyStripPart: (carId, key, v, price) => {
+      const me0 = get().playerId ? get().gameState?.players[get().playerId!] : undefined;
+      if (!me0 || me0.money < price) return; // can't afford it: no emit, nothing changes
       const s = get().socket; if (s) s.emit('strip_buy_part', { carId, key, v, price });
       const st = get(), id = st.playerId, gs = st.gameState, me = gs && id ? gs.players[id] : undefined;
       const strip = editStripCar(st.strip, carId, c => { const o = okey(key, v); if (!c.owned.includes(o)) c.owned.push(o); c.cfg = withV(c.cfg, key, v); });

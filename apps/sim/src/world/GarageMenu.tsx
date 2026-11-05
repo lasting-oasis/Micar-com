@@ -7,6 +7,7 @@ import { deriveStyle } from '../scene/carModel';
 import { GarageModel, drawDyno, type Row, type RowTone } from './garage';
 import { GarageScene } from './GarageScene';
 import { Audio } from './audio';
+import { getCarSpec } from '../carSpecs';
 import { STAGE_REP, STOCK_CFG, STYLES, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type PartValue, type StripRecord } from './data';
 
 const clone = <T,>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
@@ -27,8 +28,8 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   const style: BodyStyle = useMemo(() => { const s = car ? (car.bodyStyle ?? deriveStyle(car.model)) : 'sedan'; return (STYLES as string[]).includes(s) ? s as BodyStyle : 'sedan'; }, [car?.bodyStyle, car?.model]);
   const fallback = useMemo(() => ({ cfg: clone(STOCK_CFG), tune: clone(TUNE_DEF), owned: [] as string[] }), [carId]);
 
-  const live = useRef({ carId, spec, fallback, cars: [] as { id: string; name: string }[] });
-  live.current = { carId, spec, fallback, cars: (me?.inventory ?? []).filter(c => !c.isRental).map(c => ({ id: c.id, name: `${c.year} ${c.make} ${c.model}` })) };
+  const live = useRef({ carId, spec, fallback, cars: [] as { id: string; name: string; drive?: string }[] });
+  live.current = { carId, spec, fallback, cars: (me?.inventory ?? []).filter(c => !c.isRental).map(c => { const d = getCarSpec(c, c.bodyStyle ?? deriveStyle(c.model)).drive; return { id: c.id, name: `${c.year} ${c.make} ${c.model}`, drive: d === '4WD' ? 'AWD' : d }; }) };
 
   const [, bump] = useReducer((x: number) => x + 1, 0);
   const [toast, setToast] = useState<{ text: string; bad: boolean; n: number } | null>(null);
@@ -107,7 +108,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   }, []);
 
   // close if the car leaves the inventory (sold, scrapped)
-  useEffect(() => { if (me && carId && !car) close(); }, [me, carId, car, close]);
+  useEffect(() => { if (me && carId && !car) { g.exit(); close(); } }, [me, carId, car, close]);
 
   const shown = car && spec ? g.shown() : null;
   // keep the turntable on the previewed cfg and the menu's camera
@@ -164,7 +165,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
       <div className="absolute left-4 md:left-6 top-[112px] w-[min(400px,calc(100vw-32px))] grid gap-2.5">
         <div className="font-cond font-bold text-xs tracking-[.2em] text-market min-h-[14px]">{g.crumb()}</div>
         <h2 className="m-0 font-cond italic font-black text-4xl md:text-5xl leading-[.9]">{g.title()}</h2>
-        <div ref={listRef} role="listbox" aria-label="Menu" className="grid gap-1 max-h-[calc(100vh-360px)] overflow-y-auto overflow-x-hidden py-1 pl-2 pr-3.5">
+        <div ref={listRef} role="listbox" aria-label="Menu" className="grid gap-1 max-h-[calc(100dvh-470px)] md:max-h-[calc(100vh-360px)] overflow-y-auto overflow-x-hidden py-1 pl-2 pr-3.5">
           {rows.map((r, i) => <MenuRow key={r.id + i} r={r} sel={i === sel} dyno={kind === 'dyno'}
             onEnter={(e) => { if (e.pointerType === 'mouse' && g.sel() !== i) act(() => g.select(i)); }}
             onClick={(e) => onRowClick(i, e)}
@@ -177,20 +178,22 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
       </div>
 
       {/* stat panel */}
-      <div className="absolute right-4 md:right-6 bottom-6 md:bottom-20 w-[min(300px,calc(100vw-32px))] bg-night/80 border border-line px-[18px] py-4 grid gap-2.5 max-md:hidden md:grid">
-        <h3 className="m-0 font-cond italic font-extrabold text-lg">{stats.title}<span className="ml-2 not-italic font-semibold text-xs tracking-[.14em] text-haze">{stats.changed ? 'Preview' : 'Current'}</span></h3>
-        <div className="font-cond font-semibold text-sm text-haze"><b className="text-ink">{stats.hp} hp</b> @ {stats.hpRpm} rpm · <b className="text-ink">{stats.mass} kg</b> · {stats.drive}</div>
+      <div className="absolute left-4 right-4 bottom-3 md:left-auto md:right-6 md:bottom-20 md:w-[300px] bg-night/80 border border-line px-3 py-2 md:px-[18px] md:py-4 grid gap-1.5 md:gap-2.5">
+        <h3 className="m-0 font-cond italic font-extrabold text-base md:text-lg">{stats.title}<span className="ml-2 not-italic font-semibold text-xs tracking-[.14em] text-haze">{stats.changed ? 'Preview' : 'Current'}</span></h3>
+        <div className="font-cond font-semibold text-xs md:text-sm text-haze"><b className="text-ink">{stats.hp} hp</b> @ {stats.hpRpm} rpm · <b className="text-ink">{stats.mass} kg</b> · {stats.drive}</div>
+        <div className="grid grid-cols-2 md:grid-cols-1 gap-x-3 gap-y-1.5 md:gap-y-2.5">
         {stats.bars.map(b => (
           <div key={b.n} className="grid gap-1">
-            <div className="flex justify-between font-cond font-bold text-xs tracking-[.12em] text-haze"><span>{b.n}</span><b className="text-ink tabular-nums tracking-normal">{b.txt}</b></div>
-            <div className="grid grid-cols-12 gap-[3px] h-2.5">{b.segs.map((s, q) => <i key={q} className={`block -skew-x-[20deg] ${SEG[s]}`} />)}</div>
+            <div className="flex justify-between gap-2 font-cond font-bold text-[11px] md:text-xs tracking-[.12em] text-haze"><span>{b.n}</span><b className="text-ink tabular-nums tracking-normal">{b.txt}</b></div>
+            <div className="grid grid-cols-12 gap-[2px] md:gap-[3px] h-1.5 md:h-2.5">{b.segs.map((s, q) => <i key={q} className={`block -skew-x-[20deg] ${SEG[s]}`} />)}</div>
           </div>
         ))}
-        {dyno && <canvas ref={dynoCanvas} width={300} height={150} className="block w-full h-[150px]" />}
+        </div>
+        {dyno && <canvas ref={dynoCanvas} width={300} height={150} className="hidden md:block w-full h-[150px]" />}
       </div>
 
       {toast && (
-        <div role="status" className={`absolute left-1/2 bottom-8 -translate-x-1/2 px-5 py-2.5 -skew-x-[10deg] border font-cond font-bold text-base ${toast.bad ? 'bg-[#2a0d12] border-warning text-ink' : 'bg-night border-market text-ink'}`}>
+        <div role="status" className={`absolute left-1/2 bottom-44 md:bottom-8 -translate-x-1/2 z-10 px-5 py-2.5 -skew-x-[10deg] border font-cond font-bold text-base ${toast.bad ? 'bg-[#2a0d12] border-warning text-ink' : 'bg-night border-market text-ink'}`}>
           <span className="inline-block skew-x-[10deg]">{toast.text}</span>
         </div>
       )}
@@ -215,6 +218,7 @@ function MenuRow({ r, sel, dyno, onEnter, onClick, onNudge }: { r: Row; sel: boo
           <button type="button" aria-label="More" onClick={(e) => { e.stopPropagation(); onNudge(1); }} className={`font-cond font-bold w-5 ${sel ? 'text-background' : 'text-haze'}`}>+</button>
         </span>
       )}
+      {r.tag && <span className={`skew-x-[10deg] font-cond font-semibold text-xs tracking-wider ${sel ? 'text-background/70' : 'text-haze'}`}>{r.tag}</span>}
       {st && <span className={`skew-x-[10deg] font-cond font-bold text-sm tracking-wider whitespace-nowrap tabular-nums ${st.tone === 'price' || st.tone === 'poor' ? 'text-base' : ''} ${sel ? TONE_SEL[st.tone] : TONE[st.tone]}`}>{st.text}</span>}
       {r.chevron && <span className={`skew-x-[10deg] font-cond italic font-extrabold text-lg ${sel ? 'text-background' : 'text-haze'}`}>›</span>}
     </div>
