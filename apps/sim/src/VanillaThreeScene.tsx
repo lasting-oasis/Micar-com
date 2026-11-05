@@ -671,6 +671,7 @@ export function VanillaThreeScene() {
                 socketEmit('finish_event', { eventId: r.ev.id, pos: r.pos, time: r.time, score: r.score, failed: !!r.failed });
                 useDriveUi.setState({ results: shownResults(r), reward: null });
             },
+            onEventQuit: ev => socketEmit('quit_event', { eventId: ev.id }),
             onOutrun: won => socketEmit('finish_outrun', { won }),
             // Night Tuner's near-miss cash is not ported (onNearMiss)
         });

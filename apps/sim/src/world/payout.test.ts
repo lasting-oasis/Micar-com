@@ -64,6 +64,17 @@ describe('validateOutrun', () => {
   });
 });
 
+describe('quit_event', () => {
+  // the server's entry bookkeeping: enter sets it, quit_event deletes it on a matching id, finish needs it
+  const server = () => { let entry: { eventId: string; startedAt: number } | undefined; let last: number | undefined = 0; const p = player();
+    return { p, enter: (id: string, now: number) => { entry = { eventId: id, startedAt: now }; }, quit: (id: string) => { if (entry && entry.eventId === id) entry = undefined; },
+      finish: (now: number) => { const v = validateFinish(entry, finish('dr1', 1, 12), now); entry = undefined; return v.ok ? applyPayout(p, EVENTS[3], v.pos, false) : null; },
+      outrun: (now: number) => { const v = validateOutrun(last, now, !!entry); if (!v.ok) return null; last = now; return applyPayout(p, outrunEvent(1), 1, false); } }; };
+  it('enter, quit, then an outrun after the window pays', () => { const s = server(); s.enter('dr1', 1000); expect(s.outrun(OUTRUN_MIN_MS)).toBeNull(); s.quit('dr1'); expect(s.outrun(OUTRUN_MIN_MS + 1000)!.cash).toBe(800); });
+  it('enter, quit, then a finish is refused', () => { const s = server(); s.enter('dr1', 0); s.quit('dr1'); expect(s.finish(60000)).toBeNull(); expect(s.p.money).toBe(0); });
+  it('a quit for another event leaves the entry', () => { const s = server(); s.enter('dr1', 0); s.quit('sp1'); expect(s.finish(60000)!.cash).toBe(1800); });
+});
+
 describe('parts and tunes', () => {
   it('prices a part from the catalog and refuses one above the stage', () => {
     expect(partPrice('spoiler', 1, 1)).toEqual({ ok: true, price: 900 });

@@ -211,8 +211,11 @@ export class EventRunner {
     const list = a.results; const pos = list.findIndex(p => p.me) + 1;
     return { pos, list, failed: a.fail, type: a.type, ev: a.ev, time: a.pFt, score: list.find(p => p.me)?.score ?? 0 };
   }
+  /** Called once when a live event ends without results (R, leaving the Strip, a new start): the server drops its entry. */
+  onAbandon?: (ev: EventDef) => void;
   cleanup(): void {
     const a = this.active; if (!a) return;
+    if (!a.results) this.onAbandon?.(a.ev);
     for (const R of a.racers) { const i = this.ais.indexOf(R); if (i >= 0) this.ais.splice(i, 1); this.fx.disposeMesh(R.m); }
     for (const o of a.drag.ai) this.fx.disposeMesh(o.m);
     for (const t of a.drag.trafficA) { setWander(t.A, nearestNode(t.A.x, t.A.z)); }

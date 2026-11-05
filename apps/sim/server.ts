@@ -1031,6 +1031,12 @@ io.on('connection', (socket) => {
       broadcastState(io, gameState);
   });
 
+  // A live event abandoned without results (R, leaving the Strip): drop the entry, pay nothing.
+  socket.on('quit_event', ({ eventId } = {} as any) => {
+      const e = activeEvents.get(socket.id);
+      if (e && e.eventId === eventId) activeEvents.delete(socket.id);
+  });
+
   const liveEntry = (now: number) => { const e = activeEvents.get(socket.id); return !!e && now - e.startedAt <= ENTRY_TTL_MS; };
 
   socket.on('finish_outrun', ({ won } = {} as any) => {

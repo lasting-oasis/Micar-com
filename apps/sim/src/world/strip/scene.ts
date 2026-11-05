@@ -49,6 +49,8 @@ export type StripSceneOpts = {
   onEventStart?(ev: EventDef, PV: Vehicle): void;
   /** the event's standings froze (1.4 s after the finish): show the results */
   onResults?(r: EventResults): void;
+  /** a live event ended without results: quit with R, left the Strip, or replaced by another start (once per event) */
+  onEventQuit?(ev: EventDef): void;
   /** an outrun was decided (once per outrun) */
   onOutrun?(won: boolean, rival: AI): void;
   /** a near miss with traffic above 22 m/s (Night Tuner paid $50) */
@@ -102,6 +104,7 @@ export class StripScene {
       styleRating: () => opts.styleRating?.() ?? 0,
     };
     this.runner = new EventRunner(this.PV, this.ais, this.fx, () => this.PV.P);
+    this.runner.onAbandon = ev => opts.onEventQuit?.(ev);
   }
   private stage(): number { return this.fx.stage(); }
 

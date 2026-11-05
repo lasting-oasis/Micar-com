@@ -34,6 +34,12 @@ function teleportToEnd(r: EventRunner): void {
 }
 
 describe('strip events', () => {
+  it('an event quit without results is reported once; one with results is not', () => {
+    const r = runner(sprint), quit: string[] = []; r.onAbandon = e => quit.push(e.id);
+    r.start(sprint); tick(r, 1); r.quit(); r.cleanup(); expect(quit).toEqual(['sp1']);
+    r.start(drag); r.start(sprint); expect(quit).toEqual(['sp1', 'dr1']); // a new start abandons the old one
+    tick(r, 4); teleportToEnd(r); tick(r, 0.5); r.results(); r.cleanup(); expect(quit).toEqual(['sp1', 'dr1']);
+  });
   it('a sprint counts down, then races, then finishes when the player passes the last node', () => { const r = runner(sprint); r.start(sprint); expect(r.active!.state).toBe('count'); tick(r, 4); expect(r.active!.state).toBe('race'); teleportToEnd(r); tick(r, 0.5); expect(r.active!.state).toBe('done'); const res = r.results()!; expect(res.pos).toBeGreaterThanOrEqual(1); expect(res.failed).toBeNull(); });
   it('standings put a DNF last and sort finishers by time', () => { const list = [{ name: 'a', ft: 30 }, { name: 'You', me: true, ft: 25 }, { name: 'b', ft: null, s: 100 }]; expect(sortStandings(list, 'sprint').map(p => p.name)).toEqual(['You', 'a', 'b']); });
   it('drift sorts by score', () => { expect(sortStandings([{ name: 'a', score: 10 }, { name: 'You', me: true, score: 40 }], 'drift')[0].name).toBe('You'); });
