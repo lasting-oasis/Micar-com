@@ -7,6 +7,7 @@ import { deriveStyle } from '../scene/carModel';
 import { GarageModel, drawDyno, type Row, type RowTone } from './garage';
 import { GarageScene } from './GarageScene';
 import { Audio } from './audio';
+import { useDriveUi } from './driveUi';
 import { getOption, getOptions, setOption } from './options';
 import { getCarSpec } from '../carSpecs';
 import { STAGE_REP, STOCK_CFG, STYLES, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type PartValue, type StripRecord } from './data';
@@ -21,6 +22,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   const carId = useGameStore(s => s.garageCarId);
   const me = useGameStore(s => (s.playerId && s.gameState ? s.gameState.players[s.playerId] : undefined));
   const strip = useGameStore(s => s.strip);
+  const octane = useGameStore(s => s.octane);
   const car = me?.inventory.find(c => c.id === carId);
   const close = useGameStore(s => s.closeGarage);
 
@@ -82,11 +84,13 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   const act = (f: () => unknown) => {
     audio.current?.resume();
     const r = f();
-    if (r === 'drive') { close(); return; }
-    if (typeof r === 'string' && r.startsWith('quick:')) { close(); onQuickRace?.(r.slice(6)); return; }
+    if (r === 'drive') { driveThis(); close(); return; }
+    if (typeof r === 'string' && r.startsWith('quick:')) { driveThis(); close(); onQuickRace?.(r.slice(6)); return; }
     bump();
   };
-  const leave = () => { g.exit(); close(); };
+  // out of the Garage in the car it shows (after "Your cars" switched to another one, that one)
+  const driveThis = () => useDriveUi.setState({ driveCar: live.current.carId });
+  const leave = () => { g.exit(); driveThis(); close(); };
 
   // keyboard: Night Tuner's garage keys. Captured on the window so the world under it does not drive.
   useEffect(() => {
@@ -157,6 +161,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
         </div>
         <div className="flex flex-col items-end gap-1 pointer-events-auto">
           <div className="font-cond italic font-extrabold text-3xl md:text-4xl leading-none text-market tabular-nums">{money(me?.money ?? 0)}</div>
+          <div className="font-cond italic font-extrabold text-lg leading-none text-[#79a6ff] tabular-nums" aria-label={`${octane} Octane`}>{Math.round(octane).toLocaleString('en-US')} Octane</div>
           <div className="font-cond font-semibold text-xs tracking-[.14em] text-haze">REP {rep.toLocaleString('en-US')} · Stage {stage}{stage < 5 ? ` · next at ${STAGE_REP[stage].toLocaleString('en-US')}` : ''}</div>
           <button type="button" onClick={leave} className="mt-1 px-4 py-1.5 bg-market text-background font-cond font-bold italic text-base -skew-x-[10deg] hover:brightness-110">
             <span className="inline-block skew-x-[10deg]">Drive</span>

@@ -716,6 +716,7 @@ export function VanillaThreeScene() {
             if (district !== 'strip' || !strip) return false;
             strip.exit(); // cleans up the event, gives the car group back to the town scene
             district = 'town'; paused = false; resultsShown = false;
+            mendEngine(); // a drag's blown engine stays in the Strip
             const mesh = localDrivingCarId ? carMeshes[localDrivingCarId] : undefined;
             if (driver) {
                 driver.place(GATE_RETURN.x / W, GATE_RETURN.z / W, GATE_RETURN.rotY - Math.PI);
@@ -1033,6 +1034,12 @@ export function VanillaThreeScene() {
             // a quick race asked for from the Garage: drive the Garage's car (if on foot) into the Strip and start it
             const garageId = useGameStore.getState().garageCarId;
             if (garageId) lastGarageCarId = garageId;
+            // the Garage was left on another of your cars ("Your cars"): step out of this one and into that one
+            const wantCar = useDriveUi.getState().driveCar;
+            if (wantCar) {
+                useDriveUi.setState({ driveCar: null });
+                if (driver && localDrivingCarId !== wantCar && carMeshes[wantCar] && !aiDriveSequence[wantCar] && meNow()?.inventory.some(c => c.id === wantCar)) { endDriving(); beginDriving(wantCar); }
+            }
             const quick = useDriveUi.getState().quick;
             if (quick) {
                 useDriveUi.setState({ quick: null });

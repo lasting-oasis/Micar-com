@@ -5,7 +5,7 @@
 // stacking context under App's UI, which would take their taps.
 import { forwardRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { HELP, useDriveUi, type DriveTap } from './driveUi';
+import { HELP, stampName, useDriveUi, type DriveTap } from './driveUi';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 // App's phone layout (its isMobile): the D-pad drives (its ◀ ▶ taps change a drag's lane), these add
@@ -93,7 +93,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                   <div className="font-cond text-lg mb-3">
                     {reward.cash > 0 ? <span className="text-market font-extrabold">+${reward.cash.toLocaleString('en-US')}</span> : <span className="text-white/50">No prize</span>}
                     {reward.octane > 0 && <span className="ml-3 text-[#79a6ff]">+{reward.octane} Octane</span>}
-                    {reward.stamps.length > 0 && <span className="ml-3 text-white/70">Stamp!</span>}
+                    {reward.stamps.length > 0 && <span className="ml-3 text-white/70">Stamp{reward.stamps.length > 1 ? 's' : ''}: {reward.stamps.map(stampName).join(', ')}</span>}
                   </div>
                 )}
                 <button onClick={() => tap('continue')} className="w-full min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Continue [Enter]</button>

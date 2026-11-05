@@ -7,6 +7,9 @@ export type District = 'town' | 'strip';
 export type ResultRow = { name: string; me: boolean; txt: string };
 export type ShownResults = { title: string; sub: string; pos: number; failed: string | null; rows: ResultRow[] };
 export type EventReward = { cash: number; octane: number; rep: number; stamps: string[] };
+/** the Strip's stamps (payout.ts awards them), by name, for the results card */
+export const STAMP_NAME: Readonly<Record<string, string>> = { 'strip:first-win': 'First win', 'strip:drag': 'Drag winner', 'strip:drift': 'Drift winner', 'strip:outrun': 'Outrun' };
+export const stampName = (id: string): string => STAMP_NAME[id] ?? id.replace(/^strip:/, '').replace(/-/g, ' ');
 /** what a tap on the layer asks the 3D view to do */
 export type DriveTap = 'enter' | 'continue' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map';
 
@@ -38,11 +41,13 @@ type DriveUi = {
   tap: DriveTap | null;
   /** a quick race asked for from the Garage, taken by the 3D view on its next frame */
   quick: string | null;
+  /** the car the Garage was left on (Drive, a quick race): the 3D view drives it, swapping cars if it is not the one driven */
+  driveCar: string | null;
   set(p: Partial<Omit<DriveUi, 'set'>>): void;
 };
 
 export const useDriveUi = create<DriveUi>(set => ({
-  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, help: 0, nos: false, tap: null, quick: null,
+  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, help: 0, nos: false, tap: null, quick: null, driveCar: null,
   set: p => set(p),
 }));
 
