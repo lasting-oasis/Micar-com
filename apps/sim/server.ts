@@ -356,6 +356,25 @@ const calculateCleanRetail = (make: string, year: number, mileage: number) => {
     return Math.max(2000, cleanRetail) * priceIndex; // Absolute minimum clean retail floor
 };
 
+// The smoke test's server (SMOKE=1 only, never otherwise): a new player starts with one car, a copy of the
+// cheapest car at the auction, titled and on the lot like any owned car, so the test needs no auction window.
+const grantStarterCar = (player: Player) => {
+    if (!gameState.market.length) generateMarketCars();
+    const base = [...gameState.market].sort((a, b) => a.buyPrice - b.buyPrice)[0];
+    if (!base) return;
+    const car: Car = JSON.parse(JSON.stringify(base));
+    car.id = `starter-${Date.now()}-${player.id.substring(0, 4)}`;
+    car.vin = generateVIN();
+    car.ownerId = player.id;
+    car.daysOnLot = 0;
+    car.isRegistered = true;
+    car.isDirty = false;
+    car.isProcessed = true;
+    car.lotPosition = dropOffSpot(player.lotPosition, 0) as any;
+    player.inventory.push(car);
+    console.log('SMOKE: granted a starter car', car.year, car.make, car.model, 'to', player.name);
+};
+
 // Generate random cars
 const generateMarketCars = () => {
     gameState.market = Array(4).fill(0).map((_, i) => {
@@ -897,6 +916,7 @@ io.on('connection', (socket) => {
         isStandaloneOperator: isStandalone,
         shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
       } as any;
+      if (process.env.SMOKE === '1') grantStarterCar(gameState.players[socket.id]);
       socket.emit('init', { id: socket.id, state: gameState });
       broadcastState(io, gameState);
       const joinedName = gameState.players[socket.id].name;

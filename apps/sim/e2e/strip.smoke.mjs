@@ -1,5 +1,6 @@
-// Smoke test for the Strip, against a running server (production build): town -> gate -> Strip -> drag -> results -> Garage.
-//   pnpm --filter @micar/sim build && PORT=3123 pnpm --filter @micar/sim start &
+// Smoke test for the Strip, against a running server (production build) started with SMOKE=1 (a new player is given a
+// starter car, so no auction window is needed): town -> gate -> Strip -> drag -> results -> Garage -> a performance part.
+//   pnpm --filter @micar/sim build && SMOKE=1 NODE_ENV=production PORT=3123 pnpm --filter @micar/sim start &
 //   BASE=http://localhost:3123/ pnpm --filter @micar/sim exec node e2e/strip.smoke.mjs
 // Exits 1 on any failed assertion or page error. Software GL (swiftshader), so it runs headless with no display; the game
 // is slow there (~3 fps), so the drag waits on the results card, not on a clock.
@@ -30,16 +31,12 @@ try {
   ok(true, 'the world loaded (window.__micar)');
   await p.waitForTimeout(8000);
 
-  // 2. a car: close the guide, buy at the auction, get in
+  // 2. a car: close the guide, get into the starter car (SMOKE=1)
   await p.locator('button:text-is("✕")').last().click({ timeout: 20000 }).catch(() => {});
-  await p.locator('button:has-text("GLOBAL AUCTION")').first().click();
-  await p.waitForTimeout(1500);
-  if (!(await p.locator('button:has-text("Pay Cash")').count())) fail('no car to buy: the auction is only open 8:00-17:00 game time (the first ~4.5 minutes after the server starts); restart the server with a fresh data dir');
-  await p.locator('button:has-text("Pay Cash")').first().click();
-  await p.waitForTimeout(1500);
-  await p.keyboard.press('Tab');
   await p.waitForTimeout(500);
-  ok(await M(() => window.__micar.drive()), 'got into a car');
+  const inCar = await p.waitForFunction(() => window.__micar.drive(), null, { timeout: 60000, polling: 1000 }).then(() => true, () => false);
+  if (!inCar) fail('no car to drive: start the server with SMOKE=1 (a new player is then given a starter car)');
+  ok(true, 'got into the starter car');
 
   // 3. W for 3 s moves it
   const a = await pose();
@@ -81,6 +78,23 @@ try {
   await p.waitForSelector('div.grid.grid-cols-12', { timeout: 60000 });
   const bars = await p.locator('div.grid.grid-cols-12').count();
   ok(bars === 5, `the Garage stat panel has 5 bars (found ${bars})`);
+
+  // 7. buy a performance part through the menu: a stat bar changes and the money drops
+  const barState = () => p.locator('div.grid.grid-cols-12').evaluateAll(els => els.map(e => e.parentElement.innerText.replace(/\s+/g, ' ').trim() + ' | ' + [...e.children].map(i => i.className.includes('bg-market') ? '#' : '.').join('')));
+  const before = await barState(), cash0 = await M(() => window.__micar.money());
+  await p.locator('[role=option]', { hasText: 'Performance' }).first().click();
+  await p.waitForTimeout(500);
+  await p.locator('[role=option]', { hasText: 'Engine' }).first().click();
+  await p.waitForTimeout(500);
+  const forSale = p.locator('[role=option]', { hasText: '$1,800' }).first(); // Engine, street tier (stage 1)
+  ok(await forSale.count() === 1, 'the Engine menu lists the $1,800 street engine');
+  await forSale.click(); // a mouse click selects the row and buys it
+  await p.waitForFunction(c => window.__micar.money() < c, cash0, { timeout: 20000 }).catch(() => {});
+  await p.waitForTimeout(1500);
+  const after = await barState(), cash1 = await M(() => window.__micar.money());
+  ok(cash1 < cash0, `buying the part took money ($${cash0} -> $${cash1})`);
+  const changed = before.filter((b, i) => b !== after[i]);
+  ok(changed.length > 0, `a stat bar changed (${changed.length}: ${before.find((b, i) => b !== after[i])} -> ${after.find((b, i) => b !== before[i])})`);
 
   ok(errs.length === 0, 'no page errors');
 } catch (e) {

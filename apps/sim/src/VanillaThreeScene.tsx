@@ -983,6 +983,10 @@ export function VanillaThreeScene() {
             district: () => district,
             /** the engine beds' gains (engine, turbo, skid, nitrous, wind); all 0 once out of the car */
             audioLevels: () => audio.levels(),
+            /** your money (dollars), as the client has it */
+            money: (): number => meNow()?.money ?? 0,
+            /** the live event, if any: its id, state ('count' | 'race' | 'done') and whether results are in */
+            event: () => { const a = district === 'strip' ? strip?.runner.active : null; return a ? { id: a.ev.id, state: a.state, results: !!a.results, pS: a.pS } : null; },
             /** the ids of the other players drawn in the Strip */
             stripPlayers: () => Object.keys(stripTags),
             /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */
