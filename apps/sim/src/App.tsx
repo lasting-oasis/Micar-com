@@ -15,6 +15,7 @@ import { SITE_URL } from '@micar/brand';
 // ChunkBoundary shows a Reload button if a screen still can't load.
 const loadScene = () => loadChunk(import('./VanillaThreeScene'));
 const VanillaThreeScene = lazy(() => loadScene().then(m => ({ default: m.VanillaThreeScene })));
+const GarageMenu = lazy(() => loadChunk(import('./world/GarageMenu')).then(m => ({ default: m.GarageMenu })));
 const StandaloneShopPlatform = lazy(() => loadChunk(import('./StandaloneShopPlatform')));
 const ShopManagement = lazy(() => loadChunk(import('./ShopManagement')));
 const TabLoading = () => (
@@ -1972,6 +1973,7 @@ function App() {
   const playerId = useGameStore(s => s.playerId);
   const activeInteraction = useGameStore(s => s.activeInteraction);
   const drivingCarIdForPrompt = useGameStore(s => s.drivingCarId); // hide the walk-up prompt while driving
+  const garageCarId = useGameStore(s => s.garageCarId); // the Garage overlay (world/GarageMenu) is open
   const { connect, buyCar, buyPsi, buyPart, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal, rentRaceCar } = useGameStore.getState();
   // The live clock (time_update every second), like the HUD badge and the sky:
   // gameState.timeOfDay only changes on full updates, so it can be hours stale.
@@ -2194,6 +2196,13 @@ function App() {
           <VanillaThreeScene />
         </Suspense>
       </ChunkBoundary>
+      {garageCarId && (
+        <ChunkBoundary className="fixed inset-0 z-[10000] grid place-items-center bg-background">
+          <Suspense fallback={<div className="fixed inset-0 z-[10000] bg-background" />}>
+            <GarageMenu />
+          </Suspense>
+        </ChunkBoundary>
+      )}
       <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />
       <GateControl isMobile={isMobile} />
       <GameChat isMobile={isMobile} />

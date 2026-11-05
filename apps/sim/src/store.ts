@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { io, Socket } from 'socket.io-client';
 import { GameState, ChatMessage } from './types.js';
+import { carState, freshStrip, okey, withV, type PartValue, type StripRecord } from './world/data';
+import type { Tune } from './world/physics';
 
 interface StoreState {
   socket: Socket | null;
@@ -103,6 +105,38 @@ interface StoreState {
   liquidateVehicle: (vehicleId: string) => void;
   buyInsurance: (type: 'liability' | 'inventory' | 'gap') => void;
   cancelInsurance: (type: 'liability' | 'inventory' | 'gap') => void;
+
+  // The Strip / the Garage (Night Tuner). strip and octane mirror gameState.players[me] when the
+  // server sends them; until then they live here (freshStrip / 0).
+  strip: StripRecord | null;
+  octane: number;
+  setStrip: (rec: StripRecord) => void;
+  garageCarId: string | null;       // the Garage overlay is open on this inventory car
+  openGarage: (carId: string) => void;
+  closeGarage: () => void;
+  // buyPart is taken by the parts counter (partName, cost), so the Garage's actions carry "Strip".
+  /** Pay for a Night Tuner part, own it and fit it (optimistic; emits strip_buy_part). */
+  buyStripPart: (carId: string, key: string, v: PartValue, price: number) => void;
+  /** Fit an owned part (optimistic; emits strip_equip). */
+  equipStripPart: (carId: string, key: string, v: PartValue) => void;
+  /** Save the dyno tune (optimistic; emits strip_tune). */
+  setStripTune: (carId: string, tune: Tune) => void;
+}
+
+const cloneJ = <T,>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
+/** The strip record with `carId`'s state changed by `f` (a copy: the store's old record is left alone). */
+function editStripCar(rec: StripRecord | null, carId: string, f: (c: StripRecord['cars'][string]) => void): StripRecord {
+  const next = cloneJ(rec ?? freshStrip());
+  f(carState(next, carId));
+  return next;
+}
+/** strip / octane from the local player in a server state, when it carries them. */
+function mirrorStrip(state: GameState | null | undefined, id: string | null): Partial<Pick<StoreState, 'strip' | 'octane'>> {
+  const p = state && id ? (state.players[id] as unknown as { strip?: StripRecord; octane?: number } | undefined) : undefined;
+  const out: Partial<Pick<StoreState, 'strip' | 'octane'>> = {};
+  if (p?.strip) out.strip = p.strip;
+  if (typeof p?.octane === 'number') out.octane = p.octane;
+  return out;
 }
 
 // Saved graphics choice, or a sensible default: low on phones/tablets.
@@ -244,6 +278,27 @@ export const useGameStore = create<StoreState>((set, get) => ({
       const socket = get().socket;
       if (socket) socket.emit('cancel_insurance', { type });
   },
+  strip: null,
+  octane: 0,
+  setStrip: (rec) => set({ strip: rec }),
+  garageCarId: null,
+  openGarage: (carId) => set(s => ({ garageCarId: carId, strip: s.strip ?? freshStrip() })),
+  closeGarage: () => set({ garageCarId: null }),
+  buyStripPart: (carId, key, v, price) => {
+      const s = get().socket; if (s) s.emit('strip_buy_part', { carId, key, v, price });
+      const st = get(), id = st.playerId, gs = st.gameState, me = gs && id ? gs.players[id] : undefined;
+      const strip = editStripCar(st.strip, carId, c => { const o = okey(key, v); if (!c.owned.includes(o)) c.owned.push(o); c.cfg = withV(c.cfg, key, v); });
+      if (gs && id && me) set({ strip, gameState: { ...gs, players: { ...gs.players, [id]: { ...me, money: me.money - price } } } });
+      else set({ strip });
+  },
+  equipStripPart: (carId, key, v) => {
+      const s = get().socket; if (s) s.emit('strip_equip', { carId, key, v });
+      set(st => ({ strip: editStripCar(st.strip, carId, c => { c.cfg = withV(c.cfg, key, v); }) }));
+  },
+  setStripTune: (carId, tune) => {
+      const s = get().socket; if (s) s.emit('strip_tune', { carId, tune });
+      set(st => ({ strip: editStripCar(st.strip, carId, c => { c.tune = cloneJ(tune); }) }));
+  },
   disconnect: () => {
     const socket = get().socket;
     if (socket) socket.disconnect();
@@ -252,7 +307,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
       // session (gate keypad / speedway panel at spawn, a stale race grabbing the next car).
       myWorldPos: null, drivingFuel: null, drivingSpeed: 0, gatePrompt: false, raceTrackPrompt: false, activeInteraction: null,
       activeRace: null, raceHud: null, raceResult: null, raceDenied: null, heldItem: null, heldCount: 0,
-      activeInspectionCarId: null, activeInspectionShopType: null, isBankModalOpen: false, isInsuranceModalOpen: false });
+      activeInspectionCarId: null, activeInspectionShopType: null, isBankModalOpen: false, isInsuranceModalOpen: false,
+      strip: null, octane: 0, garageCarId: null });
   },
   connect: (name, lotScale, careerFocus, shopSpecialty) => {
     const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
@@ -270,8 +326,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
         socket.on('connect', emitJoin);
     }
     
-    socket.on('init', (data) => set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0 }));
-    socket.on('update', (state) => set({ gameState: state, timeOfDay: state.timeOfDay }));
+    socket.on('init', (data) => set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id) }));
+    socket.on('update', (state) => set({ gameState: state, timeOfDay: state.timeOfDay, ...mirrorStrip(state, get().playerId) }));
     socket.on('player_positions', (positions) => set({ playerPositions: positions || {} }));
     socket.on('time_update', (timeOfDay) => set({ timeOfDay }));
     socket.on('race_started', (d) => set({ activeRace: d, raceResult: null, raceDenied: null }));
