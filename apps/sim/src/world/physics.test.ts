@@ -1,0 +1,28 @@
+import { describe, it, expect } from 'vitest';
+import {
+  carParams,
+  curveAt,
+  makeVehicle,
+  NO_INPUT,
+  resetVehicle,
+  simStats,
+  stepVehicle,
+  torqueAt,
+  type PerfCfg,
+  type Tune,
+  type VehicleSpec,
+} from './physics';
+
+const ronin: VehicleSpec = {id:'ronin',name:'Ronin GT',drive:'RWD',mass:1340,a:1.28,b:1.32,h:.48,cd:.33,area:2.05,redline:7300,r:.32,fin:4.0,gears:[3.55,2.12,1.5,1.13,.9,.76],tq:[[1000,175],[2500,222],[4000,252],[5500,258],[6500,242],[7400,210]]};
+const STOCK_PERF: PerfCfg = { engine: 0, ecu: 0, turbo: 0, trans: 0, susp: 0, nos: 0, tires: 0, brakes: 0, weight: 0 };
+const TUNE_DEF: Tune = { turbo: 0, nitrous: 0, aero: 0, bias: 0, ride: 0, stiff: 0, steer: 0, gears: 0 };
+
+describe('physics', () => {
+  it('interpolates the torque table', () => { expect(curveAt(ronin.tq, 1000)).toBe(175); expect(curveAt(ronin.tq, 3250)).toBeCloseTo(237, 0); expect(curveAt(ronin.tq, 9000)).toBe(210); });
+  it('a stock Ronin does 0-100 between 5 and 9 s and tops out between 200 and 260 km/h', () => { const s = simStats(carParams(ronin, STOCK_PERF, TUNE_DEF)); expect(s.t100).toBeGreaterThan(5); expect(s.t100).toBeLessThan(9); expect(s.top).toBeGreaterThan(200); expect(s.top).toBeLessThan(260); expect(s.hp).toBeGreaterThan(200); });
+  it('tier-3 engine, ecu and turbo add at least 35% peak torque', () => { const P0 = carParams(ronin, STOCK_PERF, TUNE_DEF), P3 = carParams(ronin, { ...STOCK_PERF, engine: 3, ecu: 3, turbo: 3 }, TUNE_DEF); expect(torqueAt(P3, 5500, 1) / torqueAt(P0, 5500, 0)).toBeGreaterThan(1.35); });
+  it('holding the throttle past the redline in manual blows the engine within 3 s', () => { const V = makeVehicle(carParams(ronin, STOCK_PERF, TUNE_DEF)); const I = { ...NO_INPUT, fwd: 1, manual: true }; for (let i = 0; i < 120 * 12; i++) stepVehicle(V, I, 1 / 120, false); expect(V.overRev).toBeGreaterThan(1.5); });
+  it('a perfect shift is counted in the window', () => { const V = makeVehicle(carParams(ronin, STOCK_PERF, TUNE_DEF)); const I = { ...NO_INPUT, fwd: 1, manual: true }; let n = 0; for (let i = 0; i < 120 * 8; i++) { const up = V.rpm > V.P.redline * 0.92 && V.shift <= 0 && V.gear < 6; stepVehicle(V, { ...I, shiftUp: up }, 1 / 120, false); n = V.perfectN || 0; } expect(n).toBeGreaterThanOrEqual(2); });
+  it('nitrous drains while firing and refills after', () => { const V = makeVehicle(carParams(ronin, { ...STOCK_PERF, nos: 2 }, TUNE_DEF)); const cap = V.P.nos.cap; for (let i = 0; i < 120; i++) stepVehicle(V, { ...NO_INPUT, fwd: 1, nos: true }, 1 / 120, false); expect(V.nos).toBeLessThan(cap); const low = V.nos; for (let i = 0; i < 120 * 30; i++) stepVehicle(V, { ...NO_INPUT, fwd: 0.2 }, 1 / 120, false); expect(V.nos).toBeGreaterThan(low); });
+  it('resetVehicle zeroes motion and puts the car where asked', () => { const V = makeVehicle(carParams(ronin, STOCK_PERF, TUNE_DEF)); for (let i = 0; i < 240; i++) stepVehicle(V, { ...NO_INPUT, fwd: 1 }, 1 / 120, false); resetVehicle(V, 10, 20, 1); expect([V.x, V.z, V.h, V.u, V.gear]).toEqual([10, 20, 1, 0, 1]); });
+});
