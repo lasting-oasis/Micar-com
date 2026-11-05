@@ -6,7 +6,7 @@ services:
     name: micar-sim
     runtime: node
     plan: free
-    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @micar/sim build
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @micar/sim test && pnpm --filter @micar/sim build
     startCommand: pnpm --filter @micar/sim start
     buildFilter:
       paths:

@@ -16,4 +16,5 @@ jobs:
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @micar/value test
+      - run: pnpm --filter @micar/sim test
       - run: pnpm -r --if-present build
