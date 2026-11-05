@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applyPayout, validateFinish, outrunEvent, clampTune, partPrice, ensureStrip } from './payout';
+import { applyPayout, validateFinish, validateOutrun, OUTRUN_MIN_MS, outrunEvent, clampTune, partPrice, ensureStrip } from './payout';
 import { EVENTS, freshStrip, carState, withV } from './data';
 import type { Player } from '../types';
 
@@ -51,6 +51,17 @@ describe('applyPayout', () => {
     expect(p.money).toBe(1300);
   });
   it('a lost outrun pays nothing', () => { const p = player(); expect(applyPayout(p, outrunEvent(1), 2, true)).toEqual({ cash: 0, octane: 0, rep: 0, stamps: [] }); expect(p.money).toBe(0); });
+});
+
+describe('validateOutrun', () => {
+  it('refuses outside the Strip and during a live event', () => { expect(validateOutrun(undefined, 1e6, false).ok).toBe(false); expect(validateOutrun(0, 1e6, true).ok).toBe(false); });
+  it('a second outrun inside the window is refused and pays nothing; one after the window pays once', () => {
+    const p = player(); let last = 0; const pay = (now: number) => { const v = validateOutrun(last, now, false); if (!v.ok) return null; last = now; return applyPayout(p, outrunEvent(1), 1, false); };
+    expect(pay(OUTRUN_MIN_MS - 1)).toBeNull(); // the first one also needs time after entering
+    expect(pay(OUTRUN_MIN_MS)!.cash).toBe(800);
+    expect(pay(OUTRUN_MIN_MS + 5000)).toBeNull(); expect(p.money).toBe(800);
+    expect(pay(2 * OUTRUN_MIN_MS)!.cash).toBe(800); expect(p.money).toBe(1600);
+  });
 });
 
 describe('parts and tunes', () => {

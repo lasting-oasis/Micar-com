@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { GameState, Car, Player, FractionalVehicle, FUEL_PRICE_PER_UNIT } from './src/types.js';
 import { EVENTS, carState, freshStrip, getV, isOwned, okey, stageOf, withV, type PartValue } from './src/world/data.js';
-import { applyPayout, clampTune, ensureStrip, outrunEvent, partPrice, validateFinish, type EventEntry } from './src/world/payout.js';
+import { applyPayout, clampTune, ensureStrip, outrunEvent, partPrice, validateFinish, validateOutrun, ENTRY_TTL_MS, type EventEntry } from './src/world/payout.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 
 const app = express();
@@ -102,6 +102,8 @@ setInterval(saveGameState, 15000);
 const activeEvents = new Map<string, EventEntry>();
 // The car each socket last drove (from sync_car_pos): its stored build gives the style bonus.
 const drivenCar = new Map<string, string>();
+// When each socket last had an outrun paid, or entered the Strip: outruns are paid at most every OUTRUN_MIN_MS.
+const lastOutrunAt = new Map<string, number>();
 
 // Timestamp of the last accepted end_day, used to throttle host day-advances.
 let lastEndDayAt = 0;
@@ -962,6 +964,8 @@ io.on('connection', (socket) => {
       if (clean) clean.district = pos.district === 'strip' ? 'strip' : 'town'; // relayed in player_positions
       if (gameState.players[socket.id] && clean) {
           const prev: any = gameState.players[socket.id].worldPosition;
+          if (clean.district === 'strip' && prev?.district !== 'strip') lastOutrunAt.set(socket.id, Date.now()); // entering the Strip starts the outrun clock
+          if (clean.district !== 'strip' && prev?.district === 'strip') activeEvents.delete(socket.id); // leaving the Strip abandons any event
           if (!prev || prev.x !== clean.x || prev.y !== clean.y || prev.z !== clean.z || prev.r !== clean.r || prev.rotation !== clean.rotation || prev.district !== clean.district) {
               positionsDirty = true; // only a real move needs relaying
           }
@@ -1011,7 +1015,7 @@ io.on('connection', (socket) => {
       const ev = EVENTS.find(e => e.id === eventId);
       if (!ev) { activeEvents.delete(socket.id); return; }
       if (ev.stage > stageOf(stripOf(player).rep)) { activeEvents.delete(socket.id); deny(`${ev.name} opens at stage ${ev.stage}.`); return; }
-      activeEvents.set(socket.id, { eventId: ev.id, startedAt: Date.now() });
+      activeEvents.set(socket.id, { eventId: ev.id, startedAt: Date.now(), carId: drivenCar.get(socket.id) }); // the car is locked for the style bonus
   });
 
   socket.on('finish_event', (msg: any) => {
@@ -1022,15 +1026,20 @@ io.on('connection', (socket) => {
       activeEvents.delete(socket.id); // an entry is answered once, paid or refused
       if (!v.ok) { console.log('finish_event refused:', socket.id, v.reason); deny('That run could not be verified, so it paid nothing.'); return; }
       const ev = EVENTS.find(e => e.id === entry!.eventId)!;
-      const r = applyPayout(player, ev, v.pos, !!msg.failed, { time: msg.time, carId: drivenCar.get(socket.id) });
+      const r = applyPayout(player, ev, v.pos, !!msg.failed, { time: msg.time, carId: entry!.carId });
       socket.emit('event_result', r);
       broadcastState(io, gameState);
   });
 
+  const liveEntry = (now: number) => { const e = activeEvents.get(socket.id); return !!e && now - e.startedAt <= ENTRY_TTL_MS; };
+
   socket.on('finish_outrun', ({ won } = {} as any) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      if (player.worldPosition?.district !== 'strip') return; // only from inside the Strip
+      const now = Date.now();
+      const v = player.worldPosition?.district === 'strip' ? validateOutrun(lastOutrunAt.get(socket.id), now, liveEntry(now)) : { ok: false as const, reason: 'not in the Strip' };
+      if (!v.ok) { console.log('finish_outrun refused:', socket.id, v.reason); deny('That outrun could not be verified, so it paid nothing.'); return; }
+      lastOutrunAt.set(socket.id, now);
       const r = applyPayout(player, outrunEvent(stageOf(stripOf(player).rep)), won === true ? 1 : 2, won !== true);
       socket.emit('event_result', r);
       if (r.cash || r.rep) broadcastState(io, gameState);
@@ -1039,7 +1048,7 @@ io.on('connection', (socket) => {
   socket.on('strip_buy_part', ({ carId, key, v, price } = {} as any) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      if (!ownsCar(player, carId) || typeof key !== 'string' || (typeof v !== 'string' && typeof v !== 'number')) { deny('That part is not for sale.'); return; }
+      if (!ownsCar(player, carId) || typeof key !== 'string' || (typeof v !== 'string' && typeof v !== 'number')) { deny('That part is not for sale.'); broadcastState(io, gameState); return; }
       const rec = stripOf(player), c = carState(rec, carId);
       const q = partPrice(key, v as PartValue, stageOf(rec.rep));
       if (!q.ok) { deny(q.reason); broadcastState(io, gameState); return; }
@@ -1062,7 +1071,9 @@ io.on('connection', (socket) => {
       if (!ownsCar(player, carId) || typeof key !== 'string' || (typeof v !== 'string' && typeof v !== 'number')) return;
       const rec = stripOf(player), c = carState(rec, carId);
       // only a part the car owns, or a free one in the catalog (isOwned: free, fitted, or bought)
-      if (!partPrice(key, v, Infinity).ok || !isOwned(c.cfg, c.owned, key, v)) { deny('Buy that part first.'); broadcastState(io, gameState); return; }
+      const q = partPrice(key, v, stageOf(rec.rep)); // the stage applies to free parts too
+      if (!q.ok) { deny(q.reason); broadcastState(io, gameState); return; }
+      if (!isOwned(c.cfg, c.owned, key, v)) { deny('Buy that part first.'); broadcastState(io, gameState); return; }
       if (getV(c.cfg, key) === v) return;
       c.cfg = withV(c.cfg, key, v);
       broadcastState(io, gameState);
@@ -1830,6 +1841,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     activeEvents.delete(socket.id);
     drivenCar.delete(socket.id);
+    lastOutrunAt.delete(socket.id);
     const leaving = gameState.players[socket.id];
     delete gameState.players[socket.id];
     if (gameState.hostId === socket.id) {

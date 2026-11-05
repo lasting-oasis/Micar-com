@@ -6,7 +6,7 @@ import type { Tune } from './physics';
 import type { Player } from '../types';
 
 export type FinishMsg = { eventId: string; pos: number; time: number | null; score: number; failed: boolean };
-export type EventEntry = { eventId: string; startedAt: number };
+export type EventEntry = { eventId: string; startedAt: number; carId?: string };
 export type Reward = { cash: number; octane: number; rep: number; stamps: string[] };
 
 /** Nobody averages 90 m/s on the Strip. */
@@ -14,6 +14,16 @@ export const MAX_AVG_MS = 90;
 /** An entry older than this is abandoned. */
 export const ENTRY_TTL_MS = 20 * 60 * 1000;
 export const OUTRUN_ID = 'outrun';
+/** A won outrun takes well over this long; one is paid at most this often, starting from entering the Strip. */
+export const OUTRUN_MIN_MS = 20 * 1000;
+
+/** An outrun pays only from inside the Strip (lastAt is set on entering it), outside an event, and not sooner than OUTRUN_MIN_MS after the last one or the entry. */
+export function validateOutrun(lastAt: number | undefined, now: number, hasEntry: boolean): { ok: true } | { ok: false; reason: string } {
+  if (lastAt == null) return { ok: false, reason: 'not in the Strip' };
+  if (hasEntry) return { ok: false, reason: 'an event is live' };
+  if (now - lastAt < OUTRUN_MIN_MS) return { ok: false, reason: 'too soon' };
+  return { ok: true };
+}
 
 const routeLen = new Map<string, number>();
 /** The distance an event covers, in metres: one route length, times the laps on a loop. */
