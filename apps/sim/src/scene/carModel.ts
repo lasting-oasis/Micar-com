@@ -439,8 +439,18 @@ let shadowsDirtyFrom = 0, lastLodCheck = -1e9;
 const tmpV = new THREE.Vector3(), tmpS = new THREE.Vector3();
 const SHADOW_Y = 0.05; // just above the paving (top at 0.03, paint 0.038, driveway aprons 0.045); polygonOffset does the rest
 
-/** Add the shared contact-shadow mesh (one draw for every car) to the scene. Call once. */
-export const attachCarShadows = (scene: THREE.Object3D) => { shadowScene = scene; };
+/**
+ * Add the shared contact-shadow mesh (one draw for every car) to the scene. Call once, and again
+ * to move the shadows to another scene (e.g. a second district): only cars in that scene cast them.
+ */
+export const attachCarShadows = (scene: THREE.Object3D) => {
+    shadowScene = scene;
+    if (shadowMesh) scene.add(shadowMesh);
+    shadowsDirtyFrom = 0;
+};
+/** The scene the contact shadows are drawn in (null before attachCarShadows). */
+export const carShadowScene = () => shadowScene;
+const rootOf = (o: THREE.Object3D) => { while (o.parent) o = o.parent; return o; };
 const ensureShadowMesh = (n: number) => {
     if (!shadowScene || !shared) return null;
     if (shadowMesh && shadowMesh.instanceMatrix.count >= n) return shadowMesh;
@@ -493,7 +503,7 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
     let changed = false;
     for (let i = 0; i < cars.length; i++) {
         const g = cars[i], c = partsOf(g)!;
-        const vis = g.visible && !!g.parent, q = g.quaternion, s = g.scale.x;
+        const vis = g.visible && !!g.parent && rootOf(g) === shadowScene, q = g.quaternion, s = g.scale.x;
         if (i < shadowsDirtyFrom && vis === c.sv && g.position.x === c.sx && g.position.z === c.sz && q.y === c.sqy && q.w === c.sqw && s === c.ss) continue;
         c.sx = g.position.x; c.sz = g.position.z; c.sqy = q.y; c.sqw = q.w; c.ss = s; c.sv = vis;
         tmpQ.set(0, q.y, 0, q.w).normalize(); // cars only turn about the vertical
