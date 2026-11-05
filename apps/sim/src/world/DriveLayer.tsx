@@ -23,6 +23,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const results = useDriveUi(s => s.results);
   const reward = useDriveUi(s => s.reward);
   const paused = useDriveUi(s => s.paused);
+  const eventLive = useDriveUi(s => s.eventLive);
   const nos = useDriveUi(s => s.nos);
   const [touch, setTouch] = useState(phoneLayout);
   useEffect(() => { const f = () => setTouch(phoneLayout()); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f); }, []);
@@ -93,6 +94,8 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
               <div className="w-[260px] rounded-xl border border-market/40 bg-night p-5 flex flex-col gap-2">
                 <div className="font-cond italic font-black uppercase text-3xl text-market mb-1">Paused</div>
                 <button onClick={() => tap('resume')} className="rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Resume</button>
+                {eventLive && <button onClick={() => tap('restart')} className="rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
+                {eventLive && <button onClick={() => tap('quit')} className="rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
                 <button onClick={() => tap('town')} className="rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>
               </div>
             </div>

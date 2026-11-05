@@ -20,7 +20,7 @@ import { EVENTS, EV_NAME, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, t
 import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physics';
 import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from './world/parts';
 import { StripScene, STRIP_SPAWN } from './world/strip/scene';
-import { snapToRoad } from './world/strip/routes';
+import { routePoint, snapToRoad } from './world/strip/routes';
 import type { EventResults } from './world/strip/events';
 import { Hud, fmtT, type HudState } from './world/hud';
 import { Audio as NtAudio } from './world/audio';
@@ -718,6 +718,17 @@ export function VanillaThreeScene() {
             useDriveUi.setState({ district: 'town', paused: false, results: null, prompt: '' }); promptShown = '';
             return true;
         };
+        /** Night Tuner's respawn(): in a live event, back onto the route where you got to (a drag: nothing;
+         *  the countdown and a finished run: nothing, so R never throws a race or a win away); else onto the nearest road. */
+        const respawn = (S: StripScene, D: Driver) => {
+            const a = S.runner.active, V = D.V;
+            if (a) {
+                if (a.type === 'drag' || a.state !== 'race' || a.results) return;
+                const p = routePoint(a.route, a.pS);
+                D.place(p.x, p.z, Math.atan2(p.tx, p.tz));
+            } else { snapToRoad(V); mendEngine(); }
+            chase.reset(V);
+        };
         const startEventById = (id: string, quick = false): boolean => {
             const ev = EVENTS.find(e => e.id === id);
             if (!ev || (district !== 'strip' && !enterStrip())) return false;
@@ -757,7 +768,7 @@ export function VanillaThreeScene() {
             const st = useGameStore.getState();
             st.setDrivingCarId(null); st.setDrivingFuel(null);
             hud?.clear();
-            useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false }); promptShown = ''; nosShown = false;
+            useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false, eventLive: false }); promptShown = ''; nosShown = false;
         };
 
         // ---- the per-frame step
@@ -825,10 +836,12 @@ export function VanillaThreeScene() {
                 } else if (paused) {
                     if (E.pause || tapped === 'resume') paused = false;
                     else if (tapped === 'town') leave = true;
+                    else if (tapped === 'restart' && a && !a.results) { paused = false; startEventById(a.ev.id, a.quick); } // cleanup (quit_event), then enter_event
+                    else if (tapped === 'quit' && a && !a.results) { paused = false; S.runner.quit(); mendEngine(); chase.reset(V); } // quit_event
                 } else {
                     if (E.pause) paused = true;
                     else if (E.map && free) S.toggleMap(true);
-                    else if (E.reset) { if (a) S.runner.quit(); else snapToRoad(V); mendEngine(); chase.reset(V); }
+                    else if (E.reset) respawn(S, D);
                     if (E.laneL) S.runner.dragLane(-1);
                     if (E.laneR) S.runner.dragLane(1);
                     if (free && stripExit.isOnExit(V.x, V.z)) { prompt = '[Enter] BACK TO TOWN'; if (enter) leave = true; }
@@ -889,7 +902,8 @@ export function VanillaThreeScene() {
             }
             if (prompt !== promptShown) { promptShown = prompt; useDriveUi.setState({ prompt }); }
             if (V.nosOn !== nosShown) { nosShown = V.nosOn; useDriveUi.setState({ nos: nosShown }); }
-            if (paused !== useDriveUi.getState().paused) useDriveUi.setState({ paused });
+            const ui = useDriveUi.getState(), act = inStrip ? strip!.runner.active : null, live = !!act && !act.results;
+            if (paused !== ui.paused || live !== ui.eventLive) useDriveUi.setState({ paused, eventLive: live });
 
             // ---- fuel gauge 5x/s, the tank and the car's spot to the server
             fuelUiAccum += delta; fuelNetAccum += delta; carSyncAccum += delta;
@@ -1660,7 +1674,7 @@ export function VanillaThreeScene() {
             im.detach();
             audio.dispose();
             hud?.clear();
-            useDriveUi.setState({ driving: false, district: 'town', prompt: '', results: null, paused: false, nos: false });
+            useDriveUi.setState({ driving: false, district: 'town', prompt: '', results: null, paused: false, eventLive: false, nos: false });
             lightPool.dispose();
             uiTex.dispose();
             gate.dispose();
