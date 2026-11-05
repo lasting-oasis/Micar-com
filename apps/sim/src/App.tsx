@@ -2096,7 +2096,7 @@ function App() {
     ];
     const enter = () => connect(nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScaleInput, careerFocusInput, shopSpecialtyInput);
     return (
-      <div className="min-h-[100dvh] bg-night text-ink font-sans overflow-y-auto" style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 20%, #121a2a 0%, #0e1217 70%)' }}>
+      <div className="h-[100dvh] overflow-y-auto overscroll-contain bg-night text-ink font-sans" style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 20%, #121a2a 0%, #0e1217 70%)' }}>
         <Strip current="world" />
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-16 grid gap-10 md:grid-cols-[1.2fr_1fr] items-start">
           <motion.div initial={{ y: 16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }} className="flex flex-col gap-6">
