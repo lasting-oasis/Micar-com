@@ -17,6 +17,7 @@ export class Audio {
   private AC: Ctx | null = null;
   private A: Nodes | null = null;
   private failed = false;
+  private quiet = true;
 
   constructor(private muted = false) {}
 
@@ -53,7 +54,8 @@ export class Audio {
   /** Night Tuner's engineAudio, once per frame: `speed` in m/s; `on` false fades every bed out. */
   engine(V: Vehicle, sp: number, on: boolean): void {
     const AC = this.AC, A = this.A; if (!AC || !A) return; const t = AC.currentTime;
-    if (!on) { A.eg.gain.setTargetAtTime(0, t, .05); A.whg.gain.setTargetAtTime(0, t, .05); A.skg.gain.setTargetAtTime(0, t, .05); A.nsg.gain.setTargetAtTime(0, t, .05); A.wdg.gain.setTargetAtTime(0, t, .05); return; }
+    if (!on) { this.silence(); return; }
+    this.quiet = false;
     const f = 28 + V.rpm / 60 * 1.6;
     A.e1.frequency.setTargetAtTime(f, t, .02); A.e2.frequency.setTargetAtTime(f * .5, t, .02); A.e3.frequency.setTargetAtTime(f * 1.51, t, .02);
     A.ef.frequency.setTargetAtTime(300 + V.thr * 1800 + V.rpm * .25, t, .04);
@@ -65,8 +67,24 @@ export class Audio {
     A.nsg.gain.setTargetAtTime(V.nosOn ? .09 : 0, t, .05); A.wdg.gain.setTargetAtTime(Math.min(.12, sp * sp * .00006), t, .1);
   }
 
+  /** Fade every engine bed (engine, turbo, skid, nitrous, wind) to silence: out of the car, paused, the Garage.
+   *  A short fade, then exactly 0 from 0.4 s on. Once quiet, later calls schedule nothing. */
+  silence(): void {
+    const AC = this.AC, A = this.A; if (!AC || !A || this.quiet) return; const t = AC.currentTime;
+    for (const g of [A.eg, A.whg, A.skg, A.nsg, A.wdg]) { g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(0, t, .05); g.gain.setValueAtTime(0, t + .4); }
+    this.quiet = true;
+  }
+
+  /** The engine beds' current gains (engine, turbo, skid, nitrous, wind); [] before the context exists. */
+  levels(): number[] { const A = this.A; return A ? [A.eg, A.whg, A.skg, A.nsg, A.wdg].map(g => g.gain.value) : []; }
+
+  /** Suspend the context (the tab is hidden); wake() picks it up again. */
+  suspend(): void { const AC = this.AC; if (AC && AC.state === 'running') void AC.suspend().catch(() => {}); }
+  /** Resume a context that exists (the tab is shown again); makes none. */
+  wake(): void { if (this.AC) this.resume(); }
+
   /** Close the context (leaving the world). */
-  dispose(): void { if (this.AC) void this.AC.close().catch(() => {}); this.AC = null; this.A = null; }
+  dispose(): void { if (this.AC) void this.AC.close().catch(() => {}); this.AC = null; this.A = null; this.quiet = true; }
 
   private ctx(): Ctx | null {
     if (this.AC) return this.AC; if (this.failed) return null;

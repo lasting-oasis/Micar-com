@@ -529,7 +529,8 @@ export function VanillaThreeScene() {
         // Release every key when the window loses focus (alt-tab, clicking another
         // app) — otherwise the key-up is never seen and the car keeps driving.
         const releaseAllKeys = () => { (Object.keys(keys) as (keyof typeof keys)[]).forEach(k => { keys[k] = false; }); };
-        const handleVisibility = () => { if (document.hidden) releaseAllKeys(); };
+        // a hidden tab: no keys held, the sound suspended (the AudioContext is made further down)
+        const handleVisibility = () => { if (document.hidden) { releaseAllKeys(); audio.suspend(); } else audio.wake(); };
         window.addEventListener('blur', releaseAllKeys);
         document.addEventListener('visibilitychange', handleVisibility);
 
@@ -750,6 +751,7 @@ export function VanillaThreeScene() {
             if (district === 'strip') exitStrip();
             im.detach();
             if (kit) { disposeParts(kit); kit = null; }
+            audio.silence(); // the engine, skid and wind beds: nothing keeps playing on foot
             kitKey = ''; driver = null; localDrivingCarId = null; localFuel = null;
             camera.position.copy(driveCam.position);
             const st = useGameStore.getState();
@@ -918,6 +920,8 @@ export function VanillaThreeScene() {
             exitStrip: () => exitStrip(),
             startEvent: (id: string) => startEventById(id),
             district: () => district,
+            /** the engine beds' gains (engine, turbo, skid, nitrous, wind); all 0 once out of the car */
+            audioLevels: () => audio.levels(),
             /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */
             openGarage: (carId?: string): boolean => { const c = carId ?? meNow()?.inventory?.[0]?.id; if (!c) return false; useGameStore.getState().openGarage(c); return true; },
         };
