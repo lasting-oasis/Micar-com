@@ -72,31 +72,32 @@ function interior(soup: Soup, t: T, o: { dash: [number, number, number, number];
 
 // ------------------------------------------------------------------------- sedan
 // Mid-size four-door saloon (Camry / Accord / 3 Series class): 9.6 x 3.7 x 2.9.
+const sedanSpec = (): BodySpec => ({
+    noseZ: -4.8, tailZ: 4.8, hw: 1.85,
+    front: { x0: 0.85, bulge: 0.2, len: 0.7, rake: 0.22 }, rear: { x0: 1.0, bulge: 0.1, len: 0.5, rake: 0.08 },
+    wheelR: 0.68, tyreW: 0.46, rimR: 0.45, wheelX: 1.56, axles: [-2.9, 2.75],
+    archR: 0.84, archY: 0.62, archP: 2,
+    bottom: C([[-4.8, 0.5], [-4.74, 0.44], [-4.55, 0.39], [-4.0, 0.36], [-3.4, 0.34], [3.3, 0.34], [4.0, 0.4], [4.5, 0.52], [4.72, 0.66], [4.8, 0.76]]),
+    shoulder: C([[-4.8, 1.36], [-4.76, 1.44], [-4.66, 1.5], [-4.45, 1.55], [-3.8, 1.61], [-2.9, 1.69], [-1.75, 1.84], [-0.5, 1.94], [1.0, 2.0],
+        [2.5, 2.06], [3.3, 2.09], [4.3, 2.1], [4.62, 2.09], [4.72, 2.04], [4.78, 1.95], [4.8, 1.86]]),
+    crown: C([[-4.8, 0.02], [-4.4, 0.05], [-1.9, 0.07], [3.3, 0.04], [4.8, 0.02]]),
+    widest: 0.6, tumble: 0.08, rS: 0.12, rL: 0.12, rLip: 0.05, sillIn: 0.07, ledge: 0.05, wellDepth: 0.78,
+    cabin: [-1.75, 3.12],
+    railR: 0.14, roofCrown: 0.07,
+    gh: {
+        roof: C([[-1.75, 1.83], [-1.35, 2.1], [-0.9, 2.42], [-0.45, 2.7], [-0.15, 2.83], [0.15, 2.88], [0.7, 2.9], [1.25, 2.87],
+            [1.55, 2.8], [1.95, 2.62], [2.5, 2.35], [2.9, 2.16], [3.12, 2.08]]),
+        rail: C([[-1.75, 1.56], [-0.9, 1.44], [-0.15, 1.37], [0.7, 1.37], [1.5, 1.35], [2.4, 1.3], [3.12, 1.3]]),
+        plan: C([[-1.75, 0.2], [-0.4, 0.15], [0.25, 0], [1.2, 0], [1.8, -0.08], [3.12, -0.16]]),
+        marks: [
+            { z: -1.75, zone: 'ws', side: 'glass' }, { z: -0.12, zone: 'roof', side: 'glass' },
+            { z: 0.52, zone: 'roof', side: 'b' }, { z: 0.76, zone: 'roof', side: 'glass' },
+            { z: 1.4, zone: 'bl', side: 'glass' }, { z: 1.9, zone: 'bl', side: 'c', slant: 0.28 }, { z: 3.12, zone: 'bl', side: 'c' },
+        ],
+    },
+});
 const sedan: Builder = () => {
-    const s: BodySpec = {
-        noseZ: -4.8, tailZ: 4.8, hw: 1.85,
-        front: { x0: 0.85, bulge: 0.2, len: 0.7, rake: 0.22 }, rear: { x0: 1.0, bulge: 0.1, len: 0.5, rake: 0.08 },
-        wheelR: 0.68, tyreW: 0.46, rimR: 0.45, wheelX: 1.56, axles: [-2.9, 2.75],
-        archR: 0.84, archY: 0.62, archP: 2,
-        bottom: C([[-4.8, 0.5], [-4.74, 0.44], [-4.55, 0.39], [-4.0, 0.36], [-3.4, 0.34], [3.3, 0.34], [4.0, 0.4], [4.5, 0.52], [4.72, 0.66], [4.8, 0.76]]),
-        shoulder: C([[-4.8, 1.36], [-4.76, 1.44], [-4.66, 1.5], [-4.45, 1.55], [-3.8, 1.61], [-2.9, 1.69], [-1.75, 1.84], [-0.5, 1.94], [1.0, 2.0],
-            [2.5, 2.06], [3.3, 2.09], [4.3, 2.1], [4.62, 2.09], [4.72, 2.04], [4.78, 1.95], [4.8, 1.86]]),
-        crown: C([[-4.8, 0.02], [-4.4, 0.05], [-1.9, 0.07], [3.3, 0.04], [4.8, 0.02]]),
-        widest: 0.6, tumble: 0.08, rS: 0.12, rL: 0.12, rLip: 0.05, sillIn: 0.07, ledge: 0.05, wellDepth: 0.78,
-        cabin: [-1.75, 3.12],
-        railR: 0.14, roofCrown: 0.07,
-        gh: {
-            roof: C([[-1.75, 1.83], [-1.35, 2.1], [-0.9, 2.42], [-0.45, 2.7], [-0.15, 2.83], [0.15, 2.88], [0.7, 2.9], [1.25, 2.87],
-                [1.55, 2.8], [1.95, 2.62], [2.5, 2.35], [2.9, 2.16], [3.12, 2.08]]),
-            rail: C([[-1.75, 1.56], [-0.9, 1.44], [-0.15, 1.37], [0.7, 1.37], [1.5, 1.35], [2.4, 1.3], [3.12, 1.3]]),
-            plan: C([[-1.75, 0.2], [-0.4, 0.15], [0.25, 0], [1.2, 0], [1.8, -0.08], [3.12, -0.16]]),
-            marks: [
-                { z: -1.75, zone: 'ws', side: 'glass' }, { z: -0.12, zone: 'roof', side: 'glass' },
-                { z: 0.52, zone: 'roof', side: 'b' }, { z: 0.76, zone: 'roof', side: 'glass' },
-                { z: 1.4, zone: 'bl', side: 'glass' }, { z: 1.9, zone: 'bl', side: 'c', slant: 0.28 }, { z: 3.12, zone: 'bl', side: 'c' },
-            ],
-        },
-    };
+    const s = BODY_SPECS.sedan;
     return buildStyleGeometry(s, (soup, s, t) => {
         const black = t.trim('blackMatte');
         // front: swept headlights, grille with badge, lower intake with fog lamps, plate
@@ -126,30 +127,31 @@ const sedan: Builder = () => {
 // ------------------------------------------------------------------------- coupe
 // Two-door sports coupe (M4 / 4 Series class): 9.4 x 3.8 x 2.75. Long doors, a short
 // sloping greenhouse with a small quarter window, wide slatted grille, quad exhausts.
+const coupeSpec = (): BodySpec => ({
+    noseZ: -4.7, tailZ: 4.7, hw: 1.9,
+    front: { x0: 0.9, bulge: 0.18, len: 0.7, rake: 0.28 }, rear: { x0: 1.05, bulge: 0.08, len: 0.5, rake: 0.1 },
+    wheelR: 0.68, tyreW: 0.52, rimR: 0.48, wheelX: 1.59, axles: [-2.95, 2.75],
+    archR: 0.84, archY: 0.62, archP: 2,
+    bottom: C([[-4.7, 0.44], [-4.64, 0.37], [-4.45, 0.32], [-3.9, 0.3], [3.5, 0.3], [4.2, 0.38], [4.6, 0.52], [4.7, 0.64]]),
+    shoulder: C([[-4.7, 1.24], [-4.66, 1.33], [-4.55, 1.4], [-4.3, 1.46], [-3.6, 1.53], [-2.95, 1.6], [-1.55, 1.78], [0, 1.88], [1.5, 1.95],
+        [2.9, 1.99], [4.25, 2.0], [4.52, 1.99], [4.62, 1.95], [4.67, 1.88], [4.7, 1.78]]),
+    crown: C([[-4.7, 0.02], [-4.2, 0.07], [-1.7, 0.09], [3.0, 0.04], [4.7, 0.02]]),
+    widest: 0.6, tumble: 0.1, rS: 0.13, rL: 0.12, rLip: 0.05, sillIn: 0.08, ledge: 0.05, wellDepth: 0.85,
+    cabin: [-1.55, 2.95],
+    railR: 0.14, roofCrown: 0.07,
+    gh: {
+        roof: C([[-1.55, 1.77], [-1.15, 2.08], [-0.7, 2.42], [-0.3, 2.63], [0.1, 2.72], [0.5, 2.74], [1.0, 2.7], [1.45, 2.58], [1.9, 2.38], [2.4, 2.17], [2.95, 1.98]]),
+        rail: C([[-1.55, 1.62], [-0.7, 1.46], [0.2, 1.38], [1.2, 1.36], [2.2, 1.32], [2.95, 1.34]]),
+        plan: C([[-1.55, 0.22], [-0.4, 0.15], [0.3, 0], [1.2, 0], [1.9, -0.1], [2.95, -0.18]]),
+        marks: [
+            { z: -1.55, zone: 'ws', side: 'glass' }, { z: -0.28, zone: 'roof', side: 'glass' },
+            { z: 1.0, zone: 'roof', side: 'b' }, { z: 1.12, zone: 'roof', side: 'glass' },
+            { z: 1.42, zone: 'bl', side: 'glass' }, { z: 1.7, zone: 'bl', side: 'c', slant: 0.38 }, { z: 2.95, zone: 'bl', side: 'c' },
+        ],
+    },
+});
 const coupe: Builder = () => {
-    const s: BodySpec = {
-        noseZ: -4.7, tailZ: 4.7, hw: 1.9,
-        front: { x0: 0.9, bulge: 0.18, len: 0.7, rake: 0.28 }, rear: { x0: 1.05, bulge: 0.08, len: 0.5, rake: 0.1 },
-        wheelR: 0.68, tyreW: 0.52, rimR: 0.48, wheelX: 1.59, axles: [-2.95, 2.75],
-        archR: 0.84, archY: 0.62, archP: 2,
-        bottom: C([[-4.7, 0.44], [-4.64, 0.37], [-4.45, 0.32], [-3.9, 0.3], [3.5, 0.3], [4.2, 0.38], [4.6, 0.52], [4.7, 0.64]]),
-        shoulder: C([[-4.7, 1.24], [-4.66, 1.33], [-4.55, 1.4], [-4.3, 1.46], [-3.6, 1.53], [-2.95, 1.6], [-1.55, 1.78], [0, 1.88], [1.5, 1.95],
-            [2.9, 1.99], [4.25, 2.0], [4.52, 1.99], [4.62, 1.95], [4.67, 1.88], [4.7, 1.78]]),
-        crown: C([[-4.7, 0.02], [-4.2, 0.07], [-1.7, 0.09], [3.0, 0.04], [4.7, 0.02]]),
-        widest: 0.6, tumble: 0.1, rS: 0.13, rL: 0.12, rLip: 0.05, sillIn: 0.08, ledge: 0.05, wellDepth: 0.85,
-        cabin: [-1.55, 2.95],
-        railR: 0.14, roofCrown: 0.07,
-        gh: {
-            roof: C([[-1.55, 1.77], [-1.15, 2.08], [-0.7, 2.42], [-0.3, 2.63], [0.1, 2.72], [0.5, 2.74], [1.0, 2.7], [1.45, 2.58], [1.9, 2.38], [2.4, 2.17], [2.95, 1.98]]),
-            rail: C([[-1.55, 1.62], [-0.7, 1.46], [0.2, 1.38], [1.2, 1.36], [2.2, 1.32], [2.95, 1.34]]),
-            plan: C([[-1.55, 0.22], [-0.4, 0.15], [0.3, 0], [1.2, 0], [1.9, -0.1], [2.95, -0.18]]),
-            marks: [
-                { z: -1.55, zone: 'ws', side: 'glass' }, { z: -0.28, zone: 'roof', side: 'glass' },
-                { z: 1.0, zone: 'roof', side: 'b' }, { z: 1.12, zone: 'roof', side: 'glass' },
-                { z: 1.42, zone: 'bl', side: 'glass' }, { z: 1.7, zone: 'bl', side: 'c', slant: 0.38 }, { z: 2.95, zone: 'bl', side: 'c' },
-            ],
-        },
-    };
+    const s = BODY_SPECS.coupe;
     return buildStyleGeometry(s, (soup, s, t) => {
         const black = t.trim('blackMatte');
         lamps(soup, s, t, 'head', CELL.headSp, 0.55, 1.74, 1.1, 1.34, 10);
@@ -177,29 +179,30 @@ const coupe: Builder = () => {
 // Low, wide front-engined sports car (Mustang / Camaro class; Corvette, Supra and Z4
 // use it too): 9.3 x 3.96 x 2.66. Long hood with a power bulge, blunt nose with a big
 // black grille, cab pushed back, short fastback, twin round tail lamps, quad exhausts, wing.
+const sportsSpec = (): BodySpec => ({
+    noseZ: -4.65, tailZ: 4.65, hw: 1.98,
+    front: { x0: 1.15, bulge: 0.12, len: 0.6, rake: 0.2 }, rear: { x0: 1.25, bulge: 0.06, len: 0.4, rake: 0.04 },
+    wheelR: 0.7, tyreW: 0.6, rimR: 0.5, wheelX: 1.64, axles: [-2.85, 2.62],
+    archR: 0.86, archY: 0.62, archP: 2.2,
+    bottom: C([[-4.65, 0.46], [-4.58, 0.36], [-4.3, 0.3], [-3.5, 0.28], [3.4, 0.28], [4.2, 0.36], [4.65, 0.52]]),
+    shoulder: C([[-4.65, 1.3], [-4.6, 1.38], [-4.45, 1.43], [-4.0, 1.47], [-2.85, 1.53], [-1.5, 1.6], [-0.6, 1.66], [0.6, 1.72], [2.0, 1.78],
+        [3.4, 1.83], [4.3, 1.85], [4.52, 1.84], [4.6, 1.79], [4.65, 1.71]]),
+    crown: C([[-4.65, 0.02], [-4.2, 0.08], [-3.4, 0.12], [-1.2, 0.13], [-0.6, 0.06], [4.65, 0.03]]),
+    widest: 0.55, tumble: 0.14, rS: 0.14, rL: 0.1, rLip: 0.04, sillIn: 0.12, ledge: 0.04, wellDepth: 0.9,
+    cabin: [-0.6, 2.9],
+    railR: 0.13, roofCrown: 0.06,
+    gh: {
+        roof: C([[-0.6, 1.65], [-0.25, 1.97], [0.15, 2.28], [0.5, 2.48], [0.85, 2.57], [1.25, 2.57], [1.7, 2.46], [2.2, 2.24], [2.6, 2.03], [2.9, 1.86]]),
+        rail: C([[-0.6, 1.68], [0.0, 1.52], [0.6, 1.4], [1.3, 1.36], [2.2, 1.36], [2.9, 1.4]]),
+        plan: C([[-0.6, 0.24], [0.4, 0.14], [0.9, 0], [1.5, 0], [2.2, -0.12], [2.9, -0.2]]),
+        marks: [
+            { z: -0.6, zone: 'ws', side: 'glass' }, { z: 0.66, zone: 'roof', side: 'glass' },
+            { z: 1.38, zone: 'bl', side: 'glass' }, { z: 1.62, zone: 'bl', side: 'c', slant: 0.42 }, { z: 2.9, zone: 'bl', side: 'c' },
+        ],
+    },
+});
 const sports: Builder = () => {
-    const s: BodySpec = {
-        noseZ: -4.65, tailZ: 4.65, hw: 1.98,
-        front: { x0: 1.15, bulge: 0.12, len: 0.6, rake: 0.2 }, rear: { x0: 1.25, bulge: 0.06, len: 0.4, rake: 0.04 },
-        wheelR: 0.7, tyreW: 0.6, rimR: 0.5, wheelX: 1.64, axles: [-2.85, 2.62],
-        archR: 0.86, archY: 0.62, archP: 2.2,
-        bottom: C([[-4.65, 0.46], [-4.58, 0.36], [-4.3, 0.3], [-3.5, 0.28], [3.4, 0.28], [4.2, 0.36], [4.65, 0.52]]),
-        shoulder: C([[-4.65, 1.3], [-4.6, 1.38], [-4.45, 1.43], [-4.0, 1.47], [-2.85, 1.53], [-1.5, 1.6], [-0.6, 1.66], [0.6, 1.72], [2.0, 1.78],
-            [3.4, 1.83], [4.3, 1.85], [4.52, 1.84], [4.6, 1.79], [4.65, 1.71]]),
-        crown: C([[-4.65, 0.02], [-4.2, 0.08], [-3.4, 0.12], [-1.2, 0.13], [-0.6, 0.06], [4.65, 0.03]]),
-        widest: 0.55, tumble: 0.14, rS: 0.14, rL: 0.1, rLip: 0.04, sillIn: 0.12, ledge: 0.04, wellDepth: 0.9,
-        cabin: [-0.6, 2.9],
-        railR: 0.13, roofCrown: 0.06,
-        gh: {
-            roof: C([[-0.6, 1.65], [-0.25, 1.97], [0.15, 2.28], [0.5, 2.48], [0.85, 2.57], [1.25, 2.57], [1.7, 2.46], [2.2, 2.24], [2.6, 2.03], [2.9, 1.86]]),
-            rail: C([[-0.6, 1.68], [0.0, 1.52], [0.6, 1.4], [1.3, 1.36], [2.2, 1.36], [2.9, 1.4]]),
-            plan: C([[-0.6, 0.24], [0.4, 0.14], [0.9, 0], [1.5, 0], [2.2, -0.12], [2.9, -0.2]]),
-            marks: [
-                { z: -0.6, zone: 'ws', side: 'glass' }, { z: 0.66, zone: 'roof', side: 'glass' },
-                { z: 1.38, zone: 'bl', side: 'glass' }, { z: 1.62, zone: 'bl', side: 'c', slant: 0.42 }, { z: 2.9, zone: 'bl', side: 'c' },
-            ],
-        },
-    };
+    const s = BODY_SPECS.sports;
     return buildStyleGeometry(s, (soup, s, t) => {
         const black = t.trim('blackMatte'), gloss = t.trim('blackGloss');
         // slim headlights at the top corners, big mesh grille between them, lower intake with fog lamps, splitter
@@ -229,31 +232,32 @@ const sports: Builder = () => {
 // ------------------------------------------------------------------------- hatchback
 // Compact five-door hatchback (Fit / Focus / Prius): 8.6 x 3.56 x 2.95. Short nose,
 // long roof, steep hatch with tall tail lamps.
+const hatchbackSpec = (): BodySpec => ({
+    noseZ: -4.3, tailZ: 4.3, hw: 1.78,
+    front: { x0: 0.75, bulge: 0.22, len: 0.7, rake: 0.32 }, rear: { x0: 0.95, bulge: 0.08, len: 0.45, rake: -0.04 },
+    wheelR: 0.62, tyreW: 0.42, rimR: 0.41, wheelX: 1.51, axles: [-2.62, 2.62],
+    archR: 0.78, archY: 0.56, archP: 2,
+    bottom: C([[-4.3, 0.5], [-4.24, 0.42], [-4.05, 0.37], [-3.5, 0.34], [3.0, 0.34], [3.8, 0.4], [4.2, 0.5], [4.3, 0.6]]),
+    shoulder: C([[-4.3, 1.34], [-4.26, 1.42], [-4.15, 1.48], [-3.9, 1.54], [-3.2, 1.62], [-2.6, 1.7], [-1.85, 1.82], [-0.5, 1.95], [1.0, 2.03],
+        [2.5, 2.1], [3.6, 2.14], [4.05, 2.14], [4.2, 2.1], [4.26, 2.03], [4.3, 1.95]]),
+    crown: C([[-4.3, 0.02], [-3.8, 0.05], [-1.9, 0.06], [3.6, 0.03], [4.3, 0.02]]),
+    widest: 0.6, tumble: 0.08, rS: 0.12, rL: 0.12, rLip: 0.05, sillIn: 0.07, ledge: 0.05, wellDepth: 0.74,
+    cabin: [-1.85, 4.02],
+    railR: 0.15, roofCrown: 0.07,
+    gh: {
+        roof: C([[-1.85, 1.81], [-1.45, 2.12], [-1.0, 2.46], [-0.6, 2.72], [-0.3, 2.85], [0.3, 2.93], [1.2, 2.94], [2.2, 2.91], [2.75, 2.86],
+            [3.2, 2.7], [3.6, 2.48], [3.85, 2.3], [4.02, 2.13]]),
+        rail: C([[-1.85, 1.52], [-1.0, 1.4], [-0.3, 1.33], [1.0, 1.33], [2.5, 1.3], [3.4, 1.25], [4.02, 1.22]]),
+        plan: C([[-1.85, 0.2], [-0.5, 0.14], [0.2, 0], [2.6, 0], [3.2, -0.06], [4.02, -0.12]]),
+        marks: [
+            { z: -1.85, zone: 'ws', side: 'glass' }, { z: -0.32, zone: 'roof', side: 'glass' },
+            { z: 0.55, zone: 'roof', side: 'b' }, { z: 0.76, zone: 'roof', side: 'glass' },
+            { z: 2.2, zone: 'roof', side: 'c', slant: 0.25 }, { z: 2.8, zone: 'bl', side: 'c' }, { z: 4.02, zone: 'bl', side: 'c' },
+        ],
+    },
+});
 const hatchback: Builder = () => {
-    const s: BodySpec = {
-        noseZ: -4.3, tailZ: 4.3, hw: 1.78,
-        front: { x0: 0.75, bulge: 0.22, len: 0.7, rake: 0.32 }, rear: { x0: 0.95, bulge: 0.08, len: 0.45, rake: -0.04 },
-        wheelR: 0.62, tyreW: 0.42, rimR: 0.41, wheelX: 1.51, axles: [-2.62, 2.62],
-        archR: 0.78, archY: 0.56, archP: 2,
-        bottom: C([[-4.3, 0.5], [-4.24, 0.42], [-4.05, 0.37], [-3.5, 0.34], [3.0, 0.34], [3.8, 0.4], [4.2, 0.5], [4.3, 0.6]]),
-        shoulder: C([[-4.3, 1.34], [-4.26, 1.42], [-4.15, 1.48], [-3.9, 1.54], [-3.2, 1.62], [-2.6, 1.7], [-1.85, 1.82], [-0.5, 1.95], [1.0, 2.03],
-            [2.5, 2.1], [3.6, 2.14], [4.05, 2.14], [4.2, 2.1], [4.26, 2.03], [4.3, 1.95]]),
-        crown: C([[-4.3, 0.02], [-3.8, 0.05], [-1.9, 0.06], [3.6, 0.03], [4.3, 0.02]]),
-        widest: 0.6, tumble: 0.08, rS: 0.12, rL: 0.12, rLip: 0.05, sillIn: 0.07, ledge: 0.05, wellDepth: 0.74,
-        cabin: [-1.85, 4.02],
-        railR: 0.15, roofCrown: 0.07,
-        gh: {
-            roof: C([[-1.85, 1.81], [-1.45, 2.12], [-1.0, 2.46], [-0.6, 2.72], [-0.3, 2.85], [0.3, 2.93], [1.2, 2.94], [2.2, 2.91], [2.75, 2.86],
-                [3.2, 2.7], [3.6, 2.48], [3.85, 2.3], [4.02, 2.13]]),
-            rail: C([[-1.85, 1.52], [-1.0, 1.4], [-0.3, 1.33], [1.0, 1.33], [2.5, 1.3], [3.4, 1.25], [4.02, 1.22]]),
-            plan: C([[-1.85, 0.2], [-0.5, 0.14], [0.2, 0], [2.6, 0], [3.2, -0.06], [4.02, -0.12]]),
-            marks: [
-                { z: -1.85, zone: 'ws', side: 'glass' }, { z: -0.32, zone: 'roof', side: 'glass' },
-                { z: 0.55, zone: 'roof', side: 'b' }, { z: 0.76, zone: 'roof', side: 'glass' },
-                { z: 2.2, zone: 'roof', side: 'c', slant: 0.25 }, { z: 2.8, zone: 'bl', side: 'c' }, { z: 4.02, zone: 'bl', side: 'c' },
-            ],
-        },
-    };
+    const s = BODY_SPECS.hatchback;
     return buildStyleGeometry(s, (soup, s, t) => {
         const black = t.trim('blackMatte');
         lamps(soup, s, t, 'head', CELL.headS, 0.45, 1.6, 1.16, 1.38, 10);
@@ -280,11 +284,11 @@ const hatchback: Builder = () => {
 // ------------------------------------------------------------------------- SUV
 // Mid-size SUV (X5 / Explorer / Pilot; RAV4 to Tahoe use it too): 9.8 x 4.0 x 3.5.
 // Tall, boxy, black arch flares and lower cladding, roof rails, near-vertical tailgate.
-const suv: Builder = () => {
+const suvSpec = (): BodySpec => {
     const roof = C([[-1.95, 2.35], [-1.6, 2.72], [-1.25, 3.08], [-0.95, 3.34], [-0.65, 3.44], [0.5, 3.48], [2.5, 3.47], [4.2, 3.43],
         [4.45, 3.36], [4.6, 3.0], [4.72, 2.53]]);
     const rail = C([[-1.95, 1.75], [-1.0, 1.66], [0, 1.62], [4.0, 1.6], [4.72, 1.6]]);
-    const s: BodySpec = {
+    return {
         noseZ: -4.9, tailZ: 4.9, hw: 2.0,
         front: { x0: 1.1, bulge: 0.12, len: 0.6, rake: 0.16 }, rear: { x0: 1.3, bulge: 0.06, len: 0.4, rake: 0.08 },
         wheelR: 0.78, tyreW: 0.56, rimR: 0.5, wheelX: 1.67, axles: [-2.98, 2.97],
@@ -307,6 +311,9 @@ const suv: Builder = () => {
             ] as GhMark[],
         },
     };
+};
+const suv: Builder = () => {
+    const s = BODY_SPECS.suv;
     return buildStyleGeometry(s, (soup, s, t) => {
         const black = t.trim('blackMatte'), satin = t.trim('satin');
         lamps(soup, s, t, 'head', CELL.headS, 0.84, 1.88, 1.82, 2.08, 10);
@@ -323,9 +330,9 @@ const suv: Builder = () => {
         for (const sd of [1, -1]) { const z = t.rearZ(s, 1.0, 0.86); t.exhaust(soup, sd * 1.0, 0.86, z - 0.3, z + 0.07, 0.1, 0.07); }
         // roof rails on two legs each
         for (const sd of [1, -1]) {
-            const x = sd * (rail.at(1.5) - 0.24), yr = roof.at(1.5) + 0.16;
+            const x = sd * (s.gh.rail.at(1.5) - 0.24), yr = s.gh.roof.at(1.5) + 0.16;
             t.cbox(soup, [x, yr, 1.55], [0.045, 0.035, 2.3], 0.015, t.trim('roofRail'));
-            for (const z of [-0.6, 3.7]) t.cbox(soup, [x, (roof.at(z) + yr) / 2, z], [0.05, (yr - roof.at(z)) / 2 + 0.03, 0.08], 0, t.trim('roofRail'));
+            for (const z of [-0.6, 3.7]) t.cbox(soup, [x, (s.gh.roof.at(z) + yr) / 2, z], [0.05, (yr - s.gh.roof.at(z)) / 2 + 0.03, 0.08], 0, t.trim('roofRail'));
         }
         seams(soup, s, t, [[-1.85, 0.9, 2.3], [0.5, 0.85, 2.42], [2.42, 0.85, 2.48]]);
         handles(soup, s, t, [0.15, 2.0], 2.2, 'satin');
@@ -338,32 +345,33 @@ const suv: Builder = () => {
 // ------------------------------------------------------------------------- van
 // Minivan (Sienna / Odyssey): 10.3 x 3.96 x 3.5. One-box shape, short sloping nose,
 // sliding rear door with its track along the rear quarter, blacked-out pillars.
+const vanSpec = (): BodySpec => ({
+    noseZ: -5.15, tailZ: 5.15, hw: 1.98,
+    front: { x0: 1.05, bulge: 0.16, len: 0.7, rake: 0.3 }, rear: { x0: 1.3, bulge: 0.08, len: 0.45, rake: 0.05 },
+    wheelR: 0.72, tyreW: 0.5, rimR: 0.47, wheelX: 1.68, axles: [-3.25, 2.85],
+    archR: 0.88, archY: 0.66, archP: 2,
+    bottom: C([[-5.15, 0.6], [-5.08, 0.5], [-4.85, 0.43], [-4.2, 0.4], [3.8, 0.4], [4.6, 0.47], [5.0, 0.58], [5.15, 0.7]]),
+    shoulder: C([[-5.15, 1.5], [-5.1, 1.6], [-4.95, 1.68], [-4.6, 1.76], [-3.9, 1.88], [-3.2, 2.0], [-2.0, 2.06], [0, 2.1], [3.0, 2.16],
+        [4.6, 2.18], [5.0, 2.16], [5.1, 2.1], [5.15, 2.0]]),
+    crown: C([[-5.15, 0.02], [-4.6, 0.05], [-3.2, 0.06], [5.15, 0.02]]),
+    widest: 0.6, tumble: 0.08, rS: 0.12, rL: 0.12, rLip: 0.05, sillIn: 0.06, ledge: 0.05, wellDepth: 0.85,
+    cabin: [-3.2, 4.95],
+    railR: 0.17, roofCrown: 0.07,
+    gh: {
+        roof: C([[-3.2, 1.99], [-2.85, 2.38], [-2.45, 2.8], [-2.05, 3.14], [-1.75, 3.33], [-1.3, 3.44], [0, 3.5], [3.0, 3.5], [4.4, 3.46],
+            [4.62, 3.38], [4.8, 2.9], [4.95, 2.15]]),
+        rail: C([[-3.2, 1.78], [-2.0, 1.66], [-1.0, 1.62], [4.0, 1.6], [4.95, 1.58]]),
+        plan: C([[-3.2, 0.26], [-1.8, 0.16], [-1.0, 0], [4.3, 0], [4.95, -0.06]]),
+        marks: [
+            { z: -3.2, zone: 'ws', side: 'glass' }, { z: -1.7, zone: 'roof', side: 'glass' },
+            { z: -0.25, zone: 'roof', side: 'b' }, { z: -0.05, zone: 'roof', side: 'glass' },
+            { z: 1.95, zone: 'roof', side: 'b' }, { z: 2.12, zone: 'roof', side: 'glass' },
+            { z: 4.4, zone: 'roof', side: 'b' }, { z: 4.62, zone: 'backGlass', side: 'b' }, { z: 4.95, zone: 'back', side: 'b' },
+        ],
+    },
+});
 const van: Builder = () => {
-    const s: BodySpec = {
-        noseZ: -5.15, tailZ: 5.15, hw: 1.98,
-        front: { x0: 1.05, bulge: 0.16, len: 0.7, rake: 0.3 }, rear: { x0: 1.3, bulge: 0.08, len: 0.45, rake: 0.05 },
-        wheelR: 0.72, tyreW: 0.5, rimR: 0.47, wheelX: 1.68, axles: [-3.25, 2.85],
-        archR: 0.88, archY: 0.66, archP: 2,
-        bottom: C([[-5.15, 0.6], [-5.08, 0.5], [-4.85, 0.43], [-4.2, 0.4], [3.8, 0.4], [4.6, 0.47], [5.0, 0.58], [5.15, 0.7]]),
-        shoulder: C([[-5.15, 1.5], [-5.1, 1.6], [-4.95, 1.68], [-4.6, 1.76], [-3.9, 1.88], [-3.2, 2.0], [-2.0, 2.06], [0, 2.1], [3.0, 2.16],
-            [4.6, 2.18], [5.0, 2.16], [5.1, 2.1], [5.15, 2.0]]),
-        crown: C([[-5.15, 0.02], [-4.6, 0.05], [-3.2, 0.06], [5.15, 0.02]]),
-        widest: 0.6, tumble: 0.08, rS: 0.12, rL: 0.12, rLip: 0.05, sillIn: 0.06, ledge: 0.05, wellDepth: 0.85,
-        cabin: [-3.2, 4.95],
-        railR: 0.17, roofCrown: 0.07,
-        gh: {
-            roof: C([[-3.2, 1.99], [-2.85, 2.38], [-2.45, 2.8], [-2.05, 3.14], [-1.75, 3.33], [-1.3, 3.44], [0, 3.5], [3.0, 3.5], [4.4, 3.46],
-                [4.62, 3.38], [4.8, 2.9], [4.95, 2.15]]),
-            rail: C([[-3.2, 1.78], [-2.0, 1.66], [-1.0, 1.62], [4.0, 1.6], [4.95, 1.58]]),
-            plan: C([[-3.2, 0.26], [-1.8, 0.16], [-1.0, 0], [4.3, 0], [4.95, -0.06]]),
-            marks: [
-                { z: -3.2, zone: 'ws', side: 'glass' }, { z: -1.7, zone: 'roof', side: 'glass' },
-                { z: -0.25, zone: 'roof', side: 'b' }, { z: -0.05, zone: 'roof', side: 'glass' },
-                { z: 1.95, zone: 'roof', side: 'b' }, { z: 2.12, zone: 'roof', side: 'glass' },
-                { z: 4.4, zone: 'roof', side: 'b' }, { z: 4.62, zone: 'backGlass', side: 'b' }, { z: 4.95, zone: 'back', side: 'b' },
-            ],
-        },
-    };
+    const s = BODY_SPECS.van;
     return buildStyleGeometry(s, (soup, s, t) => {
         const black = t.trim('blackMatte');
         lamps(soup, s, t, 'head', CELL.headS, 0.55, 1.74, 1.42, 1.7, 10);
@@ -388,33 +396,34 @@ const van: Builder = () => {
 
 // ------------------------------------------------------------------------- truck
 // Full-size crew-cab pickup (F-150 / Silverado class), short bed: 10.8 x 4.1 x 3.9.
+const truckSpec = (): BodySpec => ({
+    noseZ: -5.4, tailZ: 5.4, hw: 2.05,
+    front: { x0: 1.62, bulge: 0.04, len: 0.4, rake: 0.04 }, rear: { x0: 1.9, bulge: 0, len: 0.2, rake: 0 },
+    wheelR: 0.86, tyreW: 0.6, rimR: 0.5, wheelX: 1.72, axles: [-3.4, 3.15],
+    archR: 1.06, archY: 0.78, archP: 3,
+    bottom: C([[-5.4, 1.0], [-5.32, 0.86], [-5.0, 0.76], [-4.4, 0.7], [4.4, 0.7], [5.2, 0.8], [5.4, 0.9]]),
+    shoulder: C([[-5.4, 2.36], [-5.34, 2.5], [-5.2, 2.57], [-4.6, 2.61], [-2.35, 2.68], [1.6, 2.72], [5.25, 2.72], [5.36, 2.7], [5.4, 2.64]]),
+    crown: C([[-5.4, 0], [-5.2, 0.07], [-2.5, 0.08], [-2.3, 0.03], [1.6, 0.03], [5.4, 0.01]]),
+    widest: 0.55, tumble: 0.05, rS: 0.1, rL: 0.1, rLip: 0.05, sillIn: 0.05, ledge: 0.06, wellDepth: 0.95,
+    cabin: [-2.3, 1.6],
+    bed: { z0: 1.68, z1: 5.2, floorY: 1.6, railW: 0.15 },
+    flare: 0.2,
+    railR: 0.12, roofCrown: 0.05,
+    gh: {
+        roof: C([[-2.3, 2.66], [-1.95, 3.15], [-1.55, 3.6], [-1.3, 3.77], [-1.0, 3.83], [0.2, 3.85], [1.2, 3.83], [1.46, 3.82],
+            [1.5, 3.7], [1.53, 3.22], [1.56, 2.6]]),
+        rail: C([[-2.3, 1.84], [-1.55, 1.75], [-1.1, 1.72], [1.56, 1.72]]),
+        plan: C([[-2.3, 0.12], [-1.25, 0.06], [-0.8, 0], [1.56, 0]]),
+        marks: [
+            { z: -2.3, zone: 'ws', side: 'glass' }, { z: -1.22, zone: 'roof', side: 'glass' },
+            { z: 0.0, zone: 'roof', side: 'b' }, { z: 0.22, zone: 'roof', side: 'glass' },
+            { z: 1.18, zone: 'roof', side: 'c', slant: 0.12 }, { z: 1.46, zone: 'back', side: 'c' },
+            { z: 1.5, zone: 'backGlass', side: 'c' }, { z: 1.53, zone: 'back', side: 'c' }, { z: 1.56, zone: 'back', side: 'c' },
+        ],
+    },
+});
 const truck: Builder = () => {
-    const s: BodySpec = {
-        noseZ: -5.4, tailZ: 5.4, hw: 2.05,
-        front: { x0: 1.62, bulge: 0.04, len: 0.4, rake: 0.04 }, rear: { x0: 1.9, bulge: 0, len: 0.2, rake: 0 },
-        wheelR: 0.86, tyreW: 0.6, rimR: 0.5, wheelX: 1.72, axles: [-3.4, 3.15],
-        archR: 1.06, archY: 0.78, archP: 3,
-        bottom: C([[-5.4, 1.0], [-5.32, 0.86], [-5.0, 0.76], [-4.4, 0.7], [4.4, 0.7], [5.2, 0.8], [5.4, 0.9]]),
-        shoulder: C([[-5.4, 2.36], [-5.34, 2.5], [-5.2, 2.57], [-4.6, 2.61], [-2.35, 2.68], [1.6, 2.72], [5.25, 2.72], [5.36, 2.7], [5.4, 2.64]]),
-        crown: C([[-5.4, 0], [-5.2, 0.07], [-2.5, 0.08], [-2.3, 0.03], [1.6, 0.03], [5.4, 0.01]]),
-        widest: 0.55, tumble: 0.05, rS: 0.1, rL: 0.1, rLip: 0.05, sillIn: 0.05, ledge: 0.06, wellDepth: 0.95,
-        cabin: [-2.3, 1.6],
-        bed: { z0: 1.68, z1: 5.2, floorY: 1.6, railW: 0.15 },
-        flare: 0.2,
-        railR: 0.12, roofCrown: 0.05,
-        gh: {
-            roof: C([[-2.3, 2.66], [-1.95, 3.15], [-1.55, 3.6], [-1.3, 3.77], [-1.0, 3.83], [0.2, 3.85], [1.2, 3.83], [1.46, 3.82],
-                [1.5, 3.7], [1.53, 3.22], [1.56, 2.6]]),
-            rail: C([[-2.3, 1.84], [-1.55, 1.75], [-1.1, 1.72], [1.56, 1.72]]),
-            plan: C([[-2.3, 0.12], [-1.25, 0.06], [-0.8, 0], [1.56, 0]]),
-            marks: [
-                { z: -2.3, zone: 'ws', side: 'glass' }, { z: -1.22, zone: 'roof', side: 'glass' },
-                { z: 0.0, zone: 'roof', side: 'b' }, { z: 0.22, zone: 'roof', side: 'glass' },
-                { z: 1.18, zone: 'roof', side: 'c', slant: 0.12 }, { z: 1.46, zone: 'back', side: 'c' },
-                { z: 1.5, zone: 'backGlass', side: 'c' }, { z: 1.53, zone: 'back', side: 'c' }, { z: 1.56, zone: 'back', side: 'c' },
-            ],
-        },
-    };
+    const s = BODY_SPECS.truck;
     return buildStyleGeometry(s, (soup, s, t) => {
         const black = t.trim('blackMatte'), gloss = t.trim('blackGloss'), satin = t.trim('satin');
         // front: big chrome grille, headlights, chrome bumper with a black lip and the plate
@@ -449,6 +458,11 @@ const truck: Builder = () => {
     }, 2.85);
 };
 
+/** Each style's profile (built once; read by the builders and by anything that fits parts to a body). */
+export type CarStyleKey = 'sedan' | 'coupe' | 'sports' | 'hatchback' | 'suv' | 'van' | 'truck';
+export const BODY_SPECS: Record<CarStyleKey, BodySpec> = {
+    sedan: sedanSpec(), coupe: coupeSpec(), sports: sportsSpec(), hatchback: hatchbackSpec(), suv: suvSpec(), van: vanSpec(), truck: truckSpec(),
+};
 const BUILDERS: Record<string, Builder> = { sedan, coupe, sports, hatchback, suv, van, truck };
 export const CAR_STYLES = Object.keys(BUILDERS);
 export const styleKey = (style: string) => BUILDERS[style] ? style : 'sedan';

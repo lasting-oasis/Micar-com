@@ -38,6 +38,7 @@ export const ARCHETYPES: Record<BodyStyle, VehicleSpec> = {
   suv: arch('suv', 'SUV', CARS.brute, { tq: scaleTq(CARS.brute.tq as Torque, .85), mass: 2000, h: .58, cd: .38, area: 2.7, drive: 'AWD' }),
   van: arch('van', 'Van', CARS.tsubasa, { mass: 1900, h: .6, cd: .36, area: 2.8, drive: 'FWD' }),
 };
+export const STYLES = Object.keys(ARCHETYPES) as BodyStyle[];
 
 /* ---- visual parts: v=value, n=name, p=price, d=description; rmax = star-rating weight of the category ---- */
 export type VisualCfg = {
