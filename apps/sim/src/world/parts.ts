@@ -20,6 +20,8 @@ const NT_LEN = 4.4, NT_HW = 0.9, NT_NOSE = 2.3, NT_TAIL = 2.3, NT_SILL = 0.3, NT
 const NT_TIRE_R = 0.34, NT_TIRE_W = 0.26;
 const RIMR: Record<number, number> = { 17: 0.205, 18: 0.222, 19: 0.238, 20: 0.255 };
 const CALIPER = ['#4a4d55', '#c41a1a', '#e0b21b', '#ff6a13'];
+/** Night Tuner's window tint: glass opacity by tint level (clear, light, dark, limo). */
+export const TINT = [.42, .62, .8, .94];
 const FIN: Record<VisualCfg['finish'], THREE.MeshPhysicalMaterialParameters> = {
   gloss: { metalness: .05, roughness: .3, clearcoat: 1, clearcoatRoughness: .04 }, metallic: { metalness: .62, roughness: .34, clearcoat: 1, clearcoatRoughness: .03 },
   pearl: { metalness: .42, roughness: .22, clearcoat: 1, clearcoatRoughness: .02 }, candy: { metalness: .88, roughness: .12, clearcoat: 1, clearcoatRoughness: 0 },
@@ -226,9 +228,11 @@ export type PartsKit = {
   /** the four wheel spin nodes (rotation.x rolls them) */
   wheels: THREE.Object3D[];
   root: THREE.Group; car: THREE.Group;
+  /** puts back what the kit changed on the lofted model (paint finish, glass) */
+  undo: (() => void)[];
 };
 type ModelParts = {
-  body: THREE.Mesh; wheelMesh: THREE.InstancedMesh; pivots: THREE.Object3D[]; wheels: THREE.Object3D[]; halos: THREE.Points; far: boolean;
+  body: THREE.Mesh; wheelMesh: THREE.InstancedMesh; pivots: THREE.Object3D[]; wheels: THREE.Object3D[]; halos: THREE.Points; far: boolean; glass?: THREE.Mesh;
 };
 const modelOf = (car: THREE.Object3D) => car.userData.car as ModelParts | undefined;
 
@@ -246,6 +250,24 @@ export function attachParts(car: THREE.Group, cfg: VisualCfg, style: BodyStyle, 
   const root = new THREE.Group(); root.name = 'ntParts';
   if (model) root.position.copy(model.body.position); // the model is lifted onto the paving
   car.add(root);
+  const undo: (() => void)[] = [];
+  if (model) {
+    // paint finish on the model's own (per-car) paint; clearcoat only where the material has one
+    const pm = model.body.material as THREE.MeshPhysicalMaterial, fin = FIN[cfg.finish] ?? FIN.gloss;
+    const keys = (['metalness', 'roughness', 'clearcoat', 'clearcoatRoughness'] as const).filter(key => key in pm && fin[key] !== undefined);
+    const before = keys.map(key => pm[key]);
+    for (const key of keys) pm[key] = fin[key]!;
+    undo.push(() => keys.forEach((key, i) => { pm[key] = before[i]; }));
+    // window tint: the glass material is shared by every car, so this car gets its own copy
+    const glass = model.glass ?? model.body.userData.glass as THREE.Mesh | undefined;
+    if (glass) {
+      const orig = glass.material as THREE.Material, mine = orig.clone();
+      mine.onBeforeCompile = orig.onBeforeCompile; mine.customProgramCacheKey = orig.customProgramCacheKey; // clone() drops the reflective-glass shader hook
+      mine.transparent = true; mine.opacity = TINT[cfg.tint] ?? TINT[0];
+      glass.material = mine;
+      undo.push(() => { if (glass.material === mine) glass.material = orig; mine.dispose(); });
+    }
+  }
   const add = (geo: THREE.BufferGeometry, mat: THREE.Material, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0) => {
     const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); o.rotation.set(rx, ry, rz);
     o.castShadow = true; root.add(o); return o;
@@ -429,14 +451,27 @@ export function attachParts(car: THREE.Group, cfg: VisualCfg, style: BodyStyle, 
   }
 
   const wheels = replaceWheels(car, cfg, a, perfBrakes);
-  const kit: PartsKit = { neonLight, glows, mats: own, wheels, root, car };
+  const kit: PartsKit = { neonLight, glows, mats: own, wheels, root, car, undo };
   car.userData.ntParts = kit;
+  syncKitLod(car);
   return kit;
+}
+
+/**
+ * Match the kit's visibility to the lofted model's far version (call after the model's LOD
+ * update, e.g. once per frame for kitted cars): kit and Night Tuner wheels hide when the car is drawn far.
+ */
+export function syncKitLod(car: THREE.Object3D): void {
+  const far = !!modelOf(car)?.far;
+  const kit = car.userData.ntParts as PartsKit | undefined, st = car.userData.ntWheels as WheelState | undefined;
+  if (kit) kit.root.visible = !far;
+  if (st?.holder) st.holder.visible = !far;
 }
 
 /** Remove a kit from its car (and its wheels: the lofted wheels come back) and free its materials. */
 export function disposeParts(r: ReturnType<typeof attachParts>): void {
   r.root.removeFromParent();
+  for (const f of r.undo.splice(0)) f();
   for (const m of r.mats) disposeMat(m);
   r.mats.length = 0;
   removeWheels(r.car);
