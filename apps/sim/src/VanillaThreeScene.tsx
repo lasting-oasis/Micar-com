@@ -708,6 +708,7 @@ export function VanillaThreeScene() {
             const st = useGameStore.getState();
             if (st.activeInteraction) st.setActiveInteraction(null);
             useDriveUi.setState({ district: 'strip', paused: false, results: null, help: useDriveUi.getState().help + 1 });
+            sendPlayerPos(); // now, so an event entered at once (a quick race) is entered from inside the Strip
             return true;
         };
         /** Back to the town gate (the exit ring, the pause menu): any event or outrun ends without a result. */
@@ -723,6 +724,7 @@ export function VanillaThreeScene() {
                 chase.reset(driver.V);
             }
             useDriveUi.setState({ district: 'town', paused: false, results: null, prompt: '' }); promptShown = '';
+            sendPlayerPos();
             return true;
         };
         /** Night Tuner's respawn(): in a live event, back onto the route where you got to (a drag: nothing;
@@ -735,6 +737,38 @@ export function VanillaThreeScene() {
                 D.place(p.x, p.z, Math.atan2(p.tx, p.tz));
             } else { snapToRoad(V); mendEngine(); }
             chase.reset(V);
+        };
+        /** Our position to the server: in the Strip, the car's pose in the Strip's scene (world units, district 'strip'),
+         *  which the server keeps apart from our town position (the gate spot), so Strip players see each other. */
+        const sendPlayerPos = (): THREE.Object3D => {
+            const activeMesh = (localDrivingCarId && carMeshes[localDrivingCarId]) || avatar;
+            useGameStore.getState().socket?.emit('sync_player_pos', {
+                x: activeMesh.position.x, y: district === 'strip' ? 0 : activeMesh.position.y, z: activeMesh.position.z,
+                rotation: headingOf(activeMesh), // true heading (see headingOf)
+                district,
+            });
+            return activeMesh;
+        };
+        // ---- other players in the Strip: name tags over where they drive (the town draws their dealers)
+        const stripTags: Record<string, THREE.Sprite> = {};
+        const dropStripTag = (id: string) => { const t = stripTags[id]; if (!t) return; t.removeFromParent(); t.material.map?.dispose(); t.material.dispose(); delete stripTags[id]; };
+        const syncStripTags = (S: StripScene | null, follow: number) => {
+            const cur = stateRef.current, players = cur.gameState?.players ?? {}, live = useGameStore.getState().playerPositions;
+            for (const id in stripTags) {
+                const sp = S && id !== cur.playerId && players[id] && live[id]?.district === 'strip' ? live[id].stripPosition : undefined;
+                if (!sp || stripTags[id].userData.name !== players[id].name) dropStripTag(id);
+            }
+            if (!S) return;
+            for (const id in players) {
+                const sp = id !== cur.playerId && live[id]?.district === 'strip' ? live[id].stripPosition : undefined;
+                if (!sp) continue;
+                let t = stripTags[id];
+                if (!t) {
+                    t = stripTags[id] = nameSprite(players[id].name);
+                    t.scale.set(7, 1.75, 1); t.position.set(sp.x, 5, sp.z);
+                    S.scene.add(t);
+                } else t.position.lerp(tmpTarget.set(sp.x, 5, sp.z), follow);
+            }
         };
         const startEventById = (id: string, quick = false): boolean => {
             const ev = EVENTS.find(e => e.id === id);
@@ -949,6 +983,8 @@ export function VanillaThreeScene() {
             district: () => district,
             /** the engine beds' gains (engine, turbo, skid, nitrous, wind); all 0 once out of the car */
             audioLevels: () => audio.levels(),
+            /** the ids of the other players drawn in the Strip */
+            stripPlayers: () => Object.keys(stripTags),
             /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */
             openGarage: (carId?: string): boolean => { const c = carId ?? meNow()?.inventory?.[0]?.id; if (!c) return false; useGameStore.getState().openGarage(c); return true; },
         };
@@ -956,6 +992,18 @@ export function VanillaThreeScene() {
 
 
         const FAR_AWAY = new THREE.Vector3(1e6, 0, 1e6);
+        /** a player's name on a billboard (the town's remote players, and the Strip's) */
+        function nameSprite(name: string): THREE.Sprite {
+            const canvas = document.createElement('canvas'); canvas.width = 256; canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+                ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(0,0,256,64);
+                ctx.fillStyle = '#ffffff'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(name, 128, 42);
+            }
+            const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true }));
+            sprite.userData.name = name;
+            return sprite;
+        }
         const animate = () => {
             animationFrameId = requestAnimationFrame(animate);
             const time = Date.now() * 0.001;
@@ -1523,16 +1571,7 @@ export function VanillaThreeScene() {
             // --- MULTIPLAYER POSITION SYNC ---
             if (current.playerId && useGameStore.getState().socket && (time - lastPosEmitTime > 0.1)) {
                 lastPosEmitTime = time;
-                const activeMesh = (isDriving && localDrivingCarId && carMeshes[localDrivingCarId]) ? carMeshes[localDrivingCarId] : avatar;
-                // in the Strip, the town sees us at the gate (today's server stores this as our town position)
-                const away = district === 'strip';
-                useGameStore.getState().socket?.emit('sync_player_pos', {
-                    x: away ? GATE_RETURN.x : activeMesh.position.x,
-                    y: away ? 0 : activeMesh.position.y,
-                    z: away ? GATE_RETURN.z : activeMesh.position.z,
-                    rotation: away ? GATE_RETURN.rotY : headingOf(activeMesh), // true heading (see headingOf)
-                    district, // others draw us only in the same district (the server relays it from Task 11)
-                });
+                const activeMesh = sendPlayerPos();
                 // Feed the GPS our live position directly so it follows instantly (the town's map: not from the Strip).
                 const st = useGameStore.getState();
                 if (district === 'town' && (!st.myWorldPos || Math.hypot(activeMesh.position.x - st.myWorldPos.x, activeMesh.position.z - st.myWorldPos.z) > 2.5)) { // ~0.4 px on the minimap; finer updates only re-rendered it
@@ -1576,13 +1615,7 @@ export function VanillaThreeScene() {
                         meshGroup.userData.name = p.name;
                         meshGroup.userData.inCar = 0;
                         
-                        const canvas = document.createElement('canvas'); canvas.width = 256; canvas.height = 64;
-                        const ctx = canvas.getContext('2d');
-                        if (ctx) {
-                            ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(0,0,256,64);
-                            ctx.fillStyle = '#ffffff'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(p.name, 128, 42);
-                        }
-                        const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true }));
+                        const sprite = nameSprite(p.name);
                         sprite.position.y = 4.4; sprite.scale.set(3, 0.75, 1); meshGroup.add(sprite); // above their head
 
                         // Start where they are (not at the world origin, sliding in from there)
@@ -1612,6 +1645,8 @@ export function VanillaThreeScene() {
                     person.root.visible = ud.inCar <= 0;
                     if (person.root.visible) person.update(delta, Math.min(ud.netSpeed, 18) * (ud.netDir ?? 1));
                 });
+
+                syncStripTags(district === 'strip' ? strip : null, follow);
 
                 // Everyone stands on the ground under them (sidewalks, lawns and curbs are higher than the road)
                 groundHeight.tick();

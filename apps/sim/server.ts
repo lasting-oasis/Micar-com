@@ -7,6 +7,7 @@ import { GameState, Car, Player, FractionalVehicle, FUEL_PRICE_PER_UNIT } from '
 import { EVENTS, carState, freshStrip, getV, isOwned, okey, stageOf, withV, type PartValue } from './src/world/data.js';
 import { applyPayout, clampTune, ensureStrip, outrunEvent, partPrice, validateFinish, validateOutrun, ENTRY_TTL_MS, type EventEntry } from './src/world/payout.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
+import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 
 const app = express();
 const httpServer = createServer(app);
@@ -104,6 +105,9 @@ const activeEvents = new Map<string, EventEntry>();
 const drivenCar = new Map<string, string>();
 // When each socket last had an outrun paid, or entered the Strip: outruns are paid at most every OUTRUN_MIN_MS.
 const lastOutrunAt = new Map<string, number>();
+// Where each socket is inside the Strip (world units of the Strip's own scene), while it is there. The
+// player's worldPosition stays its town location: the gate spot, tagged district 'strip'.
+const stripPositions = new Map<string, any>();
 
 // Timestamp of the last accepted end_day, used to throttle host day-advances.
 let lastEndDayAt = 0;
@@ -824,8 +828,8 @@ setInterval(() => {
     else if (++quietTicks !== 3) return;
     const positions: Record<string, any> = {};
     for (const pid in gameState.players) {
-        const wp = (gameState.players[pid] as any).worldPosition;
-        if (wp) positions[pid] = wp;
+        const wp = (gameState.players[pid] as any).worldPosition, sp = stripPositions.get(pid);
+        if (wp) positions[pid] = sp && wp.district === 'strip' ? { ...wp, stripPosition: sp } : wp;
     }
     if (positionsDirty) {
         positionsDirty = false;
@@ -959,18 +963,28 @@ io.on('connection', (socket) => {
      if (clean) car.lotPosition = clean as any;
   });
 
+  // A town position, or (district 'strip') a pose in the Strip: that goes to stripPositions and the
+  // town position becomes the gate spot, so the town still sees the player at the gate.
+  const samePos = (a: any, b: any) => !!a && !!b && a.x === b.x && a.y === b.y && a.z === b.z && a.r === b.r && a.rotation === b.rotation && a.district === b.district;
   socket.on('sync_player_pos', (pos) => {
+      const player = gameState.players[socket.id];
       const clean = sanitizePosition(pos);
-      if (clean) clean.district = pos.district === 'strip' ? 'strip' : 'town'; // relayed in player_positions
-      if (gameState.players[socket.id] && clean) {
-          const prev: any = gameState.players[socket.id].worldPosition;
-          if (clean.district === 'strip' && prev?.district !== 'strip') lastOutrunAt.set(socket.id, Date.now()); // entering the Strip starts the outrun clock
-          if (clean.district !== 'strip' && prev?.district === 'strip') activeEvents.delete(socket.id); // leaving the Strip abandons any event
-          if (!prev || prev.x !== clean.x || prev.y !== clean.y || prev.z !== clean.z || prev.r !== clean.r || prev.rotation !== clean.rotation || prev.district !== clean.district) {
-              positionsDirty = true; // only a real move needs relaying
-          }
-          gameState.players[socket.id].worldPosition = clean as any;
+      if (!player || !clean) return;
+      const district = pos.district === 'strip' ? 'strip' : 'town';
+      clean.district = district; // relayed in player_positions
+      const prev: any = player.worldPosition;
+      if (district === 'strip' && prev?.district !== 'strip') lastOutrunAt.set(socket.id, Date.now()); // entering the Strip starts the outrun clock
+      if (district !== 'strip' && prev?.district === 'strip') activeEvents.delete(socket.id); // leaving the Strip abandons any event
+      if (district === 'strip') {
+          if (!samePos(stripPositions.get(socket.id), clean)) positionsDirty = true;
+          stripPositions.set(socket.id, clean);
+          const gate = { x: GATE_RETURN.x, y: 0, z: GATE_RETURN.z, rotation: GATE_RETURN.rotY, district: 'strip' };
+          if (!samePos(prev, gate)) { player.worldPosition = gate as any; positionsDirty = true; }
+          return;
       }
+      stripPositions.delete(socket.id);
+      if (!samePos(prev, clean)) positionsDirty = true; // only a real move needs relaying
+      player.worldPosition = clean as any;
   });
 
   // --- Fuel ---------------------------------------------------------
@@ -1848,6 +1862,7 @@ io.on('connection', (socket) => {
     activeEvents.delete(socket.id);
     drivenCar.delete(socket.id);
     lastOutrunAt.delete(socket.id);
+    stripPositions.delete(socket.id);
     const leaving = gameState.players[socket.id];
     delete gameState.players[socket.id];
     if (gameState.hostId === socket.id) {

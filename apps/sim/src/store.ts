@@ -44,7 +44,8 @@ interface StoreState {
   myWorldPos: { x: number; z: number } | null; // the local player's live world position, for a GPS that follows instantly
   // Other players' live positions, relayed by the server ~10x/sec (kept out of
   // gameState so the whole UI doesn't re-render on every movement packet).
-  playerPositions: Record<string, { x: number; y?: number; z: number; rotation?: number; district?: 'town' | 'strip' }>;
+  /** live positions; a player in the Strip is at the gate spot (district 'strip') with their Strip pose in stripPosition */
+  playerPositions: Record<string, { x: number; y?: number; z: number; rotation?: number; district?: 'town' | 'strip'; stripPosition?: { x: number; y?: number; z: number; rotation?: number } }>;
   // 3D graphics level: 'low' turns off shadows and renders at 1x resolution.
   graphicsQuality: 'high' | 'low';
   setGraphicsQuality: (q: 'high' | 'low') => void;

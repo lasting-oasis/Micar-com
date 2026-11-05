@@ -10,10 +10,9 @@ import { WORLD_PER_M } from '../../world/units';
 // "[Enter] THE STRIP". The Strip has a twin of the ring at its far corner (node [8, 8]): the way back.
 
 const PAINT = '#ffd23f', NIGHT = '#0e1217';
-/** the ring's centre and radius in the town (world units) */
-export const GATE = { x: 0, z: 1715, r: 14 };
-/** where a car comes back to from the Strip: just short of the ring, facing the town (-Z) */
-export const GATE_RETURN = { x: 0, z: GATE.z - 26, rotY: 0 };
+import { GATE } from './gateSpot';
+// the ring's centre and radius, and the spot a car comes back to (gateSpot.ts: the server reads them too)
+export { GATE, GATE_RETURN } from './gateSpot';
 /** the Strip's exit ring: grid node [8, 8] (metres), radius in metres */
 export const STRIP_EXIT = { x: 8 * CELL, z: 8 * CELL, r: 9 };
 
