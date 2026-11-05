@@ -8,11 +8,16 @@ import { createPortal } from 'react-dom';
 import { HELP, useDriveUi, type DriveTap } from './driveUi';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
-// App's phone layout (its isMobile): the D-pad drives, these add nitrous and the hand brake
+// App's phone layout (its isMobile): the D-pad drives (its ◀ ▶ taps change a drag's lane), these add
+// nitrous, the hand brake, the gears (manual or a drag), and in the Strip pause, reset and the map
 const phoneLayout = () => typeof window !== 'undefined' && (window.innerWidth <= 1024 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 'ontouchstart' in window || navigator.maxTouchPoints > 0);
 
-const Btn = ({ k, label }: { k: string; label: string }) => (
-  <button data-k={k} className="w-16 h-16 rounded-full border-2 border-market/60 bg-night/70 text-market font-cond font-extrabold italic text-xs uppercase select-none touch-none [&.on]:bg-market [&.on]:text-night pointer-events-auto">{label}</button>
+const Btn = ({ k, label, hidden }: { k: string; label: string; hidden?: boolean }) => (
+  <button data-k={k} aria-label={label} className="w-16 h-16 rounded-full border-2 border-market/60 bg-night/70 text-market font-cond font-extrabold italic text-xs uppercase select-none touch-none [&.on]:bg-market [&.on]:text-night pointer-events-auto" style={{ display: hidden ? 'none' : undefined }}>{label}</button>
+);
+/** a small square tap button (48 px): pause, reset, map, set GPS */
+const TapBtn = ({ t, label, aria, hidden }: { t: DriveTap; label: string; aria: string; hidden?: boolean }) => (
+  <button type="button" aria-label={aria} onPointerDown={e => { e.preventDefault(); tap(t); }} className="w-12 h-12 rounded-lg border-2 border-market/60 bg-night/70 text-market font-cond font-extrabold italic text-sm uppercase select-none touch-none active:bg-market active:text-night pointer-events-auto" style={{ display: hidden ? 'none' : undefined }}>{label}</button>
 );
 
 export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObject<HTMLCanvasElement> }>(({ canvasRef }, rootRef) => {
@@ -29,6 +34,8 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const [helpOn, setHelpOn] = useState(false);
   useEffect(() => { if (!help) return; setHelpOn(true); const t = setTimeout(() => setHelpOn(false), 8000); return () => clearTimeout(t); }, [help]);
   const nos = useDriveUi(s => s.nos);
+  const gears = useDriveUi(s => s.gears);
+  const mapOpen = useDriveUi(s => s.mapOpen);
   const [touch, setTouch] = useState(phoneLayout);
   useEffect(() => { const f = () => setTouch(phoneLayout()); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f); }, []);
   // a banner that does not hold fades after 1.6 s
@@ -89,7 +96,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                     {reward.stamps.length > 0 && <span className="ml-3 text-white/70">Stamp!</span>}
                   </div>
                 )}
-                <button onClick={() => tap('continue')} className="w-full rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Continue [Enter]</button>
+                <button onClick={() => tap('continue')} className="w-full min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Continue [Enter]</button>
               </div>
             </div>
           )}
@@ -98,18 +105,31 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             <div className="pointer-events-auto absolute inset-0 grid place-items-center bg-night/60">
               <div className="w-[300px] max-w-[calc(100vw-32px)] rounded-xl border border-market/40 bg-night p-5 flex flex-col gap-2">
                 <div className="font-cond italic font-black uppercase text-3xl text-market mb-1">Paused</div>
-                <button onClick={() => tap('resume')} className="rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Resume</button>
-                {eventLive && <button onClick={() => tap('restart')} className="rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
-                {eventLive && <button onClick={() => tap('quit')} className="rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
-                <button onClick={() => tap('town')} className="rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>
+                <button onClick={() => tap('resume')} className="min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Resume</button>
+                {eventLive && <button onClick={() => tap('restart')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
+                {eventLive && <button onClick={() => tap('quit')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
+                <button onClick={() => tap('town')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>
                 <p className="mt-2 text-[12px] leading-snug text-haze">{HELP.strip}</p>
               </div>
             </div>
           )}
 
-          <div className="absolute left-6 bottom-44 flex gap-3" style={{ display: touch && driving ? undefined : 'none' }}>
-            <Btn k="nos" label="NOS" />
-            <Btn k="hb" label="E-brake" />
+          {/* always mounted (InputMap wires the [data-k] buttons once, on getting in): shown and hidden by style */}
+          <div className="absolute left-6 bottom-44 flex flex-col gap-3" style={{ display: touch && driving && !results ? undefined : 'none' }}>
+            <div className="flex gap-3">
+              <Btn k="up" label="▲ Gear" hidden={!gears} />
+              <Btn k="dn" label="▼ Gear" hidden={!gears} />
+            </div>
+            <div className="flex gap-3">
+              <Btn k="nos" label="NOS" />
+              <Btn k="hb" label="E-brake" />
+            </div>
+          </div>
+          <div className="absolute right-3 top-[38%] flex flex-col gap-3" style={{ display: touch && driving && !results && !paused ? undefined : 'none' }}>
+            <TapBtn t="pause" label="II" aria="Pause" hidden={district !== 'strip' || mapOpen} />
+            <TapBtn t="reset" label="R" aria="Reset the car" hidden={mapOpen} />
+            <TapBtn t="map" label="Map" aria="Map" hidden={district !== 'strip' || (eventLive && !mapOpen)} />
+            <TapBtn t="enter" label="GPS" aria="Set GPS" hidden={!mapOpen} />
           </div>
         </div>, document.body)}
     </>

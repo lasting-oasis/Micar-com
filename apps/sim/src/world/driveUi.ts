@@ -8,7 +8,7 @@ export type ResultRow = { name: string; me: boolean; txt: string };
 export type ShownResults = { title: string; sub: string; pos: number; failed: string | null; rows: ResultRow[] };
 export type EventReward = { cash: number; octane: number; rep: number; stamps: string[] };
 /** what a tap on the layer asks the 3D view to do */
-export type DriveTap = 'enter' | 'continue' | 'resume' | 'town' | 'restart' | 'quit';
+export type DriveTap = 'enter' | 'continue' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map';
 
 /** Night Tuner's controls help line (#help), for the HUD on getting in and the pause menu */
 export const HELP: Record<District, string> = {
@@ -29,6 +29,8 @@ type DriveUi = {
   eventLive: boolean;
   /** the gear buttons show: manual transmission, or a drag */
   gears: boolean;
+  /** the Strip's full-screen map is open (the phone's buttons change) */
+  mapOpen: boolean;
   /** bumped on getting into a car: the help line shows for a few seconds */
   help: number;
   nos: boolean;
@@ -40,7 +42,7 @@ type DriveUi = {
 };
 
 export const useDriveUi = create<DriveUi>(set => ({
-  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, help: 0, nos: false, tap: null, quick: null,
+  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, help: 0, nos: false, tap: null, quick: null,
   set: p => set(p),
 }));
 

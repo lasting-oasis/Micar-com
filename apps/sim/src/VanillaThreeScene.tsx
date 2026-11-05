@@ -492,6 +492,8 @@ export function VanillaThreeScene() {
         // Expose input state setter for mobile touch controls
         (window as any).setMobileKey = (key: string, pressed: boolean) => {
             const k = key.toLowerCase();
+            // a fresh ◀ / ▶ tap while driving is a lane change in a drag (the InputMap's left / right edge)
+            if (localDrivingCarId && pressed) { if (k === 'a' && !keys.a) im.edge.laneL = true; if (k === 'd' && !keys.d) im.edge.laneR = true; }
             if (k in keys) {
                 keys[k as keyof typeof keys] = pressed;
             }
@@ -774,7 +776,7 @@ export function VanillaThreeScene() {
             const st = useGameStore.getState();
             st.setDrivingCarId(null); st.setDrivingFuel(null);
             hud?.clear();
-            useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false, eventLive: false }); promptShown = ''; nosShown = false;
+            useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false, eventLive: false, gears: false, mapOpen: false }); promptShown = ''; nosShown = false;
         };
 
         // ---- the per-frame step
@@ -831,25 +833,27 @@ export function VanillaThreeScene() {
             if (E.drift && !frozen) { driftMode = !driftMode; say(driftMode ? 'Drift mode' : 'Grip mode'); }
             chase.lookBack = !!im.keys.look && !frozen;
             const enter = E.enter || tapped === 'enter';
+            // the phone's buttons (DriveLayer): the same as Esc, M and R
+            const pauseK = E.pause || tapped === 'pause', mapK = E.map || tapped === 'map', resetK = E.reset || tapped === 'reset';
             let prompt = '', leave = false;
             if (S) {
                 const a = S.runner.active, free = !a && !S.outrun;
-                const fwdK = !!im.keys.fwd, backK = !!im.keys.back;
+                const fwdK = !!im.keys.fwd || keys.w, backK = !!im.keys.back || keys.s; // keys: the phone's D-pad
                 if (S.mapOpen) {
                     if (fwdK && !mapFwd) S.mapMove(-1);
                     if (backK && !mapBack) S.mapMove(1);
-                    if (enter) S.mapActivate(); else if (E.map || E.pause) S.toggleMap(false);
+                    if (enter) S.mapActivate(); else if (mapK || pauseK) S.toggleMap(false);
                 } else if (resultsShown) {
                     if (enter || tapped === 'continue') closeResults();
                 } else if (paused) {
-                    if (E.pause || tapped === 'resume') paused = false;
+                    if (pauseK || tapped === 'resume') paused = false;
                     else if (tapped === 'town') leave = true;
                     else if (tapped === 'restart' && a && !a.results) { paused = false; startEventById(a.ev.id, a.quick); } // cleanup (quit_event), then enter_event
                     else if (tapped === 'quit' && a && !a.results) { paused = false; S.runner.quit(); mendEngine(); chase.reset(V); } // quit_event
                 } else {
-                    if (E.pause) paused = true;
-                    else if (E.map && free) S.toggleMap(true);
-                    else if (E.reset) respawn(S, D);
+                    if (pauseK) paused = true;
+                    else if (mapK && free) S.toggleMap(true);
+                    else if (resetK) respawn(S, D);
                     if (E.laneL) S.runner.dragLane(-1);
                     if (E.laneR) S.runner.dragLane(1);
                     if (free && stripExit.isOnExit(V.x, V.z)) { prompt = '[Enter] BACK TO TOWN'; if (enter) leave = true; }
@@ -857,7 +861,7 @@ export function VanillaThreeScene() {
                 }
                 mapFwd = fwdK; mapBack = backK;
             } else if (!garageOpen) {
-                if (backspaceTap) { D.place(V.x, V.z, V.h); }
+                if (backspaceTap || tapped === 'reset') { D.place(V.x, V.z, V.h); }
                 if (gate.isOnGate(mesh.position.x, mesh.position.z)) { prompt = '[Enter] THE STRIP'; if (enter) enterStrip(); }
                 else if (me.lotPosition && onLot(me.lotPosition, mesh.position) && Math.abs(V.u) < 1.5) {
                     prompt = '[Enter] GARAGE';
@@ -911,7 +915,8 @@ export function VanillaThreeScene() {
             if (prompt !== promptShown) { promptShown = prompt; useDriveUi.setState({ prompt }); }
             if (V.nosOn !== nosShown) { nosShown = V.nosOn; useDriveUi.setState({ nos: nosShown }); }
             const ui = useDriveUi.getState(), act = inStrip ? strip!.runner.active : null, live = !!act && !act.results;
-            if (paused !== ui.paused || live !== ui.eventLive) useDriveUi.setState({ paused, eventLive: live });
+            const gearsOn = manualNow(), mapOn = inStrip && strip!.mapOpen;
+            if (paused !== ui.paused || live !== ui.eventLive || gearsOn !== ui.gears || mapOn !== ui.mapOpen) useDriveUi.setState({ paused, eventLive: live, gears: gearsOn, mapOpen: mapOn });
 
             // ---- fuel gauge 5x/s, the tank and the car's spot to the server
             fuelUiAccum += delta; fuelNetAccum += delta; carSyncAccum += delta;
@@ -1682,7 +1687,7 @@ export function VanillaThreeScene() {
             im.detach();
             audio.dispose();
             hud?.clear();
-            useDriveUi.setState({ driving: false, district: 'town', prompt: '', results: null, paused: false, eventLive: false, nos: false });
+            useDriveUi.setState({ driving: false, district: 'town', prompt: '', results: null, paused: false, eventLive: false, gears: false, mapOpen: false, nos: false });
             lightPool.dispose();
             uiTex.dispose();
             gate.dispose();
