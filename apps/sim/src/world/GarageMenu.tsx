@@ -7,6 +7,7 @@ import { deriveStyle } from '../scene/carModel';
 import { GarageModel, drawDyno, type Row, type RowTone } from './garage';
 import { GarageScene } from './GarageScene';
 import { Audio } from './audio';
+import { getOption, getOptions, setOption } from './options';
 import { getCarSpec } from '../carSpecs';
 import { STAGE_REP, STOCK_CFG, STYLES, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type PartValue, type StripRecord } from './data';
 
@@ -51,7 +52,9 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
       sfx: (n) => audio.current?.sfx(n),
       switchCar: (id) => st().openGarage(id),
       best: () => rec()?.best ?? {},
-      setOpt: (k, v) => { if (k === 'mute') audio.current?.setMute(!!v); },
+      // the options are saved (world/options.ts) and read by the driving: transmission, units, camera, sound
+      getOpt: (k) => getOption(k),
+      setOpt: (k, v) => { setOption(k, v); if (k === 'mute') audio.current?.setMute(!!getOptions().mute); },
     });
   }
   const g = model.current;
@@ -61,7 +64,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
 
   // sound, and the world under the garage drawn sparingly while it is covered
   useEffect(() => {
-    audio.current = new Audio();
+    audio.current = new Audio(getOptions().mute);
     const s = useGameStore.getState(), was = s.menuCoversWorld; s.setMenuCoversWorld(true);
     return () => { audio.current?.dispose(); audio.current = null; useGameStore.getState().setMenuCoversWorld(was); };
   }, []);

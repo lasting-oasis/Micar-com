@@ -24,6 +24,7 @@ import { routePoint, snapToRoad } from './world/strip/routes';
 import type { EventResults } from './world/strip/events';
 import { Hud, fmtT, type HudState } from './world/hud';
 import { Audio as NtAudio } from './world/audio';
+import { getOptions } from './world/options';
 import { InputMap } from './world/input';
 import { ChaseCamera } from './world/cameras';
 import { WORLD_PER_M } from './world/units';
@@ -605,6 +606,7 @@ export function VanillaThreeScene() {
         let promptShown = '', nosShown = false, bannerId = 0;
         let mapFwd = false, mapBack = false;
         let viewCam: THREE.PerspectiveCamera = camera;
+        let camOpt = 0;                       // the Camera option last applied (C still cycles the camera)
         const hudCanvas = hudCanvasRef.current, layerRoot = layerRef.current;
         const hud = hudCanvas ? new Hud(hudCanvas) : null;
         let hudSized = false;
@@ -612,14 +614,17 @@ export function VanillaThreeScene() {
         const touchUi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
         const driveCam = new THREE.PerspectiveCamera(64, window.innerWidth / window.innerHeight, 1, 6500);
         const chase = new ChaseCamera(driveCam);
-        const audio = new NtAudio();
+        const audio = new NtAudio(getOptions().mute); // the Garage's Options: Sound
         const resumeAudio = () => audio.resume();
         window.addEventListener('keydown', resumeAudio);
         window.addEventListener('pointerdown', resumeAudio);
         const STOCK_BUILD = { cfg: STOCK_CFG, tune: TUNE_DEF };
         // A car's Garage build, read from the store's record without adding to it (carState would).
         const buildOf = (carId: string): { cfg: CarCfg; tune: Tune } => useGameStore.getState().strip?.cars[carId] ?? STOCK_BUILD;
-        const im = new InputMap({ manual: () => false, hydraulics: () => !!(localDrivingCarId && buildOf(localDrivingCarId).cfg.hydraulics) });
+        // the Garage's Options: Transmission (a drag is always manual)
+        const isDrag = () => district === 'strip' && strip?.runner.active?.type === 'drag';
+        const manualNow = () => getOptions().manual || isDrag();
+        const im = new InputMap({ manual: manualNow, hydraulics: () => !!(localDrivingCarId && buildOf(localDrivingCarId).cfg.hydraulics) });
         type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number };
         const styleOf = (car: InvCar) => (car.bodyStyle || deriveStyle(car.model)) as BodyStyle;
         const meNow = () => { const st = stateRef.current; return st.gameState?.players[st.playerId || '']; };
@@ -700,7 +705,7 @@ export function VanillaThreeScene() {
             interactPrompt.material.opacity = 0;
             const st = useGameStore.getState();
             if (st.activeInteraction) st.setActiveInteraction(null);
-            useDriveUi.setState({ district: 'strip', paused: false, results: null });
+            useDriveUi.setState({ district: 'strip', paused: false, results: null, help: useDriveUi.getState().help + 1 });
             return true;
         };
         /** Back to the town gate (the exit ring, the pause menu): any event or outrun ends without a result. */
@@ -754,7 +759,8 @@ export function VanillaThreeScene() {
             driftMode = false; hudSized = false; carSyncAccum = 0;
             const st = useGameStore.getState();
             st.setDrivingCarId(carId); st.setDrivingFuel(localFuel);
-            useDriveUi.setState({ driving: true });
+            chase.mode = camOpt = getOptions().cam; // the Garage's Options: Camera
+            useDriveUi.setState({ driving: true, help: useDriveUi.getState().help + 1 }); // the controls line, for a few seconds
             return true;
         };
         /** Out of the car (always in the town): the kit comes off, the walking camera picks up from the chase camera. */
@@ -799,7 +805,9 @@ export function VanillaThreeScene() {
             g.fillText((it ? it.n : '') + '   ·   ↑↓ choose · Enter set GPS · M close', w / 2, h - 16);
         };
         const driveFrame = (delta: number, me: { money: number; lotPosition?: Lot; inventory: InvCar[] }) => {
-            const id = localDrivingCarId!, mesh = carMeshes[id], D = driver!, V = D.V;
+            const id = localDrivingCarId!, mesh = carMeshes[id], D = driver!, V = D.V, opt = getOptions();
+            if (opt.cam !== camOpt) chase.mode = camOpt = opt.cam;
+            if (opt.mute !== audio.isMuted) audio.setMute(opt.mute);
             const st = useGameStore.getState(), S = district === 'strip' ? strip : null;
             avatar.visible = false;
             // fuel: adopt a server refuel (a big jump, or the full tank just paid for at a pump)
@@ -896,7 +904,7 @@ export function VanillaThreeScene() {
                     const h = hudState, T = inStrip ? strip! : null, a = T ? T.runner.active : null;
                     h.PV = V; h.district = district; h.event = a; h.standings = a ? T!.runner.standings() : NONE;
                     h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.markers : NONE; h.ais = T ? T.ais : NONE;
-                    h.money = me.money; h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.stage = stripStage();
+                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.stage = stripStage();
                     hud.draw(h);
                 }
             }

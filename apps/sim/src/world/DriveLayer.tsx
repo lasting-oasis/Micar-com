@@ -5,7 +5,7 @@
 // stacking context under App's UI, which would take their taps.
 import { forwardRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useDriveUi, type DriveTap } from './driveUi';
+import { HELP, useDriveUi, type DriveTap } from './driveUi';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 // App's phone layout (its isMobile): the D-pad drives, these add nitrous and the hand brake
@@ -24,6 +24,10 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const reward = useDriveUi(s => s.reward);
   const paused = useDriveUi(s => s.paused);
   const eventLive = useDriveUi(s => s.eventLive);
+  const help = useDriveUi(s => s.help);
+  // Night Tuner's #help: the controls line for 8 s on getting in (and in the pause menu)
+  const [helpOn, setHelpOn] = useState(false);
+  useEffect(() => { if (!help) return; setHelpOn(true); const t = setTimeout(() => setHelpOn(false), 8000); return () => clearTimeout(t); }, [help]);
   const nos = useDriveUi(s => s.nos);
   const [touch, setTouch] = useState(phoneLayout);
   useEffect(() => { const f = () => setTouch(phoneLayout()); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f); }, []);
@@ -45,6 +49,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
           {/* starts under the top bar (the MiCar link, the menu buttons) */}
           <canvas ref={canvasRef} className="absolute left-0 right-0 bottom-0 top-16 w-full h-[calc(100%-4rem)]" />
           <div className="absolute inset-0 transition-opacity duration-300" style={{ opacity: nos ? .9 : 0, background: 'radial-gradient(ellipse at center, transparent 55%, rgba(121,166,255,.35) 100%)' }} />
+          <div className="absolute left-1/2 top-[76px] -translate-x-1/2 max-w-[calc(100vw-32px)] truncate whitespace-nowrap px-4 py-2 bg-night/75 border border-market/30 font-sans font-semibold text-[13px] text-haze transition-opacity duration-700" style={{ opacity: helpOn && driving && !paused && !results ? 1 : 0 }}>{HELP[district]}</div>
           {shownBanner && shownBanner.txt && (
             <div className="absolute left-1/2 top-[28%] -translate-x-1/2 -translate-y-1/2 text-center">
               <div className={`font-cond italic font-black uppercase tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,.8)] ${shownBanner.txt.length < 4 ? 'text-8xl' : 'text-4xl md:text-5xl'} ${shownBanner.bad ? 'text-[#ff5a6a]' : 'text-market'}`}>{shownBanner.txt}</div>
@@ -91,12 +96,13 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
 
           {paused && district === 'strip' && !results && (
             <div className="pointer-events-auto absolute inset-0 grid place-items-center bg-night/60">
-              <div className="w-[260px] rounded-xl border border-market/40 bg-night p-5 flex flex-col gap-2">
+              <div className="w-[300px] max-w-[calc(100vw-32px)] rounded-xl border border-market/40 bg-night p-5 flex flex-col gap-2">
                 <div className="font-cond italic font-black uppercase text-3xl text-market mb-1">Paused</div>
                 <button onClick={() => tap('resume')} className="rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Resume</button>
                 {eventLive && <button onClick={() => tap('restart')} className="rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
                 {eventLive && <button onClick={() => tap('quit')} className="rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
                 <button onClick={() => tap('town')} className="rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>
+                <p className="mt-2 text-[12px] leading-snug text-haze">{HELP.strip}</p>
               </div>
             </div>
           )}
