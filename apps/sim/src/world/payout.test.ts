@@ -46,7 +46,7 @@ describe('the time floor', () => {
   });
   it('refuses a drag run under 9 s and a finish sooner than the countdown plus the floor', () => {
     expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 8.5), 60000).ok).toBe(false);
-    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 9.5), 12000).ok).toBe(false); // 12 s < 3.6 + 9
+    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 9.5), 11000).ok).toBe(false); // 11 s < 3.0 + 9
     expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 9.5), (COUNTDOWN_S + 9.5) * 1000)).toEqual({ ok: true, pos: 1 });
   });
   it('holds a circuit to 45 m/s over every lap', () => {
