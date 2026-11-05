@@ -79,6 +79,11 @@ export function getCarSpec(car: { make?: string; model?: string; bodyStyle?: str
   return MODEL_SPECS[`${make} ${car.model}`] || STYLE_SPECS[car.bodyStyle || fallbackStyle] || STYLE_SPECS.sedan;
 }
 
+export function hasModelSpec(car: { make?: string; model?: string }): boolean {
+  const make = MAKE_ALIASES[car.make || ''] || car.make || '';
+  return `${make} ${car.model}` in MODEL_SPECS;
+}
+
 /** "2.5L I4 · 203 hp · 0–60 7.6s" */
 export const specLine = (s: CarSpec) => `${s.engine} · ${s.hp} hp · 0–60 ${s.zeroToSixty.toFixed(1)}s`;
 
