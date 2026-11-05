@@ -5,20 +5,35 @@ import { LightPool } from './scene/lightPool';
 import { batchStatic } from './scene/staticBatcher';
 import { damp, groundLastOpaqueSort } from './scene/utils';
 import { Atmosphere } from './scene/atmosphere';
-import { applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, prepareCarStyles, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
+import { applyCarPaint, attachCarShadows, buildCarModel, carColorHex, carFrameTick, carStyleReady, deriveStyle, precompileCarsTick, disposeCarModel, disposeSharedCarAssets, setCarLights, syncCarWheels, updateCarLights, updateCars } from './scene/carModel';
 import { BlobShadows, Character, customerLook, dealerLook, disposeCharacterAssets } from './scene/characterModel';
 import { createGroundHeight } from './scene/groundHeight';
-import { driveTuning, getCarSpec, UNITS_PER_MPH, type DriveTuning } from './carSpecs';
 import { createWorldContext } from './scene/world/context';
 import { setGroundLowQuality } from './scene/world/groundShader';
 import { createFenceKit } from './scene/world/fences';
 import { createFurnitureKit } from './scene/world/furniture';
 import { buildCity } from './scene/world/city';
-import { buildSpeedway } from './scene/world/speedway';
+import { buildGate, buildStripExit, GATE_RETURN } from './scene/world/gate';
 import { createDealership, type DealershipGate } from './scene/world/dealership';
+import { Driver, STEP, townCollider, type DriveOpts } from './world/driver';
+import { EVENTS, EV_NAME, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, type BodyStyle, type CarCfg, type StripRecord } from './world/data';
+import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physics';
+import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from './world/parts';
+import { StripScene, STRIP_SPAWN } from './world/strip/scene';
+import { snapToRoad } from './world/strip/routes';
+import type { EventResults } from './world/strip/events';
+import { Hud, fmtT, type HudState } from './world/hud';
+import { Audio as NtAudio } from './world/audio';
+import { InputMap } from './world/input';
+import { ChaseCamera } from './world/cameras';
+import { WORLD_PER_M } from './world/units';
+import { useDriveUi, type ShownResults } from './world/driveUi';
+import { DriveLayer } from './world/DriveLayer';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
+    const layerRef = useRef<HTMLDivElement>(null);      // the driving HUD's DOM layer (world/DriveLayer.tsx)
+    const hudCanvasRef = useRef<HTMLCanvasElement>(null); // ... and its canvas (world/hud.ts)
 
     // The render loop reads game state through this ref. It's kept current by a
     // direct store subscription, so this component never re-renders (it used to
@@ -111,7 +126,7 @@ export function VanillaThreeScene() {
         // static scenery that gets merged into a few big meshes (see batchStatic).
         const worldStartIndex = scene.children.length;
         const { libraryWorldPos, insuranceWorldPos, gasPumps } = buildCity(world, furniture);
-        const { RACE_CX, RACE_CZ, RC, raceStartPos, raceStartRotY, raceCheckpoints, rentalKioskPos, itemBoxes, itemBoxGeo, qTex } = buildSpeedway(world);
+        const gate = buildGate(world); // the Speedway's footprint: the lit gate to the Strip
 
         // Driveway gates of every dealership built so far. The owner's opens from
         // the inside automatically and from the outside after the gate code.
@@ -119,47 +134,10 @@ export function VanillaThreeScene() {
         const builtDealerships = new Set<string>();
 
 
-        // race/fuel state consumed by the render loop
+        // fuel state consumed by the render loop
         let localFuel: number | null = null;     // tank of the car currently being driven
         let refuelRequestedIn: object | null = null; // game state seen when R was pressed at a pump (refuel pending)
         let fuelUiAccum = 0, fuelNetAccum = 0;    // throttle the HUD write and the server sync
-        let raceActive = false, raceState = '', raceDifficulty = '', raceLapTarget = 0, raceLaps = 0, raceCpIndex = 0;
-        let raceStartMs = 0, raceCountdownUntil = 0, raceHudAccum = 0;
-        // CPU racing opponents
-        type CpuRacer = { mesh: THREE.Group; wheels: THREE.Object3D[]; angleDeg: number; startAngDeg: number; lane: number; speedDegPerSec: number; finished: boolean };
-        const CPU_STYLES = ['sports', 'coupe', 'sedan']; // the rivals' body styles
-        let cpuRacers: CpuRacer[] = [];
-        let cpuFinishCount = 0, racePlace = 1;
-        const clearCpuRacers = () => { cpuRacers.forEach(c => disposeCarModel(c.mesh)); cpuRacers = []; };
-        let boostUntil = 0, starUntil = 0, spinUntil = 0; // boost / invincible-star / spin-out timers
-        const bananas: { mesh: THREE.Mesh; expireAt: number; alive: boolean }[] = [];   // dropped peel hazards
-        const shells: { mesh: THREE.Mesh; dir: THREE.Vector3; expireAt: number; alive: boolean }[] = []; // fired shells
-        const bananaGeo = new THREE.SphereGeometry(1.4, 8, 6);
-        const bananaMat = new THREE.MeshStandardMaterial({ color: '#facc15', emissive: '#a16207', emissiveIntensity: 0.3, roughness: 0.5 });
-        const shellGeo = new THREE.SphereGeometry(1.7, 12, 10);
-        const shellMat = new THREE.MeshStandardMaterial({ color: '#22c55e', emissive: '#16a34a', emissiveIntensity: 0.7, roughness: 0.3, metalness: 0.4 });
-        // Take spent bananas/shells out of the scene instead of just hiding them forever.
-        const pruneProjectiles = () => {
-            for (const list of [bananas, shells] as { mesh: THREE.Mesh; alive: boolean }[][]) {
-                for (let i = list.length - 1; i >= 0; i--) {
-                    if (!list[i].alive) { scene.remove(list[i].mesh); list.splice(i, 1); }
-                }
-            }
-        };
-        const dropBanana = (car: THREE.Object3D) => {
-            const back = new THREE.Vector3(0, 0, 6).applyQuaternion(car.quaternion); // behind the car
-            const m = new THREE.Mesh(bananaGeo, bananaMat);
-            m.position.copy(car.position).add(back); m.position.y = 1.2; m.scale.set(1.1, 0.7, 1.5); m.castShadow = true;
-            scene.add(m); // geometry/material are shared and disposed on unmount
-            bananas.push({ mesh: m, expireAt: performance.now() + 30000, alive: true });
-        };
-        const fireShell = (car: THREE.Object3D) => {
-            const fwd = new THREE.Vector3(0, 0, -1).applyQuaternion(car.quaternion); // car forward
-            const m = new THREE.Mesh(shellGeo, shellMat);
-            m.position.copy(car.position).add(fwd.clone().multiplyScalar(9)); m.position.y = 1.6; m.castShadow = true;
-            scene.add(m); // geometry/material are shared and disposed on unmount
-            shells.push({ mesh: m, dir: fwd, expireAt: performance.now() + 4000, alive: true });
-        };
 
         // Merge all the static city scenery built above into a handful of meshes
         // (one per distinct material) — thousands of draw calls become dozens.
@@ -178,22 +156,6 @@ export function VanillaThreeScene() {
         const carSteering: Record<string, THREE.Object3D[]> = {}; // front steering pivots: rotation.y
         attachCarShadows(scene); // a soft shadow under every car (one draw for all of them)
         let carPrecompileAt = 0, carPrecompileFrames = 0; // car shader programs are prepared in the background after joining
-        const vehiclePhysics: Record<string, { v: number, yaw: number }> = {};
-        // Per-car handling from real specs (src/carSpecs.ts), recomputed only when the car's
-        // model or mechanical condition changes.
-        const tuningCache: Record<string, { key: string; t: DriveTuning }> = {};
-        const tuningFor = (car: { id: string; make?: string; model?: string; bodyStyle?: string; mechanicCondition?: number } | undefined): DriveTuning => {
-            const style = (car as any)?.bodyStyle || deriveStyle(car?.model || '');
-            const mech = Math.round(car?.mechanicCondition ?? 100);
-            const key = `${car?.make}|${car?.model}|${style}|${mech}`;
-            const id = car?.id || '?';
-            const hit = tuningCache[id];
-            if (hit && hit.key === key) return hit.t;
-            const t = driveTuning(getCarSpec({ make: car?.make, model: car?.model, bodyStyle: style }, style), style, mech);
-            tuningCache[id] = { key, t };
-            return t;
-        };
-        
         // --- People (scene/characterModel.ts) ----------------------------------------------
         // Customers at a car, by car ID: walk-ins negotiating for that car (`agentId`) and the
         // older offer customers. `mesh` places and turns them, `person` is their body; they
@@ -253,6 +215,7 @@ export function VanillaThreeScene() {
             for (let i = 1; i < n; i++) {
                 const x = a.x + (b.x - a.x) * i / n, z = a.z + (b.z - a.z) * i / n;
                 for (const id in carMeshes) {
+                    if (district === 'strip' && id === localDrivingCarId) continue; // away in the Strip
                     const c = carMeshes[id].position;
                     if (Math.abs(x - c.x) > 8 || Math.abs(z - c.z) > 8) continue;
                     const f = tmpSeg.set(0, 0, 3).applyQuaternion(carMeshes[id].quaternion);
@@ -336,7 +299,7 @@ export function VanillaThreeScene() {
                 const w: WalkIn = walkIns[a.id] = { mesh, person, mode: 'walking', route: [], target: mesh.position.clone(), look: null, lookCar: null, until: 0, leftAt: 0, carId: null };
                 planBrowse(w, lot, me.inventory);
             }
-            tmpFrustum.setFromProjectionMatrix(tmpProj.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse));
+            tmpFrustum.setFromProjectionMatrix(tmpProj.multiplyMatrices(viewCam.projectionMatrix, viewCam.matrixWorldInverse));
             for (const id in walkIns) {
                 const w = walkIns[id];
                 const a = agentById(agents, id);
@@ -489,8 +452,10 @@ export function VanillaThreeScene() {
                  dirLight.shadow.map = null;
              }
              if (recompile) {
-                 // Shaders are built with or without shadow code, so rebuild them once
-                 scene.traverse(o => {
+                 // Shaders are built with or without shadow code, so rebuild them once (the Strip's too,
+                 // once it is built: `strip` is declared further down, and the first call never recompiles)
+                 const scenes: THREE.Object3D[] = strip?.ready ? [scene, strip.scene] : [scene];
+                 for (const sc of scenes) sc.traverse(o => {
                      const mat = (o as THREE.Mesh).material;
                      if (mat) (Array.isArray(mat) ? mat : [mat]).forEach(m => {
                          m.needsUpdate = true;
@@ -509,6 +474,8 @@ export function VanillaThreeScene() {
         const handleResize = () => {
              camera.aspect = window.innerWidth / window.innerHeight;
              camera.updateProjectionMatrix();
+             driveCam.aspect = camera.aspect; driveCam.updateProjectionMatrix();
+             hud?.resize();
              // Ratio first, so the drawing buffer is re-allocated once, not twice
              const pr = pixelRatioFor(useGameStore.getState().graphicsQuality);
              if (renderer.getPixelRatio() !== pr) renderer.setPixelRatio(pr);
@@ -546,7 +513,7 @@ export function VanillaThreeScene() {
             if (key === 'd' || e.key === 'ArrowRight') keys.d = true;
             if (key === 'e') keys.e = true;
             if (key === 'r') keys.r = true;
-            if (key === ' ' || e.code === 'Space') { e.preventDefault(); (window as any).useItemTap = true; } // deploy held item
+            if (e.key === 'Backspace' && localDrivingCarId) { e.preventDefault(); backspaceTap = true; } // reset the car (in the town)
         };
         const handleKeyUp = (e: KeyboardEvent) => {
             const key = e.key.toLowerCase();
@@ -600,13 +567,9 @@ export function VanillaThreeScene() {
             { pos: new THREE.Vector3(-60, 1, 205), range: 15, yOff: 3, type: 'auction' as const, label: 'Access Global Auction', prompt: '[R] GLOBAL AUCTION', open: () => { window.dispatchEvent(new CustomEvent('open_auction')); } },
             { pos: libraryWorldPos, range: 11, yOff: 3, type: 'library' as const, label: 'Browse the Library', prompt: '[R] LIBRARY', open: () => { window.dispatchEvent(new CustomEvent('open_library')); } },
             { pos: insuranceWorldPos, range: 11, yOff: 3, type: 'insurance' as const, label: 'Apex Mutual Insurance', prompt: '[R] INSURANCE', open: () => useGameStore.getState().openInsuranceModal() },
-            { pos: rentalKioskPos, range: 12, yOff: 4, type: 'rental' as const, label: 'Rent Race Car ($1,500)', prompt: '[R] RENT RACE CAR', open: () => useGameStore.getState().rentRaceCar() },
         ];
 
         // Scratch objects reused every frame (allocating new vectors each frame causes GC stutter)
-        const tmpPrevPos = new THREE.Vector3();
-        const tmpPrevQuat = new THREE.Quaternion();
-        const tmpClosest = new THREE.Vector3();
         const tmpCam = new THREE.Vector3();
         const tmpLook = new THREE.Vector3();
         const tmpMove = new THREE.Vector3();
@@ -619,10 +582,344 @@ export function VanillaThreeScene() {
         const tmpEuler = new THREE.Euler();
         const headingOf = (o: THREE.Object3D) => tmpEuler.setFromQuaternion(o.quaternion, 'YXZ').y;
         const tmpAvatarBox = new THREE.Box3();
-        const carSpheres = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
         let carSyncAccum = 0;
         let lastDrawAt = 0; // performance.now() of the last renderer.render
 
+        // ===================== Driving: one model in the town and in the Strip =====================
+        // Night Tuner's vehicle (world/driver.ts) stepped at 120 Hz in metres; the car group follows
+        // driver.pose(). The Speedway is now the gate to the Strip (scene/world/gate.ts), a second
+        // scene (world/strip/scene.ts) the car group is moved into.
+        const W = WORLD_PER_M;
+        let district: 'town' | 'strip' = 'town';
+        let driver: Driver | null = null;
+        let driveSpec: { key: string; spec: VehicleSpec } | null = null; // specFor takes ~20 ms: once per car
+        let paramsKey = '', kitKey = '';
+        let kit: PartsKit | null = null;
+        let wheelR = 1;                       // the driven body's wheel radius (world units), for the roll
+        let lastStripRec: StripRecord | null | undefined;
+        let driftMode = false, paused = false, resultsShown = false;
+        let lastShift = 0, lastBov = false, lastNos = false;
+        let backspaceTap = false;             // Backspace: reset in the town (R parks / opens a bay there)
+        let lastGarageCarId: string | null = null;
+        let promptShown = '', nosShown = false, bannerId = 0;
+        let mapFwd = false, mapBack = false;
+        let viewCam: THREE.PerspectiveCamera = camera;
+        const hudCanvas = hudCanvasRef.current, layerRoot = layerRef.current;
+        const hud = hudCanvas ? new Hud(hudCanvas) : null;
+        let hudSized = false;
+        // App's phone layout (on-screen D-pad and buttons): the same test as App's isMobile
+        const touchUi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+        const driveCam = new THREE.PerspectiveCamera(64, window.innerWidth / window.innerHeight, 1, 6500);
+        const chase = new ChaseCamera(driveCam);
+        const audio = new NtAudio();
+        const resumeAudio = () => audio.resume();
+        window.addEventListener('keydown', resumeAudio);
+        window.addEventListener('pointerdown', resumeAudio);
+        const STOCK_BUILD = { cfg: STOCK_CFG, tune: TUNE_DEF };
+        // A car's Garage build, read from the store's record without adding to it (carState would).
+        const buildOf = (carId: string): { cfg: CarCfg; tune: Tune } => useGameStore.getState().strip?.cars[carId] ?? STOCK_BUILD;
+        const im = new InputMap({ manual: () => false, hydraulics: () => !!(localDrivingCarId && buildOf(localDrivingCarId).cfg.hydraulics) });
+        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number };
+        const styleOf = (car: InvCar) => (car.bodyStyle || deriveStyle(car.model)) as BodyStyle;
+        const meNow = () => { const st = stateRef.current; return st.gameState?.players[st.playerId || '']; };
+        const drivenCar = (): InvCar | undefined => meNow()?.inventory.find(c => c.id === localDrivingCarId);
+        const specOf = (car: InvCar): VehicleSpec => {
+            const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}`;
+            if (!driveSpec || driveSpec.key !== key) driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car) }) };
+            return driveSpec.spec;
+        };
+        const perfKey = (b: { cfg: CarCfg; tune: Tune }) => JSON.stringify(b.cfg.perf) + JSON.stringify(b.tune);
+        // The driven car wears its Garage build. The kit's neon PointLight is left out: a light added
+        // to a scene recompiles every material in it (its glow stays).
+        const fitKit = (mesh: THREE.Group, car: InvCar) => {
+            if (kit) { disposeParts(kit); kit = null; }
+            const { cfg } = buildOf(car.id);
+            kit = attachParts(mesh, cfg, styleOf(car), cfg.perf.brakes);
+            if (kit.neonLight) { kit.neonLight.removeFromParent(); kit.neonLight.dispose(); kit.neonLight = null; }
+            kitKey = JSON.stringify(cfg);
+        };
+        // The Garage changed the record: new Params for new parts or tune, a new kit for new looks.
+        const syncBuild = () => {
+            const car = drivenCar(), mesh = localDrivingCarId ? carMeshes[localDrivingCarId] : undefined;
+            if (!driver || !car || !mesh) return;
+            const b = buildOf(car.id), pk = perfKey(b);
+            if (pk !== paramsKey) { paramsKey = pk; driver.rebuild(specOf(car), b); }
+            if (JSON.stringify(b.cfg) !== kitKey) fitKit(mesh, car);
+        };
+        const say = (txt: string, bad = false, hold = false) => useDriveUi.setState({ banner: { txt, bad, hold, id: ++bannerId } });
+        const socketEmit = (ev: string, payload: unknown) => { useGameStore.getState().socket?.emit(ev, payload); };
+
+        // ---- the Strip
+        const stripExit = buildStripExit();
+        const stripStage = () => stageOf(useGameStore.getState().strip?.rep ?? 0);
+        const ordinal = (n: number) => n + (n % 10 === 1 && n % 100 !== 11 ? 'st' : n % 10 === 2 && n % 100 !== 12 ? 'nd' : n % 10 === 3 && n % 100 !== 13 ? 'rd' : 'th');
+        const shownResults = (r: EventResults): ShownResults => ({
+            title: r.failed ? r.failed : r.pos === 1 ? 'You won' : `${ordinal(r.pos)} place`,
+            sub: `${EV_NAME[r.type]} · ${r.ev.name}`, pos: r.pos, failed: r.failed,
+            rows: r.list.map(p => ({ name: p.name, me: !!p.me, txt: r.type === 'drift' ? (p.score ?? 0).toLocaleString('en-US') : p.ft != null ? fmtT(p.ft) + (p.estimated ? '*' : '') : 'DNF' })),
+        });
+        let strip: StripScene | null = null;
+        const getStrip = () => strip ??= new StripScene({
+            onBanner: (txt, bad, hold) => say(txt, !!bad, !!hold),
+            onSfx: n => audio.sfx(n),
+            stage: stripStage,
+            styleRating: () => localDrivingCarId ? visualRating(buildOf(localDrivingCarId).cfg) : 0,
+            renderer,
+            onEventStart: (ev, PV) => { chase.reset(PV); resultsShown = false; paused = false; socketEmit('enter_event', { eventId: ev.id }); },
+            onResults: r => {
+                resultsShown = true;
+                socketEmit('finish_event', { eventId: r.ev.id, pos: r.pos, time: r.time, score: r.score, failed: !!r.failed });
+                useDriveUi.setState({ results: shownResults(r), reward: null });
+            },
+            onOutrun: won => socketEmit('finish_outrun', { won }),
+            // Night Tuner's near-miss cash is not ported (onNearMiss)
+        });
+        // a drag can blow the engine: it is fixed when the run is over (the event's cleanup does not touch the car)
+        const mendEngine = () => { if (driver) { driver.V.blown = false; driver.V.overRev = 0; } };
+        const closeResults = () => {
+            resultsShown = false;
+            useDriveUi.setState({ results: null });
+            strip?.runner.cleanup();
+            mendEngine();
+        };
+        /** Into the Strip with the car being driven: the car group moves into the Strip's scene at its spawn. */
+        const enterStrip = (): boolean => {
+            const mesh = localDrivingCarId ? carMeshes[localDrivingCarId] : undefined;
+            if (!driver || !mesh || district === 'strip') return false;
+            const S = getStrip();
+            S.load(); // builds the city and its cars (a short stall); S.scene is the city's scene from here
+            if (stripExit.group.parent !== S.scene) S.scene.add(stripExit.group);
+            // while it is away, the car's town spot is the gate
+            socketEmit('sync_car_pos', { carId: localDrivingCarId, position: { x: GATE_RETURN.x, z: GATE_RETURN.z, r: GATE_RETURN.rotY }, district: 'town' });
+            driver.place(STRIP_SPAWN.x, STRIP_SPAWN.z, STRIP_SPAWN.h);
+            S.enter(driver.V, mesh);
+            district = 'strip'; paused = false; resultsShown = false; driftMode = false;
+            chase.reset(driver.V);
+            interactPrompt.material.opacity = 0;
+            const st = useGameStore.getState();
+            if (st.activeInteraction) st.setActiveInteraction(null);
+            useDriveUi.setState({ district: 'strip', paused: false, results: null });
+            return true;
+        };
+        /** Back to the town gate (the exit ring, the pause menu): any event or outrun ends without a result. */
+        const exitStrip = (): boolean => {
+            if (district !== 'strip' || !strip) return false;
+            strip.exit(); // cleans up the event, gives the car group back to the town scene
+            district = 'town'; paused = false; resultsShown = false;
+            const mesh = localDrivingCarId ? carMeshes[localDrivingCarId] : undefined;
+            if (driver) {
+                driver.place(GATE_RETURN.x / W, GATE_RETURN.z / W, GATE_RETURN.rotY - Math.PI);
+                const p = driver.pose();
+                mesh?.position.set(p.x, 0, p.z); mesh?.rotation.set(0, p.rotY, 0);
+                chase.reset(driver.V);
+            }
+            useDriveUi.setState({ district: 'town', paused: false, results: null, prompt: '' }); promptShown = '';
+            return true;
+        };
+        const startEventById = (id: string, quick = false): boolean => {
+            const ev = EVENTS.find(e => e.id === id);
+            if (!ev || (district !== 'strip' && !enterStrip())) return false;
+            if (resultsShown) closeResults();
+            strip!.startEvent(ev, { quick });
+            return true;
+        };
+
+        // ---- getting in and out
+        const beginDriving = (carId: string): boolean => {
+            const car = meNow()?.inventory.find(c => c.id === carId), mesh = carMeshes[carId];
+            if (!car || !mesh || driver) return false;
+            localDrivingCarId = carId;
+            localFuel = car.fuel ?? 100; refuelRequestedIn = null;
+            const b = buildOf(carId);
+            paramsKey = perfKey(b);
+            driver = new Driver(specOf(car), b, { x: mesh.position.x / W, z: mesh.position.z / W, h: headingOf(mesh) - Math.PI });
+            wheelR = anchorsFor(styleOf(car)).wheelR;
+            fitKit(mesh, car);
+            lastStripRec = useGameStore.getState().strip;
+            if (layerRoot) im.attach(layerRoot);
+            chase.reset(driver.V);
+            driftMode = false; hudSized = false; carSyncAccum = 0;
+            const st = useGameStore.getState();
+            st.setDrivingCarId(carId); st.setDrivingFuel(localFuel);
+            useDriveUi.setState({ driving: true });
+            return true;
+        };
+        /** Out of the car (always in the town): the kit comes off, the walking camera picks up from the chase camera. */
+        const endDriving = () => {
+            if (district === 'strip') exitStrip();
+            im.detach();
+            if (kit) { disposeParts(kit); kit = null; }
+            kitKey = ''; driver = null; localDrivingCarId = null; localFuel = null;
+            camera.position.copy(driveCam.position);
+            const st = useGameStore.getState();
+            st.setDrivingCarId(null); st.setDrivingFuel(null);
+            hud?.clear();
+            useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false }); promptShown = ''; nosShown = false;
+        };
+
+        // ---- the per-frame step
+        const fuelNow = () => localFuel ?? 100;
+        const burnFuel = (f: number) => { localFuel = Math.max(0, (localFuel ?? 100) - f); };
+        const townOpts: DriveOpts = { drift: false, fuel: fuelNow, burn: burnFuel, collide: townCollider(staticCollisionBoxes) };
+        const stripOpts: DriveOpts = {
+            drift: false, fuel: fuelNow, burn: burnFuel,
+            collide: V => { const S = strip!; const i = S.collide(V); S.runner.postStep(STEP); return i; },
+            map: (I, dt) => strip!.runner.input(I, dt),
+        };
+        const NONE: never[] = [];
+        const hudState: HudState = { PV: null as never, event: null, standings: NONE, outrun: null, gps: null, markers: NONE, ais: NONE, money: 0, units: 'mph', manual: false, small: false, touch: touchUi, district: 'town' };
+        // the old keys (and the phone D-pad, which sets them) drive too
+        const legacyInput = (I: Input) => {
+            if (I.hyd) return;
+            if (keys.w) I.fwd = 1;
+            if (keys.s) I.back = 1;
+            if (keys.a || keys.d) I.steer = (keys.d ? 1 : 0) - (keys.a ? 1 : 0);
+        };
+        const drawMap = (S: StripScene) => {
+            const g = hudCanvas?.getContext('2d'); if (!g || !hudCanvas) return;
+            const w = hudCanvas.clientWidth || window.innerWidth, h = hudCanvas.clientHeight || window.innerHeight, d = Math.min(2, window.devicePixelRatio || 1);
+            g.setTransform(d, 0, 0, d, 0, 0); g.clearRect(0, 0, w, h);
+            S.drawMapInto(g, w, h - 40);
+            const items = S.mapItems(), it = items[S.mapSel];
+            g.fillStyle = '#ffd23f'; g.textAlign = 'center'; g.font = "italic 800 20px 'Barlow Condensed','Arial Narrow',sans-serif";
+            g.fillText((it ? it.n : '') + '   ·   ↑↓ choose · Enter set GPS · M close', w / 2, h - 16);
+        };
+        const driveFrame = (delta: number, me: { money: number; lotPosition?: Lot; inventory: InvCar[] }) => {
+            const id = localDrivingCarId!, mesh = carMeshes[id], D = driver!, V = D.V;
+            const st = useGameStore.getState(), S = district === 'strip' ? strip : null;
+            avatar.visible = false;
+            // fuel: adopt a server refuel (a big jump, or the full tank just paid for at a pump)
+            const liveCar = me.inventory.find(c => c.id === id);
+            if (localFuel === null) localFuel = liveCar?.fuel ?? 100;
+            if (liveCar && typeof liveCar.fuel === 'number' && (liveCar.fuel - localFuel > 15 || (refuelRequestedIn && stateRef.current.gameState !== refuelRequestedIn && liveCar.fuel >= 100))) { localFuel = liveCar.fuel; refuelRequestedIn = null; }
+            if (st.strip !== lastStripRec) { lastStripRec = st.strip; syncBuild(); }
+            const garageOpen = !!st.garageCarId;
+            if (garageOpen) im.releaseAll();
+
+            // ---- input: edges once per frame
+            im.poll();
+            const E = im.edge, tapped = useDriveUi.getState().tap;
+            if (tapped) useDriveUi.setState({ tap: null });
+            const frozen = garageOpen || paused || resultsShown || !!S?.mapOpen;
+            let I: Input = NO_INPUT;
+            if (!frozen) { I = im.build(); legacyInput(I); }
+            if (E.camera) chase.cycle();
+            if (E.horn) audio.sfx('horn');
+            if (E.lights) V.lights = !V.lights;
+            if (E.drift && !frozen) { driftMode = !driftMode; say(driftMode ? 'Drift mode' : 'Grip mode'); }
+            chase.lookBack = !!im.keys.look && !frozen;
+            const enter = E.enter || tapped === 'enter';
+            let prompt = '', leave = false;
+            if (S) {
+                const a = S.runner.active, free = !a && !S.outrun;
+                const fwdK = !!im.keys.fwd, backK = !!im.keys.back;
+                if (S.mapOpen) {
+                    if (fwdK && !mapFwd) S.mapMove(-1);
+                    if (backK && !mapBack) S.mapMove(1);
+                    if (enter) S.mapActivate(); else if (E.map || E.pause) S.toggleMap(false);
+                } else if (resultsShown) {
+                    if (enter || tapped === 'continue') closeResults();
+                } else if (paused) {
+                    if (E.pause || tapped === 'resume') paused = false;
+                    else if (tapped === 'town') leave = true;
+                } else {
+                    if (E.pause) paused = true;
+                    else if (E.map && free) S.toggleMap(true);
+                    else if (E.reset) { if (a) S.runner.quit(); else snapToRoad(V); mendEngine(); chase.reset(V); }
+                    if (E.laneL) S.runner.dragLane(-1);
+                    if (E.laneR) S.runner.dragLane(1);
+                    if (free && stripExit.isOnExit(V.x, V.z)) { prompt = '[Enter] BACK TO TOWN'; if (enter) leave = true; }
+                    else { const t = S.promptText(); if (t) prompt = t.replace('Enter · ', '[Enter] '); if (enter) S.pressEnter(); }
+                }
+                mapFwd = fwdK; mapBack = backK;
+            } else if (!garageOpen) {
+                if (backspaceTap) { D.place(V.x, V.z, V.h); }
+                if (gate.isOnGate(mesh.position.x, mesh.position.z)) { prompt = '[Enter] THE STRIP'; if (enter) enterStrip(); }
+                else if (me.lotPosition && onLot(me.lotPosition, mesh.position) && Math.abs(V.u) < 1.5) {
+                    prompt = '[Enter] GARAGE';
+                    if (enter) { im.releaseAll(); st.openGarage(id); }
+                }
+            }
+            backspaceTap = false;
+
+            // ---- physics
+            const inStrip = district === 'strip' && !!strip, halt = paused || (inStrip && strip!.mapOpen);
+            let impact = 0;
+            if (!halt) {
+                const opts = inStrip ? stripOpts : townOpts;
+                opts.drift = driftMode || (inStrip && strip!.runner.active?.type === 'drift');
+                impact = D.stepFrame(delta, I, opts).impact;
+            }
+            im.clearEdges();
+            if (impact > 3) { chase.shake = Math.min(1, chase.shake + impact / 14); audio.sfx('crash'); }
+            if (V.shift > 0 && lastShift <= 0) audio.sfx('shift');
+            lastShift = V.shift;
+            const bov = V.bov > .38; if (bov && !lastBov) audio.sfx('bov'); lastBov = bov;
+            if (V.nosOn && !lastNos) audio.sfx('nosfire'); lastNos = V.nosOn;
+            audio.engine(V, Math.abs(V.u), !halt && !garageOpen);
+
+            // ---- the car follows the physics
+            const p = D.pose();
+            mesh.position.set(p.x, 0, p.z); mesh.rotation.set(0, p.rotY, 0);
+            const wheels = carWheels[id];
+            if (wheels && !halt) { const roll = -V.u * W / wheelR * delta; for (const w of wheels) w.rotateX(roll); }
+            const pivots = carSteering[id];
+            if (pivots) for (const q of pivots) q.rotation.y = V.delta;
+            syncCarWheels(mesh);
+            setCarLights(mesh, !V.lights ? 'off' : V.gear === -1 && V.u < -0.5 ? 'reverse' : V.brk > 0 && V.u > 0.5 ? 'brake' : 'on');
+            if (inStrip) { strip!.update(delta, !paused && !resultsShown && !strip!.mapOpen && !garageOpen); stripExit.pulse(performance.now()); }
+            chase.update(V, delta, V.nosOn);
+
+            // ---- HUD
+            if (hud && hudCanvas) {
+                if (!hudSized && hudCanvas.clientWidth > 0) { hud.resize(); hudSized = true; }
+                if (inStrip && strip!.mapOpen) drawMap(strip!);
+                else {
+                    const h = hudState, T = inStrip ? strip! : null, a = T ? T.runner.active : null;
+                    h.PV = V; h.district = district; h.event = a; h.standings = a ? T!.runner.standings() : NONE;
+                    h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.markers : NONE; h.ais = T ? T.ais : NONE;
+                    h.money = me.money; h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.stage = stripStage();
+                    hud.draw(h);
+                }
+            }
+            if (prompt !== promptShown) { promptShown = prompt; useDriveUi.setState({ prompt }); }
+            if (V.nosOn !== nosShown) { nosShown = V.nosOn; useDriveUi.setState({ nos: nosShown }); }
+            if (paused !== useDriveUi.getState().paused) useDriveUi.setState({ paused });
+
+            // ---- fuel gauge 5x/s, the tank and the car's spot to the server
+            fuelUiAccum += delta; fuelNetAccum += delta; carSyncAccum += delta;
+            if (fuelUiAccum > 0.2) { fuelUiAccum = 0; useGameStore.setState({ drivingFuel: Math.round(localFuel ?? 100), drivingSpeed: Math.round(Math.abs(V.u) * 2.237) }); }
+            if (fuelNetAccum > 1.5) { fuelNetAccum = 0; st.consumeFuel(id, Math.round(localFuel ?? 100)); }
+            // ~3x a second in the town (in the Strip the car's town spot stays the gate)
+            if (carSyncAccum > 0.33) { carSyncAccum = 0; if (district === 'town') st.socket?.emit('sync_car_pos', { carId: id, position: { x: mesh.position.x, z: mesh.position.z, r: headingOf(mesh) }, district: 'town' }); }
+            if (leave) exitStrip();
+        };
+
+        // A tiny handle for scripted checks (the Task 12 smoke test), in every build.
+        const micar = {
+            pose: () => {
+                const p = driver ? driver.pose() : { x: avatar.position.x, y: avatar.position.y, z: avatar.position.z, rotY: headingOf(avatar) };
+                const V = driver?.V;
+                return { x: p.x, y: p.y, z: p.z, rotY: p.rotY, district, driving: !!driver, speed: V ? V.u : 0, gear: V ? V.gear : 0, rpm: V ? Math.round(V.rpm) : 0, redline: V ? V.P.redline : 0 };
+            },
+            /** get into a car: `carId`, else the nearest of your cars */
+            drive: (carId?: string): boolean => {
+                if (driver) return true;
+                let id = carId ?? null, best = Infinity;
+                if (!id) for (const c of meNow()?.inventory ?? []) { const m = carMeshes[c.id]; if (!m || aiDriveSequence[c.id]) continue; const d = m.position.distanceTo(avatar.position); if (d < best) { best = d; id = c.id; } }
+                return !!id && beginDriving(id);
+            },
+            /** put the car being driven at (x, z) world units of the current district, facing rotY (a scene rotation.y) */
+            place: (x: number, z: number, rotY = Math.PI): boolean => { if (!driver) return false; driver.place(x / W, z / W, rotY - Math.PI); chase.reset(driver.V); return true; },
+            enterStrip: () => enterStrip(),
+            exitStrip: () => exitStrip(),
+            startEvent: (id: string) => startEventById(id),
+            district: () => district,
+        };
+        (window as unknown as { __micar?: typeof micar }).__micar = micar;
+
+
+        const FAR_AWAY = new THREE.Vector3(1e6, 0, 1e6);
         const animate = () => {
             animationFrameId = requestAnimationFrame(animate);
             const time = Date.now() * 0.001;
@@ -645,7 +942,18 @@ export function VanillaThreeScene() {
             });
             
             const current = stateRef.current;
+            // a quick race asked for from the Garage: drive the Garage's car (if on foot) into the Strip and start it
+            const garageId = useGameStore.getState().garageCarId;
+            if (garageId) lastGarageCarId = garageId;
+            const quick = useDriveUi.getState().quick;
+            if (quick) {
+                useDriveUi.setState({ quick: null });
+                if (!driver && lastGarageCarId) beginDriving(lastGarageCarId);
+                if (driver) startEventById(quick, true);
+            }
             const isDriving = !!localDrivingCarId;
+            viewCam = driver ? driveCam : camera;
+            gate.pulse(performance.now());
             const me = current.gameState?.players[current.playerId || ''];
 
             // Time of Day Rendering Sync. The server sends the clock once a second
@@ -665,16 +973,17 @@ export function VanillaThreeScene() {
             // calls window.__authorizeGate() on success). Other lots' gates stay shut.
             const activeObj = (isDriving && localDrivingCarId && carMeshes[localDrivingCarId])
                 ? carMeshes[localDrivingCarId] : avatar;
+            const gatePos = district === 'strip' ? FAR_AWAY : activeObj.position; // in the Strip: nowhere near a lot
             const now = performance.now();
             const authorized = now < gateAuthorizedUntil;
             let showGateKeypad = false;
             dealershipGates.forEach(g => {
                 let open = false;
                 if (g.ownerId === current.playerId) {
-                    const dx = activeObj.position.x - g.x;
-                    const dz = activeObj.position.z - g.z;
+                    const dx = gatePos.x - g.x;
+                    const dz = gatePos.z - g.z;
                     const near = Math.hypot(dx, dz) < 24 && Math.abs(dx) < 26;
-                    const inside = activeObj.position.z < g.z - 0.5;
+                    const inside = gatePos.z < g.z - 0.5;
                     const customerAtGate = Object.keys(aiDriveSequence).some(id => {
                         const m = carMeshes[id];
                         return !!m && Math.abs(m.position.x - g.x) < 20 && Math.abs(m.position.z - g.z) < 30;
@@ -757,15 +1066,10 @@ export function VanillaThreeScene() {
                                  if (d < minDist) { minDist = d; closestCar = car.id; }
                              }
                         });
-                        if (closestCar) {
-                             localDrivingCarId = closestCar; // Hijack locally!
-                             const ec = me?.inventory.find(c => c.id === closestCar);
-                             localFuel = ec?.fuel ?? 100;
-                             refuelRequestedIn = null;
-                             useGameStore.getState().setDrivingCarId(closestCar);
-                             useGameStore.getState().setDrivingFuel(localFuel);
-                        }
+                        if (closestCar) beginDriving(closestCar);
                     }
+                } else if (district === 'strip') {
+                    say('Drive onto the gate ring to leave the Strip');
                 } else {
                     // EXITED CAR
                     if (carMeshes[localDrivingCarId!]) {
@@ -791,27 +1095,19 @@ export function VanillaThreeScene() {
                          // Teleport avatar to driver side door!
                          const offset = new THREE.Vector3(-3, 0, 0).applyQuaternion(m.quaternion);
                          avatar.position.copy(m.position).add(offset);
-                         // The car stops when you get out (it used to pull away at its old speed when you got back in)
-                         if (vehiclePhysics[localDrivingCarId!]) vehiclePhysics[localDrivingCarId!].v = 0;
                     }
                     // Persist where the car was left (the periodic sync can be up to 0.33 s old, many
-                    // units at speed) and the final fuel level; drop any active race (forfeits entry fee).
+                    // units at speed) and the final fuel level. (The car stops: the next drive starts a new Driver.)
                     const exitedCar = carMeshes[localDrivingCarId!];
-                    if (exitedCar) useGameStore.getState().socket?.emit('sync_car_pos', { carId: localDrivingCarId, position: { x: exitedCar.position.x, z: exitedCar.position.z, r: headingOf(exitedCar) } });
+                    if (exitedCar) useGameStore.getState().socket?.emit('sync_car_pos', { carId: localDrivingCarId, position: { x: exitedCar.position.x, z: exitedCar.position.z, r: headingOf(exitedCar) }, district: 'town' });
                     if (localDrivingCarId && localFuel !== null) useGameStore.getState().consumeFuel(localDrivingCarId, localFuel);
-                    if (raceActive) { raceActive = false; raceState = ''; useGameStore.getState().abortRace(); }
-                    clearCpuRacers();
-                    localFuel = null;
-                    useGameStore.getState().setDrivingCarId(null);
-                    useGameStore.getState().setDrivingFuel(null);
-                    useGameStore.getState().setRaceTrackPrompt(false);
-                    localDrivingCarId = null;
+                    endDriving();
                 }
             }
 
             // Object Synchronization
             carFrameTick();
-            updateCarLights(nightFactor); // lamps of driven cars glow brighter as night falls
+            updateCarLights(district === 'strip' ? 1 : nightFactor); // lamps of driven cars glow brighter as night falls (always night in the Strip)
             if (me) {
                 me.inventory.forEach((car) => {
                     if (!carMeshes[car.id]) {
@@ -837,7 +1133,6 @@ export function VanillaThreeScene() {
                         if (assets.smokeParticles) carSmokes[car.id] = assets.smokeParticles;
                         carWheels[car.id] = assets.wheels;
                         carSteering[car.id] = assets.frontPivots;
-                        vehiclePhysics[car.id] = { v: 0, yaw: 0 };
                     }
 
                     // smoke reflects the car's CURRENT mechanical condition (clears after a repair)
@@ -852,15 +1147,15 @@ export function VanillaThreeScene() {
                         const paintKey = `${car.isDirty ? 1 : 0}|${car.color}|${Math.round(car.bodyCondition ?? 100)}`;
                         if (body.userData.paintKey !== paintKey) {
                             body.userData.paintKey = paintKey;
+                            // the driven car's kit set the paint finish: take it off, repaint, fit it again
+                            const refit = car.id === localDrivingCarId && kit;
+                            if (refit) { disposeParts(kit!); kit = null; }
                             applyCarPaint(body, carColorHex(car.color), car.bodyCondition ?? 100, !!car.isDirty);
+                            if (refit) fitKit(carMeshes[car.id], car);
                         }
                     }
-                    // head and tail lamps on while someone drives it (you, or a customer on a test drive);
-                    // yours also show braking (S while rolling forward) and reversing
-                    const ph = vehiclePhysics[car.id];
-                    setCarLights(carMeshes[car.id], car.id === localDrivingCarId
-                        ? (ph && ph.v < -0.5 ? 'reverse' : ph && keys.s && ph.v > 0.5 ? 'brake' : 'on')
-                        : aiDriveSequence[car.id] ? 'on' : 'off');
+                    // head and tail lamps on while a customer test-drives it (yours: driveFrame, with braking and reversing)
+                    if (car.id !== localDrivingCarId) setCarLights(carMeshes[car.id], aiDriveSequence[car.id] ? 'on' : 'off');
                     // AI Pathing Spawn Subroutine
                     if (car.hasOffer && !aiBots[car.id]) {
                         // A customer walks up to the car (seeded by the car, so the same car brings the same person)
@@ -905,14 +1200,10 @@ export function VanillaThreeScene() {
                 Object.keys(carMeshes).forEach(carId => {
                     if (ownedIds.has(carId)) return;
                     if (carId === localDrivingCarId) {
-                        // The car was sold/removed while we were driving it: step out (forfeiting any race).
+                        // The car was sold/removed while we were driving it: step out (leaving the Strip and any event).
+                        if (district === 'strip') exitStrip();
                         avatar.position.copy(carMeshes[carId].position).add(new THREE.Vector3(-3, 0, 0));
-                        localDrivingCarId = null;
-                        localFuel = null;
-                        if (raceActive) { raceActive = false; raceState = ''; }
-                        clearCpuRacers();
-                        const st = useGameStore.getState();
-                        st.setDrivingCarId(null); st.setDrivingFuel(null); st.setRaceTrackPrompt(false); st.abortRace();
+                        endDriving();
                     }
                     disposeCarModel(carMeshes[carId]);
                     delete carMeshes[carId];
@@ -920,7 +1211,6 @@ export function VanillaThreeScene() {
                     delete carSmokes[carId];
                     delete carWheels[carId];
                     delete carSteering[carId];
-                    delete vehiclePhysics[carId];
                     delete aiDriveSequence[carId];
                 });
             }
@@ -929,7 +1219,7 @@ export function VanillaThreeScene() {
             if (me) {
                 me.inventory.forEach(car => {
                     const m = carMeshes[car.id];
-                    if (!m) return;
+                    if (!m || (district === 'strip' && car.id === localDrivingCarId)) return;
                     
                     // Wash Bay Zone (x: 55, z: -40, radius: 10)
                     const inWashBay = Math.abs(m.position.x - ((me?.lotPosition?.x || 0) + 55)) < 10 && Math.abs(m.position.z - ((me?.lotPosition?.z || 0) - 40)) < 10;
@@ -950,7 +1240,7 @@ export function VanillaThreeScene() {
             }
 
             // Farming Simulator Physical Interactions
-            if (rJustPressed && me) {
+            if (rJustPressed && me && district === 'town') {
                  const pPos = localDrivingCarId ? carMeshes[localDrivingCarId].position : avatar.position;
                  me.inventory.forEach(car => {
                       if (localDrivingCarId && car.id !== localDrivingCarId) return;
@@ -1113,7 +1403,7 @@ export function VanillaThreeScene() {
                   } else if (activeInt !== null) {
                        store.setActiveInteraction(null);
                   }
-             } else {
+             } else if (district === 'town') {
                   const store = useGameStore.getState();
                   if (store.activeInteraction !== null) store.setActiveInteraction(null);
                   const pPos = carMeshes[localDrivingCarId!].position;
@@ -1134,255 +1424,15 @@ export function VanillaThreeScene() {
                   }
              }
 
-            // Custom Realistic Driving Physics Engine
-            if (localDrivingCarId) {
-                avatar.visible = false;
-                const activeCar = carMeshes[localDrivingCarId];
-                const phys = vehiclePhysics[localDrivingCarId];
-                
-                if (activeCar && phys) {
-                    // ===== Handling from the car's real specs (src/carSpecs.ts) =====
-                    // Top speed, acceleration, braking, drag and steering differ per model, and a worn
-                    // engine pulls less. The Speedway Rental GT keeps the original race tuning.
-                    const tune = tuningFor(me?.inventory.find(c => c.id === localDrivingCarId));
-                    const maxV = tune.maxV;
-                    const reverseMax = tune.reverseMax;
-                    const engineAcc = tune.accel * delta;
-                    const brakeAcc = tune.brake * delta;
-                    const coast = tune.coast * delta;
-
-                    // --- Fuel burn (all driving consumes gas) ---
-                    if (localFuel === null) localFuel = (me?.inventory.find(c => c.id === localDrivingCarId)?.fuel) ?? 100;
-                    const liveCar = me?.inventory.find(c => c.id === localDrivingCarId);
-                    // Adopt a server refuel: a big jump, or the full tank just paid for at a pump (from a state
-                    // that arrived after the request; a small top-up used to be charged but never added)
-                    if (liveCar && typeof liveCar.fuel === 'number' && (liveCar.fuel - localFuel > 15 || (refuelRequestedIn && current.gameState !== refuelRequestedIn && liveCar.fuel >= 100))) { localFuel = liveCar.fuel; refuelRequestedIn = null; }
-                    localFuel = Math.max(0, localFuel - Math.abs(phys.v) * delta * 0.012);
-                    const outOfGas = localFuel <= 0;
-                    const inCountdown = raceActive && raceState === 'countdown';
-                    const spinning = performance.now() < spinUntil; // spun out by a banana/shell
-                    const canDrive = !outOfGas && !inCountdown && !spinning;
-                    fuelUiAccum += delta; fuelNetAccum += delta;
-                    if (fuelUiAccum > 0.2) { fuelUiAccum = 0; useGameStore.setState({ drivingFuel: Math.round(localFuel), drivingSpeed: Math.round(Math.abs(phys.v) / UNITS_PER_MPH) }); }
-                    if (fuelNetAccum > 1.5) { fuelNetAccum = 0; useGameStore.getState().consumeFuel(localDrivingCarId!, Math.round(localFuel)); }
-
-                    // --- Use a held Mario-Kart item (Space / mobile button) ---
-                    const useTap = (window as any).useItemTap || (window as any).mobileUseItem;
-                    (window as any).useItemTap = false; (window as any).mobileUseItem = false;
-                    const nowI = performance.now();
-                    if (useTap && !spinning) {
-                        const h = useGameStore.getState().heldItem;
-                        if (h === 'mushroom' || h === 'triple_mushroom') { boostUntil = nowI + 2400; phys.v = Math.min(Math.max(phys.v, 0) + 75, maxV * 1.6); useGameStore.getState().consumeHeldItem(); }
-                        else if (h === 'star') { starUntil = nowI + 6500; boostUntil = nowI + 6500; useGameStore.getState().consumeHeldItem(); }
-                        else if (h === 'banana') { dropBanana(activeCar); useGameStore.getState().consumeHeldItem(); }
-                        else if (h === 'green_shell') { fireShell(activeCar); useGameStore.getState().consumeHeldItem(); }
-                    }
-                    const boosting = nowI < boostUntil;
-                    const effMaxV = boosting ? maxV * 1.6 : maxV;
-
-                    // Throttle — eased acceleration that tapers toward top speed (kart feel)
-                    if (keys.w && canDrive) {
-                        if (phys.v < 0) phys.v = Math.min(0, phys.v + brakeAcc);                            // cancel reverse first
-                        else phys.v = Math.min(effMaxV, phys.v + engineAcc * (1 - 0.55 * (phys.v / effMaxV)));
-                    } else if (keys.s && canDrive) {
-                        if (phys.v > 0) phys.v = Math.max(0, phys.v - brakeAcc);                             // brake
-                        else phys.v = Math.max(-reverseMax, phys.v - engineAcc * 0.5);                       // reverse
-                    } else {
-                        if (phys.v > 0) phys.v = Math.max(0, phys.v - coast);
-                        else if (phys.v < 0) phys.v = Math.min(0, phys.v + coast);
-                    }
-
-                    // Steering — responsive, gains authority with speed, calms at the very top so you don't spin out
-                    const spd = Math.abs(phys.v);
-                    const grip = Math.min(1, spd / 20);
-                    const highSpeedDamp = spd > 55 ? 55 / spd : 1;
-                    const turn = 2.4 * tune.turn * delta * grip * highSpeedDamp;
-                    let steerInput = 0;
-                    if (keys.a) steerInput += 1;
-                    if (keys.d) steerInput -= 1;
-                    const driveDir = phys.v >= 0 ? 1 : -1;
-                    phys.yaw += ((steerInput * 0.5) - phys.yaw) * damp(0.2, delta); // front-wheel visual
-                    const steeringPivots = carSteering[localDrivingCarId!];
-                    if (steeringPivots) steeringPivots.forEach(p => p.rotation.y = phys.yaw);
-
-                    // Store previous transform for collision rollback
-                    const prevPos = tmpPrevPos.copy(activeCar.position);
-                    const prevQuat = tmpPrevQuat.copy(activeCar.quaternion);
-
-                    // Rotate (steer) then move — or spin helplessly if hit by a banana/shell
-                    if (spinning) { activeCar.rotateY(delta * 16); phys.v *= Math.pow(0.93, delta * 60); }
-                    else if (steerInput !== 0 && spd > 0.3) activeCar.rotateY(turn * steerInput * driveDir);
-                    activeCar.translateZ(-phys.v * delta);
-                    activeCar.updateMatrixWorld(true);
-
-                    // Multi-sphere collision against static boxes (no diagonal AABB bloat)
-                    const r = 1.6;
-                    carSpheres[0].set(0, 0, 3.2).applyQuaternion(activeCar.quaternion).add(activeCar.position);
-                    carSpheres[1].copy(activeCar.position);
-                    carSpheres[2].set(0, 0, -3.2).applyQuaternion(activeCar.quaternion).add(activeCar.position);
-                    let wallCollided = false;
-                    for (let i = 0; i < staticCollisionBoxes.length; i++) {
-                        const sBox = staticCollisionBoxes[i];
-                        if (sBox.isEmpty()) continue;
-                        for (let j = 0; j < carSpheres.length; j++) {
-                            const sphereCenter = carSpheres[j];
-                            sBox.clampPoint(sphereCenter, tmpClosest);
-                            if (tmpClosest.distanceToSquared(sphereCenter) < r * r) { wallCollided = true; break; }
-                        }
-                        if (wallCollided) break;
-                    }
-                    if (wallCollided) {
-                        activeCar.position.copy(prevPos);
-                        activeCar.quaternion.copy(prevQuat);
-                        phys.v = -phys.v * 0.35; // soft bounce off the wall
-                    }
-
-                    // Spin the wheels with speed
-                    const localWheels = carWheels[localDrivingCarId!];
-                    if (localWheels) { localWheels.forEach(w => w.rotateX(-phys.v * delta * 0.5)); syncCarWheels(activeCar); }
-
-                    // Chase cam that looks down the road ahead (keeps the track visible)
-                    tmpCam.set(0, 7.5, 21).applyQuaternion(activeCar.quaternion).add(activeCar.position);
-                    camera.position.lerp(tmpCam, damp(0.14, delta));
-                    tmpLook.set(0, 2.2, -14).applyQuaternion(activeCar.quaternion).add(activeCar.position);
-                    camera.lookAt(tmpLook);
-
-                    // Sync the car's position with the server ~3x per second
-                    carSyncAccum += delta;
-                    if (carSyncAccum > 0.33) {
-                         carSyncAccum = 0;
-                         const store = useGameStore.getState() as any;
-                         if (store.socket) {
-                              store.socket.emit('sync_car_pos', {
-                                  carId: localDrivingCarId,
-                                  position: { x: activeCar.position.x, z: activeCar.position.z, r: headingOf(activeCar) }
-                              });
-                         }
-                    }
-
-                    // -------- Refuel at a gas station (R while parked at a pump) --------
-                    const store2 = useGameStore.getState();
-                    const nearPump = gasPumps.some(p => activeCar.position.distanceTo(p) < 9);
-                    if (nearPump && !raceActive) {
+            // Driving: one model in the town and in the Strip (driveFrame, above)
+            if (localDrivingCarId && driver && carMeshes[localDrivingCarId] && me) {
+                driveFrame(delta, me);
+                // Refuel at a gas station (R while parked at a pump), in the town
+                if (district === 'town' && localDrivingCarId) {
+                    const activeCar = carMeshes[localDrivingCarId];
+                    if (gasPumps.some(p => activeCar.position.distanceTo(p) < 9)) {
                         showPrompt(activeCar.position, 6, '[R] REFUEL');
-                        if (rJustPressed && (localFuel ?? 100) < 99) { keys.r = false; rWasPressed = false; refuelRequestedIn = current.gameState; store2.refuel(localDrivingCarId!); }
-                    }
-
-                    // -------- Speedway race flow --------
-                    const ar = store2.activeRace;
-                    const nowp = performance.now();
-                    const nearStart = activeCar.position.distanceTo(raceStartPos) < 18;
-                    store2.setRaceTrackPrompt(!!nearStart && !ar && !raceActive);
-                    if (!raceActive && activeCar.position.distanceTo(raceStartPos) < 150) prepareCarStyles(CPU_STYLES); // rivals' cars ready before the start
-
-                    if (ar && !raceActive) {
-                        // a freshly paid entry — line the car up on the grid
-                        raceActive = true; raceState = 'countdown';
-                        raceDifficulty = ar.difficulty; raceLapTarget = ar.laps; raceLaps = 0; raceCpIndex = 0;
-                        raceCountdownUntil = nowp + 3500;
-                        activeCar.position.set(raceStartPos.x, 0, raceStartPos.z);
-                        activeCar.rotation.set(0, raceStartRotY, 0);
-                        phys.v = 0; phys.yaw = 0;
-                        // Grid up 3 CPU opponents, paced by the tier's cpuSkill (higher difficulty = faster rivals).
-                        clearCpuRacers(); cpuFinishCount = 0; racePlace = 1;
-                        const cpuSkill = (ar as any).cpuSkill || 0.85;
-                        const cpuColors = ['#ef4444', '#f59e0b', '#a855f7'];
-                        const cpuStyles = CPU_STYLES;
-                        const REF_LAP = 46; // seconds for a quick clean lap
-                        ([-12, 0, 12] as number[]).forEach((lane, i) => {
-                            const assets = buildCarModel(cpuStyles[i], cpuColors[i], 100, 100);
-                            const m = assets.group;
-                            setCarLights(m, true);
-                            const startA = 88; // line up just behind the player's pole
-                            const aRad = startA * Math.PI / 180, rr = RC + lane;
-                            m.position.set(RACE_CX + rr * Math.cos(aRad), 0, RACE_CZ + rr * Math.sin(aRad));
-                            m.rotation.y = Math.PI - aRad; // nose (-Z) along the direction of travel (counter-clockwise)
-                            scene.add(m); // disposed by clearCpuRacers() when the race ends
-                            const variation = 0.92 + Math.random() * 0.16;
-                            cpuRacers.push({ mesh: m, wheels: assets.wheels, angleDeg: startA, startAngDeg: startA, lane, speedDegPerSec: 360 / (REF_LAP / (cpuSkill * variation)), finished: false });
-                        });
-                    }
-                    if (raceActive) {
-                        if (raceState === 'countdown') {
-                            phys.v = 0;
-                            if (nowp >= raceCountdownUntil) { raceState = 'go'; raceStartMs = nowp; }
-                        } else if (raceState === 'go') {
-                            // advance CPU rivals around the circuit + tally any that finish
-                            cpuRacers.forEach(c => {
-                                if (c.finished) return;
-                                c.angleDeg += c.speedDegPerSec * delta;
-                                const aRad = c.angleDeg * Math.PI / 180, rr = RC + c.lane;
-                                c.mesh.position.set(RACE_CX + rr * Math.cos(aRad), 0, RACE_CZ + rr * Math.sin(aRad));
-                                c.mesh.rotation.y = Math.PI - aRad;
-                                const roll = -(c.speedDegPerSec * Math.PI / 180) * rr * delta * 0.5; // same visual roll rate as the player's car
-                                c.wheels.forEach(w => w.rotateX(roll)); syncCarWheels(c.mesh);
-                                if ((c.angleDeg - c.startAngDeg) / 360 >= raceLapTarget) { c.finished = true; cpuFinishCount++; }
-                            });
-                            // player's live position = 1 + rivals ahead on track
-                            const pTheta = Math.atan2(activeCar.position.z - RACE_CZ, activeCar.position.x - RACE_CX) * 180 / Math.PI;
-                            const playerProg = raceLaps + ((((pTheta - 90) % 360) + 360) % 360) / 360;
-                            let ahead = 0;
-                            cpuRacers.forEach(c => { if ((c.angleDeg - c.startAngDeg) / 360 > playerProg) ahead++; });
-                            racePlace = 1 + ahead;
-                            // player lap / finish detection
-                            if (raceCpIndex < raceCheckpoints.length) {
-                                if (activeCar.position.distanceTo(raceCheckpoints[raceCpIndex]) < 32) raceCpIndex++;
-                            } else if (activeCar.position.distanceTo(raceStartPos) < 32) {
-                                raceLaps++;
-                                raceCpIndex = 0;
-                                if (raceLaps >= raceLapTarget) {
-                                    store2.finishRace({ difficulty: raceDifficulty, totalMs: Math.round(nowp - raceStartMs), laps: raceLaps, placed: 1 + cpuFinishCount });
-                                    raceActive = false; raceState = '';
-                                }
-                            }
-                        }
-                        raceHudAccum += delta;
-                        if (raceActive && raceHudAccum > 0.1) {
-                            raceHudAccum = 0;
-                            const cd = raceState === 'countdown' ? Math.max(0, Math.ceil((raceCountdownUntil - nowp) / 1000)) : 0;
-                            store2.setRaceHud({ lap: Math.min(raceLaps + 1, raceLapTarget), totalLaps: raceLapTarget, ms: raceState === 'go' ? Math.round(nowp - raceStartMs) : 0, place: raceState === 'countdown' ? cd : racePlace, total: cpuRacers.length + 1, state: raceState });
-                        }
-                    }
-                    if (!ar && raceActive) { raceActive = false; raceState = ''; store2.setRaceHud(null); }
-                    if (!raceActive && cpuRacers.length > 0) clearCpuRacers(); // tidy up rivals when the race ends
-
-                    // --- Item boxes: holographic shimmer, spin/bob, grab one during a race ---
-                    const nowB = performance.now();
-                    const starActive = nowB < starUntil;
-                    itemBoxes.forEach((b, i) => {
-                        if (b.active) {
-                            b.mesh.rotation.y += delta * 1.6;
-                            b.mesh.rotation.x += delta * 0.9;
-                            b.mesh.position.y = b.baseY + Math.sin(nowB * 0.003 + i) * 0.7;
-                            (b.mesh.material as THREE.MeshStandardMaterial).color.setHSL(((nowB * 0.0003) + i * 0.13) % 1, 0.85, 0.65); // foil shimmer
-                            if (raceActive && raceState === 'go' && activeCar.position.distanceTo(b.mesh.position) < 8) {
-                                b.active = false; b.mesh.visible = false; b.respawnAt = nowB + 6000;
-                                store2.hitItemBox();
-                            }
-                        } else if (nowB > b.respawnAt) {
-                            b.active = true; b.mesh.visible = true;
-                        }
-                    });
-                    // fired shells fly forward and expire
-                    shells.forEach(s => {
-                        if (!s.alive) return;
-                        s.mesh.position.addScaledVector(s.dir, 200 * delta);
-                        s.mesh.rotation.y += delta * 8;
-                        if (nowB > s.expireAt) s.alive = false;
-                    });
-                    // bananas spin out any car that drives over one (unless star-invincible)
-                    bananas.forEach(bn => {
-                        if (!bn.alive) return;
-                        bn.mesh.rotation.y += delta * 1.0;
-                        if (nowB > bn.expireAt) { bn.alive = false; return; }
-                        if (!starActive && activeCar.position.distanceTo(bn.mesh.position) < 4.5) { bn.alive = false; spinUntil = nowB + 1300; }
-                    });
-                    pruneProjectiles();
-                    // rainbow star glow on the driven car
-                    const starBodyMat = localDrivingCarId ? (carBodies[localDrivingCarId] && (carBodies[localDrivingCarId].material as THREE.MeshStandardMaterial)) : null;
-                    if (starBodyMat) {
-                        if (starActive) { starBodyMat.emissive.setHSL((nowB * 0.004) % 1, 1, 0.5); starBodyMat.emissiveIntensity = 0.9; }
-                        else if (starBodyMat.emissiveIntensity > 0) { starBodyMat.emissiveIntensity = 0; }
+                        if (rJustPressed && (localFuel ?? 100) < 99) { keys.r = false; rWasPressed = false; refuelRequestedIn = current.gameState; useGameStore.getState().refuel(localDrivingCarId); }
                     }
                 }
             } else {
@@ -1442,11 +1492,12 @@ export function VanillaThreeScene() {
                     x: activeMesh.position.x,
                     y: activeMesh.position.y,
                     z: activeMesh.position.z,
-                    rotation: headingOf(activeMesh) // true heading (see headingOf)
+                    rotation: headingOf(activeMesh), // true heading (see headingOf)
+                    district, // others draw us only in the same district (the server relays it from Task 11)
                 });
-                // Feed the GPS our live position directly so it follows instantly.
+                // Feed the GPS our live position directly so it follows instantly (the town's map: not from the Strip).
                 const st = useGameStore.getState();
-                if (!st.myWorldPos || Math.hypot(activeMesh.position.x - st.myWorldPos.x, activeMesh.position.z - st.myWorldPos.z) > 2.5) { // ~0.4 px on the minimap; finer updates only re-rendered it
+                if (district === 'town' && (!st.myWorldPos || Math.hypot(activeMesh.position.x - st.myWorldPos.x, activeMesh.position.z - st.myWorldPos.z) > 2.5)) { // ~0.4 px on the minimap; finer updates only re-rendered it
                     st.setMyWorldPos({ x: activeMesh.position.x, z: activeMesh.position.z });
                 }
             }
@@ -1502,6 +1553,8 @@ export function VanillaThreeScene() {
                         scene.add(meshGroup);
                         otherPlayerMeshes[p.id] = meshGroup;
                     }
+                    // only players in the town are drawn here (a missing district is the town: older servers drop it)
+                    meshGroup.visible = ((wp as { district?: string }).district ?? 'town') === 'town';
                     meshGroup.position.lerp(tmpTarget.set(wp.x, wp.y ?? 0, wp.z), follow);
                     meshGroup.quaternion.slerp(tmpQuat.setFromAxisAngle(UP, wp.rotation ?? 0), follow);
                     // How fast they really move: their network position over half-second windows
@@ -1546,25 +1599,36 @@ export function VanillaThreeScene() {
                 blobs.end();
             }
             
-            // Move the small pool of real lights to the lamps nearest the player
-            const focusObj = (localDrivingCarId && carMeshes[localDrivingCarId]) || avatar;
-            lightPool.update(focusObj.position, nightFactor, delta);
-            atmosphere.followShadow(focusObj.position);
-            atmosphere.updateEnvironment(quality === 'high');
+            const drivenMesh = (localDrivingCarId && carMeshes[localDrivingCarId]) || null;
+            if (district === 'town') {
+                // Move the small pool of real lights to the lamps nearest the player
+                const focusObj = drivenMesh || avatar;
+                lightPool.update(focusObj.position, nightFactor, delta);
+                atmosphere.followShadow(focusObj.position);
+                atmosphere.updateEnvironment(quality === 'high');
+            }
             // distant cars as their far versions, contact shadows under moved cars, headlight beam
-            updateCars(camera.position, quality === 'high', (localDrivingCarId && carMeshes[localDrivingCarId]) || null);
+            updateCars(viewCam.position, quality === 'high', drivenMesh);
+            if (drivenMesh && kit) syncKitLod(drivenMesh);
             // (from 1.5 s and 30 frames after the first frame, so joining itself is not slowed down)
             if (!carPrecompileAt) carPrecompileAt = now + 1500;
-            else if (now >= carPrecompileAt && ++carPrecompileFrames > 30) precompileCarsTick(renderer, scene, camera);
+            else if (now >= carPrecompileAt && ++carPrecompileFrames > 30 && district === 'town') precompileCarsTick(renderer, scene, viewCam);
 
             // On Low, while the phone menu covers the world and nothing moves the
             // camera, draw ~10x a second instead of every frame (the game itself
             // keeps running every frame). Frees the phone's GPU for the menu.
             const idleBehindMenu = quality === 'low' && useGameStore.getState().menuCoversWorld
                 && !localDrivingCarId && !keys.w && !keys.a && !keys.s && !keys.d;
-            if (!idleBehindMenu || now - lastDrawAt >= 100) {
+            if (district === 'strip' && strip) {
+                // the Strip is lit for itself: the town's time-of-day exposure stays the town's
+                const exposure = renderer.toneMappingExposure;
+                renderer.toneMappingExposure = 1;
+                renderer.render(strip.scene, driveCam);
+                renderer.toneMappingExposure = exposure;
                 lastDrawAt = now;
-                renderer.render(scene, camera);
+            } else if (!idleBehindMenu || now - lastDrawAt >= 100) {
+                lastDrawAt = now;
+                renderer.render(scene, viewCam);
             }
         };
         
@@ -1579,12 +1643,16 @@ export function VanillaThreeScene() {
             window.removeEventListener('blur', releaseAllKeys);
             document.removeEventListener('visibilitychange', handleVisibility);
             unsubscribeGraphics();
+            window.removeEventListener('keydown', resumeAudio);
+            window.removeEventListener('pointerdown', resumeAudio);
+            delete (window as unknown as { __micar?: unknown }).__micar;
+            im.detach();
+            audio.dispose();
+            hud?.clear();
+            useDriveUi.setState({ driving: false, district: 'town', prompt: '', results: null, paused: false, nos: false });
             lightPool.dispose();
-            clearCpuRacers();
-            [...bananas, ...shells].forEach(p => scene.remove(p.mesh));
-            [bananaGeo, shellGeo, itemBoxGeo].forEach(g => g.dispose());
-            [bananaMat, shellMat].forEach(m => m.dispose());
-            qTex.dispose(); uiTex.dispose();
+            uiTex.dispose();
+            gate.dispose();
             Object.values(aiBots).forEach(b => { if (!b.agentId) { b.mesh.removeFromParent(); b.person.dispose(); } }); // walk-ins: below
             Object.keys(walkIns).forEach(removeWalkIn);
             Object.keys(otherPlayerMeshes).forEach(removeOtherPlayer);
@@ -1593,6 +1661,9 @@ export function VanillaThreeScene() {
             cityMaterials.forEach(m => m.dispose());
             cityTextures.forEach(t => t.dispose());
             
+            if (kit) { disposeParts(kit); kit = null; }
+            strip?.dispose(); // gives a driven car back to the town scene; before the shared car assets go
+            stripExit.dispose();
             Object.values(carMeshes).forEach(disposeCarModel);
             disposeSharedCarAssets(); // body-style geometry, trim/glass materials and the car textures
             
@@ -1626,5 +1697,10 @@ export function VanillaThreeScene() {
         };
     }, []);
 
-    return <div ref={mountRef} className="absolute inset-0 z-[0] pointer-events-auto overflow-hidden" />;
+    return (
+        <>
+            <div ref={mountRef} className="absolute inset-0 z-[0] pointer-events-auto overflow-hidden" />
+            <DriveLayer ref={layerRef} canvasRef={hudCanvasRef} />
+        </>
+    );
 }

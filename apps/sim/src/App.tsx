@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import { useGameStore } from './store';
-import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Flag, Gauge } from 'lucide-react';
-import { RACE_TIERS, RaceDifficulty } from './types';
+import { useDriveUi } from './world/driveUi';
+import { Wallet, LogIn, Activity, Clock, TrendingUp, TrendingDown, DollarSign, Users, FileText, Wrench, ChevronLeft, ChevronRight, BookOpen, HelpCircle, Car, Menu, Gamepad2, Map as MapIcon, X, LineChart, ShieldCheck, MessageSquare, Send, Fuel, Gauge } from 'lucide-react';
 import { useLang, t } from './i18n';
 import { MECHANIC_LIB, BODY_LIB } from './constants';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -34,7 +34,7 @@ const MAP_LOCATIONS = [
   { name: 'Downtown Towers', x: 0, z: 310, color: '#94a3b8' },
   { name: 'City Parks', x: -30, z: 450, color: '#4ade80' },
   { name: 'Warehouse District', x: 0, z: 680, color: '#f43f5e' },
-  { name: 'Speedway', x: 0, z: 1750, color: '#818cf8' },
+  { name: 'The Strip', x: 0, z: 1715, color: '#ffd23f' },
   { name: 'Gas Station', x: 135, z: 80, color: '#ef4444' },
   { name: 'Gas Station', x: 45, z: 1700, color: '#ef4444' },
 ];
@@ -1794,8 +1794,8 @@ const GameChat = ({ isMobile }: { isMobile?: boolean }) => {
   );
 };
 
-// Racing + fuel HUD: gas gauge while driving, the speedway entry panel, the live
-// race readout (countdown / lap / time), payout results, and error toasts.
+// Fuel HUD: the gas gauge while driving (the speed and gear are on the driving HUD canvas,
+// world/hud.ts), and short notices (a refused refuel).
 const RacingHud = (_props: { isMobile?: boolean }) => {
   const drivingCarId = useGameStore(s => s.drivingCarId);
   const drivingFuel = useGameStore(s => s.drivingFuel);
@@ -1805,32 +1805,12 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
     const c = s.drivingCarId && s.playerId ? s.gameState?.players?.[s.playerId]?.inventory.find(x => x.id === s.drivingCarId) : null;
     return c ? `${c.year}|${c.make}|${c.model}|${c.bodyStyle || ''}` : '';
   });
-  const raceTrackPrompt = useGameStore(s => s.raceTrackPrompt);
-  const activeRace = useGameStore(s => s.activeRace);
-  const raceHud = useGameStore(s => s.raceHud);
-  const raceResult = useGameStore(s => s.raceResult);
-  const raceDenied = useGameStore(s => s.raceDenied);
-  const heldItem = useGameStore(s => s.heldItem);
-  const heldCount = useGameStore(s => s.heldCount);
-  const itemPickupTs = useGameStore(s => s.itemPickupTs);
-  const money = useGameStore(s => (s.playerId ? (s.gameState?.players?.[s.playerId]?.money ?? 0) : 0));
-  const { enterRace, refuel, clearRaceResult } = useGameStore.getState();
+  const driveNotice = useGameStore(s => s.driveNotice);
+  const inStrip = useDriveUi(s => s.district === 'strip');
+  const { refuel, clearDriveNotice } = useGameStore.getState();
 
-  const ITEM_INFO: Record<string, { icon: string; label: string }> = {
-    mushroom: { icon: '🍄', label: 'Mushroom — boost' },
-    triple_mushroom: { icon: '🍄', label: 'Triple Mushroom' },
-    banana: { icon: '🍌', label: 'Banana — drop it behind you' },
-    green_shell: { icon: '🐢', label: 'Green Shell — fire it' },
-    star: { icon: '⭐', label: 'Star — boost + invincible' },
-  };
-  const [pickupToast, setPickupToast] = useState<{ icon: string; label: string } | null>(null);
-  useEffect(() => {
-    if (itemPickupTs && heldItem && ITEM_INFO[heldItem]) { setPickupToast(ITEM_INFO[heldItem]); const t = setTimeout(() => setPickupToast(null), 1800); return () => clearTimeout(t); }
-  }, [itemPickupTs]);
+  useEffect(() => { if (driveNotice) { const t = setTimeout(() => clearDriveNotice(), 3200); return () => clearTimeout(t); } }, [driveNotice, clearDriveNotice]);
 
-  useEffect(() => { if (raceDenied) { const t = setTimeout(() => clearRaceResult(), 3200); return () => clearTimeout(t); } }, [raceDenied, clearRaceResult]);
-
-  const fmtMs = (ms: number) => { const total = ms / 1000; const m = Math.floor(total / 60); const s = total % 60; return `${m}:${s.toFixed(2).padStart(5, '0')}`; };
   const fuel = drivingFuel ?? 100;
   const drivingCar = drivingKey ? (() => { const [year, make, model, bodyStyle] = drivingKey.split('|'); return { year, make, model, bodyStyle }; })() : null;
   const drivingSpec = drivingCar ? getCarSpec(drivingCar) : null;
@@ -1840,8 +1820,8 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
   return (
     <>
       {/* Fuel gauge while driving */}
-      {drivingCarId && drivingFuel !== null && !activeRace && (
-        <div className="fixed left-1/2 -translate-x-1/2 top-[76px] md:top-auto md:bottom-8 z-[930] pointer-events-none">
+      {drivingCarId && drivingFuel !== null && (
+        <div className={`fixed left-1/2 -translate-x-1/2 z-[930] pointer-events-none ${inStrip ? 'top-[76px]' : 'top-[76px] md:top-auto md:bottom-8'}`}>
           <div className="bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl w-64">
             {drivingCar && (
               <div className="flex items-end justify-between gap-2 mb-1.5">
@@ -1873,92 +1853,10 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
         </div>
       )}
 
-      {/* Speedway entry panel */}
-      {raceTrackPrompt && !activeRace && (
-        <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[960] pointer-events-auto w-[300px]">
-          <div className="bg-[#0c0d12]/95 backdrop-blur-2xl border border-indigo-500/40 rounded-2xl p-4 shadow-2xl">
-            <div className="flex items-center gap-2 mb-1 text-indigo-300"><Flag size={16} /><span className="font-black uppercase tracking-widest text-sm">Speedway</span></div>
-            <div className="text-[11px] text-white/50 mb-3">Pay the purse, run the laps, finish to win. Tank must have gas to race.</div>
-            <div className="flex flex-col gap-2">
-              {(Object.keys(RACE_TIERS) as RaceDifficulty[]).map(d => {
-                const t = RACE_TIERS[d];
-                const afford = money >= t.entryFee;
-                return (
-                  <button key={d} disabled={!afford} onClick={() => enterRace(d)}
-                    className={`flex items-center justify-between px-3 py-2 rounded-xl border transition-all ${afford ? 'bg-white/5 hover:bg-indigo-500/20 border-white/10 hover:border-indigo-400/50' : 'bg-white/[0.02] border-white/5 opacity-50 cursor-not-allowed'}`}>
-                    <div className="text-left">
-                      <div className="text-sm font-black text-white">{t.label}</div>
-                      <div className="text-[10px] text-white/45">{t.laps} laps · win ${t.reward.toLocaleString()}</div>
-                    </div>
-                    <div className="text-right"><div className="text-[9px] uppercase tracking-widest text-white/40">Entry</div><div className="text-sm font-bold text-amber-400">${t.entryFee.toLocaleString()}</div></div>
-                  </button>
-                );
-              })}
-            </div>
-            <div className="text-center text-[10px] text-white/30 mt-2">Drive away to cancel</div>
-          </div>
-        </div>
-      )}
-
-      {/* Big countdown */}
-      {activeRace && raceHud?.state === 'countdown' && (
-        <div className="fixed inset-0 z-[940] flex items-center justify-center pointer-events-none">
-          <div className="text-[140px] font-black text-white drop-shadow-[0_0_30px_rgba(99,102,241,0.9)] animate-pulse">{raceHud.place > 0 ? raceHud.place : 'GO!'}</div>
-        </div>
-      )}
-
-      {/* Live race readout */}
-      {activeRace && raceHud?.state === 'go' && (
-        <div className="fixed top-16 left-1/2 -translate-x-1/2 z-[935] pointer-events-none">
-          <div className="bg-black/80 backdrop-blur-md border border-indigo-500/40 rounded-xl px-5 py-2 shadow-xl flex items-center gap-5">
-            <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Pos</div><div className={`text-xl font-black tabular-nums ${raceHud.place <= 1 ? 'text-emerald-400' : raceHud.place >= raceHud.total ? 'text-red-400' : 'text-amber-300'}`}>{raceHud.place}<span className="text-xs text-white/40">/{raceHud.total}</span></div></div>
-            <div className="w-px h-8 bg-white/15" />
-            <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Lap</div><div className="text-xl font-black text-white tabular-nums">{raceHud.lap}/{raceHud.totalLaps}</div></div>
-            <div className="w-px h-8 bg-white/15" />
-            <div className="text-center"><div className="text-[9px] uppercase tracking-widest text-white/40 font-black">Time</div><div className="text-xl font-mono font-bold text-indigo-300 tabular-nums">{fmtMs(raceHud.ms)}</div></div>
-          </div>
-        </div>
-      )}
-
-      {/* Result modal */}
-      {raceResult && (
-        <div className="fixed inset-0 z-[970] flex items-center justify-center bg-black/60 backdrop-blur-sm pointer-events-auto p-4">
-          <div className="bg-[#0c0d12] border border-indigo-500/40 rounded-2xl p-6 shadow-2xl w-[300px] text-center">
-            <div className="text-5xl mb-1">{raceResult.place === 1 ? '🥇' : raceResult.place === 2 ? '🥈' : raceResult.place === 3 ? '🥉' : '🏁'}</div>
-            <div className="text-lg font-black uppercase tracking-widest text-white">{raceResult.place <= 1 ? 'You Won!' : `${raceResult.place === 2 ? '2nd' : raceResult.place === 3 ? '3rd' : raceResult.place + 'th'} Place`}</div>
-            <div className="text-[11px] text-white/45 mb-3">{RACE_TIERS[(raceResult.difficulty as RaceDifficulty)]?.label} · Pos {raceResult.place}/4 · {fmtMs(raceResult.totalMs)}</div>
-            {raceResult.reward > 0
-              ? <div className="text-3xl font-black text-emerald-400 mb-1">+${raceResult.reward.toLocaleString()}</div>
-              : <div className="text-xl font-black text-white/60 mb-1">No payout</div>}
-            <button onClick={() => clearRaceResult()} className="mt-3 w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-2 rounded-xl">Continue</button>
-          </div>
-        </div>
-      )}
-
-      {/* Held item slot (during a race) */}
-      {activeRace && heldItem && (
-        <div className="fixed top-16 right-4 z-[945] pointer-events-auto flex flex-col items-center gap-1.5">
-          <div className="bg-black/70 backdrop-blur-md border-2 border-cyan-400/50 rounded-2xl w-20 h-20 flex items-center justify-center text-4xl shadow-[0_0_20px_rgba(34,211,238,0.45)] relative">
-            <span>{ITEM_INFO[heldItem]?.icon || '❓'}</span>
-            {heldCount > 1 && <span className="absolute -bottom-1.5 -right-1.5 bg-cyan-500 text-white text-xs font-black rounded-full w-6 h-6 flex items-center justify-center border-2 border-black/60">×{heldCount}</span>}
-          </div>
-          <button onClick={() => { (window as any).mobileUseItem = true; }} className="bg-cyan-500 hover:bg-cyan-400 active:scale-95 text-white text-[11px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg shadow transition-all">Use [Space]</button>
-        </div>
-      )}
-
-      {/* Item pickup toast */}
-      {pickupToast && (
-        <div className="fixed top-32 left-1/2 -translate-x-1/2 z-[975] pointer-events-none">
-          <div className="bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-base font-black px-5 py-2.5 rounded-2xl shadow-[0_8px_30px_rgba(34,211,238,0.6)] border border-cyan-300/50 animate-bounce flex items-center gap-2">
-            <span className="text-2xl">{pickupToast.icon}</span> Got: {pickupToast.label}!
-          </div>
-        </div>
-      )}
-
       {/* Denied toast */}
-      {raceDenied && (
+      {driveNotice && (
         <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[980] pointer-events-none">
-          <div className="bg-red-600/95 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-2xl">{raceDenied}</div>
+          <div className="bg-red-600/95 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-2xl">{driveNotice}</div>
         </div>
       )}
     </>
@@ -1974,7 +1872,8 @@ function App() {
   const activeInteraction = useGameStore(s => s.activeInteraction);
   const drivingCarIdForPrompt = useGameStore(s => s.drivingCarId); // hide the walk-up prompt while driving
   const garageCarId = useGameStore(s => s.garageCarId); // the Garage overlay (world/GarageMenu) is open
-  const { connect, buyCar, buyPsi, buyPart, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal, rentRaceCar } = useGameStore.getState();
+  const district = useDriveUi(s => s.district);          // the town, or the Strip (VanillaThreeScene)
+  const { connect, buyCar, buyPsi, buyPart, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal } = useGameStore.getState();
   // The live clock (time_update every second), like the HUD badge and the sky:
   // gameState.timeOfDay only changes on full updates, so it can be hours stale.
   // Selecting the boolean re-renders only when the auction opens or closes.
@@ -2199,11 +2098,11 @@ function App() {
       {garageCarId && (
         <ChunkBoundary className="fixed inset-0 z-[10000] grid place-items-center bg-background">
           <Suspense fallback={<div className="fixed inset-0 z-[10000] bg-background" />}>
-            <GarageMenu />
+            <GarageMenu onQuickRace={id => useDriveUi.setState({ quick: id })} />
           </Suspense>
         </ChunkBoundary>
       )}
-      <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />
+      {district !== 'strip' && <LiveMap gameState={gameState} playerId={playerId} isMobile={isMobile} />} {/* the town's map: the Strip has its own (M) */}
       <GateControl isMobile={isMobile} />
       <GameChat isMobile={isMobile} />
       <RacingHud isMobile={isMobile} />
@@ -3307,8 +3206,6 @@ function App() {
                 window.dispatchEvent(new CustomEvent('open_library'));
               } else if (activeInteraction.type === 'insurance') {
                 openInsuranceModal();
-              } else if (activeInteraction.type === 'rental') {
-                rentRaceCar();
               } else if (activeInteraction.type === 'car' && activeInteraction.carId) {
                 // Enter/exit driving state
                 if ((window as any).setMobileTap) {

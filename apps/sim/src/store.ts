@@ -3,6 +3,7 @@ import { io, Socket } from 'socket.io-client';
 import { GameState, ChatMessage } from './types.js';
 import { carState, freshStrip, okey, withV, type PartValue, type StripRecord } from './world/data';
 import type { Tune } from './world/physics';
+import { useDriveUi, type EventReward } from './world/driveUi';
 
 interface StoreState {
   socket: Socket | null;
@@ -43,7 +44,7 @@ interface StoreState {
   myWorldPos: { x: number; z: number } | null; // the local player's live world position, for a GPS that follows instantly
   // Other players' live positions, relayed by the server ~10x/sec (kept out of
   // gameState so the whole UI doesn't re-render on every movement packet).
-  playerPositions: Record<string, { x: number; y?: number; z: number; rotation?: number }>;
+  playerPositions: Record<string, { x: number; y?: number; z: number; rotation?: number; district?: 'town' | 'strip' }>;
   // 3D graphics level: 'low' turns off shadows and renders at 1x resolution.
   graphicsQuality: 'high' | 'low';
   setGraphicsQuality: (q: 'high' | 'low') => void;
@@ -58,25 +59,9 @@ interface StoreState {
   consumeFuel: (carId: string, fuel: number) => void;
   refuel: (carId: string, delivery?: boolean) => void;
 
-  // Racing
-  raceTrackPrompt: boolean;          // player is on the start line and can enter a race
-  setRaceTrackPrompt: (v: boolean) => void;
-  activeRace: { difficulty: string; laps: number; reward: number; entryFee: number; cpuSkill: number } | null;
-  raceHud: { lap: number; totalLaps: number; ms: number; place: number; total: number; state: string } | null;
-  setRaceHud: (h: StoreState['raceHud']) => void;
-  raceResult: { reward: number; place: number; difficulty: string; totalMs: number } | null;
-  raceDenied: string | null;
-  clearRaceResult: () => void;
-  enterRace: (difficulty: string) => void;
-  finishRace: (payload: { difficulty: string; totalMs: number; laps: number; placed: number }) => void;
-  abortRace: () => void;
-  rentRaceCar: () => void;
-  returnRental: () => void;
-  hitItemBox: () => void;
-  heldItem: string | null;   // current held Mario-Kart item
-  heldCount: number;         // charges (triple mushroom = 3)
-  itemPickupTs: number;      // timestamp of last pickup, for the "got item" toast
-  consumeHeldItem: () => void;
+  // A short notice over the driving HUD (e.g. a refuel the bank refused)
+  driveNotice: string | null;
+  clearDriveNotice: () => void;
   activeInspectionCarId: string | null;
   activeInspectionShopType: 'mechanic' | 'body' | null;
   openInspectionModal: (carId: string, shopType: 'mechanic' | 'body') => void;
@@ -91,8 +76,8 @@ interface StoreState {
   closeInsuranceModal: () => void;
   payFloorPlan: (amount: number) => void;
   takeTitleLoan: (carId: string) => void;
-  activeInteraction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance' | 'rental'; label: string; carId?: string } | null;
-  setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance' | 'rental'; label: string; carId?: string } | null) => void;
+  activeInteraction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance'; label: string; carId?: string } | null;
+  setActiveInteraction: (interaction: { type: 'bank' | 'auction' | 'car' | 'library' | 'insurance'; label: string; carId?: string } | null) => void;
 
   gatePrompt: boolean; // true when the player is outside their locked gate and must enter the code
   setGatePrompt: (visible: boolean) => void;
@@ -199,26 +184,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
   },
   refuel: (carId, delivery) => { const s = get().socket; if (s) s.emit('refuel', { carId, delivery: !!delivery }); },
 
-  raceTrackPrompt: false,
-  setRaceTrackPrompt: (v) => { if (get().raceTrackPrompt !== v) set({ raceTrackPrompt: v }); },
-  activeRace: null,
-  raceHud: null,
-  setRaceHud: (h) => set({ raceHud: h }),
-  raceResult: null,
-  raceDenied: null,
-  clearRaceResult: () => set({ raceResult: null, raceDenied: null }),
-  enterRace: (difficulty) => { const s = get().socket; if (s) s.emit('enter_race', { difficulty }); },
-  // Ends the race locally right away: an activeRace still set while the payout is on
-  // its way would be lined up again by the scene as a fresh entry.
-  finishRace: (payload) => { const s = get().socket; if (s) s.emit('finish_race', payload); set({ activeRace: null, raceHud: null }); },
-  abortRace: () => set({ activeRace: null, raceHud: null }),
-  rentRaceCar: () => { const s = get().socket; if (s) s.emit('rent_race_car'); },
-  returnRental: () => { const s = get().socket; if (s) s.emit('return_rental'); },
-  hitItemBox: () => { const s = get().socket; if (s) s.emit('hit_item_box'); },
-  heldItem: null,
-  heldCount: 0,
-  itemPickupTs: 0,
-  consumeHeldItem: () => set(s => { const c = s.heldCount - 1; return c <= 0 ? { heldItem: null, heldCount: 0 } : { heldCount: c }; }),
+  driveNotice: null,
+  clearDriveNotice: () => set({ driveNotice: null }),
   activeInspectionCarId: null,
   activeInspectionShopType: null,
   openInspectionModal: (carId, shopType) => set({ activeInspectionCarId: carId, activeInspectionShopType: shopType }),
@@ -305,10 +272,9 @@ export const useGameStore = create<StoreState>((set, get) => ({
     const socket = get().socket;
     if (socket) socket.disconnect();
     set({ socket: null, gameState: null, playerId: null, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {},
-      // Per-session prompts, race and modal state: left set, they reappear in the next
-      // session (gate keypad / speedway panel at spawn, a stale race grabbing the next car).
-      myWorldPos: null, drivingFuel: null, drivingSpeed: 0, gatePrompt: false, raceTrackPrompt: false, activeInteraction: null,
-      activeRace: null, raceHud: null, raceResult: null, raceDenied: null, heldItem: null, heldCount: 0,
+      // Per-session prompts and modal state: left set, they reappear in the next
+      // session (the gate keypad at spawn).
+      myWorldPos: null, drivingFuel: null, drivingSpeed: 0, gatePrompt: false, activeInteraction: null, driveNotice: null,
       activeInspectionCarId: null, activeInspectionShopType: null, isBankModalOpen: false, isInsuranceModalOpen: false,
       strip: null, octane: 0, garageCarId: null });
   },
@@ -332,12 +298,9 @@ export const useGameStore = create<StoreState>((set, get) => ({
     socket.on('update', (state) => set({ gameState: state, timeOfDay: state.timeOfDay, ...mirrorStrip(state, get().playerId) }));
     socket.on('player_positions', (positions) => set({ playerPositions: positions || {} }));
     socket.on('time_update', (timeOfDay) => set({ timeOfDay }));
-    socket.on('race_started', (d) => set({ activeRace: d, raceResult: null, raceDenied: null }));
-    socket.on('race_payout', (r) => set({ activeRace: null, raceHud: null, raceResult: r }));
-    socket.on('race_denied', (d) => set({ raceDenied: d?.reason === 'funds' ? `You need ${'$' + (d.entryFee||0).toLocaleString()} to enter this race.` : 'Cannot enter the race right now.' }));
-    socket.on('refuel_denied', () => set({ raceDenied: 'Not enough cash to refuel.' }));
-    socket.on('rental_denied', (d) => set({ raceDenied: d?.reason === 'active' ? 'You already have a rental out — return it first.' : `You need $${(d?.fee || 1500).toLocaleString()} to rent a race car.` }));
-    socket.on('item_box_reward', (d) => { const item = d?.item || 'mushroom'; set({ heldItem: item, heldCount: item === 'triple_mushroom' ? 3 : 1, itemPickupTs: Date.now() }); });
+    socket.on('refuel_denied', () => set({ driveNotice: 'Not enough cash to refuel.' }));
+    // The server's answer to finish_event / finish_outrun (Task 11): what the run paid
+    socket.on('event_result', (r: EventReward) => useDriveUi.setState({ reward: { cash: r?.cash ?? 0, octane: r?.octane ?? 0, rep: r?.rep ?? 0, stamps: r?.stamps ?? [] } }));
     socket.on('chat', (msg: ChatMessage) => set((s) => {
         const next = [...s.chatMessages, msg];
         if (next.length > 60) next.shift();
