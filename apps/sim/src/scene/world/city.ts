@@ -22,7 +22,7 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
     const { scene, environmentDisposables, staticCollisionBoxes, cityMaterials, cityTextures, emissiveFacadeMaterials, concreteTex, makeGlass, addLightSource, arch } = ctx;
     const { makeSofa, makePlant, makePainting, makeCoffeeTable } = furniture;
 
-    // Grassy floor (huge 10000x10000 open world so the giant speedway has ground under it).
+    // Grassy floor (huge 10000x10000 open world so the country road out to the Strip's gate has ground under it).
     // Split into 200-unit tiles: as two giant triangles, its depth values were too
     // imprecise near the camera and the grass was drawn over the lot paving, lane
     // lines and track that sit a few centimetres above it. The grass material is pushed
@@ -804,7 +804,7 @@ export function buildCity(ctx: WorldContext, furniture: FurnitureKit) {
         staticCollisionBoxes.push(new THREE.Box3().setFromObject(kiosk));
     };
     buildGasStation(135, 80);   // near the dealership district
-    buildGasStation(45, 1700);  // in the speedway paddock, by the start line
+    buildGasStation(45, 1700);  // by the gate to the Strip (the old paddock)
 
     bankGroup.updateMatrixWorld(true);
     auctionGroup.updateMatrixWorld(true);

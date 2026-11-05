@@ -90,7 +90,7 @@ const LiveMap = ({ gameState, playerId, isMobile }: { gameState: any, playerId: 
   const toMiniZ = (w: number) => Math.max(3, Math.min(size - 3, mapCenter + (w - pw.z) * mapScale));
 
   // Expanded-map dimensions and world→pixel mapping (north/+z runs downward).
-  // Range widened to cover the whole world incl. the west speedway and east lots.
+  // Range widened to cover the whole world incl. the road out to the Strip's gate and the east lots.
   const EX_W = isMobile ? 260 : 360;
   const EX_H = isMobile ? 300 : 440;
   const exX = (wx: number) => Math.max(8, Math.min(EX_W - 8, ((wx + 1600) / 3200) * EX_W));

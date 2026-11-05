@@ -87,7 +87,7 @@ const numberTex = (col: string) => {
   const t = ctex(256, 256, g => {
     g.fillStyle = col; g.beginPath(); g.arc(128, 128, 120, 0, 7); g.fill();
     g.fillStyle = (col === '#111111' || col === '#e10600') ? '#fff' : '#0b0b0b';
-    g.font = 'italic 900 150px "Saira Condensed","Arial Narrow",sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('27', 124, 138);
+    g.font = 'italic 900 150px "Barlow Condensed","Arial Narrow",sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('27', 124, 138);
   }, true);
   numberTexs.set(col, t);
   return t;

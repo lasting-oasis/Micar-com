@@ -186,8 +186,6 @@ export const carStyleReady = (style: string) => {
     }
     return false;
 };
-/** Build these styles ahead of time (e.g. the CPU racers' styles while the player is at the speedway). */
-export const prepareCarStyles = (styles: string[]) => { for (const s of styles) if (!carStyleReady(s)) return; };
 
 // ---------------------------------------------------------------------------------
 // Paint: metallic car paint, plus patchy rust (badly damaged body) and caked mud
