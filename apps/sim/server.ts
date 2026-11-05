@@ -370,7 +370,9 @@ const grantStarterCar = (player: Player) => {
     car.isRegistered = true;
     car.isDirty = false;
     car.isProcessed = true;
-    car.lotPosition = dropOffSpot(player.lotPosition, 0) as any;
+    // the last stall of the right display row (dealership.ts paintParkingRow(10, 28, -30, 78)), nose in: clear of
+    // the drop-off line, where the next car bought at the auction lands
+    car.lotPosition = { x: player.lotPosition.x + 19, z: player.lotPosition.z + 75, r: -Math.PI / 2 } as any;
     player.inventory.push(car);
     console.log('SMOKE: granted a starter car', car.year, car.make, car.model, 'to', player.name);
 };
