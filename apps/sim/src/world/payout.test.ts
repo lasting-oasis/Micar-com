@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applyPayout, validateFinish, validateOutrun, OUTRUN_MIN_MS, outrunEvent, clampTune, partPrice, ensureStrip } from './payout';
+import { applyPayout, validateEnter, validateFinish, validateOutrun, OUTRUN_MIN_MS, PAID_COOLDOWN_MS, COUNTDOWN_S, VMAX, raceFloor, outrunEvent, clampTune, partPrice, ensureStrip } from './payout';
 import { EVENTS, freshStrip, carState, withV } from './data';
 import type { Player } from '../types';
 
@@ -22,6 +22,56 @@ describe('validateFinish', () => {
   });
   it('accepts a failed run with no time (it pays nothing)', () => { expect(validateFinish({ eventId: 'df1', startedAt: 0 }, finish('df1', 1, null, true), 30000)).toEqual({ ok: true, pos: 1 }); });
   it('counts every lap of a circuit in the time floor', () => { expect(validateFinish({ eventId: 'ci1', startedAt: 0 }, finish('ci1', 1, 12), 600000).ok).toBe(false); });
+});
+
+describe('validateEnter', () => {
+  const sp1 = EVENTS.find(e => e.id === 'sp1')!, sp2 = EVENTS.find(e => e.id === 'sp2')!;
+  it('refuses an entry from outside the Strip (the town, or no position yet)', () => {
+    expect(validateEnter('town', sp1, 1)).toEqual({ ok: false, reason: 'not in the Strip' });
+    expect(validateEnter(undefined, sp1, 1).ok).toBe(false);
+  });
+  it('accepts one from inside the Strip, and refuses an event above the stage', () => {
+    expect(validateEnter('strip', sp1, 1)).toEqual({ ok: true });
+    expect(validateEnter('strip', sp2, 1).ok).toBe(false);
+    expect(validateEnter('strip', sp2, 2).ok).toBe(true);
+  });
+});
+
+describe('the time floor', () => {
+  const dr1 = EVENTS.find(e => e.id === 'dr1')!, ci1 = EVENTS.find(e => e.id === 'ci1')!;
+  it('is the distance over the type\'s top average: a quarter mile in no less than 9 s, the streets at 45 m/s', () => {
+    expect(VMAX.drag).toBe(50); expect(VMAX.sprint).toBe(45);
+    expect(raceFloor(dr1)).toBeCloseTo(9, 1);
+    expect(raceFloor(ci1)).toBeCloseTo(3184 / 45, 0);
+  });
+  it('refuses a drag run under 9 s and a finish sooner than the countdown plus the floor', () => {
+    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 8.5), 60000).ok).toBe(false);
+    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 9.5), 12000).ok).toBe(false); // 12 s < 3.6 + 9
+    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 9.5), (COUNTDOWN_S + 9.5) * 1000)).toEqual({ ok: true, pos: 1 });
+  });
+  it('holds a circuit to 45 m/s over every lap', () => {
+    expect(validateFinish({ eventId: 'ci1', startedAt: 0 }, finish('ci1', 1, 65), 600000).ok).toBe(false);
+    expect(validateFinish({ eventId: 'ci1', startedAt: 0 }, finish('ci1', 1, 75), 80000).ok).toBe(true);
+  });
+});
+
+describe('the paid-event cooldown', () => {
+  // the server's bookkeeping: lastPaidAt is set when a finish pays anything; a refused finish consumes the entry
+  const server = () => { let entry: { eventId: string; startedAt: number } | undefined; let lastPaid: number | undefined; const p = player();
+    return { p, enter: (now: number) => { entry = { eventId: 'dr1', startedAt: now }; },
+      finish: (now: number, time = 10) => { const v = validateFinish(entry, finish('dr1', 1, time), now, lastPaid); entry = undefined; if (!v.ok) return null; const r = applyPayout(p, EVENTS[3], v.pos, false); if (r.cash || r.octane || r.rep) lastPaid = now; return r; },
+      hasEntry: () => !!entry }; };
+  it('refuses a paid finish within 10 s of the last one, consuming the entry', () => {
+    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 10), 20000, 20000 - PAID_COOLDOWN_MS + 1).ok).toBe(false);
+    const s = server(); s.enter(0); expect(s.finish(14000)!.cash).toBe(1800);
+    s.enter(0); expect(s.finish(20000)).toBeNull(); expect(s.hasEntry()).toBe(false); expect(s.p.money).toBe(1800);
+  });
+  it('pays again once 10 s have passed', () => {
+    const s = server(); s.enter(0); s.finish(14000); s.enter(10000); expect(s.finish(24000)!.cash).toBe(1800); expect(s.p.money).toBe(3600);
+  });
+  it('a finish that paid nothing starts no cooldown', () => {
+    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 10), 14000, undefined).ok).toBe(true);
+  });
 });
 
 describe('applyPayout', () => {

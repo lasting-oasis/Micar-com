@@ -1,6 +1,6 @@
 /* What a Strip run pays, and the checks the server makes before paying it.
    Pure (no I/O): the server calls these on its own player records; applyPayout mutates the Player it is given. */
-import { CATS, EVENTS, TUNES, TUNE_DEF, freshStrip, prizeFor, stageOf, visualRating, type EventDef, type PartValue } from './data';
+import { CATS, EVENTS, TUNES, TUNE_DEF, freshStrip, prizeFor, stageOf, visualRating, type EventDef, type EventType, type PartValue } from './data';
 import { buildRoute } from './strip/routes';
 import type { Tune } from './physics';
 import type { Player } from '../types';
@@ -9,8 +9,13 @@ export type FinishMsg = { eventId: string; pos: number; time: number | null; sco
 export type EventEntry = { eventId: string; startedAt: number; carId?: string };
 export type Reward = { cash: number; octane: number; rep: number; stamps: string[] };
 
-/** Nobody averages 90 m/s on the Strip. */
-export const MAX_AVG_MS = 90;
+/** The fastest realistic average speed by event type, m/s: a quarter-mile drag (450 m) in no less than
+ *  9 s is 50 m/s; nobody laps the Strip's streets faster than 45 m/s. */
+export const VMAX: Readonly<Record<EventType, number>> = { drag: 50, sprint: 45, circuit: 45, streetx: 45, drift: 45 };
+/** The countdown before the start (EventRunner's t = 3.6): on the server's clock, but not in the run's time. */
+export const COUNTDOWN_S = 3.6;
+/** Paid events are at least this far apart per socket (a finish sooner pays nothing). */
+export const PAID_COOLDOWN_MS = 10 * 1000;
 /** An entry older than this is abandoned. */
 export const ENTRY_TTL_MS = 20 * 60 * 1000;
 export const OUTRUN_ID = 'outrun';
@@ -33,7 +38,19 @@ export function eventDistance(ev: EventDef): number {
   return ev.loop ? len * (ev.laps || 1) : len;
 }
 
-export function validateFinish(entry: EventEntry | undefined, msg: FinishMsg, now: number): { ok: true; pos: number } | { ok: false; reason: string } {
+/** The least time an event can take, in seconds from the green light: its distance over VMAX for its type. */
+export function raceFloor(ev: EventDef): number { return eventDistance(ev) / VMAX[ev.type]; }
+
+/** An event is entered only from inside the Strip, and only once the stage has opened it. */
+export function validateEnter(district: string | undefined, ev: EventDef, stage: number): { ok: true } | { ok: false; reason: string } {
+  if (district !== 'strip') return { ok: false, reason: 'not in the Strip' };
+  if (ev.stage > stage) return { ok: false, reason: `${ev.name} opens at stage ${ev.stage}.` };
+  return { ok: true };
+}
+
+/** A finish is paid against a live entry, after the countdown plus the race floor on the server's clock, with a run
+ *  time no faster than the floor, and not sooner than PAID_COOLDOWN_MS after this socket's last paid event (lastPaidAt). */
+export function validateFinish(entry: EventEntry | undefined, msg: FinishMsg, now: number, lastPaidAt?: number): { ok: true; pos: number } | { ok: false; reason: string } {
   if (!entry) return { ok: false, reason: 'no live entry' };
   if (!msg || entry.eventId !== msg.eventId) return { ok: false, reason: 'wrong event' };
   const ev = EVENTS.find(e => e.id === msg.eventId);
@@ -42,10 +59,11 @@ export function validateFinish(entry: EventEntry | undefined, msg: FinishMsg, no
   const pos = msg.pos;
   if (typeof pos !== 'number' || !Number.isInteger(pos) || pos < 1 || pos > 4) return { ok: false, reason: 'bad position' };
   if (!msg.failed) {
-    const floor = eventDistance(ev) / MAX_AVG_MS;
+    const floor = raceFloor(ev);
     if (typeof msg.time !== 'number' || !Number.isFinite(msg.time) || msg.time < floor) return { ok: false, reason: 'impossible time' };
-    if ((now - entry.startedAt) / 1000 < floor) return { ok: false, reason: 'impossible time' };
+    if ((now - entry.startedAt) / 1000 < COUNTDOWN_S + floor) return { ok: false, reason: 'impossible time' };
   }
+  if (lastPaidAt != null && now - lastPaidAt < PAID_COOLDOWN_MS) return { ok: false, reason: 'too soon after the last paid event' };
   return { ok: true, pos };
 }
 
