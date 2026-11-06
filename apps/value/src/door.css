@@ -539,13 +539,6 @@
 @keyframes float { 50% { transform: rotate(5deg) translateY(-12px); } }
 
 /* Footer */
-.dp footer { padding-top: 56px; overflow: hidden; }
-.dp .foot { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 24px; }
-.dp .foot h4 { margin: 0 0 10px; font: 700 12px/1 var(--cond); letter-spacing: .14em; text-transform: uppercase; color: var(--paint); }
-.dp .foot a, .dp .foot p { display: block; font: 600 14px/1.9 var(--cond); letter-spacing: .08em; text-transform: uppercase; }
-.dp .foot a:hover { color: var(--paint); }
-.dp .foot .addr { color: var(--haze); font-size: 12px; }
-.dp .legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 36px; font: 600 12px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--haze); }
 .dp .wordmark { display: flex; justify-content: center; font: italic 900 clamp(70px, 18vw, 260px)/.8 var(--cond); text-transform: uppercase; color: transparent; -webkit-text-stroke: 1px #3a4458; white-space: nowrap; margin-top: 28px; overflow: hidden; padding-top: .05em; }
 .dp .wordmark:hover { -webkit-text-stroke-color: var(--paint); transition: -webkit-text-stroke-color .4s; }
 
@@ -559,8 +552,6 @@
   .dp .offer { grid-template-columns: 1fr; }
   .dp .numbers .inner { grid-template-columns: 1fr; justify-items: start; }
   .dp .s2 { transform: rotate(2deg); }
-  .dp .foot { grid-template-columns: 1fr 1fr; }
-  .dp .foot > div:first-child { grid-column: 1 / -1; }
   .dp .window { grid-template-columns: 1fr; }
   .dp .row { grid-template-columns: 70px 1fr; }
   .dp .row .fx { text-align: left; grid-column: 2; }
@@ -663,7 +654,6 @@
 .dp .sim-slab { width: min(170px, 50vw); justify-self: center; margin-top: 8px; }
 .dp .kcard .seal { --s: 72px; }
 .dp .kcard .seal span { font-size: 8px; }
-.dp .foot { grid-template-columns: 1.4fr repeat(3, 1fr); }
 @media (max-width: 1000px) {
   .dp .world-grid, .dp .shop-row { grid-template-columns: 1fr; }
   .dp .verb-grid { grid-template-columns: 1fr 1fr; }
@@ -682,3 +672,6 @@
 .dp .strip-cta { font-size: 14px; padding: 8px 12px; box-shadow: 3px 3px 0 var(--paint); }
 .dp .strip-cta::after { display: none; }
 @media (max-width: 720px) { .dp .strip-cta { display: none; } }
+
+/* Section links (#grade etc.) land below the sticky bar. */
+.dp section[id], .dp header[id] { scroll-margin-top: 64px; }

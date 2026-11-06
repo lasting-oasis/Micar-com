@@ -70,6 +70,12 @@ body {
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
+/* The shared footer on the calculator and car page: cancel the body padding so it reaches both screen edges.
+   Not 100vw, which adds a sideways scrollbar when a vertical one is showing. */
+.mc-foot-bleed {
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+}
 .num { font-variant-numeric: tabular-nums; }
 
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }

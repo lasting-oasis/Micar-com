@@ -1,5 +1,6 @@
 @import '@micar/brand/tokens.css';
 @import '@micar/brand/strip.css';
+@import '@micar/brand/footer.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

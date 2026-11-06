@@ -2,7 +2,7 @@
 // saved account) and socket.io clients talk to it. Covers what the pure modules cannot: the visitor gate, the rental
 // refusals, the host handoff, the reset on re-join and the missing-account notice.
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { spawn, type ChildProcess } from 'node:child_process';
+import { spawn, spawnSync, type ChildProcess } from 'node:child_process';
 import { createServer, type Server } from 'node:http';
 import type { AddressInfo } from 'node:net';
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
@@ -59,11 +59,21 @@ beforeAll(async () => {
   url = `http://127.0.0.1:${port}`;
 }, 70_000);
 
-afterAll(() => {
+afterAll(async () => {
   for (const s of open) s.close();
-  child?.kill();
+  // tsx's cli spawns a second node that runs server.ts in `dir`. On Windows, killing the wrapper leaves that inner process
+  // alive and holding the folder, so the whole tree goes.
+  if (child && child.pid && child.exitCode === null && child.signalCode === null) {
+    if (process.platform === 'win32') spawnSync('taskkill', ['/pid', String(child.pid), '/T', '/F'], { stdio: 'ignore' });
+    else child.kill();
+    // Bounded so a stuck process can never hang the run.
+    await new Promise<void>(resolve => {
+      const timer = setTimeout(resolve, 5_000);
+      child.once('exit', () => { clearTimeout(timer); resolve(); });
+    });
+  }
   mailer?.close();
-  if (dir) rmSync(dir, { recursive: true, force: true });
+  if (dir) rmSync(dir, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 });
 });
 
 const client = (): Socket => { const s = connect(url, { transports: ['websocket'], forceNew: true }); open.push(s); return s; };

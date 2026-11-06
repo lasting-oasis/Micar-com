@@ -1,0 +1,19 @@
+/* The shared footer. Every rule for something inside it has two classes or more, so page styles like `.dp a` cannot win. */
+.mc-foot { box-sizing: border-box; background: var(--mc-night, #0e1217); color: var(--mc-ink, #e7eaee); margin-top: 40px; padding: 56px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); }
+.mc-foot .mc-foot-in { max-width: 1240px; margin: 0 auto; }
+.mc-foot .mc-foot-cols { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 24px; }
+.mc-foot .mc-foot-col { min-width: 0; }
+.mc-foot .mc-foot-h { margin: 0 0 10px; font: 700 12px/1 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .14em; text-transform: uppercase; color: var(--mc-paint, #ffd23f); }
+.mc-foot .mc-foot-blurb { margin: 0; font: 600 12px/1.9 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .08em; text-transform: uppercase; color: var(--mc-haze, #9aa3ad); overflow-wrap: anywhere; }
+.mc-foot .mc-foot-links a { display: block; font: 600 14px/1.9 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .08em; text-transform: uppercase; color: inherit; text-decoration: none; overflow-wrap: anywhere; }
+.mc-foot .mc-foot-links a:hover { color: var(--mc-paint, #ffd23f); }
+.mc-foot .mc-foot-links em { font: 700 9px/1 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .14em; color: var(--mc-paint, #ffd23f); margin-left: 5px; vertical-align: 3px; font-style: normal; }
+.mc-foot .mc-foot-legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 36px; font: 600 12px/1 var(--mc-cond, 'Barlow Condensed', sans-serif); letter-spacing: .1em; text-transform: uppercase; color: var(--mc-haze, #9aa3ad); }
+@media (max-width: 1000px) {
+  .mc-foot .mc-foot-cols { grid-template-columns: 1fr 1fr; }
+  .mc-foot .mc-foot-cols > .mc-foot-col:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 720px) {
+  .mc-foot .mc-foot-links a { display: flex; align-items: center; min-height: 44px; }
+}
+@media print { .mc-foot { display: none; } }

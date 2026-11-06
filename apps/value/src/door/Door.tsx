@@ -16,6 +16,7 @@ import { GradeSim } from './GradeSim';
 import { Inspector } from './Inspector';
 import { Slab, useQr } from './Slab';
 import { Strip } from '../Strip';
+import { Footer } from '../Footer';
 import '../door.css';
 
 import { WORLD_URL, SHOP_URL } from '@micar/brand';
@@ -182,6 +183,7 @@ export default function Door() {
         <Shops />
         <Numbers />
         <Footer />
+        <div className="gutter"><div className="inner"><div className="wordmark">MiCar</div></div></div>
       </>}
       {inspecting && card && <Inspector card={card} g={g ?? undefined} onClose={() => setInspecting(false)} />}
     </div>
@@ -343,20 +345,5 @@ function Numbers() {
       <div className="sticker s2"><strong>0</strong><span>{t('cards parked. Charlotte Series 1 opens with the first 1,000: First Edition, numbered by arrival.')}</span></div>
       <div className="sticker s3"><strong>{STATS.listings.toLocaleString('en-US')}</strong><span>{t('real listings behind the curve, {n} models calibrated against them', { n: STATS.calibrated })}</span></div>
     </div></section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="gutter"><div className="inner">
-      <div className="foot">
-        <div><h4>MiCar</h4><p className="addr">{t('Said MEE-car. One brand: the value, the card, the garage, the world. Charlotte, NC.')}</p></div>
-        <div><h4>{t('Value')}</h4><a href={calculatorUrl()}>{t('Value a car')}</a><a href={stickerPageUrl()}>{t('Window sheet')}</a><a href="#grade">{t('The grade')}</a></div>
-        <div><h4>{t('World')}</h4><a href={WORLD_URL}>{t('MiCar World')}</a><a href={SHOP_URL}>{t('MiCar Shop')}</a></div>
-        <div><h4>{t('About')}</h4><a href="https://github.com/lasting-oasis/Micar-com" target="_blank" rel="noreferrer">{t("How it's built")}</a><a href="#keyholder">{t('Keyholder')}</a></div>
-      </div>
-      <div className="legal"><span>© 2026 MiCar</span><span>{t('Values are estimates, not appraisals or offers to buy.')}</span></div>
-      <div className="wordmark">MiCar</div>
-    </div></footer>
   );
 }
