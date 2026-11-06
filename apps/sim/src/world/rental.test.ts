@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { RENTAL_PRICE, GUEST_STAKE, RENTAL_FLEET, canRent, rent, returnRental, heldRental } from './rental';
+import { RENTAL_PRICE, GUEST_STAKE, RENTAL_FLEET, canRent, rent, returnRental, heldRental, isVisitor } from './rental';
 const player = (money: number) => ({ id: 'p1', money, inventory: [] as any[], octane: 0, stamps: [] } as any);
 describe('rental', () => {
   it('costs $500 and a guest starts with exactly one rental', () => { expect(RENTAL_PRICE).toBe(500); expect(GUEST_STAKE).toBe(RENTAL_PRICE); expect(RENTAL_FLEET.map(f => f.key)).toEqual(['hatchback', 'coupe', 'sports']); });
@@ -18,5 +18,15 @@ describe('rental', () => {
     const p = player(500); rent(p, 'hatchback', 1); p.money += 1800;
     expect(returnRental(p)?.rental).toBe(true); expect(p.inventory).toHaveLength(0); expect(p.money).toBe(1800);
     expect(returnRental(p)).toBeUndefined();
+  });
+});
+
+describe('isVisitor', () => {
+  it('is a guest or a Strip account holder, never a dealer', () => {
+    expect(isVisitor({ guest: true })).toBe(true);
+    expect(isVisitor({ guest: false, accountId: 'acct-1' })).toBe(true);
+    expect(isVisitor({ guest: false })).toBe(false);
+    expect(isVisitor({})).toBe(false);
+    expect(isVisitor(undefined)).toBe(false);
   });
 });

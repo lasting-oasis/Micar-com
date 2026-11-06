@@ -30,7 +30,7 @@ import { ChaseCamera } from './world/cameras';
 import { WORLD_PER_M } from './world/units';
 import { useDriveUi, type ShownResults } from './world/driveUi';
 import { DriveLayer } from './world/DriveLayer';
-import { RENTAL_BAY, canRent, heldRental } from './world/rental';
+import { RENTAL_BAY, canRent, heldRental, isVisitor } from './world/rental';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
@@ -606,7 +606,7 @@ export function VanillaThreeScene() {
         let lobby = false, lobbyChecked = false, restarting = false;
         let rentalId: string | null = null;  // the rental being driven
         // a Strip visitor: a guest or an account holder (no lot in the town)
-        const visitor = (): boolean => { const m = stateRef.current.gameState?.players[stateRef.current.playerId || '']; return !!m && (!!m.guest || !!m.accountId); };
+        const visitor = (): boolean => isVisitor(stateRef.current.gameState?.players[stateRef.current.playerId || '']);
         let lastShift = 0, lastBov = false, lastNos = false;
         let backspaceTap = false;             // Backspace: reset in the town (R parks / opens a bay there)
         let lastGarageCarId: string | null = null;

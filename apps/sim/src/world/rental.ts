@@ -19,6 +19,11 @@ export function isRental(car: Car | undefined): boolean {
   return !!car?.rental;
 }
 
+/** A Strip visitor: a guest or a Strip account holder (no lot, no dealership): the Strip's UI only, never the town. */
+export function isVisitor(player: Pick<Player, 'guest' | 'accountId'> | undefined): boolean {
+  return !!player && (!!player.guest || !!player.accountId);
+}
+
 export function heldRental(player: Player): Car | undefined {
   return player.inventory.find(c => isRental(c));
 }

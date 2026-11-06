@@ -7,7 +7,7 @@ import { forwardRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { HELP, stampName, useDriveUi, type DriveTap } from './driveUi';
 import { useGameStore } from '../store';
-import { RENTAL_FLEET, RENTAL_PRICE, canRent } from './rental';
+import { RENTAL_FLEET, RENTAL_PRICE, canRent, isVisitor } from './rental';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 // App's phone layout (its isMobile): the D-pad drives (its ◀ ▶ taps change a drag's lane), these add
@@ -83,7 +83,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const counter = useDriveUi(s => s.counter);
   const returned = useDriveUi(s => s.returned);
   // a Strip visitor (a guest or an account holder) has no town to go back to; an account holder can sign out
-  const visitor = useGameStore(s => { const p = s.playerId ? s.gameState?.players[s.playerId] : undefined; return !!p && (!!p.guest || !!p.accountId); });
+  const visitor = useGameStore(s => isVisitor(s.playerId ? s.gameState?.players[s.playerId] : undefined));
   const signedIn = useGameStore(s => !!s.account);
   const [touch, setTouch] = useState(phoneLayout);
   useEffect(() => { const f = () => setTouch(phoneLayout()); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f); }, []);
@@ -107,8 +107,8 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
           <div className="absolute inset-0 transition-opacity duration-300" style={{ opacity: nos ? .9 : 0, background: 'radial-gradient(ellipse at center, transparent 55%, rgba(121,166,255,.35) 100%)' }} />
           <div className="absolute left-1/2 top-[76px] -translate-x-1/2 max-w-[calc(100vw-32px)] truncate whitespace-nowrap px-4 py-2 bg-night/75 border border-market/30 font-sans font-semibold text-[13px] text-haze transition-opacity duration-700" style={{ opacity: helpOn && driving && !paused && !results ? 1 : 0 }}>{HELP[district]}</div>
           {shownBanner && shownBanner.txt && (
-            <div className="absolute left-1/2 top-[28%] -translate-x-1/2 -translate-y-1/2 text-center">
-              <div className={`font-cond italic font-black uppercase tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,.8)] ${shownBanner.txt.length < 4 ? 'text-8xl' : 'text-4xl md:text-5xl'} ${shownBanner.bad ? 'text-[#ff5a6a]' : 'text-market'}`}>{shownBanner.txt}</div>
+            <div className="absolute left-1/2 top-[28%] -translate-x-1/2 -translate-y-1/2 w-[min(92vw,720px)] text-center">
+              <div className={`font-cond italic font-black uppercase tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,.8)] ${shownBanner.txt.length < 4 ? 'text-8xl' : shownBanner.txt.length > 22 ? 'text-2xl md:text-4xl' : 'text-4xl md:text-5xl'} ${shownBanner.bad ? 'text-[#ff5a6a]' : 'text-market'}`}>{shownBanner.txt}</div>
             </div>
           )}
         </div>, document.body)}

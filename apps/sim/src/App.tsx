@@ -9,6 +9,7 @@ import { loadChunk } from './loadChunk';
 import { ChunkBoundary } from './ChunkBoundary'
 import { Strip } from './Strip'
 import { StripEntry } from './strip/StripEntry'
+import { isVisitor } from './world/rental'
 import { routeFromLocation } from './route'
 import { SITE_URL } from '@micar/brand';
 // Heavy screens load on demand. The 3D world (three.js) starts downloading as
@@ -2123,9 +2124,9 @@ function App() {
   const me = gameState.players[playerId];
   if (!me) return null;
 
-  // A Strip guest has no dealership: only the 3D view and its driving layer (the rental lobby, the counter),
+  // A Strip visitor (a guest or a Strip account holder) has no dealership: only the 3D view and its driving layer (the rental lobby, the counter),
   // the driving HUD (refusals, the fuel gauge) and the way home; nothing from the town.
-  if (me.guest) return (
+  if (isVisitor(me)) return (
     <>
       <a href={SITE_URL} className="absolute top-4 left-4 z-[9999] px-3 py-2 bg-black/60 border border-white/20 hover:border-market/60 rounded-xl hover:bg-black/95 font-cond italic font-black text-sm tracking-wide text-white transition-all duration-300 flex items-center gap-1 shadow-[0_4px_20px_rgba(0,0,0,0.5)] pointer-events-auto">
         <span className="text-market">Mi</span>Car
