@@ -1,7 +1,7 @@
 /* What a Strip run pays, and the checks the server makes before paying it.
    Pure (no I/O): the server calls these on its own player records; applyPayout mutates the Player it is given. */
 import { CATS, EVENTS, TUNES, TUNE_DEF, freshStrip, prizeFor, stageOf, visualRating, type EventDef, type EventType, type PartValue } from './data';
-import { buildRoute } from './strip/routes';
+import { routeFor } from './strip/district';
 import type { Tune } from './physics';
 import type { Player } from '../types';
 
@@ -34,7 +34,7 @@ const routeLen = new Map<string, number>();
 /** The distance an event covers, in metres: one route length, times the laps on a loop. */
 export function eventDistance(ev: EventDef): number {
   let len = routeLen.get(ev.id);
-  if (len == null) { len = buildRoute(ev.nodes, !!ev.loop).len; routeLen.set(ev.id, len); }
+  if (len == null) { len = routeFor(ev.id).len; routeLen.set(ev.id, len); }
   return ev.loop ? len * (ev.laps || 1) : len;
 }
 
@@ -69,7 +69,7 @@ export function validateFinish(entry: EventEntry | undefined, msg: FinishMsg, no
 
 /** The synthetic event an outrun pays as: 800 + 250 per stage above 1, rep 60. */
 export function outrunEvent(stage: number): EventDef {
-  return { id: OUTRUN_ID, type: 'sprint', name: 'Outrun', nodes: [], prize: 800 + 250 * (Math.max(1, stage) - 1), rep: 60, stage: 1 };
+  return { id: OUTRUN_ID, type: 'sprint', name: 'Outrun', track: 'hub', prize: 800 + 250 * (Math.max(1, stage) - 1), rep: 60, stage: 1 };
 }
 
 /** Fills the Strip fields on a player saved before they existed. */

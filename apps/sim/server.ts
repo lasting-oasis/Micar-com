@@ -13,6 +13,8 @@ import { RENTAL_FLEET, canRent, isRental, isVisitor, rent, type RentalKey } from
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
 import { RENTAL_DENIED, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
+import { TRACKS } from './src/world/strip/district.js';
+import { readTrackSync, setTrackDir } from './src/world/strip/districtNode.js';
 
 const app = express();
 const httpServer = createServer(app);
@@ -2287,6 +2289,8 @@ io.on('connection', (socket) => {
 });
 
 async function startServer() {
+    setTrackDir(path.join(process.cwd(), process.env.NODE_ENV === 'production' ? 'dist' : 'public', 'strip', 'tracks'));
+    for (const t of TRACKS) readTrackSync(t.id);
     await loadGameState();
 
     // What the Strip entry card may offer before anyone has joined (init.caps arrives too late for it)
