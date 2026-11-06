@@ -7,6 +7,8 @@ import { forwardRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { HELP, stampName, useDriveUi, type DriveTap } from './driveUi';
 import { useGameStore } from '../store';
+import { AccountPanel } from '../strip/AccountPanel';
+import { ReplacePrompt } from '../strip/ReplacePrompt';
 import { RENTAL_FLEET, RENTAL_PRICE, canRent, isVisitor } from './rental';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
@@ -159,6 +161,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                 {eventLive && <button onClick={() => tap('restart')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
                 {eventLive && <button onClick={() => tap('quit')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
                 {!visitor && <button onClick={() => tap('town')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>}
+                {visitor && <button onClick={() => useDriveUi.setState({ account: true })} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Account</button>}
                 {visitor && lobby && signedIn && <button onClick={() => tap('signout')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Sign out</button>}
                 {!lobby && <p className="mt-2 text-[12px] leading-snug text-haze">{HELP.strip}</p>}
               </div>
@@ -189,6 +192,8 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             <TapBtn t="enter" label="GPS" aria="Set GPS" hidden={!mapOpen} />
           </div>
         </div>, document.body)}
+      <AccountPanel />
+      <ReplacePrompt />
     </>
   );
 });

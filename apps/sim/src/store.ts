@@ -339,8 +339,13 @@ export const useGameStore = create<StoreState>((set, get) => ({
     const socketUrl = isDev ? `http://${window.location.hostname}:3000` : window.location.origin;
     const socket = io(socketUrl);
     
+    // A linked player who reconnects rejoins on the saved session, not as the guest the socket first joined as.
+    let viaSession = opts.mode === 'session', joins = 0;
     const emitJoin = () => {
-        if (opts.mode === 'guest') socket.emit('join', { mode: 'guest', name: opts.name });
+        const saved = joins++ > 0 && get().account ? readSession() : null;
+        viaSession = !!saved || opts.mode === 'session';
+        if (saved) socket.emit('join', { mode: 'session', session: saved });
+        else if (opts.mode === 'guest') socket.emit('join', { mode: 'guest', name: opts.name });
         else if (opts.mode === 'session') socket.emit('join', { session: opts.session });
         else {
             const { name, lotScale, careerFocus, shopSpecialty } = opts;
@@ -357,7 +362,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
     
     socket.on('init', (data) => {
         // A session join that comes back without an account means the server fell back to a guest: the token is dead
-        if (opts.mode === 'session' && !data.account) writeSession(null);
+        if (viaSession && !data.account) writeSession(null);
         // sign_out answers with a fresh guest init: the old token is spent
         set({ caps: data.caps ? { ...NO_CAPS, ...data.caps } : get().caps, account: data.account || null, linkPrompt: null, pendingLink: null });
         set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id) });

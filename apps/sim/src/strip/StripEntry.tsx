@@ -1,36 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useGameStore, loadSession } from '../store';
 import { useLang, t } from '../i18n';
+import { useGoogleSignIn, useEmailLink } from './useSignIn';
 
 // The Strip's front door (/strip): join as a guest with the starting cash, or sign in. Reads the store only.
 // What it may offer (Google, email) comes from GET /api/caps, fetched on mount; init.caps arrives too late for a card that unmounts on join.
 const NAME_KEY = 'micar.name';
 const readName = () => { try { return localStorage.getItem(NAME_KEY) || ''; } catch { return ''; } };
 const writeName = (v: string) => { try { localStorage.setItem(NAME_KEY, v); } catch { /* storage blocked */ } };
-const GSI_SRC = 'https://accounts.google.com/gsi/client';
-
-const loadGsi = () => new Promise<any>((resolve, reject) => {
-  const g = (window as any).google;
-  if (g?.accounts?.id) return resolve(g);
-  const s = document.createElement('script');
-  s.src = GSI_SRC; s.async = true;
-  s.onload = () => ((window as any).google?.accounts?.id ? resolve((window as any).google) : reject(new Error('gsi')));
-  s.onerror = () => reject(new Error('gsi'));
-  document.head.appendChild(s);
-});
-
 const BTN = 'w-full min-h-[48px] px-4 rounded-lg font-cond font-black italic uppercase tracking-wider text-base transition-all focus:outline-none focus:ring-4 focus:ring-market/30 disabled:opacity-60';
 
 export function StripEntry() {
   const lang = useLang();
-  const { connect, requestLink, loadCaps, setHoldCard } = useGameStore.getState();
+  const { connect, loadCaps, setHoldCard } = useGameStore.getState();
   const caps = useGameStore(s => s.caps);
-  const linkSent = useGameStore(s => s.linkSent);
   const joined = useGameStore(s => !!s.playerId);
   const connectFailed = useGameStore(s => s.connectFailed);
   const driveNotice = useGameStore(s => s.driveNotice);
   const [name, setName] = useState(readName);
-  const [email, setEmail] = useState('');
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState('');
   const started = useRef(false);
@@ -66,39 +53,16 @@ export function StripEntry() {
   const race = () => {
     if (joined) { useGameStore.getState().clearDriveNotice(); setHoldCard(false); return; } // an email link is on its way: carry on as the guest already joined
     if (busy) return;
+    setNote('');
     const n = name.trim();
     writeName(n);
     setBusy(true);
     connect({ mode: 'guest', name: n });
   };
 
-  const google = async () => {
-    setNote('');
-    const clientId = useGameStore.getState().caps.googleClientId;
-    if (!clientId) { setNote(t(lang, 'strip.noGoogle')); return; }
-    try {
-      const g = await loadGsi();
-      g.accounts.id.initialize({ client_id: clientId, callback: (r: { credential?: string }) => {
-        if (!r?.credential) return;
-        // sign-in links a guest, so join as one first if we have not
-        const go = () => useGameStore.getState().linkAccount({ google: r.credential });
-        if (useGameStore.getState().playerId) go();
-        else { connect({ mode: 'guest', name: name.trim() }); const stop = useGameStore.subscribe((s) => { if (s.playerId) { stop(); go(); } }); }
-      } });
-      g.accounts.id.prompt();
-    } catch { setNote(t(lang, 'strip.googleFail')); }
-  };
-
-  const sendLink = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setNote(''); setHoldCard(true); // the card stays up for the answer instead of dropping into the world
-    // the link signs a guest in, so the socket must exist first
-    if (!useGameStore.getState().socket) connect({ mode: 'guest', name: name.trim() });
-    const send = () => requestLink(email.trim());
-    if (useGameStore.getState().playerId) send();
-    else { const stop = useGameStore.subscribe((s) => { if (s.playerId) { stop(); send(); } }); }
-  };
+  const joinGuest = () => connect({ mode: 'guest', name: name.trim() });
+  const g = useGoogleSignIn(joinGuest);
+  const mail = useEmailLink(joinGuest);
 
   return (
     <div className="h-[100dvh] overflow-y-auto overscroll-contain bg-night text-ink font-sans grid place-items-center px-4 py-8"
@@ -119,22 +83,22 @@ export function StripEntry() {
         </button>
         </form>
         {caps.google && (
-          <button type="button" onClick={google} className={`${BTN} bg-transparent text-[#c3cad8] border border-line hover:border-haze`}>
+          <button type="button" onClick={g.start} className={`${BTN} bg-transparent text-[#c3cad8] border border-line hover:border-haze`}>
             {t(lang, 'strip.google')}
           </button>
         )}
-        {caps.magic && (linkSent ? (
+        {caps.magic && (mail.linkSent ? (
           <p role="status" className="font-cond text-market text-base">{t(lang, 'strip.linkSent')}</p>
         ) : (
-          <form className="flex flex-col gap-2" onSubmit={sendLink}>
-            <input type="email" aria-label={t(lang, 'strip.emailLabel')} placeholder={t(lang, 'strip.emailLabel')} value={email} onChange={(e) => setEmail(e.target.value)}
+          <form className="flex flex-col gap-2" onSubmit={mail.submit}>
+            <input type="email" aria-label={t(lang, 'strip.emailLabel')} placeholder={t(lang, 'strip.emailLabel')} value={mail.email} onChange={(e) => mail.setEmail(e.target.value)}
               className="w-full min-h-[48px] bg-[#0a0d12] border border-[#3a4458] rounded-lg px-4 py-3 text-ink focus:outline-none focus:border-market focus:ring-4 focus:ring-market/20" />
-            <button type="submit" className={`${BTN} bg-transparent text-[#c3cad8] border border-line hover:border-haze`}>
+            <button type="submit" disabled={mail.busy} className={`${BTN} bg-transparent text-[#c3cad8] border border-line hover:border-haze`}>
               {t(lang, 'strip.emailLink')}
             </button>
           </form>
         ))}
-        {(note || (joined && driveNotice)) && <p role="alert" className="text-sm text-red-300">{note || driveNotice}</p>}
+        {(note || g.note || mail.note || (joined && driveNotice)) && <p role="alert" className="text-sm text-red-300">{note || g.note || mail.note || driveNotice}</p>}
         <p className="text-sm text-haze">{t(lang, 'strip.footnote')}</p>
       </div>
     </div>
