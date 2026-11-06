@@ -1409,9 +1409,12 @@ io.on('connection', (socket) => {
       if (valid && CAPS.magic) {
           const room = allowSend(linkSends, clientIp(socket.handshake.headers as any, socket.handshake.address), now);
           if (!room.ok) { deny(room.reason); return; }
-          // the click signs in this guest, wherever the link is opened (while this tab is still here)
-          linkRequests.set(addr, { socketId: socket.id, at: now });
-          if (await sendMagicEmail(addr, linkOrigin(socket.handshake.headers as any))) { socket.emit('link_sent', {}); return; }
+          if (await sendMagicEmail(addr, linkOrigin(socket.handshake.headers as any))) {
+              // the click signs in this guest, wherever the link is opened (while this tab is still here)
+              linkRequests.set(addr, { socketId: socket.id, at: now });
+              socket.emit('link_sent', {});
+              return;
+          }
       }
       deny("Couldn't send the link — try Google or try again in a minute");
   });
