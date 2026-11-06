@@ -8,6 +8,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { loadChunk } from './loadChunk';
 import { ChunkBoundary } from './ChunkBoundary'
 import { Strip } from './Strip'
+import { StripEntry } from './strip/StripEntry'
+import { routeFromLocation } from './route'
 import { SITE_URL } from '@micar/brand';
 // Heavy screens load on demand. The 3D world (three.js) starts downloading as
 // soon as the setup screen shows, so it's usually ready by the time you join.
@@ -1989,13 +1991,14 @@ function App() {
   // The front door of MiCar World: what the place is, your name, one button. The game's options
   // (your business, its size, the guide) are defaulted and folded under "More options".
   if (!playerId || !gameState) {
+    if (routeFromLocation(window.location).view === 'strip') return <StripEntry />;
     const businesses: { id: 'dealership' | 'mechanic' | 'body' | 'dual'; key: string; on: boolean; pick: () => void }[] = [
       { id: 'dealership', key: 'setup.dealership', on: careerFocusInput === 'dealership', pick: () => setCareerFocusInput('dealership') },
       { id: 'mechanic', key: 'setup.mechanicShop', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'mechanic', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('mechanic'); } },
       { id: 'body', key: 'setup.bodyShop', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'body', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('body'); } },
       { id: 'dual', key: 'setup.dual', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'dual', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('dual'); } },
     ];
-    const enter = () => connect(nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScaleInput, careerFocusInput, shopSpecialtyInput);
+    const enter = () => connect({ mode: 'dealer', name: nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScale: lotScaleInput, careerFocus: careerFocusInput, shopSpecialty: shopSpecialtyInput });
     return (
       <div className="h-[100dvh] overflow-y-auto overscroll-contain bg-night text-ink font-sans" style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 20%, #121a2a 0%, #0e1217 70%)' }}>
         <Strip current="world" />

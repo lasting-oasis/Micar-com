@@ -16,6 +16,7 @@ const Loading = () => (
 import './index.css'
 import { useLang, t, getLang } from './i18n'
 import { Strip } from './Strip'
+import { routeFromLocation, SHOP_TABS, type ShopTab } from './route'
 // Global error catcher.
 // - Development: full-screen overlay with message, source and stack (as before).
 // - Production: a small dismissable notice, so a harmless error (often from a
@@ -70,28 +71,15 @@ window.addEventListener('error', (event) => {
 // Two doors, by audience. Retail: the world opens straight away (no portal).
 // Commercial: /shop (or ?app=shop) is MiCar Shop, one screen with the body shop, the mechanic bay and the
 // customer tracker as tabs. The old ?app=game|shop|mechanic|platform links keep working.
-type View = 'world' | 'shop';
-type ShopTab = 'body' | 'mechanic' | 'tracker';
-const TABS: { id: ShopTab; key: string }[] = [{ id: 'body', key: 'shop.tab.body' }, { id: 'mechanic', key: 'shop.tab.mechanic' }, { id: 'tracker', key: 'shop.tab.tracker' }];
-
-function routeFromLocation(): { view: View; tab: ShopTab } {
-  const params = new URLSearchParams(window.location.search);
-  const app = params.get('app');
-  const path = window.location.pathname.replace(/\/+$/, '');
-  const tabParam = params.get('tab') as ShopTab | null;
-  if (/\/shop$/.test(path) || app === 'shop' || app === 'mechanic' || app === 'platform') {
-    const tab: ShopTab = app === 'mechanic' ? 'mechanic' : app === 'platform' ? 'tracker' : tabParam && TABS.some(t => t.id === tabParam) ? tabParam : 'body';
-    return { view: 'shop', tab };
-  }
-  return { view: 'world', tab: 'body' };
-}
+const TABS = SHOP_TABS;
+const routeNow = () => routeFromLocation(window.location);
 
 function GatewayPortal() {
-  const [route, setRoute] = useState(routeFromLocation);
+  const [route, setRoute] = useState(routeNow);
   const lang = useLang();
 
   useEffect(() => {
-    const onChange = () => setRoute(routeFromLocation());
+    const onChange = () => setRoute(routeNow());
     window.addEventListener('popstate', onChange);
     return () => window.removeEventListener('popstate', onChange);
   }, []);
@@ -101,7 +89,7 @@ function GatewayPortal() {
   useEffect(() => {
     const rootEl = document.getElementById('root');
     if (!rootEl) return;
-    if (route.view === 'world') {
+    if (route.view === 'world' || route.view === 'strip') {
       document.body.style.overflow = 'hidden';
       rootEl.style.height = '100dvh'; rootEl.style.width = '100%'; rootEl.style.overflow = 'hidden';
     } else {
@@ -119,7 +107,7 @@ function GatewayPortal() {
     setRoute({ view: 'shop', tab });
   };
 
-  if (route.view === 'world') {
+  if (route.view === 'world' || route.view === 'strip') {
     return (
       <div className="relative w-full h-[100dvh] overflow-hidden bg-[#0c0d12]">
         <ChunkBoundary><Suspense fallback={<Loading />}><App /></Suspense></ChunkBoundary>

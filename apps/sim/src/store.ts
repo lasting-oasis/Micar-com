@@ -4,6 +4,22 @@ import { GameState, ChatMessage } from './types.js';
 import { carState, freshStrip, okey, withV, type PartValue, type StripRecord } from './world/data';
 import type { Tune } from './world/physics';
 import { useDriveUi, type EventReward } from './world/driveUi';
+import type { Identity } from './world/accounts';
+
+// How a visitor joins: as a Strip guest, with a saved session token, or the original dealer/shop setup.
+export type ConnectOpts =
+  | { mode: 'guest'; name: string }
+  | { mode: 'session'; session: string }
+  | { mode: 'dealer'; name: string; lotScale: 'Small' | 'Medium' | 'Large'; careerFocus?: 'dealership' | 'standalone'; shopSpecialty?: 'mechanic' | 'body' | 'dual' };
+export type AccountView = { id: string; identity: Identity; allowanceToday: boolean };
+export type LinkPayload = { google?: string; magic?: string; confirmReplace?: boolean };
+
+// The signed-in session token lives in localStorage; every access is in a try/catch (blocked storage = guest only).
+export const SESSION_KEY = 'micar.session';
+const readSession = (): string | null => { try { return localStorage.getItem(SESSION_KEY); } catch { return null; } };
+const writeSession = (v: string | null) => { try { if (v === null) localStorage.removeItem(SESSION_KEY); else localStorage.setItem(SESSION_KEY, v); } catch { /* storage blocked: this page only */ } };
+export const loadSession = readSession;
+
 
 interface StoreState {
   socket: Socket | null;
@@ -14,7 +30,18 @@ interface StoreState {
   unreadChat: number;
   sendChat: (text: string) => void;
   markChatRead: () => void;
-  connect: (name: string, lotScale: 'Small' | 'Medium' | 'Large', careerFocus?: 'dealership' | 'standalone', shopSpecialty?: 'mechanic' | 'body' | 'dual') => void;
+  connect: (opts: ConnectOpts) => void;
+  // Accounts and rentals (the Strip): what the server said in init / account_linked
+  caps: { google: boolean; magic: boolean };
+  account: AccountView | null;
+  linkPrompt: { money: number } | null;   // the saved run a link would replace (Task 5 draws the confirm)
+  pendingLink: LinkPayload | null;        // the payload to resend with confirmReplace: true
+  linkSent: boolean;
+  rentCar: (key: string) => void;
+  requestLink: (email: string) => void;
+  linkAccount: (payload: LinkPayload) => void;
+  claimAllowance: () => void;
+  signOut: () => void;
   disconnect: () => void;
   buyCar: (id: string, useFinancing: boolean) => void;
   buyPsi: (carId: string) => void;
@@ -149,6 +176,11 @@ export const useGameStore = create<StoreState>((set, get) => ({
   socket: null,
   gameState: null,
   playerId: null,
+  caps: { google: false, magic: false },
+  account: null,
+  linkPrompt: null,
+  pendingLink: null,
+  linkSent: false,
   timeOfDay: 8.0,
   chatMessages: [],
   unreadChat: 0,
@@ -272,21 +304,26 @@ export const useGameStore = create<StoreState>((set, get) => ({
   disconnect: () => {
     const socket = get().socket;
     if (socket) socket.disconnect();
-    set({ socket: null, gameState: null, playerId: null, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {},
+    set({ socket: null, gameState: null, playerId: null, account: null, linkPrompt: null, pendingLink: null, linkSent: false, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {},
       // Per-session prompts and modal state: left set, they reappear in the next
       // session (the gate keypad at spawn).
       myWorldPos: null, drivingFuel: null, drivingSpeed: 0, gatePrompt: false, activeInteraction: null, driveNotice: null,
       activeInspectionCarId: null, activeInspectionShopType: null, isBankModalOpen: false, isInsuranceModalOpen: false,
       strip: null, octane: 0, garageCarId: null });
   },
-  connect: (name, lotScale, careerFocus, shopSpecialty) => {
+  connect: (opts) => {
     const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
     const socketUrl = isDev ? `http://${window.location.hostname}:3000` : window.location.origin;
     const socket = io(socketUrl);
     
     const emitJoin = () => {
-        console.log('CLIENT EMITTING JOIN:', { name, lotScale, careerFocus, shopSpecialty });
-        socket.emit('join', { name, lotScale, careerFocus, shopSpecialty });
+        if (opts.mode === 'guest') socket.emit('join', { mode: 'guest', name: opts.name });
+        else if (opts.mode === 'session') socket.emit('join', { session: opts.session });
+        else {
+            const { name, lotScale, careerFocus, shopSpecialty } = opts;
+            console.log('CLIENT EMITTING JOIN:', { name, lotScale, careerFocus, shopSpecialty });
+            socket.emit('join', { name, lotScale, careerFocus, shopSpecialty });
+        }
     };
 
     if (socket.connected) {
@@ -295,7 +332,19 @@ export const useGameStore = create<StoreState>((set, get) => ({
         socket.on('connect', emitJoin);
     }
     
-    socket.on('init', (data) => set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id) }));
+    socket.on('init', (data) => {
+        // A session join that comes back without an account means the server fell back to a guest: the token is dead
+        if (opts.mode === 'session' && !data.account) writeSession(null);
+        // sign_out answers with a fresh guest init: the old token is spent
+        set({ caps: data.caps || { google: false, magic: false }, account: data.account || null, linkPrompt: null, pendingLink: null });
+        set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id) });
+    });
+    socket.on('account_linked', (d: { account: AccountView; session?: string }) => {
+        if (typeof d?.session === 'string') writeSession(d.session);
+        set({ account: d.account, linkPrompt: null, pendingLink: null });
+    });
+    socket.on('account_replace_prompt', (d: { money: number }) => set({ linkPrompt: { money: d?.money ?? 0 } }));
+    socket.on('link_sent', () => set({ linkSent: true }));
     socket.on('update', (state) => set({ gameState: state, timeOfDay: state.timeOfDay, ...mirrorStrip(state, get().playerId) }));
     socket.on('player_positions', (positions) => set({ playerPositions: positions || {} }));
     socket.on('time_update', (timeOfDay) => set({ timeOfDay }));
@@ -311,6 +360,20 @@ export const useGameStore = create<StoreState>((set, get) => ({
         return { chatMessages: next, unreadChat: mine ? s.unreadChat : s.unreadChat + 1 };
     }));
     set({ socket });
+  },
+  rentCar: (key) => { const s = get().socket; if (s) s.emit('rent_car', { key }); },
+  requestLink: (email) => { const s = get().socket; if (s) s.emit('request_link', { email }); set({ linkSent: false }); },
+  linkAccount: (payload) => {
+      const s = get().socket; if (!s) return;
+      // kept so the confirm prompt can resend it with confirmReplace: true
+      set({ pendingLink: payload });
+      s.emit('link_account', payload);
+  },
+  claimAllowance: () => { const s = get().socket; if (s) s.emit('claim_allowance', {}); },
+  signOut: () => {
+      const s = get().socket; if (!s) return;
+      writeSession(null);
+      s.emit('sign_out', {});
   },
   buyCar: (id, useFinancing) => {
       const socket = get().socket;
