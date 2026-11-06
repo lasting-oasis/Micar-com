@@ -10,6 +10,6 @@ export default defineConfig(({ mode }) => ({
   base: process.env.BASE_PATH ?? '/',
   plugins: [react(), tailwindcss(), ...(mode === 'single' ? [viteSingleFile()] : [])],
   build: mode === 'single' ? { outDir: 'dist-single' } : {},
-  // Vitest swaps CSS for an empty string, ?raw included. footer.test.ts reads the shared footer's stylesheet as text.
-  test: { css: { include: [/footer\.css/] } },
+  // Vitest swaps CSS for an empty string, ?raw included. footer.test.ts reads the shared footer's stylesheet and index.css as text.
+  test: { css: { include: [/footer\.css/, /index\.css/] } },
 }))

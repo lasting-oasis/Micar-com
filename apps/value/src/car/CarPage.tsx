@@ -5,6 +5,7 @@ import { Check, Link2, MapPin, Pencil, Phone } from 'lucide-react';
 import { useLayoutEffect, useMemo, useState, type ReactNode } from 'react';
 import { Confidence, Drivers, Forecast, Ledger, Prices } from '../App';
 import { forecast } from '../engine/valuation';
+import { Footer } from '../Footer';
 import { langChosen, setLang, t, tx } from '../i18n';
 import { Nav } from '../Nav';
 import { DEFAULT_WARRANTY, FEATURES, FEATURE_GROUPS, calculatorUrl, carName, decodeRecord, displayModel, stickerPageUrl, type CarRecord } from './record';
@@ -150,7 +151,12 @@ function Car({ r, code, now }: { r: CarRecord; code: string; now: Date }) {
 }
 
 function Shell({ children }: { children: ReactNode }) {
-  return <div className="min-h-screen py-6 sm:px-4 sm:py-10"><div className="mx-auto max-w-6xl">{children}</div></div>;
+  return (
+    <div className="flex min-h-screen flex-col">
+      <div className="w-full flex-1 py-6 sm:px-4 sm:py-10"><div className="mx-auto max-w-6xl">{children}</div></div>
+      <Footer bleed />
+    </div>
+  );
 }
 function Notice({ children }: { children: ReactNode }) {
   return <p className="rounded-md p-6 text-sm" style={{ background: 'var(--sticker)', color: 'var(--ink-2)' }}>{children}</p>;

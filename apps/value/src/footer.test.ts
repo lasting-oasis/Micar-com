@@ -15,6 +15,7 @@ import {
 } from '@micar/brand/footer';
 import footerCss from '@micar/brand/footer.css?raw';
 import doorSource from './door/Door.tsx?raw';
+import indexCss from './index.css?raw';
 import { routeFromHash } from './route';
 
 const links = FOOTER_COLUMNS.flatMap((c) => c.links.map((l) => ({ col: c.id, ...l })));
@@ -171,5 +172,14 @@ describe('footer.css', () => {
     expect(footerCss).toContain('safe-area-inset-right');
     expect(footerCss).toContain('@media print');
     expect(footerCss).not.toMatch(/\.mc-foot\s+p\b/);
+  });
+});
+
+describe('value index.css', () => {
+  it('bleed cancels the body padding', () => {
+    const rule = indexCss.match(/\.mc-foot-bleed\s*\{[^}]*\}/)?.[0] ?? '';
+    expect(rule).toContain('margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)))');
+    expect(rule).toContain('margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)))');
+    expect(rule).not.toContain('100vw');
   });
 });

@@ -8,6 +8,7 @@ import { findModel, modelsForMake, yearRanges } from './engine/models';
 import { prefillMsrp } from './engine/prefill';
 import { stickerFor, trimChoices } from './engine/stickers';
 import { expectedMilesFor, forecast, mileageAdjustedPrice, valuate, type Inputs, type Valuation } from './engine/valuation';
+import { Footer } from './Footer';
 import { Nav } from './Nav';
 import { monthYear, period, t, te, tx, useLang } from './i18n';
 import { MARKET_OPTIONS, URGENCY_OPTIONS, defaults, parse, readUrl, shareUrl, urlHasMsrp, writeUrl, type Errors, type FormState } from './urlState';
@@ -153,7 +154,8 @@ export default function App() {
   const asOfLabel = monthYear(now);
 
   return (
-    <div className="min-h-screen py-6 sm:px-4 sm:py-10">
+    <div className="flex min-h-screen flex-col">
+      <div className="w-full flex-1 py-6 sm:px-4 sm:py-10">
       <div className="mx-auto max-w-6xl">
         <Nav active="value" />
         <header className="mb-6 flex flex-wrap items-end justify-between gap-4" style={{ color: 'var(--glass-ink)' }}>
@@ -207,6 +209,8 @@ export default function App() {
           </footer>
         </main>
       </div>
+      </div>
+      <Footer bleed />
     </div>
   );
 }
