@@ -16,6 +16,7 @@ import {
 import footerCss from '@micar/brand/footer.css?raw';
 import doorSource from './door/Door.tsx?raw';
 import indexCss from './index.css?raw';
+import buildSite from '../../../tools/build-site.sh?raw';
 import { routeFromHash } from './route';
 
 const links = FOOTER_COLUMNS.flatMap((c) => c.links.map((l) => ({ col: c.id, ...l })));
@@ -181,5 +182,13 @@ describe('value index.css', () => {
     expect(rule).toContain('margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)))');
     expect(rule).toContain('margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)))');
     expect(rule).not.toContain('100vw');
+  });
+});
+
+describe('build-site.sh', () => {
+  it("the Garage link's page is really built", () => {
+    const lines = buildSite.split(/\r?\n/);
+    expect(lines.some((l) => !l.trimStart().startsWith('#') && l.includes('tools/build-garage.ts'))).toBe(true);
+    expect(lines.some((l) => l.includes(`grep -q '<footer class="mc-foot"' site/garage/index.html`))).toBe(true);
   });
 });

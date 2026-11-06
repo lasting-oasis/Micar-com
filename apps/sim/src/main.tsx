@@ -16,6 +16,7 @@ const Loading = () => (
 import './index.css'
 import { useLang, t, getLang } from './i18n'
 import { Strip } from './Strip'
+import { Footer } from './Footer'
 import { routeFromLocation, SHOP_TABS, type ShopTab } from './route'
 // Global error catcher.
 // - Development: full-screen overlay with message, source and stack (as before).
@@ -141,6 +142,7 @@ function GatewayPortal() {
       <footer className="relative z-10 py-5 text-center border-t border-white/5 font-cond text-xs text-haze tracking-[0.14em] uppercase">
         {t(lang, 'shop.footer')}
       </footer>
+      <Footer />
     </div>
   );
 }

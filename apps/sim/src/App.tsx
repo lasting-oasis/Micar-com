@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { loadChunk } from './loadChunk';
 import { ChunkBoundary } from './ChunkBoundary'
 import { Strip } from './Strip'
+import { Footer } from './Footer'
 import { StripEntry } from './strip/StripEntry'
 import { isVisitor } from './world/rental'
 import { routeFromLocation } from './route'
@@ -2124,6 +2125,7 @@ function App() {
             <p className="font-marker text-market text-sm -rotate-1 origin-left">{t(lang, 'setup.free')}</p>
           </motion.form>
         </div>
+        <Footer />
       </div>
     );
   }
