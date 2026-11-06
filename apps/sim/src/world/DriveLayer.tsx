@@ -6,6 +6,8 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { HELP, stampName, useDriveUi, type DriveTap } from './driveUi';
+import { useGameStore } from '../store';
+import { RENTAL_FLEET, RENTAL_PRICE, canRent } from './rental';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 // App's phone layout (its isMobile): the D-pad drives (its ◀ ▶ taps change a drag's lane), these add
@@ -19,6 +21,43 @@ const Btn = ({ k, label, hidden }: { k: string; label: string; hidden?: boolean 
 const TapBtn = ({ t, label, aria, hidden }: { t: DriveTap; label: string; aria: string; hidden?: boolean }) => (
   <button type="button" aria-label={aria} onPointerDown={e => { e.preventDefault(); tap(t); }} className="w-12 h-12 rounded-lg border-2 border-market/60 bg-night/70 text-market font-cond font-extrabold italic text-sm uppercase select-none touch-none active:bg-market active:text-night pointer-events-auto" style={{ display: hidden ? 'none' : undefined }}>{label}</button>
 );
+
+const money = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
+const rowBtn = 'w-full min-h-[44px] rounded-lg px-4 py-2 text-left font-cond uppercase italic';
+
+/** The Strip's rental counter (the lobby): the fleet, the allowance, the way to an account. */
+function Counter() {
+  const me = useGameStore(s => (s.playerId ? s.gameState?.players[s.playerId] : undefined));
+  const account = useGameStore(s => s.account);
+  if (!me) return null;
+  const ok = canRent(me);
+  const broke = !account && !ok.ok && ok.reason === 'Not enough money';
+  return (
+    <div className="pointer-events-auto absolute inset-x-4 bottom-6 md:inset-x-auto md:left-auto md:right-20 md:bottom-auto md:top-24 md:w-[340px] rounded-xl border border-market/40 bg-night/95 p-5 text-white shadow-2xl" role="dialog" aria-label="Rental counter">
+      <div className="flex items-baseline justify-between gap-4 mb-3">
+        <div className="font-cond italic font-black uppercase text-2xl md:text-3xl leading-none text-market">Rental counter</div>
+        <div className="font-cond font-bold text-lg tabular-nums">{money(me.money)}</div>
+      </div>
+      <div className="flex flex-col gap-2">
+        {RENTAL_FLEET.map(f => (
+          <button key={f.key} type="button" disabled={!ok.ok} onClick={() => useGameStore.getState().rentCar(f.key)}
+            className={`${rowBtn} flex items-center gap-3 border border-market/60 enabled:hover:bg-market enabled:hover:text-night disabled:opacity-45 disabled:cursor-not-allowed`}>
+            <span className="w-4 h-4 rounded-full border border-white/30 flex-none" style={{ background: f.color }} aria-hidden="true" />
+            <span className="flex-1 min-w-0">
+              <span className="block font-extrabold text-lg leading-tight truncate">{f.make} {f.model}</span>
+              <span className="block not-italic normal-case font-sans text-[13px] text-haze">{money(RENTAL_PRICE)} · one event</span>
+            </span>
+          </button>
+        ))}
+        {!ok.ok && <p className="font-sans text-[13px] text-[#ff8a96]">{ok.reason}</p>}
+        {account && (account.allowanceToday
+          ? <div className={`${rowBtn} border border-white/15 text-white/50 font-bold`}>Collected today</div>
+          : <button type="button" onClick={() => useGameStore.getState().claimAllowance()} className={`${rowBtn} bg-market text-night font-extrabold`}>Collect today's $1,000</button>)}
+        {broke && <button type="button" onClick={() => useDriveUi.setState({ account: true })} className={`${rowBtn} bg-market text-night font-extrabold normal-case not-italic font-sans text-[15px]`}>Make an account for a $1,000 daily allowance</button>}
+      </div>
+    </div>
+  );
+}
 
 export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObject<HTMLCanvasElement> }>(({ canvasRef }, rootRef) => {
   const driving = useDriveUi(s => s.driving);
@@ -36,6 +75,12 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   const nos = useDriveUi(s => s.nos);
   const gears = useDriveUi(s => s.gears);
   const mapOpen = useDriveUi(s => s.mapOpen);
+  const lobby = useDriveUi(s => s.lobby);
+  const counter = useDriveUi(s => s.counter);
+  const returned = useDriveUi(s => s.returned);
+  // a Strip visitor (a guest or an account holder) has no town to go back to; an account holder can sign out
+  const visitor = useGameStore(s => { const p = s.playerId ? s.gameState?.players[s.playerId] : undefined; return !!p && (!!p.guest || !!p.accountId); });
+  const signedIn = useGameStore(s => !!s.account);
   const [touch, setTouch] = useState(phoneLayout);
   useEffect(() => { const f = () => setTouch(phoneLayout()); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f); }, []);
   // a banner that does not hold fades after 1.6 s
@@ -48,7 +93,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   }, [banner]);
   useEffect(() => { if (!reward || results) return; const t = setTimeout(() => useDriveUi.setState({ reward: null }), 4500); return () => clearTimeout(t); }, [reward, results]);
 
-  const show = driving || !!results;
+  const show = driving || !!results || lobby;
   return (
     <>
       {createPortal(
@@ -96,6 +141,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                     {reward.stamps.length > 0 && <span className="ml-3 text-white/70">Stamp{reward.stamps.length > 1 ? 's' : ''}: {reward.stamps.map(stampName).join(', ')}</span>}
                   </div>
                 )}
+                {returned !== null && <div className="font-cond text-lg mb-3 text-white/80">Rental returned — {money(returned)} on hand</div>}
                 <button onClick={() => tap('continue')} className="w-full min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Continue [Enter]</button>
               </div>
             </div>
@@ -108,11 +154,18 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                 <button onClick={() => tap('resume')} className="min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">Resume</button>
                 {eventLive && <button onClick={() => tap('restart')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Restart event</button>}
                 {eventLive && <button onClick={() => tap('quit')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
-                <button onClick={() => tap('town')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>
+                {!visitor && <button onClick={() => tap('town')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>}
+                {visitor && lobby && signedIn && <button onClick={() => tap('signout')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Sign out</button>}
                 <p className="mt-2 text-[12px] leading-snug text-haze">{HELP.strip}</p>
               </div>
             </div>
           )}
+
+          {lobby && counter && !results && !paused && <Counter />}
+          {/* the lobby's pause button (Esc on a keyboard) */}
+          <div className="absolute right-3 top-[38%]" style={{ display: touch && lobby && !results && !paused ? undefined : 'none' }}>
+            <TapBtn t="pause" label="II" aria="Pause" />
+          </div>
 
           {/* always mounted (InputMap wires the [data-k] buttons once, on getting in): shown and hidden by style */}
           <div className="absolute left-6 bottom-44 flex flex-col gap-3" style={{ display: touch && driving && !results ? undefined : 'none' }}>

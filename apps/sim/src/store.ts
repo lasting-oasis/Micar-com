@@ -5,6 +5,7 @@ import { carState, freshStrip, okey, withV, type PartValue, type StripRecord } f
 import type { Tune } from './world/physics';
 import { useDriveUi, type EventReward } from './world/driveUi';
 import type { Identity } from './world/accounts';
+import { isRental } from './world/rental';
 
 // How a visitor joins: as a Strip guest, with a saved session token, or the original dealer/shop setup.
 export type ConnectOpts =
@@ -299,7 +300,12 @@ export const useGameStore = create<StoreState>((set, get) => ({
   octane: 0,
   setStrip: (rec) => set({ strip: rec }),
   garageCarId: null,
-  openGarage: (carId) => set(s => ({ garageCarId: carId, strip: s.strip ?? freshStrip() })),
+  openGarage: (carId) => {
+      // a rental is stock for one event: the Garage never opens on it
+      const s = get(), car = s.playerId ? s.gameState?.players[s.playerId]?.inventory.find(c => c.id === carId) : undefined;
+      if (isRental(car)) return;
+      set({ garageCarId: carId, strip: s.strip ?? freshStrip() });
+  },
   closeGarage: () => set({ garageCarId: null }),
   buyStripPart: (carId, key, v, price) => {
       const me0 = get().playerId ? get().gameState?.players[get().playerId!] : undefined;
