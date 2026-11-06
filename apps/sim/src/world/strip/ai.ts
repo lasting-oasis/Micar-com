@@ -1,11 +1,12 @@
 // AI drivers and collisions (pure, mesh-free, metres). Ported from Night Tuner 05-world.js.
 // The mesh `m` and `tag` are opaque handles owned by the renderer; visibility toggling lives there.
 import { clamp, syncBody, type Vehicle } from '../physics';
-import { CELL, blockRect, buildRoute, nodeNeighbors, routePoint, routeProgress, type Node, type Route } from './routes';
+import { buildRoute, routePoint, routeProgress, type Pt, type Route } from './routes';
+import { wanderFrom, extendWander } from './roadGraph';
 
 export type AI = {
   x: number; z: number; h: number; v: number; s: number; lane: number;
-  route: Route | null; path: Node[] | null;
+  route: Route | null; path: Pt[] | null;
   vmax: number; acc: number; brk: number; stun: number; nm: number; laps: number; done: boolean; ft: number | null;
   kind: 'traffic' | 'rival' | 'racer'; name: string; wander: boolean; score: number; hold: boolean; parked: boolean; steer: number; cool: number;
   m?: unknown; tag?: unknown;
@@ -15,21 +16,8 @@ export function makeAI(opts: Partial<AI> = {}): AI {
   return Object.assign({ x: 0, z: 0, h: 0, v: 0, s: 0, lane: 3.2, route: null, path: null, vmax: 13, acc: 5, brk: 8, stun: 0, nm: 0, laps: 0, done: false, ft: null, kind: 'traffic' as const, name: '', wander: false, score: 0, hold: false, parked: false, steer: 0, cool: 0 }, opts) as AI;
 }
 
-export function wanderPath(path: Node[], len: number): Node[] {
-  while (path.length < len) {
-    const A = path[path.length - 1], Pv = path[path.length - 2];
-    let opts = nodeNeighbors(A[0], A[1]).filter(n => !Pv || n[0] !== Pv[0] || n[1] !== Pv[1]);
-    if (!opts.length) opts = nodeNeighbors(A[0], A[1]);
-    let pick: Node | null = null;
-    if (Pv && Math.random() < .6) { const st = [A[0] + (A[0] - Pv[0]), A[1] + (A[1] - Pv[1])]; pick = opts.find(n => n[0] === st[0] && n[1] === st[1]) || null; }
-    if (!pick) pick = opts[Math.floor(Math.random() * opts.length)];
-    path.push(pick);
-  }
-  return path;
-}
-
-export function setWander(A: AI, start: Node): void {
-  A.path = wanderPath([start], 5); A.route = buildRoute(A.path, false); A.s = 0; A.wander = true; A.done = false; A.parked = false;
+export function setWander(A: AI, at: Pt): void {
+  A.path = wanderFrom(at, 400); A.route = buildRoute(A.path, false); A.s = 0; A.wander = true; A.done = false; A.parked = false;
   const p = routePoint(A.route, 0); A.x = p.x - p.tz * A.lane; A.z = p.z + p.tx * A.lane; A.h = Math.atan2(p.tx, p.tz); A.v = 0;
 }
 
@@ -37,7 +25,7 @@ export function parkAI(A: AI): void { A.parked = true; A.x = -1e4; A.z = -1e4; }
 
 export function stepAI(A: AI, dt: number, playerS: number | null, _stage: number): void {
   if (A.hold || A.done || A.parked || !A.route) return;
-  if (A.wander && A.path && A.s > A.route.len - CELL * 1.5) { A.path = wanderPath(A.path.slice(-3), 7); A.route = buildRoute(A.path, false); A.s = routeProgress(A.route, A.x, A.z, CELL * 1.5, CELL * 2).s; }
+  if (A.wander && A.path && A.s > A.route.len - 60) { A.path = extendWander(A.path.slice(-3), 400); A.route = buildRoute(A.path, false); A.s = routeProgress(A.route, A.x, A.z, 0, 60).s; }
   const rt = A.route, la = 7 + A.v * .5;
   const p = routePoint(rt, A.s + la); const tx = p.x - p.tz * A.lane, tz = p.z + p.tx * A.lane;
   const want = Math.atan2(tx - A.x, tz - A.z); let dh = want - A.h; dh = Math.atan2(Math.sin(dh), Math.cos(dh));
@@ -71,19 +59,42 @@ export function separateAIs(list: AI[]): void {
   }
 }
 
-export function collideBlocks(V: Vehicle): number {
-  let hit = 0;
+const WCELL = 40;
+type WallHash = { segs: number[]; cells: Map<number, number[]> };
+let lastWalls: Pt[][] | null = null;
+let zoneHash: WallHash = { segs: [], cells: new Map() };
+const ck = (i: number, j: number): number => i * 100003 + j;
+
+function buildHash(walls: Pt[][]): WallHash {
+  const segs: number[] = [], cells = new Map<number, number[]>();
+  for (const w of walls) for (let k = 0; k + 1 < w.length; k++) {
+    const id = segs.length / 4; segs.push(w[k][0], w[k][1], w[k + 1][0], w[k + 1][1]);
+    const i0 = Math.floor(Math.min(w[k][0], w[k + 1][0]) / WCELL), i1 = Math.floor(Math.max(w[k][0], w[k + 1][0]) / WCELL);
+    const j0 = Math.floor(Math.min(w[k][1], w[k + 1][1]) / WCELL), j1 = Math.floor(Math.max(w[k][1], w[k + 1][1]) / WCELL);
+    for (let i = i0; i <= i1; i++) for (let j = j0; j <= j1; j++) { const key = ck(i, j); const l = cells.get(key); if (l) l.push(id); else cells.set(key, [id]); }
+  }
+  return { segs, cells };
+}
+
+export function setWallZone(walls: Pt[][]): void { lastWalls = walls; zoneHash = buildHash(walls); }
+
+export function collideWalls(V: Vehicle, walls?: Pt[][]): number {
+  if (walls && walls !== lastWalls) setWallZone(walls);
+  const H = zoneHash; let hit = 0;
   for (const off of [1.25, -1.25]) {
     const r = .98; let cx = V.x + Math.sin(V.h) * off, cz = V.z + Math.cos(V.h) * off;
-    const bi = Math.floor(cx / CELL), bj = Math.floor(cz / CELL);
-    for (let i = bi - 1; i <= bi + 1; i++) for (let j = bj - 1; j <= bj + 1; j++) {
-      const R = blockRect(i, j); if (!R) continue;
-      const qx = Math.max(R[0], Math.min(cx, R[2])), qz = Math.max(R[1], Math.min(cz, R[3]));
-      const dx = cx - qx, dz = cz - qz, d = Math.hypot(dx, dz);
-      if (d < r) {
-        let nx: number, nz: number, pen: number;
-        if (d > 1e-4) { nx = dx / d; nz = dz / d; pen = r - d; }
-        else { const o = [cx - R[0], R[2] - cx, cz - R[1], R[3] - cz], m = Math.min(...o), ix = o.indexOf(m); nx = ix === 0 ? -1 : ix === 1 ? 1 : 0; nz = ix === 2 ? -1 : ix === 3 ? 1 : 0; pen = m + r; }
+    const i0 = Math.floor((cx - r) / WCELL), i1 = Math.floor((cx + r) / WCELL), j0 = Math.floor((cz - r) / WCELL), j1 = Math.floor((cz + r) / WCELL);
+    for (let i = i0; i <= i1; i++) for (let j = j0; j <= j1; j++) {
+      const l = H.cells.get(ck(i, j)); if (!l) continue;
+      for (const id of l) {
+        const ax = H.segs[id * 4], az = H.segs[id * 4 + 1], bx = H.segs[id * 4 + 2], bz = H.segs[id * 4 + 3];
+        const ex = bx - ax, ez = bz - az, L2 = ex * ex + ez * ez;
+        const t = L2 > 1e-12 ? clamp(((cx - ax) * ex + (cz - az) * ez) / L2, 0, 1) : 0;
+        const qx = ax + ex * t, qz = az + ez * t, dx = cx - qx, dz = cz - qz, d = Math.hypot(dx, dz);
+        if (d >= r) continue;
+        let nx: number, nz: number;
+        if (d > 1e-4) { nx = dx / d; nz = dz / d; } else { const L = Math.sqrt(L2) || 1; nx = -ez / L; nz = ex / L; }
+        const pen = r - d;
         V.x += nx * pen; V.z += nz * pen; cx += nx * pen; cz += nz * pen;
         const vn = V.vx * nx + V.vz * nz;
         if (vn < 0) { V.vx -= 1.3 * vn * nx; V.vz -= 1.3 * vn * nz; V.vx *= .92; V.vz *= .92; V.w += off * (nx * Math.cos(V.h) - nz * Math.sin(V.h)) * (-vn) * .05; hit = Math.max(hit, -vn); }
