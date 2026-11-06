@@ -4,7 +4,7 @@ The door has a footer; nothing else does. A visitor who lands on the calculator 
 
 ## What the visitor sees
 
-Four columns on a wide screen. On a phone (720px and under) the MiCar column spans the width and the other three sit in two columns below it. A legal line runs under the columns.
+Four columns on a wide screen. On a phone (1000px and under) the MiCar column spans the width and the other three sit in two columns below it. A legal line runs under the columns.
 
 | Column (EN / ES) | Links (EN / ES) | Goes to |
 |---|---|---|
@@ -168,7 +168,7 @@ CI does not run `pnpm site`; only the Pages job on `main` does. So the local `pn
 
 ## Out of scope
 
-- **`pnpm site` on Windows.** `bash` is not on the PowerShell path, and Git Bash rewrites `BASE_PATH=/Micar-com/` into a Windows path, which breaks local asset links. Production builds on Ubuntu are fine. Local builds here set `MSYS_NO_PATHCONV=1` and add Git's `bin` folder to the path for that command.
+- **`pnpm site` on Windows.** `bash` is not on the PowerShell path, and Git Bash rewrites `BASE_PATH=/Micar-com/` into a Windows path, which breaks local asset links. Production builds on Ubuntu are fine. Setting `MSYS_NO_PATHCONV=1` breaks corepack here, so local builds only add Git's `bin` folder to the path for that command. Local asset paths in `site/` stay mangled, so value and sim are browser-checked through vite dev.
 - Sending the strip's Garage door to `/garage/`.
 - Translating the Garage placeholder's three-line message.
 - A footer on the window sheet builder, the `/strip` card or any 3D view.

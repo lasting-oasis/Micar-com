@@ -112,7 +112,7 @@ export function garagePageHtml(template: string, css: string, year: number): str
   if (!template.includes(CSS_MARKER)) throw new Error(`garage template has no ${CSS_MARKER} marker`);
   const block =
     `<div id="mc-foot-en">${footerHtml('en', year)}</div>` +
-    `<div id="mc-foot-es" hidden>${footerHtml('es', year)}</div>` +
+    `<div id="mc-foot-es" lang="es" hidden>${footerHtml('es', year)}</div>` +
     `<script>${GARAGE_LANG_SCRIPT}</script>`;
   return template.replace(CSS_MARKER, () => css).replace(FOOTER_MARKER, () => block);
 }

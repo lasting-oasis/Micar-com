@@ -133,7 +133,7 @@ describe('garagePageHtml', () => {
     const html = garagePageHtml(template, '.x{content:"$&"}', 2031);
     expect(html.match(/<footer class="mc-foot">/g)).toHaveLength(2);
     expect(html).toContain('<div id="mc-foot-en"><footer class="mc-foot">');
-    expect(html).toContain('<div id="mc-foot-es" hidden><footer class="mc-foot">');
+    expect(html).toContain('<div id="mc-foot-es" lang="es" hidden><footer class="mc-foot">');
     expect(html).toContain('<style>.x{content:"$&"}</style>');
     expect(html).toContain(`<script>${GARAGE_LANG_SCRIPT}</script>`);
     expect(html).not.toContain('<!-- footer -->');

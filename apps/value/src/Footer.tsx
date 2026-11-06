@@ -1,4 +1,4 @@
-﻿import { FOOTER_COLUMNS, FOOTER_ESTIMATES, FOOTER_SOON, footerCopyright } from '@micar/brand/footer';
+import { FOOTER_COLUMNS, FOOTER_ESTIMATES, FOOTER_SOON, footerCopyright } from '@micar/brand/footer';
 import '@micar/brand/footer.css';
 import { useLang } from './i18n';
 
