@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import crypto from 'node:crypto';
-import { ALLOWANCE, signMagic, verifyMagic, signSession, verifySession, verifyGoogle, linkGuest, claimAllowance, saveRecord, attachAccount, bootState, utcDay } from './accounts';
+import { ALLOWANCE, signMagic, verifyMagic, signSession, verifySession, verifyGoogle, linkGuest, claimAllowance, saveRecord, attachAccount, liveHolder, identityKey, bootState, utcDay } from './accounts';
 const S = 'test-secret';
 const guest = (money = 1350) => ({ id: 's1', name: 'Pool', money, octane: 40, stamps: ['strip:first-win'], strip: { rep: 150, cars: {}, wins: { dr1: 1 }, best: { dr1: 9.8 } }, inventory: [{ id: 'rental-1', rental: true }, { id: 'own-1' }] } as any);
 describe('magic links', () => {
@@ -80,5 +80,18 @@ describe('linking and the allowance', () => {
     const st = bootState({ players: { a: 1 }, accounts: { x: { id: 'x' } as any } });
     expect(st.players).toEqual({}); expect(Object.keys(st.accounts)).toEqual(['x']);
     expect(bootState({ players: {} } as any).accounts).toEqual({});
+  });
+});
+
+describe('live holders and identity keys', () => {
+  it('finds the other live socket holding an account', () => {
+    const players = { a: { accountId: 'x' }, b: { accountId: 'y' }, c: {} } as any;
+    expect(liveHolder('x', players)).toBe('a');
+    expect(liveHolder('x', players, 'a')).toBeUndefined();
+    expect(liveHolder('z', players)).toBeUndefined();
+  });
+  it('keys a google identity by sub, ignoring email', () => {
+    expect(identityKey({ kind: 'google', sub: '42', email: 'a@b.c' })).toBe(identityKey({ kind: 'google', sub: '42' }));
+    expect(identityKey({ kind: 'google', sub: '42', email: 'a@b.c' })).toBe('google:42');
   });
 });

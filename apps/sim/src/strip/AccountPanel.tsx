@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useGameStore } from '../store';
 import { useDriveUi } from '../world/driveUi';
@@ -19,6 +19,9 @@ export function AccountPanel() {
   const notice = useGameStore(s => s.driveNotice);
   const google = useGoogleSignIn();
   const mail = useEmailLink();
+  // a claim in flight: the button waits for the server's answer (allowanceToday flips, or a refusal arrives)
+  const [claiming, setClaiming] = useState(false);
+  useEffect(() => { setClaiming(false); }, [account?.allowanceToday, notice]);
 
   // Esc closes the panel and nothing else: captured before the pause menu's Esc sees it
   useEffect(() => {
@@ -31,7 +34,7 @@ export function AccountPanel() {
 
   const id = account?.identity;
   const identity = !id ? t(lang, 'strip.guestLine')
-    : id.kind === 'google' ? t(lang, 'strip.signedGoogle').replace('{who}', (id as { email?: string }).email || t(lang, 'strip.yourGoogle'))
+    : id.kind === 'google' ? t(lang, 'strip.signedGoogle').replace('{who}', id.email || t(lang, 'strip.yourGoogle'))
     : t(lang, 'strip.signedEmail').replace('{who}', id.email);
 
   return createPortal(
@@ -43,7 +46,7 @@ export function AccountPanel() {
 
         {account && (account.allowanceToday
           ? <div className={`${btn} border border-white/15 text-white/50 flex items-center`}>{t(lang, 'strip.collected')}</div>
-          : <button type="button" onClick={() => useGameStore.getState().claimAllowance()} className={`${btn} bg-market text-night`}>{t(lang, 'strip.collect')}</button>)}
+          : <button type="button" disabled={claiming} onClick={() => { setClaiming(true); useGameStore.getState().claimAllowance(); }} className={`${btn} bg-market text-night disabled:opacity-60`}>{t(lang, 'strip.collect')}</button>)}
 
         {!account && (caps.google || caps.magic) && <p className="text-[13px] leading-snug text-haze">{t(lang, 'strip.accountNudge')}</p>}
         {!account && caps.google && <button type="button" onClick={google.start} className={ghost}>{t(lang, 'strip.google')}</button>}

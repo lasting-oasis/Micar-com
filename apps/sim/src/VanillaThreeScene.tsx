@@ -1080,9 +1080,9 @@ export function VanillaThreeScene() {
             event: () => { const a = district === 'strip' ? strip?.runner.active : null; return a ? { id: a.ev.id, state: a.state, results: !!a.results, pS: a.pS } : null; },
             /** the ids of the other players drawn in the Strip */
             stripPlayers: () => Object.keys(stripTags),
-            /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */
             /** sign in with a magic-link token, as the link's page does (the smoke) */
             linkMagic: (token: string) => { useGameStore.getState().linkAccount({ magic: token }); },
+            /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */
             openGarage: (carId?: string): boolean => { const c = carId ?? meNow()?.inventory?.[0]?.id; if (!c) return false; useGameStore.getState().openGarage(c); return true; },
         };
         (window as unknown as { __micar?: typeof micar }).__micar = micar;

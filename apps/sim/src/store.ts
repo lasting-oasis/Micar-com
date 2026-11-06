@@ -371,7 +371,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
         if (typeof d?.session === 'string') writeSession(d.session);
         set({ account: d.account, linkPrompt: null, pendingLink: null });
     });
-    socket.on('account_replace_prompt', (d: { money: number }) => set({ linkPrompt: { money: d?.money ?? 0 } }));
+    socket.on('account_replace_prompt', (d: { money: number }) => set({ linkPrompt: { money: d?.money ?? 0 }, driveNotice: null }));
     socket.on('link_sent', () => set({ linkSent: true }));
     socket.on('update', (state) => set({ gameState: state, timeOfDay: state.timeOfDay, ...mirrorStrip(state, get().playerId) }));
     socket.on('player_positions', (positions) => set({ playerPositions: positions || {} }));

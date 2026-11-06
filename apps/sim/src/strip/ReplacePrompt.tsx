@@ -11,6 +11,7 @@ export const replaceCopy = (money: number, lang: Lang = 'en'): string =>
 export function ReplacePrompt() {
   const lang = useLang();
   const prompt = useGameStore(s => s.linkPrompt);
+  const notice = useGameStore(s => s.driveNotice);
   const cancel = () => useGameStore.setState({ linkPrompt: null, pendingLink: null });
   const confirm = () => {
     const { pendingLink, linkAccount } = useGameStore.getState();
@@ -29,6 +30,7 @@ export function ReplacePrompt() {
       <div className="w-[340px] max-w-full rounded-xl border border-market/40 bg-night p-5 text-white shadow-2xl flex flex-col gap-3">
         <div className="font-cond italic font-black uppercase text-2xl text-market leading-none">{t(lang, 'strip.replaceTitle')}</div>
         <p className="text-[15px] leading-snug text-white/90">{replaceCopy(prompt.money, lang)}</p>
+        {notice && <p role="alert" className="text-[13px] text-[#ff8a96]">{notice}</p>}
         <button type="button" autoFocus onClick={confirm} className="min-h-[44px] rounded-lg bg-market py-2 font-cond font-extrabold uppercase italic text-night">{t(lang, 'strip.confirm')}</button>
         <button type="button" onClick={cancel} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">{t(lang, 'strip.cancel')}</button>
       </div>

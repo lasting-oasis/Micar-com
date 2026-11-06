@@ -9,7 +9,7 @@ import { applyPayout, clampTune, ensureStrip, outrunEvent, partPrice, validateEn
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 import { RENTAL_FLEET, canRent, rent, type RentalKey } from './src/world/rental.js';
-import { MAGIC_TTL_MS, applyRecord, attachAccount, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
+import { MAGIC_TTL_MS, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
 import { closeEvent, guestPlayer, quitEvent } from './src/world/stripFlow.js';
 
 const app = express();
@@ -188,7 +188,7 @@ async function verifyGoogleToken(idToken: string): Promise<Identity | undefined>
     let keys = await getGoogleKeys();
     if (!keys.some(k => k.kid === kid)) keys = await getGoogleKeys(true);
     const g = verifyGoogle(idToken, clientId, keys, Date.now());
-    return g ? { kind: 'google', sub: g.sub } : undefined;
+    return g ? { kind: 'google', sub: g.sub, ...(g.email ? { email: g.email } : {}) } : undefined;
 }
 
 /** The link goes to the page's own origin only when it is the host this server answers on. */
@@ -1022,7 +1022,18 @@ io.on('connection', (socket) => {
           if (typeof msg.session === 'string' && secret) {
               const id = verifySession(msg.session, Date.now(), secret);
               const a = id ? gameState.accounts[id] : undefined;
-              if (a && attachAccount(a.id, Object.values(gameState.players).filter(q => q.id !== socket.id)).ok) account = a;
+              if (a) {
+                  // a session for an account still live on another socket (a dropped transport not yet noticed) supersedes it
+                  const oldId = liveHolder(a.id, gameState.players, socket.id);
+                  if (oldId) {
+                      persistAccount(gameState.players[oldId]);
+                      delete gameState.players[oldId];
+                      for (const m of [activeEvents, drivenCar, lastOutrunAt, stripPositions, lastPaidAt, lastLinkAt] as Map<string, unknown>[]) m.delete(oldId);
+                      if (gameState.hostId === oldId) gameState.hostId = null;
+                      io.sockets.sockets.get(oldId)?.disconnect(true);
+                  }
+                  account = a;
+              }
           }
           const p = spawnVisitor(name, account);
           console.log('--- VISITOR JOIN ---', { account: !!account });
@@ -1387,7 +1398,7 @@ io.on('connection', (socket) => {
       if (existing && !attachAccount(existing.id, Object.values(gameState.players)).ok) { unspend(); deny('already signed in'); return; }
       if (existing && confirmReplace !== true) {
           unspend();
-          socket.emit('account_replace_prompt', { money: existing.player.money });
+          socket.emit('account_replace_prompt', { money: player.money });
           return;
       }
       const { account, replaced } = linkGuest(gameState.accounts, identity, player, Date.now());

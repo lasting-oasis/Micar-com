@@ -7,7 +7,7 @@ export const ALLOWANCE = 1000;
 export const MAGIC_TTL_MS = 15 * 60_000;
 export const SESSION_TTL_MS = 30 * 86_400_000;
 
-export type Identity = { kind: 'google'; sub: string } | { kind: 'email'; email: string };
+export type Identity = { kind: 'google'; sub: string; email?: string } | { kind: 'email'; email: string };
 export type SavedPlayer = Pick<Player, 'name' | 'money' | 'octane' | 'stamps' | 'strip' | 'inventory'>;
 export type Account = { id: string; identities: Identity[]; player: SavedPlayer; lastAllowance?: string; createdAt: number };
 export type Jwk = { kid: string; n: string; e: string; [k: string]: unknown };
@@ -128,6 +128,11 @@ export function claimAllowance(account: Account, now: number): { ok: true; amoun
 export function attachAccount(accountId: string, live: Iterable<Player>): { ok: true } | { ok: false; reason: 'already signed in' } {
   for (const p of live) if (p.accountId === accountId) return { ok: false, reason: 'already signed in' };
   return { ok: true };
+}
+
+/** The id of the live player holding `accountId`, if any (excluding `exceptId`). */
+export function liveHolder(accountId: string, players: Record<string, Player>, exceptId?: string): string | undefined {
+  return Object.keys(players).find(id => id !== exceptId && players[id].accountId === accountId);
 }
 
 export function bootState<T extends { players: Record<string, unknown>; accounts?: Record<string, Account> }>(state: T): T {
