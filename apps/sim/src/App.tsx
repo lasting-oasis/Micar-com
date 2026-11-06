@@ -1871,6 +1871,7 @@ function App() {
   // from re-rendering on every per-second clock tick (a major source of lag).
   const gameState = useGameStore(s => s.gameState);
   const playerId = useGameStore(s => s.playerId);
+  const holdCard = useGameStore(s => s.holdCard);
   const activeInteraction = useGameStore(s => s.activeInteraction);
   const drivingCarIdForPrompt = useGameStore(s => s.drivingCarId); // hide the walk-up prompt while driving
   const garageCarId = useGameStore(s => s.garageCarId); // the Garage overlay (world/GarageMenu) is open
@@ -1990,8 +1991,9 @@ function App() {
 
   // The front door of MiCar World: what the place is, your name, one button. The game's options
   // (your business, its size, the guide) are defaulted and folded under "More options".
-  if (!playerId || !gameState) {
-    if (routeFromLocation(window.location).view === 'strip') return <StripEntry />;
+  const onStrip = routeFromLocation(window.location).view === 'strip';
+  if (!playerId || !gameState || (onStrip && holdCard)) {
+    if (onStrip) return <StripEntry />;
     const businesses: { id: 'dealership' | 'mechanic' | 'body' | 'dual'; key: string; on: boolean; pick: () => void }[] = [
       { id: 'dealership', key: 'setup.dealership', on: careerFocusInput === 'dealership', pick: () => setCareerFocusInput('dealership') },
       { id: 'mechanic', key: 'setup.mechanicShop', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'mechanic', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('mechanic'); } },

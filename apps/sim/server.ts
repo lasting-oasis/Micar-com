@@ -123,6 +123,7 @@ let lastEndDayAt = 0;
 // Secrets come only from the environment and are never logged.
 const CAPS = {
     google: !!process.env.GOOGLE_CLIENT_ID,
+    googleClientId: process.env.GOOGLE_CLIENT_ID ?? null, // public: the browser needs it for Google sign-in
     magic: !!(process.env.RESEND_API_KEY && process.env.MAGIC_SECRET && process.env.MAGIC_FROM),
 };
 const DEFAULT_ORIGIN = 'https://micar-sim.onrender.com';
@@ -2203,6 +2204,9 @@ io.on('connection', (socket) => {
 
 async function startServer() {
     await loadGameState();
+
+    // What the Strip entry card may offer before anyone has joined (init.caps arrives too late for it)
+    app.get('/api/caps', (_req, res) => { res.set('Cache-Control', 'no-store'); res.json(CAPS); });
 
     if (process.env.NODE_ENV !== 'production') {
         const { createServer: createViteServer } = await import('vite');

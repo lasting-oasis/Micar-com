@@ -12,6 +12,8 @@ export type ConnectOpts =
   | { mode: 'session'; session: string }
   | { mode: 'dealer'; name: string; lotScale: 'Small' | 'Medium' | 'Large'; careerFocus?: 'dealership' | 'standalone'; shopSpecialty?: 'mechanic' | 'body' | 'dual' };
 export type AccountView = { id: string; identity: Identity; allowanceToday: boolean };
+export type Caps = { google: boolean; googleClientId: string | null; magic: boolean };
+export const NO_CAPS: Caps = { google: false, googleClientId: null, magic: false };
 export type LinkPayload = { google?: string; magic?: string; confirmReplace?: boolean };
 
 // The signed-in session token lives in localStorage; every access is in a try/catch (blocked storage = guest only).
@@ -32,11 +34,15 @@ interface StoreState {
   markChatRead: () => void;
   connect: (opts: ConnectOpts) => void;
   // Accounts and rentals (the Strip): what the server said in init / account_linked
-  caps: { google: boolean; magic: boolean };
+  caps: Caps;
+  holdCard: boolean;                      // keep the Strip entry card up after joining (an email link is on its way)
+  setHoldCard: (v: boolean) => void;
+  loadCaps: () => Promise<void>;
   account: AccountView | null;
   linkPrompt: { money: number } | null;   // the saved run a link would replace (Task 5 draws the confirm)
   pendingLink: LinkPayload | null;        // the payload to resend with confirmReplace: true
   linkSent: boolean;
+  connectFailed: boolean;
   rentCar: (key: string) => void;
   requestLink: (email: string) => void;
   linkAccount: (payload: LinkPayload) => void;
@@ -176,11 +182,22 @@ export const useGameStore = create<StoreState>((set, get) => ({
   socket: null,
   gameState: null,
   playerId: null,
-  caps: { google: false, magic: false },
+  caps: NO_CAPS,
+  holdCard: false,
+  setHoldCard: (v) => set({ holdCard: v }),
+  loadCaps: async () => {
+    const isDev = ['5173', '5174', '5175', '5176', '5177', '5178', '5179'].includes(window.location.port);
+    const base = isDev ? `http://${window.location.hostname}:3000` : '';
+    try {
+      const r = await fetch(`${base}/api/caps`);
+      if (r.ok) { const c = await r.json(); set({ caps: { google: !!c.google, googleClientId: typeof c.googleClientId === 'string' ? c.googleClientId : null, magic: !!c.magic } }); }
+    } catch { /* offline or no endpoint: guest only */ }
+  },
   account: null,
   linkPrompt: null,
   pendingLink: null,
   linkSent: false,
+  connectFailed: false,
   timeOfDay: 8.0,
   chatMessages: [],
   unreadChat: 0,
@@ -304,7 +321,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
   disconnect: () => {
     const socket = get().socket;
     if (socket) socket.disconnect();
-    set({ socket: null, gameState: null, playerId: null, account: null, linkPrompt: null, pendingLink: null, linkSent: false, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {},
+    set({ socket: null, gameState: null, playerId: null, account: null, linkPrompt: null, pendingLink: null, linkSent: false, holdCard: false, drivingCarId: null, chatMessages: [], unreadChat: 0, playerPositions: {},
       // Per-session prompts and modal state: left set, they reappear in the next
       // session (the gate keypad at spawn).
       myWorldPos: null, drivingFuel: null, drivingSpeed: 0, gatePrompt: false, activeInteraction: null, driveNotice: null,
@@ -336,7 +353,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
         // A session join that comes back without an account means the server fell back to a guest: the token is dead
         if (opts.mode === 'session' && !data.account) writeSession(null);
         // sign_out answers with a fresh guest init: the old token is spent
-        set({ caps: data.caps || { google: false, magic: false }, account: data.account || null, linkPrompt: null, pendingLink: null });
+        set({ caps: data.caps ? { ...NO_CAPS, ...data.caps } : get().caps, account: data.account || null, linkPrompt: null, pendingLink: null });
         set({ gameState: data.state, playerId: data.id, timeOfDay: data.state.timeOfDay, chatMessages: data.state.chatLog || [], unreadChat: 0, ...mirrorStrip(data.state, data.id) });
     });
     socket.on('account_linked', (d: { account: AccountView; session?: string }) => {
@@ -359,6 +376,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
         const mine = msg.playerId && msg.playerId === get().playerId;
         return { chatMessages: next, unreadChat: mine ? s.unreadChat : s.unreadChat + 1 };
     }));
+    socket.on('connect_error', () => set({ connectFailed: true }));
+    socket.on('connect', () => set({ connectFailed: false }));
     set({ socket });
   },
   rentCar: (key) => { const s = get().socket; if (s) s.emit('rent_car', { key }); },
