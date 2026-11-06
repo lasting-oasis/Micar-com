@@ -116,7 +116,7 @@ describe('saved records and email limits', () => {
     expect(all.byIp.size).toBe(1);
   });
   it('the client address is the first forwarded hop, else the socket address', () => {
-    expect(clientIp({ 'x-forwarded-for': '1.2.3.4, 10.0.0.1' }, '10.0.0.1')).toBe('1.2.3.4');
+    expect(clientIp({ 'x-forwarded-for': 'forged, 1.2.3.4' }, '10.0.0.1')).toBe('1.2.3.4'); // the proxy-appended hop, never the client's
     expect(clientIp({ 'x-forwarded-for': ['5.6.7.8'] }, 'x')).toBe('5.6.7.8');
     expect(clientIp({}, '::1')).toBe('::1');
     expect(clientIp({}, undefined)).toBe('unknown');

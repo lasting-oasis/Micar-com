@@ -178,6 +178,7 @@ export function allowSend(log: SendLog, ip: string, now: number): { ok: true } |
 /** The client's address: the first hop of x-forwarded-for (Render's proxy sets it), else the socket's own. */
 export function clientIp(headers: Record<string, unknown>, address: string | undefined): string {
   const fwd = headers['x-forwarded-for'];
-  const first = (Array.isArray(fwd) ? fwd[0] : typeof fwd === 'string' ? fwd : '').split(',')[0].trim();
-  return first || address || 'unknown';
+  // the LAST hop: the one the hosting proxy (Render) appends, which a client cannot forge; earlier hops are client-supplied
+  const hops = (Array.isArray(fwd) ? fwd.join(',') : typeof fwd === 'string' ? fwd : '').split(',').map(h => h.trim()).filter(Boolean);
+  return hops[hops.length - 1] || address || 'unknown';
 }
