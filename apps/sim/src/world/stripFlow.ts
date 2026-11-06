@@ -6,7 +6,13 @@ import { GUEST_STAKE, RENTAL_BAY, heldRental, returnRental } from './rental';
 export function closeEvent(player: Player, carId: string | undefined): { returned: Car | undefined } {
   const rental = heldRental(player);
   if (!carId || !rental || rental.id !== carId) return { returned: undefined };
+  if (player.strip) delete player.strip.cars[rental.id]; // no part record outlives the car
   return { returned: returnRental(player) };
+}
+
+/** A live event abandoned: a restart keeps the rental for the next entry; a plain quit returns it. */
+export function quitEvent(player: Player, carId: string | undefined, restart: boolean): { returned: Car | undefined } {
+  return restart ? { returned: undefined } : closeEvent(player, carId);
 }
 
 /** A visitor with no account: the guest stake, no lot of their own, standing at the rental bay in the Strip. */
