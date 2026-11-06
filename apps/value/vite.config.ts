@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import { viteSingleFile } from 'vite-plugin-singlefile'
 
 // `npm run build:single` inlines everything into one HTML file (handy for
@@ -10,4 +10,6 @@ export default defineConfig(({ mode }) => ({
   base: process.env.BASE_PATH ?? '/',
   plugins: [react(), tailwindcss(), ...(mode === 'single' ? [viteSingleFile()] : [])],
   build: mode === 'single' ? { outDir: 'dist-single' } : {},
+  // Vitest swaps CSS for an empty string, ?raw included. footer.test.ts reads the shared footer's stylesheet as text.
+  test: { css: { include: [/footer\.css/] } },
 }))
