@@ -10,6 +10,7 @@ import { useGameStore } from '../store';
 import { AccountPanel } from '../strip/AccountPanel';
 import { ReplacePrompt } from '../strip/ReplacePrompt';
 import { RENTAL_FLEET, RENTAL_PRICE, canRent, isVisitor } from './rental';
+import { useLang, t } from '../i18n';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 // App's phone layout (its isMobile): the D-pad drives (its ◀ ▶ taps change a drag's lane), these add
@@ -29,6 +30,7 @@ const rowBtn = 'w-full min-h-[44px] rounded-lg px-4 py-2 text-left font-cond upp
 
 /** The Strip's rental counter (the lobby): the fleet, the allowance, the way to an account. */
 function Counter() {
+  const lang = useLang();
   const me = useGameStore(s => (s.playerId ? s.gameState?.players[s.playerId] : undefined));
   const account = useGameStore(s => s.account);
   const notice = useGameStore(s => s.driveNotice);
@@ -39,9 +41,9 @@ function Counter() {
   const ok = canRent(me);
   const broke = !account && !ok.ok && ok.reason === 'Not enough money';
   return (
-    <div className="pointer-events-auto absolute inset-x-4 bottom-6 md:inset-x-auto md:left-auto md:right-20 md:bottom-auto md:top-24 md:w-[340px] rounded-xl border border-market/40 bg-night/95 p-5 text-white shadow-2xl" role="dialog" aria-label="Rental counter">
+    <div className="pointer-events-auto absolute inset-x-4 bottom-6 md:inset-x-auto md:left-auto md:right-20 md:bottom-auto md:top-24 md:w-[340px] max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-xl border border-market/40 bg-night/95 p-5 text-white shadow-2xl" role="dialog" aria-label={t(lang, 'strip.counter')}>
       <div className="flex items-baseline justify-between gap-4 mb-3">
-        <div className="font-cond italic font-black uppercase text-2xl md:text-3xl leading-none text-market">Rental counter</div>
+        <div className="font-cond italic font-black uppercase text-2xl md:text-3xl leading-none text-market">{t(lang, 'strip.counter')}</div>
         <div className="font-cond font-bold text-lg tabular-nums">{money(me.money)}</div>
       </div>
       <div className="flex flex-col gap-2">
@@ -51,15 +53,15 @@ function Counter() {
             <span className="w-4 h-4 rounded-full border border-white/30 flex-none" style={{ background: f.color }} aria-hidden="true" />
             <span className="flex-1 min-w-0">
               <span className="block font-extrabold text-lg leading-tight truncate">{f.make} {f.model}</span>
-              <span className="block not-italic normal-case font-sans text-[13px] text-haze">{money(RENTAL_PRICE)} · one event</span>
+              <span className="block not-italic normal-case font-sans text-[13px] text-haze">{t(lang, 'strip.oneEvent').replace('{price}', money(RENTAL_PRICE))}</span>
             </span>
           </button>
         ))}
-        {!ok.ok && <p className="font-sans text-[13px] text-[#ff8a96]">{ok.reason}</p>}
+        {!ok.ok && <p className="font-sans text-[13px] text-[#ff8a96]">{t(lang, ok.reason === 'Not enough money' ? 'strip.noMoney' : 'strip.hasRental')}</p>}
         {account && (account.allowanceToday
-          ? <div className={`${rowBtn} border border-white/15 text-white/50 font-bold`}>Collected today</div>
-          : <button type="button" onClick={() => useGameStore.getState().claimAllowance()} className={`${rowBtn} bg-market text-night font-extrabold`}>Collect today's $1,000</button>)}
-        {broke && <button type="button" onClick={() => useDriveUi.setState({ account: true })} className={`${rowBtn} bg-market text-night font-extrabold normal-case not-italic font-sans text-[15px]`}>Make an account for a $1,000 daily allowance</button>}
+          ? <div className={`${rowBtn} border border-white/15 text-white/50 font-bold`}>{t(lang, 'strip.collected')}</div>
+          : <button type="button" onClick={() => useGameStore.getState().claimAllowance()} className={`${rowBtn} bg-market text-night font-extrabold`}>{t(lang, 'strip.collect')}</button>)}
+        {broke && <button type="button" onClick={() => useDriveUi.setState({ account: true })} className={`${rowBtn} bg-market text-night font-extrabold normal-case not-italic font-sans text-[15px]`}>{t(lang, 'strip.counterNudge')}</button>}
       </div>
     </div>
   );

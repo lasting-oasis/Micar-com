@@ -50,6 +50,7 @@ export function AccountPanel() {
 
         {!account && (caps.google || caps.magic) && <p className="text-[13px] leading-snug text-haze">{t(lang, 'strip.accountNudge')}</p>}
         {!account && caps.google && <button type="button" onClick={google.start} className={ghost}>{t(lang, 'strip.google')}</button>}
+        {!account && caps.google && <div ref={google.buttonRef} className={google.fallback ? 'flex justify-center min-h-[44px]' : 'hidden'} />}
         {!account && caps.magic && (mail.linkSent
           ? <p role="status" className="font-cond text-market text-base">{t(lang, 'strip.linkSent')}</p>
           : (

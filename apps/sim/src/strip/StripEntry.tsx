@@ -17,6 +17,7 @@ export function StripEntry() {
   const joined = useGameStore(s => !!s.playerId);
   const connectFailed = useGameStore(s => s.connectFailed);
   const driveNotice = useGameStore(s => s.driveNotice);
+  const elsewhere = useGameStore(s => s.linkedElsewhere);
   const [name, setName] = useState(readName);
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState('');
@@ -40,6 +41,7 @@ export function StripEntry() {
       const token = decodeURIComponent(m[1]);
       try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch { /* sandboxed */ }
       setBusy(true);
+      setHoldCard(true); // the card stays up for the answer: this tab may only have opened the link for another one
       connect({ mode: 'guest', name: readName() });
       const stop = useGameStore.subscribe((s) => {
         if (s.playerId) { stop(); useGameStore.getState().linkAccount({ magic: token }); }
@@ -48,7 +50,7 @@ export function StripEntry() {
     }
     const session = loadSession();
     if (session) { setBusy(true); connect({ mode: 'session', session }); }
-  }, [connect, loadCaps]);
+  }, [connect, loadCaps, setHoldCard]);
 
   const race = () => {
     if (joined) { useGameStore.getState().clearDriveNotice(); setHoldCard(false); return; } // an email link is on its way: carry on as the guest already joined
@@ -72,6 +74,15 @@ export function StripEntry() {
         <h1 className="font-cond italic font-black uppercase leading-[0.9] tracking-tight text-5xl">
           <span className="text-market">{t(lang, 'strip.title')}</span>
         </h1>
+        {elsewhere && (
+          <div className="flex flex-col gap-3" role="status">
+            <p className="font-cond text-market text-xl leading-tight">{t(lang, 'strip.elsewhere')}</p>
+            <button type="button" onClick={() => useGameStore.getState().continueHere()} className={`${BTN} bg-transparent text-[#c3cad8] border border-line hover:border-haze`}>
+              {t(lang, 'strip.continueHere')}
+            </button>
+          </div>
+        )}
+        {!elsewhere && <>
         <form className="flex flex-col gap-5" onSubmit={(e) => { e.preventDefault(); race(); }}>
         <label className="flex flex-col gap-2">
           <span className="font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze">{t(lang, 'strip.nameLabel')}</span>
@@ -87,6 +98,7 @@ export function StripEntry() {
             {t(lang, 'strip.google')}
           </button>
         )}
+        {caps.google && <div ref={g.buttonRef} className={g.fallback ? 'flex justify-center min-h-[44px]' : 'hidden'} />}
         {caps.magic && (mail.linkSent ? (
           <p role="status" className="font-cond text-market text-base">{t(lang, 'strip.linkSent')}</p>
         ) : (
@@ -100,6 +112,7 @@ export function StripEntry() {
         ))}
         {(note || g.note || mail.note || (joined && driveNotice)) && <p role="alert" className="text-sm text-red-300">{note || g.note || mail.note || driveNotice}</p>}
         <p className="text-sm text-haze">{t(lang, 'strip.footnote')}</p>
+        </>}
       </div>
     </div>
   );

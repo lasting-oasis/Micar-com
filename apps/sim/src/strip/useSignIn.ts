@@ -27,27 +27,48 @@ export const afterJoin = (fn: () => void): (() => void) => {
   return stop;
 };
 
-/** Sign in with Google: the credential goes to `linkAccount`. `ensureGuest` joins first when the socket is not there yet. */
+// GIS is initialised once per page (a second initialize() makes Google warn); its callback goes to the hook that last
+// started a sign-in.
+let gsiInitFor: string | null = null;
+let onCredential: ((credential: string) => void) | null = null;
+
+/** Sign in with Google: the credential goes to `linkAccount`. `ensureGuest` joins first when there is no socket yet.
+ *  One Tap first; when Google suppresses it (not displayed, or skipped), Google's own button is rendered into
+ *  `buttonRef` (`fallback`) with a note to use it. */
 export function useGoogleSignIn(ensureGuest?: () => void) {
   const lang = useLang();
   const [note, setNote] = useState('');
+  const [fallback, setFallback] = useState(false);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = buttonRef.current, g = window.google;
+    if (!fallback || !el || !g?.accounts?.id) return;
+    el.replaceChildren();
+    g.accounts.id.renderButton(el, { type: 'standard', theme: 'filled_black', size: 'large', text: 'signin_with', shape: 'rectangular', width: Math.max(200, Math.min(400, el.offsetWidth || 300)) });
+  }, [fallback]);
+
   const start = async () => {
     setNote('');
     const clientId = useGameStore.getState().caps.googleClientId;
     if (!clientId) { setNote(t(lang, 'strip.noGoogle')); return; }
     try {
       const g = await loadGsi();
-      g.accounts.id.initialize({ client_id: clientId, callback: (r) => {
-        if (!r?.credential) return;
-        const credential = r.credential;
-        // sign-in links a guest, so join as one first if we have not
-        if (!useGameStore.getState().playerId) ensureGuest?.();
+      onCredential = (credential) => {
+        // sign-in links a guest, so join as one first if there is no socket yet (never a second one while it connects)
+        if (!useGameStore.getState().socket) ensureGuest?.();
         afterJoin(() => useGameStore.getState().linkAccount({ google: credential }));
-      } });
-      g.accounts.id.prompt();
+      };
+      if (gsiInitFor !== clientId) {
+        g.accounts.id.initialize({ client_id: clientId, callback: (r) => { if (r?.credential) onCredential?.(r.credential); } });
+        gsiInitFor = clientId;
+      }
+      g.accounts.id.prompt((n) => {
+        if (n?.isNotDisplayed?.() || n?.isSkippedMoment?.()) { setNote(t(lang, 'strip.googleButton')); setFallback(true); }
+      });
     } catch { setNote(t(lang, 'strip.googleFail')); }
   };
-  return { start, note };
+  return { start, note, fallback, buttonRef };
 }
 
 /** "Email me a link" (`ensureGuest` is given by the entry card only: it joins as a guest first and holds the card up): the address goes to `requestLink` once a player has joined; frees up after an answer, a refusal, a dead connection or 10 s. */
