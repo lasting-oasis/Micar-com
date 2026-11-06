@@ -2114,6 +2114,13 @@ function App() {
             <button type="submit" className="w-full bg-market text-[#0b0d12] font-cond italic font-black uppercase tracking-wider text-lg py-3.5 rounded-lg transition-all hover:brightness-110 flex items-center justify-center gap-2 shadow-[4px_4px_0_#e0b22a]">
               <LogIn size={18} /> {t(lang, 'setup.establish')}
             </button>
+            <div className="flex items-center gap-3 text-haze font-cond uppercase tracking-[0.14em] text-xs" aria-hidden="true">
+              <span className="h-px flex-1 bg-line" />{t(lang, 'setup.or')}<span className="h-px flex-1 bg-line" />
+            </div>
+            <a href="/strip" className="w-full border-2 border-market text-market font-cond italic font-black uppercase tracking-wider text-lg py-3 rounded-lg transition-all hover:bg-market hover:text-[#0b0d12] flex items-center justify-center gap-2 min-h-[48px]">
+              {t(lang, 'setup.enterStrip')}
+            </a>
+            <p className="text-sm text-haze -mt-2">{t(lang, 'setup.enterStripDesc')}</p>
             <p className="font-marker text-market text-sm -rotate-1 origin-left">{t(lang, 'setup.free')}</p>
           </motion.form>
         </div>
