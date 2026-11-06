@@ -1,4 +1,5 @@
 import type { StripRecord } from './world/data';
+import type { Account } from './world/accounts';
 export type RepairDef = {
   id: string; // unique instance ID for this specific repair on a specific car
   name: string;
@@ -169,5 +170,5 @@ export type GameState = {
   fractionalMarket: FractionalVehicle[]; // vehicles available as fractional shares
   chatLog?: ChatMessage[]; // recent multiplayer chat (last ~50)
   hostId?: string | null; // The player who can advance the day
-  accounts: Record<string, unknown>; // keyed by account id; narrowed to Account later
+  accounts: Record<string, Account>; // keyed by account id
 };

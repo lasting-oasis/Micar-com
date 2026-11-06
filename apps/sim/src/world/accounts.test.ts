@@ -1,0 +1,64 @@
+import { describe, it, expect } from 'vitest';
+import crypto from 'node:crypto';
+import { ALLOWANCE, signMagic, verifyMagic, signSession, verifySession, verifyGoogle, linkGuest, claimAllowance, saveRecord, attachAccount, bootState, utcDay } from './accounts';
+const S = 'test-secret';
+const guest = (money = 1350) => ({ id: 's1', name: 'Pool', money, octane: 40, stamps: ['strip:first-win'], strip: { rep: 150, cars: {}, wins: { dr1: 1 }, best: { dr1: 9.8 } }, inventory: [{ id: 'rental-1', rental: true }, { id: 'own-1' }] } as any);
+describe('magic links', () => {
+  it('round-trips, lowercases, expires at 15 minutes and is single use', () => {
+    const used = new Set<string>(); const t = signMagic('Pool@Example.com', 0, S);
+    expect(verifyMagic(t, 14 * 60_000, S, used)).toBe('pool@example.com');
+    expect(verifyMagic(t, 14 * 60_000, S, used)).toBeUndefined();          // used
+    expect(verifyMagic(signMagic('a@b.c', 0, S), 15 * 60_000 + 1, S, new Set())).toBeUndefined(); // expired
+    expect(verifyMagic(signMagic('a@b.c', 0, S) + 'x', 1, S, new Set())).toBeUndefined();         // tampered
+    expect(verifyMagic(signMagic('a@b.c', 0, S), 1, 'other', new Set())).toBeUndefined();         // wrong secret
+  });
+});
+describe('sessions', () => {
+  it('round-trips for 30 days', () => {
+    const t = signSession('acct-1', 0, S);
+    expect(verifySession(t, 29 * 86_400_000, S)).toBe('acct-1');
+    expect(verifySession(t, 30 * 86_400_000 + 1, S)).toBeUndefined();
+  });
+});
+describe('google', () => {
+  const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', { modulusLength: 2048 });
+  const jwk = { ...(publicKey.export({ format: 'jwk' }) as any), kid: 'k1' };
+  const b64 = (o: any) => Buffer.from(JSON.stringify(o)).toString('base64url');
+  const token = (payload: any, kid = 'k1') => { const h = b64({ alg: 'RS256', kid }), p = b64(payload); const sig = crypto.sign('RSA-SHA256', Buffer.from(`${h}.${p}`), privateKey).toString('base64url'); return `${h}.${p}.${sig}`; };
+  const good = { iss: 'https://accounts.google.com', aud: 'cid', sub: '123', email: 'p@x.y', exp: 2000 };
+  it('accepts a token signed by a known key for our client id', () => expect(verifyGoogle(token(good), 'cid', [jwk], 1_000_000)).toEqual({ sub: '123', email: 'p@x.y' }));
+  it('rejects wrong audience, wrong issuer, expiry, unknown key and a bad signature', () => {
+    expect(verifyGoogle(token({ ...good, aud: 'other' }), 'cid', [jwk], 1_000_000)).toBeUndefined();
+    expect(verifyGoogle(token({ ...good, iss: 'evil' }), 'cid', [jwk], 1_000_000)).toBeUndefined();
+    expect(verifyGoogle(token(good), 'cid', [jwk], 2_001_000)).toBeUndefined();
+    expect(verifyGoogle(token(good, 'k2'), 'cid', [jwk], 1_000_000)).toBeUndefined();
+    expect(verifyGoogle(token(good).slice(0, -3) + 'AAA', 'cid', [jwk], 1_000_000)).toBeUndefined();
+  });
+});
+describe('linking and the allowance', () => {
+  it('creates an account from a guest with the rental stripped', () => {
+    const accounts: any = {}; const r = linkGuest(accounts, { kind: 'email', email: 'p@x.y' }, guest(), 1000);
+    expect(r.replaced).toBe(false); expect(Object.keys(accounts)).toEqual([r.account.id]);
+    expect(r.account.player).toEqual({ name: 'Pool', money: 1350, octane: 40, stamps: ['strip:first-win'], strip: guest().strip, inventory: [{ id: 'own-1' }] });
+  });
+  it('loads an existing account instead and flags the replacement', () => {
+    const accounts: any = {}; const a = linkGuest(accounts, { kind: 'google', sub: '9' }, guest(100), 1).account;
+    const r = linkGuest(accounts, { kind: 'google', sub: '9' }, guest(5000), 2);
+    expect(r).toEqual({ account: a, replaced: true }); expect(a.player.money).toBe(100);
+  });
+  it('pays $1,000 once per UTC day — 23:59 and 00:01 are two days', () => {
+    const a = linkGuest({}, { kind: 'email', email: 'p@x.y' }, guest(0), 1).account;
+    const t1 = Date.UTC(2026, 10, 6, 23, 59), t2 = Date.UTC(2026, 10, 7, 0, 1);
+    expect(claimAllowance(a, t1)).toEqual({ ok: true, amount: ALLOWANCE }); expect(a.player.money).toBe(1000); expect(a.lastAllowance).toBe('2026-11-06');
+    expect(claimAllowance(a, t1 + 30_000)).toEqual({ ok: false, reason: 'Allowance already collected today' });
+    expect(claimAllowance(a, t2).ok).toBe(true); expect(a.player.money).toBe(2000); expect(utcDay(t2)).toBe('2026-11-07');
+  });
+  it('saveRecord drops rentals; a live account cannot attach twice; boot keeps accounts and drops players', () => {
+    expect(saveRecord(guest()).inventory).toEqual([{ id: 'own-1' }]);
+    expect(attachAccount('acct-1', [{ accountId: 'acct-1' } as any])).toEqual({ ok: false, reason: 'already signed in' });
+    expect(attachAccount('acct-1', [])).toEqual({ ok: true });
+    const st = bootState({ players: { a: 1 }, accounts: { x: { id: 'x' } as any } });
+    expect(st.players).toEqual({}); expect(Object.keys(st.accounts)).toEqual(['x']);
+    expect(bootState({ players: {} } as any).accounts).toEqual({});
+  });
+});
