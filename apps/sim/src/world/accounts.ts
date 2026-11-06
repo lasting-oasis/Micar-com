@@ -89,8 +89,14 @@ export function findAccount(accounts: Record<string, Account>, id: Identity): Ac
 }
 
 export function saveRecord(player: Player): SavedPlayer {
+  // no rental, and no part record of a rental, outlives the session
+  const rentalIds = new Set(player.inventory.filter(c => isRental(c)).map(c => c.id));
+  const strip = player.strip && {
+    ...player.strip,
+    cars: Object.fromEntries(Object.entries(player.strip.cars ?? {}).filter(([id]) => !rentalIds.has(id) && !id.startsWith('rental-'))),
+  };
   return structuredClone({
-    name: player.name, money: player.money, octane: player.octane, stamps: player.stamps, strip: player.strip,
+    name: player.name, money: player.money, octane: player.octane, stamps: player.stamps, strip,
     inventory: player.inventory.filter(c => !isRental(c)),
   });
 }
@@ -137,4 +143,41 @@ export function liveHolder(accountId: string, players: Record<string, Player>, e
 
 export function bootState<T extends { players: Record<string, unknown>; accounts?: Record<string, Account> }>(state: T): T {
   return { ...state, players: {}, accounts: state.accounts ?? {} };
+}
+
+// --- Email sign-in rate limits: every send costs a real email ------------------
+export const LINK_WINDOW_MS = 3600_000;
+export const LINK_GLOBAL_PER_WINDOW = 30;
+export const LINK_IP_PER_WINDOW = 3;
+export const LINK_BUSY = 'Email sign-in is busy — try Google or try again later';
+export const LINK_IP_BUSY = 'Too many sign-in emails from here — try Google or try again later';
+export type SendLog = { all: number[]; byIp: Map<string, number[]> };
+export const newSendLog = (): SendLog => ({ all: [], byIp: new Map() });
+
+/** Drops sends older than the rolling window. */
+export function pruneSendLog(log: SendLog, now: number): void {
+  log.all = log.all.filter(t => now - t < LINK_WINDOW_MS);
+  for (const [ip, ts] of log.byIp) {
+    const keep = ts.filter(t => now - t < LINK_WINDOW_MS);
+    if (keep.length) log.byIp.set(ip, keep); else log.byIp.delete(ip);
+  }
+}
+
+/** One more email from `ip`, if the rolling hour allows it (30 in all, 3 per address); counted only when allowed. */
+export function allowSend(log: SendLog, ip: string, now: number): { ok: true } | { ok: false; reason: typeof LINK_BUSY | typeof LINK_IP_BUSY } {
+  pruneSendLog(log, now);
+  if (log.all.length >= LINK_GLOBAL_PER_WINDOW) return { ok: false, reason: LINK_BUSY };
+  const mine = log.byIp.get(ip) ?? [];
+  if (mine.length >= LINK_IP_PER_WINDOW) return { ok: false, reason: LINK_IP_BUSY };
+  log.all.push(now);
+  mine.push(now);
+  log.byIp.set(ip, mine);
+  return { ok: true };
+}
+
+/** The client's address: the first hop of x-forwarded-for (Render's proxy sets it), else the socket's own. */
+export function clientIp(headers: Record<string, unknown>, address: string | undefined): string {
+  const fwd = headers['x-forwarded-for'];
+  const first = (Array.isArray(fwd) ? fwd[0] : typeof fwd === 'string' ? fwd : '').split(',')[0].trim();
+  return first || address || 'unknown';
 }

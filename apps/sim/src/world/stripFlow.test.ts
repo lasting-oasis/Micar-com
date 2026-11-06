@@ -26,3 +26,46 @@ describe('stripFlow', () => {
     expect(quitEvent(g, car.id, false)).toEqual({ returned: car }); expect(g.inventory).toEqual([]);
   });
 });
+
+import { VISITOR_EVENTS, hostIsVacant, isUntouchedGuest, linkTarget, pickHost } from './stripFlow';
+describe('visitor rules', () => {
+  it('a visitor may send only the Strip events', () => {
+    expect([...VISITOR_EVENTS].sort()).toEqual([
+      'chat_message', 'claim_allowance', 'consume_fuel', 'enter_event', 'finish_event', 'finish_outrun', 'join', 'link_account',
+      'quit_event', 'refuel', 'rent_car', 'request_link', 'sign_out', 'strip_buy_part', 'strip_equip', 'strip_tune',
+      'sync_car_pos', 'sync_player_pos',
+    ]);
+    for (const e of ['take_title_loan', 'fractionalize_car', 'liquidate_vehicle', 'buy_car', 'end_day', 'scrap_car', 'finalize_deal', 'buy_shares'])
+      expect(VISITOR_EVENTS.has(e)).toBe(false);
+  });
+  it('the host is the first dealer, never a visitor; a dealer claims a vacant or visitor host', () => {
+    const players = { g: { guest: true }, a: { accountId: 'x' }, d1: {}, d2: {} } as any;
+    expect(pickHost(players)).toBe('d1');
+    expect(pickHost(players, 'd1')).toBe('d2');
+    expect(pickHost({ g: { guest: true }, a: { accountId: 'x' } } as any)).toBeNull();
+    expect(hostIsVacant(null, players)).toBe(true);
+    expect(hostIsVacant('gone', players)).toBe(true);
+    expect(hostIsVacant('g', players)).toBe(true);
+    expect(hostIsVacant('a', players)).toBe(true);
+    expect(hostIsVacant('d2', players)).toBe(false);
+  });
+  it('an untouched guest has the stake and nothing else', () => {
+    const g = guestPlayer('p', 'P', 1);
+    expect(isUntouchedGuest(g)).toBe(true);
+    expect(isUntouchedGuest({ ...g, money: 499 })).toBe(false);
+    expect(isUntouchedGuest({ ...g, stamps: ['s'] })).toBe(false);
+    expect(isUntouchedGuest({ ...g, octane: 5 })).toBe(false);
+    expect(isUntouchedGuest({ ...g, strip: { ...g.strip!, rep: 10 } })).toBe(false);
+    expect(isUntouchedGuest({ ...g, guest: false })).toBe(false);
+    const r = guestPlayer('p', 'P', 1); rent(r, 'coupe', 2); r.money = 500;
+    expect(isUntouchedGuest(r)).toBe(false);
+  });
+  it('a magic link signs in the guest that asked for it while that tab is still a connected guest', () => {
+    const req = (o: Partial<{ socketId: string; connected: boolean; guest: boolean }> = {}) => ({ socketId: 'req', connected: true, guest: true, ...o });
+    expect(linkTarget(req(), 'click')).toBe('requester');
+    expect(linkTarget(req({ connected: false }), 'click')).toBe('clicker');
+    expect(linkTarget(req({ guest: false }), 'click')).toBe('clicker');
+    expect(linkTarget(req({ socketId: 'click' }), 'click')).toBe('clicker');
+    expect(linkTarget(undefined, 'click')).toBe('clicker');
+  });
+});

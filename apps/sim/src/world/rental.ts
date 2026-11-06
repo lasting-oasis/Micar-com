@@ -41,7 +41,7 @@ export function rent(player: Player, key: RentalKey, now: number): Car {
     id: `rental-${now}-${key}`, make: def.make, model: def.model, year: 2026, bodyStyle: key, color: def.color,
     condition: 100, bodyCondition: 100, mechanicCondition: 100, mileage: 0, buyPrice: 0,
     ownerId: player.id, daysOnLot: 0, titleStatus: 'Clean',
-    vin: 'RENTAL' + String(now).padStart(11, '0'),
+    vin: 'RENTAL' + String(now % 1e11).padStart(11, '0'), // 17 characters, like a real VIN
     isRegistered: true, fuel: 100, district: 'strip', rental: true,
   };
   player.inventory.push(car);

@@ -13,6 +13,8 @@ describe('rental', () => {
     expect(p.money).toBe(0); expect(p.inventory).toHaveLength(1);
     expect(car).toMatchObject({ rental: true, bodyStyle: 'sports', district: 'strip', ownerId: 'p1', buyPrice: 0, fuel: 100 });
     expect(heldRental(p)).toBe(car);
+    expect(car.vin).toHaveLength(17); expect(car.vin).toBe('RENTAL' + String(1700000000000 % 1e11).padStart(11, '0'));
+    expect(rent(player(500), 'coupe', 7).vin).toBe('RENTAL00000000007');
   });
   it('return removes the rental and keeps winnings', () => {
     const p = player(500); rent(p, 'hatchback', 1); p.money += 1800;

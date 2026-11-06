@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import crypto from 'node:crypto';
-import { ALLOWANCE, signMagic, verifyMagic, signSession, verifySession, verifyGoogle, linkGuest, claimAllowance, saveRecord, attachAccount, liveHolder, identityKey, bootState, utcDay } from './accounts';
+import { LINK_BUSY, LINK_IP_BUSY, LINK_WINDOW_MS, allowSend, clientIp, newSendLog, ALLOWANCE, signMagic, verifyMagic, signSession, verifySession, verifyGoogle, linkGuest, claimAllowance, saveRecord, attachAccount, liveHolder, identityKey, bootState, utcDay } from './accounts';
 const S = 'test-secret';
 const guest = (money = 1350) => ({ id: 's1', name: 'Pool', money, octane: 40, stamps: ['strip:first-win'], strip: { rep: 150, cars: {}, wins: { dr1: 1 }, best: { dr1: 9.8 } }, inventory: [{ id: 'rental-1', rental: true }, { id: 'own-1' }] } as any);
 describe('magic links', () => {
@@ -93,5 +93,32 @@ describe('live holders and identity keys', () => {
   it('keys a google identity by sub, ignoring email', () => {
     expect(identityKey({ kind: 'google', sub: '42', email: 'a@b.c' })).toBe(identityKey({ kind: 'google', sub: '42' }));
     expect(identityKey({ kind: 'google', sub: '42', email: 'a@b.c' })).toBe('google:42');
+  });
+});
+
+describe('saved records and email limits', () => {
+  it('saveRecord drops the part records of rentals', () => {
+    const g = guest();
+    g.strip.cars = { 'rental-1': { cfg: {}, owned: ['a'] }, 'rental-9-old': { cfg: {}, owned: [] }, 'own-1': { cfg: {}, owned: ['b'] } };
+    expect(Object.keys(saveRecord(g).strip!.cars)).toEqual(['own-1']);
+    expect(Object.keys(g.strip.cars)).toHaveLength(3); // the live record is untouched
+  });
+  it('email sends: 3 per address and 30 in all per rolling hour, counted only when allowed', () => {
+    const log = newSendLog();
+    for (let i = 0; i < 3; i++) expect(allowSend(log, 'ip-a', i)).toEqual({ ok: true });
+    expect(allowSend(log, 'ip-a', 10)).toEqual({ ok: false, reason: LINK_IP_BUSY });
+    expect(allowSend(log, 'ip-a', LINK_WINDOW_MS)).toEqual({ ok: true }); // the first send has aged out
+    const all = newSendLog();
+    for (let i = 0; i < 30; i++) expect(allowSend(all, `ip-${i}`, 100)).toEqual({ ok: true });
+    expect(allowSend(all, 'ip-new', 200)).toEqual({ ok: false, reason: LINK_BUSY });
+    expect(all.all).toHaveLength(30);
+    expect(allowSend(all, 'ip-new', 100 + LINK_WINDOW_MS)).toEqual({ ok: true });
+    expect(all.byIp.size).toBe(1);
+  });
+  it('the client address is the first forwarded hop, else the socket address', () => {
+    expect(clientIp({ 'x-forwarded-for': '1.2.3.4, 10.0.0.1' }, '10.0.0.1')).toBe('1.2.3.4');
+    expect(clientIp({ 'x-forwarded-for': ['5.6.7.8'] }, 'x')).toBe('5.6.7.8');
+    expect(clientIp({}, '::1')).toBe('::1');
+    expect(clientIp({}, undefined)).toBe('unknown');
   });
 });

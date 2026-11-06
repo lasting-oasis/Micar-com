@@ -1,6 +1,6 @@
 import type { Car, Player } from '../types';
 import { freshStrip } from './data';
-import { GUEST_STAKE, RENTAL_BAY, heldRental, returnRental } from './rental';
+import { GUEST_STAKE, RENTAL_BAY, heldRental, isVisitor, returnRental } from './rental';
 
 /** An event (or outrun) ended: if it was driven in the player's rental, the rental goes back. */
 export function closeEvent(player: Player, carId: string | undefined): { returned: Car | undefined } {
@@ -43,4 +43,42 @@ export function guestPlayer(id: string, name: string, _now: number): Player {
     stamps: [],
     isStandaloneOperator: false,
   };
+}
+
+/** The only socket events a Strip visitor (a guest or a Strip account holder) may send; the server answers anything
+ *  else with strip_denied. Joining, chat, the Strip's position, car, fuel and event sync, the parts bench, the rental
+ *  counter and the account. */
+export const VISITOR_EVENTS: ReadonlySet<string> = new Set([
+  'join', 'chat_message',
+  'sync_player_pos', 'sync_car_pos', 'consume_fuel', 'refuel',
+  'enter_event', 'finish_event', 'finish_outrun', 'quit_event',
+  'strip_buy_part', 'strip_equip', 'strip_tune',
+  'rent_car', 'request_link', 'link_account', 'claim_allowance', 'sign_out',
+]);
+export const VISITOR_DENIED = 'Not available in the Strip';
+
+/** A refusal for a rental car in any handler that would tune, sell, borrow against or otherwise monetise it. */
+export const RENTAL_DENIED = 'A rental is for racing one event only';
+
+/** Who runs the day: the first dealer or shop still here (never a visitor), else nobody. */
+export function pickHost(players: Record<string, Pick<Player, 'guest' | 'accountId'>>, exceptId?: string): string | null {
+  return Object.keys(players).find(id => id !== exceptId && !isVisitor(players[id])) ?? null;
+}
+
+/** A joining dealer takes the host when there is none, or the host is gone or is a visitor. */
+export function hostIsVacant(hostId: string | null | undefined, players: Record<string, Pick<Player, 'guest' | 'accountId'>>): boolean {
+  return !hostId || !players[hostId] || isVisitor(players[hostId]);
+}
+
+/** A guest who has done nothing yet: the stake untouched, no rental, no stamps, no Octane, no REP. Signing them in to a
+ *  saved account loses nothing, so it needs no replace prompt. */
+export function isUntouchedGuest(p: Player): boolean {
+  return !!p.guest && p.money === GUEST_STAKE && !heldRental(p) && (p.stamps?.length ?? 0) === 0 && (p.octane ?? 0) === 0 && (p.strip?.rep ?? 0) === 0;
+}
+
+/** Which player a clicked magic link signs in: the guest whose socket asked for it, while that socket is still connected,
+ *  still a guest and not the clicking socket; otherwise the clicking socket's own guest. */
+export function linkTarget(requester: { socketId: string; connected: boolean; guest: boolean } | undefined, clickerId: string): 'requester' | 'clicker' {
+  if (requester && requester.connected && requester.guest && requester.socketId !== clickerId) return 'requester';
+  return 'clicker';
 }
