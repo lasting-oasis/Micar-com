@@ -1,46 +1,16 @@
-// The Strip's grid and routes (pure geometry, metres). Ported from Night Tuner 05-world.js.
+// The Strip's routes: arbitrary polylines in metres (pure geometry).
 import { clamp, type Vehicle } from '../physics';
-import { RENTAL_BLOCK } from '../rental';
 
-export const N = 8, CELL = 90, RW = 20, BL = CELL - RW, SPAN = N * CELL;
+export type Pt = [number, number];
+export type RoadData = { id: string; pts: Pt[]; loop: boolean; width: number };
+export type Route = { pts: Pt[]; cum: number[]; len: number; loop: boolean; cps: number[] };
 
-export type Node = [number, number];
-export type Route = { pts: [number, number][]; cum: number[]; len: number; loop: boolean; nodes: Node[]; nodeS: number[] };
-
-/** A block's solid footprint (metres); null outside the border ring and for the rental lot's block (open: the car is parked on it). */
-export function blockRect(i: number, j: number): [number, number, number, number] | null { if (i < -1 || j < -1 || i > N || j > N) return null; if (i === RENTAL_BLOCK[0] && j === RENTAL_BLOCK[1]) return null; return [i < 0 ? -1e4 : i * CELL + RW / 2, j < 0 ? -1e4 : j * CELL + RW / 2, i >= N ? 1e4 : (i + 1) * CELL - RW / 2, j >= N ? 1e4 : (j + 1) * CELL - RW / 2]; }
-export function nearestNode(x: number, z: number): Node { return [clamp(Math.round(x / CELL), 0, N), clamp(Math.round(z / CELL), 0, N)]; }
-export function nodeNeighbors(i: number, j: number): Node[] { const r: Node[] = []; if (i > 0) r.push([i - 1, j]); if (i < N) r.push([i + 1, j]); if (j > 0) r.push([i, j - 1]); if (j < N) r.push([i, j + 1]); return r; }
-export function gridPath(a: Node, b: Node): Node[] {
-  const key = (n: Node): string => n[0] + ',' + n[1];
-  const prev = new Map<string, Node | null>(); const q: Node[] = [a]; prev.set(key(a), null);
-  while (q.length) { const c = q.shift() as Node; if (c[0] === b[0] && c[1] === b[1]) break; for (const n of nodeNeighbors(c[0], c[1])) { const k = key(n); if (!prev.has(k)) { prev.set(k, c); q.push(n); } } }
-  const out: Node[] = []; let c: Node | null | undefined = prev.has(key(b)) ? b : null;
-  while (c) { out.unshift(c); c = prev.get(key(c)); }
-  return out;
-}
-
-/* routes: node list -> polyline with cut corners; s = distance along */
-export function buildRoute(nodes: Node[], loop: boolean): Route {
-  const pts: [number, number][] = [], R = 12, n = nodes.length, segs = loop ? n : n - 1;
-  const dirAt = (k: number): [number, number] => { const A = nodes[k], B = nodes[(k + 1) % n]; return [Math.sign(B[0] - A[0]), Math.sign(B[1] - A[1])]; };
-  for (let k = 0; k < segs; k++) {
-    const A = nodes[k], B = nodes[(k + 1) % n], d = dirAt(k); const ax = A[0] * CELL, az = A[1] * CELL, bx = B[0] * CELL, bz = B[1] * CELL;
-    const sc = (loop || k > 0) ? R : 0, ec = (loop || k < segs - 1) ? R : 0;
-    pts.push([ax + d[0] * sc, az + d[1] * sc]); pts.push([bx - d[0] * ec, bz - d[1] * ec]);
-    if (loop || k < segs - 1) {
-      const d2 = dirAt((k + 1) % n);
-      if (d2[0] !== d[0] || d2[1] !== d[1]) {
-        const p0 = [bx - d[0] * R, bz - d[1] * R], p2 = [bx + d2[0] * R, bz + d2[1] * R];
-        for (let q = 1; q < 4; q++) { const t = q / 4; pts.push([(1 - t) * (1 - t) * p0[0] + 2 * (1 - t) * t * bx + t * t * p2[0], (1 - t) * (1 - t) * p0[1] + 2 * (1 - t) * t * bz + t * t * p2[1]]); }
-      }
-    }
-  }
+/** A polyline -> route; s = distance along. cps (checkpoint distances) default: loop -> [0]; else [0, len]. */
+export function buildRoute(pts: Pt[], loop: boolean, cps?: number[]): Route {
   const cum = [0]; for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
   if (loop) { const a = pts[pts.length - 1], b = pts[0]; cum.push(cum[cum.length - 1] + Math.hypot(b[0] - a[0], b[1] - a[1])); }
-  const route: Route = { pts, cum, len: cum[cum.length - 1], loop, nodes, nodeS: [] };
-  route.nodeS = nodes.map((nd, k) => { if (k === 0) return 0; const x = nd[0] * CELL, z = nd[1] * CELL; let best = 0, bd = 1e9; for (let s = 0; s <= route.len; s += 2) { const p = routePoint(route, s); const d = Math.hypot(p.x - x, p.z - z); if (d < bd) { bd = d; best = s; } } return best; });
-  return route;
+  const len = cum[cum.length - 1];
+  return { pts, cum, len, loop, cps: cps ?? (loop ? [0] : [0, len]) };
 }
 export function routePoint(route: Route, s: number): { x: number; z: number; tx: number; tz: number } {
   const L = route.len; if (route.loop) s = ((s % L) + L) % L; else s = clamp(s, 0, L);
@@ -56,9 +26,29 @@ export function routeProgress(route: Route, x: number, z: number, sGuess: number
   return { s: route.loop ? best : clamp(best, 0, route.len), d: bd };
 }
 
-export function snapToRoad(V: Vehicle): void {
-  const ix = Math.round(V.x / CELL), iz = Math.round(V.z / CELL); const dx = Math.abs(V.x - ix * CELL), dz = Math.abs(V.z - iz * CELL);
-  if (dx < dz) { V.x = ix * CELL; V.z = clamp(V.z, RW, SPAN - RW); V.h = Math.cos(V.h) >= 0 ? 0 : Math.PI; }
-  else { V.z = iz * CELL; V.x = clamp(V.x, RW, SPAN - RW); V.h = Math.sin(V.h) >= 0 ? Math.PI / 2 : -Math.PI / 2; }
+export function cpPoint(route: Route, k: number): { x: number; z: number } { const p = routePoint(route, route.cps[k % route.cps.length]); return { x: p.x, z: p.z }; }
+
+/** Closest point on any road: coarse scan of each road's points, then refine on the two adjacent segments (wrapping on loops). */
+export function nearestRoadPoint(x: number, z: number, roads: RoadData[]): { x: number; z: number; tx: number; tz: number; road: RoadData; s: number } {
+  let bd = Infinity, bi = 0, bk = 0;
+  for (let i = 0; i < roads.length; i++) { const pts = roads[i].pts; for (let k = 0; k < pts.length; k++) { const d = (pts[k][0] - x) ** 2 + (pts[k][1] - z) ** 2; if (d < bd) { bd = d; bi = i; bk = k; } } }
+  const road = roads[bi], pts = road.pts, n = pts.length, route = roadRoute(road);
+  bd = Infinity; let out = { x: pts[bk][0], z: pts[bk][1], tx: 1, tz: 0, road, s: route.cum[bk] };
+  const segs: number[] = [];
+  if (road.loop) segs.push((bk - 1 + n) % n, bk); else { if (bk > 0) segs.push(bk - 1); if (bk < n - 1) segs.push(bk); }
+  for (const a of segs) {
+    const p0 = pts[a], p1 = pts[(a + 1) % n], dx = p1[0] - p0[0], dz = p1[1] - p0[1], L2 = dx * dx + dz * dz || 1;
+    const t = clamp(((x - p0[0]) * dx + (z - p0[1]) * dz) / L2, 0, 1), px = p0[0] + dx * t, pz = p0[1] + dz * t, d = (px - x) ** 2 + (pz - z) ** 2;
+    if (d < bd) { const L = Math.sqrt(L2); bd = d; out = { x: px, z: pz, tx: dx / L, tz: dz / L, road, s: route.cum[a] + t * L }; }
+  }
+  return out;
+}
+export function snapToRoad(V: Vehicle, roads: RoadData[]): void {
+  const q = nearestRoadPoint(V.x, V.z, roads); V.x = q.x; V.z = q.z;
+  const hx = Math.sin(V.h), hz = Math.cos(V.h);
+  V.h = hx * q.tx + hz * q.tz >= 0 ? Math.atan2(q.tx, q.tz) : Math.atan2(-q.tx, -q.tz);
   V.u = V.v = V.w = V.vx = V.vz = 0; V.gear = 1;
 }
+export function offsetPts(pts: Pt[], offset: Pt): Pt[] { return pts.map((p): Pt => [p[0] + offset[0], p[1] + offset[1]]); }
+const routeCache = new WeakMap<RoadData, Route>();
+export function roadRoute(road: RoadData): Route { let r = routeCache.get(road); if (!r) { r = buildRoute(road.pts, road.loop); routeCache.set(road, r); } return r; }
