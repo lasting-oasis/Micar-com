@@ -1,6 +1,7 @@
 // Smoke test for the Strip, against a running server (production build) started with SMOKE=1 (a new player is given a
 // starter car, so no auction window is needed): town -> gate -> Strip -> drag -> results -> Garage -> a performance part.
 //   pnpm --filter @micar/sim build && SMOKE=1 NODE_ENV=production PORT=3123 pnpm --filter @micar/sim start &
+// A second run follows: a guest at /strip rents a car at the counter ($500 -> $0), races the drag, and the rental is returned.
 //   BASE=http://localhost:3123/ pnpm --filter @micar/sim exec node e2e/strip.smoke.mjs
 // Exits 1 on any failed assertion or page error. Software GL (swiftshader), so it runs headless with no display; the game
 // is slow there (~3 fps), so the drag waits on the results card, not on a clock.
@@ -95,6 +96,57 @@ try {
   ok(cash1 < cash0, `buying the part took money ($${cash0} -> $${cash1})`);
   const changed = before.filter((b, i) => b !== after[i]);
   ok(changed.length > 0, `a stat bar changed (${changed.length}: ${before.find((b, i) => b !== after[i])} -> ${after.find((b, i) => b !== before[i])})`);
+
+  // 8. the guest path: /strip -> "Race as guest" -> rent at the counter -> drag -> "Rental returned" -> no car left
+  await p.close(); // one renderer at a time: swiftshader is slow
+  const g = await browser.newPage({ viewport: { width: 960, height: 540 }, deviceScaleFactor: 1 });
+  g.setDefaultTimeout(30000);
+  await g.addInitScript(() => { try { localStorage.clear(); localStorage.setItem('cds.graphics', 'low'); } catch {} });
+  g.on('console', m => { if (m.type() === 'error' && !/ERR_TUNNEL_CONNECTION_FAILED|ERR_NAME_NOT_RESOLVED|ERR_INTERNET_DISCONNECTED/.test(m.text())) errs.push('guest console.error: ' + m.text()); });
+  g.on('pageerror', e => errs.push('guest pageerror: ' + e.message));
+  const G = (fn, arg) => g.evaluate(fn, arg);
+  await g.goto(BASE.replace(/\/?$/, '/') + 'strip', { waitUntil: 'domcontentloaded' });
+  await g.fill('input[type=text], input:not([type])', 'GuestBot');
+  await g.getByRole('button', { name: /Race as guest/i }).click();
+  await g.waitForFunction(() => !!window.__micar, null, { timeout: 90000 });
+  ok(true, 'the guest joined the Strip (window.__micar)');
+  await g.waitForFunction(() => window.__micar.money() === 500, null, { timeout: 30000 });
+  ok(await G(() => window.__micar.money()) === 500, 'the guest starts with $500');
+  await g.waitForSelector('[aria-label="Rental counter"]', { timeout: 60000 });
+  ok(true, 'the rental counter is up');
+  ok(await G(() => window.__micar.rent('coupe')), 'rented the coupe at the counter');
+  await g.waitForFunction(() => window.__micar.money() === 0, null, { timeout: 20000 });
+  ok(await G(() => window.__micar.money()) === 0, 'the rental cost $500 (money 500 -> 0)');
+  await g.waitForTimeout(1500);
+  const gotCar = await g.waitForFunction(() => window.__micar.drive(), null, { timeout: 60000, polling: 1000 }).then(() => true, () => false);
+  ok(gotCar, 'got into the rental');
+  ok(await G(() => window.__micar.startEvent('dr1')), 'started the guest drag (dr1)');
+  await g.setViewportSize({ width: 480, height: 270 });
+  await g.waitForTimeout(1000);
+  await g.keyboard.down('KeyW');
+  const g0 = Date.now(); let gdone = false;
+  while (!gdone && Date.now() - g0 < 240000) {
+    await g.waitForTimeout(150);
+    const q = await G(() => window.__micar.pose());
+    if (q.gear >= 1 && q.rpm > q.redline * 0.8) { await g.keyboard.down('ShiftLeft'); await g.waitForTimeout(500); await g.keyboard.up('ShiftLeft'); }
+    gdone = await G(() => document.body.textContent.includes('Continue [Enter]'));
+  }
+  await g.keyboard.up('KeyW');
+  await g.setViewportSize({ width: 960, height: 540 });
+  await g.waitForTimeout(2000);
+  ok(gdone, `the guest's results card appeared (${Math.round((Date.now() - g0) / 1000)} s wall clock)`);
+  const gcard = await G(() => document.body.innerText);
+  const onHand = /Rental returned\s*—\s*\$([\d,]+) on hand/.exec(gcard);
+  ok(!!onHand, 'the results card says "Rental returned"');
+  const prize = /\+\$([\d,]+)/.exec(gcard);
+  ok(!!prize || /No prize/.test(gcard), 'the card reports the prize (a figure or "No prize")');
+  const prizeN = prize ? Number(prize[1].replace(/,/g, '')) : 0; // no prize shown = $0
+  ok(Number(onHand[1].replace(/,/g, '')) === prizeN, `the card's money on hand equals the prize ($${prizeN})`);
+  await g.keyboard.press('Enter'); await g.waitForTimeout(1500);
+  const gm = await G(() => window.__micar.money());
+  ok(gm === prizeN, `the guest's money is the prize paid ($${gm})`);
+  const held = await G(() => window.__micar.cars());
+  ok(held.length === 0, `the rental is gone from the inventory (${held.length} cars)`);
 
   ok(errs.length === 0, 'no page errors');
 } catch (e) {

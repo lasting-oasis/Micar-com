@@ -1076,6 +1076,8 @@ export function VanillaThreeScene() {
             audioLevels: () => audio.levels(),
             /** your money (dollars), as the client has it */
             money: (): number => meNow()?.money ?? 0,
+            /** the ids of the cars you hold (the smoke checks a returned rental is gone) */
+            cars: (): string[] => (meNow()?.inventory ?? []).map(c => c.id),
             /** the live event, if any: its id, state ('count' | 'race' | 'done') and whether results are in */
             event: () => { const a = district === 'strip' ? strip?.runner.active : null; return a ? { id: a.ev.id, state: a.state, results: !!a.results, pS: a.pS } : null; },
             /** the ids of the other players drawn in the Strip */

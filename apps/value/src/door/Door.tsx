@@ -246,7 +246,7 @@ function World({ card }: { card: Card }) {
         <div className="doors">
           <div className="place"><small>{t('home')}</small><h3>{t('The Garage')}</h3><p>{t('Your cards as cars. The bay where you repair and modify them: every part you add is a part on the card.')}</p></div>
           <div className="place"><small>{t('work')}</small><h3>{t('The Dealership')}</h3><p>{t('Learn the car business without paying for your mistakes. Buy a salvage title at auction, fix it, flip it. Mistakes cost Octane, not money.')}</p></div>
-          <div className="place"><small>{t('play')}</small><h3>{t('The Strip')}</h3><p>{t('Race the car you tuned: sprint, circuit, street X, drag, drift, outrun. Prizes in dollars, Octane and stamps on the card, never the grade.')}</p></div>
+          <div className="place"><small>{t('play')}</small><h3>{t('The Strip')}</h3><p>{t('Race the car you tuned: sprint, circuit, street X, drag, drift, outrun. Prizes in dollars, Octane and stamps on the card, never the grade.')}</p><a className="ghostbtn" href="https://micar-sim.onrender.com/strip">{t('Race now — no account needed.')}</a></div>
         </div>
       </div>
       <p className="lotnote">{t('In the world, condition is earned, not declared. Your car enters at the baseline for its trim; a verified trail brings its real condition with it.')}</p>
