@@ -40,8 +40,8 @@ describe('district data', () => {
       const r = routeFor(e);
       expect(r.cps[0], e).toBe(0);
       for (let i = 1; i < r.cps.length; i++) expect(r.cps[i], e).toBeGreaterThan(r.cps[i - 1]);
-      expect(r.cps[r.cps.length - 1], e).toBeLessThanOrEqual(r.len + 2); // exporter cps vs 3 m chord length: up to 1.5 m on sprint routes
-      if (!r.loop) expect(Math.abs(r.cps[r.cps.length - 1] - r.len), e).toBeLessThan(2);
+      const last = r.cps[r.cps.length - 1];
+      if (r.loop) expect(last, e).toBeLessThanOrEqual(r.len + 0.1); else expect(last, e).toBeCloseTo(r.len, 1);
     }
   });
   it('drag routes are straight and 402 / 805 m', () => {

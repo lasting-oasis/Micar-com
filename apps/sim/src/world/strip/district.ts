@@ -46,13 +46,16 @@ const routeCache = new Map<string, Route>();
 let assetBase = '/';
 export function setAssetBase(base: string): void { assetBase = base; }
 /** Put a track's data in the cache (used by loadTrack and the node reader). */
-export function registerTrack(trackId: TrackId, data: TrackData): void { cache.set(trackId, data); }
+export function registerTrack(trackId: TrackId, data: TrackData): void {
+  cache.set(trackId, data);
+  for (const e of TRACKS.find(k => k.id === trackId)?.events ?? []) routeCache.delete(e); // never serve stale routes
+}
 export function trackLoaded(trackId: TrackId): TrackData | undefined { return cache.get(trackId); }
 export function loadTrack(trackId: TrackId, fetcher?: (url: string) => Promise<TrackData>): Promise<TrackData> {
   const hit = cache.get(trackId); if (hit) return Promise.resolve(hit);
   let p = pending.get(trackId);
   if (!p) {
-    const f = fetcher ?? ((url: string) => fetch(url).then(r => r.json() as Promise<TrackData>));
+    const f = fetcher ?? ((url: string) => fetch(url).then(r => { if (!r.ok) throw new Error(`track ${trackId}: HTTP ${r.status}`); return r.json() as Promise<TrackData>; }));
     p = f(assetBase + 'strip/tracks/' + trackId + '.json').then(d => { registerTrack(trackId, d); pending.delete(trackId); return d; },
       e => { pending.delete(trackId); throw e; });
     pending.set(trackId, p);
