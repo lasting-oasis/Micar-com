@@ -15,9 +15,15 @@ describe('magic links', () => {
   it('cannot be replayed by altering the last character of a consumed token', () => {
     const used = new Set<string>(); const t = signMagic('a@b.c', 0, S);
     expect(verifyMagic(t, 1, S, used)).toBe('a@b.c');
-    const last = t.slice(-1), flipped = t.slice(0, -1) + (last === 'A' ? 'B' : 'A');
-    expect(verifyMagic(flipped, 1, S, used)).toBeUndefined();
-    expect(verifyMagic(flipped, 1, S, new Set())).toBeUndefined();
+    // a sibling last char sharing the high 4 bits decodes to the same signature bytes (32 bytes -> 43 chars, last char carries 4 bits)
+    const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+    const last = t.slice(-1), base = ALPHA.indexOf(last) & ~3;
+    const sibling = ALPHA[base + ((ALPHA.indexOf(last) + 1) & 3)];
+    const variant = t.slice(0, -1) + sibling;
+    expect(variant).not.toBe(t);
+    expect(Buffer.from(variant.split('.')[1], 'base64url').equals(Buffer.from(t.split('.')[1], 'base64url'))).toBe(true);
+    expect(verifyMagic(variant, 1, S, used)).toBeUndefined();
+    expect(verifyMagic(variant, 1, S, new Set())).toBeUndefined();
   });
   it('keeps magic and session tokens apart', () => {
     expect(verifyMagic(signSession('a@b.c', 0, S), 1, S, new Set())).toBeUndefined();
