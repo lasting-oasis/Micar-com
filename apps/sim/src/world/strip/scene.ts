@@ -228,7 +228,9 @@ export class StripScene {
     cam.up.set(0, 1, 0);
     cam.fov = LOBBY_FOV; cam.updateProjectionMatrix(); // closer on the bay (the chase camera sets its own again)
     // between the bay and the kiosk, nearer the bay: the car on the left of the counter menu, the RENT sign in view
-    cam.lookAt((RENTAL_BAY.x * .7 + RENTAL_KIOSK.x * .3) * W, 1.6 * W, (RENTAL_BAY.z * .7 + RENTAL_KIOSK.z * .3) * W);
+    // (a portrait phone, the counter below: straight at the bay)
+    const k = cam.aspect < 1 ? 0 : .3;
+    cam.lookAt((RENTAL_BAY.x * (1 - k) + RENTAL_KIOSK.x * k) * W, 1.6 * W, (RENTAL_BAY.z * (1 - k) + RENTAL_KIOSK.z * k) * W);
     this.inLobby = true;
   }
   leaveLobby(): void { this.inLobby = false; }

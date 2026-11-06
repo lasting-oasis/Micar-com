@@ -30,7 +30,7 @@ import { ChaseCamera } from './world/cameras';
 import { WORLD_PER_M } from './world/units';
 import { useDriveUi, type ShownResults } from './world/driveUi';
 import { DriveLayer } from './world/DriveLayer';
-import { RENTAL_BAY, heldRental } from './world/rental';
+import { RENTAL_BAY, canRent, heldRental } from './world/rental';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
@@ -873,7 +873,9 @@ export function VanillaThreeScene() {
             strip?.exit(); // ends what is left of the event, gives the car group back (the caller disposes it)
             mendEngine();
             dropCar();
-            useDriveUi.setState({ returned: money });
+            // on the results card when one is up; else (an outrun, a quit, a card already closed) as a banner
+            if (resultsShown) useDriveUi.setState({ returned: money });
+            else { useDriveUi.setState({ returned: null }); say(`Rental returned — $${Math.round(money).toLocaleString('en-US')} on hand`); }
             enterLobby();
         };
         /** One lobby frame: Esc / II pauses (Sign out for account holders), Enter / Continue closes the results card;
@@ -1065,7 +1067,7 @@ export function VanillaThreeScene() {
             enterStrip: () => enterStrip(),
             exitStrip: () => exitStrip(),
             /** rent a car at the counter (the same call the counter's buttons make) */
-            rent: (key: string): boolean => { useGameStore.getState().rentCar(key); return true; },
+            rent: (key: string): boolean => { const me = meNow(); if (!me || !canRent(me).ok) return false; useGameStore.getState().rentCar(key); return true; },
             /** in the rental lobby (a Strip visitor without a car) */
             lobby: () => lobby,
             startEvent: (id: string) => startEventById(id),

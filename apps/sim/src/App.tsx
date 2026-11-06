@@ -1796,6 +1796,47 @@ const GameChat = ({ isMobile }: { isMobile?: boolean }) => {
   );
 };
 
+// The phone's D-pad (the old W/A/S/D keys, which also drive): walking in the town, driving everywhere.
+// Only the buttons take touches: the chat bubble sits in the empty corner beside ▲ and must stay tappable.
+const TouchDPad = () => (
+      <div className="flex flex-col gap-2 items-center pointer-events-none [&_button]:pointer-events-auto">
+        <button
+          onTouchStart={() => (window as any).setMobileKey?.('w', true)}
+          onTouchEnd={() => (window as any).setMobileKey?.('w', false)}
+          onTouchCancel={() => (window as any).setMobileKey?.('w', false)}
+          className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+        >
+          ▲
+        </button>
+        <div className="flex gap-2">
+          <button
+            onTouchStart={() => (window as any).setMobileKey?.('a', true)}
+            onTouchEnd={() => (window as any).setMobileKey?.('a', false)}
+            onTouchCancel={() => (window as any).setMobileKey?.('a', false)}
+            className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+          >
+            ◀
+          </button>
+          <button
+            onTouchStart={() => (window as any).setMobileKey?.('s', true)}
+            onTouchEnd={() => (window as any).setMobileKey?.('s', false)}
+            onTouchCancel={() => (window as any).setMobileKey?.('s', false)}
+            className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+          >
+            ▼
+          </button>
+          <button
+            onTouchStart={() => (window as any).setMobileKey?.('d', true)}
+            onTouchEnd={() => (window as any).setMobileKey?.('d', false)}
+            onTouchCancel={() => (window as any).setMobileKey?.('d', false)}
+            className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+          >
+            ▶
+          </button>
+        </div>
+      </div>
+);
+
 // Fuel HUD: the gas gauge while driving (the speed and gear are on the driving HUD canvas,
 // world/hud.ts), and short notices (a refused refuel).
 const RacingHud = (_props: { isMobile?: boolean }) => {
@@ -2082,6 +2123,23 @@ function App() {
   const me = gameState.players[playerId];
   if (!me) return null;
 
+  // A Strip guest has no dealership: only the 3D view and its driving layer (the rental lobby, the counter),
+  // the driving HUD (refusals, the fuel gauge) and the way home; nothing from the town.
+  if (me.guest) return (
+    <>
+      <a href={SITE_URL} className="absolute top-4 left-4 z-[9999] px-3 py-2 bg-black/60 border border-white/20 hover:border-market/60 rounded-xl hover:bg-black/95 font-cond italic font-black text-sm tracking-wide text-white transition-all duration-300 flex items-center gap-1 shadow-[0_4px_20px_rgba(0,0,0,0.5)] pointer-events-auto">
+        <span className="text-market">Mi</span>Car
+      </a>
+      <ChunkBoundary className="absolute inset-0 z-0 grid place-items-center">
+        <Suspense fallback={<div className="absolute inset-0 z-0 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(lang, 'loading.world')}</div>}>
+          <VanillaThreeScene />
+        </Suspense>
+      </ChunkBoundary>
+      <RacingHud isMobile={isMobile} />
+      {/* phones drive with the D-pad (the lobby has none: the counter takes the screen) */}
+      {isMobile && drivingCarIdForPrompt && <div className="fixed left-6 bottom-6 z-[999] pointer-events-none select-none"><TouchDPad /></div>}
+    </>
+  );
 
   const inventoryValue = me.inventory.reduce((sum, car) => sum + car.buyPrice, 0);
   const receivableContracts = me.contracts.reduce((sum, c) => sum + (c.dailyPayment * c.daysRemaining), 0);
@@ -3252,44 +3310,7 @@ function App() {
 
           {!showUI && (
             <div className="flex justify-between items-end w-full">
-              {/* Virtual D-Pad (Left Side). Only the buttons take touches: the chat
-                  bubble sits in the empty corner beside ▲ and must stay tappable. */}
-              <div className="flex flex-col gap-2 items-center pointer-events-none [&_button]:pointer-events-auto">
-                <button
-                  onTouchStart={() => (window as any).setMobileKey?.('w', true)}
-                  onTouchEnd={() => (window as any).setMobileKey?.('w', false)}
-                  onTouchCancel={() => (window as any).setMobileKey?.('w', false)}
-                  className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
-                >
-                  ▲
-                </button>
-                <div className="flex gap-2">
-                  <button
-                    onTouchStart={() => (window as any).setMobileKey?.('a', true)}
-                    onTouchEnd={() => (window as any).setMobileKey?.('a', false)}
-                    onTouchCancel={() => (window as any).setMobileKey?.('a', false)}
-                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
-                  >
-                    ◀
-                  </button>
-                  <button
-                    onTouchStart={() => (window as any).setMobileKey?.('s', true)}
-                    onTouchEnd={() => (window as any).setMobileKey?.('s', false)}
-                    onTouchCancel={() => (window as any).setMobileKey?.('s', false)}
-                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
-                  >
-                    ▼
-                  </button>
-                  <button
-                    onTouchStart={() => (window as any).setMobileKey?.('d', true)}
-                    onTouchEnd={() => (window as any).setMobileKey?.('d', false)}
-                    onTouchCancel={() => (window as any).setMobileKey?.('d', false)}
-                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
-                  >
-                    ▶
-                  </button>
-                </div>
-              </div>
+              <TouchDPad />
 
               {/* Virtual Action Buttons (Right Side) */}
               <div className="flex gap-3 pointer-events-auto">

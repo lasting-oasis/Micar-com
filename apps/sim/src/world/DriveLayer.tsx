@@ -29,6 +29,10 @@ const rowBtn = 'w-full min-h-[44px] rounded-lg px-4 py-2 text-left font-cond upp
 function Counter() {
   const me = useGameStore(s => (s.playerId ? s.gameState?.players[s.playerId] : undefined));
   const account = useGameStore(s => s.account);
+  const notice = useGameStore(s => s.driveNotice);
+  // a rent in flight: the buttons stay disabled until the server answers (the next update, or a refusal)
+  const [pending, setPending] = useState(false);
+  useEffect(() => { setPending(false); }, [me, notice]);
   if (!me) return null;
   const ok = canRent(me);
   const broke = !account && !ok.ok && ok.reason === 'Not enough money';
@@ -40,7 +44,7 @@ function Counter() {
       </div>
       <div className="flex flex-col gap-2">
         {RENTAL_FLEET.map(f => (
-          <button key={f.key} type="button" disabled={!ok.ok} onClick={() => useGameStore.getState().rentCar(f.key)}
+          <button key={f.key} type="button" disabled={!ok.ok || pending} onClick={() => { setPending(true); useGameStore.getState().rentCar(f.key); }}
             className={`${rowBtn} flex items-center gap-3 border border-market/60 enabled:hover:bg-market enabled:hover:text-night disabled:opacity-45 disabled:cursor-not-allowed`}>
             <span className="w-4 h-4 rounded-full border border-white/30 flex-none" style={{ background: f.color }} aria-hidden="true" />
             <span className="flex-1 min-w-0">
@@ -156,7 +160,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
                 {eventLive && <button onClick={() => tap('quit')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Quit event</button>}
                 {!visitor && <button onClick={() => tap('town')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Back to town</button>}
                 {visitor && lobby && signedIn && <button onClick={() => tap('signout')} className="min-h-[44px] rounded-lg border border-market/60 py-2 font-cond font-extrabold uppercase italic text-market">Sign out</button>}
-                <p className="mt-2 text-[12px] leading-snug text-haze">{HELP.strip}</p>
+                {!lobby && <p className="mt-2 text-[12px] leading-snug text-haze">{HELP.strip}</p>}
               </div>
             </div>
           )}
