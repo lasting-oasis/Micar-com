@@ -34,13 +34,13 @@ def offset_of(tid):
     k = TRACK_IDS.index(tid)
     return (8000 * (k % 4), 8000 * (k // 4))
 
-# events: id -> (type, track, kind, arg); kind: 'loop' | 'lap' (start to start, non-loop) | ('sector', s0, s1) | ('drag', metres)
+# events: id -> (type, track, kind, arg); kind: 'loop' | 'lap' (start to start, non-loop) | 'sector' (s0, s1) | 'drag' (metres, end_before_line or None = the straightest window anywhere)
 EVENTS = {
     'harbour_gp': ('circuit', 'monaco', 'loop', None), 'lagoons_sprint': ('sprint', 'interlagos', 'lap', None),
-    'harbour_drift': ('drift', 'monaco', 'sector', (1400, 2300)), 'royal_drag': ('drag', 'monza', 'drag', 402),
+    'harbour_drift': ('drift', 'monaco', 'sector', (1400, 2300)), 'royal_drag': ('drag', 'monza', 'drag', (402, 30)),
     'drylagoon_x': ('streetx', 'laguna', 'loop', None), 'royal_gp': ('circuit', 'monza', 'loop', None),
     'lagoons_gp': ('circuit', 'interlagos', 'loop', None), 'airfield_sprint': ('sprint', 'silverstone', 'lap', None),
-    'figure8_drift': ('drift', 'suzuka', 'sector', (300, 1500)), 'mountain_drag': ('drag', 'bathurst', 'drag', 805),
+    'figure8_drift': ('drift', 'suzuka', 'sector', (300, 1500)), 'mountain_drag': ('drag', 'bathurst', 'drag', (805, None)),
     'figure8_gp': ('circuit', 'suzuka', 'loop', None), 'eifel_gp': ('circuit', 'nurburgring', 'loop', None),
     'harbour_x': ('streetx', 'monaco', 'loop', None), 'mountain_sprint': ('sprint', 'bathurst', 'lap', None),
     'lonestar_gp': ('circuit', 'cota', 'loop', None), 'airfield_gp': ('circuit', 'silverstone', 'loop', None),
@@ -322,17 +322,6 @@ def load_track(tid):
     pts = [(p[0], -p[1]) for p in d['pts']]            # game x/z -> Blender x/y
     return d, pts
 
-def nonadjacent_near(pts, closed, i, radius, skip):
-    """True when pts[i] is within `radius` of a point more than `skip` indices away (the track folds back or crosses)."""
-    n = len(pts); p = pts[i]
-    for j in range(n):
-        dj = abs(j - i)
-        if closed: dj = min(dj, n - dj)
-        if dj <= skip: continue
-        q = pts[j]
-        if abs(q[0] - p[0]) < radius and abs(q[1] - p[1]) < radius and dist(p, q) < radius: return True
-    return False
-
 def wall_runs(pts, closed, d, width):
     """Offset polyline split into runs, dropping points that would fall on another part of the track."""
     off = offset_polyline(pts, d, closed); keep = []
@@ -414,10 +403,10 @@ def build_track(tid, seed=11):
     def at(s, right=0.0):
         p, t = point_at(pts, cum, total, s, closed); return (p[0] + t[1] * right, p[1] - t[0] * right), t
     (lx, ly), lt = at(total - 60); empty(tid + '.lobby', lx, ly, 0, heading_of(lt), None, data)
-    (rx, ry), _ = at(total - 100, 8 + width / 2); empty(tid + '.return', rx, ry, 0, None, None, data); B.ring('paint', rx, ry, 5.5, 6.5, 0.02)
+    (rx, ry), _ = at(total - 100, width / 2 + 2); empty(tid + '.return', rx, ry, 0, None, None, data); B.ring('paint', rx, ry, 5.5, 6.5, 0.02)
     evs = [e for e, (ty, tr, kind, arg) in EVENTS.items() if tr == tid]
     for k, e in enumerate(evs):
-        (mx, my), _ = at(30 * (k + 1), 8 + width / 2); empty('marker.' + e, mx, my, 0, None, None, data)
+        (mx, my), _ = at(30 * (k + 1), width / 2 + 2); empty('marker.' + e, mx, my, 0, None, None, data)
     (gx, gy), gt = at(0.0)
     for side in (1, -1):
         px, py = gx - gt[1] * side * (width / 2 + 1.5), gy + gt[0] * side * (width / 2 + 1.5); B.box('steel', px, py, 0, 0.5, 0.5, 8)
@@ -451,12 +440,14 @@ def build_track(tid, seed=11):
             s0, s1 = arg; seg = [point_at(pts, cum, total, s, closed)[0] for s in frange(s0, s1, 3.0)] + [point_at(pts, cum, total, s1, closed)[0]]
             make_poly('route.' + e, seg, False, data, dict(props, cp_every=CP_EVERY, s0=float(s0), s1=float(s1)))
         elif kind == 'drag':
-            s0, s1 = longest_straight(pts, cum, total, arg)
+            need, end_before = arg
+            if end_before is None: s0, s1 = longest_straight(pts, cum, total, need)
+            else: s1 = total - end_before; s0 = s1 - need           # on the start straight, ending before the line
             a, _ = point_at(pts, cum, total, s0, closed); b0, _ = point_at(pts, cum, total, s1, closed)
-            L = dist(a, b0); b = (a[0] + (b0[0] - a[0]) / L * arg, a[1] + (b0[1] - a[1]) / L * arg)   # exactly `arg` m along the chord
-            make_poly('route.' + e, [a, b], False, data, dict(props, s0=float(s0), s1=float(s1)))
+            L = dist(a, b0); b = (a[0] + (b0[0] - a[0]) / L * need, a[1] + (b0[1] - a[1]) / L * need)   # exactly `need` m along the chord
+            make_poly('route.' + e, [a, b], False, data, dict(props, s0=float(s0), s1=float(s1), cp_every=CP_EVERY))
             # the drag marker sits at its start line, off the racing line
-            (mx, my), _ = at(s0 - 20, 8 + width / 2); ob = bpy.data.objects.get('marker.' + e)
+            (mx, my), _ = at(s0 - 20, width / 2 + 2); ob = bpy.data.objects.get('marker.' + e)
             if ob: ob.location = (mx, my, 0)
             B2 = Builder(); B2.ribbon('line', [a, b], 0.3, 0.02); B2.emit(vis, tid + '.drag.')
     return {'len': round(total, 1), 'area_sign': 1 if signed_area(pts) > 0 else -1}

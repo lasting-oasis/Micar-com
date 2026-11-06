@@ -35,6 +35,9 @@ def _build_ns():
 NS = _build_ns()
 sample_curve, cumulative, point_at = NS['sample_curve'], NS['cumulative'], NS['point_at']
 
+def g1(p):
+    """Blender (x, y) -> game (x, z), 1 decimal (walls)."""
+    return [round(p[0], 1), round(-p[1], 1)]
 def g(p):
     """Blender (x, y) -> game (x, z), rounded."""
     return [round(p[0], 2), round(-p[1], 2)]
@@ -52,10 +55,9 @@ def world_xy(ob):
 
 def route_data(ob):
     sp = ob.data.splines[0]; loop = bool(sp.use_cyclic_u)
-    pts, cp_len, total = sample_curve(ob, STEP)
-    if 'cp_idx' in ob:
-        cps = [round(cp_len[i], 2) for i in ob['cp_idx']]
-    elif 'cp_every' in ob:
+    pts, _, _ = sample_curve(ob, STEP)
+    _, total = cumulative(pts, loop)            # the length of the EXPORTED points (the game's buildRoute gives the same)
+    if 'cp_every' in ob:
         n = max(1, round(total / float(ob['cp_every']))); cps = [round(total * k / n, 2) for k in range(n if loop else n + 1)]
         if not loop: cps[-1] = round(total, 2)
     else:
@@ -86,7 +88,7 @@ def walls_of(coll, prefix='wall.'):
                 nxt = [v for v in adj[cur] if v != prev and v not in seen]
                 if not nxt: break
                 prev, cur = cur, nxt[0]; chain.append(cur); seen.add(cur)
-            if len(chain) >= 2: out.append([g((verts[i].x, verts[i].y)) for i in chain])
+            if len(chain) >= 2: out.append([g1((verts[i].x, verts[i].y)) for i in chain])
         for start in sorted(adj):  # closed loops (every vertex has two neighbours)
             if start in seen: continue
             chain = [start]; seen.add(start); prev = None; cur = start
@@ -95,7 +97,7 @@ def walls_of(coll, prefix='wall.'):
                 if not nxt: break
                 prev, cur = cur, nxt[0]; chain.append(cur); seen.add(cur)
             chain.append(start)
-            out.append([g((verts[i].x, verts[i].y)) for i in chain])
+            out.append([g1((verts[i].x, verts[i].y)) for i in chain])
     return out
 
 def bounds_of(ptss):
@@ -150,9 +152,10 @@ def export_track(tid):
     for ob in data.objects:
         if ob.type == 'CURVE' and ob.name.startswith('route.'):
             e = ob.name[6:]; routes[e], lens[e] = route_data(ob)
+    want = {e for e, (tr, ty) in EVENTS.items() if tr == tid}
+    if set(routes) != want: raise RuntimeError('%s: routes %s but events %s' % (tid, sorted(routes), sorted(want)))
     for e, (tr, ty) in EVENTS.items():
         if tr != tid: continue
-        if e not in routes: raise RuntimeError('%s: no route for %s' % (tid, e))
         r = routes[e]
         if ty == 'drag':
             a, b = r['pts'][0], r['pts'][-1]; L = math.hypot(b[0] - a[0], b[1] - a[1])
