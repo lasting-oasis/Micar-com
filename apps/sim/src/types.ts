@@ -33,6 +33,7 @@ export type Car = {
   isLienActive?: boolean; // a title loan is secured against this car
   accidents?: number;     // accident history (affects collateral value / risk)
   basePrice?: number;     // original sticker baseline used for title-loan valuation
+  rental?: boolean;       // Strip rental: stock car, returned (not sold) when the event ends
 };
 
 export const FUEL_PRICE_PER_UNIT = 9; // $ per gas unit (full tank from empty ≈ $900)
@@ -98,6 +99,7 @@ export type EconomicState = {
 
 export type Player = {
   id: string; name: string; money: number;
+  guest?: boolean; accountId?: string; // guest visitors have no account yet
   inventory: Car[]; lotPosition: { x: number; z: number };
   worldPosition?: { x: number; y: number; z: number; rotation: number; district?: 'town' | 'strip' }; // district: relayed in player_positions
   partsInventory: Record<string, number>; // Maps part name to quantity owned
@@ -167,4 +169,5 @@ export type GameState = {
   fractionalMarket: FractionalVehicle[]; // vehicles available as fractional shares
   chatLog?: ChatMessage[]; // recent multiplayer chat (last ~50)
   hostId?: string | null; // The player who can advance the day
+  accounts: Record<string, unknown>; // keyed by account id; narrowed to Account later
 };

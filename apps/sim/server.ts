@@ -156,6 +156,7 @@ let gameState: GameState = {
     day: 1, 
     timeOfDay: 8.0, 
     players: {}, 
+    accounts: {},
     market: [], 
     junkyard: [],
     economy: {

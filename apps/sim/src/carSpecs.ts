@@ -56,9 +56,6 @@ const MODEL_SPECS: Record<string, CarSpec> = {
   'BMW M4':           S('3.0L Twin-Turbo I6', 473, 3800, 3.8, 155, 'RWD'),
   'BMW 4 Series':     S('2.0L Turbo I4', 255, 3650, 5.5, 130, 'RWD'),
   'BMW Z4':           S('2.0L Turbo I4', 255, 3300, 5.2, 155, 'RWD'),
-  // Speedway rental race car: tuned to match the original game handling, which the
-  // CPU racers' pace was balanced against.
-  'Speedway Rental GT': S('Race-tuned V8', 640, 3100, 2.4, 190, 'RWD'),
 };
 
 // Old, tired cars of a body style (junkyard "Scrap Shell"s and anything unknown).
