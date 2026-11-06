@@ -113,7 +113,7 @@ def resample(pts, step, closed):
     cum, total = cumulative(pts, closed)
     n = int(total // step) if closed else int(math.floor(total / step))
     out = [point_at(pts, cum, total, k * step, closed)[0] for k in range(n + (0 if closed else 1))]
-    if not closed and dist(out[-1], pts[-1]) > 1e-6: out.append(pts[-1])
+    if not closed and dist(out[-1], pts[-1]) > 0.05: out.append(pts[-1])   # the true end, unless the last step landed on it
     return out
 
 def curvature(pts, i, closed, w=3):
