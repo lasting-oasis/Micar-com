@@ -12,6 +12,17 @@ describe('magic links', () => {
     expect(verifyMagic(signMagic('a@b.c', 0, S) + 'x', 1, S, new Set())).toBeUndefined();         // tampered
     expect(verifyMagic(signMagic('a@b.c', 0, S), 1, 'other', new Set())).toBeUndefined();         // wrong secret
   });
+  it('cannot be replayed by altering the last character of a consumed token', () => {
+    const used = new Set<string>(); const t = signMagic('a@b.c', 0, S);
+    expect(verifyMagic(t, 1, S, used)).toBe('a@b.c');
+    const last = t.slice(-1), flipped = t.slice(0, -1) + (last === 'A' ? 'B' : 'A');
+    expect(verifyMagic(flipped, 1, S, used)).toBeUndefined();
+    expect(verifyMagic(flipped, 1, S, new Set())).toBeUndefined();
+  });
+  it('keeps magic and session tokens apart', () => {
+    expect(verifyMagic(signSession('a@b.c', 0, S), 1, S, new Set())).toBeUndefined();
+    expect(verifySession(signMagic('a@b.c', 0, S), 1, S)).toBeUndefined();
+  });
 });
 describe('sessions', () => {
   it('round-trips for 30 days', () => {
@@ -24,7 +35,7 @@ describe('google', () => {
   const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', { modulusLength: 2048 });
   const jwk = { ...(publicKey.export({ format: 'jwk' }) as any), kid: 'k1' };
   const b64 = (o: any) => Buffer.from(JSON.stringify(o)).toString('base64url');
-  const token = (payload: any, kid = 'k1') => { const h = b64({ alg: 'RS256', kid }), p = b64(payload); const sig = crypto.sign('RSA-SHA256', Buffer.from(`${h}.${p}`), privateKey).toString('base64url'); return `${h}.${p}.${sig}`; };
+  const token = (payload: any, kid = 'k1', alg = 'RS256') => { const h = b64({ alg, kid }), p = b64(payload); const sig = crypto.sign('RSA-SHA256', Buffer.from(`${h}.${p}`), privateKey).toString('base64url'); return `${h}.${p}.${sig}`; };
   const good = { iss: 'https://accounts.google.com', aud: 'cid', sub: '123', email: 'p@x.y', exp: 2000 };
   it('accepts a token signed by a known key for our client id', () => expect(verifyGoogle(token(good), 'cid', [jwk], 1_000_000)).toEqual({ sub: '123', email: 'p@x.y' }));
   it('rejects wrong audience, wrong issuer, expiry, unknown key and a bad signature', () => {
@@ -32,7 +43,8 @@ describe('google', () => {
     expect(verifyGoogle(token({ ...good, iss: 'evil' }), 'cid', [jwk], 1_000_000)).toBeUndefined();
     expect(verifyGoogle(token(good), 'cid', [jwk], 2_001_000)).toBeUndefined();
     expect(verifyGoogle(token(good, 'k2'), 'cid', [jwk], 1_000_000)).toBeUndefined();
-    expect(verifyGoogle(token(good).slice(0, -3) + 'AAA', 'cid', [jwk], 1_000_000)).toBeUndefined();
+    expect(verifyGoogle((() => { const t = token(good); return t.slice(0, -10) + (t.slice(-10, -9) === 'A' ? 'B' : 'A') + t.slice(-9); })(), 'cid', [jwk], 1_000_000)).toBeUndefined();
+    expect(verifyGoogle(token(good, 'k1', 'HS256'), 'cid', [jwk], 1_000_000)).toBeUndefined();
   });
 });
 describe('linking and the allowance', () => {
@@ -55,6 +67,8 @@ describe('linking and the allowance', () => {
   });
   it('saveRecord drops rentals; a live account cannot attach twice; boot keeps accounts and drops players', () => {
     expect(saveRecord(guest()).inventory).toEqual([{ id: 'own-1' }]);
+    const live = guest(), rec = saveRecord(live); live.stamps.push('x'); live.strip.rep = 999; live.inventory[1].id = 'changed';
+    expect(rec.stamps).toEqual(['strip:first-win']); expect(rec.strip?.rep).toBe(150); expect(rec.inventory).toEqual([{ id: 'own-1' }]);
     expect(attachAccount('acct-1', [{ accountId: 'acct-1' } as any])).toEqual({ ok: false, reason: 'already signed in' });
     expect(attachAccount('acct-1', [])).toEqual({ ok: true });
     const st = bootState({ players: { a: 1 }, accounts: { x: { id: 'x' } as any } });

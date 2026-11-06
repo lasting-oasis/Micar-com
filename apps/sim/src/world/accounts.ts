@@ -16,19 +16,22 @@ const b64 = (s: string | Buffer) => Buffer.from(s).toString('base64url');
 const mac = (body: string, secret: string) => crypto.createHmac('sha256', secret).update(body).digest();
 
 // token = base64url(`${subject}.${expiresAt}`) + '.' + base64url(HMAC-SHA256)
-function sign(subject: string, expiresAt: number, secret: string): string {
-  const body = b64(`${subject}.${expiresAt}`);
+function sign(domain: 'm' | 's', subject: string, expiresAt: number, secret: string): string {
+  const body = b64(`${domain}:${subject}.${expiresAt}`);
   return `${body}.${b64(mac(body, secret))}`;
 }
 
-function open(token: string, now: number, secret: string): string | undefined {
+function open(domain: 'm' | 's', token: string, now: number, secret: string): string | undefined {
   const parts = token.split('.');
   if (parts.length !== 2) return undefined;
   const [body, sig] = parts;
   const want = mac(body, secret);
+  if (b64(want) !== sig) return undefined; // reject non-canonical encodings of a valid signature
   const got = Buffer.from(sig, 'base64url');
   if (got.length !== want.length || !crypto.timingSafeEqual(got, want)) return undefined;
-  const text = Buffer.from(body, 'base64url').toString();
+  const full = Buffer.from(body, 'base64url').toString();
+  if (!full.startsWith(`${domain}:`)) return undefined;
+  const text = full.slice(2);
   const dot = text.lastIndexOf('.');
   if (dot < 0) return undefined;
   const expiresAt = Number(text.slice(dot + 1));
@@ -37,21 +40,21 @@ function open(token: string, now: number, secret: string): string | undefined {
 }
 
 export function signMagic(email: string, now: number, secret: string): string {
-  return sign(email.toLowerCase(), now + MAGIC_TTL_MS, secret);
+  return sign('m', email.toLowerCase(), now + MAGIC_TTL_MS, secret);
 }
 export function verifyMagic(token: string, now: number, secret: string, used: Set<string>): string | undefined {
   if (used.has(token)) return undefined;
-  const email = open(token, now, secret);
+  const email = open('m', token, now, secret);
   if (email === undefined) return undefined;
   used.add(token);
   return email.toLowerCase();
 }
 
 export function signSession(accountId: string, now: number, secret: string): string {
-  return sign(accountId, now + SESSION_TTL_MS, secret);
+  return sign('s', accountId, now + SESSION_TTL_MS, secret);
 }
 export function verifySession(token: string, now: number, secret: string): string | undefined {
-  return open(token, now, secret);
+  return open('s', token, now, secret);
 }
 
 export function verifyGoogle(idToken: string, clientId: string, keys: Jwk[], now: number): { sub: string; email?: string } | undefined {
@@ -60,6 +63,7 @@ export function verifyGoogle(idToken: string, clientId: string, keys: Jwk[], now
     if (parts.length !== 3) return undefined;
     const [h, p, s] = parts;
     const header = JSON.parse(Buffer.from(h, 'base64url').toString());
+    if (header.alg !== 'RS256') return undefined;
     const jwk = keys.find(k => k.kid === header.kid);
     if (!jwk) return undefined;
     const key = crypto.createPublicKey({ key: jwk as crypto.JsonWebKey, format: 'jwk' });
@@ -85,10 +89,10 @@ export function findAccount(accounts: Record<string, Account>, id: Identity): Ac
 }
 
 export function saveRecord(player: Player): SavedPlayer {
-  return {
+  return structuredClone({
     name: player.name, money: player.money, octane: player.octane, stamps: player.stamps, strip: player.strip,
     inventory: player.inventory.filter(c => !isRental(c)),
-  };
+  });
 }
 
 export function linkGuest(accounts: Record<string, Account>, id: Identity, guest: Player, now: number): { account: Account; replaced: boolean } {
