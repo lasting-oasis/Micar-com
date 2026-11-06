@@ -682,3 +682,6 @@
 .dp .strip-cta { font-size: 14px; padding: 8px 12px; box-shadow: 3px 3px 0 var(--paint); }
 .dp .strip-cta::after { display: none; }
 @media (max-width: 720px) { .dp .strip-cta { display: none; } }
+
+/* Section links (#grade etc.) land below the sticky bar. */
+.dp section[id], .dp header[id] { scroll-margin-top: 64px; }
