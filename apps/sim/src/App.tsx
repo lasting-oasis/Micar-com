@@ -8,6 +8,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { loadChunk } from './loadChunk';
 import { ChunkBoundary } from './ChunkBoundary'
 import { Strip } from './Strip'
+import { StripEntry } from './strip/StripEntry'
+import { isVisitor } from './world/rental'
+import { routeFromLocation } from './route'
 import { SITE_URL } from '@micar/brand';
 // Heavy screens load on demand. The 3D world (three.js) starts downloading as
 // soon as the setup screen shows, so it's usually ready by the time you join.
@@ -1794,6 +1797,47 @@ const GameChat = ({ isMobile }: { isMobile?: boolean }) => {
   );
 };
 
+// The phone's D-pad (the old W/A/S/D keys, which also drive): walking in the town, driving everywhere.
+// Only the buttons take touches: the chat bubble sits in the empty corner beside ▲ and must stay tappable.
+const TouchDPad = () => (
+      <div className="flex flex-col gap-2 items-center pointer-events-none [&_button]:pointer-events-auto">
+        <button
+          onTouchStart={() => (window as any).setMobileKey?.('w', true)}
+          onTouchEnd={() => (window as any).setMobileKey?.('w', false)}
+          onTouchCancel={() => (window as any).setMobileKey?.('w', false)}
+          className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+        >
+          ▲
+        </button>
+        <div className="flex gap-2">
+          <button
+            onTouchStart={() => (window as any).setMobileKey?.('a', true)}
+            onTouchEnd={() => (window as any).setMobileKey?.('a', false)}
+            onTouchCancel={() => (window as any).setMobileKey?.('a', false)}
+            className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+          >
+            ◀
+          </button>
+          <button
+            onTouchStart={() => (window as any).setMobileKey?.('s', true)}
+            onTouchEnd={() => (window as any).setMobileKey?.('s', false)}
+            onTouchCancel={() => (window as any).setMobileKey?.('s', false)}
+            className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+          >
+            ▼
+          </button>
+          <button
+            onTouchStart={() => (window as any).setMobileKey?.('d', true)}
+            onTouchEnd={() => (window as any).setMobileKey?.('d', false)}
+            onTouchCancel={() => (window as any).setMobileKey?.('d', false)}
+            className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
+          >
+            ▶
+          </button>
+        </div>
+      </div>
+);
+
 // Fuel HUD: the gas gauge while driving (the speed and gear are on the driving HUD canvas,
 // world/hud.ts), and short notices (a refused refuel).
 const RacingHud = (_props: { isMobile?: boolean }) => {
@@ -1869,6 +1913,7 @@ function App() {
   // from re-rendering on every per-second clock tick (a major source of lag).
   const gameState = useGameStore(s => s.gameState);
   const playerId = useGameStore(s => s.playerId);
+  const holdCard = useGameStore(s => s.holdCard);
   const activeInteraction = useGameStore(s => s.activeInteraction);
   const drivingCarIdForPrompt = useGameStore(s => s.drivingCarId); // hide the walk-up prompt while driving
   const garageCarId = useGameStore(s => s.garageCarId); // the Garage overlay (world/GarageMenu) is open
@@ -1988,14 +2033,16 @@ function App() {
 
   // The front door of MiCar World: what the place is, your name, one button. The game's options
   // (your business, its size, the guide) are defaulted and folded under "More options".
-  if (!playerId || !gameState) {
+  const onStrip = routeFromLocation(window.location).view === 'strip';
+  if (!playerId || !gameState || (onStrip && holdCard)) {
+    if (onStrip) return <StripEntry />;
     const businesses: { id: 'dealership' | 'mechanic' | 'body' | 'dual'; key: string; on: boolean; pick: () => void }[] = [
       { id: 'dealership', key: 'setup.dealership', on: careerFocusInput === 'dealership', pick: () => setCareerFocusInput('dealership') },
       { id: 'mechanic', key: 'setup.mechanicShop', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'mechanic', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('mechanic'); } },
       { id: 'body', key: 'setup.bodyShop', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'body', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('body'); } },
       { id: 'dual', key: 'setup.dual', on: careerFocusInput === 'standalone' && shopSpecialtyInput === 'dual', pick: () => { setCareerFocusInput('standalone'); setShopSpecialtyInput('dual'); } },
     ];
-    const enter = () => connect(nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScaleInput, careerFocusInput, shopSpecialtyInput);
+    const enter = () => connect({ mode: 'dealer', name: nameInput || (careerFocusInput === 'standalone' ? 'Apex Repair' : 'Anonymous'), lotScale: lotScaleInput, careerFocus: careerFocusInput, shopSpecialty: shopSpecialtyInput });
     return (
       <div className="h-[100dvh] overflow-y-auto overscroll-contain bg-night text-ink font-sans" style={{ backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 20%, #121a2a 0%, #0e1217 70%)' }}>
         <Strip current="world" />
@@ -2067,6 +2114,13 @@ function App() {
             <button type="submit" className="w-full bg-market text-[#0b0d12] font-cond italic font-black uppercase tracking-wider text-lg py-3.5 rounded-lg transition-all hover:brightness-110 flex items-center justify-center gap-2 shadow-[4px_4px_0_#e0b22a]">
               <LogIn size={18} /> {t(lang, 'setup.establish')}
             </button>
+            <div className="flex items-center gap-3 text-haze font-cond uppercase tracking-[0.14em] text-xs" aria-hidden="true">
+              <span className="h-px flex-1 bg-line" />{t(lang, 'setup.or')}<span className="h-px flex-1 bg-line" />
+            </div>
+            <a href="/strip" className="w-full border-2 border-market text-market font-cond italic font-black uppercase tracking-wider text-lg py-3 rounded-lg transition-all hover:bg-market hover:text-[#0b0d12] flex items-center justify-center gap-2 min-h-[48px]">
+              {t(lang, 'setup.enterStrip')}
+            </a>
+            <p className="text-sm text-haze -mt-2">{t(lang, 'setup.enterStripDesc')}</p>
             <p className="font-marker text-market text-sm -rotate-1 origin-left">{t(lang, 'setup.free')}</p>
           </motion.form>
         </div>
@@ -2077,6 +2131,23 @@ function App() {
   const me = gameState.players[playerId];
   if (!me) return null;
 
+  // A Strip visitor (a guest or a Strip account holder) has no dealership: only the 3D view and its driving layer (the rental lobby, the counter),
+  // the driving HUD (refusals, the fuel gauge) and the way home; nothing from the town.
+  if (isVisitor(me)) return (
+    <>
+      <a href={SITE_URL} className="absolute top-4 left-4 z-[9999] px-3 py-2 bg-black/60 border border-white/20 hover:border-market/60 rounded-xl hover:bg-black/95 font-cond italic font-black text-sm tracking-wide text-white transition-all duration-300 flex items-center gap-1 shadow-[0_4px_20px_rgba(0,0,0,0.5)] pointer-events-auto">
+        <span className="text-market">Mi</span>Car
+      </a>
+      <ChunkBoundary className="absolute inset-0 z-0 grid place-items-center">
+        <Suspense fallback={<div className="absolute inset-0 z-0 grid place-items-center text-white/40 text-xs font-black uppercase tracking-widest">{t(lang, 'loading.world')}</div>}>
+          <VanillaThreeScene />
+        </Suspense>
+      </ChunkBoundary>
+      <RacingHud isMobile={isMobile} />
+      {/* phones drive with the D-pad (the lobby has none: the counter takes the screen) */}
+      {isMobile && drivingCarIdForPrompt && <div className="fixed left-6 bottom-6 z-[999] pointer-events-none select-none"><TouchDPad /></div>}
+    </>
+  );
 
   const inventoryValue = me.inventory.reduce((sum, car) => sum + car.buyPrice, 0);
   const receivableContracts = me.contracts.reduce((sum, c) => sum + (c.dailyPayment * c.daysRemaining), 0);
@@ -3247,44 +3318,7 @@ function App() {
 
           {!showUI && (
             <div className="flex justify-between items-end w-full">
-              {/* Virtual D-Pad (Left Side). Only the buttons take touches: the chat
-                  bubble sits in the empty corner beside ▲ and must stay tappable. */}
-              <div className="flex flex-col gap-2 items-center pointer-events-none [&_button]:pointer-events-auto">
-                <button
-                  onTouchStart={() => (window as any).setMobileKey?.('w', true)}
-                  onTouchEnd={() => (window as any).setMobileKey?.('w', false)}
-                  onTouchCancel={() => (window as any).setMobileKey?.('w', false)}
-                  className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
-                >
-                  ▲
-                </button>
-                <div className="flex gap-2">
-                  <button
-                    onTouchStart={() => (window as any).setMobileKey?.('a', true)}
-                    onTouchEnd={() => (window as any).setMobileKey?.('a', false)}
-                    onTouchCancel={() => (window as any).setMobileKey?.('a', false)}
-                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
-                  >
-                    ◀
-                  </button>
-                  <button
-                    onTouchStart={() => (window as any).setMobileKey?.('s', true)}
-                    onTouchEnd={() => (window as any).setMobileKey?.('s', false)}
-                    onTouchCancel={() => (window as any).setMobileKey?.('s', false)}
-                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
-                  >
-                    ▼
-                  </button>
-                  <button
-                    onTouchStart={() => (window as any).setMobileKey?.('d', true)}
-                    onTouchEnd={() => (window as any).setMobileKey?.('d', false)}
-                    onTouchCancel={() => (window as any).setMobileKey?.('d', false)}
-                    className="w-14 h-14 bg-black/60 border-2 border-white/30 text-white font-bold rounded-xl active:bg-market active:text-black flex items-center justify-center text-lg shadow-lg active:scale-95 transition-transform select-none touch-none"
-                  >
-                    ▶
-                  </button>
-                </div>
-              </div>
+              <TouchDPad />
 
               {/* Virtual Action Buttons (Right Side) */}
               <div className="flex gap-3 pointer-events-auto">

@@ -30,6 +30,7 @@ import { ChaseCamera } from './world/cameras';
 import { WORLD_PER_M } from './world/units';
 import { useDriveUi, type ShownResults } from './world/driveUi';
 import { DriveLayer } from './world/DriveLayer';
+import { RENTAL_BAY, canRent, heldRental, isVisitor } from './world/rental';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
@@ -602,6 +603,10 @@ export function VanillaThreeScene() {
         let wheelR = 1;                       // the driven body's wheel radius (world units), for the roll
         let lastStripRec: StripRecord | null | undefined;
         let driftMode = false, paused = false, resultsShown = false;
+        let lobby = false, lobbyChecked = false, restarting = false;
+        let rentalId: string | null = null;  // the rental being driven
+        // a Strip visitor: a guest or an account holder (no lot in the town)
+        const visitor = (): boolean => isVisitor(stateRef.current.gameState?.players[stateRef.current.playerId || '']);
         let lastShift = 0, lastBov = false, lastNos = false;
         let backspaceTap = false;             // Backspace: reset in the town (R parks / opens a bay there)
         let lastGarageCarId: string | null = null;
@@ -679,7 +684,8 @@ export function VanillaThreeScene() {
                 socketEmit('finish_event', { eventId: r.ev.id, pos: r.pos, time: r.time, score: r.score, failed: !!r.failed });
                 useDriveUi.setState({ results: shownResults(r), reward: null });
             },
-            onEventQuit: ev => socketEmit('quit_event', { eventId: ev.id }),
+            // a restart keeps a rental for the entry that follows (the server returns it on a plain quit)
+            onEventQuit: ev => socketEmit('quit_event', restarting ? { eventId: ev.id, restart: true } : { eventId: ev.id }),
             onOutrun: won => socketEmit('finish_outrun', { won }),
             // Night Tuner's near-miss cash is not ported (onNearMiss)
         });
@@ -687,7 +693,7 @@ export function VanillaThreeScene() {
         const mendEngine = () => { if (driver) { driver.V.blown = false; driver.V.overRev = 0; } };
         const closeResults = () => {
             resultsShown = false;
-            useDriveUi.setState({ results: null });
+            useDriveUi.setState({ results: null, returned: null });
             strip?.runner.cleanup();
             mendEngine();
         };
@@ -711,9 +717,10 @@ export function VanillaThreeScene() {
             sendPlayerPos(); // now, so an event entered at once (a quick race) is entered from inside the Strip
             return true;
         };
-        /** Back to the town gate (the exit ring, the pause menu): any event or outrun ends without a result. */
+        /** Back to the town gate (the exit ring, the pause menu): any event or outrun ends without a result.
+         *  Not for a Strip visitor (a guest or an account holder): they have no town to go back to. */
         const exitStrip = (): boolean => {
-            if (district !== 'strip' || !strip) return false;
+            if (district !== 'strip' || !strip || visitor() || lobby) return false;
             strip.exit(); // cleans up the event, gives the car group back to the town scene
             district = 'town'; paused = false; resultsShown = false;
             mendEngine(); // a drag's blown engine stays in the Strip
@@ -743,9 +750,10 @@ export function VanillaThreeScene() {
          *  which the server keeps apart from our town position (the gate spot), so Strip players see each other. */
         const sendPlayerPos = (): THREE.Object3D => {
             const activeMesh = (localDrivingCarId && carMeshes[localDrivingCarId]) || avatar;
+            const at = lobby ? LOBBY_POS : activeMesh.position; // the lobby: standing at the rental bay
             useGameStore.getState().socket?.emit('sync_player_pos', {
-                x: activeMesh.position.x, y: district === 'strip' ? 0 : activeMesh.position.y, z: activeMesh.position.z,
-                rotation: headingOf(activeMesh), // true heading (see headingOf)
+                x: at.x, y: district === 'strip' ? 0 : at.y, z: at.z,
+                rotation: lobby ? RENTAL_BAY.h : headingOf(activeMesh), // true heading (see headingOf)
                 district,
             });
             return activeMesh;
@@ -803,15 +811,93 @@ export function VanillaThreeScene() {
         /** Out of the car (always in the town): the kit comes off, the walking camera picks up from the chase camera. */
         const endDriving = () => {
             if (district === 'strip') exitStrip();
+            dropCar();
+            camera.position.copy(driveCam.position);
+        };
+        /** Leave the driven car where it is: input, kit, sound and the driving HUD go. */
+        const dropCar = () => {
             im.detach();
             if (kit) { disposeParts(kit); kit = null; }
-            audio.silence(); // the engine, skid and wind beds: nothing keeps playing on foot
-            kitKey = ''; driver = null; localDrivingCarId = null; localFuel = null;
-            camera.position.copy(driveCam.position);
+            audio.silence(); // the engine, skid and wind beds: nothing keeps playing on foot (or in the lobby)
+            kitKey = ''; driver = null; localDrivingCarId = null; localFuel = null; rentalId = null;
             const st = useGameStore.getState();
             st.setDrivingCarId(null); st.setDrivingFuel(null);
             hud?.clear();
             useDriveUi.setState({ driving: false, prompt: '', nos: false, paused: false, eventLive: false, gears: false, mapOpen: false }); promptShown = ''; nosShown = false;
+        };
+
+        // ---- the rental lobby: a Strip visitor's "on foot" (Strip loaded, the camera on the bay, the counter open)
+        const LOBBY_POS = new THREE.Vector3(RENTAL_BAY.x * W, 0, RENTAL_BAY.z * W);
+        /** Into the lobby: the Strip without a car, the camera fixed on the rental bay. */
+        const enterLobby = () => {
+            const S = getStrip();
+            S.load();
+            if (stripExit.group.parent !== S.scene) S.scene.add(stripExit.group);
+            stripExit.group.visible = !visitor(); // a visitor has no way back to town
+            S.lobby(driveCam);
+            lobby = true; district = 'strip'; paused = false;
+            if (layerRoot) im.attach(layerRoot); // Esc and Enter (the pause menu, the results card)
+            interactPrompt.material.opacity = 0;
+            const st = useGameStore.getState();
+            if (st.activeInteraction) st.setActiveInteraction(null);
+            useDriveUi.setState({ district: 'strip', lobby: true, counter: !resultsShown, paused: false, prompt: '', driving: false }); promptShown = '';
+            sendPlayerPos();
+        };
+        /** A dealer who landed in the lobby (a reload while in the Strip) walks back into the town. */
+        const lobbyToTown = () => {
+            strip?.leaveLobby(); lobby = false; district = 'town'; paused = false;
+            im.detach();
+            useDriveUi.setState({ district: 'town', lobby: false, counter: false, paused: false });
+            sendPlayerPos();
+        };
+        /** The rental just arrived in the inventory: into it, at the bay, nose toward the exit ring at node [8, 8]. */
+        const driveRental = (carId: string): boolean => {
+            const S = strip, mesh = carMeshes[carId];
+            if (!S || !mesh || driver || !beginDriving(carId)) return false;
+            const D = driver as Driver | null; if (!D) return false;
+            lobby = false; S.leaveLobby(); rentalId = carId;
+            // the server's driven car: an event locks it, and closing the event hands it back
+            socketEmit('sync_car_pos', { carId, district: 'strip' });
+            D.place(RENTAL_BAY.x, RENTAL_BAY.z, RENTAL_BAY.h);
+            S.enter(D.V, mesh);
+            driveCam.fov = 62; driveCam.updateProjectionMatrix(); // from the lobby's narrower view
+            paused = false; resultsShown = false; driftMode = false;
+            chase.reset(D.V);
+            useDriveUi.setState({ lobby: false, counter: false, paused: false, results: null, returned: null });
+            sendPlayerPos();
+            return true;
+        };
+        /** The driven rental went back (its event closed on the server): out of it, staying in the Strip, back to the
+         *  lobby. A results card stays up until dismissed; `money` is what is on hand after the payout. */
+        const rentalGone = (money: number) => {
+            strip?.exit(); // ends what is left of the event, gives the car group back (the caller disposes it)
+            mendEngine();
+            dropCar();
+            // on the results card when one is up; else (an outrun, a quit, a card already closed) as a banner
+            if (resultsShown) useDriveUi.setState({ returned: money });
+            else { useDriveUi.setState({ returned: null }); say(`Rental returned — $${Math.round(money).toLocaleString('en-US')} on hand`); }
+            enterLobby();
+        };
+        /** One lobby frame: Esc / II pauses (Sign out for account holders), Enter / Continue closes the results card;
+         *  the Strip's traffic drives by behind the counter. No car, no walking, no sound. */
+        const lobbyFrame = (delta: number) => {
+            const S = strip!;
+            avatar.visible = false;
+            im.poll();
+            const E = im.edge, tapped = useDriveUi.getState().tap;
+            if (tapped) useDriveUi.setState({ tap: null });
+            const pauseK = E.pause || tapped === 'pause', enter = E.enter || tapped === 'enter';
+            im.clearEdges();
+            if (resultsShown) { if (enter || tapped === 'continue') closeResults(); }
+            else if (paused) {
+                if (pauseK || tapped === 'resume') paused = false;
+                else if (tapped === 'signout' && useGameStore.getState().account) { paused = false; useGameStore.getState().signOut(); } // a fresh guest init follows: still the lobby
+                else if (tapped === 'town' && !visitor()) { lobbyToTown(); return; }
+            } else if (pauseK) paused = true;
+            S.update(delta, true);
+            stripExit.pulse(performance.now());
+            const ui = useDriveUi.getState(), counter = !paused && !resultsShown;
+            if (ui.paused !== paused || ui.counter !== counter || ui.eventLive) useDriveUi.setState({ paused, counter, eventLive: false });
         };
 
         // ---- the per-frame step
@@ -882,8 +968,8 @@ export function VanillaThreeScene() {
                     if (enter || tapped === 'continue') closeResults();
                 } else if (paused) {
                     if (pauseK || tapped === 'resume') paused = false;
-                    else if (tapped === 'town') leave = true;
-                    else if (tapped === 'restart' && a && !a.results) { paused = false; startEventById(a.ev.id, a.quick); } // cleanup (quit_event), then enter_event
+                    else if (tapped === 'town' && !visitor()) leave = true;
+                    else if (tapped === 'restart' && a && !a.results) { paused = false; restarting = true; try { startEventById(a.ev.id, a.quick); } finally { restarting = false; } } // cleanup (quit_event, restart: true), then enter_event
                     else if (tapped === 'quit' && a && !a.results) { paused = false; S.runner.quit(); mendEngine(); chase.reset(V); } // quit_event
                 } else {
                     if (pauseK) paused = true;
@@ -891,7 +977,7 @@ export function VanillaThreeScene() {
                     else if (resetK) respawn(S, D);
                     if (E.laneL) S.runner.dragLane(-1);
                     if (E.laneR) S.runner.dragLane(1);
-                    if (free && stripExit.isOnExit(V.x, V.z)) { prompt = '[Enter] BACK TO TOWN'; if (enter) leave = true; }
+                    if (free && !visitor() && stripExit.isOnExit(V.x, V.z)) { prompt = '[Enter] BACK TO TOWN'; if (enter) leave = true; }
                     else { const t = S.promptText(); if (t) prompt = t.replace('Enter · ', '[Enter] '); if (enter) S.pressEnter(); }
                 }
                 mapFwd = fwdK; mapBack = backK;
@@ -980,16 +1066,24 @@ export function VanillaThreeScene() {
             place: (x: number, z: number, rotY = Math.PI): boolean => { if (!driver) return false; driver.place(x / W, z / W, rotY - Math.PI); chase.reset(driver.V); return true; },
             enterStrip: () => enterStrip(),
             exitStrip: () => exitStrip(),
+            /** rent a car at the counter (the same call the counter's buttons make) */
+            rent: (key: string): boolean => { const me = meNow(); if (!me || !canRent(me).ok) return false; useGameStore.getState().rentCar(key); return true; },
+            /** in the rental lobby (a Strip visitor without a car) */
+            lobby: () => lobby,
             startEvent: (id: string) => startEventById(id),
             district: () => district,
             /** the engine beds' gains (engine, turbo, skid, nitrous, wind); all 0 once out of the car */
             audioLevels: () => audio.levels(),
             /** your money (dollars), as the client has it */
             money: (): number => meNow()?.money ?? 0,
+            /** the ids of the cars you hold (the smoke checks a returned rental is gone) */
+            cars: (): string[] => (meNow()?.inventory ?? []).map(c => c.id),
             /** the live event, if any: its id, state ('count' | 'race' | 'done') and whether results are in */
             event: () => { const a = district === 'strip' ? strip?.runner.active : null; return a ? { id: a.ev.id, state: a.state, results: !!a.results, pS: a.pS } : null; },
             /** the ids of the other players drawn in the Strip */
             stripPlayers: () => Object.keys(stripTags),
+            /** sign in with a magic-link token, as the link's page does (the smoke) */
+            linkMagic: (token: string) => { useGameStore.getState().linkAccount({ magic: token }); },
             /** open the Garage menu on `carId`, else your first car (the same call the lot's [Enter] GARAGE makes) */
             openGarage: (carId?: string): boolean => { const c = carId ?? meNow()?.inventory?.[0]?.id; if (!c) return false; useGameStore.getState().openGarage(c); return true; },
         };
@@ -1050,6 +1144,10 @@ export function VanillaThreeScene() {
             viewCam = driver ? driveCam : camera;
             gate.pulse(performance.now());
             const me = current.gameState?.players[current.playerId || ''];
+            // A Strip visitor never stands in the town: a guest (or, on mount, anyone the server has in the
+            // Strip without a car) starts in the rental lobby
+            if (me && !lobby && !driver && district === 'town' && (me.guest || (!lobbyChecked && me.worldPosition?.district === 'strip'))) enterLobby();
+            if (me) lobbyChecked = true;
 
             // Time of Day Rendering Sync. The server sends the clock once a second
             // (time_update); between ticks we advance it locally (1 game hour = 30 s)
@@ -1148,7 +1246,7 @@ export function VanillaThreeScene() {
             if (keys.r) rWasPressed = true; else rWasPressed = false;
 
             // E key toggle interaction (Enter / Exit vehicle)
-            if (eJustPressed) {
+            if (eJustPressed && !lobby) {
                 if (!isDriving) {
                     if (me && me.inventory.length > 0) {
                         // Find closest car to enter
@@ -1164,7 +1262,7 @@ export function VanillaThreeScene() {
                         if (closestCar) beginDriving(closestCar);
                     }
                 } else if (district === 'strip') {
-                    say('Drive onto the gate ring to leave the Strip');
+                    if (!visitor()) say('Drive onto the gate ring to leave the Strip');
                 } else {
                     // EXITED CAR
                     if (carMeshes[localDrivingCarId!]) {
@@ -1294,7 +1392,8 @@ export function VanillaThreeScene() {
                 const ownedIds = new Set(me.inventory.map(c => c.id));
                 Object.keys(carMeshes).forEach(carId => {
                     if (ownedIds.has(carId)) return;
-                    if (carId === localDrivingCarId) {
+                    if (carId === localDrivingCarId && (carId === rentalId || visitor())) rentalGone(me.money); // a rental went back: the lobby
+                    else if (carId === localDrivingCarId) {
                         // The car was sold/removed while we were driving it: step out (leaving the Strip and any event).
                         if (district === 'strip') exitStrip();
                         avatar.position.copy(carMeshes[carId].position).add(new THREE.Vector3(-3, 0, 0));
@@ -1308,6 +1407,8 @@ export function VanillaThreeScene() {
                     delete carSteering[carId];
                     delete aiDriveSequence[carId];
                 });
+                // in the lobby, a rental (just rented, or held from before) is driven at once
+                if (lobby && !driver) { const r = heldRental(me); if (r && carMeshes[r.id]) driveRental(r.id); }
             }
 
             // Passive Automatic Car Wash
@@ -1469,7 +1570,7 @@ export function VanillaThreeScene() {
                   interactPrompt.material.opacity = Math.min(1.0, interactPrompt.material.opacity + 12 * delta);
                   setPromptText(text);
              };
-             if (!localDrivingCarId) {
+             if (!localDrivingCarId && !lobby) {
                  let nearestCar: string | null = null;
                  let minD = 6.0;
                  Object.entries(carMeshes).forEach(([id, mesh]) => {
@@ -1530,6 +1631,8 @@ export function VanillaThreeScene() {
                         if (rJustPressed && (localFuel ?? 100) < 99) { keys.r = false; rWasPressed = false; refuelRequestedIn = current.gameState; useGameStore.getState().refuel(localDrivingCarId); }
                     }
                 }
+            } else if (lobby && strip) {
+                lobbyFrame(delta);
             } else {
                 avatar.visible = true;
                 // Avatar Physics with Orthogonal Sliding and Shaved AABBs
@@ -1733,7 +1836,7 @@ export function VanillaThreeScene() {
             im.detach();
             audio.dispose();
             hud?.clear();
-            useDriveUi.setState({ driving: false, district: 'town', prompt: '', results: null, paused: false, eventLive: false, gears: false, mapOpen: false, nos: false });
+            useDriveUi.setState({ driving: false, district: 'town', prompt: '', results: null, paused: false, eventLive: false, gears: false, mapOpen: false, nos: false, lobby: false, counter: false, account: false, returned: null });
             lightPool.dispose();
             uiTex.dispose();
             gate.dispose();

@@ -1,4 +1,4 @@
-name: Pages (door, value alias, tuner redirect, garage)
+name: Pages (door, value alias, tuner and strip redirects, garage)
 
 on:
   push:
@@ -37,7 +37,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @micar/value test          # value's tests gate the whole deploy, as before
       - run: pnpm --filter @micar/sim test            # the sim's tests gate the deploy too
-      - run: pnpm site                                 # the door at /Micar-com/, /value/ alias, /tuner/ (redirect to the world), /garage/
+      - run: pnpm site                                 # the door at /Micar-com/, /value/ alias, /tuner/ (redirect to the world), /strip/ (redirect to the Strip), /garage/
         env:
           VITE_COMPS_URL: ${{ vars.COMPS_URL }}
       - uses: actions/configure-pages@v5

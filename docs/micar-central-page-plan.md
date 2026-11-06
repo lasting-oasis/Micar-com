@@ -101,7 +101,7 @@ Screens are dark glass with windshield yellow (#ffd23f), Barlow and Barlow Conde
 | Value engine, EN/ES, 102 tests | live, branded Nexus Valuation | powers the door; brand becomes MiCar |
 | `#/c/` codec, car pages, sticker builder | live | raw cards shareable with no account; dealer path |
 | Garage concept (door, inspector, grade sim, Keyholder, Octane) | static page in `assets/concept` | its components become the home page, driven by real engine output |
-| Sim 3D world, lofted cars, town, night | live on Render behind a portal | MiCar World: Garage, Dealership, Strip; opens in your garage; cars shared with the cards |
+| Sim 3D world, lofted cars, town, night | live on Render behind a portal | MiCar World: Garage, Dealership, Strip; opens in your garage; cars shared with the cards. The Strip takes guests at `/strip` (no account: $500, a $500 rental per event) and Google or emailed-link accounts ($1,000 daily allowance); the door links it, `/Micar-com/strip/` redirects |
 | Sim shop tools (body, mechanic) | inside the sim | MiCar Shop, in the world and standalone |
 | Tuner | standalone sprite site, one 4x4 | the sim's garage: live 3D tuning on all nine category cars, same parts, same HUD |
 | Accounts, trail, slabs, grades issued | none | phase 1 |

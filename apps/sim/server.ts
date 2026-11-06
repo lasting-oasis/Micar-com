@@ -2,12 +2,17 @@ import express from 'express';
 import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import fs from 'node:fs/promises';
+import type { AddressInfo } from 'node:net';
 import path from 'node:path';
 import { GameState, Car, Player, FractionalVehicle, FUEL_PRICE_PER_UNIT } from './src/types.js';
 import { EVENTS, carState, freshStrip, getV, isOwned, okey, stageOf, withV, type PartValue } from './src/world/data.js';
 import { applyPayout, clampTune, ensureStrip, outrunEvent, partPrice, validateEnter, validateFinish, validateOutrun, ENTRY_TTL_MS, type EventEntry } from './src/world/payout.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
+import { RENTAL_FLEET, canRent, isRental, isVisitor, rent, type RentalKey } from './src/world/rental.js';
+import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
+import { RENTAL_DENIED, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent } from './src/world/stripFlow.js';
+import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
 
 const app = express();
 const httpServer = createServer(app);
@@ -45,19 +50,21 @@ const sanitizePosition = (pos: any) => {
     return out;
 };
 
-async function saveGameState() {
+// One write at a time (a save asked for mid-write coalesces into one more), each to a temp file renamed over the save.
+const saver = coalescingSaver(async () => {
     try {
-        await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
-        await fs.writeFile(DATA_FILE, JSON.stringify(gameState), 'utf8');
+        await writeAtomic(fs, DATA_FILE, JSON.stringify(gameState));
     } catch (err) {
         console.error('Failed to save game state:', err);
     }
-}
+});
+const saveGameState = () => saver.save();
 
 async function loadGameState() {
     try {
-        const data = await fs.readFile(DATA_FILE, 'utf8');
-        const parsed = JSON.parse(data);
+        const loaded = await loadOrQuarantine(fs, DATA_FILE, Date.now());
+        if (loaded.kind === 'quarantined') console.error(`The save file did not parse; it was set aside as ${loaded.to ?? '(rename failed)'} and the server starts fresh.`);
+        const parsed = loaded.kind === 'loaded' ? loaded.data : null;
         if (parsed) {
             gameState = { ...gameState, ...parsed };
             // Players are keyed by socket id, which is regenerated on every new
@@ -66,7 +73,8 @@ async function loadGameState() {
             // gates never open for you) and inflates the join lot-count, which is how
             // a reconnecting player ends up spawned on a stale lot they can't exit.
             // Drop them so every fresh server process starts with no ghosts.
-            gameState.players = {};
+            // (bootState also makes sure the saved accounts map exists.)
+            gameState = bootState(gameState);
             // clear active walk-ins as they may be stale or have broken timeout state
             gameState.activeWalkIns = {};
             // start each server process with a fresh chat (sender ids are dead anyway)
@@ -110,9 +118,144 @@ const lastOutrunAt = new Map<string, number>();
 const stripPositions = new Map<string, any>();
 // When each socket last had an event paid (any cash, Octane or REP): the next is paid no sooner than PAID_COOLDOWN_MS.
 const lastPaidAt = new Map<string, number>();
+/** A socket's player was replaced (a re-join, a sign-out, a superseded session): nothing of the old run's live state stays. */
+function resetSocketState(socketId: string) {
+    for (const m of [activeEvents, drivenCar, stripPositions, lastOutrunAt, lastPaidAt] as Map<string, unknown>[]) m.delete(socketId);
+}
 
 // Timestamp of the last accepted end_day, used to throttle host day-advances.
 let lastEndDayAt = 0;
+
+// --- Guests, rentals and accounts --------------------------------------------
+// Rules live in src/world/rental.ts, accounts.ts and stripFlow.ts; this is the wiring.
+// Secrets come only from the environment and are never logged.
+const CAPS = {
+    google: !!process.env.GOOGLE_CLIENT_ID,
+    googleClientId: process.env.GOOGLE_CLIENT_ID ?? null, // public: the browser needs it for Google sign-in
+    magic: !!(process.env.RESEND_API_KEY && process.env.MAGIC_SECRET && process.env.MAGIC_FROM),
+};
+const DEFAULT_ORIGIN = 'https://micar-sim.onrender.com';
+// Resend's endpoint; RESEND_API_URL overrides it only so the wiring test can point the server at a local fake.
+const RESEND_URL = process.env.RESEND_API_URL || 'https://api.resend.com/emails';
+const LINK_COOLDOWN_MS = 60_000;
+const JWKS_TTL_MS = 6 * 3600_000;
+// Magic tokens already used (single use), each kept until it could no longer be valid anyway.
+const usedMagic = new Set<string>();
+const usedMagicUntil = new Map<string, number>();
+// When each socket, and each address, last asked for a magic link (one per minute each).
+const lastLinkAt = new Map<string, number>();
+const lastLinkTo = new Map<string, number>();
+// Every email actually sent, in the rolling hour: 30 in all, 3 per client address.
+const linkSends = newSendLog();
+// Who asked for a link to each address (lowercased): the click signs in that guest, if its tab is still here.
+const linkRequests = new Map<string, { socketId: string; at: number }>();
+let googleKeys: { keys: Jwk[]; at: number } | null = null;
+let googleForcedAt = 0;
+
+const redact = (s: string) => s.slice(0, 3) + '…';
+const accountView = (a: Account) => ({ id: a.id, identity: a.identities[0], allowanceToday: a.lastAllowance === utcDay(Date.now()) });
+const issueSession = (accountId: string) => process.env.MAGIC_SECRET ? signSession(accountId, Date.now(), process.env.MAGIC_SECRET) : null;
+// The state a client may see: never the accounts (identities are private), nor other players' account ids.
+const publicState = (viewerId: string) => {
+    const { accounts: _accounts, ...rest } = gameState;
+    const players: Record<string, Player> = {};
+    for (const [pid, p] of Object.entries(gameState.players)) players[pid] = pid === viewerId ? p : { ...p, accountId: undefined };
+    return { ...rest, players };
+};
+
+/** Copy an account holder's live progress into their account record. flush: write the save file now. */
+function persistAccount(player: Player, flush = true) {
+    const account = player.accountId ? gameState.accounts[player.accountId] : undefined;
+    if (!account) return;
+    account.player = saveRecord(player);
+    if (flush) void saveGameState();
+}
+
+function pruneUsedMagic(now: number) {
+    for (const [t, until] of usedMagicUntil) if (until < now) { usedMagicUntil.delete(t); usedMagic.delete(t); }
+    for (const [addr, at] of lastLinkTo) if (now - at >= LINK_COOLDOWN_MS) lastLinkTo.delete(addr);
+    for (const [addr, r] of linkRequests) if (now - r.at > MAGIC_TTL_MS) linkRequests.delete(addr);
+    pruneSendLog(linkSends, now);
+}
+
+/** Google's signing keys, cached 6 hours; force refetches (at most once a minute) for an unknown kid. */
+async function getGoogleKeys(force = false): Promise<Jwk[]> {
+    const now = Date.now();
+    if (googleKeys && !force && now - googleKeys.at < JWKS_TTL_MS) return googleKeys.keys;
+    if (force && now - googleForcedAt < 60_000) return googleKeys?.keys ?? [];
+    if (force) googleForcedAt = now;
+    try {
+        const res = await fetch('https://www.googleapis.com/oauth2/v3/certs');
+        if (!res.ok) throw new Error(`status ${res.status}`);
+        const body: any = await res.json();
+        if (!Array.isArray(body?.keys)) throw new Error('no keys');
+        googleKeys = { keys: body.keys, at: now };
+    } catch (err) {
+        console.error('Google keys fetch failed:', (err as Error).message);
+    }
+    return googleKeys?.keys ?? [];
+}
+
+async function verifyGoogleToken(idToken: string): Promise<Identity | undefined> {
+    const clientId = process.env.GOOGLE_CLIENT_ID;
+    if (!clientId) return undefined;
+    let kid: unknown;
+    try { kid = JSON.parse(Buffer.from(idToken.split('.')[0], 'base64url').toString()).kid; } catch { return undefined; }
+    let keys = await getGoogleKeys();
+    if (!keys.some(k => k.kid === kid)) keys = await getGoogleKeys(true);
+    const g = verifyGoogle(idToken, clientId, keys, Date.now());
+    return g ? { kind: 'google', sub: g.sub, ...(g.email ? { email: g.email } : {}) } : undefined;
+}
+
+/** The link goes to the page's own origin only when it is the host this server answers on. */
+function linkOrigin(headers: Record<string, unknown>): string {
+    const origin = headers.origin, host = headers.host;
+    if (typeof origin !== 'string' || typeof host !== 'string') return DEFAULT_ORIGIN;
+    try {
+        const u = new URL(origin);
+        if ((u.protocol === 'https:' || u.protocol === 'http:') && u.host === host) return u.origin;
+    } catch { /* fall through */ }
+    return DEFAULT_ORIGIN;
+}
+
+async function sendMagicEmail(email: string, origin: string): Promise<boolean> {
+    const secret = process.env.MAGIC_SECRET, key = process.env.RESEND_API_KEY, from = process.env.MAGIC_FROM;
+    if (!secret || !key || !from) return false;
+    const token = signMagic(email, Date.now(), secret);
+    try {
+        const res = await fetch(RESEND_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
+            body: JSON.stringify({ from, to: email, subject: 'Your MiCar sign-in link', text: `Sign in: ${origin}/strip#link=${token}  (15 minutes, one use)` }),
+        });
+        if (!res.ok) { console.error('Magic link send failed for', redact(email), 'status', res.status); return false; }
+        return true;
+    } catch (err) {
+        console.error('Magic link send failed for', redact(email), (err as Error).message);
+        return false;
+    }
+}
+
+/** An event entry closed: hand back the rental it was driven in, if any. True when one went back. */
+function endEvent(socketId: string, carId: string | undefined): boolean {
+    const player = gameState.players[socketId];
+    if (!player) return false;
+    const { returned } = closeEvent(player, carId);
+    if (returned) drivenCar.delete(socketId);
+    return !!returned;
+}
+
+// Entries left open past their TTL are closed (their rental returned) once a minute.
+setInterval(() => {
+    const now = Date.now();
+    let changed = false;
+    for (const [sid, e] of activeEvents) {
+        if (now - e.startedAt <= ENTRY_TTL_MS) continue;
+        activeEvents.delete(sid);
+        if (endEvent(sid, e.carId)) changed = true;
+    }
+    if (changed) broadcastState(io, gameState);
+}, 60_000);
 
 function broadcastState(io: Server, state: GameState) {
     const sockets = io.sockets.sockets;
@@ -136,6 +279,7 @@ function broadcastState(io: Server, state: GameState) {
                     floorPlanDebt: 0,
                     gateCode: undefined,   // never reveal another player's gate code
                     shareHoldings: {},     // portfolios are private
+                    accountId: undefined,  // account ids are private
                     inventory: p.inventory ? p.inventory.map((c: any) => ({ ...c, buyPrice: 0 })) : []
                 };
             }
@@ -143,7 +287,8 @@ function broadcastState(io: Server, state: GameState) {
         const myWalkIns = state.activeWalkIns?.[id];
         // The chat log is sent once on join ('init'); new messages arrive as 'chat'
         // events, so it's left out of every state update to keep them small.
-        const { chatLog: _chatLog, ...shared } = state as any;
+        // Accounts (identities, saved records) are never sent to any client.
+        const { chatLog: _chatLog, accounts: _accounts, ...shared } = state as any;
         socket.emit('update', {
             ...shared,
             players,
@@ -156,6 +301,7 @@ let gameState: GameState = {
     day: 1, 
     timeOfDay: 8.0, 
     players: {}, 
+    accounts: {},
     market: [], 
     junkyard: [],
     economy: {
@@ -537,6 +683,7 @@ const logInsurance = (p: Player, msg: string) => {
 };
 
 const processInsurance = (p: Player) => {
+    if (isVisitor(p)) return; // a Strip visitor runs no business: no premiums, no adverse events
     if (!p.insurance) p.insurance = { liability: false, inventory: false, gap: false };
     const invValue = p.inventory.reduce((s, c) => s + (c.buyPrice || 0), 0);
     const leveraged = p.floorPlanDebt > 0;
@@ -645,6 +792,8 @@ const economyTick = () => {
     // Process business logic for all players
 
     Object.values(gameState.players).forEach(p => {
+        // a Strip visitor runs no business: no overhead, walk-ins, insurance, or days on lot for a rental
+        if (isVisitor(p)) return;
         let dailyIncome = 0;
         let dailyExpense = 0;
 
@@ -863,14 +1012,83 @@ setInterval(() => {
 }, 100);
 
 io.on('connection', (socket) => {
-    socket.on('join', ({ name, lotScale, careerFocus, shopSpecialty }) => {
+    // A Strip visitor (a guest or a Strip account holder) may send only the Strip's own events (VISITOR_EVENTS): no
+    // dealer handler ever runs for one, so no money made there can be carried into an account.
+    socket.use(([event], next) => {
+        if (isVisitor(gameState.players[socket.id]) && !VISITOR_EVENTS.has(event)) { socket.emit('strip_denied', { reason: VISITOR_DENIED }); return; }
+        next();
+    });
+    const deny = (reason: string) => socket.emit('strip_denied', { reason });
+    /** The player's car for a dealer action (sell, repair, inspect, borrow against, fractionalize, scrap...); a rental
+     *  is refused (strip_denied) and comes back undefined, so the handler does nothing. */
+    const dealerCar = (player: Player, carId: unknown): Car | undefined => {
+        const car = player.inventory.find(c => c.id === carId);
+        if (car && isRental(car)) { deny(RENTAL_DENIED); return undefined; }
+        return car;
+    };
+
+    // A visitor in the Strip: a fresh guest, or (account) the account's saved progress.
+    const spawnVisitor = (name: unknown, account?: Account) => {
+      const now = Date.now();
+      const p = guestPlayer(socket.id, typeof name === 'string' ? name.trim().slice(0, 24) : '', now);
+      if (account) {
+          applyRecord(p, structuredClone(account.player)); // a copy: the record changes only via persistAccount
+          p.accountId = account.id;
+          p.guest = false;
+      }
+      gameState.players[socket.id] = p;
+      lastOutrunAt.set(socket.id, now); // they start in the Strip: the outrun clock starts now
+      socket.emit('init', { id: socket.id, state: publicState(socket.id), caps: CAPS, ...(account ? { account: accountView(account) } : {}) });
+      broadcastState(io, gameState);
+      return p;
+    };
+
+    socket.on('join', (msg: any) => {
+      const { name, lotScale, careerFocus, shopSpecialty } = (msg && typeof msg === 'object' ? msg : {}) as any;
+      // a re-join on the same socket replaces its player: save an account holder's progress first
+      const prior = gameState.players[socket.id];
+      if (prior?.accountId) persistAccount(prior);
+      if (prior) resetSocketState(socket.id); // no event entry, driven car or cooldown of the old run carries over
+      if (msg?.mode === 'guest' || typeof msg?.session === 'string') {
+          // A session that is invalid, expired, unknown or already live elsewhere falls back to a guest
+          // (no refusal): the init carries no account, so the client clears its token.
+          let account: Account | undefined;
+          let lost = false; // a good session for an account this server does not have (a wiped save file)
+          const secret = process.env.MAGIC_SECRET;
+          if (typeof msg.session === 'string' && secret) {
+              const id = verifySession(msg.session, Date.now(), secret);
+              const a = id ? gameState.accounts[id] : undefined;
+              if (id && !a) lost = true;
+              if (a) {
+                  // a session for an account still live on another socket (a dropped transport not yet noticed) supersedes it
+                  const oldId = liveHolder(a.id, gameState.players, socket.id);
+                  if (oldId) {
+                      persistAccount(gameState.players[oldId]);
+                      delete gameState.players[oldId];
+                      resetSocketState(oldId);
+                      lastLinkAt.delete(oldId);
+                      if (gameState.hostId === oldId) gameState.hostId = pickHost(gameState.players);
+                      io.sockets.sockets.get(oldId)?.disconnect(true);
+                  }
+                  account = a;
+              }
+          }
+          // a visitor never runs the day: a host re-joining as one hands it on
+          if (gameState.hostId === socket.id) gameState.hostId = pickHost(gameState.players, socket.id);
+          const p = spawnVisitor(name, account);
+          if (lost) deny('Your saved account was not found on this server');
+          console.log('--- VISITOR JOIN ---', { account: !!account });
+          pushChat(io, { id: `${Date.now()}-j`, playerId: '', name: 'System', text: `${p.name} entered the world`, ts: Date.now(), system: true });
+          return;
+      }
       console.log('--- PLAYER JOIN ---', { name, lotScale, careerFocus, shopSpecialty });
-      if (!gameState.hostId) {
+      // only a dealer or shop runs the day: a visitor never claims host
+      if (hostIsVacant(gameState.hostId, gameState.players)) {
           gameState.hostId = socket.id;
       }
       // Take the first lot slot no current player holds. (Using the player count
       // gave a newcomer the lot of someone still here once anyone had left.)
-      const takenLots = new Set(Object.values(gameState.players).map(p => `${p.lotPosition?.x},${p.lotPosition?.z}`));
+      const takenLots = new Set(Object.values(gameState.players).filter(p => !isVisitor(p)).map(p => `${p.lotPosition?.x},${p.lotPosition?.z}`)); // a visitor holds no lot
       let slot = 0;
       while (takenLots.has(`${(slot % 5) * 250},${Math.floor(slot / 5) * -250}`)) slot++;
       let x = (slot % 5) * 250;
@@ -919,7 +1137,7 @@ io.on('connection', (socket) => {
         shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
       } as any;
       if (process.env.SMOKE === '1') grantStarterCar(gameState.players[socket.id]);
-      socket.emit('init', { id: socket.id, state: gameState });
+      socket.emit('init', { id: socket.id, state: publicState(socket.id), caps: CAPS });
       broadcastState(io, gameState);
       const joinedName = gameState.players[socket.id].name;
       pushChat(io, { id: `${Date.now()}-j`, playerId: '', name: 'System', text: `${joinedName} entered the world`, ts: Date.now(), system: true });
@@ -995,10 +1213,15 @@ io.on('connection', (socket) => {
       const clean = sanitizePosition(pos);
       if (!player || !clean) return;
       const district = pos.district === 'strip' ? 'strip' : 'town';
+      if (district === 'town' && player.guest) { socket.emit('strip_denied', { reason: 'The Dealership is for account holders with a car of their own.' }); return; }
       clean.district = district; // relayed in player_positions
       const prev: any = player.worldPosition;
       if (district === 'strip' && prev?.district !== 'strip') lastOutrunAt.set(socket.id, Date.now()); // entering the Strip starts the outrun clock
-      if (district !== 'strip' && prev?.district === 'strip') activeEvents.delete(socket.id); // leaving the Strip abandons any event
+      if (district !== 'strip' && prev?.district === 'strip') { // leaving the Strip abandons any event
+          const e = activeEvents.get(socket.id);
+          activeEvents.delete(socket.id);
+          if (e && endEvent(socket.id, e.carId)) broadcastState(io, gameState);
+      }
       if (district === 'strip') {
           if (!samePos(stripPositions.get(socket.id), clean)) positionsDirty = true;
           stripPositions.set(socket.id, clean);
@@ -1044,7 +1267,6 @@ io.on('connection', (socket) => {
   // A run is paid only against a live entry (enter_event), at the stage and style of
   // the player's stored record and build, never figures from the client.
   const stripOf = (player: Player) => ensureStrip(player).strip!;
-  const deny = (reason: string) => socket.emit('strip_denied', { reason });
   const ownsCar = (player: Player, carId: unknown): carId is string => typeof carId === 'string' && player.inventory.some(c => c.id === carId);
 
   socket.on('enter_event', ({ eventId } = {} as any) => {
@@ -1064,38 +1286,56 @@ io.on('connection', (socket) => {
       const now = Date.now();
       const v = validateFinish(entry, { eventId: msg.eventId, pos: msg.pos, time: msg.time ?? null, score: Number(msg.score) || 0, failed: !!msg.failed }, now, lastPaidAt.get(socket.id));
       activeEvents.delete(socket.id); // an entry is answered once, paid or refused
-      if (!v.ok) { console.log('finish_event refused:', socket.id, v.reason); deny('That run could not be verified, so it paid nothing.'); return; }
+      if (!v.ok) {
+          console.log('finish_event refused:', socket.id, v.reason);
+          deny('That run could not be verified, so it paid nothing.');
+          if (entry && endEvent(socket.id, entry.carId)) broadcastState(io, gameState); // the event is over either way
+          return;
+      }
       const ev = EVENTS.find(e => e.id === entry!.eventId)!;
       const r = applyPayout(player, ev, v.pos, !!msg.failed, { time: msg.time, carId: entry!.carId });
       if (r.cash || r.octane || r.rep) lastPaidAt.set(socket.id, now);
+      endEvent(socket.id, entry!.carId); // after the payout: the style bonus read the rental's build
+      persistAccount(player);
       socket.emit('event_result', r);
       broadcastState(io, gameState);
   });
 
   // A live event abandoned without results (R, leaving the Strip): drop the entry, pay nothing.
-  socket.on('quit_event', ({ eventId } = {} as any) => {
+  // A restart (restart: true) clears the entry but keeps the rental for the enter_event that follows.
+  socket.on('quit_event', ({ eventId, restart } = {} as any) => {
+      const player = gameState.players[socket.id];
       const e = activeEvents.get(socket.id);
-      if (e && e.eventId === eventId) activeEvents.delete(socket.id);
+      if (player && e && e.eventId === eventId) {
+          activeEvents.delete(socket.id);
+          const { returned } = quitEvent(player, e.carId, restart === true);
+          if (returned) { drivenCar.delete(socket.id); broadcastState(io, gameState); }
+      }
   });
 
   const liveEntry = (now: number) => { const e = activeEvents.get(socket.id); return !!e && now - e.startedAt <= ENTRY_TTL_MS; };
 
   socket.on('finish_outrun', ({ won } = {} as any) => {
       const player = gameState.players[socket.id];
-      if (!player || won !== true) return; // a lost outrun pays nothing: nothing to verify or refuse
+      if (!player) return;
       const now = Date.now();
+      // An outrun (won or lost) ends the run in a rental, unless it happened inside a live event.
+      const returned = !liveEntry(now) && endEvent(socket.id, drivenCar.get(socket.id));
+      if (won !== true) { if (returned) broadcastState(io, gameState); return; } // a lost outrun pays nothing: nothing to verify or refuse
       const v = player.worldPosition?.district === 'strip' ? validateOutrun(lastOutrunAt.get(socket.id), now, liveEntry(now)) : { ok: false as const, reason: 'not in the Strip' };
-      if (!v.ok) { console.log('finish_outrun refused:', socket.id, v.reason); deny('That outrun could not be verified, so it paid nothing.'); return; }
+      if (!v.ok) { console.log('finish_outrun refused:', socket.id, v.reason); deny('That outrun could not be verified, so it paid nothing.'); if (returned) broadcastState(io, gameState); return; }
       lastOutrunAt.set(socket.id, now);
       const r = applyPayout(player, outrunEvent(stageOf(stripOf(player).rep)), 1, false);
+      persistAccount(player);
       socket.emit('event_result', r);
-      if (r.cash || r.rep) broadcastState(io, gameState);
+      if (r.cash || r.rep || returned) broadcastState(io, gameState);
   });
 
   socket.on('strip_buy_part', ({ carId, key, v, price } = {} as any) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       if (!ownsCar(player, carId) || typeof key !== 'string' || (typeof v !== 'string' && typeof v !== 'number')) { deny('That part is not for sale.'); broadcastState(io, gameState); return; }
+      if (!dealerCar(player, carId)) { broadcastState(io, gameState); return; } // a rental stays stock
       const rec = stripOf(player), c = carState(rec, carId);
       const q = partPrice(key, v as PartValue, stageOf(rec.rep));
       if (!q.ok) { deny(q.reason); broadcastState(io, gameState); return; }
@@ -1109,6 +1349,7 @@ io.on('connection', (socket) => {
       const o = okey(key, v);
       if (!c.owned.includes(o)) c.owned.push(o);
       c.cfg = withV(c.cfg, key, v);
+      persistAccount(player);
       broadcastState(io, gameState);
   });
 
@@ -1116,6 +1357,7 @@ io.on('connection', (socket) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       if (!ownsCar(player, carId) || typeof key !== 'string' || (typeof v !== 'string' && typeof v !== 'number')) return;
+      if (!dealerCar(player, carId)) { broadcastState(io, gameState); return; } // a rental stays stock
       const rec = stripOf(player), c = carState(rec, carId);
       // only a part the car owns, or a free one in the catalog (isOwned: free, fitted, or bought)
       const q = partPrice(key, v, stageOf(rec.rep)); // the stage applies to free parts too
@@ -1123,6 +1365,7 @@ io.on('connection', (socket) => {
       if (!isOwned(c.cfg, c.owned, key, v)) { deny('Buy that part first.'); broadcastState(io, gameState); return; }
       if (getV(c.cfg, key) === v) return;
       c.cfg = withV(c.cfg, key, v);
+      persistAccount(player);
       broadcastState(io, gameState);
   });
 
@@ -1130,13 +1373,156 @@ io.on('connection', (socket) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       if (!ownsCar(player, carId)) return;
+      if (!dealerCar(player, carId)) { broadcastState(io, gameState); return; } // a rental stays stock
       carState(stripOf(player), carId).tune = clampTune(tune);
+      persistAccount(player, false); // tunes stream from the dyno: the 15 s autosave writes them
       broadcastState(io, gameState);
+  });
+
+  // --- Rentals and accounts -------------------------------------------------
+  // The server owns the money, the date and the identity: nothing here takes them from the client.
+  socket.on('rent_car', ({ key } = {} as any) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (!RENTAL_FLEET.some(f => f.key === key)) { deny('That car is not for rent.'); return; }
+      const ok = canRent(player);
+      if (!ok.ok) { deny(ok.reason); return; }
+      rent(player, key as RentalKey, Date.now());
+      broadcastState(io, gameState);
+  });
+
+  socket.on('request_link', async ({ email } = {} as any) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      // only a guest makes an account (and only once): nobody else has a reason to send a sign-in email
+      if (player.accountId) { deny('already signed in'); return; }
+      if (!player.guest) { deny('Accounts are made from the Strip for now'); return; }
+      const now = Date.now();
+      const last = lastLinkAt.get(socket.id);
+      if (last !== undefined && now - last < LINK_COOLDOWN_MS) { deny('Try again in a minute'); return; }
+      lastLinkAt.set(socket.id, now);
+      const addr = typeof email === 'string' ? email.trim().toLowerCase() : '';
+      const valid = addr.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addr);
+      if (valid) {
+          pruneUsedMagic(now);
+          if (lastLinkTo.has(addr)) { deny('Try again in a minute'); return; }
+          lastLinkTo.set(addr, now);
+      }
+      if (valid && CAPS.magic) {
+          const room = allowSend(linkSends, clientIp(socket.handshake.headers as any, socket.handshake.address), now);
+          if (!room.ok) { deny(room.reason); return; }
+          if (await sendMagicEmail(addr, linkOrigin(socket.handshake.headers as any))) {
+              // the click signs in this guest, wherever the link is opened (while this tab is still here)
+              linkRequests.set(addr, { socketId: socket.id, at: now });
+              socket.emit('link_sent', {});
+              return;
+          }
+      }
+      deny("Couldn't send the link — try Google or try again in a minute");
+  });
+
+  socket.on('link_account', async (msg: any) => {
+      const { google, magic, confirmReplace, target: choice } = (msg && typeof msg === 'object' ? msg : {}) as any;
+      const clicker = gameState.players[socket.id];
+      if (!clicker) return;
+      if (clicker.accountId) { deny('already signed in'); return; }
+      // accounts are made from the Strip only for now: a dealer's join cash is not carried into one
+      // (checked before any token is read, so a magic link stays unspent)
+      if (!clicker.guest) { deny('Accounts are made from the Strip for now'); return; }
+      let identity: Identity | undefined;
+      let magicToken: string | undefined;
+      if (typeof google === 'string' && google) {
+          identity = await verifyGoogleToken(google);
+          if (!identity) { deny('Sign-in failed'); return; }
+      } else if (typeof magic === 'string' && magic) {
+          const secret = process.env.MAGIC_SECRET;
+          if (!secret) { deny('Sign-in failed'); return; }
+          const now = Date.now();
+          pruneUsedMagic(now);
+          const addr = verifyMagic(magic, now, secret, usedMagic);
+          if (!addr) { deny('That link has expired or was already used'); return; }
+          usedMagicUntil.set(magic, now + MAGIC_TTL_MS);
+          magicToken = magic;
+          identity = { kind: 'email', email: addr };
+      } else { deny('Sign-in failed'); return; }
+      // the socket may have left or re-joined while Google's keys were fetched
+      if (gameState.players[socket.id] !== clicker || clicker.accountId || !clicker.guest) return;
+      // A magic link opened in another tab (or device) than the guest tab that asked for it: the clicking tab proved it
+      // controls the address, so it chooses where the sign-in lands (link_choice), never the asking tab silently. The
+      // choice step spends nothing: the same link is resent with target 'requester' or 'here'.
+      let targetId = socket.id;
+      if (identity.kind === 'email') {
+          const req = linkRequests.get(identity.email);
+          const reqPlayer = req ? gameState.players[req.socketId] : undefined;
+          const pick = choice === 'requester' || choice === 'here' ? choice : undefined;
+          const who = linkTarget(req && { socketId: req.socketId, connected: io.sockets.sockets.has(req.socketId), guest: !!reqPlayer?.guest && !reqPlayer.accountId }, socket.id, pick);
+          if (who.to === 'choose') {
+              if (magicToken) { usedMagic.delete(magicToken); usedMagicUntil.delete(magicToken); }
+              socket.emit('link_choice', { email: identity.email, requester: true });
+              return;
+          }
+          if (who.to === 'requester') targetId = req!.socketId;
+          if (who.fellBack) deny('The game tab that asked is gone — signing in here instead');
+      }
+      const player = gameState.players[targetId];
+      const target = io.sockets.sockets.get(targetId)!;
+      const elsewhere = targetId !== socket.id;
+      const existing = findAccount(gameState.accounts, identity);
+      // Refusals and the prompt change nothing, so the same magic link stays good (until it expires) for a retry.
+      const unspend = () => { if (magicToken) { usedMagic.delete(magicToken); usedMagicUntil.delete(magicToken); } };
+      if (existing && !attachAccount(existing.id, Object.values(gameState.players)).ok) { unspend(); deny('already signed in'); return; }
+      // a guest who has done nothing yet loses nothing: no prompt
+      if (existing && confirmReplace !== true && !isUntouchedGuest(player)) {
+          unspend();
+          // the prompt goes to the tab being signed in; the link comes with it so its Confirm can resend it from there
+          target.emit('account_replace_prompt', { money: player.money, ...(elsewhere && magicToken ? { magic: magicToken } : {}) });
+          if (elsewhere) socket.emit('account_linked_elsewhere', {});
+          return;
+      }
+      const { account, replaced } = linkGuest(gameState.accounts, identity, player, Date.now());
+      if (replaced) { // the guest's run (and any rental it held) is set aside for the saved one
+          applyRecord(player, structuredClone(account.player));
+          drivenCar.delete(targetId);
+          activeEvents.delete(targetId);
+      }
+      player.accountId = account.id;
+      player.guest = false;
+      if (identity.kind === 'email') linkRequests.delete(identity.email);
+      persistAccount(player);
+      console.log('account linked:', targetId, identity.kind, replaced ? 'existing' : 'new', elsewhere ? '(from another tab)' : '');
+      const session = issueSession(account.id);
+      target.emit('account_linked', { account: accountView(account), session, replaced });
+      // this tab proved the address too: it may carry on here instead (a join with the session supersedes the game tab)
+      if (elsewhere) socket.emit('account_linked_elsewhere', { session });
+      broadcastState(io, gameState);
+  });
+
+  socket.on('claim_allowance', () => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const account = player.accountId ? gameState.accounts[player.accountId] : undefined;
+      if (!account) { deny('Not signed in'); return; }
+      persistAccount(player, false); // the record matches the live player before the allowance is added
+      const r = claimAllowance(account, Date.now());
+      if (!r.ok) { deny(r.reason); return; }
+      player.money += r.amount;
+      persistAccount(player);
+      broadcastState(io, gameState);
+      socket.emit('account_linked', { account: accountView(account), session: issueSession(account.id), replaced: false });
+  });
+
+  socket.on('sign_out', () => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (!player.accountId) { deny('Not signed in'); return; }
+      persistAccount(player);
+      resetSocketState(socket.id);
+      spawnVisitor(player.name); // a guest again, under the same name
   });
   socket.on('wash_car', (carId) => {
      const player = gameState.players[socket.id];
      if (!player) return;
-     const car = player.inventory.find(c => c.id === carId);
+     const car = dealerCar(player, carId);
      if (car) {
          car.isDirty = false;
          broadcastState(io, gameState);
@@ -1146,7 +1532,7 @@ io.on('connection', (socket) => {
   socket.on('repair_engine', (carId) => {
      const player = gameState.players[socket.id];
      if (!player) return;
-     const car = player.inventory.find(c => c.id === carId);
+     const car = dealerCar(player, carId);
      if (car && player.money >= 500 && car.mechanicCondition < 100) {
          player.money -= 500;
          car.mechanicCondition = 100;
@@ -1158,7 +1544,7 @@ io.on('connection', (socket) => {
   socket.on('place_on_lot', (carId) => {
      const player = gameState.players[socket.id];
      if (!player) return;
-     const car = player.inventory.find(c => c.id === carId);
+     const car = dealerCar(player, carId);
      if (car && !car.isDirty) {
          car.isProcessed = true;
          broadcastState(io, gameState);
@@ -1171,7 +1557,7 @@ io.on('connection', (socket) => {
       
       const agents = gameState.activeWalkIns[player.id];
       const agent = agents?.find(a => a.id === agentId);
-      const car = player.inventory.find(c => c.id === carId);
+      const car = dealerCar(player, carId);
       
       if (!agent || !car || agent.state !== 'browsing') return;
       
@@ -1277,7 +1663,7 @@ io.on('connection', (socket) => {
       if (!agent || !agent.activeProposal) return;
       
       const carIndex = player.inventory.findIndex(c => c.id === carId);
-      if (carIndex === -1) return;
+      if (carIndex === -1 || !dealerCar(player, carId)) return;
       
       const car = player.inventory[carIndex];
       if (!car.isRegistered) return; // Cannot sell untitled/unregistered cars
@@ -1447,7 +1833,7 @@ io.on('connection', (socket) => {
   socket.on('request_inspection', ({ carId }) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      const car = player.inventory.find(c => c.id === carId);
+      const car = dealerCar(player, carId);
       if (!car || car.titleStatus !== 'Salvage' || car.inspectionStatus === 'Pending') return;
       if (!car.safetyPassed) return; // NC: must clear safety + emissions before a rebuilt retitle
 
@@ -1489,7 +1875,7 @@ io.on('connection', (socket) => {
   socket.on('perform_specific_repair', ({ carId, repairId }) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      const car = player.inventory.find(c => c.id === carId);
+      const car = dealerCar(player, carId);
       if (!car || !car.activeRepairs) return;
 
       const issueIdx = car.activeRepairs.findIndex((r: any) => r.id === repairId);
@@ -1571,7 +1957,7 @@ io.on('connection', (socket) => {
       if (!player) return;
       
       const carIndex = player.inventory.findIndex(c => c.id === carId);
-      if (carIndex === -1) return;
+      if (carIndex === -1 || !dealerCar(player, carId)) return;
       
       // Scrap Value
       const scrapValue = 500;
@@ -1608,7 +1994,7 @@ io.on('connection', (socket) => {
   socket.on('take_title_loan', ({ carId }) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      const car = player.inventory.find((c: any) => c.id === carId);
+      const car = dealerCar(player, carId);
       if (car && !car.isLienActive && !car.isProcessed) {
           // Calculate max collateral value precisely as 80% LTV of extrapolated retail!
           const mechanicImpact = car.mechanicCondition / 100;
@@ -1658,7 +2044,7 @@ io.on('connection', (socket) => {
   socket.on('register_vehicle', (carId) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      const car = player.inventory.find(c => c.id === carId);
+      const car = dealerCar(player, carId);
       if (car && !car.isRegistered && player.money >= 150) {
           player.money -= 150;
           player.balanceSheet.totalExpenses += 150;
@@ -1672,7 +2058,7 @@ io.on('connection', (socket) => {
   socket.on('pre_inspect', ({ carId }) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      const car = player.inventory.find(c => c.id === carId);
+      const car = dealerCar(player, carId);
       if (car && !car.preInspected) {
           car.preInspected = true;
           broadcastState(io, gameState);
@@ -1684,7 +2070,7 @@ io.on('connection', (socket) => {
   socket.on('final_inspect', ({ carId }) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      const car = player.inventory.find(c => c.id === carId);
+      const car = dealerCar(player, carId);
       if (!car || !car.preInspected || car.safetyPassed) return;
       const fee = SAFETY_FEE + (emissionsRequired(car) ? EMISSIONS_FEE : 0);
       if (player.money < fee) return;
@@ -1812,7 +2198,7 @@ io.on('connection', (socket) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       const idx = player.inventory.findIndex(c => c.id === carId);
-      if (idx === -1) return;
+      if (idx === -1 || !dealerCar(player, carId)) return;
       const car = player.inventory[idx];
       const totalShares = Math.max(100, Math.min(10000, Math.floor(Number(shares)) || 1000));
       const value = Math.max(500, car.estimatedMMR || car.buyPrice || 5000);
@@ -1886,17 +2272,13 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    activeEvents.delete(socket.id);
-    drivenCar.delete(socket.id);
-    lastOutrunAt.delete(socket.id);
-    stripPositions.delete(socket.id);
-    lastPaidAt.delete(socket.id);
+    const gone = gameState.players[socket.id];
+    if (gone?.accountId) persistAccount(gone);
+    lastLinkAt.delete(socket.id);
+    resetSocketState(socket.id);
     const leaving = gameState.players[socket.id];
     delete gameState.players[socket.id];
-    if (gameState.hostId === socket.id) {
-        const remainingPlayers = Object.keys(gameState.players);
-        gameState.hostId = remainingPlayers.length > 0 ? remainingPlayers[0] : null;
-    }
+    if (gameState.hostId === socket.id) gameState.hostId = pickHost(gameState.players); // a dealer, never a visitor
     if (leaving) {
         pushChat(io, { id: `${Date.now()}-l`, playerId: '', name: 'System', text: `${leaving.name} left the world`, ts: Date.now(), system: true });
     }
@@ -1906,6 +2288,9 @@ io.on('connection', (socket) => {
 
 async function startServer() {
     await loadGameState();
+
+    // What the Strip entry card may offer before anyone has joined (init.caps arrives too late for it)
+    app.get('/api/caps', (_req, res) => { res.set('Cache-Control', 'no-store'); res.json(CAPS); });
 
     if (process.env.NODE_ENV !== 'production') {
         const { createServer: createViteServer } = await import('vite');
@@ -1927,7 +2312,8 @@ async function startServer() {
 
     const port = process.env.PORT || 3000;
     httpServer.listen(Number(port), '0.0.0.0', () => {
-        console.log(`Server running on port ${port} with Economic Floor Plan Engine`);
+        // the bound port (PORT=0 picks a free one: the wiring test reads it from this line)
+        console.log(`Server running on port ${(httpServer.address() as AddressInfo).port} with Economic Floor Plan Engine`);
     });
 }
 

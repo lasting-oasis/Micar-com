@@ -55,8 +55,10 @@ function tint(g: THREE.BufferGeometry, c: THREE.Color): THREE.BufferGeometry {
   return g;
 }
 
-/** The Strip's city for this seed (Night Tuner used 7). */
-export function buildCity(seed: number): City {
+/** The Strip's city for this seed (Night Tuner used 7). A `reserved` block [i, j] keeps its street lights
+    but gets no slab, park or towers (empty asphalt: the rental lot builds there); the rest of the city is
+    the same as without it (the seeded draws are made all the same). */
+export function buildCity(seed: number, reserved: [number, number][] = []): City {
   let sd = Math.max(1, Math.floor(seed) % 2147483647);
   const rnd = () => { sd = (sd * 16807) % 2147483647; return (sd - 1) / 2147483646; };
   const geos: THREE.BufferGeometry[] = [], mats: THREE.Material[] = [], texs: THREE.Texture[] = [];
@@ -92,6 +94,7 @@ export function buildCity(seed: number): City {
   const blds: THREE.BufferGeometry[] = [], slabs: THREE.BufferGeometry[] = [], parks: THREE.BufferGeometry[] = [], trees: THREE.BufferGeometry[] = [], signs: THREE.BufferGeometry[] = [];
   const poles: THREE.BufferGeometry[] = [], heads: THREE.BufferGeometry[] = [], pools: THREE.BufferGeometry[] = [], dashes: THREE.BufferGeometry[] = [];
   const lampPts: number[] = [];
+  const sink: THREE.BufferGeometry[] = [];
   // a tower: the facade texture tiles one window per 2 m across, per 2 m up; roofs and floors take a dark texel
   const bgeo = (w: number, h: number, d: number, x: number, z: number) => {
     const g = new THREE.BoxGeometry(w, h, d); const uv = g.attributes.uv as THREE.BufferAttribute;
@@ -107,24 +110,27 @@ export function buildCity(seed: number): City {
     const x0 = i * CELL + RW / 2, z0 = j * CELL + RW / 2; const border = i < 0 || j < 0 || i >= N || j >= N;
     if (border) { const h = 30 + rnd() * 70; blds.push(bgeo(BL - 6, h, BL - 6, x0 + BL / 2, z0 + BL / 2)); continue; }
     const park = rnd() < .12;
-    const sl = new THREE.BoxGeometry(BL, .22, BL); sl.translate(x0 + BL / 2, .11, z0 + BL / 2); (park ? parks : slabs).push(sl);
+    const held = reserved.some(([ri, rj]) => ri === i && rj === j);
+    // a reserved block draws the same numbers into a sink, freed below
+    const P = held ? sink : park ? parks : slabs, T = held ? sink : trees, B = held ? sink : blds, S = held ? sink : signs;
+    const sl = new THREE.BoxGeometry(BL, .22, BL); sl.translate(x0 + BL / 2, .11, z0 + BL / 2); P.push(sl);
     if (park) {
       for (let k = 0; k < 14; k++) {
         const tx = x0 + 6 + rnd() * (BL - 12), tz = z0 + 6 + rnd() * (BL - 12), th = 4 + rnd() * 4;
-        const c = new THREE.ConeGeometry(1.6 + rnd(), th, 7); c.translate(tx, th / 2 + 1.6, tz); trees.push(c);
-        const t = new THREE.CylinderGeometry(.18, .22, 1.8, 6); t.translate(tx, .9, tz); trees.push(t);
+        const c = new THREE.ConeGeometry(1.6 + rnd(), th, 7); c.translate(tx, th / 2 + 1.6, tz); T.push(c);
+        const t = new THREE.CylinderGeometry(.18, .22, 1.8, 6); t.translate(tx, .9, tz); T.push(t);
       }
     } else {
       const split = rnd();
       const lots = split < .3 ? [[0, 0, 1, 1]] : split < .65 ? [[0, 0, .5, 1], [.5, 0, .5, 1]] : [[0, 0, .5, .5], [.5, 0, .5, .5], [0, .5, .5, .5], [.5, .5, .5, .5]];
       for (const [lx, lz, lw, ld] of lots) {
         const w = (BL - 8) * lw - 3, d = (BL - 8) * ld - 3, h = 12 + Math.pow(rnd(), 1.6) * 85;
-        const cx = x0 + 4 + (BL - 8) * (lx + lw / 2), cz = z0 + 4 + (BL - 8) * (lz + ld / 2); blds.push(bgeo(w, h, d, cx, cz));
+        const cx = x0 + 4 + (BL - 8) * (lx + lw / 2), cz = z0 + 4 + (BL - 8) * (lz + ld / 2); B.push(bgeo(w, h, d, cx, cz));
         if (rnd() < .45) {
           const col = new THREE.Color(SIGN_COLS[rnd() * 5 | 0]).multiplyScalar(2.2); const sy = 4 + rnd() * Math.min(18, h - 6); const side = rnd() < .5;
           const sg = new THREE.BoxGeometry(side ? .3 : Math.min(w * .6, 10), side ? Math.min(12, h * .4) : 1.4, side ? Math.min(d * .6, 10) : .3);
           sg.translate(cx + (side ? (w / 2 + .2) * (rnd() < .5 ? -1 : 1) : 0), sy, cz + (side ? 0 : (d / 2 + .2) * (rnd() < .5 ? -1 : 1)));
-          signs.push(tint(sg, col));
+          S.push(tint(sg, col));
         }
       }
     }
@@ -137,6 +143,7 @@ export function buildCity(seed: number): City {
       const pl = new THREE.PlaneGeometry(22, 22); pl.rotateX(-Math.PI / 2); pl.translate(px + nx * 4.5, .04, pz + nz * 4.5); pools.push(pl);
     }
   }
+  for (const g of sink) g.dispose();
   // lane dashes and crossings
   const dg = new THREE.PlaneGeometry(.22, 3); dg.rotateX(-Math.PI / 2); const dgx = dg.clone(); dgx.rotateY(Math.PI / 2);
   const cw = new THREE.PlaneGeometry(.7, 5); cw.rotateX(-Math.PI / 2); const cwx = cw.clone(); cwx.rotateY(Math.PI / 2);

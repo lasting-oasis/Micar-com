@@ -11,7 +11,7 @@ export type EventReward = { cash: number; octane: number; rep: number; stamps: s
 export const STAMP_NAME: Readonly<Record<string, string>> = { 'strip:first-win': 'First win', 'strip:drag': 'Drag winner', 'strip:drift': 'Drift winner', 'strip:outrun': 'Outrun' };
 export const stampName = (id: string): string => STAMP_NAME[id] ?? id.replace(/^strip:/, '').replace(/-/g, ' ');
 /** what a tap on the layer asks the 3D view to do */
-export type DriveTap = 'enter' | 'continue' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map';
+export type DriveTap = 'enter' | 'continue' | 'resume' | 'town' | 'restart' | 'quit' | 'pause' | 'reset' | 'map' | 'signout';
 
 /** Night Tuner's controls help line (#help), for the HUD on getting in and the pause menu */
 export const HELP: Record<District, string> = {
@@ -43,11 +43,19 @@ type DriveUi = {
   quick: string | null;
   /** the car the Garage was left on (Drive, a quick race): the 3D view drives it, swapping cars if it is not the one driven */
   driveCar: string | null;
+  /** the Strip's rental lobby: no car, the camera on the bay (a guest's "on foot") */
+  lobby: boolean;
+  /** the rental counter menu is open (in the lobby) */
+  counter: boolean;
+  /** the Account panel is asked for (Task 5 draws it) */
+  account: boolean;
+  /** a rental went back: the money on hand after the payout, for the results card (null: none) */
+  returned: number | null;
   set(p: Partial<Omit<DriveUi, 'set'>>): void;
 };
 
 export const useDriveUi = create<DriveUi>(set => ({
-  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, help: 0, nos: false, tap: null, quick: null, driveCar: null,
+  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null,
   set: p => set(p),
 }));
 

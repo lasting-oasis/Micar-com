@@ -1,12 +1,14 @@
 // The Strip's grid and routes (pure geometry, metres). Ported from Night Tuner 05-world.js.
 import { clamp, type Vehicle } from '../physics';
+import { RENTAL_BLOCK } from '../rental';
 
 export const N = 8, CELL = 90, RW = 20, BL = CELL - RW, SPAN = N * CELL;
 
 export type Node = [number, number];
 export type Route = { pts: [number, number][]; cum: number[]; len: number; loop: boolean; nodes: Node[]; nodeS: number[] };
 
-export function blockRect(i: number, j: number): [number, number, number, number] | null { if (i < -1 || j < -1 || i > N || j > N) return null; return [i < 0 ? -1e4 : i * CELL + RW / 2, j < 0 ? -1e4 : j * CELL + RW / 2, i >= N ? 1e4 : (i + 1) * CELL - RW / 2, j >= N ? 1e4 : (j + 1) * CELL - RW / 2]; }
+/** A block's solid footprint (metres); null outside the border ring and for the rental lot's block (open: the car is parked on it). */
+export function blockRect(i: number, j: number): [number, number, number, number] | null { if (i < -1 || j < -1 || i > N || j > N) return null; if (i === RENTAL_BLOCK[0] && j === RENTAL_BLOCK[1]) return null; return [i < 0 ? -1e4 : i * CELL + RW / 2, j < 0 ? -1e4 : j * CELL + RW / 2, i >= N ? 1e4 : (i + 1) * CELL - RW / 2, j >= N ? 1e4 : (j + 1) * CELL - RW / 2]; }
 export function nearestNode(x: number, z: number): Node { return [clamp(Math.round(x / CELL), 0, N), clamp(Math.round(z / CELL), 0, N)]; }
 export function nodeNeighbors(i: number, j: number): Node[] { const r: Node[] = []; if (i > 0) r.push([i - 1, j]); if (i < N) r.push([i + 1, j]); if (j > 0) r.push([i, j - 1]); if (j < N) r.push([i, j + 1]); return r; }
 export function gridPath(a: Node, b: Node): Node[] {

@@ -31,7 +31,9 @@ docs/          the plan, the product spec, the merge notes
 tools/         the Pages site builder and the merge kit
 ```
 
-One GitHub Pages site serves the door at the root, `/value/` as an alias that forwards with the hash (every printed QR code still lands), `/tuner/` (a redirect to the world) and `/garage/`. Render serves the world from the root `render.yaml`.
+One GitHub Pages site serves the door at the root, `/value/` as an alias that forwards with the hash (every printed QR code still lands), `/tuner/` (a redirect to the world), `/strip/` (a redirect to the Strip) and `/garage/`. Render serves the world from the root `render.yaml`.
+
+`/strip` on the sim server: race as a guest with $500, rent a stock car at the counter for $500 an event, or make an account (Google or an emailed link) to keep progress and collect a $1,000 daily allowance. Accounts need four Render env vars (names only, set in the Render dashboard, never committed): `GOOGLE_CLIENT_ID`, `MAGIC_SECRET`, `RESEND_API_KEY`, `MAGIC_FROM`. Without them the guest path still works.
 
 ## Run it
 

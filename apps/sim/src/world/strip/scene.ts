@@ -15,6 +15,8 @@ import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from
 import { ARCHETYPES, EVENTS, EV_COL, EV_NAME, PALETTE, STOCK_CFG, STYLES, TUNE_DEF, type BodyStyle, type CarCfg, type EventDef, type VisualCfg } from '../data';
 import { carParams, makeVehicle, type Vehicle } from '../physics';
 import { WORLD_PER_M } from '../units';
+import { RENTAL_KIOSK, buildRentalLot } from '../../scene/world/rentalLot';
+import { RENTAL_BAY, RENTAL_BLOCK, RENTAL_CAM } from '../rental';
 import { buildCity, radialTexture, ACCENT, CHROME, TUBE_BLUE, type City } from './city';
 import { CELL, N, RW, SPAN, buildRoute, gridPath, nearestNode, type Node, type Route } from './routes';
 import { collideBlocks, collideCar, makeAI, separateAIs, setWander, stepAI, type AI } from './ai';
@@ -30,6 +32,8 @@ const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
 /** Where the player starts in the Strip (metres, Night Tuner's spawnPlayer). */
 export const STRIP_SPAWN = { x: 2 * CELL, z: 2 * CELL + CELL / 2, h: 0 };
 export const STRIP_TRAFFIC = 14, STRIP_RIVALS = 3;
+/** the lobby camera's field of view (degrees) */
+export const LOBBY_FOV = 44;
 
 export type Gps = { label: string; node: Node; path: Node[] };
 export type MapItem = { n: string; clear?: true; ev?: EventDef; node?: Node };
@@ -75,6 +79,8 @@ export class StripScene {
   mapSel = 0;
   PV: Vehicle;
   entered = false;
+  /** the rental lobby: the camera on the bay, no car (lobby()) */
+  inLobby = false;
 
   private readonly opts: StripSceneOpts;
   private readonly kitted = new Set<THREE.Group>();
@@ -89,6 +95,7 @@ export class StripScene {
   private reported: ActiveEvent | null = null;
   private readonly noRacers: AI[] = [];
   private readonly fx: EventFx;
+  private lot: ReturnType<typeof buildRentalLot> | null = null;
 
   constructor(opts: StripSceneOpts) {
     this.opts = opts;
@@ -111,8 +118,9 @@ export class StripScene {
   /** Build the city and its cars (synchronous; idempotent). */
   load(): void {
     if (this.ready) return;
-    const city = this.city = buildCity(this.opts.seed ?? 7);
+    const city = this.city = buildCity(this.opts.seed ?? 7, [RENTAL_BLOCK]); // the rental lot's block stays empty
     this.scene = city.scene;
+    this.lot = buildRentalLot(); this.scene.add(this.lot.group);
     this.markers = city.markers.map(m => ({ ev: m.ev, x: m.x / W, z: m.z / W, ring: m.ring, beam: m.beam }));
     if (this.opts.renderer) { this.envRT = makeEnv(this.opts.renderer); this.scene.environment = this.envRT.texture; }
     for (const st of STYLES) getStyleGeometry(st); // every body style now, so a race start never builds one
@@ -211,6 +219,21 @@ export class StripScene {
     this.carGroup = this.prevParent = this.prevShadow = null;
     this.entered = false;
   }
+
+  /** The rental lobby: no car in the Strip, `cam` fixed at RENTAL_CAM looking at the bay (world units). Leaves first if a car is in. */
+  lobby(cam: THREE.PerspectiveCamera): void {
+    if (this.entered) this.exit();
+    this.load();
+    cam.position.set(RENTAL_CAM.x * W, RENTAL_CAM.y * W, RENTAL_CAM.z * W);
+    cam.up.set(0, 1, 0);
+    cam.fov = LOBBY_FOV; cam.updateProjectionMatrix(); // closer on the bay (the chase camera sets its own again)
+    // between the bay and the kiosk, nearer the bay: the car on the left of the counter menu, the RENT sign in view
+    // (a portrait phone, the counter below: straight at the bay)
+    const k = cam.aspect < 1 ? 0 : .3;
+    cam.lookAt((RENTAL_BAY.x * (1 - k) + RENTAL_KIOSK.x * k) * W, 1.6 * W, (RENTAL_BAY.z * (1 - k) + RENTAL_KIOSK.z * k) * W);
+    this.inLobby = true;
+  }
+  leaveLobby(): void { this.inLobby = false; }
 
   // ------------------------------------------------------------------------------ events, outrun
   /** What Enter would do here (empty when nothing; nothing while an event or an outrun runs). */
@@ -349,6 +372,7 @@ export class StripScene {
     this.tagTex?.dispose(); this.tagTex = null;
     this.setGps(null); this.gpsMat?.dispose(); this.gpsMat = null;
     this.envRT?.dispose(); this.envRT = null;
+    this.lot?.dispose(); this.lot = null; this.inLobby = false;
     this.city?.dispose(); this.city = null;
     this.scene = new THREE.Scene(); this.markers = [];
     this.ready = false;
