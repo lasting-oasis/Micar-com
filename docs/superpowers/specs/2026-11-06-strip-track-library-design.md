@@ -34,7 +34,7 @@ The Strip is today a procedural 8×8 night grid city whose streets are the track
 | lagoons_gp | circuit | Interlagos | full loop | 3 | 2 | 2,400 | 240 |
 | airfield_sprint | sprint | Silverstone | one lap | – | 2 | 2,200 | 220 |
 | figure8_drift | drift | Suzuka | the esses sector (about 1,200 m) | – | 2 | 2,400 | 220 |
-| lonestar_drag | drag | COTA | 805 m of the back straight | – | 2 | 2,800 | 220 |
+| mountain_drag | drag | Bathurst | 805 m of the long straight (Conrod) | – | 2 | 2,800 | 220 |
 | figure8_gp | circuit | Suzuka | full loop | 2 | 3 | 3,000 | 300 |
 | eifel_gp | circuit | Nürburgring GP | full loop | 2 | 3 | 2,800 | 280 |
 | harbour_x | streetx | Monaco | full loop | 3 | 3 | 2,600 | 220 |
