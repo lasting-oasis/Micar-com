@@ -1,20 +1,20 @@
 import * as THREE from 'three';
 import type { WorldContext } from './context';
 import { chunks, gravelUV, paintUV, roadUV, Y } from './roads';
-import { CELL } from '../../world/strip/routes';
+import { HUB } from '../../world/strip/district';
 import { WORLD_PER_M } from '../../world/units';
 
 // The gate to the Strip, where the Speedway was: the country road north from the end of the main
 // road still runs out to the old paddock (gravel aprons, street lights, the gas station), and ends in
 // a lit ring on the road under a sign reading THE STRIP. Driving onto the ring prompts
-// "[Enter] THE STRIP". The Strip has a twin of the ring at its far corner (node [8, 8]): the way back.
+// "[Enter] THE STRIP". The Strip has a twin of the ring at its far corner (the hub's exit spot): the way back.
 
 const PAINT = '#ffd23f', NIGHT = '#0e1217';
 import { GATE } from './gateSpot';
 // the ring's centre and radius, and the spot a car comes back to (gateSpot.ts: the server reads them too)
 export { GATE, GATE_RETURN } from './gateSpot';
-/** the Strip's exit ring: grid node [8, 8] (metres), radius in metres */
-export const STRIP_EXIT = { x: 8 * CELL, z: 8 * CELL, r: 9 };
+/** the Strip's exit ring: the hub's exit spot (metres), radius in metres */
+export const STRIP_EXIT = { x: HUB.exit.x, z: HUB.exit.z, r: HUB.exit.r };
 
 function signSprite(text: string): { sprite: THREE.Sprite; dispose(): void } {
     const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 128;
@@ -96,7 +96,7 @@ export function buildGate(ctx: WorldContext): { isOnGate(x: number, z: number): 
     };
 }
 
-/** The Strip's way back to town: the same ring at node [8, 8] (add `group` to the Strip's scene after load). */
+/** The Strip's way back to town: the same ring at the hub's exit (add `group` to the Strip's scene after load). */
 export function buildStripExit(): { group: THREE.Group; isOnExit(xm: number, zm: number): boolean; pulse(t: number): void; dispose(): void } {
     const ring = ringGroup(STRIP_EXIT.r * WORLD_PER_M);
     ring.group.position.set(STRIP_EXIT.x * WORLD_PER_M, 0, STRIP_EXIT.z * WORLD_PER_M);
