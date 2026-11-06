@@ -7,4 +7,5 @@ describe('strip routes', () => {
   it('routeProgress finds the nearest point near the guess', () => { const r = buildRoute([[0,4],[5,4]], false); const p = routePoint(r, 123); expect(routeProgress(r, p.x, p.z - 1, 100).s).toBeCloseTo(123, 0); });
   it('gridPath walks the grid', () => { const p = gridPath([0,0],[2,1]); expect(p[0]).toEqual([0,0]); expect(p[p.length-1]).toEqual([2,1]); expect(p.length).toBe(4); });
   it('blockRect is null outside the border ring', () => { expect(blockRect(-2, 0)).toBeNull(); expect(blockRect(0, 0)).toEqual([10, 10, 80, 80]); });
+  it('blockRect leaves the rental lot\'s block (7, 7) open: a car is parked on it', () => { expect(blockRect(7, 7)).toBeNull(); expect(blockRect(6, 7)).not.toBeNull(); });
 });

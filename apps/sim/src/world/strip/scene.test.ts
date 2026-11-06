@@ -25,6 +25,8 @@ const { EVENTS } = await import('../data');
 const { DRAG_LANES } = await import('./events');
 const { makeVehicle, carParams, resetVehicle } = await import('../physics');
 const { ARCHETYPES, STOCK_CFG, TUNE_DEF } = await import('../data');
+const { RENTAL_CAM } = await import('../rental');
+const { WORLD_PER_M } = await import('../units');
 
 const cars = (s: THREE.Scene) => s.children.filter(o => o.userData.strip);
 const lights = (s: THREE.Scene) => { let n = 0; s.traverse(o => { if ((o as THREE.Light).isLight) n++; }); return n; };
@@ -43,9 +45,24 @@ describe('StripScene', () => {
     expect(S.ais.filter(A => A.kind === 'traffic').length).toBe(14);
     expect(S.ais.filter(A => A.kind === 'rival').length).toBe(3);
     expect(cars(S.scene).length).toBe(17);
-    expect(lights(S.scene)).toBe(2); // the city's sky light and moon
+    expect(lights(S.scene)).toBe(3); // the city's sky light and moon, the rental bay's spot
     expect(S.markers[0].x).toBe(EVENTS[0].nodes[0][0] * 90); // markers in metres for nearEvent / the HUD
     S.dispose();
+  });
+
+  it('builds the rental lot and leaves the lobby camera on the bay', () => {
+    const { S } = setup();
+    S.load();
+    expect(S.scene.getObjectByName('rentalLot')).toBeTruthy();
+    const cam = new THREE.PerspectiveCamera();
+    S.lobby(cam);
+    expect(S.inLobby).toBe(true);
+    expect(cam.position.x).toBe(RENTAL_CAM.x * WORLD_PER_M); expect(cam.position.z).toBe(RENTAL_CAM.z * WORLD_PER_M);
+    const fwd = cam.getWorldDirection(new THREE.Vector3()); // looks toward the bay (+x, +z from the camera)
+    expect(fwd.x).toBeGreaterThan(0); expect(fwd.z).toBeGreaterThan(0);
+    S.leaveLobby(); expect(S.inLobby).toBe(false);
+    S.dispose();
+    expect(S.scene.getObjectByName('rentalLot')).toBeUndefined();
   });
 
   it('draws the AI in world units, facing -Z', () => {

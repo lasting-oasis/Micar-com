@@ -35,3 +35,30 @@ describe('the Strip city', () => {
     expect(gd).toBe(geos.size); expect(md).toBe(mats.size);
   });
 });
+
+describe('the rental lot block', () => {
+  // block (7,7) spans x,z ∈ [640, 710] m; count the vertices of the block-filling meshes that fall inside it
+  const inside = (c: ReturnType<typeof buildCity>) => {
+    const lo = 640 * WORLD_PER_M - .01, hi = 710 * WORLD_PER_M + .01; let n = 0;
+    for (const name of ['blds', 'slabs', 'parks', 'trees', 'signs']) {
+      const m = c.scene.getObjectByName(name) as THREE.Mesh | undefined; if (!m) continue;
+      const p = m.geometry.attributes.position;
+      for (let i = 0; i < p.count; i++) { const x = p.getX(i), z = p.getZ(i); if (x > lo && x < hi && z > lo && z < hi) n++; }
+    }
+    return n;
+  };
+  it('buildCity(seed, [[7,7]]) leaves the reserved block empty asphalt; buildCity(seed) fills it', () => {
+    const full = buildCity(1), lot = buildCity(1, [[7, 7]]);
+    expect(inside(full)).toBeGreaterThan(0);
+    expect(inside(lot)).toBe(0);
+    full.dispose(); lot.dispose();
+  });
+  it('reserving a block leaves the rest of the city as it was', () => {
+    const full = buildCity(1), lot = buildCity(1, [[7, 7]]);
+    const n = (c: ReturnType<typeof buildCity>) => (c.scene.getObjectByName('poles') as THREE.Mesh).geometry.attributes.position.count;
+    expect(n(lot)).toBe(n(full));
+    const b = (c: ReturnType<typeof buildCity>) => new THREE.Box3().setFromObject(c.scene.getObjectByName('blds')!);
+    expect(b(lot).max.y).toBeCloseTo(b(full).max.y, 6);
+    full.dispose(); lot.dispose();
+  });
+});
