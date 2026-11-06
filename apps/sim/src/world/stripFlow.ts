@@ -76,9 +76,17 @@ export function isUntouchedGuest(p: Player): boolean {
   return !!p.guest && p.money === GUEST_STAKE && !heldRental(p) && (p.stamps?.length ?? 0) === 0 && (p.octane ?? 0) === 0 && (p.strip?.rep ?? 0) === 0;
 }
 
-/** Which player a clicked magic link signs in: the guest whose socket asked for it, while that socket is still connected,
- *  still a guest and not the clicking socket; otherwise the clicking socket's own guest. */
-export function linkTarget(requester: { socketId: string; connected: boolean; guest: boolean } | undefined, clickerId: string): 'requester' | 'clicker' {
-  if (requester && requester.connected && requester.guest && requester.socketId !== clickerId) return 'requester';
-  return 'clicker';
+/** Which player a clicked magic link signs in. The clicking tab proved it controls the address, so only it decides, and
+ *  never silently for another tab: when a different guest tab (still connected, still a guest) asked for the link and the
+ *  clicker has not chosen, the answer is 'choose' (ask the clicker). 'requester' only when the clicker chose it and that
+ *  tab is still valid; otherwise the clicker's own guest. `fellBack`: the clicker chose the requester but it is gone. */
+export function linkTarget(
+  requester: { socketId: string; connected: boolean; guest: boolean } | undefined,
+  clickerId: string,
+  choice?: 'requester' | 'here',
+): { to: 'choose' | 'requester' | 'clicker'; fellBack: boolean } {
+  const valid = !!requester && requester.connected && requester.guest && requester.socketId !== clickerId;
+  if (valid && choice === undefined) return { to: 'choose', fellBack: false };
+  if (valid && choice === 'requester') return { to: 'requester', fellBack: false };
+  return { to: 'clicker', fellBack: choice === 'requester' && requester?.socketId !== clickerId };
 }

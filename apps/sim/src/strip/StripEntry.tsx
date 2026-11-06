@@ -18,6 +18,7 @@ export function StripEntry() {
   const connectFailed = useGameStore(s => s.connectFailed);
   const driveNotice = useGameStore(s => s.driveNotice);
   const elsewhere = useGameStore(s => s.linkedElsewhere);
+  const choice = useGameStore(s => s.linkChoice);
   const [name, setName] = useState(readName);
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState('');
@@ -82,7 +83,17 @@ export function StripEntry() {
             </button>
           </div>
         )}
-        {!elsewhere && <>
+        {choice && !elsewhere && (
+          // Enter (and the focused default) signs in here: another tab is signed in only when this one picks it
+          <form className="flex flex-col gap-3" onSubmit={(e) => { e.preventDefault(); useGameStore.getState().chooseLinkTarget('here'); }}>
+            <p className="font-cond text-ink text-xl leading-tight break-words">{t(lang, 'strip.linkChoice').replace('{email}', choice.email)}</p>
+            <button type="submit" autoFocus className={`${BTN} bg-market text-[#0b0d12] hover:brightness-110`}>{t(lang, 'strip.signHere')}</button>
+            <button type="button" onClick={() => useGameStore.getState().chooseLinkTarget('requester')} className={`${BTN} bg-transparent text-[#c3cad8] border border-line hover:border-haze`}>
+              {t(lang, 'strip.signThatTab')}
+            </button>
+          </form>
+        )}
+        {!elsewhere && !choice && <>
         <form className="flex flex-col gap-5" onSubmit={(e) => { e.preventDefault(); race(); }}>
         <label className="flex flex-col gap-2">
           <span className="font-cond font-semibold uppercase tracking-[0.14em] text-xs text-haze">{t(lang, 'strip.nameLabel')}</span>

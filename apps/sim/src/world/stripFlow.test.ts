@@ -60,12 +60,18 @@ describe('visitor rules', () => {
     const r = guestPlayer('p', 'P', 1); rent(r, 'coupe', 2); r.money = 500;
     expect(isUntouchedGuest(r)).toBe(false);
   });
-  it('a magic link signs in the guest that asked for it while that tab is still a connected guest', () => {
+  it('a magic link never signs in another tab unless the clicker chooses it', () => {
     const req = (o: Partial<{ socketId: string; connected: boolean; guest: boolean }> = {}) => ({ socketId: 'req', connected: true, guest: true, ...o });
-    expect(linkTarget(req(), 'click')).toBe('requester');
-    expect(linkTarget(req({ connected: false }), 'click')).toBe('clicker');
-    expect(linkTarget(req({ guest: false }), 'click')).toBe('clicker');
-    expect(linkTarget(req({ socketId: 'click' }), 'click')).toBe('clicker');
-    expect(linkTarget(undefined, 'click')).toBe('clicker');
+    const clicker = { to: 'clicker', fellBack: false };
+    expect(linkTarget(req(), 'click')).toEqual({ to: 'choose', fellBack: false });
+    expect(linkTarget(req(), 'click', 'requester')).toEqual({ to: 'requester', fellBack: false });
+    expect(linkTarget(req(), 'click', 'here')).toEqual(clicker);
+    for (const r of [req({ connected: false }), req({ guest: false }), undefined]) {
+      expect(linkTarget(r, 'click')).toEqual(clicker);
+      expect(linkTarget(r, 'click', 'here')).toEqual(clicker);
+      expect(linkTarget(r, 'click', 'requester')).toEqual({ to: 'clicker', fellBack: true });
+    }
+    expect(linkTarget(req({ socketId: 'click' }), 'click')).toEqual(clicker); // the asking tab clicked its own link
+    expect(linkTarget(req({ socketId: 'click' }), 'click', 'requester')).toEqual(clicker);
   });
 });

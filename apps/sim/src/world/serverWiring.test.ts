@@ -3,6 +3,8 @@
 // refusals, the host handoff, the reset on re-join and the missing-account notice.
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { spawn, type ChildProcess } from 'node:child_process';
+import { createServer, type Server } from 'node:http';
+import type { AddressInfo } from 'node:net';
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -21,15 +23,27 @@ let url: string;
 let out = '';
 let err = '';
 const open: Socket[] = [];
+// A local stand-in for Resend: the server's sign-in emails land here (RESEND_API_URL), so a test can read the link.
+let mailer: Server;
+const mail: Array<{ to: string; text: string }> = [];
+const linkFor = (to: string) => { const m = mail.filter(x => x.to === to).pop(); return m ? decodeURIComponent(/#link=(\S+)/.exec(m.text)![1]) : undefined; };
 
 beforeAll(async () => {
+  mailer = createServer((req, res) => {
+    let body = '';
+    req.on('data', (d) => { body += d; });
+    req.on('end', () => { try { const j = JSON.parse(body); mail.push({ to: j.to, text: j.text }); } catch { /* ignored */ } res.writeHead(200, { 'Content-Type': 'application/json' }); res.end('{"id":"fake"}'); });
+  });
+  await new Promise<void>(r => mailer.listen(0, '127.0.0.1', () => r()));
+  const mailUrl = `http://127.0.0.1:${(mailer.address() as AddressInfo).port}/emails`;
   dir = mkdtempSync(path.join(tmpdir(), 'micar-wiring-'));
   mkdirSync(path.join(dir, 'data'));
   const saved = { name: 'Saved', money: 1234, octane: 0, stamps: [], strip: freshStrip(), inventory: [] };
   writeFileSync(path.join(dir, 'data', 'gameState.json'), JSON.stringify({ accounts: { [ACCOUNT]: { id: ACCOUNT, identities: [{ kind: 'email', email: 'saved@example.com' }], player: saved, createdAt: 1 } } }));
   child = spawn(process.execPath, [path.join(APP, 'node_modules/tsx/dist/cli.mjs'), path.join(APP, 'server.ts')], {
     cwd: dir,
-    env: { PATH: process.env.PATH ?? '', HOME: process.env.HOME ?? dir, TMPDIR: tmpdir(), NODE_ENV: 'production', PORT: '0', MAGIC_SECRET: SECRET },
+    env: { PATH: process.env.PATH ?? '', HOME: process.env.HOME ?? dir, TMPDIR: tmpdir(), NODE_ENV: 'production', PORT: '0', MAGIC_SECRET: SECRET,
+      RESEND_API_URL: mailUrl, RESEND_API_KEY: 'fake-key-for-the-local-mailer', MAGIC_FROM: 'test@example.com' },
     stdio: ['ignore', 'pipe', 'pipe'],
   });
   child.stderr!.on('data', (d) => { err += d; });
@@ -48,6 +62,7 @@ beforeAll(async () => {
 afterAll(() => {
   for (const s of open) s.close();
   child?.kill();
+  mailer?.close();
   if (dir) rmSync(dir, { recursive: true, force: true });
 });
 
@@ -172,6 +187,34 @@ describe('server wiring', () => {
     d.emit('request_link', { email: 'dealer@example.com' });
     expect((await denied).reason).toBe('Accounts are made from the Strip for now');
     await close(played, d);
+  }, 30_000);
+
+  it('a link opened in another tab asks the clicker where to sign in; it never signs in the asking tab by itself', async () => {
+    const requestLink = async (s: Socket, email: string) => { const sent = next(s, 'link_sent'); s.emit('request_link', { email }); await sent; return linkFor(email)!; };
+    // 1. no target: link_choice, nothing linked, the link stays good; then 'here' signs in the clicker
+    const req = client(); await join(req, { mode: 'guest', name: 'GameTab' });
+    const token = await requestLink(req, 'chooser@example.com');
+    const clk = client(); await join(clk, { mode: 'guest', name: 'MailTab' });
+    let reqLinked = false; req.on('account_linked', () => { reqLinked = true; });
+    const choice = next<any>(clk, 'link_choice');
+    clk.emit('link_account', { magic: token });
+    expect(await choice).toEqual({ email: 'chooser@example.com', requester: true });
+    const here = next<any>(clk, 'account_linked');
+    clk.emit('link_account', { magic: token, target: 'here' }); // the same link: the choice step spent nothing
+    expect((await here).replaced).toBe(false);
+    await new Promise(r => setTimeout(r, 200));
+    expect(reqLinked).toBe(false);
+    await close(req, clk);
+    // 2. 'requester': the asking tab is signed in, the clicker is told to go back to it (with a session to continue here)
+    const req2 = client(); await join(req2, { mode: 'guest', name: 'GameTab2' });
+    const token2 = await requestLink(req2, 'chooser2@example.com');
+    const clk2 = client(); await join(clk2, { mode: 'guest', name: 'MailTab2' });
+    const theirs = next<any>(req2, 'account_linked');
+    const told = next<any>(clk2, 'account_linked_elsewhere');
+    clk2.emit('link_account', { magic: token2, target: 'requester' });
+    const a = await theirs, e = await told;
+    expect(typeof a.session).toBe('string'); expect(e.session).toBe(a.session);
+    await close(req2, clk2);
   }, 30_000);
 
   it('the server wrote nothing to stderr', () => { expect(err).toBe(''); });

@@ -135,6 +135,8 @@ const CAPS = {
     magic: !!(process.env.RESEND_API_KEY && process.env.MAGIC_SECRET && process.env.MAGIC_FROM),
 };
 const DEFAULT_ORIGIN = 'https://micar-sim.onrender.com';
+// Resend's endpoint; RESEND_API_URL overrides it only so the wiring test can point the server at a local fake.
+const RESEND_URL = process.env.RESEND_API_URL || 'https://api.resend.com/emails';
 const LINK_COOLDOWN_MS = 60_000;
 const JWKS_TTL_MS = 6 * 3600_000;
 // Magic tokens already used (single use), each kept until it could no longer be valid anyway.
@@ -221,7 +223,7 @@ async function sendMagicEmail(email: string, origin: string): Promise<boolean> {
     if (!secret || !key || !from) return false;
     const token = signMagic(email, Date.now(), secret);
     try {
-        const res = await fetch('https://api.resend.com/emails', {
+        const res = await fetch(RESEND_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
             body: JSON.stringify({ from, to: email, subject: 'Your MiCar sign-in link', text: `Sign in: ${origin}/strip#link=${token}  (15 minutes, one use)` }),
@@ -1420,7 +1422,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('link_account', async (msg: any) => {
-      const { google, magic, confirmReplace } = (msg && typeof msg === 'object' ? msg : {}) as any;
+      const { google, magic, confirmReplace, target: choice } = (msg && typeof msg === 'object' ? msg : {}) as any;
       const clicker = gameState.players[socket.id];
       if (!clicker) return;
       if (clicker.accountId) { deny('already signed in'); return; }
@@ -1445,14 +1447,22 @@ io.on('connection', (socket) => {
       } else { deny('Sign-in failed'); return; }
       // the socket may have left or re-joined while Google's keys were fetched
       if (gameState.players[socket.id] !== clicker || clicker.accountId || !clicker.guest) return;
-      // A magic link signs in the guest that asked for it (the game tab), when that tab is still a guest here and is not
-      // this one (the link opened in a new tab or on another device); this tab is then told to go back to it.
+      // A magic link opened in another tab (or device) than the guest tab that asked for it: the clicking tab proved it
+      // controls the address, so it chooses where the sign-in lands (link_choice), never the asking tab silently. The
+      // choice step spends nothing: the same link is resent with target 'requester' or 'here'.
       let targetId = socket.id;
       if (identity.kind === 'email') {
           const req = linkRequests.get(identity.email);
           const reqPlayer = req ? gameState.players[req.socketId] : undefined;
-          const who = linkTarget(req && { socketId: req.socketId, connected: io.sockets.sockets.has(req.socketId), guest: !!reqPlayer?.guest && !reqPlayer.accountId }, socket.id);
-          if (who === 'requester') targetId = req!.socketId;
+          const pick = choice === 'requester' || choice === 'here' ? choice : undefined;
+          const who = linkTarget(req && { socketId: req.socketId, connected: io.sockets.sockets.has(req.socketId), guest: !!reqPlayer?.guest && !reqPlayer.accountId }, socket.id, pick);
+          if (who.to === 'choose') {
+              if (magicToken) { usedMagic.delete(magicToken); usedMagicUntil.delete(magicToken); }
+              socket.emit('link_choice', { email: identity.email, requester: true });
+              return;
+          }
+          if (who.to === 'requester') targetId = req!.socketId;
+          if (who.fellBack) deny('The game tab that asked is gone — signing in here instead');
       }
       const player = gameState.players[targetId];
       const target = io.sockets.sockets.get(targetId)!;
