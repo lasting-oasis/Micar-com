@@ -9,7 +9,7 @@ import { makeGroundMaterial } from './groundShader';
 import { createPropsKit, type PropsKit } from './streetProps';
 import { createVegetationKit, type VegetationKit } from './vegetation';
 
-// Everything the world builders (city, speedway, dealerships, fences) share:
+// Everything the world builders (city, the Strip's gate, dealerships, fences) share:
 // the scene, the lists the component cleans up on unmount, collision boxes,
 // and a few textures/materials reused across buildings.
 export type WorldContext = {

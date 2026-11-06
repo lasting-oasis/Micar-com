@@ -46,7 +46,7 @@ const DICT: Record<string, Entry> = {
   'setup.placeDealership': { en: 'The Dealership', es: 'El Concesionario' },
   'setup.placeDealershipDesc': { en: 'Buy at auction, recondition, sell. Run a lot or a shop. Playable today.', es: 'Compra en subasta, reacondiciona, vende. Dirige un lote o un taller. Jugable hoy.' },
   'setup.placeStrip': { en: 'The Strip', es: 'La Pista' },
-  'setup.placeStripDesc': { en: 'Race the card you built. Coming after the Garage.', es: 'Corre con la tarjeta que armaste. Llega después del Garage.' },
+  'setup.placeStripDesc': { en: 'Six kinds of race in the night city behind the Speedway gate. Playable today.', es: 'Seis tipos de carrera en la ciudad nocturna tras la puerta del Speedway. Ya se puede jugar.' },
   'setup.namePlaceholder': { en: 'e.g. Queen City Motors', es: 'ej. Queen City Motors' },
   'setup.careerPath': { en: 'Select Career Path', es: 'Elige tu Carrera' },
   'setup.dealership': { en: 'Dealership', es: 'Concesionario' },

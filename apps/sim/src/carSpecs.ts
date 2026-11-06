@@ -1,5 +1,5 @@
 // Real-world performance figures for every model the game can generate, used by the
-// driving physics (acceleration, top speed, braking, handling) and shown on car cards.
+// driving physics (world/data.ts specFor scales the body-style archetype to them) and shown on car cards.
 // Figures are for a common US trim of the 2013–2024 model years the auction sells.
 
 export type CarSpec = {
@@ -79,44 +79,10 @@ export function getCarSpec(car: { make?: string; model?: string; bodyStyle?: str
   return MODEL_SPECS[`${make} ${car.model}`] || STYLE_SPECS[car.bodyStyle || fallbackStyle] || STYLE_SPECS.sedan;
 }
 
+export function hasModelSpec(car: { make?: string; model?: string }): boolean {
+  const make = MAKE_ALIASES[car.make || ''] || car.make || '';
+  return `${make} ${car.model}` in MODEL_SPECS;
+}
+
 /** "2.5L I4 · 203 hp · 0–60 7.6s" */
 export const specLine = (s: CarSpec) => `${s.engine} · ${s.hp} hp · 0–60 ${s.zeroToSixty.toFixed(1)}s`;
-
-// ---- Mapping real figures onto the game's driving model ----------------------------
-// The game keeps its original acceleration curve, dv/dt = A·(1 − 0.55·v/Vmax) up to Vmax,
-// but A and Vmax now come from each car's specs. The Rental GT reproduces the original
-// tuning exactly (A = 145, Vmax = 200), so race balance against the CPU cars is unchanged.
-export const UNITS_PER_MPH = 200 / 190;   // speed in game units per mph
-const TIME_SCALE = 0.2;                   // game seconds per real second for 0–60 (the world is arcade-scaled)
-const TAPER = 0.55;
-
-export type DriveTuning = {
-  maxV: number;        // top speed, game units/s
-  accel: number;       // launch acceleration A, units/s²
-  brake: number;       // braking deceleration, units/s²
-  coast: number;       // rolling + aero drag when off the throttle, units/s²
-  turn: number;        // steering rate multiplier (1 = original)
-  reverseMax: number;
-};
-
-export function driveTuning(spec: CarSpec, bodyStyle: string | undefined, mechanicCondition = 100): DriveTuning {
-  const m = Math.max(0, Math.min(100, mechanicCondition)) / 100;
-  // A worn engine loses power (up to 40% of its pull, 10% of its top speed)
-  const maxV = spec.topSpeedMph * UNITS_PER_MPH * (0.9 + 0.1 * m);
-  const v60 = 60 * UNITS_PER_MPH;
-  const T = spec.zeroToSixty * TIME_SCALE;
-  // time to v60 under dv/dt = A(1 − k v) is −ln(1 − k v60)/(A k), with k = TAPER/maxV
-  const k = TAPER / maxV;
-  const accel = (-Math.log(1 - Math.min(0.95, k * v60)) / (k * T)) * (0.6 + 0.4 * m);
-
-  const style = bodyStyle || 'sedan';
-  const heavy = Math.max(0, (spec.weightLb - 3200) / 2400); // 0 for a compact car, ~1 for a full-size SUV
-  // Braking ~0.95 g for a light sports car down to ~0.75 g for a 5,600 lb truck; the Rental GT = original 240
-  const brakeG = Math.max(0.7, 1.05 - 0.00005 * spec.weightLb + (style === 'sports' || style === 'coupe' ? 0.05 : 0));
-  const brake = 240 * (brakeG / 0.945);
-  const bluff = style === 'van' || style === 'truck' || style === 'suv';
-  const coast = 40 * (bluff ? 1.15 : 1) * (1 + 0.15 * heavy);
-  const styleTurn: Record<string, number> = { sports: 1, coupe: 0.98, sedan: 0.94, hatchback: 0.96, suv: 0.85, truck: 0.8, van: 0.78 };
-  const turn = (styleTurn[style] ?? 0.92) * (1 - 0.08 * heavy);
-  return { maxV, accel, brake, coast, turn, reverseMax: style === 'sports' || style === 'coupe' ? 55 : 45 };
-}

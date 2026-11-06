@@ -462,7 +462,7 @@ export const ES: Record<string, string> = {
   'Learn the car business without paying for your mistakes. Buy a salvage title at auction, fix it, flip it. Mistakes cost Octane, not money.': 'Aprenda el negocio de los autos sin pagar por sus errores. Compre un título de salvamento en subasta, arréglelo, véndalo. Los errores cuestan Octane, no dinero.',
   'play': 'juego',
   'The Strip': 'La Pista',
-  'Race the card you built. Stats come from the trim and the parts, never from the grade, so nothing you win can change the number.': 'Corra con la tarjeta que armó. Las estadísticas salen de la versión y las piezas, nunca de la calificación, así que nada de lo que gane puede cambiar el número.',
+  'Race the car you tuned: sprint, circuit, street X, drag, drift, outrun. Prizes in dollars, Octane and stamps on the card, never the grade.': 'Corra en el auto que afinó: sprint, circuito, calle X, arrancones, derrape y persecución. Premios en dólares, Octane y sellos en la tarjeta, nunca en la calificación.',
   'In the world, condition is earned, not declared. Your car enters at the baseline for its trim; a verified trail brings its real condition with it.': 'En el mundo, la condición se gana, no se declara. Su auto entra en la base de su versión; un historial verificado trae consigo su condición real.',
   'what a card does': 'lo que hace una tarjeta',
   'One card. Four verbs.': 'Una tarjeta. Cuatro verbos.',

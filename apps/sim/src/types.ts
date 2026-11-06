@@ -1,3 +1,4 @@
+import type { StripRecord } from './world/data';
 export type RepairDef = {
   id: string; // unique instance ID for this specific repair on a specific car
   name: string;
@@ -27,21 +28,13 @@ export type Car = {
   preInspected?: boolean; // NC safety pre-inspection (punch list) completed
   safetyPassed?: boolean; // Passed the NC annual Safety + Emissions inspection (required to retail)
   fuel?: number; // 0-100 gas tank level; all driving burns fuel, refill at a gas station
-  isRental?: boolean; // a Speedway rental car — drive/race only, can't be sold or kept
+  district?: 'town' | 'strip'; // where the car was last driven; lotPosition is always its town spot
   bodyStyle?: string; // sedan | coupe | hatchback | suv | truck | sports | van — drives the 3D silhouette
   isLienActive?: boolean; // a title loan is secured against this car
   accidents?: number;     // accident history (affects collateral value / risk)
   basePrice?: number;     // original sticker baseline used for title-loan valuation
 };
 
-// Race difficulty tiers — each sets the entry fee, lap count, and finish reward.
-export type RaceDifficulty = 'beginner' | 'medium' | 'veteran';
-export type RaceTier = { entryFee: number; laps: number; reward: number; label: string; cpuSkill: number };
-export const RACE_TIERS: Record<RaceDifficulty, RaceTier> = {
-  beginner: { entryFee: 500,  laps: 2, reward: 1400,  label: 'Beginner', cpuSkill: 0.72 },
-  medium:   { entryFee: 1500, laps: 3, reward: 4200,  label: 'Medium',   cpuSkill: 0.85 },
-  veteran:  { entryFee: 4000, laps: 4, reward: 12000, label: 'Veteran',  cpuSkill: 0.97 },
-};
 export const FUEL_PRICE_PER_UNIT = 9; // $ per gas unit (full tank from empty ≈ $900)
 
 export type FinanceContract = {
@@ -106,7 +99,7 @@ export type EconomicState = {
 export type Player = {
   id: string; name: string; money: number;
   inventory: Car[]; lotPosition: { x: number; z: number };
-  worldPosition?: { x: number; y: number; z: number; rotation: number; };
+  worldPosition?: { x: number; y: number; z: number; rotation: number; district?: 'town' | 'strip' }; // district: relayed in player_positions
   partsInventory: Record<string, number>; // Maps part name to quantity owned
   lotScale: 'Small' | 'Medium' | 'Large';
   marketingTier: 'Craigslist' | 'MetaAds' | 'Autotrader';
@@ -119,7 +112,9 @@ export type Player = {
   shareHoldings?: Record<string, { shares: number; invested: number }>; // Fractional vehicle shares owned (vehicleId -> qty + cost basis)
   insurance?: { liability: boolean; inventory: boolean; gap: boolean }; // active dealer policies
   insuranceLog?: string[]; // recent claim / adverse-event messages (newest first, ~6 kept)
-  raceWins?: number; // number of races finished/won at the speedway
+  strip?: StripRecord; // the Strip career: rep, per-car builds and tunes, wins, best times
+  octane: number; // Octane earned in the Strip
+  stamps: string[]; // achievement stamps, e.g. strip:first-win
   isStandaloneOperator?: boolean; // runs a standalone repair/body shop rather than a dealership
   shopSpecialty?: 'mechanic' | 'body' | 'dual'; // standalone shop type
 

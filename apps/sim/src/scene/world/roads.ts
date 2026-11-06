@@ -354,7 +354,7 @@ export function buildStreets(ctx: WorldContext, buildings: KeepOut) {
         band('x', J1, -1, a, EAST, 'apron', 'open');
     }
 
-    // Main road between the junctions and on to the speedway road
+    // Main road between the junctions and on to the country road to the Strip's gate
     segment('z', 0, J1 + HALF, J2 - HALF, { junction: J1 }, { junction: J2 });
     segment('z', 0, J2 + HALF, MAIN_END, { junction: J2 }, 'open');
     for (const sgn of [-1, 1]) {

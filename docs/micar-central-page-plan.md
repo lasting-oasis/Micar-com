@@ -34,7 +34,7 @@ URL: the root of the Pages site. Title: MiCar. Said MEE-car. Positioning line: t
 
 **Act 8. Charlotte Series 1.** Slab Day, First Edition for the first 1,000 Charlotte cards, collector numbers by arrival. A live counter of cards parked once there are real ones.
 
-Footer: Value · Garage · Lot · Sheet · Shop · Dealer Simulator · Tuner · EN / ESP.
+Footer: Value · Garage · Lot · Sheet · Shop · Dealer Simulator · EN / ESP (the Tuner link is gone: the Tuner is absorbed into the Garage).
 
 ## The 3D world: the garage is the hub in three dimensions
 
@@ -55,7 +55,7 @@ The 3D world is not "the dealer simulator" anymore, and it is not a menu of game
 
 - **The Garage (home).** Where the world opens. Your cards as cars, your slab on the wall, the Tuner in the bay, DIY orders on your own cars (tracked at single weight until verified). Parts cost dollars; the Octane store is here too. Two doors out, to the Dealership and the Strip. The geography is the menu; there is no portal page.
 - **The Dealership (work): MiCar Dealer Simulator.** The original sim kept whole as the career mode: auction, appraisal, reconditioning (through the in-world MiCar Shop), CRM, DMV, staff. Its inventory becomes real slabbed cards from the MiCar Lot, so appraisal practice happens on real cars with real market data. Dealer profit is dollars. It is also the B2B training product: Dealer Pro customers buy seats to train staff on it. That is how the dealer-training emphasis survives the shift and gets a revenue reason.
-- **The Strip (play): racing.** The stat-driven card game: your tuned car against another card on a drag strip, Top Trumps lineage, a dice element, wins paid in Octane and stamps. Stats come from the trim data already in the engine and from Tuner parts bought with Octane, never from self-reported condition or the grade, so racing never creates a reason to lie on the trail. Garage → tune → Strip → Octane → parts is the loop that gives the Tuner retrofit its purpose.
+- **The Strip (play): racing.** Real-time street racing in a night-city district (Night Tuner's six event types: sprint, circuit, street X, drag, drift, outrun), wins paid in dollars, Octane and stamps. Stats come from the trim data already in the engine and from the parts fitted in the Garage (bought with dollars), never from self-reported condition or the grade, so racing never creates a reason to lie on the trail. Garage → tune → Strip → prizes → parts is the loop that gives the Tuner retrofit its purpose.
 
 Entry and emphasis: the world opens in the Garage. Deep links (`#dealership`, `#strip`) drop people at a place when they arrive with intent from the home page or a share. On the home page, Act 4 stays one picture of the garage with its two doors and one line each for dealer training and racing; the home page is about the card. If dealer training needs its own pitch for dealer groups, it gets a page under `/dealers/`, not more weight on the home.
 
@@ -91,7 +91,7 @@ Screens are dark glass with windshield yellow (#ffd23f), Barlow and Barlow Conde
 | `/garage/` | your cards | phase 1 |
 | `/lot/` | verified listings, compare two cards | phase 3 |
 | `/shop/`, `/dealers/` | MiCar Shop (standalone, and the back office of a shop in the world) and Dealer Pro | routes now; real shops in the world in phase 2 |
-| `/tuner/` | the standalone tool until the shop absorbs it | now |
+| `/tuner/` | redirects to the world: the Tuner is absorbed into the Garage | now |
 | MiCar World on Render | opens in the Garage; `#dealership`, `#strip` deep links; `/shop` serves MiCar Shop | phase 0 routes, phase 2 garage |
 
 ## What exists today, and what the plan adds
@@ -115,13 +115,15 @@ Phase 0 is built and deployed from `main`:
 - Inner Value pages say MiCar Value; the old landing page is deleted; yellow key favicon.
 - Not done in phase 0: the Value calculator and sheet pages keep their blue accent (the print layer); accounts, parking, trail entries, slabs (phase 1); everything in the world beyond routing (phase 2).
 
+The Strip is live (Nov 5, 2026): the Night Tuner racing game is ported into MiCar World as a night-city district behind the gate where the Speedway was, six race types (sprint, circuit, street X, drag, drift, outrun), prizes in dollars, Octane and stamps. The Tuner is absorbed into the Garage (live parts and tunes on the car); `apps/tuner` is retired, no longer shipped, and `/tuner/` forwards to the world.
+
 Unification (Nov 4, later): `packages/brand` (tokens, the five doors, the strip's stylesheet, the favicon; no React, each app renders the strip with its own). The strip sits on every surface in the same order: Value a car · Garage (soon) · World · For dealers · For shops, wordmark goes home, EN/ESP. The sim's Tailwind palette is remapped to the brand (`market` → windshield yellow, `blue` → steel, `cyan` → tube, Barlow), which restyled the whole HUD and the shop tabs without touching the JSX. The world opens on a front door: what the place is (three places, one line each), a name, your business (Dealership default), "More options" for size and the guide, Enter. The tuner carries the type, the yellow and the strip. Root `README.md` reads as the product; `og.jpg` is the share image. Open question for the owner: a custom domain (micar.com?) would put the door and the world under one roof.
 
 ## Phases
 
 0. **The door** (1 week). The home page built as above on the Value engine and the concept's components; the four surfaces on one identity; the sim's portal removed: `/` opens the world, `/shop` opens MiCar Shop. Deploys to Pages and Render.
 1. **The card is real** (weeks 2–4). Accounts (magic link, Supabase), park a car, trail entries with photo and receipt, the first grade, the slab, the share image, the certificate PDF. `/garage/` shows your cards.
-2. **The garage is a place** (weeks 5–8). The world opens in your 3D garage with your cars in it; the one bay system with its job and parts catalog; the Tuner retrofitted onto the category cars; real shops with accounts, buildings and live bays in the town, and the customer's link into them; the Strip v1 (card-vs-card race on trim stats and parts, dice, Octane payouts); `packages/cars`; card art rendered from the sim; one Octane balance.
+2. **The garage is a place** (weeks 5–8). The world opens in your 3D garage with your cars in it; the one bay system with its job and parts catalog; the Tuner retrofitted onto the category cars; real shops with accounts, buildings and live bays in the town, and the customer's link into them; the Strip's racing on each car's trim stats and Tuner parts (real-time events, live since Nov 5); `packages/cars`; card art rendered from the sim; one Octane balance.
 3. **The loop** (weeks 9–12). Dealer Pro sheets with the grade; MiCar Shop standalone writing entries; the Charlotte lot; the Dealership stocked with real cards; Slab Day.
 
 ## The loop and the numbers

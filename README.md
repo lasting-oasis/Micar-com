@@ -11,10 +11,10 @@ Type a car at the door and it comes back as a card with today's value on it. Thr
 | **The door** | The home page. Type a car; the garage door opens on its value, on a card. | [lasting-oasis.github.io/Micar-com](https://lasting-oasis.github.io/Micar-com/) |
 | **Value a car** | The free calculator behind the door, line by line, with original sticker prices for 578 models. | `…/#/value` |
 | **Garage** | Park a car, build its trail, get it graded and slabbed. *Opening with accounts (phase 1).* | `…/garage/` |
-| **World** | MiCar World: a 3D town. The Garage (your cards as cars), the Dealership (learn the car business without paying for your mistakes), the Strip (race the card you built). | [micar-sim.onrender.com](https://micar-sim.onrender.com/) |
+| **World** | MiCar World: a 3D town. The Garage (your cards as cars), the Dealership (learn the car business without paying for your mistakes), the Strip (race the car you tuned: six kinds of race, prizes in dollars, Octane and stamps). | [micar-sim.onrender.com](https://micar-sim.onrender.com/) |
 | **For dealers** | Window sheets with the value, the forecast and a QR code that opens the car's page. | `…/#/sticker` |
 | **For shops** | MiCar Shop: body shop, mechanic bay and a customer tracker for real shops, and the back office of a shop in the world. | [micar-sim.onrender.com/shop](https://micar-sim.onrender.com/shop) |
-| **Tuner** | The 4x4 configurator. Its parts become the parts in the world's bays. | `…/tuner/` |
+| **Tuner** | Absorbed into the Garage in the world: tune the car, then race it on the Strip. The old `/tuner/` link forwards to the world. | `…/tuner/` |
 
 The same strip sits on top of every surface, with these doors in this order, and the wordmark always goes home.
 
@@ -23,7 +23,7 @@ The same strip sits on top of every surface, with these doors in this order, and
 ```
 apps/value     the door, the calculator, dealer sheets, car pages   React 19 · Vite · 102 tests
 apps/sim       MiCar World and MiCar Shop                            React 18 · three.js · Express (Render)
-apps/tuner     the configurator (static)
+apps/tuner     the retired standalone configurator (kept, no longer shipped)
 apps/explainer the explainer videos (Remotion, EN + ES)
 packages/brand the identity: tokens, the five doors, the strip's stylesheet, the favicon
 assets/        concept pages, card art, Blender sources, the explainer's voices
@@ -31,7 +31,7 @@ docs/          the plan, the product spec, the merge notes
 tools/         the Pages site builder and the merge kit
 ```
 
-One GitHub Pages site serves the door at the root, `/value/` as an alias that forwards with the hash (every printed QR code still lands), `/tuner/` and `/garage/`. Render serves the world from the root `render.yaml`.
+One GitHub Pages site serves the door at the root, `/value/` as an alias that forwards with the hash (every printed QR code still lands), `/tuner/` (a redirect to the world) and `/garage/`. Render serves the world from the root `render.yaml`.
 
 ## Run it
 

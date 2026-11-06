@@ -3,8 +3,11 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { GameState, Car, Player, FractionalVehicle, RACE_TIERS, RaceDifficulty, FUEL_PRICE_PER_UNIT } from './src/types.js';
+import { GameState, Car, Player, FractionalVehicle, FUEL_PRICE_PER_UNIT } from './src/types.js';
+import { EVENTS, carState, freshStrip, getV, isOwned, okey, stageOf, withV, type PartValue } from './src/world/data.js';
+import { applyPayout, clampTune, ensureStrip, outrunEvent, partPrice, validateEnter, validateFinish, validateOutrun, ENTRY_TTL_MS, type EventEntry } from './src/world/payout.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
+import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 
 const app = express();
 const httpServer = createServer(app);
@@ -95,11 +98,18 @@ async function loadGameState() {
 
 setInterval(saveGameState, 15000);
 
-// Live race entries: socket id -> the difficulty they paid into and when they started.
-// Used to validate finish_race payouts so a client can't claim a reward it didn't earn.
-const activeRaces = new Map<string, { difficulty: string; startedAt: number }>();
-// Per-socket cooldown so item boxes can't be spammed for free rewards.
-const lastBoxAt = new Map<string, number>();
+// Live Strip event entries: socket id -> the event entered and when (enter_event).
+// finish_event pays only against one of these, and consumes it.
+const activeEvents = new Map<string, EventEntry>();
+// The car each socket last drove (from sync_car_pos): its stored build gives the style bonus.
+const drivenCar = new Map<string, string>();
+// When each socket last had an outrun paid, or entered the Strip: outruns are paid at most every OUTRUN_MIN_MS.
+const lastOutrunAt = new Map<string, number>();
+// Where each socket is inside the Strip (world units of the Strip's own scene), while it is there. The
+// player's worldPosition stays its town location: the gate spot, tagged district 'strip'.
+const stripPositions = new Map<string, any>();
+// When each socket last had an event paid (any cash, Octane or REP): the next is paid no sooner than PAID_COOLDOWN_MS.
+const lastPaidAt = new Map<string, number>();
 
 // Timestamp of the last accepted end_day, used to throttle host day-advances.
 let lastEndDayAt = 0;
@@ -344,6 +354,27 @@ const calculateCleanRetail = (make: string, year: number, mileage: number) => {
     // across buying and selling, since every valuation flows through here).
     const priceIndex = (gameState.economy && gameState.economy.priceIndex) || 1;
     return Math.max(2000, cleanRetail) * priceIndex; // Absolute minimum clean retail floor
+};
+
+// The smoke test's server (SMOKE=1 only, never otherwise): a new player starts with one car, a copy of the
+// cheapest car at the auction, titled and on the lot like any owned car, so the test needs no auction window.
+const grantStarterCar = (player: Player) => {
+    if (!gameState.market.length) generateMarketCars();
+    const base = [...gameState.market].sort((a, b) => a.buyPrice - b.buyPrice)[0];
+    if (!base) return;
+    const car: Car = JSON.parse(JSON.stringify(base));
+    car.id = `starter-${Date.now()}-${player.id.substring(0, 4)}`;
+    car.vin = generateVIN();
+    car.ownerId = player.id;
+    car.daysOnLot = 0;
+    car.isRegistered = true;
+    car.isDirty = false;
+    car.isProcessed = true;
+    // the last stall of the right display row (dealership.ts paintParkingRow(10, 28, -30, 78)), nose in: clear of
+    // the drop-off line, where the next car bought at the auction lands
+    car.lotPosition = { x: player.lotPosition.x + 19, z: player.lotPosition.z + 75, r: -Math.PI / 2 } as any;
+    player.inventory.push(car);
+    console.log('SMOKE: granted a starter car', car.year, car.make, car.model, 'to', player.name);
 };
 
 // Generate random cars
@@ -820,8 +851,8 @@ setInterval(() => {
     else if (++quietTicks !== 3) return;
     const positions: Record<string, any> = {};
     for (const pid in gameState.players) {
-        const wp = (gameState.players[pid] as any).worldPosition;
-        if (wp) positions[pid] = wp;
+        const wp = (gameState.players[pid] as any).worldPosition, sp = stripPositions.get(pid);
+        if (wp) positions[pid] = sp && wp.district === 'strip' ? { ...wp, stripPosition: sp } : wp;
     }
     if (positionsDirty) {
         positionsDirty = false;
@@ -879,10 +910,15 @@ io.on('connection', (socket) => {
         shareHoldings: {},
         insurance: { liability: false, inventory: false, gap: false },
         insuranceLog: [],
+        // the Strip career (Night Tuner): a fresh record, no Octane, no stamps
+        strip: freshStrip(),
+        octane: 0,
+        stamps: [],
         // Standalone properties
         isStandaloneOperator: isStandalone,
         shopSpecialty: isStandalone ? (shopSpecialty || 'dual') : undefined
       } as any;
+      if (process.env.SMOKE === '1') grantStarterCar(gameState.players[socket.id]);
       socket.emit('init', { id: socket.id, state: gameState });
       broadcastState(io, gameState);
       const joinedName = gameState.players[socket.id].name;
@@ -937,27 +973,45 @@ io.on('connection', (socket) => {
     }
   });
 
-  socket.on('sync_car_pos', ({ carId, position }) => {
+  socket.on('sync_car_pos', ({ carId, position, district }) => {
      const player = gameState.players[socket.id];
      if (!player) return;
-     const clean = sanitizePosition(position);
-     if (!clean) return;
      const car = player.inventory.find(c => c.id === carId);
-     if (car) car.lotPosition = clean as any;
+     if (!car) return;
+     drivenCar.set(socket.id, car.id);
+     const d = district === 'strip' ? 'strip' : 'town';
+     car.district = d;
+     // lotPosition is the car's town spot: Strip coordinates never overwrite it
+     if (d === 'strip') return;
+     const clean = sanitizePosition(position);
+     if (clean) car.lotPosition = clean as any;
   });
 
+  // A town position, or (district 'strip') a pose in the Strip: that goes to stripPositions and the
+  // town position becomes the gate spot, so the town still sees the player at the gate.
+  const samePos = (a: any, b: any) => !!a && !!b && a.x === b.x && a.y === b.y && a.z === b.z && a.r === b.r && a.rotation === b.rotation && a.district === b.district;
   socket.on('sync_player_pos', (pos) => {
+      const player = gameState.players[socket.id];
       const clean = sanitizePosition(pos);
-      if (gameState.players[socket.id] && clean) {
-          const prev: any = gameState.players[socket.id].worldPosition;
-          if (!prev || prev.x !== clean.x || prev.y !== clean.y || prev.z !== clean.z || prev.r !== clean.r || prev.rotation !== clean.rotation) {
-              positionsDirty = true; // only a real move needs relaying
-          }
-          gameState.players[socket.id].worldPosition = clean as any;
+      if (!player || !clean) return;
+      const district = pos.district === 'strip' ? 'strip' : 'town';
+      clean.district = district; // relayed in player_positions
+      const prev: any = player.worldPosition;
+      if (district === 'strip' && prev?.district !== 'strip') lastOutrunAt.set(socket.id, Date.now()); // entering the Strip starts the outrun clock
+      if (district !== 'strip' && prev?.district === 'strip') activeEvents.delete(socket.id); // leaving the Strip abandons any event
+      if (district === 'strip') {
+          if (!samePos(stripPositions.get(socket.id), clean)) positionsDirty = true;
+          stripPositions.set(socket.id, clean);
+          const gate = { x: GATE_RETURN.x, y: 0, z: GATE_RETURN.z, rotation: GATE_RETURN.rotY, district: 'strip' };
+          if (!samePos(prev, gate)) { player.worldPosition = gate as any; positionsDirty = true; }
+          return;
       }
+      stripPositions.delete(socket.id);
+      if (!samePos(prev, clean)) positionsDirty = true; // only a real move needs relaying
+      player.worldPosition = clean as any;
   });
 
-  // --- Fuel & racing ---------------------------------------------------------
+  // --- Fuel ---------------------------------------------------------
   // Driving is simulated client-side, so fuel burn is client-authoritative: the
   // client streams the tank level down as it drives. We persist it silently (no
   // broadcast) to avoid spamming the whole room every second.
@@ -985,96 +1039,100 @@ io.on('connection', (socket) => {
       broadcastState(io, gameState);
   });
 
-  socket.on('rent_race_car', () => {
+  // --- The Strip: events, outruns, parts and tunes --------------------------
+  // Driving is simulated client-side; the server keeps the money and the record.
+  // A run is paid only against a live entry (enter_event), at the stage and style of
+  // the player's stored record and build, never figures from the client.
+  const stripOf = (player: Player) => ensureStrip(player).strip!;
+  const deny = (reason: string) => socket.emit('strip_denied', { reason });
+  const ownsCar = (player: Player, carId: unknown): carId is string => typeof carId === 'string' && player.inventory.some(c => c.id === carId);
+
+  socket.on('enter_event', ({ eventId } = {} as any) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      if (player.inventory.some((c: any) => c.isRental)) { socket.emit('rental_denied', { reason: 'active' }); return; }
-      const RENTAL_FEE = 1500;
-      if (player.money < RENTAL_FEE) { socket.emit('rental_denied', { reason: 'funds', fee: RENTAL_FEE }); return; }
-      player.money -= RENTAL_FEE;
-      player.balanceSheet.totalExpenses += RENTAL_FEE;
-      player.balanceSheet.lastTickExpense += RENTAL_FEE;
-      const colors = ['#ef4444', '#3b82f6', '#22c55e', '#eab308', '#a855f7', '#f97316'];
-      const rental: any = {
-          id: 'rental-' + socket.id + '-' + Date.now(),
-          make: 'Speedway', model: 'Rental GT', year: 2026, bodyStyle: 'sports',
-          condition: 100, bodyCondition: 100, mechanicCondition: 100, mileage: 1000,
-          buyPrice: 0, color: colors[Math.floor(Math.random() * colors.length)],
-          ownerId: player.id, daysOnLot: 0, titleStatus: 'Clean',
-          vin: 'RENTAL' + Math.random().toString(36).slice(2, 10).toUpperCase(),
-          fuel: 100, isRental: true, isProcessed: true, isRegistered: false, // unregistered → can't be sold through the dealer flow
-          lotPosition: { x: 0, z: 1710, r: 0 } // in the speedway paddock by the rental kiosk
-      };
-      player.inventory.push(rental);
-      socket.emit('rental_ready', { carId: rental.id });
-      broadcastState(io, gameState);
+      const ev = EVENTS.find(e => e.id === eventId);
+      if (!ev) { activeEvents.delete(socket.id); return; }
+      const ok = validateEnter(player.worldPosition?.district, ev, stageOf(stripOf(player).rep));
+      if (!ok.ok) { activeEvents.delete(socket.id); deny(ok.reason === 'not in the Strip' ? 'Events are raced inside the Strip.' : ok.reason); return; }
+      activeEvents.set(socket.id, { eventId: ev.id, startedAt: Date.now(), carId: drivenCar.get(socket.id) }); // the car is locked for the style bonus
   });
 
-  socket.on('return_rental', () => {
+  socket.on('finish_event', (msg: any) => {
       const player = gameState.players[socket.id];
-      if (!player) return;
-      const before = player.inventory.length;
-      player.inventory = player.inventory.filter((c: any) => !c.isRental);
-      if (player.inventory.length !== before) broadcastState(io, gameState);
-  });
-
-  socket.on('hit_item_box', () => {
-      const player = gameState.players[socket.id];
-      if (!player) return;
-      if (!activeRaces.has(socket.id)) return; // item boxes are a race-only mechanic
+      if (!player || !msg || typeof msg !== 'object') return;
+      const entry = activeEvents.get(socket.id);
       const now = Date.now();
-      const last = lastBoxAt.get(socket.id) || 0;
-      if (now - last < 1100) return; // anti-spam
-      lastBoxAt.set(socket.id, now);
-      // Random Mario-Kart item — a racing advantage, NOT cash (keeps money out of the economy).
-      const pool = ['mushroom', 'mushroom', 'mushroom', 'triple_mushroom', 'banana', 'banana', 'green_shell', 'green_shell', 'star'];
-      const item = pool[Math.floor(Math.random() * pool.length)];
-      socket.emit('item_box_reward', { item });
-  });
-
-  socket.on('enter_race', ({ difficulty }) => {
-      const player = gameState.players[socket.id];
-      if (!player) return;
-      const tier = RACE_TIERS[difficulty as RaceDifficulty];
-      if (!tier) return;
-      if (player.money < tier.entryFee) { socket.emit('race_denied', { reason: 'funds', entryFee: tier.entryFee }); return; }
-      player.money -= tier.entryFee;
-      player.balanceSheet.totalExpenses += tier.entryFee;
-      player.balanceSheet.lastTickExpense += tier.entryFee;
-      activeRaces.set(socket.id, { difficulty, startedAt: Date.now() });
-      socket.emit('race_started', { difficulty, laps: tier.laps, entryFee: tier.entryFee, reward: tier.reward, cpuSkill: tier.cpuSkill });
+      const v = validateFinish(entry, { eventId: msg.eventId, pos: msg.pos, time: msg.time ?? null, score: Number(msg.score) || 0, failed: !!msg.failed }, now, lastPaidAt.get(socket.id));
+      activeEvents.delete(socket.id); // an entry is answered once, paid or refused
+      if (!v.ok) { console.log('finish_event refused:', socket.id, v.reason); deny('That run could not be verified, so it paid nothing.'); return; }
+      const ev = EVENTS.find(e => e.id === entry!.eventId)!;
+      const r = applyPayout(player, ev, v.pos, !!msg.failed, { time: msg.time, carId: entry!.carId });
+      if (r.cash || r.octane || r.rep) lastPaidAt.set(socket.id, now);
+      socket.emit('event_result', r);
       broadcastState(io, gameState);
   });
 
-  socket.on('finish_race', ({ difficulty, totalMs, laps, placed }) => {
+  // A live event abandoned without results (R, leaving the Strip): drop the entry, pay nothing.
+  socket.on('quit_event', ({ eventId } = {} as any) => {
+      const e = activeEvents.get(socket.id);
+      if (e && e.eventId === eventId) activeEvents.delete(socket.id);
+  });
+
+  const liveEntry = (now: number) => { const e = activeEvents.get(socket.id); return !!e && now - e.startedAt <= ENTRY_TTL_MS; };
+
+  socket.on('finish_outrun', ({ won } = {} as any) => {
+      const player = gameState.players[socket.id];
+      if (!player || won !== true) return; // a lost outrun pays nothing: nothing to verify or refuse
+      const now = Date.now();
+      const v = player.worldPosition?.district === 'strip' ? validateOutrun(lastOutrunAt.get(socket.id), now, liveEntry(now)) : { ok: false as const, reason: 'not in the Strip' };
+      if (!v.ok) { console.log('finish_outrun refused:', socket.id, v.reason); deny('That outrun could not be verified, so it paid nothing.'); return; }
+      lastOutrunAt.set(socket.id, now);
+      const r = applyPayout(player, outrunEvent(stageOf(stripOf(player).rep)), 1, false);
+      socket.emit('event_result', r);
+      if (r.cash || r.rep) broadcastState(io, gameState);
+  });
+
+  socket.on('strip_buy_part', ({ carId, key, v, price } = {} as any) => {
       const player = gameState.players[socket.id];
       if (!player) return;
-      const ar = activeRaces.get(socket.id);
-      if (!ar || ar.difficulty !== difficulty) return; // must have a live entry for this race
-      const tier = RACE_TIERS[difficulty as RaceDifficulty];
-      if (!tier) return;
-      if (typeof laps !== 'number' || laps < tier.laps) return; // didn't finish — keep the entry live
-      const minMs = tier.laps * 8000;     // a lap can't realistically be under 8s
-      const maxMs = tier.laps * 180000;   // a "finish" slower than 3min/lap is abandoned
-      const realElapsed = Date.now() - ar.startedAt;
-      if (typeof totalMs !== 'number' || totalMs < minMs || totalMs > maxMs) return;
-      if (realElapsed < minMs - 1000) return; // can't physically have finished that fast — ignore, entry stays live
-      activeRaces.delete(socket.id); // validated finish — consume the entry now
-      // v1: finishing the time-trial pays the tier reward (1st place by default).
-      // Stage 2 will scale the payout by finishing position against the CPU field.
-      const place = typeof placed === 'number' ? placed : 1;
-      const factor = place <= 1 ? 1 : place === 2 ? 0.5 : place === 3 ? 0.25 : 0;
-      const reward = Math.round(tier.reward * factor);
-      if (reward > 0) {
-          player.money += reward;
-          player.balanceSheet.totalIncome += reward;
-          player.balanceSheet.lastTickIncome += reward;
+      if (!ownsCar(player, carId) || typeof key !== 'string' || (typeof v !== 'string' && typeof v !== 'number')) { deny('That part is not for sale.'); broadcastState(io, gameState); return; }
+      const rec = stripOf(player), c = carState(rec, carId);
+      const q = partPrice(key, v as PartValue, stageOf(rec.rep));
+      if (!q.ok) { deny(q.reason); broadcastState(io, gameState); return; }
+      if (!isOwned(c.cfg, c.owned, key, v)) { // owned already (bought, fitted or free): no charge, just fit it
+          if (price !== q.price) { deny('The price changed. Try again.'); broadcastState(io, gameState); return; }
+          if (player.money < q.price) { deny('Not enough cash for that part.'); broadcastState(io, gameState); return; }
+          player.money -= q.price;
+          player.balanceSheet.totalExpenses += q.price;
+          player.balanceSheet.lastTickExpense += q.price;
       }
-      player.raceWins = (player.raceWins || 0) + (place <= 1 ? 1 : 0);
-      socket.emit('race_payout', { reward, place, difficulty, totalMs });
+      const o = okey(key, v);
+      if (!c.owned.includes(o)) c.owned.push(o);
+      c.cfg = withV(c.cfg, key, v);
       broadcastState(io, gameState);
   });
 
+  socket.on('strip_equip', ({ carId, key, v } = {} as any) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (!ownsCar(player, carId) || typeof key !== 'string' || (typeof v !== 'string' && typeof v !== 'number')) return;
+      const rec = stripOf(player), c = carState(rec, carId);
+      // only a part the car owns, or a free one in the catalog (isOwned: free, fitted, or bought)
+      const q = partPrice(key, v, stageOf(rec.rep)); // the stage applies to free parts too
+      if (!q.ok) { deny(q.reason); broadcastState(io, gameState); return; }
+      if (!isOwned(c.cfg, c.owned, key, v)) { deny('Buy that part first.'); broadcastState(io, gameState); return; }
+      if (getV(c.cfg, key) === v) return;
+      c.cfg = withV(c.cfg, key, v);
+      broadcastState(io, gameState);
+  });
+
+  socket.on('strip_tune', ({ carId, tune } = {} as any) => {
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      if (!ownsCar(player, carId)) return;
+      carState(stripOf(player), carId).tune = clampTune(tune);
+      broadcastState(io, gameState);
+  });
   socket.on('wash_car', (carId) => {
      const player = gameState.players[socket.id];
      if (!player) return;
@@ -1828,8 +1886,11 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    activeRaces.delete(socket.id);
-    lastBoxAt.delete(socket.id);
+    activeEvents.delete(socket.id);
+    drivenCar.delete(socket.id);
+    lastOutrunAt.delete(socket.id);
+    stripPositions.delete(socket.id);
+    lastPaidAt.delete(socket.id);
     const leaving = gameState.players[socket.id];
     delete gameState.players[socket.id];
     if (gameState.hostId === socket.id) {
