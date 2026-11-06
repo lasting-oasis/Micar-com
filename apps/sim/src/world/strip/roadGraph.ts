@@ -5,7 +5,7 @@ import { roadRoute, routePoint } from './routes';
 type Edge = { to: number; w: number };
 type Graph = { pts: Pt[]; adj: Edge[][] };
 let graph: Graph | undefined;
-const JUNCTION = 3, STRAIGHT_ON = 0.6;
+const JUNCTION = 3, MERGE = 0.05, STRAIGHT_ON = 0.6;
 
 function roadById(id: string): RoadData {
   const r = HUB.roads.find((x) => x.id === id);
@@ -21,10 +21,16 @@ function build(): Graph {
     adj[a].push({ to: b, w }); adj[b].push({ to: a, w });
   };
   HUB.roads.forEach((road, ri) => {
-    const base = pts.length;
-    for (const p of road.pts) { pts.push([p[0], p[1]]); owner.push(ri); adj.push([]); }
-    for (let k = 1; k < road.pts.length; k++) link(base + k - 1, base + k);
-    if (road.loop && road.pts.length > 2) link(base + road.pts.length - 1, base);
+    const ids: number[] = [];
+    for (const p of road.pts) {
+      // coincident points (also repeated points within a road) share one node (no zero-length edges)
+      let id = -1;
+      for (let i = 0; i < pts.length; i++) if (Math.hypot(pts[i][0] - p[0], pts[i][1] - p[1]) < MERGE) { id = i; break; }
+      if (id < 0) { id = pts.length; pts.push([p[0], p[1]]); owner.push(ri); adj.push([]); }
+      ids.push(id);
+    }
+    for (let k = 1; k < ids.length; k++) link(ids[k - 1], ids[k]);
+    if (road.loop && ids.length > 2) link(ids[ids.length - 1], ids[0]);
   });
   for (let a = 0; a < pts.length; a++) for (let b = a + 1; b < pts.length; b++) {
     if (owner[a] !== owner[b] && Math.hypot(pts[a][0] - pts[b][0], pts[a][1] - pts[b][1]) <= JUNCTION) link(a, b);
@@ -33,6 +39,7 @@ function build(): Graph {
 }
 const G = (): Graph => (graph ??= build());
 
+// Ties go to the lowest index (harmless: coincident nodes are merged).
 function nearestNode(g: Graph, x: number, z: number): number {
   let best = 0, bd = Infinity;
   for (let i = 0; i < g.pts.length; i++) { const d = (g.pts[i][0] - x) ** 2 + (g.pts[i][1] - z) ** 2; if (d < bd) { bd = d; best = i; } }
@@ -67,6 +74,14 @@ function walk(g: Graph, cur: number, prevNode: number, dir: Pt | null, length: n
     let opts = g.adj[cur].filter((e) => e.to !== prevNode);
     if (!opts.length) opts = g.adj[cur];
     if (!opts.length) break;
+    if (dir && opts.length > 1) {
+      const d = dir;
+      const fwd = opts.filter((e) => {
+        const vx = g.pts[e.to][0] - g.pts[cur][0], vz = g.pts[e.to][1] - g.pts[cur][1];
+        return (vx * d[0] + vz * d[1]) / (Math.hypot(vx, vz) || 1) >= -0.5;
+      });
+      if (fwd.length) opts = fwd;
+    }
     let pick = opts[0];
     if (opts.length > 1) {
       const dx = dir ? dir[0] : 0, dz = dir ? dir[1] : 0;
@@ -77,7 +92,7 @@ function walk(g: Graph, cur: number, prevNode: number, dir: Pt | null, length: n
       else { const others = opts.filter((e) => e !== straight); pick = others[Math.floor(Math.random() * others.length)]; }
     }
     const vx = g.pts[pick.to][0] - g.pts[cur][0], vz = g.pts[pick.to][1] - g.pts[cur][1], L = Math.hypot(vx, vz) || 1;
-    dir = [vx / L, vz / L]; got += pick.w; prevNode = cur; cur = pick.to;
+    if (L > 0.01) dir = [vx / L, vz / L]; got += pick.w; prevNode = cur; cur = pick.to;
     out.push([g.pts[cur][0], g.pts[cur][1]]);
   }
 }

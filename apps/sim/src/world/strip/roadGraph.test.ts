@@ -38,6 +38,22 @@ describe('roadGraph', () => {
     expect(plen(ext)).toBeGreaterThanOrEqual(300);
     expect(ext.slice(0, base.length)).toEqual(base);
   });
+  it('walks never reverse (except at dead ends) nor stall', () => {
+    const ends: Pt[] = [];
+    for (const r of HUB.roads) if (!r.loop) for (const e of [r.pts[0], r.pts[r.pts.length - 1]]) {
+      const other = HUB.roads.some((o) => o !== r && o.pts.some((q) => Math.hypot(q[0] - e[0], q[1] - e[1]) < 3.5));
+      if (!other) ends.push(e);
+    }
+    let reversals = 0, stalls = 0;
+    for (let i = 0; i < 200; i++) {
+      const w = wanderFrom(pointOnRoad('loop', 450), 600);
+      for (let k = 1; k < w.length; k++) if (Math.hypot(w[k][0] - w[k - 1][0], w[k][1] - w[k - 1][1]) < 0.01) stalls++;
+      for (let k = 2; k < w.length; k++) {
+        if (Math.hypot(w[k][0] - w[k - 2][0], w[k][1] - w[k - 2][1]) < 0.01 && !ends.some((e) => Math.hypot(e[0] - w[k - 1][0], e[1] - w[k - 1][1]) < 0.01)) reversals++;
+      }
+    }
+    expect(reversals).toBe(0); expect(stalls).toBe(0);
+  });
   it('pointOnRoad wraps', () => {
     const len = roadRoute(HUB.roads.find((r) => r.id === 'loop')!).len;
     const a = pointOnRoad('loop', len + 10), b = pointOnRoad('loop', 10);
