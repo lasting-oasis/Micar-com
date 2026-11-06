@@ -25,7 +25,11 @@ export function parkAI(A: AI): void { A.parked = true; A.x = -1e4; A.z = -1e4; }
 
 export function stepAI(A: AI, dt: number, playerS: number | null, _stage: number): void {
   if (A.hold || A.done || A.parked || !A.route) return;
-  if (A.wander && A.path && A.s > A.route.len - 60) { A.path = extendWander(A.path.slice(-3), 400); A.route = buildRoute(A.path, false); A.s = routeProgress(A.route, A.x, A.z, 0, 60).s; }
+  if (A.wander && A.path && A.s > A.route.len - 60) {
+    let k = 0, bd = Infinity;
+    for (let i = 0; i < A.path.length; i++) { const d = (A.path[i][0] - A.x) ** 2 + (A.path[i][1] - A.z) ** 2; if (d < bd) { bd = d; k = i; } }
+    A.path = extendWander(A.path.slice(Math.max(0, k - 2)), 400); A.route = buildRoute(A.path, false); A.s = routeProgress(A.route, A.x, A.z, 0, 60).s;
+  }
   const rt = A.route, la = 7 + A.v * .5;
   const p = routePoint(rt, A.s + la); const tx = p.x - p.tz * A.lane, tz = p.z + p.tx * A.lane;
   const want = Math.atan2(tx - A.x, tz - A.z); let dh = want - A.h; dh = Math.atan2(Math.sin(dh), Math.cos(dh));
@@ -61,7 +65,8 @@ export function separateAIs(list: AI[]): void {
 
 const WCELL = 40;
 type WallHash = { segs: number[]; cells: Map<number, number[]> };
-let lastWalls: Pt[][] | null = null;
+let extraWalls: Pt[][] | null = null;
+let extraHash: WallHash = { segs: [], cells: new Map() };
 let zoneHash: WallHash = { segs: [], cells: new Map() };
 const ck = (i: number, j: number): number => i * 100003 + j;
 
@@ -76,11 +81,11 @@ function buildHash(walls: Pt[][]): WallHash {
   return { segs, cells };
 }
 
-export function setWallZone(walls: Pt[][]): void { lastWalls = walls; zoneHash = buildHash(walls); }
+export function setWallZone(walls: Pt[][]): void { zoneHash = buildHash(walls); }
 
 export function collideWalls(V: Vehicle, walls?: Pt[][]): number {
-  if (walls && walls !== lastWalls) setWallZone(walls);
-  const H = zoneHash; let hit = 0;
+  if (walls && walls !== extraWalls) { extraWalls = walls; extraHash = buildHash(walls); }
+  const H = walls ? extraHash : zoneHash; let hit = 0;
   for (const off of [1.25, -1.25]) {
     const r = .98; let cx = V.x + Math.sin(V.h) * off, cz = V.z + Math.cos(V.h) * off;
     const i0 = Math.floor((cx - r) / WCELL), i1 = Math.floor((cx + r) / WCELL), j0 = Math.floor((cz - r) / WCELL), j1 = Math.floor((cz + r) / WCELL);
