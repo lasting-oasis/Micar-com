@@ -23,6 +23,7 @@ vi.mock('../../scene/carModel', () => {
 const { StripScene, STRIP_SPAWN } = await import('./scene');
 const { EVENTS } = await import('../data');
 const { DRAG_LANES } = await import('./events');
+const { routePoint } = await import('./routes');
 const { makeVehicle, carParams, resetVehicle } = await import('../physics');
 const { ARCHETYPES, STOCK_CFG, TUNE_DEF } = await import('../data');
 const { RENTAL_CAM } = await import('../rental');
@@ -167,6 +168,42 @@ describe('StripScene', () => {
     resetVehicle(V, (a[0] + b[0]) / 2 + nx * .5, (a[1] + b[1]) / 2 + nz * .5, Math.atan2(tx, tz));
     V.vx = -nx * 5; V.vz = -nz * 5;
     expect(S.collide(V)).toBeGreaterThan(0);
+    S.dispose();
+  });
+
+  it('a live event draws a route ribbon that cleanup removes', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    await S.startEvent(ev('harbour_gp'));
+    const count = () => { let n = 0; S.scene.traverse(o => { if (o.name === 'routeRibbon') n++; }); return n; };
+    expect(count()).toBe(1);
+    S.runner.cleanup();
+    expect(count()).toBe(0);
+    await S.startEvent(ev('royal_drag'));
+    expect(count()).toBe(1);
+    S.returnToHub();
+    expect(count()).toBe(0);
+    S.dispose();
+  });
+
+  it('the checkpoint gate faces along the route at the next checkpoint', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    await S.startEvent(ev('harbour_gp'));
+    for (let i = 0; i < 400 && S.runner.active!.state !== 'race'; i++) S.update(1 / 60, true);
+    const a = S.runner.active!; expect(a.state).toBe('race');
+    const t = routePoint(a.route, a.route.cps[a.pCp % a.route.cps.length]);
+    const mark = S.scene.getObjectByName('cpMark')!;
+    expect(mark.visible).toBe(true);
+    const want = Math.atan2(t.tx, t.tz), d = mark.rotation.y - want;
+    expect(Math.abs(Math.atan2(Math.sin(d), Math.cos(d)))).toBeLessThan(.01);
+    expect(mark.getObjectByName('cpGate')).toBeDefined();
+    S.dispose();
+  });
+
+  it('racers are coupes or sports cars', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    await S.startEvent(ev('harbour_gp'));
+    const a = S.runner.active!; expect(a.racers.length).toBeGreaterThan(0);
+    for (const R of a.racers) expect(['coupe', 'sports']).toContain((R.m as THREE.Object3D).userData.strip.style);
     S.dispose();
   });
 

@@ -3,7 +3,8 @@ import path from 'node:path';
 import * as THREE from 'three';
 import { HUB, markerFor } from './district';
 import { readTrackSync, setTrackDir } from './districtNode';
-import { buildHub, mountTrack, roadRibbons, markerMeshes } from './park';
+import { buildHub, mountTrack, roadRibbons, markerMeshes, routeRibbon, gateMeshes } from './park';
+import { buildRoute } from './routes';
 import { WORLD_PER_M as W } from '../units';
 
 setTrackDir(path.resolve(process.cwd(), 'public/strip/tracks'));
@@ -18,6 +19,26 @@ function resources(root: THREE.Object3D): { geos: Set<THREE.BufferGeometry>; mat
   });
   return { geos, mats };
 }
+
+describe('route ribbon and gates', () => {
+  it('routeRibbon covers the route in world units with 2 vertices per sample, lifted to .06 W', () => {
+    const m = routeRibbon(buildRoute([[0, 0], [100, 0]], false));
+    expect(m.name).toBe('routeRibbon');
+    const box = new THREE.Box3().setFromObject(m);
+    expect(box.min.x).toBeCloseTo(0, 3); expect(box.max.x).toBeCloseTo(100 * W, 3);
+    expect(m.geometry.getAttribute('position').count).toBe(4);
+    expect(box.min.y).toBeCloseTo(.06 * W, 4);
+    expect(m.renderOrder).toBe(1);
+  });
+  it('gateMeshes makes two posts and a beam at the given width', () => {
+    const g = gateMeshes(20);
+    expect(g.name).toBe('cpGate');
+    const posts = g.children.filter(c => Math.abs(Math.abs(c.position.x) - 10 * W) < 1e-6);
+    expect(posts).toHaveLength(2);
+    const box = new THREE.Box3().setFromObject(g);
+    expect(box.max.y).toBeCloseTo(6.2 * W, 3);
+  });
+});
 
 describe('park', () => {
   it('buildHub places one portal marker per track at HUB.portals in world units', () => {

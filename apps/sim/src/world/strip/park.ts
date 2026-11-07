@@ -9,7 +9,7 @@ import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js
 import { EVENTS, EV_COL, TRACK_NAMES } from '../data';
 import { WORLD_PER_M } from '../units';
 import { HUB, getAssetBase, type TrackData } from './district';
-import type { RoadData } from './routes';
+import type { RoadData, Route } from './routes';
 
 const W = WORLD_PER_M;
 export const SKY = 0x9fc5ee;
@@ -99,6 +99,41 @@ export function roadRibbons(roads: RoadData[]): THREE.BufferGeometry {
   if (!merged) throw new Error('strip park: road ribbons do not merge');
   merged.computeBoundingSphere(); merged.computeBoundingBox();
   return merged;
+}
+
+// ---------------------------------------------------------------------------------- route ribbon and gates
+function ribbonMesh(g: THREE.BufferGeometry): THREE.Mesh {
+  g.translate(0, .05 * W, 0); // roadRibbons sits at .01 W: lift to .06 W
+  const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({ color: ACCENT, transparent: true, opacity: .35, blending: THREE.AdditiveBlending, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
+  m.name = 'routeRibbon'; m.renderOrder = 1; return m;
+}
+/** The event's route as a translucent accent strip `width` metres wide just above the road. */
+export function routeRibbon(route: Route, width = 2): THREE.Mesh {
+  return ribbonMesh(roadRibbons([{ id: 'route', pts: route.pts, loop: route.loop, width }]));
+}
+/** A drag strip: 0.3 m edge lines at each lane centre ± 2 m, from p0 along fwd for len metres (right = fwd rotated to the right). */
+export function laneRibbon(p0: { x: number; z: number }, fwd: [number, number], right: [number, number], len: number, lanes: number[]): THREE.Mesh {
+  const roads: RoadData[] = [];
+  for (const l of lanes) for (const e of [-2, 2]) {
+    const o = l + e;
+    roads.push({ id: `lane${roads.length}`, pts: [[p0.x + right[0] * o, p0.z + right[1] * o], [p0.x + right[0] * o + fwd[0] * len, p0.z + right[1] * o + fwd[1] * len]], loop: false, width: .3 });
+  }
+  return ribbonMesh(roadRibbons(roads));
+}
+/** A checkpoint gate `width` metres across (local x), facing local z: two posts and a beam, in world units. */
+export function gateMeshes(width: number): THREE.Group {
+  const g = new THREE.Group(); g.name = 'cpGate';
+  const mat = new THREE.MeshBasicMaterial({ color: ACCENT });
+  const post = new THREE.BoxGeometry(.3 * W, 6 * W, .3 * W), beam = new THREE.BoxGeometry(width * W, .4 * W, .3 * W);
+  for (const sx of [-1, 1]) { const p = new THREE.Mesh(post, mat); p.position.set(sx * width / 2 * W, 3 * W, 0); g.add(p); }
+  const b = new THREE.Mesh(beam, mat); b.position.y = 6 * W; g.add(b);
+  return g;
+}
+export function disposeGate(g: THREE.Object3D): void {
+  g.removeFromParent();
+  const geos = new Set<THREE.BufferGeometry>(), mats = new Set<THREE.Material>();
+  g.traverse(o => { const m = o as THREE.Mesh; if (m.geometry) { geos.add(m.geometry); mats.add(m.material as THREE.Material); } });
+  geos.forEach(x => x.dispose()); mats.forEach(x => x.dispose());
 }
 
 // ---------------------------------------------------------------------------------- markers

@@ -17,17 +17,18 @@ import { carParams, makeVehicle, resetVehicle, type Vehicle } from '../physics';
 import { WORLD_PER_M } from '../units';
 import { buildRentalLot } from '../../scene/world/rentalLot';
 import { RENTAL_BAY, RENTAL_CAM, RENTAL_KIOSK } from '../rental';
-import { buildHub, mountTrack, radialTexture, ACCENT, CHROME, GRASS, SKY, TUBE_BLUE, type Hub, type Loader, type Mounted, type ParkOpts, type SceneMarker } from './park';
+import { buildHub, mountTrack, radialTexture, routeRibbon, laneRibbon, gateMeshes, disposeGate, ACCENT, CHROME, GRASS, SKY, TUBE_BLUE, type Hub, type Loader, type Mounted, type ParkOpts, type SceneMarker } from './park';
 import { HUB, SPAWN, loadTrack, routeFor, trackLoaded, trackOfEvent, type TrackData, type TrackId } from './district';
 import { zoneBounds, zoneRoads, zoneWalls, type Zone } from './zone';
-import { snapToRoad, type Pt, type RoadData } from './routes';
+import { nearestRoadPoint, snapToRoad, type Pt, type RoadData } from './routes';
 import { hubPoint, shortestPath } from './roadGraph';
 import { collideCar, collideWalls, makeAI, parkAI, separateAIs, setWallZone, setWander, stepAI, type AI } from './ai';
-import { EventRunner, nearEvent, nearRival, playerAccel, playerTopMs, startOutrun, updateOutrun, type ActiveEvent, type EventFx, type EventResults, type Outrun } from './events';
+import { EventRunner, DRAG_LANES, nearEvent, nearRival, playerAccel, playerTopMs, startOutrun, updateOutrun, type ActiveEvent, type EventFx, type EventResults, type Outrun } from './events';
 
 const W = WORLD_PER_M;
 /** how close (m) the player must be to a portal or return marker */
 const NEAR_M = 11;
+const RACER_STYLES: BodyStyle[] = ['coupe', 'sports'];
 const TRAFFIC_COLS = ['#c8102e', '#e9ecef', '#1f4fbf', '#3d434b', '#0c0c0e', '#b9bec5', '#ffd21f', '#0f8b8d', '#134a32', '#5a0a14'];
 const RIVAL_NAMES = ['Kira', 'Dex', 'Mako'];
 const RIVAL_NEON = [ACCENT, TUBE_BLUE, CHROME];
@@ -105,6 +106,8 @@ export class StripScene {
   private envRT: THREE.WebGLRenderTarget | null = null;
   private gpsMesh: THREE.Mesh | null = null;
   private gpsMat: THREE.MeshBasicMaterial | null = null;
+  private ribbon: THREE.Mesh | null = null;
+  private gate: THREE.Group | null = null; private gateW = -1;
   private carGroup: THREE.Group | null = null;
   private prevParent: THREE.Object3D | null = null;
   private prevShadow: THREE.Object3D | null = null;
@@ -122,13 +125,14 @@ export class StripScene {
     this.fx = {
       banner: (t, bad, hold) => opts.onBanner(t, bad, hold),
       sfx: n => opts.onSfx(n),
-      spawnRacerMesh: (cfg: VisualCfg) => this.spawnCar(pick(STYLES), cfg.color, cfg),
+      spawnRacerMesh: (cfg: VisualCfg) => this.spawnCar(pick(RACER_STYLES), cfg.color, cfg),
       disposeMesh: m => this.disposeCar(m as THREE.Group),
-      placeCp: p => this.placeCp(p),
+      placeCp: (p, t) => this.placeCp(p, t),
       stage,
       styleRating: () => opts.styleRating?.() ?? 0,
     };
     this.runner = new EventRunner(this.PV, this.ais, this.fx, () => this.PV.P, () => zoneRoads(this.zone));
+    this.runner.onCleanup = () => this.dropRibbon();
     this.runner.onAbandon = ev => opts.onEventQuit?.(ev);
   }
   private stage(): number { return this.fx.stage(); }
@@ -208,10 +212,26 @@ export class StripScene {
     m.position.set(A.x * W, 0, A.z * W); m.rotation.y = A.h + Math.PI;
     this.roll(m, A.v, dt, A.steer);
   }
-  private placeCp(p: { x: number; z: number } | null): void {
+  private placeCp(p: { x: number; z: number } | null, t?: { tx: number; tz: number }): void {
     const cp = this.hub?.cpMark; if (!cp) return;
     if (!p) { cp.visible = false; return; }
     cp.visible = true; cp.position.set(p.x * W, 0, p.z * W);
+    if (t) cp.rotation.y = Math.atan2(t.tx, t.tz);
+    const roads = zoneRoads(this.zone), w = roads.length ? nearestRoadPoint(p.x, p.z, roads).road.width : 12;
+    if (!this.gate || this.gateW !== w) { this.dropGate(); this.gate = gateMeshes(w); this.gateW = w; cp.add(this.gate); }
+  }
+  private dropGate(): void { if (this.gate) disposeGate(this.gate); this.gate = null; this.gateW = -1; }
+  /** The live event's route ribbon (a drag strip draws its four lane edges instead); removed by the runner's onCleanup, which every end path goes through. */
+  private dropRibbon(): void {
+    const r = this.ribbon; if (!r) return;
+    r.removeFromParent(); r.geometry.dispose(); (r.material as THREE.Material).dispose(); this.ribbon = null;
+  }
+  private addRibbon(): void {
+    this.dropRibbon();
+    const a = this.runner.active; if (!a) return;
+    const d = a.drag;
+    const m = a.type === 'drag' && d.p0 ? laneRibbon(d.p0, d.fwd, d.right, a.route.len, DRAG_LANES) : routeRibbon(a.route, 2);
+    this.ribbon = m; this.scene.add(m);
   }
   /** the event markers of the current zone with their events (metres: what nearEvent and the HUD use) */
   hudMarkers(): { ev: EventDef; x: number; z: number }[] {
@@ -347,6 +367,7 @@ export class StripScene {
     this.endOutrun();
     this.reported = null;
     this.runner.start(ev, o);
+    this.addRibbon();
     this.opts.onEventStart?.(ev, this.PV);
   }
   private endOutrun(): void {
@@ -477,6 +498,7 @@ export class StripScene {
     this.ais.length = 0;
     for (const t of this.tags) t.material.dispose(); this.tags = [];
     this.tagTex?.dispose(); this.tagTex = null;
+    this.dropRibbon(); this.dropGate();
     this.setGps(null); this.gpsMat?.dispose(); this.gpsMat = null;
     this.envRT?.dispose(); this.envRT = null;
     this.lot?.dispose(); this.lot = null; this.inLobby = false;

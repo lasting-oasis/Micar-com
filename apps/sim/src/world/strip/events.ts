@@ -16,7 +16,7 @@ export type EventFx = {
   sfx(name: string): void;
   spawnRacerMesh(cfg: VisualCfg): unknown;
   disposeMesh(m: unknown): void;
-  placeCp(p: { x: number; z: number } | null): void;
+  placeCp(p: { x: number; z: number } | null, tangent?: { tx: number; tz: number }): void;
   stage(): number;
   styleRating(): number;
 };
@@ -106,7 +106,8 @@ export class EventRunner {
   private placeCpMark(): void {
     const a = this.active; if (!a) return; const r = a.route;
     if (a.type === 'drag' || (a.state !== 'race' && a.state !== 'count')) { this.fx.placeCp(null); return; }
-    this.fx.placeCp(cpPoint(r, a.pCp % r.cps.length));
+    const q = routePoint(r, r.cps[a.pCp % r.cps.length]);
+    this.fx.placeCp(cpPoint(r, a.pCp % r.cps.length), { tx: q.tx, tz: q.tz });
   }
   private dragLat(): number { const d = this.active!.drag; return (this.PV.x - d.p0!.x) * d.right[0] + (this.PV.z - d.p0!.z) * d.right[1]; }
   private dragS(x: number, z: number): number { const d = this.active!.drag; return (x - d.p0!.x) * d.fwd[0] + (z - d.p0!.z) * d.fwd[1]; }
@@ -217,6 +218,8 @@ export class EventRunner {
   }
   /** Called once when a live event ends without results (R, leaving the Strip, a new start): the server drops its entry. */
   onAbandon?: (ev: EventDef) => void;
+  /** Called once whenever a live event ends (every path goes through cleanup): the scene drops its route ribbon. */
+  onCleanup?: () => void;
   cleanup(): void {
     const a = this.active; if (!a) return;
     if (!a.results) this.onAbandon?.(a.ev);
@@ -225,6 +228,7 @@ export class EventRunner {
     for (const t of a.drag.trafficA) { setWander(t.A, hubPoint()); }
     for (const A of this.ais) { if ((A.kind === 'traffic' || A.kind === 'rival') && A.parked) setWander(A, hubPoint()); A.hold = false; }
     this.fx.placeCp(null); this.fx.banner(''); this.active = null;
+    this.onCleanup?.();
   }
   quit(): void { this.cleanup(); snapToRoad(this.PV, this.roads()); }
 }
