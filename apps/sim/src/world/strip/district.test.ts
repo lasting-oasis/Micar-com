@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { HUB, TRACKS, loadTrack, markerFor, offsetOf, routeFor, trackLoaded, trackOfEvent, type Pt, type TrackData } from './district';
+import { HUB, TRACKS, markerFor, offsetOf, routeFor, trackOfEvent, type Pt, type TrackData } from './district';
 import { readTrackSync, setTrackDir } from './districtNode';
 import { routePoint } from './routes';
 

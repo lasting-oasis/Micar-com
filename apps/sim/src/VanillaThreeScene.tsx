@@ -20,7 +20,7 @@ import { EVENTS, EV_NAME, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, t
 import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physics';
 import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from './world/parts';
 import { StripScene, STRIP_SPAWN } from './world/strip/scene';
-import { routePoint, snapToRoad } from './world/strip/routes';
+import { routePoint } from './world/strip/routes';
 import type { EventResults } from './world/strip/events';
 import { Hud, fmtT, type HudState } from './world/hud';
 import { Audio as NtAudio } from './world/audio';
@@ -743,7 +743,7 @@ export function VanillaThreeScene() {
                 if (a.type === 'drag' || a.state !== 'race' || a.results) return;
                 const p = routePoint(a.route, a.pS);
                 D.place(p.x, p.z, Math.atan2(p.tx, p.tz));
-            } else { snapToRoad(V); mendEngine(); }
+            } else { S.snap(V); mendEngine(); }
             chase.reset(V);
         };
         /** Our position to the server: in the Strip, the car's pose in the Strip's scene (world units, district 'strip'),
@@ -910,7 +910,7 @@ export function VanillaThreeScene() {
             map: (I, dt) => strip!.runner.input(I, dt),
         };
         const NONE: never[] = [];
-        const hudState: HudState = { PV: null as never, event: null, standings: NONE, outrun: null, gps: null, markers: NONE, ais: NONE, money: 0, units: 'mph', manual: false, small: false, touch: touchUi, district: 'town' };
+        const hudState: HudState = { PV: null as never, event: null, standings: NONE, outrun: null, gps: null, markers: NONE, roads: NONE, ais: NONE, money: 0, units: 'mph', manual: false, small: false, touch: touchUi, district: 'town' };
         // the old keys (and the phone D-pad, which sets them) drive too
         const legacyInput = (I: Input) => {
             if (I.hyd) return;
@@ -1028,7 +1028,7 @@ export function VanillaThreeScene() {
                 else {
                     const h = hudState, T = inStrip ? strip! : null, a = T ? T.runner.active : null;
                     h.PV = V; h.district = district; h.event = a; h.standings = a ? T!.runner.standings() : NONE;
-                    h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.markers : NONE; h.ais = T ? T.ais : NONE;
+                    h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.hudMarkers() : NONE; h.roads = T ? T.hudRoads() : NONE; h.ais = T ? T.ais : NONE;
                     h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.stage = stripStage();
                     hud.draw(h);
                 }
