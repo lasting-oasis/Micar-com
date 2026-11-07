@@ -37,4 +37,11 @@ describe('ChaseCamera', () => {
     for (let i = 0; i < 120; i++) C.update(PV, 1 / 60, true);
     expect(C.shake).toBe(0); expect(C.cam.fov).toBeGreaterThan(69);
   });
+
+  it('lags a slide: the yaw settles half a slip angle toward the way the car is travelling', () => {
+    const C = new ChaseCamera(new THREE.PerspectiveCamera()); const PV = car(10, 20, 0); C.reset(PV);
+    PV.u = 20; PV.v = 20 * Math.tan(.4); PV.beta = .4;
+    for (let i = 0; i < 200; i++) C.update(PV, 1 / 60, false);
+    expect(Math.abs(C.yaw - (PV.h + .2))).toBeLessThan(.01);
+  });
 });

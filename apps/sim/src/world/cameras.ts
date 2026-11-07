@@ -5,7 +5,7 @@
 // WORLD_PER_M (the lofted bodies face −Z locally and get rotation.y = h + π to line up), so the
 // camera works out Night Tuner's metre offsets and multiplies by WORLD_PER_M.
 import type * as THREE from 'three';
-import type { Vehicle } from './physics';
+import { clamp, type Vehicle } from './physics';
 import { WORLD_PER_M } from './units';
 
 const W = WORLD_PER_M;
@@ -35,7 +35,7 @@ export class ChaseCamera {
 
   update(PV: Vehicle, dt: number, nosOn: boolean): void {
     const cam = this.cam, p = cam.position, sp = Math.hypot(PV.vx, PV.vz);
-    let d = PV.h - this.yaw; d = Math.atan2(Math.sin(d), Math.cos(d)); this.yaw += d * Math.min(1, dt * (this.mode === 2 ? 20 : 4.2));
+    let d = PV.h + (this.mode === 2 ? 0 : clamp(PV.beta, -.6, .6) * .5) - this.yaw; d = Math.atan2(Math.sin(d), Math.cos(d)); this.yaw += d * Math.min(1, dt * (this.mode === 2 ? 20 : 4.2));
     const yaw = this.lookBack ? this.yaw + Math.PI : this.yaw; const fx = Math.sin(yaw), fz = Math.cos(yaw);
     this.shake = Math.max(0, this.shake - dt * 2); const sh = (this.shake + (nosOn ? .12 : 0)) * .35;
     if (this.mode === 2 && !this.lookBack) {

@@ -27,4 +27,15 @@ describe('parts on the lofted bodies', () => {
     expect(glass.material).toBe(glassMat); expect(glassMat.opacity).toBe(.72);
     expect(bodyMat.metalness).toBe(.5); expect(bodyMat.roughness).toBe(.3); expect(bodyMat.clearcoat).toBe(0); expect(bodyMat.clearcoatRoughness).toBe(0);
   });
+  it('the kit root rides the tilt node when the model has one', () => {
+    const car = new THREE.Group(), tilt = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.BoxGeometry(3.7, 2.9, 9.6), new THREE.MeshPhysicalMaterial());
+    const wheelMesh = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial(), 4);
+    const halos = new THREE.Points(new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute([], 3)).setAttribute('lampDir', new THREE.Float32BufferAttribute([], 1)));
+    const pivots = [0, 1, 2, 3].map(() => new THREE.Object3D()), wheels = pivots.map(p => { const w = new THREE.Object3D(); p.add(w); return w; });
+    tilt.add(body, halos); car.add(tilt, wheelMesh);
+    car.userData.car = { body, tilt, wheelMesh, pivots, wheels, halos, far: false };
+    const r = attachParts(car, STOCK_CFG, 'sedan', 0);
+    expect(r.root.parent).toBe(tilt);
+  });
 });

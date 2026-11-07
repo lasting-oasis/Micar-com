@@ -11,8 +11,8 @@ vi.mock('../../scene/carModel', () => {
       const body = new THREE.Mesh(new THREE.BufferGeometry(), new THREE.MeshStandardMaterial());
       const wheelMesh = new THREE.InstancedMesh(new THREE.BufferGeometry(), new THREE.MeshStandardMaterial(), 4);
       const hg = new THREE.BufferGeometry(); hg.setAttribute('position', new THREE.Float32BufferAttribute([0, 1, -4, 0, 1, 4], 3)); hg.setAttribute('lampDir', new THREE.Float32BufferAttribute([-1, 1], 1));
-      const halos = new THREE.Points(hg); group.add(body, wheelMesh, halos);
-      group.userData.car = { pivots, wheels, body, wheelMesh, halos, far: false };
+      const halos = new THREE.Points(hg); const tilt = new THREE.Group(); tilt.add(body, halos); group.add(tilt, wheelMesh);
+      group.userData.car = { pivots, wheels, body, wheelMesh, halos, tilt, far: false };
       return { group, wheels, frontPivots: pivots.slice(0, 2) };
     },
     disposeCarModel: (g: THREE.Object3D) => { g.removeFromParent(); g.userData.disposed = true; },
