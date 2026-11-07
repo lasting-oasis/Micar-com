@@ -2,6 +2,7 @@ import express from 'express';
 import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import fs from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import type { AddressInfo } from 'node:net';
 import path from 'node:path';
 import { GameState, Car, Player, FractionalVehicle, FUEL_PRICE_PER_UNIT } from './src/types.js';
@@ -2289,7 +2290,8 @@ io.on('connection', (socket) => {
 });
 
 async function startServer() {
-    setTrackDir(path.join(process.cwd(), process.env.NODE_ENV === 'production' ? 'dist' : 'public', 'strip', 'tracks'));
+    const built = path.join(process.cwd(), 'dist', 'strip', 'tracks');
+    setTrackDir(existsSync(built) ? built : path.join(process.cwd(), 'public', 'strip', 'tracks'));
     for (const t of TRACKS) readTrackSync(t.id);
     await loadGameState();
 
