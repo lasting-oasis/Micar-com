@@ -4,6 +4,7 @@ import path from 'node:path';
 import { HUB, TRACKS, forgetTrack, markerFor, offsetOf, routeFor, trackOfEvent, type Pt, type TrackData } from './district';
 import { readTrackSync, setTrackDir } from './districtNode';
 import { routePoint } from './routes';
+import { DRAG_LANES } from './events';
 
 const OFFSETS: Record<string, Pt> = {
   spa: [0, 0], monza: [8000, 0], silverstone: [16000, 0], suzuka: [24000, 0], nurburgring: [0, 8000],
@@ -65,10 +66,22 @@ describe('district data', () => {
       const walls = data[t.id].walls.map(w => w.map((p): Pt => [p[0] + t.offset[0], p[1] + t.offset[1]]));
       for (const e of t.events) {
         const p0 = routePoint(routeFor(e), 0), rx = -p0.tz, rz = p0.tx;
-        const lanes = isDrag(e) ? [-7.5, -2.5, 2.5, 7.5] : [-3, 3], backs = isDrag(e) ? [0] : [0, -8];
+        const lanes = isDrag(e) ? DRAG_LANES : [-3, 3], backs = isDrag(e) ? [0] : [0, -8];
         for (const lane of lanes) for (const back of backs) {
           const q: Pt = [p0.x + rx * lane + p0.tx * back, p0.z + rz * lane + p0.tz * back];
           expect(wallDist(q, walls), `${e} lane ${lane} back ${back}`).toBeGreaterThanOrEqual(1.5);
+        }
+      }
+    }
+  });
+  it('every drag lane stays clear of the walls along the whole run', () => {
+    for (const t of TRACKS) {
+      const walls = data[t.id].walls.map(w => w.map((p): Pt => [p[0] + t.offset[0], p[1] + t.offset[1]]));
+      for (const e of t.events.filter(isDrag)) {
+        const route = routeFor(e), p0 = routePoint(route, 0), rx = -p0.tz, rz = p0.tx;
+        for (let s = 0; s <= route.len; s += 10) for (const lane of DRAG_LANES) {
+          const q: Pt = [p0.x + p0.tx * s + rx * lane, p0.z + p0.tz * s + rz * lane];
+          expect(wallDist(q, walls), `${e} lane ${lane} at ${s} m`).toBeGreaterThanOrEqual(1.2);
         }
       }
     }

@@ -36,7 +36,7 @@ export type ActiveEvent = {
 export type Outrun = { A: AI; t: number; gap: number; state: 'run' | 'done'; t2?: number };
 export type EventResults = { pos: number; list: Standing[]; failed: string | null; type: EventType; ev: EventDef; time: number | null; score: number };
 
-export const DRAG_LANES = [-7.5, -2.5, 2.5, 7.5];
+export const DRAG_LANES = [-6, -2, 2, 6];
 const AI_NAMES = ['Rico', 'Nadia', 'Vince', 'Tam', 'Lola', 'Jet', 'Suki', 'Bram'];
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
 
