@@ -88,7 +88,7 @@ const join = async (s: Socket, msg: object) => { const init = next<any>(s, 'init
 const close = async (...ss: Socket[]) => { for (const s of ss) s.close(); await new Promise(r => setTimeout(r, 200)); };
 const rentOne = async (s: Socket, id: string) => {
   const upd = next<any>(s, 'update', u => u.players[id]?.inventory?.some((c: any) => c.rental));
-  s.emit('rent_car', { key: 'hatchback' });
+  s.emit('rent_car', { key: 'ronin' });
   return (await upd).players[id].inventory.find((c: any) => c.rental);
 };
 

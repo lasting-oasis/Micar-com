@@ -114,7 +114,7 @@ try {
   ok(await G(() => window.__micar.money()) === 500, 'the guest starts with $500');
   await g.waitForSelector('[aria-label="Rental counter"]', { timeout: 60000 });
   ok(true, 'the rental counter is up');
-  ok(await G(() => window.__micar.rent('coupe')), 'rented the coupe at the counter');
+  ok(await G(() => window.__micar.rent('ronin')), 'rented the coupe at the counter');
   await g.waitForFunction(() => window.__micar.money() === 0, null, { timeout: 20000 });
   ok(await G(() => window.__micar.money()) === 0, 'the rental cost $500 (money 500 -> 0)');
   await g.waitForTimeout(1500);

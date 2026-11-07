@@ -9,7 +9,7 @@ import { HELP, stampName, useDriveUi, type DriveTap } from './driveUi';
 import { useGameStore } from '../store';
 import { AccountPanel } from '../strip/AccountPanel';
 import { ReplacePrompt } from '../strip/ReplacePrompt';
-import { RENTAL_FLEET, RENTAL_PRICE, canRent, isVisitor } from './rental';
+import { RENTAL_FLEET, canRent, isVisitor } from './rental';
 import { useLang, t } from '../i18n';
 
 const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
@@ -48,12 +48,13 @@ function Counter() {
       </div>
       <div className="flex flex-col gap-2">
         {RENTAL_FLEET.map(f => (
-          <button key={f.key} type="button" disabled={!ok.ok || pending} onClick={() => { setPending(true); useGameStore.getState().rentCar(f.key); }}
+          <button key={f.key} type="button" disabled={!canRent(me, f.key).ok || pending} onClick={() => { setPending(true); useGameStore.getState().rentCar(f.key); }}
             className={`${rowBtn} flex items-center gap-3 border border-market/60 enabled:hover:bg-market enabled:hover:text-night disabled:opacity-45 disabled:cursor-not-allowed`}>
             <span className="w-4 h-4 rounded-full border border-white/30 flex-none" style={{ background: f.color }} aria-hidden="true" />
             <span className="flex-1 min-w-0">
               <span className="block font-extrabold text-lg leading-tight truncate">{f.make} {f.model}</span>
-              <span className="block not-italic normal-case font-sans text-[13px] text-haze">{t(lang, 'strip.oneEvent').replace('{price}', money(RENTAL_PRICE))}</span>
+              <span className="block not-italic normal-case font-sans text-[13px] text-white/80">{t(lang, f.blurb)}</span>
+              <span className="block not-italic normal-case font-sans text-[13px] text-haze">{t(lang, 'strip.oneEvent').replace('{price}', money(f.price))}</span>
             </span>
           </button>
         ))}

@@ -8,20 +8,20 @@ describe('stripFlow', () => {
     expect(g.worldPosition).toMatchObject({ district: 'strip', x: RENTAL_BAY.x * 2, z: RENTAL_BAY.z * 2 });
   });
   it('closing an event in a rental returns it; in an owned car it does not', () => {
-    const g = guestPlayer('p', 'P', 1); const car = rent(g, 'coupe', 2); g.money += 1800;
+    const g = guestPlayer('p', 'P', 1); const car = rent(g, 'ronin', 2); g.money += 1800;
     expect(closeEvent(g, car.id)).toEqual({ returned: car }); expect(g.inventory).toEqual([]); expect(g.money).toBe(1800);
     g.inventory.push({ id: 'own' } as any);
     expect(closeEvent(g, 'own')).toEqual({ returned: undefined }); expect(g.inventory).toHaveLength(1);
   });
   it('returning a rental drops its part record; no car is a no-op', () => {
-    const g = guestPlayer('p', 'P', 1); const car = rent(g, 'sports', 3);
+    const g = guestPlayer('p', 'P', 1); const car = rent(g, 'ronin', 3);
     g.strip!.cars[car.id] = { cfg: {}, owned: ['x'] } as any; g.strip!.cars['own'] = { cfg: {}, owned: [] } as any;
     expect(closeEvent(g, undefined)).toEqual({ returned: undefined }); expect(g.inventory).toHaveLength(1);
     expect(closeEvent(g, car.id)).toEqual({ returned: car });
     expect(g.strip!.cars[car.id]).toBeUndefined(); expect(g.strip!.cars['own']).toBeDefined();
   });
   it('quitting returns the rental, restarting keeps it for the next entry', () => {
-    const g = guestPlayer('p', 'P', 1); const car = rent(g, 'hatchback', 4);
+    const g = guestPlayer('p', 'P', 1); const car = rent(g, 'civet', 4);
     expect(quitEvent(g, car.id, true)).toEqual({ returned: undefined }); expect(g.inventory).toEqual([car]);
     expect(quitEvent(g, car.id, false)).toEqual({ returned: car }); expect(g.inventory).toEqual([]);
   });
@@ -57,7 +57,7 @@ describe('visitor rules', () => {
     expect(isUntouchedGuest({ ...g, octane: 5 })).toBe(false);
     expect(isUntouchedGuest({ ...g, strip: { ...g.strip!, rep: 10 } })).toBe(false);
     expect(isUntouchedGuest({ ...g, guest: false })).toBe(false);
-    const r = guestPlayer('p', 'P', 1); rent(r, 'coupe', 2); r.money = 500;
+    const r = guestPlayer('p', 'P', 1); rent(r, 'ronin', 2); r.money = 500;
     expect(isUntouchedGuest(r)).toBe(false);
   });
   it('a magic link never signs in another tab unless the clicker chooses it', () => {

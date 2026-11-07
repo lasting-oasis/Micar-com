@@ -1388,7 +1388,7 @@ io.on('connection', (socket) => {
       const player = gameState.players[socket.id];
       if (!player) return;
       if (!RENTAL_FLEET.some(f => f.key === key)) { deny('That car is not for rent.'); return; }
-      const ok = canRent(player);
+      const ok = canRent(player, key as RentalKey);
       if (!ok.ok) { deny(ok.reason); return; }
       rent(player, key as RentalKey, Date.now());
       broadcastState(io, gameState);

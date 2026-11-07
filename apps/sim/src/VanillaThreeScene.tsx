@@ -30,7 +30,7 @@ import { ChaseCamera } from './world/cameras';
 import { WORLD_PER_M } from './world/units';
 import { useDriveUi, type ShownResults } from './world/driveUi';
 import { DriveLayer } from './world/DriveLayer';
-import { RENTAL_BAY, canRent, heldRental, isVisitor } from './world/rental';
+import { RENTAL_BAY, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
@@ -1067,7 +1067,7 @@ export function VanillaThreeScene() {
             enterStrip: () => enterStrip(),
             exitStrip: () => exitStrip(),
             /** rent a car at the counter (the same call the counter's buttons make) */
-            rent: (key: string): boolean => { const me = meNow(); if (!me || !canRent(me).ok) return false; useGameStore.getState().rentCar(key); return true; },
+            rent: (key: string): boolean => { const me = meNow(); if (!me || !canRent(me, key as RentalKey).ok) return false; useGameStore.getState().rentCar(key); return true; },
             /** in the rental lobby (a Strip visitor without a car) */
             lobby: () => lobby,
             startEvent: (id: string) => startEventById(id),
