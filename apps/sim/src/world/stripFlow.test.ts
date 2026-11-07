@@ -75,3 +75,13 @@ describe('visitor rules', () => {
     expect(linkTarget(req({ socketId: 'click' }), 'click', 'requester')).toEqual(clicker);
   });
 });
+
+describe('sanitizePosition', () => {
+  it('keeps a Strip pose on a far circuit and clamps a town one to ±2000', async () => {
+    const { sanitizePosition } = await import('./stripFlow');
+    expect(sanitizePosition({ x: 51500, z: 20000, district: 'strip' })).toEqual({ x: 51500, z: 20000 });
+    expect(sanitizePosition({ x: 51500, z: -20000, r: 1 })).toEqual({ x: 2000, z: -2000, r: 1 });
+    expect(sanitizePosition({ x: 1e9, z: 0, district: 'strip' })!.x).toBe(60000);
+    expect(sanitizePosition({ x: NaN, z: 0 })).toBeNull(); expect(sanitizePosition(null)).toBeNull();
+  });
+});

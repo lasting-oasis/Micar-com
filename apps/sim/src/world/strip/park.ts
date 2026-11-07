@@ -2,12 +2,13 @@
    once; each circuit is a group mounted at its offset on demand. Data is in metres (district.ts); geometry
    and positions here are in world units (WORLD_PER_M per metre). Roads are drawn as flat ribbons from the
    data; a Blender model (public/strip/hub.glb, tracks/<id>.glb, metres) replaces them when it loads, and a
-   failed load leaves the ribbons. Markers: a ring and a beam per event / portal / return spot. */
+   failed load leaves the ribbons; a circuit's model is loaded once a session and cloned per mount. Markers: a ring and a
+   beam per event / portal / return spot, and a park-name sign over each portal. */
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
-import { EVENTS, EV_COL } from '../data';
+import { EVENTS, EV_COL, TRACK_NAMES } from '../data';
 import { WORLD_PER_M } from '../units';
-import { HUB, type TrackData } from './district';
+import { HUB, getAssetBase, type TrackData } from './district';
 import type { RoadData } from './routes';
 
 const W = WORLD_PER_M;
@@ -18,10 +19,14 @@ export const TUBE_BLUE = '#79a6ff';
 export const CHROME = '#f3f6fb';
 
 export type Loader = (url: string) => Promise<THREE.Object3D>;
-export type SceneMarker = { id: string; kind: 'event' | 'portal' | 'return'; x: number; z: number; ring: THREE.Mesh; beam: THREE.Mesh };
-export type Hub = { scene: THREE.Scene; markers: SceneMarker[]; cpMark: THREE.Group; roads: THREE.Mesh; modelReady: Promise<void>; dispose(): void };
+/** A marker: x, z in world metres; a portal carries its park's name (label) and, in a browser, a name sprite over the ring. */
+export type SceneMarker = { id: string; kind: 'event' | 'portal' | 'return'; x: number; z: number; ring: THREE.Mesh; beam: THREE.Mesh; label?: string; sign?: THREE.Sprite };
+/** setVisible hides or shows the hub's scenery (model, ribbons, portal markers) while a circuit is mounted; cpMark stays. */
+export type Hub = { scene: THREE.Scene; markers: SceneMarker[]; cpMark: THREE.Group; roads: THREE.Mesh; modelReady: Promise<void>; setVisible(v: boolean): void; dispose(): void };
 export type Mounted = { group: THREE.Group; markers: SceneMarker[]; roads: THREE.Mesh; modelReady: Promise<void>; dispose(): void };
+/** assetBase defaults to district's setAssetBase setting. */
 export type ParkOpts = { loadModel?: Loader | null; assetBase?: string };
+const baseOf = (opts: ParkOpts): string => opts.assetBase ?? getAssetBase();
 
 // ---------------------------------------------------------------------------------- textures (browser only)
 const hasDom = () => typeof document !== 'undefined';
@@ -40,6 +45,21 @@ function ctex(w: number, h: number, draw: (g: CanvasRenderingContext2D, w: numbe
 export function radialTexture(): THREE.CanvasTexture | null {
   return ctex(128, 128, g => { const r = g.createRadialGradient(64, 64, 0, 64, 64, 64); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(.35, 'rgba(255,255,255,.55)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, 128, 128); }, { srgb: false });
 }
+
+/** A park-name sign (dark rounded box, paint-yellow text), 12 x 3 m, 6 m up; null without a DOM. The caller owns it (disposeSign). */
+export function nameSprite(text: string): THREE.Sprite | null {
+  const tex = ctex(512, 128, (g, w, h) => {
+    g.fillStyle = '#0e1217'; g.beginPath(); if (g.roundRect) g.roundRect(0, 0, w, h, 18); else g.rect(0, 0, w, h); g.fill();
+    g.strokeStyle = ACCENT; g.lineWidth = 6; g.stroke();
+    g.fillStyle = ACCENT; g.textAlign = 'center'; g.font = "italic 900 74px 'Barlow Condensed','Arial Narrow',sans-serif";
+    g.fillText(text, w / 2, 92);
+  });
+  if (!tex) return null;
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false }));
+  s.scale.set(12 * W, 3 * W, 1); s.position.y = 6 * W; s.name = 'sign';
+  return s;
+}
+function disposeSign(s: THREE.Sprite | undefined): void { if (!s) return; s.material.map?.dispose(); s.material.dispose(); }
 
 // ---------------------------------------------------------------------------------- road ribbons
 /** Every road as a flat strip at its width, y = .01 m, in world units; loops close. */
@@ -117,14 +137,28 @@ function disposeObject(root: THREE.Object3D): void {
     }
   });
 }
-/** Load a model into `parent` (scaled to world units); hide `roads` on success, warn and keep them on failure. */
-function attachModel(loader: Loader | null, url: string, parent: THREE.Object3D, roads: THREE.Mesh, label: string, isDisposed: () => boolean): { ready: Promise<void>; model(): THREE.Object3D | null } {
+/** The circuits' loaded models, per loader and URL, kept for the session: a mount adds a clone (shared geometries and
+ *  materials), never the original. A failed load is dropped, so the next entry tries again. */
+const modelCache = new WeakMap<Loader, Map<string, Promise<THREE.Object3D>>>();
+function cachedLoader(loader: Loader): Loader {
+  return async url => {
+    let m = modelCache.get(loader); if (!m) modelCache.set(loader, m = new Map());
+    const cache = m; let p = cache.get(url);
+    if (!p) { const q = loader(url); p = q; cache.set(url, q); q.catch(() => { if (cache.get(url) === q) cache.delete(url); }); }
+    return (await p).clone();
+  };
+}
+/** Load a model into `parent` (scaled to world units); hide `roads` on success, warn and keep them on failure.
+ *  `shared`: the model is a clone of a cached original, so it owns no geometry or material (nothing to dispose).
+ *  `hidden`: the owner is hidden, so the model arrives hidden. */
+function attachModel(loader: Loader | null, url: string, parent: THREE.Object3D, roads: THREE.Mesh, label: string, isDisposed: () => boolean, o: { shared?: boolean; hidden?: () => boolean } = {}): { ready: Promise<void>; model(): THREE.Object3D | null } {
   let model: THREE.Object3D | null = null;
   if (!loader) return { ready: Promise.resolve(), model: () => null };
   const ready = (async () => {
     try {
       const root = await loader(url);
-      if (isDisposed()) { disposeObject(root); return; }
+      if (isDisposed()) { if (!o.shared) disposeObject(root); return; }
+      if (o.hidden?.()) root.visible = false;
       root.scale.setScalar(W);
       root.traverse(o => { if ((o as THREE.Mesh).isMesh) { o.matrixAutoUpdate = false; o.updateMatrix(); } });
       root.name = 'model'; parent.add(root); roads.visible = false; model = root;
@@ -154,7 +188,10 @@ export function buildHub(opts: ParkOpts = {}): Hub {
   for (const [id, p] of Object.entries(HUB.portals)) {
     const { ring, beam } = markerMeshes('portal', ACCENT);
     ring.position.x = beam.position.x = p[0] * W; ring.position.z = beam.position.z = p[1] * W;
-    scene.add(ring, beam); markers.push({ id, kind: 'portal', x: p[0], z: p[1], ring, beam });
+    scene.add(ring, beam);
+    const label = TRACK_NAMES[id]?.en ?? id, sign = nameSprite(label) ?? undefined;
+    if (sign) { sign.position.x = p[0] * W; sign.position.z = p[1] * W; scene.add(sign); }
+    markers.push({ id, kind: 'portal', x: p[0], z: p[1], ring, beam, label, sign });
   }
 
   const cpMark = new THREE.Group(); cpMark.name = 'cpMark';
@@ -164,14 +201,20 @@ export function buildHub(opts: ParkOpts = {}): Hub {
   cpBeam.position.y = 20 * W; cpMark.add(cpBeam);
   cpMark.visible = false; scene.add(cpMark);
 
-  let disposed = false;
-  const att = attachModel(loaderOf(opts), (opts.assetBase ?? '/') + 'strip/hub.glb', scene, roads, 'strip hub model', () => disposed);
+  let disposed = false, hidden = false;
+  const att = attachModel(loaderOf(opts), baseOf(opts) + 'strip/hub.glb', scene, roads, 'strip hub model', () => disposed, { hidden: () => hidden });
   return {
     scene, markers, cpMark, roads, modelReady: att.ready,
+    setVisible(v) {
+      hidden = !v;
+      const m = att.model(); if (m) m.visible = v;
+      roads.visible = v && !m; // the model replaces the ribbons once it is in
+      for (const mk of markers) { mk.ring.visible = mk.beam.visible = v; if (mk.sign) mk.sign.visible = v; }
+    },
     dispose() {
       if (disposed) return; disposed = true;
       const m = att.model(); if (m) disposeObject(m);
-      for (const mk of markers) { (mk.ring.material as THREE.Material).dispose(); (mk.beam.material as THREE.Material).dispose(); }
+      for (const mk of markers) { (mk.ring.material as THREE.Material).dispose(); (mk.beam.material as THREE.Material).dispose(); disposeSign(mk.sign); }
       sharedRing().dispose(); sharedBeam().dispose();
       for (const g of geos) g.dispose();
       for (const x of mats) x.dispose();
@@ -202,15 +245,16 @@ export function mountTrack(scene: THREE.Scene, track: TrackData, opts: ParkOpts 
   scene.add(group);
 
   let disposed = false;
-  const att = attachModel(loaderOf(opts), (opts.assetBase ?? '/') + 'strip/tracks/' + track.id + '.glb', group, roads, 'strip track model ' + track.id, () => disposed);
+  const loader = loaderOf(opts);
+  const att = attachModel(loader && cachedLoader(loader), baseOf(opts) + 'strip/tracks/' + track.id + '.glb', group, roads, 'strip track model ' + track.id, () => disposed, { shared: true });
   return {
     group, markers, roads, modelReady: att.ready,
     dispose() {
       if (disposed) return; disposed = true;
       group.removeFromParent();
-      const m = att.model(); if (m) disposeObject(m);
+      // the model is a clone of the session's cached original: its geometries and materials stay for the next entry,
+      // and so do the markers' shared ring and beam geometries (the hub's portals use them too)
       for (const mk of markers) { (mk.ring.material as THREE.Material).dispose(); (mk.beam.material as THREE.Material).dispose(); }
-      sharedRing().dispose(); sharedBeam().dispose();
       geo.dispose(); roadMat.dispose();
       group.clear();
     },

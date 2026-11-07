@@ -679,6 +679,7 @@ export function VanillaThreeScene() {
             styleRating: () => localDrivingCarId ? visualRating(buildOf(localDrivingCarId).cfg) : 0,
             renderer,
             onEventStart: (ev, PV) => { chase.reset(PV); resultsShown = false; paused = false; socketEmit('enter_event', { eventId: ev.id }); },
+            onZone: (_z, PV) => chase.reset(PV),
             onResults: r => {
                 resultsShown = true;
                 socketEmit('finish_event', { eventId: r.ev.id, pos: r.pos, time: r.time, score: r.score, failed: !!r.failed });

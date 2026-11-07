@@ -18,10 +18,10 @@ import { WORLD_PER_M } from '../units';
 import { buildRentalLot } from '../../scene/world/rentalLot';
 import { RENTAL_BAY, RENTAL_CAM, RENTAL_KIOSK } from '../rental';
 import { buildHub, mountTrack, radialTexture, ACCENT, CHROME, GRASS, SKY, TUBE_BLUE, type Hub, type Loader, type Mounted, type ParkOpts, type SceneMarker } from './park';
-import { HUB, SPAWN, TRACK_LABELS, loadTrack, routeFor, trackLoaded, trackOfEvent, type TrackData, type TrackId } from './district';
+import { HUB, SPAWN, loadTrack, routeFor, trackLoaded, trackOfEvent, type TrackData, type TrackId } from './district';
 import { zoneBounds, zoneRoads, zoneWalls, type Zone } from './zone';
-import { roadRoute, snapToRoad, type Pt, type RoadData } from './routes';
-import { pointOnRoad, shortestPath } from './roadGraph';
+import { snapToRoad, type Pt, type RoadData } from './routes';
+import { hubPoint, shortestPath } from './roadGraph';
 import { collideCar, collideWalls, makeAI, parkAI, separateAIs, setWallZone, setWander, stepAI, type AI } from './ai';
 import { EventRunner, nearEvent, nearRival, playerAccel, playerTopMs, startOutrun, updateOutrun, type ActiveEvent, type EventFx, type EventResults, type Outrun } from './events';
 
@@ -34,6 +34,9 @@ const RIVAL_NEON = [ACCENT, TUBE_BLUE, CHROME];
 const pick = <T>(a: readonly T[]): T => a[Math.floor(Math.random() * a.length)];
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
 
+/** The OpenStreetMap credit the world map shows (the track data is ODbL). */
+export const OSM_CREDIT = 'Map data © OpenStreetMap contributors (ODbL)';
+const MAP_FONT = "'Barlow',sans-serif";
 /** Where the player starts in the Strip (metres, Night Tuner's spawnPlayer). */
 export const STRIP_SPAWN = SPAWN;
 export const STRIP_TRAFFIC = 14, STRIP_RIVALS = 3;
@@ -65,9 +68,8 @@ export type StripSceneOpts = {
   onNearMiss?(): void;
   /** the current zone changed (entered a circuit, back at the hub): reset the chase camera to PV.h */
   onZone?(zone: Zone, PV: Vehicle): void;
-  /** the models' loader (null: ribbons only) and the base URL of the strip/ assets */
+  /** the models' loader (null: ribbons only); the base URL of the strip/ assets is district's setAssetBase */
   loadModel?: Loader | null;
-  assetBase?: string;
   /** how a track file is fetched (tests); default fetch() */
   fetchTrack?: (url: string) => Promise<TrackData>;
   seed?: number;
@@ -110,6 +112,8 @@ export class StripScene {
   private readonly noRacers: AI[] = [];
   private readonly fx: EventFx;
   private lot: ReturnType<typeof buildRentalLot> | null = null;
+  /** bumped by exit(), returnToHub() and dispose(): a zone switch or event start that awaited a load bails when it changed */
+  private gen = 0;
 
   constructor(opts: StripSceneOpts) {
     this.opts = opts;
@@ -129,8 +133,7 @@ export class StripScene {
   }
   private stage(): number { return this.fx.stage(); }
 
-  private get parkOpts(): ParkOpts { return { loadModel: this.opts.loadModel, assetBase: this.opts.assetBase }; }
-  private hubPoint(): Pt { return pointOnRoad(HUB.wander, Math.random() * roadRoute(HUB.roads.find(r => r.id === HUB.wander)!).len); }
+  private get parkOpts(): ParkOpts { return { loadModel: this.opts.loadModel }; }
 
   /** Build the hub and its cars (synchronous; idempotent). */
   load(): void {
@@ -175,7 +178,7 @@ export class StripScene {
     for (let k = 0; k < count; k++) {
       const m = this.spawnCar(pick(STYLES), pick(TRAFFIC_COLS));
       const A = makeAI({ m, vmax: 11 + Math.random() * 5, acc: 4, brk: 7, kind: 'traffic', lane: 3.2 });
-      setWander(A, this.hubPoint());
+      setWander(A, hubPoint());
       this.ais.push(A);
     }
   }
@@ -186,7 +189,7 @@ export class StripScene {
       const tag = new THREE.Sprite(new THREE.SpriteMaterial({ map: this.tagTex, color: 0xffffff, transparent: true, depthWrite: false }));
       tag.position.set(0, 2.6 * W, 0); tag.scale.set(1.2 * W, 1.2 * W, 1); m.add(tag); this.tags.push(tag);
       const A = makeAI({ m, vmax: 16, acc: 6, brk: 8, kind: 'rival', lane: 3.0, name: RIVAL_NAMES[k], tag });
-      setWander(A, this.hubPoint());
+      setWander(A, hubPoint());
       this.ais.push(A);
     }
   }
@@ -227,13 +230,15 @@ export class StripScene {
   /** Mount a circuit (fetching its file if needed) and put the player at its lobby; the hub's traffic is parked. */
   async enterTrack(id: TrackId): Promise<void> {
     this.load();
+    const gen = this.gen;
     let track: TrackData;
     try { track = await loadTrack(id, this.opts.fetchTrack); }
-    catch (err) { console.warn('strip: could not load circuit', id, err); this.opts.onBanner('Could not load the circuit', true); return; }
-    if (!this.ready) return;
+    catch (err) { if (gen === this.gen) { console.warn('strip: could not load circuit', id, err); this.opts.onBanner('Could not load the circuit', true); } return; }
+    if (!this.ready || gen !== this.gen) return; // the player left (exit, back to the paddock, dispose) while it loaded
     if (this.zone.kind === 'track' && this.zone.track.id === id) return;
     if (this.zone.kind === 'track') { if (this.runner.active) this.runner.cleanup(); this.reported = null; this.unmount(); }
     this.mounted = mountTrack(this.scene, track, this.parkOpts);
+    this.showHub(false);
     this.zone = { kind: 'track', track };
     this.markers = this.mounted.markers;
     setWallZone(zoneWalls(this.zone));
@@ -246,17 +251,21 @@ export class StripScene {
   /** Drop the mounted circuit and make the hub the current zone (markers, walls). */
   private unmount(): void {
     if (this.mounted) { this.mounted.dispose(); this.mounted = null; }
+    this.showHub(true);
     this.zone = { kind: 'hub' };
     this.markers = this.hub?.markers ?? [];
     setWallZone(zoneWalls(this.zone));
   }
+  /** The hub's scenery (model, ribbons, portals, rental lot) shows only while the hub is the zone. */
+  private showHub(v: boolean): void { this.hub?.setVisible(v); if (this.lot) this.lot.group.visible = v; }
   /** Back to the hub: abandons a live event, unmounts the circuit, brings the traffic back; the car goes to the spawn when `place`. */
   returnToHub(place = true): void {
+    this.gen++;
     if (this.runner.active) this.runner.cleanup();
     this.reported = null;
     this.endOutrun();
     this.unmount();
-    for (const A of this.ais) { if (A.kind === 'traffic' || A.kind === 'rival') { A.hold = false; setWander(A, this.hubPoint()); } }
+    for (const A of this.ais) { if (A.kind === 'traffic' || A.kind === 'rival') { A.hold = false; setWander(A, hubPoint()); } }
     if (place) this.placePlayer(SPAWN.x, SPAWN.z, SPAWN.h);
     this.opts.onZone?.(this.zone, this.PV);
   }
@@ -276,6 +285,7 @@ export class StripScene {
   }
   /** Leave: ends any event or outrun, clears the GPS and the map, gives the car group back to where it was. */
   exit(): void {
+    this.gen++; // also when not entered: a quick race started from the Garage may be loading its circuit
     if (!this.entered) return;
     if (this.zone.kind === 'track') this.returnToHub(false);
     if (this.runner.active) this.runner.cleanup();
@@ -313,7 +323,7 @@ export class StripScene {
   promptText(): string {
     if (!this.entered || this.runner.active || this.outrun) return '';
     const ev = nearEvent(this.PV, this.hudMarkers(), this.stage()); if (ev) return 'Enter · ' + EV_NAME[ev.type] + ': ' + ev.name;
-    const p = this.nearMarker('portal'); if (p) return 'Enter · ' + (TRACK_LABELS[p.id]?.en ?? p.id);
+    const p = this.nearMarker('portal'); if (p) return 'Enter · ' + (p.label ?? p.id);
     if (this.nearMarker('return')) return 'Enter · Back to the paddock';
     if (this.zone.kind === 'hub') { const r = nearRival(this.PV, this.ais); if (r) return 'Enter · Outrun ' + r.name; }
     return '';
@@ -330,9 +340,10 @@ export class StripScene {
   /** Start an event, mounting its circuit first when the player is not on it. */
   async startEvent(ev: EventDef, o: { quick?: boolean } = {}): Promise<void> {
     this.load();
-    const id = trackOfEvent(ev.id);
+    const id = trackOfEvent(ev.id), gen = this.gen;
     if (this.zone.kind !== 'track' || this.zone.track.id !== id) await this.enterTrack(id);
-    if (!this.ready || this.zone.kind !== 'track' || this.zone.track.id !== id) return; // the load failed, or a dispose or another circuit won
+    // the load failed, the player left meanwhile (exit, back to the paddock, dispose), or another circuit won
+    if (!this.ready || gen !== this.gen || !this.entered || this.zone.kind !== 'track' || this.zone.track.id !== id) return;
     this.endOutrun();
     this.reported = null;
     this.runner.start(ev, o);
@@ -452,11 +463,15 @@ export class StripScene {
     for (const c of this.ais) { if (c.parked || c.kind === 'traffic') continue; g.fillStyle = c.kind === 'rival' ? TUBE_BLUE : CHROME; g.beginPath(); g.arc(c.x, c.z, 7, 0, 7); g.fill(); }
     g.save(); g.translate(PV.x, PV.z); g.rotate(Math.PI - PV.h); g.fillStyle = ACCENT; g.beginPath(); g.moveTo(0, -14); g.lineTo(9, 10); g.lineTo(0, 5); g.lineTo(-9, 10); g.closePath(); g.fill(); g.restore();
     g.restore();
+    // the circuits and the hub are drawn from OpenStreetMap data (ODbL): credited on the map in both zones
+    g.save(); g.font = '11px ' + MAP_FONT; g.fillStyle = 'rgba(223,231,242,.6)'; g.textAlign = 'center'; g.textBaseline = 'bottom';
+    g.fillText(OSM_CREDIT, w / 2, h - 6); g.restore();
   }
 
   /** Free everything the Strip made (leaves first if the player is in it). */
   dispose(): void {
     this.exit();
+    this.gen++;
     if (this.runner.active) this.runner.cleanup();
     for (const A of this.ais) this.disposeCar(A.m as THREE.Group | undefined);
     this.ais.length = 0;

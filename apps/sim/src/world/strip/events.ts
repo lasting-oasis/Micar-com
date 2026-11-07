@@ -4,9 +4,9 @@
    the renderer places them from the AI / drag-car state. Payout is not here (server side, later). */
 import { clamp, makeVehicle, NO_INPUT, resetVehicle, simStats, stepVehicle, type Input, type Params, type Vehicle } from '../physics';
 import { CATS, PALETTE, STOCK_CFG, type CarCfg, type EventDef, type EventType, type VisualCfg } from '../data';
-import { cpPoint, roadRoute, routePoint, routeProgress, snapToRoad, type RoadData, type Route } from './routes';
+import { cpPoint, routePoint, routeProgress, snapToRoad, type RoadData, type Route } from './routes';
 import { HUB, routeFor } from './district';
-import { pointOnRoad } from './roadGraph';
+import { hubPoint } from './roadGraph';
 import { makeAI, parkAI, separateAIs, setWander, stepAI, type AI } from './ai';
 
 export type { EventType };
@@ -37,6 +37,8 @@ export type Outrun = { A: AI; t: number; gap: number; state: 'run' | 'done'; t2?
 export type EventResults = { pos: number; list: Standing[]; failed: string | null; type: EventType; ev: EventDef; time: number | null; score: number };
 
 export const DRAG_LANES = [-6, -2, 2, 6];
+/** A race (not a drift) auto-finishes after this many seconds: the larger of 600 s and 60 s plus 1 s per 8 m of the event (Ardennes GP, 13.9 km: about 30 min). */
+export function raceCapS(targetM: number): number { return Math.max(600, 60 + targetM / 8); }
 const AI_NAMES = ['Rico', 'Nadia', 'Vince', 'Tam', 'Lola', 'Jet', 'Suki', 'Bram'];
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
 
@@ -83,7 +85,8 @@ export class EventRunner {
         const m = fx.spawnRacerMesh(randomCfg());
         a.drag.ai.push({ V: AV, m, lane: li, s: 0, ft: null, react: .15 + Math.random() * .4, name: AI_NAMES[(li * 2 + Math.random() * 2) | 0], crash: false });
       }
-      const tr = this.ais.filter(A => A.kind === 'traffic').slice(0, 6); let s = 70;
+      // lane traffic only on an event that allows it (every library event is noTraffic: closed circuits)
+      const tr = ev.noTraffic ? [] : this.ais.filter(A => A.kind === 'traffic').slice(0, 6); let s = 70;
       for (const A of tr) { A.parked = false; A.hold = true; a.drag.trafficA.push({ A, s, lane: Math.floor(Math.random() * 4), v: 10 + Math.random() * 3 }); s += 55 + Math.random() * 50; }
     } else {
       const slots = [[-3, 0], [3, 0], [-3, -8], [3, -8]]; const my = Math.floor(Math.random() * 4);
@@ -156,7 +159,7 @@ export class EventRunner {
     }
     separateAIs(a.racers);
     if (drift) this.updateDrift(dt);
-    if (a.type !== 'drift' && a.time > 600) this.playerFinish();
+    if (a.type !== 'drift' && a.time > raceCapS(a.target)) this.playerFinish();
   }
   private playerFinish(): void {
     const a = this.active!; a.pFt = a.time; a.state = 'done'; a.retT = 0; this.fx.placeCp(null); this.fx.banner('Finish'); this.fx.sfx('finish');
@@ -219,12 +222,11 @@ export class EventRunner {
     if (!a.results) this.onAbandon?.(a.ev);
     for (const R of a.racers) { const i = this.ais.indexOf(R); if (i >= 0) this.ais.splice(i, 1); this.fx.disposeMesh(R.m); }
     for (const o of a.drag.ai) this.fx.disposeMesh(o.m);
-    for (const t of a.drag.trafficA) { setWander(t.A, this.hubPoint()); }
-    for (const A of this.ais) { if ((A.kind === 'traffic' || A.kind === 'rival') && A.parked) setWander(A, this.hubPoint()); A.hold = false; }
+    for (const t of a.drag.trafficA) { setWander(t.A, hubPoint()); }
+    for (const A of this.ais) { if ((A.kind === 'traffic' || A.kind === 'rival') && A.parked) setWander(A, hubPoint()); A.hold = false; }
     this.fx.placeCp(null); this.fx.banner(''); this.active = null;
   }
   quit(): void { this.cleanup(); snapToRoad(this.PV, this.roads()); }
-  private hubPoint(): [number, number] { return pointOnRoad(HUB.wander, Math.random() * roadRoute(HUB.roads.find(r => r.id === HUB.wander)!).len); }
 }
 
 /* ---- free roam: markers, outrun. The caller skips these while an event or an outrun is running. ---- */

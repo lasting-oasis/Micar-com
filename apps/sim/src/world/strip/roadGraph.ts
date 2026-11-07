@@ -119,3 +119,5 @@ export function pointOnRoad(roadId: string, s: number): Pt {
   const p = routePoint(roadRoute(roadById(roadId)), s);
   return [p.x, p.z];
 }
+/** A random point on the hub's wander road (where hub traffic and rivals are put back). */
+export function hubPoint(): Pt { return pointOnRoad(HUB.wander, Math.random() * roadRoute(roadById(HUB.wander)).len); }

@@ -193,6 +193,61 @@ describe('StripScene', () => {
     S.dispose();
   });
 
+  it('a circuit hides the hub scenery (ribbons, portals, rental lot) and the paddock shows it again', async () => {
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    const hub = S.hub!, portals = hub.markers.filter(m => m.kind === 'portal'), lot = S.scene.getObjectByName('rentalLot')!;
+    expect(hub.roads.visible).toBe(true); expect(portals.every(m => m.ring.visible)).toBe(true);
+    await S.enterTrack('monza');
+    expect(hub.roads.visible).toBe(false); expect(lot.visible).toBe(false);
+    expect(portals.every(m => !m.ring.visible && !m.beam.visible)).toBe(true);
+    S.update(1 / 60, true); // the circuit's markers are updated, the hub's stay hidden
+    expect(portals.every(m => !m.ring.visible)).toBe(true);
+    S.returnToHub();
+    expect(hub.roads.visible).toBe(true); expect(lot.visible).toBe(true);
+    expect(portals.every(m => m.ring.visible && m.beam.visible)).toBe(true);
+    S.dispose();
+  });
+
+  it('onZone fires on a circuit entry and on the way back, with the player\'s vehicle', async () => {
+    const zones: string[] = [];
+    const S = new StripScene({ onBanner: () => {}, onSfx: () => {}, loadModel: null, stage: () => 5, onZone: (z, V) => { zones.push(z.kind === 'track' ? z.track.id : 'hub'); expect(V).toBe(PV); },
+      fetchTrack: async url => readTrackSync(url.match(/tracks\/(\w+)\.json/)![1]) });
+    const PV = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF)); resetVehicle(PV, STRIP_SPAWN.x, STRIP_SPAWN.z, STRIP_SPAWN.h);
+    S.enter(PV, new THREE.Group());
+    await S.enterTrack('monza'); S.returnToHub();
+    expect(zones).toEqual(['monza', 'hub']);
+    S.dispose();
+  });
+
+  it('an exit while the circuit is still loading leaves the hub as it was and starts nothing', async () => {
+    forgetTrack('monza');
+    const slow = (url: string) => new Promise<ReturnType<typeof readTrackSync>>(res => setTimeout(() => res(readTrackSync(url.match(/tracks\/(\w+)\.json/)![1])), 50));
+    const S = new StripScene({ onBanner: () => {}, onSfx: () => {}, loadModel: null, stage: () => 5, fetchTrack: slow });
+    S.load();
+    try {
+      const PV = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF)); resetVehicle(PV, STRIP_SPAWN.x, STRIP_SPAWN.z, STRIP_SPAWN.h);
+      S.enter(PV, new THREE.Group());
+      const p = S.enterTrack('monza'), q = S.startEvent(ev('royal_gp'));
+      S.exit();
+      await p; await q;
+      expect(S.zone.kind).toBe('hub'); expect(S.mounted).toBeNull(); expect(S.runner.active).toBeNull();
+      expect(S.hub!.roads.visible).toBe(true);
+      expect(Math.abs(PV.x - STRIP_SPAWN.x)).toBeLessThan(0.01); // the car was not moved to the circuit
+    } finally { S.dispose(); readTrackSync('monza'); }
+  });
+
+  it('the map credits OpenStreetMap in both zones', async () => {
+    const { OSM_CREDIT } = await import('./scene');
+    const texts: string[] = [];
+    const ctx = new Proxy({}, { get: (_t, k: string) => k === 'fillText' ? (t: string) => { texts.push(t); } : () => {}, set: () => true }) as unknown as CanvasRenderingContext2D;
+    const { S, PV, car } = setup(); S.enter(PV, car);
+    S.drawMapInto(ctx, 300, 300); expect(texts).toContain(OSM_CREDIT);
+    texts.length = 0; await S.enterTrack('monza');
+    S.drawMapInto(ctx, 300, 300); expect(texts).toContain(OSM_CREDIT);
+    expect(OSM_CREDIT).toBe('Map data © OpenStreetMap contributors (ODbL)');
+    S.dispose();
+  });
+
   it('exit from a track returns home first', async () => {
     const { S, PV, car } = setup(); S.enter(PV, car);
     await S.enterTrack('monza');

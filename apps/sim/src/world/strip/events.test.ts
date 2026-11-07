@@ -68,3 +68,15 @@ describe('strip events', () => {
     const d = ev('harbour_drift'), r = runner(d); r.start(d); tick(r, 4); teleportToEnd(r); tick(r, 0.5); expect(r.active!.state).toBe('done');
   });
 });
+
+describe('the race cap', () => {
+  it('is the larger of 600 s and 60 s plus 1 s per 8 m', async () => {
+    const { raceCapS } = await import('./events');
+    expect(raceCapS(402)).toBe(600);
+    expect(raceCapS(13938)).toBeCloseTo(1802.25, 1);
+  });
+  it('a drag on a no-traffic event runs no lane traffic', () => {
+    const r = runner(drag); r.start(drag); expect(drag.noTraffic).toBe(true); expect(r.active!.drag.trafficA).toHaveLength(0);
+    expect(r.ais.filter(a => a.kind === 'traffic').every(a => a.parked)).toBe(true);
+  });
+});
