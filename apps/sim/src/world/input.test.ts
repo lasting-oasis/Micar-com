@@ -26,7 +26,7 @@ describe('InputMap', () => {
     const I = im.build();
     expect(I.fwd).toBe(1); expect(I.steer).toBe(-1);
     im.clearEdges(); expect(im.build().shiftUp).toBe(false); im.setTouch('up', true); expect(im.build().shiftUp).toBe(true);
-    im.clearEdges(); im.setTouch('up', true); expect(im.build().shiftUp).toBe(true);
+    im.clearEdges(); im.setTouch('up', false); im.setTouch('up', true); expect(im.build().shiftUp).toBe(true);
     im.setTouch('brk', true); expect(im.build().back).toBe(1); im.setTouch('brk', false); expect(im.build().back).toBe(0);
     im.releaseAll(); expect(im.touch.thr).toBe(false); expect(im.build().fwd).toBe(0);
   });

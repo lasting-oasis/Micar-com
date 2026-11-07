@@ -173,7 +173,7 @@ export class Hud {
     }
     /* drag tach */
     if (a && a.type === 'drag') {
-      const narrow = small && s.touch, w = narrow ? Math.min(HW - 40, 270) : Math.min(HW - 40, 560), x = narrow ? 20 : HW / 2 - w / 2, y = HH - (small ? (s.touch ? 300 : 70) : 90) - insB;
+      const narrow = small && s.touch, w = narrow ? Math.min(HW - 40, 270, HW - 100) : Math.min(HW - 40, 560), x = narrow ? 20 : HW / 2 - w / 2, y = HH - (small ? (s.touch ? 300 : 70) : 90) - insB;
       hx.fillStyle = 'rgba(14,18,23,.7)'; hx.fillRect(x - 14, y - 54, w + 28, 96);
       const X = (r: number) => x + clamp(r / maxR, 0, 1) * w;
       hx.fillStyle = 'rgba(255,255,255,.1)'; hx.fillRect(x, y, w, 22);
