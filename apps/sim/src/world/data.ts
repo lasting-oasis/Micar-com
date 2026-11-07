@@ -2,7 +2,7 @@
    The car lot becomes body-style archetypes that real cars (carSpecs.ts) are scaled onto;
    the localStorage save becomes StripRecord. Prices are dollars, unchanged. */
 import { carParams, simStats, type PerfCfg, type Tune, type VehicleSpec } from './physics';
-import { getCarSpec, hasModelSpec } from '../carSpecs';
+import { getCarSpec, hasModelSpec, type CarSpec } from '../carSpecs';
 import type { TrackId } from './strip/district';
 
 type Tier = PerfCfg['engine'];
@@ -186,20 +186,53 @@ export function visualRating(cfg: VisualCfg): number {
 }
 
 /* ---- specs from real cars ---- */
-const STOCK_HP = (s: VehicleSpec) => simStats(carParams(s, STOCK_CFG.perf, TUNE_DEF)).hp;
 const isStyle = (s: string | undefined): s is BodyStyle => !!s && s in ARCHETYPES;
 
-/** The body-style archetype, with its torque scaled to the real car's horsepower, mass and drive. */
+/** Per-body-style chassis: tire grip multiplier, and a taller centre of gravity for the tall bodies. */
+export const STYLE_CHASSIS: Record<BodyStyle, { gripMul: number; h?: number }> = {
+  sports: { gripMul: 1.06 }, coupe: { gripMul: 1.02 }, sedan: { gripMul: 1.0 }, hatchback: { gripMul: 1.0 },
+  suv: { gripMul: .94, h: .58 }, van: { gripMul: .92, h: .60 }, truck: { gripMul: .90, h: .62 },
+};
+
+const stockStats = (s: VehicleSpec) => simStats(carParams(s, STOCK_CFG.perf, TUNE_DEF));
+
+/** Fit an archetype to a real car: its mass and drive, then gearing to its top speed and torque to its 0-60. */
+export function fitSpec(base: VehicleSpec, real: CarSpec): VehicleSpec {
+  const out: VehicleSpec = { ...clone(base), mass: real.weightLb * 0.4536, drive: real.drive === '4WD' ? 'AWD' : real.drive };
+  if (/Hybrid/.test(real.engine)) out.redline = 6000; else if (/V8/.test(real.engine)) out.redline = 6200; else if (/Turbo/.test(real.engine)) out.redline = 6500;
+  const baseFin = out.fin, baseTq = clone(base.tq) as Torque;
+  const topTarget = real.topSpeedMph * 1.609, t100Target = real.zeroToSixty + 0.3;
+  const t100Of = (s: VehicleSpec) => stockStats(s).t100 ?? 1e9;
+  // Start the torque at the real horsepower so the gearing fit sees a realistically powered car.
+  let lo = 0.1, hi = 6;
+  for (let i = 0; i < 12; i++) { const mid = (lo + hi) / 2; if (stockStats({ ...out, tq: scaleTq(baseTq, mid) }).hp < real.hp) lo = mid; else hi = mid; }
+  out.tq = scaleTq(baseTq, (lo + hi) / 2);
+  /** Smallest torque multiplier that reaches the 0-100 target; a launch is traction-limited past some torque, so a target below that plateau asks for the plateau, not for endless torque. */
+  const fitTorque = (s: VehicleSpec): VehicleSpec => {
+    const goal = Math.max(t100Target, t100Of({ ...s, tq: scaleTq(baseTq, 8) }) * 1.02);
+    let l = 0.1, h = 8;
+    for (let i = 0; i < 14; i++) { const mid = (l + h) / 2; if (t100Of({ ...s, tq: scaleTq(baseTq, mid) }) > goal) l = mid; else h = mid; }
+    return { ...s, tq: scaleTq(baseTq, (l + h) / 2) };
+  };
+  // Gearing and torque interact (top speed needs power, launch needs gearing), so fit them twice.
+  let fit = out;
+  for (let round = 0; round < 2; round++) {
+    lo = 0.6; hi = 1.6;
+    for (let i = 0; i < 14; i++) { const mid = (lo + hi) / 2; if (stockStats({ ...fit, fin: baseFin * mid }).top < topTarget) hi = mid; else lo = mid; }
+    fit = fitTorque({ ...fit, fin: baseFin * (lo + hi) / 2 });
+  }
+  return fit;
+}
+
+/** The body-style archetype (fitted to the real car's 0-60 and top speed when known), with the style's grip and ride height. Fleet cars keep their authored specs. */
 export function specFor(car: { make?: string; model?: string; bodyStyle?: string; rental?: boolean }): VehicleSpec {
   const fleet = car.rental ? FLEET_NAMES[`${car.make} ${car.model}`] : undefined;
   if (fleet) return clone(FLEET_SPECS[fleet]);
   const style: BodyStyle = isStyle(car.bodyStyle) ? car.bodyStyle : 'sedan';
   const base = ARCHETYPES[style];
-  if (!hasModelSpec(car)) return clone(base);
-  const real = getCarSpec(car, style);
-  const out: VehicleSpec = { ...clone(base), name: `${car.make} ${car.model}`, mass: real.weightLb * 0.4536, drive: real.drive === '4WD' ? 'AWD' : real.drive };
-  let lo = 0.1, hi = 6;
-  for (let i = 0; i < 12; i++) { const mid = (lo + hi) / 2; if (STOCK_HP({ ...out, tq: scaleTq(base.tq, mid) }) < real.hp) lo = mid; else hi = mid; }
-  out.tq = scaleTq(base.tq, (lo + hi) / 2);
+  const out = hasModelSpec(car) ? { ...fitSpec(base, getCarSpec(car, style)), name: `${car.make} ${car.model}` } : clone(base);
+  const ch = STYLE_CHASSIS[style];
+  out.gripMul = ch.gripMul;
+  if (ch.h !== undefined) out.h = ch.h;
   return out;
 }
