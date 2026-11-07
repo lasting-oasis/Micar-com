@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { carParams, simStats } from './physics';
-import { ARCHETYPES, EVENTS, STOCK_CFG, TRACK_NAMES, TUNE_DEF, freshStrip, pruneStrip, prizeFor, specFor, stageOf, visualRating } from './data';
+import { ARCHETYPES, EVENTS, STOCK_CFG, TRACK_NAMES, TUNE_DEF, freshStrip, pruneStrip, prizeFor, specFor, stageOf, visualRating, FLEET_SPECS } from './data';
 import index from './strip/tracks.json';
 
 describe('world data', () => {
@@ -22,5 +22,12 @@ describe('world data', () => {
     const out = pruneStrip(rec);
     expect(out.wins).toEqual({ royal_gp: 1 }); expect(out.best).toEqual({ royal_gp: 80 });
     expect(rec.wins).toEqual({ sp1: 2, royal_gp: 1 }); expect(rec.best).toEqual({ ci1: 90, royal_gp: 80 });
+  });
+  it('a rented fleet car drives on its artifact spec', () => { const s = specFor({ make: 'Brute', model: '440', bodyStyle: 'sports', rental: true }); expect(s.mass).toBe(1720); expect(s.drive).toBe('RWD'); expect(s.redline).toBe(6200); });
+  it('the same make and model without rental takes the archetype path', () => { expect(specFor({ make: 'Brute', model: '440', bodyStyle: 'sports' }).id).toBe('sports'); });
+  it('the five fleet specs are distinct in character and spread at least 2 s to 100', () => {
+    const f = Object.values(FLEET_SPECS); const pk = (s: typeof f[0]) => Math.max(...s.tq.map(q => q[1]));
+    for (let i = 0; i < f.length; i++) for (let j = i + 1; j < f.length; j++) { const a = f[i], b = f[j]; expect(a.drive !== b.drive || Math.abs(a.redline - b.redline) >= 500 || Math.abs(pk(a) - pk(b)) >= 0.2 * Math.min(pk(a), pk(b))).toBe(true); }
+    const t = f.map(s => simStats(carParams(s, STOCK_CFG.perf, TUNE_DEF)).t100 ?? 99); expect(Math.max(...t) - Math.min(...t)).toBeGreaterThanOrEqual(2);
   });
 });

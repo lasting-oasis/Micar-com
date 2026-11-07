@@ -39,6 +39,11 @@ export const ARCHETYPES: Record<BodyStyle, VehicleSpec> = {
   suv: arch('suv', 'SUV', CARS.brute, { tq: scaleTq(CARS.brute.tq as Torque, .85), mass: 2000, h: .58, cd: .38, area: 2.7, drive: 'AWD' }),
   van: arch('van', 'Van', CARS.tsubasa, { mass: 1900, h: .6, cd: .36, area: 2.8, drive: 'FWD' }),
 };
+/** The rental fleet drives on the artifact's own five records. */
+export const FLEET_SPECS: Record<'civet' | 'kanjo' | 'ronin' | 'tsubasa' | 'brute', VehicleSpec> = {
+  civet: clone<VehicleSpec>(CARS.civet), kanjo: clone<VehicleSpec>(CARS.kanjo), ronin: clone<VehicleSpec>(CARS.ronin), tsubasa: clone<VehicleSpec>(CARS.tsubasa), brute: clone<VehicleSpec>(CARS.brute),
+};
+const FLEET_NAMES: Record<string, keyof typeof FLEET_SPECS> = { 'Civet R': 'civet', 'Kanjo S': 'kanjo', 'Ronin GT': 'ronin', 'Tsubasa R4': 'tsubasa', 'Brute 440': 'brute' };
 export const STYLES = Object.keys(ARCHETYPES) as BodyStyle[];
 
 /* ---- visual parts: v=value, n=name, p=price, d=description; rmax = star-rating weight of the category ---- */
@@ -185,7 +190,9 @@ const STOCK_HP = (s: VehicleSpec) => simStats(carParams(s, STOCK_CFG.perf, TUNE_
 const isStyle = (s: string | undefined): s is BodyStyle => !!s && s in ARCHETYPES;
 
 /** The body-style archetype, with its torque scaled to the real car's horsepower, mass and drive. */
-export function specFor(car: { make?: string; model?: string; bodyStyle?: string }): VehicleSpec {
+export function specFor(car: { make?: string; model?: string; bodyStyle?: string; rental?: boolean }): VehicleSpec {
+  const fleet = car.rental ? FLEET_NAMES[`${car.make} ${car.model}`] : undefined;
+  if (fleet) return clone(FLEET_SPECS[fleet]);
   const style: BodyStyle = isStyle(car.bodyStyle) ? car.bodyStyle : 'sedan';
   const base = ARCHETYPES[style];
   if (!hasModelSpec(car)) return clone(base);
