@@ -20,7 +20,7 @@ import { EVENTS, EV_NAME, STOCK_CFG, TUNE_DEF, specFor, stageOf, visualRating, t
 import { NO_INPUT, type Input, type Tune, type VehicleSpec } from './world/physics';
 import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from './world/parts';
 import { StripScene, STRIP_SPAWN } from './world/strip/scene';
-import { routePoint, snapToRoad } from './world/strip/routes';
+import { routePoint } from './world/strip/routes';
 import type { EventResults } from './world/strip/events';
 import { Hud, fmtT, type HudState } from './world/hud';
 import { Audio as NtAudio } from './world/audio';
@@ -28,9 +28,10 @@ import { getOptions } from './world/options';
 import { InputMap } from './world/input';
 import { ChaseCamera } from './world/cameras';
 import { WORLD_PER_M } from './world/units';
+import { CarFeelAdapter } from './scene/carFeelAdapter';
 import { useDriveUi, type ShownResults } from './world/driveUi';
 import { DriveLayer } from './world/DriveLayer';
-import { RENTAL_BAY, canRent, heldRental, isVisitor } from './world/rental';
+import { RENTAL_BAY, RENTAL_FLEET, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
@@ -78,10 +79,23 @@ export function VanillaThreeScene() {
             }
             return () => {};
         }
+        // App's phone layout (on-screen D-pad and buttons): the same test as App's isMobile
+        const touchUi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+        // The car's district. Declared above pixelRatioFor, which reads it when the renderer is created.
+        let district: 'town' | 'strip' = 'town';
         // Low renders at 1x, High at up to 2x on hi-DPI screens. Set before the first
         // sizing: every size change re-allocates the (multisampled) drawing buffer,
         // and a phone on Low used to allocate a 2x one just to drop it again.
-        const pixelRatioFor = (q: 'high' | 'low') => q === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
+        // A phone in the Strip is capped at 1.5x (Low stays at 1x); the town keeps the device ratio.
+        const pixelRatioFor = (q: 'high' | 'low'): number => {
+            const base = q === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
+            return district === 'strip' && touchUi ? Math.min(1.5, base) : base;
+        };
+        /** Re-applies the ratio for the current district and quality; a no-op when it is unchanged (setPixelRatio re-allocates the buffer). */
+        const applyPixelRatio = () => {
+            const pr = pixelRatioFor(useGameStore.getState().graphicsQuality);
+            if (renderer.getPixelRatio() !== pr) renderer.setPixelRatio(pr);
+        };
         renderer.setPixelRatio(pixelRatioFor(useGameStore.getState().graphicsQuality));
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.shadowMap.enabled = true;
@@ -595,14 +609,14 @@ export function VanillaThreeScene() {
         // driver.pose(). The Speedway is now the gate to the Strip (scene/world/gate.ts), a second
         // scene (world/strip/scene.ts) the car group is moved into.
         const W = WORLD_PER_M;
-        let district: 'town' | 'strip' = 'town';
         let driver: Driver | null = null;
         let driveSpec: { key: string; spec: VehicleSpec } | null = null; // specFor takes ~20 ms: once per car
         let paramsKey = '', kitKey = '';
         let kit: PartsKit | null = null;
+        const carFeel = new CarFeelAdapter(); // body lean/dip/lift, wheel overspin, tyre smoke, skid marks
         let wheelR = 1;                       // the driven body's wheel radius (world units), for the roll
         let lastStripRec: StripRecord | null | undefined;
-        let driftMode = false, paused = false, resultsShown = false;
+        let driftMode = false, paused = false, resultsShown = false, countdownSeen = false;
         let lobby = false, lobbyChecked = false, restarting = false;
         let rentalId: string | null = null;  // the rental being driven
         // a Strip visitor: a guest or an account holder (no lot in the town)
@@ -617,8 +631,6 @@ export function VanillaThreeScene() {
         const hudCanvas = hudCanvasRef.current, layerRoot = layerRef.current;
         const hud = hudCanvas ? new Hud(hudCanvas) : null;
         let hudSized = false;
-        // App's phone layout (on-screen D-pad and buttons): the same test as App's isMobile
-        const touchUi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
         const driveCam = new THREE.PerspectiveCamera(64, window.innerWidth / window.innerHeight, 1, 6500);
         const chase = new ChaseCamera(driveCam);
         const audio = new NtAudio(getOptions().mute); // the Garage's Options: Sound
@@ -632,13 +644,13 @@ export function VanillaThreeScene() {
         const isDrag = () => district === 'strip' && strip?.runner.active?.type === 'drag';
         const manualNow = () => getOptions().manual || isDrag();
         const im = new InputMap({ manual: manualNow, hydraulics: () => !!(localDrivingCarId && buildOf(localDrivingCarId).cfg.hydraulics) });
-        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number };
+        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number; rental?: boolean };
         const styleOf = (car: InvCar) => (car.bodyStyle || deriveStyle(car.model)) as BodyStyle;
         const meNow = () => { const st = stateRef.current; return st.gameState?.players[st.playerId || '']; };
         const drivenCar = (): InvCar | undefined => meNow()?.inventory.find(c => c.id === localDrivingCarId);
         const specOf = (car: InvCar): VehicleSpec => {
-            const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}`;
-            if (!driveSpec || driveSpec.key !== key) driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car) }) };
+            const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}|${!!car.rental}`;
+            if (!driveSpec || driveSpec.key !== key) driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car), rental: car.rental }) };
             return driveSpec.spec;
         };
         const perfKey = (b: { cfg: CarCfg; tune: Tune }) => JSON.stringify(b.cfg.perf) + JSON.stringify(b.tune);
@@ -679,6 +691,7 @@ export function VanillaThreeScene() {
             styleRating: () => localDrivingCarId ? visualRating(buildOf(localDrivingCarId).cfg) : 0,
             renderer,
             onEventStart: (ev, PV) => { chase.reset(PV); resultsShown = false; paused = false; socketEmit('enter_event', { eventId: ev.id }); },
+            onZone: (_z, PV) => chase.reset(PV),
             onResults: r => {
                 resultsShown = true;
                 socketEmit('finish_event', { eventId: r.ev.id, pos: r.pos, time: r.time, score: r.score, failed: !!r.failed });
@@ -708,7 +721,9 @@ export function VanillaThreeScene() {
             socketEmit('sync_car_pos', { carId: localDrivingCarId, position: { x: GATE_RETURN.x, z: GATE_RETURN.z, r: GATE_RETURN.rotY }, district: 'town' });
             driver.place(STRIP_SPAWN.x, STRIP_SPAWN.z, STRIP_SPAWN.h);
             S.enter(driver.V, mesh);
+            carFeel.clearSkids('town');
             district = 'strip'; paused = false; resultsShown = false; driftMode = false;
+            applyPixelRatio();
             chase.reset(driver.V);
             interactPrompt.material.opacity = 0;
             const st = useGameStore.getState();
@@ -722,7 +737,9 @@ export function VanillaThreeScene() {
         const exitStrip = (): boolean => {
             if (district !== 'strip' || !strip || visitor() || lobby) return false;
             strip.exit(); // cleans up the event, gives the car group back to the town scene
+            carFeel.clearSkids('strip');
             district = 'town'; paused = false; resultsShown = false;
+            applyPixelRatio();
             mendEngine(); // a drag's blown engine stays in the Strip
             const mesh = localDrivingCarId ? carMeshes[localDrivingCarId] : undefined;
             if (driver) {
@@ -743,7 +760,7 @@ export function VanillaThreeScene() {
                 if (a.type === 'drag' || a.state !== 'race' || a.results) return;
                 const p = routePoint(a.route, a.pS);
                 D.place(p.x, p.z, Math.atan2(p.tx, p.tz));
-            } else { snapToRoad(V); mendEngine(); }
+            } else { S.snap(V); mendEngine(); }
             chase.reset(V);
         };
         /** Our position to the server: in the Strip, the car's pose in the Strip's scene (world units, district 'strip'),
@@ -817,6 +834,7 @@ export function VanillaThreeScene() {
         /** Leave the driven car where it is: input, kit, sound and the driving HUD go. */
         const dropCar = () => {
             im.detach();
+            carFeel.release(localDrivingCarId ? carMeshes[localDrivingCarId] : undefined);
             if (kit) { disposeParts(kit); kit = null; }
             audio.silence(); // the engine, skid and wind beds: nothing keeps playing on foot (or in the lobby)
             kitKey = ''; driver = null; localDrivingCarId = null; localFuel = null; rentalId = null;
@@ -836,6 +854,7 @@ export function VanillaThreeScene() {
             stripExit.group.visible = !visitor(); // a visitor has no way back to town
             S.lobby(driveCam);
             lobby = true; district = 'strip'; paused = false;
+            applyPixelRatio();
             if (layerRoot) im.attach(layerRoot); // Esc and Enter (the pause menu, the results card)
             interactPrompt.material.opacity = 0;
             const st = useGameStore.getState();
@@ -846,6 +865,7 @@ export function VanillaThreeScene() {
         /** A dealer who landed in the lobby (a reload while in the Strip) walks back into the town. */
         const lobbyToTown = () => {
             strip?.leaveLobby(); lobby = false; district = 'town'; paused = false;
+            applyPixelRatio();
             im.detach();
             useDriveUi.setState({ district: 'town', lobby: false, counter: false, paused: false });
             sendPlayerPos();
@@ -910,7 +930,7 @@ export function VanillaThreeScene() {
             map: (I, dt) => strip!.runner.input(I, dt),
         };
         const NONE: never[] = [];
-        const hudState: HudState = { PV: null as never, event: null, standings: NONE, outrun: null, gps: null, markers: NONE, ais: NONE, money: 0, units: 'mph', manual: false, small: false, touch: touchUi, district: 'town' };
+        const hudState: HudState = { PV: null as never, event: null, standings: NONE, outrun: null, gps: null, markers: NONE, roads: NONE, ais: NONE, money: 0, units: 'mph', manual: false, small: false, touch: touchUi, topInset: 0, district: 'town' };
         // the old keys (and the phone D-pad, which sets them) drive too
         const legacyInput = (I: Input) => {
             if (I.hyd) return;
@@ -1012,14 +1032,15 @@ export function VanillaThreeScene() {
             // ---- the car follows the physics
             const p = D.pose();
             mesh.position.set(p.x, 0, p.z); mesh.rotation.set(0, p.rotY, 0);
-            const wheels = carWheels[id];
-            if (wheels && !halt) { const roll = -V.u * W / wheelR * simDt; for (const w of wheels) w.rotateX(roll); }
+            carFeel.frame(mesh, V, simDt, wheelR, inStrip ? 'strip' : 'town', inStrip ? strip!.scene : scene, halt);
             const pivots = carSteering[id];
             if (pivots) for (const q of pivots) q.rotation.y = V.delta;
             syncCarWheels(mesh);
             setCarLights(mesh, !V.lights ? 'off' : V.gear === -1 && V.u < -0.5 ? 'reverse' : V.brk > 0 && V.u > 0.5 ? 'brake' : 'on');
             if (inStrip) { strip!.update(simDt, !paused && !resultsShown && !strip!.mapOpen && !garageOpen); stripExit.pulse(performance.now()); }
-            chase.update(V, simDt, V.nosOn);
+            const cnt = inStrip ? strip!.runner.active : null;
+            if (cnt && cnt.state === 'count') { countdownSeen = true; chase.preview(cnt.route, (3.6 - cnt.t) / 3, V); }
+            else { if (countdownSeen) { countdownSeen = false; chase.reset(V); } chase.update(V, simDt, V.nosOn); }
 
             // ---- HUD
             if (hud && hudCanvas) {
@@ -1028,8 +1049,8 @@ export function VanillaThreeScene() {
                 else {
                     const h = hudState, T = inStrip ? strip! : null, a = T ? T.runner.active : null;
                     h.PV = V; h.district = district; h.event = a; h.standings = a ? T!.runner.standings() : NONE;
-                    h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.markers : NONE; h.ais = T ? T.ais : NONE;
-                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.stage = stripStage();
+                    h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.hudMarkers() : NONE; h.roads = T ? T.hudRoads() : NONE; h.ais = T ? T.ais : NONE;
+                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.stage = stripStage(); h.topInset = useDriveUi.getState().topInset;
                     hud.draw(h);
                 }
             }
@@ -1050,6 +1071,7 @@ export function VanillaThreeScene() {
 
         // A tiny handle for scripted checks (the Task 12 smoke test), in every build.
         const micar = {
+            skidCount: () => carFeel.skidCount(district),
             pose: () => {
                 const p = driver ? driver.pose() : { x: avatar.position.x, y: avatar.position.y, z: avatar.position.z, rotY: headingOf(avatar) };
                 const V = driver?.V;
@@ -1066,8 +1088,9 @@ export function VanillaThreeScene() {
             place: (x: number, z: number, rotY = Math.PI): boolean => { if (!driver) return false; driver.place(x / W, z / W, rotY - Math.PI); chase.reset(driver.V); return true; },
             enterStrip: () => enterStrip(),
             exitStrip: () => exitStrip(),
+            pixelRatio: () => renderer.getPixelRatio(),
             /** rent a car at the counter (the same call the counter's buttons make) */
-            rent: (key: string): boolean => { const me = meNow(); if (!me || !canRent(me).ok) return false; useGameStore.getState().rentCar(key); return true; },
+            rent: (key: string): boolean => { const me = meNow(); if (!me || !RENTAL_FLEET.some(f => f.key === key) || !canRent(me, key as RentalKey).ok) return false; useGameStore.getState().rentCar(key); return true; },
             /** in the rental lobby (a Strip visitor without a car) */
             lobby: () => lobby,
             startEvent: (id: string) => startEventById(id),

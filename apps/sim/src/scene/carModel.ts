@@ -267,6 +267,7 @@ export const applyCarPaint = (body: THREE.Mesh, hex: string, bodyCond: number, d
 export type LampMode = 'off' | 'on' | 'brake' | 'reverse';
 type CarParts = {
     style: string; length: number; width: number;
+    tilt: THREE.Group; // carries everything but the wheels; the driving code pitches/rolls it
     body: THREE.Mesh; trim: THREE.Mesh; glass: THREE.Mesh; wheelMesh: THREE.InstancedMesh;
     farBody: THREE.Mesh; farTrim: THREE.Mesh; halos: THREE.Points;
     pivots: THREE.Object3D[]; wheels: THREE.Object3D[]; smoke: THREE.Points;
@@ -318,7 +319,11 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     // (a few points) so braking and reversing can tint the tail glow
     const halos = new THREE.Points(geo.halos.clone(), S.halo);
     halos.visible = false;
-    group.add(body, trim, glass, wheelMesh, farBody, farTrim, halos);
+    // the tilt node (at the car's origin) holds the body so it can pitch and roll; the wheels
+    // stay on the group, placed from the pivots' world matrices
+    const tilt = new THREE.Group();
+    tilt.add(body, trim, glass, farBody, farTrim, halos);
+    group.add(tilt, wheelMesh);
 
     // Smoke for poor mechanical condition. Always built; its visibility tracks the
     // car's CURRENT condition, so it clears on a repair.
@@ -334,12 +339,12 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     const smokeParticles = new THREE.Points(partGeo, S.smoke);
     smokeParticles.position.copy(geo.smokePos);
     smokeParticles.visible = mechCond < 50;
-    group.add(smokeParticles);
+    tilt.add(smokeParticles);
     // the paving's top is 3 cm up: lift the whole model so the tyres stand on it
-    for (const o of group.children) o.position.y += CAR_LIFT;
+    for (const o of [...tilt.children, wheelMesh]) o.position.y += CAR_LIFT;
 
     const parts: CarParts = {
-        style, length: geo.length, width: geo.width, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
+        style, length: geo.length, width: geo.width, tilt, body, trim, glass, wheelMesh, farBody, farTrim, halos, pivots, wheels, smoke: smokeParticles,
         lamps: 'off', far: false, blur: false, lastRoll: new THREE.Quaternion(), syncFrame: 0,
         sx: NaN, sz: NaN, sqy: NaN, sqw: NaN, ss: NaN, sv: false,
     };
@@ -348,7 +353,7 @@ export const buildCarModel = (style: string, rawColor: string, bodyCond: number 
     wheelMesh.computeBoundingSphere();
     cars.push(group);
     shadowsDirtyFrom = Math.min(shadowsDirtyFrom, cars.length - 1);
-    return { group, wheels, body, frontPivots: pivots.slice(0, 2), smokeParticles };
+    return { group, tilt, wheels, body, frontPivots: pivots.slice(0, 2), smokeParticles };
 };
 
 const setBlur = (c: CarParts, blur: boolean) => {
@@ -492,7 +497,8 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
     // headlight beam on the road ahead of the car being driven, at night
     if (driven && nightOn && partsOf(driven)) {
         const b = getBeam();
-        if (b.parent !== driven) { b.removeFromParent(); driven.add(b); b.position.set(0, 0.12, getStyleGeometry(partsOf(driven)!.style).beamZ - 16.4); }
+        const tiltNode = partsOf(driven)!.tilt;
+        if (b.parent !== tiltNode) { b.removeFromParent(); tiltNode.add(b); b.position.set(0, 0.12, getStyleGeometry(partsOf(driven)!.style).beamZ - 16.4); }
         b.visible = true;
     } else if (beam && beam.parent) { beam.removeFromParent(); beam.visible = false; }
     if (shared) shared.shadow.opacity = high ? 0.38 : 0.6;

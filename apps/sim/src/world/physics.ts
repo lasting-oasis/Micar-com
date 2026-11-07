@@ -3,7 +3,7 @@
    engine torque curve → gearbox → wheels, turbo spool, nitrous bottle, hand brake, counter-steer assist. */
 
 export type Drive = 'FWD' | 'RWD' | 'AWD';
-export type VehicleSpec = { id: string; name: string; drive: Drive; mass: number; a: number; b: number; h: number; cd: number; area: number; redline: number; r: number; fin: number; gears: number[]; tq: [number, number][] };
+export type VehicleSpec = { id: string; name: string; drive: Drive; mass: number; a: number; b: number; h: number; cd: number; area: number; redline: number; r: number; fin: number; gears: number[]; tq: [number, number][]; gripMul?: number };
 type Tier = 0 | 1 | 2 | 3;
 export type PerfCfg = { engine: Tier; ecu: Tier; turbo: Tier; trans: Tier; susp: Tier; nos: Tier; tires: Tier; brakes: Tier; weight: Tier };
 export type Tune = { turbo: number; nitrous: number; aero: number; bias: number; ride: number; stiff: number; steer: number; gears: number };
@@ -51,7 +51,7 @@ export function carParams(spec: VehicleSpec, perf: PerfCfg, tune: Tune): Params 
   const tqMul = (1 + .11 * p.engine) * (1 + .045 * p.ecu), peakT = Math.max(...spec.tq.map(q => q[1])) * tqMul;
   return {
     spec, mass, a: spec.a, b: spec.b, L, h: spec.h * (1 - .14 * (t.ride + 1) / 2), Iz: .16 * mass * L * L,
-    mu: 1.02 * (1 + .055 * p.tires) * (1 + .025 * p.susp), B: 16 + 1.5 * p.susp + 4 * s01, yawDamp: 1.0 * (1.3 - .6 * s01),
+    mu: 1.02 * (1 + .055 * p.tires) * (1 + .025 * p.susp) * (spec.gripMul ?? 1), B: 16 + 1.5 * p.susp + 4 * s01, yawDamp: 1.0 * (1.3 - .6 * s01),
     brakeMu: 1 + .06 * p.brakes, bias: .62 + .12 * t.bias,
     cdA: .5 * 1.22 * spec.cd * spec.area * (1 + .35 * aero), downK: aero * .4 * mass * G9 / (55 * 55), roll: .013 * mass * G9,
     tq: spec.tq, tqMul, peakT, redline: spec.redline + 150 * p.ecu, idle: 900,

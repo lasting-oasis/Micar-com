@@ -1,7 +1,12 @@
-import { describe, expect, it } from 'vitest';
-import { applyPayout, validateEnter, validateFinish, validateOutrun, OUTRUN_MIN_MS, PAID_COOLDOWN_MS, COUNTDOWN_S, VMAX, raceFloor, outrunEvent, clampTune, partPrice, ensureStrip } from './payout';
+import path from 'node:path';
+import { beforeAll, describe, expect, it } from 'vitest';
+import { applyPayout, validateEnter, validateFinish, validateOutrun, OUTRUN_MIN_MS, PAID_COOLDOWN_MS, COUNTDOWN_S, VMAX, raceFloor, eventDistance, outrunEvent, clampTune, partPrice, ensureStrip, ENTRY_TTL_MS } from './payout';
 import { EVENTS, freshStrip, carState, withV } from './data';
+import { routeFor, TRACKS } from './strip/district';
+import { readTrackSync, setTrackDir } from './strip/districtNode';
 import type { Player } from '../types';
+
+beforeAll(() => { setTrackDir(path.resolve(process.cwd(), 'public/strip/tracks')); for (const t of TRACKS) readTrackSync(t.id); });
 
 const finish = (eventId: string, pos: number, time: number | null, failed = false) => ({ eventId, pos, time, score: 0, failed });
 const player = (over: Partial<Player> = {}): Player => ({
@@ -12,57 +17,60 @@ const player = (over: Partial<Player> = {}): Player => ({
 });
 
 describe('validateFinish', () => {
-  it('refuses a finish without a live entry or with the wrong event', () => { expect(validateFinish(undefined, finish('sp1', 1, 60), 0).ok).toBe(false); expect(validateFinish({ eventId: 'ci1', startedAt: 0 }, finish('sp1', 1, 60), 1000).ok).toBe(false); });
-  it('refuses an impossible time and a stale entry', () => { expect(validateFinish({ eventId: 'sp1', startedAt: 0 }, finish('sp1', 1, 2), 5000).ok).toBe(false); expect(validateFinish({ eventId: 'sp1', startedAt: 0 }, finish('sp1', 1, 60), 21 * 60 * 1000).ok).toBe(false); });
-  it('accepts a plausible finish', () => { expect(validateFinish({ eventId: 'sp1', startedAt: 0 }, finish('sp1', 2, 70), 80000)).toEqual({ ok: true, pos: 2 }); });
+  it('refuses a finish without a live entry or with the wrong event', () => { expect(validateFinish(undefined, finish('lagoons_sprint', 1, 60), 0).ok).toBe(false); expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('lagoons_sprint', 1, 60), 1000).ok).toBe(false); });
+  it('refuses an impossible time and a stale entry', () => { expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 1, 2), 5000).ok).toBe(false); expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 1, 80), 46 * 60 * 1000).ok).toBe(false); });
+  it('accepts a plausible finish', () => { expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 2, 120), 130000)).toEqual({ ok: true, pos: 2 }); });
   it('refuses a position outside 1-4 and a missing time on a finished run', () => {
-    expect(validateFinish({ eventId: 'sp1', startedAt: 0 }, finish('sp1', 0, 70), 80000).ok).toBe(false);
-    expect(validateFinish({ eventId: 'sp1', startedAt: 0 }, finish('sp1', 5, 70), 80000).ok).toBe(false);
-    expect(validateFinish({ eventId: 'sp1', startedAt: 0 }, finish('sp1', 1, null), 80000).ok).toBe(false);
+    expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 0, 70), 80000).ok).toBe(false);
+    expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 5, 70), 80000).ok).toBe(false);
+    expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 1, null), 80000).ok).toBe(false);
   });
-  it('accepts a failed run with no time (it pays nothing)', () => { expect(validateFinish({ eventId: 'df1', startedAt: 0 }, finish('df1', 1, null, true), 30000)).toEqual({ ok: true, pos: 1 }); });
-  it('counts every lap of a circuit in the time floor', () => { expect(validateFinish({ eventId: 'ci1', startedAt: 0 }, finish('ci1', 1, 12), 600000).ok).toBe(false); });
+  it('accepts a failed run with no time (it pays nothing)', () => { expect(validateFinish({ eventId: 'harbour_drift', startedAt: 0 }, finish('harbour_drift', 1, null, true), 30000)).toEqual({ ok: true, pos: 1 }); });
+  it('counts every lap of a circuit in the time floor', () => { expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 12), 600000).ok).toBe(false); });
 });
 
 describe('validateEnter', () => {
-  const sp1 = EVENTS.find(e => e.id === 'sp1')!, sp2 = EVENTS.find(e => e.id === 'sp2')!;
+  const lagoons = EVENTS.find(e => e.id === 'lagoons_sprint')!, airfield = EVENTS.find(e => e.id === 'airfield_sprint')!;
   it('refuses an entry from outside the Strip (the town, or no position yet)', () => {
-    expect(validateEnter('town', sp1, 1)).toEqual({ ok: false, reason: 'not in the Strip' });
-    expect(validateEnter(undefined, sp1, 1).ok).toBe(false);
+    expect(validateEnter('town', lagoons, 1)).toEqual({ ok: false, reason: 'not in the Strip' });
+    expect(validateEnter(undefined, lagoons, 1).ok).toBe(false);
   });
   it('accepts one from inside the Strip, and refuses an event above the stage', () => {
-    expect(validateEnter('strip', sp1, 1)).toEqual({ ok: true });
-    expect(validateEnter('strip', sp2, 1).ok).toBe(false);
-    expect(validateEnter('strip', sp2, 2).ok).toBe(true);
+    expect(validateEnter('strip', lagoons, 1)).toEqual({ ok: true });
+    expect(validateEnter('strip', airfield, 1).ok).toBe(false);
+    expect(validateEnter('strip', airfield, 2).ok).toBe(true);
   });
 });
 
 describe('the time floor', () => {
-  const dr1 = EVENTS.find(e => e.id === 'dr1')!, ci1 = EVENTS.find(e => e.id === 'ci1')!;
-  it('is the distance over the type\'s top average: a quarter mile in no less than 9 s, the streets at 45 m/s', () => {
-    expect(VMAX.drag).toBe(50); expect(VMAX.sprint).toBe(45);
-    expect(raceFloor(dr1)).toBeCloseTo(9, 1);
-    expect(raceFloor(ci1)).toBeCloseTo(3184 / 45, 0);
+  const royalDrag = EVENTS.find(e => e.id === 'royal_drag')!, harbourGp = EVENTS.find(e => e.id === 'harbour_gp')!;
+  it('is the distance over the type\'s top average: a quarter mile at 50 m/s, the circuits at 65 m/s', () => {
+    expect(VMAX).toEqual({ drag: 50, sprint: 65, circuit: 65, streetx: 65, drift: 65 });
+    expect(raceFloor(royalDrag)).toBeCloseTo(402 / 50, 1);
+    expect(eventDistance(EVENTS.find(e => e.id === 'royal_gp')!)).toBe(routeFor('royal_gp').len * 2);
+    expect(raceFloor(harbourGp)).toBeCloseTo(eventDistance(harbourGp) / 65, 5);
+    expect(Math.abs(raceFloor(EVENTS.find(e => e.id === 'ardennes_gp')!) - 2 * 6969 / 65)).toBeLessThan(1);
+    expect(ENTRY_TTL_MS).toBe(45 * 60 * 1000);
   });
   it('refuses a drag run under 9 s and a finish sooner than the countdown plus the floor', () => {
-    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 8.5), 60000).ok).toBe(false);
-    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 9.5), 11000).ok).toBe(false); // 11 s < 3.0 + 9
-    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 9.5), (COUNTDOWN_S + 9.5) * 1000)).toEqual({ ok: true, pos: 1 });
+    expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 7.5), 60000).ok).toBe(false);
+    expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 8.5), 11000).ok).toBe(false); // 11 s < 3.0 + 8.04
+    expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 8.5), (COUNTDOWN_S + 8.5) * 1000)).toEqual({ ok: true, pos: 1 });
   });
-  it('holds a circuit to 45 m/s over every lap', () => {
-    expect(validateFinish({ eventId: 'ci1', startedAt: 0 }, finish('ci1', 1, 65), 600000).ok).toBe(false);
-    expect(validateFinish({ eventId: 'ci1', startedAt: 0 }, finish('ci1', 1, 75), 80000).ok).toBe(true);
+  it('holds a circuit to 65 m/s over every lap', () => {
+    expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 90), 600000).ok).toBe(false);
+    expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 110), 200000).ok).toBe(true);
   });
 });
 
 describe('the paid-event cooldown', () => {
   // the server's bookkeeping: lastPaidAt is set when a finish pays anything; a refused finish consumes the entry
   const server = () => { let entry: { eventId: string; startedAt: number } | undefined; let lastPaid: number | undefined; const p = player();
-    return { p, enter: (now: number) => { entry = { eventId: 'dr1', startedAt: now }; },
-      finish: (now: number, time = 10) => { const v = validateFinish(entry, finish('dr1', 1, time), now, lastPaid); entry = undefined; if (!v.ok) return null; const r = applyPayout(p, EVENTS[3], v.pos, false); if (r.cash || r.octane || r.rep) lastPaid = now; return r; },
+    return { p, enter: (now: number) => { entry = { eventId: 'royal_drag', startedAt: now }; },
+      finish: (now: number, time = 10) => { const v = validateFinish(entry, finish('royal_drag', 1, time), now, lastPaid); entry = undefined; if (!v.ok) return null; const r = applyPayout(p, EVENTS[3], v.pos, false); if (r.cash || r.octane || r.rep) lastPaid = now; return r; },
       hasEntry: () => !!entry }; };
   it('refuses a paid finish within 10 s of the last one, consuming the entry', () => {
-    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 10), 20000, 20000 - PAID_COOLDOWN_MS + 1).ok).toBe(false);
+    expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 10), 20000, 20000 - PAID_COOLDOWN_MS + 1).ok).toBe(false);
     const s = server(); s.enter(0); expect(s.finish(14000)!.cash).toBe(1800);
     s.enter(0); expect(s.finish(20000)).toBeNull(); expect(s.hasEntry()).toBe(false); expect(s.p.money).toBe(1800);
   });
@@ -70,7 +78,7 @@ describe('the paid-event cooldown', () => {
     const s = server(); s.enter(0); s.finish(14000); s.enter(10000); expect(s.finish(24000)!.cash).toBe(1800); expect(s.p.money).toBe(3600);
   });
   it('a finish that paid nothing starts no cooldown', () => {
-    expect(validateFinish({ eventId: 'dr1', startedAt: 0 }, finish('dr1', 1, 10), 14000, undefined).ok).toBe(true);
+    expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 10), 14000, undefined).ok).toBe(true);
   });
 });
 
@@ -87,7 +95,7 @@ describe('applyPayout', () => {
   it('counts wins and keeps the best (lowest) time', () => {
     const p = player();
     applyPayout(p, EVENTS[0], 1, false, { time: 80 }); applyPayout(p, EVENTS[0], 2, false, { time: 70 }); applyPayout(p, EVENTS[0], 1, false, { time: 90 });
-    expect(p.strip!.wins.sp1).toBe(2); expect(p.strip!.best.sp1).toBe(70);
+    expect(p.strip!.wins[EVENTS[0].id]).toBe(2); expect(p.strip!.best[EVENTS[0].id]).toBe(70);
   });
   it('adds the style bonus from the stored car on a win', () => {
     const p = player(); const c = carState(p.strip!, 'car1'); c.cfg = withV(withV(c.cfg, 'spoiler', 4), 'finish', 'candy');
@@ -118,11 +126,11 @@ describe('quit_event', () => {
   // the server's entry bookkeeping: enter sets it, quit_event deletes it on a matching id, finish needs it
   const server = () => { let entry: { eventId: string; startedAt: number } | undefined; let last: number | undefined = 0; const p = player();
     return { p, enter: (id: string, now: number) => { entry = { eventId: id, startedAt: now }; }, quit: (id: string) => { if (entry && entry.eventId === id) entry = undefined; },
-      finish: (now: number) => { const v = validateFinish(entry, finish('dr1', 1, 12), now); entry = undefined; return v.ok ? applyPayout(p, EVENTS[3], v.pos, false) : null; },
+      finish: (now: number) => { const v = validateFinish(entry, finish('royal_drag', 1, 12), now); entry = undefined; return v.ok ? applyPayout(p, EVENTS[3], v.pos, false) : null; },
       outrun: (now: number) => { const v = validateOutrun(last, now, !!entry); if (!v.ok) return null; last = now; return applyPayout(p, outrunEvent(1), 1, false); } }; };
-  it('enter, quit, then an outrun after the window pays', () => { const s = server(); s.enter('dr1', 1000); expect(s.outrun(OUTRUN_MIN_MS)).toBeNull(); s.quit('dr1'); expect(s.outrun(OUTRUN_MIN_MS + 1000)!.cash).toBe(800); });
-  it('enter, quit, then a finish is refused', () => { const s = server(); s.enter('dr1', 0); s.quit('dr1'); expect(s.finish(60000)).toBeNull(); expect(s.p.money).toBe(0); });
-  it('a quit for another event leaves the entry', () => { const s = server(); s.enter('dr1', 0); s.quit('sp1'); expect(s.finish(60000)!.cash).toBe(1800); });
+  it('enter, quit, then an outrun after the window pays', () => { const s = server(); s.enter('royal_drag', 1000); expect(s.outrun(OUTRUN_MIN_MS)).toBeNull(); s.quit('royal_drag'); expect(s.outrun(OUTRUN_MIN_MS + 1000)!.cash).toBe(800); });
+  it('enter, quit, then a finish is refused', () => { const s = server(); s.enter('royal_drag', 0); s.quit('royal_drag'); expect(s.finish(60000)).toBeNull(); expect(s.p.money).toBe(0); });
+  it('a quit for another event leaves the entry', () => { const s = server(); s.enter('royal_drag', 0); s.quit('lagoons_sprint'); expect(s.finish(60000)!.cash).toBe(1800); });
 });
 
 describe('parts and tunes', () => {
@@ -140,5 +148,13 @@ describe('parts and tunes', () => {
   it('defaults a saved player that predates the Strip', () => {
     const p = player(); delete (p as Partial<Player>).strip; (p as { octane?: number }).octane = undefined as never; (p as { stamps?: string[] }).stamps = undefined as never;
     ensureStrip(p); expect(p.strip).toEqual(freshStrip()); expect(p.octane).toBe(0); expect(p.stamps).toEqual([]);
+  });
+});
+
+describe('ensureStrip on a saved record', () => {
+  it('drops wins and bests of events that are no longer in the library', () => {
+    const p = player({ strip: { ...freshStrip(), wins: { sp1: 2, royal_gp: 1 }, best: { ci1: 90, royal_gp: 80 } } });
+    ensureStrip(p);
+    expect(p.strip!.wins).toEqual({ royal_gp: 1 }); expect(p.strip!.best).toEqual({ royal_gp: 80 });
   });
 });

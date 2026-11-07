@@ -5,9 +5,9 @@
    sells cars), "Reset progress" is gone, "Free roam" is "Drive" (it closes the garage), money, stage,
    buying, equipping and tuning go through the ctx callbacks. The dyno sliders move a preview and the
    tune is saved once on leaving the dyno (Night Tuner saved on every tick). */
-import { CATS, EVENTS, EV_NAME, PERF, TUNES, getV, isOwned, withV, type CarCfg, type PartValue, type EventDef } from './data';
+import { CATS, EVENTS, EV_NAME, TRACK_NAMES, PERF, TUNES, getV, isOwned, withV, type CarCfg, type PartValue, type EventDef } from './data';
 import { carParams, clamp, dynoCurve, simStats, type Params, type PerfCfg, type Tune, type VehicleSpec } from './physics';
-import { buildRoute } from './strip/routes';
+import { routeFor, trackLoaded, TRACKS } from './strip/district';
 
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
 const money = (n: number): string => '$' + Math.round(n).toLocaleString('en-US');
@@ -82,7 +82,15 @@ export const OPTS: { k: string; n: string; vals: unknown[]; lab: string[]; d?: s
 const OPT_DEF: Record<string, unknown> = { manual: false, units: 'mph', cam: 0, mute: false };
 
 const routeLen = new Map<string, number>();
-const lenOf = (ev: EventDef): number => { let l = routeLen.get(ev.id); if (l == null) { l = buildRoute(ev.nodes, !!ev.loop).len; routeLen.set(ev.id, l); } return l; };
+/** One route length of an event, in metres: the loaded route's, else the index's per-event length (the lap length as a last resort). Exported for tests. */
+export const lenOf = (ev: EventDef): number => {
+  let l = routeLen.get(ev.id);
+  if (l == null) {
+    if (!trackLoaded(ev.track)) { const t = TRACKS.find(k => k.id === ev.track)!; return t.routeLenM?.[ev.id] ?? t.lenM; }
+    l = routeFor(ev.id).len; routeLen.set(ev.id, l);
+  }
+  return l;
+};
 const fmtT = (s: number): string => { const m = Math.floor(s / 60), r = s - m * 60; return m ? m + ':' + r.toFixed(2).padStart(5, '0') : r.toFixed(2); };
 
 /** The stats rows are a straight-line simulation (simStats): cached per Params object. */
@@ -169,7 +177,7 @@ export class GarageModel {
       return OPTS.map(o => { const vi = Math.max(0, o.vals.indexOf(this.opt(o.k))); return { id: o.k, label: o.n, status: { text: o.lab[vi], tone: 'muted' }, chevron: true }; });
     }
     if (k === 'quick') {
-      return EVENTS.map(r => ({ id: r.id, label: EV_NAME[r.type] + ': ' + r.name, status: r.stage > stage ? { text: 'Stage ' + r.stage, tone: 'lock' } : { text: money(r.prize * (1 + .25 * (stage - 1))), tone: 'price' } }));
+      return EVENTS.map(r => ({ id: r.id, label: TRACK_NAMES[r.track].en + ' · ' + EV_NAME[r.type] + ': ' + r.name, status: r.stage > stage ? { text: 'Stage ' + r.stage, tone: 'lock' } : { text: money(r.prize * (1 + .25 * (stage - 1))), tone: 'price' } }));
     }
     return MENU[t.id!].items!.map(r => ({
       id: r.to ?? r.cat ?? r.act ?? '', label: r.cat ? CATS[r.cat].n : r.n!,

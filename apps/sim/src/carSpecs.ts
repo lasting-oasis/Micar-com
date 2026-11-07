@@ -56,6 +56,12 @@ const MODEL_SPECS: Record<string, CarSpec> = {
   'BMW M4':           S('3.0L Twin-Turbo I6', 473, 3800, 3.8, 155, 'RWD'),
   'BMW 4 Series':     S('2.0L Turbo I4', 255, 3650, 5.5, 130, 'RWD'),
   'BMW Z4':           S('2.0L Turbo I4', 255, 3300, 5.2, 155, 'RWD'),
+  // MiCar fleet (the Strip rentals; figures from the driving model)
+  'Civet R': S('2.0L I4', 157, 2600, 8.2, 130, 'FWD'),
+  'Kanjo S': S('1.6L I4', 168, 2250, 7.4, 135, 'FWD'),
+  'Ronin GT': S('3.0L V6', 221, 2950, 6.1, 143, 'RWD'),
+  'Tsubasa R4': S('2.5L Turbo I4', 264, 3400, 5.8, 147, 'AWD'),
+  'Brute 440': S('7.2L V8', 301, 3790, 5.8, 146, 'RWD'),
 };
 
 // Old, tired cars of a body style (junkyard "Scrap Shell"s and anything unknown).

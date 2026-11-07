@@ -90,3 +90,22 @@ export function linkTarget(
   if (valid && choice === 'requester') return { to: 'requester', fellBack: false };
   return { to: 'clicker', fellBack: choice === 'requester' && requester?.socketId !== clickerId };
 }
+
+/** The town's extent and the Strip's (hub plus the circuits' grid, about 26 km out = 52,000 units), in world units. */
+export const TOWN_LIMIT = 2000, STRIP_LIMIT = 60000;
+/** A client's position payload, validated and clamped: null unless x and z are finite numbers; x, y and z clamped to
+ *  ±STRIP_LIMIT when `district` is 'strip', else ±TOWN_LIMIT, so a malicious or buggy client can't inject NaN / Infinity
+ *  or teleport meshes off the map. Keeps a finite `r` (car heading) and `rotation` (avatar heading). */
+export function sanitizePosition(pos: unknown): { x: number; z: number; y?: number; r?: number; rotation?: number; district?: string } | null {
+  if (!pos || typeof pos !== 'object') return null;
+  const p = pos as Record<string, unknown>;
+  const isNum = (n: unknown): n is number => typeof n === 'number' && Number.isFinite(n);
+  if (!isNum(p.x) || !isNum(p.z)) return null;
+  const lim = p.district === 'strip' ? STRIP_LIMIT : TOWN_LIMIT;
+  const clamp = (n: number) => Math.max(-lim, Math.min(lim, n));
+  const out: { x: number; z: number; y?: number; r?: number; rotation?: number; district?: string } = { x: clamp(p.x), z: clamp(p.z) };
+  if (isNum(p.y)) out.y = clamp(p.y);
+  if (isNum(p.r)) out.r = p.r;
+  if (isNum(p.rotation)) out.rotation = p.rotation;
+  return out;
+}

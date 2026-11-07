@@ -53,7 +53,7 @@ try {
   ok(true, 'Enter on the gate put us in the Strip');
 
   // 5. a drag race: hold W, shift (clutch) at the redline, until the results card shows
-  ok(await M(() => window.__micar.startEvent('dr1')), 'started the drag (dr1)');
+  ok(await M(() => window.__micar.startEvent('royal_drag')), 'started the drag (royal_drag, the Monza quarter mile)');
   await p.setViewportSize({ width: 480, height: 270 }); // fewer pixels, faster frames
   await p.waitForTimeout(1000);
   await p.keyboard.down('KeyW');
@@ -114,13 +114,13 @@ try {
   ok(await G(() => window.__micar.money()) === 500, 'the guest starts with $500');
   await g.waitForSelector('[aria-label="Rental counter"]', { timeout: 60000 });
   ok(true, 'the rental counter is up');
-  ok(await G(() => window.__micar.rent('coupe')), 'rented the coupe at the counter');
+  ok(await G(() => window.__micar.rent('ronin')), 'rented the coupe at the counter');
   await g.waitForFunction(() => window.__micar.money() === 0, null, { timeout: 20000 });
   ok(await G(() => window.__micar.money()) === 0, 'the rental cost $500 (money 500 -> 0)');
   await g.waitForTimeout(1500);
   const gotCar = await g.waitForFunction(() => window.__micar.drive(), null, { timeout: 60000, polling: 1000 }).then(() => true, () => false);
   ok(gotCar, 'got into the rental');
-  ok(await G(() => window.__micar.startEvent('dr1')), 'started the guest drag (dr1)');
+  ok(await G(() => window.__micar.startEvent('royal_drag')), 'started the guest drag (royal_drag)');
   await g.setViewportSize({ width: 480, height: 270 });
   await g.waitForTimeout(1000);
   await g.keyboard.down('KeyW');

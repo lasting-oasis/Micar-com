@@ -1,0 +1,48 @@
+import { describe, expect, it } from 'vitest';
+import * as THREE from 'three';
+import { SkidMarks } from './skidMarks';
+
+const alphas = (m: SkidMarks): number[] => {
+  const mesh = m.mesh, a = mesh.geometry.getAttribute('color') as THREE.BufferAttribute, out: number[] = [];
+  for (let i = 0; i < a.count; i++) out.push(a.getW(i));
+  return out;
+};
+
+describe('SkidMarks', () => {
+  it('lay 401 times keeps 400 quads live and draws 400 quads', () => {
+    const m = new SkidMarks(new THREE.Scene());
+    for (let i = 0; i < 401; i++) m.lay(i, 0, 0, .55);
+    expect(m.count).toBe(400);
+    expect(m.mesh.geometry.drawRange.count).toBe(400 * 6);
+  });
+  it('fade(10) takes every alpha to 0', () => {
+    const m = new SkidMarks(new THREE.Scene());
+    for (let i = 0; i < 10; i++) m.lay(i, 0, .3, .55);
+    expect(Math.max(...alphas(m))).toBeCloseTo(.55);
+    m.fade(10);
+    expect(alphas(m).every(a => a === 0)).toBe(true);
+  });
+  it('clear resets count to 0', () => {
+    const m = new SkidMarks(new THREE.Scene());
+    m.lay(0, 0, 0, .5); m.lay(1, 0, 0, .5);
+    expect(m.count).toBe(2);
+    m.clear();
+    expect(m.count).toBe(0);
+    expect(m.mesh.geometry.drawRange.count).toBe(0);
+  });
+  it('the real sequence: idle fades, one lay, a fade -> the quad is drawn, visible, and faces up for every heading', () => {
+    for (const h of [0, 1, 2.5, -2]) {
+      const m = new SkidMarks(new THREE.Scene());
+      for (let i = 0; i < 4; i++) m.fade(.016);
+      m.lay(10, 20, h, .55);
+      m.fade(.016);
+      expect(m.mesh.geometry.drawRange.count).toBe(6);
+      expect(alphas(m)[0]).toBeGreaterThan(0);
+      // the first triangle's normal must point +Y, or the default front-face culling hides the mark from above
+      const p = m.mesh.geometry.getAttribute('position') as THREE.BufferAttribute, ix = m.mesh.geometry.index!;
+      const v = (i: number) => new THREE.Vector3().fromBufferAttribute(p, ix.getX(i));
+      const n = v(1).sub(v(0)).cross(v(2).sub(v(0)));
+      expect(n.y).toBeGreaterThan(0);
+    }
+  });
+});
