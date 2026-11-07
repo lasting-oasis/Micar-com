@@ -31,7 +31,8 @@ TRACK_IDS = ['spa', 'monza', 'silverstone', 'suzuka', 'nurburgring', 'monaco', '
 TRACK_NAMES = {'spa': 'Ardennes', 'monza': 'Royal Park', 'silverstone': 'Airfield', 'suzuka': 'Figure Eight', 'nurburgring': 'Eifel',
                'monaco': 'Harbour', 'interlagos': 'Lagoons', 'cota': 'Lone Star', 'laguna': 'Dry Lagoon', 'bathurst': 'The Mountain'}
 def offset_of(tid):
-    k = TRACK_IDS.index(tid)
+    """Circuit cells on an 8 km grid, starting at cell 1: the hub keeps cell 0 (the origin) to itself."""
+    k = TRACK_IDS.index(tid) + 1
     return (8000 * (k % 4), 8000 * (k // 4))
 
 # events: id -> (type, track, kind, arg); kind: 'loop' | 'lap' (start to start, non-loop) | 'sector' (s0, s1) | 'drag' (metres, end_before_line or None = the straightest window anywhere)

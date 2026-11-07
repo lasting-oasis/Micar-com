@@ -16,7 +16,7 @@
 - Branch `strip-tracks` in worktree `C:\Users\Owner\Micar-com-strip-tracks`; never `main`.
 - Do not edit `apps/sim/src/world/physics.ts`, `driver.ts`, `input.ts`, `cameras.ts`, `audio.ts`. In `apps/sim/src/VanillaThreeScene.tsx` touch only what Task 10 lists.
 - Units: metres in OSM data, Blender, JSON and physics; THREE scene in world units, `WORLD_PER_M = 2`. Game coordinates from Blender: `x = bx, z = −by`. From OSM: `x` east, `z` south (metres from the circuit centre).
-- Circuit offsets: track index k (1-based, in the order of the spec's list: spa, monza, silverstone, suzuka, nurburgring, monaco, interlagos, cota, laguna, bathurst) at `[8000 * ((k-1) % 4), 8000 * Math.floor((k-1) / 4)]`; the hub at `[0, 0]`.
+- Circuit offsets: track index k (1-based, in the order of the spec's list: spa, monza, silverstone, suzuka, nurburgring, monaco, interlagos, cota, laguna, bathurst) at `[8000 * (k % 4), 8000 * Math.floor(k / 4)]` (cells 1–10); the hub alone at `[0, 0]`.
 - Budgets: `hub.glb` ≤ 1.5 MB; each `tracks/<id>.glb` ≤ 800 kB; each `tracks/<id>.json` ≤ 200 kB; no Draco; glbs exported without normals.
 - Event ids, names, types, circuits, laps, stages, prizes and REP exactly as the spec's table (twenty rows). Every event `noTraffic: true`.
 - Park names and the OSM attribution in English and Spanish (`apps/sim/src/i18n.tsx`): "Map data © OpenStreetMap contributors (ODbL)" / "Datos del mapa © colaboradores de OpenStreetMap (ODbL)".

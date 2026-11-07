@@ -172,9 +172,9 @@ def export_track(tid):
     markers = {n[7:]: xz(n) for n in E if n.startswith('marker.')}
     for e in routes:
         markers.setdefault(e, routes[e]['pts'][0])
-    k = TRACK_IDS.index(tid)
     out = {
-        'version': 1, 'id': tid, 'name': NS['TRACK_NAMES'][tid], 'offset': [8000 * (k % 4), 8000 * (k // 4)],
+        'version': 1, 'id': tid, 'name': NS['TRACK_NAMES'][tid], 'offset': list(NS['offset_of'](tid)),
+        'source': 'OpenStreetMap', 'licence': 'ODbL 1.0', 'attribution': 'Map data © OpenStreetMap contributors (ODbL)',
         'bounds': bounds_of([[g(p) for p in cpts]] + walls_of(data, tid + '.wall.')),
         'lobby': {'x': lob[0], 'z': lob[1], 'h': round(float(E[tid + '.lobby']['h']), 4)}, 'return': ret,
         'centre': {'pts': [g(p) for p in cpts], 'width': width, 'loop': True},
@@ -182,14 +182,14 @@ def export_track(tid):
     }
     sizes = {tid + '.glb': export_glb(vis, os.path.join(PUBLIC, 'tracks', tid + '.glb'), BUDGET['track_glb']),
              tid + '.json': write_json(os.path.join(PUBLIC, 'tracks', tid + '.json'), out)}
-    return sizes, clen, sorted(routes)
+    return sizes, clen, sorted(routes), lens
 
 def export_all():
     sizes = export_hub(); index = []
     for tid in TRACK_IDS:
         if 'Track.' + tid not in bpy.data.collections: raise RuntimeError('no collection for ' + tid)
-        s, clen, evs = export_track(tid); sizes.update(s); k = TRACK_IDS.index(tid)
-        index.append({'id': tid, 'name': NS['TRACK_NAMES'][tid], 'offset': [8000 * (k % 4), 8000 * (k // 4)], 'lenM': round(clen, 1), 'events': evs})
+        s, clen, evs, lens = export_track(tid); sizes.update(s)
+        index.append({'id': tid, 'name': NS['TRACK_NAMES'][tid], 'offset': list(NS['offset_of'](tid)), 'lenM': round(clen, 1), 'events': evs, 'routeLenM': {e: round(lens[e], 1) for e in evs}})
     sizes['tracks.json'] = write_json(os.path.join(SRC, 'tracks.json'), {'version': 1, 'tracks': index})
     return sizes
 
