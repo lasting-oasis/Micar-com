@@ -11,6 +11,7 @@ export class SkidMarks {
   private col: THREE.BufferAttribute;
   private head = 0;
   private live = 0;
+  private maxA = 0; // the strongest alpha still on the mesh: 0 means nothing is visible, so nothing needs work
 
   constructor(private scene: THREE.Scene, private max = 400) {
     const geo = new THREE.BufferGeometry();
@@ -47,19 +48,22 @@ export class SkidMarks {
       this.pos.setXYZ(q * 4 + k, x + rx * s + fx * f, y, z + rz * s + fz * f);
       this.col.setW(q * 4 + k, alpha);
     }
+    this.maxA = Math.max(this.maxA, alpha);
     this.pos.needsUpdate = this.col.needsUpdate = true;
     this.mesh.geometry.setDrawRange(0, this.live * 6);
   }
 
   fade(dt: number): void {
-    if (this.live === 0) return;
+    if (this.maxA <= 0) return;
     const d = FADE_RATE * dt, a = this.col.array as Float32Array;
     for (let i = 0; i < this.max * 4; i++) { const j = i * 4 + 3; if (a[j] > 0) a[j] = Math.max(0, a[j] - d); }
+    this.maxA = Math.max(0, this.maxA - d);
     this.col.needsUpdate = true;
+    if (this.maxA <= 0) this.mesh.geometry.setDrawRange(0, 0); // all faded: draw nothing until the next mark
   }
 
   clear(): void {
-    this.head = this.live = 0;
+    this.head = this.live = 0; this.maxA = 0;
     (this.col.array as Float32Array).forEach((_, i) => { if (i % 4 === 3) (this.col.array as Float32Array)[i] = 0; });
     this.col.needsUpdate = true;
     this.mesh.geometry.setDrawRange(0, 0);

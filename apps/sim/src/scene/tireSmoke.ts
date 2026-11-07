@@ -29,6 +29,9 @@ export class TireSmoke {
     this.mat = new THREE.PointsMaterial({ color: 0x9aa0a6, size: 1.2 * W, transparent: true, opacity: .35, depthWrite: false, vertexColors: true });
     this.mat.onBeforeCompile = sh => {
       sh.vertexShader = 'attribute float psize;\n' + sh.vertexShader.replace('gl_PointSize = size;', 'gl_PointSize = size * psize;');
+      // a soft round puff instead of a square: alpha falls off with the distance from the centre
+      sh.fragmentShader = sh.fragmentShader.replace('#include <color_fragment>', '#include <color_fragment>
+ float pd = length(gl_PointCoord - .5); if (pd > .5) discard; diffuseColor.a *= smoothstep(.5, .1, pd);');
     };
     this.pts = new THREE.Points(this.geo, this.mat);
     this.pts.frustumCulled = false;
