@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { HUB, TRACKS, markerFor, offsetOf, routeFor, trackOfEvent, type Pt, type TrackData } from './district';
+import { HUB, TRACKS, forgetTrack, markerFor, offsetOf, routeFor, trackOfEvent, type Pt, type TrackData } from './district';
 import { readTrackSync, setTrackDir } from './districtNode';
 import { routePoint } from './routes';
 
@@ -118,5 +118,10 @@ describe('district data', () => {
     await d.loadTrack('bathurst', f);
     expect(calls).toBe(1); expect(a).toBe(b); expect(url).toBe('/strip/tracks/bathurst.json');
     expect(d.trackLoaded('bathurst')).toBe(a);
+  });
+  it('forgetTrack drops the track and its cached routes', () => {
+    routeFor('royal_gp');
+    forgetTrack('monza');
+    try { expect(() => routeFor('royal_gp')).toThrow('track not loaded: monza'); } finally { readTrackSync('monza'); }
   });
 });

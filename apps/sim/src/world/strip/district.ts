@@ -45,13 +45,13 @@ const pending = new Map<TrackId, Promise<TrackData>>();
 const routeCache = new Map<string, Route>();
 let assetBase = '/';
 export function setAssetBase(base: string): void { assetBase = base; }
+function dropRoutes(trackId: TrackId): void { for (const e of TRACKS.find(k => k.id === trackId)?.events ?? []) routeCache.delete(e); } // never serve stale routes
 /** Put a track's data in the cache (used by loadTrack and the node reader). */
 export function registerTrack(trackId: TrackId, data: TrackData): void {
-  cache.set(trackId, data);
-  for (const e of TRACKS.find(k => k.id === trackId)?.events ?? []) routeCache.delete(e); // never serve stale routes
+  cache.set(trackId, data); dropRoutes(trackId);
 }
 /** Drop a track from the cache (tests: to exercise a failing load). */
-export function forgetTrack(trackId: TrackId): void { cache.delete(trackId); pending.delete(trackId); }
+export function forgetTrack(trackId: TrackId): void { cache.delete(trackId); pending.delete(trackId); dropRoutes(trackId); } // an in-flight load may still register it later
 export function trackLoaded(trackId: TrackId): TrackData | undefined { return cache.get(trackId); }
 export function loadTrack(trackId: TrackId, fetcher?: (url: string) => Promise<TrackData>): Promise<TrackData> {
   const hit = cache.get(trackId); if (hit) return Promise.resolve(hit);
