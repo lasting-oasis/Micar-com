@@ -53,7 +53,7 @@ try {
   ok(true, 'Enter on the gate put us in the Strip');
 
   // 5. a drag race: hold W, shift (clutch) at the redline, until the results card shows
-  ok(await M(() => window.__micar.startEvent('dr1')), 'started the drag (dr1)');
+  ok(await M(() => window.__micar.startEvent('royal_drag')), 'started the drag (royal_drag, the Monza quarter mile)');
   await p.setViewportSize({ width: 480, height: 270 }); // fewer pixels, faster frames
   await p.waitForTimeout(1000);
   await p.keyboard.down('KeyW');
@@ -120,7 +120,7 @@ try {
   await g.waitForTimeout(1500);
   const gotCar = await g.waitForFunction(() => window.__micar.drive(), null, { timeout: 60000, polling: 1000 }).then(() => true, () => false);
   ok(gotCar, 'got into the rental');
-  ok(await G(() => window.__micar.startEvent('dr1')), 'started the guest drag (dr1)');
+  ok(await G(() => window.__micar.startEvent('royal_drag')), 'started the guest drag (royal_drag)');
   await g.setViewportSize({ width: 480, height: 270 });
   await g.waitForTimeout(1000);
   await g.keyboard.down('KeyW');

@@ -4,7 +4,9 @@
    the renderer places them from the AI / drag-car state. Payout is not here (server side, later). */
 import { clamp, makeVehicle, NO_INPUT, resetVehicle, simStats, stepVehicle, type Input, type Params, type Vehicle } from '../physics';
 import { CATS, PALETTE, STOCK_CFG, type CarCfg, type EventDef, type EventType, type VisualCfg } from '../data';
-import { buildRoute, nearestNode, routePoint, routeProgress, snapToRoad, N, type Node, type Route } from './routes';
+import { cpPoint, routePoint, routeProgress, snapToRoad, type RoadData, type Route } from './routes';
+import { HUB, routeFor } from './district';
+import { hubPoint } from './roadGraph';
 import { makeAI, parkAI, separateAIs, setWander, stepAI, type AI } from './ai';
 
 export type { EventType };
@@ -14,7 +16,7 @@ export type EventFx = {
   sfx(name: string): void;
   spawnRacerMesh(cfg: VisualCfg): unknown;
   disposeMesh(m: unknown): void;
-  placeCp(node: Node | null): void;
+  placeCp(p: { x: number; z: number } | null): void;
   stage(): number;
   styleRating(): number;
 };
@@ -34,10 +36,11 @@ export type ActiveEvent = {
 export type Outrun = { A: AI; t: number; gap: number; state: 'run' | 'done'; t2?: number };
 export type EventResults = { pos: number; list: Standing[]; failed: string | null; type: EventType; ev: EventDef; time: number | null; score: number };
 
-export const DRAG_LANES = [-7.5, -2.5, 2.5, 7.5];
+export const DRAG_LANES = [-6, -2, 2, 6];
+/** A race (not a drift) auto-finishes after this many seconds: the larger of 600 s and 60 s plus 1 s per 8 m of the event (Ardennes GP, 13.9 km: about 30 min). */
+export function raceCapS(targetM: number): number { return Math.max(600, 60 + targetM / 8); }
 const AI_NAMES = ['Rico', 'Nadia', 'Vince', 'Tam', 'Lola', 'Jet', 'Suki', 'Bram'];
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
-const ROUTES = new WeakMap<EventDef, Route>();
 
 export function randomCfg(): CarCfg {
   const c = clone(STOCK_CFG); c.color = PALETTE[Math.floor(Math.random() * PALETTE.length)][0];
@@ -58,12 +61,12 @@ export function sortStandings<T extends Standing>(list: T[], type: EventType): T
 
 export class EventRunner {
   active: ActiveEvent | null = null;
-  constructor(public PV: Vehicle, public ais: AI[], public fx: EventFx, public playerParams: () => Params) {}
+  constructor(public PV: Vehicle, public ais: AI[], public fx: EventFx, public playerParams: () => Params, public roads: () => RoadData[] = () => HUB.roads) {}
 
   start(ev: EventDef, opts: { quick?: boolean } = {}): void {
     const PV = this.PV, fx = this.fx;
     if (this.active) this.cleanup();
-    let route = ROUTES.get(ev); if (!route) { route = buildRoute(ev.nodes, !!ev.loop); ROUTES.set(ev, route); }
+    const route = routeFor(ev.id);
     const a: ActiveEvent = this.active = { ev, route, laps: ev.laps || 1, type: ev.type, state: 'count', t: 3.6, time: 0, racers: [], pS: 0, pMax: 0, pLap: 0, pCp: 1, wrong: 0, pFt: null, results: null, quick: !!opts.quick, retT: 0, fail: null, target: 0,
       drift: { cur: 0, score: 0, mult: 1, dT: 0, idle: 0, lastBank: 0 }, drag: { lane: 1, trafficA: [], ai: [], dir: 0, fwd: [0, 1], right: [1, 0], p0: null } };
     a.target = route.loop ? route.len * a.laps : route.len;
@@ -82,7 +85,8 @@ export class EventRunner {
         const m = fx.spawnRacerMesh(randomCfg());
         a.drag.ai.push({ V: AV, m, lane: li, s: 0, ft: null, react: .15 + Math.random() * .4, name: AI_NAMES[(li * 2 + Math.random() * 2) | 0], crash: false });
       }
-      const tr = this.ais.filter(A => A.kind === 'traffic').slice(0, 6); let s = 70;
+      // lane traffic only on an event that allows it (every library event is noTraffic: closed circuits)
+      const tr = ev.noTraffic ? [] : this.ais.filter(A => A.kind === 'traffic').slice(0, 6); let s = 70;
       for (const A of tr) { A.parked = false; A.hold = true; a.drag.trafficA.push({ A, s, lane: Math.floor(Math.random() * 4), v: 10 + Math.random() * 3 }); s += 55 + Math.random() * 50; }
     } else {
       const slots = [[-3, 0], [3, 0], [-3, -8], [3, -8]]; const my = Math.floor(Math.random() * 4);
@@ -100,9 +104,9 @@ export class EventRunner {
   }
 
   private placeCpMark(): void {
-    const a = this.active; if (!a) return; const r = a.route; const k = a.pCp % r.nodes.length; const nd = r.nodes[k];
+    const a = this.active; if (!a) return; const r = a.route;
     if (a.type === 'drag' || (a.state !== 'race' && a.state !== 'count')) { this.fx.placeCp(null); return; }
-    this.fx.placeCp(nd);
+    this.fx.placeCp(cpPoint(r, a.pCp % r.cps.length));
   }
   private dragLat(): number { const d = this.active!.drag; return (this.PV.x - d.p0!.x) * d.right[0] + (this.PV.z - d.p0!.z) * d.right[1]; }
   private dragS(x: number, z: number): number { const d = this.active!.drag; return (x - d.p0!.x) * d.fwd[0] + (z - d.p0!.z) * d.fwd[1]; }
@@ -141,10 +145,10 @@ export class EventRunner {
     a.wrong = (a.pMax - a.pS > 14) ? a.wrong + dt : 0;
     if (a.wrong > .6 && !a.wrongShown) { a.wrongShown = true; fx.banner('Wrong way', true, true); } else if (a.wrong <= 0 && a.wrongShown) { a.wrongShown = false; fx.banner(''); }
     // checkpoints / laps
-    const nN = r.nodes.length; const cpS = (a.pCp < nN) ? a.pLap * r.len + r.nodeS[a.pCp] : (a.pLap + 1) * r.len;
+    const nCp = r.cps.length; const cpS = a.pCp < nCp ? a.pLap * r.len + r.cps[a.pCp] : (a.pLap + 1) * r.len;
     if (a.pS >= cpS - 1) {
-      if (!r.loop) { if (a.pCp >= nN - 1) return this.playerFinish(); a.pCp++; fx.sfx('cp'); }
-      else if (a.pCp >= nN) { a.pLap++; a.pCp = 1; if (a.pLap >= a.laps) return this.playerFinish(); fx.banner('Lap ' + (a.pLap + 1) + '/' + a.laps); fx.sfx('cp'); }
+      if (!r.loop) { if (a.pCp >= nCp - 1) return this.playerFinish(); a.pCp++; fx.sfx('cp'); }
+      else if (a.pCp >= nCp) { a.pLap++; a.pCp = 1; if (a.pLap >= a.laps) return this.playerFinish(); fx.banner('Lap ' + (a.pLap + 1) + '/' + a.laps); fx.sfx('cp'); }
       else { a.pCp++; fx.sfx('cp'); }
       this.placeCpMark();
     }
@@ -155,7 +159,7 @@ export class EventRunner {
     }
     separateAIs(a.racers);
     if (drift) this.updateDrift(dt);
-    if (a.type !== 'drift' && a.time > 600) this.playerFinish();
+    if (a.type !== 'drift' && a.time > raceCapS(a.target)) this.playerFinish();
   }
   private playerFinish(): void {
     const a = this.active!; a.pFt = a.time; a.state = 'done'; a.retT = 0; this.fx.placeCp(null); this.fx.banner('Finish'); this.fx.sfx('finish');
@@ -218,11 +222,11 @@ export class EventRunner {
     if (!a.results) this.onAbandon?.(a.ev);
     for (const R of a.racers) { const i = this.ais.indexOf(R); if (i >= 0) this.ais.splice(i, 1); this.fx.disposeMesh(R.m); }
     for (const o of a.drag.ai) this.fx.disposeMesh(o.m);
-    for (const t of a.drag.trafficA) { setWander(t.A, nearestNode(t.A.x, t.A.z)); }
-    for (const A of this.ais) { if ((A.kind === 'traffic' || A.kind === 'rival') && A.parked) setWander(A, [1 + Math.floor(Math.random() * (N - 1)), 1 + Math.floor(Math.random() * (N - 1))]); A.hold = false; }
+    for (const t of a.drag.trafficA) { setWander(t.A, hubPoint()); }
+    for (const A of this.ais) { if ((A.kind === 'traffic' || A.kind === 'rival') && A.parked) setWander(A, hubPoint()); A.hold = false; }
     this.fx.placeCp(null); this.fx.banner(''); this.active = null;
   }
-  quit(): void { this.cleanup(); snapToRoad(this.PV); }
+  quit(): void { this.cleanup(); snapToRoad(this.PV, this.roads()); }
 }
 
 /* ---- free roam: markers, outrun. The caller skips these while an event or an outrun is running. ---- */

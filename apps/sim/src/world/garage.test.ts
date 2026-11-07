@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { GarageModel } from './garage';
-import { ARCHETYPES, STOCK_CFG, TUNE_DEF, withV, okey, type CarCfg, type PartValue } from './data';
+import { GarageModel, lenOf } from './garage';
+import { ARCHETYPES, EVENTS, STOCK_CFG, TUNE_DEF, withV, okey, type CarCfg, type PartValue } from './data';
 import type { Tune } from './physics';
 
 // Array#at is ES2022 (the app targets ES2020); Node runs it, the brief's tests use it.
@@ -40,4 +40,12 @@ describe('GarageModel', () => {
   it('a stage-locked performance tier refuses', () => { const g = model({ money: 1e6, stage: 1 }); g.enterPath(['perf', 'perf.turbo']); g.select(3); g.activate(); expect(g.bought).toEqual([]); expect(g.toasts.at(-1)!.text).toMatch(/stage 3/i); });
   it('dyno adjust moves a slider by 0.1 within -1..1 and saves on back', () => { const g = model({}); g.enterPath(['perf', 'dyno']); g.select(2); for (let i = 0; i < 30; i++) g.adjust(1); expect(g.previewTune().aero).toBe(1); g.back(); expect(g.tuned.at(-1)!.aero).toBe(1); });
   it('stat rows have five bars between 0 and 1', () => { const g = model({}); const rows = g.statRows(g.currentParams()); expect(rows.length).toBe(5); for (const r of rows) { expect(r.v).toBeGreaterThanOrEqual(0); expect(r.v).toBeLessThanOrEqual(1); } });
+});
+
+describe('event lengths before the circuit loads', () => {
+  it('come from the index per event (a quarter-mile drag reads 402 m, not the lap)', () => {
+    const ev = (id: string) => EVENTS.find(e => e.id === id)!;
+    expect(Math.round(lenOf(ev('royal_drag')))).toBe(402);
+    expect(Math.round(lenOf(ev('harbour_drift')))).toBe(899);
+  });
 });

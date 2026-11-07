@@ -2,6 +2,7 @@ import express from 'express';
 import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import fs from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import type { AddressInfo } from 'node:net';
 import path from 'node:path';
 import { GameState, Car, Player, FractionalVehicle, FUEL_PRICE_PER_UNIT } from './src/types.js';
@@ -11,8 +12,10 @@ import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 import { RENTAL_FLEET, canRent, isRental, isVisitor, rent, type RentalKey } from './src/world/rental.js';
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
-import { RENTAL_DENIED, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent } from './src/world/stripFlow.js';
+import { RENTAL_DENIED, VISITOR_DENIED, VISITOR_EVENTS, closeEvent, guestPlayer, hostIsVacant, isUntouchedGuest, linkTarget, pickHost, quitEvent, sanitizePosition } from './src/world/stripFlow.js';
 import { coalescingSaver, loadOrQuarantine, writeAtomic } from './src/world/persistence.js';
+import { TRACKS } from './src/world/strip/district.js';
+import { readTrackSync, setTrackDir } from './src/world/strip/districtNode.js';
 
 const app = express();
 const httpServer = createServer(app);
@@ -35,20 +38,8 @@ const emissionsRequired = (car: Car) => !((CURRENT_YEAR - car.year) <= 2 && car.
 const dropOffSpot = (lot: { x: number; z: number }, index: number) =>
     ({ x: lot.x - 40, z: lot.z + 15 + index * 6, r: -Math.PI / 2 });
 
-// Validate & clamp position payloads coming from clients. Rejects anything that
-// isn't a finite x/z so a malicious or buggy client can't inject NaN / Infinity
-// or teleport meshes thousands of units off the map.
-const sanitizePosition = (pos: any) => {
-    if (!pos || typeof pos !== 'object') return null;
-    const isNum = (n: any) => typeof n === 'number' && Number.isFinite(n);
-    if (!isNum(pos.x) || !isNum(pos.z)) return null;
-    const clamp = (n: number) => Math.max(-2000, Math.min(2000, n));
-    const out: any = { x: clamp(pos.x), z: clamp(pos.z) };
-    if (isNum(pos.y)) out.y = clamp(pos.y);
-    if (isNum(pos.r)) out.r = pos.r;               // car heading
-    if (isNum(pos.rotation)) out.rotation = pos.rotation; // avatar heading
-    return out;
-};
+// Position payloads from clients are validated and clamped by sanitizePosition (stripFlow.ts):
+// the town to ±2000 world units, a Strip pose (district 'strip') to the circuits' grid.
 
 // One write at a time (a save asked for mid-write coalesces into one more), each to a temp file renamed over the save.
 const saver = coalescingSaver(async () => {
@@ -2287,6 +2278,10 @@ io.on('connection', (socket) => {
 });
 
 async function startServer() {
+    // the track files the client is served: public/ under Vite in development, the build's copy in production
+    const built = path.join(process.cwd(), 'dist', 'strip', 'tracks'), pub = path.join(process.cwd(), 'public', 'strip', 'tracks');
+    setTrackDir(process.env.NODE_ENV === 'production' && existsSync(built) ? built : pub);
+    for (const t of TRACKS) readTrackSync(t.id);
     await loadGameState();
 
     // What the Strip entry card may offer before anyone has joined (init.caps arrives too late for it)

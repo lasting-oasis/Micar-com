@@ -6,12 +6,12 @@
 // (physics space), as in Night Tuner. The full-screen map (M) is StripScene.drawMapInto, not here.
 import { clamp, type Vehicle } from './physics';
 import { EV_COL, type EventDef } from './data';
-import { CELL, N, RW, SPAN, type Node } from './strip/routes';
+import { cpPoint, type Pt } from './strip/routes';
 import type { AI } from './strip/ai';
 import type { ActiveEvent, Outrun, Standing } from './strip/events';
 
 export type HudMarker = { ev: EventDef; x: number; z: number };
-export type HudGps = { label: string; node: Node; path: Node[] };
+export type HudGps = { label: string; target: Pt; path: Pt[] };
 
 export type HudState = {
   PV: Vehicle;
@@ -20,6 +20,8 @@ export type HudState = {
   standings: Standing[];
   outrun: Outrun | null;
   gps: HudGps | null;
+  /** the roads to stroke on the minimap (the hub's, or the circuit's centre line) */
+  roads: readonly { pts: Pt[]; loop: boolean; width: number }[];
   markers: readonly HudMarker[];
   ais: readonly AI[];
   money: number;
@@ -47,7 +49,7 @@ export const distStr = (m: number, units: 'kmh' | 'mph'): string => units === 'm
 export const moneyStr = (n: number): string => '$' + Math.round(n).toLocaleString('en-US');
 export const fmtT = (s: number | null | undefined): string => { if (s == null || !isFinite(s)) return '--'; const m = Math.floor(s / 60), r = s - m * 60; return m ? m + ':' + r.toFixed(2).padStart(5, '0') : r.toFixed(2); };
 /** Night Tuner cleared the GPS inside 14 m of its target; the HUD does not mutate state, so the caller checks this. */
-export const gpsReached = (PV: Vehicle, gps: HudGps): boolean => Math.hypot(PV.x - gps.node[0] * CELL, PV.z - gps.node[1] * CELL) < 14;
+export const gpsReached = (PV: Vehicle, gps: HudGps): boolean => Math.hypot(PV.x - gps.target[0], PV.z - gps.target[1]) < 14;
 
 type Fonts = { tick: string; speed: string; unit: string; gear: string; boost: string; nos: string; shift: string; cash: string; big: string; sub: string; driftCur: string };
 const fontsFor = (small: boolean): Fonts => {
@@ -60,6 +62,23 @@ const fontsFor = (small: boolean): Fonts => {
 };
 const FONTS: Record<'s' | 'l', Fonts> = { s: fontsFor(true), l: fontsFor(false) };
 const F_OUT = `700 12px ${UF}`, F_DRAG_T = `700 10px ${UF}`, F_DRAG_BIG = `italic 900 44px ${DF}`, F_DRAG_SUB = `700 11px ${UF}`, F_DRAG_MSG = `italic 800 14px ${DF}`;
+/** the minimap draws road segments with an end within this many metres of the player */
+export const MINIMAP_ROAD_M = 600;
+/** Add a polyline to the current path, only the segments with an end within `r` m of (cx, cz); a skipped stretch starts a new sub-path. */
+export function nearPolyline(g: CanvasRenderingContext2D, pts: readonly (readonly [number, number])[], loop: boolean, cx: number, cz: number, r: number): void {
+  const n = pts.length, r2 = r * r;
+  const near = (p: readonly [number, number]) => { const dx = p[0] - cx, dz = p[1] - cz; return dx * dx + dz * dz <= r2; };
+  let pen = false, prevNear = false, all = true;
+  for (let i = 0; i < n; i++) {
+    const p = pts[i], on = near(p); if (!on) all = false;
+    if (i > 0 && (on || prevNear)) { if (!pen) g.moveTo(pts[i - 1][0], pts[i - 1][1]); g.lineTo(p[0], p[1]); pen = true; }
+    else pen = false;
+    prevNear = on;
+  }
+  if (!loop || n < 2) return;
+  if (all) g.closePath();
+  else if (prevNear || near(pts[0])) { g.moveTo(pts[n - 1][0], pts[n - 1][1]); g.lineTo(pts[0][0], pts[0][1]); }
+}
 
 export class Hud {
   private readonly hx: CanvasRenderingContext2D | null;
@@ -142,8 +161,8 @@ export class Hud {
     }
     /* checkpoint / gps arrow */
     let tx = 0, tz = 0, label = '', has = false;
-    if (a && a.state === 'race' && a.type !== 'drag') { const k = a.pCp % a.route.nodes.length; const nd = a.route.nodes[k]; tx = nd[0] * CELL; tz = nd[1] * CELL; label = k === 0 ? 'FINISH LINE' : 'CHECKPOINT'; has = true; }
-    else if (!a && s.gps) { tx = s.gps.node[0] * CELL; tz = s.gps.node[1] * CELL; label = s.gps.label; has = true; }
+    if (a && a.state === 'race' && a.type !== 'drag') { const k = a.pCp % a.route.cps.length; const p = cpPoint(a.route, k); tx = p.x; tz = p.z; label = k === 0 ? 'FINISH LINE' : 'CHECKPOINT'; has = true; }
+    else if (!a && s.gps) { tx = s.gps.target[0]; tz = s.gps.target[1]; label = s.gps.label; has = true; }
     if (has) {
       const dx = tx - PV.x, dz = tz - PV.z, dist = Math.hypot(dx, dz); const an = Math.atan2(dx, dz) - PV.h;
       hx.save(); hx.translate(HW / 2, ty + (small ? 14 : 22)); hx.rotate(-an); hx.fillStyle = ACCENT; hx.beginPath(); hx.moveTo(0, -16); hx.lineTo(11, 10); hx.lineTo(0, 4); hx.lineTo(-11, 10); hx.closePath(); hx.fill(); hx.restore();
@@ -170,9 +189,9 @@ export class Hud {
     const mr = small ? 56 : 84, mx = mr + (small ? 16 : 34), my = small ? mr + 16 + insT + (a || outrun ? 74 : 50) : HH - mr - 34 - insB;
     hx.save(); hx.translate(mx, my); hx.beginPath(); hx.arc(0, 0, mr, 0, 7); hx.fillStyle = 'rgba(14,18,23,.7)'; hx.fill(); hx.clip();
     const sc = small ? .3 : .4; hx.rotate(Math.PI + PV.h); hx.scale(sc, sc); hx.translate(-PV.x, -PV.z);
-    hx.strokeStyle = 'rgba(150,170,200,.45)'; hx.lineWidth = RW * .8; hx.beginPath(); for (let i = 0; i <= N; i++) { hx.moveTo(i * CELL, -RW); hx.lineTo(i * CELL, SPAN + RW); hx.moveTo(-RW, i * CELL); hx.lineTo(SPAN + RW, i * CELL); } hx.stroke();
+    hx.strokeStyle = 'rgba(150,170,200,.45)'; for (const rd of s.roads) { hx.lineWidth = rd.width * .8; hx.beginPath(); nearPolyline(hx, rd.pts, !!rd.loop, PV.x, PV.z, MINIMAP_ROAD_M); hx.stroke(); }
     if (a && a.type !== 'drag') { hx.strokeStyle = EV_COL[a.type]; hx.lineWidth = 6; hx.beginPath(); const pts = a.route.pts; for (let i = 0; i < pts.length; i++) i ? hx.lineTo(pts[i][0], pts[i][1]) : hx.moveTo(pts[i][0], pts[i][1]); if (a.route.loop) hx.closePath(); hx.stroke(); }
-    else if (!a && s.gps && s.gps.path.length) { hx.strokeStyle = ACCENT; hx.lineWidth = 7; hx.beginPath(); const p = s.gps.path; for (let i = 0; i < p.length; i++) i ? hx.lineTo(p[i][0] * CELL, p[i][1] * CELL) : hx.moveTo(p[i][0] * CELL, p[i][1] * CELL); hx.stroke(); }
+    else if (!a && s.gps && s.gps.path.length) { hx.strokeStyle = ACCENT; hx.lineWidth = 7; hx.beginPath(); const p = s.gps.path; for (let i = 0; i < p.length; i++) i ? hx.lineTo(p[i][0], p[i][1]) : hx.moveTo(p[i][0], p[i][1]); hx.stroke(); }
     if (!a) { const stg = s.stage ?? Infinity; for (const m of s.markers) { if (m.ev.stage > stg) continue; hx.fillStyle = EV_COL[m.ev.type]; hx.beginPath(); hx.arc(m.x, m.z, 9, 0, 7); hx.fill(); } }
     for (const c of s.ais) { if (c.parked) continue; if (Math.abs(c.x - PV.x) > 400 || Math.abs(c.z - PV.z) > 400) continue; hx.fillStyle = c.kind === 'racer' ? CHROME : c.kind === 'rival' ? BLUE : '#ff6a6a'; hx.beginPath(); hx.arc(c.x, c.z, c.kind === 'traffic' ? 5 : 7, 0, 7); hx.fill(); }
     if (a && a.type === 'drag') for (const o of a.drag.ai) { hx.fillStyle = CHROME; hx.beginPath(); hx.arc(o.V.x, o.V.z, 7, 0, 7); hx.fill(); }

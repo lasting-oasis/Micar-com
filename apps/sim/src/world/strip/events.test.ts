@@ -1,12 +1,18 @@
-import { describe, it, expect } from 'vitest';
+import path from 'node:path';
+import { beforeAll, describe, it, expect } from 'vitest';
 import { EventRunner, sortStandings, type EventFx } from './events';
 import { makeAI, setWander, type AI } from './ai';
-import { routePoint, CELL } from './routes';
+import { cpPoint, routePoint } from './routes';
+import { routeFor, TRACKS } from './district';
+import { readTrackSync, setTrackDir } from './districtNode';
+import { pointOnRoad } from './roadGraph';
 import { makeVehicle, carParams, resetVehicle, NO_INPUT } from '../physics';
 import { ARCHETYPES, EVENTS, STOCK_CFG, TUNE_DEF, type EventDef } from '../data';
 
+beforeAll(() => { setTrackDir(path.resolve(process.cwd(), 'public/strip/tracks')); for (const t of TRACKS) readTrackSync(t.id); });
+
 const ev = (id: string): EventDef => EVENTS.find(e => e.id === id)!;
-const sprint = ev('sp1'), drag = ev('dr1'), circuit = ev('ci1'), streetx = ev('sx1');
+const sprint = ev('lagoons_sprint'), drag = ev('royal_drag'), circuit = ev('harbour_gp'), streetx = ev('drylagoon_x');
 const sedan = () => carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF);
 
 type StubFx = EventFx & { banners: string[]; sounds: string[]; spawned: unknown[]; disposed: unknown[] };
@@ -16,8 +22,8 @@ function stubFx(): StubFx {
 }
 function runner(_ev: EventDef): EventRunner {
   const ais: AI[] = [];
-  for (let i = 0; i < 6; i++) { const A = makeAI({ kind: 'traffic', vmax: 12, acc: 5, brk: 8, lane: 3.2 }); setWander(A, [1 + i, 1 + (i % 3)]); ais.push(A); }
-  const R = makeAI({ kind: 'rival', vmax: 16, acc: 6, brk: 10, lane: 3.2, name: 'Rico' }); setWander(R, [4, 4]); ais.push(R);
+  for (let i = 0; i < 6; i++) { const A = makeAI({ kind: 'traffic', vmax: 12, acc: 5, brk: 8, lane: 3.2 }); setWander(A, pointOnRoad('loop', i * 100)); ais.push(A); }
+  const R = makeAI({ kind: 'rival', vmax: 16, acc: 6, brk: 10, lane: 3.2, name: 'Rico' }); setWander(R, pointOnRoad('loop', 450)); ais.push(R);
   return new EventRunner(makeVehicle(sedan()), ais, stubFx(), sedan);
 }
 function tick(r: EventRunner, seconds: number): void {
@@ -25,20 +31,20 @@ function tick(r: EventRunner, seconds: number): void {
   for (let i = 0; i < Math.round(seconds * 60); i++) { r.input(NO_INPUT, dt); r.postStep(dt); r.update(dt); }
 }
 /* Progress along a route is tracked incrementally (routeProgress searches ±45 m around the last s each step),
-   so a single jump to the last node is not seen as progress. "Teleport" in 20 m hops along the route,
-   one update per hop, ending exactly at the last node. */
+   so a single jump to the last checkpoint is not seen as progress. "Teleport" in 20 m hops along the route,
+   one update per hop, ending exactly at the last checkpoint. */
 function teleportToEnd(r: EventRunner): void {
-  const a = r.active!, route = a.route, last = route.nodes[route.nodes.length - 1];
+  const a = r.active!, route = a.route, last = cpPoint(route, route.cps.length - 1);
   for (let s = a.pS; s < route.len; s += 20) { const p = routePoint(route, s); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60); if (r.active!.state !== 'race') return; }
-  resetVehicle(r.PV, last[0] * CELL, last[1] * CELL, r.PV.h);
+  resetVehicle(r.PV, last.x, last.z, r.PV.h);
 }
 
 describe('strip events', () => {
   it('an event quit without results is reported once; one with results is not', () => {
     const r = runner(sprint), quit: string[] = []; r.onAbandon = e => quit.push(e.id);
-    r.start(sprint); tick(r, 1); r.quit(); r.cleanup(); expect(quit).toEqual(['sp1']);
-    r.start(drag); r.start(sprint); expect(quit).toEqual(['sp1', 'dr1']); // a new start abandons the old one
-    tick(r, 4); teleportToEnd(r); tick(r, 0.5); r.results(); r.cleanup(); expect(quit).toEqual(['sp1', 'dr1']);
+    r.start(sprint); tick(r, 1); r.quit(); r.cleanup(); expect(quit).toEqual(['lagoons_sprint']);
+    r.start(drag); r.start(sprint); expect(quit).toEqual(['lagoons_sprint', 'royal_drag']); // a new start abandons the old one
+    tick(r, 4); teleportToEnd(r); tick(r, 0.5); r.results(); r.cleanup(); expect(quit).toEqual(['lagoons_sprint', 'royal_drag']);
   });
   it('a sprint counts down, then races, then finishes when the player passes the last node', () => { const r = runner(sprint); r.start(sprint); expect(r.active!.state).toBe('count'); tick(r, 4); expect(r.active!.state).toBe('race'); teleportToEnd(r); tick(r, 0.5); expect(r.active!.state).toBe('done'); const res = r.results()!; expect(res.pos).toBeGreaterThanOrEqual(1); expect(res.failed).toBeNull(); });
   it('standings put a DNF last and sort finishers by time', () => { const list = [{ name: 'a', ft: 30 }, { name: 'You', me: true, ft: 25 }, { name: 'b', ft: null, s: 100 }]; expect(sortStandings(list, 'sprint').map(p => p.name)).toEqual(['You', 'a', 'b']); });
@@ -47,4 +53,30 @@ describe('strip events', () => {
   it('cleanup removes racers from the AI list and restores traffic', () => { const r = runner(circuit); r.start(circuit); const n = r.ais.length; r.cleanup(); expect(r.active).toBeNull(); expect(r.ais.length).toBeLessThan(n); expect(r.ais.every(a => !a.parked)).toBe(true); });
   it('cleanup un-parks the traffic a no-traffic event parked and disposes every racer mesh', () => { const r = runner(streetx); const fx = r.fx as StubFx; r.start(streetx); expect(r.ais.some(a => a.parked)).toBe(true); expect(fx.spawned.length).toBe(3); r.cleanup(); expect(r.active).toBeNull(); expect(r.ais.every(a => !a.parked)).toBe(true); expect(fx.disposed.length).toBe(fx.spawned.length); expect(new Set(fx.disposed)).toEqual(new Set(fx.spawned)); });
   it('cleanup after a drag race restores parked traffic and disposes every drag car', () => { const r = runner(drag); const fx = r.fx as StubFx; r.start(drag); expect(r.ais.some(a => a.parked)).toBe(true); expect(fx.spawned.length).toBe(3); r.cleanup(); expect(r.active).toBeNull(); expect(r.ais.every(a => !a.parked)).toBe(true); expect(fx.disposed.length).toBe(fx.spawned.length); expect(new Set(fx.disposed)).toEqual(new Set(fx.spawned)); });
+  it('a circuit counts its laps through the checkpoints', () => {
+    const r = runner(circuit); r.start(circuit); tick(r, 4); expect(r.active!.state).toBe('race');
+    const route = r.active!.route;
+    for (let s = 0; s <= route.len * 2 + 20; s += 20) { const p = routePoint(route, s); resetVehicle(r.PV, p.x, p.z, Math.atan2(p.tx, p.tz)); r.update(1 / 60); if (r.active!.state !== 'race') break; }
+    expect(r.active!.state).toBe('done'); tick(r, 1.5); expect(r.results()!.pos).toBeGreaterThanOrEqual(1);
+  });
+  it('a drag finishes at its length', () => {
+    const r = runner(drag); r.start(drag); tick(r, 4); const a = r.active!, route = routeFor(drag.id);
+    const p0 = a.drag.p0!; resetVehicle(r.PV, p0.x + a.drag.fwd[0] * route.len, p0.z + a.drag.fwd[1] * route.len, a.drag.dir); r.update(1 / 60);
+    expect(a.state).toBe('done'); expect(r.results()!.failed).toBeNull();
+  });
+  it('a drift sector finishes at its last checkpoint', () => {
+    const d = ev('harbour_drift'), r = runner(d); r.start(d); tick(r, 4); teleportToEnd(r); tick(r, 0.5); expect(r.active!.state).toBe('done');
+  });
+});
+
+describe('the race cap', () => {
+  it('is the larger of 600 s and 60 s plus 1 s per 8 m', async () => {
+    const { raceCapS } = await import('./events');
+    expect(raceCapS(402)).toBe(600);
+    expect(raceCapS(13938)).toBeCloseTo(1802.25, 1);
+  });
+  it('a drag on a no-traffic event runs no lane traffic', () => {
+    const r = runner(drag); r.start(drag); expect(drag.noTraffic).toBe(true); expect(r.active!.drag.trafficA).toHaveLength(0);
+    expect(r.ais.filter(a => a.kind === 'traffic').every(a => a.parked)).toBe(true);
+  });
 });

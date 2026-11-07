@@ -123,6 +123,7 @@ export function StripEntry() {
         ))}
         {(note || g.note || mail.note || (joined && driveNotice)) && <p role="alert" className="text-sm text-red-300">{note || g.note || mail.note || driveNotice}</p>}
         <p className="text-sm text-haze">{t(lang, 'strip.footnote')}</p>
+        <p className="text-[11px] text-ink/50 text-center">{t(lang, 'strip.osm')}</p>
         </>}
       </div>
     </div>

@@ -1,4 +1,5 @@
 import type { Car, Player } from '../types';
+import { HUB } from './strip/district';
 
 export const RENTAL_PRICE = 500;
 export const GUEST_STAKE = 500;
@@ -11,9 +12,9 @@ export const RENTAL_FLEET: ReadonlyArray<{ key: RentalKey; make: string; model: 
   { key: 'sports', make: 'Tsubasa', model: 'R4', color: '#e8463c' },
 ];
 
-export const RENTAL_BAY = { x: 675, z: 675, h: Math.PI / 4 };
-export const RENTAL_CAM = { x: 652, y: 5, z: 652 };
-export const RENTAL_BLOCK: [number, number] = [7, 7];
+export const RENTAL_BAY = HUB.rental.bay;
+export const RENTAL_CAM = HUB.rental.cam;
+export const RENTAL_KIOSK = HUB.rental.kiosk;
 
 export function isRental(car: Car | undefined): boolean {
   return !!car?.rental;
