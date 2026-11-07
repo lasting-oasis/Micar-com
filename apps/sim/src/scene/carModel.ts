@@ -497,7 +497,8 @@ export const updateCars = (camPos: THREE.Vector3, high: boolean, driven: THREE.O
     // headlight beam on the road ahead of the car being driven, at night
     if (driven && nightOn && partsOf(driven)) {
         const b = getBeam();
-        if (b.parent !== driven) { b.removeFromParent(); driven.add(b); b.position.set(0, 0.12, getStyleGeometry(partsOf(driven)!.style).beamZ - 16.4); }
+        const tiltNode = partsOf(driven)!.tilt;
+        if (b.parent !== tiltNode) { b.removeFromParent(); tiltNode.add(b); b.position.set(0, 0.12, getStyleGeometry(partsOf(driven)!.style).beamZ - 16.4); }
         b.visible = true;
     } else if (beam && beam.parent) { beam.removeFromParent(); beam.visible = false; }
     if (shared) shared.shadow.opacity = high ? 0.38 : 0.6;

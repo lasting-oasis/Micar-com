@@ -28,6 +28,7 @@ import { getOptions } from './world/options';
 import { InputMap } from './world/input';
 import { ChaseCamera } from './world/cameras';
 import { WORLD_PER_M } from './world/units';
+import { CarFeelAdapter } from './scene/carFeelAdapter';
 import { useDriveUi, type ShownResults } from './world/driveUi';
 import { DriveLayer } from './world/DriveLayer';
 import { RENTAL_BAY, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
@@ -600,6 +601,7 @@ export function VanillaThreeScene() {
         let driveSpec: { key: string; spec: VehicleSpec } | null = null; // specFor takes ~20 ms: once per car
         let paramsKey = '', kitKey = '';
         let kit: PartsKit | null = null;
+        const carFeel = new CarFeelAdapter(); // body lean/dip/lift, wheel overspin, tyre smoke, skid marks
         let wheelR = 1;                       // the driven body's wheel radius (world units), for the roll
         let lastStripRec: StripRecord | null | undefined;
         let driftMode = false, paused = false, resultsShown = false;
@@ -709,6 +711,7 @@ export function VanillaThreeScene() {
             socketEmit('sync_car_pos', { carId: localDrivingCarId, position: { x: GATE_RETURN.x, z: GATE_RETURN.z, r: GATE_RETURN.rotY }, district: 'town' });
             driver.place(STRIP_SPAWN.x, STRIP_SPAWN.z, STRIP_SPAWN.h);
             S.enter(driver.V, mesh);
+            carFeel.clearSkids('town');
             district = 'strip'; paused = false; resultsShown = false; driftMode = false;
             chase.reset(driver.V);
             interactPrompt.material.opacity = 0;
@@ -723,6 +726,7 @@ export function VanillaThreeScene() {
         const exitStrip = (): boolean => {
             if (district !== 'strip' || !strip || visitor() || lobby) return false;
             strip.exit(); // cleans up the event, gives the car group back to the town scene
+            carFeel.clearSkids('strip');
             district = 'town'; paused = false; resultsShown = false;
             mendEngine(); // a drag's blown engine stays in the Strip
             const mesh = localDrivingCarId ? carMeshes[localDrivingCarId] : undefined;
@@ -818,6 +822,7 @@ export function VanillaThreeScene() {
         /** Leave the driven car where it is: input, kit, sound and the driving HUD go. */
         const dropCar = () => {
             im.detach();
+            carFeel.release(localDrivingCarId ? carMeshes[localDrivingCarId] : undefined);
             if (kit) { disposeParts(kit); kit = null; }
             audio.silence(); // the engine, skid and wind beds: nothing keeps playing on foot (or in the lobby)
             kitKey = ''; driver = null; localDrivingCarId = null; localFuel = null; rentalId = null;
@@ -1013,8 +1018,7 @@ export function VanillaThreeScene() {
             // ---- the car follows the physics
             const p = D.pose();
             mesh.position.set(p.x, 0, p.z); mesh.rotation.set(0, p.rotY, 0);
-            const wheels = carWheels[id];
-            if (wheels && !halt) { const roll = -V.u * W / wheelR * simDt; for (const w of wheels) w.rotateX(roll); }
+            carFeel.frame(mesh, V, simDt, wheelR, inStrip ? 'strip' : 'town', inStrip ? strip!.scene : scene, halt);
             const pivots = carSteering[id];
             if (pivots) for (const q of pivots) q.rotation.y = V.delta;
             syncCarWheels(mesh);
