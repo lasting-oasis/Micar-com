@@ -4,6 +4,7 @@ import { ChaseCamera } from './cameras';
 import { carParams, makeVehicle, resetVehicle } from './physics';
 import { ARCHETYPES, STOCK_CFG, TUNE_DEF } from './data';
 import { WORLD_PER_M } from './units';
+import { buildRoute } from './strip/routes';
 
 const W = WORLD_PER_M;
 const car = (x: number, z: number, h: number) => { const V = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF)); resetVehicle(V, x, z, h); return V; };
@@ -43,5 +44,12 @@ describe('ChaseCamera', () => {
     PV.u = 20; PV.v = 20 * Math.tan(.4); PV.beta = .4;
     for (let i = 0; i < 200; i++) C.update(PV, 1 / 60, false);
     expect(Math.abs(C.yaw - (PV.h + .2))).toBeLessThan(.01);
+  });
+
+  it('the countdown flyover starts 28 m up and lands exactly on the chase camera', () => {
+    const C = new ChaseCamera(new THREE.PerspectiveCamera(62)); const PV = car(0, 0, 0), route = buildRoute([[0, 0], [0, 400]], false);
+    C.preview(route, 0, PV); expect(Math.abs(C.cam.position.y - 28 * W)).toBeLessThan(.01);
+    C.preview(route, 1, PV); const got = C.cam.position.clone(); C.reset(PV);
+    expect(got.distanceTo(C.cam.position)).toBeLessThan(.01 * W);
   });
 });

@@ -616,7 +616,7 @@ export function VanillaThreeScene() {
         const carFeel = new CarFeelAdapter(); // body lean/dip/lift, wheel overspin, tyre smoke, skid marks
         let wheelR = 1;                       // the driven body's wheel radius (world units), for the roll
         let lastStripRec: StripRecord | null | undefined;
-        let driftMode = false, paused = false, resultsShown = false;
+        let driftMode = false, paused = false, resultsShown = false, countdownSeen = false;
         let lobby = false, lobbyChecked = false, restarting = false;
         let rentalId: string | null = null;  // the rental being driven
         // a Strip visitor: a guest or an account holder (no lot in the town)
@@ -1038,7 +1038,9 @@ export function VanillaThreeScene() {
             syncCarWheels(mesh);
             setCarLights(mesh, !V.lights ? 'off' : V.gear === -1 && V.u < -0.5 ? 'reverse' : V.brk > 0 && V.u > 0.5 ? 'brake' : 'on');
             if (inStrip) { strip!.update(simDt, !paused && !resultsShown && !strip!.mapOpen && !garageOpen); stripExit.pulse(performance.now()); }
-            chase.update(V, simDt, V.nosOn);
+            const cnt = inStrip ? strip!.runner.active : null;
+            if (cnt && cnt.state === 'count') { countdownSeen = true; chase.preview(cnt.route, (3.6 - cnt.t) / 3, V); }
+            else { if (countdownSeen) { countdownSeen = false; chase.reset(V); } chase.update(V, simDt, V.nosOn); }
 
             // ---- HUD
             if (hud && hudCanvas) {

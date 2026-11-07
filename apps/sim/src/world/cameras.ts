@@ -7,6 +7,7 @@
 import type * as THREE from 'three';
 import { clamp, type Vehicle } from './physics';
 import { WORLD_PER_M } from './units';
+import { routePoint, type Route } from './strip/routes';
 
 const W = WORLD_PER_M;
 export const CAM_NAMES = ['Chase', 'Far chase', 'Hood'] as const;
@@ -31,6 +32,22 @@ export class ChaseCamera {
     const fx = Math.sin(PV.h), fz = Math.cos(PV.h);
     this.cam.position.set((PV.x - fx * 6) * W, 2 * W, (PV.z - fz * 6) * W);
     this.cam.lookAt((PV.x + fx * 3.5) * W, .95 * W, (PV.z + fz * 3.5) * W);
+  }
+
+  /** Countdown flyover: from 40 m behind the start and 28 m up, looking down the first 150 m of the route,
+   *  settling (smoothstep) onto exactly the pose reset(PV) gives. */
+  preview(route: Route, t01: number, PV: Vehicle): void {
+    const t = clamp(t01, 0, 1), s = t * t * (3 - 2 * t), cam = this.cam;
+    const st = routePoint(route, 0), la = routePoint(route, 150);
+    const fx = Math.sin(PV.h), fz = Math.cos(PV.h);
+    const ax = (st.x - st.tx * 40) * W, ay = 28 * W, az = (st.z - st.tz * 40) * W;
+    const bx = (PV.x - fx * 6) * W, by = 2 * W, bz = (PV.z - fz * 6) * W;
+    cam.position.set(ax + (bx - ax) * s, ay + (by - ay) * s, az + (bz - az) * s);
+    const lx = la.x * W, ly = 1 * W, lz = la.z * W;
+    const mx = (PV.x + fx * 3.5) * W, my = .95 * W, mz = (PV.z + fz * 3.5) * W;
+    cam.lookAt(lx + (mx - lx) * s, ly + (my - ly) * s, lz + (mz - lz) * s);
+    cam.fov += (62 - cam.fov) * .1; cam.updateProjectionMatrix();
+    this.yaw = PV.h; this.shake = 0;
   }
 
   update(PV: Vehicle, dt: number, nosOn: boolean): void {
