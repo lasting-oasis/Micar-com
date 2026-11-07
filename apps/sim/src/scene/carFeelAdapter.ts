@@ -50,6 +50,9 @@ export class CarFeelAdapter {
     } else this.last = null;
   }
 
+  /** Live skid quads in a district (for scripted checks). */
+  skidCount(district: 'town' | 'strip'): number { return this.skids[district]?.count ?? 0; }
+
   /** The marks of a district go when the car leaves it. */
   clearSkids(district: 'town' | 'strip'): void { this.skids[district]?.dispose(); delete this.skids[district]; this.last = null; }
 

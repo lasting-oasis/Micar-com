@@ -19,7 +19,7 @@ export class SkidMarks {
     this.col = new THREE.BufferAttribute(new Float32Array(max * 16), 4);
     for (let i = 0; i < max * 4; i++) this.col.setXYZW(i, .043, .047, .055, 0); // #0b0c0e, clear
     const idx = new Uint32Array(max * 6);
-    for (let q = 0; q < max; q++) idx.set([q * 4, q * 4 + 1, q * 4 + 2, q * 4, q * 4 + 2, q * 4 + 3], q * 6);
+    for (let q = 0; q < max; q++) idx.set([q * 4, q * 4 + 2, q * 4 + 1, q * 4, q * 4 + 3, q * 4 + 2], q * 6);
     geo.setAttribute('position', this.pos);
     geo.setAttribute('color', this.col);
     geo.setIndex(new THREE.BufferAttribute(idx, 1));

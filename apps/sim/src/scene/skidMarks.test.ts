@@ -30,4 +30,19 @@ describe('SkidMarks', () => {
     expect(m.count).toBe(0);
     expect(m.mesh.geometry.drawRange.count).toBe(0);
   });
+  it('the real sequence: idle fades, one lay, a fade -> the quad is drawn, visible, and faces up for every heading', () => {
+    for (const h of [0, 1, 2.5, -2]) {
+      const m = new SkidMarks(new THREE.Scene());
+      for (let i = 0; i < 4; i++) m.fade(.016);
+      m.lay(10, 20, h, .55);
+      m.fade(.016);
+      expect(m.mesh.geometry.drawRange.count).toBe(6);
+      expect(alphas(m)[0]).toBeGreaterThan(0);
+      // the first triangle's normal must point +Y, or the default front-face culling hides the mark from above
+      const p = m.mesh.geometry.getAttribute('position') as THREE.BufferAttribute, ix = m.mesh.geometry.index!;
+      const v = (i: number) => new THREE.Vector3().fromBufferAttribute(p, ix.getX(i));
+      const n = v(1).sub(v(0)).cross(v(2).sub(v(0)));
+      expect(n.y).toBeGreaterThan(0);
+    }
+  });
 });

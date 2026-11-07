@@ -1071,6 +1071,7 @@ export function VanillaThreeScene() {
 
         // A tiny handle for scripted checks (the Task 12 smoke test), in every build.
         const micar = {
+            skidCount: () => carFeel.skidCount(district),
             pose: () => {
                 const p = driver ? driver.pose() : { x: avatar.position.x, y: avatar.position.y, z: avatar.position.z, rotY: headingOf(avatar) };
                 const V = driver?.V;
