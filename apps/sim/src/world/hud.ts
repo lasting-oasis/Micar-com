@@ -112,7 +112,7 @@ export class Hud {
     const insB = this.insB, insT = this.insT, Fo = FONTS[small ? 's' : 'l'];
     const kmh = kmhOf(PV);
     /* gauge cluster */
-    const R = small ? 56 : 100, cx = small && s.touch ? R + 16 : HW - R - (small ? 20 : 40), cy = HH - R - (small ? (s.touch ? 100 : 22) : 34) - insB, P = PV.P, red = P.redline, maxR = Math.ceil((red + 800) / 1000) * 1000;
+    const R = small ? 56 : 100, cx = small && s.touch ? R + 16 : HW - R - (small ? 20 : 40), cy = HH - R - (small ? (s.touch ? 108 : 22) : 34) - insB, P = PV.P, red = P.redline, maxR = Math.ceil((red + 800) / 1000) * 1000;
     if (!(a && a.type === 'drag')) {
       hx.save(); hx.translate(cx, cy);
       hx.fillStyle = 'rgba(14,18,23,.62)'; hx.beginPath(); hx.arc(0, 0, R + 14, 0, Math.PI * 2); hx.fill();
@@ -173,7 +173,7 @@ export class Hud {
     }
     /* drag tach */
     if (a && a.type === 'drag') {
-      const w = Math.min(HW - 40, 560), x = HW / 2 - w / 2, y = HH - (small ? (s.touch ? 300 : 70) : 90) - insB;
+      const narrow = small && s.touch, w = narrow ? Math.min(HW - 40, 270) : Math.min(HW - 40, 560), x = narrow ? 20 : HW / 2 - w / 2, y = HH - (small ? (s.touch ? 300 : 70) : 90) - insB;
       hx.fillStyle = 'rgba(14,18,23,.7)'; hx.fillRect(x - 14, y - 54, w + 28, 96);
       const X = (r: number) => x + clamp(r / maxR, 0, 1) * w;
       hx.fillStyle = 'rgba(255,255,255,.1)'; hx.fillRect(x, y, w, 22);

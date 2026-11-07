@@ -204,7 +204,7 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             <Btn k="brk" label="Brake" />
             <Btn k="thr" label="Gas" />
           </div>
-          <div className="fixed right-4 bottom-[248px] flex flex-col gap-3" style={{ display: touch && driving && !results && !paused ? undefined : 'none' }}>
+          <div className="fixed right-4 flex flex-col gap-3" style={{ bottom: 'calc(248px + env(safe-area-inset-bottom, 0px))', display: touch && driving && !results && !paused ? undefined : 'none' }}>
             <TapBtn t="pause" label="II" aria="Pause" hidden={district !== 'strip' || mapOpen} />
             <TapBtn t="reset" label="R" aria="Reset the car" hidden={mapOpen} />
             <TapBtn t="map" label="Map" aria="Map" hidden={district !== 'strip' || (eventLive && !mapOpen)} />
