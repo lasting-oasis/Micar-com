@@ -1867,7 +1867,7 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
       {/* Fuel gauge while driving */}
       {drivingCarId && drivingFuel !== null && (
         <div className={`fixed left-1/2 -translate-x-1/2 z-[930] pointer-events-none ${inStrip ? 'top-[76px]' : 'top-[76px] md:top-auto md:bottom-8'}`}>
-          <div className="bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl w-64">
+          <div data-car-panel className="bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl w-64">
             {drivingCar && (
               <div className="flex items-end justify-between gap-2 mb-1.5">
                 <div className="min-w-0">
@@ -1918,6 +1918,7 @@ function App() {
   const activeInteraction = useGameStore(s => s.activeInteraction);
   const drivingCarIdForPrompt = useGameStore(s => s.drivingCarId); // hide the walk-up prompt while driving
   const garageCarId = useGameStore(s => s.garageCarId); // the Garage overlay (world/GarageMenu) is open
+  const driving = useDriveUi(s => s.driving);            // driving: the two-thumb buttons replace the D-pad
   const district = useDriveUi(s => s.district);          // the town, or the Strip (VanillaThreeScene)
   const { connect, buyCar, buyPsi, buyPart, orderRepo, setMarketingTier, upgradeLot, endDay, openBankModal, openInsuranceModal } = useGameStore.getState();
   // The live clock (time_update every second), like the HUD badge and the sky:
@@ -2147,7 +2148,7 @@ function App() {
       </ChunkBoundary>
       <RacingHud isMobile={isMobile} />
       {/* phones drive with the D-pad (the lobby has none: the counter takes the screen) */}
-      {isMobile && drivingCarIdForPrompt && <div className="fixed left-6 bottom-6 z-[999] pointer-events-none select-none"><TouchDPad /></div>}
+      {isMobile && drivingCarIdForPrompt && !driving && <div className="fixed left-6 bottom-6 z-[999] pointer-events-none select-none"><TouchDPad /></div>}
     </>
   );
 

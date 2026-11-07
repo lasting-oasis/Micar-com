@@ -18,7 +18,7 @@ const tap = (t: DriveTap) => useDriveUi.setState({ tap: t });
 const phoneLayout = () => typeof window !== 'undefined' && (window.innerWidth <= 1024 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 'ontouchstart' in window || navigator.maxTouchPoints > 0);
 
 const Btn = ({ k, label, hidden }: { k: string; label: string; hidden?: boolean }) => (
-  <button data-k={k} aria-label={label} className="w-16 h-16 rounded-full border-2 border-market/60 bg-night/70 text-market font-cond font-extrabold italic text-xs uppercase select-none touch-none [&.on]:bg-market [&.on]:text-night pointer-events-auto" style={{ display: hidden ? 'none' : undefined }}>{label}</button>
+  <button data-k={k} aria-label={label} className="w-[68px] h-[68px] rounded-full border-2 border-market/60 bg-night/70 text-market font-cond font-extrabold italic text-xs uppercase select-none touch-none [&.on]:bg-market [&.on]:text-night pointer-events-auto" style={{ display: hidden ? 'none' : undefined }}>{label}</button>
 );
 /** a small square tap button (48 px): pause, reset, map, set GPS */
 const TapBtn = ({ t, label, aria, hidden }: { t: DriveTap; label: string; aria: string; hidden?: boolean }) => (
@@ -90,6 +90,20 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
   // a Strip visitor (a guest or an account holder) has no town to go back to; an account holder can sign out
   const visitor = useGameStore(s => isVisitor(s.playerId ? s.gameState?.players[s.playerId] : undefined));
   const signedIn = useGameStore(s => !!s.account);
+  // App's car panel sits at the top centre: the HUD's arrow drops below its bottom edge (topInset)
+  useEffect(() => {
+    if (!driving) { if (useDriveUi.getState().topInset) useDriveUi.setState({ topInset: 0 }); return; }
+    let el: Element | null = null, ro: ResizeObserver | null = null;
+    const measure = () => {
+      const e = document.querySelector('[data-car-panel]');
+      if (e !== el) { ro?.disconnect(); el = e; if (e && typeof ResizeObserver !== 'undefined') { ro = new ResizeObserver(measure); ro.observe(e); } }
+      const v = e ? Math.max(0, Math.round(e.getBoundingClientRect().bottom - 8)) : 0;
+      if (v !== useDriveUi.getState().topInset) useDriveUi.setState({ topInset: v });
+    };
+    measure();
+    const iv = setInterval(measure, 500);
+    return () => { clearInterval(iv); ro?.disconnect(); };
+  }, [driving]);
   const [touch, setTouch] = useState(phoneLayout);
   useEffect(() => { const f = () => setTouch(phoneLayout()); window.addEventListener('resize', f); return () => window.removeEventListener('resize', f); }, []);
   // a banner that does not hold fades after 1.6 s
@@ -178,17 +192,19 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
           </div>
 
           {/* always mounted (InputMap wires the [data-k] buttons once, on getting in): shown and hidden by style */}
-          <div className="absolute left-6 bottom-44 flex flex-col gap-3" style={{ display: touch && driving && !results ? undefined : 'none' }}>
-            <div className="flex gap-3">
-              <Btn k="up" label="▲ Gear" hidden={!gears} />
-              <Btn k="dn" label="▼ Gear" hidden={!gears} />
-            </div>
-            <div className="flex gap-3">
-              <Btn k="nos" label="NOS" />
-              <Btn k="hb" label="E-brake" />
-            </div>
+          <div className="fixed left-4 bottom-6 flex gap-2.5 touch-none select-none" style={{ display: touch && driving && !results ? 'flex' : 'none', paddingBottom: 'env(safe-area-inset-bottom)' }}>
+            <Btn k="left" label="◀" />
+            <Btn k="right" label="▶" />
           </div>
-          <div className="absolute right-3 top-[38%] flex flex-col gap-3" style={{ display: touch && driving && !results && !paused ? undefined : 'none' }}>
+          <div className="fixed right-4 bottom-6 grid grid-cols-2 gap-2.5 touch-none select-none" style={{ display: touch && driving && !results ? 'grid' : 'none', paddingBottom: 'env(safe-area-inset-bottom)' }}>
+            <Btn k="dn" label="▼ Gear" hidden={!gears} />
+            <Btn k="up" label="▲ Gear" hidden={!gears} />
+            <Btn k="nos" label="NOS" />
+            <Btn k="hb" label="E-brk" />
+            <Btn k="brk" label="Brake" />
+            <Btn k="thr" label="Gas" />
+          </div>
+          <div className="fixed right-4 bottom-[248px] flex flex-col gap-3" style={{ display: touch && driving && !results && !paused ? undefined : 'none' }}>
             <TapBtn t="pause" label="II" aria="Pause" hidden={district !== 'strip' || mapOpen} />
             <TapBtn t="reset" label="R" aria="Reset the car" hidden={mapOpen} />
             <TapBtn t="map" label="Map" aria="Map" hidden={district !== 'strip' || (eventLive && !mapOpen)} />

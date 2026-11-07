@@ -20,6 +20,16 @@ describe('InputMap', () => {
     expect(im.build().fwd).toBe(0);
   });
 
+  it('gas and a steer button held together drive a turning car; gear presses are edges; releaseAll lets go', () => {
+    const im = new InputMap({ manual: () => true, hydraulics: () => false });
+    im.setTouch('thr', true); im.setTouch('left', true);
+    const I = im.build();
+    expect(I.fwd).toBe(1); expect(I.steer).toBe(-1);
+    im.clearEdges(); im.setTouch('up', true); expect(im.build().shiftUp).toBe(true);
+    im.clearEdges(); im.setTouch('up', true); expect(im.build().shiftUp).toBe(true);
+    im.releaseAll(); expect(im.touch.thr).toBe(false); expect(im.build().fwd).toBe(0);
+  });
+
   it('hydraulics take the arrows off the car and hop needs the kit', () => {
     let kit = true;
     const im = new InputMap({ manual: () => false, hydraulics: () => kit });

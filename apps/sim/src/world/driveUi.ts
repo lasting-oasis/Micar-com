@@ -34,6 +34,8 @@ type DriveUi = {
   gears: boolean;
   /** the Strip's full-screen map is open (the phone's buttons change) */
   mapOpen: boolean;
+  /** px from the top the HUD's arrow clears: the bottom of App's car panel (DriveLayer measures it) */
+  topInset: number;
   /** bumped on getting into a car: the help line shows for a few seconds */
   help: number;
   nos: boolean;
@@ -55,7 +57,7 @@ type DriveUi = {
 };
 
 export const useDriveUi = create<DriveUi>(set => ({
-  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null,
+  district: 'town', driving: false, prompt: '', banner: null, results: null, reward: null, paused: false, eventLive: false, gears: false, mapOpen: false, topInset: 0, help: 0, nos: false, tap: null, quick: null, driveCar: null, lobby: false, counter: false, account: false, returned: null,
   set: p => set(p),
 }));
 

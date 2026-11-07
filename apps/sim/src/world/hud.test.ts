@@ -5,12 +5,12 @@ import { ARCHETYPES, EVENTS, STOCK_CFG, TUNE_DEF } from './data';
 import { makeAI } from './strip/ai';
 
 function stubCanvas() {
-  const texts: string[] = [];
-  const ctx = new Proxy({ fillText: (t: string) => { texts.push(t); }, createLinearGradient: () => ({ addColorStop() {} }) } as Record<string, unknown>, {
+  const texts: string[] = [], ys: number[] = [];
+  const ctx = new Proxy({ fillText: (t: string, _x?: number, y?: number) => { texts.push(t); ys.push(y ?? 0); }, createLinearGradient: () => ({ addColorStop() {} }) } as Record<string, unknown>, {
     get: (o, k: string) => k in o ? o[k] : () => {}, set: (o, k: string, v) => { o[k] = v; return true; },
   });
   const canvas = { clientWidth: 1280, clientHeight: 720, width: 0, height: 0, getContext: () => ctx } as unknown as HTMLCanvasElement;
-  return { canvas, texts };
+  return { canvas, texts, ys };
 }
 const state = (o: Partial<HudState> = {}): HudState => {
   const PV = makeVehicle(carParams(ARCHETYPES.sports, STOCK_CFG.perf, TUNE_DEF)); resetVehicle(PV, 100, 100, 0); PV.u = 100 / 3.6;
@@ -25,6 +25,11 @@ describe('Hud', () => {
     expect(texts).toContain('100'); expect(texts).toContain('KM/H'); expect(texts).toContain('1'); expect(texts).toContain('$12,345');
     expect(texts.some(t => t.startsWith('SPRINT: TEST · '))).toBe(true);
     expect(canvas.width).toBeGreaterThan(0);
+  });
+
+  it('drops the GPS arrow label by topInset to clear the car panel', () => {
+    const yOf = (topInset: number) => { const { canvas, texts, ys } = stubCanvas(); new Hud(canvas).draw(state({ small: true, touch: true, topInset, gps: { label: 'GAS', target: [300, 300], path: [] } })); return ys[texts.findIndex(t => t.startsWith('GAS · '))]; };
+    expect(yOf(80) - yOf(0)).toBeGreaterThanOrEqual(80);
   });
 
   it('in the town draws the cluster only (no cash, no GPS), in mph when asked', () => {

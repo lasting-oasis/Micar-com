@@ -31,6 +31,8 @@ export type HudState = {
   small: boolean;
   /** touch controls are showing: lift the cluster above them */
   touch: boolean;
+  /** px the checkpoint / GPS arrow drops to clear App's car panel (DriveLayer measures it; default 0) */
+  topInset?: number;
   /** the minimap, GPS arrow, cash and event readouts draw only in the Strip */
   district: 'town' | 'strip';
   /** career stage: markers above it are hidden on the minimap (default: all shown) */
@@ -53,7 +55,7 @@ export const gpsReached = (PV: Vehicle, gps: HudGps): boolean => Math.hypot(PV.x
 
 type Fonts = { tick: string; speed: string; unit: string; gear: string; boost: string; nos: string; shift: string; cash: string; big: string; sub: string; driftCur: string };
 const fontsFor = (small: boolean): Fonts => {
-  const R = small ? 66 : 100;
+  const R = small ? 56 : 100;
   return {
     tick: `italic 800 ${R * .16}px ${DF}`, speed: `italic 900 ${R * .46}px ${DF}`, unit: `700 ${R * .12}px ${UF}`, gear: `italic 900 ${R * .26}px ${DF}`, boost: `700 ${R * .1}px ${UF}`,
     nos: `italic 800 ${small ? 12 : 15}px ${DF}`, shift: `italic 900 ${small ? 16 : 22}px ${DF}`, cash: `italic 800 ${small ? 22 : 28}px ${DF}`,
@@ -110,7 +112,7 @@ export class Hud {
     const insB = this.insB, insT = this.insT, Fo = FONTS[small ? 's' : 'l'];
     const kmh = kmhOf(PV);
     /* gauge cluster */
-    const R = small ? 66 : 100, cx = HW - R - (small ? 20 : 40), cy = HH - R - (small ? (s.touch ? 196 : 22) : 34) - insB, P = PV.P, red = P.redline, maxR = Math.ceil((red + 800) / 1000) * 1000;
+    const R = small ? 56 : 100, cx = small && s.touch ? R + 16 : HW - R - (small ? 20 : 40), cy = HH - R - (small ? (s.touch ? 100 : 22) : 34) - insB, P = PV.P, red = P.redline, maxR = Math.ceil((red + 800) / 1000) * 1000;
     if (!(a && a.type === 'drag')) {
       hx.save(); hx.translate(cx, cy);
       hx.fillStyle = 'rgba(14,18,23,.62)'; hx.beginPath(); hx.arc(0, 0, R + 14, 0, Math.PI * 2); hx.fill();
@@ -164,13 +166,14 @@ export class Hud {
     if (a && a.state === 'race' && a.type !== 'drag') { const k = a.pCp % a.route.cps.length; const p = cpPoint(a.route, k); tx = p.x; tz = p.z; label = k === 0 ? 'FINISH LINE' : 'CHECKPOINT'; has = true; }
     else if (!a && s.gps) { tx = s.gps.target[0]; tz = s.gps.target[1]; label = s.gps.label; has = true; }
     if (has) {
+      const inset = s.topInset ?? 0;
       const dx = tx - PV.x, dz = tz - PV.z, dist = Math.hypot(dx, dz); const an = Math.atan2(dx, dz) - PV.h;
-      hx.save(); hx.translate(HW / 2, ty + (small ? 14 : 22)); hx.rotate(-an); hx.fillStyle = ACCENT; hx.beginPath(); hx.moveTo(0, -16); hx.lineTo(11, 10); hx.lineTo(0, 4); hx.lineTo(-11, 10); hx.closePath(); hx.fill(); hx.restore();
-      hx.font = Fo.sub; hx.fillStyle = INK; hx.textAlign = 'center'; hx.fillText(label + ' · ' + distStr(dist, units), HW / 2, ty + (small ? 34 : 46)); hx.textAlign = 'left';
+      hx.save(); hx.translate(HW / 2, ty + (small ? 14 : 22) + inset); hx.rotate(-an); hx.fillStyle = ACCENT; hx.beginPath(); hx.moveTo(0, -16); hx.lineTo(11, 10); hx.lineTo(0, 4); hx.lineTo(-11, 10); hx.closePath(); hx.fill(); hx.restore();
+      hx.font = Fo.sub; hx.fillStyle = INK; hx.textAlign = 'center'; hx.fillText(label + ' · ' + distStr(dist, units), HW / 2, ty + (small ? 34 : 46) + inset); hx.textAlign = 'left';
     }
     /* drag tach */
     if (a && a.type === 'drag') {
-      const w = Math.min(HW - 40, 560), x = HW / 2 - w / 2, y = HH - (small ? (s.touch ? 200 : 70) : 90) - insB;
+      const w = Math.min(HW - 40, 560), x = HW / 2 - w / 2, y = HH - (small ? (s.touch ? 300 : 70) : 90) - insB;
       hx.fillStyle = 'rgba(14,18,23,.7)'; hx.fillRect(x - 14, y - 54, w + 28, 96);
       const X = (r: number) => x + clamp(r / maxR, 0, 1) * w;
       hx.fillStyle = 'rgba(255,255,255,.1)'; hx.fillRect(x, y, w, 22);

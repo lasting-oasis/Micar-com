@@ -916,7 +916,7 @@ export function VanillaThreeScene() {
             map: (I, dt) => strip!.runner.input(I, dt),
         };
         const NONE: never[] = [];
-        const hudState: HudState = { PV: null as never, event: null, standings: NONE, outrun: null, gps: null, markers: NONE, roads: NONE, ais: NONE, money: 0, units: 'mph', manual: false, small: false, touch: touchUi, district: 'town' };
+        const hudState: HudState = { PV: null as never, event: null, standings: NONE, outrun: null, gps: null, markers: NONE, roads: NONE, ais: NONE, money: 0, units: 'mph', manual: false, small: false, touch: touchUi, topInset: 0, district: 'town' };
         // the old keys (and the phone D-pad, which sets them) drive too
         const legacyInput = (I: Input) => {
             if (I.hyd) return;
@@ -1034,7 +1034,7 @@ export function VanillaThreeScene() {
                     const h = hudState, T = inStrip ? strip! : null, a = T ? T.runner.active : null;
                     h.PV = V; h.district = district; h.event = a; h.standings = a ? T!.runner.standings() : NONE;
                     h.outrun = T ? T.outrun : null; h.gps = T ? T.gpsTarget : null; h.markers = T ? T.hudMarkers() : NONE; h.roads = T ? T.hudRoads() : NONE; h.ais = T ? T.ais : NONE;
-                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.stage = stripStage();
+                    h.money = me.money; h.units = opt.units; h.manual = manualNow(); h.touch = touchUi || window.innerWidth <= 1024; h.small = window.innerWidth < 700 || h.touch; h.stage = stripStage(); h.topInset = useDriveUi.getState().topInset;
                     hud.draw(h);
                 }
             }
