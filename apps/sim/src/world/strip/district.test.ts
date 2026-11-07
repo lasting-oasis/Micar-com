@@ -6,9 +6,10 @@ import { readTrackSync, setTrackDir } from './districtNode';
 import { routePoint } from './routes';
 import { DRAG_LANES } from './events';
 
+// the grid starts at cell 1: the hub alone has [0, 0]
 const OFFSETS: Record<string, Pt> = {
-  spa: [0, 0], monza: [8000, 0], silverstone: [16000, 0], suzuka: [24000, 0], nurburgring: [0, 8000],
-  monaco: [8000, 8000], interlagos: [16000, 8000], cota: [24000, 8000], laguna: [0, 16000], bathurst: [8000, 16000],
+  spa: [8000, 0], monza: [16000, 0], silverstone: [24000, 0], suzuka: [0, 8000], nurburgring: [8000, 8000],
+  monaco: [16000, 8000], interlagos: [24000, 8000], cota: [0, 16000], laguna: [8000, 16000], bathurst: [16000, 16000],
 };
 const dir = () => path.resolve(process.cwd(), 'public/strip/tracks');
 const data: Record<string, TrackData> = {};
@@ -35,6 +36,17 @@ describe('district data', () => {
       for (const e of t.events) { expect(data[t.id].routes[e], e).toBeDefined(); expect(trackOfEvent(e)).toBe(t.id); }
     }
     expect(() => trackOfEvent('nope')).toThrow();
+  });
+  it('no circuit overlaps the hub (its bounds plus 200 m)', () => {
+    const M = 200, h = { minX: HUB.bounds.minX - M, minZ: HUB.bounds.minZ - M, maxX: HUB.bounds.maxX + M, maxZ: HUB.bounds.maxZ + M };
+    for (const t of TRACKS) {
+      const b = data[t.id].bounds, [ox, oz] = t.offset;
+      const hit = b.minX + ox <= h.maxX && b.maxX + ox >= h.minX && b.minZ + oz <= h.maxZ && b.maxZ + oz >= h.minZ;
+      expect(hit, t.id).toBe(false);
+    }
+  });
+  it('the index carries every event\'s route length', () => {
+    for (const t of TRACKS) for (const e of t.events) expect(Math.abs(t.routeLenM![e] - routeFor(e).len), e).toBeLessThan(1);
   });
   it('checkpoints: start at 0, increase, end on open routes', () => {
     for (const e of events()) {
@@ -116,10 +128,10 @@ describe('district data', () => {
   });
   it('routeFor adds the offset and caches', () => {
     const r = routeFor('royal_gp'), loc = data.monza.routes.royal_gp.pts[0];
-    expect(r.pts[0]).toEqual([loc[0] + 8000, loc[1]]);
+    expect(r.pts[0]).toEqual([loc[0] + 16000, loc[1]]);
     expect(routeFor('royal_gp')).toBe(r);
     expect(() => routeFor('nope')).toThrow();
-    const m = data.monza.markers.royal_gp; expect(markerFor('royal_gp')).toEqual([m[0] + 8000, m[1]]);
+    const m = data.monza.markers.royal_gp; expect(markerFor('royal_gp')).toEqual([m[0] + 16000, m[1]]);
   });
   it('loadTrack caches and uses the fetcher', async () => {
     vi.resetModules();

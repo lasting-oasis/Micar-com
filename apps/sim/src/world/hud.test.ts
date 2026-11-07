@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Hud, gpsReached, fmtT, type HudState } from './hud';
+import { Hud, gpsReached, fmtT, nearPolyline, type HudState } from './hud';
 import { carParams, makeVehicle, resetVehicle } from './physics';
 import { ARCHETYPES, EVENTS, STOCK_CFG, TUNE_DEF } from './data';
 import { makeAI } from './strip/ai';
@@ -48,5 +48,20 @@ describe('Hud', () => {
     expect(gpsReached(s.PV, { label: '', target: [300, 300], path: [] })).toBe(true);
     expect(gpsReached(s.PV, { label: '', target: [400, 300], path: [] })).toBe(false);
     expect(fmtT(65.5)).toBe('1:05.50'); expect(fmtT(null)).toBe('--');
+  });
+});
+
+describe('the minimap roads', () => {
+  const rec = () => { const ops: string[] = []; const g = { moveTo: (x: number) => ops.push('M' + x), lineTo: (x: number) => ops.push('L' + x), closePath: () => ops.push('Z') } as unknown as CanvasRenderingContext2D; return { g, ops }; };
+  const line: [number, number][] = [0, 100, 200, 2000, 3000, 3100].map(x => [x, 0]);
+  it('skips segments with both ends far away and starts a new sub-path after the gap', () => {
+    const { g, ops } = rec(); nearPolyline(g, line, false, 0, 0, 600);
+    expect(ops).toEqual(['M0', 'L100', 'L200', 'L2000']);
+    const b = rec(); nearPolyline(b.g, line, false, 3050, 0, 600);
+    expect(b.ops).toEqual(['M2000', 'L3000', 'L3100']);
+  });
+  it('closes a loop that is all in range', () => {
+    const { g, ops } = rec(); nearPolyline(g, [[0, 0], [10, 0], [10, 10]], true, 0, 0, 600);
+    expect(ops).toEqual(['M0', 'L10', 'L10', 'Z']);
   });
 });

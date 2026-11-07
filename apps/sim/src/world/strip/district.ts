@@ -19,19 +19,11 @@ export type TrackData = {
   centre: { pts: Pt[]; width: number; loop: boolean };
   routes: Record<string, TrackRoute>; walls: Pt[][]; markers: Record<string, Pt>;
 };
-export type TracksIndex = { version: number; tracks: { id: string; name: string; offset: Pt; lenM: number; events: string[] }[] };
+export type TracksIndex = { version: number; tracks: { id: string; name: string; offset: Pt; lenM: number; events: string[]; routeLenM?: Record<string, number> }[] };
 
 export const HUB = hubJson as unknown as HubData;
 export const TRACKS = (tracksJson as unknown as TracksIndex).tracks;
 export const SPAWN = HUB.spawn, EXIT = HUB.exit, RENTAL = HUB.rental, BOUNDS = HUB.bounds;
-
-export const TRACK_LABELS: Record<string, { en: string; es: string }> = {
-  spa: { en: 'Ardennes', es: 'Ardenas' }, monza: { en: 'Royal Park', es: 'Parque Real' },
-  silverstone: { en: 'Airfield', es: 'Aeródromo' }, suzuka: { en: 'Figure Eight', es: 'Ocho' },
-  nurburgring: { en: 'Eifel', es: 'Eifel' }, monaco: { en: 'Harbour', es: 'Puerto' },
-  interlagos: { en: 'Lagoons', es: 'Lagunas' }, cota: { en: 'Lone Star', es: 'Estrella Solitaria' },
-  laguna: { en: 'Dry Lagoon', es: 'Laguna Seca' }, bathurst: { en: 'The Mountain', es: 'La Montaña' },
-};
 
 export function offsetOf(trackId: TrackId): Pt {
   const t = TRACKS.find(k => k.id === trackId); if (!t) throw new Error('unknown track: ' + trackId); return t.offset;
@@ -44,7 +36,9 @@ const cache = new Map<TrackId, TrackData>();
 const pending = new Map<TrackId, Promise<TrackData>>();
 const routeCache = new Map<string, Route>();
 let assetBase = '/';
+/** The base URL of the strip/ assets (track files and models; default '/'): the one setting both use. */
 export function setAssetBase(base: string): void { assetBase = base; }
+export function getAssetBase(): string { return assetBase; }
 function dropRoutes(trackId: TrackId): void { for (const e of TRACKS.find(k => k.id === trackId)?.events ?? []) routeCache.delete(e); } // never serve stale routes
 /** Put a track's data in the cache (used by loadTrack and the node reader). */
 export function registerTrack(trackId: TrackId, data: TrackData): void {

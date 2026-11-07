@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { applyPayout, validateEnter, validateFinish, validateOutrun, OUTRUN_MIN_MS, PAID_COOLDOWN_MS, COUNTDOWN_S, VMAX, raceFloor, eventDistance, outrunEvent, clampTune, partPrice, ensureStrip } from './payout';
+import { applyPayout, validateEnter, validateFinish, validateOutrun, OUTRUN_MIN_MS, PAID_COOLDOWN_MS, COUNTDOWN_S, VMAX, raceFloor, eventDistance, outrunEvent, clampTune, partPrice, ensureStrip, ENTRY_TTL_MS } from './payout';
 import { EVENTS, freshStrip, carState, withV } from './data';
 import { routeFor, TRACKS } from './strip/district';
 import { readTrackSync, setTrackDir } from './strip/districtNode';
@@ -18,7 +18,7 @@ const player = (over: Partial<Player> = {}): Player => ({
 
 describe('validateFinish', () => {
   it('refuses a finish without a live entry or with the wrong event', () => { expect(validateFinish(undefined, finish('lagoons_sprint', 1, 60), 0).ok).toBe(false); expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('lagoons_sprint', 1, 60), 1000).ok).toBe(false); });
-  it('refuses an impossible time and a stale entry', () => { expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 1, 2), 5000).ok).toBe(false); expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 1, 60), 21 * 60 * 1000).ok).toBe(false); });
+  it('refuses an impossible time and a stale entry', () => { expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 1, 2), 5000).ok).toBe(false); expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 1, 80), 46 * 60 * 1000).ok).toBe(false); });
   it('accepts a plausible finish', () => { expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 2, 120), 130000)).toEqual({ ok: true, pos: 2 }); });
   it('refuses a position outside 1-4 and a missing time on a finished run', () => {
     expect(validateFinish({ eventId: 'lagoons_sprint', startedAt: 0 }, finish('lagoons_sprint', 0, 70), 80000).ok).toBe(false);
@@ -44,20 +44,22 @@ describe('validateEnter', () => {
 
 describe('the time floor', () => {
   const royalDrag = EVENTS.find(e => e.id === 'royal_drag')!, harbourGp = EVENTS.find(e => e.id === 'harbour_gp')!;
-  it('is the distance over the type\'s top average: a quarter mile in no less than 9 s, the streets at 45 m/s', () => {
-    expect(VMAX.drag).toBe(50); expect(VMAX.sprint).toBe(45);
+  it('is the distance over the type\'s top average: a quarter mile at 50 m/s, the circuits at 65 m/s', () => {
+    expect(VMAX).toEqual({ drag: 50, sprint: 65, circuit: 65, streetx: 65, drift: 65 });
     expect(raceFloor(royalDrag)).toBeCloseTo(402 / 50, 1);
     expect(eventDistance(EVENTS.find(e => e.id === 'royal_gp')!)).toBe(routeFor('royal_gp').len * 2);
-    expect(raceFloor(harbourGp)).toBeCloseTo(eventDistance(harbourGp) / 45, 5);
+    expect(raceFloor(harbourGp)).toBeCloseTo(eventDistance(harbourGp) / 65, 5);
+    expect(Math.abs(raceFloor(EVENTS.find(e => e.id === 'ardennes_gp')!) - 2 * 6969 / 65)).toBeLessThan(1);
+    expect(ENTRY_TTL_MS).toBe(45 * 60 * 1000);
   });
   it('refuses a drag run under 9 s and a finish sooner than the countdown plus the floor', () => {
     expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 7.5), 60000).ok).toBe(false);
     expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 8.5), 11000).ok).toBe(false); // 11 s < 3.0 + 8.04
     expect(validateFinish({ eventId: 'royal_drag', startedAt: 0 }, finish('royal_drag', 1, 8.5), (COUNTDOWN_S + 8.5) * 1000)).toEqual({ ok: true, pos: 1 });
   });
-  it('holds a circuit to 45 m/s over every lap', () => {
-    expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 120), 600000).ok).toBe(false);
-    expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 160), 200000).ok).toBe(true);
+  it('holds a circuit to 65 m/s over every lap', () => {
+    expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 90), 600000).ok).toBe(false);
+    expect(validateFinish({ eventId: 'harbour_gp', startedAt: 0 }, finish('harbour_gp', 1, 110), 200000).ok).toBe(true);
   });
 });
 
@@ -146,5 +148,13 @@ describe('parts and tunes', () => {
   it('defaults a saved player that predates the Strip', () => {
     const p = player(); delete (p as Partial<Player>).strip; (p as { octane?: number }).octane = undefined as never; (p as { stamps?: string[] }).stamps = undefined as never;
     ensureStrip(p); expect(p.strip).toEqual(freshStrip()); expect(p.octane).toBe(0); expect(p.stamps).toEqual([]);
+  });
+});
+
+describe('ensureStrip on a saved record', () => {
+  it('drops wins and bests of events that are no longer in the library', () => {
+    const p = player({ strip: { ...freshStrip(), wins: { sp1: 2, royal_gp: 1 }, best: { ci1: 90, royal_gp: 80 } } });
+    ensureStrip(p);
+    expect(p.strip!.wins).toEqual({ royal_gp: 1 }); expect(p.strip!.best).toEqual({ royal_gp: 80 });
   });
 });

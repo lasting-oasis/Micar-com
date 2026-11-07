@@ -82,7 +82,15 @@ export const OPTS: { k: string; n: string; vals: unknown[]; lab: string[]; d?: s
 const OPT_DEF: Record<string, unknown> = { manual: false, units: 'mph', cam: 0, mute: false };
 
 const routeLen = new Map<string, number>();
-const lenOf = (ev: EventDef): number => { let l = routeLen.get(ev.id); if (l == null) { if (!trackLoaded(ev.track)) return TRACKS.find(t => t.id === ev.track)!.lenM; l = routeFor(ev.id).len; routeLen.set(ev.id, l); } return l; };
+/** One route length of an event, in metres: the loaded route's, else the index's per-event length (the lap length as a last resort). Exported for tests. */
+export const lenOf = (ev: EventDef): number => {
+  let l = routeLen.get(ev.id);
+  if (l == null) {
+    if (!trackLoaded(ev.track)) { const t = TRACKS.find(k => k.id === ev.track)!; return t.routeLenM?.[ev.id] ?? t.lenM; }
+    l = routeFor(ev.id).len; routeLen.set(ev.id, l);
+  }
+  return l;
+};
 const fmtT = (s: number): string => { const m = Math.floor(s / 60), r = s - m * 60; return m ? m + ':' + r.toFixed(2).padStart(5, '0') : r.toFixed(2); };
 
 /** The stats rows are a straight-line simulation (simStats): cached per Params object. */

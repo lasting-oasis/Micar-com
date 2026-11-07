@@ -1,6 +1,6 @@
 /* What a Strip run pays, and the checks the server makes before paying it.
    Pure (no I/O): the server calls these on its own player records; applyPayout mutates the Player it is given. */
-import { CATS, EVENTS, TUNES, TUNE_DEF, freshStrip, prizeFor, stageOf, visualRating, type EventDef, type EventType, type PartValue } from './data';
+import { CATS, EVENTS, TUNES, TUNE_DEF, freshStrip, prizeFor, pruneStrip, stageOf, visualRating, type EventDef, type EventType, type PartValue, type StripRecord } from './data';
 import { routeFor } from './strip/district';
 import type { Tune } from './physics';
 import type { Player } from '../types';
@@ -9,15 +9,15 @@ export type FinishMsg = { eventId: string; pos: number; time: number | null; sco
 export type EventEntry = { eventId: string; startedAt: number; carId?: string };
 export type Reward = { cash: number; octane: number; rep: number; stamps: string[] };
 
-/** The fastest realistic average speed by event type, m/s: a quarter-mile drag (450 m) in no less than
- *  9 s is 50 m/s; nobody laps the Strip's streets faster than 45 m/s. */
-export const VMAX: Readonly<Record<EventType, number>> = { drag: 50, sprint: 45, circuit: 45, streetx: 45, drift: 45 };
+/** The fastest realistic average speed by event type, m/s: a quarter-mile drag (402 m) in no less than about
+ *  8 s is 50 m/s; on the real circuits (and their sectors) a fully tuned car averages well under 65 m/s (234 km/h). */
+export const VMAX: Readonly<Record<EventType, number>> = { drag: 50, sprint: 65, circuit: 65, streetx: 65, drift: 65 };
 /** The countdown before the green light (EventRunner counts 3.6 → 0.6, so 3.0 s of wall clock): on the server's clock, but not in the run's time. */
 export const COUNTDOWN_S = 3.0;
 /** Paid events are at least this far apart per socket (a finish sooner pays nothing). */
 export const PAID_COOLDOWN_MS = 10 * 1000;
-/** An entry older than this is abandoned. */
-export const ENTRY_TTL_MS = 20 * 60 * 1000;
+/** An entry older than this is abandoned (above the longest race cap, raceCapS: about 30 min on the Ardennes GP). */
+export const ENTRY_TTL_MS = 45 * 60 * 1000;
 export const OUTRUN_ID = 'outrun';
 /** A won outrun takes well over this long; one is paid at most this often, starting from entering the Strip. */
 export const OUTRUN_MIN_MS = 20 * 1000;
@@ -72,7 +72,7 @@ export function outrunEvent(stage: number): EventDef {
   return { id: OUTRUN_ID, type: 'sprint', name: 'Outrun', track: 'hub', prize: 800 + 250 * (Math.max(1, stage) - 1), rep: 60, stage: 1 };
 }
 
-/** Fills the Strip fields on a player saved before they existed. */
+/** Fills the Strip fields on a player saved before they existed, and drops wins and bests of events no longer in the library. */
 export function ensureStrip(p: Player): Player {
   const s = p.strip as Partial<NonNullable<Player['strip']>> | undefined;
   if (!s || typeof s !== 'object') p.strip = freshStrip();
@@ -81,6 +81,10 @@ export function ensureStrip(p: Player): Player {
     if (!s.cars || typeof s.cars !== 'object') s.cars = {};
     if (!s.wins || typeof s.wins !== 'object') s.wins = {};
     if (!s.best || typeof s.best !== 'object') s.best = {};
+    // wins and bests of events no longer in the library (the old grid's) are dropped
+    const pr = pruneStrip(s as StripRecord);
+    if (Object.keys(pr.wins).length !== Object.keys(s.wins).length) s.wins = pr.wins;
+    if (Object.keys(pr.best).length !== Object.keys(s.best).length) s.best = pr.best;
   }
   if (typeof p.octane !== 'number' || !Number.isFinite(p.octane)) p.octane = 0;
   if (!Array.isArray(p.stamps)) p.stamps = [];

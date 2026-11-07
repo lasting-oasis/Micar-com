@@ -124,13 +124,82 @@ describe('park', () => {
     expect(hs.length).toBeGreaterThan(4);
     for (const s of hs) expect(s).toHaveBeenCalled();
 
+    // a circuit frees its own ribbons and marker materials; the cached model's and the shared marker geometries stay
     const scene = new THREE.Scene();
     const m = mountTrack(scene, monza(), { loadModel: async () => model() });
     await m.modelReady;
-    const t = resources(m.group);
-    const ts = [...t.geos, ...t.mats].map(x => vi.spyOn(x, 'dispose'));
+    const t = resources(m.group), mod = resources(m.group.getObjectByName('model')!);
+    const shared = new Set<unknown>([m.markers[0].ring.geometry, m.markers[0].beam.geometry, ...mod.geos, ...mod.mats]);
+    const own = [...t.geos, ...t.mats].filter(x => !shared.has(x)).map(x => vi.spyOn(x, 'dispose'));
+    const kept = [...shared].map(x => vi.spyOn(x as THREE.Material, 'dispose'));
     m.dispose();
-    expect(ts.length).toBeGreaterThan(4);
-    for (const s of ts) expect(s).toHaveBeenCalled();
+    expect(own.length).toBeGreaterThan(4);
+    for (const s of own) expect(s).toHaveBeenCalled();
+    for (const s of kept) expect(s).not.toHaveBeenCalled();
+  });
+
+  it('a circuit\'s model loads once a session and each mount gets its own clone', async () => {
+    let loads = 0;
+    const box = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshBasicMaterial());
+    const loadModel = async () => { loads++; const g = new THREE.Group(); g.add(box); return g; };
+    const scene = new THREE.Scene();
+    const a = mountTrack(scene, monza(), { loadModel }); await a.modelReady;
+    const first = a.group.getObjectByName('model')!; a.dispose();
+    const b = mountTrack(scene, monza(), { loadModel }); await b.modelReady;
+    const second = b.group.getObjectByName('model')!;
+    expect(loads).toBe(1);
+    expect(second).not.toBe(first);
+    expect((second.children[0] as THREE.Mesh).geometry).toBe(box.geometry); // shared, not copied
+    b.dispose();
+  });
+
+  it('a failed circuit model is tried again on the next mount', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    let loads = 0;
+    const loadModel = async () => { loads++; if (loads === 1) throw new Error('offline'); return new THREE.Group(); };
+    const a = mountTrack(new THREE.Scene(), monza(), { loadModel }); await a.modelReady; a.dispose();
+    const b = mountTrack(new THREE.Scene(), monza(), { loadModel }); await b.modelReady;
+    expect(loads).toBe(2); expect(b.roads.visible).toBe(false);
+    warn.mockRestore(); b.dispose();
+  });
+
+  it('setVisible hides and shows the hub scenery (ribbons, portal rings and beams)', async () => {
+    const hub = buildHub({ loadModel: null });
+    hub.setVisible(false);
+    expect(hub.roads.visible).toBe(false);
+    for (const m of hub.markers) { expect(m.ring.visible).toBe(false); expect(m.beam.visible).toBe(false); }
+    hub.setVisible(true);
+    expect(hub.roads.visible).toBe(true);
+    for (const m of hub.markers) { expect(m.ring.visible).toBe(true); expect(m.beam.visible).toBe(true); }
+    hub.dispose();
+    const withModel = buildHub({ loadModel: async () => new THREE.Group() }); await withModel.modelReady;
+    withModel.setVisible(false); expect(withModel.scene.getObjectByName('model')!.visible).toBe(false); expect(withModel.roads.visible).toBe(false);
+    withModel.setVisible(true); expect(withModel.scene.getObjectByName('model')!.visible).toBe(true); expect(withModel.roads.visible).toBe(false);
+    withModel.dispose();
+  });
+
+  it('portals carry their park names; a name sprite only with a DOM, freed by dispose', () => {
+    const hub = buildHub({ loadModel: null });
+    const portals = hub.markers.filter(m => m.kind === 'portal');
+    expect(portals).toHaveLength(10);
+    expect(portals.find(m => m.id === 'monza')!.label).toBe('Royal Park');
+    expect(portals.every(m => m.sign === undefined)).toBe(true); // node: no canvas
+    hub.dispose();
+
+    // a minimal DOM: a canvas whose 2D context swallows every call
+    const ctx = new Proxy({}, { get: () => () => {}, set: () => true });
+    vi.stubGlobal('document', { createElement: () => ({ width: 0, height: 0, getContext: () => ctx }) });
+    try {
+      const h = buildHub({ loadModel: null });
+      const ps = h.markers.filter(m => m.kind === 'portal');
+      expect(ps).toHaveLength(10);
+      const sign = ps[0].sign!;
+      expect(sign).toBeInstanceOf(THREE.Sprite);
+      expect(sign.position.y).toBe(6 * W); expect(sign.scale.x).toBe(12 * W);
+      const mat = vi.spyOn(sign.material, 'dispose'), tex = vi.spyOn(sign.material.map!, 'dispose');
+      h.setVisible(false); expect(sign.visible).toBe(false); h.setVisible(true);
+      h.dispose();
+      expect(mat).toHaveBeenCalled(); expect(tex).toHaveBeenCalled();
+    } finally { vi.unstubAllGlobals(); }
   });
 });

@@ -62,6 +62,23 @@ const fontsFor = (small: boolean): Fonts => {
 };
 const FONTS: Record<'s' | 'l', Fonts> = { s: fontsFor(true), l: fontsFor(false) };
 const F_OUT = `700 12px ${UF}`, F_DRAG_T = `700 10px ${UF}`, F_DRAG_BIG = `italic 900 44px ${DF}`, F_DRAG_SUB = `700 11px ${UF}`, F_DRAG_MSG = `italic 800 14px ${DF}`;
+/** the minimap draws road segments with an end within this many metres of the player */
+export const MINIMAP_ROAD_M = 600;
+/** Add a polyline to the current path, only the segments with an end within `r` m of (cx, cz); a skipped stretch starts a new sub-path. */
+export function nearPolyline(g: CanvasRenderingContext2D, pts: readonly (readonly [number, number])[], loop: boolean, cx: number, cz: number, r: number): void {
+  const n = pts.length, r2 = r * r;
+  const near = (p: readonly [number, number]) => { const dx = p[0] - cx, dz = p[1] - cz; return dx * dx + dz * dz <= r2; };
+  let pen = false, prevNear = false, all = true;
+  for (let i = 0; i < n; i++) {
+    const p = pts[i], on = near(p); if (!on) all = false;
+    if (i > 0 && (on || prevNear)) { if (!pen) g.moveTo(pts[i - 1][0], pts[i - 1][1]); g.lineTo(p[0], p[1]); pen = true; }
+    else pen = false;
+    prevNear = on;
+  }
+  if (!loop || n < 2) return;
+  if (all) g.closePath();
+  else if (prevNear || near(pts[0])) { g.moveTo(pts[n - 1][0], pts[n - 1][1]); g.lineTo(pts[0][0], pts[0][1]); }
+}
 
 export class Hud {
   private readonly hx: CanvasRenderingContext2D | null;
@@ -172,7 +189,7 @@ export class Hud {
     const mr = small ? 56 : 84, mx = mr + (small ? 16 : 34), my = small ? mr + 16 + insT + (a || outrun ? 74 : 50) : HH - mr - 34 - insB;
     hx.save(); hx.translate(mx, my); hx.beginPath(); hx.arc(0, 0, mr, 0, 7); hx.fillStyle = 'rgba(14,18,23,.7)'; hx.fill(); hx.clip();
     const sc = small ? .3 : .4; hx.rotate(Math.PI + PV.h); hx.scale(sc, sc); hx.translate(-PV.x, -PV.z);
-    hx.strokeStyle = 'rgba(150,170,200,.45)'; for (const rd of s.roads) { hx.lineWidth = rd.width * .8; hx.beginPath(); for (let i = 0; i < rd.pts.length; i++) i ? hx.lineTo(rd.pts[i][0], rd.pts[i][1]) : hx.moveTo(rd.pts[i][0], rd.pts[i][1]); if (rd.loop) hx.closePath(); hx.stroke(); }
+    hx.strokeStyle = 'rgba(150,170,200,.45)'; for (const rd of s.roads) { hx.lineWidth = rd.width * .8; hx.beginPath(); nearPolyline(hx, rd.pts, !!rd.loop, PV.x, PV.z, MINIMAP_ROAD_M); hx.stroke(); }
     if (a && a.type !== 'drag') { hx.strokeStyle = EV_COL[a.type]; hx.lineWidth = 6; hx.beginPath(); const pts = a.route.pts; for (let i = 0; i < pts.length; i++) i ? hx.lineTo(pts[i][0], pts[i][1]) : hx.moveTo(pts[i][0], pts[i][1]); if (a.route.loop) hx.closePath(); hx.stroke(); }
     else if (!a && s.gps && s.gps.path.length) { hx.strokeStyle = ACCENT; hx.lineWidth = 7; hx.beginPath(); const p = s.gps.path; for (let i = 0; i < p.length; i++) i ? hx.lineTo(p[i][0], p[i][1]) : hx.moveTo(p[i][0], p[i][1]); hx.stroke(); }
     if (!a) { const stg = s.stage ?? Infinity; for (const m of s.markers) { if (m.ev.stage > stg) continue; hx.fillStyle = EV_COL[m.ev.type]; hx.beginPath(); hx.arc(m.x, m.z, 9, 0, 7); hx.fill(); } }
