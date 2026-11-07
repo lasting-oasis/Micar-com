@@ -26,6 +26,8 @@ import { collideCar, collideWalls, makeAI, parkAI, separateAIs, setWallZone, set
 import { EventRunner, nearEvent, nearRival, playerAccel, playerTopMs, startOutrun, updateOutrun, type ActiveEvent, type EventFx, type EventResults, type Outrun } from './events';
 
 const W = WORLD_PER_M;
+/** how close (m) the player must be to a portal or return marker */
+const NEAR_M = 11;
 const TRAFFIC_COLS = ['#c8102e', '#e9ecef', '#1f4fbf', '#3d434b', '#0c0c0e', '#b9bec5', '#ffd21f', '#0f8b8d', '#134a32', '#5a0a14'];
 const RIVAL_NAMES = ['Kira', 'Dex', 'Mako'];
 const RIVAL_NEON = [ACCENT, TUBE_BLUE, CHROME];
@@ -225,10 +227,12 @@ export class StripScene {
   /** Mount a circuit (fetching its file if needed) and put the player at its lobby; the hub's traffic is parked. */
   async enterTrack(id: TrackId): Promise<void> {
     this.load();
-    const track = await loadTrack(id, this.opts.fetchTrack);
+    let track: TrackData;
+    try { track = await loadTrack(id, this.opts.fetchTrack); }
+    catch (err) { console.warn('strip: could not load circuit', id, err); this.opts.onBanner('Could not load the circuit', true); return; }
     if (!this.ready) return;
     if (this.zone.kind === 'track' && this.zone.track.id === id) return;
-    if (this.zone.kind === 'track') this.returnToHub(false);
+    if (this.zone.kind === 'track') { if (this.runner.active) this.runner.cleanup(); this.reported = null; this.unmount(); }
     this.mounted = mountTrack(this.scene, track, this.parkOpts);
     this.zone = { kind: 'track', track };
     this.markers = this.mounted.markers;
@@ -239,15 +243,19 @@ export class StripScene {
     if (this.entered) this.placePlayer(track.lobby.x + track.offset[0], track.lobby.z + track.offset[1], track.lobby.h);
     this.opts.onZone?.(this.zone, this.PV);
   }
+  /** Drop the mounted circuit and make the hub the current zone (markers, walls). */
+  private unmount(): void {
+    if (this.mounted) { this.mounted.dispose(); this.mounted = null; }
+    this.zone = { kind: 'hub' };
+    this.markers = this.hub?.markers ?? [];
+    setWallZone(zoneWalls(this.zone));
+  }
   /** Back to the hub: abandons a live event, unmounts the circuit, brings the traffic back; the car goes to the spawn when `place`. */
   returnToHub(place = true): void {
     if (this.runner.active) this.runner.cleanup();
     this.reported = null;
     this.endOutrun();
-    if (this.mounted) { this.mounted.dispose(); this.mounted = null; }
-    this.zone = { kind: 'hub' };
-    this.markers = this.hub?.markers ?? [];
-    setWallZone(zoneWalls(this.zone));
+    this.unmount();
     for (const A of this.ais) { if (A.kind === 'traffic' || A.kind === 'rival') { A.hold = false; setWander(A, this.hubPoint()); } }
     if (place) this.placePlayer(SPAWN.x, SPAWN.z, SPAWN.h);
     this.opts.onZone?.(this.zone, this.PV);
@@ -298,7 +306,7 @@ export class StripScene {
 
   // ------------------------------------------------------------------------------ events, outrun
   private nearMarker(kind: 'portal' | 'return'): SceneMarker | null {
-    for (const m of this.markers) if (m.kind === kind && Math.hypot(this.PV.x - m.x, this.PV.z - m.z) < 11) return m;
+    for (const m of this.markers) if (m.kind === kind && Math.hypot(this.PV.x - m.x, this.PV.z - m.z) < NEAR_M) return m;
     return null;
   }
   /** What Enter would do here (empty when nothing; nothing while an event or an outrun runs). */
@@ -324,6 +332,7 @@ export class StripScene {
     this.load();
     const id = trackOfEvent(ev.id);
     if (this.zone.kind !== 'track' || this.zone.track.id !== id) await this.enterTrack(id);
+    if (!this.ready || this.zone.kind !== 'track' || this.zone.track.id !== id) return; // the load failed, or a dispose or another circuit won
     this.endOutrun();
     this.reported = null;
     this.runner.start(ev, o);

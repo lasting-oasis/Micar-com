@@ -27,7 +27,7 @@ const { makeVehicle, carParams, resetVehicle } = await import('../physics');
 const { ARCHETYPES, STOCK_CFG, TUNE_DEF } = await import('../data');
 const { RENTAL_CAM } = await import('../rental');
 const { WORLD_PER_M } = await import('../units');
-const { HUB, TRACKS, offsetOf } = await import('./district');
+const { HUB, TRACKS, offsetOf, forgetTrack } = await import('./district');
 const { setTrackDir, readTrackSync } = await import('./districtNode');
 const path = await import('node:path');
 
@@ -199,5 +199,33 @@ describe('StripScene', () => {
     S.exit();
     expect(S.zone.kind).toBe('hub'); expect(S.mounted).toBeNull();
     S.dispose();
+  });
+
+  describe('a circuit that fails to load', () => {
+    const failing = () => {
+      const bad: [string, boolean | undefined][] = [];
+      const S = new StripScene({ onBanner: (t, b) => { bad.push([t, b]); }, onSfx: () => {}, loadModel: null, stage: () => 5, fetchTrack: async () => { throw new Error('offline'); } });
+      S.load(); forgetTrack('monza');
+      const PV = makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF)); resetVehicle(PV, STRIP_SPAWN.x, STRIP_SPAWN.z, STRIP_SPAWN.h);
+      S.enter(PV, new THREE.Group());
+      return { S, bad };
+    };
+    it('keeps the hub and shows a banner', async () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const { S, bad } = failing();
+      try {
+        await S.enterTrack('monza');
+        expect(S.zone.kind).toBe('hub'); expect(S.mounted).toBeNull();
+        expect(bad).toContainEqual(['Could not load the circuit', true]);
+      } finally { warn.mockRestore(); S.dispose(); readTrackSync('monza'); }
+    });
+    it('startEvent on a circuit that fails to load starts nothing', async () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const { S } = failing();
+      try {
+        await S.startEvent(ev('royal_gp'));
+        expect(S.runner.active).toBeNull(); expect(S.zone.kind).toBe('hub');
+      } finally { warn.mockRestore(); S.dispose(); readTrackSync('monza'); }
+    });
   });
 });

@@ -50,6 +50,8 @@ export function registerTrack(trackId: TrackId, data: TrackData): void {
   cache.set(trackId, data);
   for (const e of TRACKS.find(k => k.id === trackId)?.events ?? []) routeCache.delete(e); // never serve stale routes
 }
+/** Drop a track from the cache (tests: to exercise a failing load). */
+export function forgetTrack(trackId: TrackId): void { cache.delete(trackId); pending.delete(trackId); }
 export function trackLoaded(trackId: TrackId): TrackData | undefined { return cache.get(trackId); }
 export function loadTrack(trackId: TrackId, fetcher?: (url: string) => Promise<TrackData>): Promise<TrackData> {
   const hit = cache.get(trackId); if (hit) return Promise.resolve(hit);
