@@ -2,7 +2,8 @@
    The car lot becomes body-style archetypes that real cars (carSpecs.ts) are scaled onto;
    the localStorage save becomes StripRecord. Prices are dollars, unchanged. */
 import { carParams, simStats, type PerfCfg, type Tune, type VehicleSpec } from './physics';
-import { getCarSpec, hasModelSpec } from '../carSpecs';
+import { getCarSpec, hasModelSpec, type CarSpec } from '../carSpecs';
+import type { TrackId } from './strip/district';
 
 type Tier = PerfCfg['engine'];
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
@@ -38,6 +39,11 @@ export const ARCHETYPES: Record<BodyStyle, VehicleSpec> = {
   suv: arch('suv', 'SUV', CARS.brute, { tq: scaleTq(CARS.brute.tq as Torque, .85), mass: 2000, h: .58, cd: .38, area: 2.7, drive: 'AWD' }),
   van: arch('van', 'Van', CARS.tsubasa, { mass: 1900, h: .6, cd: .36, area: 2.8, drive: 'FWD' }),
 };
+/** The rental fleet drives on the artifact's own five records. */
+export const FLEET_SPECS: Record<'civet' | 'kanjo' | 'ronin' | 'tsubasa' | 'brute', VehicleSpec> = {
+  civet: clone<VehicleSpec>(CARS.civet), kanjo: clone<VehicleSpec>(CARS.kanjo), ronin: clone<VehicleSpec>(CARS.ronin), tsubasa: clone<VehicleSpec>(CARS.tsubasa), brute: clone<VehicleSpec>(CARS.brute),
+};
+export const FLEET_NAMES: Record<string, keyof typeof FLEET_SPECS> = { 'Civet R': 'civet', 'Kanjo S': 'kanjo', 'Ronin GT': 'ronin', 'Tsubasa R4': 'tsubasa', 'Brute 440': 'brute' };
 export const STYLES = Object.keys(ARCHETYPES) as BodyStyle[];
 
 /* ---- visual parts: v=value, n=name, p=price, d=description; rmax = star-rating weight of the category ---- */
@@ -98,22 +104,44 @@ export const STAGE_REP = [0, 400, 1100, 2200, 3800];
 export const stageOf = (rep: number): number => { let s = 1; for (let i = 1; i < STAGE_REP.length; i++) if (rep >= STAGE_REP[i]) s = i + 1; return s; };
 export const STOCK_CFG: CarCfg = { color: '#b9bec5', finish: 'gloss', rim: 'stock', rimSize: 17, rimColor: '#c9ced6', front: 0, rear: 0, skirts: 0, spoiler: 0, hood: 0, roof: 0, vinyl: 0, vinylColor: '#ffffff', tint: 0, neon: 'none', lights: '#fff1d6', hydraulics: 0, perf: { engine: 0, ecu: 0, turbo: 0, trans: 0, susp: 0, nos: 0, tires: 0, brakes: 0, weight: 0 } };
 
-/* ---- events: nodes are grid intersections ---- */
+/* ---- events: routes come from the track library's data (apps/sim/public/strip/tracks/<id>.json, by event id) ---- */
 export type EventType = 'sprint' | 'circuit' | 'streetx' | 'drag' | 'drift';
-export type EventDef = { id: string; type: EventType; name: string; nodes: [number, number][]; loop?: boolean; laps?: number; prize: number; rep: number; stage: number; noTraffic?: boolean };
+export type EventDef = { id: string; type: EventType; name: string; track: TrackId; loop?: boolean; laps?: number; prize: number; rep: number; stage: number; noTraffic?: true };
 export const EVENTS: EventDef[] = [
-  { id: 'sp1', type: 'sprint', name: 'Harbor Run', nodes: [[1, 1], [1, 4], [3, 4], [3, 6], [6, 6], [6, 3], [7, 3]], prize: 1500, rep: 150, stage: 1 },
-  { id: 'ci1', type: 'circuit', name: 'Four Block Loop', nodes: [[2, 2], [2, 5], [5, 5], [5, 2]], loop: true, laps: 3, prize: 2000, rep: 200, stage: 1 },
-  { id: 'sx1', type: 'streetx', name: 'Block Party', nodes: [[6, 6], [6, 7], [7, 7], [7, 6]], loop: true, laps: 4, prize: 1200, rep: 120, stage: 1, noTraffic: true },
-  { id: 'dr1', type: 'drag', name: 'Quarter Mile', nodes: [[0, 4], [5, 4]], prize: 1800, rep: 150, stage: 1 },
-  { id: 'df1', type: 'drift', name: 'Warehouse Drift', nodes: [[2, 6], [2, 7], [4, 7], [4, 6]], loop: true, laps: 2, prize: 1500, rep: 150, stage: 1, noTraffic: true },
-  { id: 'sp2', type: 'sprint', name: 'Crosstown', nodes: [[7, 7], [4, 7], [4, 5], [2, 5], [2, 2], [5, 2], [5, 0]], prize: 2200, rep: 220, stage: 2 },
-  { id: 'ci2', type: 'circuit', name: 'Downtown GP', nodes: [[1, 6], [1, 3], [3, 3], [3, 1], [6, 1], [6, 4], [4, 4], [4, 6]], loop: true, laps: 2, prize: 3000, rep: 300, stage: 2 },
-  { id: 'dr2', type: 'drag', name: 'Half Mile', nodes: [[8, 2], [1, 2]], prize: 2800, rep: 220, stage: 2 },
-  { id: 'df2', type: 'drift', name: 'Switchback Drift', nodes: [[6, 0], [6, 2], [7, 2], [7, 0]], loop: true, laps: 2, prize: 2400, rep: 220, stage: 2, noTraffic: true },
-  { id: 'sx2', type: 'streetx', name: 'Tight Eight', nodes: [[0, 6], [0, 8], [1, 8], [1, 7], [2, 7], [2, 6]], loop: true, laps: 3, prize: 2600, rep: 220, stage: 3 },
-  { id: 'sp3', type: 'sprint', name: 'Grid Dash', nodes: [[0, 0], [3, 0], [3, 2], [6, 2], [6, 5], [8, 5], [8, 8]], prize: 3500, rep: 350, stage: 3 },
+  { id: 'harbour_gp', type: 'circuit', name: 'Harbour GP', track: 'monaco', loop: true, laps: 2, prize: 1500, rep: 150, stage: 1, noTraffic: true },
+  { id: 'lagoons_sprint', type: 'sprint', name: 'Lagoons Sprint', track: 'interlagos', prize: 1400, rep: 140, stage: 1, noTraffic: true },
+  { id: 'harbour_drift', type: 'drift', name: 'Harbour Drift', track: 'monaco', prize: 1500, rep: 150, stage: 1, noTraffic: true },
+  { id: 'royal_drag', type: 'drag', name: 'Royal Park Quarter', track: 'monza', prize: 1800, rep: 150, stage: 1, noTraffic: true },
+  { id: 'drylagoon_x', type: 'streetx', name: 'Dry Lagoon X', track: 'laguna', loop: true, laps: 2, prize: 1300, rep: 130, stage: 1, noTraffic: true },
+  { id: 'royal_gp', type: 'circuit', name: 'Royal Park GP', track: 'monza', loop: true, laps: 2, prize: 2200, rep: 220, stage: 2, noTraffic: true },
+  { id: 'lagoons_gp', type: 'circuit', name: 'Lagoons GP', track: 'interlagos', loop: true, laps: 3, prize: 2400, rep: 240, stage: 2, noTraffic: true },
+  { id: 'airfield_sprint', type: 'sprint', name: 'Airfield Sprint', track: 'silverstone', prize: 2200, rep: 220, stage: 2, noTraffic: true },
+  { id: 'figure8_drift', type: 'drift', name: 'Figure Eight Drift', track: 'suzuka', prize: 2400, rep: 220, stage: 2, noTraffic: true },
+  { id: 'mountain_drag', type: 'drag', name: 'Mountain Half Mile', track: 'bathurst', prize: 2800, rep: 220, stage: 2, noTraffic: true },
+  { id: 'figure8_gp', type: 'circuit', name: 'Figure Eight GP', track: 'suzuka', loop: true, laps: 2, prize: 3000, rep: 300, stage: 3, noTraffic: true },
+  { id: 'eifel_gp', type: 'circuit', name: 'Eifel GP', track: 'nurburgring', loop: true, laps: 2, prize: 2800, rep: 280, stage: 3, noTraffic: true },
+  { id: 'harbour_x', type: 'streetx', name: 'Harbour X', track: 'monaco', loop: true, laps: 3, prize: 2600, rep: 220, stage: 3, noTraffic: true },
+  { id: 'mountain_sprint', type: 'sprint', name: 'Mountain Sprint', track: 'bathurst', prize: 3200, rep: 320, stage: 3, noTraffic: true },
+  { id: 'lonestar_gp', type: 'circuit', name: 'Lone Star GP', track: 'cota', loop: true, laps: 2, prize: 3600, rep: 360, stage: 4, noTraffic: true },
+  { id: 'airfield_gp', type: 'circuit', name: 'Airfield GP', track: 'silverstone', loop: true, laps: 2, prize: 3600, rep: 360, stage: 4, noTraffic: true },
+  { id: 'mountain_drift', type: 'drift', name: 'Mountain Drift', track: 'bathurst', prize: 3400, rep: 300, stage: 4, noTraffic: true },
+  { id: 'ardennes_gp', type: 'circuit', name: 'Ardennes GP', track: 'spa', loop: true, laps: 2, prize: 5000, rep: 500, stage: 5, noTraffic: true },
+  { id: 'mountain_gp', type: 'circuit', name: 'Mountain GP', track: 'bathurst', loop: true, laps: 2, prize: 4500, rep: 450, stage: 5, noTraffic: true },
+  { id: 'ardennes_sprint', type: 'sprint', name: 'Ardennes Sprint', track: 'spa', prize: 4200, rep: 420, stage: 5, noTraffic: true },
 ];
+/** Park names per track, shown on the map and in the HUD. */
+export const TRACK_NAMES: Record<TrackId, { en: string; es: string }> = {
+  spa: { en: 'Ardennes', es: 'Ardenas' },
+  monza: { en: 'Royal Park', es: 'Parque Real' },
+  silverstone: { en: 'Airfield', es: 'Aeródromo' },
+  suzuka: { en: 'Figure Eight', es: 'Ocho' },
+  nurburgring: { en: 'Eifel', es: 'Eifel' },
+  monaco: { en: 'Harbour', es: 'Puerto' },
+  interlagos: { en: 'Lagoons', es: 'Lagunas' },
+  cota: { en: 'Lone Star', es: 'Estrella Solitaria' },
+  laguna: { en: 'Dry Lagoon', es: 'Laguna Seca' },
+  bathurst: { en: 'The Mountain', es: 'La Montaña' },
+};
 export const EV_NAME: Record<EventType | 'outrun', string> = { sprint: 'Sprint', circuit: 'Circuit', streetx: 'Street X', drag: 'Drag', drift: 'Drift', outrun: 'Outrun' };
 export const EV_COL: Record<EventType | 'outrun', string> = { sprint: '#ffd23f', circuit: '#5fbf86', streetx: '#f3f6fb', drag: '#e0b22a', drift: '#79a6ff', outrun: '#ffffff' };
 
@@ -129,6 +157,12 @@ export function prizeFor(ev: EventDef, pos: number, stage: number, style: number
 /* ---- strip record (replaces Night Tuner's save) ---- */
 export type StripRecord = { rep: number; cars: Record<string, { cfg: CarCfg; tune: Tune; owned: string[] }>; wins: Record<string, number>; best: Record<string, number> };
 export const freshStrip = (): StripRecord => ({ rep: 0, cars: {}, wins: {}, best: {} });
+/** A copy of the record without wins and bests of events that are not in the library (old grid events). */
+export function pruneStrip(rec: StripRecord): StripRecord {
+  const ids = new Set(EVENTS.map(e => e.id));
+  const keep = (m: Record<string, number>): Record<string, number> => Object.fromEntries(Object.entries(m).filter(([k]) => ids.has(k)));
+  return { ...rec, wins: keep(rec.wins), best: keep(rec.best) };
+}
 export function carState(rec: StripRecord, carId: string): StripRecord['cars'][string] {
   return rec.cars[carId] ??= { cfg: clone(STOCK_CFG), tune: clone(TUNE_DEF), owned: [] };
 }
@@ -152,18 +186,61 @@ export function visualRating(cfg: VisualCfg): number {
 }
 
 /* ---- specs from real cars ---- */
-const STOCK_HP = (s: VehicleSpec) => simStats(carParams(s, STOCK_CFG.perf, TUNE_DEF)).hp;
 const isStyle = (s: string | undefined): s is BodyStyle => !!s && s in ARCHETYPES;
 
-/** The body-style archetype, with its torque scaled to the real car's horsepower, mass and drive. */
-export function specFor(car: { make?: string; model?: string; bodyStyle?: string }): VehicleSpec {
-  const style: BodyStyle = isStyle(car.bodyStyle) ? car.bodyStyle : 'sedan';
-  const base = ARCHETYPES[style];
-  if (!hasModelSpec(car)) return clone(base);
-  const real = getCarSpec(car, style);
-  const out: VehicleSpec = { ...clone(base), name: `${car.make} ${car.model}`, mass: real.weightLb * 0.4536, drive: real.drive === '4WD' ? 'AWD' : real.drive };
+/** Per-body-style chassis: tire grip multiplier, and a taller centre of gravity for the tall bodies. */
+export const STYLE_CHASSIS: Record<BodyStyle, { gripMul: number; h?: number }> = {
+  sports: { gripMul: 1.06 }, coupe: { gripMul: 1.02 }, sedan: { gripMul: 1.0 }, hatchback: { gripMul: 1.0 },
+  suv: { gripMul: .94, h: .58 }, van: { gripMul: .92, h: .60 }, truck: { gripMul: .90, h: .62 },
+};
+
+const stockStats = (s: VehicleSpec) => simStats(carParams(s, STOCK_CFG.perf, TUNE_DEF));
+
+/** Fit an archetype to a real car: its mass and drive, then gearing to its top speed and torque to its 0-60. */
+export function fitSpec(base: VehicleSpec, real: CarSpec): VehicleSpec {
+  const out: VehicleSpec = { ...clone(base), mass: real.weightLb * 0.4536, drive: real.drive === '4WD' ? 'AWD' : real.drive };
+  if (/Hybrid/.test(real.engine)) out.redline = 6000; else if (/V8/.test(real.engine)) out.redline = 6200; else if (/Turbo/.test(real.engine)) out.redline = 6500;
+  const baseFin = out.fin, baseTq = clone(base.tq) as Torque;
+  const topTarget = real.topSpeedMph * 1.609, t100Target = real.zeroToSixty + 0.3;
+  const t100Of = (s: VehicleSpec) => stockStats(s).t100 ?? 1e9;
+  // Start the torque at the real horsepower so the gearing fit sees a realistically powered car.
   let lo = 0.1, hi = 6;
-  for (let i = 0; i < 12; i++) { const mid = (lo + hi) / 2; if (STOCK_HP({ ...out, tq: scaleTq(base.tq, mid) }) < real.hp) lo = mid; else hi = mid; }
-  out.tq = scaleTq(base.tq, (lo + hi) / 2);
-  return out;
+  for (let i = 0; i < 12; i++) { const mid = (lo + hi) / 2; if (stockStats({ ...out, tq: scaleTq(baseTq, mid) }).hp < real.hp) lo = mid; else hi = mid; }
+  out.tq = scaleTq(baseTq, (lo + hi) / 2);
+  /** Smallest torque multiplier that reaches the 0-100 target; a launch is traction-limited past some torque, so a target below that plateau asks for the plateau, not for endless torque. */
+  const fitTorque = (s: VehicleSpec): VehicleSpec => {
+    const goal = Math.max(t100Target, t100Of({ ...s, tq: scaleTq(baseTq, 8) }) * 1.02);
+    let l = 0.1, h = 8;
+    for (let i = 0; i < 14; i++) { const mid = (l + h) / 2; if (t100Of({ ...s, tq: scaleTq(baseTq, mid) }) > goal) l = mid; else h = mid; }
+    return { ...s, tq: scaleTq(baseTq, (l + h) / 2) };
+  };
+  // Gearing and torque interact (top speed needs power, launch needs gearing), so fit them twice.
+  let fit = out;
+  for (let round = 0; round < 2; round++) {
+    lo = 0.6; hi = 1.6;
+    for (let i = 0; i < 14; i++) { const mid = (lo + hi) / 2; if (stockStats({ ...fit, fin: baseFin * mid }).top < topTarget) hi = mid; else lo = mid; }
+    fit = fitTorque({ ...fit, fin: baseFin * (lo + hi) / 2 });
+  }
+  return fit;
+}
+
+const specCache = new Map<string, VehicleSpec>();
+/** Size of the specFor cache (tests). */
+export const specCacheSize = () => specCache.size;
+
+/** The body-style archetype with the style's grip and ride height, fitted to the real car's 0-60 and top speed when known (the fit runs on the chassis that drives). Fleet cars keep their authored specs. Cached per car type. */
+export function specFor(car: { make?: string; model?: string; bodyStyle?: string; rental?: boolean }): VehicleSpec {
+  const fleet = car.rental ? FLEET_NAMES[`${car.make} ${car.model}`] : undefined;
+  if (fleet) return clone(FLEET_SPECS[fleet]);
+  const style: BodyStyle = isStyle(car.bodyStyle) ? car.bodyStyle : 'sedan';
+  const key = `${car.make}|${car.model}|${style}|${!!car.rental}`;
+  const hit = specCache.get(key);
+  if (hit) return clone(hit);
+  const ch = STYLE_CHASSIS[style];
+  const base = clone(ARCHETYPES[style]);
+  base.gripMul = ch.gripMul;
+  if (ch.h !== undefined) base.h = ch.h;
+  const out = hasModelSpec(car) ? { ...fitSpec(base, getCarSpec(car, style)), name: `${car.make} ${car.model}` } : base;
+  specCache.set(key, out);
+  return clone(out);
 }

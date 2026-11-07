@@ -27,7 +27,7 @@ export function GarageMenu({ onQuickRace }: { onQuickRace?: (eventId: string) =>
   const close = useGameStore(s => s.closeGarage);
 
   // spec: specFor scales an archetype to the real car (~20 ms), so once per car
-  const spec = useMemo(() => car ? specFor({ make: car.make, model: car.model, bodyStyle: car.bodyStyle }) : null, [car?.id, car?.make, car?.model, car?.bodyStyle]);
+  const spec = useMemo(() => car ? specFor({ make: car.make, model: car.model, bodyStyle: car.bodyStyle, rental: car.rental }) : null, [car?.id, car?.make, car?.model, car?.bodyStyle, car?.rental]);
   const style: BodyStyle = useMemo(() => { const s = car ? (car.bodyStyle ?? deriveStyle(car.model)) : 'sedan'; return (STYLES as string[]).includes(s) ? s as BodyStyle : 'sedan'; }, [car?.bodyStyle, car?.model]);
   const fallback = useMemo(() => ({ cfg: clone(STOCK_CFG), tune: clone(TUNE_DEF), owned: [] as string[] }), [carId]);
 

@@ -1,6 +1,6 @@
 import crypto from 'node:crypto';
 import type { Player } from '../types';
-import { freshStrip } from './data';
+import { freshStrip, pruneStrip } from './data';
 import { isRental } from './rental';
 
 export const ALLOWANCE = 1000;
@@ -115,7 +115,7 @@ export function applyRecord(player: Player, rec: SavedPlayer): void {
   player.money = rec.money;
   player.octane = rec.octane;
   player.stamps = rec.stamps;
-  player.strip = rec.strip ?? freshStrip();
+  player.strip = rec.strip ? pruneStrip(rec.strip) : freshStrip();
   player.inventory = rec.inventory;
 }
 

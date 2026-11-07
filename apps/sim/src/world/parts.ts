@@ -232,7 +232,7 @@ export type PartsKit = {
   undo: (() => void)[];
 };
 type ModelParts = {
-  body: THREE.Mesh; wheelMesh: THREE.InstancedMesh; pivots: THREE.Object3D[]; wheels: THREE.Object3D[]; halos: THREE.Points; far: boolean; glass?: THREE.Mesh;
+  tilt?: THREE.Group; body: THREE.Mesh; wheelMesh: THREE.InstancedMesh; pivots: THREE.Object3D[]; wheels: THREE.Object3D[]; halos: THREE.Points; far: boolean; glass?: THREE.Mesh;
 };
 const modelOf = (car: THREE.Object3D) => car.userData.car as ModelParts | undefined;
 
@@ -249,7 +249,7 @@ export function attachParts(car: THREE.Group, cfg: VisualCfg, style: BodyStyle, 
   const m = mats(cfg, own, model ? model.body.material as THREE.Material : null);
   const root = new THREE.Group(); root.name = 'ntParts';
   if (model) root.position.copy(model.body.position); // the model is lifted onto the paving
-  car.add(root);
+  (model?.tilt ?? car).add(root);
   const undo: (() => void)[] = [];
   if (model) {
     // paint finish on the model's own (per-car) paint; clearcoat only where the material has one

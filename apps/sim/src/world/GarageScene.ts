@@ -11,7 +11,7 @@ import { clamp } from './physics';
 import type { BodyStyle, CarCfg } from './data';
 import type { Tune } from './physics';
 import { WORLD_PER_M } from './units';
-import { radialTexture } from './strip/city';
+import { radialTexture } from './strip/park';
 
 const W = WORLD_PER_M;
 const PAINT = 0xffd23f, NIGHT = 0x0e1217;

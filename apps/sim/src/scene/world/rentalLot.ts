@@ -1,9 +1,8 @@
 import * as THREE from 'three';
-import { RENTAL_BAY, RENTAL_BLOCK } from '../../world/rental';
-import { BL, CELL, RW } from '../../world/strip/routes';
+import { RENTAL_BAY, RENTAL_KIOSK } from '../../world/rental';
 import { WORLD_PER_M } from '../../world/units';
 
-// The Strip's rental lot, on the block the city leaves empty (RENTAL_BLOCK, buildCity's `reserved`):
+// The Strip's rental lot, in the hub (HUB.rental):
 // a low slab, a lit canopy over the bay where a rented car waits (RENTAL_BAY) and the counter kiosk
 // with its RENT sign. Laid out in metres, built in world units (×WORLD_PER_M), like the Strip's city.
 // Add `group` to the Strip's scene after load (as buildStripExit's ring).
@@ -12,8 +11,6 @@ const PAINT = '#ffd23f', NIGHT = '#0e1217';
 const W = WORLD_PER_M;
 /** the slab's top (metres) */
 const SLAB = .02;
-/** the counter kiosk (metres) */
-export const RENTAL_KIOSK = { x: 660, z: 690 };
 
 function rentSign(): { mesh: THREE.Mesh; dispose(): void } {
     let tex: THREE.CanvasTexture | null = null;
@@ -46,10 +43,10 @@ export function buildRentalLot(): { group: THREE.Group; dispose(): void } {
         mesh.position.set(x * W, y * W, z * W); mesh.rotation.y = ry; group.add(mesh); return mesh;
     };
 
-    // the slab: the whole block, nearly flush (cars are drawn at y = 0, so their wheels stay on top of it)
-    const [bi, bj] = RENTAL_BLOCK;
-    const x0 = bi * CELL + RW / 2, z0 = bj * CELL + RW / 2;
-    box(BL, SLAB, BL, mat(new THREE.MeshStandardMaterial({ color: 0x23262d, roughness: .85, metalness: .1 })), x0 + BL / 2, SLAB / 2, z0 + BL / 2);
+    // the slab: 40 x 30 m, centred 6 m behind the bay (nearly flush: cars are drawn at y = 0, so their wheels stay on top of it)
+    const SLAB_W = 40, SLAB_D = 30, BEHIND = 6;
+    const sx = RENTAL_BAY.x - Math.sin(RENTAL_BAY.h) * BEHIND, sz = RENTAL_BAY.z - Math.cos(RENTAL_BAY.h) * BEHIND;
+    box(SLAB_W, SLAB, SLAB_D, mat(new THREE.MeshStandardMaterial({ color: 0x23262d, roughness: .85, metalness: .1 })), sx, SLAB / 2, sz, RENTAL_BAY.h);
 
     // the bay: painted outline on the slab, under a canopy on four posts, lit from the underside
     const { x: bx, z: bz, h } = RENTAL_BAY, ry = h; // the bay's long side runs along the car's heading

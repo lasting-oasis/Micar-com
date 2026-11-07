@@ -13,32 +13,40 @@ import { attachCarShadows, buildCarModel, carShadowScene, disposeCarModel, setCa
 import { getStyleGeometry } from '../../scene/car/carStyles';
 import { anchorsFor, attachParts, disposeParts, syncKitLod, type PartsKit } from '../parts';
 import { ARCHETYPES, EVENTS, EV_COL, EV_NAME, PALETTE, STOCK_CFG, STYLES, TUNE_DEF, type BodyStyle, type CarCfg, type EventDef, type VisualCfg } from '../data';
-import { carParams, makeVehicle, type Vehicle } from '../physics';
+import { carParams, makeVehicle, resetVehicle, type Vehicle } from '../physics';
 import { WORLD_PER_M } from '../units';
-import { RENTAL_KIOSK, buildRentalLot } from '../../scene/world/rentalLot';
-import { RENTAL_BAY, RENTAL_BLOCK, RENTAL_CAM } from '../rental';
-import { buildCity, radialTexture, ACCENT, CHROME, TUBE_BLUE, type City } from './city';
-import { CELL, N, RW, SPAN, buildRoute, gridPath, nearestNode, type Node, type Route } from './routes';
-import { collideBlocks, collideCar, makeAI, separateAIs, setWander, stepAI, type AI } from './ai';
-import { EventRunner, nearEvent, nearRival, playerAccel, playerTopMs, startOutrun, updateOutrun, type ActiveEvent, type EventFx, type EventResults, type Outrun } from './events';
+import { buildRentalLot } from '../../scene/world/rentalLot';
+import { RENTAL_BAY, RENTAL_CAM, RENTAL_KIOSK } from '../rental';
+import { buildHub, mountTrack, radialTexture, routeRibbon, laneRibbon, gateMeshes, disposeGate, ACCENT, CHROME, GRASS, SKY, TUBE_BLUE, type Hub, type Loader, type Mounted, type ParkOpts, type SceneMarker } from './park';
+import { HUB, SPAWN, loadTrack, routeFor, trackLoaded, trackOfEvent, type TrackData, type TrackId } from './district';
+import { zoneBounds, zoneRoads, zoneWalls, type Zone } from './zone';
+import { nearestRoadPoint, snapToRoad, type Pt, type RoadData } from './routes';
+import { hubPoint, shortestPath } from './roadGraph';
+import { collideCar, collideWalls, makeAI, parkAI, separateAIs, setWallZone, setWander, stepAI, type AI } from './ai';
+import { EventRunner, DRAG_LANES, nearEvent, nearRival, playerAccel, playerTopMs, startOutrun, updateOutrun, type ActiveEvent, type EventFx, type EventResults, type Outrun } from './events';
 
 const W = WORLD_PER_M;
+/** how close (m) the player must be to a portal or return marker */
+const NEAR_M = 11;
+const RACER_STYLES: BodyStyle[] = ['coupe', 'sports'];
 const TRAFFIC_COLS = ['#c8102e', '#e9ecef', '#1f4fbf', '#3d434b', '#0c0c0e', '#b9bec5', '#ffd21f', '#0f8b8d', '#134a32', '#5a0a14'];
 const RIVAL_NAMES = ['Kira', 'Dex', 'Mako'];
 const RIVAL_NEON = [ACCENT, TUBE_BLUE, CHROME];
 const pick = <T>(a: readonly T[]): T => a[Math.floor(Math.random() * a.length)];
 const clone = <T>(o: T): T => JSON.parse(JSON.stringify(o)) as T;
 
+/** The OpenStreetMap credit the world map shows (the track data is ODbL). */
+export const OSM_CREDIT = 'Map data © OpenStreetMap contributors (ODbL)';
+const MAP_FONT = "'Barlow',sans-serif";
 /** Where the player starts in the Strip (metres, Night Tuner's spawnPlayer). */
-export const STRIP_SPAWN = { x: 2 * CELL, z: 2 * CELL + CELL / 2, h: 0 };
+export const STRIP_SPAWN = SPAWN;
 export const STRIP_TRAFFIC = 14, STRIP_RIVALS = 3;
 /** the lobby camera's field of view (degrees) */
 export const LOBBY_FOV = 44;
 
-export type Gps = { label: string; node: Node; path: Node[] };
-export type MapItem = { n: string; clear?: true; ev?: EventDef; node?: Node };
-/** An event marker in metres (what nearEvent and the HUD use); ring and beam are the scene's meshes. */
-export type Marker = { ev: EventDef; x: number; z: number; ring: THREE.Mesh; beam: THREE.Mesh };
+export type Gps = { label: string; target: Pt; path: Pt[] };
+export type MapItem = { n: string; clear?: true; ev?: EventDef };
+const evOf = (id: string): EventDef | undefined => EVENTS.find(e => e.id === id);
 
 export type StripSceneOpts = {
   onBanner(txt: string, bad?: boolean, hold?: boolean): void;
@@ -59,6 +67,12 @@ export type StripSceneOpts = {
   onOutrun?(won: boolean, rival: AI): void;
   /** a near miss with traffic above 22 m/s (Night Tuner paid $50) */
   onNearMiss?(): void;
+  /** the current zone changed (entered a circuit, back at the hub): reset the chase camera to PV.h */
+  onZone?(zone: Zone, PV: Vehicle): void;
+  /** the models' loader (null: ribbons only); the base URL of the strip/ assets is district's setAssetBase */
+  loadModel?: Loader | null;
+  /** how a track file is fetched (tests); default fetch() */
+  fetchTrack?: (url: string) => Promise<TrackData>;
   seed?: number;
 };
 
@@ -69,10 +83,13 @@ type ModelNodes = { pivots: THREE.Object3D[]; wheels: THREE.Object3D[] };
 export class StripScene {
   ready = false;
   scene: THREE.Scene = new THREE.Scene();
-  city: City | null = null;
+  zone: Zone = { kind: 'hub' };
+  hub: Hub | null = null;
+  mounted: Mounted | null = null;
   runner: EventRunner;
   ais: AI[] = [];
-  markers: Marker[] = [];
+  /** the current zone's markers (world metres) */
+  markers: SceneMarker[] = [];
   gpsTarget: Gps | null = null;
   outrun: Outrun | null = null;
   mapOpen = false;
@@ -89,6 +106,8 @@ export class StripScene {
   private envRT: THREE.WebGLRenderTarget | null = null;
   private gpsMesh: THREE.Mesh | null = null;
   private gpsMat: THREE.MeshBasicMaterial | null = null;
+  private ribbon: THREE.Mesh | null = null;
+  private gate: THREE.Group | null = null; private gateW = -1;
   private carGroup: THREE.Group | null = null;
   private prevParent: THREE.Object3D | null = null;
   private prevShadow: THREE.Object3D | null = null;
@@ -96,6 +115,8 @@ export class StripScene {
   private readonly noRacers: AI[] = [];
   private readonly fx: EventFx;
   private lot: ReturnType<typeof buildRentalLot> | null = null;
+  /** bumped by exit(), returnToHub() and dispose(): a zone switch or event start that awaited a load bails when it changed */
+  private gen = 0;
 
   constructor(opts: StripSceneOpts) {
     this.opts = opts;
@@ -104,24 +125,28 @@ export class StripScene {
     this.fx = {
       banner: (t, bad, hold) => opts.onBanner(t, bad, hold),
       sfx: n => opts.onSfx(n),
-      spawnRacerMesh: (cfg: VisualCfg) => this.spawnCar(pick(STYLES), cfg.color, cfg),
+      spawnRacerMesh: (cfg: VisualCfg) => this.spawnCar(pick(RACER_STYLES), cfg.color, cfg),
       disposeMesh: m => this.disposeCar(m as THREE.Group),
-      placeCp: nd => this.placeCp(nd),
+      placeCp: (p, t) => this.placeCp(p, t),
       stage,
       styleRating: () => opts.styleRating?.() ?? 0,
     };
-    this.runner = new EventRunner(this.PV, this.ais, this.fx, () => this.PV.P);
+    this.runner = new EventRunner(this.PV, this.ais, this.fx, () => this.PV.P, () => zoneRoads(this.zone));
+    this.runner.onCleanup = () => this.dropRibbon();
     this.runner.onAbandon = ev => opts.onEventQuit?.(ev);
   }
   private stage(): number { return this.fx.stage(); }
 
-  /** Build the city and its cars (synchronous; idempotent). */
+  private get parkOpts(): ParkOpts { return { loadModel: this.opts.loadModel }; }
+
+  /** Build the hub and its cars (synchronous; idempotent). */
   load(): void {
     if (this.ready) return;
-    const city = this.city = buildCity(this.opts.seed ?? 7, [RENTAL_BLOCK]); // the rental lot's block stays empty
-    this.scene = city.scene;
+    const hub = this.hub = buildHub(this.parkOpts);
+    this.scene = hub.scene;
     this.lot = buildRentalLot(); this.scene.add(this.lot.group);
-    this.markers = city.markers.map(m => ({ ev: m.ev, x: m.x / W, z: m.z / W, ring: m.ring, beam: m.beam }));
+    this.markers = hub.markers;
+    setWallZone(zoneWalls(this.zone));
     if (this.opts.renderer) { this.envRT = makeEnv(this.opts.renderer); this.scene.environment = this.envRT.texture; }
     for (const st of STYLES) getStyleGeometry(st); // every body style now, so a race start never builds one
     this.gpsMat = new THREE.MeshBasicMaterial({ color: ACCENT, transparent: true, opacity: .45, blending: THREE.AdditiveBlending, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
@@ -157,7 +182,7 @@ export class StripScene {
     for (let k = 0; k < count; k++) {
       const m = this.spawnCar(pick(STYLES), pick(TRAFFIC_COLS));
       const A = makeAI({ m, vmax: 11 + Math.random() * 5, acc: 4, brk: 7, kind: 'traffic', lane: 3.2 });
-      setWander(A, [1 + Math.floor(Math.random() * (N - 1)), 1 + Math.floor(Math.random() * (N - 1))]);
+      setWander(A, hubPoint());
       this.ais.push(A);
     }
   }
@@ -168,7 +193,7 @@ export class StripScene {
       const tag = new THREE.Sprite(new THREE.SpriteMaterial({ map: this.tagTex, color: 0xffffff, transparent: true, depthWrite: false }));
       tag.position.set(0, 2.6 * W, 0); tag.scale.set(1.2 * W, 1.2 * W, 1); m.add(tag); this.tags.push(tag);
       const A = makeAI({ m, vmax: 16, acc: 6, brk: 8, kind: 'rival', lane: 3.0, name: RIVAL_NAMES[k], tag });
-      setWander(A, [2 + k * 2, 2 + k]);
+      setWander(A, hubPoint());
       this.ais.push(A);
     }
   }
@@ -187,10 +212,82 @@ export class StripScene {
     m.position.set(A.x * W, 0, A.z * W); m.rotation.y = A.h + Math.PI;
     this.roll(m, A.v, dt, A.steer);
   }
-  private placeCp(nd: Node | null): void {
-    const cp = this.city?.cpMark; if (!cp) return;
-    if (!nd) { cp.visible = false; return; }
-    cp.visible = true; cp.position.set(nd[0] * CELL * W, 0, nd[1] * CELL * W);
+  private placeCp(p: { x: number; z: number } | null, t?: { tx: number; tz: number }): void {
+    const cp = this.hub?.cpMark; if (!cp) return;
+    if (!p) { cp.visible = false; return; }
+    cp.visible = true; cp.position.set(p.x * W, 0, p.z * W);
+    if (t) cp.rotation.y = Math.atan2(t.tx, t.tz);
+    const roads = zoneRoads(this.zone), w = roads.length ? nearestRoadPoint(p.x, p.z, roads).road.width : 12;
+    if (!this.gate || this.gateW !== w) { this.dropGate(); this.gate = gateMeshes(w); this.gateW = w; cp.add(this.gate); }
+  }
+  private dropGate(): void { if (this.gate) disposeGate(this.gate); this.gate = null; this.gateW = -1; }
+  /** The live event's route ribbon (a drag strip draws its four lane edges instead); removed by the runner's onCleanup, which every end path goes through. */
+  private dropRibbon(): void {
+    const r = this.ribbon; if (!r) return;
+    r.removeFromParent(); r.geometry.dispose(); (r.material as THREE.Material).dispose(); this.ribbon = null;
+  }
+  private addRibbon(): void {
+    this.dropRibbon();
+    const a = this.runner.active; if (!a) return;
+    const d = a.drag;
+    const m = a.type === 'drag' && d.p0 ? laneRibbon(d.p0, d.fwd, d.right, a.route.len, DRAG_LANES) : routeRibbon(a.route, 2);
+    this.ribbon = m; this.scene.add(m);
+  }
+  /** the event markers of the current zone with their events (metres: what nearEvent and the HUD use) */
+  hudMarkers(): { ev: EventDef; x: number; z: number }[] {
+    const out: { ev: EventDef; x: number; z: number }[] = [];
+    for (const m of this.markers) { if (m.kind !== 'event') continue; const ev = evOf(m.id); if (ev) out.push({ ev, x: m.x, z: m.z }); }
+    return out;
+  }
+  hudRoads(): RoadData[] { return zoneRoads(this.zone); }
+  snap(V: Vehicle): void { snapToRoad(V, zoneRoads(this.zone)); }
+
+  // ------------------------------------------------------------------------------ zones
+  private placePlayer(x: number, z: number, h: number): void {
+    resetVehicle(this.PV, x, z, h);
+    if (this.carGroup) { this.carGroup.position.set(x * W, 0, z * W); this.carGroup.rotation.y = h + Math.PI; }
+  }
+  /** Mount a circuit (fetching its file if needed) and put the player at its lobby; the hub's traffic is parked. */
+  async enterTrack(id: TrackId): Promise<void> {
+    this.load();
+    const gen = this.gen;
+    let track: TrackData;
+    try { track = await loadTrack(id, this.opts.fetchTrack); }
+    catch (err) { if (gen === this.gen) { console.warn('strip: could not load circuit', id, err); this.opts.onBanner('Could not load the circuit', true); } return; }
+    if (!this.ready || gen !== this.gen) return; // the player left (exit, back to the paddock, dispose) while it loaded
+    if (this.zone.kind === 'track' && this.zone.track.id === id) return;
+    if (this.zone.kind === 'track') { if (this.runner.active) this.runner.cleanup(); this.reported = null; this.unmount(); }
+    this.mounted = mountTrack(this.scene, track, this.parkOpts);
+    this.showHub(false);
+    this.zone = { kind: 'track', track };
+    this.markers = this.mounted.markers;
+    setWallZone(zoneWalls(this.zone));
+    for (const A of this.ais) { if (A.kind === 'traffic' || A.kind === 'rival') { A.hold = true; parkAI(A); } }
+    this.endOutrun();
+    this.setGps(null);
+    if (this.entered) this.placePlayer(track.lobby.x + track.offset[0], track.lobby.z + track.offset[1], track.lobby.h);
+    this.opts.onZone?.(this.zone, this.PV);
+  }
+  /** Drop the mounted circuit and make the hub the current zone (markers, walls). */
+  private unmount(): void {
+    if (this.mounted) { this.mounted.dispose(); this.mounted = null; }
+    this.showHub(true);
+    this.zone = { kind: 'hub' };
+    this.markers = this.hub?.markers ?? [];
+    setWallZone(zoneWalls(this.zone));
+  }
+  /** The hub's scenery (model, ribbons, portals, rental lot) shows only while the hub is the zone. */
+  private showHub(v: boolean): void { this.hub?.setVisible(v); if (this.lot) this.lot.group.visible = v; }
+  /** Back to the hub: abandons a live event, unmounts the circuit, brings the traffic back; the car goes to the spawn when `place`. */
+  returnToHub(place = true): void {
+    this.gen++;
+    if (this.runner.active) this.runner.cleanup();
+    this.reported = null;
+    this.endOutrun();
+    this.unmount();
+    for (const A of this.ais) { if (A.kind === 'traffic' || A.kind === 'rival') { A.hold = false; setWander(A, hubPoint()); } }
+    if (place) this.placePlayer(SPAWN.x, SPAWN.z, SPAWN.h);
+    this.opts.onZone?.(this.zone, this.PV);
   }
 
   // ------------------------------------------------------------------------------ in / out
@@ -208,7 +305,9 @@ export class StripScene {
   }
   /** Leave: ends any event or outrun, clears the GPS and the map, gives the car group back to where it was. */
   exit(): void {
+    this.gen++; // also when not entered: a quick race started from the Garage may be loading its circuit
     if (!this.entered) return;
+    if (this.zone.kind === 'track') this.returnToHub(false);
     if (this.runner.active) this.runner.cleanup();
     this.reported = null;
     this.endOutrun();
@@ -236,25 +335,39 @@ export class StripScene {
   leaveLobby(): void { this.inLobby = false; }
 
   // ------------------------------------------------------------------------------ events, outrun
+  private nearMarker(kind: 'portal' | 'return'): SceneMarker | null {
+    for (const m of this.markers) if (m.kind === kind && Math.hypot(this.PV.x - m.x, this.PV.z - m.z) < NEAR_M) return m;
+    return null;
+  }
   /** What Enter would do here (empty when nothing; nothing while an event or an outrun runs). */
   promptText(): string {
     if (!this.entered || this.runner.active || this.outrun) return '';
-    const ev = nearEvent(this.PV, this.markers, this.stage()); if (ev) return 'Enter · ' + EV_NAME[ev.type] + ': ' + ev.name;
-    const r = nearRival(this.PV, this.ais); if (r) return 'Enter · Outrun ' + r.name;
+    const ev = nearEvent(this.PV, this.hudMarkers(), this.stage()); if (ev) return 'Enter · ' + EV_NAME[ev.type] + ': ' + ev.name;
+    const p = this.nearMarker('portal'); if (p) return 'Enter · ' + (p.label ?? p.id);
+    if (this.nearMarker('return')) return 'Enter · Back to the paddock';
+    if (this.zone.kind === 'hub') { const r = nearRival(this.PV, this.ais); if (r) return 'Enter · Outrun ' + r.name; }
     return '';
   }
-  /** Enter pressed while driving: start the event at this marker, or an outrun with the rival alongside. */
+  /** Enter pressed while driving: start the event, take the portal or the way back, or start an outrun with the rival alongside. */
   pressEnter(): boolean {
     if (!this.entered || this.runner.active || this.outrun) return false;
-    const ev = nearEvent(this.PV, this.markers, this.stage()); if (ev) { this.startEvent(ev); return true; }
-    const r = nearRival(this.PV, this.ais); if (r) { this.outrun = startOutrun(r, playerTopMs(this.PV.P), playerAccel(this.PV.P), this.stage(), this.fx); return true; }
+    const ev = nearEvent(this.PV, this.hudMarkers(), this.stage()); if (ev) { void this.startEvent(ev); return true; }
+    const p = this.nearMarker('portal'); if (p) { void this.enterTrack(p.id); return true; }
+    if (this.nearMarker('return')) { this.returnToHub(); return true; }
+    if (this.zone.kind === 'hub') { const r = nearRival(this.PV, this.ais); if (r) { this.outrun = startOutrun(r, playerTopMs(this.PV.P), playerAccel(this.PV.P), this.stage(), this.fx); return true; } }
     return false;
   }
-  startEvent(ev: EventDef, o: { quick?: boolean } = {}): void {
+  /** Start an event, mounting its circuit first when the player is not on it. */
+  async startEvent(ev: EventDef, o: { quick?: boolean } = {}): Promise<void> {
     this.load();
+    const id = trackOfEvent(ev.id), gen = this.gen;
+    if (this.zone.kind !== 'track' || this.zone.track.id !== id) await this.enterTrack(id);
+    // the load failed, the player left meanwhile (exit, back to the paddock, dispose), or another circuit won
+    if (!this.ready || gen !== this.gen || !this.entered || this.zone.kind !== 'track' || this.zone.track.id !== id) return;
     this.endOutrun();
     this.reported = null;
     this.runner.start(ev, o);
+    this.addRibbon();
     this.opts.onEventStart?.(ev, this.PV);
   }
   private endOutrun(): void {
@@ -262,9 +375,9 @@ export class StripScene {
     o.A.vmax = 16; o.A.acc = 6; o.A.brk = 8; o.A.cool = 20; // also during the wind-down (updateOutrun's own reset never ran)
     this.outrun = null;
   }
-  /** The player's collisions for one physics sub-step (blocks, then the AI cars except in a drag race); returns the impact. */
+  /** The player's collisions for one physics sub-step (the zone's walls, then the AI cars except in a drag race); returns the impact. */
   collide(V: Vehicle): number {
-    let imp = collideBlocks(V); const a = this.runner.active;
+    let imp = collideWalls(V); const a = this.runner.active;
     if (!(a && a.type === 'drag')) for (const A of this.ais) { const r = collideCar(V, A); if (r > 0) { imp = Math.max(imp, r); if (A.kind === 'traffic' && !a && r > 2 && A.nm <= 0) A.nm = 3; } }
     return imp;
   }
@@ -275,13 +388,15 @@ export class StripScene {
     if (!this.ready) return;
     const PV = this.PV, run = this.runner;
     if (live) {
-      const a = run.active, st = this.stage();
+      const a = run.active, st = this.stage(), hubZone = this.zone.kind === 'hub';
       this.noRacers.length = 0;
       for (const A of this.ais) {
+        // the hub's traffic stays parked on a circuit (an event's cleanup brings it back to the hub)
+        if (!hubZone && !(a && a.type === 'drag') && (A.kind === 'traffic' || A.kind === 'rival') && !A.parked) { A.hold = true; parkAI(A); }
         if (A.kind === 'racer') continue; this.noRacers.push(A);
         if (A.cool > 0) A.cool -= dt;
         if (!a || A.kind === 'traffic' || A.kind === 'rival') stepAI(A, dt, null, st);
-        if (this.entered && !a && A.kind === 'traffic' && A.nm <= 0 && Math.abs(PV.u) > 22) {
+        if (hubZone && this.entered && !a && A.kind === 'traffic' && A.nm <= 0 && Math.abs(PV.u) > 22) {
           const dx = A.x - PV.x, dz = A.z - PV.z;
           if (Math.abs(dx) < 3.4 && Math.abs(dz) < 3.4 && Math.hypot(dx, dz) < 3.4) { A.nm = 3; this.opts.onNearMiss?.(); this.fx.sfx('cp'); }
         }
@@ -296,7 +411,7 @@ export class StripScene {
         else if (r === 'done') this.outrun = null;
       }
       const g = this.gpsTarget;
-      if (g && !b && Math.hypot(PV.x - g.node[0] * CELL, PV.z - g.node[1] * CELL) < 14) this.setGps(null);
+      if (g && !b && Math.hypot(PV.x - g.target[0], PV.z - g.target[1]) < 14) this.setGps(null);
     }
     const d = live ? dt : 0;
     for (const A of this.ais) this.drawAI(A, d);
@@ -315,7 +430,7 @@ export class StripScene {
   private updateMarkers(t: number): void {
     const a = this.runner.active, st = this.stage();
     for (const m of this.markers) {
-      const locked = m.ev.stage > st;
+      const locked = m.kind === 'event' && (evOf(m.id)?.stage ?? 0) > st;
       (m.ring.material as THREE.MeshBasicMaterial).opacity = locked ? .15 : .5 + .3 * Math.sin(t / 300 + m.x);
       (m.beam.material as THREE.MeshBasicMaterial).opacity = locked ? .04 : .14 + .06 * Math.sin(t / 400);
       m.ring.visible = m.beam.visible = !a;
@@ -327,66 +442,79 @@ export class StripScene {
   }
 
   // ------------------------------------------------------------------------------ GPS and the world map
-  /** Route the GPS from the player's nearest crossing to this event's start (null clears it). */
+  /** In the hub, route the GPS from the player to the portal of this event's circuit (null clears it; on a circuit it clears). */
   setGps(ev: EventDef | null): void {
     if (this.gpsMesh) { this.gpsMesh.removeFromParent(); this.gpsMesh.geometry.dispose(); this.gpsMesh = null; }
-    if (!ev) { this.gpsTarget = null; return; }
-    const node = ev.nodes[0], path = gridPath(nearestNode(this.PV.x, this.PV.z), node);
-    this.gpsTarget = { label: (EV_NAME[ev.type] + ': ' + ev.name).toUpperCase(), node, path };
+    if (!ev || this.zone.kind !== 'hub') { this.gpsTarget = null; return; }
+    const target = HUB.portals[trackOfEvent(ev.id)], path = shortestPath([this.PV.x, this.PV.z], target);
+    this.gpsTarget = { label: (EV_NAME[ev.type] + ': ' + ev.name).toUpperCase(), target, path };
     if (path.length > 1 && this.gpsMat) { this.gpsMesh = new THREE.Mesh(ribbon(path, 1.1, .05), this.gpsMat); this.gpsMesh.renderOrder = 1; this.scene.add(this.gpsMesh); }
   }
   toggleMap(force?: boolean): void { this.mapOpen = force ?? !this.mapOpen; if (this.mapOpen) this.mapSel = 0; }
-  mapItems(): MapItem[] { const st = this.stage(); return [{ n: 'Clear GPS', clear: true }, ...EVENTS.filter(e => e.stage <= st).map(e => ({ n: EV_NAME[e.type] + ': ' + e.name, ev: e, node: e.nodes[0] }))]; }
+  mapItems(): MapItem[] { const st = this.stage(); return [{ n: 'Clear GPS', clear: true }, ...EVENTS.filter(e => e.stage <= st).map(e => ({ n: EV_NAME[e.type] + ': ' + e.name, ev: e }))]; }
   mapMove(dir: -1 | 1): void { const n = this.mapItems().length; this.mapSel = (this.mapSel + dir + n) % n; }
   /** Enter on the map: set (or clear) the GPS and close the map. */
   mapActivate(): void { const it = this.mapItems()[this.mapSel]; this.setGps(it && !it.clear && it.ev ? it.ev : null); this.toggleMap(false); this.opts.onSfx('ok'); }
-  /** Night Tuner's drawMap into a 2D context sized w × h (CSS pixels; the caller sets up the device-pixel transform and clears). */
+  /** The zone's map into a 2D context sized w x h (CSS pixels; the caller sets up the device-pixel transform and clears). */
   drawMapInto(g: CanvasRenderingContext2D, w: number, h: number): void {
-    const PV = this.PV, st = this.stage();
-    const sc = Math.min(w, h) / (SPAN + CELL * 2);
-    g.save(); g.translate((w - SPAN * sc) / 2, (h - SPAN * sc) / 2); g.scale(sc, sc);
-    g.fillStyle = '#0e1217'; g.fillRect(-CELL, -CELL, SPAN + CELL * 2, SPAN + CELL * 2);
-    g.strokeStyle = 'rgba(150,170,200,.5)'; g.lineWidth = RW; g.beginPath();
-    for (let i = 0; i <= N; i++) { g.moveTo(i * CELL, -RW); g.lineTo(i * CELL, SPAN + RW); g.moveTo(-RW, i * CELL); g.lineTo(SPAN + RW, i * CELL); }
-    g.stroke();
+    const PV = this.PV, st = this.stage(), z = this.zone;
+    const b = zoneBounds(z), M = 40, bw = b.maxX - b.minX + 2 * M, bh = b.maxZ - b.minZ + 2 * M;
+    const sc = Math.min(w / bw, h / bh);
+    g.save(); g.translate((w - bw * sc) / 2 - (b.minX - M) * sc, (h - bh * sc) / 2 - (b.minZ - M) * sc); g.scale(sc, sc);
+    g.fillStyle = '#1b2a1b'; g.fillRect(b.minX - M, b.minZ - M, bw, bh);
+    g.strokeStyle = 'rgba(200,205,215,.8)'; g.lineJoin = 'round';
+    for (const r of zoneRoads(z)) {
+      g.lineWidth = r.width; g.beginPath();
+      r.pts.forEach((p, i) => i ? g.lineTo(p[0], p[1]) : g.moveTo(p[0], p[1]));
+      if (r.loop) g.closePath();
+      g.stroke();
+    }
     const sel = this.mapOpen ? this.mapItems()[this.mapSel] : undefined;
-    for (const m of this.markers) {
+    if (z.kind === 'hub') {
+      g.fillStyle = ACCENT;
+      for (const m of this.markers) { if (m.kind !== 'portal') continue; const hot = !!sel?.ev && trackOfEvent(sel.ev.id) === m.id, r = hot ? 22 : 14; g.fillRect(m.x - r / 2, m.z - r / 2, r, r); }
+    }
+    for (const m of this.hudMarkers()) {
       if (m.ev.stage > st) continue; const hot = !!sel && sel.ev === m.ev;
       g.fillStyle = EV_COL[m.ev.type]; g.beginPath(); g.arc(m.x, m.z, hot ? 16 : 10, 0, 7); g.fill();
-      if (hot) { const r = routeOf(m.ev); g.strokeStyle = EV_COL[m.ev.type]; g.lineWidth = 6; g.beginPath(); r.pts.forEach((p, i) => i ? g.lineTo(p[0], p[1]) : g.moveTo(p[0], p[1])); if (r.loop) g.closePath(); g.stroke(); }
+      if (hot && trackLoaded(trackOfEvent(m.ev.id))) { const r = routeFor(m.ev.id); g.strokeStyle = EV_COL[m.ev.type]; g.lineWidth = 6; g.beginPath(); r.pts.forEach((p, i) => i ? g.lineTo(p[0], p[1]) : g.moveTo(p[0], p[1])); if (r.loop) g.closePath(); g.stroke(); }
     }
     const gps = this.gpsTarget;
-    if (gps && gps.path.length) { g.strokeStyle = ACCENT; g.lineWidth = 5; g.setLineDash([10, 8]); g.beginPath(); gps.path.forEach((n, i) => i ? g.lineTo(n[0] * CELL, n[1] * CELL) : g.moveTo(n[0] * CELL, n[1] * CELL)); g.stroke(); g.setLineDash([]); }
+    if (gps && gps.path.length) { g.strokeStyle = ACCENT; g.lineWidth = 5; g.setLineDash([10, 8]); g.beginPath(); gps.path.forEach((n, i) => i ? g.lineTo(n[0], n[1]) : g.moveTo(n[0], n[1])); g.stroke(); g.setLineDash([]); }
     for (const c of this.ais) { if (c.parked || c.kind === 'traffic') continue; g.fillStyle = c.kind === 'rival' ? TUBE_BLUE : CHROME; g.beginPath(); g.arc(c.x, c.z, 7, 0, 7); g.fill(); }
     g.save(); g.translate(PV.x, PV.z); g.rotate(Math.PI - PV.h); g.fillStyle = ACCENT; g.beginPath(); g.moveTo(0, -14); g.lineTo(9, 10); g.lineTo(0, 5); g.lineTo(-9, 10); g.closePath(); g.fill(); g.restore();
     g.restore();
+    // the circuits and the hub are drawn from OpenStreetMap data (ODbL): credited on the map in both zones
+    g.save(); g.font = '11px ' + MAP_FONT; g.fillStyle = 'rgba(223,231,242,.6)'; g.textAlign = 'center'; g.textBaseline = 'bottom';
+    g.fillText(OSM_CREDIT, w / 2, h - 6); g.restore();
   }
 
   /** Free everything the Strip made (leaves first if the player is in it). */
   dispose(): void {
     this.exit();
+    this.gen++;
     if (this.runner.active) this.runner.cleanup();
     for (const A of this.ais) this.disposeCar(A.m as THREE.Group | undefined);
     this.ais.length = 0;
     for (const t of this.tags) t.material.dispose(); this.tags = [];
     this.tagTex?.dispose(); this.tagTex = null;
+    this.dropRibbon(); this.dropGate();
     this.setGps(null); this.gpsMat?.dispose(); this.gpsMat = null;
     this.envRT?.dispose(); this.envRT = null;
     this.lot?.dispose(); this.lot = null; this.inLobby = false;
-    this.city?.dispose(); this.city = null;
+    if (this.mounted) { this.mounted.dispose(); this.mounted = null; }
+    this.hub?.dispose(); this.hub = null;
+    this.zone = { kind: 'hub' }; setWallZone(zoneWalls(this.zone));
     this.scene = new THREE.Scene(); this.markers = [];
     this.ready = false;
   }
 }
 
-const ROUTES = new WeakMap<EventDef, Route>();
-const routeOf = (ev: EventDef): Route => { let r = ROUTES.get(ev); if (!r) { r = buildRoute(ev.nodes, !!ev.loop); ROUTES.set(ev, r); } return r; };
-
-/** A flat strip along a node path (road centres), `width` m wide, `y` m up, in world units. */
-export function ribbon(path: Node[], width: number, y: number): THREE.BufferGeometry {
+/** A flat strip along a path in metres, `width` m wide, `y` m up; the geometry is in world units. */
+export function ribbon(path: Pt[], width: number, y: number): THREE.BufferGeometry {
   const pos: number[] = [], idx: number[] = []; const hw = width / 2;
   for (let k = 0; k < path.length - 1; k++) {
-    const ax = path[k][0] * CELL, az = path[k][1] * CELL, bx = path[k + 1][0] * CELL, bz = path[k + 1][1] * CELL;
+    const ax = path[k][0], az = path[k][1], bx = path[k + 1][0], bz = path[k + 1][1];
     const L = Math.hypot(bx - ax, bz - az) || 1, nx = -(bz - az) / L * hw, nz = (bx - ax) / L * hw;
     // run past the crossings by half a width so the turns close
     const ex = (bx - ax) / L * hw, ez = (bz - az) / L * hw;
@@ -399,15 +527,13 @@ export function ribbon(path: Node[], width: number, y: number): THREE.BufferGeom
   return g;
 }
 
-/** Night Tuner's makeEnv(warm) in the brand's colours: a few lit boxes turned into a reflection map. */
+/** The reflection map in daylight: sky above, grass below, one bright sun box. */
 function makeEnv(renderer: THREE.WebGLRenderer): THREE.WebGLRenderTarget {
-  const s = new THREE.Scene(); s.background = new THREE.Color(0x0a0a10);
+  const s = new THREE.Scene(); s.background = new THREE.Color(SKY);
   const g = new THREE.BoxGeometry(1, 1, 1); const ms: THREE.Material[] = [];
   const P = (c: THREE.ColorRepresentation, i: number, x: number, y: number, z: number, sx: number, sy: number, sz: number) => { const mat = new THREE.MeshBasicMaterial({ color: new THREE.Color(c).multiplyScalar(i) }); ms.push(mat); const m = new THREE.Mesh(g, mat); m.position.set(x, y, z); m.scale.set(sx, sy, sz); s.add(m); };
-  for (let i = -2; i <= 2; i++) P(0xffffff, 1.1, i * 3.2, 10, 0, .5, .1, 16);
-  P(TUBE_BLUE, 1.4, -13, 3, 0, .3, 5, 24); P(ACCENT, 1.2, 13, 3, 0, .3, 5, 24);
-  P(0xffa040, .9, 0, 1.5, -15, 30, 3, .3); P(0xff9a30, .6, 0, 1.5, 15, 30, 3, .3);
-  P(0x05070c, 1, 0, -4, 0, 60, .2, 60);
+  P(GRASS, 1, 0, -4, 0, 60, .2, 60);
+  P(0xfff1dc, 6, 12, 14, 6, 6, .4, 6);
   const pm = new THREE.PMREMGenerator(renderer); const t = pm.fromScene(s, .035); pm.dispose();
   g.dispose(); ms.forEach(m => m.dispose());
   return t;

@@ -5,7 +5,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { spawn, spawnSync, type ChildProcess } from 'node:child_process';
 import { createServer, type Server } from 'node:http';
 import type { AddressInfo } from 'node:net';
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -38,6 +38,7 @@ beforeAll(async () => {
   const mailUrl = `http://127.0.0.1:${(mailer.address() as AddressInfo).port}/emails`;
   dir = mkdtempSync(path.join(tmpdir(), 'micar-wiring-'));
   mkdirSync(path.join(dir, 'data'));
+  cpSync(path.join(APP, 'public', 'strip', 'tracks'), path.join(dir, 'dist', 'strip', 'tracks'), { recursive: true }); // the track data a deployed dist carries
   const saved = { name: 'Saved', money: 1234, octane: 0, stamps: [], strip: freshStrip(), inventory: [] };
   writeFileSync(path.join(dir, 'data', 'gameState.json'), JSON.stringify({ accounts: { [ACCOUNT]: { id: ACCOUNT, identities: [{ kind: 'email', email: 'saved@example.com' }], player: saved, createdAt: 1 } } }));
   child = spawn(process.execPath, [path.join(APP, 'node_modules/tsx/dist/cli.mjs'), path.join(APP, 'server.ts')], {
@@ -87,7 +88,7 @@ const join = async (s: Socket, msg: object) => { const init = next<any>(s, 'init
 const close = async (...ss: Socket[]) => { for (const s of ss) s.close(); await new Promise(r => setTimeout(r, 200)); };
 const rentOne = async (s: Socket, id: string) => {
   const upd = next<any>(s, 'update', u => u.players[id]?.inventory?.some((c: any) => c.rental));
-  s.emit('rent_car', { key: 'hatchback' });
+  s.emit('rent_car', { key: 'ronin' });
   return (await upd).players[id].inventory.find((c: any) => c.rental);
 };
 
@@ -122,6 +123,23 @@ describe('server wiring', () => {
     const me = (await check).players[di.id];
     expect(me.money).toBe(25000 - 500); expect(me.floorPlanDebt).toBe(0);
     expect(me.inventory.map((c: any) => c.id)).toContain(dr.id);
+    await close(g, d);
+  }, 30_000);
+
+  it('rent_car refuses an unknown key and an unaffordable car, charging nothing', async () => {
+    const g = client();
+    const gi = await join(g, { mode: 'guest', name: 'WireRent' });
+    const bad = next<any>(g, 'strip_denied');
+    g.emit('rent_car', { key: 'coupe' });
+    expect((await bad).reason).toBe('That car is not for rent.');
+    const poor = next<any>(g, 'strip_denied');
+    g.emit('rent_car', { key: 'brute' });
+    expect((await poor).reason).toBe('Not enough money');
+    const d = client();
+    const seen = next<any>(g, 'update');
+    await join(d, { name: 'WireRentDealer', lotScale: 'Small' });
+    const me = (await seen).players[gi.id];
+    expect(me.money).toBe(500); expect(me.inventory.some((c: any) => c.rental)).toBe(false);
     await close(g, d);
   }, 30_000);
 
