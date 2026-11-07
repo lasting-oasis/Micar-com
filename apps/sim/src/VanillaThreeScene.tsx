@@ -79,10 +79,18 @@ export function VanillaThreeScene() {
             }
             return () => {};
         }
+        // App's phone layout (on-screen D-pad and buttons): the same test as App's isMobile
+        const touchUi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+        // The car's district. Declared above pixelRatioFor, which reads it when the renderer is created.
+        let district: 'town' | 'strip' = 'town';
         // Low renders at 1x, High at up to 2x on hi-DPI screens. Set before the first
         // sizing: every size change re-allocates the (multisampled) drawing buffer,
         // and a phone on Low used to allocate a 2x one just to drop it again.
-        const pixelRatioFor = (q: 'high' | 'low') => q === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
+        // A phone in the Strip is capped at 1.5x (Low stays at 1x); the town keeps the device ratio.
+        const pixelRatioFor = (q: 'high' | 'low'): number => {
+            const base = q === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
+            return district === 'strip' && touchUi ? Math.min(1.5, base) : base;
+        };
         renderer.setPixelRatio(pixelRatioFor(useGameStore.getState().graphicsQuality));
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.shadowMap.enabled = true;
@@ -596,7 +604,6 @@ export function VanillaThreeScene() {
         // driver.pose(). The Speedway is now the gate to the Strip (scene/world/gate.ts), a second
         // scene (world/strip/scene.ts) the car group is moved into.
         const W = WORLD_PER_M;
-        let district: 'town' | 'strip' = 'town';
         let driver: Driver | null = null;
         let driveSpec: { key: string; spec: VehicleSpec } | null = null; // specFor takes ~20 ms: once per car
         let paramsKey = '', kitKey = '';
@@ -619,8 +626,6 @@ export function VanillaThreeScene() {
         const hudCanvas = hudCanvasRef.current, layerRoot = layerRef.current;
         const hud = hudCanvas ? new Hud(hudCanvas) : null;
         let hudSized = false;
-        // App's phone layout (on-screen D-pad and buttons): the same test as App's isMobile
-        const touchUi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
         const driveCam = new THREE.PerspectiveCamera(64, window.innerWidth / window.innerHeight, 1, 6500);
         const chase = new ChaseCamera(driveCam);
         const audio = new NtAudio(getOptions().mute); // the Garage's Options: Sound
@@ -713,6 +718,7 @@ export function VanillaThreeScene() {
             S.enter(driver.V, mesh);
             carFeel.clearSkids('town');
             district = 'strip'; paused = false; resultsShown = false; driftMode = false;
+            { const pr = pixelRatioFor(useGameStore.getState().graphicsQuality); if (renderer.getPixelRatio() !== pr) renderer.setPixelRatio(pr); }
             chase.reset(driver.V);
             interactPrompt.material.opacity = 0;
             const st = useGameStore.getState();
@@ -728,6 +734,7 @@ export function VanillaThreeScene() {
             strip.exit(); // cleans up the event, gives the car group back to the town scene
             carFeel.clearSkids('strip');
             district = 'town'; paused = false; resultsShown = false;
+            { const pr = pixelRatioFor(useGameStore.getState().graphicsQuality); if (renderer.getPixelRatio() !== pr) renderer.setPixelRatio(pr); }
             mendEngine(); // a drag's blown engine stays in the Strip
             const mesh = localDrivingCarId ? carMeshes[localDrivingCarId] : undefined;
             if (driver) {
@@ -1071,6 +1078,7 @@ export function VanillaThreeScene() {
             place: (x: number, z: number, rotY = Math.PI): boolean => { if (!driver) return false; driver.place(x / W, z / W, rotY - Math.PI); chase.reset(driver.V); return true; },
             enterStrip: () => enterStrip(),
             exitStrip: () => exitStrip(),
+            pixelRatio: () => renderer.getPixelRatio(),
             /** rent a car at the counter (the same call the counter's buttons make) */
             rent: (key: string): boolean => { const me = meNow(); if (!me || !canRent(me, key as RentalKey).ok) return false; useGameStore.getState().rentCar(key); return true; },
             /** in the rental lobby (a Strip visitor without a car) */
