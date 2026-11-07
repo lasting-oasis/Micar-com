@@ -91,6 +91,11 @@ export function VanillaThreeScene() {
             const base = q === 'low' ? 1 : Math.min(window.devicePixelRatio, 2);
             return district === 'strip' && touchUi ? Math.min(1.5, base) : base;
         };
+        /** Re-applies the ratio for the current district and quality; a no-op when it is unchanged (setPixelRatio re-allocates the buffer). */
+        const applyPixelRatio = () => {
+            const pr = pixelRatioFor(useGameStore.getState().graphicsQuality);
+            if (renderer.getPixelRatio() !== pr) renderer.setPixelRatio(pr);
+        };
         renderer.setPixelRatio(pixelRatioFor(useGameStore.getState().graphicsQuality));
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.shadowMap.enabled = true;
@@ -718,7 +723,7 @@ export function VanillaThreeScene() {
             S.enter(driver.V, mesh);
             carFeel.clearSkids('town');
             district = 'strip'; paused = false; resultsShown = false; driftMode = false;
-            { const pr = pixelRatioFor(useGameStore.getState().graphicsQuality); if (renderer.getPixelRatio() !== pr) renderer.setPixelRatio(pr); }
+            applyPixelRatio();
             chase.reset(driver.V);
             interactPrompt.material.opacity = 0;
             const st = useGameStore.getState();
@@ -734,7 +739,7 @@ export function VanillaThreeScene() {
             strip.exit(); // cleans up the event, gives the car group back to the town scene
             carFeel.clearSkids('strip');
             district = 'town'; paused = false; resultsShown = false;
-            { const pr = pixelRatioFor(useGameStore.getState().graphicsQuality); if (renderer.getPixelRatio() !== pr) renderer.setPixelRatio(pr); }
+            applyPixelRatio();
             mendEngine(); // a drag's blown engine stays in the Strip
             const mesh = localDrivingCarId ? carMeshes[localDrivingCarId] : undefined;
             if (driver) {
@@ -849,6 +854,7 @@ export function VanillaThreeScene() {
             stripExit.group.visible = !visitor(); // a visitor has no way back to town
             S.lobby(driveCam);
             lobby = true; district = 'strip'; paused = false;
+            applyPixelRatio();
             if (layerRoot) im.attach(layerRoot); // Esc and Enter (the pause menu, the results card)
             interactPrompt.material.opacity = 0;
             const st = useGameStore.getState();
@@ -859,6 +865,7 @@ export function VanillaThreeScene() {
         /** A dealer who landed in the lobby (a reload while in the Strip) walks back into the town. */
         const lobbyToTown = () => {
             strip?.leaveLobby(); lobby = false; district = 'town'; paused = false;
+            applyPixelRatio();
             im.detach();
             useDriveUi.setState({ district: 'town', lobby: false, counter: false, paused: false });
             sendPlayerPos();
