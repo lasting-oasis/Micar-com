@@ -126,6 +126,23 @@ describe('server wiring', () => {
     await close(g, d);
   }, 30_000);
 
+  it('rent_car refuses an unknown key and an unaffordable car, charging nothing', async () => {
+    const g = client();
+    const gi = await join(g, { mode: 'guest', name: 'WireRent' });
+    const bad = next<any>(g, 'strip_denied');
+    g.emit('rent_car', { key: 'coupe' });
+    expect((await bad).reason).toBe('That car is not for rent.');
+    const poor = next<any>(g, 'strip_denied');
+    g.emit('rent_car', { key: 'brute' });
+    expect((await poor).reason).toBe('Not enough money');
+    const d = client();
+    const seen = next<any>(g, 'update');
+    await join(d, { name: 'WireRentDealer', lotScale: 'Small' });
+    const me = (await seen).players[gi.id];
+    expect(me.money).toBe(500); expect(me.inventory.some((c: any) => c.rental)).toBe(false);
+    await close(g, d);
+  }, 30_000);
+
   it('the host is always a dealer: a visitor never inherits it, and the next dealer claims it', async () => {
     const d1 = client();
     const i1 = await join(d1, { name: 'HostOne', lotScale: 'Small' });

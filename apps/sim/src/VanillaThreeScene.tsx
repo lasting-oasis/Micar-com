@@ -31,7 +31,7 @@ import { WORLD_PER_M } from './world/units';
 import { CarFeelAdapter } from './scene/carFeelAdapter';
 import { useDriveUi, type ShownResults } from './world/driveUi';
 import { DriveLayer } from './world/DriveLayer';
-import { RENTAL_BAY, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
+import { RENTAL_BAY, RENTAL_FLEET, type RentalKey, canRent, heldRental, isVisitor } from './world/rental';
 
 export function VanillaThreeScene() {
     const mountRef = useRef<HTMLDivElement>(null);
@@ -644,13 +644,13 @@ export function VanillaThreeScene() {
         const isDrag = () => district === 'strip' && strip?.runner.active?.type === 'drag';
         const manualNow = () => getOptions().manual || isDrag();
         const im = new InputMap({ manual: manualNow, hydraulics: () => !!(localDrivingCarId && buildOf(localDrivingCarId).cfg.hydraulics) });
-        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number };
+        type InvCar = { id: string; make?: string; model: string; bodyStyle?: string; fuel?: number; rental?: boolean };
         const styleOf = (car: InvCar) => (car.bodyStyle || deriveStyle(car.model)) as BodyStyle;
         const meNow = () => { const st = stateRef.current; return st.gameState?.players[st.playerId || '']; };
         const drivenCar = (): InvCar | undefined => meNow()?.inventory.find(c => c.id === localDrivingCarId);
         const specOf = (car: InvCar): VehicleSpec => {
-            const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}`;
-            if (!driveSpec || driveSpec.key !== key) driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car) }) };
+            const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}|${!!car.rental}`;
+            if (!driveSpec || driveSpec.key !== key) driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car), rental: car.rental }) };
             return driveSpec.spec;
         };
         const perfKey = (b: { cfg: CarCfg; tune: Tune }) => JSON.stringify(b.cfg.perf) + JSON.stringify(b.tune);
@@ -1090,7 +1090,7 @@ export function VanillaThreeScene() {
             exitStrip: () => exitStrip(),
             pixelRatio: () => renderer.getPixelRatio(),
             /** rent a car at the counter (the same call the counter's buttons make) */
-            rent: (key: string): boolean => { const me = meNow(); if (!me || !canRent(me, key as RentalKey).ok) return false; useGameStore.getState().rentCar(key); return true; },
+            rent: (key: string): boolean => { const me = meNow(); if (!me || !RENTAL_FLEET.some(f => f.key === key) || !canRent(me, key as RentalKey).ok) return false; useGameStore.getState().rentCar(key); return true; },
             /** in the rental lobby (a Strip visitor without a car) */
             lobby: () => lobby,
             startEvent: (id: string) => startEventById(id),

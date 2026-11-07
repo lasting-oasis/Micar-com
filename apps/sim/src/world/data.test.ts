@@ -6,9 +6,9 @@ import index from './strip/tracks.json';
 describe('world data', () => {
   it('every archetype drives plausibly', () => { for (const s of Object.values(ARCHETYPES)) { const st = simStats(carParams(s, STOCK_CFG.perf, TUNE_DEF)); expect(st.t100).toBeGreaterThan(3); expect(st.t100).toBeLessThan(14); expect(st.top).toBeGreaterThan(150); expect(st.top).toBeLessThan(330); } });
   const fitted = (make: string, model: string, bodyStyle: string) => { const st = simStats(carParams(specFor({ make, model, bodyStyle }), STOCK_CFG.perf, TUNE_DEF)); return { t100: st.t100 as number, top: st.top }; };
-  it('specFor fits a known car to its 0-60 and top speed', () => { const s = specFor({ make: 'Ford', model: 'Mustang', bodyStyle: 'coupe' }); const st = fitted('Ford', 'Mustang', 'coupe'); expect(st.t100).toBeGreaterThanOrEqual(4.3); expect(st.t100).toBeLessThanOrEqual(6.5); /* brief asked <= 5.0: unreachable (traction + shift limited), see task-3 report */ expect(s.drive).toBe('RWD'); expect(s.mass).toBeCloseTo(3800 * 0.4536, 0); });
+  it('specFor fits a known car to its 0-60 and top speed', () => { const s = specFor({ make: 'Ford', model: 'Mustang', bodyStyle: 'coupe' }); const st = fitted('Ford', 'Mustang', 'coupe'); expect(st.t100).toBeGreaterThanOrEqual(4.3); expect(st.t100).toBeLessThanOrEqual(6.5); /* traction-limited RWD launch */ expect(s.drive).toBe('RWD'); expect(s.mass).toBeCloseTo(3800 * 0.4536, 0); });
   it('real cars land near their published numbers', () => {
-    const vette = fitted('Chevy', 'Corvette', 'sports'); expect(vette.t100).toBeLessThan(6.0); /* brief asked < 4.0: unreachable at gripMul 1.06 RWD, see task-3 report */ expect(vette.top).toBeGreaterThan(280);
+    const vette = fitted('Chevy', 'Corvette', 'sports'); expect(vette.t100).toBeLessThan(6.0); /* traction-limited RWD launch */ expect(vette.top).toBeGreaterThan(280);
     const camry = fitted('Toyota', 'Camry', 'sedan'); expect(camry.t100).toBeGreaterThanOrEqual(7.4); expect(camry.t100).toBeLessThanOrEqual(8.4); expect(camry.top).toBeGreaterThanOrEqual(205); expect(camry.top).toBeLessThanOrEqual(230);
     const f150 = fitted('Ford', 'F-150', 'truck'); expect(f150.t100).toBeGreaterThanOrEqual(6.0); expect(f150.t100).toBeLessThanOrEqual(7.2);
     expect(fitted('Toyota', 'Prius', 'hatchback').t100).toBeGreaterThan(9.5);

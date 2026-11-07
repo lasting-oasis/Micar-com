@@ -43,7 +43,7 @@ export const ARCHETYPES: Record<BodyStyle, VehicleSpec> = {
 export const FLEET_SPECS: Record<'civet' | 'kanjo' | 'ronin' | 'tsubasa' | 'brute', VehicleSpec> = {
   civet: clone<VehicleSpec>(CARS.civet), kanjo: clone<VehicleSpec>(CARS.kanjo), ronin: clone<VehicleSpec>(CARS.ronin), tsubasa: clone<VehicleSpec>(CARS.tsubasa), brute: clone<VehicleSpec>(CARS.brute),
 };
-const FLEET_NAMES: Record<string, keyof typeof FLEET_SPECS> = { 'Civet R': 'civet', 'Kanjo S': 'kanjo', 'Ronin GT': 'ronin', 'Tsubasa R4': 'tsubasa', 'Brute 440': 'brute' };
+export const FLEET_NAMES: Record<string, keyof typeof FLEET_SPECS> = { 'Civet R': 'civet', 'Kanjo S': 'kanjo', 'Ronin GT': 'ronin', 'Tsubasa R4': 'tsubasa', 'Brute 440': 'brute' };
 export const STYLES = Object.keys(ARCHETYPES) as BodyStyle[];
 
 /* ---- visual parts: v=value, n=name, p=price, d=description; rmax = star-rating weight of the category ---- */
@@ -224,15 +224,23 @@ export function fitSpec(base: VehicleSpec, real: CarSpec): VehicleSpec {
   return fit;
 }
 
-/** The body-style archetype (fitted to the real car's 0-60 and top speed when known), with the style's grip and ride height. Fleet cars keep their authored specs. */
+const specCache = new Map<string, VehicleSpec>();
+/** Size of the specFor cache (tests). */
+export const specCacheSize = () => specCache.size;
+
+/** The body-style archetype with the style's grip and ride height, fitted to the real car's 0-60 and top speed when known (the fit runs on the chassis that drives). Fleet cars keep their authored specs. Cached per car type. */
 export function specFor(car: { make?: string; model?: string; bodyStyle?: string; rental?: boolean }): VehicleSpec {
   const fleet = car.rental ? FLEET_NAMES[`${car.make} ${car.model}`] : undefined;
   if (fleet) return clone(FLEET_SPECS[fleet]);
   const style: BodyStyle = isStyle(car.bodyStyle) ? car.bodyStyle : 'sedan';
-  const base = ARCHETYPES[style];
-  const out = hasModelSpec(car) ? { ...fitSpec(base, getCarSpec(car, style)), name: `${car.make} ${car.model}` } : clone(base);
+  const key = `${car.make}|${car.model}|${style}|${!!car.rental}`;
+  const hit = specCache.get(key);
+  if (hit) return clone(hit);
   const ch = STYLE_CHASSIS[style];
-  out.gripMul = ch.gripMul;
-  if (ch.h !== undefined) out.h = ch.h;
-  return out;
+  const base = clone(ARCHETYPES[style]);
+  base.gripMul = ch.gripMul;
+  if (ch.h !== undefined) base.h = ch.h;
+  const out = hasModelSpec(car) ? { ...fitSpec(base, getCarSpec(car, style)), name: `${car.make} ${car.model}` } : base;
+  specCache.set(key, out);
+  return clone(out);
 }

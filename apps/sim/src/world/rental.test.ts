@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { FLEET_SPECS, FLEET_NAMES, specFor, specCacheSize } from './data';
 import { GUEST_STAKE, RENTAL_FLEET, priceOf, canRent, rent, returnRental, heldRental, isVisitor } from './rental';
 const player = (money: number) => ({ id: 'p1', money, inventory: [] as any[], octane: 0, stamps: [] } as any);
 describe('rental', () => {
@@ -50,5 +51,21 @@ describe('isVisitor', () => {
     expect(isVisitor({ guest: false })).toBe(false);
     expect(isVisitor({})).toBe(false);
     expect(isVisitor(undefined)).toBe(false);
+  });
+  it('FLEET_NAMES mirrors RENTAL_FLEET', () => {
+    expect(RENTAL_FLEET.map(f => f.make + ' ' + f.model)).toEqual(Object.keys(FLEET_NAMES));
+    expect(RENTAL_FLEET.map(f => f.key)).toEqual(Object.values(FLEET_NAMES));
+  });
+  it('the game drives the authored fleet specs, ungripped', () => {
+    for (const f of RENTAL_FLEET) {
+      const s = specFor(rent(player(2000), f.key, Date.now()));
+      expect(s).toEqual(FLEET_SPECS[f.key]); expect(s.gripMul).toBeUndefined();
+    }
+  });
+  it('specFor caches per car type', () => {
+    const car = { make: 'Honda', model: 'Civic', bodyStyle: 'sedan' };
+    const a = specFor(car); const n = specCacheSize();
+    const t = performance.now(); const b = specFor(car); const dt = performance.now() - t;
+    expect(b).toEqual(a); expect(b).not.toBe(a); expect(specCacheSize()).toBe(n); expect(dt).toBeLessThan(2);
   });
 });

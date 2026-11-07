@@ -3319,7 +3319,7 @@ function App() {
             </button>
           </div>
 
-          {!showUI && (
+          {!showUI && !driving && (
             <div className="flex justify-between items-end w-full">
               <TouchDPad />
 
