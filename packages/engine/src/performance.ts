@@ -1,7 +1,9 @@
 // The performance engine: the three layers of a vehicle's stats.
 //   base         A. the factory specification, scored
 //   vehicle      B. base, every recorded modification, and modelled or inspected wear: this vehicle as its passport describes it
-//   competition  base, plus only the modifications and wear an independent verifier attested: what ranked play uses
+//   competition  base, plus only the modifications and wear an independent verifier attested: what ranked play uses.
+//                Its wear comes from a condition worked out from verified inputs alone, so no entry an owner makes
+//                (a later reading, a receipt, a declaration) can add to it or take away from it.
 // Each change is itemised, one modification at a time in the order they were fitted and then one worn system at a
 // time, and the deltas of a layer add up exactly to that layer minus base.
 // The only inputs are a specification, modification records and a condition state. Documents are not an input:
@@ -17,7 +19,15 @@ import type { ActiveModification, AttributeKey, AttributeScores, ConditionState,
 export type StatsInputs = {
   spec: VehicleSpec;
   modifications?: readonly ActiveModification[];
+  /** The vehicle's condition from everything on its passport. It wears the vehicle layer. */
   condition?: ConditionState | null;
+  /**
+   * The condition worked out from verified inputs alone (a verifier's reading, replacements a verifier confirmed,
+   * inspections). It wears the competition layer, and only it does: nothing an owner types or uploads can add to
+   * this state or take away from it, so nothing an owner does can move a ranked score. Leave it out and the
+   * competition layer carries no wear.
+   */
+  competitionCondition?: ConditionState | null;
   options?: ScoreOptions;
 };
 
@@ -30,7 +40,7 @@ const atLeast = (evidence: EvidenceLevel, least: EvidenceLevel): boolean => EVID
 function scoreWith(spec: VehicleSpec, mods: readonly ActiveModification[], options: ScoreOptions): AttributeScores {
   if (mods.length === 0) return scoreSpec(spec, options);
   const modified = applyModifications(spec, mods);
-  return scoreSpec(modified.spec, { ...options, adjust: modified.adjust });
+  return scoreSpec(modified.spec, { ...options, adjust: modified.adjust, derived: modified.changed });
 }
 
 function buildLayer(spec: VehicleSpec, mods: readonly ActiveModification[], condition: ConditionState | null, least: EvidenceLevel, options: ScoreOptions): { layer: StatLayer; adjustments: StatAdjustment[] } {
@@ -77,9 +87,8 @@ function buildLayer(spec: VehicleSpec, mods: readonly ActiveModification[], cond
 export function vehicleStats(inputs: StatsInputs): VehicleStats {
   const options = inputs.options ?? {};
   const mods = inputs.modifications ?? [];
-  const condition = inputs.condition ?? null;
-  const vehicle = buildLayer(inputs.spec, mods, condition, 'declared', options);
-  const competition = buildLayer(inputs.spec, mods, condition, 'verified', options);
+  const vehicle = buildLayer(inputs.spec, mods, inputs.condition ?? null, 'declared', options);
+  const competition = buildLayer(inputs.spec, mods, inputs.competitionCondition ?? null, 'verified', options);
   return {
     ruleset: RULESET,
     base: layerOf(scoreSpec(inputs.spec, options)),

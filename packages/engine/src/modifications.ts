@@ -6,7 +6,7 @@
 // Nothing here stores anything: the factory specification is never changed, a modified copy is returned.
 import type { ScoreAdjustments } from './normalize';
 import { ACCELERATION, HANDLING } from './rules';
-import type { ActiveModification, InstallQuality, ModCategory, ModTier, Sourced, VehicleSpec } from './types';
+import type { ActiveModification, InstallQuality, ModCategory, ModTier, Sourced, SpecField, VehicleSpec } from './types';
 import { isNumber } from './util';
 
 /**
@@ -194,17 +194,21 @@ function resolve(mods: readonly ActiveModification[], electric: boolean): { appl
 
 /** The note a figure carries once a modification has changed it. Its source kind, publisher and day stay as they were. */
 const AFTER_MODIFICATIONS = 'after modifications';
+/** The figures a modification can move. */
+const MOVABLE: readonly SpecField[] = ['horsepower', 'torqueLbFt', 'curbWeightLb', 'combinedMpg', 'cityMpg', 'highwayMpg', 'zeroToSixtySec', 'topSpeedMph', 'groundClearanceIn'];
 
 /** Economy gained for each share of weight removed: 10% lighter is 6% more miles per gallon. */
 const ECONOMY_PER_WEIGHT_SHARE = 0.6;
 
 /**
- * A figure with a new value: the same source, marked. A missing figure stays missing, an unmoved one stays as it was,
- * and a result that is not a number (a record with no horsepower to compare) never replaces a figure.
+ * A figure with a new value. It is no longer its source's figure: nobody published or measured the result, so it is
+ * marked as worked out (an illustrative figure stays illustrative) and says why. A missing figure stays missing, an
+ * unmoved one stays as it was, and a result that is not a number (a record with no horsepower to compare) never
+ * replaces a figure.
  */
 function moved(cell: Sourced<number> | null, value: number | null): Sourced<number> | null {
   if (cell === null || value === null || !isNumber(value) || value === cell.value) return cell;
-  return { value, source: { ...cell.source, note: AFTER_MODIFICATIONS } };
+  return { value, source: { ...cell.source, kind: cell.source.kind === 'illustrative' ? 'illustrative' : 'owner', note: AFTER_MODIFICATIONS } };
 }
 
 /**
@@ -212,8 +216,10 @@ function moved(cell: Sourced<number> | null, value: number | null): Sourced<numb
  * together with the adjustments that are not specification figures. Score the result with
  * `scoreSpec(result.spec, { adjust: result.adjust })`: the same tables as a factory specification, nothing separate.
  *
- * What changes in the copy. A missing (null) figure always stays missing; a changed figure keeps its source and
- * gains `note: 'after modifications'`.
+ * What changes in the copy. A missing (null) figure always stays missing; a changed figure is no longer its source's
+ * own, so its source kind becomes 'owner' (or stays 'illustrative') with `note: 'after modifications'`, and the
+ * field is named in `changed`. Pass `changed` to scoreSpec as `derived` so the scores that read those figures say
+ * they were modelled, not measured.
  * - Horsepower, torque and curb weight are multiplied by the product of the tiers' multipliers.
  * - Combined, city and highway economy are multiplied by the tiers' economy multipliers and, when a curb weight is
  *   on file, by `1 + 0.6 x (share of weight removed)`: lighter is thriftier, heavier the reverse.
@@ -237,7 +243,7 @@ function moved(cell: Sourced<number> | null, value: number | null): Sourced<numb
 export function applyModifications(
   spec: VehicleSpec,
   mods: readonly ActiveModification[],
-): { spec: VehicleSpec; adjust: Required<ScoreAdjustments>; applied: ActiveModification[]; refused: ModRefusal[] } {
+): { spec: VehicleSpec; adjust: Required<ScoreAdjustments>; changed: SpecField[]; applied: ActiveModification[]; refused: ModRefusal[] } {
   const { applied, refused } = resolveModifications(spec, mods);
 
   let horsepower = 1, torque = 1, weight = 1, economy = 1, sprint = 1, topSpeed = 1;
@@ -278,20 +284,23 @@ export function applyModifications(
 
   const weightGrip = spec.lateralGripG === null || oldLb === null || newLb === null ? 0 : (newLb - oldLb) * HANDLING.model.gripPerLb;
 
+  const after: VehicleSpec = {
+    ...spec,
+    horsepower: moved(spec.horsepower, newHp),
+    torqueLbFt: scaled(spec.torqueLbFt, torque),
+    curbWeightLb: moved(spec.curbWeightLb, newLb),
+    combinedMpg: scaled(spec.combinedMpg, mpg),
+    cityMpg: scaled(spec.cityMpg, mpg),
+    highwayMpg: scaled(spec.highwayMpg, mpg),
+    zeroToSixtySec: moved(spec.zeroToSixtySec, sprintOnFile),
+    topSpeedMph: moved(spec.topSpeedMph, topOnFile),
+    groundClearanceIn: moved(spec.groundClearanceIn, spec.groundClearanceIn === null ? null : spec.groundClearanceIn.value + clearance),
+  };
+  const changed = MOVABLE.filter((field) => after[field] !== spec[field]);
   return {
-    spec: {
-      ...spec,
-      horsepower: moved(spec.horsepower, newHp),
-      torqueLbFt: scaled(spec.torqueLbFt, torque),
-      curbWeightLb: moved(spec.curbWeightLb, newLb),
-      combinedMpg: scaled(spec.combinedMpg, mpg),
-      cityMpg: scaled(spec.cityMpg, mpg),
-      highwayMpg: scaled(spec.highwayMpg, mpg),
-      zeroToSixtySec: moved(spec.zeroToSixtySec, sprintOnFile),
-      topSpeedMph: moved(spec.topSpeedMph, topOnFile),
-      groundClearanceIn: moved(spec.groundClearanceIn, spec.groundClearanceIn === null ? null : spec.groundClearanceIn.value + clearance),
-    },
+    spec: after,
     adjust: { gripG: grip + weightGrip, durabilityPoints: durability, reliabilityPoints: reliability, sprintFactor: sprint, topSpeedFactor: topSpeed },
+    changed,
     applied,
     refused,
   };

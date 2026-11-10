@@ -189,17 +189,30 @@ describe('replacements and rebuilds', () => {
       replacements: [{ system: 'engine', date: '2020-01-01', mileage: null, evidence: 'documented' }],
     }));
     expect(state.systems.engine.wear).toBeCloseTo(4 / 25, 12);
-    expect(state.systems.engine.evidence).toBe('declared');
+    // Counted from the receipt and nothing else, so it is as good as the receipt.
+    expect(state.systems.engine.evidence).toBe('documented');
     expect(state.systems.engine.sinceMileage).toBeNull();
     expect(state.systems.engine.sinceDate).toBe('2020-01-01');
     // The systems that still count miles keep the reading's evidence.
     expect(state.systems.transmission.evidence).toBe('verified');
   });
 
+  it('is only as well evidenced as the weakest thing it was counted from', () => {
+    const since = (reading: EvidenceLevel, receipt: EvidenceLevel) =>
+      assessCondition(tired({ mileage: { value: 180000, evidence: reading }, replacements: [{ system: 'engine', date: '2023-07-01', mileage: 170000, evidence: receipt }] })).systems.engine;
+    // A verified odometer reading does not make an unverified receipt verified: the wear is counted from both.
+    expect(since('verified', 'documented')).toMatchObject({ wear: 0.05, evidence: 'documented' });
+    expect(since('documented', 'verified')).toMatchObject({ wear: 0.05, evidence: 'documented' });
+    expect(since('verified', 'verified')).toMatchObject({ wear: 0.05, evidence: 'verified' });
+    expect(since('declared', 'verified').evidence).toBe('declared');
+    // With no replacement on record there is only the reading.
+    expect(assessCondition(tired({ mileage: { value: 180000, evidence: 'verified' } })).systems.engine.evidence).toBe('verified');
+  });
+
   it('counts years only from a replacement when no mileage is on file today', () => {
     const { engine } = assessCondition(car({ modelYear: 2016, replacements: [{ system: 'engine', date: '2020-01-01', mileage: 90000, evidence: 'documented' }] })).systems;
     expect(engine.wear).toBeCloseTo(4 / 25, 12);
-    expect(engine.evidence).toBe('declared');
+    expect(engine.evidence).toBe('documented');
     expect(engine.sinceMileage).toBe(90000);
   });
 
@@ -282,7 +295,7 @@ describe('brakes and tires', () => {
     for (const system of ['brakes', 'tires'] as const) {
       const state = assessCondition(car({ modelYear: 2018, replacements: [{ system, date: '2020-01-01', mileage: null, evidence: 'verified' }] }));
       expect(state.systems[system].wear).toBeCloseTo(4 / 6, 12);
-      expect(state.systems[system].evidence).toBe('declared');
+      expect(state.systems[system].evidence).toBe('verified');
     }
   });
 

@@ -202,6 +202,58 @@ describe('assembling a card', () => {
   });
 });
 
+describe('ranked stats on a real passport', () => {
+  // A 2012 car whose odometer an inspector read at 180,000 miles on 2026-11-01.
+  const attest = (p: Passport, over: Record<string, unknown>): Passport =>
+    ok(recordAttestation(p, { id: id(), verifierId: 'inspector-ann', scope: 'mileage', date: '2026-11-01', inPerson: true, conditionScore: null, systems: null, mileage: null, events: [], note: '', signature: null, ...over }, REGISTRY, { now: NOW, eventId: id() }));
+  const old = (): Passport => attest(parked({ ...civic(), identity: { ...civic().identity, year: 2012 } }), { mileage: 180000 });
+  const ranked = (p: Passport) => ATTRIBUTE_KEYS.map((k) => assemble(p, REGISTRY, TODAY).stats.competition.scores[k].value);
+  const mine = (p: Passport) => ATTRIBUTE_KEYS.map((k) => assemble(p, REGISTRY, TODAY).stats.vehicle.scores[k].value);
+
+  it('carry the wear a verifier’s reading implies', () => {
+    const a = assemble(old(), REGISTRY, TODAY);
+    expect(a.competitionCondition.systems.engine).toMatchObject({ wear: 0.9, basis: 'modelled', evidence: 'verified' });
+    expect(a.stats.competition.scores.reliability.value as number).toBeLessThan(a.stats.base.scores.reliability.value as number);
+    expect(a.stats.competitionAdjustments.every((x) => x.source === 'wear' && x.evidence === 'verified')).toBe(true);
+    // With no verifier connected the same passport races at its factory figures.
+    const none = assemble(old(), EMPTY_REGISTRY, TODAY);
+    expect(ATTRIBUTE_KEYS.map((k) => none.stats.competition.scores[k].value)).toEqual(ATTRIBUTE_KEYS.map((k) => none.stats.base.scores[k].value));
+  });
+
+  it('cannot be raised by anything the owner types or uploads afterwards', () => {
+    const before = ranked(old());
+    // (a) A newer reading the owner typed. It becomes the vehicle's latest reading, and it is only declared.
+    const typed = add(old(), { type: 'mileage', date: '2026-11-05', mileage: 180050 });
+    expect(assemble(typed, REGISTRY, TODAY).condition.mileageEvidence).toBe('declared');
+    expect(ranked(typed)).toEqual(before);
+    // (b) A declared salvage title. The vehicle's own durability falls; ranked play does not move, up or down.
+    const salvage = add(old(), { type: 'declaration', date: '2026-11-05', titleStatus: 'Salvage' });
+    expect(ranked(salvage)).toEqual(before);
+    expect(mine(salvage)[4] as number).toBeLessThan(mine(old())[4] as number);
+    // (c) An engine replacement with a photo attached and no odometer reading.
+    const swap = { type: 'repair', system: 'engine', work: 'replacement', shop: '', cost: null, attachments: [file('invoice')] };
+    const receipt = add(old(), { ...swap, date: '2026-11-06' });
+    expect(ranked(receipt)).toEqual(before);
+    expect(mine(receipt)[0] as number).toBeGreaterThan(mine(old())[0] as number);
+    // (d) The same receipt with an odometer reading on it.
+    const dated = add(old(), { ...swap, date: '2026-11-06', mileage: 179000 });
+    expect(ranked(dated)).toEqual(before);
+    // An owner who rolls the odometer forward gains nothing either: the verifier's figure is the one that counts.
+    expect(ranked(add(old(), { type: 'mileage', date: '2026-11-07', mileage: 400000 }))).toEqual(before);
+  });
+
+  it('follow a replacement once a verifier confirms it', () => {
+    let p = add(old(), { id: 'the-swap', type: 'repair', system: 'engine', work: 'replacement', shop: 'A shop', cost: 6000, date: '2026-10-20', mileage: 179000, attachments: [file('invoice')] });
+    const before = assemble(p, REGISTRY, TODAY);
+    expect(before.competitionCondition.systems.engine.wear).toBe(0.9);
+    p = attest(p, { scope: 'documentation', events: ['the-swap'] });
+    const after = assemble(p, REGISTRY, TODAY);
+    expect(after.competitionCondition.systems.engine).toMatchObject({ basis: 'modelled', evidence: 'verified', sinceMileage: 179000 });
+    expect(after.competitionCondition.systems.engine.wear).toBeCloseTo(1000 / 200000, 9);
+    expect(after.stats.competition.scores.power.value as number).toBeGreaterThan(before.stats.competition.scores.power.value as number);
+  });
+});
+
 describe('editions and snapshots', () => {
   it('prints the first edition, then a new one only at a milestone, and keeps the earlier ones', () => {
     let p = parked();

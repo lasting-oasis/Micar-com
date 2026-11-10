@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { baseStats, combinedEconomy, estimateTopSpeedMph, estimateZeroToSixtySec, illustrativeLayer, layerOf, powerRating, provisionalRating, qualityOf, scoreSpec, specQuality, weakestQuality } from './normalize';
+import {
+  baseStats, combinedEconomy, durabilityNeeds, estimateTopSpeedMph, estimateZeroToSixtySec, illustrativeLayer, layerOf, outputIndex, powerRating, provisionalRating, qualityOf,
+  reliabilityNeeds, scoreSpec, specQuality, specificOutput, stressApplies, weakestQuality,
+} from './normalize';
 import { ACCELERATION, EFFICIENCY, HANDLING, POWER, SPEED } from './rules';
 import { ATTRIBUTE_KEYS } from './types';
 import type { Source, Sourced, VehicleSpec } from './types';
@@ -90,6 +93,54 @@ describe('missing figures', () => {
     expect(sc.speed.metric as number).toBeGreaterThanOrEqual(110);
     expect(sc.speed.metric as number).toBeLessThanOrEqual(130);
     expect(civic.topSpeedMph).toBeNull();
+    // With no curb weight either, the class's usual weight stands in, and the score says the weight is missing.
+    const noWeight = scoreSpec({ ...civic, curbWeightLb: null }).speed;
+    expect(noWeight.basis).toBe('estimated');
+    expect(noWeight.missing).toEqual(['topSpeedMph', 'curbWeightLb']);
+  });
+
+  it('estimates a top speed that moves smoothly with power and weight', () => {
+    // There used to be a step here: one horsepower across a threshold was worth 25 mph and 175 points.
+    for (const bodyClass of ['sedan', 'coupe', 'hatchback', 'wagon', 'suv', 'van', 'pickup', 'offroad', 'sports'] as const) {
+      let last: number | null = null, biggest = 0;
+      for (let hp = 80; hp <= 900; hp += 1) {
+        const mph = estimateTopSpeedMph({ ...blank(bodyClass), horsepower: s(hp), curbWeightLb: s(3500) }) as number;
+        if (last !== null) {
+          expect(mph, `${bodyClass} at ${hp} hp`).toBeGreaterThanOrEqual(last);
+          biggest = Math.max(biggest, mph - last);
+        }
+        last = mph;
+      }
+      expect(biggest, bodyClass).toBeLessThan(1.5);
+    }
+    // One per cent more power, or one per cent less weight, is never worth more than a few points of SPEED.
+    for (let hp = 100; hp <= 600; hp += 7) {
+      for (const lb of [2600, 3500, 4400, 5300]) {
+        const at = (h: number, w: number) => scoreSpec({ ...blank('sedan'), horsepower: s(h), curbWeightLb: s(w) }).speed.value as number;
+        expect(Math.abs(at(hp * 1.01, lb) - at(hp, lb)), `${hp} hp ${lb} lb`).toBeLessThanOrEqual(8);
+        expect(Math.abs(at(hp, lb * 0.99) - at(hp, lb)), `${hp} hp ${lb} lb`).toBeLessThanOrEqual(8);
+      }
+    }
+  });
+
+  it('keeps a truck near its tires’ rating however much power it has', () => {
+    const truck = (hp: number) => estimateTopSpeedMph({ ...blank('pickup'), horsepower: s(hp), curbWeightLb: s(5600) }) as number;
+    expect(truck(300)).toBeLessThanOrEqual(SPEED.estimate.limiter.pickup);
+    expect(truck(700)).toBe(SPEED.estimate.performanceLimiter.pickup);
+    expect(SPEED.estimate.performanceLimiter.pickup).toBeLessThan(125);
+  });
+
+  it('leans low when it estimates, so a measured figure beats a blank on the calibration car', () => {
+    // The GT-R's real figures against what the engine would guess without them.
+    expect(estimateTopSpeedMph(gtr) as number).toBeLessThanOrEqual(196);
+    expect(estimateZeroToSixtySec(gtr) as number).toBeGreaterThanOrEqual(2.9);
+    expect(outputIndex({ ...gtr, torqueLbFt: null }) as number).toBeLessThan(outputIndex(gtr) as number);
+    for (const field of ['topSpeedMph', 'zeroToSixtySec', 'torqueLbFt', 'combinedMpg', 'lateralGripG', 'displacementL', 'cylinders', 'warrantyPowertrainMiles'] as const) {
+      const cleared = scoreSpec({ ...gtr, [field]: null }), full = scoreSpec(gtr);
+      for (const k of ATTRIBUTE_KEYS) {
+        if (cleared[k].value !== null) expect(cleared[k].value as number, `${field} cleared, ${k}`).toBeLessThanOrEqual(full[k].value as number);
+      }
+    }
   });
 
   it('models handling when no skidpad figure exists and says so', () => {
@@ -121,13 +172,55 @@ describe('missing figures', () => {
     }
   });
 
-  it('needs the powertrain basics before it will model reliability', () => {
-    expect(scoreSpec({ ...civic, induction: null }).reliability.value).toBeNull();
-    expect(scoreSpec({ ...civic, transmissionType: null }).reliability.value).toBeNull();
-    expect(scoreSpec({ ...civic, powertrain: null }).reliability.value).toBeNull();
-    // An electric powertrain has no induction to know.
-    const ev = { ...blank('sedan'), powertrain: s('electric' as const), transmissionType: s('single-speed' as const), curbWeightLb: s(3900) };
-    expect(scoreSpec(ev).reliability.value).not.toBeNull();
+  it('needs everything reliability reads before it will model it, and says what is missing', () => {
+    // Every one of these can take points away, so none is assumed.
+    for (const field of ['powertrain', 'induction', 'transmissionType', 'drivetrain', 'cylinders', 'horsepower', 'displacementL'] as const) {
+      const score = scoreSpec({ ...civic, [field]: null }).reliability;
+      expect(score.value, field).toBeNull();
+      expect(score.missing, field).toContain(field);
+    }
+    expect(reliabilityNeeds(civic)).toEqual(['powertrain', 'transmissionType', 'drivetrain', 'induction', 'cylinders', 'horsepower', 'displacementL']);
+    // A warranty can only add points, so a car without one on file is still rated; the sheet says it would firm the score.
+    const noWarranty = scoreSpec({ ...civic, warrantyPowertrainMiles: null }).reliability;
+    expect(noWarranty.value).toBe(scoreSpec(civic).reliability.value);
+    expect(noWarranty.missing).toEqual(['warrantyPowertrainMiles']);
+    // An electric powertrain has no induction, cylinders or displacement to know.
+    const ev = { ...blank('sedan'), powertrain: s('electric' as const), transmissionType: s('single-speed' as const), drivetrain: s('RWD' as const), curbWeightLb: s(3900) };
+    expect(reliabilityNeeds(ev)).toEqual(['powertrain', 'transmissionType', 'drivetrain']);
+    expect(scoreSpec(ev).reliability.value).toBe(835 + 60 + 30);
+    expect(scoreSpec({ ...ev, drivetrain: null }).reliability.value).toBeNull();
+  });
+
+  it('never charges engine stress to a blank: durability is not given without the figures it reads', () => {
+    // Before this rule, clearing the displacement of a highly boosted engine removed the stress term and raised two scores.
+    for (const field of ['curbWeightLb', 'horsepower', 'displacementL'] as const) {
+      const score = scoreSpec({ ...gtr, [field]: null }).durability;
+      expect(score.value, field).toBeNull();
+      expect(score.missing, field).toContain(field);
+    }
+    expect(durabilityNeeds(gtr)).toEqual(['curbWeightLb', 'horsepower', 'displacementL']);
+    // A powertrain nobody has named is read as a combustion engine, so it needs them too.
+    const unnamed = { ...blank('sedan'), curbWeightLb: s(3300) };
+    expect(scoreSpec(unnamed).durability.value).toBeNull();
+    expect(scoreSpec({ ...unnamed, horsepower: s(200), displacementL: s(2) }).durability.value).not.toBeNull();
+    // An electric motor has no displacement and a hybrid's horsepower is not its engine's: neither is charged, so neither needs them.
+    for (const powertrain of ['electric', 'hybrid', 'plug-in-hybrid'] as const) {
+      const spec = { ...blank('sedan'), powertrain: s(powertrain), curbWeightLb: s(3300) };
+      expect(durabilityNeeds(spec), powertrain).toEqual(['curbWeightLb']);
+      expect(scoreSpec(spec).durability.value, powertrain).toBe(640 + 12);
+    }
+  });
+
+  it('does not charge a hybrid’s engine for its electric motors', () => {
+    // 302 system horsepower on a 2.5-litre engine is not 121 hp per litre of engine.
+    const plugIn = { ...civic, powertrain: s('plug-in-hybrid' as const), horsepower: s(302), displacementL: s(2.5), transmissionType: s('ecvt' as const) };
+    expect(specificOutput(plugIn)).toBeNull();
+    expect(stressApplies(plugIn)).toBe(false);
+    expect(specificOutput({ ...plugIn, powertrain: s('gasoline' as const) })).toBeCloseTo(120.8, 1);
+    // More motor power never lowers a hybrid's durability or reliability.
+    const stronger = { ...plugIn, horsepower: s(455) };
+    expect(scoreSpec(stronger).durability.value).toBe(scoreSpec(plugIn).durability.value);
+    expect(scoreSpec(stronger).reliability.value).toBe(scoreSpec(plugIn).reliability.value);
   });
 
   it('estimates 0-60 from weight and power only when both are on file', () => {
@@ -142,12 +235,22 @@ describe('missing figures', () => {
 
   it('marks POWER as estimated when torque is missing and never rates it without horsepower', () => {
     expect(scoreSpec({ ...civic, torqueLbFt: null }).power.basis).toBe('estimated');
+    // The estimate takes torque as 70% of the horsepower figure, which is below nearly every production engine.
+    expect(outputIndex({ ...civic, torqueLbFt: null })).toBeCloseTo(158 * (0.7 + 0.3 * 0.7), 9);
+    expect(POWER.missingTorqueShare).toBe(0.7);
+    expect(scoreSpec({ ...civic, torqueLbFt: null }).power.value as number).toBeLessThan(scoreSpec(civic).power.value as number);
     expect(scoreSpec({ ...civic, torqueLbFt: null }, { estimates: false }).power.value).toBeNull();
     expect(scoreSpec({ ...civic, horsepower: null }).power.value).toBeNull();
   });
 
   it('blends city and highway the way the EPA does when the combined figure is missing', () => {
-    expect(combinedEconomy({ ...civic, combinedMpg: null })).toBeCloseTo(34.5, 0);
+    // To the whole number, as a label prints it. The label's own combined figure is worked out from unrounded city
+    // and highway figures, so the blend of the printed ones can fall a mile short of it (34 against the Civic's 35)
+    // and is never taken in place of a combined figure that is on file.
+    expect(combinedEconomy({ ...civic, combinedMpg: null })).toBe(34);
+    expect(combinedEconomy(civic)).toBe(35);
+    // 16 city and 22 highway is the GT-R's own 18 combined, not 18.2.
+    expect(combinedEconomy({ ...gtr, combinedMpg: null })).toBe(18);
     expect(scoreSpec({ ...civic, combinedMpg: null, cityMpg: null }).efficiency.value).toBeNull();
   });
 });
@@ -231,6 +334,34 @@ describe('the rating and provenance', () => {
     const a = scoreSpec(gtr), b = scoreSpec(gtr);
     expect(JSON.stringify(gtr)).toBe(before);
     expect(a).toEqual(b);
+  });
+
+  it('calls a figure the modification engine worked out modelled, not measured, and no better than an owner’s own', () => {
+    const measured = scoreSpec(gtr);
+    expect(measured.power).toMatchObject({ basis: 'measured', quality: 'reference' });
+    const derived = scoreSpec({ ...gtr, horsepower: s(690, { ...ref, kind: 'owner', note: 'after modifications' }) }, { derived: ['horsepower'] });
+    expect(derived.power).toMatchObject({ basis: 'modelled', quality: 'owner' });
+    // Scores that do not read the changed figure keep their own basis; durability and reliability read horsepower through the stress term.
+    expect(derived.speed.basis).toBe('measured');
+    expect(derived.efficiency.basis).toBe('measured');
+    expect(derived.durability.quality).toBe('owner');
+    // A factor on a time or a speed on file makes it a worked-out figure too.
+    const quicker = scoreSpec(gtr, { adjust: { sprintFactor: 0.95, topSpeedFactor: 1.02, gripG: 0.03 } });
+    expect(quicker.acceleration).toMatchObject({ basis: 'modelled', quality: 'owner' });
+    expect(quicker.speed).toMatchObject({ basis: 'modelled', quality: 'owner' });
+    expect(quicker.handling).toMatchObject({ basis: 'modelled', quality: 'owner' });
+    // An estimate stays an estimate.
+    expect(scoreSpec({ ...civic, zeroToSixtySec: null }, { adjust: { sprintFactor: 0.95 } }).acceleration.basis).toBe('estimated');
+  });
+
+  it('never lets a modification take a 0-60 time below the quickest the estimate allows', () => {
+    // Stacked parts used to report a "measured" 1.03 s.
+    expect(scoreSpec(gtr, { adjust: { sprintFactor: 0.4 } }).acceleration.metric).toBe(ACCELERATION.estimate.floor);
+    expect(scoreSpec(gtr, { adjust: { sprintFactor: 0.9 } }).acceleration.metric).toBe(2.61);
+    // A car already quicker than the floor is not slowed by fitting a part.
+    const hyper = { ...gtr, zeroToSixtySec: s(1.7) };
+    expect(scoreSpec(hyper, { adjust: { sprintFactor: 0.9 } }).acceleration.metric).toBe(1.7);
+    expect(scoreSpec(hyper, { adjust: { sprintFactor: 1.1 } }).acceleration.metric).toBe(1.87);
   });
 
   it('applies a modification’s adjustments without touching the specification', () => {

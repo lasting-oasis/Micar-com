@@ -65,19 +65,21 @@ Each attribute reads one quantity from the specification and looks it up in a ta
 
 | Attribute | Reads | When the figure is missing |
 | --- | --- | --- |
-| POWER | An output index: 0.7 × horsepower + 0.3 × torque (lb-ft) | Horsepower alone, marked `estimated`. No score without horsepower |
+| POWER | An output index: 0.7 × horsepower + 0.3 × torque (lb-ft) | With no torque on file, torque is taken as 70% of the horsepower figure, marked `estimated`. No score without horsepower |
 | SPEED | Top speed, mph | Estimated from power, marked `estimated`. No score without horsepower |
 | ACCELERATION | 0 to 60 mph, seconds | Estimated from weight and power, marked `estimated`. No score without both |
 | HANDLING | A grip index in g: skidpad grip plus a control term | Grip modelled from class, weight and suspension grade, marked `modelled`. No score without weight |
-| DURABILITY | A modelled index in points | Always `modelled`. No score without weight |
-| RELIABILITY | A modelled index in points | Always `modelled`. No score until the powertrain, its induction and the transmission type are known |
-| EFFICIENCY | EPA combined MPG, or MPGe for an electric powertrain | The EPA's own blend of city and highway (55% / 45%, harmonic). Otherwise no score |
+| DURABILITY | A modelled index in points | Always `modelled`. No score without weight and, for a petrol or diesel engine, horsepower and displacement |
+| RELIABILITY | A modelled index in points | Always `modelled`. No score until everything it reads is on file: powertrain, transmission type, drivetrain; unless electric, induction and cylinders; for a petrol or diesel engine, horsepower and displacement |
+| EFFICIENCY | EPA combined MPG, or MPGe for an electric powertrain | The EPA's own blend of city and highway (55% / 45%, harmonic, to the whole number). Otherwise no score |
 
-A score is never invented. `basis` says how it was reached: `measured`, `modelled`, `estimated`, `illustrative` or `unavailable` (value `null`). Pass `{ estimates: false }` to `scoreSpec` and every `estimated` score becomes `unavailable`.
+A score is never invented. `basis` says how it was reached: `measured`, `modelled`, `estimated`, `illustrative` or `unavailable` (value `null`). Pass `{ estimates: false }` to `scoreSpec` and every `estimated` score becomes `unavailable`. Every score also lists the fields it read (`inputs`) and the ones that would enable it or firm it up (`missing`).
+
+**A blank is never worth more than a figure.** Two rules keep it so. A term that can only take points away (engine stress, a complicated drivetrain, more than eight cylinders) is never skipped because its figure is missing: the score is withheld and names the field. And the estimates lean low on purpose, so that entering the real figure usually helps and leaving it out does not.
 
 **POWER is not horsepower.** It blends horsepower with torque and reads a curve that flattens as output grows: 152 → 404, 300 → 650, 564.3 → 950, 1000 → 990.
 
-**The estimates.** Top speed is the speed at which power at the wheels (85% of rated) equals aerodynamic drag plus rolling resistance, using a drag area typical of the class, capped at the limiter usual for the class (155 mph for anything with at least 0.085 hp per pound). 0 to 60 is `0.9 × (lb / hp)^0.75 × drivetrain factor` (AWD 0.9, 4WD 0.97, RWD 1, FWD 1.03; × 0.9 for an electric powertrain), never below 1.9 s.
+**The estimates.** Top speed starts from the speed at which power at the wheels (85% of rated) equals aerodynamic drag plus rolling resistance, using a drag area typical of the class; a car reaches about 87% of that (gearing, cooling and downforce take the rest); and the result is capped at the limiter usual for the class. The limiter climbs in a straight line from the class's own figure to its performance limit (155 mph; 118 for a pickup, 112 for an off-roader, 120 for a van) as horsepower per pound goes from 0.075 to 0.115, so one more horsepower never moves an estimate by more than a fraction of a mile an hour. With no curb weight on file the class's usual weight stands in and the score says the weight is missing. 0 to 60 is `1.0 × (lb / hp)^0.75 × drivetrain factor` (AWD 0.9, 4WD 0.97, RWD 1, FWD 1.03; × 0.9 for an electric powertrain; × 1.08 for a CVT), never below 1.9 s.
 
 **HANDLING.** The grip index is the measured skidpad figure when one is on file. Otherwise it is modelled: the class's typical grip, a small term for weight against the class's typical weight (−0.02 g per 1,000 lb heavier, within ±0.03 g), and the suspension grade (sport +0.03, adaptive +0.04, off-road −0.03). In both cases a control term is added: all-wheel drive +0.01, rear-wheel drive +0.005, performance brakes +0.01, carbon-ceramic brakes +0.02.
 
@@ -90,7 +92,8 @@ frame       body-on-frame +60
 mass        0.04 per lb of curb weight above 3,000, from −40 to +100
 drivetrain  4WD +30, AWD +15
 clearance   8 per inch of ground clearance above 6, up to +40
-stress      0.5 per hp/litre above 90 (combustion engines), up to −80
+stress      0.5 per hp/litre above 90, up to −80. Petrol and diesel engines only: a hybrid's horsepower is its
+            system output, not its engine's, and an electric motor has no displacement
 ```
 
 **RELIABILITY** is mechanical dependability as the design implies it: how complicated and how highly stressed the powertrain is, and how long the maker warrants it. It is not a survey of failures and it knows nothing of a brand's reputation. `VehicleSpec` has room for nothing of that kind on purpose: a future source of measured dependability would be a new, separately sourced input.
@@ -100,8 +103,8 @@ points = 835 + induction + transmission + drivetrain + warranty − stress − m
 induction     natural +40, turbo −30, twin-turbo −60, quad-turbo −100, supercharged −40, both −80; electric powertrain +60; plug-in hybrid −20
 transmission  manual +20, automatic 0, dual-clutch −30, CVT −20, hybrid e-CVT +20, single-speed +30
 drivetrain    AWD −10, 4WD −10
-warranty      0.75 per 1,000 warranted powertrain miles above 60,000, from −15 to +30
-stress        0.6 per hp/litre above 100 (combustion engines), up to −90
+warranty      0.75 per 1,000 warranted powertrain miles above 60,000, up to +30 (a shorter warranty, or none on file, earns nothing)
+stress        0.6 per hp/litre above 100, up to −90. Petrol and diesel engines only, as for DURABILITY
 cylinders     more than 8: −30
 ```
 
@@ -114,8 +117,8 @@ The tables are pinned so the reference specification of the 2024 Nissan GT-R NIS
 | Vehicle (reference data) | POWER | SPEED | ACCEL | HANDLING | DURABILITY | RELIABILITY | EFFICIENCY | Rating |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2024 Nissan GT-R NISMO | 950 | 920 | 880 | 880 | 650 | 700 | 500 | 783 |
-| 2024 Honda Civic Sedan LX | 404 | ~575 | 370 | 565 | 635 | 855 | 720 | 589 |
-| 2024 Toyota Prius LE | ~488 | ~540 | 541 | 561 | 620 | not rated | 880 | provisional 605 (6 of 7) |
+| 2024 Honda Civic Sedan LX | 404 | ~506 | 370 | 565 | 635 | 855 | 720 | 579 |
+| 2024 Toyota Prius LE | ~453 | ~540 | 541 | 561 | 624 | not rated | 880 | provisional 600 (6 of 7) |
 
 `~` marks an estimate. The Civic has no top speed on file and the Prius no system torque and no top speed, so those are estimated and marked. The Prius has no source for its induction, so RELIABILITY is left unrated rather than assumed.
 
@@ -145,7 +148,9 @@ A passport file on its owner's device is the owner's to edit. With a signature c
 
 - `base`: the specification, scored.
 - `vehicle`: base, plus every recorded modification, plus modelled and inspected wear. Each adjustment is itemised with its evidence, and the deltas add up exactly to the layer minus base.
-- `competition`: base, plus only the modifications and wear an independent verifier attested. This is what ranked play uses, so nobody gains by overstating their car.
+- `competition`: base, plus only the modifications and wear an independent verifier attested. This is what ranked play uses, so nobody gains by overstating their car. Its wear comes from a second condition, assessed from verified inputs alone (`competitionConditionInputs`: the newest reading a verifier took, replacements a verifier confirmed, inspections). Nothing an owner types or uploads is in that list, so a later reading, a receipt or a declaration cannot move a ranked score in either direction.
+
+A figure a modification moved is no longer its source's own: nobody measured 229 hp on a tuned Civic. Its score says `modelled` instead of `measured`, and its quality is no better than an owner's figure. A modification can shorten a 0 to 60 time but never past the 1.9 s the estimate itself allows.
 
 The inputs are a specification, modification records and a condition state. Documents are not an input: nothing can turn an upload into horsepower.
 

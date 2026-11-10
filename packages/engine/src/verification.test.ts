@@ -6,7 +6,7 @@ import type { Attachment, Attestation, AttestationScope, Passport, PassportEvent
 import { hashString, sha256Text } from './util';
 import {
   ATTESTATION_PAYLOAD, ATTESTATION_SCOPE_LABELS, ATTESTATION_VALID_MONTHS, CONDITION_FULL_MONTHS, EMPTY_REGISTRY, MILEAGE_TOLERANCE, VERIFICATION_REFUSALS,
-  activeModifications, attestationPayload, attestationStatuses, attestationSubject, conditionInputs, documentedRecords, eventEvidence, publicPassport, recordAttestation,
+  activeModifications, attestationPayload, attestationStatuses, attestationSubject, competitionConditionInputs, conditionInputs, documentedRecords, eventEvidence, publicPassport, recordAttestation,
   standingOf, standingReadings, subjectFingerprint, validAttestations, voidEvent, voidedEventIds,
 } from './verification';
 
@@ -702,6 +702,38 @@ describe('what the condition engine is given', () => {
     expect(conditionInputs(p, REGISTRY, TODAY).replacements[0].evidence).toBe('verified');
     p = ok(voidEvent(p, { target: latest, reason: 'The repair bill says otherwise', attestationId: records }, REGISTRY, { now: NOW, eventId: id() }));
     expect(conditionInputs(p, REGISTRY, TODAY).accident).toBe('Minor');
+  });
+});
+
+describe('what the condition engine is given for ranked play', () => {
+  it('is only what a verifier took or confirmed', () => {
+    let p = parked();
+    let swap: string, tires: string;
+    [p] = add(p, { type: 'mileage', date: '2026-01-01', mileage: 50000, attachments: [file('photo')] });
+    [p, swap] = add(p, { type: 'repair', date: '2026-02-03', system: 'engine', work: 'rebuild', shop: 'A shop', cost: 4000, mileage: 59000, attachments: [file('invoice')] });
+    [p, tires] = add(p, { type: 'repair', date: '2026-02-04', system: 'tires', work: 'replacement', shop: '', cost: null, attachments: [file('invoice')] });
+    [p] = add(p, { type: 'declaration', date: '2026-03-01', accident: 'Major', titleStatus: 'Salvage' });
+    // Nothing is verified yet: ranked play is told nothing about this car's condition.
+    expect(competitionConditionInputs(p, REGISTRY, TODAY)).toEqual({
+      asOf: TODAY, modelYear: 2019, powertrain: 'gasoline', mileage: null, replacements: [], inspections: [], accident: null, titleStatus: null,
+    });
+    [p] = attest(p, 'mileage', { mileage: 61000 });
+    [p] = attest(p, 'documentation', { events: [swap] });
+    [p] = attest(p, 'condition', { conditionScore: 88, systems: { suspension: 0.3 } });
+    // The owner's newer reading and the unconfirmed tire receipt are on the vehicle's own record, not on this one.
+    [p] = add(p, { type: 'mileage', date: '2026-11-09', mileage: 61500 });
+    expect(competitionConditionInputs(p, REGISTRY, TODAY)).toEqual({
+      asOf: TODAY, modelYear: 2019, powertrain: 'gasoline',
+      mileage: { value: 61000, evidence: 'verified' },
+      replacements: [{ system: 'engine', date: '2026-02-03', mileage: 59000, evidence: 'verified' }],
+      inspections: [{ date: '2026-11-01', systems: { suspension: 0.3 } }],
+      accident: null, titleStatus: null,
+    });
+    expect(conditionInputs(p, REGISTRY, TODAY)).toMatchObject({ mileage: { value: 61500, evidence: 'declared' }, accident: 'Major', titleStatus: 'Salvage' });
+    expect(conditionInputs(p, REGISTRY, TODAY).replacements.map((r) => r.system)).toEqual(['engine', 'tires']);
+    expect(eventEvidence(p, tires, REGISTRY, TODAY)).toBe('documented');
+    // With no verifier connected there is nothing verified to give.
+    expect(competitionConditionInputs(p, EMPTY_REGISTRY, TODAY)).toMatchObject({ mileage: null, replacements: [], inspections: [] });
   });
 });
 

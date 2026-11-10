@@ -194,7 +194,7 @@ export function entrantWithSetup(input: { id: string; name: string; spec: Vehicl
   const checked = checkSetup(input.spec, input.cardIds);
   if (!checked.ok) return checked;
   const modified = applyModifications(input.spec, checked.value.map(asModification));
-  const layer = layerOf(scoreSpec(modified.spec, { adjust: modified.adjust }));
+  const layer = layerOf(scoreSpec(modified.spec, { adjust: modified.adjust, derived: modified.changed }));
   return { ok: true, value: entrantFromLayer({ id: input.id, name: input.name, spec: modified.spec, layer, basis: 'setup', trusted: input.trusted }) };
 }
 

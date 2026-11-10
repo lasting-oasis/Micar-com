@@ -44,23 +44,38 @@ export function specQuality(spec: VehicleSpec): DataQuality | null {
 
 const val = <T>(cell: Sourced<T> | null): T | null => (cell ? cell.value : null);
 
-/** Horsepower per litre of a combustion engine; null for an electric powertrain or when a figure is missing. */
+/**
+ * True when the engine-stress terms apply: a petrol or diesel engine, or a powertrain nobody has named yet (which is
+ * read as one). A hybrid's horsepower is its system output, not its engine's, and an electric motor has no
+ * displacement, so neither is charged.
+ */
+export function stressApplies(spec: VehicleSpec): boolean {
+  const powertrain = val(spec.powertrain);
+  return powertrain === null || powertrain === 'gasoline' || powertrain === 'diesel';
+}
+
+/** Horsepower per litre of a petrol or diesel engine; null when the stress terms do not apply or a figure is missing. */
 export function specificOutput(spec: VehicleSpec): number | null {
   const hp = val(spec.horsepower), litres = val(spec.displacementL);
-  if (hp === null || litres === null || litres <= 0 || val(spec.powertrain) === 'electric') return null;
+  if (hp === null || litres === null || litres <= 0 || !stressApplies(spec)) return null;
   return hp / litres;
 }
 
-/** The output index POWER reads: 70% horsepower and 30% torque. With no torque on file it is horsepower alone. */
+/**
+ * The output index POWER reads: 70% horsepower and 30% torque. With no torque on file it is estimated low, taking
+ * torque as POWER.missingTorqueShare of the horsepower figure.
+ */
 export function outputIndex(spec: VehicleSpec): number | null {
   const hp = val(spec.horsepower), tq = val(spec.torqueLbFt);
   if (hp === null) return null;
-  return tq === null ? hp : POWER.horsepowerWeight * hp + POWER.torqueWeight * tq;
+  return POWER.horsepowerWeight * hp + POWER.torqueWeight * (tq === null ? hp * POWER.missingTorqueShare : tq);
 }
 
 /**
  * Top speed estimated from power: the speed at which the engine's power at the wheels equals aerodynamic drag plus
- * rolling resistance, capped at the limiter usual for the class. Null without horsepower.
+ * rolling resistance, times the share of it a car really reaches, capped at the limiter usual for the class (which
+ * climbs smoothly toward the performance limiter as horsepower per pound rises). Null without horsepower. With no
+ * curb weight on file the weight usual for the class stands in, and the score says the weight is missing.
  */
 export function estimateTopSpeedMph(spec: VehicleSpec): number | null {
   const hp = val(spec.horsepower);
@@ -73,8 +88,10 @@ export function estimateTopSpeedMph(spec: VehicleSpec): number | null {
   const b = e.rollingResistance * lb * 0.45359237 * 9.80665;
   let v = Math.cbrt(watts / a);
   for (let i = 0; i < 12; i++) v -= (a * v * v * v + b * v - watts) / (3 * a * v * v + b);
-  const limiter = hp / lb >= e.performanceRatio ? Math.max(e.limiter[cls], e.performanceLimiter) : e.limiter[cls];
-  return Math.round(Math.min(v * 2.2369363, limiter));
+  const band = e.performanceBand;
+  const quick = clamp((hp / lb - band.from) / (band.to - band.from), 0, 1);
+  const limiter = e.limiter[cls] + Math.max(0, e.performanceLimiter[cls] - e.limiter[cls]) * quick;
+  return Math.round(Math.min(v * 2.2369363 * e.realisation, limiter) * 10) / 10;
 }
 
 /** 0-60 estimated from pounds per horsepower and the drivetrain. Null without horsepower and curb weight. */
@@ -83,7 +100,8 @@ export function estimateZeroToSixtySec(spec: VehicleSpec): number | null {
   if (hp === null || lb === null) return null;
   const e = ACCELERATION.estimate;
   const drive = val(spec.drivetrain);
-  const t = e.k * Math.pow(lb / hp, e.exponent) * (drive ? e.drivetrain[drive] : 1) * (val(spec.powertrain) === 'electric' ? e.electric : 1);
+  const t = e.k * Math.pow(lb / hp, e.exponent) * (drive ? e.drivetrain[drive] : 1) * (val(spec.powertrain) === 'electric' ? e.electric : 1)
+    * (val(spec.transmissionType) === 'cvt' ? e.cvt : 1);
   return Math.round(Math.max(e.floor, t) * 10) / 10;
 }
 
@@ -103,10 +121,25 @@ export function controlTermG(spec: VehicleSpec): number {
   return (drive ? HANDLING.control.drivetrain[drive] : 0) + (brakes ? HANDLING.control.brakes[brakes] : 0);
 }
 
-/** The durability index in points before clamping. Null without curb weight. */
+/** The fields the two modelled indexes cannot do without, for this specification, in the order a sheet lists them. */
+export function durabilityNeeds(spec: VehicleSpec): SpecField[] {
+  return stressApplies(spec) ? ['curbWeightLb', 'horsepower', 'displacementL'] : ['curbWeightLb'];
+}
+export function reliabilityNeeds(spec: VehicleSpec): SpecField[] {
+  const needs: SpecField[] = ['powertrain', 'transmissionType', 'drivetrain'];
+  if (val(spec.powertrain) !== 'electric') needs.push('induction', 'cylinders');
+  if (stressApplies(spec)) needs.push('horsepower', 'displacementL');
+  return needs;
+}
+
+/**
+ * The durability index in points before clamping. Null without curb weight and, for a petrol or diesel engine,
+ * without the horsepower and displacement the stress term reads: a term that can only take points away is never
+ * skipped because its figures are missing.
+ */
 export function durabilityPoints(spec: VehicleSpec): number | null {
   const lb = val(spec.curbWeightLb);
-  if (lb === null) return null;
+  if (lb === null || durabilityNeeds(spec).some((f) => spec[f] === null)) return null;
   const d = DURABILITY;
   const drive = val(spec.drivetrain), clearance = val(spec.groundClearanceIn), stress = specificOutput(spec);
   return d.classBase[spec.identity.bodyClass]
@@ -117,11 +150,16 @@ export function durabilityPoints(spec: VehicleSpec): number | null {
     - (stress === null ? 0 : clamp((stress - d.stress.pivotHpPerL) * d.stress.perHpPerL, 0, d.stress.max));
 }
 
-/** The reliability index in points before clamping. Null until the powertrain, its induction (unless electric) and the transmission type are known. */
+/**
+ * The reliability index in points before clamping. Null until everything it reads is on file (reliabilityNeeds): the
+ * powertrain, the transmission type and the drivetrain; unless electric, the induction and the cylinder count; and
+ * for a petrol or diesel engine the horsepower and displacement. Every one of those can take points away, so none
+ * is assumed.
+ */
 export function reliabilityPoints(spec: VehicleSpec): number | null {
   const powertrain = val(spec.powertrain), induction = val(spec.induction), gearbox = val(spec.transmissionType);
   const electric = powertrain === 'electric';
-  if (powertrain === null || gearbox === null || (!electric && induction === null)) return null;
+  if (powertrain === null || gearbox === null || (!electric && induction === null) || reliabilityNeeds(spec).some((f) => spec[f] === null)) return null;
   const r = RELIABILITY;
   const drive = val(spec.drivetrain), cylinders = val(spec.cylinders), miles = val(spec.warrantyPowertrainMiles), stress = specificOutput(spec);
   return r.base
@@ -134,13 +172,14 @@ export function reliabilityPoints(spec: VehicleSpec): number | null {
     + (miles === null ? 0 : clamp(((miles - r.warranty.pivotMiles) / 1000) * r.warranty.perThousandMiles, r.warranty.min, r.warranty.max));
 }
 
-/** Combined fuel economy: the figure on file, or the EPA's own blend of city and highway (55% / 45%, harmonic) when only those are. */
+/** Combined fuel economy: the figure on file, or the EPA's own blend of city and highway (55% / 45%, harmonic, to the whole number) when only those are. */
 export function combinedEconomy(spec: VehicleSpec): number | null {
   const combined = val(spec.combinedMpg);
   if (combined !== null) return combined;
   const city = val(spec.cityMpg), highway = val(spec.highwayMpg);
   if (city === null || highway === null || city <= 0 || highway <= 0) return null;
-  return Math.round((1 / (0.55 / city + 0.45 / highway)) * 10) / 10;
+  // A whole number, as the label prints it: the blend of a label's own city and highway figures is then the label's own combined figure.
+  return Math.round(1 / (0.55 / city + 0.45 / highway));
 }
 
 /* --------------------------------------------------------------------- scores ---- */
@@ -154,54 +193,76 @@ export type ScoreOptions = {
   /** Estimate a missing top speed, 0-60 or torque from other figures. Default true. With false those scores are 'unavailable'. */
   estimates?: boolean;
   adjust?: ScoreAdjustments;
+  /**
+   * Fields whose values were worked out by the modification engine rather than read from a source. A score that reads
+   * one of them is 'modelled', not 'measured', and its quality is no better than an owner's own figure: nobody
+   * measured the result.
+   */
+  derived?: readonly SpecField[];
 };
 
 const present = (spec: VehicleSpec, fields: readonly SpecField[]): SpecField[] => fields.filter((f) => spec[f] !== null);
 const absent = (spec: VehicleSpec, fields: readonly SpecField[]): SpecField[] => fields.filter((f) => spec[f] === null);
+/** A list without repeats, in the order first met. */
+const once = (fields: readonly SpecField[]): SpecField[] => fields.filter((f, i) => fields.indexOf(f) === i);
 
-function made(spec: VehicleSpec, value: number | null, basis: AttributeBasis, metric: number | null, metricUnit: string, inputs: SpecField[], missing: SpecField[]): AttributeScore {
+function made(spec: VehicleSpec, value: number | null, basis: AttributeBasis, metric: number | null, metricUnit: string, inputs: SpecField[], missing: SpecField[], derived = false): AttributeScore {
   if (value === null) return { value: null, basis: 'unavailable', metric: null, metricUnit, inputs: [], missing, quality: null };
-  return { value, basis, metric, metricUnit, inputs, missing, quality: qualityOfFields(spec, inputs) };
+  const quality = qualityOfFields(spec, inputs);
+  return {
+    value, basis: derived && basis === 'measured' ? 'modelled' : basis, metric, metricUnit, inputs, missing,
+    quality: derived ? weakestQuality([quality, 'owner']) : quality,
+  };
 }
 
 /** Scores one specification. Pure: the same specification and options always give the same scores. */
 export function scoreSpec(spec: VehicleSpec, options: ScoreOptions = {}): AttributeScores {
   const estimates = options.estimates !== false;
   const adjust = options.adjust ?? {};
+  const derived = options.derived ?? [];
+  const reads = (fields: readonly SpecField[]): boolean => fields.some((f) => derived.indexOf(f) !== -1);
 
   // POWER
   const hasTorque = spec.torqueLbFt !== null;
   const output = hasTorque || estimates ? outputIndex(spec) : null;
   const power = made(
-    spec, output === null ? null : score1000(output, POWER.anchors), hasTorque ? 'measured' : 'estimated', output, 'output index',
-    present(spec, ['horsepower', 'torqueLbFt']), absent(spec, ['horsepower', 'torqueLbFt']),
+    spec, output === null ? null : score1000(output, POWER.anchors), hasTorque ? 'measured' : 'estimated', output === null ? null : Math.round(output * 10) / 10, 'output index',
+    present(spec, ['horsepower', 'torqueLbFt']), absent(spec, ['horsepower', 'torqueLbFt']), reads(['horsepower', 'torqueLbFt']),
   );
 
   // SPEED
+  const topFactor = adjust.topSpeedFactor ?? 1;
   const rawTop = spec.topSpeedMph ? spec.topSpeedMph.value : estimates ? estimateTopSpeedMph(spec) : null;
-  const top = rawTop === null ? null : Math.round(rawTop * (adjust.topSpeedFactor ?? 1) * 10) / 10;
+  const top = rawTop === null ? null : Math.round(rawTop * topFactor * 10) / 10;
   const speed = made(
     spec, top === null ? null : score1000(top, SPEED.anchors), spec.topSpeedMph ? 'measured' : 'estimated', top, 'mph',
     spec.topSpeedMph ? ['topSpeedMph'] : present(spec, ['horsepower', 'curbWeightLb']),
-    spec.topSpeedMph ? [] : ['topSpeedMph', ...absent(spec, ['horsepower'])],
+    spec.topSpeedMph ? [] : ['topSpeedMph', ...absent(spec, ['horsepower', 'curbWeightLb'])],
+    topFactor !== 1 || reads(['topSpeedMph']),
   );
 
   // ACCELERATION
+  const sprintFactor = adjust.sprintFactor ?? 1;
   const rawSprint = spec.zeroToSixtySec ? spec.zeroToSixtySec.value : estimates ? estimateZeroToSixtySec(spec) : null;
-  const sprint = rawSprint === null ? null : Math.round(rawSprint * (adjust.sprintFactor ?? 1) * 100) / 100;
+  // A modification can shorten a time, but not past the quickest the estimate itself allows (unless the car was already quicker).
+  const sprint = rawSprint === null ? null
+    : Math.round((sprintFactor < 1 ? Math.max(rawSprint * sprintFactor, Math.min(rawSprint, ACCELERATION.estimate.floor)) : rawSprint * sprintFactor) * 100) / 100;
   const acceleration = made(
     spec, sprint === null ? null : score1000(sprint, ACCELERATION.anchors), spec.zeroToSixtySec ? 'measured' : 'estimated', sprint, 's 0-60',
-    spec.zeroToSixtySec ? ['zeroToSixtySec'] : present(spec, ['horsepower', 'curbWeightLb', 'drivetrain']),
+    spec.zeroToSixtySec ? ['zeroToSixtySec'] : present(spec, ['horsepower', 'curbWeightLb', 'drivetrain', 'transmissionType']),
     spec.zeroToSixtySec ? [] : ['zeroToSixtySec', ...absent(spec, ['horsepower', 'curbWeightLb'])],
+    sprintFactor !== 1 || reads(['zeroToSixtySec']),
   );
 
   // HANDLING
+  const gripChange = adjust.gripG ?? 0;
   const rawGrip = spec.lateralGripG ? spec.lateralGripG.value : modelledGripG(spec);
-  const grip = rawGrip === null ? null : rawGrip + controlTermG(spec) + (adjust.gripG ?? 0);
+  const grip = rawGrip === null ? null : rawGrip + controlTermG(spec) + gripChange;
   const handling = made(
     spec, grip === null ? null : score1000(grip, HANDLING.anchors), spec.lateralGripG ? 'measured' : 'modelled', grip === null ? null : Math.round(grip * 1000) / 1000, 'g',
     spec.lateralGripG ? present(spec, ['lateralGripG', 'drivetrain', 'brakeGrade']) : present(spec, ['curbWeightLb', 'suspensionGrade', 'drivetrain', 'brakeGrade']),
     spec.lateralGripG ? [] : ['lateralGripG', ...absent(spec, ['curbWeightLb'])],
+    gripChange !== 0 || reads(['lateralGripG']),
   );
 
   // DURABILITY
@@ -209,8 +270,9 @@ export function scoreSpec(spec: VehicleSpec, options: ScoreOptions = {}): Attrib
   const dFinal = dPoints === null ? null : Math.round(clamp(dPoints + (adjust.durabilityPoints ?? 0), 0, 1000));
   const durability = made(
     spec, dFinal, 'modelled', dFinal, 'points',
-    present(spec, ['curbWeightLb', 'construction', 'drivetrain', 'groundClearanceIn', 'horsepower', 'displacementL']),
-    absent(spec, ['curbWeightLb', 'construction', 'drivetrain', 'groundClearanceIn']),
+    present(spec, once([...durabilityNeeds(spec), 'construction', 'drivetrain', 'groundClearanceIn'])),
+    absent(spec, once([...durabilityNeeds(spec), 'construction', 'drivetrain', 'groundClearanceIn'])),
+    (adjust.durabilityPoints ?? 0) !== 0 || reads(['curbWeightLb', 'horsepower', 'groundClearanceIn']),
   );
 
   // RELIABILITY
@@ -218,8 +280,9 @@ export function scoreSpec(spec: VehicleSpec, options: ScoreOptions = {}): Attrib
   const rFinal = rPoints === null ? null : Math.round(clamp(rPoints + (adjust.reliabilityPoints ?? 0), 0, 1000));
   const reliability = made(
     spec, rFinal, 'modelled', rFinal, 'points',
-    present(spec, ['powertrain', 'induction', 'transmissionType', 'drivetrain', 'cylinders', 'horsepower', 'displacementL', 'warrantyPowertrainMiles']),
-    absent(spec, val(spec.powertrain) === 'electric' ? ['powertrain', 'transmissionType', 'warrantyPowertrainMiles'] : ['powertrain', 'induction', 'transmissionType', 'warrantyPowertrainMiles']),
+    present(spec, once([...reliabilityNeeds(spec), 'warrantyPowertrainMiles'])),
+    absent(spec, once([...reliabilityNeeds(spec), 'warrantyPowertrainMiles'])),
+    (adjust.reliabilityPoints ?? 0) !== 0 || reads(['horsepower']),
   );
 
   // EFFICIENCY
@@ -228,6 +291,7 @@ export function scoreSpec(spec: VehicleSpec, options: ScoreOptions = {}): Attrib
     spec, economy === null ? null : score1000(economy, EFFICIENCY.anchors), 'measured', economy, val(spec.powertrain) === 'electric' ? 'MPGe' : 'mpg',
     spec.combinedMpg ? ['combinedMpg'] : present(spec, ['cityMpg', 'highwayMpg']),
     economy === null ? ['combinedMpg'] : [],
+    reads(spec.combinedMpg ? ['combinedMpg'] : ['cityMpg', 'highwayMpg']),
   );
 
   return { power, speed, acceleration, handling, durability, reliability, efficiency };

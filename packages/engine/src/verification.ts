@@ -419,6 +419,19 @@ export function conditionInputs(passport: Passport, registry: VerifierRegistry, 
   return { asOf: standing.day, modelYear: spec.identity.year, powertrain: spec.powertrain ? spec.powertrain.value : null, mileage, replacements, inspections, accident: declared.accident, titleStatus: declared.titleStatus };
 }
 
+/**
+ * What the condition engine may know for ranked play: verified inputs and nothing else. The newest reading a
+ * verifier took or confirmed (a later reading the owner typed does not replace it), the replacements a verifier
+ * confirmed (a receipt alone resets nothing here), and inspectors' readings. Declared accidents and titles are left
+ * out. Because nothing an owner writes is in this list, nothing an owner writes can move a ranked score, up or down.
+ */
+export function competitionConditionInputs(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): ConditionInputs {
+  const all = conditionInputs(passport, registry, asOf, standing);
+  let mileage: ConditionInputs['mileage'] = null;
+  for (const e of standing.events) if (e.mileage !== null && readingEvidence(e, standing) === 'verified') mileage = { value: e.mileage, evidence: 'verified' };
+  return { ...all, mileage, replacements: all.replacements.filter((r) => r.evidence === 'verified'), accident: null, titleStatus: null };
+}
+
 /* ------------------------------------------------------------ the public view ---- */
 
 /**

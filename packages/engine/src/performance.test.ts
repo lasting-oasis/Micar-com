@@ -56,8 +56,8 @@ describe('the three layers', () => {
 
   it('take a specification, modification records and a condition, and nothing else', () => {
     // There is no place to hand in a document, a receipt or a grade: an upload cannot become horsepower.
-    const inputs: Required<StatsInputs> = { spec: civic, modifications: [], condition: null, options: {} };
-    expect(Object.keys(inputs).sort()).toEqual(['condition', 'modifications', 'options', 'spec']);
+    const inputs: Required<StatsInputs> = { spec: civic, modifications: [], condition: null, competitionCondition: null, options: {} };
+    expect(Object.keys(inputs).sort()).toEqual(['competitionCondition', 'condition', 'modifications', 'options', 'spec']);
   });
 
   it('do not change what they are given, and give the same answer twice', () => {
@@ -159,6 +159,26 @@ describe('wear', () => {
 });
 
 describe('ranked play', () => {
+  it('is worn only by the condition assessed from verified inputs, whatever the vehicle’s own condition says', () => {
+    const verified = condition({ mileage: { value: 180000, evidence: 'verified' } });
+    const worn = vehicleStats({ spec: civic, condition: verified, competitionCondition: verified }).competition;
+    expect(worn.scores.reliability.value as number).toBeLessThan(vehicleStats({ spec: civic }).base.scores.reliability.value as number);
+    // The owner types a newer reading. The vehicle's own condition now rests on it; the verified state does not change, so neither does ranked play.
+    const typed = condition({ mileage: { value: 180050, evidence: 'declared' } });
+    expect(values(vehicleStats({ spec: civic, condition: typed, competitionCondition: verified }).competition)).toEqual(values(worn));
+    // A declared salvage title lowers the vehicle layer and leaves ranked play exactly where the verifier put it.
+    const salvage = condition({ mileage: { value: 180050, evidence: 'declared' }, titleStatus: 'Salvage' });
+    const withTitle = vehicleStats({ spec: civic, condition: salvage, competitionCondition: verified });
+    expect(values(withTitle.competition)).toEqual(values(worn));
+    expect(withTitle.vehicle.scores.durability.value as number).toBeLessThan(worn.scores.durability.value as number);
+    // With no verified state handed in, ranked play carries no wear at all: it is never read off the vehicle's own condition.
+    const none = vehicleStats({ spec: civic, condition: verified });
+    expect(values(none.competition)).toEqual(values(none.base));
+    expect(none.competitionAdjustments).toEqual([]);
+    // A state that is not verified cannot wear ranked play even when it is handed in as one.
+    expect(values(vehicleStats({ spec: civic, competitionCondition: typed }).competition)).toEqual(values(none.base));
+  });
+
   it('ignores what is only declared or documented', () => {
     const mods = [mod('turbo', 3, 'declared'), mod('weight', 2, 'documented')];
     const stats = vehicleStats({ spec: civic, modifications: mods, condition: condition() });
@@ -170,7 +190,7 @@ describe('ranked play', () => {
   it('counts a verified modification and verified wear, and itemises them', () => {
     const mods = [mod('turbo', 2, 'verified'), mod('tires', 3, 'declared')];
     const verifiedWear = condition({ mileage: { value: 120000, evidence: 'verified' } });
-    const stats = vehicleStats({ spec: civic, modifications: mods, condition: verifiedWear });
+    const stats = vehicleStats({ spec: civic, modifications: mods, condition: verifiedWear, competitionCondition: verifiedWear });
     expect(stats.competitionAdjustments.filter((a) => a.source === 'modification').map((a) => a.label)).toEqual(['Turbocharger kit · Pro']);
     expect(stats.competitionAdjustments.some((a) => a.source === 'wear')).toBe(true);
     expect(stats.competitionAdjustments.every((a) => a.evidence === 'verified')).toBe(true);

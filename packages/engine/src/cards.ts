@@ -18,7 +18,7 @@ import type {
 } from './types';
 import { ATTRIBUTE_KEYS, GRADE_CATEGORIES } from './types';
 import { clamp, dayOf } from './util';
-import { activeModifications, conditionInputs, standingOf } from './verification';
+import { activeModifications, competitionConditionInputs, conditionInputs, standingOf } from './verification';
 
 export { RARITY_LABELS };
 
@@ -122,7 +122,10 @@ export type Assembly = {
   certification: CertificationResult;
   rarity: Rarity;
   card: CollectibleCard;
+  /** The vehicle's condition from everything on its passport. */
   condition: ConditionState;
+  /** Its condition from verified inputs alone: what the competition layer is worn by. */
+  competitionCondition: ConditionState;
   modifications: { applied: ActiveModification[]; refused: ModRefusal[] };
   /** True when an independent verifier attested the factory specification as it stands. Ranked play asks for it. */
   specificationAttested: boolean;
@@ -138,7 +141,9 @@ export function assemble(passport: Passport, registry: VerifierRegistry, asOf: s
   const fitted = activeModifications(passport, registry, day, standing);
   const modifications = resolveModifications(spec, fitted);
   const condition = assessCondition(conditionInputs(passport, registry, day, standing));
-  const stats = vehicleStats({ spec, modifications: fitted, condition });
+  // Ranked play reads a second state, assessed from verified inputs alone.
+  const competitionCondition = assessCondition(competitionConditionInputs(passport, registry, day, standing));
+  const stats = vehicleStats({ spec, modifications: fitted, condition, competitionCondition });
 
   const facts = gradeFacts(passport, registry, day, standing);
   const report = gradePassport(passport, registry, day, facts);
@@ -181,7 +186,7 @@ export function assemble(passport: Passport, registry: VerifierRegistry, asOf: s
     illustrative: false,
     ruleset: RULESET,
   };
-  return { asOf: day, stats, report, certification, rarity, card, condition, modifications, specificationAttested: verifiedSpec };
+  return { asOf: day, stats, report, certification, rarity, card, condition, competitionCondition, modifications, specificationAttested: verifiedSpec };
 }
 
 /**

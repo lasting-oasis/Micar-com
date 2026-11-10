@@ -371,13 +371,18 @@ describe('what a modification does to the specification', () => {
     expect(applyModifications(truck, [mod('offroad', 2), mod('suspension', 1)]).spec.groundClearanceIn?.value).toBeCloseTo(11.1, 9);
   });
 
-  it('marks a figure it changed and keeps where the figure came from', () => {
+  it('marks a figure it changed as worked out, no longer its source’s own, and says which fields those are', () => {
     const mixed: VehicleSpec = { ...civic, horsepower: s(158, owner) };
-    const { spec } = applyModifications(mixed, [mod('turbo', 2), mod('suspension', 1)]);
+    const { spec, changed } = applyModifications(mixed, [mod('turbo', 2), mod('suspension', 1)]);
     expect(spec.horsepower?.source).toEqual({ kind: 'owner', asOf: '2026-11-10', note: 'after modifications' });
+    // Nobody published 200 lb-ft or 7.42 s for this car: the figures are the engine's, so they are not reference data any more.
     for (const field of ['torqueLbFt', 'curbWeightLb', 'combinedMpg', 'cityMpg', 'highwayMpg', 'zeroToSixtySec', 'groundClearanceIn'] as const) {
-      expect(spec[field]?.source, field).toEqual({ kind: 'reference', name: 'test fixture', asOf: '2026-11-10', note: 'after modifications' });
+      expect(spec[field]?.source, field).toEqual({ kind: 'owner', name: 'test fixture', asOf: '2026-11-10', note: 'after modifications' });
     }
+    expect([...changed].sort()).toEqual(['cityMpg', 'combinedMpg', 'curbWeightLb', 'groundClearanceIn', 'highwayMpg', 'horsepower', 'torqueLbFt', 'zeroToSixtySec']);
+    // An illustrative figure stays illustrative: a modification does not make a placeholder into anyone's data.
+    const placeholder: VehicleSpec = { ...civic, horsepower: s(158, { kind: 'illustrative' }) };
+    expect(applyModifications(placeholder, [mod('ecu', 1)]).spec.horsepower?.source.kind).toBe('illustrative');
     // What it did not change comes through as it was.
     for (const field of ['powertrain', 'induction', 'displacementL', 'cylinders', 'transmissionType', 'drivetrain', 'construction', 'warrantyPowertrainMiles'] as const) {
       expect(spec[field], field).toEqual(mixed[field]);
@@ -386,12 +391,14 @@ describe('what a modification does to the specification', () => {
   });
 
   it('marks the top speed it scaled', () => {
-    expect(applyModifications(gtr, [mod('turbo', 1)]).spec.topSpeedMph?.source).toEqual({ ...ref, note: 'after modifications' });
+    const out = applyModifications(gtr, [mod('turbo', 1)]);
+    expect(out.spec.topSpeedMph?.source).toEqual({ ...ref, kind: 'owner', note: 'after modifications' });
+    expect(out.changed).toContain('topSpeedMph');
   });
 
   it('puts its mark in place of a note the source already had', () => {
     const noted: VehicleSpec = { ...civic, horsepower: s(158, { ...ref, note: 'dyno sheet, 2024' }) };
-    expect(applyModifications(noted, [mod('ecu', 1)]).spec.horsepower?.source).toEqual({ ...ref, note: 'after modifications' });
+    expect(applyModifications(noted, [mod('ecu', 1)]).spec.horsepower?.source).toEqual({ ...ref, kind: 'owner', note: 'after modifications' });
   });
 
   it('leaves a figure unmarked when the tier does not move it', () => {
@@ -433,7 +440,7 @@ describe('what a modification does to the specification', () => {
 describe('what a modification changes outside the specification', () => {
   it('is nothing at all when nothing is fitted', () => {
     const out = applyModifications(gtr, []);
-    expect(out).toEqual({ spec: gtr, adjust: NO_ADJUSTMENT, applied: [], refused: [] });
+    expect(out).toEqual({ spec: gtr, adjust: NO_ADJUSTMENT, changed: [], applied: [], refused: [] });
     expect(out.spec).not.toBe(gtr);
   });
 
@@ -449,9 +456,9 @@ describe('what a modification changes outside the specification', () => {
     expect(out.spec.zeroToSixtySec).toBeNull();
     const before = scoreSpec(noTime).acceleration, after = scoreSpec(out.spec, { adjust: out.adjust }).acceleration;
     expect(after.basis).toBe('estimated');
-    // The estimate is 8.2 s; 6% quicker is 7.71 s.
-    expect(before.metric).toBe(8.2);
-    expect(after.metric).toBe(7.71);
+    // The estimate is 9.8 s; 6% quicker is 9.21 s.
+    expect(before.metric).toBe(9.8);
+    expect(after.metric).toBe(9.21);
     expect(after.value as number).toBeGreaterThan(before.value as number);
   });
 
@@ -542,15 +549,15 @@ describe('trade-offs', () => {
   });
 
   it('a turbocharger kit raises POWER and ACCELERATION and lowers RELIABILITY and EFFICIENCY', () => {
-    expect(values(civic, [])).toEqual({ power: 404, speed: 575, acceleration: 370, handling: 565, durability: 635, reliability: 855, efficiency: 720 });
+    expect(values(civic, [])).toEqual({ power: 404, speed: 506, acceleration: 370, handling: 565, durability: 635, reliability: 855, efficiency: 720 });
     // 229 hp and 200 lb-ft; 0-60 in 7.42 s; 31.2 mpg; 115 hp per litre and the kit's own 100 points off reliability.
-    // The estimated top speed stays at the class limiter, and 43 lb more costs a point of modelled grip.
-    expect(values(civic, [mod('turbo', 2)])).toEqual({ power: 533, speed: 575, acceleration: 526, handling: 564, durability: 595, reliability: 746, efficiency: 675 });
+    // The estimated top speed climbs from 120.7 to 132.2 mph with the power, and 43 lb more costs a point of modelled grip.
+    expect(values(civic, [mod('turbo', 2)])).toEqual({ power: 533, speed: 590, acceleration: 526, handling: 564, durability: 595, reliability: 746, efficiency: 675 });
   });
 
   it('an off-road kit raises DURABILITY and ground clearance and lowers HANDLING and EFFICIENCY', () => {
-    expect(values(truck, [])).toEqual({ power: 774, speed: 420, acceleration: 618, handling: 311, durability: 915, reliability: 865, efficiency: 515 });
-    expect(values(truck, [mod('offroad', 2)])).toEqual({ power: 774, speed: 385, acceleration: 603, handling: 240, durability: 962, reliability: 860, efficiency: 491 });
+    expect(values(truck, [])).toEqual({ power: 774, speed: 430, acceleration: 618, handling: 311, durability: 915, reliability: 865, efficiency: 515 });
+    expect(values(truck, [mod('offroad', 2)])).toEqual({ power: 774, speed: 392, acceleration: 603, handling: 240, durability: 962, reliability: 860, efficiency: 491 });
     expect(applyModifications(truck, [mod('offroad', 2)]).spec.groundClearanceIn?.value).toBeCloseTo(11.4, 9);
   });
 

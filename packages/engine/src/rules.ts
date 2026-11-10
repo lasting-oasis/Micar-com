@@ -17,6 +17,12 @@ export const RULESET = 'micar-rules-v1';
 export const POWER = {
   horsepowerWeight: 0.7,
   torqueWeight: 0.3,
+  /**
+   * With no torque on file the index is estimated, and the estimate leans low on purpose: it takes torque as this
+   * share of the horsepower figure, which is below nearly every production engine, so entering the real figure can
+   * only help and leaving it blank never does.
+   */
+  missingTorqueShare: 0.7,
   anchors: [
     [0, 0], [50, 120], [100, 270], [150, 400], [200, 500], [250, 580], [300, 650], [400, 770],
     [500, 890], [564.3, 950], [700, 970], [1000, 990], [1500, 1000],
@@ -30,20 +36,28 @@ export const SPEED = {
     [155, 750], [170, 820], [186, 885], [196, 920], [205, 935], [220, 955], [250, 985], [280, 1000],
   ] as readonly Anchor[],
   /**
-   * When no top speed is on file it is estimated as the speed at which the engine's power equals drag plus rolling
-   * resistance, then capped at the limiter usual for the class. An estimate is always marked as one.
+   * When no top speed is on file it is estimated: the speed at which the engine's power equals drag plus rolling
+   * resistance, times the share of that speed a car really reaches, then capped at the limiter usual for the class.
+   * An estimate is always marked as one, and it leans low: a real figure usually does better than a blank.
    */
   estimate: {
     airDensity: 1.225,
     rollingResistance: 0.012,
     drivelineEfficiency: 0.85,
+    /** A car reaches about this share of the speed its power alone would allow: gearing, cooling and downforce take the rest. */
+    realisation: 0.87,
     /** Drag area (Cd x frontal area, m2) typical of each class. */
     dragArea: { sports: 0.58, coupe: 0.6, sedan: 0.62, hatchback: 0.64, wagon: 0.66, suv: 0.84, offroad: 1.05, pickup: 1.15, van: 0.95 } as Record<BodyClass, number>,
     /** The electronic limit usual for the class, mph. */
     limiter: { sports: 400, coupe: 155, sedan: 130, hatchback: 125, wagon: 130, suv: 125, offroad: 110, pickup: 110, van: 115 } as Record<BodyClass, number>,
-    /** At or above this many horsepower per pound a car is treated as a performance model and limited at performanceLimiter instead. */
-    performanceRatio: 0.085,
-    performanceLimiter: 155,
+    /**
+     * Makers raise the limiter on their quicker models. Between these two figures of horsepower per pound the limit
+     * climbs in a straight line from the class's own to its performance limit, so one more horsepower never moves
+     * an estimate by more than a fraction of a mile an hour.
+     */
+    performanceBand: { from: 0.075, to: 0.115 },
+    /** Where the limiter ends up on a class's quickest models, mph. Trucks and off-roaders stay near their tires' rating however much power they have. */
+    performanceLimiter: { sports: 400, coupe: 155, sedan: 155, hatchback: 155, wagon: 155, suv: 155, offroad: 112, pickup: 118, van: 120 } as Record<BodyClass, number>,
   },
 };
 
@@ -54,12 +68,18 @@ export const ACCELERATION = {
     [6, 625], [6.5, 590], [7, 555], [7.5, 520], [8, 485], [8.5, 450], [9, 415], [10, 350], [11, 290],
     [12, 240], [14, 160], [16, 100], [20, 30], [25, 0],
   ] as readonly Anchor[],
-  /** When no 0-60 time is on file: seconds = k x (pounds per horsepower) ^ exponent x drivetrain factor (x electric factor), never below the floor. */
+  /**
+   * When no 0-60 time is on file: seconds = k x (pounds per horsepower) ^ exponent x drivetrain factor
+   * (x electric factor, x the factor for a continuously variable transmission), never below the floor.
+   * k leans slow on purpose, so a measured time usually beats the estimate and a blank never beats a measurement.
+   */
   estimate: {
-    k: 0.9,
+    k: 1,
     exponent: 0.75,
     drivetrain: { AWD: 0.9, '4WD': 0.97, RWD: 1, FWD: 1.03 } as Record<Drivetrain, number>,
     electric: 0.9,
+    /** A belt CVT gives up some of the launch a geared transmission has. */
+    cvt: 1.08,
     floor: 1.9,
   },
 };
@@ -100,7 +120,11 @@ export const DURABILITY = {
   drivetrain: { '4WD': 30, AWD: 15, RWD: 0, FWD: 0 } as Record<Drivetrain, number>,
   /** Points per inch of ground clearance above the pivot, up to the limit. */
   clearance: { pivotIn: 6, perIn: 8, max: 40 },
-  /** Points lost per horsepower-per-litre above the pivot (combustion engines only), up to the limit. */
+  /**
+   * Points lost per horsepower-per-litre above the pivot, up to the limit. Petrol and diesel engines only: a hybrid's
+   * horsepower is its system output, which says nothing about how hard its engine works, and an electric motor has
+   * no displacement. For a petrol or diesel engine the score needs both figures: it is not given without them.
+   */
   stress: { pivotHpPerL: 90, perHpPerL: 0.5, max: 80 },
 };
 
@@ -116,12 +140,15 @@ export const RELIABILITY = {
   plugInHybrid: -20,
   transmission: { manual: 20, automatic: 0, 'dual-clutch': -30, cvt: -20, ecvt: 20, 'single-speed': 30 } as Record<TransmissionType, number>,
   drivetrain: { FWD: 0, RWD: 0, AWD: -10, '4WD': -10 } as Record<Drivetrain, number>,
-  /** Points lost per horsepower-per-litre above the pivot (combustion engines only), up to the limit. */
+  /** Points lost per horsepower-per-litre above the pivot, up to the limit. Petrol and diesel engines only, as for DURABILITY. */
   stress: { pivotHpPerL: 100, perHpPerL: 0.6, max: 90 },
   /** More than this many cylinders costs points. */
   manyCylinders: { above: 8, points: -30 },
-  /** Points per 1,000 warranted powertrain miles above the pivot, within the limits. */
-  warranty: { pivotMiles: 60000, perThousandMiles: 0.75, min: -15, max: 30 },
+  /**
+   * Points per 1,000 warranted powertrain miles above the pivot, up to the limit. A longer warranty than usual earns
+   * points; a shorter one, or none on file, earns nothing, so leaving the field empty is never worth anything.
+   */
+  warranty: { pivotMiles: 60000, perThousandMiles: 0.75, min: 0, max: 30 },
 };
 
 /** EFFICIENCY reads EPA combined fuel economy: MPG, or MPGe for an electric powertrain. */

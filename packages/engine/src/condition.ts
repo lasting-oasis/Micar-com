@@ -48,6 +48,9 @@ const TITLE_FLOOR: Record<TitleStatus, number> = { Clean: 0, Rebuilt: 0.5, Salva
 
 type Replacement = ConditionInputs['replacements'][number];
 
+/** The weakest of a set of evidence levels. */
+const weakest = (levels: readonly EvidenceLevel[]): EvidenceLevel => levels.reduce((worst, level) => (EVIDENCE_ORDER.indexOf(level) < EVIDENCE_ORDER.indexOf(worst) ? level : worst), 'verified' as EvidenceLevel);
+
 /** The share of a life used up. Nothing below zero, and a figure that is not a number counts as nothing. */
 const share = (amount: number, life: number): number => (amount > 0 ? amount / life : 0);
 
@@ -98,8 +101,12 @@ function lastReading(inputs: ConditionInputs, system: WearSystem): number | null
  * - The battery is 'unknown' unless the powertrain is hybrid, plug-in hybrid or electric.
  * - A declared accident or title sets a floor under body wear: Minor 0.25, Major 0.6, Rebuilt 0.5, Salvage 0.8.
  * - The newest inspection that read a system replaces its wear with the inspector's figure, at evidence 'verified'.
- * - Modelled wear carries the evidence of the mileage reading it was counted from. Wear counted from years alone,
+ * - Modelled wear carries the weakest evidence among what it was counted from: the mileage reading (when miles were
+ *   counted) and the replacement it is counted since (when there is one). Wear counted from the model year alone,
  *   and body wear that comes from the accident or title floor, is 'declared'.
+ * - To know what ranked play may read, do not filter this state: assess a second one from verified inputs alone
+ *   (verification.competitionConditionInputs). In that state nothing declared exists, so nothing declared can lower,
+ *   raise or relabel a verified figure.
  */
 export function assessCondition(inputs: ConditionInputs): ConditionState {
   const reading = inputs.mileage !== null && isNumber(inputs.mileage.value) ? inputs.mileage : null;
@@ -135,7 +142,13 @@ export function assessCondition(inputs: ConditionInputs): ConditionState {
     // A part fitted before the model year began is no older than the vehicle, so a receipt can never add years.
     const years = share(yearsBetween(sinceDate !== null && sinceDate > built ? sinceDate : built, inputs.asOf), life.years);
     let wear = clamp(Math.max(miles ?? 0, years), 0, 1);
-    let evidence: EvidenceLevel = reading !== null && miles !== null ? reading.evidence : 'declared';
+    // The figure is only as good as the weakest thing it was counted from: the reading (when miles were counted) and
+    // the replacement it was counted since (when there is one). Years counted from the model year alone are the
+    // owner's word, because the model year is.
+    const counted: EvidenceLevel[] = [];
+    if (reading !== null && miles !== null) counted.push(reading.evidence);
+    if (replacement !== null) counted.push(replacement.evidence);
+    let evidence: EvidenceLevel = counted.length === 0 ? 'declared' : weakest(counted);
     if (system === 'body' && bodyFloor > wear) {
       wear = bodyFloor;
       evidence = 'declared';
