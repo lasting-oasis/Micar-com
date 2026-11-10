@@ -93,6 +93,7 @@ export type GradeFacts = {
   /** The owner's records a verifier has withdrawn. An attestation its own verifier took back is not one of them. */
   voided: string[];
   records: PassportEvent[];
+  /** Different photographs of each subject. A picture uploaded twice (the same fingerprint) is counted once. */
   photos: Record<PhotoSubject, number>;
   attachments: Record<AttachmentKind, number>;
   hasPapers: boolean;
@@ -125,6 +126,7 @@ export function gradeFacts(passport: Passport, registry: VerifierRegistry, asOf:
   for (const k of ATTACHMENT_KINDS) attachments[k] = 0;
   let hasPapers = false, declaredOriginality = false, restorationsNotOem = 0, transfers = 0, transfersWithFile = 0;
   const declaration: GradeFacts['declaration'] = { condition: null, accident: null, titleStatus: null, originality: null };
+  const pictures: Record<string, true> = {};
   for (const e of events) {
     if (e.type === 'declaration') {
       if (e.condition !== null) declaration.condition = e.condition;
@@ -133,7 +135,16 @@ export function gradeFacts(passport: Passport, registry: VerifierRegistry, asOf:
       if (e.originality !== null) declaration.originality = e.originality;
     }
     for (const a of e.attachments) attachments[a.kind] += 1;
-    if (e.type === 'photo') photos[e.subject] += e.attachments.length;
+    if (e.type === 'photo') {
+      for (const a of e.attachments) {
+        // The same picture uploaded again is one picture: four sides take four different files.
+        if (a.sha256 !== null) {
+          if (pictures[a.sha256] === true) continue;
+          pictures[a.sha256] = true;
+        }
+        photos[e.subject] += 1;
+      }
+    }
     if (e.type === 'document' && (e.document === 'title' || e.document === 'registration') && e.attachments.length > 0) hasPapers = true;
     if (e.type === 'declaration' && e.originality !== null) declaredOriginality = true;
     if (e.type === 'modification') declaredOriginality = true;

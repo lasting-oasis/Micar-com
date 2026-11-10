@@ -359,9 +359,22 @@ export function standingReadings(passport: Passport, registry: VerifierRegistry,
 
 const RECORD_TYPES: readonly PassportEvent['type'][] = ['maintenance', 'repair', 'inspection', 'restoration', 'modification', 'document'];
 
-/** The records that count toward the trail: maintenance, repairs, inspections, restorations, modifications and documents that have a file and still stand. */
+/**
+ * The records that count toward the trail: maintenance, repairs, inspections, restorations, modifications and
+ * documents that still stand and have a file of their own. The same file attached to several records documents one
+ * of them: copies are told apart by fingerprint, and a record whose every file was already counted on an earlier
+ * record is left out. A file with no fingerprint cannot be compared, so it counts.
+ */
 export function documentedRecords(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): PassportEvent[] {
-  return standing.events.filter((e) => RECORD_TYPES.indexOf(e.type) !== -1 && e.attachments.length > 0);
+  const seen: Record<string, true> = {};
+  const out: PassportEvent[] = [];
+  for (const e of standing.events) {
+    if (RECORD_TYPES.indexOf(e.type) === -1 || e.attachments.length === 0) continue;
+    const own = e.attachments.some((a) => a.sha256 === null || seen[a.sha256] !== true);
+    for (const a of e.attachments) if (a.sha256 !== null) seen[a.sha256] = true;
+    if (own) out.push(e);
+  }
+  return out;
 }
 
 /** The modifications fitted on a day: installs that stand and that no standing removal undoes, each with its evidence and upkeep. */

@@ -127,7 +127,7 @@ The tables are pinned so the reference specification of the 2024 Nissan GT-R NIS
 | `documented` | The owner attached a receipt, a photo or a report |
 | `verified` | An independent verifier attested it |
 
-Uploading something moves a claim to `documented` and never further. An attestation counts only when its verifier is in the registry the host supplies, is active, is allowed that scope, has never owned the vehicle, and the attestation is inside its window (identity never lapses; mileage 12 months; records, originality and modifications 24; a condition inspection 24, at full weight for the first 12). `EMPTY_REGISTRY` has no verifiers, so with it nothing can be verified.
+Uploading something moves a claim to `documented` and never further. Uploading the same thing again adds nothing: files are told apart by fingerprint, so one receipt attached to twelve entries is one documented record and one photograph uploaded four times is one photograph. An attestation counts only when its verifier is in the registry the host supplies, is active, is allowed that scope, has never owned the vehicle, and the attestation is inside its window (identity never lapses; mileage 12 months; records, originality and modifications 24; a condition inspection 24, at full weight for the first 12). `EMPTY_REGISTRY` has no verifiers, so with it nothing can be verified.
 
 An attestation also has to still be about the thing it attested, and to be the verifier's own:
 

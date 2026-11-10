@@ -199,6 +199,38 @@ describe('documentation and history', () => {
     expect(points(p, 'doc.receipts')).toBe(10);
   });
 
+  it('counts a file once however many records it is attached to', () => {
+    const copy = (sha: string, kind: Attachment['kind'] = 'receipt'): Attachment => ({ ...file(kind), sha256: sha.repeat(64).slice(0, 64) });
+    let p = parked();
+    // One receipt, uploaded to twelve maintenance entries: one documented record, not twelve.
+    for (let i = 0; i < 12; i++) p = add(p, { type: 'maintenance', date: `2025-${String(i + 1).padStart(2, '0')}-05`, shop: '', cost: null, attachments: [copy('a')] });
+    expect(gradeFacts(p, REGISTRY, TODAY).records).toHaveLength(1);
+    expect(points(p, 'doc.records')).toBeCloseTo((1 / 12) * 40, 1);
+    expect(certify(p, score(p), REGISTRY, TODAY).requirements.filter((r) => r.id === 'doc.records')[0].met).toBe(false);
+    // A record with the old receipt and a new one has a file of its own, and counts.
+    p = add(p, { type: 'repair', date: '2026-02-01', system: null, work: 'repair', shop: '', cost: null, attachments: [copy('a', 'invoice'), copy('b', 'invoice')] });
+    p = add(p, { type: 'repair', date: '2026-03-01', system: null, work: 'repair', shop: '', cost: null, attachments: [copy('b', 'invoice')] });
+    expect(gradeFacts(p, REGISTRY, TODAY).records).toHaveLength(2);
+    // Files with no fingerprint cannot be compared, so each counts.
+    let q = parked();
+    for (let i = 0; i < 3; i++) q = add(q, { type: 'maintenance', date: `2025-0${i + 1}-05`, shop: '', cost: null, attachments: [file('receipt')] });
+    expect(gradeFacts(q, REGISTRY, TODAY).records).toHaveLength(3);
+  });
+
+  it('counts a photograph once however many times it is uploaded', () => {
+    const shot = (sha: string): Attachment => ({ ...file('photo'), sha256: sha.repeat(64).slice(0, 64) });
+    let p = parked();
+    p = add(p, { type: 'photo', subject: 'exterior', date: '2026-01-06', attachments: [shot('a'), shot('a'), shot('a'), shot('a')] });
+    expect(gradeFacts(p, REGISTRY, TODAY).photos.exterior).toBe(1);
+    expect(points(p, 'id.photos')).toBe(0);
+    // The same picture again under another subject is still that picture.
+    p = add(p, { type: 'photo', subject: 'interior', date: '2026-01-07', attachments: [shot('a')] });
+    expect(gradeFacts(p, REGISTRY, TODAY).photos.interior).toBe(0);
+    p = add(p, { type: 'photo', subject: 'exterior', date: '2026-01-08', attachments: [shot('b'), shot('c'), shot('d')] });
+    expect(gradeFacts(p, REGISTRY, TODAY).photos.exterior).toBe(4);
+    expect(points(p, 'id.photos')).toBe(5);
+  });
+
   it('does not count a record with no file', () => {
     const p = add(parked(), { type: 'maintenance', date: '2026-03-01', shop: '', cost: null });
     expect(points(p, 'doc.records')).toBe(0);
