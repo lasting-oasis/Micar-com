@@ -1,6 +1,6 @@
 // The shared site footer: its links, its words in both languages, and the static renderers.
 // Plain data and strings, no React: each app renders FOOTER_COLUMNS with its own React and useLang,
-// and the Garage page (no React, no dictionary) is generated from footerHtml.
+// and the static /garage/ page (no React, no dictionary; it forwards to the Garage in the app) is generated from footerHtml.
 import { SHOP_URL, SITE_URL, WORLD_URL } from './doors';
 
 export type FooterLang = 'en' | 'es';
@@ -36,7 +36,7 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       { id: 'world', label: { en: 'MiCar World', es: 'MiCar World' }, href: WORLD_URL },
       { id: 'strip', label: { en: 'Enter the Strip', es: 'Entra al Strip' }, href: `${WORLD_URL}strip` },
       { id: 'shop', label: { en: 'MiCar Shop', es: 'MiCar Shop' }, href: SHOP_URL },
-      { id: 'garage', label: { en: 'Garage', es: 'Garaje' }, href: `${SITE_URL}garage/`, soon: true },
+      { id: 'garage', label: { en: 'Garage', es: 'Garaje' }, href: `${SITE_URL}#/garage` },
     ],
   },
   {

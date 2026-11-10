@@ -1,4 +1,4 @@
-// Builds site/garage/index.html: the placeholder template with the shared footer and the brand CSS inlined.
+// Builds site/garage/index.html: the page at the Garage's old address (it forwards to #/garage), with the shared footer and the brand CSS inlined.
 // Run by build-site.sh from apps/value (pnpm --filter ... exec), so every path is resolved from this file, never from the cwd.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
