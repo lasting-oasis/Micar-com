@@ -5,3 +5,7 @@ export * from './util';
 export * from './rules';
 export * from './labels';
 export * from './normalize';
+export * from './specs';
+export * from './database';
+export * from './condition';
+export * from './modifications';

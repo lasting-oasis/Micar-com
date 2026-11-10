@@ -124,6 +124,9 @@ export type CatalogueEntry = {
   note: string;
 };
 
+/** A demonstration vehicle whose seven values were typed in as placeholders. Never data about a real car. */
+export type ExampleVehicle = { id: string; identity: VehicleIdentity; attributes: Attributes; note: string };
+
 /* -------------------------------------------------------------------- scores ---- */
 
 /**
