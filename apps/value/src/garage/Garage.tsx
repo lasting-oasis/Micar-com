@@ -1,8 +1,8 @@
 // The Garage: the cars parked on this device, as cards, and the page of one of them.
 // Nothing here leaves the browser: the cars are kept by garage/store.ts and their files by garage/files.ts.
 import { useMemo, useRef, useState } from 'react';
-import { micarIdFromBytes, normalizeMicarId } from '@micar/engine';
-import type { Passport } from '@micar/engine';
+import { LEVEL_LABELS, micarIdFromBytes, normalizeMicarId } from '@micar/engine';
+import type { Assembly, Passport } from '@micar/engine';
 import { garageUrl } from '../car/record';
 import { Footer } from '../Footer';
 import { Strip } from '../Strip';
@@ -20,7 +20,7 @@ import { PassportPanel } from './PassportPanel';
 import { RacePanel } from './RacePanel';
 import { SpecForm } from './SpecForm';
 import { StatsPanel } from './StatsPanel';
-import { assembleCar, exportGarage, findCar, importGarage, ownsCar, park, record, removeCar, replaceSpec, transfer, type GarageState } from './store';
+import { assembleCar, exportGarage, findCar, importGarage, ownsCar, park, record, removeCar, replaceSpec, replaceVin, transfer, type GarageState } from './store';
 import { useFileUrl, useGarage, type GarageHandle } from './useGarage';
 import { TABS, type Tab } from './words';
 
@@ -112,6 +112,32 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
   );
 }
 
+const COUNT = /^(\d+) of (\d+)$/;
+
+/**
+ * What stands between this car and its next level, in one place, so the journey reads off the page: park it, add
+ * photographs and records, reach Documented. The two levels above that take an independent verifier, and say so.
+ */
+function NextStep({ assembly, mine, onOpen }: { assembly: Assembly; mine: boolean; onOpen: (tab: Tab) => void }) {
+  const { next, missing } = assembly.certification;
+  if (next === null || missing.length === 0) return null;
+  const independent = next === 'verified' || next === 'certified';
+  return (
+    <section className="gar-next" aria-labelledby="gar-next-title">
+      <h2 id="gar-next-title">{t('Next: {level}', { level: t(LEVEL_LABELS[next]) })}</h2>
+      <ul className="gar-items">
+        {missing.map((r) => {
+          const m = COUNT.exec(r.detail);
+          return <li key={r.id}><span>{t(r.label)}</span>{m && <output>{t('{n} of {m}', { n: m[1], m: m[2] })}</output>}</li>;
+        })}
+      </ul>
+      {independent
+        ? <p className="gar-help">{t('This level takes an independent verifier: an inspector, a shop or a verification provider. None is connected to this site yet, and nothing you upload can stand in for one.')}</p>
+        : mine && <div className="gar-btns"><button type="button" className="gar-btn primary" onClick={() => onOpen('Passport')}>{t('Open the passport')}</button><button type="button" className="gar-btn" onClick={() => onOpen('Grade')}>{t('See the grade')}</button></div>}
+    </section>
+  );
+}
+
 function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; today: string }) {
   const [tab, setTab] = useState<Tab>('Stats');
   const [flipped, setFlipped] = useState(false);
@@ -143,6 +169,7 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
         </aside>
         <div className="gar-main">
           <h1 className="gar-title">{assembly.card.title}{assembly.card.subtitle && <small> {assembly.card.subtitle}</small>}</h1>
+          <NextStep assembly={assembly} mine={mine} onOpen={setTab} />
           <div className="gar-tabs" role="tablist" aria-label={assembly.card.title}>
             {TABS.map((name) => <button type="button" key={name} role="tab" id={`gar-tab-${name}`} aria-selected={tab === name} aria-controls="gar-tabpanel" onClick={() => setTab(name)}>{t(name)}</button>)}
           </div>
@@ -151,6 +178,7 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
             {tab === 'Grade' && <GradePanel assembly={assembly} passport={passport} />}
             {tab === 'Passport' && (
               <PassportPanel passport={passport} today={today} canWrite={mine} garageId={g.state.ownerId} files={g.files} onRecord={onRecord}
+                onVin={(vin) => commit(replaceVin(g.latest(), passport.micarId, vin, { now: stamp(), snapshotId: newId() }))}
                 onTransfer={(input) => commit(transfer(g.latest(), passport.micarId, input, { now: stamp() }))}
                 onExport={() => download(`micar-passport-${passport.micarId}.json`, exportGarage(g.state, stamp(), passport.micarId))} />
             )}

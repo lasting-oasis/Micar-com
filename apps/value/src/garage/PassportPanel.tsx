@@ -11,6 +11,7 @@ import { ACCIDENTS, CONDITIONS, TITLES } from '../engine/data';
 import { locale, t } from '../i18n';
 import { attachmentKind, checkFile, sha256Hex, type FileStore } from './files';
 import { newId, stamp } from './ids';
+import { vinNote } from './Park';
 import { REGISTRY } from './store';
 
 /** The entries an owner writes here. Modifications are written from the Mods tab, where their effect shows. */
@@ -39,6 +40,8 @@ type Props = {
   garageId: string;
   files: FileStore;
   onRecord: (event: Record<string, unknown>, reason: string) => string | null;
+  /** Sets, corrects or clears the VIN. */
+  onVin: (vin: string) => string | null;
   onTransfer: (input: { eventId: string; toOwnerId: string; date: string; attachments: Attachment[] }) => string | null;
   onExport: () => void;
 };
@@ -203,6 +206,36 @@ function Row({ passport, event, today, files, standing }: { passport: Passport; 
   );
 }
 
+/** The VIN, entered or corrected after parking. It is checked as it is typed, kept private, and never part of what others see. */
+function VinEditor({ passport, onVin, onDone }: { passport: Passport; onVin: Props['onVin']; onDone: () => void }) {
+  const [vin, setVin] = useState(passport.vin);
+  const [message, setMessage] = useState('');
+  const note = vinNote(vin, passport.spec.identity.year);
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const refused = onVin(vin);
+    if (refused) { setMessage(t(refused)); return; }
+    onDone();
+  };
+  return (
+    <form className="gar-entry" onSubmit={submit} aria-labelledby="gar-vin-title">
+      <h3 id="gar-vin-title">{t('VIN')}</h3>
+      <div className="gar-form">
+        <label className="wide">{t('VIN')}
+          <input type="text" value={vin} maxLength={24} autoComplete="off" autoCapitalize="characters" spellCheck={false} aria-describedby="gar-vin-edit-note" onChange={(e) => setVin(e.target.value)} />
+          <span id="gar-vin-edit-note" className={note.tone === 'warn' ? 'gar-err' : 'gar-help'}>{t(note.text)}</span>
+        </label>
+      </div>
+      <p className="gar-help">{t('An identity a verifier has attested is for the VIN as it stood then. Change the VIN and that attestation no longer counts.')}</p>
+      <div className="gar-btns">
+        <button type="submit" className="gar-btn primary">{t('Save the VIN')}</button>
+        <button type="button" className="gar-btn" onClick={onDone}>{t('Cancel')}</button>
+        {message && <span className="gar-err" role="alert">{message}</span>}
+      </div>
+    </form>
+  );
+}
+
 function Transfer({ today, files, onTransfer }: Pick<Props, 'today' | 'files' | 'onTransfer'>) {
   const [to, setTo] = useState('');
   const [date, setDate] = useState(today);
@@ -230,11 +263,12 @@ function Transfer({ today, files, onTransfer }: Pick<Props, 'today' | 'files' | 
   );
 }
 
-export function PassportPanel({ passport, today, canWrite, garageId, files, onRecord, onTransfer, onExport }: Props) {
+export function PassportPanel({ passport, today, canWrite, garageId, files, onRecord, onVin, onTransfer, onExport }: Props) {
   const events = useMemo(() => timeline(passport).slice().reverse(), [passport]);
   const standing = useMemo(() => standingOf(passport, REGISTRY, today), [passport, today]);
   const shared = useMemo(() => publicPassport(passport, REGISTRY, today, standing), [passport, today, standing]);
   const [showPublic, setShowPublic] = useState(false);
+  const [editingVin, setEditingVin] = useState(false);
   return (
     <div className="gar-panel">
       <div className="gar-facts">
@@ -247,7 +281,9 @@ export function PassportPanel({ passport, today, canWrite, garageId, files, onRe
       <div className="gar-btns">
         <button type="button" className="gar-btn" onClick={onExport}>{t('Download the passport file')}</button>
         <button type="button" className="gar-btn" aria-expanded={showPublic} onClick={() => setShowPublic((v) => !v)}>{showPublic ? t('Hide what others see') : t('What others see')}</button>
+        {canWrite && !editingVin && <button type="button" className="gar-btn" onClick={() => setEditingVin(true)}>{passport.vin ? t('Correct the VIN') : t('Enter the VIN')}</button>}
       </div>
+      {canWrite && editingVin && <VinEditor passport={passport} onVin={onVin} onDone={() => setEditingVin(false)} />}
 
       {showPublic && (
         <div className="gar-public" aria-label={t('What others see')}>

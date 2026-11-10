@@ -23,6 +23,7 @@ const NOT_LISTED = '__not_listed__';
 /** Everything the page can say about a VIN, for the Spanish coverage test. */
 export const VIN_NOTES = [
   'Optional. Private: never shown, never shared.', 'A VIN has 17 letters and digits, never I, O or Q.', 'Shorter than 17 characters: accepted for a vehicle built before 1981.',
+  'A vehicle from 1981 or later has a VIN of 17 characters. This one is shorter.',
   'The check digit does not match. Look for a typo.', 'This VIN is coded for another model year.', 'Well formed.',
 ] as const;
 
@@ -32,7 +33,12 @@ export function vinNote(vin: string, year: number): { text: string; tone: 'help'
   if (v === '') return { text: 'Optional. Private: never shown, never shared.', tone: 'help' };
   const check = checkVin(v);
   if (check.format === 'invalid') return { text: 'A VIN has 17 letters and digits, never I, O or Q.', tone: 'warn' };
-  if (check.format === 'pre-1981') return { text: 'Shorter than 17 characters: accepted for a vehicle built before 1981.', tone: 'help' };
+  // The short form existed only before the 17-character standard. On a later car it is a VIN with characters missing.
+  if (check.format === 'pre-1981') {
+    return year < 1981
+      ? { text: 'Shorter than 17 characters: accepted for a vehicle built before 1981.', tone: 'help' }
+      : { text: 'A vehicle from 1981 or later has a VIN of 17 characters. This one is shorter.', tone: 'warn' };
+  }
   if (check.checkDigit === 'invalid') return { text: 'The check digit does not match. Look for a typo.', tone: 'warn' };
   if (vinMatchesYear(v, year) === false) return { text: 'This VIN is coded for another model year.', tone: 'warn' };
   return { text: 'Well formed.', tone: 'ok' };

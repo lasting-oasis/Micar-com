@@ -115,3 +115,7 @@
   .dp .gar-cat .bar { grid-template-columns: minmax(96px, 40%) 1fr 36px; }
   .dp .gar-ladder > li { padding-left: 50px; }
 }
+
+/* What stands between the car and its next level. */
+.dp .gar-next { border: 1px solid var(--line); border-left: 3px solid var(--paint); border-radius: 8px; padding: 14px 16px; margin: 14px 0 4px; display: grid; gap: 10px; background: color-mix(in srgb, var(--night-2) 60%, transparent); }
+.dp .gar-next h2 { font: 700 15px/1.2 var(--cond); letter-spacing: .12em; text-transform: uppercase; color: var(--paint); margin: 0; }

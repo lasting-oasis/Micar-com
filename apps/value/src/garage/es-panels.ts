@@ -105,4 +105,13 @@ export const ES_PANELS: Record<string, string> = {
   'fitted': 'instalada', 'removed': 'retirada',
   'Withdrawn by a verifier': 'Retirado por un verificador',
   'This car cannot enter a ranked race yet. Its specification is your own account of it: ranked takes a specification exactly as the MiCar catalogue has it, or one an independent verifier has attested. Free play is open.': 'Este auto todavía no puede entrar a una carrera clasificatoria. Su especificación es lo que usted mismo dice de él: la clasificatoria acepta una especificación tal como la tiene el catálogo de MiCar, o una que un verificador independiente haya atestado. El juego libre está abierto.',
+  // The next step, and the VIN after parking
+  'Next: {level}': 'Sigue: {level}',
+  'This level takes an independent verifier: an inspector, a shop or a verification provider. None is connected to this site yet, and nothing you upload can stand in for one.': 'Este nivel requiere un verificador independiente: un inspector, un taller o un proveedor de verificación. Todavía no hay ninguno conectado a este sitio, y nada de lo que usted suba puede reemplazarlo.',
+  'Open the passport': 'Abrir el pasaporte',
+  'See the grade': 'Ver la calificación',
+  'An identity a verifier has attested is for the VIN as it stood then. Change the VIN and that attestation no longer counts.': 'Una identidad atestada por un verificador vale para el VIN tal como estaba entonces. Si cambia el VIN, esa atestación deja de contar.',
+  'Save the VIN': 'Guardar el VIN',
+  'Correct the VIN': 'Corregir el VIN',
+  'Enter the VIN': 'Ingresar el VIN',
 };

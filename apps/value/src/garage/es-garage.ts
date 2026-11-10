@@ -71,4 +71,5 @@ export const ES_GARAGE: Record<string, string> = {
   'Front-wheel drive': 'Tracción delantera', 'Rear-wheel drive': 'Tracción trasera', 'All-wheel drive': 'Tracción total', 'Four-wheel drive': 'Tracción en las cuatro ruedas',
   'Unibody': 'Monocasco', 'Body on frame': 'Carrocería sobre bastidor',
   'Standard': 'Estándar', 'Sport-tuned': 'Deportiva', 'Adaptive': 'Adaptativa', 'Performance brakes': 'Frenos de alto desempeño', 'Carbon-ceramic': 'Carbono-cerámicos',
+  'A vehicle from 1981 or later has a VIN of 17 characters. This one is shorter.': 'Un vehículo de 1981 o posterior tiene un VIN de 17 caracteres. Este es más corto.',
 };
