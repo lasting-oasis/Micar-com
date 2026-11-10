@@ -1,43 +1,41 @@
 // The example cards: the two specimens from the brief (placeholder values, stamped as such) and, below them,
 // the reference catalogue as house cards. Nothing here belongs to anyone: it shows what a card is.
-import { useState } from 'react';
-import { ATTRIBUTE_KEYS, illustrativeLayer } from '@micar/engine';
-import type { Attributes, CollectibleCard as CardData, VehicleIdentity } from '@micar/engine';
+import { useMemo, useState } from 'react';
+import { CATALOGUE, EXAMPLES, catalogueCard, exampleCard } from '@micar/engine';
+import type { CollectibleCard as CardData } from '@micar/engine';
 import { t } from '../i18n';
 import { CollectibleCard } from './CollectibleCard';
 
-// Stand-in until the engine's card generator lands: builds the brief's two example cards by hand.
-function example(micarId: string, identity: VehicleIdentity, attributes: Attributes): CardData {
-  const layer = illustrativeLayer(attributes);
-  return {
-    micarId, serial: `${micarId} · E1`, identity, title: `${identity.year} ${identity.make} ${identity.model}`, subtitle: identity.trim, color: '',
-    photoAttachmentId: null, powerRating: layer.powerRating, provisionalRating: layer.provisionalRating,
-    attributes: ATTRIBUTE_KEYS.map((key) => ({ key, value: layer.scores[key].value, base: layer.scores[key].value, delta: 0, basis: 'illustrative' })),
-    statsBasis: 'base', level: 'registered', grade: { overall: 0, grade10: 1, tier: 1, tierName: 'Parts', slabbed: false },
-    rarity: { tier: 'common', score: 0, factors: [] }, edition: { number: 1, name: 'Registration Edition', issuedAt: '2026-11-10T00:00:00.000Z' },
-    mods: [], finish: 'raw', foil: 0, quality: 'illustrative', illustrative: true, ruleset: 'micar-rules-v1',
-  };
+function Shelf({ cards, flipped, onFlip }: { cards: { key: string; card: CardData; note: string }[]; flipped: string | null; onFlip: (key: string) => void }) {
+  return (
+    <div className="gar-grid">
+      {cards.map(({ key, card, note }) => (
+        <div className="gar-cell" key={key}>
+          <CollectibleCard card={card} live flipped={flipped === key} onFlip={() => onFlip(key)} />
+          <p className="gar-cap">{card.title}<small>{card.subtitle}{note ? ` · ${note}` : ''}</small></p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
-const EXAMPLES: CardData[] = [
-  example('MC-EXAM-PLE0-0001', { year: 2024, make: 'Nissan', model: 'GT-R', trim: 'NISMO', bodyClass: 'sports' }, { power: 950, speed: 920, acceleration: 880, handling: 880, durability: 650, reliability: 700, efficiency: 500 }),
-  example('MC-EXAM-PLE0-0002', { year: 2024, make: 'Honda', model: 'Civic', trim: 'Sedan LX', bodyClass: 'sedan' }, { power: 400, speed: 570, acceleration: 370, handling: 560, durability: 640, reliability: 860, efficiency: 720 }),
-];
-
-export function Examples() {
+export function Examples({ today }: { today: string }) {
   const [flipped, setFlipped] = useState<string | null>(null);
+  const flip = (key: string) => setFlipped((f) => (f === key ? null : key));
+  const examples = useMemo(() => EXAMPLES.map((e) => ({ key: e.id, card: exampleCard(e, today), note: '' })), [today]);
+  const house = useMemo(() => CATALOGUE.map((e) => ({ key: e.id, card: catalogueCard(e, today), note: '' })), [today]);
   return (
-    <section className="gar-sec" aria-labelledby="gar-examples">
-      <h2 id="gar-examples">{t('Example cards')}</h2>
-      <p>{t('Two specimens to show what a card carries. Their numbers are illustrative placeholders, not verified manufacturer data.')}</p>
-      <div className="gar-grid">
-        {EXAMPLES.map((c) => (
-          <div className="gar-cell" key={c.micarId}>
-            <CollectibleCard card={c} live flipped={flipped === c.micarId} onFlip={() => setFlipped(flipped === c.micarId ? null : c.micarId)} />
-            <p className="gar-cap">{c.title}<small>{c.subtitle}</small></p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <>
+      <section className="gar-sec" aria-labelledby="gar-examples">
+        <h2 id="gar-examples">{t('Example cards')}</h2>
+        <p>{t('Two specimens to show what a card carries. Their numbers are illustrative placeholders, not verified manufacturer data.')}</p>
+        <Shelf cards={examples} flipped={flipped} onFlip={flip} />
+      </section>
+      <section className="gar-sec" aria-labelledby="gar-house">
+        <h2 id="gar-house">{t('House cards')}</h2>
+        <p>{t('Real vehicles from the reference catalogue, scored by the same rules as yours. Their figures were gathered from public sources and have not been verified; a dash means a figure could not be sourced, so that attribute is not rated.')}</p>
+        <Shelf cards={house} flipped={flipped} onFlip={flip} />
+      </section>
+    </>
   );
 }

@@ -7,6 +7,8 @@ export const ES_CARD: Record<string, string> = {
   'Saved on this device. Nothing here leaves your browser. Accounts come with phase 1.': 'Guardado en este dispositivo. Nada sale de su navegador. Las cuentas llegan con la fase 1.',
   'Example cards': 'Tarjetas de ejemplo',
   'Two specimens to show what a card carries. Their numbers are illustrative placeholders, not verified manufacturer data.': 'Dos ejemplares para mostrar lo que lleva una tarjeta. Sus números son ilustrativos, no datos verificados del fabricante.',
+  'House cards': 'Tarjetas de la casa',
+  'Real vehicles from the reference catalogue, scored by the same rules as yours. Their figures were gathered from public sources and have not been verified; a dash means a figure could not be sourced, so that attribute is not rated.': 'Vehículos reales del catálogo de referencia, puntuados con las mismas reglas que el suyo. Sus datos se reunieron de fuentes públicas y no han sido verificados; un guion significa que no se encontró la fuente de un dato, así que ese atributo queda sin medir.',
   // The card
   'Power rating': 'Índice de poder',
   'of 1000': 'de 1000',

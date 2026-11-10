@@ -1,0 +1,117 @@
+/* The Garage's panels: the parking form, the spec sheet, stats, grade, passport, mods and races.
+   Same rules as garage.css: everything sits under .dp, class names start with gar-, phones first. */
+
+.dp .gar-main { min-width: 0; display: grid; gap: 18px; align-content: start; }
+.dp .gar-title { font: italic 800 clamp(26px, 4vw, 44px)/1 var(--cond); text-transform: uppercase; letter-spacing: .005em; }
+.dp .gar-title small { font: 600 .5em/1 var(--cond); letter-spacing: .08em; color: var(--haze); font-style: normal; }
+.dp .gar-block { display: block; margin-top: 3px; }
+.dp .gar-none { color: var(--haze); }
+.dp .gar-note.gar-warn { border-left-color: var(--loss); }
+.dp .gar-danger { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); }
+.dp .gar-list { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font: 500 15px/1.4 var(--body); color: #c3cad8; }
+.dp .gar-list b { color: var(--ink); font: 700 15px/1.3 var(--cond); letter-spacing: .05em; text-transform: uppercase; }
+.dp .gar-panel h3 small { font: 600 13px/1 var(--cond); letter-spacing: .08em; margin-left: 8px; }
+
+/* Fieldsets shared by the parking form, the spec sheet and the entry forms */
+.dp .gar-fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 18px 16px 20px; margin: 0 0 18px; min-width: 0; background: color-mix(in srgb, var(--night-2) 60%, transparent); }
+.dp .gar-fieldset legend { padding: 0 8px; font: 700 15px/1 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--paint); }
+.dp .gar-spec { display: grid; }
+.dp .gar-form label small, .dp .gar-field small { font-size: .9em; letter-spacing: .04em; text-transform: none; color: var(--haze); }
+.dp .gar-form a.gar-chip, .dp .gar-form span.gar-chip { justify-self: start; text-transform: uppercase; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.dp .gar-park h2 { font: italic 800 clamp(24px, 3.4vw, 36px)/1 var(--cond); text-transform: uppercase; margin-bottom: 18px; }
+.dp .gar-start { display: grid; gap: 10px; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px dashed var(--line); }
+.dp .gar-start p { color: #c3cad8; max-width: 70ch; }
+.dp .gar-start select { max-width: 100%; }
+.dp .gar-preview { display: grid; gap: 18px; margin-bottom: 18px; max-width: 560px; }
+.dp .gar-preview .lab-big .gg { font-size: 64px; }
+.dp .gar-entry { border: 1px solid var(--line); border-radius: 10px; padding: 18px 16px; display: grid; gap: 16px; background: color-mix(in srgb, var(--night-2) 60%, transparent); }
+
+/* Stats */
+.dp .gar-table td small { font: 600 12px/1.3 var(--cond); letter-spacing: .04em; }
+.dp .gar-table td b { font: 700 16px/1.2 var(--cond); letter-spacing: .05em; text-transform: uppercase; }
+.dp .gar-table td.num b { font-size: 20px; font-style: italic; text-transform: none; }
+.dp .gar-table tr.gar-total td { border-top: 2px solid #3a4458; }
+.dp .gar-table tr.gar-me td { background: linear-gradient(90deg, rgba(255,210,63,.09), transparent 80%); }
+/* A finishing place: narrow, and with room before the name beside it. */
+.dp .gar-table td.pos, .dp .gar-table th.pos { width: 1%; padding-left: 10px; padding-right: 14px; font-variant-numeric: tabular-nums; color: var(--haze); }
+.dp .gar-table .gar-you { color: var(--paint); text-transform: uppercase; letter-spacing: .12em; }
+/* A results table keeps its shape on a phone and scrolls sideways inside its frame, so a car's name stays on a line or two. */
+.dp .gar-result .gar-table { min-width: 460px; }
+.dp .gar-result .gar-table td:nth-child(2) { min-width: 150px; }
+.dp .gar-adjust { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 10px; }
+.dp .gar-adjust li { display: grid; gap: 6px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.dp .gar-adjust-what { font: 700 15px/1.2 var(--cond); letter-spacing: .05em; text-transform: uppercase; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* Grade */
+.dp .gar-cat { border-bottom: 1px solid var(--line); padding: 8px 0; }
+.dp .gar-cat summary { cursor: pointer; list-style: none; min-height: 44px; display: grid; align-items: center; }
+.dp .gar-cat summary::-webkit-details-marker { display: none; }
+.dp .gar-cat .bar { grid-template-columns: minmax(120px, 34%) 1fr 44px; }
+.dp .gar-cat[open] summary { margin-bottom: 8px; }
+.dp .gar-items { list-style: none; margin: 6px 0 8px; padding: 0; display: grid; gap: 4px; }
+.dp .gar-items li { display: grid; grid-template-columns: 1fr auto; gap: 12px; font: 500 14px/1.35 var(--body); color: var(--haze); padding-left: 20px; position: relative; }
+.dp .gar-items li::before { content: "○"; position: absolute; left: 0; color: var(--haze); }
+.dp .gar-items li.met { color: var(--ink); }
+.dp .gar-items li.met::before { content: "●"; color: var(--paint); }
+.dp .gar-items output { font: 600 13px/1.35 var(--cond); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.dp .gar-ladder { list-style: none; margin: 12px 0 14px; padding: 0; display: grid; gap: 12px; counter-reset: level; }
+.dp .gar-ladder > li { counter-increment: level; border: 1px solid var(--line); border-radius: 10px; padding: 14px 14px 10px 54px; position: relative; display: grid; gap: 4px; }
+.dp .gar-ladder > li::before { content: counter(level); position: absolute; left: 14px; top: 12px; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #3a4458; display: grid; place-items: center; font: 800 14px/1 var(--cond); color: var(--haze); }
+.dp .gar-ladder > li.on { border-color: color-mix(in srgb, var(--paint) 55%, var(--line)); }
+.dp .gar-ladder > li.on::before { border-color: var(--paint); background: var(--paint); color: #0b0d12; }
+.dp .gar-ladder > li > b { font: 700 18px/1.1 var(--cond); letter-spacing: .08em; text-transform: uppercase; }
+.dp .gar-ladder > li > span { color: #c3cad8; font-size: 15px; }
+
+/* Passport */
+.dp .gar-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px 18px; }
+.dp .gar-facts > div { display: grid; gap: 4px; min-width: 0; }
+.dp .gar-facts small { font: 600 11px/1 var(--cond); letter-spacing: .14em; text-transform: uppercase; color: var(--haze); }
+.dp .gar-facts b { font: 700 17px/1.2 var(--cond); letter-spacing: .04em; overflow-wrap: anywhere; }
+.dp .gar-public { border: 1px dashed var(--blue-2); border-radius: 10px; padding: 16px; display: grid; gap: 14px; }
+.dp .gar-ledger { margin-top: 12px; }
+.dp .gar-ledger .row { grid-template-columns: 96px 150px 1fr 120px; }
+.dp .gar-ledger .st { font-size: 12px; white-space: normal; text-align: center; max-width: 100%; }
+.dp .gar-ledger .what small { overflow-wrap: anywhere; }
+.dp .gar-ledger .fx span { font: 600 11px/1.2 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--haze); }
+.dp .gar-files { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.dp .gar-files button { border: 1px solid #3a4458; background: none; border-radius: 4px; padding: 6px 8px; min-height: 32px; cursor: pointer; font: 600 12px/1 var(--cond); letter-spacing: .06em; color: var(--blue-2); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dp .gar-files button:hover { border-color: var(--blue-2); }
+
+/* Mods */
+.dp .gar-fitted { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+.dp .gar-fitted li { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.dp .gar-fitted b { font: 700 16px/1.2 var(--cond); letter-spacing: .05em; text-transform: uppercase; }
+.dp .gar-mods-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 12px; margin-top: 12px; }
+.dp .gar-modcard { border-radius: 12px; padding: 14px; display: grid; gap: 10px; align-content: start; color: #0b0d12; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #f6f8fc 0%, #c9d1dc 26%, #9aa4b4 46%, #e9eef5 62%, #a4adbb 82%, #f3f6fb 100%); box-shadow: 0 14px 28px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.6); }
+.dp .gar-modcard.on { box-shadow: 0 14px 28px rgba(0,0,0,.45), inset 0 0 0 3px var(--paint); }
+.dp .gar-modcard h4 { margin: 0; font: italic 800 19px/1 var(--cond); text-transform: uppercase; }
+.dp .gar-modcard p { color: #2a323f; font-size: 14px; line-height: 1.35; margin: 0; }
+.dp .gar-modcard .gar-btn { border-color: rgba(11,13,18,.45); color: #0b0d12; min-height: 44px; padding: 0 12px; }
+.dp .gar-modcard .gar-btn:hover { border-color: #0b0d12; }
+.dp .gar-modcard .gar-btn.primary { background: #0b0d12; border-color: #0b0d12; color: var(--paint); }
+
+/* Race */
+.dp .gar-modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 10px; }
+.dp .gar-mode { text-align: left; border: 1px solid var(--line); border-radius: 10px; background: var(--night-2); padding: 14px; display: grid; gap: 6px; cursor: pointer; min-height: 44px; transition: border-color .2s; }
+.dp .gar-mode:hover { border-color: #3a4458; }
+.dp .gar-mode.on { border-color: var(--paint); box-shadow: inset 0 0 0 1px var(--paint); }
+.dp .gar-mode b { font: italic 800 20px/1 var(--cond); text-transform: uppercase; }
+.dp .gar-mode span { color: #c3cad8; font-size: 14px; line-height: 1.35; }
+.dp .gar-mode small { font: 700 11px/1.3 var(--cond); letter-spacing: .1em; text-transform: uppercase; color: var(--paint); }
+.dp .gar-setup { display: grid; gap: 8px; margin-top: 10px; }
+.dp .gar-setup-row { display: grid; grid-template-columns: minmax(120px, 30%) 1fr; gap: 12px; align-items: center; font: 700 14px/1.2 var(--cond); letter-spacing: .06em; text-transform: uppercase; color: #c9d0dd; }
+.dp .gar-setup-row .gar-btn { padding: 0 10px; }
+.dp .gar-result { border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; background: color-mix(in srgb, var(--night-2) 60%, transparent); }
+.dp .gar-win { font: italic 800 clamp(22px, 3vw, 30px)/1.05 var(--cond); text-transform: uppercase; color: var(--paint); }
+
+@media (max-width: 720px) {
+  .dp .gar-ledger .row { grid-template-columns: 1fr; gap: 6px; }
+  .dp .gar-ledger .row .fx { grid-column: 1; text-align: left; }
+  .dp .gar-ledger .st { justify-self: start; }
+  .dp .gar-fitted li { grid-template-columns: 1fr auto; }
+  .dp .gar-fitted li .gar-btn { grid-column: 1 / -1; justify-self: start; }
+  .dp .gar-setup-row { grid-template-columns: 1fr; gap: 6px; }
+  .dp .gar-cat .bar { grid-template-columns: minmax(96px, 40%) 1fr 36px; }
+  .dp .gar-ladder > li { padding-left: 50px; }
+}
