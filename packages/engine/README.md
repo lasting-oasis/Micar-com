@@ -131,7 +131,7 @@ Uploading something moves a claim to `documented` and never further. Uploading t
 
 An attestation also has to still be about the thing it attested, and to be the verifier's own:
 
-- **It is bound to its subject.** An identity attestation speaks for the VIN and the year, make and model; a specification attestation for the whole specification. The engine keeps a fingerprint of the subject when the attestation is recorded, and the attestation stops counting when the passport no longer matches it. An owner who raises a figure after verification is no longer verified.
+- **It is bound to its subject.** An identity attestation speaks for the VIN and the year, make and model; a specification attestation for the whole specification. The engine keeps a fingerprint of the subject (its SHA-256) when the attestation is recorded, and the attestation stops counting when the passport no longer matches it. An owner who raises a figure after verification is no longer verified.
 - **It can be signed.** Give the registry a `checkSignature` and an attestation counts only with a signature it accepts over `attestationPayload(passport, attestation)`: the vehicle's MiCar ID, everything the attestation says, its subject, and each record it names exactly as the passport holds it. A signature cannot be moved to another vehicle and stops checking when the attestation or a record it confirmed is altered. The checker answers at once; a host with asynchronous cryptography checks ahead of time.
 - **It can be taken back.** `voidEvent` lets a verifier take back its own attestation, and lets a verifier with a records attestation withdraw an owner's record that proved false. The entry stays on the passport and no longer counts.
 

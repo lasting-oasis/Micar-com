@@ -318,7 +318,7 @@ export type Attestation = {
   events: string[];
   note: string;
   /**
-   * A fingerprint of what was attested as it stood when the attestation was recorded: the VIN and the year, make and
+   * A fingerprint (SHA-256) of what was attested as it stood when the attestation was recorded: the VIN and the year, make and
    * model for 'identity' and 'one-of-one'; the whole specification for 'specification'; null for the other scopes.
    * The engine writes it. When the passport no longer matches it, the attestation stops counting.
    */

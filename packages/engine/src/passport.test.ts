@@ -449,9 +449,9 @@ describe('files and attestations as data', () => {
   it('reads an attestation’s shape and refuses a malformed one', () => {
     const good = { id: 'a1', verifierId: 'inspector-ann', scope: 'condition', date: '2026-10-01', inPerson: true, conditionScore: 88, systems: { engine: 0.2, tires: 0.5, warp: 0.9 }, mileage: 60000, events: ['e1', 'e1', 'e2'], note: ' fine ', signature: null, extra: 1 };
     expect(checkAttestation(good)).toEqual({ id: 'a1', verifierId: 'inspector-ann', scope: 'condition', date: '2026-10-01', inPerson: true, conditionScore: 88, systems: { engine: 0.2, tires: 0.5 }, mileage: 60000, events: ['e1', 'e2'], note: 'fine', subject: null, signature: null });
-    expect(checkAttestation({ ...good, subject: '0a1b2c3d' })?.subject).toBe('0a1b2c3d');
+    expect(checkAttestation({ ...good, subject: 'a1'.repeat(32) })?.subject).toBe('a1'.repeat(32));
     const bad: Record<string, unknown>[] = [
-      { ...good, subject: 'not hex!' }, { ...good, subject: 7 },
+      { ...good, subject: 'not hex!' }, { ...good, subject: 7 }, { ...good, subject: '0a1b2c3d' },
       { ...good, scope: 'opinion' }, { ...good, date: '2026-13-01' }, { ...good, inPerson: 'yes' }, { ...good, conditionScore: 101 }, { ...good, systems: { engine: 2 } },
       { ...good, mileage: -1 }, { ...good, events: 'all' }, { ...good, verifierId: '' }, { ...good, id: undefined }, { ...good, signature: 5 },
     ];

@@ -146,7 +146,7 @@ export function checkAttestation(input: unknown): Attestation | null {
     if (events.indexOf(e) === -1) events.push(e);
   }
   const subject = input.subject;
-  if (subject !== null && subject !== undefined && !(typeof subject === 'string' && /^[0-9a-f]{8}$/.test(subject))) return null;
+  if (subject !== null && subject !== undefined && !(typeof subject === 'string' && /^[0-9a-f]{64}$/.test(subject))) return null;
   const signature = input.signature;
   if (signature !== null && signature !== undefined && !(typeof signature === 'string' && signature.length <= 2000)) return null;
   return {

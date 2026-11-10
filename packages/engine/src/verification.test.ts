@@ -3,7 +3,7 @@ import { micarIdFromBytes } from './identity';
 import { addEvent, appendEvent, createPassport, parsePassport, serializePassport, transferOwnership, updateSpec, updateVin } from './passport';
 import { emptySpec } from './specs';
 import type { Attachment, Attestation, AttestationScope, Passport, PassportEvent, Sourced, VehicleSpec, VerifierRegistry } from './types';
-import { hashString } from './util';
+import { hashString, sha256Text } from './util';
 import {
   ATTESTATION_PAYLOAD, ATTESTATION_SCOPE_LABELS, ATTESTATION_VALID_MONTHS, CONDITION_FULL_MONTHS, EMPTY_REGISTRY, MILEAGE_TOLERANCE, VERIFICATION_REFUSALS,
   activeModifications, attestationPayload, attestationStatuses, attestationSubject, conditionInputs, documentedRecords, eventEvidence, publicPassport, recordAttestation,
@@ -270,10 +270,11 @@ describe('what was attested', () => {
       expect(attestationSubject(p, scope)).toBe('');
       expect(subjectFingerprint(p, scope)).toBeNull();
     }
-    expect(subjectFingerprint(p, 'identity')).toMatch(/^[0-9a-f]{8}$/);
+    expect(subjectFingerprint(p, 'identity')).toMatch(/^[0-9a-f]{64}$/);
+    expect(subjectFingerprint(p, 'identity')).toBe(sha256Text(attestationSubject(p, 'identity')));
     expect(subjectFingerprint(p, 'identity')).not.toBe(subjectFingerprint(ok(updateVin(p, OTHER_VIN, { by: OWNER })), 'identity'));
     // The engine writes the fingerprint; whatever a caller sends in its place is ignored.
-    const [q] = attest(p, 'identity', { subject: 'ffffffff' });
+    const [q] = attest(p, 'identity', { subject: 'f'.repeat(64) });
     const stored = q.events[q.events.length - 1];
     expect(stored.type === 'attestation' && stored.attestation.subject).toBe(subjectFingerprint(p, 'identity'));
   });

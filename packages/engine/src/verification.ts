@@ -18,7 +18,7 @@ import type {
   VerifierRegistry, WearSystem,
 } from './types';
 import { WEAR_SYSTEMS } from './types';
-import { canonicalJson, clipText, dayOf, hashString, isIsoTimestamp, monthOf, monthsBetween } from './util';
+import { canonicalJson, clipText, dayOf, isIsoTimestamp, monthOf, monthsBetween, sha256Text } from './util';
 
 /** The registry with nobody in it. With it, nothing can be verified. */
 export const EMPTY_REGISTRY: VerifierRegistry = { verifiers: [] };
@@ -99,12 +99,14 @@ export function attestationSubject(passport: Passport, scope: AttestationScope):
   return '';
 }
 
-/** The fingerprint an attestation keeps of its subject: eight hex characters, or null when the scope has no subject. */
+/**
+ * The fingerprint an attestation keeps of its subject: the SHA-256 of the subject's text, or null when the scope has
+ * no subject. It is a full-strength hash on purpose: an owner cannot go looking for a different specification, or a
+ * different VIN, that happens to share it.
+ */
 export function subjectFingerprint(passport: Passport, scope: AttestationScope): string | null {
   const subject = attestationSubject(passport, scope);
-  if (subject === '') return null;
-  const hex = hashString(subject).toString(16);
-  return '00000000'.slice(hex.length) + hex;
+  return subject === '' ? null : sha256Text(subject);
 }
 
 /** The first line of every payload. A change to what is signed changes this. */
