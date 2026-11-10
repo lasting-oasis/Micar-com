@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@micar/brand": "workspace:*",
+    "@micar/engine": "workspace:*",
     "express": "4.22.1",
     "framer-motion": "11.18.2",
     "lucide-react": "0.294.0",

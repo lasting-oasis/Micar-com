@@ -152,6 +152,20 @@ const DICT: Record<string, Entry> = {
   'error.dismiss': { en: 'Dismiss', es: 'Cerrar' },
   'error.screen': { en: "Couldn't load this screen.", es: 'No se pudo cargar esta pantalla.' },
   'error.reload': { en: 'Reload', es: 'Recargar' },
+
+  // ---- The MiCar card's attributes on an owned car (world/CardStats.tsx) ----
+  'card.title': { en: 'MiCar card · factory stats', es: 'Tarjeta MiCar · datos de fábrica' },
+  'card.rating': { en: 'Power rating', es: 'Índice de poder' },
+  'card.provisional': { en: '({n} of 7)', es: '({n} de 7)' },
+  'card.power': { en: 'Power', es: 'Potencia' },
+  'card.speed': { en: 'Speed', es: 'Velocidad' },
+  'card.acceleration': { en: 'Acceleration', es: 'Aceleración' },
+  'card.handling': { en: 'Handling', es: 'Manejo' },
+  'card.durability': { en: 'Durability', es: 'Durabilidad' },
+  'card.reliability': { en: 'Reliability', es: 'Confiabilidad' },
+  'card.efficiency': { en: 'Efficiency', es: 'Eficiencia' },
+  'card.unrated': { en: 'Not rated: the car table has no figure for this', es: 'Sin medir: la tabla de autos no tiene este dato' },
+  'card.note': { en: 'Factory figures for the model, from 0 to 1000. They say nothing about this car’s condition. ~ means estimated.', es: 'Datos de fábrica del modelo, de 0 a 1000. No dicen nada del estado de este auto. ~ significa estimado.' },
 };
 
 export const t = (lang: Lang, key: string): string => DICT[key]?.[lang] ?? key;
