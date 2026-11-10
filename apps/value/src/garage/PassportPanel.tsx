@@ -172,7 +172,8 @@ function AddEntry({ today, files, onRecord }: Pick<Props, 'today' | 'files' | 'o
  */
 function nameOf(event: PassportEvent): string {
   if (event.type === 'attestation') return `${t(EVENT_TYPE_LABELS.attestation)}: ${t(ATTESTATION_SCOPE_LABELS[event.attestation.scope])}`;
-  if (event.title) return event.title;
+  // A title the engine wrote itself ("Parked", "Ownership transfer") is the name of the kind, in English: say it in the page's language.
+  if (event.title && event.title !== EVENT_TYPE_LABELS[event.type]) return event.title;
   if (event.type === 'modification') return `${t(MODS[event.category].name)} · ${t(MOD_TIER_NAMES[event.tier - 1])} · ${event.action === 'install' ? t('fitted') : t('removed')}`;
   return t(EVENT_TYPE_LABELS[event.type]);
 }
