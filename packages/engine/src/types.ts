@@ -287,7 +287,19 @@ export type VerifierKind = 'inspector' | 'shop' | 'provider' | 'micar';
 export type AttestationScope = 'identity' | 'mileage' | 'documentation' | 'condition' | 'originality' | 'modification' | 'specification' | 'one-of-one';
 /** An independent party allowed to attest. The host app supplies the list; the engine never trusts a verifier it was not given. */
 export type Verifier = { id: string; kind: VerifierKind; name: string; active: boolean; scopes: AttestationScope[] };
-export type VerifierRegistry = { verifiers: Verifier[] };
+/**
+ * Checks a verifier's signature over the exact text `attestationPayload` builds. The host supplies it, and it answers
+ * at once: a host whose cryptography is asynchronous checks ahead of time and answers from what it found.
+ */
+export type SignatureCheck = (payload: string, signature: string, verifier: Verifier) => boolean;
+export type VerifierRegistry = {
+  verifiers: Verifier[];
+  /**
+   * When present, an attestation counts only if it carries a signature this accepts. When absent, the host is vouching
+   * for where the passport is kept: that nobody but a verifier could have written an attestation into it.
+   */
+  checkSignature?: SignatureCheck;
+};
 /** A verifier's statement about one vehicle. The only thing that can raise evidence to 'verified'. */
 export type Attestation = {
   id: string;
@@ -305,7 +317,13 @@ export type Attestation = {
   /** scopes 'documentation' and 'modification': the event ids the verifier confirmed. */
   events: string[];
   note: string;
-  /** Reserved for the verifier's signature. The engine stores it; a checker supplied by the host judges it. */
+  /**
+   * A fingerprint of what was attested as it stood when the attestation was recorded: the VIN and the year, make and
+   * model for 'identity' and 'one-of-one'; the whole specification for 'specification'; null for the other scopes.
+   * The engine writes it. When the passport no longer matches it, the attestation stops counting.
+   */
+  subject: string | null;
+  /** The verifier's signature over `attestationPayload`. The engine stores it; the registry's checker judges it. */
   signature: string | null;
 };
 
@@ -463,6 +481,32 @@ export type PublicEvent = {
   /** How many files of each kind stand behind it. */
   attachments: Partial<Record<AttachmentKind, number>>;
   verified: boolean;
+  /** For an attestation, what was attested (and nothing of what it said); null for every other entry. */
+  scope: AttestationScope | null;
+};
+/** A grade snapshot as anyone may see it: the month, not the day, and no id or reason that could point at a private entry. */
+export type PublicSnapshot = {
+  /** YYYY-MM */
+  month: string;
+  formula: string;
+  overall: number;
+  grade10: number;
+  tier: number;
+  categories: Record<GradeCategoryKey, number>;
+  level: CertificationLevel;
+};
+/** A card edition as anyone may see it. */
+export type PublicEdition = {
+  number: number;
+  name: string;
+  /** YYYY-MM */
+  month: string;
+  level: CertificationLevel;
+  rarity: RarityTier;
+  finish: CardFinish;
+  grade10: number | null;
+  powerRating: number | null;
+  attributes: MaybeAttributes;
 };
 export type PublicPassport = {
   micarId: string;
@@ -475,8 +519,8 @@ export type PublicPassport = {
   /** YYYY-MM */
   currentOwnerSince: string;
   events: PublicEvent[];
-  snapshots: GradeSnapshot[];
-  editions: CardEdition[];
+  snapshots: PublicSnapshot[];
+  editions: PublicEdition[];
 };
 
 export type CardAttribute = { key: AttributeKey; value: number | null; base: number | null; delta: number; basis: AttributeBasis };
@@ -529,6 +573,11 @@ export type RaceEntrant = {
   drivetrain: Drivetrain | null;
   groundClearanceIn: number | null;
   basis: StatsBasis;
+  /**
+   * True when the specification behind the stats can be trusted by a stranger: it is the catalogue's own, or an
+   * independent verifier attested it. A specification an owner typed in is theirs to enjoy and never ranked.
+   */
+  trusted: boolean;
 };
 export type RaceRow = {
   id: string;

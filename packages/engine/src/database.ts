@@ -3,7 +3,8 @@
 // placeholder can never be mistaken for data about a real car.
 import { CATALOGUE_DATA } from './data/catalogue';
 import { EXAMPLE_DATA } from './data/examples';
-import type { CatalogueEntry, ExampleVehicle } from './types';
+import { SPEC_FIELD_LABELS } from './specs';
+import type { CatalogueEntry, ExampleVehicle, SpecField, VehicleSpec } from './types';
 
 /** Real vehicles gathered from public sources. Reference data: not checked against a primary document. */
 export const CATALOGUE: readonly CatalogueEntry[] = CATALOGUE_DATA;
@@ -34,4 +35,27 @@ export function findCatalogue(query: { year?: number; make?: string; model?: str
     if (trim !== null && plain(id.trim).indexOf(trim) === -1) return false;
     return true;
   }).slice().sort((a, b) => b.spec.identity.year - a.spec.identity.year || (a.spec.identity.trim < b.spec.identity.trim ? -1 : a.spec.identity.trim > b.spec.identity.trim ? 1 : 0));
+}
+
+const SPEC_FIELDS = Object.keys(SPEC_FIELD_LABELS) as SpecField[];
+
+/**
+ * The catalogue entry a specification is, figure for figure: the same identity and the same value in every field
+ * (where each came from aside). Null when anything differs, so a specification that began as a catalogue entry and
+ * was then altered, or added to, is no longer the catalogue's. Ranked play trusts the catalogue's own figures.
+ */
+export function catalogueMatch(spec: VehicleSpec): CatalogueEntry | null {
+  const id = spec.identity;
+  for (const entry of CATALOGUE) {
+    const other = entry.spec.identity;
+    if (entry.status !== 'reference') continue;
+    if (other.year !== id.year || other.make !== id.make || other.model !== id.model || other.trim !== id.trim || other.bodyClass !== id.bodyClass) continue;
+    let same = true;
+    for (const field of SPEC_FIELDS) {
+      const mine = spec[field], theirs = entry.spec[field];
+      if ((mine === null) !== (theirs === null) || (mine !== null && theirs !== null && mine.value !== theirs.value)) { same = false; break; }
+    }
+    if (same) return entry;
+  }
+  return null;
 }

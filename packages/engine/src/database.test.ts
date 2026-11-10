@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CATALOGUE, EXAMPLES, catalogueEntry, findCatalogue } from './database';
+import { CATALOGUE, EXAMPLES, catalogueEntry, catalogueMatch, findCatalogue } from './database';
 import { baseStats, powerRating } from './normalize';
 import { parseSpec } from './specs';
 import { ATTRIBUTE_KEYS } from './types';
@@ -87,6 +87,33 @@ describe('finding a vehicle', () => {
   it('lists the newest first', () => {
     const years = findCatalogue({}).map((e) => e.spec.identity.year);
     expect(years).toEqual(years.slice().sort((a, b) => b - a));
+  });
+});
+
+describe('recognising the catalogue’s own figures', () => {
+  it('matches an entry copied as it stands, whoever is named as its source', () => {
+    for (const entry of CATALOGUE) {
+      expect(catalogueMatch(entry.spec)?.id).toBe(entry.id);
+      // An owner who parks a car from the catalogue holds the same figures under their own name.
+      const copy = JSON.parse(JSON.stringify(entry.spec)) as VehicleSpec;
+      for (const field of Object.keys(copy) as (keyof VehicleSpec)[]) {
+        const cell = copy[field];
+        if (field !== 'identity' && cell !== null) (cell as Sourced<unknown>).source = { kind: 'owner' };
+      }
+      expect(catalogueMatch(copy)?.id).toBe(entry.id);
+    }
+  });
+
+  it('does not match once any figure is changed, added or removed, or the identity differs', () => {
+    const entry = CATALOGUE[0];
+    const owner = { kind: 'owner' } as const;
+    const hp = entry.spec.horsepower as Sourced<number>;
+    expect(catalogueMatch({ ...entry.spec, horsepower: { value: hp.value + 1, source: hp.source } })).toBeNull();
+    expect(catalogueMatch({ ...entry.spec, horsepower: null })).toBeNull();
+    const empty = (Object.keys(entry.spec) as (keyof VehicleSpec)[]).filter((f) => f !== 'identity' && entry.spec[f] === null)[0] as SpecField | undefined;
+    if (empty) expect(catalogueMatch({ ...entry.spec, [empty]: { value: empty === 'lateralGripG' ? 1.2 : 1, source: owner } } as VehicleSpec)).toBeNull();
+    expect(catalogueMatch({ ...entry.spec, identity: { ...entry.spec.identity, trim: `${entry.spec.identity.trim} Special` } })).toBeNull();
+    expect(catalogueMatch({ ...entry.spec, identity: { ...entry.spec.identity, year: entry.spec.identity.year - 1 } })).toBeNull();
   });
 });
 

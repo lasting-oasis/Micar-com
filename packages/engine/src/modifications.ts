@@ -143,8 +143,10 @@ export function modLabel(category: ModCategory, tier: ModTier): string {
 /** A modification on record that does not count, and why. */
 export type ModRefusal = { eventId: string; category: ModCategory; reason: string };
 
-const NOT_ELECTRIC = 'not for an electric powertrain';
-const REPLACED = 'replaced by a later fitment';
+/** Why a modification on record does not count. The apps translate these. */
+export const MOD_REFUSALS = { notElectric: 'not for an electric powertrain', replaced: 'replaced by a later fitment' } as const;
+const NOT_ELECTRIC = MOD_REFUSALS.notElectric;
+const REPLACED = MOD_REFUSALS.replaced;
 
 /** Install order: by the day it was fitted, then by event id. Plain string comparison, so it is the same in every locale. */
 function byInstall(a: ActiveModification, b: ActiveModification): number {

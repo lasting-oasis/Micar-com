@@ -21,6 +21,21 @@ export function clipText(v: unknown, max: number): string {
   return out.replace(/\s+/g, ' ').trim().slice(0, max);
 }
 
+/**
+ * JSON with every object's keys in sorted order, so the same data gives the same text however it was built.
+ * A signature or a fingerprint is taken over this text.
+ */
+export function canonicalJson(v: unknown): string {
+  if (v === null || v === undefined || typeof v === 'function' || typeof v === 'symbol') return 'null';
+  if (typeof v === 'bigint') return JSON.stringify(String(v));
+  if (typeof v !== 'object') return JSON.stringify(v) ?? 'null';
+  if (Array.isArray(v)) return `[${v.map(canonicalJson).join(',')}]`;
+  const o = v as Record<string, unknown>;
+  const parts: string[] = [];
+  for (const k of Object.keys(o).sort()) if (o[k] !== undefined) parts.push(`${JSON.stringify(k)}:${canonicalJson(o[k])}`);
+  return `{${parts.join(',')}}`;
+}
+
 /* ------------------------------------------------------------------ scoring ---- */
 
 /** One point of a scoring table: a quantity in its own unit and the score it earns. */

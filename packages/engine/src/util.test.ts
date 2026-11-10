@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { clamp, clipText, daysBetween, hashString, idFromBytes, interpolate, isIsoDate, isIsoTimestamp, monthsBetween, mulberry32, numberIn, round1, score1000, yearsBetween } from './util';
+import { canonicalJson, clamp, clipText, daysBetween, hashString, idFromBytes, interpolate, isIsoDate, isIsoTimestamp, monthsBetween, mulberry32, numberIn, round1, score1000, yearsBetween } from './util';
 
 describe('numbers and text', () => {
   it('keeps a value inside its range', () => {
@@ -113,5 +113,24 @@ describe('ids', () => {
     expect(idFromBytes([0, 255, 16, 32, 64, 128, 1, 2, 3, 4])).toBe(id);
     expect(idFromBytes([1])).toHaveLength(2);
     expect(idFromBytes([])).toBe('');
+  });
+});
+
+describe('canonical text', () => {
+  it('is the same whatever order an object was built in', () => {
+    expect(canonicalJson({ b: 1, a: [2, { d: null, c: 'x' }] })).toBe('{"a":[2,{"c":"x","d":null}],"b":1}');
+    expect(canonicalJson({ a: [2, { c: 'x', d: null }], b: 1 })).toBe(canonicalJson({ b: 1, a: [2, { d: null, c: 'x' }] }));
+    expect(canonicalJson([3, 1, 2])).toBe('[3,1,2]');
+    expect(canonicalJson('a "quoted" word')).toBe(JSON.stringify('a "quoted" word'));
+  });
+
+  it('leaves out what is undefined in an object and writes null for what has no text', () => {
+    expect(canonicalJson({ a: undefined, b: 1 })).toBe('{"b":1}');
+    expect(canonicalJson([undefined, () => 1, Symbol('s'), NaN, Infinity])).toBe('[null,null,null,null,null]');
+    expect(canonicalJson(undefined)).toBe('null');
+    expect(canonicalJson(null)).toBe('null');
+    expect(canonicalJson(BigInt(12))).toBe('"12"');
+    expect(canonicalJson(true)).toBe('true');
+    expect(canonicalJson(1.5)).toBe('1.5');
   });
 });
