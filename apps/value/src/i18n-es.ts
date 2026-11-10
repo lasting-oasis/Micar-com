@@ -2,8 +2,11 @@
 // Terms follow what US dealers already use in Spanish: concesionario, intercambio (trade-in),
 // precio de etiqueta (sticker price), millaje, versión (trim), título de salvamento, Guía del Comprador.
 // src/i18n.test.ts fails if a string in the code, a data table or the engine's output has no entry here.
+import { GARAGE_ES } from './garage/es';
 
 export const ES: Record<string, string> = {
+  // ---- The Garage (garage/es.ts). Spread first, so a phrase the rest of the site already translates keeps that translation.
+  ...GARAGE_ES,
   // ---- Navigation -------------------------------------------------------------------------
   'Site': 'Sitio',
   'Value a car': 'Calcular el valor',

@@ -27,6 +27,20 @@ describe('routeFromHash', () => {
   it('ignores a query after the route', () => {
     expect(routeFromHash('#/value?x=1', '')).toEqual({ view: 'value' })
   })
+  it('#/garage is the Garage, with no car picked', () => {
+    expect(routeFromHash('#/garage', '')).toEqual({ view: 'garage', code: undefined })
+    expect(routeFromHash('#/garage/', '')).toEqual({ view: 'garage', code: undefined })
+  })
+  it('#/garage/<id> carries the MiCar ID', () => {
+    expect(routeFromHash('#/garage/MC-7K2D-93QX-41TB', '')).toEqual({ view: 'garage', code: 'MC-7K2D-93QX-41TB' })
+    expect(routeFromHash('#/garage/MC-7K2D-93QX-41TB?x=1', '').code).toBe('MC-7K2D-93QX-41TB')
+  })
+  it('the Garage wins over a calculator query left in the address', () => {
+    expect(routeFromHash('#/garage', '?make=Toyota').view).toBe('garage')
+  })
+  it.each(['#/garages', '#/garage-sale', '#garage'])('%s is not the Garage', (hash) => {
+    expect(routeFromHash(hash, '').view).toBe('door')
+  })
   it('works with no document (Node environment)', () => {
     expect(typeof document).toBe('undefined')
   })

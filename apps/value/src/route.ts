@@ -1,7 +1,11 @@
 // Pure hash routing for the value app: no DOM access, no side effects.
-export type ValueRoute = { view: 'car' | 'sticker' | 'value' | 'door'; code?: string }
+export type ValueRoute = { view: 'car' | 'sticker' | 'value' | 'garage' | 'door'; code?: string }
 
 export function routeFromHash(hash: string, search: string): ValueRoute {
+  // The Garage: '#/garage' is the list, '#/garage/<MiCar ID>' one car. Checked first, and with a boundary, so a
+  // calculator query left in the address can't send it to the calculator and '#/garages' is not the Garage.
+  const g = hash.match(/^#\/garage(?:\/([^?&/]*))?(?=$|[?&/])/)
+  if (g) return { view: 'garage', code: g[1] || undefined }
   const m = hash.match(/^#\/(car|c|sticker|value)(?:\/([^?&]*))?/)
   // 'car' must come before 'c' in the regex, or '#/car/abc' matches 'c' and loses its code.
   if (m?.[1] === 'c' || m?.[1] === 'car') return { view: 'car', code: m[2] ?? '' }

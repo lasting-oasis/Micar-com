@@ -5,6 +5,7 @@ import App from './App.tsx'
 import CarPage from './car/CarPage.tsx'
 import StickerBuilder from './car/StickerBuilder.tsx'
 import Door from './door/Door.tsx'
+import Garage from './garage/Garage.tsx'
 import { useLang } from './i18n.tsx'
 import { routeFromHash, sectionFromHash } from './route.ts'
 
@@ -13,6 +14,7 @@ import { routeFromHash, sectionFromHash } from './route.ts'
 //   #/value             the calculator
 //   #/sticker[/<code>]  dealer's window-sheet builder (optionally loaded with a car)
 //   #/c/<code>          the page a sheet's QR code opens (#/car/<code> on sheets printed before Nov 2026)
+//   #/garage[/<id>]     the Garage: the cars parked on this device, or one of them by its MiCar ID
 //   #<section-id>       a section of the home page (e.g. #grade); scrolled to after the page renders
 function currentSearch(): string {
   try { return window.location.search } catch { return '' }
@@ -40,6 +42,7 @@ function Router() {
   if (route.view === 'car') return <CarPage code={route.code ?? ''} />
   if (route.view === 'sticker') return <StickerBuilder code={route.code} />
   if (route.view === 'value') return <App />
+  if (route.view === 'garage') return <Garage code={route.code} />
   return <Door />
 }
 
