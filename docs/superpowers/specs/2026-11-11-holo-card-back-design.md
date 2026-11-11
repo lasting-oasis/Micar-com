@@ -1,7 +1,7 @@
 # The holographic card back — design
 
 Date: 2026-11-11
-Status: design approved in conversation; not built. A throwaway look preview exists in the owner's Blender session (four cards, one per foil) and is what the direction was approved from. Nothing here has been judged on a phone yet.
+Status: design approved in conversation and built on the branch `claude/holo-card`. The look was approved from a preview in the owner's Blender session (four cards, one per foil); the browser's card was then tuned against Blender's stills. It has been run in desktop Chrome with software GL only. Nothing here has been judged on a phone yet. Where the build differs from the approved design, the text below says what was built, and the differences are listed under "As built" at the end.
 
 ## What this is
 
@@ -95,7 +95,7 @@ createHoloCard(options: {
 }): { ready: Promise<void>; setFoil(foil: FoilId): void; resize(): void; destroy(): void };
 ```
 
-**Scene.** The model is scaled so the card is one unit tall and centred. A perspective camera (24° vertical) sits on the axis, far enough that the card fills 72% of the canvas height, which leaves room for the tilt and the shadow. The canvas is 3:4 and transparent. Pixel ratio is the device's, capped at 2.
+**Scene.** The model is scaled so the card is one unit tall and centred. A perspective camera (24° vertical) sits on the axis, far enough that the card fills 72% of the canvas height, which leaves room for the tilt and the shadow. The canvas is 3:4, or taller: where it is too narrow for 72% of its height the card takes 84% of its width instead, so on a phone held upright the card is as large as the screen's width allows. The canvas is transparent. Pixel ratio is the device's, capped at 2.
 
 **Tilt.** The pointer's position from the canvas centre, as a fraction of its half-size clamped to ±1, sets the target: yaw `+x × 16°`, pitch `−y × 16°` (y up), so the side under the finger moves away. The mouse tilts on hover; a finger tilts while it is down. Leaving, lifting or a cancelled gesture sets the target back to zero.
 
@@ -131,7 +131,8 @@ One thing learned from the preview: the artwork is itself drawn in rainbow colou
 
 ## The Garage (apps/value)
 
-- `garage/HoloCard.tsx`: mounts `createHoloCard` on a canvas; shows the still instead when `webglAvailable()` is false or `onError` fires; reads `prefers-reduced-motion`.
+- `garage/back.ts`: the route word, which tiers carry which foil, and where the card's files are.
+- `garage/HoloCard.tsx`: mounts `createHoloCard` on a canvas it makes for each mount; shows the still instead when `webglAvailable()` is false or `onError` fires; reads `prefers-reduced-motion`; shows the hint only while the card can be moved.
 - `garage/CardBack.tsx`: the inspect view, a `<dialog>` opened with `showModal()`: the card, the rarity (through `RARITY_LABELS`), the foil's name, the hint, Close.
 - `garage/CardBacks.tsx`: the four-backs page.
 - `garage/Garage.tsx`: the "Card back" button on the car's page, and `code === 'card-backs'` shows the four-backs page before any car is looked up (a MiCar ID starts `MC-`, so the word cannot collide with one).
@@ -152,8 +153,8 @@ One thing learned from the preview: the artwork is itself drawn in rainbow colou
 
 ## Tests
 
-- **Unit (vitest, in value's run):** the files in the table above; `foilForRarity` over the engine's own `RARITY_TIERS` (every tier maps, and Rare, Epic, Legendary, Mythic and One-of-One map as this document says); the Spanish coverage of the new strings; the shipped files exist and are inside their budgets (`card.glb`, `back.avif`, `back.webp`, the four stills).
-- **Browser smoke (`apps/value/e2e/card-back.smoke.mjs`, Playwright with software GL):** builds and serves the value app, opens `#/garage/card-backs`, and for each foil: the canvas draws something that is not blank; two different tilts give different pixels; a foil other than gloss differs from gloss at the same tilt; after the pointer leaves, `requestAnimationFrame` stops being called; Close releases the context. Run by hand before the pull request and its screenshots attached. It is not wired into `ci.yml` in this change.
+- **Unit (vitest, in value's run):** the files in the table above, the renderer's whole life included (against a stand-in canvas, context, frame clock, `fetch` and `Image`); `foilForRarity` over the engine's own `RARITY_TIERS` (every tier maps, and Rare, Epic, Legendary, Mythic and One-of-One map as this document says); the three Garage components by their markup; the Spanish coverage of the new strings; the shipped files exist and are inside their budgets (`card.glb`, `back.avif`, `back.webp`, the four stills); the master artwork's SHA-256.
+- **Browser smoke (`apps/value/e2e/card-back.smoke.mjs`, Playwright with software GL):** serves the built value app, opens `#/garage/card-backs`, and for each foil: the canvas draws something that is not blank; the gloss card at rest is the artwork (the right way up, not mirrored, its mean colour within 3% of the master's); two different tilts give different pixels; a foil other than gloss differs from gloss at the same tilt; after the pointer leaves, and after a cancelled touch, `requestAnimationFrame` stops being called; Close releases the context, twenty times over. Then: a lost context brings the still within three seconds; reduced motion does not tilt; no WebGL shows the still; a parked car's page opens its own card's back. Run by hand before the pull request. It is not wired into `ci.yml` in this change.
 - **On a phone:** software GL says nothing about speed or about iOS Safari. Before the pull request is merged the owner tries a privately published demo page of the same component on an iPhone.
 
 ## Out of scope
@@ -171,3 +172,20 @@ One thing learned from the preview: the artwork is itself drawn in rainbow colou
 - **For the owner: link the four-backs page?** `#/garage/card-backs` works but nothing points to it. A line in the inspect view or on the Garage's examples shelf would let visitors see what each rarity carries.
 - **For the owner: the look.** The first-pass values came from one preview session. Each foil's strength, band width, facet size and sparkle are meant to be tuned with the owner on the phone demo.
 - **Measured later:** frame rate on an iPhone, and the shader under iOS Safari's precision rules.
+
+## As built
+
+What differs from the design as it was approved, and why. Each was decided during the build and none changes what the visitor was promised.
+
+- **AVIF first, WebP second** for the artwork (decision 8). The WebP alone measured 32.5 dB against the master because WebP halves colour resolution; the AVIF keeps it (39.3 dB).
+- **The corner radius is 6.75% of the width**, measured from the artwork, not the 6% estimated.
+- **The face's material includes the first step of the bevel**, so the artwork wraps onto the card's edge by an eighth of a millimetre.
+- **WebGL 2 where the browser has it, WebGL 1 otherwise.** WebGL 2 can make smaller copies of an artwork whose size is not a power of two; without them fine detail shimmers when the card is drawn small.
+- **The clear coat's studio is two soft-edged lights in a black room**, not three lights on a dark gradient. The gradient lifted the artwork's blacks at rest; now a flat gloss card is the artwork.
+- **Holo is stronger and the sparkle larger and more frequent** than the first-pass numbers. Holo could not be told from gloss at a glance, and the first sparkle changed about eighty pixels on the whole card.
+- **The card takes 84% of the width of a canvas too narrow for 72% of its height**, and the inspect view's stage takes the whole height of its room. On a 375 px phone the card is 288 px wide instead of 236.
+- **The renderer starts one moment after it is created**, a canvas serves one card, and `destroy()` before `ready` rejects `ready` without calling `onError`. React mounts everything twice in development; a card that is made and destroyed in one breath never takes a WebGL context.
+- **`scene.ts`** holds the camera, pose, shadow and foil numbers apart from `card.ts`, so they are tested without a browser. **`garage/back.ts`** is the plan's `cardBack.ts` under another name: `cardBack` and `CardBack` are the same file name on Windows and macOS.
+- **The dialog closes by its button and Escape**, not by a click on the ground around the card: a drag that starts beside the card would close it by accident.
+- **The hint to drag the card is shown only while the card can be dragged**: not under a still, and not with motion reduced.
+- **A re-export of `card.glb` is the same model but not always the same bytes**: the rim's UVs, which nothing reads, differ in their last bit from run to run.
