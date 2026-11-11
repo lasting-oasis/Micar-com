@@ -145,6 +145,8 @@ export const ES_PANELS: Record<string, string> = {
   'Take up {id}': 'Adoptar {id}', 'Keep things as they are': 'Dejar todo como está',
   'This browser also answers to {ids}: a car sent to one of them arrives here.': 'Este navegador también responde a {ids}: un auto enviado a uno de ellos llega aquí.',
   'another garage': 'otro garaje',
+  'Add this reading as it is written? It stays on the passport, and it can be put right today and not after.': '¿Agregar esta lectura tal como está escrita? Se queda en el pasaporte, y se puede corregir hoy, no después.',
+  'Yes, add it': 'Sí, agregarla', 'Go back': 'Volver',
   'Kept when the vehicle was renamed; no longer credited to its earlier source.': 'Se conservó cuando se cambió el nombre del vehículo; ya no se atribuye a su fuente anterior.',
   'Take this car and its files out of this garage? The passport file keeps its history but not its photographs and receipts: save any of those you want first.': '¿Quitar este auto y sus archivos de este garaje? El archivo del pasaporte conserva su historial, pero no sus fotografías ni recibos: guarde primero los que quiera.',
   'Correct the year, make, model or trim': 'Corregir el año, la marca, el modelo o la versión',

@@ -121,6 +121,12 @@ function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'f
   const [message, setMessage] = useState('');
   const [inputKey, setInputKey] = useState(0);
   const takesFiles = type !== 'mileage' && type !== 'declaration';
+  // A reading the form has a warning about is written only on a second, deliberate press: it can be put right today
+  // and never after. What was asked about is this exact reading on this exact day; change either and it is asked again.
+  const warning = odometerNote(mileage, date, readings);
+  const reading = `${date}|${mileage}`;
+  const [asked, setAsked] = useState('');
+  const confirming = warning !== '' && asked === reading;
 
   // A file belongs to the entry it was picked for. Choosing another kind of entry starts the files again, so a
   // receipt picked for one thing is never quietly attached to another and counted as its evidence.
@@ -129,7 +135,8 @@ function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'f
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (busy) return;
-    setBusy(true); setMessage('');
+    if (warning !== '' && !confirming) { setAsked(reading); setMessage(''); return; }
+    setBusy(true); setMessage(''); setAsked('');
     try {
       const entry = type === 'document' ? doc : type === 'photo' || type === 'maintenance' || type === 'repair' || type === 'inspection' ? type : 'other';
       const saved = await store(files, takesFiles ? picked : [], entry);
@@ -169,7 +176,7 @@ function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'f
         <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => setDate(e.target.value)} /></label>
         <label>{t('Odometer')} <small>(mi)</small>
           <input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} required={type === 'mileage'} aria-describedby="gar-odo-note" onChange={(e) => setMileage(e.target.value)} />
-          <span id="gar-odo-note" className="gar-err" role="status">{t(odometerNote(mileage, date, readings))}</span>
+          <span id="gar-odo-note" className="gar-err" role="status">{t(warning)}</span>
         </label>
         {type === 'photo' && <label>{t('What the photos show')}<select value={subject} onChange={(e) => setSubject(e.target.value as PhotoSubject)}>{(Object.keys(PHOTO_SUBJECT_LABELS) as PhotoSubject[]).map((k) => <option key={k} value={k}>{t(PHOTO_SUBJECT_LABELS[k])}</option>)}</select></label>}
         {type === 'repair' && <>
@@ -203,7 +210,13 @@ function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'f
         <label className="gar-check wide"><input type="checkbox" checked={isPublic} onChange={(e) => setIsPublic(e.target.checked)} />{t('Let others see this entry’s title. Its files, note, cost and exact day stay private either way.')}</label>
       </div>
       <div className="gar-btns">
-        <button type="submit" className="gar-btn primary" disabled={busy}>{busy ? t('Saving…') : t('Add to the passport')}</button>
+        {confirming
+          ? <>
+            <span className="gar-help" role="status">{t('Add this reading as it is written? It stays on the passport, and it can be put right today and not after.')}</span>
+            <button type="submit" className="gar-btn danger" disabled={busy}>{t('Yes, add it')}</button>
+            <button type="button" className="gar-btn" autoFocus onClick={() => setAsked('')}>{t('Go back')}</button>
+          </>
+          : <button type="submit" className="gar-btn primary" disabled={busy}>{busy ? t('Saving…') : t('Add to the passport')}</button>}
         {message && <span className="gar-help" role="status">{message}</span>}
       </div>
     </form>

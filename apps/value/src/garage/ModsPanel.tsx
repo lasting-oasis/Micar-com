@@ -2,12 +2,12 @@
 // stats by stated rules, trade-offs included; the preview shows exactly what it would do to this car before it is
 // fitted. A modification is declared until a receipt is attached, and counts in ranked play only once verified.
 import { useMemo, useState } from 'react';
-import { ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, MODS, MOD_CATEGORIES, MOD_TIER_NAMES, activeModifications, vehicleStats } from '@micar/engine';
+import { ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, MODS, MOD_CATEGORIES, MOD_TIER_NAMES, activeModifications, mileageLog, vehicleStats } from '@micar/engine';
 import type { ActiveModification, Assembly, InstallQuality, ModCategory, ModTier, Passport } from '@micar/engine';
 import { t } from '../i18n';
 import type { FileStore } from './files';
 import { newId } from './ids';
-import { keepFiles } from './PassportPanel';
+import { keepFiles, odometerNote } from './PassportPanel';
 import { REGISTRY } from './store';
 
 export const INSTALL_LABELS: Record<InstallQuality, string> = { professional: 'A professional shop', owner: 'The owner', unknown: 'Not known' };
@@ -36,7 +36,14 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
 
   const [inputKey, setInputKey] = useState(0);
   // A receipt belongs to the modification it was picked for: choosing another card, or cancelling, starts the form again.
-  const choose = (next: { category: ModCategory; tier: ModTier } | null) => { setPick(next); setPicked([]); setParts(''); setMileage(''); setInputKey((k) => k + 1); setMessage(''); };
+  const choose = (next: { category: ModCategory; tier: ModTier } | null) => { setPick(next); setPicked([]); setParts(''); setMileage(''); setInputKey((k) => k + 1); setMessage(''); setAsked(''); };
+  // The reading written with a modification goes on the odometer log like any other, so it gets the same warning,
+  // and the same second, deliberate press before a reading the form has a warning about is written.
+  const readings = useMemo(() => mileageLog(passport, REGISTRY, today).readings, [passport, today]);
+  const warning = odometerNote(mileage, date, readings);
+  const reading = `${date}|${mileage}`;
+  const [asked, setAsked] = useState('');
+  const confirming = warning !== '' && asked === reading;
 
   const fitted = useMemo(() => activeModifications(passport, REGISTRY, today), [passport, today]);
   const { applied, refused } = assembly.modifications;
@@ -56,7 +63,8 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
   const fit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!pick || busy) return;
-    setBusy(true); setMessage('');
+    if (warning !== '' && !confirming) { setAsked(reading); setMessage(''); return; }
+    setBusy(true); setMessage(''); setAsked('');
     try {
       const kept = await keepFiles(files, picked, 'repair');
       if (kept.refused) { setMessage(t(kept.refused)); return; }
@@ -137,11 +145,21 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
             <div className="gar-form">
               <label>{t('Fitted by')}<select value={install} onChange={(e) => setInstall(e.target.value as InstallQuality)}>{(Object.keys(INSTALL_LABELS) as InstallQuality[]).map((k) => <option key={k} value={k}>{t(INSTALL_LABELS[k])}</option>)}</select></label>
               <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => setDate(e.target.value)} /></label>
-              <label>{t('Odometer')} <small>(mi)</small><input type="number" inputMode="numeric" min={0} max={2000000} value={mileage} onChange={(e) => setMileage(e.target.value)} /></label>
+              <label>{t('Odometer')} <small>(mi)</small><input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} aria-describedby="gar-fit-odo-note" onChange={(e) => setMileage(e.target.value)} />
+                <span id="gar-fit-odo-note" className="gar-err" role="status">{t(warning)}</span>
+              </label>
               <label className="wide">{t('Parts')}<input type="text" value={parts} maxLength={200} onChange={(e) => setParts(e.target.value)} /></label>
               <label className="wide">{t('Receipt or dyno sheet')}<input key={inputKey} type="file" multiple accept="image/*,application/pdf" onChange={(e) => setPicked(Array.from(e.target.files ?? []).slice(0, 20))} /><span className="gar-help">{t('With a file the modification is documented. Without one it is declared.')}</span></label>
             </div>
-            <div className="gar-btns"><button type="submit" className="gar-btn primary" disabled={busy}>{t('Fit it')}</button><button type="button" className="gar-btn" onClick={() => choose(null)}>{t('Cancel')}</button></div>
+            <div className="gar-btns">
+              {confirming
+                ? <>
+                  <span className="gar-help" role="status">{t('Add this reading as it is written? It stays on the passport, and it can be put right today and not after.')}</span>
+                  <button type="submit" className="gar-btn danger" disabled={busy}>{t('Yes, add it')}</button>
+                  <button type="button" className="gar-btn" autoFocus onClick={() => setAsked('')}>{t('Go back')}</button>
+                </>
+                : <><button type="submit" className="gar-btn primary" disabled={busy}>{t('Fit it')}</button><button type="button" className="gar-btn" onClick={() => choose(null)}>{t('Cancel')}</button></>}
+            </div>
           </>}
         </form>
       )}
