@@ -517,8 +517,6 @@ export type PublicEdition = {
   rarity: RarityTier;
   finish: CardFinish;
   grade10: number | null;
-  powerRating: number | null;
-  attributes: MaybeAttributes;
 };
 export type PublicPassport = {
   micarId: string;

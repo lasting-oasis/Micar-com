@@ -82,6 +82,8 @@
 .dp .gar-notice { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; color: var(--haze); font: 600 13px/1.4 var(--cond); letter-spacing: .08em; text-transform: uppercase; }
 .dp .gar-notice .marker { font-size: 17px; text-transform: none; letter-spacing: 0; transform: rotate(-3deg); display: inline-block; }
 .dp .gar-actions { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; margin-top: 6px; }
+/* The paint under the first button hangs below the row: what follows it in the header (a status line) starts clear of it. */
+.dp .gar-head .gar-actions { padding-bottom: 14px; }
 .dp .gar-sec { padding-block: 36px; border-top: 1px solid var(--line); }
 .dp .gar-sec > h2 { font: italic 800 clamp(24px, 3.4vw, 36px)/1 var(--cond); text-transform: uppercase; letter-spacing: .01em; }
 .dp .gar-sec > h2 + p { color: #c3cad8; max-width: 68ch; margin-top: 10px; }
@@ -108,7 +110,9 @@
 .dp .gar-tabs button:hover { color: var(--ink); }
 
 /* Panels, facts and small pieces every tab uses */
-.dp .gar-panel { display: grid; gap: 22px; min-width: 0; }
+/* One column that can shrink: without the minmax a long child (a button that will not wrap, a wide table) sets the
+   column's width and pushes the whole panel past a narrow screen. */
+.dp .gar-panel { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; min-width: 0; }
 .dp .gar-panel h3 { font: 700 20px/1.1 var(--cond); text-transform: uppercase; letter-spacing: .06em; }
 .dp .gar-panel p { color: #c3cad8; max-width: 70ch; }
 .dp .gar-note { border-left: 2px solid var(--paint); padding-left: 12px; color: #c3cad8; font-size: 15px; max-width: 70ch; }
@@ -146,6 +150,8 @@
 .dp .gar-btn.danger:hover { border-color: var(--loss); color: var(--loss); }
 .dp .gar-btn:disabled { opacity: .45; cursor: not-allowed; }
 .dp .gar-btns { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+/* A label too long for the column wraps inside its button and keeps a full-height target. */
+.dp .gar-btns .gar-btn { max-width: 100%; line-height: 1.15; padding-block: 8px; }
 
 @media (max-width: 900px) {
   .dp .gar-car { grid-template-columns: 1fr; gap: 24px; }

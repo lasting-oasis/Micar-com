@@ -196,7 +196,10 @@ export function gradeFacts(passport: Passport, registry: VerifierRegistry, asOf:
 /** True when the vehicle has the full photo set: four exterior, one interior, one of the odometer. */
 export const hasPhotoSet = (facts: GradeFacts): boolean => facts.photos.exterior >= 4 && facts.photos.interior >= 1 && facts.photos.odometer >= 1;
 
-const attested = (facts: GradeFacts, scope: AttestationStatus['attestation']['scope']): AttestationStatus[] => facts.attestations.filter((s) => s.attestation.scope === scope);
+/** The part of the facts that says what independent verifiers stand behind on the day: all the Verification score and the ceiling read. */
+export type Attested = Pick<GradeFacts, 'asOf' | 'attestations'>;
+
+const attested = (facts: Attested, scope: AttestationStatus['attestation']['scope']): AttestationStatus[] => facts.attestations.filter((s) => s.attestation.scope === scope);
 
 /** The newest valid condition inspection that gave a score, or null. */
 export function latestInspection(facts: GradeFacts): AttestationStatus | null {
@@ -289,9 +292,9 @@ function gradeOriginality(facts: GradeFacts): CategoryScore {
 }
 
 /** The Verification score alone, from the attestations that count. Nothing an owner writes is read. */
-export const verificationScore = (facts: GradeFacts): number => gradeVerification(facts).score;
+export const verificationScore = (facts: Attested): number => gradeVerification(facts).score;
 
-function gradeVerification(facts: GradeFacts): CategoryScore {
+function gradeVerification(facts: Attested): CategoryScore {
   const has = (scope: AttestationStatus['attestation']['scope']) => attested(facts, scope).length > 0;
   let conditionWeight = 0;
   for (const s of attested(facts, 'condition')) conditionWeight = Math.max(conditionWeight, s.weight);

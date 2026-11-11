@@ -1,7 +1,8 @@
 /* The Garage's panels: the parking form, the spec sheet, stats, grade, passport, mods and races.
    Same rules as garage.css: everything sits under .dp, class names start with gar-, phones first. */
 
-.dp .gar-main { min-width: 0; display: grid; gap: 18px; align-content: start; }
+.dp .gar-main { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; align-content: start; }
+.dp #gar-tabpanel { min-width: 0; }
 .dp .gar-title { font: italic 800 clamp(26px, 4vw, 44px)/1 var(--cond); text-transform: uppercase; letter-spacing: .005em; }
 .dp .gar-title small { font: 600 .5em/1 var(--cond); letter-spacing: .08em; color: var(--haze); font-style: normal; }
 .dp .gar-block { display: block; margin-top: 3px; }

@@ -3,14 +3,14 @@
 // Rarity is worked out from facts that are not performance (how many were built, age, certification, preservation),
 // so a slow car can be Mythic and a fast one Common. A card never carries a price.
 import type { GradeCeiling } from './certification';
-import { certify, gradeCeiling, isSlabbed } from './certification';
+import { attestedOn, certify, gradeCeiling, isSlabbed } from './certification';
 import { assessCondition } from './condition';
 import { catalogueMatch } from './database';
-import { grade10Of, gradeFacts, gradePassport, snapshotOf } from './grading';
+import { GRADE_FORMULA, GRADE_WEIGHTS, grade10Of, gradeFacts, gradePassport, snapshotOf, tierOf } from './grading';
 import { EDITION_NAMES, RARITY_LABELS } from './labels';
 import type { ModRefusal } from './modifications';
 import { resolveModifications } from './modifications';
-import { attributesOf, baseStats, illustrativeLayer, specQuality, weakestQuality } from './normalize';
+import { attributesOf, baseStats, illustrativeLayer, powerRating, specQuality, weakestQuality } from './normalize';
 import { appendEdition, appendSnapshot } from './passport';
 import { vehicleStats } from './performance';
 import { RULESET } from './rules';
@@ -19,8 +19,8 @@ import type {
   ExampleVehicle, GradeReport, GradeSnapshot, Passport, Rarity, RarityFactor, RarityTier, Sourced, StatLayer, VehicleIdentity, VehicleSpec, VehicleStats, VerifierRegistry,
 } from './types';
 import { ATTRIBUTE_KEYS, CERTIFICATION_LEVELS, GRADE_CATEGORIES, RARITY_TIERS } from './types';
-import { clamp, dayOf } from './util';
-import { activeModifications, competitionConditionInputs, conditionInputs, standingOf } from './verification';
+import { clamp, dayOf, round1 } from './util';
+import { activeModifications, competitionConditionInputs, competitionModifications, conditionInputs, standingOf } from './verification';
 
 export { EDITION_NAMES, RARITY_LABELS };
 
@@ -123,43 +123,72 @@ type Ceilings = (day: string) => { grade: GradeCeiling; rarity: RarityTier };
 function ceilingsOf(passport: Passport, registry: VerifierRegistry): Ceilings {
   const known: Record<string, { grade: GradeCeiling; rarity: RarityTier }> = {};
   const spec = passport.spec;
+  // With no attestation on the passport nothing can ever have counted, and only the year (for the card's age) tells
+  // one day from another: a file padded with thousands of entries then costs no more to judge than a short one.
+  const bare = !passport.events.some((e) => e.type === 'attestation');
   return (day) => {
-    if (known[day]) return known[day];
-    const facts = gradeFacts(passport, registry, day);
+    const key = bare ? day.slice(0, 4) : day;
+    if (known[key]) return known[key];
+    const facts = bare ? { asOf: day, attestations: [] } : attestedOn(passport, registry, day);
     const grade = gradeCeiling(passport, registry, day, facts);
     // The scarcity and the age are what they are; provenance is the ceiling's level; preservation is given full marks.
     const rarity = rarityOf({
       productionUnits: spec.productionUnits, buildNumberBacked: buildNumberCounts(spec, facts.attestations.some((s) => s.attestation.scope === 'specification')),
       modelYear: spec.identity.year, asOf: day, level: grade.level, originality: 100, condition: 100, oneOfOneAttested: grade.oneOfOne,
     }).tier;
-    return (known[day] = { grade, rarity });
+    return (known[key] = { grade, rarity });
   };
 }
 
-function snapshotSupported(snapshot: GradeSnapshot, at: Ceilings): boolean {
+/**
+ * A stored snapshot is shown when it could be a grade this engine gave: by the formula in use, for the day it was
+ * written and no later than today, with numbers that agree with each other (the overall is its categories' weighted
+ * sum, the label's number and tier are the overall's), and within what the record supports for that day.
+ */
+function snapshotSupported(snapshot: GradeSnapshot, at: Ceilings, today: string): boolean {
+  if (snapshot.formula !== GRADE_FORMULA || snapshot.asOf > today || dayOf(snapshot.at) !== snapshot.asOf) return false;
+  let sum = 0;
+  for (const k of GRADE_CATEGORIES) sum += snapshot.categories[k] * GRADE_WEIGHTS[k];
+  if (Math.abs(snapshot.overall - round1(sum)) > SLACK || snapshot.grade10 !== grade10Of(snapshot.overall) || snapshot.tier !== tierOf(snapshot.grade10)) return false;
   const { grade } = at(snapshot.asOf);
   if (levelRank(snapshot.level) > levelRank(grade.level) || snapshot.overall > grade.overall + SLACK) return false;
   return GRADE_CATEGORIES.every((k) => snapshot.categories[k] <= grade.categories[k] + SLACK);
 }
 
-function editionSupported(edition: CardEdition, at: Ceilings): boolean {
-  const { grade, rarity } = at(dayOf(edition.issuedAt));
+/**
+ * A stored edition is shown when it could be a card this engine printed: dated no later than today, raw exactly when
+ * its level is Registered, wearing the finish its grade earns, with a Power Rating that is the mean of its own seven
+ * attributes, and within the level, rarity and grade the record supports for its day. The attributes themselves are
+ * the specification sheet's account on the day of printing: nothing here can check them, so the apps say so and the
+ * public view leaves them out.
+ */
+function editionSupported(edition: CardEdition, at: Ceilings, today: string): boolean {
+  const day = dayOf(edition.issuedAt);
+  if (day > today) return false;
+  const slabbed = isSlabbed(edition.level);
+  if ((edition.grade10 !== null) !== slabbed) return false;
+  const label = edition.grade10 ?? 1;
+  if (edition.finish !== finishOf({ grade10: label, tier: tierOf(label) }, slabbed).finish) return false;
+  if (edition.powerRating !== powerRating(edition.attributes)) return false;
+  const { grade, rarity } = at(day);
   if (levelRank(edition.level) > levelRank(grade.level) || rarityRank(edition.rarity) > rarityRank(rarity)) return false;
   return edition.grade10 === null || edition.grade10 <= grade10Of(grade.overall) + SLACK;
 }
 
 /**
- * The stored history a passport's own record supports. A grade snapshot and a card edition are copies of past
- * results, kept so that history is never rewritten; but a passport file is its holder's to edit, and a copy can be
- * written to say anything. So each one is checked against the most the passport could have earned on its day, going
- * only by what independent verifiers had attested by then (gradeCeiling). A snapshot that claims a level, a score or
- * a One-of-One beyond that is left out here, and so from every card, history list and public view. With no
- * verifier registered nothing above Documented, and no Verification score above zero, is ever shown.
+ * The stored history a passport's own record supports, as of a day. A grade snapshot and a card edition are copies of
+ * past results, kept so that history is never rewritten; but a passport file is its holder's to edit, and a copy can
+ * be written to say anything. So each one is checked against the most the passport could have earned on its day,
+ * going only by what independent verifiers had attested by then (gradeCeiling), and against itself: a label that
+ * does not follow from its own score, a finish its grade does not earn, or a date that has not happened yet is not
+ * something this engine wrote. What fails is left out here, and so from every card, history list and public view.
+ * With no verifier registered nothing above Documented, and no Verification score above zero, is ever shown.
  */
-export function supportedHistory(passport: Passport, registry: VerifierRegistry): { snapshots: GradeSnapshot[]; editions: CardEdition[]; unsupported: number } {
+export function supportedHistory(passport: Passport, registry: VerifierRegistry, asOf: string): { snapshots: GradeSnapshot[]; editions: CardEdition[]; unsupported: number } {
   const at = ceilingsOf(passport, registry);
-  const snapshots = passport.snapshots.filter((s) => snapshotSupported(s, at));
-  const editions = passport.editions.filter((e) => editionSupported(e, at));
+  const today = dayOf(asOf);
+  const snapshots = passport.snapshots.filter((s) => snapshotSupported(s, at, today));
+  const editions = passport.editions.filter((e) => editionSupported(e, at, today));
   return { snapshots, editions, unsupported: passport.snapshots.length - snapshots.length + passport.editions.length - editions.length };
 }
 
@@ -200,9 +229,9 @@ export function assemble(passport: Passport, registry: VerifierRegistry, asOf: s
   const fitted = activeModifications(passport, registry, day, standing);
   const modifications = resolveModifications(spec, fitted);
   const condition = assessCondition(conditionInputs(passport, registry, day, standing));
-  // Ranked play reads a second state, assessed from verified inputs alone.
+  // Ranked play reads a second state and a second list of modifications, both worked out from verified inputs alone.
   const competitionCondition = assessCondition(competitionConditionInputs(passport, registry, day, standing));
-  const stats = vehicleStats({ spec, modifications: fitted, condition, competitionCondition });
+  const stats = vehicleStats({ spec, modifications: fitted, competitionModifications: competitionModifications(passport, registry, day, standing), condition, competitionCondition });
 
   const facts = gradeFacts(passport, registry, day, standing);
   const report = gradePassport(passport, registry, day, facts);
@@ -223,7 +252,7 @@ export function assemble(passport: Passport, registry: VerifierRegistry, asOf: s
   // The card shows the edition printed for the level it holds now. The name is always the level's own: a stored
   // edition is never taken at its word about what it is.
   const at = ceilingsOf(passport, registry);
-  const printed = newest(passport.editions, (e) => editionSupported(e, at), (e) => e.level === level);
+  const printed = newest(passport.editions, (e) => editionSupported(e, at, day), (e) => e.level === level);
   const edition = printed
     ? { number: printed.number, name: EDITION_NAMES[level], issuedAt: printed.issuedAt }
     : { number: passport.editions.length + 1, name: EDITION_NAMES[level], issuedAt: passport.createdAt };
@@ -267,7 +296,7 @@ export function assemble(passport: Passport, registry: VerifierRegistry, asOf: s
 export function issueEdition(passport: Passport, registry: VerifierRegistry, ctx: { now: string; reason: string }): Passport {
   const a = assemble(passport, registry, ctx.now);
   const at = ceilingsOf(passport, registry);
-  if (newest(passport.editions, (e) => editionSupported(e, at), (e) => e.level === a.certification.level) !== null) return passport;
+  if (newest(passport.editions, (e) => editionSupported(e, at, a.asOf), (e) => e.level === a.certification.level) !== null) return passport;
   const edition: CardEdition = {
     number: passport.editions.length + 1,
     name: EDITION_NAMES[a.certification.level],
@@ -290,7 +319,7 @@ export function issueEdition(passport: Passport, registry: VerifierRegistry, ctx
 export function recordSnapshot(passport: Passport, registry: VerifierRegistry, ctx: { now: string; id: string; reason: string }): Passport {
   const a = assemble(passport, registry, ctx.now);
   const at = ceilingsOf(passport, registry);
-  const last = newest(passport.snapshots, (s) => snapshotSupported(s, at));
+  const last = newest(passport.snapshots, (s) => snapshotSupported(s, at, a.asOf));
   if (last && last.overall === a.report.overall && last.level === a.certification.level && GRADE_CATEGORIES.every((k) => last.categories[k] === a.report.categories[k].score)) return passport;
   return appendSnapshot(passport, snapshotOf(a.report, a.certification.level, { id: ctx.id, at: ctx.now, reason: ctx.reason, events: passport.events.length }));
 }

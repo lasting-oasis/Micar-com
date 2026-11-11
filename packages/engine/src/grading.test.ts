@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { certify, isSlabbed, REQUIREMENT_LABELS } from './certification';
-import { GRADE_CAP_REASONS, GRADE_FORMULA, GRADE_ITEM_LABELS, GRADE_WEIGHTS, TIER_NAMES, grade10Of, gradeFacts, gradePassport, snapshotOf, tierOf } from './grading';
+import { GRADE_CAP_REASONS, GRADE_FORMULA, GRADE_ITEM_LABELS, GRADE_WEIGHTS, TIER_NAMES, grade10Of, gradeFacts, gradePassport, hasPhotoSet, snapshotOf, tierOf } from './grading';
 import { baseStats } from './normalize';
 import { addEvent, createPassport, transferOwnership } from './passport';
 import { emptySpec } from './specs';
@@ -165,6 +165,23 @@ describe('identity and authenticity', () => {
     expect(points(p, 'id.papers')).toBe(0);
   });
 
+  it('counts a title or a registration as the car’s papers, and no other document', () => {
+    const other = add(parked(), { type: 'document', document: 'other', date: '2026-02-01', attachments: [file('other')] });
+    expect(points(other, 'id.papers')).toBe(0);
+    expect(points(add(other, { type: 'document', document: 'title', date: '2026-02-02', attachments: [file('title')] }), 'id.papers')).toBe(10);
+  });
+
+  it('takes a short VIN only for a car from before the 17-character standard', () => {
+    const short = '1M8GDM9AXKP';
+    const year = (y: number) => civic({ identity: { year: y, make: 'Honda', model: 'Civic', trim: 'LX', bodyClass: 'sedan' } });
+    expect(points(parked(short, year(1975)), 'id.vin')).toBe(10);
+    expect(points(parked(short, year(1980)), 'id.vin')).toBe(10);
+    // On a later car it is a VIN with characters missing, and counts for nothing.
+    expect(points(parked(short, year(1981)), 'id.vin')).toBe(0);
+    expect(points(parked(short, year(2019)), 'id.vin')).toBe(0);
+    expect(gradeFacts(parked(short, year(2019)), REGISTRY, TODAY).vin).toMatchObject({ present: true, pre1981: false, checkDigitValid: false });
+  });
+
   it('reports a VIN that fails its own check digit and gives it nothing', () => {
     const p = parked('1M8GDM9A1KP042788');
     const report = score(p);
@@ -197,6 +214,12 @@ describe('documentation and history', () => {
     expect(points(p, 'doc.records')).toBe(6.7);
     expect(points(p, 'doc.span')).toBe(6.3); // six months of twenty-four
     expect(points(p, 'doc.receipts')).toBe(10);
+    // Three years of history is worth what two are: the item stops at its 25.
+    p = add(p, { type: 'maintenance', date: '2023-03-01', shop: '', cost: null, attachments: [file('receipt')] });
+    expect(points(p, 'doc.span')).toBe(25);
+    // And twenty records are worth what twelve are.
+    for (let i = 0; i < 20; i++) p = add(p, { type: 'maintenance', date: '2025-06-01', shop: '', cost: null, attachments: [file('receipt')] });
+    expect(points(p, 'doc.records')).toBe(40);
   });
 
   it('counts a file once however many records it is attached to', () => {
@@ -248,6 +271,10 @@ describe('documentation and history', () => {
     // A corrected reading on the same day is not a rollback.
     const corrected = add(p, { type: 'mileage', date: '2026-06-01', mileage: 53900 });
     expect(score(corrected).discrepancies).toEqual([]);
+    // An entry written on a later day cannot clear a rollback by re-dating the high reading's day: both readings stand.
+    const redated = add(rolled, { type: 'mileage', date: '2026-06-01', mileage: 40000 }, '2026-11-11T09:00:00.000Z');
+    expect(score(redated, REGISTRY, '2026-11-11').discrepancies.map((d) => d.id)).toEqual(['odometer-rollback']);
+    expect(gradeFacts(redated, REGISTRY, '2026-11-11')).toMatchObject({ rollback: true, readingDays: 3 });
   });
 
   it('wants a file behind every transfer before it calls the chain documented', () => {
@@ -269,6 +296,12 @@ describe('documentation and history', () => {
     expect(after.categories.documentation.score).toBeLessThan(before);
     expect(points(p, 'doc.voided')).toBe(-10);
     expect(after.discrepancies.map((d) => d.id)).toContain('voided-record');
+    // Each further withdrawal costs ten more, and the item stops at thirty.
+    const others = p.events.filter((e) => e.type === 'maintenance' && e.id !== target).map((e) => e.id);
+    for (const [i, expected] of [-20, -30, -30].entries()) {
+      p = ok(voidEvent(p, { target: others[i + 1], reason: 'No such invoice either', attestationId: 'att-doc' }, REGISTRY, { now: NOW, eventId: id() }));
+      expect(points(p, 'doc.voided')).toBe(expected);
+    }
   });
 
   it('does not hold it against the owner when a verifier takes back its own attestation', () => {
@@ -297,6 +330,18 @@ describe('physical condition', () => {
     expect(score(p).categories.condition.score).toBe(60);
     p = add(p, { type: 'photo', subject: 'odometer', date: '2026-02-01', attachments: [file('photo')] });
     expect(score(p).categories.condition.score).toBe(75);
+    expect(hasPhotoSet(gradeFacts(p, REGISTRY, TODAY))).toBe(true);
+    // The set is four exterior photographs, the interior and the odometer: any one missing and it is not the set.
+    const set = (exterior: number, interior: boolean, odometer: boolean): Passport => {
+      let q = add(parked(), { type: 'photo', subject: 'exterior', date: '2026-02-01', attachments: Array.from({ length: exterior }, () => file('photo')) });
+      if (interior) q = add(q, { type: 'photo', subject: 'interior', date: '2026-02-01', attachments: [file('photo')] });
+      if (odometer) q = add(q, { type: 'photo', subject: 'odometer', date: '2026-02-01', attachments: [file('photo')] });
+      return q;
+    };
+    expect(hasPhotoSet(gradeFacts(set(4, true, true), REGISTRY, TODAY))).toBe(true);
+    expect(hasPhotoSet(gradeFacts(set(3, true, true), REGISTRY, TODAY))).toBe(false);
+    expect(hasPhotoSet(gradeFacts(set(4, false, true), REGISTRY, TODAY))).toBe(false);
+    expect(hasPhotoSet(gradeFacts(set(4, true, false), REGISTRY, TODAY))).toBe(false);
   });
 
   it('takes a declared accident off the declared condition', () => {
@@ -354,6 +399,12 @@ describe('originality and modifications', () => {
     expect(score(p).categories.originality.score).toBe(90);
     p = add(p, { type: 'restoration', date: '2026-04-01', scope: 'Interior', oemParts: true });
     expect(score(p).categories.originality.score).toBe(90);
+    // A second costs ten more, and the item stops at twenty.
+    p = add(p, { type: 'restoration', date: '2026-05-01', scope: 'Dash', oemParts: false });
+    expect(points(p, 'orig.restoration')).toBe(-20);
+    p = add(p, { type: 'restoration', date: '2026-06-01', scope: 'Seats', oemParts: false });
+    expect(points(p, 'orig.restoration')).toBe(-20);
+    expect(score(p).categories.originality.score).toBe(80);
   });
 });
 

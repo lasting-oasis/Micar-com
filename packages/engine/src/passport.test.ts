@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { micarIdFromBytes } from './identity';
 import {
   EVENT_TYPE_LABELS, PASSPORT_REFUSALS, addEvent, appendEdition, appendSnapshot, attachmentCount, checkAttachment, checkAttestation, createPassport, currentOwner, eventById,
-  everOwned, latestDeclaration, latestMileage, mileageReadings, parsePassport, serializePassport, timeline, transferOwnership, updateSpec, updateVin, MAX_EVENTS,
+  everOwned, latestDeclaration, latestMileage, mileageReadings, parsePassport, serializePassport, timeline, transferOwnership, updateSpec, updateVin, MAX_EDITIONS, MAX_EVENTS,
+  MAX_SNAPSHOTS, RESERVED_ENTRIES,
 } from './passport';
 import { emptySpec } from './specs';
 import { OWNER_EVENT_TYPES } from './types';
@@ -472,6 +473,37 @@ describe('what a file can and cannot claim', () => {
     const full = ok(parsePassport({ ...base, events: many.slice(0, MAX_EVENTS) })).passport;
     expect(full.events).toHaveLength(MAX_EVENTS);
     expect(reason(add(full, { type: 'mileage', date: '2026-06-01', mileage: 10 }))).toBe(PASSPORT_REFUSALS.full);
+  });
+
+  it('keeps room for a hand-over, so no writer can leave a passport too long to be read back', () => {
+    const base = JSON.parse(serializePassport(parked())) as { events: unknown[] };
+    const one = base.events[0] as Record<string, unknown>;
+    const holding = (count: number): Passport => ok(parsePassport({ ...base, events: Array.from({ length: count }, (_, i) => ({ ...one, id: `held-${i}` })) })).passport;
+    const handOver = (p: Passport) => transferOwnership(p, { eventId: id(), toOwnerId: 'owner-two', date: '2026-06-01' }, { now: NOW, by: OWNER });
+    // The owner's own entries stop short of the limit by the room kept for hand-overs and verifiers.
+    const ownerLimit = MAX_EVENTS - RESERVED_ENTRIES;
+    expect(RESERVED_ENTRIES).toBeGreaterThanOrEqual(100);
+    expect(ok(add(holding(ownerLimit - 1), { type: 'mileage', date: '2026-06-01', mileage: 10 })).events).toHaveLength(ownerLimit);
+    expect(reason(add(holding(ownerLimit), { type: 'mileage', date: '2026-06-01', mileage: 10 }))).toBe(PASSPORT_REFUSALS.full);
+    // A hand-over still fits there, and what it writes reads back.
+    const sold = ok(handOver(holding(ownerLimit)));
+    expect(sold.events).toHaveLength(ownerLimit + 1);
+    expect(ok(parsePassport(serializePassport(sold))).passport.events).toHaveLength(ownerLimit + 1);
+    // It used to be accepted on a passport at the limit too, and the result could never be opened again.
+    expect(ok(parsePassport(serializePassport(ok(handOver(holding(MAX_EVENTS - 1)))))).passport.events).toHaveLength(MAX_EVENTS);
+    expect(reason(handOver(holding(MAX_EVENTS)))).toBe(PASSPORT_REFUSALS.full);
+  });
+
+  it('stops adding snapshots and editions at the most it will read back', () => {
+    const p = parked();
+    const snapshot: GradeSnapshot = { id: 's', at: NOW, asOf: '2026-11-10', reason: 'Parked', formula: 'micar-grade-v2', overall: 10, grade10: 1, tier: 1, categories: { identity: 50, documentation: 0, condition: 0, originality: 0, verification: 0 }, level: 'registered', events: 1 };
+    const edition: CardEdition = { number: 1, name: 'Registration Edition', issuedAt: NOW, level: 'registered', rarity: 'common', finish: 'raw', grade10: null, powerRating: null, attributes: { power: null, speed: null, acceleration: null, handling: null, durability: null, reliability: null, efficiency: null }, reason: 'Parked' };
+    const full: Passport = { ...p, snapshots: Array.from({ length: MAX_SNAPSHOTS }, (_, i) => ({ ...snapshot, id: `s${i}` })), editions: Array.from({ length: MAX_EDITIONS }, (_, i) => ({ ...edition, number: i + 1 })) };
+    expect(appendSnapshot(full, snapshot)).toBe(full);
+    expect(appendEdition(full, edition)).toBe(full);
+    expect(parsePassport(serializePassport(full)).ok).toBe(true);
+    expect(appendSnapshot(p, snapshot).snapshots).toHaveLength(1);
+    expect(appendEdition(p, edition).editions).toHaveLength(1);
   });
 });
 

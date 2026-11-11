@@ -46,6 +46,23 @@ export function vinNote(vin: string, year: number): { text: string; tone: 'help'
   return { text: 'Well formed.', tone: 'ok' };
 }
 
+/** Which fills have put figures on the sheet. Both can be there at once: an EPA pick is laid over a catalogue fill. */
+export type Fills = { catalogue: boolean; epa: boolean };
+export const NO_FILLS: Fills = { catalogue: false, epa: false };
+
+/** The fills on the sheet after one more. A catalogue fill replaces the whole sheet, the EPA's fields with it; an EPA pick is laid over whatever is there. */
+export const fillsAfter = (fills: Fills, filled: 'catalogue' | 'epa'): Fills => (filled === 'catalogue' ? { catalogue: true, epa: false } : { ...fills, epa: true });
+
+/**
+ * Whether a change to what the car is makes the figures on the sheet another car's, so the sheet has to start again.
+ * The catalogue's figures are for one trim and one body of one model year; the EPA's are for the model and the year.
+ * So a new trim or body starts the sheet again whenever catalogue figures are on it (whichever fill came last), and
+ * a new make, model or year whenever any fill is.
+ */
+export function startsOver(fills: Fills, change: 'trim' | 'body' | 'make' | 'model' | 'year'): boolean {
+  return change === 'trim' || change === 'body' ? fills.catalogue : fills.catalogue || fills.epa;
+}
+
 export function Park({ today, onPark, onCancel }: Props) {
   const thisYear = Number(today.slice(0, 4));
   const [year, setYear] = useState(String(thisYear - 3));
@@ -58,7 +75,7 @@ export function Park({ today, onPark, onCancel }: Props) {
   const [color, setColor] = useState('');
   const [vin, setVin] = useState('');
   const [fields, setFields] = useState<VehicleSpec>(() => emptySpec({ year: thisYear - 3, make: 'Honda', model: 'Civic', trim: '', bodyClass: 'sedan' }));
-  const [origin, setOrigin] = useState<'none' | 'catalogue' | 'epa'>('none');
+  const [fills, setFills] = useState<Fills>(NO_FILLS);
   // Which of the EPA's configurations is chosen: '' until one is, and again whenever the sheet starts over.
   const [epaPick, setEpaPick] = useState('');
   const [epa, setEpa] = useState<EpaFile | null>(null);
@@ -84,13 +101,13 @@ export function Park({ today, onPark, onCancel }: Props) {
   const note = vinNote(vin, y);
 
   // A different car is a different sheet: start it empty again.
-  const reset = (bc: BodyClass = bodyClass) => { setFields(emptySpec({ year: y, make: makeName, model: modelName, trim: '', bodyClass: bc })); setOrigin('none'); setEpaPick(''); };
+  const reset = (bc: BodyClass = bodyClass) => { setFields(emptySpec({ year: y, make: makeName, model: modelName, trim: '', bodyClass: bc })); setFills(NO_FILLS); setEpaPick(''); };
   // The catalogue's figures are for one trim and one body; the EPA's are for the model. Change what a fill was for
   // and its figures, with the sources named beside them, would be describing another car: the sheet starts again.
-  const changeTrim = (text: string) => { setTrim(text); if (origin === 'catalogue') reset(); };
-  const changeBody = (bc: BodyClass) => { setBodyClass(bc); if (origin === 'catalogue') reset(bc); };
-  const changeMakeText = (text: string) => { setMakeText(text); if (origin !== 'none') reset(); };
-  const changeModelText = (text: string) => { setModelText(text); if (origin !== 'none') reset(); };
+  const changeTrim = (text: string) => { setTrim(text); if (startsOver(fills, 'trim')) reset(); };
+  const changeBody = (bc: BodyClass) => { setBodyClass(bc); if (startsOver(fills, 'body')) reset(bc); };
+  const changeMakeText = (text: string) => { setMakeText(text); if (startsOver(fills, 'make')) reset(); };
+  const changeModelText = (text: string) => { setModelText(text); if (startsOver(fills, 'model')) reset(); };
   const pickMake = (name: string) => {
     setMake(name);
     const first = name === 'Other' ? undefined : modelsForMake(name)[0];
@@ -113,14 +130,16 @@ export function Park({ today, onPark, onCancel }: Props) {
   const pickYear = (text: string) => {
     setYear(text);
     setEpaPick('');
-    if (origin !== 'none') { setFields(emptySpec({ year: Number(text), make: makeName, model: modelName, trim: '', bodyClass })); setOrigin('none'); }
+    if (startsOver(fills, 'year')) { setFields(emptySpec({ year: Number(text), make: makeName, model: modelName, trim: '', bodyClass })); setFills(NO_FILLS); }
   };
 
   const fillFromCatalogue = (entry: CatalogueEntry) => {
     setFields(entry.spec);
     setTrim(entry.spec.identity.trim);
     setBodyClass(entry.spec.identity.bodyClass);
-    setOrigin('catalogue');
+    setFills((f) => fillsAfter(f, 'catalogue'));
+    // The catalogue's sheet replaced whatever an EPA record had put there, so no configuration is chosen any more.
+    setEpaPick('');
   };
   const fillFromEpa = (index: number) => {
     if (!epa || !configs[index]) return;
@@ -135,7 +154,7 @@ export function Park({ today, onPark, onCancel }: Props) {
       }
       return { ...(cleared as VehicleSpec), ...epaFields(configs[index], source) };
     });
-    setOrigin('epa');
+    setFills((f) => fillsAfter(f, 'epa'));
   };
 
   const submit = (e: React.FormEvent) => {
@@ -203,8 +222,8 @@ export function Park({ today, onPark, onCancel }: Props) {
             <p className="gar-help">{t('From the EPA’s vehicle file. It fills the engine size, cylinders, transmission, drive and fuel. Power, weight and the rest are yours to add.')}</p>
           </div>
         )}
-        {origin === 'catalogue' && <p className="gar-note">{t('Filled from the reference catalogue: reference data, not verified. Correct anything you know better.')}</p>}
-        {origin === 'epa' && <p className="gar-note blue">{t('Filled from the EPA’s record of this model year.')}</p>}
+        {fills.catalogue && <p className="gar-note">{t('Filled from the reference catalogue: reference data, not verified. Correct anything you know better.')}</p>}
+        {fills.epa && <p className="gar-note blue">{t('Filled from the EPA’s record of this model year.')}</p>}
         <SpecForm spec={spec ?? fields} today={today} onChange={(next) => setFields(next)} />
       </fieldset>
 

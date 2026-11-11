@@ -12,12 +12,12 @@
 //   - without one, the host is vouching for where the passport is kept;
 //   - either way a holder can leave things out (a poor inspection, a withdrawal). Only a store the owner cannot
 //     write to can prove nothing is missing.
-import { EVENT_TYPE_LABELS, appendEvent, checkAttestation, everOwned, isId, timeline } from './passport';
+import { EVENT_TYPE_LABELS, MAX_EVENTS, PASSPORT_REFUSALS, appendEvent, checkAttestation, everOwned, isId, timeline } from './passport';
 import type {
   ActiveModification, Attestation, AttestationScope, ConditionInputs, EvidenceLevel, Passport, PassportEvent, Result, Verifier,
   VerifierRegistry, WearSystem,
 } from './types';
-import { WEAR_SYSTEMS } from './types';
+import { EVIDENCE_ORDER, WEAR_SYSTEMS } from './types';
 import { canonicalJson, clipText, dayOf, isIsoTimestamp, monthsBetween, sha256Text } from './util';
 
 /** The registry with nobody in it. With it, nothing can be verified. */
@@ -58,6 +58,7 @@ export const VERIFICATION_REFUSALS = {
   target: 'There is no such record to withdraw',
   authority: 'A record can be withdrawn only by a verifier with a valid records attestation',
   notYours: 'An attestation can be withdrawn only by the verifier who made it',
+  full: PASSPORT_REFUSALS.full,
 } as const;
 
 export type AttestationStatus = {
@@ -142,6 +143,7 @@ const readingOf = (a: Attestation): number | null => (a.scope === 'mileage' ? a.
 /**
  * Whether one attestation stands on a day, leaving withdrawals aside. `entry` is the passport entry that carries it:
  * its author, day and reading must be the attestation's own, so nothing can be claimed by dressing the entry up.
+ * The checks run in a fixed order and the first that fails is the reason given; its age is the last of them.
  */
 function judge(passport: Passport, entry: { by: string; date: string; mileage: number | null }, a: Attestation, registry: VerifierRegistry, day: string): Verdict {
   const verifier = findVerifier(registry, a.verifierId);
@@ -153,9 +155,6 @@ function judge(passport: Passport, entry: { by: string; date: string; mileage: n
   if (entry.date !== a.date || entry.mileage !== readingOf(a)) return no(VERIFICATION_REFUSALS.shape);
   if (lacksDetail(a)) return no(VERIFICATION_REFUSALS.detail);
   if (a.date > day) return no(VERIFICATION_REFUSALS.future);
-  const limit = ATTESTATION_VALID_MONTHS[a.scope];
-  const age = monthsBetween(a.date, day);
-  if (limit !== null && age >= limit) return no(VERIFICATION_REFUSALS.lapsed);
   if (a.subject !== subjectFingerprint(passport, a.scope)) return no(VERIFICATION_REFUSALS.changed);
   const check = registry ? registry.checkSignature : undefined;
   if (typeof check === 'function') {
@@ -165,6 +164,11 @@ function judge(passport: Passport, entry: { by: string; date: string; mileage: n
     }
     if (!good) return no(VERIFICATION_REFUSALS.signature);
   }
+  // Age is judged last. "Out of date" is then only ever said of an attestation that is good in every other way, and
+  // only such a one stays on the record after it lapses: a forgery gains nothing by being dated a long time ago.
+  const limit = ATTESTATION_VALID_MONTHS[a.scope];
+  const age = monthsBetween(a.date, day);
+  if (limit !== null && age >= limit) return no(VERIFICATION_REFUSALS.lapsed);
   return { valid: true, weight: a.scope === 'condition' && age >= CONDITION_FULL_MONTHS ? 0.5 : 1, reason: '' };
 }
 
@@ -268,6 +272,7 @@ export function voidedEventIds(passport: Passport, registry: VerifierRegistry, a
 export function recordAttestation(passport: Passport, attestation: unknown, registry: VerifierRegistry, ctx: { now: string; eventId: string }): Result<Passport> {
   if (!ctx || !isIsoTimestamp(ctx.now)) return refuse(VERIFICATION_REFUSALS.timestamp);
   if (!isId(ctx.eventId, 40) || passport.events.some((e) => e.id === ctx.eventId)) return refuse(VERIFICATION_REFUSALS.id);
+  if (passport.events.length >= MAX_EVENTS) return refuse(VERIFICATION_REFUSALS.full);
   const read = checkAttestation(attestation);
   if (!read) return refuse(VERIFICATION_REFUSALS.shape);
   const a: Attestation = { ...read, subject: subjectFingerprint(passport, read.scope) };
@@ -299,6 +304,7 @@ export function recordAttestation(passport: Passport, attestation: unknown, regi
 export function voidEvent(passport: Passport, input: { target: string; reason: string; attestationId: string }, registry: VerifierRegistry, ctx: { now: string; eventId: string }): Result<Passport> {
   if (!ctx || !isIsoTimestamp(ctx.now)) return refuse(VERIFICATION_REFUSALS.timestamp);
   if (!isId(ctx.eventId, 40) || passport.events.some((e) => e.id === ctx.eventId)) return refuse(VERIFICATION_REFUSALS.id);
+  if (passport.events.length >= MAX_EVENTS) return refuse(VERIFICATION_REFUSALS.full);
   if (!input || !isId(input.target, 40) || !isId(input.attestationId, 40)) return refuse(VERIFICATION_REFUSALS.shape);
   const target = passport.events.filter((e) => e.id === input.target)[0];
   if (!target || target.type === 'registered' || target.type === 'transfer' || target.type === 'void') return refuse(VERIFICATION_REFUSALS.target);
@@ -373,37 +379,61 @@ export function standingReadings(passport: Passport, registry: VerifierRegistry,
 
 /** The odometer as the passport knows it: one reading for each day that has any, whether the log ever runs backwards, and the reading to count wear from. */
 export type MileageLog = {
-  /** One reading per day, in order: the day's final word. */
+  /** Every reading on the log, in order: all that stand, less the slips put right the day they were written. */
+  readings: { date: string; mileage: number; eventId: string; evidence: EvidenceLevel }[];
+  /** One reading per day, in order: the highest that stands for the day. */
   days: { date: string; mileage: number; eventId: string; evidence: EvidenceLevel }[];
-  /** True when a later day reads lower than an earlier day. */
+  /** True when a day has a reading lower than one of an earlier day. */
   rollback: boolean;
-  /** The highest reading on the log. An odometer does not run backwards, so wear is counted from here. Null with no reading. */
+  /** The highest reading that stands. An odometer does not run backwards, so wear is counted from here. Null with no reading. */
   current: { value: number; evidence: EvidenceLevel; date: string; eventId: string } | null;
 };
 
+const evidenceRank = (level: EvidenceLevel): number => EVIDENCE_ORDER.indexOf(level);
+
 /**
- * The mileage log, judged day by day. A day's reading is the last one written that day, so a slipped digit corrected
- * the same day leaves no mark, except that a verifier's reading is never displaced by one the owner typed. A rollback
- * is a later day that reads lower than an earlier day, which also catches a same-day entry winding the latest
- * reading back below an older one.
+ * The mileage log. Every reading that stands is on it, with one exception: a reading gives way to a later one for the
+ * same day when both were written down on the same day. That is a slipped digit put right while the form was still
+ * open, and it leaves no mark. Nothing else is ever replaced:
+ *   - an entry written on a later day cannot rewrite an old reading, whatever day it is dated. Both stand;
+ *   - a verifier's own reading is never displaced, whether its attestation still counts or has lapsed;
+ *   - a reading a verifier confirmed gives way only to another verified one.
+ * A rollback is a reading lower than one of an earlier day. Wear is counted from the highest reading that stands, so
+ * no entry an owner adds can lower it, and none can clear a rollback once the day it was written on is over.
  */
 export function mileageLog(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): MileageLog {
-  const days: MileageLog['days'] = [];
-  for (const r of standingReadings(passport, registry, asOf, standing)) {
-    const last = days.length > 0 ? days[days.length - 1] : null;
-    if (last !== null && last.date === r.date) {
-      if (last.evidence !== 'verified' || r.evidence === 'verified') days[days.length - 1] = r;
-    } else {
-      days.push(r);
-    }
+  type Kept = { date: string; mileage: number; eventId: string; evidence: EvidenceLevel; written: string; verifier: boolean };
+  const kept: Kept[] = [];
+  // Timeline order is by day, then by when it was written: readings of one day written on one day sit side by side.
+  for (const e of standing.events) {
+    if (e.mileage === null) continue;
+    const next: Kept = { date: e.date, mileage: e.mileage, eventId: e.id, evidence: readingEvidence(e, standing), written: dayOf(e.recordedAt), verifier: e.type === 'attestation' };
+    const last = kept.length > 0 ? kept[kept.length - 1] : null;
+    const corrects = last !== null && last.date === next.date && last.written === next.written && !last.verifier
+      && (last.evidence !== 'verified' || next.evidence === 'verified');
+    if (corrects) kept[kept.length - 1] = next;
+    else kept.push(next);
   }
+  const readings: MileageLog['readings'] = [];
+  const days: MileageLog['days'] = [];
   let rollback = false;
   let current: MileageLog['current'] = null;
-  for (const d of days) {
-    if (current !== null && d.mileage < current.value) rollback = true;
-    if (current === null || d.mileage >= current.value) current = { value: d.mileage, evidence: d.evidence, date: d.date, eventId: d.eventId };
+  let before = -1; // the highest reading of any earlier day
+  let top = -1; // the highest reading so far, this day included
+  for (const k of kept) {
+    const reading = { date: k.date, mileage: k.mileage, eventId: k.eventId, evidence: k.evidence };
+    readings.push(reading);
+    const last = days.length > 0 ? days[days.length - 1] : null;
+    if (last === null || last.date !== k.date) { before = top; days.push(reading); }
+    else if (k.mileage >= last.mileage) days[days.length - 1] = reading;
+    if (k.mileage < before) rollback = true;
+    if (k.mileage > top) top = k.mileage;
+    // On a tie the better-evidenced reading speaks for the figure: an owner repeating an inspector's number does not weaken it.
+    if (current === null || k.mileage > current.value || (k.mileage === current.value && evidenceRank(k.evidence) >= evidenceRank(current.evidence))) {
+      current = { value: k.mileage, evidence: k.evidence, date: k.date, eventId: k.eventId };
+    }
   }
-  return { days, rollback, current };
+  return { readings, days, rollback, current };
 }
 
 const RECORD_TYPES: readonly PassportEvent['type'][] = ['maintenance', 'repair', 'inspection', 'restoration', 'modification', 'document'];
@@ -426,14 +456,18 @@ export function documentedRecords(passport: Passport, registry: VerifierRegistry
   return out;
 }
 
-/** The modifications fitted on a day: installs that stand and that no standing removal undoes, each with its evidence and upkeep. */
-export function activeModifications(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): ActiveModification[] {
+/**
+ * The modifications fitted on a day, as `counts` reads the record. An install is fitted until a removal that counts
+ * undoes it, and its upkeep is documented by a maintenance record that counts, made after it and less than twelve
+ * months old.
+ */
+function fittedModifications(standing: Standing, counts: { install: (e: PassportEvent) => boolean; removal: (e: PassportEvent) => boolean; upkeep: (e: PassportEvent) => boolean }): ActiveModification[] {
   const removed: string[] = [];
-  for (const e of standing.events) if (e.type === 'modification' && e.action === 'remove' && e.undoes !== null) removed.push(e.undoes);
+  for (const e of standing.events) if (e.type === 'modification' && e.action === 'remove' && e.undoes !== null && counts.removal(e)) removed.push(e.undoes);
   const out: ActiveModification[] = [];
   for (const e of standing.events) {
-    if (e.type !== 'modification' || e.action !== 'install' || removed.indexOf(e.id) !== -1) continue;
-    const kept = standing.events.some((m) => m.type === 'maintenance' && m.attachments.length > 0 && m.date > e.date && monthsBetween(m.date, standing.day) < 12);
+    if (e.type !== 'modification' || e.action !== 'install' || removed.indexOf(e.id) !== -1 || !counts.install(e)) continue;
+    const kept = standing.events.some((m) => m.type === 'maintenance' && counts.upkeep(m) && m.date > e.date && monthsBetween(m.date, standing.day) < 12);
     out.push({
       eventId: e.id, category: e.category, tier: e.tier, install: e.install, evidence: recordEvidence(e, standing), installedOn: e.date, recordedAt: e.recordedAt, installedAtMileage: e.mileage,
       upkeep: kept ? 'documented' : monthsBetween(e.date, standing.day) < 12 ? 'recent' : 'lapsed',
@@ -442,9 +476,25 @@ export function activeModifications(passport: Passport, registry: VerifierRegist
   return out;
 }
 
+/** The modifications fitted on a day: installs that stand and that no standing removal undoes, each with its evidence and upkeep. */
+export function activeModifications(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): ActiveModification[] {
+  return fittedModifications(standing, { install: () => true, removal: () => true, upkeep: (m) => m.attachments.length > 0 });
+}
+
+/**
+ * The modifications ranked play may count: verified inputs and nothing else. An install a verifier confirmed stays
+ * fitted until a removal a verifier confirmed, and its upkeep is documented only by a maintenance record a verifier
+ * confirmed. A removal the owner declares, or a receipt the owner uploads, changes nothing here, in either direction:
+ * taking a verified turbocharger off the list would raise the scores an endurance race is decided on.
+ */
+export function competitionModifications(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): ActiveModification[] {
+  const verified = (e: PassportEvent): boolean => recordEvidence(e, standing) === 'verified';
+  return fittedModifications(standing, { install: verified, removal: verified, upkeep: verified });
+}
+
 /**
  * What the condition engine needs, read from the passport as it stands on a day. The mileage is the highest reading
- * on the log (mileageLog), so an entry that winds the odometer back never lowers the wear counted from it.
+ * that stands (mileageLog), so an entry that winds the odometer back never lowers the wear counted from it.
  */
 export function conditionInputs(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): ConditionInputs {
   const log = mileageLog(passport, registry, asOf, standing);
@@ -471,15 +521,16 @@ export function conditionInputs(passport: Passport, registry: VerifierRegistry, 
 
 /**
  * What the condition engine may know for ranked play: verified inputs and nothing else. The highest reading a
- * verifier took or confirmed (a later reading the owner typed does not replace it), the replacements a verifier
- * confirmed (a receipt alone resets nothing here), and inspectors' readings. Declared accidents and titles are left
- * out. Because nothing an owner writes is in this list, nothing an owner writes can move a ranked score, up or down.
+ * verifier took, or that stands on a record a verifier confirmed (a reading the owner typed never counts here, even
+ * one that agrees with an inspector's), the replacements a verifier confirmed (a receipt alone resets nothing here),
+ * and inspectors' readings. Declared accidents and titles are left out. Because nothing an owner writes is in this
+ * list, nothing an owner writes can move a ranked score, up or down.
  */
 export function competitionConditionInputs(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): ConditionInputs {
   const all = conditionInputs(passport, registry, asOf, standing);
   let mileage: ConditionInputs['mileage'] = null;
   for (const e of standing.events) {
-    if (e.mileage !== null && readingEvidence(e, standing) === 'verified' && (mileage === null || e.mileage >= mileage.value)) mileage = { value: e.mileage, evidence: 'verified' };
+    if (e.mileage !== null && recordEvidence(e, standing) === 'verified' && (mileage === null || e.mileage >= mileage.value)) mileage = { value: e.mileage, evidence: 'verified' };
   }
   return { ...all, mileage, replacements: all.replacements.filter((r) => r.evidence === 'verified'), accident: null, titleStatus: null };
 }

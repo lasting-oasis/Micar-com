@@ -56,8 +56,8 @@ describe('the three layers', () => {
 
   it('take a specification, modification records and a condition, and nothing else', () => {
     // There is no place to hand in a document, a receipt or a grade: an upload cannot become horsepower.
-    const inputs: Required<StatsInputs> = { spec: civic, modifications: [], condition: null, competitionCondition: null, options: {} };
-    expect(Object.keys(inputs).sort()).toEqual(['competitionCondition', 'condition', 'modifications', 'options', 'spec']);
+    const inputs: Required<StatsInputs> = { spec: civic, modifications: [], competitionModifications: [], condition: null, competitionCondition: null, options: {} };
+    expect(Object.keys(inputs).sort()).toEqual(['competitionCondition', 'competitionModifications', 'condition', 'modifications', 'options', 'spec']);
   });
 
   it('do not change what they are given, and give the same answer twice', () => {
@@ -216,6 +216,28 @@ describe('ranked play', () => {
     for (const k of ATTRIBUTE_KEYS) expect(total[k], k).toBe(d[k]);
     // The declared tires count for the vehicle and not for ranked play.
     expect(stats.vehicle.scores.handling.value as number).toBeGreaterThan(stats.competition.scores.handling.value as number);
+  });
+});
+
+describe('ranked play and the modifications it counts', () => {
+  it('reads its own list when one is given, and still only the verified ones on it', () => {
+    const turbo = mod('turbo', 3, 'verified', { install: 'professional', upkeep: 'documented' });
+    const tires = mod('tires', 2, 'documented');
+    // The vehicle's own list says the turbo is gone and the upkeep lapsed; the ranked list says what verifiers confirmed.
+    const stats = vehicleStats({ spec: civic, modifications: [tires], competitionModifications: [{ ...turbo, upkeep: 'lapsed' }, tires] });
+    expect(stats.competitionAdjustments.map((a) => a.ref)).toEqual([turbo.eventId]);
+    expect(stats.adjustments.map((a) => a.ref)).toEqual([tires.eventId]);
+    expect(stats.competition.scores.power.value as number).toBeGreaterThan(stats.base.scores.power.value as number);
+    expect(stats.vehicle.scores.power.value).toBe(stats.base.scores.power.value);
+    // The upkeep on the ranked list is the one that counts for the ranked layer.
+    const kept = vehicleStats({ spec: civic, modifications: [], competitionModifications: [turbo] });
+    expect(kept.competition.scores.reliability.value as number).toBeGreaterThan(stats.competition.scores.reliability.value as number);
+    // An empty ranked list is an empty ranked layer, whatever the vehicle's own list holds.
+    const none = vehicleStats({ spec: civic, modifications: [turbo], competitionModifications: [] });
+    expect(values(none.competition)).toEqual(values(none.base));
+    // With no ranked list given, the verified ones on the vehicle's list are used as they are.
+    const same = vehicleStats({ spec: civic, modifications: [turbo, tires] });
+    expect(same.competitionAdjustments.map((a) => a.ref)).toEqual([turbo.eventId]);
   });
 });
 

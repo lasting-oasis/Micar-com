@@ -22,6 +22,15 @@ import { normalizeVin } from './vin';
 export const MAX_ATTACHMENTS = 20;
 /** The most entries one passport holds. A lifetime of careful records is a few hundred; a file with more than this is not a passport. */
 export const MAX_EVENTS = 5000;
+/**
+ * Room kept free for what an owner does not write alone: hand-overs, verifiers' attestations and withdrawals. An
+ * owner's own entries stop this far short of the limit, so filling a passport can never block a verifier from
+ * recording a withdrawal, and a hand-over can never leave a passport too long to be read back.
+ */
+export const RESERVED_ENTRIES = 500;
+/** The most grade snapshots and card editions a passport holds. A card has one edition for each level it has reached. */
+export const MAX_SNAPSHOTS = 5000;
+export const MAX_EDITIONS = 200;
 export const MAX_MILEAGE = 2000000;
 export const MAX_FILE_BYTES = 200 * 1024 * 1024;
 export const MAX_COST = 10000000;
@@ -366,7 +375,7 @@ export function addEvent(passport: Passport, event: unknown, ctx: { now: string;
   const read = readEvent(event, { recordedAt: ctx.now, by: ctx.by });
   if (!read.ok) return read;
   let entry = read.value;
-  if (passport.events.length >= MAX_EVENTS) return refuse(PASSPORT_REFUSALS.full);
+  if (passport.events.length >= MAX_EVENTS - RESERVED_ENTRIES) return refuse(PASSPORT_REFUSALS.full);
   if (entry.date > dayOf(ctx.now)) return refuse(PASSPORT_REFUSALS.future);
   if (passport.events.some((e) => e.id === entry.id)) return refuse(PASSPORT_REFUSALS.id);
   if (entry.attachments.some((a) => fileIdTaken(passport, a.id))) return refuse(PASSPORT_REFUSALS.attachments);
@@ -393,6 +402,8 @@ export function transferOwnership(passport: Passport, input: { eventId: string; 
   const read = readEvent({ id: input.eventId, type: 'transfer', date: input.date, attachments: input.attachments, title: EVENT_TYPE_LABELS.transfer, from: ctx.by, to: input.toOwnerId }, { recordedAt: ctx.now, by: ctx.by });
   if (!read.ok) return read;
   const entry = read.value;
+  // A hand-over uses the room kept free for it, and stops at the limit a passport can be read back at.
+  if (passport.events.length >= MAX_EVENTS) return refuse(PASSPORT_REFUSALS.full);
   if (entry.date > dayOf(ctx.now)) return refuse(PASSPORT_REFUSALS.future);
   const period = passport.owners[passport.owners.length - 1];
   if (entry.date < period.from) return refuse(PASSPORT_REFUSALS.beforeOwnership);
@@ -416,10 +427,12 @@ export function updateVin(passport: Passport, vin: string, ctx: { by: string }):
   return clean === null ? refuse(PASSPORT_REFUSALS.vin) : { ok: true, value: { ...passport, vin: clean } };
 }
 
-/** Adds a grade snapshot to the history. Earlier snapshots are never touched. */
-export const appendSnapshot = (passport: Passport, snapshot: GradeSnapshot): Passport => ({ ...passport, snapshots: [...passport.snapshots, snapshot] });
-/** Adds a card edition. Earlier editions are never touched. */
-export const appendEdition = (passport: Passport, edition: CardEdition): Passport => ({ ...passport, editions: [...passport.editions, edition] });
+/** Adds a grade snapshot to the history. Earlier snapshots are never touched. A history that is full is left as it is. */
+export const appendSnapshot = (passport: Passport, snapshot: GradeSnapshot): Passport =>
+  (passport.snapshots.length >= MAX_SNAPSHOTS ? passport : { ...passport, snapshots: [...passport.snapshots, snapshot] });
+/** Adds a card edition. Earlier editions are never touched. A list that is full is left as it is. */
+export const appendEdition = (passport: Passport, edition: CardEdition): Passport =>
+  (passport.editions.length >= MAX_EDITIONS ? passport : { ...passport, editions: [...passport.editions, edition] });
 
 /* ---------------------------------------------------------- storing and loading ---- */
 
@@ -500,7 +513,7 @@ export function parsePassport(input: unknown): Result<{ passport: Passport; drop
   if (!owners) return refuse(PASSPORT_REFUSALS.owner);
   if (!Array.isArray(data.events) || !Array.isArray(data.snapshots) || !Array.isArray(data.editions)) return refuse(PASSPORT_REFUSALS.shape);
   // A file far larger than any passport is refused before any of it is read.
-  if (data.events.length > MAX_EVENTS || data.snapshots.length > MAX_EVENTS || data.editions.length > MAX_EVENTS) return refuse(PASSPORT_REFUSALS.full);
+  if (data.events.length > MAX_EVENTS || data.snapshots.length > MAX_SNAPSHOTS || data.editions.length > MAX_EDITIONS) return refuse(PASSPORT_REFUSALS.full);
 
   const events: PassportEvent[] = [];
   const seen: Record<string, true> = {};

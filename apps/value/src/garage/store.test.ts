@@ -3,8 +3,8 @@ import { PASSPORT_REFUSALS, emptySpec, micarIdFromBytes } from '@micar/engine';
 import type { Passport, Sourced, VehicleSpec } from '@micar/engine';
 import { garageIdFromBytes, normalizeGarageId } from './ids';
 import {
-  GARAGE_KEY, QUARANTINE_KEY, STORE_REFUSALS, assembleCar, emptyGarage, exportGarage, findCar, holdingOf, importGarage, loadGarage, ownsCar, park, record, removeCar, replaceSpec,
-  replaceVin, saveGarage, transfer,
+  GARAGE_KEY, QUARANTINE_KEY, STORE_REFUSALS, assembleCar, emptyGarage, exportGarage, findCar, garageIds, holdingOf, importGarage, loadGarage, ownsCar, park, record, removeCar,
+  replaceSpec, replaceVin, saveGarage, takeUpGarage, transfer,
 } from './store';
 import type { GarageState, GarageStorage } from './store';
 import { SNAPSHOT_REASONS } from './words';
@@ -52,7 +52,7 @@ const car = (state: GarageState, which = CAR): Passport => findCar(state, which)
 describe('loading the garage', () => {
   it('starts empty with a new Garage ID when nothing is saved', () => {
     const loaded = loadGarage(fakeStorage(), () => ME);
-    expect(loaded).toEqual({ state: { version: 1, ownerId: ME, passports: [] }, skipped: 0, persisted: true });
+    expect(loaded).toEqual({ state: { version: 1, ownerId: ME, formerIds: [], passports: [] }, skipped: 0, persisted: true });
   });
 
   it('works, and says it is not being kept, when the browser has no storage', () => {
@@ -224,7 +224,7 @@ describe('handing a car to a new owner', () => {
     expect(holdingOf(buyer, car(buyer))).toBe('owner');
     expect(holdingOf(seller, sold)).toBe('transferred');
     // A passport file carries no Garage ID to take up: the buyer's garage is still the buyer's.
-    expect(brought.restored).toBe(false);
+    expect(brought.restorable).toBeNull();
     expect(buyer.ownerId).toBe(BUYER);
     // Somebody who is neither is shown the car and cannot write to it.
     const onlooker = ok(importGarage(emptyGarage(garageIdFromBytes([3, 3, 3, 3, 3, 3, 3, 3])), file)).state;
@@ -293,34 +293,110 @@ describe('the garage file', () => {
 });
 
 describe('the garage file as a backup', () => {
-  it('brings the garage back in a browser that has none: the cars are the owner’s again, not read-only copies', () => {
+  const FRESH = garageIdFromBytes([9, 9, 9, 9, 9, 9, 9, 9]);
+  const sale = { toOwnerId: BUYER, date: TODAY, attachments: [] };
+
+  it('never changes this garage’s ID by itself: a backup is offered, and taken up only when the page says so', () => {
     const mine = write(parkCar(parkCar(emptyGarage(ME)), micarId(2)), receipt('2026-06-01'));
     const backup = exportGarage(mine, NOW);
     // Site data cleared, a new phone, a private window: a fresh Garage ID and no cars.
-    const fresh = emptyGarage(garageIdFromBytes([9, 9, 9, 9, 9, 9, 9, 9]));
-    const back = ok(importGarage(fresh, backup));
-    expect(back).toMatchObject({ added: 2, updated: 0, skipped: 0, restored: true });
-    expect(back.state.ownerId).toBe(ME);
-    expect(back.state.passports).toEqual(mine.passports);
-    for (const p of back.state.passports) expect(holdingOf(back.state, p)).toBe('owner');
-    // And it can be written to again.
-    expect(car(write(back.state, receipt(TODAY))).events).toHaveLength(car(mine).events.length + 1);
+    const fresh = emptyGarage(FRESH);
+    const brought = ok(importGarage(fresh, backup));
+    expect(brought).toMatchObject({ added: 2, updated: 0, skipped: 0, restorable: { ownerId: ME, formerIds: [] } });
+    // The cars are here and the ID has not moved: until the person says so they are another garage's, read-only.
+    expect(brought.state.ownerId).toBe(FRESH);
+    for (const p of brought.state.passports) expect(holdingOf(brought.state, p)).toBe('other');
+    // Taken up: the cars are the owner's again, not read-only copies, and can be written to.
+    const back = takeUpGarage(brought.state, brought.restorable as { ownerId: string; formerIds: string[] });
+    expect(back.ownerId).toBe(ME);
+    expect(back.passports).toEqual(mine.passports);
+    for (const p of back.passports) expect(holdingOf(back, p)).toBe('owner');
+    expect(car(write(back, receipt(TODAY))).events).toHaveLength(car(mine).events.length + 1);
+    // Bringing the same file in again offers nothing: this browser already answers to that ID.
+    expect(ok(importGarage(back, backup))).toMatchObject({ added: 0, skipped: 2, restorable: null });
   });
 
-  it('never changes the ID of a garage that already holds cars, and never takes one from a single passport file', () => {
-    const other = parkCar(emptyGarage(garageIdFromBytes([9, 9, 9, 9, 9, 9, 9, 9])), micarId(5));
+  it('keeps the ID it gave out before, so a car on its way to that ID still arrives', () => {
+    // A buyer opens the Garage for the first time and gives the seller the ID shown. Then the buyer takes up an old
+    // backup. The ID given out is still this browser's: when the seller hands the car over, it arrives writable.
+    const backup = exportGarage(parkCar(emptyGarage(ME), micarId(2)), NOW);
+    const brought = ok(importGarage(emptyGarage(BUYER), backup));
+    const buyer = takeUpGarage(brought.state, brought.restorable as { ownerId: string; formerIds: string[] });
+    expect(buyer).toMatchObject({ ownerId: ME, formerIds: [BUYER] });
+    expect(garageIds(buyer)).toEqual([ME, BUYER]);
+    const seller = ok(transfer(parkCar(emptyGarage(FRESH)), CAR, { ...sale, toOwnerId: BUYER, eventId: id() }, { now: NOW }));
+    const arrived = ok(importGarage(buyer, exportGarage(seller, NOW, CAR))).state;
+    expect(holdingOf(arrived, car(arrived))).toBe('owner');
+    // It is written to as the ID that owns it, and can be handed on.
+    const written = write(arrived, receipt(TODAY));
+    expect(car(written).events[car(written).events.length - 1].by).toBe(BUYER);
+    expect(reason(transfer(written, CAR, { ...sale, toOwnerId: ME, eventId: id() }, { now: NOW }))).toBe(STORE_REFUSALS[3]);
+    expect(reason(transfer(written, CAR, { ...sale, toOwnerId: BUYER, eventId: id() }, { now: NOW }))).toBe(STORE_REFUSALS[3]);
+    const third = garageIdFromBytes([7, 7, 7, 7, 7, 7, 7, 7]);
+    const handedOn = ok(transfer(written, CAR, { ...sale, toOwnerId: third, eventId: id() }, { now: NOW }));
+    expect(holdingOf(handedOn, car(handedOn))).toBe('transferred');
+    // The former IDs are saved with the garage, come back from storage, and travel in its backup.
+    const storage = fakeStorage();
+    saveGarage(storage, buyer);
+    expect(loadGarage(storage, () => 'unused').state.formerIds).toEqual([BUYER]);
+    expect(JSON.parse(exportGarage(buyer, NOW))).toMatchObject({ ownerId: ME, formerIds: [BUYER] });
+    const again = ok(importGarage(emptyGarage(FRESH), exportGarage(buyer, NOW)));
+    expect(again.restorable).toEqual({ ownerId: ME, formerIds: [BUYER] });
+    expect(takeUpGarage(again.state, again.restorable as { ownerId: string; formerIds: string[] })).toMatchObject({ ownerId: ME, formerIds: [FRESH, BUYER] });
+  });
+
+  it('does not offer a seller’s garage file as a backup: the buyer keeps their ID and the car they were handed', () => {
+    // The seller parks two cars, hands one to the buyer, and sends the whole-garage file instead of the passport file.
+    let seller = parkCar(parkCar(emptyGarage(ME)), micarId(2));
+    seller = ok(transfer(seller, CAR, { ...sale, eventId: id() }, { now: NOW }));
+    const wrongFile = exportGarage(seller, NOW);
+    // The buyer's garage is empty, which is what a first-time buyer's garage is. It used to take up the seller's ID
+    // on the spot: the buyer's own ID was gone for good and the car they had bought read 'transferred'.
+    const brought = ok(importGarage(emptyGarage(BUYER), wrongFile));
+    expect(brought).toMatchObject({ added: 2, restorable: null });
+    expect(brought.state.ownerId).toBe(BUYER);
+    expect(brought.state.formerIds).toEqual([]);
+    expect(holdingOf(brought.state, car(brought.state))).toBe('owner');
+    expect(holdingOf(brought.state, car(brought.state, micarId(2)))).toBe('other');
+    expect(car(write(brought.state, receipt(TODAY))).events.length).toBe(car(brought.state).events.length + 1);
+  });
+
+  it('offers only a real garage’s backup: a well-formed ID that still owns a car in the file', () => {
     const mine = parkCar(emptyGarage(ME));
-    const merged = ok(importGarage(other, exportGarage(mine, NOW)));
-    expect(merged).toMatchObject({ added: 1, restored: false });
-    expect(merged.state.ownerId).toBe(other.ownerId);
-    expect(holdingOf(merged.state, car(merged.state))).toBe('other');
-    // One car's passport file has no Garage ID in it at all.
-    expect(JSON.parse(exportGarage(mine, NOW, CAR))).not.toHaveProperty('ownerId');
-    expect(JSON.parse(exportGarage(mine, NOW))).toMatchObject({ ownerId: ME });
-    // A file whose ID is not an ID, or an empty backup, restores nothing.
     const fresh = emptyGarage(BUYER);
-    expect(ok(importGarage(fresh, JSON.stringify({ micarGarage: 1, ownerId: 'not an id!', passports: mine.passports })))).toMatchObject({ restored: false });
-    expect(ok(importGarage(fresh, JSON.stringify({ micarGarage: 1, ownerId: ME, passports: [] }))).state.ownerId).toBe(BUYER);
+    const offered = (file: unknown) => ok(importGarage(fresh, JSON.stringify(file))).restorable;
+    expect(offered({ micarGarage: 1, ownerId: ME, passports: mine.passports })).toEqual({ ownerId: ME, formerIds: [] });
+    // Not an ID, an ID with a wrong check character, or one not in its written form.
+    expect(offered({ micarGarage: 1, ownerId: 'not an id!', passports: mine.passports })).toBeNull();
+    expect(offered({ micarGarage: 1, ownerId: `${ME.slice(0, -1)}${ME.endsWith('0') ? '1' : '0'}`, passports: mine.passports })).toBeNull();
+    expect(offered({ micarGarage: 1, ownerId: ME.toLowerCase(), passports: mine.passports })).toBeNull();
+    expect(offered({ micarGarage: 1, ownerId: 12345, passports: mine.passports })).toBeNull();
+    // An ID that owns nothing in the file is nobody's backup.
+    expect(offered({ micarGarage: 1, ownerId: FRESH, passports: mine.passports })).toBeNull();
+    expect(offered({ micarGarage: 1, ownerId: ME, passports: [] })).toBeNull();
+    // A single car's passport file has no Garage ID in it at all.
+    expect(JSON.parse(exportGarage(mine, NOW, CAR))).not.toHaveProperty('ownerId');
+    expect(offered(JSON.parse(exportGarage(mine, NOW, CAR)))).toBeNull();
+    // A garage that already holds cars is offered it too, and loses nothing by taking it up: its own cars stay its own.
+    const other = parkCar(emptyGarage(FRESH), micarId(5));
+    const merged = ok(importGarage(other, exportGarage(mine, NOW)));
+    expect(merged).toMatchObject({ added: 1, restorable: { ownerId: ME } });
+    expect(merged.state.ownerId).toBe(FRESH);
+    expect(holdingOf(merged.state, car(merged.state))).toBe('other');
+    const both = takeUpGarage(merged.state, merged.restorable as { ownerId: string; formerIds: string[] });
+    expect(both.passports.map((p) => holdingOf(both, p))).toEqual(['owner', 'owner']);
+    // Junk in a file's list of former IDs is left out, and taking up an ID that is not one changes nothing.
+    expect(offered({ micarGarage: 1, ownerId: ME, formerIds: ['x', 7, BUYER, FRESH, FRESH, 'not an id!'], passports: mine.passports })).toEqual({ ownerId: ME, formerIds: [FRESH] });
+    expect(takeUpGarage(fresh, { ownerId: 'nonsense', formerIds: [] })).toBe(fresh);
+    expect(takeUpGarage(fresh, { ownerId: BUYER, formerIds: [] })).toBe(fresh);
+  });
+
+  it('reads a garage saved before former IDs existed, and ignores junk where they should be', () => {
+    const saved = parkCar(emptyGarage(ME));
+    const old = JSON.stringify({ version: 1, ownerId: ME, passports: saved.passports });
+    expect(loadGarage(fakeStorage({ [GARAGE_KEY]: old }), () => 'unused').state).toMatchObject({ ownerId: ME, formerIds: [] });
+    const junk = JSON.stringify({ version: 1, ownerId: ME, formerIds: [ME, BUYER, BUYER, 3, null, 'no'], passports: saved.passports });
+    expect(loadGarage(fakeStorage({ [GARAGE_KEY]: junk }), () => 'unused').state.formerIds).toEqual([BUYER]);
   });
 });
 

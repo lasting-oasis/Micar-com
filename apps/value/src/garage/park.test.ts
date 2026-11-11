@@ -34,19 +34,90 @@ describe('what the page says about a VIN as it is typed', () => {
   });
 });
 
+describe('when the parking sheet starts again', () => {
+  it('starts again for a new trim or body whenever catalogue figures are on the sheet, whichever fill came last', async () => {
+    const { NO_FILLS, fillsAfter, startsOver } = await import('./Park');
+    const catalogue = fillsAfter(NO_FILLS, 'catalogue');
+    expect(startsOver(catalogue, 'trim')).toBe(true);
+    expect(startsOver(catalogue, 'body')).toBe(true);
+    // The catalogue's figures are still there after an EPA pick is laid over them. The form used to remember only the
+    // last fill, so a new trim kept the other trim's figures and the sources named beside them.
+    const both = fillsAfter(catalogue, 'epa');
+    expect(both).toEqual({ catalogue: true, epa: true });
+    for (const change of ['trim', 'body', 'make', 'model', 'year'] as const) expect(startsOver(both, change), change).toBe(true);
+  });
+
+  it('keeps the EPA’s figures through a new trim or body, and nothing through a new make, model or year', async () => {
+    const { NO_FILLS, fillsAfter, startsOver } = await import('./Park');
+    const epa = fillsAfter(NO_FILLS, 'epa');
+    // The EPA's record is for the model and the year, whatever the trim.
+    expect(startsOver(epa, 'trim')).toBe(false);
+    expect(startsOver(epa, 'body')).toBe(false);
+    for (const change of ['make', 'model', 'year'] as const) expect(startsOver(epa, change), change).toBe(true);
+    // A catalogue fill replaces the whole sheet, the EPA's fields with it.
+    expect(fillsAfter(epa, 'catalogue')).toEqual({ catalogue: true, epa: false });
+    // A sheet the owner typed alone is theirs whatever the car is called.
+    for (const change of ['trim', 'body', 'make', 'model', 'year'] as const) expect(startsOver(NO_FILLS, change), change).toBe(false);
+  });
+});
+
 describe('what the form says about an odometer reading before it is written', () => {
+  const LOG = [{ date: '2024-03-01', mileage: 30000 }, { date: '2026-06-01', mileage: 50000 }];
+
   it('says nothing about an ordinary reading, or when there is nothing to compare with', async () => {
+    const { odometerNote } = await import('./PassportPanel');
+    expect(odometerNote('51000', '2026-11-10', LOG)).toBe('');
+    expect(odometerNote('50000', '2026-11-10', LOG)).toBe('');
+    expect(odometerNote('', '2026-11-10', LOG)).toBe('');
+    expect(odometerNote('abc', '2026-11-10', LOG)).toBe('');
+    expect(odometerNote('500000', '2026-11-10', [])).toBe('');
+    expect(odometerNote('80000', '2026-11-10', LOG)).toBe('');
+  });
+
+  it('says exactly when a rollback would be recorded, going by the day the entry is dated', async () => {
     const { ODOMETER_NOTES, odometerNote } = await import('./PassportPanel');
-    expect(odometerNote('51000', 50000)).toBe('');
-    expect(odometerNote('50000', 50000)).toBe('');
-    expect(odometerNote('', 50000)).toBe('');
-    expect(odometerNote('500000', null)).toBe('');
-    expect(odometerNote('abc', 50000)).toBe('');
-    // A slipped digit, and a reading below the highest on the log.
-    expect(odometerNote('500000', 50000)).toBe(ODOMETER_NOTES[1]);
-    expect(odometerNote('80001', 50000)).toBe(ODOMETER_NOTES[1]);
-    expect(odometerNote('80000', 50000)).toBe('');
-    expect(odometerNote('49999', 50000)).toBe(ODOMETER_NOTES[0]);
+    // Lower than a reading from an earlier day.
+    expect(odometerNote('49999', '2026-11-10', LOG)).toBe(ODOMETER_NOTES[0]);
+    expect(odometerNote('29000', '2025-01-01', LOG)).toBe(ODOMETER_NOTES[0]);
+    // An old receipt that shows fewer miles than the car has now is not a rollback, and the form does not say it is.
+    expect(odometerNote('40000', '2025-01-01', LOG)).toBe('');
+    expect(odometerNote('20000', '2023-01-01', LOG)).toBe('');
+    // A second reading for a day already on the log is compared with the other days, not with its own.
+    expect(odometerNote('49000', '2026-06-01', LOG)).toBe('');
+    expect(odometerNote('29000', '2026-06-01', LOG)).toBe(ODOMETER_NOTES[0]);
+    // Higher than a reading from a later day is the same contradiction the other way round.
+    expect(odometerNote('60000', '2025-01-01', LOG)).toBe(ODOMETER_NOTES[2]);
+    expect(odometerNote('31000', '2023-01-01', LOG)).toBe(ODOMETER_NOTES[2]);
+    // A slipped digit: a long way above everything so far.
+    expect(odometerNote('500000', '2026-11-10', LOG)).toBe(ODOMETER_NOTES[1]);
+    expect(odometerNote('80001', '2026-11-10', LOG)).toBe(ODOMETER_NOTES[1]);
+  });
+
+  it('agrees with the engine about every reading it warns of, and every one it lets by', async () => {
+    const { ODOMETER_NOTES, odometerNote } = await import('./PassportPanel');
+    const { EMPTY_REGISTRY, addEvent, createPassport, micarIdFromBytes, mileageLog, emptySpec } = await import('@micar/engine');
+    const micarId = micarIdFromBytes([1, 2, 3, 4, 5, 6, 7, 8]);
+    if (!micarId.ok) throw new Error(micarId.reason);
+    const made = createPassport({ micarId: micarId.value, now: '2024-01-01T09:00:00.000Z', ownerId: 'owner-one', spec: emptySpec({ year: 2019, make: 'Honda', model: 'Civic', trim: '', bodyClass: 'sedan' }), eventId: 'e0' });
+    if (!made.ok) throw new Error(made.reason);
+    let passport = made.value;
+    let n = 0;
+    const write = (date: string, mileage: number, now: string) => {
+      const added = addEvent(passport, { id: `e${++n}`, type: 'mileage', date, mileage, title: '', note: '', attachments: [], visibility: 'private' }, { now, by: 'owner-one' });
+      if (!added.ok) throw new Error(added.reason);
+      return added.value;
+    };
+    passport = write('2024-03-01', 30000, '2024-03-01T09:00:00.000Z');
+    passport = write('2026-06-01', 50000, '2026-06-01T09:00:00.000Z');
+    const before = mileageLog(passport, EMPTY_REGISTRY, '2026-11-10');
+    expect(before.rollback).toBe(false);
+    for (const date of ['2023-01-01', '2024-03-01', '2025-01-01', '2026-06-01', '2026-11-10']) {
+      for (const miles of [1000, 29999, 30000, 30001, 40000, 49999, 50000, 50001, 70000]) {
+        const said = odometerNote(String(miles), date, before.readings);
+        const after = mileageLog(write(date, miles, '2026-11-10T12:00:00.000Z'), EMPTY_REGISTRY, '2026-11-10');
+        expect(said === ODOMETER_NOTES[0] || said === ODOMETER_NOTES[2], `${date} ${miles}`).toBe(after.rollback);
+      }
+    }
   });
 });
 

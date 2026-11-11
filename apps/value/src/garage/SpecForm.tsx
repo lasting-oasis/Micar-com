@@ -35,9 +35,11 @@ function SourceChip({ cell, plain }: { cell: Sourced<unknown> | null; plain: boo
   // On a stored passport a source is what the file says it is, so none is picked out as better than another.
   const good = !plain && (s.kind === 'manufacturer' || s.kind === 'agency' || s.kind === 'test');
   const label = <>{t(SOURCE_KIND_LABELS[s.kind])}{s.name ? ` · ${s.name}` : ''}</>;
+  // A source's note is the source's own words, except the notes this page writes itself, which have a translation.
+  const note = s.note === undefined ? undefined : t(s.note);
   return s.url
-    ? <a className={`gar-chip ${good ? 'blue' : ''}`} href={s.url} target="_blank" rel="noreferrer" title={s.note}>{label}</a>
-    : <span className={`gar-chip ${good ? 'blue' : ''}`} title={s.note}>{label}</span>;
+    ? <a className={`gar-chip ${good ? 'blue' : ''}`} href={s.url} target="_blank" rel="noreferrer" title={note}>{label}</a>
+    : <span className={`gar-chip ${good ? 'blue' : ''}`} title={note}>{label}</span>;
 }
 
 type Props = {

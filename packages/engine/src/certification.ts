@@ -4,12 +4,13 @@
 // and every lower level's are met, and the result lists every requirement so a page can show what unlocks the next.
 // Nothing here can be bought, and nothing an owner uploads satisfies a Verified or Certified requirement.
 import { catalogueMatch } from './database';
-import type { GradeFacts } from './grading';
+import type { Attested, GradeFacts } from './grading';
 import { GRADE_WEIGHTS, OWNER_CEILING, gradeFacts, verificationScore } from './grading';
 import { LEVEL_LABELS, LEVEL_SUMMARIES } from './labels';
 import type { CertificationLevel, CertificationResult, GradeCategoryKey, GradeReport, Passport, Requirement, VerifierRegistry } from './types';
 import { CERTIFICATION_LEVELS, GRADE_CATEGORIES } from './types';
 import { dayOf, monthsBetween, round1 } from './util';
+import { standingOf } from './verification';
 
 export { LEVEL_LABELS, LEVEL_SUMMARIES };
 
@@ -43,7 +44,7 @@ export const isSlabbed = (level: CertificationLevel): boolean => level !== 'regi
  * The inspection Certified asks for: one made in person, with a score, that counts in full and is less than twelve
  * months old. Any such inspection will do. A later check made from photographs does not take it away.
  */
-export function hasInPersonInspection(facts: GradeFacts): boolean {
+export function hasInPersonInspection(facts: Attested): boolean {
   return facts.attestations.some((s) => s.attestation.scope === 'condition' && s.attestation.inPerson && s.attestation.conditionScore !== null && s.weight === 1
     && monthsBetween(s.attestation.date, facts.asOf) < 12);
 }
@@ -103,6 +104,12 @@ export function certify(passport: Passport, report: GradeReport, registry: Verif
 
 /* ------------------------------------------------------------------- the ceiling ---- */
 
+/** What independent verifiers stand behind on a day: all the ceiling reads. Nothing an owner wrote is in it. */
+export function attestedOn(passport: Passport, registry: VerifierRegistry, asOf: string): Attested {
+  const standing = standingOf(passport, registry, dayOf(asOf));
+  return { asOf: standing.day, attestations: standing.attestations };
+}
+
 /**
  * The most a passport's grade and level could have been on a day, going only by what independent verifiers had
  * attested by then. With no attestation that is Documented and what an owner can reach alone. A grade snapshot or a
@@ -117,7 +124,7 @@ export type GradeCeiling = {
   oneOfOne: boolean;
 };
 
-export function gradeCeiling(passport: Passport, registry: VerifierRegistry, asOf: string, facts: GradeFacts = gradeFacts(passport, registry, dayOf(asOf))): GradeCeiling {
+export function gradeCeiling(passport: Passport, registry: VerifierRegistry, asOf: string, facts: Attested = attestedOn(passport, registry, asOf)): GradeCeiling {
   const has = (scope: string) => facts.attestations.some((s) => s.attestation.scope === scope);
   const verification = verificationScore(facts);
   let inspection = 0;

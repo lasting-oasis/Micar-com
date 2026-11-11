@@ -23,6 +23,12 @@ export type GarageState = {
   version: 1;
   /** This device's owner id. Until accounts exist it stands in for one: a buyer gives it to a seller to receive a car. */
   ownerId: string;
+  /**
+   * Garage IDs this browser held before it took up another from a backup. They are never thrown away and they still
+   * work: a car whose owner is one of them is this garage's car. A buyer gives an ID out before any car arrives, so
+   * an ID that was simply replaced would leave a car on its way to it with no garage able to receive it.
+   */
+  formerIds: string[];
   passports: Passport[];
 };
 export type Loaded = {
@@ -36,7 +42,18 @@ export type Loaded = {
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 const OWNER = /^[A-Za-z0-9-]{4,80}$/;
 
-export const emptyGarage = (ownerId: string): GarageState => ({ version: 1, ownerId, passports: [] });
+export const emptyGarage = (ownerId: string): GarageState => ({ version: 1, ownerId, formerIds: [], passports: [] });
+
+/** Garage IDs out of anything: the well-formed ones, once each, leaving out `not`. */
+function readIds(list: unknown, not: string): string[] {
+  const out: string[] = [];
+  if (!Array.isArray(list)) return out;
+  for (const raw of list.slice(0, 50)) if (typeof raw === 'string' && OWNER.test(raw) && raw !== not && out.indexOf(raw) === -1) out.push(raw);
+  return out;
+}
+
+/** Every Garage ID this browser answers to: the one it gives out, then the ones it held before. */
+export const garageIds = (state: GarageState): string[] => [state.ownerId, ...state.formerIds];
 
 /** Reads cars out of anything shaped like a saved garage. Bad ones are counted, never thrown on. */
 function readPassports(list: unknown): { passports: Passport[]; skipped: number } {
@@ -66,7 +83,7 @@ export function loadGarage(storage: GarageStorage | null, makeOwnerId: () => str
   }
   const { passports, skipped } = readPassports(data.passports);
   if (skipped > 0) { try { storage?.setItem(QUARANTINE_KEY, text); } catch { /* storage full or blocked */ } }
-  return { state: { version: 1, ownerId: data.ownerId, passports }, skipped, persisted };
+  return { state: { version: 1, ownerId: data.ownerId, formerIds: readIds(data.formerIds, data.ownerId), passports }, skipped, persisted };
 }
 
 /** Saves the garage. Returns false when the browser would not keep it. */
@@ -78,16 +95,19 @@ export function saveGarage(storage: GarageStorage | null, state: GarageState): b
 /* -------------------------------------------------------------------- reading ---- */
 
 export const findCar = (state: GarageState, micarId: string): Passport | null => state.passports.filter((p) => p.micarId === micarId)[0] ?? null;
-/** True while this device's owner still holds the car. After a transfer it stays listed, read-only, until removed. */
-export const ownsCar = (state: GarageState, passport: Passport): boolean => currentOwner(passport) === state.ownerId;
+/** True while this garage still holds the car, under the ID it gives out or one it held before. After a transfer it stays listed, read-only, until removed. */
+export const ownsCar = (state: GarageState, passport: Passport): boolean => garageIds(state).indexOf(currentOwner(passport)) !== -1;
 /**
  * What this garage is to a car: its owner, a past owner who handed it on, or neither (a passport file brought in
- * from someone else, or a backup opened in a browser that is not the garage it came from).
+ * from someone else, or a backup opened in a browser that has not taken up the garage it came from).
  */
 export function holdingOf(state: GarageState, passport: Passport): 'owner' | 'transferred' | 'other' {
   if (ownsCar(state, passport)) return 'owner';
-  return passport.owners.some((o) => o.ownerId === state.ownerId) ? 'transferred' : 'other';
+  const mine = garageIds(state);
+  return passport.owners.some((o) => mine.indexOf(o.ownerId) !== -1) ? 'transferred' : 'other';
 }
+/** The ID this garage writes to a car as: the one that owns it when that is one of this garage's, else the one it gives out (and the engine refuses). */
+const writerOf = (state: GarageState, passport: Passport): string => (ownsCar(state, passport) ? currentOwner(passport) : state.ownerId);
 /** Everything the engine knows about one car today. */
 export const assembleCar = (passport: Passport, today: string): Assembly => assemble(passport, REGISTRY, today);
 
@@ -114,7 +134,7 @@ export function park(state: GarageState, input: ParkInput): Result<GarageState> 
 export function record(state: GarageState, micarId: string, event: unknown, ctx: { now: string; snapshotId: string; reason: string }): Result<GarageState> {
   const passport = findCar(state, micarId);
   if (!passport) return { ok: false, reason: 'No car with that ID is parked here' };
-  const added = addEvent(passport, event, { now: ctx.now, by: state.ownerId });
+  const added = addEvent(passport, event, { now: ctx.now, by: writerOf(state, passport) });
   if (!added.ok) return added;
   return { ok: true, value: put(state, settle(added.value, ctx.now, ctx.snapshotId, ctx.reason)) };
 }
@@ -123,7 +143,7 @@ export function record(state: GarageState, micarId: string, event: unknown, ctx:
 export function replaceSpec(state: GarageState, micarId: string, spec: VehicleSpec, ctx: { now: string; snapshotId: string }): Result<GarageState> {
   const passport = findCar(state, micarId);
   if (!passport) return { ok: false, reason: 'No car with that ID is parked here' };
-  const updated = updateSpec(passport, spec, { by: state.ownerId });
+  const updated = updateSpec(passport, spec, { by: writerOf(state, passport) });
   if (!updated.ok) return updated;
   return { ok: true, value: put(state, settle(updated.value, ctx.now, ctx.snapshotId, SNAPSHOT_REASONS.spec)) };
 }
@@ -131,7 +151,7 @@ export function replaceSpec(state: GarageState, micarId: string, spec: VehicleSp
 export function replaceVin(state: GarageState, micarId: string, vin: string, ctx: { now: string; snapshotId: string }): Result<GarageState> {
   const passport = findCar(state, micarId);
   if (!passport) return { ok: false, reason: 'No car with that ID is parked here' };
-  const updated = updateVin(passport, vin, { by: state.ownerId });
+  const updated = updateVin(passport, vin, { by: writerOf(state, passport) });
   if (!updated.ok) return updated;
   return { ok: true, value: put(state, settle(updated.value, ctx.now, ctx.snapshotId, SNAPSHOT_REASONS.vin)) };
 }
@@ -143,8 +163,8 @@ export function transfer(state: GarageState, micarId: string, input: { eventId: 
   // A hand-over cannot be undone, so the ID has to be a real one: the right shape, and a check character that agrees.
   const toOwnerId = normalizeGarageId(input.toOwnerId);
   if (toOwnerId === null) return { ok: false, reason: 'That is not a Garage ID' };
-  if (toOwnerId === state.ownerId) return { ok: false, reason: 'That is this garage' };
-  const moved = transferOwnership(passport, { ...input, toOwnerId }, { now: ctx.now, by: state.ownerId });
+  if (garageIds(state).indexOf(toOwnerId) !== -1) return { ok: false, reason: 'That is this garage' };
+  const moved = transferOwnership(passport, { ...input, toOwnerId }, { now: ctx.now, by: writerOf(state, passport) });
   if (!moved.ok) return moved;
   return { ok: true, value: put(state, moved.value) };
 }
@@ -156,12 +176,12 @@ export const removeCar = (state: GarageState, micarId: string): GarageState => (
 
 /**
  * The whole garage, or one car, as a file the owner keeps. It holds everything, the VIN included: it is theirs.
- * The whole-garage file is a backup, so it carries this garage's ID and can bring the garage back in another
+ * The whole-garage file is a backup, so it carries this garage's IDs and can bring the garage back in another
  * browser. A single car's passport file is what a seller sends a buyer, and carries no Garage ID of its own.
  */
 export function exportGarage(state: GarageState, exportedAt: string, only?: string): string {
   if (only) return JSON.stringify({ micarGarage: 1, exportedAt, passports: state.passports.filter((p) => p.micarId === only) }, null, 1);
-  return JSON.stringify({ micarGarage: 1, exportedAt, ownerId: state.ownerId, passports: state.passports }, null, 1);
+  return JSON.stringify({ micarGarage: 1, exportedAt, ownerId: state.ownerId, formerIds: state.formerIds, passports: state.passports }, null, 1);
 }
 
 /** True when `further` is the same passport as `here`, further along: it holds every entry `here` holds, unchanged and in the same place, and more. */
@@ -170,20 +190,25 @@ function continues(here: Passport, further: Passport): boolean {
   return here.events.every((e, i) => canonicalJson(further.events[i]) === canonicalJson(e));
 }
 
+/** The garage a backup file came from: the ID it gave out and the ones it held before. */
+export type Restorable = { ownerId: string; formerIds: string[] };
+
 /**
  * Brings cars in from an export. A car already here is replaced only by a copy that continues it: the same entries,
  * untouched, and more after them. A file that tells a different story about a car parked here is left out, so an
  * import can never overwrite a history. Anything that is not a garage export changes nothing.
+ *
+ * An import never changes this garage's ID. When the file is another garage's backup, `restorable` names that
+ * garage, and the page may offer to take it up (takeUpGarage) after asking. It is offered only when the file's ID
+ * is a real Garage ID that this browser does not already answer to and that still owns a car in the file, and when
+ * no car in the file belongs to this garage: a file that hands this garage a car is a seller's file, not a backup
+ * of this one.
  */
-export function importGarage(state: GarageState, text: string): Result<{ state: GarageState; added: number; updated: number; skipped: number; restored: boolean }> {
+export function importGarage(state: GarageState, text: string): Result<{ state: GarageState; added: number; updated: number; skipped: number; restorable: Restorable | null }> {
   let data: unknown;
   try { data = JSON.parse(text); } catch { return { ok: false, reason: 'That file is not a garage export' }; }
   if (!isRecord(data) || data.micarGarage !== 1 || !Array.isArray(data.passports)) return { ok: false, reason: 'That file is not a garage export' };
   const read = readPassports(data.passports);
-  // A backup opened in a garage that holds nothing is that garage coming back: it takes up the ID the cars were
-  // parked under, so they are the owner's again and not somebody else's read-only copies.
-  const restored = state.passports.length === 0 && typeof data.ownerId === 'string' && OWNER.test(data.ownerId) && data.ownerId !== state.ownerId && read.passports.length > 0;
-  if (restored) state = { ...state, ownerId: data.ownerId as string };
   let passports = state.passports, added = 0, updated = 0, skipped = read.skipped;
   for (const incoming of read.passports) {
     const here = passports.filter((p) => p.micarId === incoming.micarId)[0];
@@ -191,7 +216,32 @@ export function importGarage(state: GarageState, text: string): Result<{ state: 
     else if (continues(here, incoming)) { passports = passports.map((p) => (p.micarId === incoming.micarId ? incoming : p)); updated += 1; }
     else skipped += 1;
   }
-  return { ok: true, value: { state: { ...state, passports }, added, updated, skipped, restored } };
+  let restorable: Restorable | null = null;
+  const theirs = typeof data.ownerId === 'string' && normalizeGarageId(data.ownerId) === data.ownerId ? data.ownerId : null;
+  const mine = garageIds(state);
+  if (theirs !== null && mine.indexOf(theirs) === -1) {
+    const formerIds = readIds(data.formerIds, theirs).filter((id) => normalizeGarageId(id) === id && mine.indexOf(id) === -1);
+    const held = [theirs, ...formerIds];
+    const ownsOne = read.passports.some((p) => held.indexOf(currentOwner(p)) !== -1);
+    const handsOver = read.passports.some((p) => mine.indexOf(currentOwner(p)) !== -1);
+    if (ownsOne && !handsOver) restorable = { ownerId: theirs, formerIds };
+  }
+  return { ok: true, value: { state: { ...state, passports }, added, updated, skipped, restorable } };
+}
+
+/**
+ * Takes up the garage a backup came from: its ID becomes the one this browser gives out, and the ID it gave out
+ * until now is kept among the former ones, where it goes on working. Nothing is lost by it, and nothing is taken
+ * up twice.
+ */
+export function takeUpGarage(state: GarageState, garage: Restorable): GarageState {
+  const ownerId = normalizeGarageId(garage.ownerId);
+  if (ownerId === null || ownerId === state.ownerId) return state;
+  const formerIds: string[] = [];
+  for (const id of [state.ownerId, ...state.formerIds, ...garage.formerIds]) {
+    if (id !== ownerId && OWNER.test(id) && formerIds.indexOf(id) === -1) formerIds.push(id);
+  }
+  return { ...state, ownerId, formerIds };
 }
 
 /** The reasons an action here can be refused, for translation. Refusals that come from the engine pass through as they are. */

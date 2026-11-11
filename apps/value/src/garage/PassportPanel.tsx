@@ -37,7 +37,8 @@ type Props = {
   today: string;
   /** What this garage is to the car. Only its owner can write; a past owner and anyone else can read. */
   holding: 'owner' | 'transferred' | 'other';
-  garageId: string;
+  /** Every Garage ID this browser answers to: the one it gives out first. */
+  garageIds: string[];
   files: FileStore;
   onRecord: (event: Record<string, unknown>, reason: string) => string | null;
   /** Sets, corrects or clears the VIN. */
@@ -73,23 +74,29 @@ export const keepFiles = store;
 /** How far above the last reading a new one can be before the form asks the owner to look again. */
 const ODOMETER_JUMP = 30000;
 
-/**
- * What the form says about an odometer reading before it is written. A reading can be corrected the same day and
- * never after, so a slipped digit is worth catching here.
- */
-export function odometerNote(text: string, last: number | null): string {
-  const miles = Number(text);
-  if (text.trim() === '' || !Number.isFinite(miles) || last === null) return '';
-  if (miles < last) return 'That is lower than the highest reading on this passport. A lower reading on a later day is recorded as an odometer rollback.';
-  if (miles > last + ODOMETER_JUMP) return 'That is a long way above the last reading. Check the digits: a reading can be corrected today and not after.';
-  return '';
-}
 export const ODOMETER_NOTES = [
-  'That is lower than the highest reading on this passport. A lower reading on a later day is recorded as an odometer rollback.',
-  'That is a long way above the last reading. Check the digits: a reading can be corrected today and not after.',
+  'That is lower than a reading from an earlier day, so it will be recorded as an odometer rollback. A reading can be put right the day it is written, and not after.',
+  'That is a long way above the highest reading so far. Check the digits: a reading can be put right the day it is written, and not after.',
+  'That is higher than a reading from a later day, so it will be recorded as an odometer rollback. A reading can be put right the day it is written, and not after.',
 ] as const;
 
-function AddEntry({ today, files, onRecord, lastReading }: Pick<Props, 'today' | 'files' | 'onRecord'> & { lastReading: number | null }) {
+/**
+ * What the form says about an odometer reading before it is written, given the day the entry is dated and the
+ * readings already on the log. It says exactly what the engine will do: a reading lower than an earlier day's, or
+ * higher than a later day's, is a rollback, and an old receipt showing fewer miles than the car has now is not.
+ * A reading can be put right the day it is written and never after, so a slipped digit is worth catching here.
+ */
+export function odometerNote(text: string, date: string, readings: readonly { date: string; mileage: number }[]): string {
+  const miles = Number(text);
+  if (text.trim() === '' || !Number.isFinite(miles) || readings.length === 0) return '';
+  if (readings.some((r) => r.date < date && r.mileage > miles)) return ODOMETER_NOTES[0];
+  if (readings.some((r) => r.date > date && r.mileage < miles)) return ODOMETER_NOTES[2];
+  let highest = 0;
+  for (const r of readings) highest = Math.max(highest, r.mileage);
+  return miles > highest + ODOMETER_JUMP ? ODOMETER_NOTES[1] : '';
+}
+
+function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'files' | 'onRecord'> & { readings: readonly { date: string; mileage: number }[] }) {
   const [type, setType] = useState<OwnerEventType>('maintenance');
   const [date, setDate] = useState(today);
   const [mileage, setMileage] = useState('');
@@ -162,7 +169,7 @@ function AddEntry({ today, files, onRecord, lastReading }: Pick<Props, 'today' |
         <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => setDate(e.target.value)} /></label>
         <label>{t('Odometer')} <small>(mi)</small>
           <input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} required={type === 'mileage'} aria-describedby="gar-odo-note" onChange={(e) => setMileage(e.target.value)} />
-          <span id="gar-odo-note" className="gar-err" role="status">{t(odometerNote(mileage, lastReading))}</span>
+          <span id="gar-odo-note" className="gar-err" role="status">{t(odometerNote(mileage, date, readings))}</span>
         </label>
         {type === 'photo' && <label>{t('What the photos show')}<select value={subject} onChange={(e) => setSubject(e.target.value as PhotoSubject)}>{(Object.keys(PHOTO_SUBJECT_LABELS) as PhotoSubject[]).map((k) => <option key={k} value={k}>{t(PHOTO_SUBJECT_LABELS[k])}</option>)}</select></label>}
         {type === 'repair' && <>
@@ -292,11 +299,16 @@ function Transfer({ today, files, onTransfer }: Pick<Props, 'today' | 'files' | 
     setMessage(''); setConfirming(true);
   };
   const send = async () => {
-    const saved = await store(files, picked, 'other');
-    if (saved.refused) { setMessage(t(saved.refused)); setConfirming(false); return; }
-    const refused = onTransfer({ eventId: newId(), toOwnerId: to.trim(), date, attachments: saved.attachments });
-    if (refused) { for (const a of saved.attachments) await files.remove(a.id); setMessage(t(refused)); setConfirming(false); return; }
-    setMessage('');
+    try {
+      const saved = await store(files, picked, 'other');
+      if (saved.refused) { setMessage(t(saved.refused)); setConfirming(false); return; }
+      const refused = onTransfer({ eventId: newId(), toOwnerId: to.trim(), date, attachments: saved.attachments });
+      if (refused) { for (const a of saved.attachments) await files.remove(a.id); setMessage(t(refused)); setConfirming(false); return; }
+      setMessage('');
+    } catch {
+      // The bill of sale could not be kept (the device is full, say). Nothing was handed over.
+      setMessage(t('That could not be saved on this device.')); setConfirming(false);
+    }
   };
   return (
     <form className="gar-entry" onSubmit={ask}>
@@ -316,7 +328,7 @@ function Transfer({ today, files, onTransfer }: Pick<Props, 'today' | 'files' | 
           ? <>
             <span className="gar-help" role="status">{t('Hand this car to {id}? It cannot be undone: after this, only that garage can write to its passport.', { id: buyer })}</span>
             <button type="button" className="gar-btn danger" onClick={() => { void send(); }}>{t('Yes, transfer it')}</button>
-            <button type="button" className="gar-btn" onClick={() => setConfirming(false)}>{t('Cancel')}</button>
+            <button type="button" className="gar-btn" autoFocus onClick={() => setConfirming(false)}>{t('Cancel')}</button>
           </>
           : <button type="submit" className="gar-btn danger">{t('Transfer the car')}</button>}
         {message && <span className="gar-err" role="alert">{message}</span>}
@@ -325,14 +337,14 @@ function Transfer({ today, files, onTransfer }: Pick<Props, 'today' | 'files' | 
   );
 }
 
-export function PassportPanel({ passport, today, holding, garageId, files, onRecord, onVin, onTransfer, onExport }: Props) {
+export function PassportPanel({ passport, today, holding, garageIds, files, onRecord, onVin, onTransfer, onExport }: Props) {
   const canWrite = holding === 'owner';
   const events = useMemo(() => timeline(passport).slice().reverse(), [passport]);
   const standing = useMemo(() => standingOf(passport, REGISTRY, today), [passport, today]);
   const shared = useMemo(() => publicPassport(passport, REGISTRY, today, standing), [passport, today, standing]);
   // Stored grades and editions are shown only when the passport's own record supports them: a file can say anything.
-  const history = useMemo(() => supportedHistory(passport, REGISTRY), [passport]);
-  const lastReading = useMemo(() => mileageLog(passport, REGISTRY, today, standing).current?.value ?? null, [passport, today, standing]);
+  const history = useMemo(() => supportedHistory(passport, REGISTRY, today), [passport, today]);
+  const readings = useMemo(() => mileageLog(passport, REGISTRY, today, standing).readings, [passport, today, standing]);
   const [showPublic, setShowPublic] = useState(false);
   const [editingVin, setEditingVin] = useState(false);
   return (
@@ -344,7 +356,7 @@ export function PassportPanel({ passport, today, holding, garageId, files, onRec
         <div><small>{t('Owners')}</small><b className="num">{passport.owners.length}</b></div>
       </div>
       {holding === 'transferred' && <p className="gar-note gar-warn">{t('This car has been transferred. Its passport is read-only here. Send the new owner the passport file.')}</p>}
-      {holding === 'other' && <p className="gar-note gar-warn">{t('This car belongs to another garage, so its passport is read-only here. If it is yours, bring your garage file into a browser that has no cars parked: the garage and its ID come back with it.')}</p>}
+      {holding === 'other' && <p className="gar-note gar-warn">{t('This car belongs to another garage, so its passport is read-only here. If that garage is yours, bring its garage file in on the Garage page and take up its Garage ID when asked.')}</p>}
       <div className="gar-btns">
         <button type="button" className="gar-btn" onClick={onExport}>{t('Download the passport file')}</button>
         <button type="button" className="gar-btn" aria-expanded={showPublic} onClick={() => setShowPublic((v) => !v)}>{showPublic ? t('Hide what others see') : t('What others see')}</button>
@@ -369,7 +381,7 @@ export function PassportPanel({ passport, today, holding, garageId, files, onRec
         </div>
       )}
 
-      {canWrite && <AddEntry today={today} files={files} onRecord={onRecord} lastReading={lastReading} />}
+      {canWrite && <AddEntry today={today} files={files} onRecord={onRecord} readings={readings} />}
 
       <div>
         <h3>{t('Timeline')}</h3>
@@ -396,7 +408,7 @@ export function PassportPanel({ passport, today, holding, garageId, files, onRec
 
       <div>
         <h3>{t('Card editions')}</h3>
-        <p className="gar-help">{t('A new edition is printed at each milestone. Earlier ones stay with the car.')}</p>
+        <p className="gar-help">{t('A new edition is printed at each milestone. Earlier ones stay with the car. The Power rating on an edition is what the spec sheet gave on the day it was printed.')}</p>
         <ul className="gar-list">
           {history.editions.slice().reverse().map((e) => (
             <li key={e.number}><b>{t('Ed. {n}', { n: e.number })}</b> · {t(e.name)} · {day(e.issuedAt)} · {e.powerRating === null ? t('Power rating not complete') : t('Power rating {n}', { n: e.powerRating })}{e.grade10 !== null ? ` · ${t('Grade {n}', { n: e.grade10.toFixed(1) })}` : ''}</li>
@@ -408,10 +420,10 @@ export function PassportPanel({ passport, today, holding, garageId, files, onRec
         <h3>{t('Ownership')}</h3>
         <ul className="gar-list">
           {passport.owners.map((o, i) => (
-            <li key={`${o.ownerId}-${o.from}`}><b>{t('Owner {n}', { n: i + 1 })}</b> · {day(o.from)} – {o.to ? day(o.to) : t('today')}{o.ownerId === garageId ? ` · ${t('this garage')}` : ''}</li>
+            <li key={`${o.ownerId}-${o.from}`}><b>{t('Owner {n}', { n: i + 1 })}</b> · {day(o.from)} – {o.to ? day(o.to) : t('today')}{garageIds.indexOf(o.ownerId) !== -1 ? ` · ${t('this garage')}` : ''}</li>
           ))}
         </ul>
-        <p className="gar-help">{t('Your Garage ID is {id}. Give it to a seller to receive a car.', { id: garageId })}</p>
+        <p className="gar-help">{t('Your Garage ID is {id}. Give it to a seller to receive a car.', { id: garageIds[0] })}</p>
       </div>
 
       {canWrite && <Transfer today={today} files={files} onTransfer={onTransfer} />}

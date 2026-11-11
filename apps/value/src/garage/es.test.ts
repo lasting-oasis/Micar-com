@@ -15,7 +15,7 @@ import { VIN_NOTES } from './Park';
 import { DOCUMENT_LABELS, FILE_REFUSALS, ODOMETER_NOTES, PHOTO_SUBJECT_LABELS, WORK_LABELS } from './PassportPanel';
 import { CHOICE_LABELS, SPEC_GROUPS } from './SpecForm';
 import { STORE_REFUSALS } from './store';
-import { SNAPSHOT_REASONS, TABS } from './words';
+import { HOLDING_WORDS, RENAMED_NOTE, SNAPSHOT_REASONS, TABS } from './words';
 
 const placeholders = (s: string) => [...s.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort().join(',');
 /** A list of phrases as a table, so it can sit beside the others. */
@@ -40,7 +40,7 @@ export const TABLES: Record<string, Record<string, string>> = {
   RACE_MODE_NAMES: column(RACE_MODE_RULES, (m) => m.name), RACE_MODE_BLURBS: column(RACE_MODE_RULES, (m) => m.blurb), SETUP_REFUSALS,
   EXCLUSION_REASONS: listed([EXCLUSION_REASONS.ranked, EXCLUSION_REASONS.untrusted, EXCLUSION_REASONS.twice, ...Object.values(EXCLUSION_REASONS.missing)]),
   // The page itself.
-  TABS: listed(TABS),
+  TABS: listed(TABS), HOLDING_WORDS: listed(Object.values(HOLDING_WORDS)), RENAMED_NOTE: listed([RENAMED_NOTE]),
 };
 
 describe('Garage Spanish', () => {

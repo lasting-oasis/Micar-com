@@ -4,12 +4,13 @@ import {
 } from './cards';
 import type { RarityInput } from './cards';
 import { CATALOGUE, EXAMPLES, catalogueMatch } from './database';
+import { GRADE_FORMULA, grade10Of, tierOf } from './grading';
 import { micarIdFromBytes } from './identity';
-import { addEvent, createPassport, parsePassport, serializePassport, updateSpec, updateVin } from './passport';
+import { MAX_EDITIONS, MAX_SNAPSHOTS, addEvent, createPassport, parsePassport, serializePassport, updateSpec, updateVin } from './passport';
 import { publicPassport } from './public';
 import { emptySpec } from './specs';
 import { ATTRIBUTE_KEYS, RARITY_TIERS } from './types';
-import type { Attachment, Passport, Sourced, VehicleSpec, VerifierRegistry } from './types';
+import type { Attachment, CardEdition, GradeSnapshot, Passport, Sourced, VehicleSpec, VerifierRegistry } from './types';
 import { EMPTY_REGISTRY, recordAttestation } from './verification';
 
 const OWNER = 'owner-one';
@@ -280,6 +281,30 @@ describe('ranked stats on a real passport', () => {
     expect(ranked(add(old(), { type: 'mileage', date: '2026-11-07', mileage: 400000 }))).toEqual(before);
   });
 
+  it('cannot be moved through a verified modification either: not by an upload, not by a declared removal', () => {
+    // A turbocharger kit a verifier confirmed, fitted seventeen months ago and with no upkeep on record since.
+    let p = add(old(), { id: 'the-turbo', type: 'modification', date: '2025-06-01', action: 'install', category: 'turbo', tier: 3, install: 'professional', parts: '', undoes: null });
+    p = attest(p, { scope: 'modification', events: ['the-turbo'] });
+    const before = ranked(p);
+    expect(before[0] as number).toBeGreaterThan(ranked(old())[0] as number);
+    // (a) One maintenance entry with any file attached used to make the kit "kept up" in ranked play as well, and
+    //     was worth RELIABILITY and DURABILITY there. It still counts for the vehicle's own stats.
+    const serviced = add(p, { id: 'the-service', type: 'maintenance', date: '2026-11-05', shop: '', cost: null, attachments: [file('receipt')] });
+    expect(ranked(serviced)).toEqual(before);
+    expect(mine(serviced)[5] as number).toBeGreaterThan(mine(p)[5] as number);
+    // (b) A removal the owner only declares used to take the kit out of ranked play, which lowered POWER there and
+    //     raised DURABILITY, RELIABILITY and EFFICIENCY: the attributes an endurance or economy race is decided on.
+    const removed = add(p, { id: 'the-removal', type: 'modification', date: '2026-11-06', action: 'remove', category: 'turbo', tier: 3, install: 'professional', parts: '', undoes: 'the-turbo' });
+    expect(ranked(removed)).toEqual(before);
+    expect(assemble(removed, REGISTRY, TODAY).modifications.applied).toEqual([]);
+    expect(mine(removed)[0] as number).toBeLessThan(mine(p)[0] as number);
+    // Once a verifier confirms the service record, or the removal, ranked play follows.
+    const confirmedService = ranked(attest(serviced, { scope: 'documentation', events: ['the-service'] }));
+    expect(confirmedService[5] as number).toBeGreaterThan(before[5] as number);
+    const confirmedRemoval = ranked(attest(removed, { scope: 'modification', events: ['the-removal'] }));
+    expect(confirmedRemoval).toEqual(ranked(old()));
+  });
+
   it('follow a replacement once a verifier confirms it', () => {
     let p = add(old(), { id: 'the-swap', type: 'repair', system: 'engine', work: 'replacement', shop: 'A shop', cost: 6000, date: '2026-10-20', mileage: 179000, attachments: [file('invoice')] });
     const before = assemble(p, REGISTRY, TODAY);
@@ -344,7 +369,7 @@ describe('editions and snapshots', () => {
     };
     const read = ok(parsePassport(serializePassport(forged))).passport;
     for (const registry of [EMPTY_REGISTRY, REGISTRY]) {
-      const kept = supportedHistory(read, registry);
+      const kept = supportedHistory(read, registry, TODAY);
       expect(kept.unsupported).toBe(2);
       expect(kept.snapshots.map((s) => s.id)).toEqual(honest.snapshots.map((s) => s.id));
       expect(kept.editions.map((e) => e.level)).toEqual(honest.editions.map((e) => e.level));
@@ -362,7 +387,7 @@ describe('editions and snapshots', () => {
     expect(issueEdition(read, EMPTY_REGISTRY, { now: NOW, reason: 'Nothing happened' })).toBe(read);
     // Smaller lies are caught too: a Documented snapshot that claims a score no owner can reach alone.
     const padded: Passport = { ...honest, snapshots: [{ ...honest.snapshots[0], id: 'snap-padded', overall: 80, grade10: 8, tier: 8, categories: { ...honest.snapshots[0].categories, identity: 100 } }] };
-    expect(supportedHistory(padded, EMPTY_REGISTRY).snapshots).toEqual([]);
+    expect(supportedHistory(padded, EMPTY_REGISTRY, TODAY).snapshots).toEqual([]);
   });
 
   it('shows a Verified history when a registered verifier’s attestations stand behind it', () => {
@@ -372,13 +397,143 @@ describe('editions and snapshots', () => {
     p = attest(p, 'originality');
     p = recordSnapshot(issueEdition(p, REGISTRY, { now: NOW, reason: 'Attestation' }), REGISTRY, { now: NOW, id: 'snap-verified', reason: 'Attestation' });
     expect(assemble(p, REGISTRY, TODAY).certification.level).toBe('verified');
-    expect(supportedHistory(p, REGISTRY)).toMatchObject({ unsupported: 0 });
-    expect(supportedHistory(p, REGISTRY).editions.map((e) => e.level)).toContain('verified');
+    expect(supportedHistory(p, REGISTRY, TODAY)).toMatchObject({ unsupported: 0 });
+    expect(supportedHistory(p, REGISTRY, TODAY).editions.map((e) => e.level)).toContain('verified');
     // The same file read where that verifier is not registered supports none of it.
-    const elsewhere = supportedHistory(p, EMPTY_REGISTRY);
+    const elsewhere = supportedHistory(p, EMPTY_REGISTRY, TODAY);
     expect(elsewhere.editions.some((e) => e.level === 'verified')).toBe(false);
     expect(elsewhere.snapshots.some((s) => s.level === 'verified')).toBe(false);
     expect(assemble(p, EMPTY_REGISTRY, TODAY).card.edition.name).toBe('Documented Edition');
+  });
+
+  /* One lie at a time. Each stored entry below is an honest one with a single thing changed, so each check is seen
+     to do its own work: a forgery that breaks five rules at once would still be caught with four of them missing. */
+  const honestHistory = (spec = civic()): { passport: Passport; snapshot: GradeSnapshot; raw: CardEdition; slabbed: CardEdition } => {
+    let p = issueEdition(parked(spec), EMPTY_REGISTRY, { now: '2026-01-05T09:00:00.000Z', reason: 'Parked' });
+    p = recordSnapshot(issueEdition(documented(p), EMPTY_REGISTRY, { now: NOW, reason: 'Maintenance' }), EMPTY_REGISTRY, { now: NOW, id: 'snap-real', reason: 'Maintenance' });
+    return { passport: p, snapshot: p.snapshots[p.snapshots.length - 1], raw: p.editions[0], slabbed: p.editions[1] };
+  };
+  const shownSnapshots = (p: Passport, forged: GradeSnapshot, registry = EMPTY_REGISTRY, asOf = TODAY): string[] =>
+    supportedHistory({ ...p, snapshots: [...p.snapshots, forged] }, registry, asOf).snapshots.map((s) => s.id);
+  const editionShown = (p: Passport, forged: CardEdition, registry = EMPTY_REGISTRY, asOf = TODAY): boolean =>
+    supportedHistory({ ...p, editions: [...p.editions, { ...forged, number: p.editions.length + 1 }] }, registry, asOf).editions.length === p.editions.length + 1;
+
+  it('holds a stored grade to every rule on its own', () => {
+    const { passport: p, snapshot: real } = honestHistory();
+    expect(real).toMatchObject({ level: 'documented', formula: GRADE_FORMULA, asOf: TODAY });
+    expect(real.categories.verification).toBe(0);
+    const copy = (over: Partial<GradeSnapshot>): GradeSnapshot => ({ ...real, id: 'snap-forged', ...over });
+    // A copy of the honest snapshot under another id is shown: nothing here refuses a snapshot for being a second one.
+    expect(shownSnapshots(p, copy({}))).toEqual(['snap-real', 'snap-forged']);
+    const refused = (over: Partial<GradeSnapshot>, why: string) => expect(shownSnapshots(p, copy(over)), why).toEqual(['snap-real']);
+    refused({ level: 'verified' }, 'a level above what the record supports');
+    refused({ level: 'certified' }, 'a level above what the record supports');
+    // The label's number and tier are the overall's: the 10.0 a reader looks at cannot be written in beside a 12.
+    refused({ grade10: 10, tier: 10 }, 'a label that is not its overall');
+    refused({ grade10: real.grade10 + 0.1 }, 'a label that is not its overall');
+    refused({ tier: real.tier + 1 }, 'a tier that is not its label');
+    // The overall is the weighted sum of its own categories.
+    const lifted = Math.round((real.overall + 3) * 10) / 10;
+    refused({ overall: lifted, grade10: grade10Of(lifted), tier: tierOf(grade10Of(lifted)) }, 'an overall its categories do not add up to');
+    // A category above what an owner can reach alone, with an overall that agrees with it and is itself in reach.
+    const withVerification = Math.round((real.overall + 10 * 0.15) * 10) / 10;
+    refused({ categories: { ...real.categories, verification: 10 }, overall: withVerification, grade10: grade10Of(withVerification), tier: tierOf(grade10Of(withVerification)) }, 'a Verification score with no verifier');
+    const withIdentity = Math.round((real.overall + (100 - real.categories.identity) * 0.2) * 10) / 10;
+    refused({ categories: { ...real.categories, identity: 100 }, overall: withIdentity, grade10: grade10Of(withIdentity), tier: tierOf(grade10Of(withIdentity)) }, 'an Identity score no owner reaches alone');
+    // Another formula's numbers cannot be judged by this one.
+    refused({ formula: 'micar-grade-v9' }, 'a formula this engine does not use');
+    // A snapshot is the grade of the day it was written, and that day has to have happened.
+    refused({ asOf: '2026-03-01' }, 'a day that is not the day it was written');
+    refused({ at: '2042-01-01T00:00:00.000Z', asOf: '2042-01-01' }, 'a day that has not happened');
+    expect(shownSnapshots(p, copy({ at: '2042-01-01T00:00:00.000Z', asOf: '2042-01-01' }), EMPTY_REGISTRY, '2042-01-01')).toEqual(['snap-real', 'snap-forged']);
+    // A lower level than the record supports is nobody's gain, and is shown.
+    expect(shownSnapshots(p, copy({ level: 'registered' }))).toEqual(['snap-real', 'snap-forged']);
+  });
+
+  it('holds a stored edition to every rule on its own', () => {
+    const { passport: p, raw, slabbed } = honestHistory();
+    expect(raw).toMatchObject({ level: 'registered', finish: 'raw', grade10: null });
+    expect(slabbed).toMatchObject({ level: 'documented', finish: 'standard', rarity: 'uncommon' });
+    expect(editionShown(p, slabbed)).toBe(true);
+    expect(editionShown(p, raw)).toBe(true);
+    const refused = (forged: CardEdition, why: string) => expect(editionShown(p, forged), why).toBe(false);
+    refused({ ...slabbed, level: 'verified' }, 'a level above what the record supports');
+    // Rarity: a 2019 Documented car can be Rare at the very most, and never One-of-One without an attestation.
+    expect(editionShown(p, { ...slabbed, rarity: 'rare' })).toBe(true);
+    refused({ ...slabbed, rarity: 'epic' }, 'a rarity above what the record supports');
+    refused({ ...slabbed, rarity: 'one-of-one' }, 'One-of-One with nothing behind it');
+    // The grade on the label, with the finish that grade would earn.
+    refused({ ...slabbed, grade10: 9.9, finish: 'rainbow' }, 'a grade above what the record supports');
+    // The finish is the one the grade earns; a raw card has neither and a slabbed one has both.
+    refused({ ...slabbed, finish: 'rainbow' }, 'a finish its grade does not earn');
+    refused({ ...slabbed, finish: 'raw' }, 'a finish its grade does not earn');
+    refused({ ...slabbed, grade10: null }, 'a slabbed card with no grade');
+    refused({ ...raw, grade10: 6.5 }, 'a raw card with a grade');
+    refused({ ...raw, finish: 'standard' }, 'a raw card with a finish');
+    // The Power Rating printed is the mean of the seven attributes printed with it.
+    refused({ ...slabbed, powerRating: 1000 }, 'a Power Rating that is not its attributes’');
+    refused({ ...slabbed, powerRating: null }, 'a Power Rating that is not its attributes’');
+    // Nothing dated after today is shown.
+    refused({ ...slabbed, issuedAt: '2042-01-01T00:00:00.000Z' }, 'a day that has not happened');
+  });
+
+  it('judges a stored edition by the day it is dated, the car’s age on that day and the build number the record backs', () => {
+    // An honest Documented edition, to be written into other cars' files with one thing changed.
+    const { slabbed } = honestHistory();
+    // A 1986 car turns forty in 2026: fifteen age points, and with a Documented card's ten and full preservation it can be Epic.
+    const old = honestHistory({ ...civic(), identity: { ...civic().identity, year: 1986 } }).passport;
+    const epic = (issuedAt: string): CardEdition => ({ ...slabbed, rarity: 'epic', issuedAt });
+    expect(editionShown(old, epic(NOW))).toBe(true);
+    // Dated the year before, the car was thirty-nine and Rare was the most it could be. Today's age is not lent to the past.
+    expect(editionShown(old, epic('2025-12-31T12:00:00.000Z'))).toBe(false);
+    expect(editionShown(old, { ...slabbed, rarity: 'rare', issuedAt: '2025-12-31T12:00:00.000Z' })).toBe(true);
+    // Nor is the future's lent to today: the same claim dated 2042 on a 2002 car is not shown now, and Epic is beyond it today.
+    const younger = honestHistory({ ...civic(), identity: { ...civic().identity, year: 2002 } }).passport;
+    expect(editionShown(younger, epic('2042-01-01T00:00:00.000Z'))).toBe(false);
+    expect(editionShown(younger, epic(NOW))).toBe(false);
+    // A build number the owner typed lifts no ceiling: sixty built would be worth forty points if it counted.
+    const typed = honestHistory(civic({ productionUnits: { value: 60, source: { kind: 'manufacturer', name: 'typed in' } } }));
+    expect(editionShown(typed.passport, { ...typed.slabbed, rarity: 'rare' })).toBe(true);
+    expect(editionShown(typed.passport, { ...typed.slabbed, rarity: 'legendary' })).toBe(false);
+    expect(editionShown(typed.passport, { ...typed.slabbed, rarity: 'epic' })).toBe(false);
+  });
+
+  it('shows the card’s own edition, never one a file added for the level it holds', () => {
+    const { passport: p, slabbed } = honestHistory();
+    const forged: Passport = { ...p, editions: [...p.editions, { ...slabbed, number: 3, rarity: 'mythic', issuedAt: NOW }] };
+    expect(assemble(forged, EMPTY_REGISTRY, TODAY).card.edition).toMatchObject({ number: 2, name: 'Documented Edition' });
+    expect(assemble(forged, EMPTY_REGISTRY, TODAY).card.serial).toBe(`${MICAR_ID} · E2`);
+    // And the level's edition is not printed again because a forged one sits after it.
+    expect(issueEdition(forged, EMPTY_REGISTRY, { now: NOW, reason: 'Nothing happened' })).toBe(forged);
+  });
+
+  it('writes a new snapshot when the level or a single category changes, even with the overall unchanged', () => {
+    const { passport: p, snapshot: real } = honestHistory();
+    // The last supported snapshot says the same overall at a lower level: today's grade is news.
+    const lowerLevel: Passport = { ...p, snapshots: [{ ...real, id: 'snap-lower', level: 'registered' }] };
+    expect(recordSnapshot(lowerLevel, EMPTY_REGISTRY, { now: NOW, id: 'snap-next', reason: 'Maintenance' }).snapshots.map((s) => s.id)).toEqual(['snap-lower', 'snap-next']);
+    // The last one says the same overall and level with two categories that differ and cancel out (5 x 0.2 = 4 x 0.25).
+    const shifted: GradeSnapshot = { ...real, id: 'snap-shifted', categories: { ...real.categories, identity: real.categories.identity - 5, condition: real.categories.condition + 4 } };
+    expect(supportedHistory({ ...p, snapshots: [shifted] }, EMPTY_REGISTRY, TODAY).snapshots).toHaveLength(1);
+    expect(recordSnapshot({ ...p, snapshots: [shifted] }, EMPTY_REGISTRY, { now: NOW, id: 'snap-next', reason: 'Maintenance' }).snapshots.map((s) => s.id)).toEqual(['snap-shifted', 'snap-next']);
+    // The honest one is still not written twice.
+    expect(recordSnapshot(p, EMPTY_REGISTRY, { now: NOW, id: 'snap-next', reason: 'Nothing happened' })).toBe(p);
+  });
+
+  it('stops adding history at the most a passport can hold, so a passport it wrote can always be read back', () => {
+    const { passport: p, snapshot: real, slabbed } = honestHistory();
+    const full: Passport = {
+      ...p,
+      snapshots: Array.from({ length: MAX_SNAPSHOTS }, (_, i) => ({ ...real, id: `s${i}`, level: 'registered' as const })),
+      editions: Array.from({ length: MAX_EDITIONS }, (_, i) => ({ ...slabbed, number: i + 1, rarity: 'mythic' as const })),
+    };
+    const after = issueEdition(recordSnapshot(full, EMPTY_REGISTRY, { now: NOW, id: 'snap-over', reason: 'Maintenance' }), EMPTY_REGISTRY, { now: NOW, reason: 'Maintenance' });
+    expect(after.snapshots).toHaveLength(MAX_SNAPSHOTS);
+    expect(after.editions).toHaveLength(MAX_EDITIONS);
+    expect(parsePassport(serializePassport(after)).ok).toBe(true);
+    // One more of either in a file is refused whole.
+    expect(parsePassport({ ...after, editions: [...after.editions, { ...slabbed, number: MAX_EDITIONS + 1 }] }).ok).toBe(false);
+    expect(parsePassport({ ...after, snapshots: [...after.snapshots, real] }).ok).toBe(false);
   });
 
   it('keeps each grade as it stood and never writes the same one twice', () => {
@@ -422,5 +577,23 @@ describe('example and house cards', () => {
     const gtr = catalogueCard(CATALOGUE.filter((e) => e.id === '2024-nissan-gt-r-nismo')[0], TODAY);
     expect(gtr.attributes.map((a) => a.value)).toEqual([950, 920, 880, 880, 650, 700, 500]);
     expect(gtr.powerRating).toBe(783);
+  });
+
+  it('counts a house card’s build number only when the entry is reference data, not a placeholder', () => {
+    const entry = CATALOGUE[0];
+    const one = { ...entry.spec, productionUnits: { value: 1, source: { kind: 'reference' as const } } };
+    expect(catalogueCard({ ...entry, spec: one }, TODAY).rarity.tier).toBe('one-of-one');
+    expect(catalogueCard({ ...entry, status: 'illustrative', spec: one }, TODAY).rarity.tier).toBe('common');
+  });
+});
+
+describe('the card’s picture', () => {
+  it('is the newest exterior photograph, and never a picture of something else', () => {
+    let p = add(parked(), { type: 'photo', subject: 'interior', date: '2026-02-01', attachments: [file('photo')] });
+    p = add(p, { type: 'photo', subject: 'damage', date: '2026-02-02', attachments: [file('photo')] });
+    expect(assemble(p, EMPTY_REGISTRY, TODAY).card.photoAttachmentId).toBeNull();
+    p = add(p, { id: 'outside', type: 'photo', subject: 'exterior', date: '2026-02-03', attachments: [{ ...file('photo'), id: 'front' }, file('photo')] });
+    p = add(p, { type: 'photo', subject: 'engine-bay', date: '2026-02-04', attachments: [file('photo')] });
+    expect(assemble(p, EMPTY_REGISTRY, TODAY).card.photoAttachmentId).toBe('front');
   });
 });

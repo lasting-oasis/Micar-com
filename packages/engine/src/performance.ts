@@ -2,8 +2,9 @@
 //   base         A. the factory specification, scored
 //   vehicle      B. base, every recorded modification, and modelled or inspected wear: this vehicle as its passport describes it
 //   competition  base, plus only the modifications and wear an independent verifier attested: what ranked play uses.
-//                Its wear comes from a condition worked out from verified inputs alone, so no entry an owner makes
-//                (a later reading, a receipt, a declaration) can add to it or take away from it.
+//                Its wear comes from a condition worked out from verified inputs alone, and its modifications from a
+//                list worked out the same way, so no entry an owner makes (a later reading, a receipt, a declared
+//                removal, a declaration) can add to it or take away from it.
 // Each change is itemised, one modification at a time in the order they were fitted and then one worn system at a
 // time, and the deltas of a layer add up exactly to that layer minus base.
 // The only inputs are a specification, modification records and a condition state. Documents are not an input:
@@ -19,6 +20,12 @@ import type { ActiveModification, AttributeKey, AttributeScores, ConditionState,
 export type StatsInputs = {
   spec: VehicleSpec;
   modifications?: readonly ActiveModification[];
+  /**
+   * The modifications ranked play counts, worked out from verified inputs alone (verification.competitionModifications):
+   * which verified installs are still fitted, and how well kept, going only by what verifiers confirmed. Only the
+   * verified ones among them are used. Leave it out and the verified ones among `modifications` are used as given.
+   */
+  competitionModifications?: readonly ActiveModification[];
   /** The vehicle's condition from everything on its passport. It wears the vehicle layer. */
   condition?: ConditionState | null;
   /**
@@ -94,7 +101,7 @@ export function vehicleStats(inputs: StatsInputs): VehicleStats {
   const options = inputs.options ?? {};
   const mods = inputs.modifications ?? [];
   const vehicle = buildLayer(inputs.spec, mods, inputs.condition ?? null, 'declared', options);
-  const competition = buildLayer(inputs.spec, mods, inputs.competitionCondition ?? null, 'verified', options);
+  const competition = buildLayer(inputs.spec, inputs.competitionModifications ?? mods, inputs.competitionCondition ?? null, 'verified', options);
   return {
     ruleset: RULESET,
     base: layerOf(scoreSpec(inputs.spec, options)),

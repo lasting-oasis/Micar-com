@@ -20,9 +20,9 @@ import { PassportPanel } from './PassportPanel';
 import { RacePanel } from './RacePanel';
 import { SpecForm } from './SpecForm';
 import { StatsPanel } from './StatsPanel';
-import { assembleCar, exportGarage, findCar, holdingOf, importGarage, ownsCar, park, record, removeCar, replaceSpec, replaceVin, transfer, type GarageState } from './store';
+import { assembleCar, exportGarage, findCar, garageIds, holdingOf, importGarage, ownsCar, park, record, removeCar, replaceSpec, replaceVin, takeUpGarage, transfer, type GarageState, type Restorable } from './store';
 import { useFileUrl, useGarage, type GarageHandle } from './useGarage';
-import { TABS, type Tab } from './words';
+import { HOLDING_WORDS, RENAMED_NOTE, TABS, type Tab } from './words';
 
 
 /** The largest garage or passport file the page will read. */
@@ -52,10 +52,11 @@ function StorageNotice({ g }: { g: GarageHandle }) {
 function CarTile({ passport, g, today }: { passport: Passport; g: GarageHandle; today: string }) {
   const assembly = useMemo(() => assembleCar(passport, today), [passport, today]);
   const photo = useFileUrl(g.files, assembly.card.photoAttachmentId);
+  const holding = HOLDING_WORDS[holdingOf(g.state, passport)];
   return (
     <div className="gar-cell">
       <a href={garageUrl(passport.micarId)} aria-label={assembly.card.title}><CollectibleCard card={assembly.card} report={assembly.report} photoUrl={photo} /></a>
-      <p className="gar-cap">{assembly.card.title}<small>{assembly.card.subtitle || passport.micarId}{ownsCar(g.state, passport) ? '' : ` · ${t('transferred')}`}</small></p>
+      <p className="gar-cap">{assembly.card.title}<small>{assembly.card.subtitle || passport.micarId}{holding === '' ? '' : ` · ${t(holding)}`}</small></p>
     </div>
   );
 }
@@ -63,6 +64,8 @@ function CarTile({ passport, g, today }: { passport: Passport; g: GarageHandle; 
 function Home({ g, today }: { g: GarageHandle; today: string }) {
   const [parking, setParking] = useState(false);
   const [message, setMessage] = useState('');
+  // A backup of another garage that was just brought in, waiting for the person to say whether to take its ID up.
+  const [offer, setOffer] = useState<Restorable | null>(null);
   const picker = useRef<HTMLInputElement>(null);
 
   const onPark = (request: ParkRequest): string | null => {
@@ -83,9 +86,16 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
       const result = importGarage(g.latest(), text);
       if (!result.ok) { setMessage(t(result.reason)); return; }
       g.apply(result.value.state);
-      const counts = t('{added} added, {updated} updated, {skipped} left out.', { added: result.value.added, updated: result.value.updated, skipped: result.value.skipped });
-      setMessage(result.value.restored ? `${counts} ${t('This is your garage again: its Garage ID came back with the file.')}` : counts);
+      setMessage(t('{added} added, {updated} updated, {skipped} left out.', { added: result.value.added, updated: result.value.updated, skipped: result.value.skipped }));
+      // Bringing a file in never changes this garage's ID. A backup of another garage is offered, and taken up only on a yes.
+      setOffer(result.value.restorable);
     } catch { setMessage(t('That file is not a garage export')); }
+  };
+  const takeUp = (garage: Restorable) => {
+    const was = g.latest().ownerId;
+    g.apply(takeUpGarage(g.latest(), garage));
+    setOffer(null);
+    setMessage(t('This browser now gives out Garage ID {id}, and the cars parked under it are yours to write to. {was} still works here too: a car sent to it will arrive.', { id: garage.ownerId, was }));
   };
 
   return (
@@ -101,6 +111,15 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
           <input ref={picker} type="file" accept="application/json,.json" hidden onChange={(e) => { void onImport(e.target.files?.[0]); e.target.value = ''; }} />
         </div>
         {message && <p className="gar-help" role="status">{message}</p>}
+        {offer && (
+          <div className="gar-note gar-warn" role="group" aria-labelledby="gar-offer">
+            <p id="gar-offer" role="status">{t('This file is the backup of garage {theirs}. Its cars are read-only here unless this browser takes up that Garage ID. Do that only if the garage is yours. Your present Garage ID, {mine}, is kept and goes on receiving cars.', { theirs: offer.ownerId, mine: g.state.ownerId })}</p>
+            <div className="gar-btns">
+              <button type="button" className="gar-btn primary" onClick={() => takeUp(offer)}>{t('Take up {id}', { id: offer.ownerId })}</button>
+              <button type="button" className="gar-btn" autoFocus onClick={() => setOffer(null)}>{t('Keep things as they are')}</button>
+            </div>
+          </div>
+        )}
       </header>
 
       {parking && <section className="gar-sec"><Park today={today} onPark={onPark} onCancel={() => setParking(false)} /></section>}
@@ -111,6 +130,7 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
           ? <p className="gar-empty">{t('No car parked yet. Park one and it gets a MiCar ID, seven attributes from its specification, a Power Rating, a grade and its first card.')}</p>
           : <div className="gar-grid">{g.state.passports.map((p) => <CarTile key={p.micarId} passport={p} g={g} today={today} />)}</div>}
         <p className="gar-help">{t('Your Garage ID is {id}. Give it to a seller to receive a car.', { id: g.state.ownerId })}</p>
+        {g.state.formerIds.length > 0 && <p className="gar-help">{t('This browser also answers to {ids}: a car sent to one of them arrives here.', { ids: g.state.formerIds.join(', ') })}</p>}
       </section>
 
       <Examples today={today} />
@@ -132,6 +152,8 @@ function IdentityForm({ spec, today, onChange }: { spec: VehicleSpec; today: str
   const [trim, setTrim] = useState(was.trim);
   const [bodyClass, setBodyClass] = useState<BodyClass>(was.bodyClass);
   const [message, setMessage] = useState('');
+  // Opened afresh each time: what was typed and then cancelled is not waiting there the next time.
+  const begin = () => { setYear(String(was.year)); setMake(was.make); setModel(was.model); setTrim(was.trim); setBodyClass(was.bodyClass); setMessage(''); setOpen(true); };
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const identity = checkIdentity({ year: Number(year), make, model, trim, bodyClass }, Number(today.slice(0, 4)));
@@ -144,19 +166,19 @@ function IdentityForm({ spec, today, onChange }: { spec: VehicleSpec; today: str
         const cell = spec[field];
         if (field === 'identity' || cell === null) continue;
         const kind = (cell as Sourced<unknown>).source.kind;
-        if (kind !== 'owner' && kind !== 'illustrative') sheet[field] = { value: (cell as Sourced<unknown>).value, source: { ...ownerSource(today), note: 'Kept when the vehicle was renamed; no longer credited to its earlier source.' } };
+        if (kind !== 'owner' && kind !== 'illustrative') sheet[field] = { value: (cell as Sourced<unknown>).value, source: { ...ownerSource(today), note: RENAMED_NOTE } };
       }
     }
     const refused = onChange(next);
     if (refused) { setMessage(t(refused)); return; }
     setMessage(''); setOpen(false);
   };
-  if (!open) return <div className="gar-btns"><button type="button" className="gar-btn" onClick={() => setOpen(true)}>{t('Correct the year, make, model or trim')}</button></div>;
+  if (!open) return <div className="gar-btns"><button type="button" className="gar-btn" onClick={begin}>{t('Correct the year, make, model or trim')}</button></div>;
   return (
     <form className="gar-entry" onSubmit={submit} aria-labelledby="gar-identity-title">
       <h3 id="gar-identity-title">{t('The vehicle')}</h3>
       <div className="gar-form">
-        <label>{t('Year')}<input type="number" inputMode="numeric" min={1886} max={Number(today.slice(0, 4)) + 1} value={year} required onChange={(e) => setYear(e.target.value)} /></label>
+        <label>{t('Year')}<input type="number" inputMode="numeric" min={1886} max={Number(today.slice(0, 4)) + 1} value={year} required autoFocus onChange={(e) => setYear(e.target.value)} /></label>
         <label>{t('Make')}<input type="text" value={make} maxLength={60} required onChange={(e) => setMake(e.target.value)} /></label>
         <label>{t('Model')}<input type="text" value={model} maxLength={60} required onChange={(e) => setModel(e.target.value)} /></label>
         <label>{t('Trim')}<input type="text" value={trim} maxLength={80} onChange={(e) => setTrim(e.target.value)} /></label>
@@ -198,6 +220,9 @@ function NextStep({ assembly, mine, onOpen }: { assembly: Assembly; mine: boolea
   );
 }
 
+/** The id of a tab's button. An id cannot hold a space, or nothing that points at it (the panel's label) finds it. */
+export const tabId = (name: Tab): string => `gar-tab-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+
 function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; today: string }) {
   const [tab, setTab] = useState<Tab>('Stats');
   const [flipped, setFlipped] = useState(false);
@@ -209,7 +234,7 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
   const holding = holdingOf(g.state, passport);
   const readOnly = holding === 'transferred'
     ? t('This car has been transferred. Its passport is read-only here. Send the new owner the passport file.')
-    : t('This car belongs to another garage, so its passport is read-only here. If it is yours, bring your garage file into a browser that has no cars parked: the garage and its ID come back with it.');
+    : t('This car belongs to another garage, so its passport is read-only here. If that garage is yours, bring its garage file in on the Garage page and take up its Garage ID when asked.');
   // Left and right move between the tabs, as a tab list should.
   const onTabKey = (e: React.KeyboardEvent, name: Tab) => {
     const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
@@ -217,7 +242,7 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
     e.preventDefault();
     const next = TABS[(TABS.indexOf(name) + step + TABS.length) % TABS.length];
     setTab(next);
-    try { document.getElementById(`gar-tab-${next}`)?.focus(); } catch { /* no document */ }
+    try { document.getElementById(tabId(next))?.focus(); } catch { /* no document */ }
   };
 
   const commit = (result: { ok: true; value: GarageState } | { ok: false; reason: string }): string | null => {
@@ -245,13 +270,13 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
           {!g.persisted && <p className="gar-note gar-warn" role="status">{t('This browser is not keeping the garage. It works until you close the page: download the garage file to keep it.')}</p>}
           <NextStep assembly={assembly} mine={mine} onOpen={setTab} />
           <div className="gar-tabs" role="tablist" aria-label={assembly.card.title}>
-            {TABS.map((name) => <button type="button" key={name} role="tab" id={`gar-tab-${name}`} aria-selected={tab === name} aria-controls="gar-tabpanel" tabIndex={tab === name ? 0 : -1} onClick={() => setTab(name)} onKeyDown={(e) => onTabKey(e, name)}>{t(name)}</button>)}
+            {TABS.map((name) => <button type="button" key={name} role="tab" id={tabId(name)} aria-selected={tab === name} aria-controls="gar-tabpanel" tabIndex={tab === name ? 0 : -1} onClick={() => setTab(name)} onKeyDown={(e) => onTabKey(e, name)}>{t(name)}</button>)}
           </div>
-          <div id="gar-tabpanel" role="tabpanel" aria-labelledby={`gar-tab-${tab}`}>
+          <div id="gar-tabpanel" role="tabpanel" aria-labelledby={tabId(tab)}>
             {tab === 'Stats' && <StatsPanel assembly={assembly} />}
             {tab === 'Grade' && <GradePanel assembly={assembly} passport={passport} />}
             {tab === 'Passport' && (
-              <PassportPanel passport={passport} today={today} holding={holding} garageId={g.state.ownerId} files={g.files} onRecord={onRecord}
+              <PassportPanel passport={passport} today={today} holding={holding} garageIds={garageIds(g.state)} files={g.files} onRecord={onRecord}
                 onVin={(vin) => commit(replaceVin(g.latest(), passport.micarId, vin, { now: stamp(), snapshotId: newId() }))}
                 onTransfer={(input) => commit(transfer(g.latest(), passport.micarId, input, { now: stamp() }))}
                 onExport={() => download(`micar-passport-${passport.micarId}.json`, exportGarage(g.state, stamp(), passport.micarId))} />

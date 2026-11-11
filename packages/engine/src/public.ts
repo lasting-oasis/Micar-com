@@ -12,7 +12,9 @@ import { eventEvidence, standingOf } from './verification';
  * What anyone may be shown of a passport. It is the only projection meant to leave the owner's device.
  * Left out entirely: the VIN (only whether one is on file), every owner's id, every file's name, id and fingerprint,
  * every note, cost, shop and inspector, the specification's sources, what an attestation said, anything withdrawn,
- * and any stored grade or card edition that claims more than the passport's own attestations support.
+ * any stored grade or card edition that claims more than the passport's own attestations support, and the Power
+ * Rating and attributes printed on an earlier edition (they are the specification sheet's account on the day of
+ * printing, and nothing on the record can check them).
  * Blurred: a day becomes its month (for entries, grade snapshots and card editions alike, so a snapshot cannot give
  * away the day of the entry that caused it), and a reading is rounded down to the thousand. A title is shown only
  * when the owner marked that entry public; otherwise the entry carries the plain name of its kind.
@@ -28,7 +30,7 @@ export function publicPassport(passport: Passport, registry: VerifierRegistry, a
     };
   });
   // Only the history the passport's own record supports is shown: a file cannot claim a level it never earned.
-  const history = supportedHistory(passport, registry);
+  const history = supportedHistory(passport, registry, asOf);
   const owner = currentOwner(passport);
   const since = passport.owners.filter((o) => o.ownerId === owner && o.to === null)[0];
   const id = passport.spec.identity;
@@ -42,8 +44,6 @@ export function publicPassport(passport: Passport, registry: VerifierRegistry, a
     currentOwnerSince: since ? monthOf(since.from) : monthOf(passport.createdAt),
     events,
     snapshots: history.snapshots.map((s) => ({ month: monthOf(s.asOf), formula: s.formula, overall: s.overall, grade10: s.grade10, tier: s.tier, categories: { ...s.categories }, level: s.level })),
-    editions: history.editions.map((e) => ({
-      number: e.number, name: e.name, month: monthOf(e.issuedAt), level: e.level, rarity: e.rarity, finish: e.finish, grade10: e.grade10, powerRating: e.powerRating, attributes: { ...e.attributes },
-    })),
+    editions: history.editions.map((e) => ({ number: e.number, name: e.name, month: monthOf(e.issuedAt), level: e.level, rarity: e.rarity, finish: e.finish, grade10: e.grade10 })),
   };
 }

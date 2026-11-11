@@ -54,7 +54,8 @@ export const ES_PANELS: Record<string, string> = {
   'Each grade is kept as it stood. History is never rewritten.': 'Cada calificación se conserva tal como estaba. El historial nunca se reescribe.',
   'Why': 'Motivo', 'Level': 'Nivel', 'Overall': 'Total',
   'Card editions': 'Ediciones de la tarjeta',
-  'A new edition is printed at each milestone. Earlier ones stay with the car.': 'En cada hito se imprime una nueva edición. Las anteriores se quedan con el auto.',
+  'A new edition is printed at each milestone. Earlier ones stay with the car. The Power rating on an edition is what the spec sheet gave on the day it was printed.':
+    'En cada hito se imprime una nueva edición. Las anteriores se quedan con el auto. El índice de poder de una edición es el que dio la ficha técnica el día en que se imprimió.',
   'Power rating not complete': 'Índice de poder incompleto', 'Power rating {n}': 'Índice de poder {n}', 'Grade {n}': 'Calificación {n}',
   'Ownership': 'Propiedad', 'Owner {n}': 'Dueño {n}', 'this garage': 'este garaje',
   'Specification updated': 'Especificación actualizada', 'VIN updated': 'VIN actualizado',
@@ -116,8 +117,12 @@ export const ES_PANELS: Record<string, string> = {
   'Enter the VIN': 'Ingresar el VIN',
   // Supported history, the odometer guard, the sheet's standing
   'A build number counts when the specification is the MiCar catalogue’s own or a verifier has attested it. One you typed in is kept on the sheet and scores nothing.': 'Un número de unidades fabricadas cuenta cuando la especificación es la del catálogo de MiCar o un verificador la ha atestado. Uno que usted escribió se conserva en la ficha y no suma puntos.',
-  'That is lower than the highest reading on this passport. A lower reading on a later day is recorded as an odometer rollback.': 'Eso es menor que la lectura más alta de este pasaporte. Una lectura menor en un día posterior se registra como retroceso del odómetro.',
-  'That is a long way above the last reading. Check the digits: a reading can be corrected today and not after.': 'Eso está muy por encima de la última lectura. Revise los dígitos: una lectura se puede corregir hoy, no después.',
+  'That is lower than a reading from an earlier day, so it will be recorded as an odometer rollback. A reading can be put right the day it is written, and not after.':
+    'Eso es menor que una lectura de un día anterior, así que se registrará como retroceso del odómetro. Una lectura se puede corregir el día en que se escribe, no después.',
+  'That is a long way above the highest reading so far. Check the digits: a reading can be put right the day it is written, and not after.':
+    'Eso está muy por encima de la lectura más alta hasta ahora. Revise los dígitos: una lectura se puede corregir el día en que se escribe, no después.',
+  'That is higher than a reading from a later day, so it will be recorded as an odometer rollback. A reading can be put right the day it is written, and not after.':
+    'Eso es mayor que una lectura de un día posterior, así que se registrará como retroceso del odómetro. Una lectura se puede corregir el día en que se escribe, no después.',
   '1 entry in this file’s grade or edition history claims more than the passport’s own record supports. It is not shown.': '1 entrada del historial de calificaciones o ediciones de este archivo afirma más de lo que respalda el propio registro del pasaporte. No se muestra.',
   '{n} entries in this file’s grade or edition history claim more than the passport’s own record supports. They are not shown.': '{n} entradas del historial de calificaciones o ediciones de este archivo afirman más de lo que respalda el propio registro del pasaporte. No se muestran.',
   'That file is too large to be a garage or passport file.': 'Ese archivo es demasiado grande para ser un archivo de garaje o de pasaporte.',
@@ -131,8 +136,16 @@ export const ES_PANELS: Record<string, string> = {
   'Yes, transfer it': 'Sí, transferirlo',
   'The photographs and receipts stay on this device: the passport file carries their names and fingerprints, not the files. Send the new owner the files you want them to have.': 'Las fotografías y los recibos se quedan en este dispositivo: el archivo del pasaporte lleva sus nombres y huellas digitales, no los archivos. Envíe al nuevo dueño los archivos que quiera que tenga.',
   'That file is not on this device. A passport file carries each file’s name and fingerprint, not the file.': 'Ese archivo no está en este dispositivo. Un archivo de pasaporte lleva el nombre y la huella digital de cada archivo, no el archivo.',
-  'This car belongs to another garage, so its passport is read-only here. If it is yours, bring your garage file into a browser that has no cars parked: the garage and its ID come back with it.': 'Este auto pertenece a otro garaje, así que su pasaporte es de solo lectura aquí. Si es suyo, abra su archivo de garaje en un navegador que no tenga autos estacionados: el garaje y su ID regresan con él.',
-  'This is your garage again: its Garage ID came back with the file.': 'Este vuelve a ser su garaje: su ID de garaje regresó con el archivo.',
+  'This car belongs to another garage, so its passport is read-only here. If that garage is yours, bring its garage file in on the Garage page and take up its Garage ID when asked.':
+    'Este auto pertenece a otro garaje, así que su pasaporte es de solo lectura aquí. Si ese garaje es suyo, traiga su archivo de garaje en la página del Garaje y adopte su ID de garaje cuando se le pregunte.',
+  'This browser now gives out Garage ID {id}, and the cars parked under it are yours to write to. {was} still works here too: a car sent to it will arrive.':
+    'Este navegador ahora da el ID de garaje {id}, y los autos estacionados con ese ID son suyos para escribir en ellos. {was} también sigue funcionando aquí: un auto enviado a ese ID llegará.',
+  'This file is the backup of garage {theirs}. Its cars are read-only here unless this browser takes up that Garage ID. Do that only if the garage is yours. Your present Garage ID, {mine}, is kept and goes on receiving cars.':
+    'Este archivo es el respaldo del garaje {theirs}. Sus autos son de solo lectura aquí, a menos que este navegador adopte ese ID de garaje. Hágalo solo si el garaje es suyo. Su ID de garaje actual, {mine}, se conserva y sigue recibiendo autos.',
+  'Take up {id}': 'Adoptar {id}', 'Keep things as they are': 'Dejar todo como está',
+  'This browser also answers to {ids}: a car sent to one of them arrives here.': 'Este navegador también responde a {ids}: un auto enviado a uno de ellos llega aquí.',
+  'another garage': 'otro garaje',
+  'Kept when the vehicle was renamed; no longer credited to its earlier source.': 'Se conservó cuando se cambió el nombre del vehículo; ya no se atribuye a su fuente anterior.',
   'Take this car and its files out of this garage? The passport file keeps its history but not its photographs and receipts: save any of those you want first.': '¿Quitar este auto y sus archivos de este garaje? El archivo del pasaporte conserva su historial, pero no sus fotografías ni recibos: guarde primero los que quiera.',
   'Correct the year, make, model or trim': 'Corregir el año, la marca, el modelo o la versión',
   'The vehicle': 'El vehículo',
