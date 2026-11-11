@@ -15,6 +15,7 @@ import type { ScoreOptions } from './normalize';
 import { layerOf, scoreSpec } from './normalize';
 import { RULESET } from './rules';
 import { ATTRIBUTE_KEYS, EVIDENCE_ORDER } from './types';
+import { timestampKey } from './util';
 import type { ActiveModification, AttributeKey, AttributeScores, ConditionState, EvidenceLevel, StatAdjustment, StatLayer, VehicleSpec, VehicleStats } from './types';
 
 export type StatsInputs = {
@@ -42,7 +43,7 @@ export type StatsInputs = {
 const inOrder = (mods: readonly ActiveModification[]): ActiveModification[] =>
   mods.slice().sort((a, b) => {
     if (a.installedOn !== b.installedOn) return a.installedOn < b.installedOn ? -1 : 1;
-    const wa = a.recordedAt ?? '', wb = b.recordedAt ?? '';
+    const wa = a.recordedAt ? timestampKey(a.recordedAt) : '', wb = b.recordedAt ? timestampKey(b.recordedAt) : '';
     if (wa !== wb) return wa < wb ? -1 : 1;
     return a.eventId < b.eventId ? -1 : a.eventId > b.eventId ? 1 : 0;
   });

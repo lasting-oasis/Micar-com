@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { BASE32, canonicalJson, checkCharacter, clamp, clipText, daysBetween, hashString, idFromBytes, sha256Text, interpolate, isIsoDate, isIsoTimestamp, monthsBetween, mulberry32, numberIn, round1, score1000, yearsBetween } from './util';
+import { BASE32, canonicalJson, checkCharacter, clamp, clipText, daysBetween, hashString, idFromBytes, sha256Text, interpolate, isIsoDate, isIsoTimestamp, monthsBetween, mulberry32, numberIn, round1, score1000, timestampKey, yearsBetween } from './util';
 
 describe('numbers and text', () => {
   it('keeps a value inside its range', () => {
@@ -92,6 +92,21 @@ describe('dates', () => {
     expect(isIsoTimestamp('2026-11-10')).toBe(false);
     expect(isIsoTimestamp('2026-02-30T00:00:00.000Z')).toBe(false);
     expect(isIsoTimestamp('2026-11-10Tnonsense-here')).toBe(false);
+  });
+
+  it('puts timestamps in order as times, whatever precision each was written to', () => {
+    // As text, the Z of a whole second sorts after the full stop of a fraction: half a second later looks earlier.
+    expect('2026-11-10T12:00:00Z' > '2026-11-10T12:00:00.500Z').toBe(true);
+    const written = ['2026-11-10T12:00:00.500Z', '2026-11-10T12:00:00Z', '2026-11-10T12:00:00.25Z', '2026-11-10T12:00:00.5Z', '2026-11-10T12:00:01Z', '2026-11-10T11:59:59.999Z', '2026-11-10T12:00:00.001Z'];
+    for (const stamp of written) expect(isIsoTimestamp(stamp), stamp).toBe(true);
+    const ordered = written.slice().sort((a, b) => (timestampKey(a) < timestampKey(b) ? -1 : timestampKey(a) > timestampKey(b) ? 1 : 0));
+    expect(ordered.map((s) => Date.parse(s))).toEqual(written.map((s) => Date.parse(s)).sort((a, b) => a - b));
+    expect(timestampKey('2026-11-10T12:00:00Z')).toBe('2026-11-10T12:00:00.000Z');
+    expect(timestampKey('2026-11-10T12:00:00.5Z')).toBe('2026-11-10T12:00:00.500Z');
+    expect(timestampKey('2026-11-10T12:00:00.25Z')).toBe('2026-11-10T12:00:00.250Z');
+    expect(timestampKey('2026-11-10T12:00:00.123Z')).toBe('2026-11-10T12:00:00.123Z');
+    // The same instant written two ways has one key.
+    expect(timestampKey('2026-11-10T12:00:00.5Z')).toBe(timestampKey('2026-11-10T12:00:00.500Z'));
   });
 
   it('counts days, months and years between two days', () => {

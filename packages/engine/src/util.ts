@@ -181,11 +181,22 @@ const CLOCK = /^T([01]\d|2[0-3]):[0-5]\d:[0-5]\d(\.\d{1,3})?Z$/;
 
 /**
  * True for a timestamp in the one form the engine writes and reads: a real day, a real time of day and a Z
- * (2026-11-10T14:03:00.000Z). An offset, a 24:00 or anything after the Z is refused, so two timestamps always
- * compare as text the way they compare as times.
+ * (2026-11-10T14:03:00.000Z). An offset, a 24:00 or anything after the Z is refused. The fraction of a second may be
+ * left out or given to one, two or three places, so two timestamps are put in order by their keys (timestampKey),
+ * not as they are written.
  */
 export function isIsoTimestamp(v: unknown): v is string {
   return typeof v === 'string' && v.length >= 20 && v.length <= 24 && isIsoDate(v.slice(0, 10)) && CLOCK.test(v.slice(10));
+}
+
+/**
+ * A timestamp written out to the millisecond, so that keys compare as text the way the times compare. Written as
+ * they are, "12:00:00Z" sorts after "12:00:00.500Z": the Z comes after the full stop.
+ */
+export function timestampKey(timestamp: string): string {
+  const dot = timestamp.indexOf('.');
+  const digits = dot === -1 ? 0 : timestamp.length - dot - 2;
+  return `${timestamp.slice(0, -1)}${dot === -1 ? '.' : ''}${'000'.slice(digits)}Z`;
 }
 
 /** The day part of a day or a timestamp. */

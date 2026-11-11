@@ -14,7 +14,7 @@ import type {
   VehicleSpec, WearSystem,
 } from './types';
 import { ATTRIBUTE_KEYS } from './types';
-import { clipText, dayOf, isIsoDate, isIsoTimestamp, isNumber } from './util';
+import { clipText, dayOf, isIsoDate, isIsoTimestamp, isNumber, timestampKey } from './util';
 import { normalizeVin } from './vin';
 
 /* -------------------------------------------------------------------- limits ---- */
@@ -305,8 +305,12 @@ export const everOwned = (passport: Passport, id: string): boolean => passport.o
 
 /** The events in the order they happened: by day, then by when they were written down, then by id. */
 export function timeline(passport: Passport): PassportEvent[] {
-  return passport.events.slice().sort((a, b) =>
-    a.date < b.date ? -1 : a.date > b.date ? 1 : a.recordedAt < b.recordedAt ? -1 : a.recordedAt > b.recordedAt ? 1 : a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+  return passport.events.slice().sort((a, b) => {
+    if (a.date !== b.date) return a.date < b.date ? -1 : 1;
+    const wa = timestampKey(a.recordedAt), wb = timestampKey(b.recordedAt);
+    if (wa !== wb) return wa < wb ? -1 : 1;
+    return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+  });
 }
 
 export function eventById(passport: Passport, id: string): PassportEvent | null {

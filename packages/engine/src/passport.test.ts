@@ -507,6 +507,21 @@ describe('what a file can and cannot claim', () => {
   });
 });
 
+describe('the order of the timeline', () => {
+  it('goes by the day, then by when each entry was written down as a time, then by id', () => {
+    let p = parked();
+    const write = (entryId: string, date: string, now: string) => { p = ok(addEvent(p, entry({ id: entryId, date }), { now, by: OWNER })); };
+    // Written half a second apart, the later one to the whole second: as text its timestamp would sort first.
+    write('first', '2026-03-01', '2026-11-10T12:00:00.500Z');
+    write('second', '2026-03-01', '2026-11-10T12:00:01Z');
+    write('zeroth', '2026-03-01', '2026-11-10T12:00:00Z');
+    write('earlier-day', '2026-02-01', '2026-11-10T12:00:02.000Z');
+    write('b-tied', '2026-03-01', '2026-11-10T12:00:03.000Z');
+    write('a-tied', '2026-03-01', '2026-11-10T12:00:03Z');
+    expect(timeline(p).slice(1).map((e) => e.id)).toEqual(['earlier-day', 'zeroth', 'first', 'second', 'a-tied', 'b-tied']);
+  });
+});
+
 describe('files and attestations as data', () => {
   it('keeps a file’s name, type, size and fingerprint, and nothing else', () => {
     expect(checkAttachment({ id: 'f1', kind: 'photo', name: ' front.jpg ', mime: 'image/jpeg', size: 1000, sha256: 'b'.repeat(64), blob: 'data' })).toEqual({ id: 'f1', kind: 'photo', name: 'front.jpg', mime: 'image/jpeg', size: 1000, sha256: 'b'.repeat(64) });

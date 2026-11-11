@@ -7,7 +7,7 @@
 import type { ScoreAdjustments } from './normalize';
 import { ACCELERATION, HANDLING } from './rules';
 import type { ActiveModification, InstallQuality, ModCategory, ModTier, Sourced, SpecField, VehicleSpec } from './types';
-import { isNumber } from './util';
+import { isNumber, timestampKey } from './util';
 
 /**
  * What one tier of a modification does.
@@ -155,7 +155,7 @@ const REPLACED = MOD_REFUSALS.replaced;
  */
 function byInstall(a: ActiveModification, b: ActiveModification): number {
   if (a.installedOn !== b.installedOn) return a.installedOn < b.installedOn ? -1 : 1;
-  const wa = a.recordedAt ?? '', wb = b.recordedAt ?? '';
+  const wa = a.recordedAt ? timestampKey(a.recordedAt) : '', wb = b.recordedAt ? timestampKey(b.recordedAt) : '';
   if (wa !== wb) return wa < wb ? -1 : 1;
   if (a.eventId !== b.eventId) return a.eventId < b.eventId ? -1 : 1;
   return 0;
