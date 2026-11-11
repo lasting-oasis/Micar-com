@@ -24,7 +24,9 @@ describe('the reference catalogue', () => {
         expect(cell.source.kind, `${e.id} ${field}`).toBe('reference');
         expect(cell.source.name, `${e.id} ${field}`).toBeTruthy();
         expect(cell.source.url, `${e.id} ${field}`).toMatch(/^https?:\/\//);
-        expect(cell.source.asOf, `${e.id} ${field}`).toBe(e.asOf);
+        // A figure is dated the day it was gathered: the entry's own day, or a later one when a narrower search filled a blank.
+        expect(isIsoDate(cell.source.asOf), `${e.id} ${field}`).toBe(true);
+        expect(cell.source.asOf >= e.asOf, `${e.id} ${field}`).toBe(true);
       }
     }
   });

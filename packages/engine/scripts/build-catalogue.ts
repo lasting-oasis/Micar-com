@@ -13,6 +13,10 @@
 // is left out, and a figure it could not confirm is kept only when it comes from the maker, a government agency or
 // a named instrumented test. A listing site's figure nobody could confirm is left out. A blank is a correct entry.
 //
+// A file marked `"supplement": true` holds further figures for vehicles another file already describes: a later,
+// narrower search for what the first one could not source. It is read after every other file and only ever fills a
+// blank. A figure already in the catalogue is never replaced by it. Its figures go through the same review rule.
+//
 //   pnpm --filter @micar/value exec tsx ../../packages/engine/scripts/build-catalogue.ts
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -23,13 +27,15 @@ import type { BodyClass, BrakeGrade, CatalogueEntry, Source, SpecField, Suspensi
 type Field = { key: string; number?: number; text?: string; publisher: string; url: string; sourceKind: string; basis: string; note?: string };
 type Rec = { id: string; year: number; make: string; model: string; trim: string; bodyClass: string; fields: Field[] };
 type Review = { id: string; checks: { key: string; verdict: 'confirmed' | 'contradicted' | 'unconfirmed' | 'wrong-configuration' }[] };
-type File = { gathered: string; records: Rec[]; reviews?: Review[] };
+type File = { gathered: string; supplement?: boolean; records: Rec[]; reviews?: Review[] };
+/** Further figures for a vehicle, from a supplement file. */
+type More = { fields: Field[]; gathered: string; review?: Review };
 
 /** The sources whose figure stands when a second reader could find nothing either way. */
 const PRIMARY = ['manufacturer', 'agency', 'test'];
 
 /** The figures a review takes out of a record: the key, and why. */
-function refused(rec: Rec, review: Review | undefined): Record<string, string> {
+function refused(rec: { fields: Field[] }, review: Review | undefined): Record<string, string> {
   const out: Record<string, string> = {};
   if (!review) return out;
   const verdicts = new Map(review.checks.map((c) => [c.key, c.verdict]));
@@ -93,6 +99,12 @@ const LEFT_OUT: Record<string, Record<string, string>> = {
     suspensionFront: 'The only description found is for another configuration.',
     suspensionRear: 'The only description found is for another configuration.',
   },
+  '2024-toyota-tacoma-trd-off-road': {
+    curbWeightLb: 'The only figure is a test weight, and nothing the publisher wrote ties the truck tested to this cab and transmission.',
+  },
+  '2024-ford-mustang-gt': {
+    curbWeightLb: 'Read from a preliminary sheet by inference about its columns, and the other figures in circulation differ: the second reader advised leaving it out.',
+  },
 };
 
 /** Grades read from a description. The reason is kept with the figure. */
@@ -109,15 +121,16 @@ const GRADES: Record<string, { suspensionGrade?: [SuspensionGrade, string]; brak
 
 const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n - 1).trimEnd()}…` : s);
 
-function build(rec: Rec, gathered: string, review?: Review): CatalogueEntry {
+function build(rec: Rec, gathered: string, review: Review | undefined, more: More[]): CatalogueEntry {
   const body = BODY[rec.bodyClass];
   if (!body) throw new Error(`${rec.id}: unknown body class ${rec.bodyClass}`);
   const named = IDENTITY[rec.id] ?? { model: rec.model, trim: rec.trim };
   let spec: VehicleSpec = emptySpec({ year: rec.year, make: rec.make, model: named.model, trim: named.trim, bodyClass: body });
   const skip = { ...refused(rec, review), ...(LEFT_OUT[rec.id] ?? {}) };
   const byKey = new Map(rec.fields.map((f) => [f.key, f]));
+  let when = gathered;
   const sourceOf = (f: Field, extra = ''): Source => ({
-    kind: 'reference', name: clip(f.publisher, 80), url: f.url, asOf: gathered,
+    kind: 'reference', name: clip(f.publisher, 80), url: f.url, asOf: when,
     note: clip([extra, BASIS[f.basis] ?? '', f.note ?? ''].filter(Boolean).join('. ').replace(/\.\./g, '.'), 300),
   });
   const set = (field: SpecField, value: unknown, source: Source) => {
@@ -126,15 +139,18 @@ function build(rec: Rec, gathered: string, review?: Review): CatalogueEntry {
     spec = done.spec;
   };
 
-  for (const f of rec.fields) {
-    if (skip[f.key] || f.key === 'baseMsrpUsd') continue;
+  /** Writes one researched figure onto the sheet. With `blankOnly`, a field that already has a figure is left alone. */
+  const put = (f: Field, blankOnly: boolean) => {
     const value = f.number ?? f.text;
-    if (value === undefined) continue;
-    if (DIRECT[f.key]) set(DIRECT[f.key], value, sourceOf(f, f.key === 'epaCombinedMpge' ? 'MPGe' : ''));
-    else if (f.key === 'aspiration') { if (INDUCTION[String(value)]) set('induction', INDUCTION[String(value)], sourceOf(f)); }
-    else if (f.key === 'fuelType') set('powertrain', value, sourceOf(f));
+    if (value === undefined || f.key === 'baseMsrpUsd') return;
+    const field: SpecField | null = DIRECT[f.key] ?? (f.key === 'aspiration' ? 'induction' : f.key === 'fuelType' ? 'powertrain' : f.key === 'topSpeedGoverned' ? 'topSpeedGoverned' : null);
+    if (field === null || (blankOnly && spec[field] !== null)) return;
+    if (f.key === 'aspiration') { if (INDUCTION[String(value)]) set('induction', INDUCTION[String(value)], sourceOf(f)); }
     else if (f.key === 'topSpeedGoverned') set('topSpeedGoverned', String(value).toLowerCase() === 'yes', sourceOf(f));
-  }
+    else set(field, value, sourceOf(f, f.key === 'epaCombinedMpge' ? 'MPGe' : ''));
+  };
+
+  for (const f of rec.fields) if (!skip[f.key]) put(f, false);
   // Front and rear descriptions become one line each for suspension and brakes.
   for (const [field, front, rear] of [['suspension', 'suspensionFront', 'suspensionRear'], ['brakes', 'brakesFront', 'brakesRear']] as const) {
     const a = skip[front] ? undefined : byKey.get(front), b = skip[rear] ? undefined : byKey.get(rear);
@@ -142,6 +158,13 @@ function build(rec: Rec, gathered: string, review?: Review): CatalogueEntry {
     const from = a ?? b;
     if (text && from) set(field, clip(text, 120), sourceOf(from));
   }
+  // What a later, narrower search added: blanks only, under the same review rule.
+  for (const extra of more) {
+    const out = { ...refused(extra, extra.review), ...(LEFT_OUT[rec.id] ?? {}) };
+    when = extra.gathered;
+    for (const f of extra.fields) if (!out[f.key]) put(f, true);
+  }
+  when = gathered;
   const grades = GRADES[rec.id] ?? {};
   if (grades.suspensionGrade && spec.suspension) set('suspensionGrade', grades.suspensionGrade[0], { ...spec.suspension.source, note: `Read from the description. ${grades.suspensionGrade[1]}` });
   if (grades.brakeGrade && spec.brakes) set('brakeGrade', grades.brakeGrade[0], { ...spec.brakes.source, note: `Read from the description. ${grades.brakeGrade[1]}` });
@@ -156,14 +179,20 @@ function build(rec: Rec, gathered: string, review?: Review): CatalogueEntry {
 }
 
 const dir = resolve(root, 'data/research');
+const files = readdirSync(dir).filter((n) => n.endsWith('.json')).sort().map((name) => JSON.parse(readFileSync(resolve(dir, name), 'utf8')) as File);
+// Supplements first, gathered by vehicle, so each vehicle is built once with everything known about it.
+const more: Record<string, More[]> = {};
+for (const file of files.filter((f) => f.supplement === true)) {
+  for (const rec of file.records) (more[rec.id] ??= []).push({ fields: rec.fields, gathered: file.gathered, review: file.reviews?.filter((r) => r.id === rec.id)[0] });
+}
 const entries: CatalogueEntry[] = [];
-for (const name of readdirSync(dir).filter((n) => n.endsWith('.json')).sort()) {
-  const file = JSON.parse(readFileSync(resolve(dir, name), 'utf8')) as File;
+for (const file of files.filter((f) => f.supplement !== true)) {
   for (const rec of file.records) {
     if (entries.some((e) => e.id === rec.id)) throw new Error(`${rec.id} appears twice`);
-    entries.push(build(rec, file.gathered, file.reviews?.filter((r) => r.id === rec.id)[0]));
+    entries.push(build(rec, file.gathered, file.reviews?.filter((r) => r.id === rec.id)[0], more[rec.id] ?? []));
   }
 }
+for (const id of Object.keys(more)) if (!entries.some((e) => e.id === id)) throw new Error(`${id}: a supplement for a vehicle no file describes`);
 entries.sort((a, b) => (a.id < b.id ? -1 : 1));
 
 const header = `// Generated by scripts/build-catalogue.ts from data/research/*.json. Do not edit by hand: edit the script and run it.
