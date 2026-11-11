@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import type { Player } from '../types';
 import { freshStrip, pruneStrip } from './data';
 import { isRental } from './rental';
+import { isWorkOrder } from '../bay/order';
 
 export const ALLOWANCE = 1000;
 export const MAGIC_TTL_MS = 15 * 60_000;
@@ -118,7 +119,7 @@ export function applyRecord(player: Player, rec: SavedPlayer): void {
   player.stamps = rec.stamps;
   player.strip = rec.strip ? pruneStrip(rec.strip) : freshStrip();
   player.inventory = rec.inventory;
-  player.orders = rec.orders ?? [];
+  player.orders = Array.isArray(rec.orders) ? rec.orders.filter(isWorkOrder).slice(0, 30) : [];
 }
 
 export function utcDay(now: number): string {

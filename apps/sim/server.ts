@@ -12,6 +12,7 @@ import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 import { CAR_CATALOG } from './src/carCatalog.js';
 import { DOORS, applyOrder, isOrderLine, quoteOrder, type OrderCtx, type WorkOrder } from './src/bay/order.js';
 import { explainCondition } from './src/bay/faults.js';
+import { guarded } from './src/world/safeHandler.js';
 import { REPAIR_JOBS, repairJobFor } from './src/bay/catalog.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 import { RENTAL_FLEET, canRent, isRental, isVisitor, rent, type RentalKey } from './src/world/rental.js';
@@ -425,7 +426,7 @@ const generateRepairs = (issueCount: number, type: 'mechanic' | 'body') => {
 /** Gives a car a fault for every point of condition it lost that no fault accounts for. */
 let faultSeq = 0;
 const explainCar = (car: Car) => { explainCondition(car, Math.random, () => `rep-x-${Date.now()}-${faultSeq++}`); };
-const explainAll = (p: Player) => { for (const c of p.inventory) if (!isRental(c)) explainCar(c); };
+const explainAll = (p: Player) => { for (const c of p.inventory) explainCar(c); };
 
 // Per-owner gate access code, generated once when a player connects and stored
 // on their account so it persists with the saved game state.
@@ -987,6 +988,9 @@ setInterval(() => {
 }, 100);
 
 io.on('connection', (socket) => {
+    // A handler that throws, or whose promise rejects, is logged and the server carries on. The error's message only: never the payload.
+    const on = socket.on.bind(socket) as (event: string, fn: (...args: any[]) => unknown) => unknown;
+    (socket as any).on = (event: string, fn: (...args: any[]) => unknown) => on(event, guarded(event, fn, (ev, error) => console.log('--- HANDLER ERROR ---', { event: ev, error: error instanceof Error ? error.message : String(error) })));
     // A Strip visitor (a guest or a Strip account holder) may send only the Strip's own events (VISITOR_EVENTS): no
     // dealer handler ever runs for one, so no money made there can be carried into an account.
     socket.use(([event], next) => {
@@ -1377,11 +1381,12 @@ io.on('connection', (socket) => {
   });
 
   let orderSeq = 0;
-  socket.on('bay_order', ({ carId, door, lines, quote } = {} as any) => {
+  socket.on('bay_order', (msg: any) => {
+      const { carId, door, lines, quote } = msg && typeof msg === 'object' ? msg : {} as any;
       const player = gameState.players[socket.id];
       if (!player) return;
       const bad = () => { deny('That order is not valid.'); broadcastState(io, gameState); };
-      if (!ownsCar(player, carId) || !(DOORS as readonly unknown[]).includes(door) || !Array.isArray(lines) || !lines.every(isOrderLine)) { bad(); return; }
+      if (!ownsCar(player, carId) || !(DOORS as readonly unknown[]).includes(door) || !Array.isArray(lines) || !lines.length || !lines.every(isOrderLine)) { bad(); return; }
       const car = dealerCar(player, carId);
       if (!car) { broadcastState(io, gameState); return; } // a rental stays stock
       const rec = stripOf(player), c = carState(rec, carId);
@@ -1959,8 +1964,8 @@ io.on('connection', (socket) => {
       }
   });
 
-  socket.on('buy_part', ({ partName } = {} as any) => {
-      const player = gameState.players[socket.id];
+  socket.on('buy_part', (msg: any) => {
+      const player = gameState.players[socket.id], partName = msg?.partName;
       if (!player || typeof partName !== 'string') return;
       // the job is found by part name, or by fault name for a page loaded before the deploy; the price is the server's
       const job = repairJobFor(partName) ?? REPAIR_JOBS.find(j => j.n === partName);

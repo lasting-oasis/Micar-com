@@ -15,4 +15,8 @@ describe('bay faults', () => {
   it('a gap smaller than any fault becomes the smallest fault at that size, at its full price', () => { const added = explainCondition(car(97, 100), () => 0, ids()); expect(added.length).toBe(1); expect(added[0].conditionImpact).toBe(3); expect(added[0].cost).toBe(repairJobFor(added[0].partName)!.cost); });
   it('a car saved with no fault list and a score that is not a whole number is handled', () => { const c = { id: 'c2', bodyCondition: 59.6, mechanicCondition: 100, condition: 79 } as Car; expect(lost(explainCondition(c, () => 0, ids()))).toBe(40); });
   it('the sheet gives each slot its open faults and what they cost it', () => { const s = carSheet(car(85, 45, [fault('a', 'Brake Pad Set'), fault('b', 'Rebuilt Transmission'), fault('c', 'Paint & Clear Coat Gallon')])); expect([s.mechanical, s.body]).toEqual([45, 85]); expect([s.slots.brakes.condition, s.slots.transmission.condition, s.slots.paint.condition, s.slots.engine.condition]).toEqual([90, 55, 85, 100]); expect(s.slots.brakes.faults.map(f => f.id)).toEqual(['a']); expect(s.slots.wheels.faults).toEqual([]); });
+  it('a rental stays stock: it gets no faults for lost condition', () => {
+    const c = { ...car(60, 70), rental: true } as Car;
+    expect(explainCondition(c, Math.random, ids())).toEqual([]); expect(c.activeRepairs).toEqual([]);
+  });
 });

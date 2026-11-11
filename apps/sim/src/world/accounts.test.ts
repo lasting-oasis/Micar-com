@@ -104,6 +104,13 @@ describe('saved records and email limits', () => {
     const p = guest(); applyRecord(p, saveRecord(none)); expect(p.orders).toEqual([]);
     applyRecord(p, rec); expect(p.orders).toEqual(orders);
   });
+  it('applyRecord keeps only well-formed orders, at most 30', () => {
+    const wo = (n: number) => ({ id: 'wo-' + n, carId: 'own-1', car: 'x', door: 'garage', day: 1, lines: [], total: 0, stages: [] });
+    const load = (orders: unknown) => { const p = guest(); applyRecord(p, { ...saveRecord(guest()), orders } as any); return p.orders; };
+    expect(load('x')).toEqual([]); expect(load({ a: 1 })).toEqual([]);
+    expect(load([null, 5, { id: 'bad' }, wo(1)])).toEqual([wo(1)]);
+    expect(load(Array.from({ length: 40 }, (_, i) => wo(i)))).toEqual(Array.from({ length: 30 }, (_, i) => wo(i)));
+  });
   it('saveRecord drops the part records of rentals', () => {
     const g = guest();
     g.strip.cars = { 'rental-1': { cfg: {}, owned: ['a'] }, 'rental-9-old': { cfg: {}, owned: [] }, 'own-1': { cfg: {}, owned: ['b'] } };

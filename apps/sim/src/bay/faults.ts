@@ -1,4 +1,5 @@
 import type { Car, RepairDef } from '../types';
+import { isRental } from '../world/rental';
 import { REPAIR_JOBS, repairJobFor } from './catalog';
 import { SLOT_IDS, type SlotId, type Trade } from './slots';
 
@@ -18,8 +19,9 @@ export function carSheet(car: Pick<Car, 'bodyCondition' | 'mechanicCondition' | 
   return { mechanical: Math.round(car.mechanicCondition), body: Math.round(car.bodyCondition), slots };
 }
 
-/** Gives the car faults for every point of condition it lost that no listed fault accounts for. Returns the faults added. */
+/** Gives the car faults for every point of condition it lost that no listed fault accounts for. A rental gets none. Returns the faults added. */
 export function explainCondition(car: Car, rng: () => number, id: () => string): RepairDef[] {
+  if (isRental(car)) return []; // a rental stays stock
   if (!car.activeRepairs) car.activeRepairs = [];
   const added: RepairDef[] = [];
   const scores: Record<Trade, number> = { mechanic: car.mechanicCondition, body: car.bodyCondition };

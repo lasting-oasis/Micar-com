@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isOrderLine, applyOrder, quoteOrder, MAX_LINES, type OrderCtx, type OrderLine } from './order';
+import { isOrderLine, isWorkOrder, applyOrder, quoteOrder, MAX_LINES, type OrderCtx, type OrderLine } from './order';
 import { PIPELINES } from './slots';
 import { ctx, fault, fix, part } from './testing';
 
@@ -23,4 +23,9 @@ describe('bay order', () => {
   it('a part key that is only on Object.prototype is refused, never thrown on', () => { for (const k of ['constructor', '__proto__']) { const q = quoteOrder(ctx(), [part(k, 1)]); expect(q.lines).toHaveLength(1); expect(q.lines[0]).toMatchObject({ status: 'refused', reason: 'Unknown part.' }); } });
   it('a Master Mechanic price is rounded down, as the server does today', () => { const c = ctx({ hasMechanic: true }); c.car.activeRepairs = [fault('f9', 'Brake Pad Set')]; c.car.activeRepairs[0].cost = 252; expect(quoteOrder(c, [fix('f9')]).total).toBe(201); });
   it('apply: a part that renews a fault is still fitted when the repair on it fails', () => { const c = ctx({ stage: 2 }), r = applyOrder(c, [fix('f2'), part('perf.trans', 2)], () => 0.1); expect(r.lines.map(l => l.outcome)).toEqual(['failed', 'done']); expect(r.total).toBe(6100); expect(c.build.cfg.perf.trans).toBe(2); expect(c.car.activeRepairs!.some(f => f.id === 'f2')).toBe(false); });
+  it('isWorkOrder accepts a work order and nothing else', () => {
+    const wo = { id: 'wo-1', carId: 'c1', car: '2019 Toyota Camry', door: 'garage', day: 3, total: 10, lines: [], stages: [] };
+    expect(isWorkOrder(wo)).toBe(true);
+    for (const bad of [null, 'x', 7, [], { ...wo, id: 1 }, { ...wo, door: 'roof' }, { ...wo, total: NaN }, { ...wo, day: '3' }, { ...wo, lines: {} }, { ...wo, stages: undefined }, { ...wo, car: undefined }]) expect(isWorkOrder(bad)).toBe(false);
+  });
 });

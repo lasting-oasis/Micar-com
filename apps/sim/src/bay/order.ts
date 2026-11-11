@@ -19,6 +19,13 @@ export function isOrderLine(x: unknown): x is OrderLine {
   return l.kind === 'install' && typeof l.key === 'string' && (typeof l.v === 'string' || typeof l.v === 'number');
 }
 
+export function isWorkOrder(x: unknown): x is WorkOrder {
+  if (!x || typeof x !== 'object') return false;
+  const o = x as Record<string, unknown>;
+  return typeof o.id === 'string' && typeof o.carId === 'string' && typeof o.car === 'string' && (DOORS as readonly unknown[]).includes(o.door)
+    && Number.isFinite(o.total) && Number.isFinite(o.day) && Array.isArray(o.lines) && Array.isArray(o.stages);
+}
+
 export type OrderCtx = { car: Car; build: { cfg: CarCfg; owned: string[] }; style: BodyStyle; stage: number; partsInventory: Record<string, number>; hasMechanic: boolean };
 
 /** `replaces` and `needs` hold fault names. */
