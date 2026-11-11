@@ -406,6 +406,11 @@ export function addEvent(passport: Passport, event: unknown, ctx: { now: string;
 /**
  * Hands the vehicle to another owner. The MiCar ID, every event, every snapshot and every edition stay with it; one
  * ownership period closes and the next opens on the same day, with no gap. Only the current owner can do it.
+ *
+ * The day is the one the hand-over is dated, and a day from before the owner had the vehicle is refused. With one
+ * exception, because nothing is refused over a clock: the writer's own today. An owner whose calendar is behind the
+ * one that handed the car over (another time zone, a clock set wrong) has no later day to give, and means now. The
+ * entry keeps the date it was written with, and the period closes the day it opened, never before it.
  */
 export function transferOwnership(passport: Passport, input: { eventId: string; toOwnerId: string; date: string; attachments?: Attachment[] }, ctx: { now: string; by: string }): Result<Passport> {
   if (!isRecord(ctx) || !isIsoTimestamp(ctx.now)) return refuse(PASSPORT_REFUSALS.timestamp);
@@ -421,10 +426,12 @@ export function transferOwnership(passport: Passport, input: { eventId: string; 
   if (passport.owners.length >= MAX_OWNERS) return refuse(PASSPORT_REFUSALS.owners);
   if (entry.date > dayOf(ctx.now)) return refuse(PASSPORT_REFUSALS.future);
   const period = passport.owners[passport.owners.length - 1];
-  if (entry.date < period.from) return refuse(PASSPORT_REFUSALS.beforeOwnership);
+  const behind = entry.date < period.from;
+  if (behind && entry.date !== dayOf(ctx.now)) return refuse(PASSPORT_REFUSALS.beforeOwnership);
   if (passport.events.some((e) => e.id === entry.id)) return refuse(PASSPORT_REFUSALS.id);
   if (entry.attachments.some((a) => fileIdTaken(passport, a.id))) return refuse(PASSPORT_REFUSALS.attachments);
-  const owners: OwnershipPeriod[] = [...passport.owners.slice(0, -1), { ...period, to: entry.date }, { ownerId: input.toOwnerId, from: entry.date, to: null }];
+  const day = behind ? period.from : entry.date;
+  const owners: OwnershipPeriod[] = [...passport.owners.slice(0, -1), { ...period, to: day }, { ownerId: input.toOwnerId, from: day, to: null }];
   return { ok: true, value: { ...appendEvent(passport, entry), owners } };
 }
 

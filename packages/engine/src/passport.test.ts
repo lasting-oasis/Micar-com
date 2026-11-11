@@ -301,6 +301,42 @@ describe('a change of owner', () => {
     expect(reason(transferOwnership(p, { ...base, eventId: p.events[0].id }, { now: NOW, by: OWNER }))).toBe(PASSPORT_REFUSALS.id);
     expect(reason(transferOwnership(p, base, { now: NOW, by: 'a-stranger' }))).toBe(PASSPORT_REFUSALS.notOwner);
   });
+
+  it('lets an owner whose calendar is behind the one that handed the car over hand it on today', () => {
+    // The seller's device says the 12th: the car is parked, and handed over, on the 12th by that calendar.
+    const seller = ok(createPassport({ micarId: MICAR_ID, now: '2026-11-12T00:40:00.000Z', ownerId: OWNER, spec: civic, eventId: id() }));
+    const sold = ok(transferOwnership(seller, { eventId: id(), toOwnerId: 'owner-two', date: '2026-11-12' }, { now: '2026-11-12T00:45:00.000Z', by: OWNER }));
+    // The buyer's says the 11th. No day it can give is on or after the 12th without being in the future.
+    const buyer = { now: '2026-11-11T15:00:00.000Z', by: 'owner-two' };
+    const on = ok(transferOwnership(sold, { eventId: 'on', toOwnerId: 'owner-three', date: '2026-11-11' }, buyer));
+    // The period closes the day it opened, never before: the owners still follow one another without a gap.
+    expect(on.owners).toEqual([
+      { ownerId: OWNER, from: '2026-11-12', to: '2026-11-12' }, { ownerId: 'owner-two', from: '2026-11-12', to: '2026-11-12' }, { ownerId: 'owner-three', from: '2026-11-12', to: null },
+    ]);
+    // The entry is dated as the writer's calendar had it.
+    expect(eventById(on, 'on')).toMatchObject({ type: 'transfer', date: '2026-11-11', recordedAt: buyer.now, from: 'owner-two', to: 'owner-three' });
+    // The passport reads back whole.
+    expect(ok(parsePassport(serializePassport(on)))).toEqual({ passport: on, dropped: 0 });
+    // A day the writer chose from before the car was theirs is still refused, and so is one ahead of the writer's own calendar.
+    expect(reason(transferOwnership(sold, { eventId: 'back', toOwnerId: 'owner-three', date: '2026-11-10' }, buyer))).toBe(PASSPORT_REFUSALS.beforeOwnership);
+    expect(reason(transferOwnership(sold, { eventId: 'ahead', toOwnerId: 'owner-three', date: '2026-11-12' }, buyer))).toBe(PASSPORT_REFUSALS.future);
+    // The next owner, behind too, can write and hand on in turn.
+    const third = { now: '2026-11-11T16:00:00.000Z', by: 'owner-three' };
+    expect(add(on, { date: '2026-11-11', mileage: 90010 }, 'owner-three', third.now).ok).toBe(true);
+    expect(ok(transferOwnership(on, { eventId: 'on-2', toOwnerId: 'owner-four', date: '2026-11-11' }, third)).owners.map((o) => [o.from, o.to])).toEqual([
+      ['2026-11-12', '2026-11-12'], ['2026-11-12', '2026-11-12'], ['2026-11-12', '2026-11-12'], ['2026-11-12', null],
+    ]);
+  });
+
+  it('closes a period on the day the hand-over is dated when that day is in it', () => {
+    // The ordinary case is untouched by the rule above: a hand-over dated inside the period closes it that day.
+    const sold = ok(transferOwnership(parked(), { eventId: id(), toOwnerId: 'owner-two', date: '2026-03-01' }, { now: NOW, by: OWNER }));
+    const on = ok(transferOwnership(sold, { eventId: id(), toOwnerId: 'owner-three', date: '2026-03-01' }, { now: NOW, by: 'owner-two' }));
+    expect(on.owners.map((o) => [o.from, o.to])).toEqual([['2026-01-05', '2026-03-01'], ['2026-03-01', '2026-03-01'], ['2026-03-01', null]]);
+    // Dated today, and today is inside the period: the day given stands.
+    const today = ok(transferOwnership(sold, { eventId: id(), toOwnerId: 'owner-three', date: '2026-11-10' }, { now: NOW, by: 'owner-two' }));
+    expect(today.owners[1]).toEqual({ ownerId: 'owner-two', from: '2026-03-01', to: '2026-11-10' });
+  });
 });
 
 describe('correcting the specification and the VIN', () => {
