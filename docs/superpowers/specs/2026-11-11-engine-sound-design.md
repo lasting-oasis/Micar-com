@@ -1,7 +1,7 @@
 # Engine sound from engine facts
 
 Date: 2026-11-11
-Status: built on branch `claude/engine-sound-model`, switched off by default. Not yet judged by ear on a phone.
+Status: on main and the default since 2026-11-11, at the owner's decision. Not yet judged by ear or timed on a phone.
 
 ## What this is
 
@@ -13,7 +13,7 @@ The research behind the choice of method is in the project doc `micar-engine-sou
 
 ## How to hear it
 
-Add `?sound=model` to the game address. Without it the old synth plays, exactly as before. The old synth also stays as the fallback when the browser cannot start the new one, and for electric cars.
+It plays by default. Add `?sound=classic` to the game address to get the old synth back. The old synth also stays as the fallback when the browser cannot start the new one, and for electric cars.
 
 To hear the model without the game:
 
@@ -108,7 +108,7 @@ Still open from the measurements: idle sits 23 to 31 dB under full throttle. The
 
 ## Cost
 
-Measured in Node on a desktop Xeon: ten seconds of a dual-pipe V8 renders in about 0.15 to 0.2 seconds, so about 2% of one core. Chromium rendered one second offline in about 0.12 seconds. **Not measured on a phone.** The model must be timed on a mid-range phone before it becomes the default.
+Measured in Node on a desktop Xeon: ten seconds of a dual-pipe V8 renders in about 0.15 to 0.2 seconds, so about 2% of one core. Chromium rendered one second offline in about 0.12 seconds. **Not measured on a phone.** It still needs timing on a mid-range phone; if it crackles there, `?sound=classic` is the way back.
 
 ## Not modelled
 
@@ -119,9 +119,9 @@ Measured in Node on a desktop Xeon: ten seconds of a dual-pipe V8 renders in abo
 - Mechanical noise, tyres, wind and the cabin.
 - Other cars.
 
-## Before it becomes the default
+## Still to do (it became the default before these were done)
 
-1. Listen to the ten clips and the game with `?sound=model`. Nobody has yet judged it by ear.
+1. Listen to the ten clips and the game. Nobody has yet judged it by ear.
 2. Time it on a phone.
 3. Give the cars that the catalog string gets wrong a per-model entry.
 4. Compare order plots against recordings of a few reference cars, as set out in the research doc.

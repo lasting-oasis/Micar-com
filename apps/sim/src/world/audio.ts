@@ -9,7 +9,7 @@ import type { SoundFacts } from '../sound/facts';
 
 export type SoundMode = 'classic' | 'model';
 /** Which engine sound the page asked for: `?sound=model` turns the physical model on. */
-export function soundMode(search: string): SoundMode { return /[?&]sound=model(&|$)/.test(search) ? 'model' : 'classic'; }
+export function soundMode(search: string): SoundMode { return /[?&]sound=classic(&|$)/.test(search) ? 'classic' : 'model'; }
 
 /** What the engine sound model is told about the engine each frame, read from today's driving model. */
 export function engineDrive(V: Vehicle): { rpm: number; throttle: number; load: number; boost: number; cut: number } {
