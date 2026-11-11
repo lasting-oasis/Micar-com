@@ -17,6 +17,7 @@ import { Inspector } from './Inspector';
 import { Slab, useQr } from './Slab';
 import { Strip } from '../Strip';
 import { Footer } from '../Footer';
+import { FoilShelf } from '../garage/FoilShelf';
 import '../door.css';
 
 import { WORLD_URL, SHOP_URL } from '@micar/brand';
@@ -170,6 +171,7 @@ export default function Door() {
       {shown && shownG && <>
         <Statement card={shown} />
         <CardSection card={shown} g={shownG} />
+        <FoilShelf />
         <section className="sec gutter" id="grade"><div className="inner">
           <div className="ghost" style={{ right: '-2%', top: 40 }}>{t('graded')}</div>
           <div className="eyebrow marker"><Key />{t('the grade')}</div>
@@ -220,7 +222,7 @@ function CardSection({ card, g }: { card: Card; g: GradeInputs }) {
         <div className="feat"><ul>
           <li><span className="k">A</span><div><h3>{t('The label')}</h3><p>{t("Grade, tier, the car, the serial, and a QR that opens the car's page. Printed on both sides, like a real slab.")}</p></div></li>
           <li><span className="k">B</span><div><h3>{t('The shine is earned')}</h3><p>{t('Foil follows the grade and is never for sale. A 9.8 Showroom throws rainbows; a 5.4 Daily is matte chrome. You can tell the grade from across the room.')}</p></div></li>
-          <li><span className="k">C</span><div><h3>{t('The back tells the story')}</h3><p>{t("The back carries the grade's five categories, each with where it stands, and the chart: your car on its model's curve.")}</p></div></li>
+          <li><span className="k">C</span><div><h3>{t('The back is earned too')}</h3><p>{t("Turn it over: every card carries the MiCar card back, under the foil its rarity earned. The four are just below.")}</p></div></li>
           <li><span className="k">D</span><div><h3>{t('Raw until slabbed, then minted once')}</h3><p>{t('A valued car is a raw card. Three entries later it goes in the case, gets its first grade, and is minted with a set, a number and its stamps. The grade can move. The minting never does.')}</p></div></li>
         </ul></div>
       </div>

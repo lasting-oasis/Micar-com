@@ -223,3 +223,7 @@ The owner asked for the new back on every card on the site, in place of the old 
 - **The home page's card has no rarity.** It is a starting-grade card, not an engine card, so it wears the plain
   gloss back and names no rarity. Nothing in the engine was changed to give it one.
 - **Not checked:** a phone. On a touch screen the holo and rainbow bands drift slowly, as the front's foil already did.
+- **The four backs are on the home page.** `garage/FoilShelf.tsx`, the section after the card (`#backs`): all four
+  foils side by side, each with what it is made of and the rarities that earn it, and a link to
+  `#/garage/card-backs`, where each can be tilted in 3D. That page is linked from here now. The card section's
+  third point no longer says the back carries the grade's categories and the chart.

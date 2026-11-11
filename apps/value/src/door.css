@@ -324,6 +324,22 @@
 .dp .cb-rar { grid-row: 2; justify-self: stretch; display: flex; align-items: baseline; justify-content: center; gap: 2.4cqw; padding: 2.4cqw 2cqw; margin-top: 6px; border-top: 2px solid var(--rar, var(--paint)); background: linear-gradient(180deg, color-mix(in srgb, var(--rar, #aeb6c2) 22%, transparent), transparent); white-space: nowrap; overflow: hidden; }
 .dp .cb-rar b { font: 800 clamp(8px, 4.6cqw, 17px)/1 var(--cond); letter-spacing: .18em; text-transform: uppercase; color: var(--rar, #eef2f8); text-shadow: 0 0 10px color-mix(in srgb, var(--rar, #fff) 55%, transparent); }
 .dp .cb-rar span { font: 700 clamp(6px, 2.8cqw, 11px)/1 var(--cond); letter-spacing: .12em; text-transform: uppercase; color: var(--haze); overflow: hidden; text-overflow: ellipsis; }
+/* the four backs on the home page (garage/FoilShelf.tsx) */
+.dp .foil-shelf { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 22px; margin-top: 44px; }
+.dp .foil-tile { --mx: 50; --my: 50; display: grid; gap: 8px; align-content: start; min-width: 0; cursor: default; }
+.dp .foil-card { position: relative; aspect-ratio: 531 / 741; margin-bottom: 8px; filter: drop-shadow(0 18px 26px rgba(0,0,0,.6)); }
+.dp .foil-card .art.cb { position: absolute; inset: 0; background: none; border-radius: 0; overflow: visible; }
+.dp .foil-tile small { font: 700 11px/1 var(--cond); letter-spacing: .18em; text-transform: uppercase; color: var(--haze); }
+.dp .foil-tile h3 { margin: 0; font: 800 clamp(17px, 1.7vw, 22px)/1.1 var(--cond); letter-spacing: .04em; text-transform: uppercase; }
+.dp .foil-tile p { margin: 0; color: #c3cad8; font-size: 15px; line-height: 1.45; }
+.dp .foil-tile ul { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.dp .foil-tile li { --rar: #aeb6c2; font: 800 11px/1 var(--cond); letter-spacing: .14em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: var(--rar); color: #0b0d12; white-space: nowrap; box-shadow: 0 0 12px color-mix(in srgb, var(--rar) 55%, transparent); }
+.dp .foil-tile li.rar-common { background: none; color: var(--rar); box-shadow: inset 0 0 0 1px var(--rar); }
+.dp .foil-tile li.rar-uncommon { --rar: #5fbf86; } .dp .foil-tile li.rar-rare { --rar: #79a6ff; } .dp .foil-tile li.rar-epic { --rar: #b58cff; }
+.dp .foil-tile li.rar-legendary { --rar: #ffd23f; } .dp .foil-tile li.rar-mythic { --rar: #ff7a9c; }
+.dp .foil-tile li.rar-one-of-one { background: conic-gradient(from 90deg, #ffb3b3, #ffe9a3, #b8ffcd, #b3ecff, #c3c9ff, #ffb8f8, #ffb3b3); box-shadow: 0 0 12px rgba(255,255,255,.45); }
+.dp .foil-more { margin-top: 36px; }
+@media (max-width: 900px) { .dp .foil-shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 14px; } .dp .foil-tile p { font-size: 14px; } }
 /* the back: the starting grade's five categories, then the chart */
 .dp .art.chart { grid-template-rows: auto auto auto 1fr auto; padding: 8px 8px 0; gap: 4px; }
 .dp .art.chart .stats { grid-row: auto; margin: 0 0 8px; }
