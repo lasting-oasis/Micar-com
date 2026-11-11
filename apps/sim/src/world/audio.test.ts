@@ -15,11 +15,13 @@ describe('Audio', () => {
 
 describe('engine sound model wiring', () => {
   const car = () => makeVehicle(carParams(ARCHETYPES.sedan, STOCK_CFG.perf, TUNE_DEF));
-  it('is chosen by ?sound=model and is off otherwise', () => {
+  it('is the default, and ?sound=classic brings the old synth back', () => {
     expect(soundMode('?sound=model')).toBe('model');
     expect(soundMode('?physics=core&sound=model')).toBe('model');
-    expect(soundMode('')).toBe('classic');
-    expect(soundMode('?sound=loud')).toBe('classic');
+    expect(soundMode('')).toBe('model');
+    expect(soundMode('?sound=loud')).toBe('model');
+    expect(soundMode('?sound=classic')).toBe('classic');
+    expect(soundMode('?physics=core&sound=classic')).toBe('classic');
   });
   it('passes rpm, throttle and boost through and reads load from the throttle', () => {
     const V = car(); V.rpm = 4200; V.thr = 0.6; V.boost = 0.4;
