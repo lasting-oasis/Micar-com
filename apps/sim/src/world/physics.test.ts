@@ -18,6 +18,19 @@ const STOCK_PERF: PerfCfg = { engine: 0, ecu: 0, turbo: 0, trans: 0, susp: 0, no
 const TUNE_DEF: Tune = { turbo: 0, nitrous: 0, aero: 0, bias: 0, ride: 0, stiff: 0, steer: 0, gears: 0 };
 
 describe('physics', () => {
+  it('reversing with the wheel turned swings the car the opposite way to driving forward with it turned, as a real car does', () => {
+    const turn = (dir: 'fwd' | 'back') => {
+      const V = makeVehicle(carParams(ronin, STOCK_PERF, TUNE_DEF));
+      for (let i = 0; i < 240; i++) stepVehicle(V, { ...NO_INPUT, [dir]: 1 }, 1 / 120, false);
+      const h0 = V.h;
+      for (let i = 0; i < 120; i++) stepVehicle(V, { ...NO_INPUT, [dir]: 1, steer: -1 }, 1 / 120, false);
+      return V.h - h0;
+    };
+    const fwd = turn('fwd'), back = turn('back');
+    expect(Math.abs(fwd)).toBeGreaterThan(.3);
+    expect(Math.abs(back)).toBeGreaterThan(.3);
+    expect(Math.sign(back)).toBe(-Math.sign(fwd));
+  });
   it('interpolates the torque table', () => { expect(curveAt(ronin.tq, 1000)).toBe(175); expect(curveAt(ronin.tq, 3250)).toBeCloseTo(237, 0); expect(curveAt(ronin.tq, 9000)).toBe(210); });
   it('a stock Ronin does 0-100 between 5 and 9 s and tops out between 200 and 260 km/h', () => { const s = simStats(carParams(ronin, STOCK_PERF, TUNE_DEF)); expect(s.t100).toBeGreaterThan(5); expect(s.t100).toBeLessThan(9); expect(s.top).toBeGreaterThan(200); expect(s.top).toBeLessThan(260); expect(s.hp).toBeGreaterThan(200); });
   it('gripMul scales tire friction', () => { const m = carParams(ronin, STOCK_PERF, TUNE_DEF).mu; expect(carParams({ ...ronin, gripMul: .9 }, STOCK_PERF, TUNE_DEF).mu).toBeCloseTo(m * .9, 10); });

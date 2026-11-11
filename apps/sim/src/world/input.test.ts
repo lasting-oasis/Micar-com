@@ -31,6 +31,35 @@ describe('InputMap', () => {
     im.releaseAll(); expect(im.touch.thr).toBe(false); expect(im.build().fwd).toBe(0);
   });
 
+  it('a finger slid from one steer button to the other switches the steer, and slid off any button lets go', () => {
+    const im = new InputMap({ manual: () => false, hydraulics: () => false });
+    im.pointerDown(1, 'left'); expect(im.build().steer).toBe(-1); expect(im.edge.laneL).toBe(true);
+    im.pointerMove(1, 'right'); expect(im.build().steer).toBe(1); expect(im.edge.laneR).toBe(true);
+    im.pointerMove(1, 'right'); expect(im.build().steer).toBe(1);
+    im.pointerMove(1, null); expect(im.build().steer).toBe(0); expect(im.touch.right).toBe(false);
+    im.pointerMove(1, 'left'); expect(im.build().steer).toBe(-1); // back onto a button while still down
+    im.pointerUp(1); expect(im.build().steer).toBe(0);
+    im.pointerMove(1, 'right'); expect(im.build().steer).toBe(0); // a finger that is up presses nothing
+  });
+
+  it('two fingers are separate: lifting one never lets go of the other, even on the same button', () => {
+    const im = new InputMap({ manual: () => false, hydraulics: () => false });
+    im.pointerDown(1, 'thr'); im.pointerDown(2, 'left');
+    expect(im.build()).toMatchObject({ fwd: 1, steer: -1 });
+    im.pointerUp(2); expect(im.build()).toMatchObject({ fwd: 1, steer: 0 });
+    im.pointerDown(3, 'thr'); im.pointerUp(1); expect(im.build().fwd).toBe(1); // finger 3 still holds the gas
+    im.pointerUp(3); expect(im.build().fwd).toBe(0);
+  });
+
+  it('a gear button fires once per tap and never by sliding onto it; releaseAll forgets every finger', () => {
+    const im = new InputMap({ manual: () => true, hydraulics: () => false });
+    im.pointerDown(1, 'up'); expect(im.edge.shiftUp).toBe(true); im.clearEdges();
+    im.pointerMove(1, 'up'); expect(im.edge.shiftUp).toBe(false);
+    im.pointerDown(2, 'thr'); im.pointerMove(2, 'dn'); expect(im.edge.shiftDn).toBe(false); expect(im.build().fwd).toBe(0);
+    im.pointerDown(3, 'brk'); im.releaseAll(); expect(im.build().back).toBe(0);
+    im.pointerMove(3, 'left'); expect(im.build().steer).toBe(0); // the forgotten finger presses nothing until it is lifted and put down again
+  });
+
   it('hydraulics take the arrows off the car and hop needs the kit', () => {
     let kit = true;
     const im = new InputMap({ manual: () => false, hydraulics: () => kit });
