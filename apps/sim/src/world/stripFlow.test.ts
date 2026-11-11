@@ -31,7 +31,7 @@ import { VISITOR_EVENTS, hostIsVacant, isUntouchedGuest, linkTarget, pickHost } 
 describe('visitor rules', () => {
   it('a visitor may send only the Strip events', () => {
     expect([...VISITOR_EVENTS].sort()).toEqual([
-      'chat_message', 'claim_allowance', 'consume_fuel', 'enter_event', 'finish_event', 'finish_outrun', 'join', 'link_account',
+      'bay_order', 'chat_message', 'claim_allowance', 'consume_fuel', 'enter_event', 'finish_event', 'finish_outrun', 'join', 'link_account',
       'quit_event', 'refuel', 'rent_car', 'request_link', 'sign_out', 'strip_buy_part', 'strip_equip', 'strip_tune',
       'sync_car_pos', 'sync_player_pos', 'test_car', 'test_car_return',
     ]);

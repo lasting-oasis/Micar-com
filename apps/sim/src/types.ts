@@ -1,5 +1,6 @@
 import type { StripRecord } from './world/data';
 import type { Account } from './world/accounts';
+import type { WorkOrder } from './bay/order';
 export type RepairDef = {
   id: string; // unique instance ID for this specific repair on a specific car
   name: string;
@@ -21,6 +22,7 @@ export type Car = {
   isProcessed?: boolean; // Farm sim mechanic
   lotPosition?: { x: number, z: number, r: number }; // True physical sandbox persistence
   activeRepairs?: RepairDef[]; // Diagnostic specific defects
+  recon?: number; // dollars spent on orders for this car
   psiRevealed?: boolean; // Mask condition if not paid for PSI
   estimatedMMR?: number; // Pre-calculated baseline determinism
   auctionSeller?: string; // e.g. 'Geico Insurance', 'State Farm', 'Private Seller'
@@ -106,6 +108,7 @@ export type Player = {
   inventory: Car[]; lotPosition: { x: number; z: number };
   worldPosition?: { x: number; y: number; z: number; rotation: number; district?: 'town' | 'strip' }; // district: relayed in player_positions
   partsInventory: Record<string, number>; // Maps part name to quantity owned
+  orders?: WorkOrder[]; // the bay's work orders, newest first, at most 30
   lotScale: 'Small' | 'Medium' | 'Large';
   marketingTier: 'Craigslist' | 'MetaAds' | 'Autotrader';
   floorPlanDebt: number; floorPlanRate: number; // Daily interest rate for holding cars

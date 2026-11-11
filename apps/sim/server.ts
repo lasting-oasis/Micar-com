@@ -10,6 +10,10 @@ import { EVENTS, carState, freshStrip, getV, isOwned, okey, stageOf, withV, type
 import { applyPayout, clampTune, ensureStrip, outrunEvent, partPrice, validateEnter, validateFinish, validateOutrun, ENTRY_TTL_MS, type EventEntry } from './src/world/payout.js';
 import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 import { CAR_CATALOG } from './src/carCatalog.js';
+import { DOORS, applyOrder, isOrderLine, quoteOrder, type OrderCtx, type WorkOrder } from './src/bay/order.js';
+import { explainCondition, overallCondition } from './src/bay/faults.js';
+import { guarded, handlerErrorLog } from './src/world/safeHandler.js';
+import { REPAIR_JOBS, repairJobFor } from './src/bay/catalog.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 import { RENTAL_FLEET, canRent, isRental, isVisitor, rent, type RentalKey } from './src/world/rental.js';
 import { MAGIC_TTL_MS, allowSend, clientIp, newSendLog, pruneSendLog, applyRecord, attachAccount, liveHolder, bootState, claimAllowance, findAccount, linkGuest, saveRecord, signMagic, signSession, utcDay, verifyGoogle, verifyMagic, verifySession, type Account, type Identity, type Jwk } from './src/world/accounts.js';
@@ -155,11 +159,13 @@ let googleForcedAt = 0;
 const redact = (s: string) => s.slice(0, 3) + '…';
 const accountView = (a: Account) => ({ id: a.id, identity: a.identities[0], allowanceToday: a.lastAllowance === utcDay(Date.now()) });
 const issueSession = (accountId: string) => process.env.MAGIC_SECRET ? signSession(accountId, Date.now(), process.env.MAGIC_SECRET) : null;
+/** Another player as a viewer sees them: no work orders, and nothing of what they spent on a car. */
+const othersView = (p: Player): Player => ({ ...p, accountId: undefined, tester: undefined, orders: [], inventory: (p.inventory ?? []).map(c => ({ ...c, recon: 0 })) });
 // The state a client may see: never the accounts (identities are private), nor other players' account ids or tester flag.
 const publicState = (viewerId: string) => {
     const { accounts: _accounts, ...rest } = gameState;
     const players: Record<string, Player> = {};
-    for (const [pid, p] of Object.entries(gameState.players)) players[pid] = pid === viewerId ? p : { ...p, accountId: undefined, tester: undefined };
+    for (const [pid, p] of Object.entries(gameState.players)) players[pid] = pid === viewerId ? p : othersView(p);
     return { ...rest, players };
 };
 
@@ -281,7 +287,8 @@ function broadcastState(io: Server, state: GameState) {
                     shareHoldings: {},     // portfolios are private
                     accountId: undefined,  // account ids are private
                     tester: undefined,     // and so is who is testing
-                    inventory: p.inventory ? p.inventory.map((c: any) => ({ ...c, buyPrice: 0 })) : []
+                    orders: [],            // work orders are private
+                    inventory: p.inventory ? p.inventory.map((c: any) => ({ ...c, buyPrice: 0, recon: 0 })) : []   // so is what was paid and spent
                 };
             }
         }
@@ -400,6 +407,7 @@ const tickFractionalMarket = () => {
     });
 };
 
+let repairSeq = 0;
 const generateRepairs = (issueCount: number, type: 'mechanic' | 'body') => {
     let condition = 100;
     const repairs: any[] = [];
@@ -407,7 +415,7 @@ const generateRepairs = (issueCount: number, type: 'mechanic' | 'body') => {
     for (let j = 0; j < issueCount; j++) {
         const issue = lib[Math.floor(Math.random() * lib.length)];
         repairs.push({
-            id: `rep-${type.substring(0, 1)}-${Date.now()}-${Math.floor(Math.random()*1000)}`,
+            id: `rep-${type.substring(0, 1)}-${Date.now()}-${repairSeq++}`,
             name: issue.name,
             partName: issue.partName,
             type,
@@ -418,6 +426,11 @@ const generateRepairs = (issueCount: number, type: 'mechanic' | 'body') => {
     }
     return { condition: Math.max(0, condition), repairs };
 };
+
+/** Gives a car a fault for every point of condition it lost that no fault accounts for. */
+let faultSeq = 0;
+const explainCar = (car: Car) => { explainCondition(car, Math.random, () => `rep-x-${Date.now()}-${faultSeq++}`); };
+const explainAll = (p: Player) => { for (const c of p.inventory) if (c && typeof c === 'object') explainCar(c); };
 
 // Per-owner gate access code, generated once when a player connects and stored
 // on their account so it persists with the saved game state.
@@ -685,6 +698,7 @@ const processInsurance = (p: Player) => {
             c.bodyCondition = Math.max(5, c.bodyCondition - dmg);
             c.condition = Math.floor((c.bodyCondition + c.mechanicCondition) / 2);
             bill += dmg * 40;
+            explainCar(c);
         });
         if (inventoryCovered) payClaim(bill, `Hailstorm hit ${victims.length} vehicle(s).`);
         else logInsurance(p, `Hailstorm damaged ${victims.length} vehicle(s) — UNINSURED, ~$${bill.toLocaleString()} in damage.`);
@@ -704,6 +718,7 @@ const processInsurance = (p: Player) => {
         car.bodyCondition = Math.max(5, car.bodyCondition - dmg);
         car.mechanicCondition = Math.max(5, car.mechanicCondition - Math.floor(dmg / 2));
         car.condition = Math.floor((car.bodyCondition + car.mechanicCondition) / 2);
+        explainCar(car);
         const bill = dmg * 60;
         if (inventoryCovered) payClaim(bill, `Lot accident damaged a ${car.year} ${car.make}.`);
         else logInsurance(p, `Lot accident damaged a ${car.year} ${car.make} — UNINSURED, ~$${bill.toLocaleString()}.`);
@@ -977,6 +992,9 @@ setInterval(() => {
 }, 100);
 
 io.on('connection', (socket) => {
+    // A handler that throws, or whose promise rejects, is logged and the server carries on. The error's message only: never the payload.
+    const on = socket.on.bind(socket) as (event: string, fn: (...args: any[]) => unknown) => unknown;
+    (socket as any).on = (event: string, fn: (...args: any[]) => unknown) => on(event, guarded(event, fn, (ev, error) => console.log('--- HANDLER ERROR ---', handlerErrorLog(ev, error))));
     // A Strip visitor (a guest or a Strip account holder) may send only the Strip's own events (VISITOR_EVENTS): no
     // dealer handler ever runs for one, so no money made there can be carried into an account.
     socket.use(([event], next) => {
@@ -1000,6 +1018,7 @@ io.on('connection', (socket) => {
       const p = guestPlayer(socket.id, typeof name === 'string' ? name.trim().slice(0, 24) : '', now);
       if (account) {
           applyRecord(p, structuredClone(account.player)); // a copy: the record changes only via persistAccount
+          explainAll(p);
           p.accountId = account.id;
           p.guest = false;
       } else if (tester) grantTester(p);
@@ -1365,6 +1384,35 @@ io.on('connection', (socket) => {
       broadcastState(io, gameState);
   });
 
+  let orderSeq = 0;
+  socket.on('bay_order', (msg: any) => {
+      const { carId, door, lines, quote } = msg && typeof msg === 'object' ? msg : {} as any;
+      const player = gameState.players[socket.id];
+      if (!player) return;
+      const bad = () => { deny('That order is not valid.'); broadcastState(io, gameState); };
+      if (!ownsCar(player, carId) || !(DOORS as readonly unknown[]).includes(door) || !Array.isArray(lines) || !lines.length || !lines.every(isOrderLine)) { bad(); return; }
+      const car = dealerCar(player, carId);
+      if (!car) { broadcastState(io, gameState); return; } // a rental stays stock
+      const rec = stripOf(player), c = carState(rec, carId);
+      const ctx: OrderCtx = { car, build: c, style: 'sedan', stage: stageOf(rec.rep), partsInventory: player.partsInventory, hasMechanic: !!player.employees?.mechanic };
+      const q = quoteOrder(ctx, lines);
+      const refused = q.lines.find(l => l.status !== 'ok');
+      if (refused) { deny(refused.reason ?? 'That order is not valid.'); broadcastState(io, gameState); return; }
+      if (quote !== q.total) { deny('The price changed. Try again.'); broadcastState(io, gameState); return; }
+      if (q.total > 0 && player.money < q.total) { deny('Not enough cash for this order.'); broadcastState(io, gameState); return; }
+      // the label is built before anything changes: a trade-in's make comes from the client and may be anything
+      const label = [car.year, car.make, car.model].filter(x => typeof x === 'string' || typeof x === 'number').join(' ');
+      const result = applyOrder(ctx, lines, Math.random);
+      player.money -= result.total;
+      player.balanceSheet.totalExpenses += result.total;
+      player.balanceSheet.lastTickExpense += result.total;
+      const order: WorkOrder = { ...result, id: 'wo-' + Date.now() + '-' + orderSeq++, carId, car: label, door: door as WorkOrder['door'], day: gameState.day };
+      player.orders = [{ ...order, stages: [] }, ...(player.orders ?? [])].slice(0, 30);   // the stages are static text: the reply carries them, the record does not
+      persistAccount(player);
+      socket.emit('bay_result', { order });
+      broadcastState(io, gameState);
+  });
+
   // --- Rentals and accounts -------------------------------------------------
   // The server owns the money, the date and the identity: nothing here takes them from the client.
   socket.on('rent_car', ({ key } = {} as any) => {
@@ -1492,6 +1540,7 @@ io.on('connection', (socket) => {
       const { account, replaced } = linkGuest(gameState.accounts, identity, player, Date.now());
       if (replaced) { // the guest's run (and any rental it held) is set aside for the saved one
           applyRecord(player, structuredClone(account.player));
+          explainAll(player);
           drivenCar.delete(targetId);
           activeEvents.delete(targetId);
       }
@@ -1535,18 +1584,6 @@ io.on('connection', (socket) => {
      const car = dealerCar(player, carId);
      if (car) {
          car.isDirty = false;
-         broadcastState(io, gameState);
-     }
-  });
-
-  socket.on('repair_engine', (carId) => {
-     const player = gameState.players[socket.id];
-     if (!player) return;
-     const car = dealerCar(player, carId);
-     if (car && player.money >= 500 && car.mechanicCondition < 100) {
-         player.money -= 500;
-         car.mechanicCondition = 100;
-         car.condition = Math.floor((car.mechanicCondition + car.bodyCondition) / 2);
          broadcastState(io, gameState);
      }
   });
@@ -1690,15 +1727,16 @@ io.on('connection', (socket) => {
           finalPrincipal = Math.max(0, finalPrincipal - allowance);
 
           const unparkedCount = player.inventory.filter(c => !c.isProcessed).length;
-          player.inventory.push({
+          const bodyCondition = 30 + Math.floor(Math.random() * 50), mechanicCondition = 30 + Math.floor(Math.random() * 50);
+          const tradedIn: Car = {
               id: `trd-${Date.now()}`,
               vin: generateVIN(),
               make: tradeIn.make,
               model: tradeIn.model,
               year: tradeIn.year,
-              condition: 30 + Math.floor(Math.random() * 50),
-              bodyCondition: 30 + Math.floor(Math.random() * 50),
-              mechanicCondition: 30 + Math.floor(Math.random() * 50),
+              condition: overallCondition(bodyCondition, mechanicCondition),
+              bodyCondition,
+              mechanicCondition,
               titleStatus: 'Clean',
               daysOnLot: 0,
               color: 'Trade-In Silver',
@@ -1707,7 +1745,9 @@ io.on('connection', (socket) => {
               isRegistered: false,
               ownerId: player.id,
               lotPosition: dropOffSpot(player.lotPosition, unparkedCount)
-          });
+          };
+          explainCar(tradedIn);
+          player.inventory.push(tradedIn);
       }
 
       let cashProceeds = 0;
@@ -1931,15 +1971,19 @@ io.on('connection', (socket) => {
       }
   });
 
-  socket.on('buy_part', ({ partName, cost }) => {
-      const player = gameState.players[socket.id];
-      if (player && player.money >= cost) {
-          player.money -= cost;
-          player.balanceSheet.totalExpenses += cost;
-          player.balanceSheet.lastTickExpense += cost;
-          player.partsInventory[partName] = (player.partsInventory[partName] || 0) + 1;
-          broadcastState(io, gameState);
-      }
+  socket.on('buy_part', (msg: any) => {
+      const player = gameState.players[socket.id], partName = msg?.partName;
+      if (!player || typeof partName !== 'string') return;
+      // the job is found by part name, or by fault name for a page loaded before the deploy; the price is the server's
+      const job = repairJobFor(partName) ?? REPAIR_JOBS.find(j => j.n === partName);
+      if (!job) return;
+      const cost = Math.floor(job.cost * 0.75);
+      if (player.money < cost) return;
+      player.money -= cost;
+      player.balanceSheet.totalExpenses += cost;
+      player.balanceSheet.lastTickExpense += cost;
+      player.partsInventory[job.partName] = (player.partsInventory[job.partName] || 0) + 1;
+      broadcastState(io, gameState);
   });
 
   socket.on('buy_scrap_car', (carId) => {

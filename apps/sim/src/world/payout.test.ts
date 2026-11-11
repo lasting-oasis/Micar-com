@@ -141,6 +141,9 @@ describe('parts and tunes', () => {
     expect(partPrice('spoiler', 9, 1).ok).toBe(false);
     expect(partPrice('nope', 1, 1).ok).toBe(false);
   });
+  it('treats a key that is only on Object.prototype as an unknown part', () => {
+    for (const k of ['constructor', 'toString', '__proto__', 'hasOwnProperty']) expect(partPrice(k, 1, 1)).toEqual({ ok: false, reason: 'Unknown part.' });
+  });
   it('clamps tune sliders to -1..1 in 0.1 steps and fills missing ones', () => {
     const t = clampTune({ turbo: 3, nitrous: -0.26, aero: 'x', bias: 0.44 });
     expect(t).toEqual({ turbo: 1, nitrous: -0.3, aero: 0, bias: 0.4, ride: 0, stiff: 0, steer: 0, gears: 0 });
