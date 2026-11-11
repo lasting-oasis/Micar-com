@@ -241,8 +241,8 @@ export const DriveLayer = forwardRef<HTMLDivElement, { canvasRef: React.RefObjec
             <Btn k="brk" label="Brake" />
             <Btn k="thr" label="Gas" />
           </div>
-          {/* beside the gas stick in the stick layout (above it would run off a landscape phone), above the buttons otherwise */}
-          <div className="fixed right-4 flex flex-col gap-3" style={{ ...(sticks ? { right: 'max(174px, calc(env(safe-area-inset-right, 0px) + 166px))', bottom: 'calc(24px + env(safe-area-inset-bottom, 0px))' } : { bottom: 'calc(248px + env(safe-area-inset-bottom, 0px))' }), display: touch && driving && !results && !paused ? undefined : 'none' }}>
+          {/* pause, reset and map in a row across the top right, clear of the thumbs */}
+          <div className="fixed flex flex-row gap-3" style={{ top: 'calc(16px + env(safe-area-inset-top, 0px))', right: 'max(16px, calc(env(safe-area-inset-right, 0px) + 8px))', display: touch && driving && !results && !paused ? undefined : 'none' }}>
             <TapBtn t="pause" label="II" aria="Pause" hidden={district !== 'strip' || mapOpen} />
             <TapBtn t="reset" label="R" aria="Reset the car" hidden={mapOpen} />
             <TapBtn t="map" label="Map" aria="Map" hidden={district !== 'strip' || (eventLive && !mapOpen)} />
