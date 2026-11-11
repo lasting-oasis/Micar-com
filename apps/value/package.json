@@ -24,7 +24,8 @@
     "react-dom": "19.3.1",
     "recharts": "3.10.1",
     "@micar/brand": "workspace:*",
-    "@micar/engine": "workspace:*"
+    "@micar/engine": "workspace:*",
+    "@micar/holo": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.3.3",

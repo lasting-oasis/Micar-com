@@ -1,0 +1,6 @@
+{
+  "gloss":     { "kind": 0, "K": 0,   "S": 0,   "K2": 0,   "S2": 0,   "sat": 0,    "m0": 0,    "m1": 1,   "cover": 0,    "strength": 0,    "add": 0,    "mul": 0,    "metal": 0,    "sparkle": 0,   "cell": 4.0, "refr": 0,     "amp": 0,    "lobe": 1,   "edge": 0.06 },
+  "holo":      { "kind": 1, "K": 4.5, "S": 1.6, "K2": 0,   "S2": 0,   "sat": 0.78, "m0": 0.22, "m1": 0.8, "cover": 0,    "strength": 1.55, "add": 0.3,  "mul": 1.45, "metal": 0.55, "sparkle": 0.7, "cell": 4.0, "refr": 0,     "amp": 0,    "lobe": 1,   "edge": 0.06 },
+  "rainbow":   { "kind": 2, "K": 6.5, "S": 2.6, "K2": 5.0, "S2": 1.9, "sat": 0.92, "m0": 0.05, "m1": 0.6, "cover": 0.46, "strength": 1.35, "add": 0.52, "mul": 1.2,  "metal": 0.7,  "sparkle": 1.0, "cell": 4.0, "refr": 0,     "amp": 0,    "lobe": 1,   "edge": 0.06 },
+  "prismatic": { "kind": 3, "K": 5.5, "S": 0.6, "K2": 0,   "S2": 0,   "sat": 0.86, "m0": 0.08, "m1": 0.7, "cover": 0.36, "strength": 1.9,  "add": 0.5,  "mul": 1.25, "metal": 0.75, "sparkle": 1.3, "cell": 4.0, "refr": 0.002, "amp": 0.45, "lobe": 0.5, "edge": 0.06 }
+}
