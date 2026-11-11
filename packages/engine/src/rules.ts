@@ -19,10 +19,11 @@ export const POWER = {
   torqueWeight: 0.3,
   /**
    * With no torque on file the index is estimated, and the estimate leans low on purpose: it takes torque as this
-   * share of the horsepower figure, which is below nearly every production engine, so entering the real figure can
-   * only help and leaving it blank never does.
+   * share of the horsepower figure. That is under nearly every production engine (the highest-revving road engines
+   * make about 0.64 lb-ft for each horsepower), so entering the real figure nearly always helps and a blank almost
+   * never does.
    */
-  missingTorqueShare: 0.7,
+  missingTorqueShare: 0.6,
   anchors: [
     [0, 0], [50, 120], [100, 270], [150, 400], [200, 500], [250, 580], [300, 650], [400, 770],
     [500, 890], [564.3, 950], [700, 970], [1000, 990], [1500, 1000],
@@ -71,7 +72,8 @@ export const ACCELERATION = {
   /**
    * When no 0-60 time is on file: seconds = k x (pounds per horsepower) ^ exponent x drivetrain factor
    * (x electric factor, x the factor for a continuously variable transmission), never below the floor.
-   * k leans slow on purpose, so a measured time usually beats the estimate and a blank never beats a measurement.
+   * k leans slow on purpose, so a measured time usually beats the estimate. A blank drivetrain takes the slowest
+   * drivetrain's factor and a blank transmission the continuously variable one's.
    */
   estimate: {
     k: 1,
@@ -94,6 +96,7 @@ export const HANDLING = {
     [1, 800], [1.05, 880], [1.1, 920], [1.2, 965], [1.3, 1000],
   ] as readonly Anchor[],
   model: {
+    // With no suspension grade on file the lowest term below is used: a blank is read as the least grip.
     /** Lateral grip typical of each class, g. */
     classGrip: { sports: 0.95, coupe: 0.9, hatchback: 0.86, sedan: 0.85, wagon: 0.84, suv: 0.8, van: 0.77, pickup: 0.75, offroad: 0.72 } as Record<BodyClass, number>,
     /** Curb weight typical of each class, lb. Lighter than this helps, heavier hurts. */

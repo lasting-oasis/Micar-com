@@ -180,9 +180,24 @@ describe('off-road', () => {
     expect(terrainFactor('drag', truck)).toBe(1);
     expect(terrainFactor('offroad', truck)).toBeCloseTo(0.976, 3);
     expect(terrainFactor('offroad', civic)).toBeCloseTo(0.68 * 0.812, 3);
-    expect(terrainFactor('offroad', { ...civic, groundClearanceIn: null })).toBeCloseTo(0.68 * 0.84, 3);
-    expect(terrainFactor('offroad', { ...civic, drivetrain: null })).toBeCloseTo(0.8 * 0.812, 3);
     expect(terrainFactor('offroad', { ...truck, groundClearanceIn: 30 })).toBe(1.05);
+  });
+
+  it('reads a blank drivetrain or ground clearance as the least favourable, so a blank is never worth more than the figure', () => {
+    // A sedan with no clearance on file used to get a class figure better than a typical sedan's real one, and a
+    // front-drive car with no drivetrain on file did better than with it.
+    expect(terrainFactor('offroad', { ...civic, groundClearanceIn: null })).toBeCloseTo(0.68 * 0.8, 3);
+    expect(terrainFactor('offroad', { ...civic, drivetrain: null })).toBeCloseTo(0.68 * 0.812, 3);
+    expect(terrainFactor('offroad', { ...truck, drivetrain: null, groundClearanceIn: null })).toBeCloseTo(0.68 * 0.8, 3);
+    for (const entrant of [civic, truck, gtr]) {
+      for (const drivetrain of ['FWD', 'RWD', 'AWD', '4WD'] as const) {
+        for (const groundClearanceIn of [1, 4, 5, 5.3, 6, 8, 9.4, 12, 30]) {
+          const full = terrainFactor('offroad', { ...entrant, drivetrain, groundClearanceIn });
+          expect(terrainFactor('offroad', { ...entrant, drivetrain: null, groundClearanceIn })).toBeLessThanOrEqual(full);
+          expect(terrainFactor('offroad', { ...entrant, drivetrain, groundClearanceIn: null })).toBeLessThanOrEqual(full);
+        }
+      }
+    }
   });
 
   it('lets a truck beat a supercar on dirt though the supercar handles better', () => {

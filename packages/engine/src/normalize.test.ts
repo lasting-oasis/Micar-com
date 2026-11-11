@@ -35,7 +35,8 @@ const civic: VehicleSpec = {
   ...blank('sedan', 'Civic'),
   powertrain: s('gasoline'), induction: s('natural'), displacementL: s(2), cylinders: s(4), horsepower: s(158), torqueLbFt: s(138),
   transmissionType: s('cvt'), drivetrain: s('FWD'), curbWeightLb: s(2877), zeroToSixtySec: s(9.7), combinedMpg: s(35), cityMpg: s(31),
-  highwayMpg: s(40), groundClearanceIn: s(5.3), construction: s('unibody'), warrantyPowertrainMiles: s(60000), warrantyPowertrainYears: s(5),
+  highwayMpg: s(40), groundClearanceIn: s(5.3), construction: s('unibody'), suspensionGrade: s('standard'), brakeGrade: s('standard'),
+  warrantyPowertrainMiles: s(60000), warrantyPowertrainYears: s(5),
 };
 
 const values = (spec: VehicleSpec) => {
@@ -93,10 +94,12 @@ describe('missing figures', () => {
     expect(sc.speed.metric as number).toBeGreaterThanOrEqual(110);
     expect(sc.speed.metric as number).toBeLessThanOrEqual(130);
     expect(civic.topSpeedMph).toBeNull();
-    // With no curb weight either, the class's usual weight stands in, and the score says the weight is missing.
+    // With no curb weight either there is no estimate: the class's usual weight used to stand in, and it flattered
+    // every car heavier than it (a 4,500 lb sedan gained 16 mph by leaving its weight blank).
     const noWeight = scoreSpec({ ...civic, curbWeightLb: null }).speed;
-    expect(noWeight.basis).toBe('estimated');
-    expect(noWeight.missing).toEqual(['topSpeedMph', 'curbWeightLb']);
+    expect(noWeight).toMatchObject({ value: null, basis: 'unavailable', missing: ['topSpeedMph', 'curbWeightLb'] });
+    expect(estimateTopSpeedMph({ ...civic, curbWeightLb: null })).toBeNull();
+    expect(estimateTopSpeedMph({ ...civic, horsepower: null })).toBeNull();
   });
 
   it('estimates a top speed that moves smoothly with power and weight', () => {
@@ -233,11 +236,88 @@ describe('missing figures', () => {
     expect(scoreSpec({ ...noTime, curbWeightLb: null }).acceleration.value).toBeNull();
   });
 
+  it('reads a blank drivetrain or transmission as the slowest when it estimates 0-60, and says they are missing', () => {
+    const e = ACCELERATION.estimate;
+    const car = { ...blank('suv'), powertrain: s('gasoline' as const), horsepower: s(190), curbWeightLb: s(3500) };
+    const time = (over: Partial<VehicleSpec>) => estimateZeroToSixtySec({ ...car, ...over }) as number;
+    const raw = e.k * Math.pow(3500 / 190, e.exponent);
+    // Nothing named: the slowest drivetrain's factor and the continuously variable transmission's.
+    expect(time({})).toBe(Math.round(raw * e.drivetrain.FWD * e.cvt * 10) / 10);
+    // Naming either can only help, and naming the worst case changes nothing.
+    expect(time({ drivetrain: s('FWD'), transmissionType: s('cvt') })).toBe(time({}));
+    expect(time({ drivetrain: s('AWD') })).toBeLessThan(time({}));
+    expect(time({ transmissionType: s('automatic') })).toBeLessThan(time({}));
+    for (const drive of ['AWD', '4WD', 'RWD', 'FWD'] as const) expect(time({ drivetrain: s(drive) }), drive).toBeLessThanOrEqual(time({}));
+    for (const gearbox of ['manual', 'automatic', 'dual-clutch', 'cvt', 'ecvt', 'single-speed'] as const) expect(time({ transmissionType: s(gearbox) }), gearbox).toBeLessThanOrEqual(time({}));
+    expect(scoreSpec(car).acceleration.missing).toEqual(['zeroToSixtySec', 'drivetrain', 'transmissionType']);
+    expect(scoreSpec({ ...car, drivetrain: s('AWD'), transmissionType: s('automatic') }).acceleration.missing).toEqual(['zeroToSixtySec']);
+    // The electric factor only helps, so it waits for the powertrain to be named.
+    expect(time({ powertrain: s('electric') })).toBeLessThan(time({}));
+    expect(time({ powertrain: null })).toBe(time({}));
+  });
+
+  it('reads a blank suspension grade as the one with the least grip, and says it is missing', () => {
+    const car = { ...blank('offroad'), curbWeightLb: s(4450), drivetrain: s('4WD' as const) };
+    const grip = (over: Partial<VehicleSpec>) => scoreSpec({ ...car, ...over }).handling;
+    // Clearing an off-road grade used to be worth 0.03 g.
+    expect(grip({}).metric).toBe(grip({ suspensionGrade: s('offroad') }).metric);
+    for (const grade of ['standard', 'sport', 'adaptive', 'offroad'] as const) expect(grip({ suspensionGrade: s(grade) }).value as number, grade).toBeGreaterThanOrEqual(grip({}).value as number);
+    expect(grip({ suspensionGrade: s('standard') }).value as number).toBeGreaterThan(grip({}).value as number);
+    expect(grip({}).missing).toEqual(['lateralGripG', 'suspensionGrade']);
+    expect(grip({ suspensionGrade: s('standard') }).missing).toEqual(['lateralGripG']);
+    // A measured skidpad figure reads no suspension grade at all.
+    expect(grip({ lateralGripG: s(0.72) }).missing).toEqual([]);
+  });
+
+  it('never scores a specification higher for a field left blank', () => {
+    // Every complete specification below is scored, then scored again with one field cleared at a time. A cleared
+    // field may leave a score unrated or lower it; it never raises one. Figures an estimate stands in for (a top
+    // speed, a 0-60 time, a skidpad figure) are left out here: a slow measured car is simply slower than the estimate.
+    const fields = [
+      'powertrain', 'induction', 'displacementL', 'cylinders', 'horsepower', 'torqueLbFt', 'transmissionType', 'drivetrain', 'curbWeightLb', 'groundClearanceIn',
+      'construction', 'suspensionGrade', 'brakeGrade', 'warrantyPowertrainMiles', 'combinedMpg',
+    ] as const;
+    const pairs: [number, number][] = [[120, 2600], [300, 3900], [650, 5600]];
+    let checked = 0;
+    for (const bodyClass of ['sports', 'coupe', 'sedan', 'hatchback', 'wagon', 'suv', 'offroad', 'pickup', 'van'] as const) {
+      for (const powertrain of ['gasoline', 'diesel', 'hybrid', 'plug-in-hybrid', 'electric'] as const) {
+        for (const drivetrain of ['FWD', 'RWD', 'AWD', '4WD'] as const) {
+          for (const gearbox of ['manual', 'automatic', 'cvt', 'single-speed'] as const) {
+            for (const grade of ['standard', 'sport', 'adaptive', 'offroad'] as const) {
+              for (const [hp, lb] of pairs) {
+                const electric = powertrain === 'electric';
+                const full: VehicleSpec = {
+                  ...blank(bodyClass), powertrain: s(powertrain), induction: electric ? null : s('turbo'), displacementL: electric ? null : s(2.5), cylinders: electric ? null : s(10),
+                  horsepower: s(hp), torqueLbFt: s(Math.round(hp * 0.9)), transmissionType: s(gearbox), drivetrain: s(drivetrain), curbWeightLb: s(lb), groundClearanceIn: s(8.5),
+                  construction: s('body-on-frame'), suspensionGrade: s(grade), brakeGrade: s('performance'), warrantyPowertrainMiles: s(100000), combinedMpg: s(24), cityMpg: s(21), highwayMpg: s(28),
+                };
+                const before = scoreSpec(full);
+                for (const field of fields) {
+                  if (full[field] === null) continue;
+                  const after = scoreSpec({ ...full, [field]: null });
+                  for (const k of ATTRIBUTE_KEYS) {
+                    const was = before[k].value, is = after[k].value;
+                    if (is !== null && (was === null || is > was)) throw new Error(`${bodyClass} ${powertrain} ${drivetrain} ${gearbox} ${grade} ${hp} hp: clearing ${field} raised ${k} from ${was} to ${is}`);
+                  }
+                  checked += 1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    expect(checked).toBeGreaterThan(100000);
+  });
+
   it('marks POWER as estimated when torque is missing and never rates it without horsepower', () => {
     expect(scoreSpec({ ...civic, torqueLbFt: null }).power.basis).toBe('estimated');
-    // The estimate takes torque as 70% of the horsepower figure, which is below nearly every production engine.
-    expect(outputIndex({ ...civic, torqueLbFt: null })).toBeCloseTo(158 * (0.7 + 0.3 * 0.7), 9);
-    expect(POWER.missingTorqueShare).toBe(0.7);
+    // The estimate takes torque as 60% of the horsepower figure, which is under nearly every production engine: even
+    // the highest-revving road engines (about 0.64 lb-ft for each horsepower) do better by entering the real figure.
+    expect(outputIndex({ ...civic, torqueLbFt: null })).toBeCloseTo(158 * (0.7 + 0.3 * 0.6), 9);
+    expect(POWER.missingTorqueShare).toBe(0.6);
+    const revvy = { ...blank('sports'), horsepower: s(553), torqueLbFt: s(354) };
+    expect(outputIndex({ ...revvy, torqueLbFt: null }) as number).toBeLessThan(outputIndex(revvy) as number);
     expect(scoreSpec({ ...civic, torqueLbFt: null }).power.value as number).toBeLessThan(scoreSpec(civic).power.value as number);
     expect(scoreSpec({ ...civic, torqueLbFt: null }, { estimates: false }).power.value).toBeNull();
     expect(scoreSpec({ ...civic, horsepower: null }).power.value).toBeNull();

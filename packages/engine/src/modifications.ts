@@ -165,8 +165,8 @@ function byInstall(a: ActiveModification, b: ActiveModification): number {
  * Decides which of the modifications on record count for this specification.
  *
  * - A combustion-only modification on an electric powertrain is refused: "not for an electric powertrain".
- * - The latest install in a category (by `installedOn`, then `eventId`) counts; an earlier one in the same category
- *   is refused: "replaced by a later fitment".
+ * - The latest install in a category (by `installedOn`, then when it was written down, then `eventId`) counts; an
+ *   earlier one in the same category is refused: "replaced by a later fitment".
  * - Within a group (turbocharger and supercharger; performance tires, off-road kit and economy setup) only the
  *   latest install counts; the others are refused with the same reason.
  * Nothing else is ever refused. Every record comes back in exactly one of the two lists, both in install order,
@@ -231,7 +231,7 @@ function moved(cell: Sourced<number> | null, value: number | null): Sourced<numb
  *   on file, by `1 + 0.6 x (share of weight removed)`: lighter is thriftier, heavier the reverse.
  * - Ground clearance gets the sum of the tiers' inches.
  * - A 0-60 time on file is multiplied by `((new lb / new hp) / (old lb / old hp)) ^ 0.75`, when horsepower and
- *   curb weight are both on file.
+ *   curb weight are both on file, and never goes below the estimate's floor (1.9 s) unless it was already there.
  * - A top speed on file is multiplied by `(new hp / old hp) ^ (1/3)`, when horsepower is on file and the top speed
  *   is not governed. A governed top speed is not moved by power.
  * More power also raises horsepower per litre, which the stress terms of DURABILITY and RELIABILITY charge for.
@@ -278,10 +278,14 @@ export function applyModifications(
   const mpg = economy * (oldLb === null ? 1 : 1 + ECONOMY_PER_WEIGHT_SHARE * (1 - weight));
   const scaled = (cell: Sourced<number> | null, factor: number): Sourced<number> | null => moved(cell, cell === null ? null : cell.value * factor);
 
-  // A time on file follows pounds per horsepower by the same law the 0-60 estimate uses.
+  // A time on file follows pounds per horsepower by the same law the 0-60 estimate uses, and stops where the estimate
+  // stops: no stack of parts takes it below the estimate's floor (a car already quicker than the floor keeps its time).
   const sprintOnFile = spec.zeroToSixtySec === null || oldHp === null || oldLb === null || newHp === null || newLb === null
     ? null
-    : spec.zeroToSixtySec.value * Math.pow((newLb / newHp) / (oldLb / oldHp), ACCELERATION.estimate.exponent);
+    : Math.max(
+      spec.zeroToSixtySec.value * Math.pow((newLb / newHp) / (oldLb / oldHp), ACCELERATION.estimate.exponent),
+      Math.min(spec.zeroToSixtySec.value, ACCELERATION.estimate.floor),
+    );
 
   const governed = spec.topSpeedGoverned !== null && spec.topSpeedGoverned.value === true;
   const topOnFile = spec.topSpeedMph === null || governed || oldHp === null || newHp === null

@@ -45,6 +45,14 @@ export function specQuality(spec: VehicleSpec): DataQuality | null {
 const val = <T>(cell: Sourced<T> | null): T | null => (cell ? cell.value : null);
 
 /**
+ * The lowest and the highest figure in a table of terms. Where a choice is blank and one of its terms could cost the
+ * car something, the estimate takes the term that costs most: a blank is read as the least favourable case, never
+ * skipped, so leaving a field empty is never worth more than filling it in.
+ */
+const lowest = (table: Record<string, number>): number => Math.min(...Object.keys(table).map((k) => table[k]));
+const highest = (table: Record<string, number>): number => Math.max(...Object.keys(table).map((k) => table[k]));
+
+/**
  * True when the engine-stress terms apply: a petrol or diesel engine, or a powertrain nobody has named yet (which is
  * read as one). A hybrid's horsepower is its system output, not its engine's, and an electric motor has no
  * displacement, so neither is charged.
@@ -63,7 +71,7 @@ export function specificOutput(spec: VehicleSpec): number | null {
 
 /**
  * The output index POWER reads: 70% horsepower and 30% torque. With no torque on file it is estimated low, taking
- * torque as POWER.missingTorqueShare of the horsepower figure.
+ * torque as POWER.missingTorqueShare of the horsepower figure, which is under nearly every production engine's.
  */
 export function outputIndex(spec: VehicleSpec): number | null {
   const hp = val(spec.horsepower), tq = val(spec.torqueLbFt);
@@ -74,15 +82,15 @@ export function outputIndex(spec: VehicleSpec): number | null {
 /**
  * Top speed estimated from power: the speed at which the engine's power at the wheels equals aerodynamic drag plus
  * rolling resistance, times the share of it a car really reaches, capped at the limiter usual for the class (which
- * climbs smoothly toward the performance limiter as horsepower per pound rises). Null without horsepower. With no
- * curb weight on file the weight usual for the class stands in, and the score says the weight is missing.
+ * climbs smoothly toward the performance limiter as horsepower per pound rises). Null without horsepower or curb
+ * weight: the weight sets the rolling resistance and how far the limiter is raised, and a weight nobody entered
+ * (the class's usual one, say) would flatter every car heavier than it.
  */
 export function estimateTopSpeedMph(spec: VehicleSpec): number | null {
-  const hp = val(spec.horsepower);
-  if (hp === null) return null;
+  const hp = val(spec.horsepower), lb = val(spec.curbWeightLb);
+  if (hp === null || lb === null) return null;
   const e = SPEED.estimate;
   const cls = spec.identity.bodyClass;
-  const lb = val(spec.curbWeightLb) ?? HANDLING.model.referenceWeightLb[cls];
   const watts = hp * 745.7 * e.drivelineEfficiency;
   const a = 0.5 * e.airDensity * e.dragArea[cls];
   const b = e.rollingResistance * lb * 0.45359237 * 9.80665;
@@ -94,25 +102,33 @@ export function estimateTopSpeedMph(spec: VehicleSpec): number | null {
   return Math.round(Math.min(v * 2.2369363 * e.realisation, limiter) * 10) / 10;
 }
 
-/** 0-60 estimated from pounds per horsepower and the drivetrain. Null without horsepower and curb weight. */
+/**
+ * 0-60 estimated from pounds per horsepower, the drivetrain, the powertrain and the transmission. Null without
+ * horsepower and curb weight. A blank drivetrain is read as the slowest one and a blank transmission as a
+ * continuously variable one: both factors can only slow the car, so neither is skipped for want of an entry. The
+ * electric factor only helps, so it waits for the powertrain to be named.
+ */
 export function estimateZeroToSixtySec(spec: VehicleSpec): number | null {
   const hp = val(spec.horsepower), lb = val(spec.curbWeightLb);
   if (hp === null || lb === null) return null;
   const e = ACCELERATION.estimate;
-  const drive = val(spec.drivetrain);
-  const t = e.k * Math.pow(lb / hp, e.exponent) * (drive ? e.drivetrain[drive] : 1) * (val(spec.powertrain) === 'electric' ? e.electric : 1)
-    * (val(spec.transmissionType) === 'cvt' ? e.cvt : 1);
+  const drive = val(spec.drivetrain), gearbox = val(spec.transmissionType);
+  const t = e.k * Math.pow(lb / hp, e.exponent) * (drive ? e.drivetrain[drive] : highest(e.drivetrain)) * (val(spec.powertrain) === 'electric' ? e.electric : 1)
+    * (gearbox === null || gearbox === 'cvt' ? e.cvt : 1);
   return Math.round(Math.max(e.floor, t) * 10) / 10;
 }
 
-/** Lateral grip modelled from the class, the weight and the suspension. Null without curb weight. */
+/**
+ * Lateral grip modelled from the class, the weight and the suspension. Null without curb weight. A blank suspension
+ * grade is read as the grade with the least grip: one of the grades costs grip, so the term is not skipped.
+ */
 export function modelledGripG(spec: VehicleSpec): number | null {
   const lb = val(spec.curbWeightLb);
   if (lb === null) return null;
   const m = HANDLING.model;
   const cls = spec.identity.bodyClass;
   const grade = val(spec.suspensionGrade);
-  return m.classGrip[cls] + clamp((lb - m.referenceWeightLb[cls]) * m.gripPerLb, -m.weightLimit, m.weightLimit) + (grade ? m.suspension[grade] : 0);
+  return m.classGrip[cls] + clamp((lb - m.referenceWeightLb[cls]) * m.gripPerLb, -m.weightLimit, m.weightLimit) + (grade ? m.suspension[grade] : lowest(m.suspension));
 }
 
 /** The control term added to grip, measured or modelled: a little for driven wheels and for the brakes. */
@@ -249,8 +265,8 @@ export function scoreSpec(spec: VehicleSpec, options: ScoreOptions = {}): Attrib
     : Math.round((sprintFactor < 1 ? Math.max(rawSprint * sprintFactor, Math.min(rawSprint, ACCELERATION.estimate.floor)) : rawSprint * sprintFactor) * 100) / 100;
   const acceleration = made(
     spec, sprint === null ? null : score1000(sprint, ACCELERATION.anchors), spec.zeroToSixtySec ? 'measured' : 'estimated', sprint, 's 0-60',
-    spec.zeroToSixtySec ? ['zeroToSixtySec'] : present(spec, ['horsepower', 'curbWeightLb', 'drivetrain', 'transmissionType']),
-    spec.zeroToSixtySec ? [] : ['zeroToSixtySec', ...absent(spec, ['horsepower', 'curbWeightLb'])],
+    spec.zeroToSixtySec ? ['zeroToSixtySec'] : present(spec, ['horsepower', 'curbWeightLb', 'drivetrain', 'transmissionType', 'powertrain']),
+    spec.zeroToSixtySec ? [] : ['zeroToSixtySec', ...absent(spec, ['horsepower', 'curbWeightLb', 'drivetrain', 'transmissionType'])],
     sprintFactor !== 1 || reads(['zeroToSixtySec']),
   );
 
@@ -261,7 +277,7 @@ export function scoreSpec(spec: VehicleSpec, options: ScoreOptions = {}): Attrib
   const handling = made(
     spec, grip === null ? null : score1000(grip, HANDLING.anchors), spec.lateralGripG ? 'measured' : 'modelled', grip === null ? null : Math.round(grip * 1000) / 1000, 'g',
     spec.lateralGripG ? present(spec, ['lateralGripG', 'drivetrain', 'brakeGrade']) : present(spec, ['curbWeightLb', 'suspensionGrade', 'drivetrain', 'brakeGrade']),
-    spec.lateralGripG ? [] : ['lateralGripG', ...absent(spec, ['curbWeightLb'])],
+    spec.lateralGripG ? [] : ['lateralGripG', ...absent(spec, ['curbWeightLb', 'suspensionGrade'])],
     gripChange !== 0 || reads(['lateralGripG']),
   );
 

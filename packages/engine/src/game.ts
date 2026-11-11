@@ -6,7 +6,7 @@
 import { ATTRIBUTE_LABELS } from './labels';
 import { MOD_REFUSALS, applyModifications, modLabel, resolveModifications } from './modifications';
 import { attributesOf, layerOf, scoreSpec } from './normalize';
-import type { ActiveModification, AttributeKey, BodyClass, Drivetrain, ModCategory, ModTier, RaceEntrant, RaceMode, RaceResult, RaceRow, Result, StatLayer, StatsBasis, VehicleSpec } from './types';
+import type { ActiveModification, AttributeKey, Drivetrain, ModCategory, ModTier, RaceEntrant, RaceMode, RaceResult, RaceRow, Result, StatLayer, StatsBasis, VehicleSpec } from './types';
 import { ATTRIBUTE_KEYS, MOD_CATEGORIES, RACE_MODES } from './types';
 import { clamp, hashString, mulberry32, round1 } from './util';
 
@@ -43,21 +43,23 @@ export function raceClassOf(powerRating: number | null): RaceClassId | null {
   return out;
 }
 
-/** Off-road, the surface favours driven wheels and ground clearance. These are real configuration, not balance. */
+/**
+ * Off-road, the surface favours driven wheels and ground clearance. These are real configuration, not balance.
+ * With no drivetrain on file the lowest drivetrain factor is used, and with no ground clearance the lowest clearance
+ * factor: a blank is read as the least favourable case, so it is never worth more than the figure.
+ */
 export const TERRAIN = {
   drivetrain: { '4WD': 1, AWD: 0.9, RWD: 0.72, FWD: 0.68 } as Record<Drivetrain, number>,
-  unknownDrivetrain: 0.8,
   clearance: { base: 0.8, pivotIn: 5, perIn: 0.04, min: 0.8, max: 1.05 },
-  /** Used when no ground clearance is on file. */
-  classDefault: { offroad: 1, pickup: 0.97, suv: 0.92, wagon: 0.88, van: 0.85, sedan: 0.84, hatchback: 0.84, coupe: 0.82, sports: 0.8 } as Record<BodyClass, number>,
 };
 
 /** The multiplier for surface and configuration: 1 on tarmac, drivetrain times clearance off-road. */
 export function terrainFactor(mode: RaceMode, entrant: RaceEntrant): number {
   if (mode !== 'offroad') return 1;
-  const drive = entrant.drivetrain === null ? TERRAIN.unknownDrivetrain : TERRAIN.drivetrain[entrant.drivetrain];
+  const d = TERRAIN.drivetrain;
+  const drive = entrant.drivetrain === null ? Math.min(d['4WD'], d.AWD, d.RWD, d.FWD) : d[entrant.drivetrain];
   const c = TERRAIN.clearance;
-  const clearance = entrant.groundClearanceIn === null ? TERRAIN.classDefault[entrant.bodyClass] : clamp(c.base + (entrant.groundClearanceIn - c.pivotIn) * c.perIn, c.min, c.max);
+  const clearance = entrant.groundClearanceIn === null ? c.min : clamp(c.base + (entrant.groundClearanceIn - c.pivotIn) * c.perIn, c.min, c.max);
   return Math.round(drive * clearance * 1000) / 1000;
 }
 

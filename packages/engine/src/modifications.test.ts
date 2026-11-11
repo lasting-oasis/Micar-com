@@ -32,7 +32,8 @@ const civic: VehicleSpec = {
   ...blank('sedan', 'Civic'),
   powertrain: s('gasoline'), induction: s('natural'), displacementL: s(2), cylinders: s(4), horsepower: s(158), torqueLbFt: s(138),
   transmissionType: s('cvt'), drivetrain: s('FWD'), curbWeightLb: s(2877), zeroToSixtySec: s(9.7), combinedMpg: s(35), cityMpg: s(31),
-  highwayMpg: s(40), groundClearanceIn: s(5.3), construction: s('unibody'), warrantyPowertrainMiles: s(60000), warrantyPowertrainYears: s(5),
+  highwayMpg: s(40), groundClearanceIn: s(5.3), construction: s('unibody'), suspensionGrade: s('standard'), brakeGrade: s('standard'),
+  warrantyPowertrainMiles: s(60000), warrantyPowertrainYears: s(5),
 };
 
 // Figures typical of a rear-drive electric sedan: one motor, one gear, a top speed held by the limiter.
@@ -40,7 +41,7 @@ const ev: VehicleSpec = {
   ...blank('sedan', 'Electric Sedan'),
   powertrain: s('electric'), horsepower: s(271), torqueLbFt: s(310), transmissionType: s('single-speed'), drivetrain: s('RWD'), curbWeightLb: s(3862),
   zeroToSixtySec: s(5.8), topSpeedMph: s(125), topSpeedGoverned: s(true), combinedMpg: s(132), cityMpg: s(138), highwayMpg: s(126), evRangeMiles: s(272),
-  groundClearanceIn: s(5.5), construction: s('unibody'), warrantyPowertrainMiles: s(100000), warrantyPowertrainYears: s(8),
+  groundClearanceIn: s(5.5), construction: s('unibody'), suspensionGrade: s('standard'), warrantyPowertrainMiles: s(100000), warrantyPowertrainYears: s(8),
 };
 
 // Figures typical of a full-size 4x4 pickup with a naturally aspirated V8 on a separate frame. No top speed and no skidpad figure on file.
@@ -334,6 +335,28 @@ describe('what a modification does to the specification', () => {
     expect(applyModifications(civic, [mod('turbo', 2)]).spec.zeroToSixtySec?.value).toBeCloseTo(7.42327, 4);
     // Weight reduction, Extreme: 0.9 of the pounds on the same power.
     expect(applyModifications(gtr, [mod('weight', 3)]).spec.zeroToSixtySec?.value).toBeCloseTo(2.67966, 4);
+  });
+
+  it('never takes a 0-60 time on file below the estimate’s own floor, however many parts are stacked', () => {
+    // Six Extreme power and weight parts used to give the calibration car a 1.12 s time: quicker than anything the
+    // estimate itself would ever say, and quicker than the same car with no time on file.
+    const stack = [mod('turbo', 3), mod('engine', 3), mod('ecu', 3), mod('nitrous', 3), mod('intake-exhaust', 3), mod('weight', 3)];
+    const out = applyModifications(gtr, stack);
+    expect(out.spec.zeroToSixtySec?.value).toBe(1.9);
+    expect(scoreSpec(out.spec, { adjust: out.adjust, derived: out.changed }).acceleration).toMatchObject({ metric: 1.9, basis: 'modelled' });
+    // The 0-60 multipliers of a transmission and tires stop at the same floor.
+    const more = applyModifications(gtr, [...stack, mod('transmission', 3), mod('tires', 3)]);
+    expect(scoreSpec(more.spec, { adjust: more.adjust, derived: more.changed }).acceleration.metric).toBe(1.9);
+    // The same car with no time on file ends at the same place, so a time on file is never worth more than its estimate.
+    const noTime = applyModifications({ ...gtr, zeroToSixtySec: null }, stack);
+    expect(scoreSpec(noTime.spec, { adjust: noTime.adjust, derived: noTime.changed }).acceleration.metric).toBe(1.9);
+    // A legal free-play setup (turbo and engine build, both Extreme) cannot go under it either.
+    expect(applyModifications(gtr, [mod('turbo', 3), mod('engine', 3)]).spec.zeroToSixtySec?.value).toBe(1.9);
+    // A car that was already quicker than the floor keeps its own time: parts neither slow it nor quicken it.
+    const hyper = { ...gtr, zeroToSixtySec: s(1.7) };
+    expect(applyModifications(hyper, stack).spec.zeroToSixtySec).toEqual(hyper.zeroToSixtySec);
+    // Added weight still slows a time on file.
+    expect(applyModifications(gtr, [mod('offroad', 3)]).spec.zeroToSixtySec?.value as number).toBeGreaterThan(2.9);
   });
 
   it('moves a 0-60 time on file only when horsepower and weight are both on file', () => {
