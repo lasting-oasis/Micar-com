@@ -18,7 +18,7 @@ import { tiltTarget, viewport } from './tilt';
 export type HoloCardOptions = {
   /** A canvas of its own for this card: three wide to four tall, or taller. Its CSS size is the host's business. */
   canvas: HTMLCanvasElement;
-  /** The card model: the .glb tools/blender/export_card.py writes. */
+  /** The card model: the .glb tools/blender/export_card.py writes. A data: address is read as it is, with no request. */
   meshUrl: string;
   /** The artwork, best first. The first one the browser can decode is used. */
   artUrls: string[];
@@ -126,7 +126,23 @@ function prepare(mesh: CardMesh): Prepared {
   return { parts, halfWidth: (width * scale) / 2, widthMm: width * 1000, aspect: height / width };
 }
 
+/** The bytes carried inside a data: address. A page that holds its files inside itself makes no request for them. */
+function carried(url: string): ArrayBuffer {
+  const comma = url.indexOf(',');
+  let binary: string;
+  try {
+    if (comma < 0 || !/;base64$/i.test(url.slice(0, comma))) throw new Error('not base64');
+    binary = atob(url.slice(comma + 1));
+  } catch {
+    throw new Error('card model: its data: address could not be read (it must be base64)');
+  }
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return bytes.buffer;
+}
+
 async function loadMesh(url: string): Promise<CardMesh> {
+  if (/^data:/i.test(url)) return readCardGlb(carried(url));
   let response: Response;
   try {
     response = await fetch(url);

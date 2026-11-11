@@ -14,7 +14,7 @@ import { createHoloCard, foilForRarity, webglAvailable } from '@micar/holo';
 if (webglAvailable()) {
   const card = createHoloCard({
     canvas,                                   // a canvas of its own for this card, 3:4 or taller
-    meshUrl: '/cards/card.glb',
+    meshUrl: '/cards/card.glb',               // or a data: address, read with no request
     artUrls: ['/cards/back.avif', '/cards/back.webp'],   // the first the browser can decode is used
     foil: foilForRarity('epic'),              // 'rainbow'
     touch: 'capture',                         // or 'scroll' (the default) inside a page that scrolls
@@ -44,7 +44,7 @@ if (webglAvailable()) {
 | `src/shaders.ts` | The GLSL, ES 1.00 so one source runs on WebGL 1 and 2 | `shaders.test.ts` for the names it shares with the renderer; the browser smoke for the rest |
 | `src/card.ts` | `createHoloCard`: the context, the pointer, resize, context loss, `destroy()` | `card.test.ts`, against a stand-in canvas, context, frame clock, `fetch` and `Image` |
 | `src/assets.test.ts` | The shipped files exist, are the sizes they claim and are inside their budgets; the master artwork has not changed | |
-| `demo/` | A bare page: the four foils and a count of the frames the page asks for | by eye |
+| `demo/` | A bare page: the four foils and a count of the frames the page asks for. It builds to one self-contained HTML file (`pnpm --filter @micar/holo demo:build`): the model, the artwork and the stills are inside it | by eye |
 
 `pnpm --filter @micar/value test` runs all of these with the value app's own tests, so they gate every deploy. `bash packages/holo/scripts/check.sh` type-checks the package with both apps' compilers.
 

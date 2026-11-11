@@ -1,17 +1,18 @@
 // A bare page for the card back: the canvas, the four foils and a readout. It is how the look is tuned (the
 // screenshots in the pull request come from it) and what is published privately for a try on a real phone.
 //   pnpm --filter @micar/holo demo          serve it
-//   pnpm --filter @micar/holo demo:build    build it into packages/holo/dist-demo
+//   pnpm --filter @micar/holo demo:build    build it into packages/holo/dist-demo/index.html, one file
+// Every file the card needs is carried inside the page (?inline), so the built page asks the network for nothing.
 // ?foil=rainbow starts on that foil. ?still=1 shows the fallback stills instead of the live card.
 import { FOIL_IDS, FOIL_LABELS, createHoloCard, webglAvailable } from '../src/index';
 import type { FoilId, HoloCard } from '../src/index';
-import meshUrl from '../../../apps/value/public/cards/card.glb?url';
-import avifUrl from '../../../apps/value/public/cards/back.avif?url';
-import webpUrl from '../../../apps/value/public/cards/back.webp?url';
-import glossStill from '../../../apps/value/public/cards/back-gloss.webp?url';
-import holoStill from '../../../apps/value/public/cards/back-holo.webp?url';
-import rainbowStill from '../../../apps/value/public/cards/back-rainbow.webp?url';
-import prismaticStill from '../../../apps/value/public/cards/back-prismatic.webp?url';
+import meshUrl from '../../../apps/value/public/cards/card.glb?inline';
+import avifUrl from '../../../apps/value/public/cards/back.avif?inline';
+import webpUrl from '../../../apps/value/public/cards/back.webp?inline';
+import glossStill from '../../../apps/value/public/cards/back-gloss.webp?inline';
+import holoStill from '../../../apps/value/public/cards/back-holo.webp?inline';
+import rainbowStill from '../../../apps/value/public/cards/back-rainbow.webp?inline';
+import prismaticStill from '../../../apps/value/public/cards/back-prismatic.webp?inline';
 
 const STILLS: Record<FoilId, string> = { gloss: glossStill, holo: holoStill, rainbow: rainbowStill, prismatic: prismaticStill };
 const EARNED_BY: Record<FoilId, string> = { gloss: 'Common, Uncommon', holo: 'Rare', rainbow: 'Epic', prismatic: 'Legendary and up' };
@@ -32,9 +33,11 @@ let frames = 0;
 const requestFrame = window.requestAnimationFrame.bind(window);
 window.requestAnimationFrame = (callback) => { frames += 1; report(); return requestFrame(callback); };
 
+let version = '';
+
 function report(): void {
   const size = canvas ? `${canvas.width} × ${canvas.height}` : 'still image';
-  const context = canvas ? (canvas.getContext('webgl2') ? 'WebGL 2' : 'WebGL 1') : 'no WebGL';
+  const context = canvas ? version || 'starting' : 'no WebGL';
   readout.innerHTML = problem
     ? `<span class="problem">${problem.replace(/[<&]/g, ' ')}</span>`
     : `${context} · ${size} · ${window.devicePixelRatio}× screen · <b>${frames}</b> frames asked for`;
@@ -78,7 +81,9 @@ if (params.get('still') || !webglAvailable()) {
     reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     onError: (error) => { console.error(error); showStill(error.message); },
   });
-  card.ready.then(report, () => {});
+  const drawn = canvas;
+  // Asked only once the card has its context: asking sooner would make one with settings the card did not choose.
+  card.ready.then(() => { version = drawn.getContext('webgl2') ? 'WebGL 2' : 'WebGL 1'; report(); }, () => {});
 }
 choose(foil);
 report();

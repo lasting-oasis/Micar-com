@@ -12,12 +12,13 @@
   "scripts": {
     "test": "vitest run",
     "typecheck": "bash scripts/check.sh",
-    "demo": "vite demo --host",
-    "demo:build": "vite build demo --base ./ --outDir ../dist-demo --emptyOutDir"
+    "demo": "vite demo --config demo/vite.config.ts --host",
+    "demo:build": "vite build demo --config demo/vite.config.ts"
   },
   "devDependencies": {
     "typescript": "7.0.2",
     "vite": "8.3.5",
+    "vite-plugin-singlefile": "2.3.4",
     "vitest": "5.0.5"
   }
 }

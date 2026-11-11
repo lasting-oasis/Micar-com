@@ -250,6 +250,15 @@ describe('starting', () => {
     expect(w.fetched).toEqual(['/cards/card.glb']);
   });
 
+  it('reads a model carried inside its own address, and asks the network for nothing', async () => {
+    let binary = '';
+    for (const byte of model) binary += String.fromCharCode(byte);
+    const w = await resting({}, { meshUrl: `data:model/gltf-binary;base64,${btoa(binary)}` });
+    expect(w.errors).toEqual([]);
+    expect(w.fetched).toEqual([]);
+    expect(w.count('drawElements')).toBe(3);
+  });
+
   it('asks for WebGL 2 first and settles for WebGL 1', async () => {
     const two = await resting();
     expect(two.canvas.getContext.mock.calls.map((call) => call[0])).toEqual(['webgl2']);
@@ -560,6 +569,15 @@ describe('going wrong', () => {
 
   it('a model that is not the card', async () => {
     await failing({ body: new Uint8Array(64) }, /card model: not a glb/);
+  });
+
+  it('a model inside its own address that is not a card, or cannot be read at all', async () => {
+    const a = await failing({}, /card model: not a glb/, { meshUrl: `data:model/gltf-binary;base64,${btoa('x'.repeat(64))}` });
+    expect(a.fetched).toEqual([]);
+    vi.unstubAllGlobals();
+    await failing({}, /card model: .*data: address/, { meshUrl: 'data:model/gltf-binary;base64,@@not base64@@' });
+    vi.unstubAllGlobals();
+    await failing({}, /card model: .*data: address/, { meshUrl: 'data:text/plain,hello' });
   });
 
   it('artwork the browser cannot decode in any of its forms', async () => {
