@@ -2,6 +2,7 @@ import type { Car, RepairDef } from '../types';
 import { CATS, getV, isOwned, okey, withV, type BodyStyle, type CarCfg, type PartValue } from '../world/data';
 import { partPrice } from '../world/payout';
 import { PART_KEYS, repairJobFor } from './catalog';
+import { overallCondition } from './faults';
 import { SLOTS, stagesFor, type SlotId, type Stage } from './slots';
 
 export const MAX_LINES = 24;
@@ -152,7 +153,7 @@ export function applyOrder(c: OrderCtx, lines: OrderLine[], rng: () => number): 
   });
 
   const total = results.reduce((s, r) => s + r.price, 0);
-  if (results.some(r => r.outcome === 'done')) c.car.condition = Math.floor((c.car.bodyCondition + c.car.mechanicCondition) / 2);
+  if (results.some(r => r.outcome === 'done')) c.car.condition = overallCondition(c.car.bodyCondition, c.car.mechanicCondition);
   c.car.recon = (c.car.recon ?? 0) + total;
   return { lines: results, total, stages: q.stages };
 }
