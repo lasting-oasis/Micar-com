@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { DEAD, laneEdge, releaseSticks, setSteerStick, shapeAxis, stickToInput, touchSticks } from './sticks';
+import { DEAD, FingerSlot, laneEdge, onSticksReleased, releaseSticks, setSteerStick, shapeAxis, stickToInput, touchSticks } from './sticks';
 
 afterEach(releaseSticks);
 
@@ -38,5 +38,30 @@ describe('drag lane changes from the steering stick', () => {
     expect(touchSticks.laneR).toBe(true);
     touchSticks.laneR = false; setSteerStick(.9);
     expect(touchSticks.laneR).toBe(false);
+  });
+});
+
+describe('a stick never stays held', () => {
+  it('a new finger takes the stick even if the last one never reported lifting', () => {
+    const f = new FingerSlot();
+    f.down(1);
+    f.down(2); // finger 1's lift was never seen
+    expect(f.owns(2)).toBe(true);
+    expect(f.up(1)).toBe(false); // a late lift of the old finger does not let go of the new one
+    expect(f.owns(2)).toBe(true);
+    expect(f.up(2)).toBe(true);
+    expect(f.owns(2)).toBe(false);
+    expect(f.clear()).toBe(false);
+    f.down(3); expect(f.clear()).toBe(true); expect(f.id).toBeNull();
+  });
+  it('releasing the input (pause, the tab hidden) tells every stick on screen to let go', () => {
+    let told = 0;
+    const off = onSticksReleased(() => { told++; });
+    setSteerStick(1); touchSticks.gasY = 1;
+    releaseSticks();
+    expect(told).toBe(1);
+    expect(touchSticks.steerX).toBe(0);
+    off(); releaseSticks();
+    expect(told).toBe(1);
   });
 });

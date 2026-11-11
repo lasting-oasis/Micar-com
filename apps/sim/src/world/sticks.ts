@@ -50,6 +50,24 @@ export function setSteerStick(x: number): void {
   if (e.laneR) touchSticks.laneR = true;
 }
 
+/** Everything on screen that holds a finger lets go when the input is released (pause, the tab hidden, the Garage). */
+const releaseListeners = new Set<() => void>();
+export function onSticksReleased(fn: () => void): () => void { releaseListeners.add(fn); return () => { releaseListeners.delete(fn); }; }
+
 export function releaseSticks(): void {
   Object.assign(touchSticks, { steerX: 0, gasY: 0, drift: false, nos: false, laneL: false, laneR: false, laneArmed: true, shiftUp: false, shiftDn: false });
+  for (const fn of [...releaseListeners]) fn();
+}
+
+/** The one finger a stick or hold button follows. A finger that lands always takes it: if the browser never said the
+ *  last one lifted (a missed pointerup), the control must not stay held on it, deaf to every new touch. */
+export class FingerSlot {
+  id: number | null = null;
+  /** a finger landed: it is now the one followed */
+  down(id: number): void { this.id = id; }
+  owns(id: number): boolean { return this.id !== null && id === this.id; }
+  /** that finger lifted or was taken back: true if it was the one followed */
+  up(id: number): boolean { if (!this.owns(id)) return false; this.id = null; return true; }
+  /** let go of whatever was held: true if something was */
+  clear(): boolean { const had = this.id !== null; this.id = null; return had; }
 }

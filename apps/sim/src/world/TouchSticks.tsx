@@ -3,7 +3,7 @@
 // stick or button follows one finger from the moment it lands until it lifts or the browser takes it back, and writes
 // into `touchSticks`, which InputMap reads. Moves change the DOM directly: no React render per touch.
 import { useEffect, useRef } from 'react';
-import { releaseSticks, setSteerStick, touchSticks } from './sticks';
+import { FingerSlot, onSticksReleased, releaseSticks, setSteerStick, touchSticks } from './sticks';
 
 /** degrees the drawn wheel turns at full lock */
 const WHEEL_MAX = 180;
@@ -14,14 +14,14 @@ function useStick(onMove: (x: number, y: number) => void) {
   const cb = useRef(onMove); cb.current = onMove; // a new render never re-wires the stick (that would drop a thumb)
   useEffect(() => {
     const el = pad.current!, k = knob.current!;
-    let pid: number | null = null, cx = 0, cy = 0;
+    const f = new FingerSlot(); let cx = 0, cy = 0;
     const put = (x: number, y: number) => {
       const r = el.offsetWidth / 2 - 10;
       k.style.transform = `translate(${x * r}px, ${-y * r}px)`;
       cb.current(x, y);
     };
     const move = (e: PointerEvent) => {
-      if (e.pointerId !== pid) return;
+      if (!f.owns(e.pointerId)) return;
       const r = el.offsetWidth / 2 - 10;
       let x = (e.clientX - cx) / r, y = -(e.clientY - cy) / r;
       const m = Math.hypot(x, y); if (m > 1) { x /= m; y /= m; }
@@ -29,20 +29,30 @@ function useStick(onMove: (x: number, y: number) => void) {
     };
     const down = (e: PointerEvent) => {
       e.preventDefault();
-      if (pid !== null) return;
-      pid = e.pointerId;
-      try { el.setPointerCapture(pid); } catch { /* not capturable */ }
+      f.down(e.pointerId); // a new thumb always takes the stick, even if the last lift was never reported
+      try { el.setPointerCapture(e.pointerId); } catch { /* not capturable */ }
       const b = el.getBoundingClientRect(); cx = b.left + b.width / 2; cy = b.top + b.height / 2;
       el.dataset.on = '1'; move(e);
     };
-    const up = (e: PointerEvent) => { if (e.pointerId !== pid) return; pid = null; delete el.dataset.on; put(0, 0); };
+    const centre = () => { delete el.dataset.on; put(0, 0); };
+    // the thumb lifted, the browser took it back, or the stick lost hold of it: back to the middle
+    const up = (e: PointerEvent) => { if (f.up(e.pointerId)) centre(); };
+    const drop = () => { if (f.clear()) centre(); };
+    const hidden = () => { if (document.visibilityState === 'hidden') drop(); };
     const menu = (e: Event) => e.preventDefault();
-    el.addEventListener('pointerdown', down); el.addEventListener('pointermove', move);
-    el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up); el.addEventListener('contextmenu', menu);
+    const ups = ['pointerup', 'pointercancel', 'lostpointercapture'] as const;
+    el.addEventListener('pointerdown', down); el.addEventListener('pointermove', move); el.addEventListener('contextmenu', menu);
+    for (const n of ups) el.addEventListener(n, up);
+    // a lift that lands somewhere else still counts; so do switching apps and a paused game
+    window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+    window.addEventListener('blur', drop); document.addEventListener('visibilitychange', hidden);
+    const off = onSticksReleased(drop);
     return () => {
-      el.removeEventListener('pointerdown', down); el.removeEventListener('pointermove', move);
-      el.removeEventListener('pointerup', up); el.removeEventListener('pointercancel', up); el.removeEventListener('contextmenu', menu);
-      put(0, 0);
+      el.removeEventListener('pointerdown', down); el.removeEventListener('pointermove', move); el.removeEventListener('contextmenu', menu);
+      for (const n of ups) el.removeEventListener(n, up);
+      window.removeEventListener('pointerup', up); window.removeEventListener('pointercancel', up);
+      window.removeEventListener('blur', drop); document.removeEventListener('visibilitychange', hidden);
+      off(); f.clear(); put(0, 0);
     };
   }, []);
   return { pad, knob };
@@ -53,12 +63,26 @@ function Hold({ label, aria, set, className }: { label: string; aria: string; se
   const ref = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     const el = ref.current!;
-    let pid: number | null = null;
-    const down = (e: PointerEvent) => { e.preventDefault(); if (pid !== null) return; pid = e.pointerId; try { el.setPointerCapture(pid); } catch { /* not capturable */ } el.dataset.on = '1'; set(true); };
-    const up = (e: PointerEvent) => { if (e.pointerId !== pid) return; pid = null; delete el.dataset.on; set(false); };
+    const f = new FingerSlot();
+    const down = (e: PointerEvent) => { e.preventDefault(); f.down(e.pointerId); try { el.setPointerCapture(e.pointerId); } catch { /* not capturable */ } el.dataset.on = '1'; set(true); };
+    const off = () => { delete el.dataset.on; set(false); };
+    const up = (e: PointerEvent) => { if (f.up(e.pointerId)) off(); };
+    const drop = () => { if (f.clear()) off(); };
+    const hidden = () => { if (document.visibilityState === 'hidden') drop(); };
     const menu = (e: Event) => e.preventDefault();
-    el.addEventListener('pointerdown', down); el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up); el.addEventListener('contextmenu', menu);
-    return () => { el.removeEventListener('pointerdown', down); el.removeEventListener('pointerup', up); el.removeEventListener('pointercancel', up); el.removeEventListener('contextmenu', menu); set(false); };
+    const ups = ['pointerup', 'pointercancel', 'lostpointercapture'] as const;
+    el.addEventListener('pointerdown', down); el.addEventListener('contextmenu', menu);
+    for (const n of ups) el.addEventListener(n, up);
+    window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+    window.addEventListener('blur', drop); document.addEventListener('visibilitychange', hidden);
+    const unlisten = onSticksReleased(drop);
+    return () => {
+      el.removeEventListener('pointerdown', down); el.removeEventListener('contextmenu', menu);
+      for (const n of ups) el.removeEventListener(n, up);
+      window.removeEventListener('pointerup', up); window.removeEventListener('pointercancel', up);
+      window.removeEventListener('blur', drop); document.removeEventListener('visibilitychange', hidden);
+      unlisten(); f.clear(); set(false);
+    };
   }, [set]);
   return <button ref={ref} type="button" aria-label={aria} className={`h-14 rounded-2xl border-2 border-market/60 bg-night/70 text-market font-cond font-extrabold italic text-lg uppercase select-none touch-none pointer-events-auto data-[on]:bg-market data-[on]:text-night ${className}`}>{label}</button>;
 }
