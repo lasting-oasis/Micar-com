@@ -6,6 +6,8 @@ import type { Tune } from './world/physics';
 import { useDriveUi, type EventReward } from './world/driveUi';
 import type { Identity } from './world/accounts';
 import { isRental } from './world/rental';
+import type { Tab } from './bay/slots';
+import { isWorkOrder, type Door, type OrderLine, type WorkOrder } from './bay/order';
 
 // How a visitor joins: as a Strip guest, with a saved session token, or the original dealer/shop setup.
 export type ConnectOpts =
@@ -156,7 +158,12 @@ interface StoreState {
   octane: number;
   setStrip: (rec: StripRecord) => void;
   garageCarId: string | null;       // the Garage overlay is open on this inventory car
-  openGarage: (carId: string) => void;
+  openGarage: (carId: string, tab?: Tab) => void;
+  bayTab: Tab;                      // the tab the bay screen is on
+  orderPending: boolean;            // a bay_order is out and unanswered
+  lastOrder: WorkOrder | null;      // the server's last bay_result
+  placeOrder: (carId: string, door: Door, lines: OrderLine[], quote: number) => void;
+  clearLastOrder: () => void;
   closeGarage: () => void;
   // buyPart is taken by the parts counter (partName, cost), so the Garage's actions carry "Strip".
   /** Pay for a Night Tuner part, own it and fit it (optimistic; emits strip_buy_part). */
@@ -327,11 +334,21 @@ export const useGameStore = create<StoreState>((set, get) => ({
   octane: 0,
   setStrip: (rec) => set({ strip: rec }),
   garageCarId: null,
-  openGarage: (carId) => {
+  bayTab: 'custom',
+  orderPending: false,
+  lastOrder: null,
+  // the server changes the money and the build; this only sends, once at a time
+  placeOrder: (carId, door, lines, quote) => {
+      const s = get(); if (!s.socket || s.orderPending) return;
+      s.socket.emit('bay_order', { carId, door, lines, quote });
+      set({ orderPending: true });
+  },
+  clearLastOrder: () => set({ lastOrder: null }),
+  openGarage: (carId, tab) => {
       // a rental is stock for one event: the Garage never opens on it
       const s = get(), car = s.playerId ? s.gameState?.players[s.playerId]?.inventory.find(c => c.id === carId) : undefined;
       if (isRental(car)) return;
-      set({ garageCarId: carId, strip: s.strip ?? freshStrip() });
+      set({ garageCarId: carId, bayTab: tab ?? 'custom', strip: s.strip ?? freshStrip() });
   },
   closeGarage: () => set({ garageCarId: null }),
   buyStripPart: (carId, key, v, price) => {
@@ -427,7 +444,8 @@ export const useGameStore = create<StoreState>((set, get) => ({
     socket.on('player_positions', (positions) => set({ playerPositions: positions || {} }));
     socket.on('time_update', (timeOfDay) => set({ timeOfDay }));
     socket.on('refuel_denied', () => set({ driveNotice: 'Not enough cash to refuel.' }));
-    socket.on('strip_denied', (d: { reason?: string }) => set({ driveNotice: d?.reason || 'The Strip refused that.' }));
+    socket.on('strip_denied', (d: { reason?: string }) => set({ driveNotice: d?.reason || 'The Strip refused that.', orderPending: false }));
+    socket.on('bay_result', (d: { order?: unknown }) => set(isWorkOrder(d?.order) ? { lastOrder: d.order, orderPending: false } : { orderPending: false }));
     // The server's answer to finish_event / finish_outrun (Task 11): what the run paid
     socket.on('event_result', (r: EventReward) => useDriveUi.setState({ reward: { cash: r?.cash ?? 0, octane: r?.octane ?? 0, rep: r?.rep ?? 0, stamps: r?.stamps ?? [] } }));
     socket.on('chat', (msg: ChatMessage) => set((s) => {
@@ -438,7 +456,7 @@ export const useGameStore = create<StoreState>((set, get) => ({
         return { chatMessages: next, unreadChat: mine ? s.unreadChat : s.unreadChat + 1 };
     }));
     socket.on('connect_error', () => set({ connectFailed: true }));
-    socket.on('connect', () => set({ connectFailed: false }));
+    socket.on('connect', () => set({ connectFailed: false, orderPending: false }));
     set({ socket });
   },
   rentCar: (key) => { const s = get().socket; if (s) s.emit('rent_car', { key }); },
