@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import { ATTRIBUTE_KEYS } from '@micar/engine';
 import type { AttributeKey } from '@micar/engine';
 import { t, useLang } from '../i18n';
+import { hasModelSpec } from '../carSpecs';
 import { cardStatsFor } from './cardStats';
 
 const LABEL: Record<AttributeKey, string> = {
@@ -17,10 +18,13 @@ export function CardStats({ car }: { car: { year?: number; make?: string; model?
   const { year, make, model, bodyStyle } = car;
   const layer = useMemo(() => cardStatsFor({ year, make, model, bodyStyle }), [year, make, model, bodyStyle]);
   const rating = layer.powerRating ?? layer.provisionalRating;
+  // A car with no row of its own in the table (a junkyard shell) is scored from its body style's stand-in. Those are
+  // not anyone's factory figures, and the panel says so instead of presenting them as the model's.
+  const standIn = !hasModelSpec({ make, model });
   return (
-    <div className="mt-2 rounded border border-white/10 bg-black/30 px-2.5 py-2" data-card-stats>
+    <div className="mt-2 rounded border border-white/10 bg-black/30 px-2.5 py-2" data-card-stats data-card-stand-in={standIn ? 'true' : undefined}>
       <div className="flex items-baseline justify-between gap-2 font-cond text-[10px] font-bold uppercase tracking-widest text-haze">
-        <span>{t(lang, 'card.title')}</span>
+        <span>{t(lang, standIn ? 'card.titleStandIn' : 'card.title')}</span>
         <span>
           {t(lang, 'card.rating')} <b className="text-base font-extrabold italic tabular-nums text-market">{rating ?? '—'}</b>
           {layer.powerRating === null && <span className="ml-1 font-semibold normal-case tracking-normal">{t(lang, 'card.provisional').replace('{n}', String(layer.rated))}</span>}
@@ -38,7 +42,7 @@ export function CardStats({ car }: { car: { year?: number; make?: string; model?
           );
         })}
       </div>
-      <p className="mt-1.5 text-[9px] leading-snug text-gray-500">{t(lang, 'card.note')}</p>
+      <p className="mt-1.5 text-[9px] leading-snug text-gray-500">{t(lang, standIn ? 'card.noteStandIn' : 'card.note')}</p>
     </div>
   );
 }

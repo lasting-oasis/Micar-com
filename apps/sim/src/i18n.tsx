@@ -155,6 +155,7 @@ const DICT: Record<string, Entry> = {
 
   // ---- The MiCar card's attributes on an owned car (world/CardStats.tsx) ----
   'card.title': { en: 'MiCar card · factory stats', es: 'Tarjeta MiCar · datos de fábrica' },
+  'card.titleStandIn': { en: 'MiCar card · body-style stand-in', es: 'Tarjeta MiCar · referencia por carrocería' },
   'card.rating': { en: 'Power rating', es: 'Índice de poder' },
   'card.provisional': { en: '({n} of 7)', es: '({n} de 7)' },
   'card.power': { en: 'Power', es: 'Potencia' },
@@ -165,6 +166,7 @@ const DICT: Record<string, Entry> = {
   'card.reliability': { en: 'Reliability', es: 'Confiabilidad' },
   'card.efficiency': { en: 'Efficiency', es: 'Eficiencia' },
   'card.unrated': { en: 'Not rated: the car table has no figure for this', es: 'Sin medir: la tabla de autos no tiene este dato' },
+  'card.noteStandIn': { en: 'Illustrative figures for this body style, from 0 to 1000. They are not data about this model. ~ means estimated.', es: 'Cifras ilustrativas para este tipo de carrocería, de 0 a 1000. No son datos de este modelo. ~ significa estimado.' },
   'card.note': { en: 'Factory figures for the model, from 0 to 1000. They say nothing about this car’s condition. ~ means estimated.', es: 'Datos de fábrica del modelo, de 0 a 1000. No dicen nada del estado de este auto. ~ significa estimado.' },
 };
 
