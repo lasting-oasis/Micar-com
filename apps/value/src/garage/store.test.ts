@@ -437,6 +437,44 @@ describe('the garage file as a backup', () => {
     expect(ok(importGarage(laptop, exportGarage({ ...laptop, formerIds: [BUYER] }, NOW))).restorable).toBeNull();
   });
 
+  it('offers its own backup an ID that owns a car already parked here, whichever file came first', () => {
+    // The laptop is garage ME. The phone starts as BUYER and gives that ID to a seller, then restores the laptop's
+    // backup and takes it up: it gives out ME and still answers to BUYER.
+    const laptop = parkCar(emptyGarage(ME));
+    const restored = ok(importGarage(emptyGarage(BUYER), exportGarage(laptop, NOW)));
+    const phone = takeUpGarage(restored.state, restored.restorable as Restorable);
+    expect(phone).toMatchObject({ ownerId: ME, formerIds: [BUYER] });
+    // The seller hands the car to BUYER and e-mails the passport file. It is opened on the LAPTOP, where it reads
+    // "another garage": the laptop does not answer to BUYER.
+    const seller = ok(transfer(parkCar(emptyGarage(FRESH), micarId(2)), micarId(2), { ...sale, toOwnerId: BUYER, eventId: id() }, { now: NOW }));
+    const passportFile = exportGarage(seller, NOW, micarId(2));
+    const opened = ok(importGarage(laptop, passportFile));
+    expect(opened.restorable).toBeNull();
+    expect(holdingOf(opened.state, car(opened.state, micarId(2)))).toBe('other');
+    // The page says to bring the garage's file in. The phone's backup names BUYER but does not hold the car: the car
+    // is here. That used to be no reason to ask, and the car stayed read-only whatever the owner did.
+    const phoneBackup = exportGarage(phone, NOW);
+    expect(JSON.parse(phoneBackup).passports).toHaveLength(1);
+    const asked = ok(importGarage(opened.state, phoneBackup));
+    expect(asked.restorable).toEqual({ ownerId: ME, formerIds: [BUYER] });
+    const mine = takeUpGarage(asked.state, asked.restorable as Restorable);
+    expect(mine).toMatchObject({ ownerId: ME, formerIds: [BUYER] });
+    expect(holdingOf(mine, car(mine, micarId(2)))).toBe('owner');
+    // The other order: the backup first, when there is nothing yet for BUYER to own here, so nothing to ask about.
+    const early = ok(importGarage(laptop, phoneBackup));
+    expect(early.restorable).toBeNull();
+    // Then the passport file, which carries no Garage ID of its own to ask about.
+    const late = ok(importGarage(early.state, passportFile));
+    expect(late.restorable).toBeNull();
+    expect(holdingOf(late.state, car(late.state, micarId(2)))).toBe('other');
+    // The backup again, as the page says: now it is asked.
+    expect(ok(importGarage(late.state, phoneBackup)).restorable).toEqual({ ownerId: ME, formerIds: [BUYER] });
+    // A file that shares no ID with this garage is still judged by its own cars alone: a car parked here under
+    // somebody's ID is no reason to offer that somebody's backup.
+    const strangers = exportGarage({ ...emptyGarage(BUYER), formerIds: [] }, NOW);
+    expect(ok(importGarage(opened.state, strangers)).restorable).toBeNull();
+  });
+
   it('keeps every ID it has taken up: past the most it can keep, no more is offered or taken', () => {
     const ids = Array.from({ length: MAX_FORMER_IDS + 2 }, (_, i) => garageIdFromBytes([3, 3, 3, 3, 3, 3, Math.floor(i / 200), i % 200]));
     const full: GarageState = { ...emptyGarage(ME), formerIds: ids.slice(0, MAX_FORMER_IDS) };

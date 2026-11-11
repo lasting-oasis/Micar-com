@@ -47,7 +47,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
   const confirming = warning !== '' && asked === reading;
   // When the form closes the keyboard goes back to the card that opened it; when the question is withdrawn, to the button that asked it.
   const cardOpener = useFocusBack(pick !== null);
-  const fitOpener = useFocusBack(confirming);
+  const fitOpener = useFocusBack(confirming || busy);
 
   const fitted = useMemo(() => activeModifications(passport, REGISTRY, today), [passport, today]);
   const { applied, refused } = assembly.modifications;
@@ -163,8 +163,8 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
           {canWrite && <>
             <div className="gar-form">
               <label>{t('Fitted by')}<select value={install} onChange={(e) => setInstall(e.target.value as InstallQuality)}>{(Object.keys(INSTALL_LABELS) as InstallQuality[]).map((k) => <option key={k} value={k}>{t(INSTALL_LABELS[k])}</option>)}</select></label>
-              <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => setDate(e.target.value)} /></label>
-              <label>{t('Odometer')} <small>(mi)</small><input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} aria-describedby="gar-fit-odo-note" onChange={(e) => setMileage(e.target.value)} />
+              <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => { setDate(e.target.value); setAsked(''); }} /></label>
+              <label>{t('Odometer')} <small>(mi)</small><input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} aria-describedby="gar-fit-odo-note" onChange={(e) => { setMileage(e.target.value); setAsked(''); }} />
                 <span id="gar-fit-odo-note" className="gar-err" role="status">{t(warning)}</span>
               </label>
               <label className="wide">{t('Parts')}<input type="text" value={parts} maxLength={200} onChange={(e) => setParts(e.target.value)} /></label>

@@ -234,9 +234,9 @@ export type Restorable = { ownerId: string; formerIds: string[] };
  *
  * An import never changes this garage's IDs. When the file is a backup that names Garage IDs this browser does not
  * answer to, `restorable` names them, and the page may offer to take them up (takeUpGarage) after asking. It is
- * offered only when one of those IDs is a real Garage ID that still owns a car in the file, and then in two cases:
+ * offered only when one of those IDs is a real Garage ID that still owns a car, and then in two cases:
  *   - the file answers to one of this garage's own IDs. It is this garage's backup, made in a browser that has
- *     since come to answer to more IDs than this one does;
+ *     since come to answer to more IDs than this one does. The car may be in the file or already parked here;
  *   - the file shares no ID with this garage and no car in it belongs to this garage. A file that hands this garage
  *     a car is a seller's file, not a backup.
  */
@@ -259,7 +259,9 @@ export function importGarage(state: GarageState, text: string): Result<{ state: 
     const held = [theirs, ...readIds(data.formerIds, theirs).filter((id) => normalizeGarageId(id) === id)];
     const lacking = held.filter((id) => mine.indexOf(id) === -1);
     const own = lacking.length < held.length;
-    const ownsOne = read.passports.some((p) => lacking.indexOf(currentOwner(p)) !== -1);
+    // For this garage's own backup, a car already parked here counts as well as one in the file: a passport file
+    // opened on this device before the backup that names its owner's ID is the same car, waiting for the same answer.
+    const ownsOne = (own ? passports : read.passports).some((p) => lacking.indexOf(currentOwner(p)) !== -1);
     const handsOver = read.passports.some((p) => mine.indexOf(currentOwner(p)) !== -1);
     const offer: Restorable = { ownerId: theirs, formerIds: lacking.filter((id) => id !== theirs) };
     // Offered only when taking it up would change something: a browser that answers to as many IDs as it can keep is offered no more.

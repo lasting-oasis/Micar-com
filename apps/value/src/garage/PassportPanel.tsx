@@ -1,7 +1,7 @@
 // The passport: the vehicle's timeline, the form that adds to it, the grade's history, the card's editions, who has
 // owned it, and what other people would see. Entries are only ever added. Files go to this browser's own store and
 // the passport keeps their name, size and fingerprint; a file moves a claim from declared to documented and no further.
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ATTESTATION_SCOPE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, LEVEL_LABELS, MODS, MOD_TIER_NAMES, WEAR_SYSTEMS, WEAR_SYSTEM_LABELS, eventEvidence, maskVin, mileageLog,
   publicPassport, standingOf, supportedHistory, timeline,
@@ -145,7 +145,9 @@ function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'f
   const reading = `${date}|${mileage}`;
   const [asked, setAsked] = useState('');
   const confirming = warning !== '' && asked === reading;
-  const opener = useFocusBack(confirming);
+  // The button that asks is given the keyboard back when the question is withdrawn and when the write is done (it is
+  // disabled while the write is under way, and a disabled button cannot take it).
+  const opener = useFocusBack(confirming || busy);
 
   // A file belongs to the entry it was picked for. Choosing another kind of entry starts the files again, so a
   // receipt picked for one thing is never quietly attached to another and counted as its evidence.
@@ -192,9 +194,9 @@ function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'f
         <label>{t('What it is')}
           <select value={type} onChange={(e) => changeType(e.target.value as OwnerEventType)}>{ENTRY_TYPES.map((k) => <option key={k} value={k}>{t(EVENT_TYPE_LABELS[k])}</option>)}</select>
         </label>
-        <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => setDate(e.target.value)} /></label>
+        <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => { setDate(e.target.value); setAsked(''); }} /></label>
         <label>{t('Odometer')} <small>(mi)</small>
-          <input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} required={type === 'mileage'} aria-describedby="gar-odo-note" onChange={(e) => setMileage(e.target.value)} />
+          <input type="number" inputMode="numeric" min={0} max={2000000} step={1} value={mileage} required={type === 'mileage'} aria-describedby="gar-odo-note" onChange={(e) => { setMileage(e.target.value); setAsked(''); }} />
           <span id="gar-odo-note" className="gar-err" role="status">{t(warning)}</span>
         </label>
         {type === 'photo' && <label>{t('What the photos show')}<select value={subject} onChange={(e) => setSubject(e.target.value as PhotoSubject)}>{(Object.keys(PHOTO_SUBJECT_LABELS) as PhotoSubject[]).map((k) => <option key={k} value={k}>{t(PHOTO_SUBJECT_LABELS[k])}</option>)}</select></label>}
@@ -384,6 +386,28 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
   // A long history is drawn a page at a time, newest first: a passport can hold thousands of entries and grades.
   const [allEntries, setAllEntries] = useState(false);
   const [allGrades, setAllGrades] = useState(false);
+  // "Show all" leaves the page when it is pressed: the keyboard goes to the list it opened.
+  const ledger = useRef<HTMLDivElement>(null);
+  const grades = useRef<HTMLDivElement>(null);
+  const showAllEntries = () => { setAllEntries(true); setTimeout(() => ledger.current?.focus(), 0); };
+  const showAllGrades = () => { setAllGrades(true); setTimeout(() => grades.current?.focus(), 0); };
+  // An entry just written is always drawn. The list is in order of the entries' own dates, so an old receipt entered
+  // today can fall past the first page: the whole list is opened for it.
+  const written = useRef(passport.events.length);
+  useEffect(() => {
+    if (passport.events.length > written.current && !allEntries) {
+      const last = passport.events[passport.events.length - 1];
+      if (events.findIndex((e) => e.id === last.id) >= LONG_LIST) setAllEntries(true);
+    }
+    written.current = passport.events.length;
+  }, [passport, events, allEntries]);
+  // After a hand-over the transfer form is gone: the keyboard goes to the line that says what has happened.
+  const notice = useRef<HTMLParagraphElement>(null);
+  const held = useRef(holding);
+  useEffect(() => {
+    if (held.current === 'owner' && holding === 'transferred') notice.current?.focus();
+    held.current = holding;
+  }, [holding]);
   return (
     <div className="gar-panel">
       <div className="gar-facts">
@@ -392,7 +416,7 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
         <div><small>{t('Parked')}</small><b>{day(passport.createdAt)}</b></div>
         <div><small>{t('Owners')}</small><b className="num">{passport.owners.length}</b></div>
       </div>
-      {holding === 'transferred' && <p className="gar-note gar-warn">{t('This car has been transferred. Its passport is read-only here. Send the new owner the passport file.')}</p>}
+      {holding === 'transferred' && <p className="gar-note gar-warn" ref={notice} tabIndex={-1}>{t('This car has been transferred. Its passport is read-only here. Send the new owner the passport file.')}</p>}
       {holding === 'other' && <p className="gar-note gar-warn">{t('This car belongs to another garage, so its passport is read-only here. If that garage is yours, bring its garage file in on the Garage page and take up its Garage ID when asked.')}</p>}
       <div className="gar-btns">
         <button type="button" className="gar-btn" onClick={onExport}>{t('Download the passport file')}</button>
@@ -422,8 +446,8 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
 
       <div>
         <h3>{t('Timeline')}</h3>
-        <div className="ledger gar-ledger">{(allEntries ? events : events.slice(0, LONG_LIST)).map((e) => <Row key={e.id} passport={passport} event={e} today={today} files={files} standing={standing} />)}</div>
-        {!allEntries && events.length > LONG_LIST && <div className="gar-btns"><button type="button" className="gar-btn" onClick={() => setAllEntries(true)}>{t('Show all {n} entries', { n: events.length })}</button></div>}
+        <div className="ledger gar-ledger" ref={ledger} tabIndex={-1} aria-label={t('Timeline')}>{(allEntries ? events : events.slice(0, LONG_LIST)).map((e) => <Row key={e.id} passport={passport} event={e} today={today} files={files} standing={standing} />)}</div>
+        {!allEntries && events.length > LONG_LIST && <div className="gar-btns"><button type="button" className="gar-btn" onClick={showAllEntries}>{t('Show all {n} entries', { n: events.length })}</button></div>}
       </div>
 
       <div>
@@ -432,7 +456,7 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
         {history.unsupported > 0 && <p className="gar-note gar-warn" role="status">{history.unsupported === 1
           ? t('1 earlier grade or edition is not shown: the passport’s record, as it stands now, does not support it.')
           : t('{n} earlier grades or editions are not shown: the passport’s record, as it stands now, does not support them.', { n: history.unsupported })}</p>}
-        <div className="gar-scroll">
+        <div className="gar-scroll" ref={grades} tabIndex={-1} aria-label={t('Grade history')}>
           <table className="gar-table">
             <thead><tr><th>{t('Date')}</th><th>{t('Why')}</th><th>{t('Level')}</th><th className="num">{t('Overall')}</th><th className="num">{t('Grade')}</th></tr></thead>
             <tbody>
@@ -442,7 +466,7 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
             </tbody>
           </table>
         </div>
-        {!allGrades && history.snapshots.length > LONG_LIST && <div className="gar-btns"><button type="button" className="gar-btn" onClick={() => setAllGrades(true)}>{t('Show all {n} grades', { n: history.snapshots.length })}</button></div>}
+        {!allGrades && history.snapshots.length > LONG_LIST && <div className="gar-btns"><button type="button" className="gar-btn" onClick={showAllGrades}>{t('Show all {n} grades', { n: history.snapshots.length })}</button></div>}
       </div>
 
       <div>
