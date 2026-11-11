@@ -31,6 +31,10 @@ export type HudState = {
   small: boolean;
   /** touch controls are showing: lift the cluster above them */
   touch: boolean;
+  /** the phone's stick layout is showing (taller than the buttons): the cluster sits between the sticks, or above the
+   *  steering stick (and its gear buttons) when the screen is too narrow for that */
+  sticks?: boolean;
+  gears?: boolean;
   /** px the checkpoint / GPS arrow drops to clear App's car panel (DriveLayer measures it; default 0) */
   topInset?: number;
   /** the minimap, GPS arrow, cash and event readouts draw only in the Strip */
@@ -112,7 +116,8 @@ export class Hud {
     const insB = this.insB, insT = this.insT, Fo = FONTS[small ? 's' : 'l'];
     const kmh = kmhOf(PV);
     /* gauge cluster */
-    const R = small ? 56 : 100, cx = small && s.touch ? R + 16 : HW - R - (small ? 20 : 40), cy = HH - R - (small ? (s.touch ? 108 : 22) : 34) - insB, P = PV.P, red = P.redline, maxR = Math.ceil((red + 800) / 1000) * 1000;
+    const between = !!s.sticks && HW >= 560;
+    const R = small ? 56 : 100, cx = between ? HW / 2 : small && s.touch ? R + 16 : HW - R - (small ? 20 : 40), cy = HH - R - (between ? 22 : small ? (s.sticks ? (s.gears ? 248 : 184) : s.touch ? 108 : 22) : 34) - insB, P = PV.P, red = P.redline, maxR = Math.ceil((red + 800) / 1000) * 1000;
     if (!(a && a.type === 'drag')) {
       hx.save(); hx.translate(cx, cy);
       hx.fillStyle = 'rgba(14,18,23,.62)'; hx.beginPath(); hx.arc(0, 0, R + 14, 0, Math.PI * 2); hx.fill();
@@ -189,7 +194,8 @@ export class Hud {
       hx.textAlign = 'left';
     }
     /* minimap */
-    const mr = small ? 56 : 84, mx = mr + (small ? 16 : 34), my = small ? mr + 16 + insT + (a || outrun ? 74 : 50) : HH - mr - 34 - insB;
+    // in the stick layout on a wide (landscape) phone the corner is above the steering stick: the map moves just right of it
+    const mr = small ? 56 : 84, mx = (between ? 176 : 0) + mr + (small ? 16 : 34), my = small ? mr + 16 + insT + (a || outrun ? 74 : 50) : HH - mr - 34 - insB;
     hx.save(); hx.translate(mx, my); hx.beginPath(); hx.arc(0, 0, mr, 0, 7); hx.fillStyle = 'rgba(14,18,23,.7)'; hx.fill(); hx.clip();
     const sc = small ? .3 : .4; hx.rotate(Math.PI + PV.h); hx.scale(sc, sc); hx.translate(-PV.x, -PV.z);
     hx.strokeStyle = 'rgba(150,170,200,.45)'; for (const rd of s.roads) { hx.lineWidth = rd.width * .8; hx.beginPath(); nearPolyline(hx, rd.pts, !!rd.loop, PV.x, PV.z, MINIMAP_ROAD_M); hx.stroke(); }

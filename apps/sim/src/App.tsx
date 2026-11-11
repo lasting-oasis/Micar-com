@@ -1857,6 +1857,9 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
 
   useEffect(() => { if (driveNotice) { const t = setTimeout(() => clearDriveNotice(), 3200); return () => clearTimeout(t); } }, [driveNotice, clearDriveNotice]);
 
+  // the car panel starts as a small fuel pill; a tap opens the full card (name, specs, speed) and another closes it
+  const [carOpen, setCarOpen] = useState(() => { try { return localStorage.getItem('micar.carPanel') === 'open'; } catch { return false; } });
+  const toggleCar = () => setCarOpen(o => { try { localStorage.setItem('micar.carPanel', o ? 'closed' : 'open'); } catch { /* storage blocked */ } return !o; });
   const fuel = drivingFuel ?? 100;
   const drivingCar = drivingKey ? (() => { const [year, make, model, bodyStyle] = drivingKey.split('|'); return { year, make, model, bodyStyle }; })() : null;
   const drivingSpec = drivingCar ? getCarSpec(drivingCar) : null;
@@ -1868,27 +1871,36 @@ const RacingHud = (_props: { isMobile?: boolean }) => {
       {/* Fuel gauge while driving */}
       {drivingCarId && drivingFuel !== null && (
         <div className={`fixed left-1/2 -translate-x-1/2 z-[930] pointer-events-none ${inStrip ? 'top-[76px]' : 'top-[76px] md:top-auto md:bottom-8'}`}>
-          <div data-car-panel className="bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl w-64">
-            {drivingCar && (
-              <div className="flex items-end justify-between gap-2 mb-1.5">
-                <div className="min-w-0">
-                  <div className="text-[11px] font-bold text-white truncate">{drivingCar.year} {drivingCar.make} {drivingCar.model}</div>
-                  <div className="text-[9px] text-gray-400 truncate">{specLine(drivingSpec!)}</div>
+          {carOpen ? (
+            <button type="button" data-car-panel onClick={toggleCar} aria-expanded="true" aria-label="Hide car details" className="pointer-events-auto block text-left bg-black/75 backdrop-blur-md border border-white/15 rounded-xl px-4 py-2 shadow-xl w-64">
+              {drivingCar && (
+                <div className="flex items-end justify-between gap-2 mb-1.5">
+                  <div className="min-w-0">
+                    <div className="text-[11px] font-bold text-white truncate">{drivingCar.year} {drivingCar.make} {drivingCar.model}</div>
+                    <div className="text-[9px] text-gray-400 truncate">{specLine(drivingSpec!)}</div>
+                  </div>
+                  <div className="text-right shrink-0 leading-none">
+                    <span className="text-xl font-black font-mono tabular-nums text-white">{drivingSpeed}</span>
+                    <span className="text-[9px] text-gray-400 font-bold ml-0.5">MPH</span>
+                  </div>
                 </div>
-                <div className="text-right shrink-0 leading-none">
-                  <span className="text-xl font-black font-mono tabular-nums text-white">{drivingSpeed}</span>
-                  <span className="text-[9px] text-gray-400 font-bold ml-0.5">MPH</span>
+              )}
+              <div className="flex items-center gap-3">
+                <Fuel size={18} style={{ color: fuelColor }} />
+                <div className="flex-grow">
+                  <div className="h-2.5 bg-white/10 rounded-full overflow-hidden"><div className="h-full rounded-full transition-all" style={{ width: `${Math.max(0, Math.min(100, fuel))}%`, background: fuelColor }} /></div>
                 </div>
+                <span className="text-xs font-mono font-bold tabular-nums" style={{ color: fuelColor }}>{Math.round(fuel)}%</span>
               </div>
-            )}
-            <div className="flex items-center gap-3">
-              <Fuel size={18} style={{ color: fuelColor }} />
-              <div className="flex-grow">
-                <div className="h-2.5 bg-white/10 rounded-full overflow-hidden"><div className="h-full rounded-full transition-all" style={{ width: `${Math.max(0, Math.min(100, fuel))}%`, background: fuelColor }} /></div>
-              </div>
-              <span className="text-xs font-mono font-bold tabular-nums" style={{ color: fuelColor }}>{Math.round(fuel)}%</span>
-            </div>
-          </div>
+            </button>
+          ) : (
+            <button type="button" data-car-panel onClick={toggleCar} aria-expanded="false" aria-label={`Fuel ${Math.round(fuel)}%. Show car details`} className="pointer-events-auto flex items-center gap-2 bg-black/70 backdrop-blur-md border border-white/15 rounded-full pl-2.5 pr-3 py-1 shadow-lg">
+              <Fuel size={13} style={{ color: fuelColor }} />
+              <div className="w-14 h-1.5 bg-white/10 rounded-full overflow-hidden"><div className="h-full rounded-full transition-all" style={{ width: `${Math.max(0, Math.min(100, fuel))}%`, background: fuelColor }} /></div>
+              <span className="text-[10px] font-mono font-bold tabular-nums" style={{ color: fuelColor }}>{Math.round(fuel)}%</span>
+              <ChevronRight size={12} className="text-white/50 rotate-90" />
+            </button>
+          )}
           {fuel <= 20 && fuel > 2 && <div className="text-center text-[10px] text-amber-400 font-bold uppercase tracking-widest mt-1">Low fuel — find a gas station</div>}
           {stranded && (
             <div className="mt-1 flex flex-col items-center gap-1 pointer-events-auto">

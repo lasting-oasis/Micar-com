@@ -4,10 +4,12 @@
 // reads getOptions() each frame; the Garage reads and writes through getOption / setOption.
 
 export type CamMode = 0 | 1 | 2;
-export type DriveOptions = { manual: boolean; units: 'mph' | 'kmh'; cam: CamMode; mute: boolean };
+/** touch controls on a phone: the steering and gas sticks, or the old buttons */
+export type TouchControls = 'sticks' | 'buttons';
+export type DriveOptions = { manual: boolean; units: 'mph' | 'kmh'; cam: CamMode; mute: boolean; controls: TouchControls };
 
 export const OPTIONS_KEY = 'micar.driveOptions';
-export const OPTION_DEFAULTS: Readonly<DriveOptions> = { manual: false, units: 'mph', cam: 0, mute: false };
+export const OPTION_DEFAULTS: Readonly<DriveOptions> = { manual: false, units: 'mph', cam: 0, mute: false, controls: 'sticks' };
 
 const storage = (): Storage | null => {
   try { return (globalThis as { localStorage?: Storage }).localStorage ?? null; } catch { return null; }
@@ -25,6 +27,7 @@ export function parseOptions(raw: string | null | undefined): DriveOptions {
   if (s.units === 'mph' || s.units === 'kmh') o.units = s.units;
   if (s.cam === 0 || s.cam === 1 || s.cam === 2) o.cam = s.cam;
   if (typeof s.mute === 'boolean') o.mute = s.mute;
+  if (s.controls === 'sticks' || s.controls === 'buttons') o.controls = s.controls;
   return o;
 }
 
