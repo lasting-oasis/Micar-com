@@ -7,7 +7,7 @@
 //   BASE=http://localhost:3123/ pnpm --filter @micar/sim exec node e2e/strip.smoke.mjs
 // Exits 1 on any failed assertion or page error. Software GL (swiftshader), so it runs headless with no display; the game
 // is slow there (~3 fps), so the drag waits on the results card, not on a clock.
-import { chromium } from 'playwright';
+import { chromium, devices } from 'playwright';
 
 const BASE = process.env.BASE || 'http://localhost:3123/';
 const NAME = 'SmokeBot';
@@ -195,6 +195,32 @@ try {
     await counter.waitFor({ timeout: 120000 });
     await t.waitForFunction(() => window.__micar.money() === 1000000, null, { timeout: 30000 });
     ok(true, '"Swap car" is back at the counter, the money full again');
+  }
+
+  // 10. the phone's stick controls: a guest on a phone-sized touch screen rents a car and drives it with the sticks
+  {
+    const ctx = await browser.newContext({ ...devices['iPhone 13 landscape'] });
+    const m = await ctx.newPage();
+    m.setDefaultTimeout(60000);
+    await m.addInitScript(() => { try { localStorage.setItem('cds.graphics', 'low'); } catch {} });
+    m.on('pageerror', e => errs.push('phone pageerror: ' + e.message));
+    await m.goto(BASE.replace(/\/?$/, '/') + 'strip', { waitUntil: 'domcontentloaded' });
+    await m.fill('input[type=text]', 'Thumbs');
+    await m.getByRole('button', { name: /Race as guest/i }).click();
+    const counter = m.locator('[aria-label="Rental counter"]');
+    await counter.waitFor({ timeout: 90000 });
+    await counter.locator('button').first().click();
+    await m.waitForFunction(() => window.__micar.pose().driving === true, null, { timeout: 120000 });
+    ok(await m.getByRole('slider', { name: 'Steering' }).isVisible() && await m.getByRole('slider', { name: 'Gas and brake' }).isVisible(), 'a phone drives with the steering and gas sticks');
+    ok(!(await m.locator('[data-k="thr"]').isVisible()), 'the old buttons are hidden');
+    const r = await m.getByRole('slider', { name: 'Gas and brake' }).boundingBox();
+    const cdp = await ctx.newCDPSession(m), gx = r.x + r.width / 2, gy = r.y + r.height / 2;
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: gx, y: gy, id: 1 }] });
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: gx, y: r.y, id: 1 }] });
+    await m.waitForFunction(() => window.__micar.pose().speed > 0.5, null, { timeout: 30000 });
+    ok(true, 'pushing the gas stick up drives the car');
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    await ctx.close();
   }
 
   ok(errs.length === 0, 'no page errors');

@@ -5,6 +5,7 @@
 // physics step and calls `clearEdges()` after the step that consumed them (Night Tuner cleared
 // shiftUp/shiftDn/hop after each 1/120 s step); the other edges it reads once per frame and clears too.
 import { NO_INPUT, type Input } from './physics';
+import { DRIFT_KICK_STEPS, releaseSticks, stickToInput, touchSticks } from './sticks';
 
 /** Night Tuner's KM: physical key -> held control */
 export const KM: Readonly<Record<string, string>> = {
@@ -73,31 +74,94 @@ export class InputMap {
   private readonly out: Input = { ...NO_INPUT };
   private readonly gpPrev: Record<number, boolean> = {};
   private win: Window | null = null;
-  private buttons: { b: HTMLElement; down: (e: PointerEvent) => void; up: () => void }[] = [];
+  private buttons: { b: HTMLElement; k: string; down: (e: PointerEvent) => void }[] = [];
+  /** which button each finger is on (by pointer id); a finger that slid off every button is kept, on null */
+  private fingers = new Map<number, string | null>();
+  /** the phone's Drift button: was it held on the last step, and how many steps of hand brake are left from pressing it */
+  private driftWas = false;
+  private kick = 0;
 
   constructor(private readonly opts: { manual: () => boolean; hydraulics: () => boolean }) {}
 
-  /** Listen for keys on the element's window, and wire any `[data-k]` touch buttons inside `el`. */
+  /** Listen for keys on the element's window, and wire any `[data-k]` touch buttons inside `el`.
+   *  Each finger is followed on its own: it presses the button it lands on, a slide onto another steer or pedal button
+   *  switches to it (so ◀ to ▶ needs no lift), and a slide off every button lets go. The finger is not captured by
+   *  the button it started on, which is what used to leave a button held after the finger had moved away. */
   attach(el: HTMLElement): void {
     this.detach();
     this.win = el.ownerDocument?.defaultView ?? null;
-    if (this.win) { this.win.addEventListener('keydown', this.onKeyDown); this.win.addEventListener('keyup', this.onKeyUp); this.win.addEventListener('blur', this.releaseAll); }
+    if (this.win) {
+      this.win.addEventListener('keydown', this.onKeyDown); this.win.addEventListener('keyup', this.onKeyUp); this.win.addEventListener('blur', this.releaseAll);
+      this.win.addEventListener('pointermove', this.onMove, { passive: true });
+      for (const n of ['pointerup', 'pointercancel'] as const) this.win.addEventListener(n, this.onUp);
+    }
     el.querySelectorAll<HTMLElement>('[data-k]').forEach(b => {
       const k = b.dataset.k as string;
-      const down = (e: PointerEvent) => { e.preventDefault(); try { b.setPointerCapture(e.pointerId); } catch { /* not capturable */ } this.setTouch(k, true); b.classList.toggle('on', k !== 'up' && k !== 'dn'); };
-      const up = () => { this.setTouch(k, false); b.classList.remove('on'); };
+      const down = (e: PointerEvent) => {
+        e.preventDefault();
+        try { if (b.hasPointerCapture(e.pointerId)) b.releasePointerCapture(e.pointerId); } catch { /* not captured */ }
+        this.pointerDown(e.pointerId, k);
+      };
       b.addEventListener('pointerdown', down);
-      for (const n of ['pointerup', 'pointercancel', 'lostpointercapture']) b.addEventListener(n, up);
-      this.buttons.push({ b, down, up });
+      b.addEventListener('contextmenu', this.noMenu);
+      this.buttons.push({ b, k, down });
     });
   }
 
   detach(): void {
-    if (this.win) { this.win.removeEventListener('keydown', this.onKeyDown); this.win.removeEventListener('keyup', this.onKeyUp); this.win.removeEventListener('blur', this.releaseAll); }
-    for (const { b, down, up } of this.buttons) { b.removeEventListener('pointerdown', down); for (const n of ['pointerup', 'pointercancel', 'lostpointercapture']) b.removeEventListener(n, up); }
-    this.buttons = []; this.win = null;
+    if (this.win) {
+      this.win.removeEventListener('keydown', this.onKeyDown); this.win.removeEventListener('keyup', this.onKeyUp); this.win.removeEventListener('blur', this.releaseAll);
+      this.win.removeEventListener('pointermove', this.onMove);
+      for (const n of ['pointerup', 'pointercancel'] as const) this.win.removeEventListener(n, this.onUp);
+    }
+    for (const { b, down } of this.buttons) { b.removeEventListener('pointerdown', down); b.removeEventListener('contextmenu', this.noMenu); }
     this.releaseAll();
+    this.buttons = []; this.win = null;
   }
+
+  private readonly noMenu = (e: Event): void => { e.preventDefault(); };
+  private readonly onMove = (e: PointerEvent): void => { if (this.fingers.has(e.pointerId)) this.pointerMove(e.pointerId, this.buttonAt(e.clientX, e.clientY)); };
+  private readonly onUp = (e: PointerEvent): void => { this.pointerUp(e.pointerId); };
+  /** the touch button under a point, if it is one of ours and showing */
+  private buttonAt(x: number, y: number): string | null {
+    const doc = this.win?.document; if (!doc) return null;
+    const hit = doc.elementFromPoint(x, y)?.closest<HTMLElement>('[data-k]');
+    const own = hit && this.buttons.find(o => o.b === hit);
+    return own && own.b.offsetParent !== null ? own.k : null;
+  }
+
+  /** A finger landed on button `k`. */
+  pointerDown(id: number, k: string): void {
+    const was = this.fingers.get(id);
+    if (was !== undefined) this.pointerUp(id);
+    this.fingers.set(id, k);
+    if (k === 'up' || k === 'dn') this.setTouch(k, true); else this.hold(k);
+    this.paint();
+  }
+  /** A finger that is down moved onto button `k` (null: onto no button). Gear buttons fire only on a fresh tap. */
+  pointerMove(id: number, k: string | null): void {
+    if (!this.fingers.has(id)) return;
+    const was = this.fingers.get(id) ?? null;
+    if (was === k) return;
+    const next = k === 'up' || k === 'dn' ? null : k;
+    if (was === next) return;
+    this.fingers.set(id, next);
+    if (was && was !== 'up' && was !== 'dn') this.letGo(was);
+    if (next) this.hold(next);
+    this.paint();
+  }
+  /** A finger lifted (or the browser took it back). */
+  pointerUp(id: number): void {
+    if (!this.fingers.has(id)) return;
+    const was = this.fingers.get(id) ?? null;
+    this.fingers.delete(id);
+    if (was && was !== 'up' && was !== 'dn') this.letGo(was);
+    this.paint();
+  }
+  private hold(k: string): void { if (!this.touch[k]) this.setTouch(k, true); }
+  /** let go of `k` unless another finger is still on it */
+  private letGo(k: string): void { for (const v of this.fingers.values()) if (v === k) return; this.setTouch(k, false); }
+  private paint(): void { for (const { b, k } of this.buttons) b.classList.toggle('on', k !== 'up' && k !== 'dn' && !!this.touch[k]); }
 
   /** A touch button changed: `up` / `dn` raise gear edges on press, the rest are held. */
   setTouch(k: string, on: boolean): void {
@@ -110,7 +174,7 @@ export class InputMap {
   clearEdges(): void { const e = this.edge; e.shiftUp = e.shiftDn = e.hop = e.reset = e.enter = e.map = e.camera = e.lookBack = e.lights = e.horn = e.drift = e.pause = e.laneL = e.laneR = false; }
 
   /** Release every held key and button (blur, pause). */
-  readonly releaseAll = (): void => { for (const k in this.keys) this.keys[k] = false; for (const k in this.touch) this.touch[k] = false; };
+  readonly releaseAll = (): void => { for (const k in this.keys) this.keys[k] = false; for (const k in this.touch) this.touch[k] = false; this.fingers.clear(); this.paint(); releaseSticks(); this.driftWas = false; this.kick = 0; };
 
   readonly onKeyDown = (e: KeyboardEvent): void => {
     if (typingTarget(e.target)) return;
@@ -154,6 +218,9 @@ export class InputMap {
   }
   private padEdge(gp: Pad, i: number): boolean { const p = !!(gp.buttons[i] && gp.buttons[i].pressed), was = !!this.gpPrev[i]; this.gpPrev[i] = p; return p && !was; }
 
+  /** The phone's Drift button is held: the scene drives in drift mode while it is. */
+  driftHeld(): boolean { return touchSticks.drift; }
+
   /** Night Tuner's buildInput. Returns one reused object: copy it if you keep it past the step. */
   build(): Input {
     const I = Object.assign(this.out, NO_INPUT), K = this.keys, T = this.touch, kit = this.opts.hydraulics();
@@ -163,6 +230,18 @@ export class InputMap {
     I.nos = !!(K.nos || T.nos); I.hb = !!(K.hb || T.hb); I.manual = !!this.opts.manual();
     I.hyd = hyd; I.hydF = !!K.fwd; I.hydR = !!K.back; I.hydL = !!K.left; I.hydRt = !!K.right;
     I.shiftUp = this.edge.shiftUp; I.shiftDn = this.edge.shiftDn; I.hop = this.edge.hop && kit;
+    // the phone's sticks and hold buttons, merged with the rest (the larger wins)
+    const S = touchSticks, st = stickToInput(S.steerX, S.gasY);
+    if (st.steer !== 0 && Math.abs(st.steer) >= Math.abs(I.steer)) I.steer = st.steer;
+    I.fwd = Math.max(I.fwd, st.fwd); I.back = Math.max(I.back, st.back);
+    if (S.nos) I.nos = true;
+    if (S.drift && !this.driftWas) this.kick = DRIFT_KICK_STEPS; // pressing Drift pulls the hand brake briefly
+    this.driftWas = S.drift;
+    if (this.kick > 0) { this.kick--; I.hb = true; }
+    if (S.laneL) { this.edge.laneL = true; S.laneL = false; }
+    if (S.laneR) { this.edge.laneR = true; S.laneR = false; }
+    if (S.shiftUp) { this.edge.shiftUp = I.shiftUp = true; S.shiftUp = false; }
+    if (S.shiftDn) { this.edge.shiftDn = I.shiftDn = true; S.shiftDn = false; }
     const gp = pad();
     if (gp) {
       const ax = gp.axes[0] || 0; if (Math.abs(ax) > .15) I.steer = Math.sign(ax) * Math.min(1, (Math.abs(ax) - .15) / .85);

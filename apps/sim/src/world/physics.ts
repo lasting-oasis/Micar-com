@@ -121,7 +121,8 @@ export function stepVehicle(V: Vehicle, I: Input, dt: number, drift: boolean): v
   const dmax = (.62 / (1 + Math.pow(spd / 11, 1.4)) + .03) * P.steerMul * (drift ? 1.25 : 1);
   const tgt = -I.steer; V.steer += (tgt - V.steer) * Math.min(1, dt * (Math.abs(tgt) < Math.abs(V.steer) ? 10 : 7));
   V.beta = Math.atan2(V.v, ux);
-  const kcs = (drift ? 1.3 : 1.0) * clamp((spd - 3) / 5, 0, 1);
+  // counter-steer assist is for sliding forward; reversing has none
+  const kcs = V.u < 0 ? 0 : (drift ? 1.3 : 1.0) * clamp((spd - 3) / 5, 0, 1);
   const fade = 1 - (drift ? .3 : .6) * Math.min(1, Math.abs(V.beta) / .5);
   const delta = clamp(V.steer * dmax * fade + kcs * V.beta, -dmax - .3, dmax + .3); V.delta = delta;
   const down = P.downK * V.u * V.u;
@@ -141,7 +142,8 @@ export function stepVehicle(V: Vehicle, I: Input, dt: number, drift: boolean): v
   V.spinF += (spinF - V.spinF) * Math.min(1, dt * 8); V.spinR += (spinR - V.spinR) * Math.min(1, dt * 8);
   const ellF = Math.sqrt(Math.max(0, 1 - (Fxf / capF) ** 2)), ellR = Math.sqrt(Math.max(0, 1 - (Fxr / capR) ** 2));
   const latF = capF * Math.max(spinF ? .45 : .2, ellF), latR = capR * Math.max(I.hb ? (drift ? .12 : .2) : spinR ? (drift ? .55 : .45) : .2, ellR);
-  const af = delta - Math.atan2(V.v + P.a * V.w, ux), ar = -Math.atan2(V.v - P.b * V.w, ux);
+  // slip against the way the tyre is rolling: when it rolls backwards the steered wheel pushes the other way, so reversing turns the car the way a real one does
+  const af = (V.u < 0 ? -delta : delta) - Math.atan2(V.v + P.a * V.w, ux), ar = -Math.atan2(V.v - P.b * V.w, ux);
   const Fyf = latF * tireCurve(af, P.B), Fyr = latR * tireCurve(ar, P.B * 1.05);
   const Fres = P.cdA * V.u * Math.abs(V.u) + P.roll * Math.tanh(V.u * 2);
   const cd = Math.cos(delta), sd = Math.sin(delta);
