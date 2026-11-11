@@ -2973,15 +2973,18 @@ function App() {
                         <div key={`m-${idx}`} className="bg-black/40 p-4 rounded border border-white/5 flex flex-col gap-2 relative overflow-hidden group">
                           <div className="absolute top-0 right-0 w-16 h-16 bg-market/5 rounded-bl-full -z-10 group-hover:bg-market/10 transition-colors"></div>
                           <div className="flex justify-between items-start">
-                            <h5 className="font-bold text-white/90">{p.name}</h5>
+                            <div>
+                              <h5 className="font-bold text-white/90">{p.partName}</h5>
+                              <div className="text-xs text-gray-400">Fixes: {p.name}</div>
+                            </div>
                             <span className="text-sm font-bold text-green-400">${Math.floor(p.cost * 0.75).toLocaleString()}</span>
                           </div>
                           <div className="flex justify-between items-end mt-2">
                             <div className="text-xs text-gray-400 uppercase tracking-widest">
-                              Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.name] || 0}</span>
+                              Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.partName] || 0}</span>
                             </div>
                             <button 
-                              onClick={() => buyPart(p.name, Math.floor(p.cost * 0.75))}
+                              onClick={() => buyPart(p.partName)}
                               disabled={me.money < Math.floor(p.cost * 0.75)}
                               className="bg-market/20 hover:bg-market hover:text-black text-market px-3 py-1 rounded text-xs font-bold transition-colors disabled:opacity-30 uppercase tracking-widest"
                             >
@@ -3000,15 +3003,18 @@ function App() {
                         <div key={`b-${idx}`} className="bg-black/40 p-4 rounded border border-white/5 flex flex-col gap-2 relative overflow-hidden group">
                           <div className="absolute top-0 right-0 w-16 h-16 bg-blue-500/5 rounded-bl-full -z-10 group-hover:bg-blue-500/10 transition-colors"></div>
                           <div className="flex justify-between items-start">
-                            <h5 className="font-bold text-white/90">{p.name}</h5>
+                            <div>
+                              <h5 className="font-bold text-white/90">{p.partName}</h5>
+                              <div className="text-xs text-gray-400">Fixes: {p.name}</div>
+                            </div>
                             <span className="text-sm font-bold text-green-400">${Math.floor(p.cost * 0.75).toLocaleString()}</span>
                           </div>
                           <div className="flex justify-between items-end mt-2">
                             <div className="text-xs text-gray-400 uppercase tracking-widest">
-                              Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.name] || 0}</span>
+                              Owned: <span className="text-market font-bold text-sm">{me.partsInventory?.[p.partName] || 0}</span>
                             </div>
                             <button 
-                              onClick={() => buyPart(p.name, Math.floor(p.cost * 0.75))}
+                              onClick={() => buyPart(p.partName)}
                               disabled={me.money < Math.floor(p.cost * 0.75)}
                               className="bg-market/20 hover:bg-market hover:text-black text-market px-3 py-1 rounded text-xs font-bold transition-colors disabled:opacity-30 uppercase tracking-widest"
                             >

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import crypto from 'node:crypto';
-import { LINK_BUSY, LINK_IP_BUSY, LINK_WINDOW_MS, allowSend, clientIp, newSendLog, ALLOWANCE, signMagic, verifyMagic, signSession, verifySession, verifyGoogle, linkGuest, claimAllowance, saveRecord, attachAccount, liveHolder, identityKey, bootState, utcDay } from './accounts';
+import { LINK_BUSY, LINK_IP_BUSY, LINK_WINDOW_MS, allowSend, clientIp, newSendLog, ALLOWANCE, signMagic, verifyMagic, signSession, verifySession, verifyGoogle, linkGuest, claimAllowance, saveRecord, applyRecord, attachAccount, liveHolder, identityKey, bootState, utcDay } from './accounts';
 const S = 'test-secret';
 const guest = (money = 1350) => ({ id: 's1', name: 'Pool', money, octane: 40, stamps: ['strip:first-win'], strip: { rep: 150, cars: {}, wins: { dr1: 1 }, best: { dr1: 9.8 } }, inventory: [{ id: 'rental-1', rental: true }, { id: 'own-1' }] } as any);
 describe('magic links', () => {
@@ -97,6 +97,13 @@ describe('live holders and identity keys', () => {
 });
 
 describe('saved records and email limits', () => {
+  it('saveRecord keeps the bay orders when there are some and writes no orders key when there are none; applyRecord defaults them', () => {
+    const none = guest(); expect('orders' in saveRecord(none)).toBe(false); expect('orders' in saveRecord({ ...none, orders: [] })).toBe(false);
+    const orders = [{ id: 'wo-1', carId: 'own-1', car: 'x', door: 'garage', day: 1, lines: [], total: 0, stages: [] }];
+    const rec = saveRecord({ ...none, orders }); expect(rec.orders).toEqual(orders); expect(rec.orders).not.toBe(orders);
+    const p = guest(); applyRecord(p, saveRecord(none)); expect(p.orders).toEqual([]);
+    applyRecord(p, rec); expect(p.orders).toEqual(orders);
+  });
   it('saveRecord drops the part records of rentals', () => {
     const g = guest();
     g.strip.cars = { 'rental-1': { cfg: {}, owned: ['a'] }, 'rental-9-old': { cfg: {}, owned: [] }, 'own-1': { cfg: {}, owned: ['b'] } };

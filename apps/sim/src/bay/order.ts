@@ -8,7 +8,8 @@ export const MAX_LINES = 24;
 export const REPAIR_FAIL = 0.15;
 export const MECHANIC_RATE = 0.8;
 
-export type Door = 'garage' | 'dealership' | 'shop';
+export const DOORS = ['garage', 'dealership', 'shop'] as const;
+export type Door = typeof DOORS[number];
 export type OrderLine = { kind: 'repair'; repairId: string } | { kind: 'install'; key: string; v: PartValue };
 
 export function isOrderLine(x: unknown): x is OrderLine {

@@ -87,7 +87,7 @@ interface StoreState {
   preInspect: (id: string) => void;
   finalInspect: (id: string) => void;
   registerVehicle: (id: string) => void;
-  buyPart: (partName: string, cost: number) => void;
+  buyPart: (partName: string) => void;
   scrapCar: (carId: string) => void;
   buyScrapCar: (carId: string) => void;
   orderRepo: (id: string) => void;
@@ -523,9 +523,9 @@ export const useGameStore = create<StoreState>((set, get) => ({
       const socket = get().socket;
       if(socket) socket.emit('register_vehicle', id);
   },
-  buyPart: (partName, cost) => {
+  buyPart: (partName) => {
       const socket = get().socket;
-      if(socket) socket.emit('buy_part', { partName, cost });
+      if(socket) socket.emit('buy_part', { partName });
   },
   scrapCar: (id) => {
       const socket = get().socket;

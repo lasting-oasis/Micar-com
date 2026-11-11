@@ -52,7 +52,7 @@ export const VISITOR_EVENTS: ReadonlySet<string> = new Set([
   'join', 'chat_message',
   'sync_player_pos', 'sync_car_pos', 'consume_fuel', 'refuel',
   'enter_event', 'finish_event', 'finish_outrun', 'quit_event',
-  'strip_buy_part', 'strip_equip', 'strip_tune',
+  'strip_buy_part', 'strip_equip', 'strip_tune', 'bay_order',
   'rent_car', 'request_link', 'link_account', 'claim_allowance', 'sign_out',
   'test_car', 'test_car_return',
 ]);

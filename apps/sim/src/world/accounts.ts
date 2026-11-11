@@ -8,7 +8,7 @@ export const MAGIC_TTL_MS = 15 * 60_000;
 export const SESSION_TTL_MS = 30 * 86_400_000;
 
 export type Identity = { kind: 'google'; sub: string; email?: string } | { kind: 'email'; email: string };
-export type SavedPlayer = Pick<Player, 'name' | 'money' | 'octane' | 'stamps' | 'strip' | 'inventory'>;
+export type SavedPlayer = Pick<Player, 'name' | 'money' | 'octane' | 'stamps' | 'strip' | 'inventory' | 'orders'>;
 export type Account = { id: string; identities: Identity[]; player: SavedPlayer; lastAllowance?: string; createdAt: number };
 export type Jwk = { kid: string; n: string; e: string; [k: string]: unknown };
 
@@ -98,6 +98,7 @@ export function saveRecord(player: Player): SavedPlayer {
   return structuredClone({
     name: player.name, money: player.money, octane: player.octane, stamps: player.stamps, strip,
     inventory: player.inventory.filter(c => !isRental(c)),
+    ...(player.orders?.length ? { orders: player.orders } : {}),
   });
 }
 
@@ -117,6 +118,7 @@ export function applyRecord(player: Player, rec: SavedPlayer): void {
   player.stamps = rec.stamps;
   player.strip = rec.strip ? pruneStrip(rec.strip) : freshStrip();
   player.inventory = rec.inventory;
+  player.orders = rec.orders ?? [];
 }
 
 export function utcDay(now: number): string {

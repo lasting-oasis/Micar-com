@@ -5,7 +5,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { spawn, spawnSync, type ChildProcess } from 'node:child_process';
 import { createServer, type Server } from 'node:http';
 import type { AddressInfo } from 'node:net';
-import { cpSync, mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -20,6 +20,7 @@ import { ATTEMPTS_PER_IP } from './testerKey';
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const SECRET = 'wiring-test-only-secret'; // a throwaway value for this child process, not a real secret
 const ACCOUNT = 'acct-wiring';
+const BAY = 'acct-bay';
 const TESTER = 'wiring-tester-key'; // a throwaway tester key for this child process, not a real secret
 let child: ChildProcess;
 let dir: string;
@@ -44,7 +45,14 @@ beforeAll(async () => {
   mkdirSync(path.join(dir, 'data'));
   cpSync(path.join(APP, 'public', 'strip', 'tracks'), path.join(dir, 'dist', 'strip', 'tracks'), { recursive: true }); // the track data a deployed dist carries
   const saved = { name: 'Saved', money: 1234, octane: 0, stamps: [], strip: freshStrip(), inventory: [] };
-  writeFileSync(path.join(dir, 'data', 'gameState.json'), JSON.stringify({ accounts: { [ACCOUNT]: { id: ACCOUNT, identities: [{ kind: 'email', email: 'saved@example.com' }], player: saved, createdAt: 1 } } }));
+  const bayCar = { id: 'car-bay', make: 'Toyota', model: 'Camry', year: 2019, bodyStyle: 'sedan', condition: 95, bodyCondition: 100, mechanicCondition: 90, mileage: 40000, buyPrice: 9000, color: 'Silver', ownerId: null, daysOnLot: 0, titleStatus: 'Clean',
+    activeRepairs: [{ id: 'f1', name: 'Worn Brake Pads', partName: 'Brake Pad Set', type: 'mechanic', cost: 250, conditionImpact: 10 }] };
+  const hailCar = { ...bayCar, id: 'car-hail', bodyCondition: 60, mechanicCondition: 100, condition: 80, activeRepairs: [] };
+  const bay = { name: 'Bay', money: 5000, octane: 0, stamps: [], strip: freshStrip(), inventory: [bayCar, hailCar] };
+  writeFileSync(path.join(dir, 'data', 'gameState.json'), JSON.stringify({ accounts: {
+    [ACCOUNT]: { id: ACCOUNT, identities: [{ kind: 'email', email: 'saved@example.com' }], player: saved, createdAt: 1 },
+    [BAY]: { id: BAY, identities: [{ kind: 'email', email: 'bay@example.com' }], player: bay, createdAt: 1 },
+  } }));
   child = spawn(process.execPath, [path.join(APP, 'node_modules/tsx/dist/cli.mjs'), path.join(APP, 'server.ts')], {
     cwd: dir,
     env: { PATH: process.env.PATH ?? '', HOME: process.env.HOME ?? dir, TMPDIR: tmpdir(), NODE_ENV: 'production', PORT: '0', MAGIC_SECRET: SECRET,
@@ -376,6 +384,44 @@ describe('server wiring', () => {
     expect(mine(await check, gi.id).inventory.every((c: any) => !c.testCar)).toBe(true);
     await close(t, g);
   });
+
+  const mineAfter = (s: Socket, id: string, pred: (p: any) => boolean = () => true) => next<any>(s, 'update', u => !!u.players[id] && pred(u.players[id])).then(u => u.players[id]);
+
+  it('an order for a part over a fault is priced by the server, charged once, and recorded; what is wrong is refused', async () => {
+    const s = client(), si = await join(s, { mode: 'session', session: signSession(BAY, Date.now(), SECRET) }), id = si.id;
+    const hail = si.state.players[id].inventory.find((c: any) => c.id === 'car-hail');   // a saved car that lost condition with no fault has faults for it on joining
+    expect(hail.activeRepairs.every((f: any) => f.type === 'body')).toBe(true); expect(hail.activeRepairs.reduce((n: number, f: any) => n + f.conditionImpact, 0)).toBe(40);
+    const lines = [{ kind: 'install', key: 'perf.brakes', v: 1 }, { kind: 'install', key: 'tint', v: 1 }];
+    const res = next<any>(s, 'bay_result'), upd = mineAfter(s, id, p => p.orders?.length === 1);
+    s.emit('bay_order', { carId: 'car-bay', door: 'garage', lines, quote: 1200 });
+    const { order } = await res, p = await upd, car = p.inventory.find((c: any) => c.id === 'car-bay');
+    expect(order.total).toBe(1200); expect(order.lines.map((l: any) => l.outcome)).toEqual(['done', 'done']);
+    expect(p.money).toBe(3800); expect(car.activeRepairs).toEqual([]); expect(car.mechanicCondition).toBe(100); expect(car.recon).toBe(1200);
+    expect(p.strip.cars['car-bay'].cfg.perf.brakes).toBe(1); expect(p.strip.cars['car-bay'].cfg.tint).toBe(1); expect(p.orders[0].id).toBe(order.id);
+    const refuse = async (msg: object) => { const d = next<any>(s, 'strip_denied'), u = mineAfter(s, id); s.emit('bay_order', msg); const reason = (await d).reason; expect((await u).money).toBe(3800); return reason; };
+    expect(await refuse({ carId: 'car-bay', door: 'garage', lines, quote: 1200 })).toBe('Already fitted.');                          // the second tap
+    const one = [{ kind: 'install', key: 'spoiler', v: 1 }];
+    expect(await refuse({ carId: 'car-bay', door: 'garage', lines: one, quote: 1 })).toBe('The price changed. Try again.');
+    expect(await refuse({ carId: 'car-bay', door: 'garage', lines: 'x', quote: 0 })).toBe('That order is not valid.');
+    expect(await refuse({ carId: 'car-bay', door: 'the roof', lines: one, quote: 900 })).toBe('That order is not valid.');
+    expect(await refuse({ carId: 'someone-elses', door: 'garage', lines: one, quote: 900 })).toBe('That order is not valid.');
+    expect(await refuse({ carId: 'car-bay', door: 'garage', lines: Array.from({ length: 25 }, () => one[0]), quote: 0 })).toBe('Too many lines.');
+    await close(s);
+  }, 30_000);
+  it('a rental takes no order', async () => {
+    const g = client(), gi = await join(g, { mode: 'guest', name: 'BayGuest' }), rental = await rentOne(g, gi.id);
+    const d = next<any>(g, 'strip_denied'); g.emit('bay_order', { carId: rental.id, door: 'garage', lines: [{ kind: 'install', key: 'spoiler', v: 1 }], quote: 900 });
+    expect((await d).reason).toBe(RENTAL_DENIED); await close(g);
+  });
+  it('buy_part is priced by the server', async () => {
+    const d = client(), di = await join(d, { name: 'PartsDealer', lotScale: 'Small' }), m0 = di.state.players[di.id].money;
+    const u1 = mineAfter(d, di.id, p => p.partsInventory['Brake Pad Set'] === 1); d.emit('buy_part', { partName: 'Brake Pad Set', cost: -50000 }); expect((await u1).money).toBe(m0 - 187);
+    d.emit('buy_part', { partName: 'Gold Bar', cost: 1 });
+    const u2 = mineAfter(d, di.id, p => p.partsInventory['Brake Pad Set'] === 2); d.emit('buy_part', { partName: 'Worn Brake Pads' }); const p = await u2;   // a page loaded before the deploy sends the fault's name
+    expect(p.money).toBe(m0 - 374); expect(p.partsInventory['Gold Bar']).toBeUndefined(); expect(p.partsInventory['Worn Brake Pads']).toBeUndefined(); await close(d);
+  });
+  it('the Parts tab stocks a part under the name a repair looks for', () => { const app = readFileSync(path.join(APP, 'src', 'App.tsx'), 'utf8'); expect(app).not.toContain('partsInventory?.[p.name]'); expect(app).not.toContain('buyPart(p.name'); });
+  it('repair_engine is gone', () => { expect(readFileSync(path.join(APP, 'server.ts'), 'utf8')).not.toContain('repair_engine'); });
 
   it('five wrong keys from one address shut the key out, the right one included (this test must stay the last to use the key)', async () => {
     for (let i = 0; i < ATTEMPTS_PER_IP; i++) {
