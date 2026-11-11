@@ -159,12 +159,13 @@ function ceilingsOf(passport: Passport, registry: VerifierRegistry): Ceilings {
 }
 
 /**
- * A stored snapshot is shown when it could be a grade this engine gave: by the formula in use, for the day it was
- * written and no later than today, with numbers that agree with each other (the overall is its categories' weighted
- * sum, the label's number and tier are the overall's), and within what the record supports for that day.
+ * A stored snapshot is sound when it could be a grade this engine gave: by the formula in use, for the day it was
+ * written, with numbers that agree with each other (the overall is its categories' weighted sum, the label's number
+ * and tier are the overall's), and within what the record supports for the moment it was written. Whether that day
+ * has come yet on the reader's calendar is a separate question (see supportedHistory).
  */
-function snapshotSupported(snapshot: GradeSnapshot, at: Ceilings, today: string): boolean {
-  if (snapshot.formula !== GRADE_FORMULA || snapshot.asOf > today || dayOf(snapshot.at) !== snapshot.asOf) return false;
+function snapshotSound(snapshot: GradeSnapshot, at: Ceilings): boolean {
+  if (snapshot.formula !== GRADE_FORMULA || dayOf(snapshot.at) !== snapshot.asOf) return false;
   let sum = 0;
   for (const k of GRADE_CATEGORIES) sum += snapshot.categories[k] * GRADE_WEIGHTS[k];
   if (Math.abs(snapshot.overall - round1(sum)) > SLACK || snapshot.grade10 !== grade10Of(snapshot.overall) || snapshot.tier !== tierOf(snapshot.grade10)) return false;
@@ -175,41 +176,46 @@ function snapshotSupported(snapshot: GradeSnapshot, at: Ceilings, today: string)
 }
 
 /**
- * A stored edition is shown when it could be a card this engine printed: dated no later than today, raw exactly when
- * its level is Registered, wearing the finish its grade earns, with a Power Rating that is the mean of its own seven
- * attributes, and within the level, the grade and the rarity (for a card of its own level) that the record supports
- * for the moment it was printed. The attributes themselves are
- * the specification sheet's account on the day of printing: nothing here can check them, so the apps say so and the
- * public view leaves them out.
+ * A stored edition is sound when it could be a card this engine printed: raw exactly when its level is Registered,
+ * with a label that is a number to one decimal, wearing the finish its grade earns, with a Power Rating that is the
+ * mean of its own seven attributes, and within the level, the grade and the rarity (for a card of its own level) that
+ * the record supports for the moment it was printed. The label is held to the ceiling's own label with no allowance:
+ * a tenth is the difference between two finishes. The attributes themselves are the specification sheet's account
+ * on the day of printing: nothing here can check them, so the apps say so and the public view leaves them out.
  */
-function editionSupported(edition: CardEdition, at: Ceilings, today: string): boolean {
-  const day = dayOf(edition.issuedAt);
-  if (day > today) return false;
+function editionSound(edition: CardEdition, at: Ceilings): boolean {
   const slabbed = isSlabbed(edition.level);
   if ((edition.grade10 !== null) !== slabbed) return false;
   const label = edition.grade10 ?? 1;
+  if (round1(label) !== label) return false;
   if (edition.finish !== finishOf({ grade10: label, tier: tierOf(label) }, slabbed).finish) return false;
   if (edition.powerRating !== powerRating(edition.attributes)) return false;
   const { grade, rarity } = at(edition.issuedAt);
   if (levelRank(edition.level) > levelRank(grade.level) || rarityRank(edition.rarity) > rarityRank(rarity(edition.level))) return false;
-  return edition.grade10 === null || edition.grade10 <= grade10Of(grade.overall) + SLACK;
+  return edition.grade10 === null || edition.grade10 <= grade10Of(grade.overall);
 }
 
 /**
  * The stored history a passport's own record supports, as of a day. A grade snapshot and a card edition are copies of
  * past results, kept so that history is never rewritten; but a passport file is its holder's to edit, and a copy can
- * be written to say anything. So each one is checked against the most the passport could have earned on its day,
+ * be written to say anything. So each one is checked against the most the passport could have earned at its moment,
  * going only by what independent verifiers had attested by then (gradeCeiling), and against itself: a label that
- * does not follow from its own score, a finish its grade does not earn, or a date that has not happened yet is not
- * something this engine wrote. What fails is left out here, and so from every card, history list and public view.
- * With no verifier registered nothing above Documented, and no Verification score above zero, is ever shown.
+ * does not follow from its own score, or a finish its grade does not earn, is not something this engine wrote. What
+ * fails is left out here, and so from every card, history list and public view, and counted in `unsupported`. With
+ * no verifier registered nothing above Documented, and no Verification score above zero, is ever shown.
+ *
+ * An entry that is sound but dated after the day asked about is not shown yet, and is counted apart, in `ahead`: a
+ * previous owner whose calendar was a day ahead wrote it, or a clock was wrong. It claims nothing the record does
+ * not support, and it shows from its own day on.
  */
-export function supportedHistory(passport: Passport, registry: VerifierRegistry, asOf: string): { snapshots: GradeSnapshot[]; editions: CardEdition[]; unsupported: number } {
+export function supportedHistory(passport: Passport, registry: VerifierRegistry, asOf: string): { snapshots: GradeSnapshot[]; editions: CardEdition[]; unsupported: number; ahead: number } {
   const at = ceilingsOf(passport, registry);
   const today = dayOf(asOf);
-  const snapshots = passport.snapshots.filter((s) => snapshotSupported(s, at, today));
-  const editions = passport.editions.filter((e) => editionSupported(e, at, today));
-  return { snapshots, editions, unsupported: passport.snapshots.length - snapshots.length + passport.editions.length - editions.length };
+  let ahead = 0;
+  const yet = (day: string): boolean => { if (day <= today) return true; ahead += 1; return false; };
+  const snapshots = passport.snapshots.filter((s) => snapshotSound(s, at) && yet(s.asOf));
+  const editions = passport.editions.filter((e) => editionSound(e, at) && yet(dayOf(e.issuedAt)));
+  return { snapshots, editions, unsupported: passport.snapshots.length - snapshots.length + passport.editions.length - editions.length - ahead, ahead };
 }
 
 /** The newest supported entry of a list, looking from the end, that also passes `wanted`. */
@@ -271,8 +277,10 @@ export function assemble(passport: Passport, registry: VerifierRegistry, asOf: s
 
   // The card shows the edition printed for the level it holds now. The name is always the level's own: a stored
   // edition is never taken at its word about what it is.
+  // The edition printed for this level, whatever day it carries: one a previous owner's calendar dated a day ahead
+  // is still this level's edition, and is not printed a second time for that.
   const at = ceilingsOf(passport, registry);
-  const printed = newest(passport.editions, (e) => editionSupported(e, at, day), (e) => e.level === level);
+  const printed = newest(passport.editions, (e) => editionSound(e, at), (e) => e.level === level);
   const edition = printed
     ? { number: printed.number, name: EDITION_NAMES[level], issuedAt: printed.issuedAt }
     : { number: passport.editions.length + 1, name: EDITION_NAMES[level], issuedAt: passport.createdAt };
@@ -316,7 +324,7 @@ export function assemble(passport: Passport, registry: VerifierRegistry, asOf: s
 export function issueEdition(passport: Passport, registry: VerifierRegistry, ctx: { now: string; reason: string }): Passport {
   const a = assemble(passport, registry, ctx.now);
   const at = ceilingsOf(passport, registry);
-  if (newest(passport.editions, (e) => editionSupported(e, at, a.asOf), (e) => e.level === a.certification.level) !== null) return passport;
+  if (newest(passport.editions, (e) => editionSound(e, at), (e) => e.level === a.certification.level) !== null) return passport;
   const edition: CardEdition = {
     number: passport.editions.length + 1,
     name: EDITION_NAMES[a.certification.level],
@@ -339,7 +347,7 @@ export function issueEdition(passport: Passport, registry: VerifierRegistry, ctx
 export function recordSnapshot(passport: Passport, registry: VerifierRegistry, ctx: { now: string; id: string; reason: string }): Passport {
   const a = assemble(passport, registry, ctx.now);
   const at = ceilingsOf(passport, registry);
-  const last = newest(passport.snapshots, (s) => snapshotSupported(s, at, a.asOf));
+  const last = newest(passport.snapshots, (s) => snapshotSound(s, at));
   if (last && last.overall === a.report.overall && last.level === a.certification.level && GRADE_CATEGORIES.every((k) => last.categories[k] === a.report.categories[k].score)) return passport;
   return appendSnapshot(passport, snapshotOf(a.report, a.certification.level, { id: ctx.id, at: ctx.now, reason: ctx.reason, events: passport.events.length }));
 }

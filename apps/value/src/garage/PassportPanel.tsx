@@ -72,8 +72,10 @@ async function store(files: FileStore, picked: File[], entry: Parameters<typeof 
 /** Keeps the files picked for an entry on this device. Shared with the Mods tab, so both keep files the same way. */
 export const keepFiles = store;
 
-/** How many rows of the timeline or the grade history are drawn before the page offers the rest. */
+/** How many rows of the timeline, the grade history or the public list are drawn at a time. */
 const LONG_LIST = 200;
+/** How many of an entry's files a row draws before it offers the rest. */
+const FILES_IN_A_ROW = 4;
 
 /** How far above the last reading a new one can be before the form asks the owner to look again. */
 const ODOMETER_JUMP = 30000;
@@ -262,6 +264,9 @@ function Row({ passport, event, today, files, standing }: { passport: Passport; 
   const status = event.type === 'attestation' ? standing.statuses.filter((x) => x.eventId === event.id)[0] : undefined;
   const standingNote = status && !status.valid ? t(status.reason) : standing.voided.indexOf(event.id) !== -1 ? t('Withdrawn by a verifier') : '';
   const [missing, setMissing] = useState(false);
+  // An entry can name twenty files, and a passport five thousand entries: a row draws a few and offers the rest.
+  const [allFiles, setAllFiles] = useState(false);
+  const shownFiles = allFiles ? event.attachments : event.attachments.slice(0, FILES_IN_A_ROW);
   const open = async (a: Attachment) => {
     try {
       const blob = await files.get(a.id);
@@ -280,7 +285,7 @@ function Row({ passport, event, today, files, standing }: { passport: Passport; 
       <span className="what">{nameOf(event)}
         <small>
           {[event.mileage !== null ? `${event.mileage.toLocaleString('en-US')} mi` : '', event.note, standingNote].filter(Boolean).join(' · ')}
-          {event.attachments.length > 0 && <span className="gar-files">{event.attachments.map((a) => <button type="button" key={a.id} onClick={() => open(a)}>{a.name || t('file')}</button>)}</span>}
+          {event.attachments.length > 0 && <span className="gar-files">{shownFiles.map((a) => <button type="button" key={a.id} onClick={() => open(a)}>{a.name || t('file')}</button>)}{event.attachments.length > shownFiles.length && <button type="button" onClick={() => setAllFiles(true)}>{t('{n} more files', { n: event.attachments.length - shownFiles.length })}</button>}</span>}
           {missing && <span className="gar-err" role="status">{t('That file is not on this device. A passport file carries each file’s name and fingerprint, not the file.')}</span>}
         </small>
       </span>
@@ -383,24 +388,30 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
   const [showPublic, setShowPublic] = useState(false);
   const [editingVin, setEditingVin] = useState(false);
   const vinOpener = useFocusBack(editingVin);
-  // A long history is drawn a page at a time, newest first: a passport can hold thousands of entries and grades.
-  const [allEntries, setAllEntries] = useState(false);
-  const [allGrades, setAllGrades] = useState(false);
-  // "Show all" leaves the page when it is pressed: the keyboard goes to the list it opened.
+  // A long history is drawn a page at a time, newest first, and the rest a page at a time too: a passport can hold
+  // thousands of entries and grades, and a file from someone else decides how heavy one press would be.
+  const [entryCount, setEntryCount] = useState(LONG_LIST);
+  const [gradeCount, setGradeCount] = useState(LONG_LIST);
+  const [publicCount, setPublicCount] = useState(LONG_LIST);
+  // When the last page is drawn its button leaves the page: the keyboard goes to the list it finished.
   const ledger = useRef<HTMLDivElement>(null);
   const grades = useRef<HTMLDivElement>(null);
-  const showAllEntries = () => { setAllEntries(true); setTimeout(() => ledger.current?.focus(), 0); };
-  const showAllGrades = () => { setAllGrades(true); setTimeout(() => grades.current?.focus(), 0); };
+  const others = useRef<HTMLUListElement>(null);
+  const more = (shown: number, total: number, set: (n: number) => void, list: { current: HTMLElement | null }) => () => {
+    set(shown + LONG_LIST);
+    if (shown + LONG_LIST >= total) setTimeout(() => list.current?.focus(), 0);
+  };
   // An entry just written is always drawn. The list is in order of the entries' own dates, so an old receipt entered
-  // today can fall past the first page: the whole list is opened for it.
+  // today can fall beyond the pages drawn: it is then shown above the list, by itself.
   const written = useRef(passport.events.length);
+  const [justAdded, setJustAdded] = useState('');
   useEffect(() => {
-    if (passport.events.length > written.current && !allEntries) {
-      const last = passport.events[passport.events.length - 1];
-      if (events.findIndex((e) => e.id === last.id) >= LONG_LIST) setAllEntries(true);
-    }
+    if (passport.events.length > written.current) setJustAdded(passport.events[passport.events.length - 1].id);
     written.current = passport.events.length;
-  }, [passport, events, allEntries]);
+  }, [passport]);
+  const drawn = events.slice(0, entryCount);
+  const beyond = justAdded === '' || drawn.some((e) => e.id === justAdded) ? null : events.filter((e) => e.id === justAdded)[0] ?? null;
+  const publicEvents = useMemo(() => shared.events.slice().reverse(), [shared]);
   // After a hand-over the transfer form is gone: the keyboard goes to the line that says what has happened.
   const notice = useRef<HTMLParagraphElement>(null);
   const held = useRef(holding);
@@ -434,11 +445,12 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
             <div><small>{t('Owners')}</small><b className="num">{shared.ownerCount}</b></div>
             <div><small>{t('Current owner since')}</small><b>{month(shared.currentOwnerSince)}</b></div>
           </div>
-          <ul className="gar-list">
-            {shared.events.slice().reverse().map((e, i) => (
+          <ul className="gar-list" ref={others} tabIndex={-1} aria-label={t('What others see')}>
+            {publicEvents.slice(0, publicCount).map((e, i) => (
               <li key={i}><b>{month(e.month)}</b> · {e.title ? t(e.title) : t(EVENT_TYPE_LABELS[e.type])}{e.scope !== null ? `: ${t(ATTESTATION_SCOPE_LABELS[e.scope])}` : ''}{e.mileage !== null ? ` · ${e.mileage.toLocaleString('en-US')} mi` : ''}{e.verified ? ` · ${t('verified')}` : ''}</li>
             ))}
           </ul>
+          {publicEvents.length > publicCount && <div className="gar-btns"><button type="button" className="gar-btn" onClick={more(publicCount, publicEvents.length, setPublicCount, others)}>{t('Show {n} more ({left} not shown)', { n: Math.min(LONG_LIST, publicEvents.length - publicCount), left: publicEvents.length - publicCount })}</button></div>}
         </div>
       )}
 
@@ -446,8 +458,12 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
 
       <div>
         <h3>{t('Timeline')}</h3>
-        <div className="ledger gar-ledger" ref={ledger} tabIndex={-1} aria-label={t('Timeline')}>{(allEntries ? events : events.slice(0, LONG_LIST)).map((e) => <Row key={e.id} passport={passport} event={e} today={today} files={files} standing={standing} />)}</div>
-        {!allEntries && events.length > LONG_LIST && <div className="gar-btns"><button type="button" className="gar-btn" onClick={showAllEntries}>{t('Show all {n} entries', { n: events.length })}</button></div>}
+        {beyond && <>
+          <p className="gar-help" role="status">{t('The entry just added is dated before the ones shown below. Here it is:')}</p>
+          <div className="ledger gar-ledger"><Row passport={passport} event={beyond} today={today} files={files} standing={standing} /></div>
+        </>}
+        <div className="ledger gar-ledger" ref={ledger} tabIndex={-1} aria-label={t('Timeline')}>{drawn.map((e) => <Row key={e.id} passport={passport} event={e} today={today} files={files} standing={standing} />)}</div>
+        {events.length > entryCount && <div className="gar-btns"><button type="button" className="gar-btn" onClick={more(entryCount, events.length, setEntryCount, ledger)}>{t('Show {n} more ({left} not shown)', { n: Math.min(LONG_LIST, events.length - entryCount), left: events.length - entryCount })}</button></div>}
       </div>
 
       <div>
@@ -456,17 +472,20 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
         {history.unsupported > 0 && <p className="gar-note gar-warn" role="status">{history.unsupported === 1
           ? t('1 earlier grade or edition is not shown: the passport’s record, as it stands now, does not support it.')
           : t('{n} earlier grades or editions are not shown: the passport’s record, as it stands now, does not support them.', { n: history.unsupported })}</p>}
+        {history.ahead > 0 && <p className="gar-note" role="status">{history.ahead === 1
+          ? t('1 grade or edition is dated after today on this device’s calendar. It shows from that day.')
+          : t('{n} grades or editions are dated after today on this device’s calendar. They show from that day.', { n: history.ahead })}</p>}
         <div className="gar-scroll" ref={grades} tabIndex={-1} aria-label={t('Grade history')}>
           <table className="gar-table">
             <thead><tr><th>{t('Date')}</th><th>{t('Why')}</th><th>{t('Level')}</th><th className="num">{t('Overall')}</th><th className="num">{t('Grade')}</th></tr></thead>
             <tbody>
-              {history.snapshots.slice(allGrades ? 0 : -LONG_LIST).reverse().map((s) => (
+              {history.snapshots.slice(-gradeCount).reverse().map((s) => (
                 <tr key={s.id}><td>{day(s.asOf)}</td><td>{t(s.reason)}</td><td>{t(LEVEL_LABELS[s.level])}</td><td className="num">{s.overall.toFixed(1)}</td><td className="num">{s.level === 'registered' ? 'RAW' : s.grade10.toFixed(1)}</td></tr>
               ))}
             </tbody>
           </table>
         </div>
-        {!allGrades && history.snapshots.length > LONG_LIST && <div className="gar-btns"><button type="button" className="gar-btn" onClick={showAllGrades}>{t('Show all {n} grades', { n: history.snapshots.length })}</button></div>}
+        {history.snapshots.length > gradeCount && <div className="gar-btns"><button type="button" className="gar-btn" onClick={more(gradeCount, history.snapshots.length, setGradeCount, grades)}>{t('Show {n} more ({left} not shown)', { n: Math.min(LONG_LIST, history.snapshots.length - gradeCount), left: history.snapshots.length - gradeCount })}</button></div>}
       </div>
 
       <div>

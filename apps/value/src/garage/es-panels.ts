@@ -143,7 +143,10 @@ export const ES_PANELS: Record<string, string> = {
   'This file is the backup of garage {theirs}. Its cars are read-only here unless this browser takes up that Garage ID. Do that only if the garage is yours. Your present Garage ID, {mine}, is kept and goes on receiving cars.':
     'Este archivo es el respaldo del garaje {theirs}. Sus autos son de solo lectura aquí, a menos que este navegador adopte ese ID de garaje. Hágalo solo si el garaje es suyo. Su ID de garaje actual, {mine}, se conserva y sigue recibiendo autos.',
   'Take up {id}': 'Adoptar {id}', 'Keep things as they are': 'Dejar todo como está',
-  'Show all {n} entries': 'Mostrar las {n} entradas', 'Show all {n} grades': 'Mostrar las {n} calificaciones',
+  'Show {n} more ({left} not shown)': 'Mostrar {n} más ({left} sin mostrar)', '{n} more files': '{n} archivos más',
+  'The entry just added is dated before the ones shown below. Here it is:': 'La entrada recién agregada tiene fecha anterior a las que se muestran abajo. Aquí está:',
+  '1 grade or edition is dated after today on this device’s calendar. It shows from that day.': '1 calificación o edición tiene fecha posterior a hoy en el calendario de este dispositivo. Se muestra a partir de ese día.',
+  '{n} grades or editions are dated after today on this device’s calendar. They show from that day.': '{n} calificaciones o ediciones tienen fecha posterior a hoy en el calendario de este dispositivo. Se muestran a partir de ese día.',
   'That file is too large for this browser to keep, so nothing was brought in.': 'Ese archivo es demasiado grande para que este navegador lo guarde, así que no se trajo nada.',
   'More power raises the top speed only once the spec sheet says it is not electronically limited. That answer is blank, so Speed stays where it is.':
     'Más potencia aumenta la velocidad máxima solo cuando la ficha técnica dice que no está limitada electrónicamente. Esa respuesta está en blanco, así que la Velocidad se queda donde está.',

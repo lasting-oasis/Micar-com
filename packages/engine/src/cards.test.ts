@@ -470,6 +470,12 @@ describe('editions and snapshots', () => {
     refused({ ...raw, rarity: 'uncommon' }, 'a Registered card with a Documented card’s rarity');
     // The grade on the label, with the finish that grade would earn.
     refused({ ...slabbed, grade10: 9.9, finish: 'rainbow' }, 'a grade above what the record supports');
+    // The label is held to the ceiling's own label, 6.8 for an owner alone, with no allowance: it once had the
+    // rounding room a score has, and 6.85 was listed as "Grade 6.9". A label is a number to one decimal.
+    expect(editionShown(p, { ...slabbed, grade10: 6.8 })).toBe(true);
+    refused({ ...slabbed, grade10: 6.9 }, 'a label a tenth above the ceiling’s');
+    refused({ ...slabbed, grade10: 6.8509 }, 'a label that is not a number to one decimal');
+    refused({ ...slabbed, grade10: 6.75 }, 'a label that is not a number to one decimal');
     // The finish is the one the grade earns; a raw card has neither and a slabbed one has both.
     refused({ ...slabbed, finish: 'rainbow' }, 'a finish its grade does not earn');
     refused({ ...slabbed, finish: 'raw' }, 'a finish its grade does not earn');
@@ -617,6 +623,55 @@ describe('history, judged as the record stood when it was written', () => {
     // And one written the day after leaves the day before as it was.
     const nextDay = ok(voidEvent(morning, { target: identityEntry, reason: 'Wrong car', attestationId: identityId }, REGISTRY, { now: '2026-11-02T08:00:00.000Z', eventId: id() }));
     expect(supportedHistory(nextDay, REGISTRY, '2026-11-03').unsupported).toBe(0);
+  });
+});
+
+describe('history a previous owner’s calendar dated ahead', () => {
+  it('holds a label under the ceiling’s own where a tenth changes the finish', () => {
+    // Identity, mileage, an in-person inspection at 100 and originality attested, and no records attestation: the
+    // most this record supports is 97.0, a 9.7, Concours, holo. A 9.75 would be Showroom and wear the rainbow.
+    const attestation = (scope: string, over: Record<string, unknown> = {}) =>
+      ({ id: id(), verifierId: 'inspector-ann', scope, date: TODAY, inPerson: true, conditionScore: null, systems: null, mileage: null, events: [], note: '', signature: null, ...over });
+    let p = documented(issueEdition(parked(), REGISTRY, { now: '2026-01-05T09:00:00.000Z', reason: 'Parked' }));
+    for (const a of [attestation('identity'), attestation('mileage', { mileage: 48500 }), attestation('condition', { conditionScore: 100 }), attestation('originality')]) {
+      p = ok(recordAttestation(p, a, REGISTRY, { now: NOW, eventId: id() }));
+    }
+    p = issueEdition(p, REGISTRY, { now: NOW, reason: 'Attested' });
+    const verified = p.editions[p.editions.length - 1];
+    expect(verified.level).toBe('verified');
+    const shown = (over: Partial<CardEdition>) => supportedHistory({ ...p, editions: [...p.editions, { ...verified, number: p.editions.length + 1, ...over }] }, REGISTRY, TODAY).editions.length === p.editions.length + 1;
+    expect(shown({ grade10: 9.7, finish: 'holo' })).toBe(true);
+    expect(shown({ grade10: 9.8, finish: 'rainbow' })).toBe(false);
+    expect(shown({ grade10: 9.751, finish: 'rainbow' })).toBe(false);
+  });
+
+  it('is not shown before its day, is not called unsupported, and is not printed a second time', () => {
+    // The seller's device reads the morning of the 12th when the car reaches Documented: its grade and its
+    // Documented edition carry that day. The buyer brings the file in while their own calendar still says the 11th.
+    const sellers = '2026-11-12T08:00:00.000Z', buyers = '2026-11-11T16:00:00.000Z';
+    let p = issueEdition(recordSnapshot(parked(), EMPTY_REGISTRY, { now: '2026-01-05T09:00:00.000Z', id: id(), reason: 'Parked' }), EMPTY_REGISTRY, { now: '2026-01-05T09:00:00.000Z', reason: 'Parked' });
+    p = documented(p);
+    p = issueEdition(recordSnapshot(p, EMPTY_REGISTRY, { now: sellers, id: id(), reason: 'Maintenance' }), EMPTY_REGISTRY, { now: sellers, reason: 'Maintenance' });
+    expect(p.editions.map((e) => [e.level, e.issuedAt])).toEqual([['registered', '2026-01-05T09:00:00.000Z'], ['documented', sellers]]);
+    // On the buyer's 11th the car is Documented (everything that earned it is dated before then).
+    expect(assemble(p, EMPTY_REGISTRY, '2026-11-11').certification.level).toBe('documented');
+    // The history lists show what has happened by the buyer's calendar. The two entries dated the 12th are not
+    // unsupported: they are a day ahead, and say so.
+    const today = supportedHistory(p, EMPTY_REGISTRY, '2026-11-11');
+    expect(today).toMatchObject({ unsupported: 0, ahead: 2 });
+    expect(today.editions.map((e) => e.level)).toEqual(['registered']);
+    // The card shows the Documented edition the car was given, and writing to the passport does not print another.
+    expect(assemble(p, EMPTY_REGISTRY, '2026-11-11').card.edition).toMatchObject({ number: 2, issuedAt: sellers });
+    const written = ok(addEvent(p, { id: id(), type: 'mileage', date: '2026-11-11', mileage: 48100, title: '', note: '', attachments: [], visibility: 'private' }, { now: buyers, by: OWNER }));
+    const settled = issueEdition(recordSnapshot(written, EMPTY_REGISTRY, { now: buyers, id: id(), reason: 'Mileage' }), EMPTY_REGISTRY, { now: buyers, reason: 'Mileage' });
+    expect(settled.editions).toHaveLength(2);
+    // From the 12th on everything is listed, with one edition for each level.
+    const next = supportedHistory(settled, EMPTY_REGISTRY, '2026-11-12');
+    expect(next).toMatchObject({ unsupported: 0, ahead: 0 });
+    expect(next.editions.map((e) => e.level)).toEqual(['registered', 'documented']);
+    // A claim the record does not support is still counted as one, whatever day it carries.
+    const forged: Passport = { ...p, editions: [...p.editions, { ...p.editions[1], number: 3, level: 'certified', issuedAt: '2042-01-01T00:00:00.000Z' }] };
+    expect(supportedHistory(forged, EMPTY_REGISTRY, '2026-11-11')).toMatchObject({ unsupported: 1, ahead: 2 });
   });
 });
 
