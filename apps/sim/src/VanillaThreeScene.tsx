@@ -637,7 +637,7 @@ export function VanillaThreeScene() {
         let hudSized = false;
         const driveCam = new THREE.PerspectiveCamera(64, window.innerWidth / window.innerHeight, 1, 6500);
         const chase = new ChaseCamera(driveCam);
-        const audio = new NtAudio(getOptions().mute, soundMode(window.location.search)); // the Garage's Options: Sound; ?sound=model: the physical engine model
+        const audio = new NtAudio(getOptions().mute, soundMode(window.location.search)); // the Garage's Options: Sound; the physical engine model unless ?sound=classic
         const resumeAudio = () => audio.resume();
         window.addEventListener('keydown', resumeAudio);
         window.addEventListener('pointerdown', resumeAudio);
