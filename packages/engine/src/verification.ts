@@ -520,10 +520,16 @@ export type MileageLog = {
   readings: { date: string; mileage: number; eventId: string; evidence: EvidenceLevel }[];
   /** One reading per day, in order: the highest that stands for the day. */
   days: { date: string; mileage: number; eventId: string; evidence: EvidenceLevel }[];
-  /** True when a day has a reading lower than one of an earlier day. */
+  /** True when a day has a reading lower than one of an earlier day (see mileageLog for the one pair that is not held to it). */
   rollback: boolean;
   /** The highest reading that stands. An odometer does not run backwards, so wear is counted from here. Null with no reading. */
   current: { value: number; evidence: EvidenceLevel; date: string; eventId: string } | null;
+  /**
+   * The readings that gave way, each with the reading that stands in its place: the last of that day's corrections.
+   * An entry whose reading was put right is still on the passport, and anything that counts from its odometer
+   * figure (a replacement's wear, say) should count from the figure that stands.
+   */
+  putRight: { eventId: string; standing: { eventId: string; mileage: number } }[];
 };
 
 const evidenceRank = (level: EvidenceLevel): number => EVIDENCE_ORDER.indexOf(level);
@@ -543,6 +549,12 @@ const evidenceRank = (level: EvidenceLevel): number => EVIDENCE_ORDER.indexOf(le
  *     that an attestation of the same day bears out.
  * A rollback is a reading lower than one of an earlier day. Wear is counted from the highest reading that stands, so
  * no entry an owner adds can lower it, and none can clear a rollback once the day it was written on is over.
+ * One pair is not a rollback though the dates make it look like one: a higher reading that was written after the
+ * lower one, on the very day it is dated. Written later and dated "today", it was read off the odometer after the
+ * lower one, whatever the two dates say. Two owners' calendars can be a day apart (a buyer west of the seller logs
+ * a reading "today" that the seller's entry already calls yesterday), and a clock can simply be wrong. A higher
+ * reading that is back-dated gets no such allowance: an old receipt found later that shows more miles than a newer
+ * reading is exactly how a rollback comes to light.
  */
 export function mileageLog(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): MileageLog {
   type Read = { event: PassportEvent; evidence: EvidenceLevel; at: number; settled: boolean };
@@ -575,35 +587,59 @@ export function mileageLog(passport: Passport, registry: VerifierRegistry, asOf:
   // The readings put right. Going back through the order of writing, each reading meets the next one the same writer
   // wrote for the same day on the same day. It gives way to it unless a verifier has had anything to do with it, or
   // an entry written on a later day lies between the two.
-  const putRight: Record<string, true> = {};
+  // Under `#<id>` of each reading that gave way: the reading that stands in its place, at the end of the day's corrections.
+  const gaveWay: Record<string, Read> = {};
   const nextOf: Record<string, Read> = {};
   for (const r of read.slice().sort((a, b) => b.at - a.at)) {
     const key = `${r.event.date} ${dayOf(r.event.recordedAt)} ${r.event.by}`;
     const next = nextOf[key];
-    if (next !== undefined && !r.settled && r.at >= 0 && laterBefore[next.at] < r.at) putRight[`#${r.event.id}`] = true;
+    if (next !== undefined && !r.settled && r.at >= 0 && laterBefore[next.at] < r.at) gaveWay[`#${r.event.id}`] = gaveWay[`#${next.event.id}`] ?? next;
     nextOf[key] = r;
   }
-  const kept = read.filter((r) => putRight[`#${r.event.id}`] !== true).map((r) => ({ date: r.event.date, mileage: r.event.mileage as number, eventId: r.event.id, evidence: r.evidence }));
+  const milesOf = (r: Read): number => r.event.mileage as number;
+  const putRight: MileageLog['putRight'] = [];
+  for (const r of read) {
+    const standing = gaveWay[`#${r.event.id}`];
+    if (standing !== undefined) putRight.push({ eventId: r.event.id, standing: { eventId: standing.event.id, mileage: milesOf(standing) } });
+  }
+
+  // What a reading is held against: the highest reading of any earlier day, leaving out those written after it on
+  // the day they are dated. `dated` is the highest back-dated reading of the earlier days. `written` holds the
+  // highest reading written on its own day, by place in the order of writing (a tree of running maxima), so that a
+  // reading is held only against the ones written before it.
+  const size = passport.events.length;
+  const written: number[] = [];
+  for (let i = 0; i <= size; i++) written.push(-1);
+  const raise = (place: number, miles: number): void => { for (let i = place + 1; i <= size; i += i & -i) if (written[i] < miles) written[i] = miles; };
+  const highestBefore = (place: number): number => { let best = -1; for (let i = place; i > 0; i -= i & -i) if (written[i] > best) best = written[i]; return best; };
+  let dated = -1;
+  let today: Read[] = []; // the readings of the day being read: they count against later days only
   const readings: MileageLog['readings'] = [];
   const days: MileageLog['days'] = [];
   let rollback = false;
   let current: MileageLog['current'] = null;
-  let before = -1; // the highest reading of any earlier day
-  let top = -1; // the highest reading so far, this day included
-  for (const k of kept) {
-    const reading = { date: k.date, mileage: k.mileage, eventId: k.eventId, evidence: k.evidence };
+  for (const k of read) {
+    if (gaveWay[`#${k.event.id}`] !== undefined) continue;
+    const miles = milesOf(k);
+    const reading = { date: k.event.date, mileage: miles, eventId: k.event.id, evidence: k.evidence };
     readings.push(reading);
     const last = days.length > 0 ? days[days.length - 1] : null;
-    if (last === null || last.date !== k.date) { before = top; days.push(reading); }
-    else if (k.mileage >= last.mileage) days[days.length - 1] = reading;
-    if (k.mileage < before) rollback = true;
-    if (k.mileage > top) top = k.mileage;
+    if (last === null || last.date !== k.event.date) {
+      for (const earlier of today) {
+        if (earlier.at >= 0 && dayOf(earlier.event.recordedAt) === earlier.event.date) raise(earlier.at, milesOf(earlier));
+        else if (milesOf(earlier) > dated) dated = milesOf(earlier);
+      }
+      today = [];
+      days.push(reading);
+    } else if (miles >= last.mileage) days[days.length - 1] = reading;
+    if (miles < dated || miles < highestBefore(k.at)) rollback = true;
+    today.push(k);
     // On a tie the better-evidenced reading speaks for the figure: an owner repeating an inspector's number does not weaken it.
-    if (current === null || k.mileage > current.value || (k.mileage === current.value && evidenceRank(k.evidence) >= evidenceRank(current.evidence))) {
-      current = { value: k.mileage, evidence: k.evidence, date: k.date, eventId: k.eventId };
+    if (current === null || miles > current.value || (miles === current.value && evidenceRank(k.evidence) >= evidenceRank(current.evidence))) {
+      current = { value: miles, evidence: k.evidence, date: k.event.date, eventId: k.event.id };
     }
   }
-  return { readings, days, rollback, current };
+  return { readings, days, rollback, current, putRight };
 }
 
 const RECORD_TYPES: readonly PassportEvent['type'][] = ['maintenance', 'repair', 'inspection', 'restoration', 'modification', 'document'];
@@ -670,7 +706,8 @@ export function competitionModifications(passport: Passport, registry: VerifierR
 
 /**
  * What the condition engine needs, read from the passport as it stands on a day. The mileage is the highest reading
- * that stands (mileageLog), so an entry that winds the odometer back never lowers the wear counted from it.
+ * that stands (mileageLog), so an entry that winds the odometer back never lowers the wear counted from it. A
+ * replacement's odometer figure is the one that stands for its record on the log.
  */
 export function conditionInputs(passport: Passport, registry: VerifierRegistry, asOf: string, standing: Standing = standingOf(passport, registry, asOf)): ConditionInputs {
   const log = mileageLog(passport, registry, asOf, standing);
@@ -678,8 +715,14 @@ export function conditionInputs(passport: Passport, registry: VerifierRegistry, 
   const replacements: ConditionInputs['replacements'] = [];
   const inspections: ConditionInputs['inspections'] = [];
   const declared: { accident: ConditionInputs['accident']; titleStatus: ConditionInputs['titleStatus'] } = { accident: null, titleStatus: null };
+  // A replacement is counted from the odometer figure on its record. When that figure was a slip put right the same
+  // day, the record is counted from the figure that stands in its place: the log and the wear then tell one story.
+  const stands: Record<string, number> = {};
+  for (const c of log.putRight) stands[`#${c.eventId}`] = c.standing.mileage;
   for (const e of standing.events) {
-    if (e.type === 'repair' && e.system !== null && (e.work === 'replacement' || e.work === 'rebuild')) replacements.push({ system: e.system, date: e.date, mileage: e.mileage, evidence: recordEvidence(e, standing) });
+    if (e.type === 'repair' && e.system !== null && (e.work === 'replacement' || e.work === 'rebuild')) {
+      replacements.push({ system: e.system, date: e.date, mileage: e.mileage === null ? null : stands[`#${e.id}`] ?? e.mileage, evidence: recordEvidence(e, standing) });
+    }
     if (e.type === 'declaration') {
       if (e.accident !== null) declared.accident = e.accident;
       if (e.titleStatus !== null) declared.titleStatus = e.titleStatus;

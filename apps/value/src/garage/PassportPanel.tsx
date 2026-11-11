@@ -85,19 +85,33 @@ export const ODOMETER_NOTES = [
 ] as const;
 
 /**
- * What the form says about an odometer reading before it is written, given the day the entry is dated and the
- * readings already on the log. It says exactly what the engine will do: a reading lower than an earlier day's, or
- * higher than a later day's, is a rollback, and an old receipt showing fewer miles than the car has now is not.
- * A reading can be put right the day it is written and never after, so a slipped digit is worth catching here.
+ * What the form says about an odometer reading before it is written, given the day the entry is dated, the readings
+ * on the log and today's date. It says exactly what the engine will do. A reading lower than an earlier day's is a
+ * rollback. So is a back-dated reading higher than a later day's; an old receipt showing fewer miles than the car
+ * has now is not. A reading dated today is read off the odometer after everything already on the passport, whatever
+ * dates those entries carry, so it cannot contradict a later day's: a previous owner whose calendar was a day ahead
+ * leaves no trap for it. A reading can be put right the day it is written and never after, so a slipped digit is
+ * worth catching here.
  */
-export function odometerNote(text: string, date: string, readings: readonly { date: string; mileage: number }[]): string {
+export function odometerNote(text: string, date: string, readings: readonly { date: string; mileage: number }[], today: string): string {
   const miles = Number(text);
   if (text.trim() === '' || !Number.isFinite(miles) || readings.length === 0) return '';
   if (readings.some((r) => r.date < date && r.mileage > miles)) return ODOMETER_NOTES[0];
-  if (readings.some((r) => r.date > date && r.mileage < miles)) return ODOMETER_NOTES[2];
+  if (date < today && readings.some((r) => r.date > date && r.mileage < miles)) return ODOMETER_NOTES[2];
   let highest = 0;
   for (const r of readings) highest = Math.max(highest, r.mileage);
   return miles > highest + ODOMETER_JUMP ? ODOMETER_NOTES[1] : '';
+}
+
+/**
+ * The log as the forms read it: with every entry on the passport in view. An entry a previous owner dated a day
+ * ahead of this device's calendar is not on the log "as of today" yet, and it is one a back-dated reading can
+ * contradict tomorrow.
+ */
+export function readingsInView(passport: Passport, today: string): { date: string; mileage: number }[] {
+  let latest = today;
+  for (const e of passport.events) if (e.date > latest) latest = e.date;
+  return mileageLog(passport, REGISTRY, latest).readings;
 }
 
 function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'files' | 'onRecord'> & { readings: readonly { date: string; mileage: number }[] }) {
@@ -127,7 +141,7 @@ function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'f
   const takesFiles = type !== 'mileage' && type !== 'declaration';
   // A reading the form has a warning about is written only on a second, deliberate press: it can be put right today
   // and never after. What was asked about is this exact reading on this exact day; change either and it is asked again.
-  const warning = odometerNote(mileage, date, readings);
+  const warning = odometerNote(mileage, date, readings, today);
   const reading = `${date}|${mileage}`;
   const [asked, setAsked] = useState('');
   const confirming = warning !== '' && asked === reading;
@@ -363,7 +377,7 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
   const shared = useMemo(() => publicPassport(passport, REGISTRY, today, standing), [passport, today, standing]);
   // Stored grades and editions are shown only when the passport's own record supports them: a file can say anything.
   const history = useMemo(() => supportedHistory(passport, REGISTRY, today), [passport, today]);
-  const readings = useMemo(() => mileageLog(passport, REGISTRY, today, standing).readings, [passport, today, standing]);
+  const readings = useMemo(() => readingsInView(passport, today), [passport, today]);
   const [showPublic, setShowPublic] = useState(false);
   const [editingVin, setEditingVin] = useState(false);
   const vinOpener = useFocusBack(editingVin);

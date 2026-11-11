@@ -2,13 +2,13 @@
 // stats by stated rules, trade-offs included; the preview shows exactly what it would do to this car before it is
 // fitted. A modification is declared until a receipt is attached, and counts in ranked play only once verified.
 import { useMemo, useState } from 'react';
-import { ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, MODS, MOD_CATEGORIES, MOD_TIER_NAMES, activeModifications, mileageLog, vehicleStats } from '@micar/engine';
+import { ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, MODS, MOD_CATEGORIES, MOD_TIER_NAMES, activeModifications, vehicleStats } from '@micar/engine';
 import type { ActiveModification, Assembly, InstallQuality, ModCategory, ModTier, Passport } from '@micar/engine';
 import { t } from '../i18n';
 import type { FileStore } from './files';
 import { useFocusBack } from './focus';
 import { newId } from './ids';
-import { keepFiles, odometerNote } from './PassportPanel';
+import { keepFiles, odometerNote, readingsInView } from './PassportPanel';
 import { REGISTRY } from './store';
 
 export const INSTALL_LABELS: Record<InstallQuality, string> = { professional: 'A professional shop', owner: 'The owner', unknown: 'Not known' };
@@ -40,8 +40,8 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
   const choose = (next: { category: ModCategory; tier: ModTier } | null) => { setPick(next); setPicked([]); setParts(''); setMileage(''); setInputKey((k) => k + 1); setMessage(''); setAsked(''); };
   // The reading written with a modification goes on the odometer log like any other, so it gets the same warning,
   // and the same second, deliberate press before a reading the form has a warning about is written.
-  const readings = useMemo(() => mileageLog(passport, REGISTRY, today).readings, [passport, today]);
-  const warning = odometerNote(mileage, date, readings);
+  const readings = useMemo(() => readingsInView(passport, today), [passport, today]);
+  const warning = odometerNote(mileage, date, readings, today);
   const reading = `${date}|${mileage}`;
   const [asked, setAsked] = useState('');
   const confirming = warning !== '' && asked === reading;

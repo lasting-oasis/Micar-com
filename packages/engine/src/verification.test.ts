@@ -864,6 +864,73 @@ describe('the mileage log', () => {
     expect(log(r).readings.map((x) => x.mileage)).toEqual([30000]);
   });
 
+  it('counts a replacement from the reading that stands, when the one on its record was put right', () => {
+    // 85,000 in March. In June the engine is replaced; the receipt goes in with 900,000 for 90,000, and five minutes
+    // later the owner writes the day's reading as it is. The log never showed the 900,000, but the wear model went on
+    // counting the new engine from it: no mile driven afterwards ever counted against that engine.
+    const swap = (p: Passport, mileage: number, now: string): [Passport, string] =>
+      add(p, { type: 'repair', date: '2026-06-01', system: 'engine', work: 'replacement', shop: '', cost: null, mileage, attachments: [file('invoice')] }, now);
+    let p = reading(parked(), '2026-03-01', 85000, '2026-03-01T09:00:00.000Z');
+    let high: string;
+    [p, high] = swap(p, 900000, '2026-06-01T10:00:00.000Z');
+    p = reading(p, '2026-06-01', 90000, '2026-06-01T10:05:00.000Z');
+    p = reading(p, '2028-06-01', 150000, '2028-06-01T09:00:00.000Z');
+    const l = log(p, REGISTRY, '2028-06-02');
+    expect(l.readings.map((r) => r.mileage)).toEqual([85000, 90000, 150000]);
+    expect(l).toMatchObject({ rollback: false, current: { value: 150000 } });
+    expect(l.putRight).toEqual([{ eventId: high, standing: { eventId: l.readings[1].eventId, mileage: 90000 } }]);
+    expect(conditionInputs(p, REGISTRY, '2028-06-02').replacements).toEqual([{ system: 'engine', date: '2026-06-01', mileage: 90000, evidence: 'documented' }]);
+    // The slip the other way: 9,000 for 90,000. The day-old engine is not 81,000 miles old.
+    let q = reading(parked(), '2026-03-01', 85000, '2026-03-01T09:00:00.000Z');
+    [q] = swap(q, 9000, '2026-06-01T10:00:00.000Z');
+    q = reading(q, '2026-06-01', 90000, '2026-06-01T10:05:00.000Z');
+    expect(conditionInputs(q, REGISTRY, '2026-06-02').replacements[0].mileage).toBe(90000);
+    // Put right twice: the last of the day's corrections is the one that stands for the record.
+    q = reading(q, '2026-06-01', 90100, '2026-06-01T10:10:00.000Z');
+    expect(log(q, REGISTRY, '2026-06-02').putRight.map((c) => c.standing.mileage)).toEqual([90100, 90100]);
+    expect(conditionInputs(q, REGISTRY, '2026-06-02').replacements[0].mileage).toBe(90100);
+    // A reading that stands is counted as it is written, and a record with no reading has none.
+    let r = reading(parked(), '2026-03-01', 85000, '2026-03-01T09:00:00.000Z');
+    [r] = swap(r, 90000, '2026-06-01T10:00:00.000Z');
+    [r] = add(r, { type: 'repair', date: '2026-06-02', system: 'transmission', work: 'rebuild', shop: '', cost: null, attachments: [file('invoice')] }, '2026-06-02T10:00:00.000Z');
+    expect(log(r, REGISTRY, '2026-06-03').putRight).toEqual([]);
+    expect(conditionInputs(r, REGISTRY, '2026-06-03').replacements.map((x) => x.mileage)).toEqual([90000, null]);
+  });
+
+  it('does not brand a reading written later, on its own day, because an earlier entry carries a later date', () => {
+    // The seller's device reads 12 November, 00:40: a reading of 90,000 and the hand-over, both dated the 12th. The
+    // buyer, some hours behind, drives home and logs 90,012 that evening: the 11th on the buyer's calendar. By the
+    // dates alone 90,012 comes before 90,000, and the next morning the passport said the odometer had run backwards,
+    // for good. The passport's own order says which was read first.
+    let p = reading(parked(), '2026-11-12', 90000, '2026-11-12T00:40:00.000Z');
+    p = ok(transferOwnership(p, { eventId: id(), toOwnerId: 'owner-two', date: '2026-11-12' }, { now: '2026-11-12T00:45:00.000Z', by: OWNER }));
+    const buyer = (q: Passport, date: string, mileage: number, now: string): Passport => ok(addEvent(q, { id: id(), type: 'mileage', date, mileage }, { now, by: 'owner-two' }));
+    const home = buyer(p, '2026-11-11', 90012, '2026-11-11T22:30:00.000Z');
+    expect(log(home, REGISTRY, '2026-11-11')).toMatchObject({ rollback: false, current: { value: 90012 } });
+    expect(log(home, REGISTRY, '2026-11-12').days.map((d) => [d.date, d.mileage])).toEqual([['2026-11-11', 90012], ['2026-11-12', 90000]]);
+    expect(log(home, REGISTRY, '2026-11-12')).toMatchObject({ rollback: false, current: { value: 90012 } });
+    // A clock a whole year ahead on the seller's device is no different: what the buyer logs as the months go by is not branded.
+    let ahead = reading(parked(), '2027-11-12', 90000, '2027-11-12T00:40:00.000Z');
+    ahead = ok(addEvent(ahead, { id: id(), type: 'mileage', date: '2026-12-01', mileage: 90500 }, { now: '2026-12-01T09:00:00.000Z', by: OWNER }));
+    ahead = ok(addEvent(ahead, { id: id(), type: 'mileage', date: '2027-03-01', mileage: 93000 }, { now: '2027-03-01T09:00:00.000Z', by: OWNER }));
+    expect(log(ahead, REGISTRY, '2027-12-01')).toMatchObject({ rollback: false, current: { value: 93000 } });
+
+    // A higher reading that is back-dated gets no such allowance. An old receipt entered later that shows more miles
+    // than a newer reading is how a rollback comes to light.
+    const found = buyer(p, '2026-11-11', 95000, '2026-11-20T10:00:00.000Z');
+    expect(log(found, REGISTRY, '2026-11-20')).toMatchObject({ rollback: true, current: { value: 95000 } });
+    // Nor does a lower reading written later: the ordinary rollback, whatever day its writer's calendar shows.
+    const wound = buyer(home, '2026-11-13', 60000, '2026-11-13T09:00:00.000Z');
+    expect(log(wound, REGISTRY, '2026-11-13').rollback).toBe(true);
+    // And a reading lower than one written before it on an earlier day is a rollback even when a later-written
+    // reading of that earlier day is higher still.
+    let mixed = reading(parked(), '2026-11-10', 80000, '2026-11-10T09:00:00.000Z');
+    mixed = reading(mixed, '2026-11-12', 70000, '2026-11-12T09:00:00.000Z');
+    expect(log(mixed, REGISTRY, '2026-11-12').rollback).toBe(true);
+    mixed = ok(addEvent(mixed, { id: id(), type: 'mileage', date: '2026-11-11', mileage: 99000 }, { now: '2026-11-11T23:00:00.000Z', by: OWNER }));
+    expect(log(mixed, REGISTRY, '2026-11-12').rollback).toBe(true);
+  });
+
   it('catches a reading wound back, whichever way round the entries are dated', () => {
     const base = reading(reading(parked(), '2026-02-01', 48000, '2026-02-01T09:00:00.000Z'), '2026-08-01', 100000, '2026-08-01T09:00:00.000Z');
     expect(log(base).rollback).toBe(false);
