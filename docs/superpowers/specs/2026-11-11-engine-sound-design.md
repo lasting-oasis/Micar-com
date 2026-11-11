@@ -118,7 +118,7 @@ The owner heard every car make the same hum at the start of an acceleration and 
 
 Still alike after this: cars of the same body type with the same cylinder count. The driving model gives them one shape of torque curve, so they pull away at nearly the same revs, and the catalog has no exhaust data to tell them apart. That needs per-car data, which the physics core is planned to carry.
 
-Catalog engine texts that are wrong and so sound wrong: the Subaru WRX is listed as "2.4L I4" (it is a turbo flat-four) and the Porsche 911 as "3.8L V6" (it is a flat-six).
+A car that is not in the catalog (`carSpecs.ts` has 48 models; no Subaru or Porsche among them) gets its body style's stand-in engine, for example "2.4L I4" for any sedan and "3.8L V6" for any sports car, and sounds like that engine. No flat engine is in the catalog today.
 
 ## Cost
 
