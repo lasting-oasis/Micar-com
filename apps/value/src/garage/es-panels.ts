@@ -123,8 +123,8 @@ export const ES_PANELS: Record<string, string> = {
     'Eso está muy por encima de la lectura más alta hasta ahora. Revise los dígitos: una lectura se puede corregir el día en que se escribe, no después.',
   'That is higher than a reading from a later day, so it will be recorded as an odometer rollback. A reading can be put right the day it is written, and not after.':
     'Eso es mayor que una lectura de un día posterior, así que se registrará como retroceso del odómetro. Una lectura se puede corregir el día en que se escribe, no después.',
-  '1 entry in this file’s grade or edition history claims more than the passport’s own record supports. It is not shown.': '1 entrada del historial de calificaciones o ediciones de este archivo afirma más de lo que respalda el propio registro del pasaporte. No se muestra.',
-  '{n} entries in this file’s grade or edition history claim more than the passport’s own record supports. They are not shown.': '{n} entradas del historial de calificaciones o ediciones de este archivo afirman más de lo que respalda el propio registro del pasaporte. No se muestran.',
+  '1 earlier grade or edition is not shown: the passport’s record, as it stands now, does not support it.': '1 calificación o edición anterior no se muestra: el registro del pasaporte, tal como está ahora, no la respalda.',
+  '{n} earlier grades or editions are not shown: the passport’s record, as it stands now, does not support them.': '{n} calificaciones o ediciones anteriores no se muestran: el registro del pasaporte, tal como está ahora, no las respalda.',
   'That file is too large to be a garage or passport file.': 'Ese archivo es demasiado grande para ser un archivo de garaje o de pasaporte.',
   'An independent verifier has attested this specification as it stands.': 'Un verificador independiente ha atestado esta especificación tal como está.',
   'This sheet is the MiCar reference catalogue’s own, figure for figure: reference data, not verified.': 'Esta ficha es la del catálogo de referencia de MiCar, cifra por cifra: datos de referencia, sin verificar.',
@@ -143,6 +143,11 @@ export const ES_PANELS: Record<string, string> = {
   'This file is the backup of garage {theirs}. Its cars are read-only here unless this browser takes up that Garage ID. Do that only if the garage is yours. Your present Garage ID, {mine}, is kept and goes on receiving cars.':
     'Este archivo es el respaldo del garaje {theirs}. Sus autos son de solo lectura aquí, a menos que este navegador adopte ese ID de garaje. Hágalo solo si el garaje es suyo. Su ID de garaje actual, {mine}, se conserva y sigue recibiendo autos.',
   'Take up {id}': 'Adoptar {id}', 'Keep things as they are': 'Dejar todo como está',
+  'Show all {n} entries': 'Mostrar las {n} entradas', 'Show all {n} grades': 'Mostrar las {n} calificaciones',
+  'This file is a backup of this garage from a browser that also answers to {ids}. A car parked under one of those is read-only here until this browser answers to it too. Do that only if the file is yours. The Garage ID you give out stays {mine}.':
+    'Este archivo es un respaldo de este garaje hecho en un navegador que también responde a {ids}. Un auto estacionado con uno de esos ID es de solo lectura aquí hasta que este navegador también responda a él. Hágalo solo si el archivo es suyo. El ID de garaje que usted da sigue siendo {mine}.',
+  'This browser now answers to {ids} too, and the cars parked under them are yours to write to. It still gives out Garage ID {id}.':
+    'Este navegador ahora también responde a {ids}, y los autos estacionados con esos ID son suyos para escribir en ellos. Sigue dando el ID de garaje {id}.',
   'This browser also answers to {ids}: a car sent to one of them arrives here.': 'Este navegador también responde a {ids}: un auto enviado a uno de ellos llega aquí.',
   'another garage': 'otro garaje',
   'Add this reading as it is written? It stays on the passport, and it can be put right today and not after.': '¿Agregar esta lectura tal como está escrita? Se queda en el pasaporte, y se puede corregir hoy, no después.',

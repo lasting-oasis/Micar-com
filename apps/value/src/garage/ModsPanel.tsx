@@ -6,6 +6,7 @@ import { ATTRIBUTE_KEYS, ATTRIBUTE_LABELS, EVENT_TYPE_LABELS, EVIDENCE_LABELS, M
 import type { ActiveModification, Assembly, InstallQuality, ModCategory, ModTier, Passport } from '@micar/engine';
 import { t } from '../i18n';
 import type { FileStore } from './files';
+import { useFocusBack } from './focus';
 import { newId } from './ids';
 import { keepFiles, odometerNote } from './PassportPanel';
 import { REGISTRY } from './store';
@@ -44,6 +45,9 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
   const reading = `${date}|${mileage}`;
   const [asked, setAsked] = useState('');
   const confirming = warning !== '' && asked === reading;
+  // When the form closes the keyboard goes back to the card that opened it; when the question is withdrawn, to the button that asked it.
+  const cardOpener = useFocusBack(pick !== null);
+  const fitOpener = useFocusBack(confirming);
 
   const fitted = useMemo(() => activeModifications(passport, REGISTRY, today), [passport, today]);
   const { applied, refused } = assembly.modifications;
@@ -124,7 +128,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
               <div className="gar-btns" role="group" aria-label={t(MODS[category].name)}>
                 {TIERS.map((tier) => (
                   <button type="button" key={tier} className={`gar-btn ${pick?.category === category && pick.tier === tier ? 'primary' : ''}`} aria-pressed={pick?.category === category && pick.tier === tier}
-                    onClick={() => choose(pick?.category === category && pick.tier === tier ? null : { category, tier })}>{t(MOD_TIER_NAMES[tier - 1])}</button>
+                    onClick={(e) => { cardOpener.current = e.currentTarget; choose(pick?.category === category && pick.tier === tier ? null : { category, tier }); }}>{t(MOD_TIER_NAMES[tier - 1])}</button>
                 ))}
               </div>
             </article>
@@ -158,7 +162,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
                   <button type="submit" className="gar-btn danger" disabled={busy}>{t('Yes, add it')}</button>
                   <button type="button" className="gar-btn" autoFocus onClick={() => setAsked('')}>{t('Go back')}</button>
                 </>
-                : <><button type="submit" className="gar-btn primary" disabled={busy}>{t('Fit it')}</button><button type="button" className="gar-btn" onClick={() => choose(null)}>{t('Cancel')}</button></>}
+                : <><button type="submit" className="gar-btn primary" ref={fitOpener} disabled={busy}>{t('Fit it')}</button><button type="button" className="gar-btn" onClick={() => choose(null)}>{t('Cancel')}</button></>}
             </div>
           </>}
         </form>

@@ -12,6 +12,7 @@ import './garage.css';
 import './panels.css';
 import { CollectibleCard } from './CollectibleCard';
 import { Examples } from './Examples';
+import { useFocusBack } from './focus';
 import { GradePanel } from './GradePanel';
 import { newId, randomBytes, stamp, today as todayOf } from './ids';
 import { ModsPanel } from './ModsPanel';
@@ -64,9 +65,17 @@ function CarTile({ passport, g, today }: { passport: Passport; g: GarageHandle; 
 function Home({ g, today }: { g: GarageHandle; today: string }) {
   const [parking, setParking] = useState(false);
   const [message, setMessage] = useState('');
-  // A backup of another garage that was just brought in, waiting for the person to say whether to take its ID up.
-  const [offer, setOffer] = useState<Restorable | null>(null);
+  // A backup that was just brought in and names Garage IDs this browser does not answer to, waiting for a yes or a no.
+  const [offered, setOffered] = useState<Restorable | null>(null);
+  // It stands only while taking it up would change something: another tab may have taken it up since it was made.
+  const offer = offered !== null && takeUpGarage(g.state, offered) !== g.state ? offered : null;
+  const mine = garageIds(g.state);
+  // A file that gives out an ID this browser already answers to is this garage's own backup, from a browser that answers to more.
+  const ownBackup = offer !== null && mine.indexOf(offer.ownerId) !== -1;
+  const lacking = offer === null ? '' : [offer.ownerId, ...offer.formerIds].filter((id) => mine.indexOf(id) === -1).join(', ');
   const picker = useRef<HTMLInputElement>(null);
+  const parkOpener = useFocusBack(parking);
+  const fileOpener = useFocusBack(offer !== null);
 
   const onPark = (request: ParkRequest): string | null => {
     const id = micarIdFromBytes(randomBytes(8));
@@ -87,15 +96,22 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
       if (!result.ok) { setMessage(t(result.reason)); return; }
       g.apply(result.value.state);
       setMessage(t('{added} added, {updated} updated, {skipped} left out.', { added: result.value.added, updated: result.value.updated, skipped: result.value.skipped }));
-      // Bringing a file in never changes this garage's ID. A backup of another garage is offered, and taken up only on a yes.
-      setOffer(result.value.restorable);
+      // Bringing a file in never changes this garage's IDs. A backup that names others is offered, and taken up only on a yes.
+      setOffered(result.value.restorable);
     } catch { setMessage(t('That file is not a garage export')); }
   };
   const takeUp = (garage: Restorable) => {
-    const was = g.latest().ownerId;
-    g.apply(takeUpGarage(g.latest(), garage));
-    setOffer(null);
-    setMessage(t('This browser now gives out Garage ID {id}, and the cars parked under it are yours to write to. {was} still works here too: a car sent to it will arrive.', { id: garage.ownerId, was }));
+    const before = g.latest();
+    const after = takeUpGarage(before, garage);
+    setOffered(null);
+    // Taken up already (in another tab, say): there is nothing to do and nothing to announce.
+    if (after === before) return;
+    g.apply(after);
+    const had = garageIds(before);
+    const gained = garageIds(after).filter((id) => had.indexOf(id) === -1).join(', ');
+    setMessage(after.ownerId === before.ownerId
+      ? t('This browser now answers to {ids} too, and the cars parked under them are yours to write to. It still gives out Garage ID {id}.', { ids: gained, id: after.ownerId })
+      : t('This browser now gives out Garage ID {id}, and the cars parked under it are yours to write to. {was} still works here too: a car sent to it will arrive.', { id: after.ownerId, was: before.ownerId }));
   };
 
   return (
@@ -105,18 +121,20 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
         <p className="lede">{t('Your cars, as cards.')}</p>
         <StorageNotice g={g} />
         <div className="gar-actions">
-          {!parking && <button type="button" className="drip" onClick={() => setParking(true)}>{t('Park a car')}</button>}
+          {!parking && <button type="button" className="drip" ref={parkOpener} onClick={() => setParking(true)}>{t('Park a car')}</button>}
           {g.state.passports.length > 0 && <button type="button" className="ghostbtn" onClick={() => download(`micar-garage-${today}.json`, exportGarage(g.state, stamp()))}>{t('Download the garage file')}</button>}
-          <button type="button" className="ghostbtn" onClick={() => picker.current?.click()}>{t('Bring in a garage or passport file')}</button>
+          <button type="button" className="ghostbtn" ref={fileOpener} onClick={() => picker.current?.click()}>{t('Bring in a garage or passport file')}</button>
           <input ref={picker} type="file" accept="application/json,.json" hidden onChange={(e) => { void onImport(e.target.files?.[0]); e.target.value = ''; }} />
         </div>
         {message && <p className="gar-help" role="status">{message}</p>}
         {offer && (
           <div className="gar-note gar-warn" role="group" aria-labelledby="gar-offer">
-            <p id="gar-offer" role="status">{t('This file is the backup of garage {theirs}. Its cars are read-only here unless this browser takes up that Garage ID. Do that only if the garage is yours. Your present Garage ID, {mine}, is kept and goes on receiving cars.', { theirs: offer.ownerId, mine: g.state.ownerId })}</p>
+            <p id="gar-offer" role="status">{ownBackup
+              ? t('This file is a backup of this garage from a browser that also answers to {ids}. A car parked under one of those is read-only here until this browser answers to it too. Do that only if the file is yours. The Garage ID you give out stays {mine}.', { ids: lacking, mine: g.state.ownerId })
+              : t('This file is the backup of garage {theirs}. Its cars are read-only here unless this browser takes up that Garage ID. Do that only if the garage is yours. Your present Garage ID, {mine}, is kept and goes on receiving cars.', { theirs: offer.ownerId, mine: g.state.ownerId })}</p>
             <div className="gar-btns">
-              <button type="button" className="gar-btn primary" onClick={() => takeUp(offer)}>{t('Take up {id}', { id: offer.ownerId })}</button>
-              <button type="button" className="gar-btn" autoFocus onClick={() => setOffer(null)}>{t('Keep things as they are')}</button>
+              <button type="button" className="gar-btn primary" onClick={() => takeUp(offer)}>{t('Take up {id}', { id: ownBackup ? lacking : offer.ownerId })}</button>
+              <button type="button" className="gar-btn" autoFocus onClick={() => setOffered(null)}>{t('Keep things as they are')}</button>
             </div>
           </div>
         )}
@@ -152,6 +170,7 @@ function IdentityForm({ spec, today, onChange }: { spec: VehicleSpec; today: str
   const [trim, setTrim] = useState(was.trim);
   const [bodyClass, setBodyClass] = useState<BodyClass>(was.bodyClass);
   const [message, setMessage] = useState('');
+  const opener = useFocusBack(open);
   // Opened afresh each time: what was typed and then cancelled is not waiting there the next time.
   const begin = () => { setYear(String(was.year)); setMake(was.make); setModel(was.model); setTrim(was.trim); setBodyClass(was.bodyClass); setMessage(''); setOpen(true); };
   const submit = (e: React.FormEvent) => {
@@ -173,7 +192,7 @@ function IdentityForm({ spec, today, onChange }: { spec: VehicleSpec; today: str
     if (refused) { setMessage(t(refused)); return; }
     setMessage(''); setOpen(false);
   };
-  if (!open) return <div className="gar-btns"><button type="button" className="gar-btn" onClick={begin}>{t('Correct the year, make, model or trim')}</button></div>;
+  if (!open) return <div className="gar-btns"><button type="button" className="gar-btn" ref={opener} onClick={begin}>{t('Correct the year, make, model or trim')}</button></div>;
   return (
     <form className="gar-entry" onSubmit={submit} aria-labelledby="gar-identity-title">
       <h3 id="gar-identity-title">{t('The vehicle')}</h3>
@@ -227,6 +246,7 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
   const [tab, setTab] = useState<Tab>('Stats');
   const [flipped, setFlipped] = useState(false);
   const [confirming, setConfirming] = useState(false);
+  const removeOpener = useFocusBack(confirming);
   const [message, setMessage] = useState('');
   const assembly = useMemo(() => assembleCar(passport, today), [passport, today]);
   const photo = useFileUrl(g.files, assembly.card.photoAttachmentId);
@@ -303,8 +323,8 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
           </div>
           <div className="gar-danger">
             {confirming
-              ? <span className="gar-btns"><span className="gar-help">{t('Take this car and its files out of this garage? The passport file keeps its history but not its photographs and receipts: save any of those you want first.')}</span><button type="button" className="gar-btn danger" onClick={() => { void remove(); }}>{t('Yes, remove it')}</button><button type="button" className="gar-btn" onClick={() => setConfirming(false)}>{t('Cancel')}</button></span>
-              : <button type="button" className="gar-btn danger" onClick={() => setConfirming(true)}>{t('Remove from this garage')}</button>}
+              ? <span className="gar-btns"><span className="gar-help" role="status">{t('Take this car and its files out of this garage? The passport file keeps its history but not its photographs and receipts: save any of those you want first.')}</span><button type="button" className="gar-btn danger" onClick={() => { void remove(); }}>{t('Yes, remove it')}</button><button type="button" className="gar-btn" autoFocus onClick={() => setConfirming(false)}>{t('Cancel')}</button></span>
+              : <button type="button" className="gar-btn danger" ref={removeOpener} onClick={() => setConfirming(true)}>{t('Remove from this garage')}</button>}
           </div>
         </div>
       </div>
@@ -312,11 +332,19 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
   );
 }
 
-/** Today on the owner's calendar, kept current: a page left open past midnight moves on to the new day. */
+/**
+ * Today on the owner's calendar. The clock is read every time the page is drawn, so the page never asks about a day
+ * earlier than the entry it has just written: an entry written a few seconds after midnight is stamped with the new
+ * day, and a page still showing yesterday would leave the grade it produced out of the history as "not yet". A page
+ * left open and untouched past midnight is drawn again by the timer.
+ */
 function useToday(): string {
-  const [day, setDay] = useState(() => todayOf());
+  const day = todayOf();
+  const shown = useRef(day);
+  shown.current = day;
+  const [, redraw] = useState(0);
   useEffect(() => {
-    const check = () => setDay((was) => { const now = todayOf(); return now === was ? was : now; });
+    const check = () => { if (todayOf() !== shown.current) redraw((n) => n + 1); };
     const timer = setInterval(check, 30000);
     try { document.addEventListener('visibilitychange', check); } catch { /* no document */ }
     return () => { clearInterval(timer); try { document.removeEventListener('visibilitychange', check); } catch { /* no document */ } };

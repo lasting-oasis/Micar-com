@@ -171,7 +171,7 @@ export function Park({ today, onPark, onCancel }: Props) {
       <fieldset className="gar-fieldset">
         <legend>{t('1 · The vehicle')}</legend>
         <div className="gar-form">
-          <label>{t('Year')}<input type="number" inputMode="numeric" min={1886} max={thisYear + 1} value={year} onChange={(e) => pickYear(e.target.value)} /></label>
+          <label>{t('Year')}<input type="number" inputMode="numeric" min={1886} max={thisYear + 1} value={year} autoFocus onChange={(e) => pickYear(e.target.value)} /></label>
           <label>{t('Make')}
             <select value={make} onChange={(e) => pickMake(e.target.value)}>
               {Object.entries(SEGMENT_LABELS).map(([seg, label]) => <optgroup key={seg} label={t(label as string)}>{MAKES.filter((m) => m.segment === seg).map((m) => <option key={m.name} value={m.name}>{m.name === 'Other' ? t('Other') : m.name}</option>)}</optgroup>)}

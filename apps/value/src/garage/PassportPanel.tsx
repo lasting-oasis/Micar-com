@@ -10,6 +10,7 @@ import type { Attachment, OwnerEventType, Passport, PassportEvent, PhotoSubject,
 import { ACCIDENTS, CONDITIONS, TITLES } from '../engine/data';
 import { locale, t } from '../i18n';
 import { attachmentKind, checkFile, sha256Hex, type FileStore } from './files';
+import { useFocusBack } from './focus';
 import { newId, normalizeGarageId, stamp } from './ids';
 import { vinNote } from './Park';
 import { REGISTRY } from './store';
@@ -71,6 +72,9 @@ async function store(files: FileStore, picked: File[], entry: Parameters<typeof 
 /** Keeps the files picked for an entry on this device. Shared with the Mods tab, so both keep files the same way. */
 export const keepFiles = store;
 
+/** How many rows of the timeline or the grade history are drawn before the page offers the rest. */
+const LONG_LIST = 200;
+
 /** How far above the last reading a new one can be before the form asks the owner to look again. */
 const ODOMETER_JUMP = 30000;
 
@@ -127,6 +131,7 @@ function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'f
   const reading = `${date}|${mileage}`;
   const [asked, setAsked] = useState('');
   const confirming = warning !== '' && asked === reading;
+  const opener = useFocusBack(confirming);
 
   // A file belongs to the entry it was picked for. Choosing another kind of entry starts the files again, so a
   // receipt picked for one thing is never quietly attached to another and counted as its evidence.
@@ -216,7 +221,7 @@ function AddEntry({ today, files, onRecord, readings }: Pick<Props, 'today' | 'f
             <button type="submit" className="gar-btn danger" disabled={busy}>{t('Yes, add it')}</button>
             <button type="button" className="gar-btn" autoFocus onClick={() => setAsked('')}>{t('Go back')}</button>
           </>
-          : <button type="submit" className="gar-btn primary" disabled={busy}>{busy ? t('Saving…') : t('Add to the passport')}</button>}
+          : <button type="submit" className="gar-btn primary" ref={opener} disabled={busy}>{busy ? t('Saving…') : t('Add to the passport')}</button>}
         {message && <span className="gar-help" role="status">{message}</span>}
       </div>
     </form>
@@ -284,7 +289,7 @@ function VinEditor({ passport, onVin, onDone }: { passport: Passport; onVin: Pro
       <h3 id="gar-vin-title">{t('VIN')}</h3>
       <div className="gar-form">
         <label className="wide">{t('VIN')}
-          <input type="text" value={vin} maxLength={24} autoComplete="off" autoCapitalize="characters" spellCheck={false} aria-describedby="gar-vin-edit-note" onChange={(e) => setVin(e.target.value)} />
+          <input type="text" value={vin} maxLength={24} autoComplete="off" autoCapitalize="characters" spellCheck={false} autoFocus aria-describedby="gar-vin-edit-note" onChange={(e) => setVin(e.target.value)} />
           <span id="gar-vin-edit-note" className={note.tone === 'warn' ? 'gar-err' : 'gar-help'}>{t(note.text)}</span>
         </label>
       </div>
@@ -306,6 +311,7 @@ function Transfer({ today, files, onTransfer }: Pick<Props, 'today' | 'files' | 
   // The ID as the engine will store it, once what was typed is a real Garage ID. Null until then.
   const buyer = normalizeGarageId(to);
   const [confirming, setConfirming] = useState(false);
+  const opener = useFocusBack(confirming && buyer !== null);
   const ask = (e: React.FormEvent) => {
     e.preventDefault();
     if (buyer === null) { setMessage(t('That is not a Garage ID')); return; }
@@ -343,7 +349,7 @@ function Transfer({ today, files, onTransfer }: Pick<Props, 'today' | 'files' | 
             <button type="button" className="gar-btn danger" onClick={() => { void send(); }}>{t('Yes, transfer it')}</button>
             <button type="button" className="gar-btn" autoFocus onClick={() => setConfirming(false)}>{t('Cancel')}</button>
           </>
-          : <button type="submit" className="gar-btn danger">{t('Transfer the car')}</button>}
+          : <button type="submit" className="gar-btn danger" ref={opener}>{t('Transfer the car')}</button>}
         {message && <span className="gar-err" role="alert">{message}</span>}
       </div>
     </form>
@@ -360,6 +366,10 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
   const readings = useMemo(() => mileageLog(passport, REGISTRY, today, standing).readings, [passport, today, standing]);
   const [showPublic, setShowPublic] = useState(false);
   const [editingVin, setEditingVin] = useState(false);
+  const vinOpener = useFocusBack(editingVin);
+  // A long history is drawn a page at a time, newest first: a passport can hold thousands of entries and grades.
+  const [allEntries, setAllEntries] = useState(false);
+  const [allGrades, setAllGrades] = useState(false);
   return (
     <div className="gar-panel">
       <div className="gar-facts">
@@ -373,7 +383,7 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
       <div className="gar-btns">
         <button type="button" className="gar-btn" onClick={onExport}>{t('Download the passport file')}</button>
         <button type="button" className="gar-btn" aria-expanded={showPublic} onClick={() => setShowPublic((v) => !v)}>{showPublic ? t('Hide what others see') : t('What others see')}</button>
-        {canWrite && !editingVin && <button type="button" className="gar-btn" onClick={() => setEditingVin(true)}>{passport.vin ? t('Correct the VIN') : t('Enter the VIN')}</button>}
+        {canWrite && !editingVin && <button type="button" className="gar-btn" ref={vinOpener} onClick={() => setEditingVin(true)}>{passport.vin ? t('Correct the VIN') : t('Enter the VIN')}</button>}
       </div>
       {canWrite && editingVin && <VinEditor passport={passport} onVin={onVin} onDone={() => setEditingVin(false)} />}
 
@@ -398,25 +408,27 @@ export function PassportPanel({ passport, today, holding, garageIds, files, onRe
 
       <div>
         <h3>{t('Timeline')}</h3>
-        <div className="ledger gar-ledger">{events.map((e) => <Row key={e.id} passport={passport} event={e} today={today} files={files} standing={standing} />)}</div>
+        <div className="ledger gar-ledger">{(allEntries ? events : events.slice(0, LONG_LIST)).map((e) => <Row key={e.id} passport={passport} event={e} today={today} files={files} standing={standing} />)}</div>
+        {!allEntries && events.length > LONG_LIST && <div className="gar-btns"><button type="button" className="gar-btn" onClick={() => setAllEntries(true)}>{t('Show all {n} entries', { n: events.length })}</button></div>}
       </div>
 
       <div>
         <h3>{t('Grade history')}</h3>
         <p className="gar-help">{t('Each grade is kept as it stood. History is never rewritten.')}</p>
         {history.unsupported > 0 && <p className="gar-note gar-warn" role="status">{history.unsupported === 1
-          ? t('1 entry in this file’s grade or edition history claims more than the passport’s own record supports. It is not shown.')
-          : t('{n} entries in this file’s grade or edition history claim more than the passport’s own record supports. They are not shown.', { n: history.unsupported })}</p>}
+          ? t('1 earlier grade or edition is not shown: the passport’s record, as it stands now, does not support it.')
+          : t('{n} earlier grades or editions are not shown: the passport’s record, as it stands now, does not support them.', { n: history.unsupported })}</p>}
         <div className="gar-scroll">
           <table className="gar-table">
             <thead><tr><th>{t('Date')}</th><th>{t('Why')}</th><th>{t('Level')}</th><th className="num">{t('Overall')}</th><th className="num">{t('Grade')}</th></tr></thead>
             <tbody>
-              {history.snapshots.slice().reverse().map((s) => (
+              {history.snapshots.slice(allGrades ? 0 : -LONG_LIST).reverse().map((s) => (
                 <tr key={s.id}><td>{day(s.asOf)}</td><td>{t(s.reason)}</td><td>{t(LEVEL_LABELS[s.level])}</td><td className="num">{s.overall.toFixed(1)}</td><td className="num">{s.level === 'registered' ? 'RAW' : s.grade10.toFixed(1)}</td></tr>
               ))}
             </tbody>
           </table>
         </div>
+        {!allGrades && history.snapshots.length > LONG_LIST && <div className="gar-btns"><button type="button" className="gar-btn" onClick={() => setAllGrades(true)}>{t('Show all {n} grades', { n: history.snapshots.length })}</button></div>}
       </div>
 
       <div>

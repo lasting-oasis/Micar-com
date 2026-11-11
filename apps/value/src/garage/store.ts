@@ -41,6 +41,8 @@ export type Loaded = {
 
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 const OWNER = /^[A-Za-z0-9-]{4,80}$/;
+/** The most former Garage IDs a browser keeps. No more is taken up past it, so none that was kept is ever dropped on reading the garage back. */
+export const MAX_FORMER_IDS = 50;
 
 export const emptyGarage = (ownerId: string): GarageState => ({ version: 1, ownerId, formerIds: [], passports: [] });
 
@@ -48,7 +50,10 @@ export const emptyGarage = (ownerId: string): GarageState => ({ version: 1, owne
 function readIds(list: unknown, not: string): string[] {
   const out: string[] = [];
   if (!Array.isArray(list)) return out;
-  for (const raw of list.slice(0, 50)) if (typeof raw === 'string' && OWNER.test(raw) && raw !== not && out.indexOf(raw) === -1) out.push(raw);
+  for (const raw of list) {
+    if (out.length >= MAX_FORMER_IDS) break;
+    if (typeof raw === 'string' && OWNER.test(raw) && raw !== not && out.indexOf(raw) === -1) out.push(raw);
+  }
   return out;
 }
 
@@ -190,7 +195,10 @@ function continues(here: Passport, further: Passport): boolean {
   return here.events.every((e, i) => canonicalJson(further.events[i]) === canonicalJson(e));
 }
 
-/** The garage a backup file came from: the ID it gave out and the ones it held before. */
+/**
+ * The garage a backup file came from, as far as this browser does not answer to it already: the ID that garage
+ * gave out, and the IDs it held before that this browser lacks.
+ */
 export type Restorable = { ownerId: string; formerIds: string[] };
 
 /**
@@ -198,11 +206,13 @@ export type Restorable = { ownerId: string; formerIds: string[] };
  * untouched, and more after them. A file that tells a different story about a car parked here is left out, so an
  * import can never overwrite a history. Anything that is not a garage export changes nothing.
  *
- * An import never changes this garage's ID. When the file is another garage's backup, `restorable` names that
- * garage, and the page may offer to take it up (takeUpGarage) after asking. It is offered only when the file's ID
- * is a real Garage ID that this browser does not already answer to and that still owns a car in the file, and when
- * no car in the file belongs to this garage: a file that hands this garage a car is a seller's file, not a backup
- * of this one.
+ * An import never changes this garage's IDs. When the file is a backup that names Garage IDs this browser does not
+ * answer to, `restorable` names them, and the page may offer to take them up (takeUpGarage) after asking. It is
+ * offered only when one of those IDs is a real Garage ID that still owns a car in the file, and then in two cases:
+ *   - the file answers to one of this garage's own IDs. It is this garage's backup, made in a browser that has
+ *     since come to answer to more IDs than this one does;
+ *   - the file shares no ID with this garage and no car in it belongs to this garage. A file that hands this garage
+ *     a car is a seller's file, not a backup.
  */
 export function importGarage(state: GarageState, text: string): Result<{ state: GarageState; added: number; updated: number; skipped: number; restorable: Restorable | null }> {
   let data: unknown;
@@ -218,29 +228,37 @@ export function importGarage(state: GarageState, text: string): Result<{ state: 
   }
   let restorable: Restorable | null = null;
   const theirs = typeof data.ownerId === 'string' && normalizeGarageId(data.ownerId) === data.ownerId ? data.ownerId : null;
-  const mine = garageIds(state);
-  if (theirs !== null && mine.indexOf(theirs) === -1) {
-    const formerIds = readIds(data.formerIds, theirs).filter((id) => normalizeGarageId(id) === id && mine.indexOf(id) === -1);
-    const held = [theirs, ...formerIds];
-    const ownsOne = read.passports.some((p) => held.indexOf(currentOwner(p)) !== -1);
+  if (theirs !== null) {
+    const mine = garageIds(state);
+    const held = [theirs, ...readIds(data.formerIds, theirs).filter((id) => normalizeGarageId(id) === id)];
+    const lacking = held.filter((id) => mine.indexOf(id) === -1);
+    const own = lacking.length < held.length;
+    const ownsOne = read.passports.some((p) => lacking.indexOf(currentOwner(p)) !== -1);
     const handsOver = read.passports.some((p) => mine.indexOf(currentOwner(p)) !== -1);
-    if (ownsOne && !handsOver) restorable = { ownerId: theirs, formerIds };
+    const offer: Restorable = { ownerId: theirs, formerIds: lacking.filter((id) => id !== theirs) };
+    // Offered only when taking it up would change something: a browser that answers to as many IDs as it can keep is offered no more.
+    if (ownsOne && (own || !handsOver) && takeUpGarage(state, offer) !== state) restorable = offer;
   }
   return { ok: true, value: { state: { ...state, passports }, added, updated, skipped, restorable } };
 }
 
 /**
- * Takes up the garage a backup came from: its ID becomes the one this browser gives out, and the ID it gave out
- * until now is kept among the former ones, where it goes on working. Nothing is lost by it, and nothing is taken
- * up twice.
+ * Takes up the garage a backup came from. Its ID becomes the one this browser gives out, and the ID it gave out
+ * until now is kept among the former ones, where it goes on working. When this browser answers to that ID already,
+ * the file is a backup of this very garage: the ID it gives out stays, and only the IDs it lacks are added.
+ * Nothing is lost by it. When there is nothing to take up, or no room to keep another ID, the state comes back as
+ * it was given: the same object, so a caller can tell.
  */
 export function takeUpGarage(state: GarageState, garage: Restorable): GarageState {
-  const ownerId = normalizeGarageId(garage.ownerId);
-  if (ownerId === null || ownerId === state.ownerId) return state;
+  const theirs = normalizeGarageId(garage.ownerId);
+  if (theirs === null) return state;
+  const ownerId = garageIds(state).indexOf(theirs) !== -1 ? state.ownerId : theirs;
   const formerIds: string[] = [];
-  for (const id of [state.ownerId, ...state.formerIds, ...garage.formerIds]) {
-    if (id !== ownerId && OWNER.test(id) && formerIds.indexOf(id) === -1) formerIds.push(id);
+  for (const id of [state.ownerId, ...state.formerIds, ...(Array.isArray(garage.formerIds) ? garage.formerIds : [])]) {
+    if (typeof id === 'string' && id !== ownerId && OWNER.test(id) && formerIds.indexOf(id) === -1) formerIds.push(id);
   }
+  if (formerIds.length > MAX_FORMER_IDS) return state;
+  if (ownerId === state.ownerId && formerIds.length === state.formerIds.length) return state;
   return { ...state, ownerId, formerIds };
 }
 
