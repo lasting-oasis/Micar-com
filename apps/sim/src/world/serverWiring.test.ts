@@ -470,6 +470,8 @@ describe('server wiring', () => {
 
   it('the server wrote nothing to stderr, and the only handler errors it logged are the three the malformed-message test sent', () => {
     expect(err).toBe('');
-    for (const e of handlerErrors()) expect(['rent_car', 'strip_buy_part', 'perform_specific_repair']).toContain(e);
+    const errs = handlerErrors().sort();
+    expect(errs).toEqual(['perform_specific_repair', 'rent_car', 'strip_buy_part']);
+    expect(out.split('--- HANDLER ERROR ---').length - 1).toBe(errs.length);
   });
 });

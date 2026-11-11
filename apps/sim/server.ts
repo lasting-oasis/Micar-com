@@ -12,7 +12,7 @@ import { MECHANIC_LIB, BODY_LIB } from './src/constants.js';
 import { CAR_CATALOG } from './src/carCatalog.js';
 import { DOORS, applyOrder, isOrderLine, quoteOrder, type OrderCtx, type WorkOrder } from './src/bay/order.js';
 import { explainCondition } from './src/bay/faults.js';
-import { guarded } from './src/world/safeHandler.js';
+import { guarded, handlerErrorLog } from './src/world/safeHandler.js';
 import { REPAIR_JOBS, repairJobFor } from './src/bay/catalog.js';
 import { GATE_RETURN } from './src/scene/world/gateSpot.js';
 import { RENTAL_FLEET, canRent, isRental, isVisitor, rent, type RentalKey } from './src/world/rental.js';
@@ -990,7 +990,7 @@ setInterval(() => {
 io.on('connection', (socket) => {
     // A handler that throws, or whose promise rejects, is logged and the server carries on. The error's message only: never the payload.
     const on = socket.on.bind(socket) as (event: string, fn: (...args: any[]) => unknown) => unknown;
-    (socket as any).on = (event: string, fn: (...args: any[]) => unknown) => on(event, guarded(event, fn, (ev, error) => console.log('--- HANDLER ERROR ---', { event: ev, error: error instanceof Error ? error.message : String(error) })));
+    (socket as any).on = (event: string, fn: (...args: any[]) => unknown) => on(event, guarded(event, fn, (ev, error) => console.log('--- HANDLER ERROR ---', handlerErrorLog(ev, error))));
     // A Strip visitor (a guest or a Strip account holder) may send only the Strip's own events (VISITOR_EVENTS): no
     // dealer handler ever runs for one, so no money made there can be carried into an account.
     socket.use(([event], next) => {
