@@ -21,6 +21,7 @@ export type Car = {
   isProcessed?: boolean; // Farm sim mechanic
   lotPosition?: { x: number, z: number, r: number }; // True physical sandbox persistence
   activeRepairs?: RepairDef[]; // Diagnostic specific defects
+  recon?: number; // dollars spent on orders for this car
   psiRevealed?: boolean; // Mask condition if not paid for PSI
   estimatedMMR?: number; // Pre-calculated baseline determinism
   auctionSeller?: string; // e.g. 'Geico Insurance', 'State Farm', 'Private Seller'
