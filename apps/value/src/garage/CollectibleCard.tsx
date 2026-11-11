@@ -1,11 +1,14 @@
 // The collectible card. The same case and paper label as the home page's slab, with a new face inside:
 // the picture, the seven attributes and, on the label, the grade on the left and the Power Rating on the right.
-// The back is the grade report. Nothing on it is a price: value belongs to the calculator.
+// The back is the MiCar card back, in the foil the card's rarity earned (BackFace.tsx); the grade report is the
+// Grade tab's. Nothing on the card is a price: value belongs to the calculator.
 import type { CSSProperties } from 'react';
-import { ATTRIBUTE_LABELS, GRADE_CATEGORIES, LEVEL_LABELS, QUALITY_LABELS, RARITY_LABELS } from '@micar/engine';
+import { ATTRIBUTE_LABELS, LEVEL_LABELS, RARITY_LABELS } from '@micar/engine';
 import type { AttributeKey, BodyClass, CardAttribute, CollectibleCard as CardData, GradeCategoryKey, GradeReport, ModIndicator } from '@micar/engine';
 import { useLive } from '../door/Slab';
+import { foilForRarity } from '@micar/holo';
 import { t } from '../i18n';
+import { BackFace } from './BackFace';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -36,7 +39,7 @@ export const GRADE_CATEGORY_SHORT: Record<GradeCategoryKey, string> = {
 
 type Props = {
   card: CardData;
-  /** The grade report for the back face. Example and house cards have none. */
+  /** The grade report. No longer drawn on the card (the back is the card back); kept so callers need not change. */
   report?: GradeReport | null;
   /** The owner's photo, already resolved to a URL by the page. */
   photoUrl?: string | null;
@@ -79,7 +82,7 @@ function Label({ card }: { card: CardData }) {
   );
 }
 
-export function CollectibleCard({ card, report = null, photoUrl = null, flipped = false, onFlip, live = false, mini = false, className = '' }: Props) {
+export function CollectibleCard({ card, photoUrl = null, flipped = false, onFlip, live = false, mini = false, className = '' }: Props) {
   const ref = useLive(live);
   const style = { '--foil': card.foil } as CSSProperties;
   const toggle = () => onFlip?.();
@@ -114,30 +117,7 @@ export function CollectibleCard({ card, report = null, photoUrl = null, flipped 
         </div></div>
         <div className="sl-face back"><div className="acrylic">
           <Label card={card} />
-          <div className="art gar-art gar-back">
-            <h4>{t('grade report')}</h4>
-            {report ? (
-              <div className="gar-box">
-                {GRADE_CATEGORIES.map((k) => (
-                  <div className="gar-row" key={k}>
-                    <span><b>{t(GRADE_CATEGORY_NAMES[k])}</b><abbr title={t(GRADE_CATEGORY_NAMES[k])}>{t(GRADE_CATEGORY_SHORT[k])}</abbr></span>
-                    <i><b style={{ width: `${report.categories[k].score}%` }} /></i>
-                    <output>{Math.round(report.categories[k].score)}</output>
-                  </div>
-                ))}
-                <p className="gar-line">{t('Overall {n} of 100', { n: report.overall.toFixed(1) })}</p>
-              </div>
-            ) : (
-              <p className="gar-line gar-none">{card.illustrative ? t('An example card. Its values are placeholders, not data about a real car.') : t('A house card from the reference catalogue. It has no owner, so it has no grade.')}</p>
-            )}
-            <div className="gar-meta">
-              <span>{t(QUALITY_LABELS[card.quality])}</span>
-              <span>{t(card.edition.name)}</span>
-              <span>{card.serial}</span>
-              <span>{card.ruleset}</span>
-            </div>
-            <div className="foil" /><div className="glare" />
-          </div>
+          <BackFace foil={foilForRarity(card.rarity.tier)} rarity={t(RARITY_LABELS[card.rarity.tier])} />
           <div className="uvmark">MiCar<br />{t('authentic')}<br />{card.micarId}</div>
         </div></div>
       </div>

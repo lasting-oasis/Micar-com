@@ -1,11 +1,11 @@
 // The card. Front: the car, the value, the label with the starting grade and a QR that opens the car's page.
-// Back: the five categories of that grade, each with where it starts and how it rises, and the value ahead on the
-// model's curve. A card on the home page is raw: it goes in a case in the Garage, when its records put it there.
+// Back: the MiCar card back, plain gloss: a card with no rarity yet has earned no foil (garage/BackFace.tsx). A card on the home page is raw: it goes in a case in the Garage, when its records put it there.
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { GRADE_CATEGORIES } from '@micar/engine';
 import { carPageUrl } from '../car/record';
 import { qrSvg } from '../car/qr';
 import { usd } from '../car/value';
+import { BackFace } from '../garage/BackFace';
 import { GRADE_CATEGORY_NAMES } from '../garage/CollectibleCard';
 import { t } from '../i18n';
 import { categoryOf, gradeFor, type Card, type Grade, type GradeInputs } from './card';
@@ -95,14 +95,7 @@ export function Slab({ card, g, flipped = false, onFlip, live = false, mini = fa
         </div></div>
         <div className="sl-face back"><div className="acrylic">
           <Label card={card} grade={grade} qr={qr} serial={serial} />
-          <div className="art chart">
-            <h4>{t('starting grade')}</h4>
-            <Categories grade={grade} />
-            <h4>{t('value ahead')}</h4>
-            <div className="chwrap"><Curve card={card} /></div>
-            <div className="legend"><span><i style={{ background: 'var(--paint)' }} />{t('your car')}</span><span><i style={{ background: 'var(--haze)', height: 2 }} />{t('expected curve')}</span><span><i style={{ background: 'var(--blue-2)' }} />{t('range')}</span></div>
-            <div className="foil" /><div className="glare" />
-          </div>
+          <BackFace foil="gloss" />
           <div className="uvmark">MiCar<br />{t('authentic')}<br />{serial ?? t('unminted')}</div>
         </div></div>
       </div>

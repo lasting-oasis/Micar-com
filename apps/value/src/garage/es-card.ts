@@ -70,4 +70,5 @@ export const ES_CARD: Record<string, string> = {
   "Every card carries the same back. Its foil follows the card's rarity: earned, never sold.": 'Todas las tarjetas llevan el mismo reverso. Su foil sigue a la rareza de la tarjeta: se gana, nunca se vende.',
   'Show the {foil} back': 'Mostrar el reverso: {foil}',
   'Gloss': 'Brillo', 'Standard holo': 'Holográfico estándar', 'Full-spectrum rainbow': 'Arcoíris de espectro completo', 'Refractive prismatic': 'Prismático refractivo',
+  'The MiCar card back': 'El reverso de la tarjeta MiCar',
 };
