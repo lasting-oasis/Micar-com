@@ -71,7 +71,9 @@ These are the same for every car and are not tuned per car.
 | cylinders, layout, displacement, induction | read from the catalog engine string |
 | crank type | V8 is taken as cross-plane; everything else as flat |
 | firing order | none given; even firing for the layout |
-| exhaust layout, crossover, runner and branch lengths, pipe length and bore, muffler, overrun pops | a default for the class of car |
+| pipe bore | worked out from displacement, redline, induction and the number of pipes |
+| pipe length | the car's wheelbase plus 0.4 m when a real wheelbase is given; the catalog has none, so a default for the body style |
+| exhaust layout, crossover, runner and branch lengths, muffler, overrun pops | a default for the class of car |
 
 Each car's facts carry a `basis` saying which parts are derived from the catalog and which are class defaults. No car has sourced exhaust data yet. A flat-plane V8 or an equal-length flat-four cannot be told from the catalog string, so those cars need a per-model entry before they sound right; the model already supports them.
 
@@ -105,6 +107,18 @@ Nobody has listened yet, so the ten clips were measured instead (2026-11-11). No
 The first measurement found the engine falling almost silent (-62 dB) with the pedal off, including at idle in the game. That is fixed and covered by three tests.
 
 Still open from the measurements: idle sits 23 to 31 dB under full throttle. The old synth keeps idle about 7 dB under full throttle, so against the tyre and wind sounds the new idle may be faint and the new full throttle loud. This needs ears to settle.
+
+## Low revs: why every car sounded alike off the line (2026-11-11)
+
+The owner heard every car make the same hum at the start of an acceleration and only sound like itself higher up. Measured causes and what was done:
+
+1. **The driving model pinned every car at 3,300 rpm** for the first 0.7 to 1.3 s of a full-throttle launch, then dropped the revs by 1,000 to 1,700 in one frame. This was the main cause. `world/physics.ts` now slips the clutch in first gear and reverse: the engine sits at the lowest speed where it makes 90% of its peak torque (`launchRpm`, 500 rpm more with a turbo) and the slip closes as the wheels catch up, so the revs only rise. Launch revs now run from about 1,950 rpm (truck) to 3,300 (sports). 0-100 km/h times moved by at most 0.1 s.
+2. **The pipe bore was a guess from displacement alone.** It is now sized for the gas the engine moves at its redline (displacement x redline, 1.4 times for boost, shared between the pipes of a dual system, at 90 m/s).
+3. **Every pulse had the same length.** It now grows with the cube root of cylinder volume, as the time to empty a cylinder through its valve does. Most road cylinders are near half a litre, so this effect is small.
+
+Still alike after this: cars of the same body type with the same cylinder count. The driving model gives them one shape of torque curve, so they pull away at nearly the same revs, and the catalog has no exhaust data to tell them apart. That needs per-car data, which the physics core is planned to carry.
+
+Catalog engine texts that are wrong and so sound wrong: the Subaru WRX is listed as "2.4L I4" (it is a turbo flat-four) and the Porsche 911 as "3.8L V6" (it is a flat-six).
 
 ## Cost
 

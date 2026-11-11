@@ -51,7 +51,7 @@ export class EngineSound {
   // firing
   private readonly evPhase: Float32Array; private readonly evGroup: Uint8Array; private readonly evDelay: Float32Array;
   private readonly nEv: number; private phase = 0; private next = 0; private nextAbs = 0;
-  private readonly a0: number; private readonly turbo: boolean; private readonly pops: boolean;
+  private readonly a0: number; private riseK = 1; private readonly turbo: boolean; private readonly pops: boolean;
   private readonly blowerOrder: number;
   // sources
   private readonly src: Float32Array[]; private rp = 0;
@@ -76,6 +76,8 @@ export class EngineSound {
     this.kS = 1 - Math.exp(-1 / (0.015 * sr));
     this.turbo = e.induction === 'turbo'; this.pops = x.overrunPops; this.blowerOrder = facts.blowerOrder ?? 0;
     this.a0 = Math.sqrt(e.displacementL / e.cylinders / 0.5);
+    // A cylinder empties through a valve whose area grows as the square of its size while its volume grows as the cube: the time goes as the cube root of the volume.
+    this.riseK = Math.cbrt(e.displacementL / e.cylinders / 0.5);
 
     // An engine with one bank has one pipe, whatever the exhaust facts say.
     const table = firingTable(e);
@@ -143,6 +145,7 @@ export class EngineSound {
     const motored = this.a0 * MOTORED * (0.6 + 0.4 * this.thrS);
     let amp = motored + (fired - motored) * fuel;
     let rise = RISE_SOFT * 1.3 + (RISE_SOFT + (RISE_HARD - RISE_SOFT) * load - RISE_SOFT * 1.3) * fuel;
+    rise *= this.riseK;
     if (this.turbo) { amp *= TURBINE_GAIN; rise *= 1.8; }
     const half = Math.min(0.08, 30 / Math.max(300, rpm)); // 180 crank degrees, in seconds
     const at = Math.max(0, this.evDelay[i] - frac + (firing ? idle * 1.5 * this.gauss() : 0));

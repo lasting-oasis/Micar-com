@@ -50,4 +50,19 @@ describe('soundFactsFor', () => {
       expect(L.some(v => v !== 0)).toBe(true);
     }
   });
+  it('runs the pipe the length of the car when the wheelbase is known', () => {
+    const short = soundFactsFor({ engine: '2.0L I4', bodyStyle: 'sedan', redline: 6500, wheelbaseM: 2.6 })!, long = soundFactsFor({ engine: '2.0L I4', bodyStyle: 'sedan', redline: 6500, wheelbaseM: 3.1 })!;
+    expect(long.exhaust.pipeM - short.exhaust.pipeM).toBeCloseTo(0.5, 5);
+    expect(short.basis.exhaust).toBe('derived');
+    expect(soundFactsFor({ engine: '2.0L I4', bodyStyle: 'sedan', redline: 6500 })!.basis.exhaust).toBe('class');
+  });
+  it('sizes the pipe bore for the gas the engine moves at its redline', () => {
+    const bore = (engine: string, redline: number, bodyStyle = 'sedan') => soundFactsFor({ engine, bodyStyle, redline })!.exhaust.pipeDiaMm;
+    expect(bore('2.0L I4', 6800)).toBeGreaterThan(52); expect(bore('2.0L I4', 6800)).toBeLessThan(64);          // road cars: about 57 to 60 mm
+    expect(bore('5.3L V8', 5800, 'truck')).toBeGreaterThan(76); expect(bore('5.3L V8', 5800, 'truck')).toBeLessThan(92); // 3 to 3.5 inch
+    expect(bore('2.5L I4', 6500)).toBeGreaterThan(bore('2.0L I4', 6500));
+    expect(bore('2.0L I4', 7500)).toBeGreaterThan(bore('2.0L I4', 6000));
+    expect(bore('2.0L I4 Turbo', 6500)).toBeGreaterThan(bore('2.0L I4', 6500));
+    expect(bore('5.0L V8', 7000, 'coupe')).toBeLessThan(bore('5.0L V8', 7000, 'truck'));                          // two pipes share the gas
+  });
 });

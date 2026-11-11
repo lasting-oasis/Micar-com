@@ -1,14 +1,25 @@
-// From what the game knows about a car today (its engine in words, its body style, its redline) to the
-// facts the sound model needs. The engine facts are read from the text, so they are 'derived'. Nothing
-// in the game's car table describes an exhaust yet, so every exhaust value here is a 'class' default by
-// engine layout and body style. A sourced value replaces a default; it never needs a new rule.
+// From what the game knows about a car today (its engine in words, its body style, its redline, its
+// wheelbase) to the facts the sound model needs. The engine facts are read from the text. Nothing in the
+// game's car table describes an exhaust, so it is worked out the way an exhaust is sized: the pipe runs
+// the length of the car and its bore suits the gas the engine moves. What cannot be worked out (layout,
+// muffler type) is a default by engine layout and body style. A sourced value replaces any of these.
 import type { EngineFacts, ExhaustFacts, ExhaustLayout, Layout, MufflerKind, SoundFacts } from './facts';
 
-export type CarForSound = { engine: string; bodyStyle?: string; redline: number };
+export type CarForSound = { engine: string; bodyStyle?: string; redline: number; /** This car's own axle-to-axle distance in metres. The car table has none yet, so the game passes none and the body style's length is used. */ wheelbaseM?: number };
 
-/** Collector-to-tailpipe length in metres by body style: a class estimate from typical wheelbases. */
+/** Collector-to-tailpipe length in metres by body style, used only when the wheelbase is not known. */
 const PIPE_M: Record<string, number> = { sedan: 3.2, coupe: 3.0, hatchback: 2.8, suv: 3.4, truck: 4.2, van: 3.6, sports: 2.6 };
 const LONG_BODIES = new Set(['truck', 'suv', 'van']);
+const PAST_WHEELBASE_M = 0.4;  // the pipe starts about half a metre behind the front axle and ends about 0.9 m behind the rear one
+const HOT_GAS = 2.2;           // volume of the exhaust gas in the pipe against the cold air drawn in
+const BOOSTED = 1.4;           // air a turbo or supercharger adds
+const GAS_SPEED = 90;          // m/s: the gas speed a road exhaust is sized for at peak revs
+
+/** Bore in mm of each pipe: the area that carries the engine's gas at its redline at the usual speed. */
+function boreMm(e: EngineFacts, redline: number, pipes: number): number {
+  const flow = e.displacementL / 1000 * redline / 120 * HOT_GAS * (e.induction === 'na' ? 1 : BOOSTED) / pipes; // m3/s
+  return Math.min(102, Math.max(40, Math.sqrt(4 * flow / (Math.PI * GAS_SPEED)) * 1000));
+}
 
 function readEngine(text: string): EngineFacts | null {
   if (/electric|motor/i.test(text) && !/\d\s*L\b/i.test(text)) return null;
@@ -23,7 +34,7 @@ function readEngine(text: string): EngineFacts | null {
   return { cylinders, layout, crank: layout === 'v' && cylinders === 8 ? 'cross' : null, displacementL: Number(disp[1]), induction };
 }
 
-function classExhaust(e: EngineFacts, style: string): ExhaustFacts {
+function exhaustFor(e: EngineFacts, style: string, redline: number, wheelbaseM?: number): ExhaustFacts {
   const twoBanks = e.layout !== 'inline';
   let layout: ExhaustLayout = 'single', crossover = 0;
   let branchM: [number, number] = [0.6, 0.6];
@@ -34,8 +45,8 @@ function classExhaust(e: EngineFacts, style: string): ExhaustFacts {
   const muffler: MufflerKind = style === 'sports' ? 'straight' : 'chambered';
   return {
     layout, crossover, runnerM: [0.4, 0.4], branchM,
-    pipeM: PIPE_M[style] ?? PIPE_M.sedan,
-    pipeDiaMm: Math.min(76, Math.max(45, 40 + 8 * e.displacementL)),
+    pipeM: wheelbaseM ? wheelbaseM + PAST_WHEELBASE_M : PIPE_M[style] ?? PIPE_M.sedan,
+    pipeDiaMm: boreMm(e, redline, layout === 'dual' ? 2 : 1),
     muffler, overrunPops: style === 'sports',
   };
 }
@@ -44,7 +55,7 @@ function classExhaust(e: EngineFacts, style: string): ExhaustFacts {
 export function soundFactsFor(car: CarForSound): SoundFacts | null {
   const engine = readEngine(car.engine || '');
   if (!engine) return null;
-  const facts: SoundFacts = { engine, exhaust: classExhaust(engine, car.bodyStyle || 'sedan'), redline: car.redline, basis: { engine: 'derived', exhaust: 'class' } };
+  const facts: SoundFacts = { engine, exhaust: exhaustFor(engine, car.bodyStyle || 'sedan', car.redline, car.wheelbaseM), redline: car.redline, basis: { engine: 'derived', exhaust: car.wheelbaseM ? 'derived' : 'class' } };
   if (engine.induction === 'super') facts.blowerOrder = 2 * 4 * 2.3; // class: a four-lobe blower geared 2.3 to 1
   return facts;
 }
