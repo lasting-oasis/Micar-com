@@ -21,7 +21,7 @@ import { PassportPanel } from './PassportPanel';
 import { RacePanel } from './RacePanel';
 import { SpecForm } from './SpecForm';
 import { StatsPanel } from './StatsPanel';
-import { assembleCar, exportGarage, filesOnlyOf, findCar, garageIds, holdingOf, importGarage, ownsCar, park, record, removeCar, replaceSpec, replaceVin, takeUpGarage, transfer, type GarageState, type Restorable } from './store';
+import { NO_ROOM, assembleCar, exportGarage, filesOnlyOf, findCar, garageIds, holdingOf, importGarage, ownsCar, park, record, removeCar, replaceSpec, replaceVin, takeUpGarage, transfer, type GarageState, type Restorable } from './store';
 import { useFileUrl, useGarage, type GarageHandle } from './useGarage';
 import { HOLDING_WORDS, RENAMED_NOTE, TABS, type Tab } from './words';
 
@@ -82,7 +82,8 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
     if (!id.ok) return id.reason;
     const result = park(g.latest(), { micarId: id.value, eventId: newId(), snapshotId: newId(), now: stamp(), spec: request.spec, color: request.color, vin: request.vin });
     if (!result.ok) return result.reason;
-    g.apply(result.value);
+    // A browser with no room left to keep the car does not park it: it would be gone on the next visit.
+    if (!g.apply(result.value)) return NO_ROOM;
     try { window.location.hash = `#/garage/${id.value}`; } catch { /* no window */ }
     return null;
   };
@@ -95,7 +96,7 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
       const result = importGarage(g.latest(), text);
       if (!result.ok) { setMessage(t(result.reason)); return; }
       // A passport file can be megabytes. One this browser has no room to keep would stop it keeping the whole garage.
-      if (!g.applyIfKept(result.value.state)) { setMessage(t('That file is too large for this browser to keep, so nothing was brought in.')); return; }
+      if (!g.apply(result.value.state)) { setMessage(t('That file is too large for this browser to keep, so nothing was brought in.')); return; }
       setMessage(t('{added} added, {updated} updated, {skipped} left out.', { added: result.value.added, updated: result.value.updated, skipped: result.value.skipped }));
       // Bringing a file in never changes this garage's IDs. A backup that names others is offered, and taken up only on a yes.
       setOffered(result.value.restorable);
@@ -104,10 +105,11 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
   const takeUp = (garage: Restorable) => {
     const before = g.latest();
     const after = takeUpGarage(before, garage);
-    setOffered(null);
     // Taken up already (in another tab, say): there is nothing to do and nothing to announce.
-    if (after === before) return;
-    g.apply(after);
+    if (after === before) { setOffered(null); return; }
+    // No room to keep it: nothing changes, the offer stands, and the page says why.
+    if (!g.apply(after)) { setMessage(t(NO_ROOM)); return; }
+    setOffered(null);
     const had = garageIds(before);
     const gained = garageIds(after).filter((id) => had.indexOf(id) === -1).join(', ');
     setMessage(after.ownerId === before.ownerId
@@ -248,6 +250,7 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
   const [flipped, setFlipped] = useState(false);
   const [confirming, setConfirming] = useState(false);
   const removeOpener = useFocusBack(confirming);
+  const [stuck, setStuck] = useState(false);
   const [message, setMessage] = useState('');
   const assembly = useMemo(() => assembleCar(passport, today), [passport, today]);
   const photo = useFileUrl(g.files, assembly.card.photoAttachmentId);
@@ -266,17 +269,19 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
     try { document.getElementById(tabId(next))?.focus(); } catch { /* no document */ }
   };
 
+  // Every change to this car ends here. One the browser has no room to keep is not made, and the form that asked
+  // says so beside its button: it never reports as added something a reload would take away.
   const commit = (result: { ok: true; value: GarageState } | { ok: false; reason: string }): string | null => {
     if (!result.ok) return result.reason;
-    g.apply(result.value);
-    return null;
+    return g.apply(result.value) ? null : NO_ROOM;
   };
   const onRecord = (event: Record<string, unknown>, reason: string) => commit(record(g.latest(), passport.micarId, event, { now: stamp(), snapshotId: newId(), reason }));
   const remove = () => {
     // The car goes at once; its files follow, in one go, and only the ones no other car here names.
     const before = g.latest();
     const files = filesOnlyOf(before, passport.micarId);
-    g.apply(removeCar(before, passport.micarId));
+    // A browser that could not save the change keeps the car, and so keeps its files.
+    if (!g.apply(removeCar(before, passport.micarId))) { setConfirming(false); setStuck(true); return; }
     try { window.location.hash = '#/garage'; } catch { /* no window */ }
     g.files.removeAll(files).catch(() => { /* already gone, or the browser would not open its store */ });
   };
@@ -328,7 +333,8 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
           <div className="gar-danger">
             {confirming
               ? <span className="gar-btns"><span className="gar-help" role="status">{t('Take this car and its files out of this garage? The passport file keeps its history but not its photographs and receipts: save any of those you want first.')}</span><button type="button" className="gar-btn danger" onClick={remove}>{t('Yes, remove it')}</button><button type="button" className="gar-btn" autoFocus onClick={() => setConfirming(false)}>{t('Cancel')}</button></span>
-              : <button type="button" className="gar-btn danger" ref={removeOpener} onClick={() => setConfirming(true)}>{t('Remove from this garage')}</button>}
+              : <button type="button" className="gar-btn danger" ref={removeOpener} onClick={() => { setStuck(false); setConfirming(true); }}>{t('Remove from this garage')}</button>}
+            {stuck && <span className="gar-err" role="alert">{t('That could not be saved on this device.')}</span>}
           </div>
         </div>
       </div>

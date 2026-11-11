@@ -140,7 +140,9 @@ function AddEntry({ files, onRecord, readings }: Pick<Props, 'files' | 'onRecord
   const [isPublic, setIsPublic] = useState(false);
   const [picked, setPicked] = useState<File[]>([]);
   const [busy, setBusy] = useState(false);
-  const [message, setMessage] = useState('');
+  // What the last press came to. A refusal is drawn, and announced, as one: it must never read like the line that says it worked.
+  const [said, setSaid] = useState<{ text: string; refused: boolean }>({ text: '', refused: false });
+  const setMessage = (text: string, refused = false) => setSaid({ text, refused });
   const [inputKey, setInputKey] = useState(0);
   const takesFiles = type !== 'mileage' && type !== 'declaration';
   // A reading the form has a warning about is written only on a second, deliberate press: it can be put right today
@@ -165,7 +167,7 @@ function AddEntry({ files, onRecord, readings }: Pick<Props, 'files' | 'onRecord
     try {
       const entry = type === 'document' ? doc : type === 'photo' || type === 'maintenance' || type === 'repair' || type === 'inspection' ? type : 'other';
       const saved = await store(files, takesFiles ? picked : [], entry);
-      if (saved.refused) { setMessage(t(saved.refused)); return; }
+      if (saved.refused) { setMessage(t(saved.refused), true); return; }
       const miles = mileage.trim() === '' ? null : Number(mileage);
       const money = cost.trim() === '' ? null : Number(cost);
       const event: Record<string, unknown> = { id: newId(), type, date, mileage: miles, title: title.trim(), note: note.trim(), attachments: saved.attachments, visibility: isPublic ? 'public' : 'private' };
@@ -180,12 +182,12 @@ function AddEntry({ files, onRecord, readings }: Pick<Props, 'files' | 'onRecord
       if (refused) {
         // The entry was refused, so the files it would have pointed at are not kept.
         for (const a of saved.attachments) await files.remove(a.id);
-        setMessage(t(refused));
+        setMessage(t(refused), true);
         return;
       }
       setTitle(''); setNote(''); setPicked([]); setInputKey((k) => k + 1); setMessage(t('Added to the passport.'));
     } catch {
-      setMessage(t('That could not be saved on this device.'));
+      setMessage(t('That could not be saved on this device.'), true);
     } finally {
       setBusy(false);
     }
@@ -242,7 +244,9 @@ function AddEntry({ files, onRecord, readings }: Pick<Props, 'files' | 'onRecord
             <button type="button" className="gar-btn" autoFocus onClick={() => setAsked('')}>{t('Go back')}</button>
           </>
           : <button type="submit" className="gar-btn primary" ref={opener} disabled={busy}>{busy ? t('Saving…') : t('Add to the passport')}</button>}
-        {message && <span className="gar-help" role="status">{message}</span>}
+        {said.text !== '' && (said.refused
+          ? <span key="refused" className="gar-err" role="alert">{said.text}</span>
+          : <span key="done" className="gar-help" role="status">{said.text}</span>)}
       </div>
     </form>
   );
@@ -269,6 +273,10 @@ function Row({ passport, event, today, files, standing }: { passport: Passport; 
   // An entry can name twenty files, and a passport five thousand entries: a row draws a few and offers the rest.
   const [allFiles, setAllFiles] = useState(false);
   const shownFiles = allFiles ? event.attachments : event.attachments.slice(0, FILES_IN_A_ROW);
+  const rest = event.attachments.length - shownFiles.length;
+  // The button that offers the rest leaves the page when it is pressed: the keyboard goes to the first file it revealed.
+  const revealed = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => { if (allFiles) { try { revealed.current?.focus(); } catch { /* no document */ } } }, [allFiles]);
   const open = async (a: Attachment) => {
     try {
       const blob = await files.get(a.id);
@@ -287,7 +295,7 @@ function Row({ passport, event, today, files, standing }: { passport: Passport; 
       <span className="what">{nameOf(event)}
         <small>
           {[event.mileage !== null ? `${event.mileage.toLocaleString('en-US')} mi` : '', event.note, standingNote].filter(Boolean).join(' · ')}
-          {event.attachments.length > 0 && <span className="gar-files">{shownFiles.map((a) => <button type="button" key={a.id} onClick={() => open(a)}>{a.name || t('file')}</button>)}{event.attachments.length > shownFiles.length && <button type="button" onClick={() => setAllFiles(true)}>{t('{n} more files', { n: event.attachments.length - shownFiles.length })}</button>}</span>}
+          {event.attachments.length > 0 && <span className="gar-files">{shownFiles.map((a, i) => <button type="button" key={a.id} ref={i === FILES_IN_A_ROW ? revealed : undefined} onClick={() => open(a)}>{a.name || t('file')}</button>)}{rest > 0 && <button type="button" onClick={() => setAllFiles(true)}>{rest === 1 ? t('1 more file') : t('{n} more files', { n: rest })}</button>}</span>}
           {missing && <span className="gar-err" role="status">{t('That file is not on this device. A passport file carries each file’s name and fingerprint, not the file.')}</span>}
         </small>
       </span>

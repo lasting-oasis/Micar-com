@@ -143,7 +143,7 @@ export const ES_PANELS: Record<string, string> = {
   'This file is the backup of garage {theirs}. Its cars are read-only here unless this browser takes up that Garage ID. Do that only if the garage is yours. Your present Garage ID, {mine}, is kept and goes on receiving cars.':
     'Este archivo es el respaldo del garaje {theirs}. Sus autos son de solo lectura aquí, a menos que este navegador adopte ese ID de garaje. Hágalo solo si el garaje es suyo. Su ID de garaje actual, {mine}, se conserva y sigue recibiendo autos.',
   'Take up {id}': 'Adoptar {id}', 'Keep things as they are': 'Dejar todo como está',
-  'Show {n} more ({left} not shown)': 'Mostrar {n} más ({left} sin mostrar)', '{n} more files': '{n} archivos más',
+  'Show {n} more ({left} not shown)': 'Mostrar {n} más ({left} sin mostrar)', '{n} more files': '{n} archivos más', '1 more file': '1 archivo más',
   'These figures include the wear counted from the odometer reading typed here, not only what the part does.': 'Estas cifras incluyen el desgaste contado desde la lectura del odómetro escrita aquí, no solo lo que hace la pieza.',
   'The entry just added is dated before the ones shown below. Here it is:': 'La entrada recién agregada tiene fecha anterior a las que se muestran abajo. Aquí está:',
   '1 grade or edition is dated after today on this device’s calendar. It shows from that day.': '1 calificación o edición tiene fecha posterior a hoy en el calendario de este dispositivo. Se muestra a partir de ese día.',

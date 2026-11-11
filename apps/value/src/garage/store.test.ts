@@ -3,8 +3,8 @@ import { PASSPORT_REFUSALS, emptySpec, micarIdFromBytes } from '@micar/engine';
 import type { Passport, Sourced, VehicleSpec } from '@micar/engine';
 import { garageIdFromBytes, normalizeGarageId } from './ids';
 import {
-  GARAGE_KEY, MAX_FORMER_IDS, QUARANTINE_KEY, STORE_REFUSALS, assembleCar, emptyGarage, exportGarage, filesOnlyOf, findCar, garageIds, holdingOf, importGarage, loadGarage, ownsCar, park, record,
-  removeCar, replaceSpec, replaceVin, saveGarage, takeUpGarage, transfer,
+  GARAGE_KEY, MAX_FORMER_IDS, NO_ROOM, QUARANTINE_KEY, STORE_REFUSALS, assembleCar, emptyGarage, exportGarage, filesOnlyOf, findCar, garageIds, holdingOf, importGarage, keepGarage, loadGarage,
+  ownsCar, park, record, removeCar, replaceSpec, replaceVin, saveGarage, takeUpGarage, transfer,
 } from './store';
 import type { GarageState, GarageStorage, Restorable } from './store';
 import { SNAPSHOT_REASONS } from './words';
@@ -37,6 +37,11 @@ const CAR = micarId(1);
 function fakeStorage(initial: Record<string, string> = {}): GarageStorage & { data: Map<string, string> } {
   const data = new Map(Object.entries(initial));
   return { data, getItem: (k) => (data.has(k) ? (data.get(k) as string) : null), setItem: (k, v) => { data.set(k, v); } };
+}
+/** A storage with room for only so many characters, as a browser's has. A value that does not fit is refused and the one before it stays. */
+function smallStorage(room: number): GarageStorage & { data: Map<string, string> } {
+  const data = new Map<string, string>();
+  return { data, getItem: (k) => (data.has(k) ? (data.get(k) as string) : null), setItem: (k, v) => { if (v.length > room) throw new Error('QuotaExceededError'); data.set(k, v); } };
 }
 const parkCar = (state: GarageState, car = CAR, spec = civic()): GarageState =>
   ok(park(state, { micarId: car, eventId: id(), snapshotId: id(), now: NOW, spec, color: 'Red', vin: VIN }));
@@ -98,6 +103,61 @@ describe('loading the garage', () => {
 });
 
 /* -------------------------------------------------------------------- actions ---- */
+
+describe('keeping a change', () => {
+  it('saves a change the browser has room for', () => {
+    const storage = fakeStorage();
+    const state = parkCar(emptyGarage(ME));
+    expect(keepGarage(storage, state, true)).toBe('saved');
+    expect(storage.data.get(GARAGE_KEY)).toBe(JSON.stringify(state));
+    // A browser that was not keeping the garage and now can (room was made, storage came back) keeps it from here on.
+    expect(keepGarage(fakeStorage(), state, false)).toBe('saved');
+  });
+
+  it('refuses a change the browser has no room for, and leaves what it kept as it was', () => {
+    const state = parkCar(emptyGarage(ME));
+    const text = JSON.stringify(state);
+    const storage = smallStorage(text.length + 100);
+    expect(keepGarage(storage, state, true)).toBe('saved');
+    // One more entry, with its grade, is more than the room left.
+    const more = write(state, receipt('2026-06-01'));
+    expect(JSON.stringify(more).length).toBeGreaterThan(text.length + 100);
+    expect(keepGarage(storage, more, true)).toBe('refused');
+    expect(storage.data.get(GARAGE_KEY)).toBe(text);
+    // Exactly as much as there is room for goes in, and one character more does not.
+    const exact = smallStorage(JSON.stringify(more).length);
+    expect(keepGarage(exact, state, true)).toBe('saved');
+    expect(keepGarage(exact, more, true)).toBe('saved');
+    const short = smallStorage(JSON.stringify(more).length - 1);
+    expect(keepGarage(short, state, true)).toBe('saved');
+    expect(keepGarage(short, more, true)).toBe('refused');
+    // Taking a car out makes room, and is never refused for want of it.
+    expect(keepGarage(storage, removeCar(state, CAR), true)).toBe('saved');
+    expect(keepGarage(storage, state, true)).toBe('saved');
+  });
+
+  it('carries on in memory when the browser is not keeping the garage at all', () => {
+    const state = parkCar(emptyGarage(ME));
+    // No storage; storage that is blocked; storage that takes nothing and holds nothing (a private window).
+    const blocked: GarageStorage = { getItem: () => { throw new Error('blocked'); }, setItem: () => { throw new Error('blocked'); } };
+    const hollow: GarageStorage = { getItem: () => null, setItem: () => { throw new Error('QuotaExceededError'); } };
+    for (const storage of [null, blocked, hollow]) {
+      expect(keepGarage(storage, state, true)).toBe('memory');
+      expect(keepGarage(storage, state, false)).toBe('memory');
+    }
+    // A browser that has not been keeping the garage is not held to what an old save says: the page has been saying
+    // so, and the change is made in memory as every change before it was.
+    const stale = smallStorage(10);
+    stale.data.set(GARAGE_KEY, '{"an":"old garage"}');
+    expect(keepGarage(stale, state, false)).toBe('memory');
+    expect(keepGarage(stale, state, true)).toBe('refused');
+    expect(stale.data.get(GARAGE_KEY)).toBe('{"an":"old garage"}');
+  });
+
+  it('has words for the change that was not made', () => {
+    expect(STORE_REFUSALS).toContain(NO_ROOM);
+  });
+});
 
 describe('parking a car', () => {
   it('gives it a passport, its first grade in the history and its first card', () => {
@@ -233,6 +293,25 @@ describe('handing a car to a new owner', () => {
     expect(car(buyer).snapshots).toEqual(sold.snapshots);
     buyer = write(buyer, receipt(TODAY));
     expect(car(buyer).events).toHaveLength(sold.events.length + 1);
+  });
+
+  it('lets a buyer whose calendar is behind the seller’s hand the car on the day it arrives', () => {
+    // The seller's device says the 12th, the buyer's the 11th: a time zone apart, or a clock set wrong.
+    const there = '2026-11-12T00:40:00.000Z', here = '2026-11-11T15:00:00.000Z';
+    let seller = ok(park(emptyGarage(ME), { micarId: CAR, eventId: id(), snapshotId: id(), now: there, spec: civic(), color: 'Red', vin: VIN }));
+    seller = ok(transfer(seller, CAR, { eventId: id(), toOwnerId: BUYER, date: '2026-11-12', attachments: [] }, { now: there }));
+    const buyer = ok(importGarage(emptyGarage(BUYER), exportGarage(seller, there, CAR))).state;
+    const third = garageIdFromBytes([3, 3, 3, 3, 3, 3, 3, 3]);
+    // The only day the buyer's form offers is its own today. It is taken, and the car changes hands.
+    const moved = ok(transfer(buyer, CAR, { eventId: id(), toOwnerId: third, date: '2026-11-11', attachments: [] }, { now: here }));
+    expect(holdingOf(moved, car(moved))).toBe('transferred');
+    expect(car(moved).owners.map((o) => [o.ownerId, o.from, o.to])).toEqual([[ME, '2026-11-12', '2026-11-12'], [BUYER, '2026-11-12', '2026-11-12'], [third, '2026-11-12', null]]);
+    // The file the buyer sends on reads back, and the car is the third garage's to write to.
+    const arrived = ok(importGarage(emptyGarage(third), exportGarage(moved, here, CAR)));
+    expect(arrived).toMatchObject({ added: 1, skipped: 0 });
+    expect(holdingOf(arrived.state, car(arrived.state))).toBe('owner');
+    // A day from before the car arrived is still refused when the buyer picks it.
+    expect(reason(transfer(buyer, CAR, { eventId: id(), toOwnerId: third, date: '2026-11-10', attachments: [] }, { now: here }))).toBe(PASSPORT_REFUSALS.beforeOwnership);
   });
 });
 

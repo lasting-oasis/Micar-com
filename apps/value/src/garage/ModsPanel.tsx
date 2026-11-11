@@ -34,7 +34,9 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
   const [mileage, setMileage] = useState('');
   const [parts, setParts] = useState('');
   const [picked, setPicked] = useState<File[]>([]);
-  const [message, setMessage] = useState('');
+  // What the last press came to. A refusal is drawn, and announced, as one: it must never read like the line that says it worked.
+  const [said, setSaid] = useState<{ text: string; refused: boolean }>({ text: '', refused: false });
+  const setMessage = (text: string, refused = false) => setSaid({ text, refused });
   const [busy, setBusy] = useState(false);
 
   const [inputKey, setInputKey] = useState(0);
@@ -94,17 +96,17 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
     setBusy(true); setMessage(''); setAsked('');
     try {
       const kept = await keepFiles(files, picked, 'repair');
-      if (kept.refused) { setMessage(t(kept.refused)); return; }
+      if (kept.refused) { setMessage(t(kept.refused), true); return; }
       const attachments = kept.attachments;
       // No title is stored: the timeline names a modification from its category and tier, in the reader's language.
       const no = onRecord({
         id: newId(), type: 'modification', action: 'install', category: pick.category, tier: pick.tier, install, parts: parts.trim(), undoes: null,
         date, mileage: mileage.trim() === '' ? null : Number(mileage), title: '', note: '', attachments, visibility: 'private',
       }, EVENT_TYPE_LABELS.modification);
-      if (no) { for (const a of attachments) await files.remove(a.id); setMessage(t(no)); return; }
+      if (no) { for (const a of attachments) await files.remove(a.id); setMessage(t(no), true); return; }
       choose(null); setMessage(t('Fitted and written on the passport.'));
     } catch {
-      setMessage(t('That could not be saved on this device.'));
+      setMessage(t('That could not be saved on this device.'), true);
     } finally {
       setBusy(false);
     }
@@ -115,7 +117,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
       id: newId(), type: 'modification', action: 'remove', category: m.category, tier: m.tier, install: m.install, parts: '', undoes: m.eventId,
       date: today, mileage: null, title: '', note: '', attachments: [], visibility: 'private',
     }, EVENT_TYPE_LABELS.modification);
-    setMessage(no ? t(no) : t('Removed and written on the passport.'));
+    setMessage(no ? t(no) : t('Removed and written on the passport.'), no !== null);
   };
 
   return (
@@ -192,7 +194,9 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
           </>}
         </form>
       )}
-      {message && <p className="gar-help" role="status">{message}</p>}
+      {said.text !== '' && (said.refused
+        ? <p key="refused" className="gar-err" role="alert">{said.text}</p>
+        : <p key="done" className="gar-help" role="status">{said.text}</p>)}
     </div>
   );
 }

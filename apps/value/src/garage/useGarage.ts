@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { memoryFileStore, openFileStore, type FileStore } from './files';
 import { newOwnerId } from './ids';
-import { GARAGE_KEY, loadGarage, saveGarage, type GarageState, type GarageStorage } from './store';
+import { GARAGE_KEY, keepGarage, loadGarage, saveGarage, type GarageState, type GarageStorage } from './store';
 
 function browserStorage(): GarageStorage | null {
   try { return window.localStorage; } catch { return null; }
@@ -18,13 +18,13 @@ export type GarageHandle = {
   skipped: number;
   /** False when this browser is not keeping the garage. True until that is known, so the warning never flashes. */
   persisted: boolean;
-  apply: (next: GarageState) => void;
   /**
-   * Makes a change only if this browser can keep it. For the one kind of change that can be too big: bringing a file
-   * in. A browser that has been keeping the garage and has no room for this is left as it was, so the cars already
-   * here go on being saved. Returns false when the change was not made.
+   * Makes a change, and returns false when it was not made. A browser that has been keeping the garage and has no
+   * room for the change is left exactly as it was: what the page shows is always what is saved, and the cars already
+   * here go on being saved. A browser that is not keeping the garage at all takes the change in memory, and the page
+   * says so (`persisted`). The caller says what happened beside the control that was pressed.
    */
-  applyIfKept: (next: GarageState) => boolean;
+  apply: (next: GarageState) => boolean;
   files: FileStore;
 };
 
@@ -36,10 +36,12 @@ export function useGarage(): GarageHandle {
   const [filesKnown, setFilesKnown] = useState(false);
   const first = useRef(true);
   const now = useRef(loaded.state);
+  // Whether the last save was kept, as it is right now: an action that finishes after an await reads this, not a render's copy.
+  const kept = useRef(loaded.persisted);
 
   // Keep the new garage's id from the first visit on, and open the device's file store.
   useEffect(() => {
-    if (first.current) { first.current = false; setPersisted(saveGarage(browserStorage(), loaded.state)); }
+    if (first.current) { first.current = false; kept.current = saveGarage(browserStorage(), loaded.state); setPersisted(kept.current); }
     let on = true;
     openFileStore().then((store) => { if (on) setFiles(store); }).catch(() => { /* the memory store stays */ }).then(() => { if (on) setFilesKnown(true); });
     return () => { on = false; };
@@ -58,14 +60,14 @@ export function useGarage(): GarageHandle {
     return () => { try { window.removeEventListener('storage', onStorage); } catch { /* no window */ } };
   }, []);
 
-  const apply = (next: GarageState) => { now.current = next; setState(next); setPersisted(saveGarage(browserStorage(), next)); };
-  const applyIfKept = (next: GarageState): boolean => {
-    // A browser that is not keeping the garage anyway (no storage, a private window) takes the change in memory as before.
-    if (persisted && !saveGarage(browserStorage(), next)) return false;
-    apply(next);
+  const apply = (next: GarageState): boolean => {
+    const how = keepGarage(browserStorage(), next, kept.current);
+    if (how === 'refused') return false;
+    now.current = next; setState(next);
+    kept.current = how === 'saved'; setPersisted(kept.current);
     return true;
   };
-  return { state, latest: () => now.current, skipped: loaded.skipped, persisted: persisted && (!filesKnown || files.kind === 'indexeddb'), apply, applyIfKept, files };
+  return { state, latest: () => now.current, skipped: loaded.skipped, persisted: persisted && (!filesKnown || files.kind === 'indexeddb'), apply, files };
 }
 
 /** An object URL for a stored file, made when asked for and released when no longer shown. Null until it is ready or when the file is gone. */

@@ -97,6 +97,27 @@ export function saveGarage(storage: GarageStorage | null, state: GarageState): b
   try { storage.setItem(GARAGE_KEY, JSON.stringify(state)); return true; } catch { return false; }
 }
 
+/** What the page says when a change was not made because this browser has no room left to keep it. */
+export const NO_ROOM = 'This browser has no room left for the garage, so nothing was changed. Download the garage file to keep what is here; taking out a car you no longer need makes room.';
+
+/**
+ * Saves a change to the garage, or says it is not to be made. Every change the page makes goes through here.
+ *
+ *  - `saved`: the browser has it.
+ *  - `refused`: the browser has been keeping the garage (`wasKept`) and has no room for this change. A save that
+ *    does not fit leaves the one before it in place, so the change is simply not made: the page then shows exactly
+ *    what is saved, and never reports as added something a reload would take away.
+ *  - `memory`: the browser is not keeping the garage at all (no storage, a private window, storage switched off or
+ *    emptied). The change is made in memory and the page says the garage is not being kept.
+ */
+export function keepGarage(storage: GarageStorage | null, next: GarageState, wasKept: boolean): 'saved' | 'refused' | 'memory' {
+  if (saveGarage(storage, next)) return 'saved';
+  if (!wasKept) return 'memory';
+  let held: string | null = null;
+  try { held = storage ? storage.getItem(GARAGE_KEY) : null; } catch { held = null; }
+  return held === null ? 'memory' : 'refused';
+}
+
 /* -------------------------------------------------------------------- reading ---- */
 
 export const findCar = (state: GarageState, micarId: string): Passport | null => state.passports.filter((p) => p.micarId === micarId)[0] ?? null;
@@ -292,5 +313,5 @@ export function takeUpGarage(state: GarageState, garage: Restorable): GarageStat
 
 /** The reasons an action here can be refused, for translation. Refusals that come from the engine pass through as they are. */
 export const STORE_REFUSALS = [
-  'That MiCar ID is already parked here', 'No car with that ID is parked here', 'That is not a Garage ID', 'That is this garage', 'That file is not a garage export',
+  'That MiCar ID is already parked here', 'No car with that ID is parked here', 'That is not a Garage ID', 'That is this garage', 'That file is not a garage export', NO_ROOM,
 ] as const;

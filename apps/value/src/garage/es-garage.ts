@@ -2,6 +2,8 @@
 export const ES_GARAGE: Record<string, string> = {
   // The page
   'This browser is not keeping the garage. It works until you close the page: download the garage file to keep it.': 'Este navegador no está guardando el garaje. Funciona hasta que cierre la página: descargue el archivo del garaje para conservarlo.',
+  'This browser has no room left for the garage, so nothing was changed. Download the garage file to keep what is here; taking out a car you no longer need makes room.':
+    'Este navegador ya no tiene espacio para el garaje, así que no se cambió nada. Descargue el archivo del garaje para conservar lo que hay aquí; quitar un auto que ya no necesite deja espacio.',
   '1 saved car could not be read and was left untouched.': '1 auto guardado no se pudo leer y se dejó intacto.',
   '{n} saved cars could not be read and were left untouched.': '{n} autos guardados no se pudieron leer y se dejaron intactos.',
   'transferred': 'transferido',
