@@ -656,7 +656,7 @@ export function VanillaThreeScene() {
             const key = `${car.id}|${car.make}|${car.model}|${styleOf(car)}|${!!car.rental}|${!!car.testCar}`;
             if (!driveSpec || driveSpec.key !== key) {
                 driveSpec = { key, spec: specFor({ make: car.make, model: car.model, bodyStyle: styleOf(car), rental: car.rental, testCar: car.testCar }) };
-                audio.setCar(soundFactsFor({ engine: getCarSpec(car, styleOf(car)).engine, bodyStyle: styleOf(car), redline: driveSpec.spec.redline }));
+                audio.setCar(soundFactsFor({ engine: getCarSpec(car, styleOf(car)).engine, bodyStyle: styleOf(car), redline: driveSpec.spec.redline })); // no wheelbase: the driving spec's is its body type's stand-in, not this car's
             }
             return driveSpec.spec;
         };

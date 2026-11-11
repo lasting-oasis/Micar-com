@@ -87,6 +87,10 @@ describe('EngineSound: load, pipes and add-ons', () => {
       last = db;
     }
   });
+  it('a bigger cylinder takes longer to empty, so its pulse carries less of the high orders', () => {
+    const tilt = (displacementL: number) => { const [L] = render(facts({ displacementL }, { muffler: 'none' }), { rpm: 1500 }); return orderDb(L, SR, 1500, 8) - orderDb(L, SR, 1500, 40); };   // 200 Hz against 1 kHz
+    expect(tilt(3.6) - tilt(1.2)).toBeGreaterThan(2);
+  });
   it('a cut engine (limiter, shift) is much quieter than a firing one', () => {
     expect(rmsDb(render(facts({}), {})[0]) - rmsDb(render(facts({}), { cut: 1 })[0])).toBeGreaterThan(10);
   });

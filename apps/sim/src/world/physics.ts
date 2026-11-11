@@ -63,6 +63,12 @@ export function carParams(spec: VehicleSpec, perf: PerfCfg, tune: Tune): Params 
   };
 }
 export function torqueAt(P: Params, rpm: number, boost: number): number { let Tq = curveAt(P.tq, rpm) * P.tqMul; if (P.turbo) Tq *= 1 + P.turbo.gain * boost * (.55 + .45 * Math.min(1, rpm / P.redline)); return Tq; }
+/** The revs a car pulls away at with the pedal down: the lowest speed at which its engine makes 90% of its peak torque (500 rpm more with a turbo, to make boost). */
+export function launchRpm(P: Params): number {
+  const want = Math.max(...P.tq.map(q => q[1])) * .9; let at = P.tq[P.tq.length - 1][0];
+  for (let i = 0; i < P.tq.length; i++) { const [x1, y1] = P.tq[i]; if (y1 >= want) { if (i === 0) at = x1; else { const [x0, y0] = P.tq[i - 1]; at = x0 + (x1 - x0) * (want - y0) / (y1 - y0); } break; } }
+  return clamp(at + (P.turbo ? 500 : 0), P.idle + 600, P.redline * .6);
+}
 export function makeVehicle(P: Params): Vehicle {
   return {
     P, x: 0, z: 0, h: 0, u: 0, v: 0, w: 0, vx: 0, vz: 0, ax: 0, rpm: P.idle, gear: 1, shift: 0, boost: 0, nos: P.nos.cap, nosOn: false, spinF: 0, spinR: 0, hand: false, beta: 0, steer: 0, delta: 0,
@@ -89,7 +95,11 @@ function engineStep(V: Vehicle, I: Input, dt: number): number {
   const ratio = V.gear === -1 ? -P.rev : P.gears[V.gear - 1], total = ratio * P.fin;
   const wheelRpm = V.u / P.r * 60 / (2 * Math.PI);
   if (V.shift > 0) { const rpmT = P.idle + thr * (P.redline - P.idle) * .9; V.rpm += (rpmT - V.rpm) * Math.min(1, dt * (thr ? 5 : 3)); }
-  else { const r = Math.abs(wheelRpm * total); const launch = thr > 0 && Math.abs(V.u) < 5 ? P.idle + thr * (2400 + (P.turbo ? 500 : 0)) : P.idle; V.rpm = Math.max(r, launch, P.idle); }
+  else {
+    // Pulling away, the clutch (or converter) slips: the engine sits where its own torque comes in and the slip closes as the wheels catch up, so the revs only rise.
+    const r = Math.abs(wheelRpm * total), slip = thr > 0 && (V.gear === 1 || V.gear === -1) ? P.idle + thr * (launchRpm(P) - P.idle) : 0;
+    V.rpm = Math.max(P.idle, slip > 0 ? Math.cbrt(slip ** 3 + r ** 3) : r);
+  }
   if (P.turbo) { const bt = (thr > .3 && V.rpm > 2200 && V.shift <= 0) ? clamp((V.rpm - 2200) / 3000, 0, 1) : 0; const rate = bt > V.boost ? dt / P.turbo.spool : dt / .22; if (bt < V.boost - .3 && V.boost > .5 && V.bov <= 0) V.bov = .4; V.boost += clamp(bt - V.boost, -rate, rate); }
   if (V.bov > 0) V.bov -= dt;
   let Tq = torqueAt(P, V.rpm, V.boost);
