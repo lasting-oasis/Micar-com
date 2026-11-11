@@ -9,7 +9,7 @@ Every MiCar collectible card gets a trading-card back: the owner's MiCar card-ba
 
 Three things are true throughout:
 
-- **The artwork is never edited.** No redrawing, regenerating, recolouring or cropping. The foil is light added on top of it by a shader. At rest, with no foil, the face is the artwork plus a gloss highlight.
+- **The artwork is never edited.** No redrawing, regenerating, recolouring or cropping. The foil is light added on top of it by a shader. At rest, with no foil, the face is the artwork itself; the gloss shows when the card is tilted toward the light.
 - **The engine is not touched.** Rarity is read from `card.rarity.tier` as `@micar/engine` already works it out. No card-race logic, no vehicle statistic and no grade formula changes.
 - **Foil is still never for sale.** The slab's front keeps its finish, earned by the grade, exactly as today. The back's foil is earned by rarity. Both are earned; neither can be bought.
 
@@ -101,7 +101,7 @@ createHoloCard(options: {
 
 **Spring.** Per axis, `v += (k (target − x) − c v) dt; x += v dt` with `k = 170 s⁻²`, `c = 20 s⁻¹` (damping ratio 0.77: a small overshoot, no ringing), stepped at 1/120 s with the frame's time clamped to 1/30 s. Settled when both axes are within 0.02° of the target and slower than 0.05°/s; the state is then snapped to the target.
 
-**Light and reflection.** One key light fixed in view space, up and to the left of the camera (`normalize(−0.30, 0.45, 0.84)`), the same light the Blender preview uses. A small procedural studio is evaluated along the reflection vector; no environment image is downloaded. The clear coat mirrors it sharply: a key softbox where the key light is and a narrow strip to the right, both soft-edged, in a room that is otherwise black. So with the card flat neither light is in the mirror, the coat adds nothing, and the face is the artwork itself (measured on the gloss card at rest: mean colour within 1% of the master). Tilted toward the light, the softbox slides across the card as a soft patch. The rim, and the metal under the foil, see the same studio out of focus with a low bounce and a dim room. The coat is weighted by Fresnel, so it strengthens at grazing angles. The artwork is decoded with one power function and the result encoded with its exact inverse, once, at the end.
+**Light and reflection.** One key light fixed in view space, up and to the left of the camera (`normalize(−0.30, 0.45, 0.84)`), the same light the Blender preview uses. A small procedural studio is evaluated along the reflection vector; no environment image is downloaded. The clear coat mirrors it sharply: a key softbox where the key light is and a narrow strip to the right, both soft-edged, in a room that is otherwise black. So with the card flat neither light is in the mirror, the coat adds nothing, and the face is the artwork itself (measured on the gloss card at rest: mean colour within 1% of the master's on a 724 × 966 canvas, and within 2.3% on the smaller canvas the smoke test uses). Tilted toward the light, the softbox slides across the card as a soft patch. The rim, and the metal under the foil, see the same studio out of focus with a low bounce and a dim room. The coat is weighted by Fresnel, so it strengthens at grazing angles. The artwork is decoded with one power function and the result encoded with its exact inverse, once, at the end.
 
 **Shadow.** A soft rounded-rectangle shadow on a quad behind the card, drawn in the same canvas, sliding and softening a little with the tilt.
 
@@ -203,3 +203,5 @@ What differs from the design as it was approved, and why. Each was decided durin
 - **The still also holds the card's place while the files load**, drawn at the live card's size. On a slow connection the view was otherwise empty for as long as the download took. Found by the review at the end.
 - **Close works where `<dialog>` does not exist.** There the element has no `close()`, and the button would have thrown. Found by the review at the end.
 - **A re-export of `card.glb` is the same model but not always the same bytes**: the rim's UVs, which nothing reads, differ in their last bit from run to run.
+- **The demo is one self-contained file**, and `createHoloCard` reads a model handed over in a `data:` address without a request, so the demo can be published as a single page that asks the network for nothing.
+- **The one review was done by the author** after the last task, not by a second reviewer as the plan wrote. It is weaker for that.
