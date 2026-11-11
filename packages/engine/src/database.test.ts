@@ -38,7 +38,9 @@ describe('the reference catalogue', () => {
   });
 
   it('carries no price anywhere', () => {
-    expect(JSON.stringify(CATALOGUE)).not.toMatch(/msrp|price|"\$|usd/i);
+    // A source's address is not the catalogue's own words: a review's URL can carry "price" in its slug.
+    const words = JSON.stringify(CATALOGUE, (key, value: unknown) => (key === 'url' ? undefined : value));
+    expect(words).not.toMatch(/msrp|price|"\$|usd/i);
   });
 
   it('scores the GT-R NISMO at exactly the brief’s example', () => {

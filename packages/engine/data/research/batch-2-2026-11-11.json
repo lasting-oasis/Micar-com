@@ -1,7 +1,7 @@
 {
  "gathered": "2026-11-11",
  "method": "Web search results and their summaries: one researcher per vehicle (at most 10 searches), then a second reader per record (at most 5 searches) who tried to refute it. Pages could not be opened, so no figure here was checked against a primary document.",
- "status": "Not in the catalogue. scripts/build-catalogue.ts reads only the files directly in data/research, so this folder is ignored. Before a record is built in: drop or correct every figure its review marks contradicted or wrong-configuration, weigh the unconfirmed ones, give the vehicle its short trim name, and write any left-out figure or grade into the script with its reason.",
+ "status": "Built into the catalogue by scripts/build-catalogue.ts, which reads each record beside its review: a figure the second reader contradicted, or found to belong to another configuration, is left out, and one it could not confirm is kept only when it comes from the maker, a government agency or a named instrumented test. The records and the reviews are kept here as they were returned.",
  "records": [
   {
    "id": "2024-toyota-tacoma-trd-off-road",

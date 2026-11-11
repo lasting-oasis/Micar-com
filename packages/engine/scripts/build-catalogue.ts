@@ -8,6 +8,11 @@
 // available when the records were gathered, so nothing in them was checked against a primary document. Prices are
 // dropped: the engine carries none.
 //
+// A research file may carry `reviews`: a second reader's verdict on every figure of every record, made by trying to
+// refute it. Where a record has one, a figure the review contradicted, or found to belong to another configuration,
+// is left out, and a figure it could not confirm is kept only when it comes from the maker, a government agency or
+// a named instrumented test. A listing site's figure nobody could confirm is left out. A blank is a correct entry.
+//
 //   pnpm --filter @micar/value exec tsx ../../packages/engine/scripts/build-catalogue.ts
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -17,7 +22,26 @@ import type { BodyClass, BrakeGrade, CatalogueEntry, Source, SpecField, Suspensi
 
 type Field = { key: string; number?: number; text?: string; publisher: string; url: string; sourceKind: string; basis: string; note?: string };
 type Rec = { id: string; year: number; make: string; model: string; trim: string; bodyClass: string; fields: Field[] };
-type File = { gathered: string; records: Rec[] };
+type Review = { id: string; checks: { key: string; verdict: 'confirmed' | 'contradicted' | 'unconfirmed' | 'wrong-configuration' }[] };
+type File = { gathered: string; records: Rec[]; reviews?: Review[] };
+
+/** The sources whose figure stands when a second reader could find nothing either way. */
+const PRIMARY = ['manufacturer', 'agency', 'test'];
+
+/** The figures a review takes out of a record: the key, and why. */
+function refused(rec: Rec, review: Review | undefined): Record<string, string> {
+  const out: Record<string, string> = {};
+  if (!review) return out;
+  const verdicts = new Map(review.checks.map((c) => [c.key, c.verdict]));
+  for (const f of rec.fields) {
+    const verdict = verdicts.get(f.key);
+    if (verdict === 'contradicted') out[f.key] = 'The second reader found a different figure for this configuration.';
+    else if (verdict === 'wrong-configuration') out[f.key] = 'The second reader found the figure belongs to another configuration.';
+    else if (verdict === undefined) out[f.key] = 'The second reader gave no verdict on it.';
+    else if (verdict === 'unconfirmed' && PRIMARY.indexOf(f.sourceKind) === -1) out[f.key] = 'A listing site’s figure the second reader could not confirm.';
+  }
+  return out;
+}
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -46,6 +70,20 @@ const BASIS: Record<string, string> = {
 const IDENTITY: Record<string, { model: string; trim: string }> = {
   '2024-honda-civic-sedan-lx': { model: 'Civic', trim: 'Sedan LX' },
   '2024-toyota-prius-le-fwd': { model: 'Prius', trim: 'LE' },
+  // The second batch names the engine and gearbox in the trim; the sheet carries those in fields of their own.
+  '2024-toyota-tacoma-trd-off-road': { model: 'Tacoma', trim: 'TRD Off-Road Double Cab 4x4' },
+  '2024-jeep-wrangler-rubicon': { model: 'Wrangler', trim: 'Rubicon 4-Door' },
+  '2024-ford-f-150-raptor': { model: 'F-150', trim: 'Raptor SuperCrew' },
+  '2024-tesla-model-3-long-range-awd': { model: 'Model 3', trim: 'Long Range AWD' },
+  '2024-ford-mustang-gt': { model: 'Mustang', trim: 'GT Fastback' },
+  '2024-chevrolet-corvette-stingray-z51': { model: 'Corvette', trim: 'Stingray Coupe Z51' },
+  '2024-mazda-mx-5-miata-club': { model: 'MX-5 Miata', trim: 'Club' },
+  '2024-toyota-camry-le': { model: 'Camry', trim: 'LE' },
+  '2024-subaru-outback-premium': { model: 'Outback', trim: 'Premium' },
+  '2024-toyota-rav4-xle-awd': { model: 'RAV4', trim: 'XLE AWD' },
+  '2024-porsche-911-carrera': { model: '911', trim: 'Carrera Coupe' },
+  '2024-honda-odyssey-ex-l': { model: 'Odyssey', trim: 'EX-L' },
+  '2024-volkswagen-golf-gti-s': { model: 'Golf GTI', trim: 'S' },
 };
 
 /** Figures left out of the catalogue, and why. */
@@ -71,12 +109,12 @@ const GRADES: Record<string, { suspensionGrade?: [SuspensionGrade, string]; brak
 
 const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n - 1).trimEnd()}…` : s);
 
-function build(rec: Rec, gathered: string): CatalogueEntry {
+function build(rec: Rec, gathered: string, review?: Review): CatalogueEntry {
   const body = BODY[rec.bodyClass];
   if (!body) throw new Error(`${rec.id}: unknown body class ${rec.bodyClass}`);
   const named = IDENTITY[rec.id] ?? { model: rec.model, trim: rec.trim };
   let spec: VehicleSpec = emptySpec({ year: rec.year, make: rec.make, model: named.model, trim: named.trim, bodyClass: body });
-  const skip = LEFT_OUT[rec.id] ?? {};
+  const skip = { ...refused(rec, review), ...(LEFT_OUT[rec.id] ?? {}) };
   const byKey = new Map(rec.fields.map((f) => [f.key, f]));
   const sourceOf = (f: Field, extra = ''): Source => ({
     kind: 'reference', name: clip(f.publisher, 80), url: f.url, asOf: gathered,
@@ -123,7 +161,7 @@ for (const name of readdirSync(dir).filter((n) => n.endsWith('.json')).sort()) {
   const file = JSON.parse(readFileSync(resolve(dir, name), 'utf8')) as File;
   for (const rec of file.records) {
     if (entries.some((e) => e.id === rec.id)) throw new Error(`${rec.id} appears twice`);
-    entries.push(build(rec, file.gathered));
+    entries.push(build(rec, file.gathered, file.reviews?.filter((r) => r.id === rec.id)[0]));
   }
 }
 entries.sort((a, b) => (a.id < b.id ? -1 : 1));
