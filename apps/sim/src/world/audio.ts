@@ -2,7 +2,20 @@
 // lowpass, turbo whine, tyre skid / nitrous hiss / wind noise beds, and the blip/burst sfx table.
 // The AudioContext is made lazily on resume() (call it from a user gesture); before that, and in
 // node where there is no AudioContext, every call is a no-op.
+// With ?sound=model the engine comes from the physical model in ../sound instead (an AudioWorklet); the
+// three oscillators stay as the default and as the fallback wherever the model cannot start.
 import { clamp, type Vehicle } from './physics';
+import type { SoundFacts } from '../sound/facts';
+
+export type SoundMode = 'classic' | 'model';
+/** Which engine sound the page asked for: `?sound=model` turns the physical model on. */
+export function soundMode(search: string): SoundMode { return /[?&]sound=model(&|$)/.test(search) ? 'model' : 'classic'; }
+
+/** What the engine sound model is told about the engine each frame, read from today's driving model. */
+export function engineDrive(V: Vehicle): { rpm: number; throttle: number; load: number; boost: number; cut: number } {
+  const cut = V.shift > 0 || V.blown || V.rpm > V.P.redline + 150 ? 1 : 0;
+  return { rpm: V.rpm, throttle: V.thr, load: V.thr > 0 ? V.thr : -0.3 * V.rpm / V.P.redline, boost: V.boost, cut };
+}
 
 type Ctx = AudioContext;
 type Nodes = {
@@ -18,8 +31,39 @@ export class Audio {
   private A: Nodes | null = null;
   private failed = false;
   private quiet = true;
+  private facts: SoundFacts | null = null;
+  private node: AudioWorkletNode | null = null;
+  private nodeGain: GainNode | null = null;
+  private sentTurbo = false;
 
-  constructor(private muted = false) {}
+  constructor(private muted = false, private mode: SoundMode = 'classic') {}
+
+  /** The car being driven, for the engine sound model (null: no piston engine to model). Safe before resume(). */
+  setCar(facts: SoundFacts | null): void { this.facts = facts; this.sentTurbo = false; this.send(false); }
+
+  /** True when the physical model is voicing the engine. */
+  get modelActive(): boolean { return !!this.node && !!this.facts; }
+
+  // A Garage turbo on an engine that has none from the factory still whistles.
+  private send(turbo: boolean): void {
+    const f = this.facts;
+    this.node?.port.postMessage({ facts: f && turbo && f.engine.induction === 'na' ? { ...f, engine: { ...f.engine, induction: 'turbo' } } : f });
+  }
+
+  private startModel(AC: Ctx, master: GainNode): void {
+    if (this.mode !== 'model' || !AC.audioWorklet || typeof AudioWorkletNode === 'undefined') return;
+    // The build bundles the worklet into one file. The dev server's worker wrapper does not run in a
+    // worklet, so in development the module is loaded as the dev server serves it.
+    const url = import.meta.env.DEV ? Promise.resolve('/src/sound/engine.worklet.ts') : import('../sound/engine.worklet.ts?worker&url').then(m => m.default);
+    url.then(u => AC.audioWorklet.addModule(u))
+      .then(() => {
+        if (this.AC !== AC) return; // disposed while loading
+        const node = new AudioWorkletNode(AC, 'micar-engine', { numberOfInputs: 0, outputChannelCount: [2], processorOptions: { facts: this.facts } });
+        const g = AC.createGain(); g.gain.value = 0; node.connect(g).connect(master);
+        this.node = node; this.nodeGain = g; this.send(this.sentTurbo);
+      })
+      .catch(() => { /* the classic engine keeps playing */ });
+  }
 
   get isMuted(): boolean { return this.muted; }
 
@@ -56,12 +100,19 @@ export class Audio {
     const AC = this.AC, A = this.A; if (!AC || !A) return; const t = AC.currentTime;
     if (!on) { this.silence(); return; }
     this.quiet = false;
+    const model = this.modelActive && this.node && this.nodeGain;
+    if (model) {
+      if (!!V.P.turbo !== this.sentTurbo) { this.sentTurbo = !!V.P.turbo; this.send(this.sentTurbo); }
+      const d = engineDrive(V), p = this.node!.parameters;
+      for (const k of ['rpm', 'throttle', 'load', 'boost', 'cut'] as const) p.get(k)?.setTargetAtTime(d[k], t, .01);
+      this.nodeGain!.gain.setTargetAtTime(this.muted ? 0 : .9, t, .03);
+    } else if (this.nodeGain) this.nodeGain.gain.setTargetAtTime(0, t, .03);
     const f = 28 + V.rpm / 60 * 1.6;
     A.e1.frequency.setTargetAtTime(f, t, .02); A.e2.frequency.setTargetAtTime(f * .5, t, .02); A.e3.frequency.setTargetAtTime(f * 1.51, t, .02);
     A.ef.frequency.setTargetAtTime(300 + V.thr * 1800 + V.rpm * .25, t, .04);
-    A.eg.gain.setTargetAtTime((this.muted ? 0 : (.07 + V.thr * .09)) * (V.shift > 0 ? .45 : 1) * (V.blown ? .2 : 1), t, .03);
+    A.eg.gain.setTargetAtTime(model ? 0 : (this.muted ? 0 : (.07 + V.thr * .09)) * (V.shift > 0 ? .45 : 1) * (V.blown ? .2 : 1), t, .03);
     const tb = V.P.turbo;
-    A.whg.gain.setTargetAtTime(tb ? V.boost * .014 * (1 + tb.gain * 4) : 0, t, .08); A.wh.frequency.setTargetAtTime(1400 + V.rpm * .5 + V.boost * 800, t, .05);
+    A.whg.gain.setTargetAtTime(tb && !model ? V.boost * .014 * (1 + tb.gain * 4) : 0, t, .08); A.wh.frequency.setTargetAtTime(1400 + V.rpm * .5 + V.boost * 800, t, .05);
     const skid = clamp((Math.abs(V.beta) - .14) * 3, 0, 1) * Math.min(1, sp / 12) + Math.max(V.spinF, V.spinR) * .6 * Math.min(1, sp / 4) + (V.hand ? .5 * Math.min(1, sp / 6) : 0);
     A.skg.gain.setTargetAtTime(Math.min(1, skid) * .16, t, .05);
     A.nsg.gain.setTargetAtTime(V.nosOn ? .09 : 0, t, .05); A.wdg.gain.setTargetAtTime(Math.min(.12, sp * sp * .00006), t, .1);
@@ -71,7 +122,7 @@ export class Audio {
    *  A short fade, then exactly 0 from 0.4 s on. Once quiet, later calls schedule nothing. */
   silence(): void {
     const AC = this.AC, A = this.A; if (!AC || !A || this.quiet) return; const t = AC.currentTime;
-    for (const g of [A.eg, A.whg, A.skg, A.nsg, A.wdg]) { g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(0, t, .05); g.gain.setValueAtTime(0, t + .4); }
+    for (const g of [A.eg, A.whg, A.skg, A.nsg, A.wdg, ...(this.nodeGain ? [this.nodeGain] : [])]) { g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(0, t, .05); g.gain.setValueAtTime(0, t + .4); }
     this.quiet = true;
   }
 
@@ -84,7 +135,7 @@ export class Audio {
   wake(): void { if (this.AC) this.resume(); }
 
   /** Close the context (leaving the world). */
-  dispose(): void { if (this.AC) void this.AC.close().catch(() => {}); this.AC = null; this.A = null; this.quiet = true; }
+  dispose(): void { if (this.AC) void this.AC.close().catch(() => {}); this.AC = null; this.A = null; this.node = null; this.nodeGain = null; this.quiet = true; }
 
   private ctx(): Ctx | null {
     if (this.AC) return this.AC; if (this.failed) return null;
@@ -104,6 +155,7 @@ export class Audio {
     const ns = noiseSrc(); const nf = AC.createBiquadFilter(); nf.type = 'highpass'; nf.frequency.value = 1800; const nsg = AC.createGain(); nsg.gain.value = 0; ns.connect(nf).connect(nsg).connect(master);
     const wd = noiseSrc(); const wf = AC.createBiquadFilter(); wf.type = 'lowpass'; wf.frequency.value = 600; const wdg = AC.createGain(); wdg.gain.value = 0; wd.connect(wf).connect(wdg).connect(master);
     this.AC = AC; this.A = { master, noise: nb, e1, e2, e3, ef, eg, wh, whg, skg, nsg, wdg };
+    this.startModel(AC, master);
     return AC;
   }
 

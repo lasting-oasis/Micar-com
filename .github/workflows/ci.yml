@@ -33,5 +33,7 @@ jobs:
           for i in $(seq 1 60); do curl -sf http://localhost:3123/ > /dev/null && break; sleep 1; done
           status=0
           BASE=http://localhost:3123/ node e2e/strip.smoke.mjs || status=$?
+          # the engine sound model, rendered through the built audio worklet
+          BASE=http://localhost:3123/ node e2e/sound.smoke.mjs || status=$?
           if [ "$status" != 0 ]; then echo "--- server log"; tail -50 "$RUNNER_TEMP/server.log"; fi
           exit $status
