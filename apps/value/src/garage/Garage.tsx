@@ -1,8 +1,8 @@
 // The Garage: the cars parked on this device, as cards, and the page of one of them.
 // Nothing here leaves the browser: the cars are kept by garage/store.ts and their files by garage/files.ts.
-import { useMemo, useRef, useState } from 'react';
-import { LEVEL_LABELS, micarIdFromBytes, normalizeMicarId } from '@micar/engine';
-import type { Assembly, Passport } from '@micar/engine';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { BODY_CLASSES, BODY_CLASS_LABELS, LEVEL_LABELS, checkIdentity, micarIdFromBytes, normalizeMicarId, ownerSource } from '@micar/engine';
+import type { Assembly, BodyClass, Passport, Sourced, VehicleSpec } from '@micar/engine';
 import { garageUrl } from '../car/record';
 import { Footer } from '../Footer';
 import { Strip } from '../Strip';
@@ -20,7 +20,7 @@ import { PassportPanel } from './PassportPanel';
 import { RacePanel } from './RacePanel';
 import { SpecForm } from './SpecForm';
 import { StatsPanel } from './StatsPanel';
-import { assembleCar, exportGarage, findCar, importGarage, ownsCar, park, record, removeCar, replaceSpec, replaceVin, transfer, type GarageState } from './store';
+import { assembleCar, exportGarage, findCar, holdingOf, importGarage, ownsCar, park, record, removeCar, replaceSpec, replaceVin, transfer, type GarageState } from './store';
 import { useFileUrl, useGarage, type GarageHandle } from './useGarage';
 import { TABS, type Tab } from './words';
 
@@ -83,7 +83,8 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
       const result = importGarage(g.latest(), text);
       if (!result.ok) { setMessage(t(result.reason)); return; }
       g.apply(result.value.state);
-      setMessage(t('{added} added, {updated} updated, {skipped} left out.', { added: result.value.added, updated: result.value.updated, skipped: result.value.skipped }));
+      const counts = t('{added} added, {updated} updated, {skipped} left out.', { added: result.value.added, updated: result.value.updated, skipped: result.value.skipped });
+      setMessage(result.value.restored ? `${counts} ${t('This is your garage again: its Garage ID came back with the file.')}` : counts);
     } catch { setMessage(t('That file is not a garage export')); }
   };
 
@@ -114,6 +115,60 @@ function Home({ g, today }: { g: GarageHandle; today: string }) {
 
       <Examples today={today} />
     </>
+  );
+}
+
+/**
+ * The vehicle's own details, corrected after parking: the year, make, model, trim and body. The MiCar ID does not
+ * change. Figures that were filled in from the catalogue or the EPA were published for the vehicle as it was named
+ * then, so when the name changes they are kept as figures and no longer credited to that source.
+ */
+function IdentityForm({ spec, today, onChange }: { spec: VehicleSpec; today: string; onChange: (spec: VehicleSpec) => string | null }) {
+  const was = spec.identity;
+  const [open, setOpen] = useState(false);
+  const [year, setYear] = useState(String(was.year));
+  const [make, setMake] = useState(was.make);
+  const [model, setModel] = useState(was.model);
+  const [trim, setTrim] = useState(was.trim);
+  const [bodyClass, setBodyClass] = useState<BodyClass>(was.bodyClass);
+  const [message, setMessage] = useState('');
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const identity = checkIdentity({ year: Number(year), make, model, trim, bodyClass }, Number(today.slice(0, 4)));
+    if (!identity.ok) { setMessage(t('Check the year, make and model.')); return; }
+    const next: VehicleSpec = { ...spec, identity: identity.value };
+    const renamed = identity.value.year !== was.year || identity.value.make !== was.make || identity.value.model !== was.model || identity.value.trim !== was.trim || identity.value.bodyClass !== was.bodyClass;
+    if (renamed) {
+      const sheet = next as unknown as Record<string, Sourced<unknown> | null | VehicleSpec['identity']>;
+      for (const field of Object.keys(spec) as (keyof VehicleSpec)[]) {
+        const cell = spec[field];
+        if (field === 'identity' || cell === null) continue;
+        const kind = (cell as Sourced<unknown>).source.kind;
+        if (kind !== 'owner' && kind !== 'illustrative') sheet[field] = { value: (cell as Sourced<unknown>).value, source: { ...ownerSource(today), note: 'Kept when the vehicle was renamed; no longer credited to its earlier source.' } };
+      }
+    }
+    const refused = onChange(next);
+    if (refused) { setMessage(t(refused)); return; }
+    setMessage(''); setOpen(false);
+  };
+  if (!open) return <div className="gar-btns"><button type="button" className="gar-btn" onClick={() => setOpen(true)}>{t('Correct the year, make, model or trim')}</button></div>;
+  return (
+    <form className="gar-entry" onSubmit={submit} aria-labelledby="gar-identity-title">
+      <h3 id="gar-identity-title">{t('The vehicle')}</h3>
+      <div className="gar-form">
+        <label>{t('Year')}<input type="number" inputMode="numeric" min={1886} max={Number(today.slice(0, 4)) + 1} value={year} required onChange={(e) => setYear(e.target.value)} /></label>
+        <label>{t('Make')}<input type="text" value={make} maxLength={60} required onChange={(e) => setMake(e.target.value)} /></label>
+        <label>{t('Model')}<input type="text" value={model} maxLength={60} required onChange={(e) => setModel(e.target.value)} /></label>
+        <label>{t('Trim')}<input type="text" value={trim} maxLength={80} onChange={(e) => setTrim(e.target.value)} /></label>
+        <label>{t('Body')}<select value={bodyClass} onChange={(e) => setBodyClass(e.target.value as BodyClass)}>{BODY_CLASSES.map((b) => <option key={b} value={b}>{t(BODY_CLASS_LABELS[b])}</option>)}</select></label>
+      </div>
+      <p className="gar-help">{t('The MiCar ID stays the same. Figures filled in from the catalogue or the EPA were published for the vehicle as it was named: if you rename it they are kept, and no longer credited to that source. An identity or a specification a verifier attested is for the vehicle as it stood then.')}</p>
+      <div className="gar-btns">
+        <button type="submit" className="gar-btn primary">{t('Save')}</button>
+        <button type="button" className="gar-btn" onClick={() => setOpen(false)}>{t('Cancel')}</button>
+        {message && <span className="gar-err" role="alert">{message}</span>}
+      </div>
+    </form>
   );
 }
 
@@ -151,6 +206,19 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
   const assembly = useMemo(() => assembleCar(passport, today), [passport, today]);
   const photo = useFileUrl(g.files, assembly.card.photoAttachmentId);
   const mine = ownsCar(g.state, passport);
+  const holding = holdingOf(g.state, passport);
+  const readOnly = holding === 'transferred'
+    ? t('This car has been transferred. Its passport is read-only here. Send the new owner the passport file.')
+    : t('This car belongs to another garage, so its passport is read-only here. If it is yours, bring your garage file into a browser that has no cars parked: the garage and its ID come back with it.');
+  // Left and right move between the tabs, as a tab list should.
+  const onTabKey = (e: React.KeyboardEvent, name: Tab) => {
+    const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+    if (step === 0) return;
+    e.preventDefault();
+    const next = TABS[(TABS.indexOf(name) + step + TABS.length) % TABS.length];
+    setTab(next);
+    try { document.getElementById(`gar-tab-${next}`)?.focus(); } catch { /* no document */ }
+  };
 
   const commit = (result: { ok: true; value: GarageState } | { ok: false; reason: string }): string | null => {
     if (!result.ok) return result.reason;
@@ -174,15 +242,16 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
         </aside>
         <div className="gar-main">
           <h1 className="gar-title">{assembly.card.title}{assembly.card.subtitle && <small> {assembly.card.subtitle}</small>}</h1>
+          {!g.persisted && <p className="gar-note gar-warn" role="status">{t('This browser is not keeping the garage. It works until you close the page: download the garage file to keep it.')}</p>}
           <NextStep assembly={assembly} mine={mine} onOpen={setTab} />
           <div className="gar-tabs" role="tablist" aria-label={assembly.card.title}>
-            {TABS.map((name) => <button type="button" key={name} role="tab" id={`gar-tab-${name}`} aria-selected={tab === name} aria-controls="gar-tabpanel" onClick={() => setTab(name)}>{t(name)}</button>)}
+            {TABS.map((name) => <button type="button" key={name} role="tab" id={`gar-tab-${name}`} aria-selected={tab === name} aria-controls="gar-tabpanel" tabIndex={tab === name ? 0 : -1} onClick={() => setTab(name)} onKeyDown={(e) => onTabKey(e, name)}>{t(name)}</button>)}
           </div>
           <div id="gar-tabpanel" role="tabpanel" aria-labelledby={`gar-tab-${tab}`}>
             {tab === 'Stats' && <StatsPanel assembly={assembly} />}
             {tab === 'Grade' && <GradePanel assembly={assembly} passport={passport} />}
             {tab === 'Passport' && (
-              <PassportPanel passport={passport} today={today} canWrite={mine} garageId={g.state.ownerId} files={g.files} onRecord={onRecord}
+              <PassportPanel passport={passport} today={today} holding={holding} garageId={g.state.ownerId} files={g.files} onRecord={onRecord}
                 onVin={(vin) => commit(replaceVin(g.latest(), passport.micarId, vin, { now: stamp(), snapshotId: newId() }))}
                 onTransfer={(input) => commit(transfer(g.latest(), passport.micarId, input, { now: stamp() }))}
                 onExport={() => download(`micar-passport-${passport.micarId}.json`, exportGarage(g.state, stamp(), passport.micarId))} />
@@ -198,15 +267,18 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
                     ? t('This sheet is the MiCar reference catalogue’s own, figure for figure: reference data, not verified.')
                     : t('This sheet, and the sources named beside its figures, are this passport’s own account. Nothing on it has been independently verified.')}</p>
                 {mine
-                  ? <SpecForm spec={passport.spec} today={today} onChange={(spec) => setMessage(t(commit(replaceSpec(g.latest(), passport.micarId, spec, { now: stamp(), snapshotId: newId() })) ?? ''))} />
-                  : <p className="gar-help">{t('This car has been transferred. Its passport is read-only here. Send the new owner the passport file.')}</p>}
+                  ? <>
+                    <IdentityForm spec={passport.spec} today={today} onChange={(spec) => commit(replaceSpec(g.latest(), passport.micarId, spec, { now: stamp(), snapshotId: newId() }))} />
+                    <SpecForm spec={passport.spec} today={today} plainSources onChange={(spec) => setMessage(t(commit(replaceSpec(g.latest(), passport.micarId, spec, { now: stamp(), snapshotId: newId() })) ?? ''))} />
+                  </>
+                  : <p className="gar-help">{readOnly}</p>}
                 {message && <p className="gar-err" role="alert">{message}</p>}
               </div>
             )}
           </div>
           <div className="gar-danger">
             {confirming
-              ? <span className="gar-btns"><span className="gar-help">{t('Take this car and its files out of this garage? Download its passport file first if you want to keep it.')}</span><button type="button" className="gar-btn danger" onClick={() => { void remove(); }}>{t('Yes, remove it')}</button><button type="button" className="gar-btn" onClick={() => setConfirming(false)}>{t('Cancel')}</button></span>
+              ? <span className="gar-btns"><span className="gar-help">{t('Take this car and its files out of this garage? The passport file keeps its history but not its photographs and receipts: save any of those you want first.')}</span><button type="button" className="gar-btn danger" onClick={() => { void remove(); }}>{t('Yes, remove it')}</button><button type="button" className="gar-btn" onClick={() => setConfirming(false)}>{t('Cancel')}</button></span>
               : <button type="button" className="gar-btn danger" onClick={() => setConfirming(true)}>{t('Remove from this garage')}</button>}
           </div>
         </div>
@@ -215,9 +287,21 @@ function CarPage({ passport, g, today }: { passport: Passport; g: GarageHandle; 
   );
 }
 
+/** Today on the owner's calendar, kept current: a page left open past midnight moves on to the new day. */
+function useToday(): string {
+  const [day, setDay] = useState(() => todayOf());
+  useEffect(() => {
+    const check = () => setDay((was) => { const now = todayOf(); return now === was ? was : now; });
+    const timer = setInterval(check, 30000);
+    try { document.addEventListener('visibilitychange', check); } catch { /* no document */ }
+    return () => { clearInterval(timer); try { document.removeEventListener('visibilitychange', check); } catch { /* no document */ } };
+  }, []);
+  return day;
+}
+
 export default function Garage({ code }: { code?: string }) {
   const g = useGarage();
-  const today = useMemo(() => todayOf(), []);
+  const today = useToday();
   const id = code ? normalizeMicarId(code) ?? code : null;
   const car = id ? findCar(g.state, id) : null;
   return (

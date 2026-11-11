@@ -63,7 +63,8 @@
 /* A small card (two to a row on a phone, a rival in a race) drops the name from the label and shortens the attribute names. */
 @container (max-width: 215px) {
   .dp .gar-label { grid-template-columns: 1fr auto; }
-  .dp .gar-label .lab-n, .dp .gar-eg, .dp .gar-ed { display: none; }
+  /* The "example" and "house card" stamps stay at every size: a small card must never pass for an owner's. */
+  .dp .gar-label .lab-n, .dp .gar-ed { display: none; }
   .dp .gar-row { grid-template-columns: 4.6ch 1fr 4.4ch; }
   .dp .gar-row span b { display: none; }
   .dp .gar-row span abbr { display: inline; }

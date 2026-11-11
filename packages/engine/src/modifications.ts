@@ -148,9 +148,15 @@ export const MOD_REFUSALS = { notElectric: 'not for an electric powertrain', rep
 const NOT_ELECTRIC = MOD_REFUSALS.notElectric;
 const REPLACED = MOD_REFUSALS.replaced;
 
-/** Install order: by the day it was fitted, then by event id. Plain string comparison, so it is the same in every locale. */
+/**
+ * Install order: by the day it was fitted, then by when it was written down, then by event id. Plain string
+ * comparison, so it is the same in every locale. Without the middle step two parts fitted the same day would be
+ * ordered by their ids, which are random: fitting a bigger turbo on the day the car was parked was a coin flip.
+ */
 function byInstall(a: ActiveModification, b: ActiveModification): number {
   if (a.installedOn !== b.installedOn) return a.installedOn < b.installedOn ? -1 : 1;
+  const wa = a.recordedAt ?? '', wb = b.recordedAt ?? '';
+  if (wa !== wb) return wa < wb ? -1 : 1;
   if (a.eventId !== b.eventId) return a.eventId < b.eventId ? -1 : 1;
   return 0;
 }

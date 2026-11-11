@@ -29,10 +29,11 @@ export const CHOICE_LABELS: Record<string, string> = {
 const isNumeric = (f: SpecField): f is NumericSpecField => (NUMERIC_FIELDS as readonly string[]).indexOf(f) !== -1;
 const isText = (f: SpecField): boolean => (TEXT_FIELDS as readonly string[]).indexOf(f) !== -1;
 
-function SourceChip({ cell }: { cell: Sourced<unknown> | null }) {
+function SourceChip({ cell, plain }: { cell: Sourced<unknown> | null; plain: boolean }) {
   if (!cell) return <span className="gar-chip">{t('not on file')}</span>;
   const s = cell.source;
-  const good = s.kind === 'manufacturer' || s.kind === 'agency' || s.kind === 'test';
+  // On a stored passport a source is what the file says it is, so none is picked out as better than another.
+  const good = !plain && (s.kind === 'manufacturer' || s.kind === 'agency' || s.kind === 'test');
   const label = <>{t(SOURCE_KIND_LABELS[s.kind])}{s.name ? ` · ${s.name}` : ''}</>;
   return s.url
     ? <a className={`gar-chip ${good ? 'blue' : ''}`} href={s.url} target="_blank" rel="noreferrer" title={s.note}>{label}</a>
@@ -46,9 +47,11 @@ type Props = {
   onChange: (spec: VehicleSpec) => void;
   /** Leave out groups a caller does not want (the parking form shows the short sheet first). */
   groups?: readonly string[];
+  /** True on a stored passport: the sources named are the file's own account, so none is highlighted. */
+  plainSources?: boolean;
 };
 
-export function SpecForm({ spec, today, onChange, groups }: Props) {
+export function SpecForm({ spec, today, onChange, groups, plainSources = false }: Props) {
   // What the owner is typing, per field, and why the last value was refused. The sheet itself only ever holds accepted values.
   const [draft, setDraft] = useState<Partial<Record<SpecField, string>>>({});
   const [refused, setRefused] = useState<Partial<Record<SpecField, string>>>({});
@@ -80,7 +83,7 @@ export function SpecForm({ spec, today, onChange, groups }: Props) {
                     <select id={id} value={v} onChange={(e) => commit(field, e.target.value === '' ? null : e.target.value === 'yes')}>
                       <option value="">{t('Not known')}</option><option value="yes">{t('Yes')}</option><option value="no">{t('No')}</option>
                     </select>
-                    <SourceChip cell={cell} />
+                    <SourceChip cell={cell} plain={plainSources} />
                   </label>
                 );
               }
@@ -92,7 +95,7 @@ export function SpecForm({ spec, today, onChange, groups }: Props) {
                       <option value="">{t('Not known')}</option>
                       {choices.map((c) => <option key={c} value={c}>{t(CHOICE_LABELS[c] ?? c)}</option>)}
                     </select>
-                    <SourceChip cell={cell} />
+                    <SourceChip cell={cell} plain={plainSources} />
                   </label>
                 );
               }
@@ -104,10 +107,12 @@ export function SpecForm({ spec, today, onChange, groups }: Props) {
                   <input id={id} type="text" inputMode={numeric ? 'decimal' : 'text'} autoComplete="off" value={value}
                     aria-invalid={problem ? true : undefined} aria-describedby={problem ? `${id}-err` : undefined}
                     onChange={(e) => setDraft((d) => ({ ...d, [field]: e.target.value }))}
+                    // Enter would submit the form around this sheet with the figure still only typed, not kept. It keeps the figure instead.
+                    onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.currentTarget.blur(); } }}
                     onBlur={(e) => { const text = e.target.value.trim(); if (text === (cell === null ? '' : String(cell.value))) { setDraft((d) => ({ ...d, [field]: undefined })); return; } commit(field, text === '' ? null : numeric ? text : text, text); }} />
                   {problem
                     ? <span className="gar-err" id={`${id}-err`}>{range ? t('Enter a number from {lo} to {hi}.', { lo: range[0], hi: range[1] }) : t('That value was not accepted.')}</span>
-                    : <SourceChip cell={cell} />}
+                    : <SourceChip cell={cell} plain={plainSources} />}
                 </label>
               );
             })}

@@ -1,21 +1,11 @@
 // The MiCar ID: a vehicle's own identity on MiCar, written MC-XXXX-XXXX-XXXC.
 // It is made from random bytes the host supplies, never from the VIN (a VIN can be guessed and its hash looked up),
-// and it stays the same when the vehicle changes hands. The last character is a check, so a mistyped ID is caught
-// instead of opening the wrong car. The alphabet has no I, L, O or U, so an ID read aloud is hard to get wrong.
+// and it stays the same when the vehicle changes hands. The last character is a check (util.checkCharacter), so an
+// ID with a wrong character, or with two characters swapped, is caught instead of opening the wrong car. The alphabet has no I, L, O or U, so an ID read aloud is hard to get wrong.
 import type { Result } from './types';
-import { BASE32 } from './util';
+import { BASE32, checkCharacter } from './util';
 
 const BODY = /^[0-9A-HJKMNP-TV-Z]{12}$/;
-
-/**
- * The check character for eleven values: each value times an odd weight (1, 3, 5 ... 21), summed, mod 32.
- * Odd weights have an inverse mod 32, so changing any one character always changes the check.
- */
-function checkOf(values: readonly number[]): number {
-  let sum = 0;
-  for (let i = 0; i < values.length; i++) sum += values[i] * (2 * i + 1);
-  return sum % 32;
-}
 
 const format = (body: string): string => `MC-${body.slice(0, 4)}-${body.slice(4, 8)}-${body.slice(8, 12)}`;
 
@@ -35,16 +25,15 @@ export function micarIdFromBytes(bytes: ArrayLike<number>): Result<string> {
     }
     acc &= (1 << bits) - 1;
   }
-  return { ok: true, value: format(values.map((v) => BASE32[v]).join('') + BASE32[checkOf(values)]) };
+  const body = values.map((v) => BASE32[v]).join('');
+  return { ok: true, value: format(body + checkCharacter(body)) };
 }
 
 /** True for a MiCar ID in its canonical form whose check character is right. */
 export function isMicarId(id: string): boolean {
   if (typeof id !== 'string' || id.length !== 17 || id.slice(0, 3) !== 'MC-' || id[7] !== '-' || id[12] !== '-') return false;
   const body = id.slice(3, 7) + id.slice(8, 12) + id.slice(13, 17);
-  if (!BODY.test(body)) return false;
-  const values = body.split('').map((ch) => BASE32.indexOf(ch));
-  return checkOf(values.slice(0, 11)) === values[11];
+  return BODY.test(body) && checkCharacter(body.slice(0, 11)) === body[11];
 }
 
 /**

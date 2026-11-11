@@ -49,3 +49,16 @@ describe('what the form says about an odometer reading before it is written', ()
     expect(odometerNote('49999', 50000)).toBe(ODOMETER_NOTES[0]);
   });
 });
+
+describe('the page’s clock', () => {
+  it('writes the local time to the millisecond, in the one form the engine reads', async () => {
+    const { stamp, today } = await import('./ids');
+    const { isIsoTimestamp } = await import('@micar/engine');
+    const at = new Date(2026, 10, 11, 9, 5, 7, 42);
+    expect(stamp(at)).toBe('2026-11-11T09:05:07.042Z');
+    expect(isIsoTimestamp(stamp(at))).toBe(true);
+    expect(today(at)).toBe('2026-11-11');
+    // Two entries written a few milliseconds apart are told apart, so the later one is the later one.
+    expect(stamp(new Date(2026, 10, 11, 9, 5, 7, 43)) > stamp(at)).toBe(true);
+  });
+});

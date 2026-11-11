@@ -212,6 +212,35 @@ export const yearsBetween = (a: string, b: string): number => daysBetween(a, b) 
 /** Crockford's base 32: no I, L, O or U, so an id read aloud or typed from a card is hard to get wrong. */
 export const BASE32 = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
 
+/** Multiplication in the field of 32 elements (the polynomial x^5 + x^2 + 1). Every value but 0 has an inverse there, which plain arithmetic modulo 32 does not give. */
+function multiply32(a: number, b: number): number {
+  let product = 0;
+  for (let i = 0; i < 5; i++) {
+    if (b & 1) product ^= a;
+    b >>= 1;
+    a <<= 1;
+    if (a & 32) a ^= 0x25;
+  }
+  return product;
+}
+
+/**
+ * The check character for a run of base-32 characters (up to thirty): each character's value times its own weight,
+ * a different power of 2 in the field of 32 elements, added up there. The weights start at 2, which leaves 1 for
+ * the check character itself, so every character of the finished id has a weight no other has. Any one wrong
+ * character then fails the check, and so does swapping any two characters that differ, the check character
+ * included. Weights that are merely odd numbers modulo 32 catch the first and miss one swap in thirty-two.
+ */
+export function checkCharacter(body: string): string {
+  let sum = 0, weight = 2;
+  for (let i = 0; i < body.length; i++) {
+    const value = BASE32.indexOf(body[i]);
+    sum ^= multiply32(value < 0 ? 0 : value, weight);
+    weight = multiply32(weight, 2);
+  }
+  return BASE32[sum];
+}
+
 /** A short id for an event, attachment or snapshot, from bytes the caller supplies (16 characters from 10 bytes). */
 export function idFromBytes(bytes: ArrayLike<number>): string {
   let out = '';

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { canonicalJson, clamp, clipText, daysBetween, hashString, idFromBytes, sha256Text, interpolate, isIsoDate, isIsoTimestamp, monthsBetween, mulberry32, numberIn, round1, score1000, yearsBetween } from './util';
+import { BASE32, canonicalJson, checkCharacter, clamp, clipText, daysBetween, hashString, idFromBytes, sha256Text, interpolate, isIsoDate, isIsoTimestamp, monthsBetween, mulberry32, numberIn, round1, score1000, yearsBetween } from './util';
 
 describe('numbers and text', () => {
   it('keeps a value inside its range', () => {
@@ -218,5 +218,26 @@ describe('SHA-256', () => {
     for (let i = 0; i < 64; i++) if (a[i] === b[i]) same += 1;
     expect(same).toBeLessThan(20);
     expect(a).toMatch(/^[0-9a-f]{64}$/);
+  });
+});
+
+describe('the check character', () => {
+  it('changes when any one character does, and when any two that differ are swapped', () => {
+    const body = '0810G4Z2K9QXB7';
+    const check = checkCharacter(body);
+    expect(BASE32).toContain(check);
+    for (let i = 0; i < body.length; i++) {
+      for (const other of BASE32) if (other !== body[i]) expect(checkCharacter(body.slice(0, i) + other + body.slice(i + 1)), `${i} as ${other}`).not.toBe(check);
+      for (let j = i + 1; j < body.length; j++) {
+        if (body[i] === body[j]) continue;
+        const chars = body.split('');
+        chars[i] = body[j]; chars[j] = body[i];
+        expect(checkCharacter(chars.join('')), `${i} and ${j}`).not.toBe(check);
+      }
+    }
+    // G is 16 and 0 is 0: the pair that plain arithmetic modulo 32 cannot tell apart when swapped.
+    expect(checkCharacter('G0')).not.toBe(checkCharacter('0G'));
+    expect(checkCharacter('')).toBe('0');
+    expect(checkCharacter('0000000000000')).toBe('0');
   });
 });

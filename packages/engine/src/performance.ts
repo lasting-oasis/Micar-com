@@ -31,8 +31,14 @@ export type StatsInputs = {
   options?: ScoreOptions;
 };
 
+// The same order the modification engine resolves in: the day fitted, then when it was written down, then the id.
 const inOrder = (mods: readonly ActiveModification[]): ActiveModification[] =>
-  mods.slice().sort((a, b) => (a.installedOn < b.installedOn ? -1 : a.installedOn > b.installedOn ? 1 : a.eventId < b.eventId ? -1 : a.eventId > b.eventId ? 1 : 0));
+  mods.slice().sort((a, b) => {
+    if (a.installedOn !== b.installedOn) return a.installedOn < b.installedOn ? -1 : 1;
+    const wa = a.recordedAt ?? '', wb = b.recordedAt ?? '';
+    if (wa !== wb) return wa < wb ? -1 : 1;
+    return a.eventId < b.eventId ? -1 : a.eventId > b.eventId ? 1 : 0;
+  });
 
 const atLeast = (evidence: EvidenceLevel, least: EvidenceLevel): boolean => EVIDENCE_ORDER.indexOf(evidence) >= EVIDENCE_ORDER.indexOf(least);
 

@@ -61,6 +61,11 @@ function Row({ a }: { a: CardAttribute }) {
   );
 }
 
+/** True for a card built from a catalogue entry: it belongs to no one. */
+const isHouse = (card: CardData): boolean => !card.illustrative && card.micarId === 'HOUSE';
+/** What kind of card this is, where an owner's card says its level: an example and a house card hold no level. */
+const standing = (card: CardData): string => (card.illustrative ? t('example') : isHouse(card) ? t('house card') : t(LEVEL_LABELS[card.level]));
+
 function Label({ card }: { card: CardData }) {
   const g = card.grade;
   const rated = card.attributes.filter((a) => a.value !== null).length;
@@ -68,7 +73,7 @@ function Label({ card }: { card: CardData }) {
   return (
     <div className="sl-label gar-label">
       <div className="lab-g"><small>{t('MiCar grade')}</small><b>{g.slabbed ? g.grade10.toFixed(1) : 'RAW'}</b><em>{g.slabbed ? t(g.tierName) : t('ungraded')}</em></div>
-      <div className="lab-n"><strong>{card.title}</strong><span>{card.subtitle ? `${card.subtitle} · ` : ''}{card.micarId}</span><i>{t(LEVEL_LABELS[card.level])}</i></div>
+      <div className="lab-n"><strong>{card.title}</strong><span>{card.subtitle ? `${card.subtitle} · ` : ''}{card.micarId}</span><i>{standing(card)}</i></div>
       <div className="gar-pr"><small>{t('Power rating')}</small><b>{rating === null ? '—' : rating}</b><em>{card.powerRating !== null ? t('of 1000') : t('{n} of 7 rated', { n: rated })}</em></div>
     </div>
   );
@@ -82,7 +87,8 @@ export function CollectibleCard({ card, report = null, photoUrl = null, flipped 
   const sealed = card.level === 'verified' || card.level === 'certified';
   return (
     <div ref={ref} className={classes} style={style}
-      role={onFlip ? 'button' : undefined} tabIndex={onFlip ? 0 : undefined} aria-label={onFlip ? t('The card. Press Enter to flip it.') : undefined}
+      role={onFlip ? 'button' : undefined} tabIndex={onFlip ? 0 : undefined}
+      aria-label={onFlip ? t('{title}, {kind}. Press Enter to turn the card over.', { title: [card.title, card.subtitle].filter(Boolean).join(' '), kind: standing(card) }) : undefined}
       onClick={onFlip ? toggle : undefined} onKeyDown={onFlip ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } } : undefined}>
       <div className="slab-in">
         <div className="sl-face front"><div className="acrylic">
@@ -92,6 +98,7 @@ export function CollectibleCard({ card, report = null, photoUrl = null, flipped 
             <div className="gar-top">
               <span className="gar-rar">{t(RARITY_LABELS[card.rarity.tier])}</span>
               {card.illustrative && <span className="gar-eg">{t('example')}</span>}
+              {isHouse(card) && <span className="gar-eg">{t('house card')}</span>}
               {sealed && <span className="seal gar-seal"><span>{t(LEVEL_LABELS[card.level])}</span></span>}
             </div>
             <div className="gar-box">

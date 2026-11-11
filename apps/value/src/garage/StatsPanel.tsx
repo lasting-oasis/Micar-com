@@ -77,6 +77,7 @@ export function StatsPanel({ assembly }: { assembly: Assembly }) {
       <div>
         <h3>{t('What changes this vehicle')}</h3>
         <Adjustments list={stats.adjustments} fitted={assembly.modifications.applied} />
+        {assembly.condition.mileage === null && stats.adjustments.some((a) => a.source === 'wear') && <p className="gar-help">{t('With no mileage reading on the passport, wear is modelled from the model year alone. It is marked declared because the model year is your own entry. Add a reading and it is counted from the miles.')}</p>}
       </div>
 
       {missing.length > 0 && (

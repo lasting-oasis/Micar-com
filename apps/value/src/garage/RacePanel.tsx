@@ -74,6 +74,17 @@ export function RacePanel({ passport, assembly }: { passport: Passport; assembly
     setResult(null); setCup(null);
     setSetup((s) => (s.indexOf(id) !== -1 ? s.filter((x) => x !== id) : [...s.filter((x) => SETUP_CARDS.filter((c) => c.id === x)[0]?.category !== card.category), id]));
   };
+  // The attributes this mode reads that the car has no rating for yet: with any missing it cannot start.
+  const lacking = player ? ATTRIBUTE_KEYS.filter((k) => RACE_MODE_RULES[mode].weights[k] !== undefined && player.attributes[k] === null) : [];
+  // Left and right move between the modes, as a group of choices should.
+  const onModeKey = (e: React.KeyboardEvent, m: RaceMode) => {
+    const step = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
+    if (step === 0) return;
+    e.preventDefault();
+    const next = RACE_MODES[(RACE_MODES.indexOf(m) + step + RACE_MODES.length) % RACE_MODES.length];
+    setMode(next); setResult(null);
+    try { document.getElementById(`gar-mode-${next}`)?.focus(); } catch { /* no document */ }
+  };
   const run = () => { if (!player) return; setCup(null); setResult(race(mode, [player, ...rivals], seed, { ranked })); setRound((r) => r + 1); };
   const runSeries = () => { if (!player) return; setResult(null); setCup(series([player, ...rivals], seed, { ranked })); setRound((r) => r + 1); };
 
@@ -81,7 +92,7 @@ export function RacePanel({ passport, assembly }: { passport: Passport; assembly
     <div className="gar-panel">
       <div className="gar-modes" role="radiogroup" aria-label={t('Race')}>
         {RACE_MODES.map((m) => (
-          <button type="button" key={m} role="radio" aria-checked={mode === m} className={`gar-mode ${mode === m ? 'on' : ''}`} onClick={() => { setMode(m); setResult(null); }}>
+          <button type="button" key={m} id={`gar-mode-${m}`} role="radio" aria-checked={mode === m} tabIndex={mode === m ? 0 : -1} className={`gar-mode ${mode === m ? 'on' : ''}`} onClick={() => { setMode(m); setResult(null); }} onKeyDown={(e) => onModeKey(e, m)}>
             <b>{t(RACE_MODE_RULES[m].name)}</b>
             <span>{t(RACE_MODE_RULES[m].blurb)}</span>
             <small>{ATTRIBUTE_KEYS.filter((k) => RACE_MODE_RULES[m].weights[k] !== undefined).map((k) => t(ATTRIBUTE_LABELS[k])).join(' · ')}</small>
@@ -105,7 +116,7 @@ export function RacePanel({ passport, assembly }: { passport: Passport; assembly
             {MOD_CATEGORIES.map((category) => (
               <div key={category} className="gar-setup-row">
                 <span>{t(MODS[category].name)}</span>
-                <span className="gar-btns">
+                <span className="gar-btns" role="group" aria-label={t(MODS[category].name)}>
                   {SETUP_CARDS.filter((c) => c.category === category).map((c) => (
                     <button type="button" key={c.id} className={`gar-btn ${setup.indexOf(c.id) !== -1 ? 'primary' : ''}`} aria-pressed={setup.indexOf(c.id) !== -1} onClick={() => toggle(c.id)} title={t('{n} points', { n: c.cost })}>{t(MOD_TIER_NAMES[c.tier - 1])}</button>
                   ))}
@@ -127,10 +138,11 @@ export function RacePanel({ passport, assembly }: { passport: Passport; assembly
       </div>
 
       <div className="gar-btns">
-        <button type="button" className="drip" disabled={!player || barred || rivals.length === 0} onClick={run}>{t('Race')}</button>
+        <button type="button" className="drip" disabled={!player || barred || rivals.length === 0 || lacking.length > 0} onClick={run}>{t('Race')}</button>
         <button type="button" className="ghostbtn" disabled={!player || barred || rivals.length === 0} onClick={runSeries}>{t('Run all five')}</button>
       </div>
 
+      {lacking.length > 0 && !barred && <p className="gar-err" role="status">{t('This car cannot start this race yet: it has no rating for {list}. Add the missing figures on the spec sheet.', { list: lacking.map((k) => t(ATTRIBUTE_LABELS[k])).join(', ') })}</p>}
       {result && <Result result={result} me={passport.micarId} />}
       {cup && (
         <div className="gar-result" role="status">

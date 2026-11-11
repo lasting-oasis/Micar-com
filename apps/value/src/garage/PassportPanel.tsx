@@ -10,7 +10,7 @@ import type { Attachment, OwnerEventType, Passport, PassportEvent, PhotoSubject,
 import { ACCIDENTS, CONDITIONS, TITLES } from '../engine/data';
 import { locale, t } from '../i18n';
 import { attachmentKind, checkFile, sha256Hex, type FileStore } from './files';
-import { newId, stamp } from './ids';
+import { newId, normalizeGarageId, stamp } from './ids';
 import { vinNote } from './Park';
 import { REGISTRY } from './store';
 
@@ -35,8 +35,8 @@ const month = (ym: string) => {
 type Props = {
   passport: Passport;
   today: string;
-  /** False once the car has been handed to another owner: the timeline is then read-only here. */
-  canWrite: boolean;
+  /** What this garage is to the car. Only its owner can write; a past owner and anyone else can read. */
+  holding: 'owner' | 'transferred' | 'other';
   garageId: string;
   files: FileStore;
   onRecord: (event: Record<string, unknown>, reason: string) => string | null;
@@ -103,6 +103,11 @@ function AddEntry({ today, files, onRecord, lastReading }: Pick<Props, 'today' |
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
   const [inputKey, setInputKey] = useState(0);
+  const takesFiles = type !== 'mileage' && type !== 'declaration';
+
+  // A file belongs to the entry it was picked for. Choosing another kind of entry starts the files again, so a
+  // receipt picked for one thing is never quietly attached to another and counted as its evidence.
+  const changeType = (next: OwnerEventType) => { setType(next); setPicked([]); setInputKey((k) => k + 1); setMessage(''); };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,7 +115,7 @@ function AddEntry({ today, files, onRecord, lastReading }: Pick<Props, 'today' |
     setBusy(true); setMessage('');
     try {
       const entry = type === 'document' ? doc : type === 'photo' || type === 'maintenance' || type === 'repair' || type === 'inspection' ? type : 'other';
-      const saved = await store(files, picked, entry);
+      const saved = await store(files, takesFiles ? picked : [], entry);
       if (saved.refused) { setMessage(t(saved.refused)); return; }
       const miles = mileage.trim() === '' ? null : Number(mileage);
       const money = cost.trim() === '' ? null : Number(cost);
@@ -142,7 +147,7 @@ function AddEntry({ today, files, onRecord, lastReading }: Pick<Props, 'today' |
       <h3 id="gar-entry-title">{t('Add an entry')}</h3>
       <div className="gar-form">
         <label>{t('What it is')}
-          <select value={type} onChange={(e) => setType(e.target.value as OwnerEventType)}>{ENTRY_TYPES.map((k) => <option key={k} value={k}>{t(EVENT_TYPE_LABELS[k])}</option>)}</select>
+          <select value={type} onChange={(e) => changeType(e.target.value as OwnerEventType)}>{ENTRY_TYPES.map((k) => <option key={k} value={k}>{t(EVENT_TYPE_LABELS[k])}</option>)}</select>
         </label>
         <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => setDate(e.target.value)} /></label>
         <label>{t('Odometer')} <small>(mi)</small>
@@ -172,7 +177,7 @@ function AddEntry({ today, files, onRecord, lastReading }: Pick<Props, 'today' |
         </>}
         <label className="wide">{t('Title of the entry')}<input type="text" value={title} maxLength={120} placeholder={t(EVENT_TYPE_LABELS[type])} onChange={(e) => setTitle(e.target.value)} /></label>
         <label className="wide">{t('Note')}<textarea value={note} maxLength={2000} onChange={(e) => setNote(e.target.value)} /></label>
-        {type !== 'mileage' && type !== 'declaration' && (
+        {takesFiles && (
           <label className="wide">{t('Files')}
             <input key={inputKey} type="file" multiple accept="image/*,application/pdf" onChange={(e) => setPicked(Array.from(e.target.files ?? []).slice(0, 20))} />
             <span className="gar-help">{t('Images and PDFs, up to 25 MB each. They stay on this device.')}</span>
@@ -205,14 +210,17 @@ function Row({ passport, event, today, files, standing }: { passport: Passport; 
   // An attestation that does not count says why; a record a verifier withdrew says so. Both stay on the passport.
   const status = event.type === 'attestation' ? standing.statuses.filter((x) => x.eventId === event.id)[0] : undefined;
   const standingNote = status && !status.valid ? t(status.reason) : standing.voided.indexOf(event.id) !== -1 ? t('Withdrawn by a verifier') : '';
+  const [missing, setMissing] = useState(false);
   const open = async (a: Attachment) => {
     try {
       const blob = await files.get(a.id);
-      if (!blob) return;
+      // The passport holds a file's name and fingerprint; the file itself stays on the device it was added on.
+      if (!blob) { setMissing(true); return; }
+      setMissing(false);
       const url = URL.createObjectURL(blob);
       window.open(url, '_blank', 'noopener');
       setTimeout(() => URL.revokeObjectURL(url), 60000);
-    } catch { /* the file is not on this device */ }
+    } catch { setMissing(true); }
   };
   return (
     <div className="row">
@@ -222,6 +230,7 @@ function Row({ passport, event, today, files, standing }: { passport: Passport; 
         <small>
           {[event.mileage !== null ? `${event.mileage.toLocaleString('en-US')} mi` : '', event.note, standingNote].filter(Boolean).join(' · ')}
           {event.attachments.length > 0 && <span className="gar-files">{event.attachments.map((a) => <button type="button" key={a.id} onClick={() => open(a)}>{a.name || t('file')}</button>)}</span>}
+          {missing && <span className="gar-err" role="status">{t('That file is not on this device. A passport file carries each file’s name and fingerprint, not the file.')}</span>}
         </small>
       </span>
       <span className="fx"><small>{t(EVIDENCE_LABELS[evidence])}</small>{event.visibility === 'public' ? <span>{t('title is public')}</span> : <span>{t('private')}</span>}</span>
@@ -264,29 +273,50 @@ function Transfer({ today, files, onTransfer }: Pick<Props, 'today' | 'files' | 
   const [date, setDate] = useState(today);
   const [picked, setPicked] = useState<File[]>([]);
   const [message, setMessage] = useState('');
-  const submit = async (e: React.FormEvent) => {
+  // The ID as the engine will store it, once what was typed is a real Garage ID. Null until then.
+  const buyer = normalizeGarageId(to);
+  const [confirming, setConfirming] = useState(false);
+  const ask = (e: React.FormEvent) => {
     e.preventDefault();
+    if (buyer === null) { setMessage(t('That is not a Garage ID')); return; }
+    setMessage(''); setConfirming(true);
+  };
+  const send = async () => {
     const saved = await store(files, picked, 'other');
-    if (saved.refused) { setMessage(t(saved.refused)); return; }
+    if (saved.refused) { setMessage(t(saved.refused)); setConfirming(false); return; }
     const refused = onTransfer({ eventId: newId(), toOwnerId: to.trim(), date, attachments: saved.attachments });
-    if (refused) { for (const a of saved.attachments) await files.remove(a.id); setMessage(t(refused)); return; }
+    if (refused) { for (const a of saved.attachments) await files.remove(a.id); setMessage(t(refused)); setConfirming(false); return; }
     setMessage('');
   };
   return (
-    <form className="gar-entry" onSubmit={submit}>
+    <form className="gar-entry" onSubmit={ask}>
       <h3>{t('Transfer to a new owner')}</h3>
       <p className="gar-help">{t('The MiCar ID and the whole history go with the car. Ask the new owner for their Garage ID, transfer, then send them the passport file. After that this garage can read the car but not write to it.')}</p>
+      <p className="gar-help">{t('The photographs and receipts stay on this device: the passport file carries their names and fingerprints, not the files. Send the new owner the files you want them to have.')}</p>
       <div className="gar-form">
-        <label>{t('New owner’s Garage ID')}<input type="text" value={to} required autoComplete="off" spellCheck={false} onChange={(e) => setTo(e.target.value)} /></label>
+        <label>{t('New owner’s Garage ID')}
+          <input type="text" value={to} required autoComplete="off" autoCapitalize="characters" spellCheck={false} aria-describedby="gar-to-note" onChange={(e) => { setTo(e.target.value); setConfirming(false); setMessage(''); }} />
+          <span id="gar-to-note" className={to.trim() !== '' && buyer === null ? 'gar-err' : 'gar-help'}>{to.trim() === '' ? t('It starts with G- and ends with a check character, so a slip is caught.') : buyer === null ? t('That is not a Garage ID') : t('That is a Garage ID.')}</span>
+        </label>
         <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => setDate(e.target.value)} /></label>
         <label className="wide">{t('Bill of sale (optional)')}<input type="file" accept="image/*,application/pdf" onChange={(e) => setPicked(Array.from(e.target.files ?? []).slice(0, 5))} /></label>
       </div>
-      <div className="gar-btns"><button type="submit" className="gar-btn danger">{t('Transfer the car')}</button>{message && <span className="gar-err" role="alert">{message}</span>}</div>
+      <div className="gar-btns">
+        {confirming && buyer !== null
+          ? <>
+            <span className="gar-help" role="status">{t('Hand this car to {id}? It cannot be undone: after this, only that garage can write to its passport.', { id: buyer })}</span>
+            <button type="button" className="gar-btn danger" onClick={() => { void send(); }}>{t('Yes, transfer it')}</button>
+            <button type="button" className="gar-btn" onClick={() => setConfirming(false)}>{t('Cancel')}</button>
+          </>
+          : <button type="submit" className="gar-btn danger">{t('Transfer the car')}</button>}
+        {message && <span className="gar-err" role="alert">{message}</span>}
+      </div>
     </form>
   );
 }
 
-export function PassportPanel({ passport, today, canWrite, garageId, files, onRecord, onVin, onTransfer, onExport }: Props) {
+export function PassportPanel({ passport, today, holding, garageId, files, onRecord, onVin, onTransfer, onExport }: Props) {
+  const canWrite = holding === 'owner';
   const events = useMemo(() => timeline(passport).slice().reverse(), [passport]);
   const standing = useMemo(() => standingOf(passport, REGISTRY, today), [passport, today]);
   const shared = useMemo(() => publicPassport(passport, REGISTRY, today, standing), [passport, today, standing]);
@@ -303,7 +333,8 @@ export function PassportPanel({ passport, today, canWrite, garageId, files, onRe
         <div><small>{t('Parked')}</small><b>{day(passport.createdAt)}</b></div>
         <div><small>{t('Owners')}</small><b className="num">{passport.owners.length}</b></div>
       </div>
-      {!canWrite && <p className="gar-note gar-warn">{t('This car has been transferred. Its passport is read-only here. Send the new owner the passport file.')}</p>}
+      {holding === 'transferred' && <p className="gar-note gar-warn">{t('This car has been transferred. Its passport is read-only here. Send the new owner the passport file.')}</p>}
+      {holding === 'other' && <p className="gar-note gar-warn">{t('This car belongs to another garage, so its passport is read-only here. If it is yours, bring your garage file into a browser that has no cars parked: the garage and its ID come back with it.')}</p>}
       <div className="gar-btns">
         <button type="button" className="gar-btn" onClick={onExport}>{t('Download the passport file')}</button>
         <button type="button" className="gar-btn" aria-expanded={showPublic} onClick={() => setShowPublic((v) => !v)}>{showPublic ? t('Hide what others see') : t('What others see')}</button>

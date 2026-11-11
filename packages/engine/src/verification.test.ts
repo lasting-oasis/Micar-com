@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { micarIdFromBytes } from './identity';
+import { resolveModifications } from './modifications';
 import { addEvent, appendEvent, createPassport, parsePassport, serializePassport, transferOwnership, updateSpec, updateVin } from './passport';
 import { emptySpec } from './specs';
 import type { Attachment, Attestation, AttestationScope, Passport, PassportEvent, Sourced, VehicleSpec, VerifierRegistry } from './types';
@@ -702,14 +703,26 @@ describe('fitted modifications', () => {
     [p, turbo] = install(p, '2026-03-01', 'turbo', { mileage: 58000 });
     [p, tires] = install(p, '2026-04-01', 'tires', { tier: 1, install: 'owner' });
     expect(activeModifications(p, REGISTRY, TODAY)).toEqual([
-      { eventId: turbo, category: 'turbo', tier: 2, install: 'professional', evidence: 'declared', installedOn: '2026-03-01', installedAtMileage: 58000, upkeep: 'recent' },
-      { eventId: tires, category: 'tires', tier: 1, install: 'owner', evidence: 'declared', installedOn: '2026-04-01', installedAtMileage: null, upkeep: 'recent' },
+      { eventId: turbo, category: 'turbo', tier: 2, install: 'professional', evidence: 'declared', installedOn: '2026-03-01', recordedAt: NOW, installedAtMileage: 58000, upkeep: 'recent' },
+      { eventId: tires, category: 'tires', tier: 1, install: 'owner', evidence: 'declared', installedOn: '2026-04-01', recordedAt: NOW, installedAtMileage: null, upkeep: 'recent' },
     ]);
     expect(activeModifications(p, REGISTRY, '2026-03-15').map((m) => m.eventId)).toEqual([turbo]);
     [p] = add(p, { type: 'modification', date: '2026-08-01', action: 'remove', category: 'turbo', tier: 2, install: 'professional', parts: '', undoes: turbo });
     expect(activeModifications(p, REGISTRY, TODAY).map((m) => m.eventId)).toEqual([tires]);
     // On a day before the removal, it was still fitted.
     expect(activeModifications(p, REGISTRY, '2026-07-31').map((m) => m.eventId)).toEqual([turbo, tires]);
+  });
+
+  it('take the later of two fitted the same day by when each was written down, not by its id', () => {
+    // An upgrade on the day the car was parked. The ids are chosen so that sorting by id would pick the wrong one.
+    for (const [first, second] of [['zz-street', 'aa-extreme'], ['aa-street', 'zz-extreme']]) {
+      let p = parked();
+      p = ok(addEvent(p, { id: first, type: 'modification', date: '2026-11-10', action: 'install', category: 'turbo', tier: 1, install: 'professional', parts: '', undoes: null }, { now: '2026-11-10T10:00:00.000Z', by: OWNER }));
+      p = ok(addEvent(p, { id: second, type: 'modification', date: '2026-11-10', action: 'install', category: 'turbo', tier: 3, install: 'professional', parts: '', undoes: null }, { now: '2026-11-10T10:00:05.000Z', by: OWNER }));
+      const { applied, refused } = resolveModifications(p.spec, activeModifications(p, REGISTRY, TODAY));
+      expect(applied.map((m) => [m.eventId, m.tier]), first).toEqual([[second, 3]]);
+      expect(refused.map((m) => m.eventId), first).toEqual([first]);
+    }
   });
 
   it('are looked after, recently fitted, or neither', () => {

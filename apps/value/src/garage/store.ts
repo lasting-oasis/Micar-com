@@ -8,6 +8,7 @@ import {
   EMPTY_REGISTRY, addEvent, assemble, canonicalJson, createPassport, currentOwner, issueEdition, parsePassport, recordSnapshot, transferOwnership, updateSpec, updateVin,
 } from '@micar/engine';
 import type { Assembly, Attachment, Passport, Result, VehicleSpec, VerifierRegistry } from '@micar/engine';
+import { normalizeGarageId } from './ids';
 import { SNAPSHOT_REASONS } from './words';
 
 export const GARAGE_KEY = 'micar.garage.v1';
@@ -79,6 +80,14 @@ export function saveGarage(storage: GarageStorage | null, state: GarageState): b
 export const findCar = (state: GarageState, micarId: string): Passport | null => state.passports.filter((p) => p.micarId === micarId)[0] ?? null;
 /** True while this device's owner still holds the car. After a transfer it stays listed, read-only, until removed. */
 export const ownsCar = (state: GarageState, passport: Passport): boolean => currentOwner(passport) === state.ownerId;
+/**
+ * What this garage is to a car: its owner, a past owner who handed it on, or neither (a passport file brought in
+ * from someone else, or a backup opened in a browser that is not the garage it came from).
+ */
+export function holdingOf(state: GarageState, passport: Passport): 'owner' | 'transferred' | 'other' {
+  if (ownsCar(state, passport)) return 'owner';
+  return passport.owners.some((o) => o.ownerId === state.ownerId) ? 'transferred' : 'other';
+}
 /** Everything the engine knows about one car today. */
 export const assembleCar = (passport: Passport, today: string): Assembly => assemble(passport, REGISTRY, today);
 
@@ -131,9 +140,11 @@ export function replaceVin(state: GarageState, micarId: string, vin: string, ctx
 export function transfer(state: GarageState, micarId: string, input: { eventId: string; toOwnerId: string; date: string; attachments: Attachment[] }, ctx: { now: string }): Result<GarageState> {
   const passport = findCar(state, micarId);
   if (!passport) return { ok: false, reason: 'No car with that ID is parked here' };
-  if (!OWNER.test(input.toOwnerId)) return { ok: false, reason: 'That is not a Garage ID' };
-  if (input.toOwnerId === state.ownerId) return { ok: false, reason: 'That is this garage' };
-  const moved = transferOwnership(passport, input, { now: ctx.now, by: state.ownerId });
+  // A hand-over cannot be undone, so the ID has to be a real one: the right shape, and a check character that agrees.
+  const toOwnerId = normalizeGarageId(input.toOwnerId);
+  if (toOwnerId === null) return { ok: false, reason: 'That is not a Garage ID' };
+  if (toOwnerId === state.ownerId) return { ok: false, reason: 'That is this garage' };
+  const moved = transferOwnership(passport, { ...input, toOwnerId }, { now: ctx.now, by: state.ownerId });
   if (!moved.ok) return moved;
   return { ok: true, value: put(state, moved.value) };
 }
@@ -143,10 +154,14 @@ export const removeCar = (state: GarageState, micarId: string): GarageState => (
 
 /* ----------------------------------------------------------- export and import ---- */
 
-/** The whole garage, or one car, as a file the owner keeps. It holds everything, the VIN included: it is theirs. */
+/**
+ * The whole garage, or one car, as a file the owner keeps. It holds everything, the VIN included: it is theirs.
+ * The whole-garage file is a backup, so it carries this garage's ID and can bring the garage back in another
+ * browser. A single car's passport file is what a seller sends a buyer, and carries no Garage ID of its own.
+ */
 export function exportGarage(state: GarageState, exportedAt: string, only?: string): string {
-  const passports = only ? state.passports.filter((p) => p.micarId === only) : state.passports;
-  return JSON.stringify({ micarGarage: 1, exportedAt, passports }, null, 1);
+  if (only) return JSON.stringify({ micarGarage: 1, exportedAt, passports: state.passports.filter((p) => p.micarId === only) }, null, 1);
+  return JSON.stringify({ micarGarage: 1, exportedAt, ownerId: state.ownerId, passports: state.passports }, null, 1);
 }
 
 /** True when `further` is the same passport as `here`, further along: it holds every entry `here` holds, unchanged and in the same place, and more. */
@@ -160,11 +175,15 @@ function continues(here: Passport, further: Passport): boolean {
  * untouched, and more after them. A file that tells a different story about a car parked here is left out, so an
  * import can never overwrite a history. Anything that is not a garage export changes nothing.
  */
-export function importGarage(state: GarageState, text: string): Result<{ state: GarageState; added: number; updated: number; skipped: number }> {
+export function importGarage(state: GarageState, text: string): Result<{ state: GarageState; added: number; updated: number; skipped: number; restored: boolean }> {
   let data: unknown;
   try { data = JSON.parse(text); } catch { return { ok: false, reason: 'That file is not a garage export' }; }
   if (!isRecord(data) || data.micarGarage !== 1 || !Array.isArray(data.passports)) return { ok: false, reason: 'That file is not a garage export' };
   const read = readPassports(data.passports);
+  // A backup opened in a garage that holds nothing is that garage coming back: it takes up the ID the cars were
+  // parked under, so they are the owner's again and not somebody else's read-only copies.
+  const restored = state.passports.length === 0 && typeof data.ownerId === 'string' && OWNER.test(data.ownerId) && data.ownerId !== state.ownerId && read.passports.length > 0;
+  if (restored) state = { ...state, ownerId: data.ownerId as string };
   let passports = state.passports, added = 0, updated = 0, skipped = read.skipped;
   for (const incoming of read.passports) {
     const here = passports.filter((p) => p.micarId === incoming.micarId)[0];
@@ -172,7 +191,7 @@ export function importGarage(state: GarageState, text: string): Result<{ state: 
     else if (continues(here, incoming)) { passports = passports.map((p) => (p.micarId === incoming.micarId ? incoming : p)); updated += 1; }
     else skipped += 1;
   }
-  return { ok: true, value: { state: { ...state, passports }, added, updated, skipped } };
+  return { ok: true, value: { state: { ...state, passports }, added, updated, skipped, restored } };
 }
 
 /** The reasons an action here can be refused, for translation. Refusals that come from the engine pass through as they are. */

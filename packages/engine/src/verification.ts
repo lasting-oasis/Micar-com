@@ -435,7 +435,7 @@ export function activeModifications(passport: Passport, registry: VerifierRegist
     if (e.type !== 'modification' || e.action !== 'install' || removed.indexOf(e.id) !== -1) continue;
     const kept = standing.events.some((m) => m.type === 'maintenance' && m.attachments.length > 0 && m.date > e.date && monthsBetween(m.date, standing.day) < 12);
     out.push({
-      eventId: e.id, category: e.category, tier: e.tier, install: e.install, evidence: recordEvidence(e, standing), installedOn: e.date, installedAtMileage: e.mileage,
+      eventId: e.id, category: e.category, tier: e.tier, install: e.install, evidence: recordEvidence(e, standing), installedOn: e.date, recordedAt: e.recordedAt, installedAtMileage: e.mileage,
       upkeep: kept ? 'documented' : monthsBetween(e.date, standing.day) < 12 ? 'recent' : 'lapsed',
     });
   }

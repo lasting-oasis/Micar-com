@@ -68,6 +68,12 @@ export const GRADE_ITEM_LABELS: Record<string, string> = {
   'ver.originality': 'Originality verified',
 };
 
+/**
+ * The items that only ever take points away. Their `met` means "nothing to deduct", so a page should say "none" for
+ * them, not "yes": a stock car has no modifications fitted.
+ */
+export const GRADE_DEDUCTIONS: readonly string[] = ['doc.voided', 'orig.modifications', 'orig.restoration'];
+
 /** Why a category is capped, by reason id. The apps translate these. */
 export const GRADE_CAP_REASONS = {
   none: '',

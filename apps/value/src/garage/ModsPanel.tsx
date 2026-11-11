@@ -34,19 +34,24 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
   const [message, setMessage] = useState('');
   const [busy, setBusy] = useState(false);
 
+  const [inputKey, setInputKey] = useState(0);
+  // A receipt belongs to the modification it was picked for: choosing another card, or cancelling, starts the form again.
+  const choose = (next: { category: ModCategory; tier: ModTier } | null) => { setPick(next); setPicked([]); setParts(''); setMileage(''); setInputKey((k) => k + 1); setMessage(''); };
+
   const fitted = useMemo(() => activeModifications(passport, REGISTRY, today), [passport, today]);
   const { applied, refused } = assembly.modifications;
 
   // What the picked card would do to this car, worked out by the same engine that scores it once fitted.
   const preview = useMemo(() => {
     if (!pick) return null;
-    const candidate: ActiveModification = { eventId: 'preview', category: pick.category, tier: pick.tier, install, evidence: 'declared', installedOn: today, installedAtMileage: null, upkeep: 'recent' };
+    // Written down after everything already on the passport, as the real entry will be: of two fitted the same day the later one counts.
+    const candidate: ActiveModification = { eventId: 'preview', category: pick.category, tier: pick.tier, install, evidence: 'declared', installedOn: date > today ? today : date, recordedAt: '9999-12-31T23:59:59.999Z', installedAtMileage: null, upkeep: 'recent' };
     const after = vehicleStats({ spec: passport.spec, modifications: [...fitted, candidate], condition: assembly.condition }).vehicle;
     const before = assembly.stats.vehicle;
     const deltas = ATTRIBUTE_KEYS.map((k) => ({ k, d: after.scores[k].value !== null && before.scores[k].value !== null ? (after.scores[k].value as number) - (before.scores[k].value as number) : 0 }));
     const rating = after.powerRating !== null && before.powerRating !== null ? after.powerRating - before.powerRating : null;
     return { deltas, rating };
-  }, [pick, install, today, fitted, passport.spec, assembly]);
+  }, [pick, install, date, today, fitted, passport.spec, assembly]);
 
   const fit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,7 +71,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
         date, mileage: mileage.trim() === '' ? null : Number(mileage), title: '', note: '', attachments, visibility: 'private',
       }, EVENT_TYPE_LABELS.modification);
       if (no) { for (const a of attachments) await files.remove(a.id); setMessage(t(no)); return; }
-      setPick(null); setParts(''); setPicked([]); setMessage(t('Fitted and written on the passport.'));
+      choose(null); setMessage(t('Fitted and written on the passport.'));
     } catch {
       setMessage(t('That could not be saved on this device.'));
     } finally {
@@ -115,7 +120,7 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
               <div className="gar-btns" role="group" aria-label={t(MODS[category].name)}>
                 {TIERS.map((tier) => (
                   <button type="button" key={tier} className={`gar-btn ${pick?.category === category && pick.tier === tier ? 'primary' : ''}`} aria-pressed={pick?.category === category && pick.tier === tier}
-                    onClick={() => setPick(pick?.category === category && pick.tier === tier ? null : { category, tier })}>{t(MOD_TIER_NAMES[tier - 1])}</button>
+                    onClick={() => choose(pick?.category === category && pick.tier === tier ? null : { category, tier })}>{t(MOD_TIER_NAMES[tier - 1])}</button>
                 ))}
               </div>
             </article>
@@ -138,9 +143,9 @@ export function ModsPanel({ passport, assembly, today, canWrite, files, onRecord
               <label>{t('Date')}<input type="date" value={date} max={today} required onChange={(e) => setDate(e.target.value)} /></label>
               <label>{t('Odometer')} <small>(mi)</small><input type="number" inputMode="numeric" min={0} max={2000000} value={mileage} onChange={(e) => setMileage(e.target.value)} /></label>
               <label className="wide">{t('Parts')}<input type="text" value={parts} maxLength={200} onChange={(e) => setParts(e.target.value)} /></label>
-              <label className="wide">{t('Receipt or dyno sheet')}<input type="file" multiple accept="image/*,application/pdf" onChange={(e) => setPicked(Array.from(e.target.files ?? []).slice(0, 20))} /><span className="gar-help">{t('With a file the modification is documented. Without one it is declared.')}</span></label>
+              <label className="wide">{t('Receipt or dyno sheet')}<input key={inputKey} type="file" multiple accept="image/*,application/pdf" onChange={(e) => setPicked(Array.from(e.target.files ?? []).slice(0, 20))} /><span className="gar-help">{t('With a file the modification is documented. Without one it is declared.')}</span></label>
             </div>
-            <div className="gar-btns"><button type="submit" className="gar-btn primary" disabled={busy}>{t('Fit it')}</button><button type="button" className="gar-btn" onClick={() => setPick(null)}>{t('Cancel')}</button></div>
+            <div className="gar-btns"><button type="submit" className="gar-btn primary" disabled={busy}>{t('Fit it')}</button><button type="button" className="gar-btn" onClick={() => choose(null)}>{t('Cancel')}</button></div>
           </>}
         </form>
       )}

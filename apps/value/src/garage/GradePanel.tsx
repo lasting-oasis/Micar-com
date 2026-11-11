@@ -1,8 +1,8 @@
 // The grade: five parts from 0 to 100, the number on the label, and the certification ladder with what unlocks the
 // next level. Nothing here reads a stat: a fast car and a slow one with the same paperwork get the same grade.
 import {
-  CERTIFICATION_LEVELS, EDITION_NAMES, GRADE_CATEGORIES, GRADE_CATEGORY_LABELS, GRADE_WEIGHTS, LEVEL_LABELS, LEVEL_SUMMARIES, RARITY_FACTOR_LABELS, RARITY_LABELS, SCARCITY_UNBACKED,
-  TIER_NAMES, buildNumberCounts,
+  CERTIFICATION_LEVELS, EDITION_NAMES, GRADE_CATEGORIES, GRADE_CATEGORY_LABELS, GRADE_DEDUCTIONS, GRADE_WEIGHTS, LEVEL_LABELS, LEVEL_SUMMARIES, RARITY_FACTOR_LABELS, RARITY_LABELS,
+  SCARCITY_UNBACKED, TIER_NAMES, buildNumberCounts,
 } from '@micar/engine';
 import type { Assembly, Passport, RarityFactor } from '@micar/engine';
 import { t } from '../i18n';
@@ -48,7 +48,10 @@ export function GradePanel({ assembly, passport }: { assembly: Assembly; passpor
                 {c.items.map((it) => (
                   <li key={it.id} className={it.met ? 'met' : ''}>
                     <span>{t(it.label)}</span>
-                    {it.max !== 0 || it.points !== 0 ? <output className="num">{it.points}{it.max > 0 ? ` / ${it.max}` : ''}</output> : <output>{it.met ? t('yes') : t('no')}</output>}
+                    {it.max !== 0 || it.points !== 0
+                      ? <output className="num">{it.points}{it.max > 0 ? ` / ${it.max}` : ''}</output>
+                      // A line that only ever takes points away names something unwelcome: with nothing to take, it says "none", not "yes".
+                      : <output>{GRADE_DEDUCTIONS.indexOf(it.id) !== -1 ? t('none') : it.met ? t('yes') : t('no')}</output>}
                   </li>
                 ))}
               </ul>

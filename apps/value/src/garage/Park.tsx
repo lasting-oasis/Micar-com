@@ -19,6 +19,8 @@ export type ParkRequest = { spec: VehicleSpec; color: string; vin: string };
 type Props = { today: string; onPark: (request: ParkRequest) => string | null; onCancel: () => void };
 
 const NOT_LISTED = '__not_listed__';
+/** The fields the EPA's record of a configuration can fill. */
+const EPA_FIELDS = ['displacementL', 'cylinders', 'transmission', 'transmissionType', 'drivetrain', 'powertrain'] as const;
 
 /** Everything the page can say about a VIN, for the Spanish coverage test. */
 export const VIN_NOTES = [
@@ -57,6 +59,8 @@ export function Park({ today, onPark, onCancel }: Props) {
   const [vin, setVin] = useState('');
   const [fields, setFields] = useState<VehicleSpec>(() => emptySpec({ year: thisYear - 3, make: 'Honda', model: 'Civic', trim: '', bodyClass: 'sedan' }));
   const [origin, setOrigin] = useState<'none' | 'catalogue' | 'epa'>('none');
+  // Which of the EPA's configurations is chosen: '' until one is, and again whenever the sheet starts over.
+  const [epaPick, setEpaPick] = useState('');
   const [epa, setEpa] = useState<EpaFile | null>(null);
   const [error, setError] = useState('');
 
@@ -80,7 +84,13 @@ export function Park({ today, onPark, onCancel }: Props) {
   const note = vinNote(vin, y);
 
   // A different car is a different sheet: start it empty again.
-  const reset = (bc: BodyClass = bodyClass) => { setFields(emptySpec({ year: y, make: makeName, model: modelName, trim: '', bodyClass: bc })); setOrigin('none'); };
+  const reset = (bc: BodyClass = bodyClass) => { setFields(emptySpec({ year: y, make: makeName, model: modelName, trim: '', bodyClass: bc })); setOrigin('none'); setEpaPick(''); };
+  // The catalogue's figures are for one trim and one body; the EPA's are for the model. Change what a fill was for
+  // and its figures, with the sources named beside them, would be describing another car: the sheet starts again.
+  const changeTrim = (text: string) => { setTrim(text); if (origin === 'catalogue') reset(); };
+  const changeBody = (bc: BodyClass) => { setBodyClass(bc); if (origin === 'catalogue') reset(bc); };
+  const changeMakeText = (text: string) => { setMakeText(text); if (origin !== 'none') reset(); };
+  const changeModelText = (text: string) => { setModelText(text); if (origin !== 'none') reset(); };
   const pickMake = (name: string) => {
     setMake(name);
     const first = name === 'Other' ? undefined : modelsForMake(name)[0];
@@ -102,6 +112,7 @@ export function Park({ today, onPark, onCancel }: Props) {
   // Figures filled in from the catalogue or the EPA belong to the model year they were filled for: another year starts a clean sheet.
   const pickYear = (text: string) => {
     setYear(text);
+    setEpaPick('');
     if (origin !== 'none') { setFields(emptySpec({ year: Number(text), make: makeName, model: modelName, trim: '', bodyClass })); setOrigin('none'); }
   };
 
@@ -113,7 +124,17 @@ export function Park({ today, onPark, onCancel }: Props) {
   };
   const fillFromEpa = (index: number) => {
     if (!epa || !configs[index]) return;
-    setFields((f) => ({ ...f, ...epaFields(configs[index], epaSource(epa)) }));
+    const source = epaSource(epa);
+    setFields((f) => {
+      // A second choice replaces the first: whatever an EPA record put on the sheet comes off before the new one goes
+      // on, so nothing one configuration settled is left standing, under the EPA's name, on another.
+      const cleared: Record<string, unknown> = { ...f };
+      for (const field of EPA_FIELDS) {
+        const cell = f[field];
+        if (cell !== null && cell.source.kind === 'agency') cleared[field] = null;
+      }
+      return { ...(cleared as VehicleSpec), ...epaFields(configs[index], source) };
+    });
     setOrigin('epa');
   };
 
@@ -137,7 +158,7 @@ export function Park({ today, onPark, onCancel }: Props) {
               {Object.entries(SEGMENT_LABELS).map(([seg, label]) => <optgroup key={seg} label={t(label as string)}>{MAKES.filter((m) => m.segment === seg).map((m) => <option key={m.name} value={m.name}>{m.name === 'Other' ? t('Other') : m.name}</option>)}</optgroup>)}
             </select>
           </label>
-          {!listed && <label>{t('Make name')}<input type="text" value={makeText} maxLength={60} onChange={(e) => setMakeText(e.target.value)} /></label>}
+          {!listed && <label>{t('Make name')}<input type="text" value={makeText} maxLength={60} onChange={(e) => changeMakeText(e.target.value)} /></label>}
           {listed && (
             <label>{t('Model')}
               <select value={model} onChange={(e) => pickModel(e.target.value)}>
@@ -146,14 +167,14 @@ export function Park({ today, onPark, onCancel }: Props) {
               </select>
             </label>
           )}
-          {(!listed || model === NOT_LISTED) && <label>{t('Model name')}<input type="text" value={modelText} maxLength={60} onChange={(e) => setModelText(e.target.value)} /></label>}
+          {(!listed || model === NOT_LISTED) && <label>{t('Model name')}<input type="text" value={modelText} maxLength={60} onChange={(e) => changeModelText(e.target.value)} /></label>}
           <label>{t('Trim')}
             {trims.length > 0
-              ? <select value={trim} onChange={(e) => setTrim(e.target.value)}><option value="">{t('Not known')}</option>{trims.map((tr) => <option key={tr.trim} value={tr.trim}>{tr.trim}</option>)}{trim && !trims.some((tr) => tr.trim === trim) && <option value={trim}>{trim}</option>}</select>
-              : <input type="text" value={trim} maxLength={80} onChange={(e) => setTrim(e.target.value)} />}
+              ? <select value={trim} onChange={(e) => changeTrim(e.target.value)}><option value="">{t('Not known')}</option>{trims.map((tr) => <option key={tr.trim} value={tr.trim}>{tr.trim}</option>)}{trim && !trims.some((tr) => tr.trim === trim) && <option value={trim}>{trim}</option>}</select>
+              : <input type="text" value={trim} maxLength={80} onChange={(e) => changeTrim(e.target.value)} />}
           </label>
           <label>{t('Body')}
-            <select value={bodyClass} onChange={(e) => setBodyClass(e.target.value as BodyClass)}>{BODY_CLASSES.map((b) => <option key={b} value={b}>{t(BODY_CLASS_LABELS[b])}</option>)}</select>
+            <select value={bodyClass} onChange={(e) => changeBody(e.target.value as BodyClass)}>{BODY_CLASSES.map((b) => <option key={b} value={b}>{t(BODY_CLASS_LABELS[b])}</option>)}</select>
           </label>
           <label>{t('Colour')}<input type="text" value={color} maxLength={40} onChange={(e) => setColor(e.target.value)} /></label>
           <label className="wide">{t('VIN')}
@@ -174,7 +195,7 @@ export function Park({ today, onPark, onCancel }: Props) {
         {configs.length > 0 && (
           <div className="gar-start">
             <label className="gar-field">{t('How the EPA lists this model year')}
-              <select className="gar-input" defaultValue="" onChange={(e) => { if (e.target.value !== '') fillFromEpa(Number(e.target.value)); }}>
+              <select className="gar-input" value={epaPick} onChange={(e) => { setEpaPick(e.target.value); if (e.target.value !== '') fillFromEpa(Number(e.target.value)); }}>
                 <option value="">{t('Pick the one that matches the car')}</option>
                 {configs.map((c, i) => <option key={i} value={i}>{describeEpaConfig(c)}</option>)}
               </select>
@@ -216,7 +237,7 @@ export function Park({ today, onPark, onCancel }: Props) {
         )}
         {error && <p className="gar-err" role="alert">{error}</p>}
         <div className="gar-btns">
-          <button type="submit" className="drip" disabled={!spec}>{t('Park it')}</button>
+          <button type="submit" className="drip">{t('Park it')}</button>
           <button type="button" className="ghostbtn" onClick={onCancel}>{t('Cancel')}</button>
         </div>
       </fieldset>

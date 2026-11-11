@@ -46,6 +46,25 @@ describe('the MiCar ID', () => {
     expect(tried).toBe(12 * 31);
   });
 
+  it('catches any two characters swapped, wherever they are', () => {
+    // Weights that are only odd numbers modulo 32 miss a swap of two characters sixteen apart (G and 0, say).
+    for (const bytes of [[12, 34, 56, 78, 90, 123, 231], [2, 2, 2, 2, 2, 2, 2], [255, 0, 255, 0, 255, 0, 255]]) {
+      const id = make(bytes);
+      const at = [3, 4, 5, 6, 8, 9, 10, 11, 13, 14, 15, 16];
+      let tried = 0;
+      for (let i = 0; i < at.length; i++) {
+        for (let j = i + 1; j < at.length; j++) {
+          if (id[at[i]] === id[at[j]]) continue;
+          const chars = id.split('');
+          chars[at[i]] = id[at[j]]; chars[at[j]] = id[at[i]];
+          tried++;
+          expect(isMicarId(chars.join('')), `${id}: ${at[i]} and ${at[j]}`).toBe(false);
+        }
+      }
+      expect(tried).toBeGreaterThan(20);
+    }
+  });
+
   it('refuses anything that is not in canonical form', () => {
     const id = make([12, 34, 56, 78, 90, 123, 231]);
     expect(isMicarId(id.toLowerCase())).toBe(false);

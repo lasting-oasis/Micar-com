@@ -60,4 +60,5 @@ export const ES_CARD: Record<string, string> = {
   // Modification chips
   'Engine': 'Motor', 'ECU': 'ECU', 'Intake': 'Admisión', 'Turbo': 'Turbo', 'Blower': 'Compresor', 'Nitrous': 'Nitro', 'Trans': 'Transm.',
   'Susp': 'Susp.', 'Tires': 'Llantas', 'Brakes': 'Frenos', 'Weight': 'Peso', 'Aero': 'Aero', 'Off-road': 'Todoterreno', 'Eco': 'Eco',
+  '{title}, {kind}. Press Enter to turn the card over.': '{title}, {kind}. Presione Enter para voltear la tarjeta.',
 };

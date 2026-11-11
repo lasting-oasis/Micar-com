@@ -198,6 +198,11 @@ export type ActiveModification = {
   evidence: EvidenceLevel;
   /** YYYY-MM-DD */
   installedOn: string;
+  /**
+   * When the fitment was written down (ISO timestamp). Of two fitted the same day, the one written later is the
+   * later one. Leave it out and same-day fitments fall back to the order of their ids.
+   */
+  recordedAt?: string;
   installedAtMileage: number | null;
   /**
    * How the modification has been looked after, which scales what it costs in reliability and durability.
